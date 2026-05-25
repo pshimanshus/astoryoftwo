@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-05-24",
+  "channel": "@a.storyof.two",
+  "title": "Me With My \"Jo Tu Kahegi Wahi Hoga\"",
+  "slug": "jo-tu-kahegi-wahi-hoga-illustrated-artifacts",
+  "status": "STYLE_CONSISTENCY_REPAIRED_READY_FOR_PROOF",
+  "reset_reason": "Previous generation branch overcorrected into pasted-photo/collage realism and did not preserve the established @a.storyof.two illustration style.",
+  "creative_lock": {
+    "concept": "Me With My \"Jo Tu Kahegi Wahi Hoga\"",
+    "copy_locked": true,
+    "style_lock": "Established @a.storyof.two soft hand-drawn desi storybook full scenes, not artifact-first prompt surfaces.",
+    "reference_mechanic": "External references are mood/format inspiration only. Final visuals must be original Aachu/Zuv illustrated scenes with handwritten phrase-world text integrated into the artwork."
+  },
+  "output_contract": {
+    "instagram_post": "final/slide-XX.png",
+    "reels_stories": "final-reels-stories/slide-XX.png",
+    "native_generation_required": true,
+    "no_cross_aspect_resize": true
+  },
+  "source_references": {
+    "creator_reference_screenshots": [
+      "/Users/himanshusharma/Desktop/Screenshot 2026-05-23 at 1.20.02 PM.png",
+      "/Users/himanshusharma/Desktop/Screenshot 2026-05-23 at 1.20.17 PM.png",
+      "/Users/himanshusharma/Desktop/Screenshot 2026-05-23 at 1.22.00 PM.png",
+      "/Users/himanshusharma/Desktop/Screenshot 2026-05-23 at 1.22.06 PM.png"
+    ],
+    "house_style_references": [
+      "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+      "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+      "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+    ],
+    "identity_references": [
+      "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+      "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (5).jpeg",
+      "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg"
+    ]
+  },
+  "artifact_map": {
+    "concept": "concept.json",
+    "slides": "slides.json",
+    "visual_theme_lock": "visual-theme-lock.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "performance_autopsy_gate": "performance-autopsy-gate.json",
+    "prompt_pack": "prompt-pack.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "identity": "identity-consistency-review.json",
+    "qa": "visual-qa.md",
+    "audit": "final-audit.json"
+  }
+}

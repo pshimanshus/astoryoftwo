@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_ILLUSTRATED_LIKENESS",
+  "mode": "house_style_caricature_identity",
+  "identity_references": [
+    "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg",
+    "identity_images/aachu_zuv.png",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+  ],
+  "aachu": {
+    "role": "spark",
+    "likeness_cues": [
+      "long dark hair",
+      "expressive eyes and brows",
+      "soft oval or round face",
+      "fuller lips and bright smile",
+      "playful dramatic body language"
+    ],
+    "prompt_guard": "Keep her expressive and mischievous, not mocked or bossy."
+  },
+  "zuv": {
+    "role": "steady participant",
+    "likeness_cues": [
+      "dark wavy hair",
+      "thick brows",
+      "trimmed beard and mustache",
+      "warm calm smile",
+      "grounded posture and slightly taller presence"
+    ],
+    "prompt_guard": "He should look amused and actively in on the bit, not defeated or passive."
+  },
+  "style_identity_rule": "The final images must preserve recurring illustrated caricature identity in the accepted @a.storyof.two style. Do not chase photoreal face matching, pasted photo insets, or generic Indian couple faces.",
+  "output_gate": "Generated outputs remain blocked until one style proof shows recognizable recurring Aachu/Zuv caricatures in the house illustration style."
+}

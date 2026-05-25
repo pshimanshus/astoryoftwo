@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "copy_lock": {
+    "source": "creator-approved old session plus new varied-moment direction",
+    "slides_locked": true
+  },
+  "visual_system_candidates": [
+    {
+      "name": "Friends Re-enactment",
+      "verdict": "REJECT",
+      "reason": "Too close to external reference and not @a.storyof.two."
+    },
+    {
+      "name": "Single-Setting Couple Labels",
+      "verdict": "REJECT",
+      "reason": "Fails creator note to use different locations and dresses; repeats the old soft-tableau issue."
+    },
+    {
+      "name": "Private Caption Frames Across Many Moments",
+      "verdict": "SELECT",
+      "reason": "Each slide becomes a different love receipt while preserving the paired-label mechanic."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post": "Native 4:5 illustrated frames with one hook or two short lowercase labels placed near the relevant person.",
+    "reels_stories": "Native 9:16 recompositions with taller environment and the same labels repositioned away from faces/hands."
+  },
+  "go_conditions": [
+    "Every slide has a visibly different place or outfit.",
+    "Labels are short, readable, and near the person they describe.",
+    "The visual must prove the label before the viewer reads it.",
+    "No Friends frame copying.",
+    "No local overlay fallback unless model-native text fails after generation."
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0",
+  "generation_mode": "model_native_publishable",
+  "proof_gate": "Generate one proof first, preferably Slide 2 because it tests labels, behavior, identity, and varied outfit direction. Do not generate full 4:5 or 9:16 batches until proof passes.",
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture, warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, expressive recurring caricature faces, gentle Indian everyday details, generous breathing room, and one clear visual behavior receipt. Render exact slide labels as simple lowercase handwritten text near the relevant person, readable but not loud. Add a tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right.",
+  "shared_negative_prompt": "No Friends actors, no Friends frames, no sitcom blocking, no coffeehouse couch lineup, no copied TV screenshot, no speech bubbles, no arrows, no side notes, no him: or her: prefixes, no UI marks, no quote card, no dull beige poster, no busy prop clutter, no generic Indian couple, no photorealism, no pasted photo cutouts, no 3D, no anime, no glossy AI render, no text over faces or hands, no mean labels.",
+  "style_reference_images": [
+    "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+    "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+    "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-24/some-couples-come-with-private-captions-final/identity-face-contact-sheet.jpg"
+  ],
+  "identity_reference_images": [
+    "identity_images/aachu_zuv.png",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-05-24/some-couples-come-with-private-captions-final/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-24/some-couples-come-with-private-captions-final/identity-generation-preflight.md",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "selected_visual_system": "Private Caption Frames Across Many Moments"
+  },
+  "visual_debate": {
+    "status": "GO",
+    "winner": "Everyday Love Receipts In Different Worlds"
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "can_generate": true
+  },
+  "carousel_story_director_persona": {
+    "status": "PASS",
+    "hook": "some couples come with private captions",
+    "bridge": "outside labels become private kindness",
+    "ending": "the right person captions you kindly"
+  },
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "bottom-right",
+    "font_direction": "small lowercase handwritten labels placed near characters; dark charcoal with thin cream outline only if needed for readability"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "text": "some couples come with\nprivate captions",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 1 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Create an original @a.storyof.two hand-drawn scene at a busy city crossing after coffee. Aachu and Zuv walk together in a warm everyday city moment while background people reduce to soft linework and warm blur. Aachu wears a white wrap shirt, jeans, red bag or red shoes; Zuv wears a pale blue shirt and grey trousers. Their faces follow the Aachu/Zuv illustrated caricature identity: her long dark hair and expressive face, his dark wavy hair, thick brows, beard, calm smile. The hook text sits above them with generous whitespace. Render exact text: some couples come with\\nprivate captions. Add tiny @a.storyof.two brandmark bottom-right. This is not a quote card; it is an illustrated moment that introduces the private-caption format. No Friends or sitcom visual language."
+    },
+    {
+      "slide": 2,
+      "text": "being dramatic\ntaking it seriously",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 2 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Scene: warm home doorway with a half-packed tote. Aachu wears an oversized kurta or soft home outfit, loose dark hair, expressive dramatic face, doing a tiny theatrical exit while her slippers are still inside. Zuv wears a simple dark tee or home shirt, holding the door and her tote like this is a real mission, calm but fully invested. Place the lowercase label 'being dramatic' near Aachu and 'taking it seriously' near Zuv. Labels must be readable, small, and not over faces or hands. The behavior should prove the joke before the viewer reads the labels. Warm paper texture, hand-drawn linework, matte colors, tiny @a.storyof.two bottom-right. No arrows, no him/her prefixes, no Friends/sitcom copy, no mean framing."
+    },
+    {
+      "slide": 3,
+      "text": "stressed\nlistening first",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 3 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Scene: rainy window corner in a cozy room. Aachu wears a soft sweater and pajama pants, sitting tense with phone in hand and shoulders tight. Zuv wears a rolled-sleeve home shirt, phone down, leaning in and listening before trying to solve anything. Place 'stressed' near Aachu and 'listening first' near Zuv. Make Zuv's action visible: body turned toward her, attentive eyes, quiet hand nearby. Keep labels clean and away from faces/hands. Warm ASOT paper texture and hand-drawn style, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 4,
+      "text": "excited\nhappy she's smiling",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 4 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Scene: night street-food or tiny dessert stall with warm lights. Aachu wears a printed dress or bright dupatta and lights up over a tiny dessert box or small find. Zuv wears a casual jacket, watching her smile instead of the object, visibly happy because she is happy. Place 'excited' near Aachu and 'happy she's smiling' near Zuv. The labels must be exact, readable, and integrated into the illustration. Keep the scene airy, not crowded. Tiny @a.storyof.two bottom-right. No logo signs, no brand names."
+    },
+    {
+      "slide": 5,
+      "text": "doesn't like it\nagrees",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 5 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Scene: small grocery or market aisle. Aachu wears a denim jacket and red shoes, judging one random item with a clear dislike face. Zuv wears a cream sweater, already putting the item back with serious agreement, on her side before the debate starts. Place 'doesn't like it' near Aachu and 'agrees' near Zuv. Make it same-team comedy, not scolding. Warm ASOT style, simple shelves, no readable brand names, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 6,
+      "text": "acting tough\nknows he's soft",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 6 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Scene: winter market walkway with soft lights. Zuv wears a dark jacket and performs toughness while carrying something sweet or protective, like a scarf or little bag. Aachu wears a long coat and warm scarf, looking at him with a private smile because she knows the softness underneath. Place 'acting tough' near Zuv and 'knows he's soft' near Aachu. This slide must make the private caption mutual. Warm hand-drawn ASOT style, no macho pose, no generic romance poster."
+    },
+    {
+      "slide": 7,
+      "text": "bad joke\nfavorite sound",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 7 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Scene: parked car or late evening roadside chai stop with soft street light. Zuv wears an open overshirt and tells a bad joke, laughing at himself. Aachu wears a casual travel hoodie, looking at him with soft affection, as if his laugh is her favorite sound. Place 'bad joke' near Zuv and 'favorite sound' near Aachu. Make the laugh visible and ordinary, not staged. Warm paper, tiny @a.storyof.two bottom-right, no cafe logo or car brand."
+    },
+    {
+      "slide": 8,
+      "text": "the right person\ncaptions you kindly",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "prompt": "Use case: illustrated private-caption carousel. Asset type: complete publishable slide 8 of 8, generated separately as native 4:5 Instagram post and native 9:16 Reels/Stories. Scene: rooftop at blue hour with soft lights. Aachu wears a simple saree or long dress, Zuv wears a linen shirt. They sit side by side, peaceful and close, with a few tiny private-label scraps from earlier moments tucked around them like memories. The final line sits cleanly above them: the right person\\ncaptions you kindly. Add tiny @a.storyof.two bottom-right. This should be an earned save/share thesis, warm and simple, not a generic quote card."
+    }
+  ]
+}

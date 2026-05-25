@@ -1,0 +1,137 @@
+{
+  "shared_style_prompt": "Create a complete publishable Instagram carousel slide in a soft hand-drawn flat vector / desi storybook illustration style matching the supplied reference carousel examples. Use Product Unshipped-like simplicity adapted for a desi love story, but with the richer model-native handwritten text, faces, outfits, and brandmark composition shown in the style references. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "generation_mode": "model_native_publishable",
+  "style_reference_images": [
+    "/Users/himanshusharma/Downloads/Generated image 4.png",
+    "/Users/himanshusharma/Downloads/Generated image 5.png",
+    "/Users/himanshusharma/Downloads/Generated image 6.png",
+    "/Users/himanshusharma/Downloads/Generated image 7.png",
+    "/Users/himanshusharma/Downloads/Generated image 18.png",
+    "/Users/himanshusharma/Downloads/Generated image 28.png",
+    "/Users/himanshusharma/Downloads/Generated image 29.png",
+    "/Users/himanshusharma/Downloads/Generated image 39.png",
+    "/Users/himanshusharma/Downloads/Generated image 49.png"
+  ],
+  "identity_reference_images": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "identity_reference_usage": "Use these images for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references when relevant to the story.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350, rendered by the image model inside the illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "bottom-right",
+    "slide_copy": [
+      "Some people come with subtitles.",
+      "Aachu's face says everything first.",
+      "Her mouth says: \"kuch nahi.\"",
+      "Zuv knows the translation.",
+      "Maybe love is learning the subtitles."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "text": "Some people come with subtitles.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable Instagram carousel slide 1 of 5, 1080x1350 vertical 4:5. Story context: Some people come with subtitles. Aachu says kuch nahi but her face says the full paragraph: hungry, sleepy, offended, missing you, wants chai. Zuv learned her translation and brings chai, snacks, tissue, and calm before she has to explain.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Style reference images: ['/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Identity reference images: ['identity_images/aachu_zuv.png']. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Scene: A universal relationship hook: Aachu stands with arms crossed, lovingly dramatic and clearly not fine, while tiny airy handwritten subtitle fragments float near her expression. Mood: playful recognition. Style: Create a complete publishable Instagram carousel slide in a soft hand-drawn flat vector / desi storybook illustration style matching the supplied reference carousel examples. Use Product Unshipped-like simplicity adapted for a desi love story, but with the richer model-native handwritten text, faces, outfits, and brandmark composition shown in the style references. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable Instagram carousel slide as one integrated image. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Some people come with subtitles.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 2,
+      "text": "Aachu's face says everything first.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable Instagram carousel slide 2 of 5, 1080x1350 vertical 4:5. Story context: Some people come with subtitles. Aachu says kuch nahi but her face says the full paragraph: hungry, sleepy, offended, missing you, wants chai. Zuv learned her translation and brings chai, snacks, tissue, and calm before she has to explain.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Style reference images: ['/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Identity reference images: ['identity_images/aachu_zuv.png']. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Scene: Aachu's expressive face carries the full paragraph before she says a word; tiny floating subtitles read hungry, sleepy, offended, missing you, wants chai, kept secondary and readable. Mood: expressive specificity. Style: Create a complete publishable Instagram carousel slide in a soft hand-drawn flat vector / desi storybook illustration style matching the supplied reference carousel examples. Use Product Unshipped-like simplicity adapted for a desi love story, but with the richer model-native handwritten text, faces, outfits, and brandmark composition shown in the style references. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable Instagram carousel slide as one integrated image. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Aachu's face says everything first.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 3,
+      "text": "Her mouth says: \"kuch nahi.\"",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable Instagram carousel slide 3 of 5, 1080x1350 vertical 4:5. Story context: Some people come with subtitles. Aachu says kuch nahi but her face says the full paragraph: hungry, sleepy, offended, missing you, wants chai. Zuv learned her translation and brings chai, snacks, tissue, and calm before she has to explain.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Style reference images: ['/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Identity reference images: ['identity_images/aachu_zuv.png']. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Scene: Aachu turns slightly away with one tiny tear, phone or dupatta held like an emotion prop, while a small speech bubble says kuch nahi. Mood: soft drama. Style: Create a complete publishable Instagram carousel slide in a soft hand-drawn flat vector / desi storybook illustration style matching the supplied reference carousel examples. Use Product Unshipped-like simplicity adapted for a desi love story, but with the richer model-native handwritten text, faces, outfits, and brandmark composition shown in the style references. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable Instagram carousel slide as one integrated image. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Her mouth says: \"kuch nahi.\"'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 4,
+      "text": "Zuv knows the translation.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable Instagram carousel slide 4 of 5, 1080x1350 vertical 4:5. Story context: Some people come with subtitles. Aachu says kuch nahi but her face says the full paragraph: hungry, sleepy, offended, missing you, wants chai. Zuv learned her translation and brings chai, snacks, tissue, and calm before she has to explain.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Style reference images: ['/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Identity reference images: ['identity_images/aachu_zuv.png']. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Scene: Zuv quietly arrives with chai, snack, tissue, and water, smiling like he already understood the whole mood translation without making a scene. Mood: quiet care. Style: Create a complete publishable Instagram carousel slide in a soft hand-drawn flat vector / desi storybook illustration style matching the supplied reference carousel examples. Use Product Unshipped-like simplicity adapted for a desi love story, but with the richer model-native handwritten text, faces, outfits, and brandmark composition shown in the style references. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable Instagram carousel slide as one integrated image. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Zuv knows the translation.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 5,
+      "text": "Maybe love is learning the subtitles.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable Instagram carousel slide 5 of 5, 1080x1350 vertical 4:5. Story context: Some people come with subtitles. Aachu says kuch nahi but her face says the full paragraph: hungry, sleepy, offended, missing you, wants chai. Zuv learned her translation and brings chai, snacks, tissue, and calm before she has to explain.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Style reference images: ['/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Identity reference images: ['identity_images/aachu_zuv.png']. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Scene: Aachu and Zuv sit close together after the mood has softened; the tiny subtitles fade into one warm shared language between them. Mood: tender acceptance. Style: Create a complete publishable Instagram carousel slide in a soft hand-drawn flat vector / desi storybook illustration style matching the supplied reference carousel examples. Use Product Unshipped-like simplicity adapted for a desi love story, but with the richer model-native handwritten text, faces, outfits, and brandmark composition shown in the style references. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable Instagram carousel slide as one integrated image. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Maybe love is learning the subtitles.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    }
+  ]
+}

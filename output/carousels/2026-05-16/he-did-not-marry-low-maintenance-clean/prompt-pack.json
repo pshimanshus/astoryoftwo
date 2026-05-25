@@ -1,0 +1,66 @@
+{
+  "generation_mode": "model_native_publishable",
+  "creation_mode": "identity_only_concept_led",
+  "identity_reference_images": [
+    "/Users/himanshusharma/astoryoftwo-analysis/identity_images/aachu_zuv.png"
+  ],
+  "identity_rule": "Use the identity image only for Aachu and Zuv face consistency. Do not copy the photo pose, outfit, background, lighting, or event context.",
+  "style_reference_images": [
+    "/Users/himanshusharma/Downloads/Generated image 4.png",
+    "/Users/himanshusharma/Downloads/Generated image 5.png",
+    "/Users/himanshusharma/Downloads/Generated image 6.png",
+    "/Users/himanshusharma/Downloads/Generated image 7.png",
+    "/Users/himanshusharma/Downloads/Generated image 18.png",
+    "/Users/himanshusharma/Downloads/Generated image 28.png",
+    "/Users/himanshusharma/Downloads/Generated image 29.png",
+    "/Users/himanshusharma/Downloads/Generated image 39.png",
+    "/Users/himanshusharma/Downloads/Generated image 49.png"
+  ],
+  "shared_style_prompt": "Create a complete publishable 1080x1350 Instagram carousel slide in a soft hand-drawn desi storybook illustration style. Warm off-white paper, imperfect black outlines, matte muted colors, expressive but simple faces, generous whitespace, one clear idea, handwritten black text integrated naturally into the artwork, tiny low-contrast @a.storyof.two brandmark bottom-right.",
+  "shared_negative_prompt": "No photorealism, no 3D, no glossy AI look, no stock Indian couple, no quote-card panel, no Canva layout, no fake source photo details, no cluttered background, no harsh caricature, no cruel wife jokes, no large brandmark.",
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "bottom-right",
+    "copy_must_be_exact": true,
+    "slide_copy": [
+      "He didn't marry low maintenance.",
+      "He married \"mujhe kuch nahi hua.\"",
+      "One plan. Twelve backup plans.",
+      "Drama. Snack. Silence. Smile.",
+      "Maybe the chaos was home."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "text": "He didn't marry low maintenance.",
+      "generation_mode": "model_native_publishable",
+      "prompt": "Complete 1080x1350 Instagram carousel slide, soft hand-drawn desi storybook illustration on warm off-white paper. Use the identity image only for Aachu and Zuv face likeness. Do not copy its pose, outfit, background, lighting, or event. Scene: Zuv stands calm with one cup of chai while Aachu enters like a small emotional storm, expressive and lovable, dupatta lifted by motion. Keep lots of whitespace and one clear visual idea. Render exact handwritten text: He didn't marry low maintenance. Add tiny @a.storyof.two at bottom-right. No quote-card panel, no clutter, no cruel humor."
+    },
+    {
+      "slide": 2,
+      "text": "He married \"mujhe kuch nahi hua.\"",
+      "generation_mode": "model_native_publishable",
+      "prompt": "Complete 1080x1350 Instagram carousel slide, soft hand-drawn desi storybook illustration on warm off-white paper. Use the identity image only for Aachu and Zuv face likeness. Scene: Aachu looks sideways with one visible tear, trying to look composed; Zuv stands close, quiet and gentle, offering tissue and water without making a scene. Tender joke, not mockery. Render exact handwritten text: He married \"mujhe kuch nahi hua.\" Add tiny @a.storyof.two at bottom-right. No quote-card panel, no exaggerated crying, no fake photo background."
+    },
+    {
+      "slide": 3,
+      "text": "One plan. Twelve backup plans.",
+      "generation_mode": "model_native_publishable",
+      "prompt": "Complete 1080x1350 Instagram carousel slide, soft hand-drawn desi storybook illustration on warm off-white paper. Use the identity image only for Aachu and Zuv face likeness. Scene: one tidy plan notebook beside twelve small backup-plan sticky notes, a charger, snacks, bangles, and a half-packed bag. Aachu points at the plan with full conviction; Zuv listens calmly. Sparse props, readable composition. Render exact handwritten text: One plan. Twelve backup plans. Add tiny @a.storyof.two at bottom-right. No clutter pile, no quote-card panel."
+    },
+    {
+      "slide": 4,
+      "text": "Drama. Snack. Silence. Smile.",
+      "generation_mode": "model_native_publishable",
+      "prompt": "Complete 1080x1350 Instagram carousel slide, soft hand-drawn desi storybook illustration on warm off-white paper. Use the identity image only for Aachu and Zuv face likeness. Scene: four small airy vignettes in one slide: Aachu upset, Aachu eating a snack, Aachu in quiet mode, Aachu smiling softly. Zuv appears as the same steady warm presence nearby. Render exact handwritten text: Drama. Snack. Silence. Smile. Add tiny @a.storyof.two at bottom-right. Keep vignettes simple and spacious."
+    },
+    {
+      "slide": 5,
+      "text": "Maybe the chaos was home.",
+      "generation_mode": "model_native_publishable",
+      "prompt": "Complete 1080x1350 Instagram carousel slide, soft hand-drawn desi storybook illustration on warm off-white paper. Use the identity image only for Aachu and Zuv face likeness. Scene: Aachu and Zuv sit close on the floor after the little emotional storm has passed. A chai cup, tissue, and one open notebook nearby. Aachu leans into Zuv; he smiles like he chose this exact life. Softest slide, quiet love. Render exact handwritten text: Maybe the chaos was home. Add tiny @a.storyof.two at bottom-right. No quote-card panel, no clutter."
+    }
+  ]
+}

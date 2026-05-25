@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0",
+  "auditor": "C7-Final Contract Auditor",
+  "status": "NEEDS_FIXES",
+  "pass": false,
+  "requirements": {
+    "REQ-STYLE-001": {
+      "pass": true,
+      "evidence": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image."
+    },
+    "REQ-PHOTO-001": {
+      "pass": true,
+      "evidence": "identity-only concept-led run using identity references and creative brief"
+    },
+    "REQ-IDENTITY-001": {
+      "pass": true,
+      "evidence": {
+        "manifest": [
+          {
+            "path": "identity_images/aachu_zuv.png",
+            "role": "Aachu/Zuv face consistency reference"
+          }
+        ],
+        "prompt_pack": [
+          "identity_images/aachu_zuv.png"
+        ]
+      }
+    },
+    "REQ-IDENTITY-DOSSIER-001": {
+      "pass": true,
+      "evidence": {
+        "dossier": "output/carousels/2026-05-24/wallet-audit-love/identity-dossier.json",
+        "preflight": "output/carousels/2026-05-24/wallet-audit-love/identity-generation-preflight.md",
+        "contact_sheet": "output/carousels/2026-05-24/wallet-audit-love/identity-face-contact-sheet.jpg",
+        "prompt_refs": [
+          "output/carousels/2026-05-24/wallet-audit-love/identity-face-contact-sheet.jpg",
+          "identity_images/aachu_zuv.png"
+        ]
+      }
+    },
+    "REQ-IDENTITY-CONSISTENCY-001": {
+      "pass": true,
+      "evidence": {
+        "identity_review": "output/carousels/2026-05-24/wallet-audit-love/identity-consistency-review.json",
+        "status": "PASS",
+        "issues": []
+      }
+    },
+    "REQ-POST-COPY-VISUAL-ROOM-001": {
+      "pass": true,
+      "evidence": {
+        "path": "output/carousels/2026-05-24/wallet-audit-love/post-copy-visual-room.json",
+        "status": "GO",
+        "decision": "GO",
+        "selected_visual_system": "Airy Behavioral Receipts",
+        "issues": []
+      }
+    },
+    "REQ-VISUAL-PLAN-QUALITY-001": {
+      "pass": false,
+      "evidence": {
+        "path": "output/carousels/2026-05-24/wallet-audit-love/visual-plan-quality.json",
+        "status": "REPAIR",
+        "decision": "BLOCK_GENERATION",
+        "issues": [
+          "visual-plan-quality.json status is REPAIR.",
+          "visual-plan-quality.json blocks image generation.",
+          "Slide 1 has theft/financial-control risk terms: crime.",
+          "Slide 4 has theft/financial-control risk terms: angry, helpless."
+        ]
+      }
+    },
+    "REQ-SLIDES-001": {
+      "pass": true,
+      "evidence": "requested=6, slides=6, prompts=6"
+    },
+    "REQ-FINAL-IMAGES-001": {
+      "pass": false,
+      "evidence": {
+        "files": [],
+        "manifest": "output/carousels/2026-05-24/wallet-audit-love/final-images.json",
+        "status": "pending_generation",
+        "issues": [
+          "Missing final images: output/carousels/2026-05-24/wallet-audit-love/final/slide-01.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-02.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-03.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-04.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-05.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-06.png",
+          "final-images.json status is 'pending_generation', expected 'packaged' or 'generated'.",
+          "final-images.json native output contract must require exactly: instagram_post, reels_stories",
+          "Slide 1 final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final/slide-01.png.",
+          "Slide 1 Reels/Stories final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-01.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-01.png.",
+          "Slide 1 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 2 final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final/slide-02.png.",
+          "Slide 2 Reels/Stories final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-02.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-02.png.",
+          "Slide 2 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 3 final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final/slide-03.png.",
+          "Slide 3 Reels/Stories final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-03.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-03.png.",
+          "Slide 3 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 4 final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final/slide-04.png.",
+          "Slide 4 Reels/Stories final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-04.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-04.png.",
+          "Slide 4 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 5 final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final/slide-05.png.",
+          "Slide 5 Reels/Stories final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-05.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-05.png.",
+          "Slide 5 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 6 final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final/slide-06.png.",
+          "Slide 6 Reels/Stories final path is ., expected output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-06.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-24/wallet-audit-love/final-reels-stories/slide-06.png.",
+          "Slide 6 native_outputs missing required format(s): instagram_post, reels_stories"
+        ]
+      }
+    },
+    "REQ-MODEL-NATIVE-TEXT-001": {
+      "pass": false,
+      "evidence": {
+        "files": [],
+        "manifest": "output/carousels/2026-05-24/wallet-audit-love/final-images.json",
+        "generation_mode": null,
+        "issues": [
+          "Missing publishable final slides: output/carousels/2026-05-24/wallet-audit-love/final/slide-01.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-02.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-03.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-04.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-05.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-06.png",
+          "final-images.json backend must be codex_builtin or model_art_local_text for Instagram-grade final art.",
+          "final-images.json generation_mode must be one of: model_art_local_text_publishable, model_native_publishable",
+          "Slide 1 backend is not an approved final-art backend.",
+          "Slide 1 is not marked as a publishable final generation mode.",
+          "Slide 1 is missing source prompt provenance.",
+          "Slide 2 backend is not an approved final-art backend.",
+          "Slide 2 is not marked as a publishable final generation mode.",
+          "Slide 2 is missing source prompt provenance.",
+          "Slide 3 backend is not an approved final-art backend.",
+          "Slide 3 is not marked as a publishable final generation mode.",
+          "Slide 3 is missing source prompt provenance.",
+          "Slide 4 backend is not an approved final-art backend.",
+          "Slide 4 is not marked as a publishable final generation mode.",
+          "Slide 4 is missing source prompt provenance.",
+          "Slide 5 backend is not an approved final-art backend.",
+          "Slide 5 is not marked as a publishable final generation mode.",
+          "Slide 5 is missing source prompt provenance.",
+          "Slide 6 backend is not an approved final-art backend.",
+          "Slide 6 is not marked as a publishable final generation mode.",
+          "Slide 6 is missing source prompt provenance."
+        ]
+      }
+    },
+    "REQ-VISUAL-QA-001": {
+      "pass": false,
+      "evidence": {
+        "visual_qa": "output/carousels/2026-05-24/wallet-audit-love/visual-qa.md",
+        "structured_visual_qa": "output/carousels/2026-05-24/wallet-audit-love/visual-qa.json",
+        "failed": [
+          "visual-qa.json is missing; visual-qa.md is only a review worksheet."
+        ],
+        "unchecked_face_or_storyboard_items": [
+          "- [ ] Slide 1 final image matches slide 1 storyboard: Some wives don't ask. They audit wallets.",
+          "- [ ] Slide 2 final image matches slide 2 storyboard: She said, \"bas 500.\"",
+          "- [ ] Slide 3 final image matches slide 3 storyboard: Then checked the backup pocket.",
+          "- [ ] Slide 4 final image matches slide 4 storyboard: He saw. He pretended to sleep.",
+          "- [ ] Slide 5 final image matches slide 5 storyboard: By morning, he kept extra there.",
+          "- [ ] Slide 6 final image matches slide 6 storyboard: Love is when your nonsense has a budget.",
+          "- [ ] Aachu face is recognizably based on the identity reference.",
+          "- [ ] Zuv face is recognizably based on the identity reference."
+        ]
+      }
+    },
+    "REQ-BRAND-001": {
+      "pass": true,
+      "evidence": {
+        "strategy": "model_native",
+        "composition_role": "publishable_final_illustration_with_text",
+        "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+        "brandmark": "@a.storyof.two",
+        "brandmark_placement": "bottom-right",
+        "slide_copy": [
+          "Some wives don't ask. They audit wallets.",
+          "She said, \"bas 500.\"",
+          "Then checked the backup pocket.",
+          "He saw. He pretended to sleep.",
+          "By morning, he kept extra there.",
+          "Love is when your nonsense has a budget."
+        ]
+      }
+    },
+    "REQ-NEGATIVE-001": {
+      "pass": true,
+      "evidence": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy."
+    },
+    "REQ-OUTPUT-001": {
+      "pass": true,
+      "evidence": [
+        "manifest.json",
+        "concept.json",
+        "post-copy-visual-room.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "slides.json",
+        "prompt-pack.json",
+        "identity-dossier.json",
+        "identity-generation-preflight.md",
+        "identity-face-contact-sheet.jpg",
+        "identity-consistency-review.json",
+        "copy.json",
+        "review.json",
+        "final-approval.md",
+        "storyboard.md",
+        "agent-reports.md",
+        "image-generation.json",
+        "final-images.json"
+      ]
+    },
+    "REQ-WIKI-001": {
+      "pass": true,
+      "evidence": {
+        "carousel_page": true,
+        "wiki_index": true,
+        "working_memory": true,
+        "graph_memory": true
+      }
+    }
+  },
+  "checked_artifacts": {
+    "manifest.json": true,
+    "concept.json": true,
+    "post-copy-visual-room.json": true,
+    "visual-debate.json": true,
+    "visual-plan-quality.json": true,
+    "slides.json": true,
+    "prompt-pack.json": true,
+    "identity-dossier.json": true,
+    "identity-generation-preflight.md": true,
+    "identity-face-contact-sheet.jpg": true,
+    "identity-consistency-review.json": true,
+    "copy.json": true,
+    "review.json": true,
+    "final-approval.md": true,
+    "storyboard.md": true,
+    "agent-reports.md": true,
+    "image-generation.json": true,
+    "final-images.json": true
+  },
+  "quality_artifacts": {
+    "run_ledger": "run-ledger.json",
+    "stage_reviews": "stage-reviews.json",
+    "final_audit": "final-audit.json",
+    "wiki_update": "wiki-update.md",
+    "visual_qa": "visual-qa.md"
+  },
+  "issues": [
+    "REQ-VISUAL-PLAN-QUALITY-001: Per-slide visual screen passes before image generation",
+    "REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders",
+    "REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/",
+    "REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence",
+    "visual_reviewer: Slide 1 has theft/financial-control risk terms: crime.; Slide 4 has theft/financial-control risk terms: angry, helpless.",
+    "asset_reviewer: Missing final generated images: output/carousels/2026-05-24/wallet-audit-love/final/slide-01.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-02.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-03.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-04.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-05.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-06.png"
+  ],
+  "notes": [
+    "No story photos supplied; identity references and the creative brief are the source of truth.",
+    "Wiki and memory files are updated after final audit generation.",
+    "render_assets=False"
+  ]
+}

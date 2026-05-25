@@ -1,0 +1,432 @@
+{
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Chat Bubbles Become Shared Rooms",
+    "why_it_wins": "Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Chat Bubbles Become Shared Rooms",
+    "selector_verdict": "Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time.",
+    "hard_fails_checked": [
+      "no home-interior default",
+      "no copied chat screenshot or exact reference text",
+      "story evidence must prove slide copy",
+      "no repeated object motif across every slide",
+      "no prop-first premise",
+      "no passive Zuv",
+      "no generic couple-stock tableau"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "If there was no long distance...",
+      "reader_identity_mirror": "Long distance does not only make a couple miss big romantic moments; it makes them miss the boring, useless, ordinary time they would have wasted together if they were in the same room.",
+      "emotional_obstacle": "Long distance does not only make a couple miss big romantic moments; it makes them miss the boring, useless, ordinary time they would have wasted together if they were in the same room.",
+      "aachu_proof": "Aachu and Zuv are apart in two soft phone-lit corners, each holding a phone, with tiny imagined ordinary scenes beginning to appear between them; distance is the obstacle, not the aesthetic.",
+      "zuv_active_role": "Rainy imagined pickup scene: Aachu and Zuv wait under one umbrella beside a small cab-app phone screen; instead of frustration, both look quietly relieved, and Zuv's reply admits he wants the extra minutes too.",
+      "bridge": "long-distance ache -> tiny future-plan banter -> cooking/board-game/cab receipts -> Zuv joins the small wish -> ordinary-time thesis",
+      "earned_ending": "\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\"",
+      "send_save_reason": "make long-distance couples send this as a recognition of missing ordinary life together"
+    },
+    "hook_bank": [
+      {
+        "hook": "If there was no long distance...",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "Long distance does not only make a couple miss big romantic moments",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with golden long distance ordinary time.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "If there was no long distance...",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "If there was no long distance..."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "Long distance does not only make a couple miss big romantic moments; it makes them miss the boring, useless, ordinary time they would have wasted together if they were in the same room."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "long-distance ache -> tiny future-plan banter -> cooking/board-game/cab receipts -> Zuv joins the small wish -> ordinary-time thesis"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\""
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9
+    },
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": [],
+    "concept_selection_used": true,
+    "source_story": "Long distance makes you miss boring things, not only dates or trips. If there was no long distance, the two of them would be texting tiny future plans: cooking together even though it is a terrible idea, board game night with invented rules after losing, and being secretly happy the cab is late because it buys a few more minutes. The emotional truth: maybe they do not miss big dates; maybe they just miss wasting normal time together."
+  },
+  "style_reference_images": [
+    "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+    "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+    "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+    "/Users/himanshusharma/Downloads/Generated image 4.png",
+    "/Users/himanshusharma/Downloads/Generated image 5.png",
+    "/Users/himanshusharma/Downloads/Generated image 6.png",
+    "/Users/himanshusharma/Downloads/Generated image 7.png",
+    "/Users/himanshusharma/Downloads/Generated image 18.png",
+    "/Users/himanshusharma/Downloads/Generated image 28.png",
+    "/Users/himanshusharma/Downloads/Generated image 29.png",
+    "/Users/himanshusharma/Downloads/Generated image 39.png",
+    "/Users/himanshusharma/Downloads/Generated image 49.png"
+  ],
+  "identity_reference_images": [
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-23/ordinary-time-with-you-4/identity-face-contact-sheet.jpg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-05-23/ordinary-time-with-you-4/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-23/ordinary-time-with-you-4/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID29",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+      "filename": "WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+      "face_count": 8,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID30",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+      "filename": "WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+      "face_count": 11,
+      "width": 4160,
+      "height": 2773
+    },
+    {
+      "option_id": "ID34",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg",
+      "filename": "WhatsApp Image 2026-05-16 at 18.31.34.jpeg",
+      "face_count": 7,
+      "width": 3120,
+      "height": 4160
+    },
+    {
+      "option_id": "ID44",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "face_count": 4,
+      "width": 1737,
+      "height": 3088
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "bottom-right",
+    "slide_copy": [
+      "If there was no long distance...",
+      "\"We should cook together.\"\n\"That's a terrible idea.\"\n\"Exactly.\"",
+      "\"Board game night?\"\n\"Only if you don't invent rules after losing.\"",
+      "\"Cab is 12 minutes late.\"\n\"Best news all day.\"",
+      "\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\""
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "text": "If there was no long distance...",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 1 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Long distance makes you miss boring things, not only dates or trips. If there was no long distance, the two of them would be texting tiny future plans: cooking together even though it is a terrible idea, board game night with invented rules after losing, and being secretly happy the cab is late because it buys a few more minutes. The emotional truth: maybe they do not miss big dates; maybe they just miss wasting normal time together.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Long Distance Ordinary Time. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Chat Bubbles Become Shared Rooms. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Chat Bubbles Become Shared Rooms. Visual debate verdict: Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: If there was no long distance.... Slide story-director job: universal hook. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Identity dossier path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/ordinary-time-with-you-4/identity-face-contact-sheet.jpg', 'identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg', 'identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg']. Selected contact sheet option IDs: ['ID29', 'ID30', 'ID34', 'ID44']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (recognition ache) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Aachu and Zuv are apart in two soft phone-lit corners, each holding a phone, with tiny imagined ordinary scenes beginning to appear between them; distance is the obstacle, not the aesthetic. Mood: recognition ache. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'If there was no long distance...'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 2,
+      "text": "\"We should cook together.\"\n\"That's a terrible idea.\"\n\"Exactly.\"",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 2 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Long distance makes you miss boring things, not only dates or trips. If there was no long distance, the two of them would be texting tiny future plans: cooking together even though it is a terrible idea, board game night with invented rules after losing, and being secretly happy the cab is late because it buys a few more minutes. The emotional truth: maybe they do not miss big dates; maybe they just miss wasting normal time together.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Long Distance Ordinary Time. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Chat Bubbles Become Shared Rooms. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Chat Bubbles Become Shared Rooms. Visual debate verdict: Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: If there was no long distance.... Slide story-director job: aachu-specific playful proof. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Identity dossier path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/ordinary-time-with-you-4/identity-face-contact-sheet.jpg', 'identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg', 'identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg']. Selected contact sheet option IDs: ['ID29', 'ID30', 'ID34', 'ID44']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (playful future-tense) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Inside the imagined shared room from the chat, Aachu and Zuv stand at a tiny kitchen counter with flour, a messy pot, and two phones nearby; Aachu is animated about the plan and Zuv joins the bad idea with a warm amused reply. Mood: playful future-tense. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: '\"We should cook together.\"\n\"That's a terrible idea.\"\n\"Exactly.\"'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 3,
+      "text": "\"Board game night?\"\n\"Only if you don't invent rules after losing.\"",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 3 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Long distance makes you miss boring things, not only dates or trips. If there was no long distance, the two of them would be texting tiny future plans: cooking together even though it is a terrible idea, board game night with invented rules after losing, and being secretly happy the cab is late because it buys a few more minutes. The emotional truth: maybe they do not miss big dates; maybe they just miss wasting normal time together.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Long Distance Ordinary Time. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Chat Bubbles Become Shared Rooms. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Chat Bubbles Become Shared Rooms. Visual debate verdict: Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: If there was no long distance.... Slide story-director job: comic escalation. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Identity dossier path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/ordinary-time-with-you-4/identity-face-contact-sheet.jpg', 'identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg', 'identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg']. Selected contact sheet option IDs: ['ID29', 'ID30', 'ID34', 'ID44']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (affectionate teasing) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Aachu and Zuv sit across an imagined board-game table with dice, tiny colored tokens, and exaggerated competitive faces; Zuv teases gently about her invented rules while still clearly wanting the whole scene with her. Mood: affectionate teasing. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: '\"Board game night?\"\n\"Only if you don't invent rules after losing.\"'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 4,
+      "text": "\"Cab is 12 minutes late.\"\n\"Best news all day.\"",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 4 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Long distance makes you miss boring things, not only dates or trips. If there was no long distance, the two of them would be texting tiny future plans: cooking together even though it is a terrible idea, board game night with invented rules after losing, and being secretly happy the cab is late because it buys a few more minutes. The emotional truth: maybe they do not miss big dates; maybe they just miss wasting normal time together.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Long Distance Ordinary Time. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Chat Bubbles Become Shared Rooms. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Chat Bubbles Become Shared Rooms. Visual debate verdict: Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: If there was no long distance.... Slide story-director job: zuv role and emotional bridge. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Identity dossier path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/ordinary-time-with-you-4/identity-face-contact-sheet.jpg', 'identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg', 'identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg']. Selected contact sheet option IDs: ['ID29', 'ID30', 'ID34', 'ID44']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (soft admission) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Rainy imagined pickup scene: Aachu and Zuv wait under one umbrella beside a small cab-app phone screen; instead of frustration, both look quietly relieved, and Zuv's reply admits he wants the extra minutes too. Mood: soft admission. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: '\"Cab is 12 minutes late.\"\n\"Best news all day.\"'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 5,
+      "text": "\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\"",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 5 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Long distance makes you miss boring things, not only dates or trips. If there was no long distance, the two of them would be texting tiny future plans: cooking together even though it is a terrible idea, board game night with invented rules after losing, and being secretly happy the cab is late because it buys a few more minutes. The emotional truth: maybe they do not miss big dates; maybe they just miss wasting normal time together.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Long Distance Ordinary Time. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Chat Bubbles Become Shared Rooms. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Chat Bubbles Become Shared Rooms. Visual debate verdict: Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: If there was no long distance.... Slide story-director job: save/share thesis. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Identity dossier path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/ordinary-time-with-you-4/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/ordinary-time-with-you-4/identity-face-contact-sheet.jpg', 'identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg', 'identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg', 'identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg']. Selected contact sheet option IDs: ['ID29', 'ID30', 'ID34', 'ID44']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg; identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg; identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (tender landing) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Final warm-paper room where the earlier kitchen, board-game, and cab icons soften into one ordinary shared evening; Aachu and Zuv sit close with phones lowered, proving the point is not the plans but wanting normal time together. Mood: tender landing. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: '\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\"'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    }
+  ]
+}

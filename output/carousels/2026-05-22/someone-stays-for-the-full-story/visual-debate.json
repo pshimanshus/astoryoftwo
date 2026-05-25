@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "winner": "Performance To Presence",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "GO",
+      "recommendation": "Use gestures, floating mini-scenes, timeline loops, and phone-down attention as evidence. Avoid making props or mini-scenes the premise."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "GO",
+      "recommendation": "Stage the obstacle as the risk of being asked to shorten herself; make Zuv’s listening the romantic action."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "GO",
+      "recommendation": "Choose a visual system that moves from busier Aachu performance to calmer shared presence without repeating one motif on every slide."
+    }
+  ],
+  "options": [
+    {
+      "name": "Performance To Presence",
+      "score": 29,
+      "case_for": "Strongest visual progression: motion and side plots slowly settle into Zuv’s focused listening.",
+      "risk": "Mini-scenes can overcrowd slides 3-4 if not kept tiny and pale."
+    },
+    {
+      "name": "Story Thread",
+      "score": 28,
+      "case_for": "A single dotted story-thread can connect the slides and land the final loop.",
+      "risk": "Thread motif may become repetitive if it dominates every frame."
+    },
+    {
+      "name": "Audience Of One",
+      "score": 27.5,
+      "case_for": "Makes Zuv’s attentive role very clear by staging Aachu almost like a performer.",
+      "risk": "Too theatrical if it feels like a stage instead of a real couple rhythm."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "literal stage/performance spotlight",
+    "crowded comic-book panels",
+    "Zuv isolated as passive audience",
+    "phone-in-hand distraction",
+    "generic couch quote-card poses"
+  ],
+  "selector_verdict": "Performance To Presence wins because it lets the first half feel funny and alive while reserving the emotional power for Zuv’s active attention on slide 5.",
+  "hard_fails_checked": [
+    "no prop-first premise",
+    "no repeated object motif across every slide",
+    "no passive Zuv",
+    "no Aachu-mocking chaos",
+    "no generic couple-stock tableau",
+    "no losing visual option leakage"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Some people don’t tell stories.",
+      "visual": "Aachu mid-story in a warm open room, seated but almost standing from excitement, hands lifted mid-air, eyebrows alive, one clear speech swoosh beginning from her. Zuv is present but quieter at frame edge, already looking at her instead of away."
+    },
+    {
+      "slide": 2,
+      "copy": "They perform the whole incident.",
+      "visual": "Aachu reenacts the incident with full body language: one hand points to an imaginary person, the other acts out the scene. Tiny motion marks and two small reaction sparks around her. Zuv’s posture stays relaxed and amused, watching the performance rather than interrupting."
+    },
+    {
+      "slide": 3,
+      "copy": "With side plots nobody asked for.",
+      "visual": "Aachu’s main story branches into three tiny illustrated mini-vignettes floating around her: a tiny road/auto moment, a tiny phone-call bubble, a tiny food or bag detail. Zuv remains in the main frame, listening, not lost inside the mini-scenes."
+    },
+    {
+      "slide": 4,
+      "copy": "And a timeline only they understand.",
+      "visual": "Aachu confidently explains a winding dotted timeline across the air with arrows that loop and double back. She is certain. Zuv is quietly amused, following the line with his eyes and a soft smile, one elbow on knee."
+    },
+    {
+      "slide": 5,
+      "copy": "But he listens like it matters.",
+      "visual": "The frame calms down. Zuv leans in, phone face-down beside him, shoulders angled toward Aachu, soft attentive smile. Aachu is still expressive but smaller in motion now, feeling received. Lots of warm negative space around them."
+    },
+    {
+      "slide": 6,
+      "copy": "Maybe love is not asking for the short version.",
+      "visual": "A quieter two-shot: the mini-scenes fade into soft pale outlines behind them. Zuv’s hand rests near the phone, still untouched. Aachu’s expression softens from performance into being known. The room feels still."
+    },
+    {
+      "slide": 7,
+      "copy": "Maybe it’s someone who stays for the full story.",
+      "visual": "Final close, gentle frame: Aachu still talking with one small hand gesture, Zuv beside her by choice, close enough to show commitment but not posed. A single long story-thread line curls around both of them into a tiny heart-like loop, subtle and low-contrast."
+    }
+  ]
+}

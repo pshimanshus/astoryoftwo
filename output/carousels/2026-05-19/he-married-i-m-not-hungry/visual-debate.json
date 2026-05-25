@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Food Denial",
+  "winner": "Plate Becomes A Love Receipt",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Use the plate as a receipt only after the universal not-hungry hook; vary camera distance so the food never becomes the whole premise."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as playful denial versus the hidden wish to be known without having to admit hunger."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic foodie reels, mean teasing, plate-only closeups, and any framing where Zuv is passive or smug."
+    }
+  ],
+  "options": [
+    {
+      "name": "Plate Becomes A Love Receipt",
+      "score": 29,
+      "case_for": "Keeps the scenes partner-tag clear: denial, one bite, best bite, Zuv ordering extra, and the tender payoff.",
+      "risk": "Must not become generic food content; the point is being known without having to confess the change."
+    },
+    {
+      "name": "Cafe Banter To Softness",
+      "score": 28,
+      "case_for": "Strong comic-to-tender rhythm and easy visual continuity at one table.",
+      "risk": "Can become one-setting repetitive unless each slide changes gesture, crop, and emotional beat."
+    },
+    {
+      "name": "Order Counter Reveal",
+      "score": 27,
+      "case_for": "Makes Zuv's active role very visible when he orders extra.",
+      "risk": "Too much counter/waiter mechanics can pull attention away from Aachu/Zuv."
+    }
+  ],
+  "selector_verdict": "Plate Becomes A Love Receipt wins because it keeps the hook instantly taggable while making the food a proof beat for being known, not the premise.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "He married \"I'm not hungry.\"",
+      "visual": "A warm desi cafe or dining-table scene: Aachu playfully pushes the menu away with expressive not-hungry confidence while Zuv watches with a soft knowing smile; food is present as evidence, not the premise."
+    },
+    {
+      "slide": 2,
+      "copy": "Then she took one bite.",
+      "visual": "Aachu reaches across for one small bite from Zuv's plate with dramatic innocence; Zuv slides the plate closer instead of guarding it, amused and fully used to this pattern."
+    },
+    {
+      "slide": 3,
+      "copy": "Then the best bite.",
+      "visual": "Close comic proof beat: Aachu's fork takes the best bite from Zuv's plate while a tiny speech bubble says bas ek bite; her face is caught between mischief and softness."
+    },
+    {
+      "slide": 4,
+      "copy": "So he orders extra now.",
+      "visual": "Zuv quietly orders an extra plate or side before she has to admit anything, calm hand raised to the waiter/counter, while Aachu looks half-protesting and half-loved."
+    },
+    {
+      "slide": 5,
+      "copy": "Love knows your order anyway.",
+      "visual": "Both sit close with two plates between them, one bite already shared, the table messy-warm and human; the final feeling is that being known is more romantic than keeping score."
+    }
+  ]
+}

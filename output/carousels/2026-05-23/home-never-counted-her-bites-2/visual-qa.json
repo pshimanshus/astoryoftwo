@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "codex_builtin_generated_art",
+  "checks": {
+    "storyboard": {
+      "pass": true
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID30",
+        "ID31",
+        "ID36",
+        "ID37",
+        "ID44"
+      ],
+      "likeness_notes": "Generated Aachu keeps long dark hair, expressive brows, warm fair-medium skin, soft oval face, and playful warmth from the identity references."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID29",
+        "ID34",
+        "ID39",
+        "ID43",
+        "ID44"
+      ],
+      "likeness_notes": "Generated Zuv keeps dark wavy hair, thick brows, trimmed beard, broader/taller presence, and calm warm smile from the identity references."
+    },
+    "dress_continuity": {
+      "pass": true
+    },
+    "style": {
+      "pass": true
+    },
+    "model_native_text": {
+      "pass": true
+    },
+    "final_files": {
+      "pass": true
+    }
+  }
+}

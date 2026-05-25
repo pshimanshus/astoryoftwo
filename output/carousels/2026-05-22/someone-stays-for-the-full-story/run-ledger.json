@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "status": "READY_FOR_GENERATION",
+  "final_gate": "Image generation and visual QA still required.",
+  "stages": [
+    {
+      "stage": "concept",
+      "status": "PASS"
+    },
+    {
+      "stage": "visual_debate",
+      "status": "PASS"
+    },
+    {
+      "stage": "visual_plan_quality",
+      "status": "PASS"
+    },
+    {
+      "stage": "identity_consistency",
+      "status": "PASS"
+    },
+    {
+      "stage": "image_generation",
+      "status": "READY"
+    }
+  ]
+}

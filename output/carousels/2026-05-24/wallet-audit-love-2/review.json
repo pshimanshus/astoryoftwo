@@ -1,0 +1,61 @@
+{
+  "status": "draft_review",
+  "scorecard": {
+    "story_specificity": 4,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 4,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 4,
+    "emotional_payoff": 4,
+    "channel_voice_fit": 4,
+    "absence_of_generic_couple_content": 4
+  },
+  "total": 32,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "PASS",
+    "hook": 9,
+    "story": 9,
+    "bridge": 9,
+    "zuv_role": 9,
+    "ending": 9,
+    "send_save_potential": 9,
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Airy Behavioral Receipts",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 5,
+    "total": 30.0
+  },
+  "story_selling_gate": {
+    "status": "PASS",
+    "selected_concept_process_card": "Card 05 - Banter To Belonging",
+    "threshold": "28/30",
+    "selector_verdict": "Begin with Card 05 - Banter To Belonging: the concept is approved because it starts from a relationship obstacle, proves the truth through Aachu/Zuv behavior, and lands a saveable love thesis before slide copy or caption language is written.",
+    "candidate_count": 8
+  },
+  "story_selling_hard_fails": [],
+  "issues": [
+    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
+    "Use the Codex built-in local image-generation handoff for final illustrated art."
+  ],
+  "required_changes_before_image_generation": []
+}

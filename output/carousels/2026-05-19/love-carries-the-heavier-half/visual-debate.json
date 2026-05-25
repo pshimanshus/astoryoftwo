@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Fairness Without Scorekeeping",
+  "winner": "Scoreboard Becomes A Soft Relay",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Use the 50/50 chart only once, then move to water, expression, and quiet action as proof."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as fairness on paper versus the wish to be noticed before asking."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block gendered chore framing, lecture-y charts, servant/savior dynamics, and generic cleaning montage."
+    }
+  ],
+  "options": [
+    {
+      "name": "Scoreboard Becomes A Soft Relay",
+      "score": 29,
+      "case_for": "Makes the abstract 50-50 fairness ideal drawable, then lets the chart disappear as care becomes situational.",
+      "risk": "Must not repeat a chore chart or become household advice on every slide."
+    },
+    {
+      "name": "Care Changes Hands",
+      "score": 28,
+      "case_for": "Shows love as a warm relay where one person carries more when the other has less left.",
+      "risk": "Can become a generic cleaning montage if Aachu/Zuv expressions are not specific."
+    },
+    {
+      "name": "Two Batteries, One Home",
+      "score": 27,
+      "case_for": "Clean metaphor for emotional capacity and uneven days.",
+      "risk": "Feels too self-help unless anchored in paani, rehne do, and visible domestic proof."
+    }
+  ],
+  "selector_verdict": "Scoreboard Becomes A Soft Relay wins because it starts with the universal 50-50 ideal, proves the real wound through paani and rehne do, and lands on active noticing instead of household advice.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Love is not always 50-50.",
+      "visual": "Warm kitchen/dining corner with a tiny half-erased 50/50 chore chart on the fridge; Aachu and Zuv look at it with tired amusement, making the chart evidence rather than the hero."
+    },
+    {
+      "slide": 2,
+      "copy": "\"Rehne do\" can mean tired.",
+      "visual": "Aachu near a small domestic mess: an empty water bottle, one cup, and a soft laundry edge in the background; she is expressive and dramatic-but-soft, with a small speech bubble saying rehne do."
+    },
+    {
+      "slide": 3,
+      "copy": "Paani was never the point.",
+      "visual": "Close domestic proof beat: the empty bottle/glass sits between them, but Aachu's face shows the real feeling is wanting to be noticed before she has to ask again."
+    },
+    {
+      "slide": 4,
+      "copy": "He notices before counting.",
+      "visual": "Zuv quietly fills the bottle or starts the small task with sleeves rolled, warm face, no speech, and no scorekeeping energy; Aachu watches, half-protesting and half-softened."
+    },
+    {
+      "slide": 5,
+      "copy": "Love carries the heavier half.",
+      "visual": "Night, warm lamp, imperfect lived-in home, one unfinished basket still nearby; Aachu and Zuv sit shoulder-to-shoulder, showing that the chores are not perfectly done but nobody is alone."
+    }
+  ]
+}

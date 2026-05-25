@@ -1,0 +1,25 @@
+{
+  "status": "draft_review",
+  "scorecard": {
+    "theme_alignment": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 5,
+    "emotional_payoff": 5,
+    "hinglish_voice_fit": 4,
+    "first_slide_hook_strength": 5,
+    "slide_to_slide_story_flow": 5,
+    "absence_of_generic_couple_content": 5
+  },
+  "total": 39,
+  "max": 40,
+  "pass": true,
+  "issues": [
+    "Actual pass depends on generated image likeness and text readability.",
+    "Slide 4 has the highest risk of becoming visually busy if three Anchal poses are over-rendered."
+  ],
+  "required_changes_before_image_generation": [
+    "Keep all generated faces simple and stylized rather than photorealistic.",
+    "Keep Slide 4 props sparse: plate, chai, and snacks only.",
+    "Keep the final line readable and not crowded by the diya/spark metaphor."
+  ]
+}

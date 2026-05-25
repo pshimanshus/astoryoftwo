@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Wallet Audit Love",
+  "winner": "Airy Behavioral Receipts",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Use one clean behavior receipt per frame: wallet, bas 500, backup pocket, one-eye-open proof, morning extra cash, and final shared-budget frame. Keep the amount small and the permission visible."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as mischief that could read wrong unless Zuv actively joins it; the romance is his knowing participation, not the cash."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block theft-coded darkness, big cash piles, frightened/angry expressions, passive Zuv, and any frame where the viewer cannot tell this is a shared bit."
+    }
+  ],
+  "options": [
+    {
+      "name": "Airy Behavioral Receipts",
+      "score": 30,
+      "case_for": "Best for a carousel-first deck: every frame shows one clean behavior receipt, keeps cash small, and makes Zuv's complicity visible.",
+      "risk": "Must avoid crime lighting, big cash piles, or any visual where Aachu looks greedy and Zuv looks helpless."
+    },
+    {
+      "name": "Finance Minister Domestic Comedy",
+      "score": 28.5,
+      "case_for": "Very taggable and easy to read through mock-official expressions and household audit energy.",
+      "risk": "Can become a one-note wallet gag unless slide 4 and 5 turn it into active care."
+    },
+    {
+      "name": "He Pretended To Sleep Closeups",
+      "score": 27,
+      "case_for": "Strong on Zuv/Himanshu's active role.",
+      "risk": "Rejected as the main system because repeated closeups would reduce visual variety and make the carousel feel small."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "He Pretended To Sleep Closeups"
+  ],
+  "selector_verdict": "Airy Behavioral Receipts wins because it keeps the wallet as proof, not premise: every slide is one readable domestic action, and Zuv/Himanshu's knowing participation protects the joke from theft or financial-control readings.",
+  "hard_fails_checked": [
+    "no theft-coded wallet scene",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Some wives don't ask. They audit wallets.",
+      "visual": "Warm ordinary bedroom or couch scene in open daylight: Aachu/Nancho enters the frame with mock-official audit energy while Zuv/Himanshu rests nearby with wallet visible; the mood is affectionate, bright, mutually understood, and playful."
+    },
+    {
+      "slide": 2,
+      "copy": "She said, \"bas 500.\"",
+      "visual": "Aachu/Nancho holds one small note with innocent bas-500 expression; Zuv/Himanshu is visible in the background with one eye open, amused and aware."
+    },
+    {
+      "slide": 3,
+      "copy": "He saw. He pretended to sleep.",
+      "visual": "Zuv/Himanshu clearly notices and chooses to participate: he gently closes his eye again with an amused half-smile and subtly points toward the real backup pocket, fully in on the bit."
+    },
+    {
+      "slide": 4,
+      "copy": "By morning, he kept extra there.",
+      "visual": "Morning domestic frame: Zuv/Himanshu has quietly placed a little extra cash in the wallet or drawer; Aachu/Nancho notices with a tiny victorious smile and soft surprise."
+    },
+    {
+      "slide": 5,
+      "copy": "Love is when your nonsense has a budget.",
+      "visual": "Both together in an airy warm-paper frame: Aachu/Nancho holds the tiny household budget like an official file while Zuv/Himanshu looks fondly defeated and amused; the thesis lands as shared couple language, not money drama."
+    }
+  ]
+}

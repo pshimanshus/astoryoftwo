@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_ILLUSTRATED_LIKENESS",
+  "mode": "house_style_caricature_identity",
+  "identity_references": [
+    "output/carousels/2026-05-24/some-couples-come-with-private-captions-final/identity-face-contact-sheet.jpg",
+    "identity_images/aachu_zuv.png",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+  ],
+  "aachu": {
+    "role": "expressive spark",
+    "likeness_cues": [
+      "long dark hair",
+      "expressive eyes and brows",
+      "soft oval or round face",
+      "fuller lips and bright smile",
+      "playful dramatic body language"
+    ]
+  },
+  "zuv": {
+    "role": "kind interpreter",
+    "likeness_cues": [
+      "dark wavy hair",
+      "thick brows",
+      "trimmed beard and mustache",
+      "warm calm smile",
+      "grounded posture and slightly taller presence"
+    ]
+  },
+  "style_identity_rule": "Preserve recurring illustrated caricature identity, not photoreal face matching."
+}

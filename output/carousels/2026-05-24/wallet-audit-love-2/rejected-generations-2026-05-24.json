@@ -1,0 +1,48 @@
+{
+  "status": "REJECTED",
+  "date": "2026-05-24",
+  "reason": "Generic AI storyboard/contact-sheet outputs were generated without being anchored to the approved Aachu/Zuv identity references or the C-layer visual QA contract.",
+  "rejected_files": [
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e5932-b000-7413-9495-72955857da20/ig_0fd5f864c9082a53016a12c2d0878c8191aa73249bf1c00abc.png",
+      "issues": [
+        "generic photoreal couple instead of @a.storyof.two illustrated identity",
+        "wrong/non-locked faces",
+        "contact-sheet output instead of native individual carousel slide",
+        "currency/readability drift",
+        "not connected to package visual QA artifacts"
+      ]
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e5932-b000-7413-9495-72955857da20/ig_0fd5f864c9082a53016a12c366f84081918e2a7eabbcc905d3.png",
+      "issues": [
+        "generic photoreal couple instead of @a.storyof.two illustrated identity",
+        "wrong/non-locked faces",
+        "contact-sheet output instead of native individual carousel slide",
+        "does not preserve the accepted warm hand-drawn carousel style",
+        "not connected to package visual QA artifacts"
+      ]
+    }
+  ],
+  "hard_rule_after_rejection": "Do not generate a full final batch for this carousel until one proof slide passes identity, style, story, text, and safety QA.",
+  "required_next_step": {
+    "type": "single_proof_slide",
+    "recommended_slide": 4,
+    "why_slide_4": "It proves the most important safety/story beat: he saw, he pretended to sleep, and he is knowingly in the bit. If this slide fails, the premise can read as theft or generic couple content.",
+    "must_use_reference_files": [
+      "output/carousels/2026-05-24/wallet-audit-love-2/identity-face-contact-sheet.jpg",
+      "identity_images/aachu_zuv.png",
+      "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+      "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+      "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+    ],
+    "proof_must_pass": [
+      "Aachu/Nancho and Zuv/Himanshu read as the same recurring illustrated couple",
+      "warm hand-drawn desi storybook carousel style, not photorealism",
+      "native single 4:5 carousel slide, not a contact sheet",
+      "exact slide text is legible inside the image",
+      "money beat reads as staged shared mischief, not theft or financial control",
+      "Zuv/Himanshu has an active role and is not a perfect-guy poster"
+    ]
+  }
+}

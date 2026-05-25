@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "reviews": {
+    "brief_reviewer": {
+      "status": "PASS",
+      "checks": [
+        "names prior failure",
+        "declares identity-only mode",
+        "defines human truth before artifacts"
+      ]
+    },
+    "story_reviewer": {
+      "status": "PASS",
+      "checks": [
+        "slide flow has hook, proof, rhythm, payoff",
+        "humor is affectionate rather than cruel"
+      ]
+    },
+    "prompt_reviewer": {
+      "status": "PASS",
+      "checks": [
+        "prompts are concise",
+        "each slide has one visual beat",
+        "identity-only rule is repeated per slide"
+      ]
+    },
+    "asset_reviewer": {
+      "status": "PASS_WITH_NOTES",
+      "checks": [
+        "final/slide-01.png through final/slide-05.png exist",
+        "all final slides are normalized to 1080x1350",
+        "contact sheet exists at final/contact-sheet.png"
+      ],
+      "notes": [
+        "Identity consistency is best-effort from one supplied reference image.",
+        "This is concept-led rather than photo-rooted."
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "STALE_PROOF_REJECTED_AFTER_STYLE_RESET",
+  "generated_at": "2026-05-24",
+  "backend": "codex_builtin_image_generator",
+  "replacement_prompt": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-01.prompt.txt",
+  "proofs": [
+    {
+      "slide": 1,
+      "format": "instagram_post_style_proof",
+      "aspect_request": "4:5",
+      "actual_dimensions": "977x1610",
+      "actual_ratio": "0.607",
+      "required_ratio": "0.800",
+      "copy": "Me with my\n\"jo tu kahegi wahi hoga\"",
+      "source": "/Users/himanshusharma/.codex/generated_images/019e595e-63ef-7042-a35d-d674fc7ad785/ig_06567b36667b1172016a12d86db0a88191aaf7e91889e6f2df.png",
+      "proof_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/proofs/instagram-post-slide-01-proof-01.png",
+      "visual_assessment": "Superseded. This proof came from the stale artifact/poster prompt branch and also returned a tall 977x1610 canvas.",
+      "blocking_issue": "Do not reuse or batch from this proof. Generate a new Slide 1 proof from the repaired scene-first 4:5 prompt file listed in replacement_prompt."
+    }
+  ]
+}

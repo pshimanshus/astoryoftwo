@@ -1,0 +1,38 @@
+{
+  "status": "draft_review",
+  "scorecard": {
+    "story_specificity": 4,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 4,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 4,
+    "emotional_payoff": 4,
+    "channel_voice_fit": 4,
+    "absence_of_generic_couple_content": 4
+  },
+  "total": 32,
+  "max": 40,
+  "pass": true,
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 4.5,
+    "total": 29.5
+  },
+  "story_selling_gate": {
+    "status": "PASS",
+    "selected_concept_process_card": "Card 07 - Anti-Ideal To Real Love",
+    "threshold": "28/30",
+    "selector_verdict": "Begin with Card 07 - Anti-Ideal To Real Love: the concept is approved because it starts from a relationship obstacle, proves the truth through Aachu/Zuv behavior, and lands a saveable love thesis before slide copy or caption language is written.",
+    "candidate_count": 10
+  },
+  "story_selling_hard_fails": [],
+  "issues": [
+    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
+    "Use Codex chat or an external image model for fully generative illustrated art."
+  ],
+  "required_changes_before_image_generation": []
+}

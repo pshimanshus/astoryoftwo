@@ -1,0 +1,145 @@
+{
+  "date": "2026-05-23",
+  "slug": "ordinary-time-with-you-4",
+  "title": "Ordinary Time With You",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "draft_for_human_review",
+  "source_story": "Long distance makes you miss boring things, not only dates or trips. If there was no long distance, the two of them would be texting tiny future plans: cooking together even though it is a terrible idea, board game night with invented rules after losing, and being secretly happy the cab is late because it buys a few more minutes. The emotional truth: maybe they do not miss big dates; maybe they just miss wasting normal time together.",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 5,
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "native_output_rule": "Generate both formats separately. Never resize, crop, pad, or extend one output into the other."
+  },
+  "reference_images": [],
+  "identity_references": [
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    }
+  ],
+  "identity_reference_selection": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-05-23/ordinary-time-with-you-4/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-05-23/ordinary-time-with-you-4/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-05-23/ordinary-time-with-you-4/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "carousel_story_director_persona": {
+    "skill": "config/skills/carousel-story-director-persona.md",
+    "agent": "agents/carousel-story-director.md",
+    "activation_order": [
+      "project and creator memory",
+      "Calm Enough For Your Chaos theme",
+      "viral theme analysis",
+      "carousel idea preference ledger",
+      "Layer E story-selling engine",
+      "golden-theme tournament",
+      "carousel story director persona before writing/designing"
+    ],
+    "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+    "persists_until": [
+      "concept.json",
+      "slides.json",
+      "visual-debate.json",
+      "visual-plan-quality.json",
+      "prompt-pack.json",
+      "copy.json",
+      "codex-image-prompts/",
+      "final/",
+      "final-reels-stories/",
+      "visual-qa.md"
+    ],
+    "minimum_scores": {
+      "hook": 8,
+      "story": 8,
+      "bridge": 8,
+      "zuv_role": 8,
+      "ending": 8,
+      "send_save_potential": 8
+    }
+  },
+  "artifacts": {
+    "concept": "concept.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "intake_reviewer",
+      "story_reviewer",
+      "arc_reviewer",
+      "visual_reviewer",
+      "identity_consistency_reviewer",
+      "prompt_reviewer",
+      "copy_reviewer",
+      "asset_reviewer",
+      "wiki_learning_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": "visual-qa.md",
+      "identity_consistency_review": "identity-consistency-review.json",
+      "post_copy_visual_room": "post-copy-visual-room.json",
+      "visual_debate": "visual-debate.json",
+      "visual_plan_quality": "visual-plan-quality.json"
+    }
+  }
+}

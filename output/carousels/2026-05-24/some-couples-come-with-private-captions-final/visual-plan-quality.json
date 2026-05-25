@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "can_generate": true,
+  "review_date": "2026-05-24",
+  "package_verdict": "GO_WITH_PROOF_GATE",
+  "global_checks": {
+    "golden_theme_proof": "PASS",
+    "copy_visual_alignment": "PASS",
+    "house_style_preserved": "PASS",
+    "identity_continuity": "PASS_WITH_ILLUSTRATED_LIKENESS",
+    "aspect_specific_composition": "PASS",
+    "reference_legality": "PASS",
+    "performance_autopsy": "PASS_PRE_GENERATION"
+  },
+  "slide_checks": [
+    {"slide": 1, "status": "GO", "reason": "Public hook and format promise."},
+    {"slide": 2, "status": "GO", "reason": "Home doorway behavior proves dramatic/taken seriously."},
+    {"slide": 3, "status": "GO", "reason": "Rainy listening beat makes Zuv active."},
+    {"slide": 4, "status": "GO", "reason": "Street-food excitement creates a concrete happiness receipt."},
+    {"slide": 5, "status": "GO", "reason": "Market agreement is simple and taggable."},
+    {"slide": 6, "status": "GO", "reason": "Winter-market tough/soft reversal is visually clear."},
+    {"slide": 7, "status": "GO", "reason": "Car laughter makes favorite-sound label visible."},
+    {"slide": 8, "status": "GO", "reason": "Rooftop ending turns format into thesis."}
+  ],
+  "blocked_old_direction": "Do not use final-model-native-v2/v3 as final outputs."
+}

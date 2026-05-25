@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "observer": {
+    "agent": "C0.5-Jarvis",
+    "role": "Track requirements, stage completion, reviewer findings, and final gate status."
+  },
+  "reviews": {
+    "intake_reviewer": {
+      "stage": "intake",
+      "status": "PASS_WITH_NOTES",
+      "done": ["identity-only concept-led run", "7 approved slide(s)"],
+      "issues": [],
+      "notes": ["No story photos supplied; identity references and the approved concept are the source of truth."]
+    },
+    "story_reviewer": {
+      "stage": "story",
+      "status": "PASS",
+      "done": ["Autopsy-calibrated Passenger Seat Traffic Control story preserved."],
+      "issues": [],
+      "notes": []
+    },
+    "arc_reviewer": {
+      "stage": "arc",
+      "status": "PASS",
+      "done": ["7 planned slide(s)", "7 prompt slide(s)"],
+      "issues": [],
+      "notes": []
+    },
+    "visual_reviewer": {
+      "stage": "visual",
+      "status": "PASS",
+      "done": ["checked 7 slide(s)", "post-copy visual room: GO", "visual screen: PASS"],
+      "issues": [],
+      "notes": ["Safety repair is locked in visual-plan-quality.json."]
+    },
+    "identity_consistency_reviewer": {
+      "stage": "identity_consistency",
+      "status": "PASS",
+      "done": ["identity references attached", "7 reviewed slide(s)"],
+      "issues": [],
+      "notes": []
+    },
+    "prompt_reviewer": {
+      "stage": "prompt",
+      "status": "PASS",
+      "done": ["shared style prompt present", "shared negative prompt present", "14 Codex prompt files prepared"],
+      "issues": [],
+      "notes": []
+    },
+    "copy_reviewer": {
+      "stage": "copy",
+      "status": "PASS",
+      "done": ["caption", "alt text", "posting notes"],
+      "issues": [],
+      "notes": []
+    },
+    "asset_reviewer": {
+      "stage": "assets",
+      "status": "NEEDS_FIXES",
+      "done": ["final images present: 0 / 7", "reels/stories images present: 0 / 7"],
+      "issues": [
+        "Final native generated images have not been produced and packaged yet."
+      ],
+      "notes": ["Package is READY_FOR_CODEX_BUILTIN_GENERATION, not final-image-ready."]
+    }
+  }
+}

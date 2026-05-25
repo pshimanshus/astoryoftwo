@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_WITH_NOTES",
+  "requirements": {
+    "REQ-VISUAL-GATES-001": {
+      "pass": true
+    },
+    "REQ-IDENTITY-GATE-001": {
+      "pass": true
+    },
+    "REQ-FINAL-IMAGES-001": {
+      "pass": true,
+      "evidence": {
+        "instagram_post_count": 7,
+        "reels_stories_count": 7
+      }
+    },
+    "REQ-VISUAL-QA-001": {
+      "pass": true,
+      "evidence": {
+        "visual_qa": "visual-qa.md",
+        "status": "PASS_WITH_NOTES"
+      }
+    },
+    "REQ-SOURCE-ASPECT-001": {
+      "pass": false,
+      "severity": "NOTE",
+      "evidence": "Built-in image generator did not return exact 4:5 source aspect for Instagram post prompts; final files preserve full artwork with paper margins instead of cropping text or faces."
+    }
+  },
+  "notes": [
+    "Built-in image generator did not return exact 4:5 source aspect for Instagram post prompts; final files preserve full artwork with paper margins instead of cropping text or faces.",
+    "Reels/Stories slides were generated as separate prompts, not derived from post slides."
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Tasty Life",
+  "winner": "Lived-In Home Becomes A Love Receipt",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Use lived-in home evidence: kitchen counter, couch, blanket, plan list, and late-night snack details. Food is a receipt for safety, not the premise."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as unsafe body-commentary joke versus the hidden wish to feel unguarded and fully welcomed at home."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block restaurant-table defaults, weighing-scale imagery, body-commentary framing, and food-only closeups; Zuv must actively make room at home."
+    }
+  ],
+  "options": [
+    {
+      "name": "Lived-In Home Becomes A Love Receipt",
+      "score": 29,
+      "case_for": "Makes the fuller-life thesis intimate and drawable: kitchen snacks, couch laughter, plans, and Zuv making space at home.",
+      "risk": "Must keep food as one receipt among many so the deck does not repeat the already-used not-hungry lane."
+    },
+    {
+      "name": "Couch To Kitchen Comfort",
+      "score": 28,
+      "case_for": "Gives visual variety inside one home through kitchen counter, couch, blanket, low table, and late-night snack beats.",
+      "risk": "Can become cozy-aesthetic content unless every frame keeps Aachu/Zuv behavior clear."
+    },
+    {
+      "name": "Restaurant Receipt",
+      "score": 25,
+      "case_for": "The food receipt is obvious and easy to read.",
+      "risk": "Rejected for this direction: too close to food-denial/restaurant content and weaker than home comfort."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Restaurant Receipt"
+  ],
+  "selector_verdict": "Lived-In Home Becomes A Love Receipt wins because the home setting turns the unsafe body-commentary joke into comfort, safety, and shared appetite for life, while blocking restaurant repetition.",
+  "hard_fails_checked": [
+    "no restaurant-table default",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "She stopped saying \"bas thoda sa.\"",
+      "visual": "Home kitchen counter hook: Aachu hesitates before accepting care, then relaxes into an easy shared bite while Zuv stays beside her with a gentle no-pressure smile; no weighing scale, no body comparison."
+    },
+    {
+      "slide": 2,
+      "copy": "Home never counted her bites.",
+      "visual": "Cozy couch and low-table home scene: Aachu reaches for another bite while Zuv keeps the plate between them with no counting, no tally marks, only warm ease and shared laughter."
+    },
+    {
+      "slide": 3,
+      "copy": "He saved the best one for her.",
+      "visual": "Best bite proof beat: Zuv quietly saves the best bite on the plate for Aachu, nudging it toward her before she asks, making care visible without a speech."
+    },
+    {
+      "slide": 4,
+      "copy": "Food became comfort, not calculation.",
+      "visual": "Food becomes comfort scene: Zuv notices Aachu hesitating before another bite, gently pushes the shared plate closer and starts eating with her first, smiling like this is normal; Aachu relaxes into laughter, phone face-down, no numbers or performance."
+    },
+    {
+      "slide": 5,
+      "copy": "Food was only proof.\nBas life zyada tasty ho gayi.",
+      "visual": "Late-night home snack payoff: Aachu and Zuv tucked into the same cozy room, relaxed and close, shared food and laughter around them; the final line lands as a loving receipt for a tastier life, not body commentary."
+    }
+  ]
+}

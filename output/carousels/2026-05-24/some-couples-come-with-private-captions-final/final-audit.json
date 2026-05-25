@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "auditor": "C7-FinalContractAuditor",
+  "status": "BLOCKED_PROOF_REQUIRED",
+  "pass": false,
+  "date": "2026-05-24",
+  "requirements": {
+    "concept_reset": {"pass": true, "evidence": "Fresh 2026-05-24 package created."},
+    "copy_locked": {"pass": true, "evidence": "copy.json"},
+    "visual_room": {"pass": true, "evidence": "post-copy-visual-room.json and visual-debate.json"},
+    "visual_plan_quality": {"pass": true, "evidence": "visual-plan-quality.json"},
+    "performance_autopsy_gate": {"pass": true, "evidence": "performance-autopsy-gate.json"},
+    "identity_preflight": {"pass": true, "evidence": "identity-consistency-review.json"},
+    "prompt_pack": {"pass": true, "evidence": "prompt-pack.json and codex-image-prompts/"},
+    "proof": {"pass": false, "evidence": "No accepted proof exists yet."},
+    "final_images": {"pass": false, "evidence": "No final 4:5 or 9:16 generated outputs exist yet."},
+    "visual_qa": {"pass": false, "evidence": "visual-qa.md is a checklist until generated images exist."}
+  },
+  "blocking_reason": "Prepare prompt-pack and generate one proof before full final generation."
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Long Distance Ordinary Time",
+  "winner": "Chat Bubbles Become Shared Rooms",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Let each chat bubble open into a small imagined shared room: kitchen mess, board-game table, rain/cab wait, and final ordinary evening."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as distance versus the desire for useless normal time; the message jokes should expose the hidden need to share ordinary life."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block copied text-message frames, all-phone slides, generic long-distance sadness, and any scene where Zuv only receives instead of joining the tiny plan."
+    }
+  ],
+  "options": [
+    {
+      "name": "Chat Bubbles Become Shared Rooms",
+      "score": 29.5,
+      "case_for": "Preserves the reference mechanic while making every message open into a concrete ordinary-life scene.",
+      "risk": "Must not become a copied text-message reel; the imagined scenes need original Aachu/Zuv behavior."
+    },
+    {
+      "name": "One Phone, Five Ordinary Plans",
+      "score": 28,
+      "case_for": "Very legible for long-distance couples and keeps the phone as a portal rather than the whole frame.",
+      "risk": "Can feel static if every slide is only a phone screen."
+    },
+    {
+      "name": "Pure Chat Screenshot",
+      "score": 24,
+      "case_for": "Fast and familiar.",
+      "risk": "Rejected because it copies the surface format and loses the @a.storyof.two illustrated relationship proof."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Pure Chat Screenshot"
+  ],
+  "selector_verdict": "Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "no copied chat screenshot or exact reference text",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "If there was no long distance...",
+      "visual": "Aachu and Zuv are apart in two soft phone-lit corners, each holding a phone, with tiny imagined ordinary scenes beginning to appear between them; distance is the obstacle, not the aesthetic."
+    },
+    {
+      "slide": 2,
+      "copy": "\"We should cook together.\"\n\"That's a terrible idea.\"\n\"Exactly.\"",
+      "visual": "Inside the imagined shared room from the chat, Aachu and Zuv stand at a tiny kitchen counter with flour, a messy pot, and two phones nearby; Aachu is animated about the plan and Zuv joins the bad idea with a warm amused reply."
+    },
+    {
+      "slide": 3,
+      "copy": "\"Board game night?\"\n\"Only if you don't invent rules after losing.\"",
+      "visual": "Aachu and Zuv sit across an imagined board-game table with dice, tiny colored tokens, and exaggerated competitive faces; Zuv teases gently about her invented rules while still clearly wanting the whole scene with her."
+    },
+    {
+      "slide": 4,
+      "copy": "\"Cab is 12 minutes late.\"\n\"Best news all day.\"",
+      "visual": "Rainy imagined pickup scene: Aachu and Zuv wait under one umbrella beside a small cab-app phone screen; instead of frustration, both look quietly relieved, and Zuv's reply admits he wants the extra minutes too."
+    },
+    {
+      "slide": 5,
+      "copy": "\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\"",
+      "visual": "Final warm-paper room where the earlier kitchen, board-game, and cab icons soften into one ordinary shared evening; Aachu and Zuv sit close with phones lowered, proving the point is not the plans but wanting normal time together."
+    }
+  ]
+}

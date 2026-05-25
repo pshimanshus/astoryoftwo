@@ -1,0 +1,351 @@
+{
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring illustrated character faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear Aachu/Zuv behavior scene. Every final prompt must stay scene-first: paper artifacts, receipts, labels, posters, or stationery can appear only as tiny integrated details, never as the main visual system. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Slide-Led Evidence Plan",
+    "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+    "hard_fails_checked": [
+      "no home-interior default",
+      "story evidence must prove slide copy",
+      "story evidence must prove slide copy",
+      "no repeated object motif across every slide",
+      "no prop-first premise",
+      "no passive Zuv",
+      "no generic couple-stock tableau"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "It started with two names on cups.",
+      "reader_identity_mirror": "The story begins with two names on cups, then grows into shared comfort, travel, and the realization that even in Ladakh, the real subject is still the two of them.",
+      "emotional_obstacle": "The story begins with two names on cups, then grows into shared comfort, travel, and the realization that even in Ladakh, the real subject is still the two of them.",
+      "aachu_proof": "A close, specific origin frame rooted in the earliest supplied image: food, cups, table, names, or another tiny beginning detail.",
+      "zuv_active_role": "",
+      "bridge": "tiny beginning -> playful proof -> wider world -> quiet emotional payoff",
+      "earned_ending": "But the point was still us.",
+      "send_save_reason": "make the memory feel specific enough to save or send"
+    },
+    "hook_bank": [
+      {
+        "hook": "It started with two names on cups.",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "The story begins with two names on cups, then grows into shared comfort, travel, and the r",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with soft love notes.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "It started with two names on cups.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "It started with two names on cups."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "The story begins with two names on cups, then grows into shared comfort, travel, and the realization that even in Ladakh, the real subject is still the two of them."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "tiny beginning -> playful proof -> wider world -> quiet emotional payoff"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "But the point was still us."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9
+    },
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": [],
+    "concept_selection_used": false,
+    "source_story": "First date cups, second date jokes, then Ladakh."
+  },
+  "style_reference_images": [
+    "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+    "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+    "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+  ],
+  "identity_reference_images": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-face-contact-sheet.jpg",
+    "identity_images/aachu_zuv.png"
+  ],
+  "identity_dossier_path": "output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID45",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/aachu_zuv.png",
+      "filename": "aachu_zuv.png",
+      "face_count": 33,
+      "width": 2848,
+      "height": 3798
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 1,
+    "selected_count": 1,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "bottom-right",
+    "slide_copy": [
+      "It started with two names on cups.",
+      "By the second date, we were already a little unserious.",
+      "Then somehow, a date became a trip.",
+      "Ladakh made the story feel huge.",
+      "But the point was still us."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 5,
+      "text": "It started with two names on cups.",
+      "visual": "A close, specific origin frame rooted in the earliest supplied image: food, cups, table, names, or another tiny beginning detail.",
+      "style": "warm hand-drawn desi storybook illustration on off-white paper, imperfect black linework, matte muted colors, expressive recurring Aachu/Zuv faces, handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 1 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: First date cups, second date jokes, then Ladakh.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Soft Love Notes. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: It started with two names on cups.. Slide story-director job: hook. Story-Selling process card: Card 20 - Saveable Lesson From One Scene. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 28/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv illustrated character faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (soft nostalgia) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: A close, specific origin frame rooted in the earliest supplied image: food, cups, table, names, or another tiny beginning detail. Mood: soft nostalgia. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field as the canonical style prompt. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'It started with two names on cups.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene."
+    },
+    {
+      "slide": 2,
+      "slide_count": 5,
+      "text": "By the second date, we were already a little unserious.",
+      "visual": "A playful early-memory frame that preserves the supplied second-date expressions, poses, outfit cues, and awkward-funny comfort.",
+      "style": "warm hand-drawn desi storybook illustration on off-white paper, imperfect black linework, matte muted colors, expressive recurring Aachu/Zuv faces, handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 2 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: First date cups, second date jokes, then Ladakh.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Soft Love Notes. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: It started with two names on cups.. Slide story-director job: playful proof. Story-Selling process card: Card 20 - Saveable Lesson From One Scene. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 28/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv illustrated character faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (playful comfort) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: A playful early-memory frame that preserves the supplied second-date expressions, poses, outfit cues, and awkward-funny comfort. Mood: playful comfort. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field as the canonical style prompt. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'By the second date, we were already a little unserious.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene."
+    },
+    {
+      "slide": 3,
+      "slide_count": 5,
+      "text": "Then somehow, a date became a trip.",
+      "visual": "A transition frame using a candid room, phone, road, doorway, suitcase, or other image cue that makes the next chapter feel like it is calling.",
+      "style": "warm hand-drawn desi storybook illustration on off-white paper, imperfect black linework, matte muted colors, expressive recurring Aachu/Zuv faces, handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 3 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: First date cups, second date jokes, then Ladakh.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Soft Love Notes. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: It started with two names on cups.. Slide story-director job: transition. Story-Selling process card: Card 20 - Saveable Lesson From One Scene. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 28/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv illustrated character faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (anticipation) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: A transition frame using a candid room, phone, road, doorway, suitcase, or other image cue that makes the next chapter feel like it is calling. Mood: anticipation. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field as the canonical style prompt. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Then somehow, a date became a trip.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene."
+    },
+    {
+      "slide": 4,
+      "slide_count": 5,
+      "text": "Ladakh made the story feel huge.",
+      "visual": "A wide Ladakh frame with the couple, landscape scale, sky, mountains, river, or travel cues from the supplied photos.",
+      "style": "warm hand-drawn desi storybook illustration on off-white paper, imperfect black linework, matte muted colors, expressive recurring Aachu/Zuv faces, handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 4 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: First date cups, second date jokes, then Ladakh.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Soft Love Notes. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: It started with two names on cups.. Slide story-director job: expansion. Story-Selling process card: Card 20 - Saveable Lesson From One Scene. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 28/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv illustrated character faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (wonder) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: A wide Ladakh frame with the couple, landscape scale, sky, mountains, river, or travel cues from the supplied photos. Mood: wonder. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field as the canonical style prompt. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Ladakh made the story feel huge.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene."
+    },
+    {
+      "slide": 5,
+      "slide_count": 5,
+      "text": "But the point was still us.",
+      "visual": "A quiet final frame with the couple small together in a big place, making the relationship the center rather than the location.",
+      "style": "warm hand-drawn desi storybook illustration on off-white paper, imperfect black linework, matte muted colors, expressive recurring Aachu/Zuv faces, handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 5 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: First date cups, second date jokes, then Ladakh.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Soft Love Notes. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: It started with two names on cups.. Slide story-director job: payoff. Story-Selling process card: Card 20 - Saveable Lesson From One Scene. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 28/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv illustrated character faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (tender settledness) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: A quiet final frame with the couple small together in a big place, making the relationship the center rather than the location. Mood: tender settledness. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field as the canonical style prompt. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'But the point was still us.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene."
+    }
+  ]
+}

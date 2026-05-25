@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Independent Care",
+  "winner": "Outdoor Threshold",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Use outdoor/public proof beats and let objects appear only once when they clarify care."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as 'I can do it' versus 'please stay close', then resolve through quiet care."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block home interiors, repeated red-shoe/rock motifs, and rescue framing for this concept."
+    }
+  ],
+  "options": [
+    {
+      "name": "Outdoor Threshold",
+      "score": 29,
+      "case_for": "Keeps the emotional premise on pride plus closeness while giving every slide an exterior/public scene.",
+      "risk": "Needs restraint so the threshold, path, or gate does not become the premise."
+    },
+    {
+      "name": "Public Walkway Micro-Care",
+      "score": 28,
+      "case_for": "Makes Zuv's help visible without turning the moment into rescue.",
+      "risk": "Can feel too generic if Aachu's proud body language is not sharp."
+    },
+    {
+      "name": "Courtyard Dusk Aftercare",
+      "score": 27,
+      "case_for": "Strong final-slide softness.",
+      "risk": "Too quiet as a full carousel spine; better as the payoff than the whole visual system."
+    }
+  ],
+  "selector_verdict": "Outdoor Threshold wins because it preserves Aachu's independence, makes Zuv's care active but quiet, keeps the scenes outside, and avoids repeating rejected prop motifs.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Main kar lungi.",
+      "visual": "Outdoor public threshold after a walk: Aachu steps ahead with chin-up independence, one hand gathering her dupatta or bag, while Zuv stays half a pace behind, attentive but not hovering."
+    },
+    {
+      "slide": 2,
+      "copy": "Translation: don't go far.",
+      "visual": "A simple public pathway scene where Aachu's body language says she can handle it, but her glance back says stay close; Zuv keeps the exact respectful distance."
+    },
+    {
+      "slide": 3,
+      "copy": "She wanted to do it herself.",
+      "visual": "Outdoor cafe or courtyard step: Aachu balances the small practical moment herself, expressive and determined, with the obstacle kept minimal so the pride is the subject."
+    },
+    {
+      "slide": 4,
+      "copy": "He helped like it was nothing.",
+      "visual": "A busy outdoor walkway where Zuv quietly steadies the bag, opens the gate, or offers one easy hand; no spotlight, no performance, just care folded into the moment."
+    },
+    {
+      "slide": 5,
+      "copy": "Maybe love is care without making a scene.",
+      "visual": "Open courtyard at dusk: they walk together after the moment, her independence intact and his care invisible enough to feel natural."
+    }
+  ]
+}

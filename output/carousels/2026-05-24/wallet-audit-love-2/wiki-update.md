@@ -1,0 +1,53 @@
+# Wallet Audit Love - Carousel Quality Update
+
+last_updated: 2026-05-24
+confidence: 0.7
+sources:
+- output/carousels/2026-05-24/wallet-audit-love-2/manifest.json
+- output/carousels/2026-05-24/wallet-audit-love-2/prompt-pack.json
+- output/carousels/2026-05-24/wallet-audit-love-2/final-audit.json
+
+## Status
+
+Final audit: BLOCKED
+
+## Issues
+
+- REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders
+- REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/
+- REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
+- asset_reviewer: Unexpected render status: BLOCKED.; Missing final generated images: output/carousels/2026-05-24/wallet-audit-love-2/final/slide-01.png, output/carousels/2026-05-24/wallet-audit-love-2/final/slide-02.png, output/carousels/2026-05-24/wallet-audit-love-2/final/slide-03.png, output/carousels/2026-05-24/wallet-audit-love-2/final/slide-04.png, output/carousels/2026-05-24/wallet-audit-love-2/final/slide-05.png, output/carousels/2026-05-24/wallet-audit-love-2/final/slide-06.png
+
+## Notes
+
+- No story photos supplied; identity references and the creative brief are the source of truth.
+- Wiki and memory files are updated after final audit generation.
+
+## Human Truth
+
+The best couples do not only tolerate each other's tiny nonsense; they quietly make room for it, budget for it, and turn the bit into a shared language.
+
+## Learning
+
+- Keep the desi storybook / photo-rooted style as the default for memory-led carousels.
+- Preserve source-photo objects before adding decorative story elements.
+- Preserve Aachu/Zuv identity references across every generated slide.
+- Generate model-native publishable slides when typography, face quality, outfit continuity, and composition must match the reference examples.
+
+## Caption
+
+Every couple has one finance minister.
+And one person pretending not to notice.
+
+She said bas 500.
+Then checked the backup pocket.
+
+He saw everything.
+He still pretended to sleep.
+
+By morning, he kept extra there.
+
+Maybe love is not always grand gestures.
+Sometimes it is quietly budgeting for each other's nonsense.
+
+Send this to the person who became your alibi, not your audience.

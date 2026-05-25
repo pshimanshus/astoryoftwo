@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Softness Under Fire",
+  "winner": "Sharp Words, Soft Hands",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Use sleeve, be-safe, and blue quiet as separate receipts for softness under the sharper tone."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as sharp words versus the hidden request to be understood and held gently."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic lover-girl quote cards, anger-as-cuteness, and any frame where Zuv simply tolerates instead of understands."
+    }
+  ],
+  "options": [
+    {
+      "name": "Sharp Words, Soft Hands",
+      "score": 29,
+      "case_for": "Makes the contradiction drawable: words ask for distance while body language and Zuv's response reveal closeness.",
+      "risk": "Must keep Aachu lovable and avoid making the spicy tone look cruel."
+    },
+    {
+      "name": "Warning As Love Receipt",
+      "score": 28,
+      "case_for": "Turns be safe into a simple sendable visual proof of protective love.",
+      "risk": "Too phone/message-led if used for every slide."
+    },
+    {
+      "name": "Aquarium Underwater Quiet",
+      "score": 27,
+      "case_for": "Blue light gives a cinematic emotional-pressure scene for Zuv hearing what is underneath.",
+      "risk": "Can become place-first unless paired with the sleeve and be-safe proof beats."
+    }
+  ],
+  "selector_verdict": "Sharp Words, Soft Hands wins because it makes the emotional contradiction visible: Aachu's surface fire, the hidden hurt underneath, and Zuv's active gentle response.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "He didn't marry someone who says everything gently.",
+      "visual": "A universal hook in the warm restaurant-wall setting: Aachu is expressive and slightly turned away, not cruel, while Zuv stands close with calm patience; framed menu/newspaper art and wood panels stay as quiet evidence, not the premise."
+    },
+    {
+      "slide": 2,
+      "copy": "\"Don't touch me\" still held his sleeve.",
+      "visual": "Close proof beat: Aachu's face says don't touch me, but her hand is still holding Zuv's sleeve; Zuv keeps his posture soft and reachable instead of pulling away."
+    },
+    {
+      "slide": 3,
+      "copy": "\"Be safe\" came out like a warning.",
+      "visual": "Phone-message or doorway proof beat: a small handwritten be safe message or speech bubble comes from Aachu with protective intensity, while Zuv understands it as love and worry, not scolding."
+    },
+    {
+      "slide": 4,
+      "copy": "So he heard the hurt underneath.",
+      "visual": "Aquarium-blue contrast scene: Zuv in calm profile under blue light, hearing the hurt underneath the spicy words; a soft outline of Aachu nearby shows the feeling becoming safer rather than louder."
+    },
+    {
+      "slide": 5,
+      "copy": "Maybe love is softness under fire.",
+      "visual": "Final tender couple frame inspired by the cheek-kiss identity reference: Zuv comes closer gently, Aachu softens into a smile, and the earlier fire becomes warmth around them."
+    }
+  ]
+}

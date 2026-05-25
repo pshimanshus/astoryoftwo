@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "creator said: i like it",
+  "copy_lock": [
+    {"slide": 1, "copy": "He didn't marry a quiet passenger. He married mission control.", "role": "public contradiction hook"},
+    {"slide": 2, "copy": "Maps said left in 300 meters.", "role": "setup receipt"},
+    {"slide": 3, "copy": "She said, \"LEFT-LEFT-LEFT now.\"", "role": "comic escalation receipt"},
+    {"slide": 4, "copy": "Her foot found the invisible brake.", "role": "physical comic proof"},
+    {"slide": 5, "copy": "The AC had a committee.", "role": "specific receipt"},
+    {"slide": 6, "copy": "He still asked, \"Captain, next?\"", "role": "active Zuv response"},
+    {"slide": 7, "copy": "Maybe love is one steering wheel and two opinions.", "role": "taggable thesis"}
+  ],
+  "agents": [
+    {"agent": "Visual Format Anthropologist", "verdict": "GO", "summary": "Use car/cab behavior receipts as a relationship-IP format, not a romance poster."},
+    {"agent": "Scene Evidence Director", "verdict": "GO", "summary": "Every slide has a visible car/cab action: navigator, turn, invisible brake, AC committee, co-pilot response."},
+    {"agent": "Romance Blocking Director", "verdict": "GO", "summary": "Aachu is animated mission control; Zuv actively makes her co-pilot while driving safely."},
+    {"agent": "Typography And Aspect Director", "verdict": "GO", "summary": "Use airy top/side text zones, never covering faces, hands, steering wheel, or passenger foot beat."},
+    {"agent": "Generation Prompt Director", "verdict": "GO", "summary": "Prompts must block unsafe driving, nagging-wife framing, helpless-husband framing, and real map/plate details."},
+    {"agent": "Harsh Visual Selector", "verdict": "GO_WITH_SAFETY_REPAIR", "summary": "Selected system passes only if it reads as shared co-pilot language."}
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Car/Cab Mission Control Receipts",
+      "score": 29,
+      "case_for": "Best proves the autopsy gates: public contradiction, receipt density, physical proof, active partner, tag behavior.",
+      "risk": "Can become nagging wife if Zuv is passive."
+    },
+    {
+      "name": "Dashboard Evidence Board",
+      "score": 27,
+      "case_for": "Strong object grammar around map, AC, playlist, and road signs.",
+      "risk": "Too prop-first and could lose the couple."
+    },
+    {
+      "name": "Road-Trip Soft Romance",
+      "score": 24,
+      "case_for": "Easy to make pretty.",
+      "risk": "Fails autopsy by becoming mood instead of behavior receipts."
+    }
+  ],
+  "cross_debate": [
+    "Reject Road-Trip Soft Romance because it repeats the failed polished-poster problem.",
+    "Reject Dashboard Evidence Board as the main system because objects are proof, not the premise.",
+    "Repair Car/Cab Mission Control Receipts by making Zuv visibly active, amused, and safe."
+  ],
+  "selected_visual_system": "Car/Cab Mission Control Receipts",
+  "why_it_wins": "It makes every slide answer: what is she doing, what is he doing back, and why would a viewer tag their partner?",
+  "rejected_visual_patterns": [
+    "generic romantic car ride",
+    "unsafe driving panic",
+    "nagging wife / helpless husband",
+    "readable real map UI",
+    "quote-card text over empty car background",
+    "luxury car flex"
+  ],
+  "slide_visual_blueprint": [
+    {"slide": 1, "scene": "Passenger seat as mission control; Zuv drives safely amused.", "must_show": "public contradiction"},
+    {"slide": 2, "scene": "Simplified dashboard map arrow, Aachu studying it like navigator.", "must_show": "map setup without private UI"},
+    {"slide": 3, "scene": "Aachu points LEFT-LEFT-LEFT with harmless motion lines.", "must_show": "comic escalation"},
+    {"slide": 4, "scene": "Passenger foot presses imaginary brake, no danger.", "must_show": "physical comic proof"},
+    {"slide": 5, "scene": "AC knobs and playful committee gesture.", "must_show": "second everyday receipt"},
+    {"slide": 6, "scene": "Zuv asks Captain, next? with fond active grin.", "must_show": "chosen co-pilot response"},
+    {"slide": 7, "scene": "One steering wheel, two opinions, both in the same safe rhythm.", "must_show": "taggable thesis"}
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Use top or side warm-paper negative space; keep faces, steering wheel, dashboard action, and passenger-foot proof unobstructed.",
+    "reels_stories_9x16": "Generate natively with taller cabin space; text in upper third unless slide action requires side placement.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "warm hand-drawn desi storybook, airy paper, expressive faces, soft imperfect linework",
+    "copy_lock": "Render exact slide copy inside each generated artwork.",
+    "negative_prompt_additions": [
+      "no unsafe driving",
+      "no steering wheel grabbing",
+      "no anger or panic",
+      "no nagging-wife framing",
+      "no helpless-husband framing",
+      "no readable map UI, plate number, route name, QR code, or private details",
+      "no glossy AI car ad",
+      "no generic couple romance pose"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve Car/Cab Mission Control Receipts.",
+    "visual-plan-quality.json must mark each slide GO only if the action is safe and relationship-proofed.",
+    "prompt-pack.json must include separate native 4:5 and 9:16 prompts."
+  ]
+}

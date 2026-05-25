@@ -1,0 +1,232 @@
+{
+  "status": "READY_FOR_CODEX_BUILTIN_GENERATION",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "proof_gate": "Generate Slide 1 Instagram post proof first. Do not generate full 4:5 or 9:16 batches until it passes.",
+  "native_output_contract": {
+    "formats": [
+      "instagram_post",
+      "reels_stories"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "reels_stories_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image."
+  },
+  "prompt_dir": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts",
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure.",
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "Me with my\n\"jo tu kahegi wahi hoga\"",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-01.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-01.md",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-01.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-01.prompt.txt",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-01.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-01.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-01.png",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final-reels-stories/slide-01.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "In another universe,\nhe still changes the plan.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-02.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-02.md",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-02.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-02.prompt.txt",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-02.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-02.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-02.png",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final-reels-stories/slide-02.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 3,
+      "copy": "Argument status:\nrescheduled.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-03.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-03.md",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-03.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-03.prompt.txt",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-03.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-03.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-03.png",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final-reels-stories/slide-03.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 4,
+      "copy": "Terms & conditions:\nshe is probably right.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-04.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-04.md",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-04.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-04.prompt.txt",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-04.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-04.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-04.png",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final-reels-stories/slide-04.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 5,
+      "copy": "Not because he lost.\nBecause he likes her world.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-05.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-05.md",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-05.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-05.prompt.txt",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-05.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-05.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-05.png",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final-reels-stories/slide-05.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 6,
+      "copy": "Some men bring flowers.\nMine brings theek hai.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-06.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-06.md",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-06.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/instagram-post/slide-06.prompt.txt",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/codex-image-prompts/reels-stories/slide-06.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-06.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final/slide-06.png",
+        "reels_stories": "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/final-reels-stories/slide-06.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-05-24",
+  "channel": "@a.storyof.two",
+  "title": "Some Couples Come With Private Captions",
+  "slug": "some-couples-come-with-private-captions-final",
+  "status": "VISUAL_RESET_READY_FOR_STYLE_PROOF",
+  "source_session": "output/carousels/2026-05-23/some-couples-come-with-private-captions",
+  "reset_reason": "The earlier Friends-reference package had the right label mechanic, but V2/V3 outputs were rejected as soft tableaux. This package rebuilds the concept using the current pipeline, varied locations, varied outfits, stronger behavior receipts, and the carousel performance autopsy gate.",
+  "creative_lock": {
+    "concept": "Private Caption Frames",
+    "copy_locked": true,
+    "style_lock": "Established @a.storyof.two soft hand-drawn desi storybook illustration.",
+    "reference_mechanic": "Friends-style paired labels abstracted into original Aachu/Zuv moments; do not copy Friends frames, actors, blocking, sets, or exact references."
+  },
+  "output_contract": {
+    "instagram_post": "final/slide-XX.png",
+    "reels_stories": "final-reels-stories/slide-XX.png",
+    "native_generation_required": true,
+    "no_cross_aspect_resize": true,
+    "slide_count": 8
+  },
+  "source_references": {
+    "format_reference_package": "output/carousels/2026-05-23/some-couples-come-with-private-captions",
+    "rejected_contact_sheet": "output/carousels/2026-05-23/some-couples-come-with-private-captions/final-model-native-v3-contact-sheet.jpg",
+    "house_style_references": [
+      "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+      "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+      "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+    ],
+    "identity_references": [
+      "output/carousels/2026-05-24/some-couples-come-with-private-captions-final/identity-face-contact-sheet.jpg",
+      "identity_images/aachu_zuv.png",
+      "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+    ]
+  },
+  "artifact_map": {
+    "source_memory": "source-memory-brief.json",
+    "concept_selection": "concept-selection.json",
+    "story_director": "story-director-lock.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "performance_autopsy_gate": "performance-autopsy-gate.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "qa": "visual-qa.md",
+    "audit": "final-audit.json"
+  }
+}

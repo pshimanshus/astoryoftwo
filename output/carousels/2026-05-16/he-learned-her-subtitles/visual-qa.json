@@ -1,0 +1,45 @@
+{
+  "status": "PASS_WITH_NOTES",
+  "reviewed_artifacts": [
+    "final/contact-sheet.png",
+    "final/slide-01.png",
+    "final/slide-02.png",
+    "final/slide-03.png",
+    "final/slide-04.png",
+    "final/slide-05.png"
+  ],
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "All five final slides match the storyboard beat and emotional role."
+    },
+    "aachu_face": {
+      "pass": true,
+      "evidence": "Aachu retains long dark hair, pink-tinted glasses, expressive face, white wrap top, and dramatic-soft posture from the identity reference."
+    },
+    "zuv_face": {
+      "pass": true,
+      "evidence": "Zuv retains dark wavy hair, calm smile, blue shirt, and patient body language from the identity reference."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "White top / denim for Aachu and light-blue shirt / grey trousers for Zuv remain consistent across slides."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm paper, imperfect black outlines, matte color, and hand-drawn lettering match the reference storybook style."
+    },
+    "model_native_text": {
+      "pass": true,
+      "evidence": "Main slide copy and @a.storyof.two brandmark are rendered inside the generated artwork. Slide 3 capitalizes the quoted phrase in the main headline."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "final/slide-01.png through final/slide-05.png exist at 1080x1350."
+    }
+  },
+  "notes": [
+    "Slide 3 renders the quoted Hinglish phrase as `Kuch nahi` in the main headline while the speech bubble uses `kuch nahi`.",
+    "Slide 5 includes a tiny shirt-mark detail inherited from the identity reference."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "routes": [
+    {
+      "id": "R1",
+      "name": "Illustrated Relationship Artifacts",
+      "relationship_truth": "Some love does not keep score; it learns the other person's tiny operating system.",
+      "aachu_spark": "She has preferences, rules, dramatic edits, and private phrase-world energy.",
+      "zuv_role": "He actively changes the plan, reschedules the fight, signs the absurd slip, and joins her world.",
+      "visual_system": "Drawn artifact archive in @a.storyof.two house style.",
+      "story_selling_score": 29.4,
+      "golden_theme_score": 29.0,
+      "decision": "SELECT"
+    },
+    {
+      "id": "R2",
+      "name": "Photoreal Artifact Collage",
+      "relationship_truth": "Real photos as evidence of playful surrender.",
+      "aachu_spark": "Private phrase as real-photo proof.",
+      "zuv_role": "He appears in photo insets as the person who agrees.",
+      "visual_system": "Photo cutouts, IDs, and realistic artifact surfaces.",
+      "story_selling_score": 24.0,
+      "golden_theme_score": 22.5,
+      "decision": "REJECT",
+      "reason": "Creator rejected this visual direction; it makes face matching the product and loses the house illustration style."
+    },
+    {
+      "id": "R3",
+      "name": "Literal Romantic Story",
+      "relationship_truth": "He chooses her in everyday scenes.",
+      "aachu_spark": "She changes plans and he follows.",
+      "zuv_role": "He stays patient in a normal scene sequence.",
+      "visual_system": "Six linear Aachu/Zuv scenes.",
+      "story_selling_score": 26.0,
+      "golden_theme_score": 26.5,
+      "decision": "REJECT",
+      "reason": "Too safe and too story-like; creator asked for each slide to work as an artifact."
+    },
+    {
+      "id": "R4",
+      "name": "Minimal Quote Cards",
+      "relationship_truth": "A clean quote series about acceptance.",
+      "aachu_spark": "Mostly implied through text.",
+      "zuv_role": "Mostly implied through text.",
+      "visual_system": "Low-detail paper cards with type.",
+      "story_selling_score": 21.0,
+      "golden_theme_score": 20.0,
+      "decision": "REJECT",
+      "reason": "Too generic and not visually boundary-pushing."
+    },
+    {
+      "id": "R5",
+      "name": "Absurd Legal Romance",
+      "relationship_truth": "Love as mock paperwork.",
+      "aachu_spark": "She sets playful household rules.",
+      "zuv_role": "He signs and amends the rules.",
+      "visual_system": "Every slide as contract/legal paperwork.",
+      "story_selling_score": 27.0,
+      "golden_theme_score": 26.0,
+      "decision": "REJECT_BUT_BORROW",
+      "reason": "One motif repeated across all slides would get stale; borrow only Slide 4 terms slip."
+    }
+  ],
+  "selector_verdict": "R1 wins because it preserves the user's artifact concept, keeps the phrase-world intact, and still proves active Zuv choice through varied visual receipts.",
+  "decision": "GO"
+}

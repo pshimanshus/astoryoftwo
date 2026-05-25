@@ -1,0 +1,51 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Python / test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# macOS / editor noise
+.DS_Store
+*.swp
+*.swo
+
+# Local scratch
+tmp/
+data/checkpoints/
+
+# Large or sensitive media/reference assets
+identity_images/
+draft_videos/
+corpus/media/
+corpus/raw/
+
+# Generated image/video outputs. Keep lightweight reports and package metadata.
+output/carousels/**/*.png
+output/carousels/**/*.jpg
+output/carousels/**/*.jpeg
+output/carousels/**/*.webp
+output/carousels/**/*.gif
+output/carousels/**/*.mp4
+output/carousels/**/final/
+output/carousels/**/final-reels-stories/
+output/carousels/**/final-with-text/
+output/carousels/**/codex-image-prompts/**/*.png
+output/carousels/**/codex-image-prompts/**/*.jpg
+output/carousels/**/codex-image-prompts/**/*.jpeg
+output/generated-sources/
+output/reference-contact-sheets/
+output/wallpapers/
+
+# Generated diagnostics/log churn can be recreated, but selected docs may be promoted manually.
+logs/

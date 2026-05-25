@@ -1,0 +1,37 @@
+{
+  "status": "PASS_WITH_NOTES",
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "Slides 1-5 match the bad-workday-to-home emotional arc and the approved storyboard beats."
+    },
+    "aachu_face": {
+      "pass": true,
+      "evidence": "Aachu uses the loaded identity references: long dark hair, expressive eyes and brows, soft oval/round face, warm smile, white shirt, red bag/shoes continuity details."
+    },
+    "zuv_face": {
+      "pass": true,
+      "evidence": "Zuv uses the loaded identity references: high-volume dark hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, light blue/white shirt, grey trousers."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Workday shirt/trousers, Aachu white shirt, red bag/shoes, chai, keys, laptop, and home objects stay consistent with the story and selected references."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "All slides use the same warm cream-paper, hand-drawn desi storybook illustration style."
+    },
+    "model_native_text": {
+      "pass": true,
+      "evidence": "Each final slide contains the model-rendered slide copy and the @a.storyof.two brandmark inside the artwork."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "final/slide-01.png through final/slide-05.png exist at 1080x1350."
+    }
+  },
+  "notes": [
+    "Final 4:5 exports use contain-on-paper normalization so text and brandmark are preserved.",
+    "Human identity approval is still recommended before posting because face likeness is the highest-stakes creative requirement."
+  ]
+}

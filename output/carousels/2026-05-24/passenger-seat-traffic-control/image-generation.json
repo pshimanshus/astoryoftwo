@@ -1,0 +1,250 @@
+{
+  "status": "PARTIAL_PROOF_GENERATED",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "native_output_contract": {
+    "formats": [
+      "instagram_post",
+      "reels_stories"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "reels_stories_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image."
+  },
+  "prompt_dir": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts",
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure.",
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "He didn't marry a quiet passenger. He married mission control.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-01.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-01.md",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/reels-stories/slide-01.md"
+      },
+      "expected_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-01.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-01.png",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/final-reels-stories/slide-01.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg",
+        "identity_images/aachu_zuv.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "Maps said left in 300 meters.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-02.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-02.md",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/reels-stories/slide-02.md"
+      },
+      "expected_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-02.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-02.png",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/final-reels-stories/slide-02.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg",
+        "identity_images/aachu_zuv.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 3,
+      "copy": "She said, \"LEFT-LEFT-LEFT now.\"",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-03.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-03.md",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/reels-stories/slide-03.md"
+      },
+      "expected_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-03.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-03.png",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/final-reels-stories/slide-03.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg",
+        "identity_images/aachu_zuv.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 4,
+      "copy": "Her foot found the invisible brake.",
+      "status": "proof_generated_instagram_post",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-04.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-04.md",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/reels-stories/slide-04.md"
+      },
+      "expected_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-04.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-04.png",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/final-reels-stories/slide-04.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg",
+        "identity_images/aachu_zuv.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ],
+      "generated_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-04.png"
+      },
+      "source_provenance": {
+        "instagram_post": "/Users/himanshusharma/.codex/generated_images/019e595e-63ef-7042-a35d-d674fc7ad785/ig_06567b36667b1172016a12d670829c81919444c09be5d82977.png"
+      },
+      "model_native_source": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/model-native-source/instagram-post-slide-04.png"
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "The AC had a committee.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-05.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-05.md",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/reels-stories/slide-05.md"
+      },
+      "expected_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-05.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-05.png",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/final-reels-stories/slide-05.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg",
+        "identity_images/aachu_zuv.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 6,
+      "copy": "He still asked, \"Captain, next?\"",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-06.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-06.md",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/reels-stories/slide-06.md"
+      },
+      "expected_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-06.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-06.png",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/final-reels-stories/slide-06.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg",
+        "identity_images/aachu_zuv.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    },
+    {
+      "slide": 7,
+      "copy": "Maybe love is one steering wheel and two opinions.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-07.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/instagram-post/slide-07.md",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/codex-image-prompts/reels-stories/slide-07.md"
+      },
+      "expected_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-07.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-07.png",
+        "reels_stories": "output/carousels/2026-05-24/passenger-seat-traffic-control/final-reels-stories/slide-07.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg",
+        "identity_images/aachu_zuv.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+      ]
+    }
+  ],
+  "proof_generation": {
+    "slide": 4,
+    "format": "instagram_post",
+    "status": "proof_generated",
+    "source": "/Users/himanshusharma/.codex/generated_images/019e595e-63ef-7042-a35d-d674fc7ad785/ig_06567b36667b1172016a12d670829c81919444c09be5d82977.png",
+    "packaged_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/slide-04.png",
+    "model_native_source": "output/carousels/2026-05-24/passenger-seat-traffic-control/final/model-native-source/instagram-post-slide-04.png",
+    "proof_file": "output/carousels/2026-05-24/passenger-seat-traffic-control/proofs/instagram-post-slide-04-proof-01.png",
+    "actual_dimensions": "977x1610"
+  }
+}

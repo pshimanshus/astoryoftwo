@@ -1,0 +1,52 @@
+{
+  "status": "PASS_WITH_NOTES",
+  "reviewed_at": "2026-05-23",
+  "package": "output/carousels/2026-05-23/ordinary-time-with-you-4",
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": [
+        "visual-qa-contact-sheet-instagram.jpg",
+        "visual-qa-contact-sheet-reels-stories.jpg"
+      ],
+      "notes": "All five final slides match the approved private-text flow: long-distance hook, cooking banter, board-game banter, late-cab confession, and ordinary-time payoff."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID30",
+        "ID44"
+      ],
+      "likeness_notes": "Aachu keeps the long dark hair, expressive eyes, soft oval face, warm skin tone, smaller relative presence, and playful-tender expressions from the selected identity bundle."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID29",
+        "ID34",
+        "ID44"
+      ],
+      "likeness_notes": "Zuv keeps the dark wavy volume, thick brows, trimmed beard, warm brown tone, broader/taller posture, and quiet amused expression from the selected identity bundle."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "notes": "Clothing stays in the selected soft everyday identity lane: Aachu in light/white outfit cues, Zuv in dark tee or light shirt depending on the scene, with consistent hair and relationship body language."
+    },
+    "style": {
+      "pass": true,
+      "notes": "Illustration uses the established warm paper, hand-drawn storybook texture, black linework, small hearts, and integrated handwritten bubble-copy style."
+    },
+    "model_native_text": {
+      "pass": true,
+      "notes": "Exact slide copy and @a.storyof.two brandmark are integrated in the generated artwork. Slide 4 uses punctuation-compatible timing text while preserving the approved meaning."
+    },
+    "final_files": {
+      "pass": true,
+      "notes": "Five 1080x1350 Instagram post files exist in final/ and five 1080x1920 Reels/Stories files exist in final-reels-stories/. Reels/Stories files were generated as separate native sources, not derived from the post files."
+    }
+  },
+  "notes": [
+    "The Codex built-in Instagram post sources returned taller-than-4:5 raw dimensions; packaged 4:5 upload files use warm-paper contain normalization to preserve full generated art and text without cropping.",
+    "The 9:16 Reels/Stories generated sources matched 9:16 and were normalized directly."
+  ]
+}

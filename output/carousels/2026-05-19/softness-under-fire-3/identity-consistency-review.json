@@ -1,0 +1,122 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "status": "PASS",
+  "identity_references": [
+    "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+    "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (3).jpeg"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "He didn't marry someone who says everything gently.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 1,
+        "identity_references": [
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (3).jpeg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (recognition) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "\"Don't touch me\" still held his sleeve.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 2,
+        "identity_references": [
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (3).jpeg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (contradictory softness) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "\"Be safe\" came out like a warning.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 3,
+        "identity_references": [
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (3).jpeg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (protective worry) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "So he heard the hurt underneath.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 4,
+        "identity_references": [
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (3).jpeg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (active understanding) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "Maybe love is softness under fire.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 5,
+        "identity_references": [
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+          "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (3).jpeg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (tender acceptance) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    }
+  ],
+  "issues": []
+}

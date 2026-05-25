@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIRED_LOCKED",
+  "selected_visual_system": "Soft Storybook Phrase-World Scenes",
+  "why_this_wins": "Creator corrected that the artifact prompt style was not @a.storyof.two. The repaired system keeps the phrase-world but returns to accepted full-scene illustrated house style.",
+  "style_contract": {
+    "must_feel_like": [
+      "accepted @a.storyof.two soft hand-drawn desi storybook scenes",
+      "expressive recurring Aachu/Zuv illustrated faces",
+      "warm off-white paper texture",
+      "imperfect black linework",
+      "muted matte colors",
+      "handwritten-style copy inside negative space",
+      "tiny low-contrast @a.storyof.two brandmark"
+    ],
+    "must_not_feel_like": [
+      "artifact-first poster system",
+      "stationery/receipt/label carousel",
+      "photoreal social screenshot",
+      "pasted-photo scrapbook collage",
+      "generic Indian couple stock art",
+      "Scrawled Stories clone"
+    ]
+  },
+  "scene_rules": [
+    "Every slide is a full illustrated Aachu/Zuv scene.",
+    "The phrase-world may appear as handwritten text, small notes, or tiny doodles integrated into the scene.",
+    "Aachu/Zuv body language must carry the story proof.",
+    "Zuv must look actively choosing, not defeated or cornered."
+  ],
+  "supersedes": "Illustrated Relationship Artifacts / drawn artifact surface lock"
+}

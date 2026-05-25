@@ -1,0 +1,97 @@
+{
+  "date": "2026-05-19",
+  "slug": "main-kar-lungi",
+  "title": "Main Kar Lungi",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "draft_for_human_review",
+  "source_story": "Selected B concept: Main kar lungi. Translation: don't go far. She wanted to do it herself. He helped like it was nothing. Maybe love is care without making a scene. Visual repair: Crowded Crossing, Soft Buffer. Use body-position care in a public crowd, not cafe/gate/bag/object help. Aachu leads; Zuv creates private clearance from the traffic side so she keeps the win.",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 5,
+    "recommended_aspect_ratio": "4:5",
+    "recommended_size": "1080x1350",
+    "hd_master_size": "2160x2700"
+  },
+  "reference_images": [],
+  "identity_references": [
+    {
+      "path": "identity_images/aachu_zuv.png",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.29.47.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.31.34.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    }
+  ],
+  "identity_reference_selection": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-05-19/main-kar-lungi/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-05-19/main-kar-lungi/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-05-19/main-kar-lungi/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "artifacts": {
+    "concept": "concept.json",
+    "visual_debate": "visual-debate.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "intake_reviewer",
+      "story_reviewer",
+      "arc_reviewer",
+      "visual_reviewer",
+      "identity_consistency_reviewer",
+      "prompt_reviewer",
+      "copy_reviewer",
+      "asset_reviewer",
+      "wiki_learning_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": "visual-qa.md",
+      "identity_consistency_review": "identity-consistency-review.json",
+      "visual_debate": "visual-debate.json"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "winner": "Full Story Listener",
+  "winner_score": 29,
+  "threshold": "28/30",
+  "source_memory": [
+    "wiki/themes/calm-enough-for-chaos.md",
+    "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md",
+    "memory/semantic/carousel-idea-preferences.md"
+  ],
+  "excluded_lanes": [
+    "food denial",
+    "apology with attitude",
+    "quiet route",
+    "overthinking/reassurance",
+    "photo-first glow"
+  ],
+  "candidates": [
+    {
+      "name": "Full Story Listener",
+      "universal_truth": "Some people love you by making room for the full version.",
+      "aachu_proof": "dramatic incident retelling with gestures, side plots, and timeline loops",
+      "zuv_role": "phone down, leaning in, listening like it matters",
+      "save_share_thesis": "Love stays for the full story.",
+      "total": 29,
+      "decision": "GO"
+    },
+    {
+      "name": "The Side Plot Lover",
+      "universal_truth": "Some partners do not simplify your tangents; they learn them.",
+      "aachu_proof": "three floating side plots",
+      "zuv_role": "tracks every branch with amused patience",
+      "save_share_thesis": "Love follows the tangent too.",
+      "total": 27.5,
+      "decision": "REPAIR"
+    },
+    {
+      "name": "Phone Down Love",
+      "universal_truth": "Attention is romantic when the story is long.",
+      "aachu_proof": "full reenactment",
+      "zuv_role": "phone face-down and body turned toward her",
+      "save_share_thesis": "Love is undivided attention.",
+      "total": 28,
+      "decision": "GO"
+    },
+    {
+      "name": "No Short Version",
+      "universal_truth": "The right person does not ask you to shrink the story.",
+      "aachu_proof": "animated timeline only she understands",
+      "zuv_role": "stays soft and follows along",
+      "save_share_thesis": "Love does not ask for the short version.",
+      "total": 28.5,
+      "decision": "GO"
+    },
+    {
+      "name": "The Whole Incident",
+      "universal_truth": "Some people bring the whole incident back alive.",
+      "aachu_proof": "performance, mini-scenes, reaction marks",
+      "zuv_role": "quiet audience who makes the stage safe",
+      "save_share_thesis": "Love gives your drama a safe audience.",
+      "total": 28,
+      "decision": "GO"
+    }
+  ],
+  "selector_verdict": "Full Story Listener wins because it has the strongest tag-your-partner mirror, the clearest Zuv active role, and a final line that directly follows from the proof trail.",
+  "calm_enough_connection": "Preserves the gold machine by turning Aachu’s expressive storytelling into value and Zuv’s calm attention into active love."
+}

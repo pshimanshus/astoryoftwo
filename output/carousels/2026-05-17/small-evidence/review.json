@@ -1,0 +1,21 @@
+{
+  "status": "draft_review",
+  "scorecard": {
+    "story_specificity": 4,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 4,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 4,
+    "emotional_payoff": 4,
+    "channel_voice_fit": 4,
+    "absence_of_generic_couple_content": 4
+  },
+  "total": 32,
+  "max": 40,
+  "pass": true,
+  "issues": [
+    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
+    "Use Codex chat or an external image model for fully generative illustrated art."
+  ],
+  "required_changes_before_image_generation": []
+}

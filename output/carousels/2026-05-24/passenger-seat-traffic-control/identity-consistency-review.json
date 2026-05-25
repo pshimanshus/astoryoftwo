@@ -1,0 +1,22 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "status": "PASS",
+  "identity_references": [
+    "identity_images/aachu_zuv.png",
+    "output/carousels/2026-05-24/passenger-seat-traffic-control/identity-face-contact-sheet.jpg"
+  ],
+  "slides": [
+    {"slide": 1, "copy": "He didn't marry a quiet passenger. He married mission control.", "checks": {"face_structure": true, "facial_expression": true, "clothing": true, "cross_slide_consistency": true, "identity_references_attached": true}},
+    {"slide": 2, "copy": "Maps said left in 300 meters.", "checks": {"face_structure": true, "facial_expression": true, "clothing": true, "cross_slide_consistency": true, "identity_references_attached": true}},
+    {"slide": 3, "copy": "She said, \"LEFT-LEFT-LEFT now.\"", "checks": {"face_structure": true, "facial_expression": true, "clothing": true, "cross_slide_consistency": true, "identity_references_attached": true}},
+    {"slide": 4, "copy": "Her foot found the invisible brake.", "checks": {"face_structure": true, "facial_expression": true, "clothing": true, "cross_slide_consistency": true, "identity_references_attached": true}},
+    {"slide": 5, "copy": "The AC had a committee.", "checks": {"face_structure": true, "facial_expression": true, "clothing": true, "cross_slide_consistency": true, "identity_references_attached": true}},
+    {"slide": 6, "copy": "He still asked, \"Captain, next?\"", "checks": {"face_structure": true, "facial_expression": true, "clothing": true, "cross_slide_consistency": true, "identity_references_attached": true}},
+    {"slide": 7, "copy": "Maybe love is one steering wheel and two opinions.", "checks": {"face_structure": true, "facial_expression": true, "clothing": true, "cross_slide_consistency": true, "identity_references_attached": true}}
+  ],
+  "identity_lock": {
+    "Aachu": "long dark hair, expressive eyes and brows, warm fair-medium skin, soft oval/round face, playful dramatic energy, petite presence relative to Zuv",
+    "Zuv": "dark wavy hair, thick brows, warm brown skin, rounded/oval smiling face, trimmed beard and mustache, calm grounded expression, broader build relative to Aachu"
+  },
+  "issues": []
+}

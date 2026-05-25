@@ -1,0 +1,93 @@
+{
+  "agent": "Identity/Visual QA",
+  "status": "PASS",
+  "reviewed_outputs": {
+    "instagram_post_contact_sheet": "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/visual-qa-contact-sheet-instagram.jpg",
+    "reels_stories_contact_sheet": "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/visual-qa-contact-sheet-reels.jpg",
+    "instagram_post_files": [
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final/slide-01.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final/slide-02.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final/slide-03.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final/slide-04.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final/slide-05.png"
+    ],
+    "reels_stories_files": [
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final-reels-stories/slide-01.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final-reels-stories/slide-02.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final-reels-stories/slide-03.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final-reels-stories/slide-04.png",
+      "output/carousels/2026-05-19/he-married-i-m-not-hungry-2/final-reels-stories/slide-05.png"
+    ]
+  },
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "notes": "All five final slides follow the planned food-denial arc: refusal, one bite, best bite, extra order, and known-order payoff."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID36",
+        "ID37"
+      ],
+      "likeness_notes": "Long dark hair, soft oval/round face, expressive brows and eyes, fuller lips, playful dramatic smile, and red-coral restaurant outfit track the selected ID36/ID37 references."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID39",
+        "ID43"
+      ],
+      "likeness_notes": "Dark wavy hair volume, thick brows, trimmed beard and mustache, rounded/oval face, calm amused expression, white/cream top, black watch, and chain track the selected ID39/ID43 references."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "notes": "Aachu stays in the red-coral printed sleeveless top and blue jeans; Zuv stays in the white/cream zip-collar restaurant top and dark trousers across both native formats."
+    },
+    "style": {
+      "pass": true,
+      "notes": "The finals use a consistent warm-paper, hand-drawn desi storybook illustration style across the carousel and story outputs."
+    },
+    "model_native_text": {
+      "pass": true,
+      "notes": "The slide text is rendered inside the artwork with the intended small brandmark treatment."
+    },
+    "final_files": {
+      "pass": true,
+      "notes": "Five 1080x1350 Instagram post files and five separate 1080x1920 Reels/Stories files exist after native-source packaging."
+    }
+  },
+  "slide_checks": [
+    {
+      "slide": 1,
+      "pass": true,
+      "copy": "He married \"I'm not hungry.\"",
+      "storyboard_match": "Menu-push refusal beat is clear, with Zuv responding softly."
+    },
+    {
+      "slide": 2,
+      "pass": true,
+      "copy": "Then she took one bite.",
+      "storyboard_match": "Aachu reaches across while Zuv offers the plate instead of guarding it."
+    },
+    {
+      "slide": 3,
+      "pass": true,
+      "copy": "Then the best bite.",
+      "storyboard_match": "The fork/best-bite proof beat is clear and playful."
+    },
+    {
+      "slide": 4,
+      "pass": true,
+      "copy": "So he orders extra now.",
+      "storyboard_match": "Zuv's extra-order action is visible through the waiter/counter gesture."
+    },
+    {
+      "slide": 5,
+      "pass": true,
+      "copy": "Love knows your order anyway.",
+      "storyboard_match": "The two-plates payoff closes on being known rather than keeping score."
+    }
+  ],
+  "issues": []
+}

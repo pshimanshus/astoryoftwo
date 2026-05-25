@@ -1,0 +1,137 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "status": "PASS",
+  "identity_references": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "Some wives don't ask. They audit wallets.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 1,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (instant comic recognition) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "She said, \"bas 500.\"",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 2,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (mischievous innocence) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "Then checked the backup pocket.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 3,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (playful escalation) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "He saw. He pretended to sleep.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 4,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (active fond complicity) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "By morning, he kept extra there.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 5,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (quiet care) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "Love is when your nonsense has a budget.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 6,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (taggable tenderness) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    }
+  ],
+  "issues": []
+}

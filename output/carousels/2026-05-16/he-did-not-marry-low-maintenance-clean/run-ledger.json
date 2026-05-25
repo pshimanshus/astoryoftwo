@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "observer": {
+    "agent": "C0.5-Jarvis",
+    "role": "Track whether the rebuild fixed the prior creative-source failure."
+  },
+  "run": {
+    "date": "2026-05-16",
+    "title": "He Did Not Marry Low Maintenance",
+    "slug": "he-did-not-marry-low-maintenance-clean",
+    "channel": "@a.storyof.two",
+    "pipeline": "C-layer illustrated carousel",
+    "runtime": "codex_native_manual_rebuild",
+    "output_dir": "output/carousels/2026-05-16/he-did-not-marry-low-maintenance-clean"
+  },
+  "requirements": [
+    {
+      "id": "REQ-CREATIVE-BRIEF-001",
+      "label": "Creative brief is the source of truth before JSON exports",
+      "status": "PASS",
+      "evidence": "creative-brief.md"
+    },
+    {
+      "id": "REQ-IDENTITY-ONLY-001",
+      "label": "Identity image is used only for face consistency",
+      "status": "PASS",
+      "evidence": "manifest.json, prompt-pack.json, slides.json"
+    },
+    {
+      "id": "REQ-NO-FAKE-PHOTO-001",
+      "label": "Package does not pretend identity image is a story image",
+      "status": "PASS",
+      "evidence": "source_story_images is empty"
+    },
+    {
+      "id": "REQ-FINAL-IMAGES-001",
+      "label": "Final model-native slides exist in final/",
+      "status": "PASS",
+      "evidence": "final/slide-01.png through final/slide-05.png; final-images.json complete"
+    }
+  ],
+  "final_gate": {
+    "status": "PASS_WITH_NOTES",
+    "pass": true,
+    "notes": [
+      "Creative package is complete with final generated slides.",
+      "Carousel remains concept-led because no story photos were supplied."
+    ]
+  }
+}

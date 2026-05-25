@@ -1,0 +1,77 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "status": "NEEDS_FIXES",
+  "identity_references": [
+    "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.31.05.jpeg",
+    "identity_images/aachu_zuv.png"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "Some moods change mid-walk.",
+      "checks": {
+        "face_structure": false,
+        "facial_expression": false,
+        "clothing": false,
+        "cross_slide_consistency": false,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {}
+    },
+    {
+      "slide": 2,
+      "copy": "She feels everything fully.",
+      "checks": {
+        "face_structure": false,
+        "facial_expression": false,
+        "clothing": false,
+        "cross_slide_consistency": false,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {}
+    },
+    {
+      "slide": 3,
+      "copy": "Her hand still reaches.",
+      "checks": {
+        "face_structure": false,
+        "facial_expression": false,
+        "clothing": false,
+        "cross_slide_consistency": false,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {}
+    },
+    {
+      "slide": 4,
+      "copy": "He slows the world down.",
+      "checks": {
+        "face_structure": false,
+        "facial_expression": false,
+        "clothing": false,
+        "cross_slide_consistency": false,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {}
+    },
+    {
+      "slide": 5,
+      "copy": "Love keeps pace.",
+      "checks": {
+        "face_structure": false,
+        "facial_expression": false,
+        "clothing": false,
+        "cross_slide_consistency": false,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {}
+    }
+  ],
+  "issues": [
+    "This package was generated before the C3.5 identity gate existed.",
+    "Slide prompts do not include the required Identity continuity lock.",
+    "Existing final images were visually inspected and should not be treated as identity-approved final art."
+  ]
+}

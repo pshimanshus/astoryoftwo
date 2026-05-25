@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIR",
+  "decision": "BLOCK_GENERATION",
+  "can_generate": false,
+  "lane": "Golden Wallet Audit Love",
+  "winner": "Airy Behavioral Receipts",
+  "rejected_visual_patterns": [
+    "He Pretended To Sleep Closeups"
+  ],
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "Some wives don't ask. They audit wallets.",
+      "status": "REPAIR",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "no_losing_visual_option_leak": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": false
+      },
+      "issues": [
+        "Slide 1 has theft/financial-control risk terms: crime."
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "She said, \"bas 500.\"",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "no_losing_visual_option_leak": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Then checked the backup pocket.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": false,
+        "no_losing_visual_option_leak": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "He saw. He pretended to sleep.",
+      "status": "REPAIR",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": false,
+        "no_losing_visual_option_leak": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": false
+      },
+      "issues": [
+        "Slide 4 has theft/financial-control risk terms: angry, helpless."
+      ]
+    },
+    {
+      "slide": 5,
+      "copy": "By morning, he kept extra there.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "no_losing_visual_option_leak": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "Love is when your nonsense has a budget.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "no_losing_visual_option_leak": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [
+    "Slide 1 has theft/financial-control risk terms: crime.",
+    "Slide 4 has theft/financial-control risk terms: angry, helpless."
+  ]
+}

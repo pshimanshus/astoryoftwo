@@ -1,0 +1,116 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "status": "PASS",
+  "identity_references": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "She stopped saying \"bas thoda sa.\"",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 1,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (recognition) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "Home never counted her bites.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 2,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (playful guard) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "He saved the best one for her.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 3,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (warm proof) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "Food became comfort, not calculation.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 4,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (active acceptance) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "Food was only proof.\nBas life zyada tasty ho gayi.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 5,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (affectionate payoff) while preserving the same underlying face structure across all slides.",
+        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    }
+  ],
+  "issues": []
+}

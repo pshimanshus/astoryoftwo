@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "If there was no long distance...",
+      "role": "universal hook"
+    },
+    {
+      "slide": 2,
+      "copy": "\"We should cook together.\"\n\"That's a terrible idea.\"\n\"Exactly.\"",
+      "role": "aachu-specific playful proof"
+    },
+    {
+      "slide": 3,
+      "copy": "\"Board game night?\"\n\"Only if you don't invent rules after losing.\"",
+      "role": "comic escalation"
+    },
+    {
+      "slide": 4,
+      "copy": "\"Cab is 12 minutes late.\"\n\"Best news all day.\"",
+      "role": "zuv role and emotional bridge"
+    },
+    {
+      "slide": 5,
+      "copy": "\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\"",
+      "role": "save/share thesis"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement for separate native 4:5 and 9:16 outputs."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific model-native prompt constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Chat Bubbles Become Shared Rooms",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Chat Bubbles Become Shared Rooms",
+  "why_it_wins": "Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time.",
+  "rejected_visual_patterns": [
+    "Pure Chat Screenshot"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "If there was no long distance...",
+      "visual_job": "universal hook",
+      "scene": "Aachu and Zuv are apart in two soft phone-lit corners, each holding a phone, with tiny imagined ordinary scenes beginning to appear between them; distance is the obstacle, not the aesthetic.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "\"We should cook together.\"\n\"That's a terrible idea.\"\n\"Exactly.\"",
+      "visual_job": "aachu-specific playful proof",
+      "scene": "Inside the imagined shared room from the chat, Aachu and Zuv stand at a tiny kitchen counter with flour, a messy pot, and two phones nearby; Aachu is animated about the plan and Zuv joins the bad idea with a warm amused reply.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "\"Board game night?\"\n\"Only if you don't invent rules after losing.\"",
+      "visual_job": "comic escalation",
+      "scene": "Aachu and Zuv sit across an imagined board-game table with dice, tiny colored tokens, and exaggerated competitive faces; Zuv teases gently about her invented rules while still clearly wanting the whole scene with her.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "\"Cab is 12 minutes late.\"\n\"Best news all day.\"",
+      "visual_job": "zuv role and emotional bridge",
+      "scene": "Rainy imagined pickup scene: Aachu and Zuv wait under one umbrella beside a small cab-app phone screen; instead of frustration, both look quietly relieved, and Zuv's reply admits he wants the extra minutes too.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "\"Maybe I don't miss big dates.\"\n\"Maybe I just miss wasting normal time with you.\"",
+      "visual_job": "save/share thesis",
+      "scene": "Final warm-paper room where the earlier kitchen, board-game, and cab icons soften into one ordinary shared evening; Aachu and Zuv sit close with phones lowered, proving the point is not the plans but wanting normal time together.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 4:5 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "soft hand-drawn desi storybook illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

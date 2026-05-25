@@ -1,0 +1,69 @@
+{
+  "status": "GO",
+  "decision": "Use the lived-in home love-receipt visual system: food is shown as evidence of safety and care, not as body commentary.",
+  "selected_visual_system": "Lived-In Home Becomes A Love Receipt",
+  "copy_lock": [
+    "She stopped saying \"bas thoda sa.\"",
+    "Home never counted her bites.",
+    "He saved the best one for her.",
+    "Food became comfort, not calculation.",
+    "Food was only proof.\nBas life zyada tasty ho gayi."
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Lived-In Home Becomes A Love Receipt",
+      "score": 29,
+      "case_for": "Keeps the emotional proof inside home and shows Zuv making comfort normal without turning the idea into a food-only gag.",
+      "risk": "Can repeat if every slide uses the same plate/table framing.",
+      "repair": "Vary kitchen, couch, close proof beat, phone-down comfort beat, and late-night payoff."
+    },
+    {
+      "name": "Restaurant Date Montage",
+      "score": 23,
+      "case_for": "Food reads quickly and can look attractive.",
+      "risk": "Too generic, too food-forward, and less tied to the relationship truth.",
+      "verdict": "REJECTED"
+    },
+    {
+      "name": "Body-Transformation Joke",
+      "score": 9,
+      "case_for": "The original number line has sharp contrast.",
+      "risk": "Unsafe and not aligned with the affectionate @a.storyof.two voice.",
+      "verdict": "REJECTED"
+    }
+  ],
+  "rejected_visual_patterns": [
+    "weighing scales",
+    "before-after body framing",
+    "calorie or diet notes",
+    "restaurant-only carousel",
+    "Zuv appearing to monitor, permit, or reward food"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "visual_job": "Hook the old hesitation without showing body comparison.",
+      "scene": "Kitchen counter, Aachu softening from hesitation into being cared for."
+    },
+    {
+      "slide": 2,
+      "visual_job": "Show home as a no-counting place.",
+      "scene": "Couch and shared low-table plate, no tally marks or counting cues."
+    },
+    {
+      "slide": 3,
+      "visual_job": "Make Zuv's care visible through the saved best bite.",
+      "scene": "Closer plate proof beat with the best bite quietly nudged her way."
+    },
+    {
+      "slide": 4,
+      "visual_job": "Show comfort replacing calculation through action.",
+      "scene": "Zuv starts eating with her first, plate closer, phone face-down."
+    },
+    {
+      "slide": 5,
+      "visual_job": "Land the tastier-life payoff as a love receipt.",
+      "scene": "Late-night cozy home snack, shared laughter, moonlit room."
+    }
+  ]
+}

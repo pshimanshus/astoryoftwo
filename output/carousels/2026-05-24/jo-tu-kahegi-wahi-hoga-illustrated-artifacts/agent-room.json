@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "room": "Continuous Carousel Agent Room",
+  "date": "2026-05-24",
+  "brief": "Repair the jo-tu-kahegi-wahi-hoga package at the base style level after creator corrected that artifact prompts were not @a.storyof.two.",
+  "lanes": [
+    {
+      "agent": "Storyline Architect",
+      "verdict": "GO",
+      "keep": "The private Hinglish phrase is the hook; the story is chosen participation, not obedience.",
+      "cut": "Do not turn the deck into generic patience or a literal day-in-the-life without the phrase-world."
+    },
+    {
+      "agent": "India/On-Ground Culture Strategist",
+      "verdict": "GO",
+      "keep": "Everyday Indian couple banter, plan changes, route/food/timing decisions, and theek-hai energy.",
+      "cut": "Old-school biwi-ka-hukum jokes and defeated-husband comedy."
+    },
+    {
+      "agent": "Visual Director",
+      "verdict": "GO_WITH_PROOF_GATE",
+      "keep": "Soft Storybook Phrase-World Scenes: full Aachu/Zuv illustrated scenes with handwritten text in negative space.",
+      "cut": "Artifact-first poster, register, slip, scoreboard, label, or stationery surfaces."
+    },
+    {
+      "agent": "Contrarian Critic",
+      "verdict": "REPAIR_COMPLETED",
+      "keep": "Zuv must show visible agency on every slide; Aachu stays expressive and lovable.",
+      "cut": "Bossy-wife, passive-husband, perfect-boyfriend brag, generic AI romance."
+    },
+    {
+      "agent": "Copy Chief",
+      "verdict": "GO",
+      "keep": "Preserve the locked six lines for this repair pass.",
+      "cut": "No public Aachu/Zuv names and no explanatory slide paragraphs."
+    },
+    {
+      "agent": "Final Selector",
+      "verdict": "GO",
+      "selected_route": "Soft Storybook Phrase-World Scenes",
+      "condition": "Run one Slide 1 style proof before scaling to all 12 final native outputs."
+    }
+  ],
+  "decision": "GO",
+  "generation_gate": "STYLE_PROOF_REQUIRED"
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "date": "2026-05-24",
+  "purpose": "Full corrected model-native Instagram carousel generation using reference captions and viral @a.storyof.two illustration style.",
+  "visual_style_lock": {
+    "primary_style_anchor": "Viral @a.storyof.two illustration: warm off-white paper texture, hand-drawn soft desi storybook linework, airy everyday Indian street/home context, expressive Aachu/Zuv body language, strong white/blue/red outfit identity, tiny @a.storyof.two brandmark.",
+    "identity_anchor": "Use identity_images/aachu_zuv.png for recurring Aachu/Zuv face structure, relative proportions, outfits, and couple energy.",
+    "text_rule": "Render only the exact slide labels and the tiny @a.storyof.two brandmark. No him:/her: prefixes, no arrows, no notes, no extra decorative writing.",
+    "aspect_rule": "Instagram carousel post-first. Compose for a native 4:5 vertical portrait canvas, not 9:16 and not a screenshot crop."
+  },
+  "shared_prompt_prefix": "Use case: illustration-story. Asset type: Instagram carousel slide, 4:5 vertical portrait. Use the visible identity reference image for Aachu/Zuv likeness and outfit anchors, and use the visible proof slide as the style lock only. Create a warm off-white paper texture, hand-drawn soft desi storybook illustration with soft brown/charcoal linework, matte muted colors, subtle red/blue/green/terracotta accents, breathable negative space, and an original @a.storyof.two couple scene. Aachu has long dark hair, expressive eyes, white/light top, jeans, red bag or red shoes when suitable. Zuv has dark wavy hair, beard, light blue shirt, grey trousers, red/black shoes when suitable. Show full-body or three-quarter body where possible. The visual must prove the tiny label joke through body language before the words do. Render exact text only, readable and secondary, near the relevant person. Include tiny low-contrast @a.storyof.two bottom-right.",
+  "shared_negative_prompt": "No Friends actors, no Friends frames, no sitcom blocking, no black-and-white, no TV screenshot, no couch lineup, no coffeehouse set, no speech bubbles, no arrows, no side notes, no extra captions, no UI marks, no him: or her: prefixes, no quote card, no dull beige poster, no busy prop clutter, no generic Indian couple, no photorealism, no 3D, no anime, no glossy AI render, no text over faces/hands.",
+  "slides": [
+    {
+      "slide": 1,
+      "exact_text": ["dumber", "dumb"],
+      "prompt": "Scene: cozy home/living-room floor or doorway, Aachu and Zuv lovingly confused together while trying to fix tangled fairy lights or a small home object; both point at the wrong thing with serious confused faces. Place 'dumber' near Aachu and 'dumb' near Zuv. Make it affectionate shared silliness, not insulting."
+    },
+    {
+      "slide": 2,
+      "exact_text": ["listens", "stressed"],
+      "prompt": "Scene: warm rainy bedroom/living-room corner. Aachu is visibly stressed, curled with her phone or holding her forehead, while Zuv sits close and leans in with calm attention, one quiet hand near her knee or shoulder. Place 'stressed' near Aachu and 'listens' near Zuv."
+    },
+    {
+      "slide": 3,
+      "exact_text": ["excited", "happy she’s smiling"],
+      "prompt": "Scene: lively street-food lane or tiny dessert stall at night with soft warm lights. Aachu is animated and delighted over a tiny dessert box or small find; Zuv is watching her smile instead of the object, visibly happy because she is smiling. Place 'excited' near Aachu and 'happy she’s smiling' near Zuv."
+    },
+    {
+      "slide": 4,
+      "exact_text": ["agrees", "dislikes something"],
+      "prompt": "Scene: warm grocery aisle or small shop. Aachu is judging one random item with a clear dislike face; Zuv is already nodding seriously and putting it back on the shelf, fully on her side. Place 'dislikes something' near Aachu and 'agrees' near Zuv."
+    },
+    {
+      "slide": 5,
+      "exact_text": ["funny", "laughs"],
+      "prompt": "Scene: apartment balcony at sunset or warm home threshold. Zuv is doing a terrible reenactment or silly gesture with committed seriousness; Aachu is bent forward laughing warmly into her sleeve. Place 'funny' near Zuv and 'laughs' near Aachu."
+    },
+    {
+      "slide": 6,
+      "exact_text": ["admires her", "existed abt smth"],
+      "prompt": "Scene: train-window seat or quiet travel corner. Aachu is simply existing while excited about something small outside the window, bright-eyed and expressive; Zuv leans back with a soft private smile, admiring her. Place 'existed abt smth' near Aachu and 'admires her' near Zuv."
+    },
+    {
+      "slide": 7,
+      "exact_text": ["loves the sound of his laughter", "happy"],
+      "prompt": "Scene: quiet car ride or evening street walk. Zuv is genuinely laughing, head tilted, relaxed and happy; Aachu looks over at him with soft affection, as if his laugh is her favorite sound. Place 'happy' near Zuv and 'loves the sound of his laughter' near Aachu."
+    },
+    {
+      "slide": 8,
+      "exact_text": ["acts tough", "finds him cute"],
+      "prompt": "Scene: winter market walkway or cozy balcony evening. Zuv performatively acts tough, standing broad or pretending to be serious while holding a jacket or bag; Aachu clearly sees through it and smiles like she finds him cute. Place 'acts tough' near Zuv and 'finds him cute' near Aachu."
+    }
+  ],
+  "qa_hard_fails": [
+    "Any text besides exact slide labels and tiny @a.storyof.two brandmark.",
+    "Any him:/her: prefix.",
+    "Any Friends/sitcom visual language.",
+    "Labels unreadable or placed over faces/hands.",
+    "Aachu/Zuv not recognizable or outfit identity lost.",
+    "Zuv passive or Aachu mocked.",
+    "Scene too crowded, too dull, or too generic."
+  ]
+}

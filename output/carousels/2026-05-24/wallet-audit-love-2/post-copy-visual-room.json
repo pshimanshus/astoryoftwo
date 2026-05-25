@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "Some wives don't ask. They audit wallets.",
+      "role": "universal hook"
+    },
+    {
+      "slide": 2,
+      "copy": "She said, \"bas 500.\"",
+      "role": "aachu-specific reveal"
+    },
+    {
+      "slide": 3,
+      "copy": "Then checked the backup pocket.",
+      "role": "comic escalation"
+    },
+    {
+      "slide": 4,
+      "copy": "He saw. He pretended to sleep.",
+      "role": "zuv active role"
+    },
+    {
+      "slide": 5,
+      "copy": "By morning, he kept extra there.",
+      "role": "emotional reversal"
+    },
+    {
+      "slide": 6,
+      "copy": "Love is when your nonsense has a budget.",
+      "role": "save/share thesis"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement for separate native 4:5 and 9:16 outputs."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific model-native prompt constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Airy Behavioral Receipts",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Airy Behavioral Receipts",
+  "why_it_wins": "Airy Behavioral Receipts wins because it keeps the wallet as proof, not premise: every slide is one readable domestic action, and Zuv/Himanshu's knowing participation protects the joke from theft or financial-control readings.",
+  "rejected_visual_patterns": [
+    "He Pretended To Sleep Closeups"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "Some wives don't ask. They audit wallets.",
+      "visual_job": "universal hook",
+      "scene": "Warm ordinary bedroom or couch scene in open daylight: Aachu/Nancho enters the frame with mock-official audit energy while Zuv/Himanshu rests nearby with wallet visible; the mood is affectionate, bright, mutually understood, and playful.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "She said, \"bas 500.\"",
+      "visual_job": "aachu-specific reveal",
+      "scene": "Aachu/Nancho holds one small note with innocent bas-500 expression; Zuv/Himanshu is visible in the background with one eye open, amused and aware.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "Then checked the backup pocket.",
+      "visual_job": "comic escalation",
+      "scene": "Close comic proof beat: the wallet opens wider and Aachu/Nancho checks one backup pocket with exaggerated household-auditor seriousness; keep the cash amount tiny, no money-flex pile.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "He saw. He pretended to sleep.",
+      "visual_job": "zuv active role",
+      "scene": "Zuv/Himanshu clearly notices and chooses to participate: he gently closes his eye again with an amused half-smile and subtly points toward the real backup pocket, fully in on the bit.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "By morning, he kept extra there.",
+      "visual_job": "emotional reversal",
+      "scene": "Morning domestic frame: Zuv/Himanshu has quietly placed a little extra cash in the wallet or drawer; Aachu/Nancho notices with a tiny victorious smile and soft surprise.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "Love is when your nonsense has a budget.",
+      "visual_job": "save/share thesis",
+      "scene": "Both together in an airy warm-paper frame: Aachu/Nancho holds the tiny household budget like an official file while Zuv/Himanshu looks fondly defeated and amused; the thesis lands as shared couple language, not money drama.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 4:5 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "soft hand-drawn desi storybook illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

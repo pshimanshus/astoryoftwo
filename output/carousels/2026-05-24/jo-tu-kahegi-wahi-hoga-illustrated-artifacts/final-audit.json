@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "auditor": "C7-FinalContractAuditor",
+  "status": "BLOCKED_STYLE_PROOF_REQUIRED",
+  "pass": false,
+  "date": "2026-05-24",
+  "requirements": {
+    "concept_reset": {
+      "pass": true,
+      "evidence": "2026-05-24 package repaired to Soft Storybook Phrase-World Scenes after creator style correction."
+    },
+    "copy_locked": {
+      "pass": true,
+      "evidence": "copy.json"
+    },
+    "visual_room": {
+      "pass": true,
+      "evidence": "post-copy-visual-room.json and visual-debate.json"
+    },
+    "visual_plan_quality": {
+      "pass": true,
+      "evidence": "visual-plan-quality.json"
+    },
+    "performance_autopsy_gate": {
+      "pass": true,
+      "evidence": "performance-autopsy-gate.json"
+    },
+    "identity_preflight": {
+      "pass": true,
+      "evidence": "identity-consistency-review.json"
+    },
+    "prompt_pack": {
+      "pass": true,
+      "evidence": "prompt-pack.json"
+    },
+    "style_proof": {
+      "pass": false,
+      "evidence": "A new Slide 1 proof is required after the house-style scene reset; older artifact-style proof is not valid."
+    },
+    "final_images": {
+      "pass": false,
+      "evidence": "No six-slide native 4:5 and no separate six-slide native 9:16 final outputs exist yet."
+    },
+    "visual_qa": {
+      "pass": false,
+      "evidence": "visual-qa.md is a checklist until generated images exist."
+    },
+    "house_style_scene_consistency": {
+      "pass": true,
+      "evidence": "prompt-pack.json repaired to Soft Storybook Phrase-World Scenes."
+    }
+  },
+  "blocking_reason": "New style proof required after base style-consistency repair.",
+  "next_required_action": "Generate Slide 1 from the repaired codex-image-prompts, approve style, then generate all native 4:5 and separate native 9:16 slides."
+}

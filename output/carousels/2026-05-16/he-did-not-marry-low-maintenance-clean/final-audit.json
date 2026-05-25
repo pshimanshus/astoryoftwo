@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "auditor": "C7-Final Contract Auditor",
+  "status": "PASS_WITH_NOTES",
+  "pass": true,
+  "creative_package_pass": true,
+  "requirements": {
+    "REQ-CAROUSEL-4X5-001": {
+      "pass": true,
+      "evidence": "final/slide-01.png through final/slide-05.png exist as 1080x1350 PNGs"
+    },
+    "REQ-REELS-STORIES-9X16-001": {
+      "pass": true,
+      "evidence": "final-reels-stories/slide-01.png through final-reels-stories/slide-05.png exist as 1080x1920 PNGs"
+    },
+    "REQ-NO-STRETCH-001": {
+      "pass": true,
+      "evidence": "exports use uniform scaling, crop, or warm-paper extension only"
+    },
+    "REQ-VISUAL-QA-001": {
+      "pass": true,
+      "evidence": "visual-qa.md completed after dual-format export recreation"
+    }
+  },
+  "issues": [],
+  "notes": [
+    "Both carousel and Reels/Stories formats are now packaged.",
+    "Artwork was not stretched to fit either target format.",
+    "pipeline/stages/model_native_image_generation.py now writes both output formats for future model-native runs."
+  ]
+}

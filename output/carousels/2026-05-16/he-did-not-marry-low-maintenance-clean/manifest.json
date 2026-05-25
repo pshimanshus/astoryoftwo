@@ -1,0 +1,46 @@
+{
+  "date": "2026-05-16",
+  "slug": "he-did-not-marry-low-maintenance-clean",
+  "title": "He Did Not Marry Low Maintenance",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_manual_rebuild",
+  "status": "complete_final_images_ready",
+  "supersedes": "output/carousels/2026-05-16/he-did-not-marry-low-maintenance",
+  "rebuild_reason": "Prior package used identity image as story reference and produced template-driven JSON without a clean creative brief.",
+  "source_story": "Zuv did not marry someone low maintenance. He married Aachu's expressive, dramatic, lovable emotional weather, and he keeps choosing it with calm love.",
+  "source_story_images": [],
+  "identity_references": [
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/aachu_zuv.png",
+      "role": "face consistency only; do not copy pose, background, clothing, or event context"
+    }
+  ],
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 5,
+    "recommended_aspect_ratio": "4:5",
+    "recommended_size": "1080x1350",
+    "hd_master_size": "2160x2700"
+  },
+  "artifact_map": {
+    "creative_brief": "creative-brief.md",
+    "concept": "concept.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "storyboard": "storyboard.md",
+    "approval": "final-approval.md",
+    "agent_reports": "agent-reports.md",
+    "run_ledger": "run-ledger.json",
+    "stage_reviews": "stage-reviews.json",
+    "final_audit": "final-audit.json",
+    "wiki_update": "wiki-update.md",
+    "final_images": "final-images.json",
+    "visual_qa": "visual-qa.md",
+    "final": "final/slide-XX.png",
+    "contact_sheet": "final/contact-sheet.png"
+  }
+}

@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Never Counted Her Bites - Illustrated Browser Preview</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #fbf4e8;
+        --surface: #fffaf1;
+        --ink: #2b2520;
+        --muted: #756a5c;
+        --line: #d8c8ac;
+        --sage: #8da58d;
+        --berry: #9c4f64;
+        --gold: #d59c46;
+        --teal: #527b77;
+        --shadow: rgba(45, 34, 21, 0.16);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .shell {
+        width: min(1440px, 100%);
+        margin: 0 auto;
+        padding: 18px;
+        display: grid;
+        grid-template-columns: 270px minmax(0, 1fr) 320px;
+        gap: 16px;
+      }
+
+      .panel,
+      .stage-wrap {
+        border: 1px solid var(--line);
+        background: rgba(255, 250, 241, 0.92);
+        border-radius: 8px;
+      }
+
+      .panel {
+        padding: 14px;
+        min-width: 0;
+      }
+
+      .brand {
+        display: grid;
+        gap: 7px;
+        margin-bottom: 16px;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: var(--teal);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 24px;
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        font-size: 13px;
+        color: var(--muted);
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 10px;
+      }
+
+      .pill {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 5px 8px;
+        background: #ffffff;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1;
+      }
+
+      .slide-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .slide-button {
+        width: 100%;
+        min-height: 54px;
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        text-align: left;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        background: #ffffff;
+        border-radius: 7px;
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      .slide-button[aria-current="true"] {
+        border-color: var(--berry);
+        box-shadow: 0 0 0 2px rgba(156, 79, 100, 0.13);
+      }
+
+      .slide-num {
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #eef3ec;
+        color: #35514d;
+        font-weight: 800;
+        font-size: 12px;
+      }
+
+      .slide-copy {
+        overflow: hidden;
+        font-size: 13px;
+        line-height: 1.25;
+      }
+
+      .stage-wrap {
+        min-height: calc(100vh - 36px);
+        padding: 16px;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        gap: 12px;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .segmented,
+      .nav {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .segmented button,
+      .nav button {
+        min-height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: #ffffff;
+        color: var(--ink);
+        padding: 7px 10px;
+        cursor: pointer;
+      }
+
+      .segmented button[aria-pressed="true"] {
+        background: #263d3a;
+        border-color: #263d3a;
+        color: #fffdf8;
+      }
+
+      .stage-center {
+        display: grid;
+        place-items: center;
+        min-height: 0;
+      }
+
+      .slide-art {
+        position: relative;
+        width: min(74vh, 100%);
+        max-width: 540px;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        border: 1px solid #cdbb9e;
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 18% 14%, rgba(213, 156, 70, 0.13), transparent 24%),
+          linear-gradient(145deg, #fff8ed 0%, #f7ead7 100%);
+        box-shadow: 0 18px 45px var(--shadow);
+      }
+
+      .slide-art.story {
+        width: min(78vh, 100%);
+        max-width: 430px;
+        aspect-ratio: 9 / 16;
+      }
+
+      .copy-line {
+        position: absolute;
+        left: 34px;
+        right: 34px;
+        z-index: 10;
+        color: var(--ink);
+        font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+        font-size: clamp(23px, 3.2vw, 36px);
+        line-height: 1.05;
+        text-align: center;
+        letter-spacing: 0;
+      }
+
+      .copy-line.top {
+        top: 38px;
+      }
+
+      .copy-line.bottom {
+        bottom: 42px;
+      }
+
+      .brandmark {
+        position: absolute;
+        right: 18px;
+        bottom: 14px;
+        color: rgba(43, 37, 32, 0.48);
+        font-family: "Bradley Hand", "Comic Sans MS", "Segoe Print", cursive;
+        font-size: 13px;
+        z-index: 15;
+      }
+
+      .room {
+        position: absolute;
+        inset: 0;
+      }
+
+      .floor {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 34%;
+        background: #ebddc8;
+        border-top: 2px solid rgba(43, 37, 32, 0.14);
+      }
+
+      .counter,
+      .couch,
+      .low-table {
+        position: absolute;
+        border: 2px solid rgba(43, 37, 32, 0.7);
+        box-shadow: 0 8px 0 rgba(43, 37, 32, 0.05);
+      }
+
+      .counter {
+        left: 70px;
+        right: 70px;
+        bottom: 155px;
+        height: 58px;
+        border-radius: 8px;
+        background: #d7a75b;
+      }
+
+      .couch {
+        left: 56px;
+        right: 56px;
+        bottom: 134px;
+        height: 116px;
+        border-radius: 22px 22px 10px 10px;
+        background: #91a78f;
+      }
+
+      .low-table {
+        left: 140px;
+        right: 140px;
+        bottom: 95px;
+        height: 44px;
+        border-radius: 50%;
+        background: #b98455;
+      }
+
+      .phone {
+        position: absolute;
+        left: 47%;
+        bottom: 122px;
+        width: 38px;
+        height: 24px;
+        transform: rotate(-7deg);
+        border-radius: 5px;
+        background: #283330;
+        border: 2px solid rgba(43, 37, 32, 0.7);
+      }
+
+      .plate {
+        position: absolute;
+        left: 50%;
+        bottom: 164px;
+        width: 115px;
+        height: 52px;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: #fff7e8;
+        border: 2px solid rgba(43, 37, 32, 0.72);
+      }
+
+      .bite {
+        position: absolute;
+        width: 22px;
+        height: 20px;
+        border-radius: 50% 45% 50% 45%;
+        background: var(--gold);
+        border: 2px solid rgba(43, 37, 32, 0.62);
+      }
+
+      .bite.one {
+        left: 48%;
+        bottom: 183px;
+      }
+
+      .bite.two {
+        left: 54%;
+        bottom: 179px;
+        background: #b95f4d;
+      }
+
+      .bite.best {
+        left: 62%;
+        bottom: 187px;
+        width: 26px;
+        height: 24px;
+        background: #e4aa47;
+        box-shadow: 0 0 0 5px rgba(213, 156, 70, 0.18);
+      }
+
+      .person {
+        position: absolute;
+        bottom: 168px;
+        width: 92px;
+        height: 170px;
+        z-index: 6;
+      }
+
+      .person.aachu {
+        left: 112px;
+      }
+
+      .person.zuv {
+        right: 112px;
+      }
+
+      .head {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 58px;
+        height: 62px;
+        transform: translateX(-50%);
+        border-radius: 48% 48% 45% 45%;
+        background: #c9855a;
+        border: 2px solid rgba(43, 37, 32, 0.78);
+      }
+
+      .hair {
+        position: absolute;
+        top: -8px;
+        left: 15px;
+        width: 60px;
+        height: 31px;
+        border-radius: 50% 50% 12px 12px;
+        background: #2c2420;
+        z-index: 2;
+      }
+
+      .person.aachu .hair {
+        left: 9px;
+        width: 68px;
+        height: 42px;
+        border-radius: 50% 50% 22px 22px;
+      }
+
+      .body {
+        position: absolute;
+        top: 58px;
+        left: 50%;
+        width: 78px;
+        height: 95px;
+        transform: translateX(-50%);
+        border-radius: 32px 32px 10px 10px;
+        background: var(--berry);
+        border: 2px solid rgba(43, 37, 32, 0.78);
+      }
+
+      .person.zuv .body {
+        background: #f3efe3;
+      }
+
+      .eye {
+        position: absolute;
+        top: 28px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #2b2520;
+      }
+
+      .eye.left {
+        left: 19px;
+      }
+
+      .eye.right {
+        right: 19px;
+      }
+
+      .smile {
+        position: absolute;
+        left: 20px;
+        top: 42px;
+        width: 18px;
+        height: 8px;
+        border-bottom: 2px solid #2b2520;
+        border-radius: 0 0 18px 18px;
+      }
+
+      .arm {
+        position: absolute;
+        top: 78px;
+        width: 54px;
+        height: 14px;
+        border-radius: 999px;
+        background: #c9855a;
+        border: 2px solid rgba(43, 37, 32, 0.72);
+        z-index: 8;
+      }
+
+      .person.aachu .arm {
+        right: -18px;
+        transform: rotate(18deg);
+      }
+
+      .person.zuv .arm {
+        left: -24px;
+        transform: rotate(-18deg);
+      }
+
+      .motion {
+        position: absolute;
+        border: 2px solid var(--berry);
+        border-left: 0;
+        border-bottom: 0;
+        border-radius: 50%;
+        opacity: 0.65;
+      }
+
+      .motion.m1 {
+        left: 176px;
+        bottom: 230px;
+        width: 36px;
+        height: 24px;
+        transform: rotate(22deg);
+      }
+
+      .motion.m2 {
+        right: 180px;
+        bottom: 238px;
+        width: 42px;
+        height: 28px;
+        transform: rotate(-24deg);
+        border-color: var(--teal);
+      }
+
+      .heart {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        transform: rotate(45deg);
+        background: rgba(156, 79, 100, 0.7);
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: inherit;
+      }
+
+      .heart::before {
+        left: -8px;
+      }
+
+      .heart::after {
+        top: -8px;
+      }
+
+      .heart.h1 {
+        left: 44%;
+        bottom: 270px;
+      }
+
+      .heart.h2 {
+        right: 28%;
+        top: 190px;
+        width: 11px;
+        height: 11px;
+        opacity: 0.45;
+      }
+
+      .heart.h2::before,
+      .heart.h2::after {
+        width: 11px;
+        height: 11px;
+      }
+
+      .scene-1 .counter {
+        display: block;
+      }
+
+      .scene-1 .couch,
+      .scene-1 .low-table,
+      .scene-1 .phone {
+        display: none;
+      }
+
+      .scene-1 .plate {
+        bottom: 184px;
+      }
+
+      .scene-1 .person {
+        bottom: 198px;
+      }
+
+      .scene-3 .person.zuv .arm {
+        left: -42px;
+        width: 72px;
+      }
+
+      .scene-3 .bite.best {
+        left: 52%;
+      }
+
+      .scene-4 .phone {
+        display: block;
+      }
+
+      .scene-4 .bite.best {
+        display: none;
+      }
+
+      .scene-5 .heart.h1,
+      .scene-5 .heart.h2 {
+        display: block;
+      }
+
+      .caption-box {
+        min-height: 84px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fffdf8;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .detail-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .detail-card {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fffdf8;
+      }
+
+      .detail-card p,
+      .detail-card li {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .council-list {
+        display: grid;
+        gap: 7px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .council-list li {
+        padding-left: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .verdict {
+        color: #2f6a52;
+        font-weight: 800;
+      }
+
+      @media (max-width: 1180px) {
+        .shell {
+          grid-template-columns: 240px minmax(0, 1fr);
+        }
+
+        .right-panel {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .shell {
+          padding: 12px;
+          grid-template-columns: 1fr;
+        }
+
+        .stage-wrap {
+          min-height: auto;
+        }
+
+        .toolbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .slide-art {
+          width: min(100%, 430px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="panel">
+        <div class="brand">
+          <p class="eyebrow">@a.storyof.two</p>
+          <h1>Home Never Counted Her Bites</h1>
+          <div class="meta">
+            <span class="pill">Story 29.5/30</span>
+            <span class="pill">Visual GO</span>
+            <span class="pill">Council repaired</span>
+          </div>
+        </div>
+
+        <div class="slide-list" aria-label="Slides">
+          <button class="slide-button" type="button" data-slide="0" aria-current="true">
+            <span class="slide-num">01</span>
+            <span class="slide-copy">She stopped saying "bas thoda sa."</span>
+          </button>
+          <button class="slide-button" type="button" data-slide="1">
+            <span class="slide-num">02</span>
+            <span class="slide-copy">Home never counted her bites.</span>
+          </button>
+          <button class="slide-button" type="button" data-slide="2">
+            <span class="slide-num">03</span>
+            <span class="slide-copy">He saved the best one for her.</span>
+          </button>
+          <button class="slide-button" type="button" data-slide="3">
+            <span class="slide-num">04</span>
+            <span class="slide-copy">Food became comfort, not calculation.</span>
+          </button>
+          <button class="slide-button" type="button" data-slide="4">
+            <span class="slide-num">05</span>
+            <span class="slide-copy">Food was only proof. Bas life zyada tasty ho gayi.</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="stage-wrap">
+        <div class="toolbar">
+          <div>
+            <h2 id="slide-title">Slide 01</h2>
+            <p class="eyebrow" id="slide-role">Universal hook</p>
+          </div>
+          <div class="segmented" aria-label="Aspect ratio">
+            <button type="button" data-aspect="post" aria-pressed="true">4:5</button>
+            <button type="button" data-aspect="story" aria-pressed="false">9:16</button>
+          </div>
+        </div>
+
+        <div class="stage-center">
+          <article class="slide-art scene-1" id="slide-art" aria-label="Illustrated slide preview">
+            <p class="copy-line top" id="copy-line">She stopped saying "bas thoda sa."</p>
+            <div class="room">
+              <div class="floor"></div>
+              <div class="counter"></div>
+              <div class="couch"></div>
+              <div class="low-table"></div>
+              <div class="phone"></div>
+              <div class="plate"></div>
+              <div class="bite one"></div>
+              <div class="bite two"></div>
+              <div class="bite best"></div>
+              <div class="motion m1"></div>
+              <div class="motion m2"></div>
+              <div class="heart h1"></div>
+              <div class="heart h2"></div>
+              <div class="person aachu" aria-hidden="true">
+                <div class="hair"></div>
+                <div class="head">
+                  <span class="eye left"></span>
+                  <span class="eye right"></span>
+                  <span class="smile"></span>
+                </div>
+                <div class="body"></div>
+                <div class="arm"></div>
+              </div>
+              <div class="person zuv" aria-hidden="true">
+                <div class="hair"></div>
+                <div class="head">
+                  <span class="eye left"></span>
+                  <span class="eye right"></span>
+                  <span class="smile"></span>
+                </div>
+                <div class="body"></div>
+                <div class="arm"></div>
+              </div>
+            </div>
+            <span class="brandmark">@a.storyof.two</span>
+          </article>
+        </div>
+
+        <div class="toolbar">
+          <div class="nav" aria-label="Slide navigation">
+            <button type="button" id="prev">Prev</button>
+            <button type="button" id="next">Next</button>
+          </div>
+          <p class="eyebrow" id="slide-emotion">Recognition</p>
+        </div>
+      </main>
+
+      <aside class="panel right-panel">
+        <div class="detail-grid">
+          <section class="detail-card">
+            <h2>Visual Job</h2>
+            <p id="visual-job">Home kitchen counter hook: Aachu hesitates before accepting care, then relaxes into an easy shared bite while Zuv stays beside her with a gentle no-pressure smile.</p>
+          </section>
+
+          <section class="detail-card">
+            <h2>Caption</h2>
+            <div class="caption-box">
+              some love does not make life smaller.<br /><br />
+              she stopped saying bas thoda sa like every bite needed permission.<br />
+              home never counted her bites.<br />
+              he saved the best bite for her.<br /><br />
+              slowly, food became comfort,<br />
+              not calculation.<br /><br />
+              Food was only proof.<br />
+              bas life zyada tasty ho gayi.
+            </div>
+          </section>
+
+          <section class="detail-card">
+            <h2>Council Status</h2>
+            <ul class="council-list">
+          <li><span>Sendability</span><span class="verdict" id="council-send">Repaired</span></li>
+          <li><span>Romance story</span><span class="verdict" id="council-story">GO</span></li>
+          <li><span>Swipe ladder</span><span class="verdict" id="council-retention">GO</span></li>
+          <li><span>Safety / taste</span><span class="verdict" id="council-safety">Repaired</span></li>
+            </ul>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <script>
+      const slides = [
+        {
+          copy: 'She stopped saying "bas thoda sa."',
+          role: "Universal hook",
+          emotion: "Recognition",
+          position: "top",
+          scene: "scene-1",
+          visual:
+            "Home kitchen counter hook: Aachu hesitates before accepting care, then relaxes into an easy shared bite while Zuv stays beside her with a gentle no-pressure smile; no weighing scale, no body comparison."
+        },
+        {
+          copy: "Home never counted her bites.",
+          role: "Setup",
+          emotion: "Playful guard",
+          position: "top",
+          scene: "scene-2",
+          visual:
+            "Cozy couch and low-table home scene: Aachu reaches for another bite while Zuv keeps the plate between them with no counting, no tally marks, only warm ease and shared laughter."
+        },
+        {
+          copy: "He saved the best one for her.",
+          role: "Proof escalation",
+          emotion: "Warm proof",
+          position: "bottom",
+          scene: "scene-3",
+          visual:
+            "Best bite proof beat: Zuv quietly saves the best bite on the plate for Aachu, nudging it toward her before she asks, making care visible without a speech."
+        },
+        {
+          copy: "Food became comfort, not calculation.",
+          role: "Zuv role",
+          emotion: "Active acceptance",
+          position: "bottom",
+          scene: "scene-4",
+          visual:
+            "Food becomes comfort scene: Zuv notices Aachu hesitating before another bite, gently pushes the shared plate closer and starts eating with her first, smiling like this is normal; Aachu relaxes into laughter, phone face-down, no numbers or performance."
+        },
+        {
+          copy: "Food was only proof.\\nBas life zyada tasty ho gayi.",
+          role: "Save/share thesis",
+          emotion: "Affectionate payoff",
+          position: "top",
+          scene: "scene-5",
+          visual:
+            "Late-night home snack payoff: Aachu and Zuv tucked into the same cozy room, relaxed and close, shared food and laughter around them; the final line lands as a loving receipt for a tastier life, not body commentary."
+        }
+      ];
+
+      let current = 0;
+      const art = document.querySelector("#slide-art");
+      const copyLine = document.querySelector("#copy-line");
+      const title = document.querySelector("#slide-title");
+      const role = document.querySelector("#slide-role");
+      const emotion = document.querySelector("#slide-emotion");
+      const visualJob = document.querySelector("#visual-job");
+      const slideButtons = [...document.querySelectorAll(".slide-button")];
+
+      function renderSlide(index) {
+        current = (index + slides.length) % slides.length;
+        const slide = slides[current];
+        art.className = `slide-art ${art.classList.contains("story") ? "story" : ""} ${slide.scene}`;
+        copyLine.textContent = slide.copy;
+        copyLine.className = `copy-line ${slide.position}`;
+        title.textContent = `Slide ${String(current + 1).padStart(2, "0")}`;
+        role.textContent = slide.role;
+        emotion.textContent = slide.emotion;
+        visualJob.textContent = slide.visual;
+        slideButtons.forEach((button, idx) => {
+          button.setAttribute("aria-current", idx === current ? "true" : "false");
+        });
+      }
+
+      slideButtons.forEach((button) => {
+        button.addEventListener("click", () => renderSlide(Number(button.dataset.slide)));
+      });
+
+      document.querySelector("#prev").addEventListener("click", () => renderSlide(current - 1));
+      document.querySelector("#next").addEventListener("click", () => renderSlide(current + 1));
+
+      document.querySelectorAll("[data-aspect]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const useStory = button.dataset.aspect === "story";
+          art.classList.toggle("story", useStory);
+          document.querySelectorAll("[data-aspect]").forEach((option) => {
+            option.setAttribute("aria-pressed", option === button ? "true" : "false");
+          });
+        });
+      });
+
+      window.__setCouncilStatus = function setCouncilStatus(statuses) {
+        Object.entries(statuses).forEach(([key, value]) => {
+          const el = document.querySelector(`#council-${key}`);
+          if (el) el.textContent = value;
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_PRE_GENERATION",
+  "source_reports": [
+    "output/reports/2026-05-24-carousel-performance-autopsy.md",
+    "output/reports/2026-05-24-carousel-growth-correction-plan.md"
+  ],
+  "gate_scores": {
+    "public_hook": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "The hook is instantly understandable and names the format."
+    },
+    "relationship_obstacle": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "Outside labels are incomplete; love interprets them kindly."
+    },
+    "concrete_receipts": {
+      "score": 8.8,
+      "verdict": "PASS",
+      "note": "Home, rainy listening, street food, grocery, winter market, car laugh, and rooftop payoff provide varied behavior receipts."
+    },
+    "active_partner_role": {
+      "score": 8.6,
+      "verdict": "PASS",
+      "note": "Zuv must act through listening, agreeing, joining, softening, and being seen, not only staring adoringly."
+    },
+    "swipe_ladder": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "Each slide reveals a new private caption and a new kind of kindness."
+    },
+    "send_save_thesis": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "Final line is directly sendable: the right person captions you kindly."
+    },
+    "visual_non_generic": {
+      "score": 8,
+      "verdict": "PASS_WITH_PROOF_GATE",
+      "note": "Variety helps, but proof must show sharp behavior, not only pretty locations."
+    }
+  },
+  "hard_fails_checked": [
+    "not a soft label-only tableau",
+    "not a copied Friends format",
+    "not a generic AI romance set",
+    "not a one-setting couple scene deck",
+    "not a mean label carousel"
+  ],
+  "decision": "PASS_PRE_GENERATION",
+  "proof_gate": "Generate and approve Slide 1 or Slide 2 proof before full batch."
+}

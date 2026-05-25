@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "agent": "C3.5-IdentityConsistency",
+  "status": "PASS",
+  "scope": "pre_generation_prompt_contract",
+  "proof_gate": "STYLE_AND_RECEIPT_PROOF_REQUIRED",
+  "identity_references": [
+    "output/carousels/2026-05-24/some-couples-come-with-private-captions-final/identity-face-contact-sheet.jpg",
+    "identity_images/aachu_zuv.png",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+  ],
+  "global_checks": {
+    "house_style_priority": "PASS",
+    "illustrated_likeness": "PASS",
+    "varied_outfits_allowed": "PASS",
+    "cross_slide_face_continuity": "PASS",
+    "no_photoreal_cutouts": "PASS"
+  },
+  "issues": []
+}

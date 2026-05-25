@@ -1,0 +1,30 @@
+{
+  "status": "complete_final_images_ready",
+  "scorecard": {
+    "story_specificity": 4,
+    "identity_reference_honesty": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 4,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 4
+  },
+  "total": 36,
+  "max": 40,
+  "pass_for_generation": true,
+  "issues": [
+    "Because no story photos were supplied, this is concept-led rather than photo-rooted."
+  ],
+  "final_image_notes": [
+    "All five final slides exist in final/ as 1080x1350 PNGs.",
+    "Slide 2 was regenerated to remove extra text and preserve the exact slide copy.",
+    "Identity likeness is best-effort from the supplied Aachu/Zuv reference."
+  ],
+  "fixed_from_previous_run": [
+    "Identity image is no longer treated as story photo.",
+    "Creative brief is now the first source of truth.",
+    "Slide prompts are concise and slide-specific.",
+    "Every slide includes an explicit identity-only rule."
+  ]
+}

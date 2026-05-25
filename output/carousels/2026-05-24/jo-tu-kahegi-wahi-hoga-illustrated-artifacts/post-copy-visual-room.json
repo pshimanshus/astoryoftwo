@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "copy_lock": {
+    "source": "creator-approved phrase-world; visual system repaired after creator style correction",
+    "slides_locked": true
+  },
+  "visual_system_candidates": [
+    {
+      "name": "Artifact-First Paper Surfaces",
+      "verdict": "REJECT",
+      "reason": "Too far from the viral @a.storyof.two full-scene illustration style."
+    },
+    {
+      "name": "Generic Romantic Scenes",
+      "verdict": "REJECT",
+      "reason": "Too polished and low-send; loses the Hinglish everyday couple joke."
+    },
+    {
+      "name": "Soft Storybook Phrase-World Scenes",
+      "verdict": "SELECT",
+      "reason": "Keeps the phrase-world while making Aachu/Zuv behavior the visual proof."
+    }
+  ],
+  "selected_visual_system": "Soft Storybook Phrase-World Scenes",
+  "why_it_wins": "It preserves the sendable desi phrase and restores the accepted house illustration style: faces, gestures, ordinary scenes, warm paper, handwritten copy.",
+  "rejected_visual_patterns": [
+    "paper-object-first slides",
+    "museum/receipt/ledger systems",
+    "bossy-wife/defeated-husband staging",
+    "generic AI romance posing"
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post": "4:5 scene-first composition with copy in top or side negative space and faces large enough to read.",
+    "reels_stories": "9:16 native recomposition with taller breathing room; never crop or extend the 4:5 image."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+    "copy_lock": "Render exact slide copy inside the generated artwork."
+  }
+}

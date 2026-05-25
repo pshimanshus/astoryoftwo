@@ -1,0 +1,1044 @@
+{
+  "entities": {
+    "channel": {
+      "id": "a.storyof.two",
+      "type": "instagram_channel",
+      "url": "https://www.instagram.com/a.storyof.two/",
+      "creator": "anchal_sharma",
+      "subject": [
+        "anchal_sharma",
+        "himanshu_sharma"
+      ]
+    },
+    "anchal_sharma": {
+      "id": "anchal_sharma",
+      "type": "person",
+      "role": "creator",
+      "channel": "a.storyof.two"
+    },
+    "himanshu_sharma": {
+      "id": "himanshu_sharma",
+      "type": "person",
+      "role": "co-subject",
+      "channel": "a.storyof.two"
+    },
+    "insight:carousel_quality_spine": {
+      "id": "insight:carousel_quality_spine",
+      "type": "workflow_insight",
+      "title": "Carousel Quality Spine",
+      "confidence": 0.7,
+      "path": "wiki/insights/carousel-quality-spine.md"
+    },
+    "insight:carousel_generation_loop_health": {
+      "id": "insight:carousel_generation_loop_health",
+      "type": "workflow_insight",
+      "title": "Carousel Generation Loop Health",
+      "confidence": 0.8,
+      "path": "wiki/insights/carousel-generation-loop-health.md"
+    },
+    "carousel:love-kept-the-same-posture": {
+      "id": "carousel:love-kept-the-same-posture",
+      "type": "illustrated_carousel",
+      "title": "Love Kept The Same Posture",
+      "date": "2026-05-16",
+      "status": "SUPERSEDED_NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/love-kept-the-same-posture",
+      "content_lane": null
+    },
+    "carousel:love-kept-the-same-posture-2": {
+      "id": "carousel:love-kept-the-same-posture-2",
+      "type": "illustrated_carousel",
+      "title": "Love Kept The Same Posture",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/love-kept-the-same-posture-2",
+      "content_lane": "Tiny Rituals"
+    },
+    "carousel:he-did-not-marry-peace": {
+      "id": "carousel:he-did-not-marry-peace",
+      "type": "illustrated_carousel",
+      "title": "He Did Not Marry Peace",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-did-not-marry-peace",
+      "content_lane": "Chaotic Wife, Calm Husband"
+    },
+    "carousel:he-did-not-marry-peace-2": {
+      "id": "carousel:he-did-not-marry-peace-2",
+      "type": "illustrated_carousel",
+      "title": "He Did Not Marry Peace",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-did-not-marry-peace-2",
+      "content_lane": "Chaotic Wife, Calm Husband"
+    },
+    "carousel:he-did-not-marry-a-morning-person": {
+      "id": "carousel:he-did-not-marry-a-morning-person",
+      "type": "illustrated_carousel",
+      "title": "He Did Not Marry A Morning Person",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-did-not-marry-a-morning-person",
+      "content_lane": "Tiny Rituals"
+    },
+    "carousel:he-did-not-marry-a-morning-person-2": {
+      "id": "carousel:he-did-not-marry-a-morning-person-2",
+      "type": "illustrated_carousel",
+      "title": "He Did Not Marry A Morning Person",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-did-not-marry-a-morning-person-2",
+      "content_lane": "Chaotic Wife, Calm Husband"
+    },
+    "carousel:he-did-not-marry-a-morning-person-3": {
+      "id": "carousel:he-did-not-marry-a-morning-person-3",
+      "type": "illustrated_carousel",
+      "title": "He Did Not Marry A Morning Person",
+      "date": "2026-05-16",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-did-not-marry-a-morning-person-3",
+      "content_lane": "Chaotic Wife, Calm Husband"
+    },
+    "carousel:he-did-not-marry-low-maintenance": {
+      "id": "carousel:he-did-not-marry-low-maintenance",
+      "type": "illustrated_carousel",
+      "title": "He Did Not Marry Low Maintenance",
+      "date": "2026-05-16",
+      "status": "SUPERSEDED_BAD_BRIEF",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-did-not-marry-low-maintenance",
+      "content_lane": "Chaotic Wife, Calm Husband"
+    },
+    "carousel:he-did-not-marry-low-maintenance-clean": {
+      "id": "carousel:he-did-not-marry-low-maintenance-clean",
+      "type": "illustrated_carousel",
+      "title": "He Did Not Marry Low Maintenance - Clean Rebuild",
+      "date": "2026-05-16",
+      "status": "CREATIVE_READY_FINAL_PENDING",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-did-not-marry-low-maintenance-clean",
+      "content_lane": "Chaotic Wife, Calm Husband",
+      "creation_mode": "identity_only_concept_led"
+    },
+    "carousel:from-waterfall-to-lantern-light": {
+      "id": "carousel:from-waterfall-to-lantern-light",
+      "type": "illustrated_carousel",
+      "title": "From Waterfall To Lantern Light",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/from-waterfall-to-lantern-light",
+      "content_lane": "Tiny Rituals"
+    },
+    "carousel:bas-ek-photo-aur": {
+      "id": "carousel:bas-ek-photo-aur",
+      "type": "illustrated_carousel",
+      "title": "Bas Ek Photo Aur",
+      "date": "2026-05-16",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/bas-ek-photo-aur",
+      "content_lane": "Tiny Rituals"
+    },
+    "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe": {
+      "id": "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe",
+      "type": "illustrated_carousel",
+      "title": "He Didn't Learn The Meaning. He Learned The Vibe.",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-didn-t-learn-the-meaning-he-learned-the-vibe",
+      "content_lane": "Kashmiri Wife x Non-Kashmiri Husband"
+    },
+    "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe-2": {
+      "id": "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe-2",
+      "type": "illustrated_carousel",
+      "title": "He Didn't Learn The Meaning. He Learned The Vibe.",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-didn-t-learn-the-meaning-he-learned-the-vibe-2",
+      "content_lane": "Kashmiri Wife x Non-Kashmiri Husband"
+    },
+    "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe-3": {
+      "id": "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe-3",
+      "type": "illustrated_carousel",
+      "title": "He Didn't Learn The Meaning. He Learned The Vibe.",
+      "date": "2026-05-16",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-didn-t-learn-the-meaning-he-learned-the-vibe-3",
+      "content_lane": "Kashmiri Wife x Non-Kashmiri Husband"
+    },
+    "carousel:he-learned-her-subtitles": {
+      "id": "carousel:he-learned-her-subtitles",
+      "type": "illustrated_carousel",
+      "title": "He Learned Her Subtitles",
+      "date": "2026-05-16",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-16/he-learned-her-subtitles",
+      "content_lane": "Chaotic Wife, Calm Husband"
+    },
+    "carousel:small-evidence": {
+      "id": "carousel:small-evidence",
+      "type": "illustrated_carousel",
+      "title": "Small Evidence",
+      "date": "2026-05-17",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-17/small-evidence",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:her-mood-changed-his-hand-didnt": {
+      "id": "carousel:her-mood-changed-his-hand-didnt",
+      "type": "illustrated_carousel",
+      "title": "Her Mood Changed His Hand Didnt",
+      "date": "2026-05-17",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-17/her-mood-changed-his-hand-didnt",
+      "content_lane": "Golden Mood Steadiness"
+    },
+    "carousel:maybe-chaos-is-also-home": {
+      "id": "carousel:maybe-chaos-is-also-home",
+      "type": "illustrated_carousel",
+      "title": "Maybe Chaos Is Also Home",
+      "date": "2026-05-18",
+      "status": "BLOCKED",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-18/maybe-chaos-is-also-home",
+      "content_lane": "Himanshu POV"
+    },
+    "carousel:she-was-not-high-maintenance": {
+      "id": "carousel:she-was-not-high-maintenance",
+      "type": "illustrated_carousel",
+      "title": "She Was Not High Maintenance",
+      "date": "2026-05-18",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-18/she-was-not-high-maintenance",
+      "content_lane": "Golden Care Without Shrinking"
+    },
+    "carousel:maybe-chaos-is-also-home-2": {
+      "id": "carousel:maybe-chaos-is-also-home-2",
+      "type": "illustrated_carousel",
+      "title": "Maybe Chaos Is Also Home",
+      "date": "2026-05-18",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-05-18/maybe-chaos-is-also-home-2",
+      "content_lane": "Himanshu POV"
+    },
+    "carousel:pakka": {
+      "id": "carousel:pakka",
+      "type": "illustrated_carousel",
+      "title": "Pakka",
+      "date": "2026-05-18",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-18/pakka",
+      "content_lane": "Golden Reassurance"
+    },
+    "carousel:main-kar-lungi": {
+      "id": "carousel:main-kar-lungi",
+      "type": "illustrated_carousel",
+      "title": "Main Kar Lungi",
+      "date": "2026-05-19",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/main-kar-lungi",
+      "content_lane": "Golden Independent Care"
+    },
+    "carousel:love-carries-the-heavier-half": {
+      "id": "carousel:love-carries-the-heavier-half",
+      "type": "illustrated_carousel",
+      "title": "Love Carries The Heavier Half",
+      "date": "2026-05-19",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/love-carries-the-heavier-half",
+      "content_lane": "Golden Fairness Without Scorekeeping"
+    },
+    "carousel:he-married-i-m-not-hungry-2": {
+      "id": "carousel:he-married-i-m-not-hungry-2",
+      "type": "illustrated_carousel",
+      "title": "He Married I'm Not Hungry",
+      "date": "2026-05-19",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/he-married-i-m-not-hungry-2",
+      "content_lane": "Golden Food Denial"
+    },
+    "carousel:he-married-i-m-not-hungry-3": {
+      "id": "carousel:he-married-i-m-not-hungry-3",
+      "type": "illustrated_carousel",
+      "title": "He Married I'm Not Hungry",
+      "date": "2026-05-19",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/he-married-i-m-not-hungry-3",
+      "content_lane": "Golden Food Denial"
+    },
+    "carousel:he-married-i-m-not-hungry": {
+      "id": "carousel:he-married-i-m-not-hungry",
+      "type": "illustrated_carousel",
+      "title": "He Married I'm Not Hungry",
+      "date": "2026-05-19",
+      "status": "BLOCKED",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/he-married-i-m-not-hungry",
+      "content_lane": "Golden Food Denial"
+    },
+    "carousel:softness-under-fire": {
+      "id": "carousel:softness-under-fire",
+      "type": "illustrated_carousel",
+      "title": "Softness Under Fire",
+      "date": "2026-05-19",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/softness-under-fire",
+      "content_lane": "Golden Softness Under Fire"
+    },
+    "carousel:softness-under-fire-2": {
+      "id": "carousel:softness-under-fire-2",
+      "type": "illustrated_carousel",
+      "title": "Softness Under Fire",
+      "date": "2026-05-19",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/softness-under-fire-2",
+      "content_lane": "Golden Softness Under Fire"
+    },
+    "carousel:she-was-sorry-bas-style-alag-tha": {
+      "id": "carousel:she-was-sorry-bas-style-alag-tha",
+      "type": "illustrated_carousel",
+      "title": "She Was Sorry Bas Style Alag Tha",
+      "date": "2026-05-20",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-20/she-was-sorry-bas-style-alag-tha",
+      "content_lane": "Golden Imperfect Repair"
+    },
+    "carousel:she-was-sorry-bas-style-alag-tha-2": {
+      "id": "carousel:she-was-sorry-bas-style-alag-tha-2",
+      "type": "illustrated_carousel",
+      "title": "She Was Sorry Bas Style Alag Tha",
+      "date": "2026-05-19",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/she-was-sorry-bas-style-alag-tha-2",
+      "content_lane": "Golden Imperfect Repair"
+    },
+    "carousel:softness-under-fire-3": {
+      "id": "carousel:softness-under-fire-3",
+      "type": "illustrated_carousel",
+      "title": "Softness Under Fire",
+      "date": "2026-05-19",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/softness-under-fire-3",
+      "content_lane": "Golden Softness Under Fire"
+    },
+    "carousel:softness-under-fire-4": {
+      "id": "carousel:softness-under-fire-4",
+      "type": "illustrated_carousel",
+      "title": "Softness Under Fire",
+      "date": "2026-05-19",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-19/softness-under-fire-4",
+      "content_lane": "Golden Softness Under Fire"
+    },
+    "carousel:life-zyada-tasty-ho-gayi": {
+      "id": "carousel:life-zyada-tasty-ho-gayi",
+      "type": "illustrated_carousel",
+      "title": "Life Zyada Tasty Ho Gayi",
+      "date": "2026-05-22",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-22/life-zyada-tasty-ho-gayi",
+      "content_lane": "Golden Tasty Life"
+    },
+    "carousel:life-zyada-tasty-ho-gayi-2": {
+      "id": "carousel:life-zyada-tasty-ho-gayi-2",
+      "type": "illustrated_carousel",
+      "title": "Life Zyada Tasty Ho Gayi",
+      "date": "2026-05-22",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-22/life-zyada-tasty-ho-gayi-2",
+      "content_lane": "Golden Tasty Life"
+    },
+    "carousel:life-zyada-tasty-ho-gayi-3": {
+      "id": "carousel:life-zyada-tasty-ho-gayi-3",
+      "type": "illustrated_carousel",
+      "title": "Life Zyada Tasty Ho Gayi",
+      "date": "2026-05-22",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-22/life-zyada-tasty-ho-gayi-3",
+      "content_lane": "Golden Tasty Life"
+    },
+    "carousel:home-never-counted-her-bites": {
+      "id": "carousel:home-never-counted-her-bites",
+      "type": "illustrated_carousel",
+      "title": "Home Never Counted Her Bites",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-23/home-never-counted-her-bites",
+      "content_lane": "Golden Tasty Life"
+    },
+    "carousel:home-never-counted-her-bites-2": {
+      "id": "carousel:home-never-counted-her-bites-2",
+      "type": "illustrated_carousel",
+      "title": "Home Never Counted Her Bites",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-23/home-never-counted-her-bites-2",
+      "content_lane": "Golden Tasty Life"
+    },
+    "carousel:the-second-serving-was-never-just-food": {
+      "id": "carousel:the-second-serving-was-never-just-food",
+      "type": "illustrated_carousel",
+      "title": "The Second Serving Was Never Just Food",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-23/the-second-serving-was-never-just-food",
+      "content_lane": "Golden Tasty Life"
+    },
+    "carousel:the-second-serving-was-never-just-food-2": {
+      "id": "carousel:the-second-serving-was-never-just-food-2",
+      "type": "illustrated_carousel",
+      "title": "The Second Serving Was Never Just Food",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-23/the-second-serving-was-never-just-food-2",
+      "content_lane": "Golden Tasty Life"
+    },
+    "carousel:marry-the-one-who-joins-your-nonsense": {
+      "id": "carousel:marry-the-one-who-joins-your-nonsense",
+      "type": "illustrated_carousel",
+      "title": "Marry The One Who Joins Your Nonsense",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-23/marry-the-one-who-joins-your-nonsense",
+      "content_lane": "Golden Unfiltered Nonsense"
+    },
+    "carousel:some-couples-come-with-private-captions": {
+      "id": "carousel:some-couples-come-with-private-captions",
+      "type": "illustrated_carousel",
+      "title": "Some Couples Come With Private Captions",
+      "date": "2026-05-23",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-05-23/some-couples-come-with-private-captions",
+      "content_lane": "Golden Private Captions"
+    },
+    "carousel:ordinary-time-with-you": {
+      "id": "carousel:ordinary-time-with-you",
+      "type": "illustrated_carousel",
+      "title": "Ordinary Time With You",
+      "date": "2026-05-23",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-23/ordinary-time-with-you",
+      "content_lane": "Golden Long Distance Ordinary Time"
+    },
+    "carousel:ordinary-time-with-you-2": {
+      "id": "carousel:ordinary-time-with-you-2",
+      "type": "illustrated_carousel",
+      "title": "Ordinary Time With You",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-23/ordinary-time-with-you-2",
+      "content_lane": "Golden Long Distance Ordinary Time"
+    },
+    "carousel:ordinary-time-with-you-3": {
+      "id": "carousel:ordinary-time-with-you-3",
+      "type": "illustrated_carousel",
+      "title": "Ordinary Time With You",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-23/ordinary-time-with-you-3",
+      "content_lane": "Golden Long Distance Ordinary Time"
+    },
+    "carousel:the-real-flex-is-patience": {
+      "id": "carousel:the-real-flex-is-patience",
+      "type": "illustrated_carousel",
+      "title": "The Real Flex Is Patience",
+      "date": "2026-05-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-23/the-real-flex-is-patience",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:ordinary-time-with-you-4": {
+      "id": "carousel:ordinary-time-with-you-4",
+      "type": "illustrated_carousel",
+      "title": "Ordinary Time With You",
+      "date": "2026-05-23",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-23/ordinary-time-with-you-4",
+      "content_lane": "Golden Long Distance Ordinary Time"
+    },
+    "carousel:wallet-audit-love": {
+      "id": "carousel:wallet-audit-love",
+      "type": "illustrated_carousel",
+      "title": "Wallet Audit Love",
+      "date": "2026-05-24",
+      "status": "NEEDS_FIXES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-24/wallet-audit-love",
+      "content_lane": "Golden Wallet Audit Love"
+    },
+    "carousel:wallet-audit-love-2": {
+      "id": "carousel:wallet-audit-love-2",
+      "type": "illustrated_carousel",
+      "title": "Wallet Audit Love",
+      "date": "2026-05-24",
+      "status": "BLOCKED",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-24/wallet-audit-love-2",
+      "content_lane": "Golden Wallet Audit Love"
+    },
+    "carousel:passenger-seat-traffic-control": {
+      "id": "carousel:passenger-seat-traffic-control",
+      "type": "illustrated_carousel",
+      "title": "Passenger Seat Traffic Control",
+      "date": "2026-05-24",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-24/passenger-seat-traffic-control",
+      "content_lane": "Wedding Origin Story"
+    },
+    "carousel:codex-builtin-audit-refresh": {
+      "id": "carousel:codex-builtin-audit-refresh",
+      "type": "illustrated_carousel",
+      "title": "Codex Builtin Audit Refresh",
+      "date": "2026-05-18",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "/var/folders/02/gt7632z95lv6y_w6gpf1whsh0000gn/T/tmpzc3epst3/out/2026-05-18/codex-builtin-audit-refresh",
+      "content_lane": "Golden Care Without Shrinking"
+    },
+    "carousel:pipeline-repair-smoke-test": {
+      "id": "carousel:pipeline-repair-smoke-test",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Repair Smoke Test",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-repair-smoke-test",
+      "content_lane": "Golden Wallet Audit Love"
+    },
+    "carousel:pipeline-repair-handoff-pass-smoke": {
+      "id": "carousel:pipeline-repair-handoff-pass-smoke",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Repair Handoff Pass Smoke",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-repair-handoff-pass-smoke",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:pipeline-dry-run-smoke-test": {
+      "id": "carousel:pipeline-dry-run-smoke-test",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Dry Run Smoke Test",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-dry-run-smoke-test",
+      "content_lane": "Golden Wallet Audit Love"
+    },
+    "carousel:pipeline-repair-final-handoff-smoke": {
+      "id": "carousel:pipeline-repair-final-handoff-smoke",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Repair Final Handoff Smoke",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:pipeline-final-dry-run-smoke": {
+      "id": "carousel:pipeline-final-dry-run-smoke",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Final Dry Run Smoke",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-final-dry-run-smoke",
+      "content_lane": "Golden Wallet Audit Love"
+    },
+    "carousel:pipeline-repair-continue-handoff-smoke": {
+      "id": "carousel:pipeline-repair-continue-handoff-smoke",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Repair Continue Handoff Smoke",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-repair-continue-handoff-smoke",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:pipeline-repair-continue-dry-run-smoke": {
+      "id": "carousel:pipeline-repair-continue-dry-run-smoke",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Repair Continue Dry Run Smoke",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-repair-continue-dry-run-smoke",
+      "content_lane": "Golden Wallet Audit Love"
+    },
+    "carousel:pipeline-repair-final-handoff-smoke-2": {
+      "id": "carousel:pipeline-repair-final-handoff-smoke-2",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Repair Final Handoff Smoke 2",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-repair-final-handoff-smoke-2",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:pipeline-repair-final-dry-run-smoke-2": {
+      "id": "carousel:pipeline-repair-final-dry-run-smoke-2",
+      "type": "illustrated_carousel",
+      "title": "Pipeline Repair Final Dry Run Smoke 2",
+      "date": "2026-05-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-25/pipeline-repair-final-dry-run-smoke-2",
+      "content_lane": "Golden Wallet Audit Love"
+    }
+  },
+  "relationships": [
+    {
+      "from": "insight:carousel_quality_spine",
+      "to": "a.storyof.two",
+      "type": "improves_pipeline_for",
+      "confidence": 0.7
+    },
+    {
+      "from": "insight:carousel_generation_loop_health",
+      "to": "a.storyof.two",
+      "type": "protects_final_carousel_quality_for",
+      "confidence": 0.8
+    },
+    {
+      "from": "carousel:love-kept-the-same-posture",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:love-kept-the-same-posture",
+      "to": "repeated_gesture_as_promise",
+      "type": "expresses_theme",
+      "confidence": 0.8
+    },
+    {
+      "from": "carousel:love-kept-the-same-posture-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:love-kept-the-same-posture-2",
+      "to": "carousel:love-kept-the-same-posture",
+      "type": "supersedes",
+      "confidence": 0.9
+    },
+    {
+      "from": "carousel:he-did-not-marry-peace",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-did-not-marry-peace-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-did-not-marry-a-morning-person",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-did-not-marry-a-morning-person-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-did-not-marry-a-morning-person-3",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-did-not-marry-low-maintenance",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-did-not-marry-low-maintenance-clean",
+      "to": "carousel:he-did-not-marry-low-maintenance",
+      "type": "supersedes",
+      "confidence": 0.9
+    },
+    {
+      "from": "carousel:he-did-not-marry-low-maintenance-clean",
+      "to": "identity_only_creative_brief",
+      "type": "uses_creation_mode",
+      "confidence": 0.9
+    },
+    {
+      "from": "carousel:he-did-not-marry-low-maintenance-clean",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:from-waterfall-to-lantern-light",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:bas-ek-photo-aur",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-didn-t-learn-the-meaning-he-learned-the-vibe-3",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-learned-her-subtitles",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:small-evidence",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:her-mood-changed-his-hand-didnt",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:maybe-chaos-is-also-home",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:she-was-not-high-maintenance",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:maybe-chaos-is-also-home-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pakka",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:main-kar-lungi",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:love-carries-the-heavier-half",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-married-i-m-not-hungry-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-married-i-m-not-hungry-3",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-married-i-m-not-hungry",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:softness-under-fire",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:softness-under-fire-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:she-was-sorry-bas-style-alag-tha",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:she-was-sorry-bas-style-alag-tha-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:softness-under-fire-3",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:softness-under-fire-4",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:life-zyada-tasty-ho-gayi",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:life-zyada-tasty-ho-gayi-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:life-zyada-tasty-ho-gayi-3",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:home-never-counted-her-bites",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:home-never-counted-her-bites-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:the-second-serving-was-never-just-food",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:the-second-serving-was-never-just-food-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:marry-the-one-who-joins-your-nonsense",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:some-couples-come-with-private-captions",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:ordinary-time-with-you",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:ordinary-time-with-you-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:ordinary-time-with-you-3",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:the-real-flex-is-patience",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:ordinary-time-with-you-4",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:wallet-audit-love",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:wallet-audit-love-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:passenger-seat-traffic-control",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:codex-builtin-audit-refresh",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-repair-smoke-test",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-repair-handoff-pass-smoke",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-dry-run-smoke-test",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-repair-final-handoff-smoke",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-final-dry-run-smoke",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-repair-continue-handoff-smoke",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-repair-continue-dry-run-smoke",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-repair-final-handoff-smoke-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:pipeline-repair-final-dry-run-smoke-2",
+      "to": "desi_storybook_photo_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    }
+  ],
+  "themes": {
+    "desi_storybook_photo_rooted": {
+      "id": "desi_storybook_photo_rooted",
+      "type": "creative_style",
+      "confidence": 0.7,
+      "description": "Soft hand-drawn desi storybook illustration rooted in supplied photos."
+    },
+    "repeated_gesture_as_promise": {
+      "id": "repeated_gesture_as_promise",
+      "type": "story_theme",
+      "confidence": 0.8,
+      "description": "A small repeated act across time reveals the real promise of the relationship."
+    },
+    "identity_only_creative_brief": {
+      "id": "identity_only_creative_brief",
+      "type": "workflow_mode",
+      "confidence": 0.9,
+      "description": "Use identity references only for face consistency when no story photos are supplied; creative brief is the source of truth and JSON is export."
+    }
+  },
+  "last_updated": "2026-05-25"
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "selected_concept": "Private Caption Frames Across Many Moments",
+  "story_selling_score": 29.2,
+  "golden_theme_score": 28.8,
+  "distribution_score": 28.2,
+  "visual_generativity_score": 28.0,
+  "safety_taste": "PASS",
+  "candidate_routes": [
+    {
+      "name": "Friends Clone",
+      "decision": "REJECT",
+      "reason": "Unsafe and creatively wrong: would copy a copyrighted/sitcom surface."
+    },
+    {
+      "name": "Soft Label Tableaux",
+      "decision": "REJECT",
+      "reason": "This is the old failure: pretty scenes where labels do the work."
+    },
+    {
+      "name": "Private Caption Frames Across Many Moments",
+      "decision": "SELECT",
+      "reason": "Varied locations and outfits create a broader love story while concrete behaviors keep the format sendable."
+    },
+    {
+      "name": "Pure Quote Carousel",
+      "decision": "REJECT",
+      "reason": "Too abstract and not visual enough."
+    }
+  ],
+  "why_it_wins": "It keeps the creator-approved reference mechanic while making the carousel feel like a universal archive of two people in love: every moment has an outside caption and a private loving caption.",
+  "decision": "GO",
+  "generation_gate": "STYLE_AND_RECEIPT_PROOF_REQUIRED"
+}

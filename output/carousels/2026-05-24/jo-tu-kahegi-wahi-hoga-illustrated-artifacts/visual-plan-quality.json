@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "can_generate": true,
+  "review_date": "2026-05-24",
+  "package_verdict": "GO",
+  "global_checks": {
+    "house_style_scene_consistency": "PASS",
+    "golden_theme_proof": "PASS",
+    "copy_visual_alignment": "PASS",
+    "identity_continuity": "PASS_WITH_REFERENCES",
+    "aspect_specific_composition": "PASS",
+    "reference_legality": "PASS"
+  },
+  "slide_checks": [
+    {
+      "slide": 1,
+      "status": "GO",
+      "reason": "Scene-first visual proves the exact copy through Aachu/Zuv behavior, not a paper-object surface."
+    },
+    {
+      "slide": 2,
+      "status": "GO",
+      "reason": "Scene-first visual proves the exact copy through Aachu/Zuv behavior, not a paper-object surface."
+    },
+    {
+      "slide": 3,
+      "status": "GO",
+      "reason": "Scene-first visual proves the exact copy through Aachu/Zuv behavior, not a paper-object surface."
+    },
+    {
+      "slide": 4,
+      "status": "GO",
+      "reason": "Scene-first visual proves the exact copy through Aachu/Zuv behavior, not a paper-object surface."
+    },
+    {
+      "slide": 5,
+      "status": "GO",
+      "reason": "Scene-first visual proves the exact copy through Aachu/Zuv behavior, not a paper-object surface."
+    },
+    {
+      "slide": 6,
+      "status": "GO",
+      "reason": "Scene-first visual proves the exact copy through Aachu/Zuv behavior, not a paper-object surface."
+    }
+  ],
+  "blocked_old_direction": "Do not use artifact-first poster, attendance, legal-slip, scoreboard, or museum-label prompt systems for final generation."
+}

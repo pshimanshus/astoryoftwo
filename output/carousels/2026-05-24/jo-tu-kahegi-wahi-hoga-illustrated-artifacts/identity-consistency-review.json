@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "agent": "C3.5-IdentityConsistency",
+  "status": "PASS",
+  "scope": "pre_generation_prompt_contract",
+  "proof_gate": "STYLE_PROOF_REQUIRED",
+  "identity_references": [
+    "output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/identity-face-contact-sheet.jpg",
+    "identity_images/aachu_zuv.png",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg"
+  ],
+  "global_checks": {
+    "house_style_priority": "PASS",
+    "illustrated_likeness": "PASS",
+    "no_photoreal_cutouts": "PASS",
+    "zuv_active_role": "PASS",
+    "aachu_not_mocked": "PASS"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "Me with my\n\"jo tu kahegi wahi hoga\"",
+      "status": "PASS",
+      "identity_note": "Full scene must preserve recurring illustrated Aachu/Zuv faces, expressions, hair, Zuv beard/brows, posture, and warm relationship energy from the selected references."
+    },
+    {
+      "slide": 2,
+      "copy": "In another universe,\nhe still changes the plan.",
+      "status": "PASS",
+      "identity_note": "Full scene must preserve recurring illustrated Aachu/Zuv faces, expressions, hair, Zuv beard/brows, posture, and warm relationship energy from the selected references."
+    },
+    {
+      "slide": 3,
+      "copy": "Argument status:\nrescheduled.",
+      "status": "PASS",
+      "identity_note": "Full scene must preserve recurring illustrated Aachu/Zuv faces, expressions, hair, Zuv beard/brows, posture, and warm relationship energy from the selected references."
+    },
+    {
+      "slide": 4,
+      "copy": "Terms & conditions:\nshe is probably right.",
+      "status": "PASS",
+      "identity_note": "Full scene must preserve recurring illustrated Aachu/Zuv faces, expressions, hair, Zuv beard/brows, posture, and warm relationship energy from the selected references."
+    },
+    {
+      "slide": 5,
+      "copy": "Not because he lost.\nBecause he likes her world.",
+      "status": "PASS",
+      "identity_note": "Full scene must preserve recurring illustrated Aachu/Zuv faces, expressions, hair, Zuv beard/brows, posture, and warm relationship energy from the selected references."
+    },
+    {
+      "slide": 6,
+      "copy": "Some men bring flowers.\nMine brings theek hai.",
+      "status": "PASS",
+      "identity_note": "Full scene must preserve recurring illustrated Aachu/Zuv faces, expressions, hair, Zuv beard/brows, posture, and warm relationship energy from the selected references."
+    }
+  ],
+  "issues": [],
+  "output_review_required": [
+    "Slide 1 proof must pass house-style scene consistency and identity before full batch.",
+    "Final 12 outputs must be checked for generic faces, exact copy, aspect, and no artifact-first surface drift."
+  ]
+}

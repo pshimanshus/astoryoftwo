@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_PRE_GENERATION",
+  "source_reports": [
+    "output/reports/2026-05-24-carousel-performance-autopsy.md",
+    "output/reports/2026-05-24-carousel-growth-correction-plan.md"
+  ],
+  "gate_scores": {
+    "public_hook": {
+      "score": 8.5,
+      "verdict": "PASS_WITH_CONTEXT",
+      "note": "The Hinglish phrase is private-feeling but broadly readable for the channel's desi couple audience. Visual proof must make the relationship dynamic clear without caption help."
+    },
+    "relationship_obstacle": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "The phrase risks sounding like obedience; the deck repairs it into agency and belonging."
+    },
+    "concrete_receipts": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "Plan change, argument reschedule, terms slip, scoreboard reversal, and theek-hai exhibit are clear relationship receipts."
+    },
+    "active_partner_role": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "Zuv changes, reschedules, signs, crosses out the score, and brings the phrase as a love object."
+    },
+    "swipe_ladder": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "Private phrase hook -> alternate-universe receipt -> status receipt -> terms receipt -> meaning reversal -> sendable phrase payoff."
+    },
+    "send_save_thesis": {
+      "score": 9,
+      "verdict": "PASS",
+      "note": "The final slide says what viewers send to their own theek-hai person."
+    },
+    "visual_non_generic": {
+      "score": 8,
+      "verdict": "PASS_WITH_PROOF_GATE",
+      "note": "The artifact system is original, but output must be checked because image models can drift into generic stationery or photoreal meme stills."
+    }
+  },
+  "hard_fails_checked": [
+    "not a soft poster-only deck",
+    "not a passive saintly Zuv deck",
+    "not a generic AI romance scene set",
+    "not a copied external screenshot or logo",
+    "not a quote-card carousel"
+  ],
+  "decision": "PASS_PRE_GENERATION",
+  "proof_gate": "Generate and approve Slide 1 before any full batch."
+}

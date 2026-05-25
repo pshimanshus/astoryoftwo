@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "observer": {
+    "agent": "C0.5-Jarvis",
+    "role": "Track requirements, stage completion, reviewer findings, and final gate status."
+  },
+  "reviews": {
+    "intake_reviewer": {
+      "stage": "intake",
+      "status": "PASS",
+      "expected": [
+        "story captured",
+        "reference images exist",
+        "slide count accepted"
+      ],
+      "done": [
+        "4 reference image(s)",
+        "5 requested slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "story_reviewer": {
+      "stage": "story",
+      "status": "PASS",
+      "expected": [
+        "human truth present",
+        "source story preserved"
+      ],
+      "done": [
+        "Aachu's little needs, soft impracticality, and full-alive green-dress energy are not high-maintenance when Zuv notices early and turns the tiny discomfort into gentle care."
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "arc_reviewer": {
+      "stage": "arc",
+      "status": "PASS",
+      "expected": [
+        "slide plan count matches request",
+        "prompt count matches slide plan"
+      ],
+      "done": [
+        "5 planned slide(s)",
+        "5 prompt slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "visual_reviewer": {
+      "stage": "visual",
+      "status": "PASS",
+      "expected": [
+        "every slide has copy, role, visual, emotion, CTA intent, and source images"
+      ],
+      "done": [
+        "checked 5 slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "identity_consistency_reviewer": {
+      "stage": "identity_consistency",
+      "status": "PASS",
+      "expected": [
+        "selected identity bundle is present",
+        "each slide locks face structure",
+        "each slide locks facial expression",
+        "each slide locks clothing/body-language cues",
+        "each prompt includes Identity continuity lock before generation"
+      ],
+      "done": [
+        "3 identity reference(s)",
+        "5 reviewed slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "prompt_reviewer": {
+      "stage": "prompt",
+      "status": "PASS",
+      "expected": [
+        "shared style prompt",
+        "shared negative prompt",
+        "self-contained slide prompts"
+      ],
+      "done": [
+        "style prompt present",
+        "negative prompt present"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "copy_reviewer": {
+      "stage": "copy",
+      "status": "PASS",
+      "expected": [
+        "caption",
+        "alt text",
+        "posting notes"
+      ],
+      "done": [
+        "caption_recommended",
+        "alt_text",
+        "posting_notes"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "asset_reviewer": {
+      "stage": "assets",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "local preview status recorded",
+        "final generated images packaged"
+      ],
+      "done": [
+        "render status: rendered",
+        "final images present: 0 / 5"
+      ],
+      "issues": [
+        "Missing final generated images: output/carousels/2026-05-18/she-was-not-high-maintenance/final/slide-01.png, output/carousels/2026-05-18/she-was-not-high-maintenance/final/slide-02.png, output/carousels/2026-05-18/she-was-not-high-maintenance/final/slide-03.png, output/carousels/2026-05-18/she-was-not-high-maintenance/final/slide-04.png, output/carousels/2026-05-18/she-was-not-high-maintenance/final/slide-05.png"
+      ],
+      "notes": []
+    },
+    "wiki_learning_reviewer": {
+      "stage": "wiki_learning",
+      "status": "PASS_WITH_NOTES",
+      "expected": [
+        "wiki page",
+        "wiki index link",
+        "working memory entry",
+        "graph entity"
+      ],
+      "done": [
+        "scheduled wiki and memory updates"
+      ],
+      "issues": [],
+      "notes": [
+        "Wiki and memory files are updated after final audit generation."
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "date": "2026-05-18",
+  "slug": "maybe-chaos-is-also-home-2",
+  "title": "Maybe Chaos Is Also Home",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "draft_for_human_review",
+  "source_story": "Selected concept from the Golden Theme tournament: Maybe Chaos Is Also Home. Universal relationship truth: some days make him want silence, but the person waiting at home can make even warm chaos feel safe. Himanshu has a bad work day, sits in his parked car, remembers Aachu waiting at home with chai, drama, and one long story, then smiles before driving home. Public slide copy must be exactly: Slide 1: Some days make him want silence. Slide 2: Then he remembers her waiting. Slide 3: Chai. Drama. One long story. Slide 4: And he smiles before home. Slide 5: Maybe chaos is also home.",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 5,
+    "recommended_aspect_ratio": "4:5",
+    "recommended_size": "1080x1350",
+    "hd_master_size": "2160x2700"
+  },
+  "reference_images": [],
+  "identity_references": [
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.28.52.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/WhatsApp Image 2026-05-16 at 18.31.05.jpeg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "identity_images/aachu_zuv.png",
+      "role": "Aachu/Zuv face consistency reference"
+    }
+  ],
+  "identity_reference_selection": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 3,
+    "selected_count": 3,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-05-18/maybe-chaos-is-also-home-2/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-05-18/maybe-chaos-is-also-home-2/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-05-18/maybe-chaos-is-also-home-2/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "artifacts": {
+    "concept": "concept.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "intake_reviewer",
+      "story_reviewer",
+      "arc_reviewer",
+      "visual_reviewer",
+      "identity_consistency_reviewer",
+      "prompt_reviewer",
+      "copy_reviewer",
+      "asset_reviewer",
+      "wiki_learning_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": "visual-qa.md",
+      "identity_consistency_review": "identity-consistency-review.json"
+    }
+  }
+}

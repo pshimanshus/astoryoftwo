@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Imperfect Repair",
+  "winner": "One Gesture, Wide Silence",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Use one small repair gesture and wide negative space; keep props minimal and make the changing distance the evidence."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as pride versus repair: Aachu does not say the perfect sorry, but her care returns first."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block crowded domestic setups, too many apology props, and any frame where Zuv laughs at her instead of receiving the repair."
+    }
+  ],
+  "options": [
+    {
+      "name": "One Gesture, Wide Silence",
+      "score": 29,
+      "case_for": "Makes the apology visible through one small care action while preserving lots of negative space.",
+      "risk": "Needs restraint so the collar does not become a prop-first premise."
+    },
+    {
+      "name": "Distance Gets Smaller",
+      "score": 28,
+      "case_for": "Uses spacing as the visual story: after the fight, the figures gradually share the frame again.",
+      "risk": "Can become too subtle if the repair gesture is not unmistakable."
+    },
+    {
+      "name": "Proud Return",
+      "score": 27,
+      "case_for": "Strong Aachu body-language lane: chin-up, attitude, but returning.",
+      "risk": "Can over-index on attitude unless Zuv's gentle reception is clearly active."
+    }
+  ],
+  "selector_verdict": "One Gesture, Wide Silence wins because it turns the unsaid apology into a drawable care gesture while protecting the airy, uncrowded visual style.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Some people don't say sorry.",
+      "visual": "A spacious warm-paper relationship hook: Aachu stands a little turned away after a tiny fight, expressive but soft, while Zuv stands nearby with calm open posture; the background is almost empty, just one simple doorway line and lots of breathing room."
+    },
+    {
+      "slide": 2,
+      "copy": "They come back with attitude.",
+      "visual": "Aachu comes back into the frame with chin-up attitude and one hand adjusting her dupatta or sleeve, clearly returning without saying the perfect word; Zuv stays still and receptive, giving the moment space."
+    },
+    {
+      "slide": 3,
+      "copy": "Still angry, fixing your collar.",
+      "visual": "Close, simple proof beat with only their upper bodies: Aachu is still pretending to be annoyed while gently fixing Zuv's collar with careful fingers; Zuv keeps a soft face and does not tease her."
+    },
+    {
+      "slide": 4,
+      "copy": "And he knows not to laugh.",
+      "visual": "Zuv looks down with the smallest controlled smile, choosing not to laugh because he understands this is her repair language; Aachu's body is close but proud, the scene uncluttered and tender."
+    },
+    {
+      "slide": 5,
+      "copy": "Love learns the apology's accent.",
+      "visual": "Final airy couple frame: the distance between them has closed, one small collar/dupatta detail remains as the receipt, and the warm off-white space around them carries the quiet apology."
+    }
+  ]
+}

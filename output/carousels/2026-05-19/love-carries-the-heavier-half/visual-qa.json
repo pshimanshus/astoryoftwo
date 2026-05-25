@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "reviewed_outputs": {
+    "instagram_post_contact_sheet": "contact-sheet-final.png",
+    "reels_stories_contact_sheet": "contact-sheet-reels-stories.png"
+  },
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "All five final slides match the approved storyboard beats."
+    },
+    "aachu_face": {
+      "pass": true,
+      "evidence": "Aachu remains the expressive long-haired illustrated character across slides."
+    },
+    "zuv_face": {
+      "pass": true,
+      "evidence": "Zuv remains the dark-wavy-haired, bearded, calm illustrated character across slides."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Domestic outfit and color continuity stay consistent across the carousel."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Slides use soft hand-drawn flat vector storybook style on warm paper."
+    },
+    "model_native_text": {
+      "pass": true,
+      "evidence": "Slide copy and @a.storyof.two brandmark are rendered inside the generated artwork."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "Final 4:5 images exist in final/ and native 9:16 images exist in final-reels-stories/."
+    }
+  }
+}

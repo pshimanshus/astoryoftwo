@@ -1,0 +1,376 @@
+{
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "generation_mode": "model_native_publishable",
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Lived-In Home Becomes A Love Receipt",
+    "selector_verdict": "Lived-In Home Becomes A Love Receipt wins because the home setting turns the raw weight joke into comfort, safety, and shared appetite for life, while blocking restaurant repetition.",
+    "hard_fails_checked": [
+      "no restaurant-table default",
+      "no repeated object motif across every slide",
+      "no prop-first premise",
+      "no passive Zuv",
+      "no generic couple-stock tableau"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "She stopped saying \"bas thoda sa.\"",
+      "reader_identity_mirror": "The right love turns food from calculation into comfort and appetite-for-life, so the 55-to-70 line becomes a mischievous receipt for a life that got more loved instead of a body-shame joke.",
+      "emotional_obstacle": "The right love turns food from calculation into comfort and appetite-for-life, so the 55-to-70 line becomes a mischievous receipt for a life that got more loved instead of a body-shame joke.",
+      "aachu_proof": "Home kitchen counter hook: Aachu relaxes from a tiny guarded serving into an easy shared bite while Zuv stays beside her with a gentle no-pressure smile; no weighing scale, no body joke.",
+      "zuv_active_role": "Food becomes comfort scene: Aachu and Zuv share snacks on the couch with a phone face-down and no numbers, diet notes, or calculation; the room feels softer because appetite is safe.",
+      "bridge": "bas-thoda-sa hook -> home-never-counted setup -> best-bite proof -> food becomes comfort, not calculation -> life-zyada-tasty thesis",
+      "earned_ending": "55 se 70 nahi.\nBas life zyada tasty ho gayi.",
+      "send_save_reason": "make partners send this as affectionate proof that love made life safer, fuller, and more enjoyable"
+    },
+    "hook_bank": [
+      {
+        "hook": "She stopped saying \"bas thoda sa.\"",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "The right love turns food from calculation into comfort and appetite-for-life, so the 55-t",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with golden tasty life.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "She stopped saying \"bas thoda sa.\"",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "She stopped saying \"bas thoda sa.\""
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "The right love turns food from calculation into comfort and appetite-for-life, so the 55-to-70 line becomes a mischievous receipt for a life that got more loved instead of a body-shame joke."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "bas-thoda-sa hook -> home-never-counted setup -> best-bite proof -> food becomes comfort, not calculation -> life-zyada-tasty thesis"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "55 se 70 nahi.\nBas life zyada tasty ho gayi."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9
+    },
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": [],
+    "concept_selection_used": true,
+    "source_story": "She stopped saying, \"bas thoda sa.\" Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi."
+  },
+  "style_reference_images": [
+    "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+    "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+    "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+    "/Users/himanshusharma/Downloads/Generated image 4.png",
+    "/Users/himanshusharma/Downloads/Generated image 5.png",
+    "/Users/himanshusharma/Downloads/Generated image 6.png",
+    "/Users/himanshusharma/Downloads/Generated image 7.png",
+    "/Users/himanshusharma/Downloads/Generated image 18.png",
+    "/Users/himanshusharma/Downloads/Generated image 28.png",
+    "/Users/himanshusharma/Downloads/Generated image 29.png",
+    "/Users/himanshusharma/Downloads/Generated image 39.png",
+    "/Users/himanshusharma/Downloads/Generated image 49.png"
+  ],
+  "identity_reference_images": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-23/home-never-counted-her-bites/identity-face-contact-sheet.jpg",
+    "identity_images/aachu_zuv.png"
+  ],
+  "identity_dossier_path": "output/carousels/2026-05-23/home-never-counted-her-bites/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-23/home-never-counted-her-bites/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID45",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/aachu_zuv.png",
+      "filename": "aachu_zuv.png",
+      "face_count": 33,
+      "width": 2848,
+      "height": 3798
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 1,
+    "selected_count": 1,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "bottom-right",
+    "slide_copy": [
+      "She stopped saying \"bas thoda sa.\"",
+      "Home never counted her bites.",
+      "He saved the best one for her.",
+      "Food became comfort, not calculation.",
+      "55 se 70 nahi.\nBas life zyada tasty ho gayi."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "text": "She stopped saying \"bas thoda sa.\"",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 1 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: She stopped saying, \"bas thoda sa.\" Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Tasty Life. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Visual Debate Gate winner: Lived-In Home Becomes A Love Receipt. Visual debate verdict: Lived-In Home Becomes A Love Receipt wins because the home setting turns the raw weight joke into comfort, safety, and shared appetite for life, while blocking restaurant repetition. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: She stopped saying \"bas thoda sa.\". Slide story-director job: universal hook. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/home-never-counted-her-bites/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (recognition) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Home kitchen counter hook: Aachu relaxes from a tiny guarded serving into an easy shared bite while Zuv stays beside her with a gentle no-pressure smile; no weighing scale, no body joke. Mood: recognition. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'She stopped saying \"bas thoda sa.\"'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 2,
+      "text": "Home never counted her bites.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 2 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: She stopped saying, \"bas thoda sa.\" Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Tasty Life. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Visual Debate Gate winner: Lived-In Home Becomes A Love Receipt. Visual debate verdict: Lived-In Home Becomes A Love Receipt wins because the home setting turns the raw weight joke into comfort, safety, and shared appetite for life, while blocking restaurant repetition. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: She stopped saying \"bas thoda sa.\". Slide story-director job: setup. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/home-never-counted-her-bites/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (playful guard) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Cozy couch and low-table home scene: Aachu reaches for another bite while Zuv keeps the plate between them with no counting, no tally marks, only warm ease and shared laughter. Mood: playful guard. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Home never counted her bites.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 3,
+      "text": "He saved the best one for her.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 3 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: She stopped saying, \"bas thoda sa.\" Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Tasty Life. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Visual Debate Gate winner: Lived-In Home Becomes A Love Receipt. Visual debate verdict: Lived-In Home Becomes A Love Receipt wins because the home setting turns the raw weight joke into comfort, safety, and shared appetite for life, while blocking restaurant repetition. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: She stopped saying \"bas thoda sa.\". Slide story-director job: proof escalation. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/home-never-counted-her-bites/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (warm proof) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Best bite proof beat: Zuv quietly saves the best bite on the plate for Aachu, nudging it toward her before she asks, making care visible without a speech. Mood: warm proof. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'He saved the best one for her.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 4,
+      "text": "Food became comfort, not calculation.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 4 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: She stopped saying, \"bas thoda sa.\" Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Tasty Life. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Visual Debate Gate winner: Lived-In Home Becomes A Love Receipt. Visual debate verdict: Lived-In Home Becomes A Love Receipt wins because the home setting turns the raw weight joke into comfort, safety, and shared appetite for life, while blocking restaurant repetition. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: She stopped saying \"bas thoda sa.\". Slide story-director job: zuv role. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/home-never-counted-her-bites/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (active acceptance) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Food becomes comfort scene: Aachu and Zuv share snacks on the couch with a phone face-down and no numbers, diet notes, or calculation; the room feels softer because appetite is safe. Mood: active acceptance. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Food became comfort, not calculation.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    },
+    {
+      "slide": 5,
+      "text": "55 se 70 nahi.\nBas life zyada tasty ho gayi.",
+      "generation_mode": "model_native_publishable",
+      "style_reference_images": [
+        "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+        "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+        "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+        "/Users/himanshusharma/Downloads/Generated image 4.png",
+        "/Users/himanshusharma/Downloads/Generated image 5.png",
+        "/Users/himanshusharma/Downloads/Generated image 6.png",
+        "/Users/himanshusharma/Downloads/Generated image 7.png",
+        "/Users/himanshusharma/Downloads/Generated image 18.png",
+        "/Users/himanshusharma/Downloads/Generated image 28.png",
+        "/Users/himanshusharma/Downloads/Generated image 29.png",
+        "/Users/himanshusharma/Downloads/Generated image 39.png",
+        "/Users/himanshusharma/Downloads/Generated image 49.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/aachu_zuv.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 5 of 5, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: She stopped saying, \"bas thoda sa.\" Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi.. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Golden Tasty Life. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Visual Debate Gate winner: Lived-In Home Becomes A Love Receipt. Visual debate verdict: Lived-In Home Becomes A Love Receipt wins because the home setting turns the raw weight joke into comfort, safety, and shared appetite for life, while blocking restaurant repetition. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: She stopped saying \"bas thoda sa.\". Slide story-director job: save/share thesis. Story-Selling process card: Card 05 - Banter To Belonging. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 29.5/30, decision GO. Style reference images: ['output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png', 'output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png', 'output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png', '/Users/himanshusharma/Downloads/Generated image 4.png', '/Users/himanshusharma/Downloads/Generated image 5.png', '/Users/himanshusharma/Downloads/Generated image 6.png', '/Users/himanshusharma/Downloads/Generated image 7.png', '/Users/himanshusharma/Downloads/Generated image 18.png', '/Users/himanshusharma/Downloads/Generated image 28.png', '/Users/himanshusharma/Downloads/Generated image 29.png', '/Users/himanshusharma/Downloads/Generated image 39.png', '/Users/himanshusharma/Downloads/Generated image 49.png']. Canonical style lock: the first accepted carousel style references are not mood boards; they are character-model references. Preserve the established Aachu/Zuv caricature faces, hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, and handwriting. Do not change the look while simplifying composition. Identity reference images: identity_images/aachu_zuv.png. Identity dossier path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-dossier.json. Identity preflight path: output/carousels/2026-05-23/home-never-counted-her-bites/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-23/home-never-counted-her-bites/identity-face-contact-sheet.jpg', 'identity_images/aachu_zuv.png']. Selected contact sheet option IDs: ['ID45']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: identity_images/aachu_zuv.png. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (affectionate payoff) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Late-night home snack payoff: Aachu and Zuv tucked into the same cozy room, relaxed and close, shared food and laughter around them; the number lands as a loving receipt for a tastier life, not a body-shame punchline. Mood: affectionate payoff. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm-paper negative space around the couple and the handwritten text; minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring caricature faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear visual idea. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: '55 se 70 nahi.\nBas life zyada tasty ho gayi.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated poster."
+    }
+  ]
+}

@@ -1,0 +1,858 @@
+{
+  "sources": [
+    {
+      "id": "gutenberg-anne-of-green-gables",
+      "type": "book",
+      "title": "Anne of Green Gables",
+      "creator": "L. M. Montgomery",
+      "source_url": "https://www.gutenberg.org/ebooks/45",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.96,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-daniel-deronda",
+      "type": "book",
+      "title": "Daniel Deronda",
+      "creator": "George Eliot",
+      "source_url": "https://www.gutenberg.org/ebooks/7469",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.95,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-emma",
+      "type": "book",
+      "title": "Emma",
+      "creator": "Jane Austen",
+      "source_url": "https://www.gutenberg.org/ebooks/158",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.98,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-far-from-the-madding-crowd",
+      "type": "book",
+      "title": "Far from the Madding Crowd",
+      "creator": "Thomas Hardy",
+      "source_url": "https://www.gutenberg.org/ebooks/107",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.96,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-jane-eyre",
+      "type": "book",
+      "title": "Jane Eyre",
+      "creator": "Charlotte Bronte",
+      "source_url": "https://www.gutenberg.org/ebooks/1260",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.97,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-mansfield-park",
+      "type": "book",
+      "title": "Mansfield Park",
+      "creator": "Jane Austen",
+      "source_url": "https://www.gutenberg.org/ebooks/141",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.98,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-middlemarch",
+      "type": "book",
+      "title": "Middlemarch",
+      "creator": "George Eliot",
+      "source_url": "https://www.gutenberg.org/ebooks/145",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.96,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-much-ado-about-nothing",
+      "type": "book",
+      "title": "Much Ado About Nothing",
+      "creator": "William Shakespeare",
+      "source_url": "https://www.gutenberg.org/ebooks/1519",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.98,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-north-and-south",
+      "type": "book",
+      "title": "North and South",
+      "creator": "Elizabeth Gaskell",
+      "source_url": "https://www.gutenberg.org/ebooks/4276",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.96,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-persuasion",
+      "type": "book",
+      "title": "Persuasion",
+      "creator": "Jane Austen",
+      "source_url": "https://www.gutenberg.org/ebooks/105",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.98,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-pride-and-prejudice",
+      "type": "book",
+      "title": "Pride and Prejudice",
+      "creator": "Jane Austen",
+      "source_url": "https://www.gutenberg.org/ebooks/1342",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.98,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-romeo-and-juliet",
+      "type": "book",
+      "title": "Romeo and Juliet",
+      "creator": "William Shakespeare",
+      "source_url": "https://www.gutenberg.org/ebooks/1513",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.98,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-sense-and-sensibility",
+      "type": "book",
+      "title": "Sense and Sensibility",
+      "creator": "Jane Austen",
+      "source_url": "https://www.gutenberg.org/ebooks/161",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.98,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-the-age-of-innocence",
+      "type": "book",
+      "title": "The Age of Innocence",
+      "creator": "Edith Wharton",
+      "source_url": "https://www.gutenberg.org/ebooks/541",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.96,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-the-tenant-of-wildfell-hall",
+      "type": "book",
+      "title": "The Tenant of Wildfell Hall",
+      "creator": "Anne Bronte",
+      "source_url": "https://www.gutenberg.org/ebooks/969",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.97,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-wuthering-heights",
+      "type": "book",
+      "title": "Wuthering Heights",
+      "creator": "Emily Bronte",
+      "source_url": "https://www.gutenberg.org/ebooks/768",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 1,
+      "confidence": 0.97,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-may-irwin-kiss",
+      "type": "film",
+      "title": "The Kiss",
+      "creator": "William Heise",
+      "source_url": "https://www.loc.gov/item/00694129/",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "metadata_analysis",
+        "visual_reference_review",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 2,
+      "confidence": 0.92,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-public-domain-films-national-film-registry",
+      "type": "film",
+      "title": "Public Domain Films from the National Film Registry",
+      "creator": "Library of Congress",
+      "source_url": "https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/",
+      "license_status": "public_domain_metadata_and_selected_media",
+      "allowed_use": [
+        "metadata_analysis",
+        "visual_reference_review",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 2,
+      "confidence": 0.95,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-tillies-punctured-romance",
+      "type": "film",
+      "title": "Tillie's Punctured Romance",
+      "creator": "Mack Sennett",
+      "source_url": "https://www.loc.gov/item/00694178/",
+      "license_status": "public_domain_metadata_review_required_for_media",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 2,
+      "confidence": 0.82,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-within-our-gates",
+      "type": "film",
+      "title": "Within Our Gates",
+      "creator": "Oscar Micheaux",
+      "source_url": "https://www.loc.gov/item/00694218/",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "metadata_analysis",
+        "visual_reference_review",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 2,
+      "confidence": 0.9,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "wikidata-romance-film-metadata",
+      "type": "film",
+      "title": "Romance Film Metadata Query",
+      "creator": "Wikidata contributors",
+      "source_url": "https://query.wikidata.org/",
+      "license_status": "cc0_metadata",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns",
+        "source_discovery"
+      ],
+      "ingestion_mode": "sparql_metadata_only",
+      "priority": 2,
+      "confidence": 0.9,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "wikidata-romantic-comedy-film-metadata",
+      "type": "film",
+      "title": "Romantic Comedy Film Metadata Query",
+      "creator": "Wikidata contributors",
+      "source_url": "https://query.wikidata.org/",
+      "license_status": "cc0_metadata",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns",
+        "source_discovery"
+      ],
+      "ingestion_mode": "sparql_metadata_only",
+      "priority": 2,
+      "confidence": 0.9,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-robot-access-policy",
+      "type": "book",
+      "title": "Project Gutenberg Robot Access Policy",
+      "creator": "Project Gutenberg",
+      "source_url": "https://www.gutenberg.org/policy/robot_access.html",
+      "license_status": "access_policy",
+      "allowed_use": [
+        "ingestion_rules",
+        "source_discovery"
+      ],
+      "ingestion_mode": "policy_reference",
+      "priority": 3,
+      "confidence": 0.95,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "imdb-non-commercial-datasets",
+      "type": "film",
+      "title": "IMDb Non-Commercial Datasets",
+      "creator": "IMDb",
+      "source_url": "https://www.imdb.com/interfaces/",
+      "license_status": "non_commercial_metadata_terms",
+      "allowed_use": [
+        "metadata_analysis",
+        "internal_research",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "dataset_metadata_only",
+      "priority": 3,
+      "confidence": 0.78,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "open-library-developers-api",
+      "type": "book",
+      "title": "Open Library Developers API",
+      "creator": "Open Library",
+      "source_url": "https://openlibrary.org/developers/api",
+      "license_status": "api_metadata_terms",
+      "allowed_use": [
+        "metadata_analysis",
+        "source_discovery",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "api_metadata_only",
+      "priority": 3,
+      "confidence": 0.85,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "animalz-quality-content",
+      "type": "story_selling_framework",
+      "title": "Quality Content",
+      "creator": "Animalz",
+      "source_url": "https://www.animalz.co/blog/quality-content",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.8,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "copyblogger-how-to-write-a-story",
+      "type": "story_selling_framework",
+      "title": "How to Write a Story That Sells",
+      "creator": "Copyblogger",
+      "source_url": "https://copyblogger.com/how-to-write-a-story/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.82,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "jane-friedman-write-love-scene",
+      "type": "craft_article",
+      "title": "How to Write a Love Scene",
+      "creator": "Jane Friedman",
+      "source_url": "https://janefriedman.com/write-love-scene/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.84,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "khan-academy-pixar-storytelling",
+      "type": "craft_article",
+      "title": "Pixar in a Box: The Art of Storytelling",
+      "creator": "Khan Academy and Pixar",
+      "source_url": "https://www.khanacademy.org/computing/pixar/storytelling",
+      "license_status": "copyrighted_educational_web_course",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.86,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "reedsy-how-to-write-a-romance-novel",
+      "type": "craft_article",
+      "title": "How to Write a Romance Novel",
+      "creator": "Reedsy",
+      "source_url": "https://reedsy.com/blog/guide/romance/how-to-write-a-romance-novel/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.84,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "save-the-cat-how-to-write-a-screenplay",
+      "type": "craft_article",
+      "title": "How to Write a Screenplay",
+      "creator": "Save the Cat",
+      "source_url": "https://savethecat.com/how-to-write-a-screenplay",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.86,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "story-grid-love-genre",
+      "type": "craft_article",
+      "title": "Love Genre",
+      "creator": "Story Grid",
+      "source_url": "https://storygrid.com/love-genre/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.88,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "storybrand-framework",
+      "type": "story_selling_framework",
+      "title": "The StoryBrand Framework",
+      "creator": "StoryBrand",
+      "source_url": "https://storybrand.com/learn-the-framework/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.8,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "writers-digest-romance-conflict",
+      "type": "craft_article",
+      "title": "How to Write a Romance Novel: The Keys to Conflict",
+      "creator": "Writer's Digest",
+      "source_url": "https://www.writersdigest.com/whats-new/how-to-write-a-romance-novel-the-keys-to-conflict",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 4,
+      "confidence": 0.82,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "ann-handley-storytelling-marketing",
+      "type": "story_selling_framework",
+      "title": "Storytelling in Marketing",
+      "creator": "Ann Handley",
+      "source_url": "https://annhandley.com/",
+      "license_status": "copyrighted_site_reference",
+      "allowed_use": [
+        "citation",
+        "discovery_reference_only"
+      ],
+      "ingestion_mode": "discovery_reference_only",
+      "priority": 5,
+      "confidence": 0.62,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "buffer-science-of-storytelling",
+      "type": "story_selling_framework",
+      "title": "The Science of Storytelling",
+      "creator": "Buffer",
+      "source_url": "https://buffer.com/resources/science-of-storytelling-why-telling-a-story-is-the-most-powerful-way-to-activate-our-brains/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 5,
+      "confidence": 0.72,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "cxl-storytelling-examples",
+      "type": "story_selling_framework",
+      "title": "Storytelling Examples for Better Marketing",
+      "creator": "CXL",
+      "source_url": "https://cxl.com/blog/storytelling-examples/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 5,
+      "confidence": 0.7,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "marketingsherpa-storytelling-case-studies",
+      "type": "story_selling_framework",
+      "title": "MarketingSherpa Storytelling Case Studies",
+      "creator": "MarketingSherpa",
+      "source_url": "https://www.marketingsherpa.com/",
+      "license_status": "copyrighted_site_metadata",
+      "allowed_use": [
+        "citation",
+        "discovery_reference_only"
+      ],
+      "ingestion_mode": "discovery_reference_only",
+      "priority": 5,
+      "confidence": 0.65,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "nngroup-storytelling-ux",
+      "type": "story_selling_framework",
+      "title": "Storytelling in UX",
+      "creator": "Nielsen Norman Group",
+      "source_url": "https://www.nngroup.com/articles/storytelling-ux/",
+      "license_status": "copyrighted_web_article",
+      "allowed_use": [
+        "citation",
+        "short_summary",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "source_card_only",
+      "priority": 5,
+      "confidence": 0.76,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "every-frame-a-painting-visual-storytelling",
+      "type": "craft_article",
+      "title": "Visual Storytelling Video Essays",
+      "creator": "Every Frame a Painting",
+      "source_url": "https://www.youtube.com/@everyframeapainting",
+      "license_status": "copyrighted_video_reference",
+      "allowed_use": [
+        "citation",
+        "discovery_reference_only"
+      ],
+      "ingestion_mode": "discovery_reference_only",
+      "priority": 6,
+      "confidence": 0.68,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-a-room-with-a-view",
+      "type": "book",
+      "title": "A Room with a View",
+      "creator": "E. M. Forster",
+      "source_url": "https://www.gutenberg.org/ebooks/2641",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 6,
+      "confidence": 0.94,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-the-blue-castle",
+      "type": "book",
+      "title": "The Blue Castle",
+      "creator": "L. M. Montgomery",
+      "source_url": "https://www.gutenberg.org/ebooks/67979",
+      "license_status": "public_domain_us_review_before_bulk_use",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 6,
+      "confidence": 0.82,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-the-enchanted-april",
+      "type": "book",
+      "title": "The Enchanted April",
+      "creator": "Elizabeth von Arnim",
+      "source_url": "https://www.gutenberg.org/ebooks/16389",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 6,
+      "confidence": 0.94,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "gutenberg-the-scarlet-pimpernel",
+      "type": "book",
+      "title": "The Scarlet Pimpernel",
+      "creator": "Baroness Orczy",
+      "source_url": "https://www.gutenberg.org/ebooks/60",
+      "license_status": "public_domain_us",
+      "allowed_use": [
+        "full_text_analysis",
+        "short_quotes",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "robot_harvest_or_manual_seed",
+      "priority": 6,
+      "confidence": 0.94,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-city-lights-record",
+      "type": "film",
+      "title": "City Lights",
+      "creator": "Charlie Chaplin",
+      "source_url": "https://www.loc.gov/item/jots.200014248/",
+      "license_status": "metadata_only_copyright_review_required",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 6,
+      "confidence": 0.72,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-it-happened-one-night-record",
+      "type": "film",
+      "title": "It Happened One Night",
+      "creator": "Frank Capra",
+      "source_url": "https://www.loc.gov/item/jots.200014085/",
+      "license_status": "metadata_only_copyright_review_required",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 6,
+      "confidence": 0.72,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-sherlock-jr-record",
+      "type": "film",
+      "title": "Sherlock Jr.",
+      "creator": "Buster Keaton",
+      "source_url": "https://www.loc.gov/item/jots.200014460/",
+      "license_status": "metadata_only_copyright_review_required",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 6,
+      "confidence": 0.72,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-sunrise-record",
+      "type": "film",
+      "title": "Sunrise: A Song of Two Humans",
+      "creator": "F. W. Murnau",
+      "source_url": "https://www.loc.gov/item/jots.200014490/",
+      "license_status": "metadata_only_copyright_review_required",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 6,
+      "confidence": 0.72,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "loc-the-general-record",
+      "type": "film",
+      "title": "The General",
+      "creator": "Buster Keaton and Clyde Bruckman",
+      "source_url": "https://www.loc.gov/item/jots.200014304/",
+      "license_status": "metadata_only_copyright_review_required",
+      "allowed_use": [
+        "metadata_analysis",
+        "derived_patterns"
+      ],
+      "ingestion_mode": "metadata_seed",
+      "priority": 6,
+      "confidence": 0.72,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "medium-storytelling-marketing-reference",
+      "type": "story_selling_framework",
+      "title": "Medium Storytelling Marketing References",
+      "creator": "Medium authors",
+      "source_url": "https://medium.com/tag/storytelling",
+      "license_status": "copyrighted_platform_reference",
+      "allowed_use": [
+        "citation",
+        "discovery_reference_only"
+      ],
+      "ingestion_mode": "discovery_reference_only",
+      "priority": 6,
+      "confidence": 0.55,
+      "scraped_at": "2026-05-18"
+    },
+    {
+      "id": "screenwriting-io-romance-story",
+      "type": "craft_article",
+      "title": "Screenwriting.io Romance References",
+      "creator": "Screenwriting.io",
+      "source_url": "https://screenwriting.io/",
+      "license_status": "copyrighted_site_reference",
+      "allowed_use": [
+        "citation",
+        "discovery_reference_only"
+      ],
+      "ingestion_mode": "discovery_reference_only",
+      "priority": 6,
+      "confidence": 0.62,
+      "scraped_at": "2026-05-18"
+    }
+  ]
+}

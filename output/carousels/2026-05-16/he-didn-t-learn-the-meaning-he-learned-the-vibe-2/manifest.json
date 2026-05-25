@@ -1,0 +1,56 @@
+{
+  "date": "2026-05-16",
+  "slug": "he-didn-t-learn-the-meaning-he-learned-the-vibe-2",
+  "title": "He Didn't Learn The Meaning. He Learned The Vibe.",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "draft_for_human_review",
+  "source_story": "He did not learn the meaning, he learned the vibe. Aachu says Kashmiri words with full tone and family energy. Zuv repeats kurta, patpahan, ursu ursu, and namaskar mahara in a funny voice, even to her parents.",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 5,
+    "recommended_aspect_ratio": "4:5",
+    "recommended_size": "1080x1350",
+    "hd_master_size": "2160x2700"
+  },
+  "reference_images": [],
+  "identity_references": [
+    {
+      "path": "identity_images/aachu_zuv.png",
+      "role": "Aachu/Zuv face consistency reference"
+    }
+  ],
+  "artifacts": {
+    "concept": "concept.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "intake_reviewer",
+      "story_reviewer",
+      "arc_reviewer",
+      "visual_reviewer",
+      "prompt_reviewer",
+      "copy_reviewer",
+      "asset_reviewer",
+      "wiki_learning_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": "visual-qa.md"
+    }
+  }
+}

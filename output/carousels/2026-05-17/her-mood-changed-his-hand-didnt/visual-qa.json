@@ -1,0 +1,33 @@
+{
+  "status": "NEEDS_FIXES",
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "The slide story and copy match the selected idea."
+    },
+    "aachu_face": {
+      "pass": false,
+      "evidence": "Final art does not sufficiently prove likeness from the identity bundle."
+    },
+    "zuv_face": {
+      "pass": false,
+      "evidence": "Final art does not sufficiently prove likeness from the identity bundle."
+    },
+    "dress_continuity": {
+      "pass": false,
+      "evidence": "Clothing is pleasant but not proven from the selected identity references."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Soft romantic archive style direction is strong."
+    },
+    "model_native_text": {
+      "pass": true,
+      "evidence": "Slide copy and brandmark are rendered inside the images."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "final/slide-01.png through final/slide-05.png exist."
+    }
+  }
+}
