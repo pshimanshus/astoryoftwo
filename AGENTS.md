@@ -205,6 +205,43 @@ python scripts/scrape_instagram.py
 
 ---
 
+## Agentic OS Control Plane
+
+The repo now has an executable Agentic OS spine in `pipeline/agentic/`. Use it
+to make identity, memory, skills, recall, learning proposals, and audit trails
+queryable before packaging creative work.
+
+Primary files:
+
+- `config/agentic_context_manifest.json` — context-pack source of truth for
+  voice, working memory, semantic memory, wiki themes, and operating contract.
+- `config/skill-systems.json` — reusable workflow systems such as
+  `carousel_jam`, `story_article`, `prepost_reel`, and `wiki_health`.
+- `scripts/agentic_os.py` — CLI for context, registry, index, search, recall,
+  learning proposals, evaluation, and health summaries.
+- `pipeline/agentic/` — contracts, context loader, skill registry, memory
+  index, recall bundles, audit log, guarded learning loop, and eval gates.
+- `docs/superpowers/specs/agentic-os-control-plane.md` — technical contract
+  for the control plane, workflow integration, and learning boundary.
+
+Default commands:
+
+```bash
+venv/bin/python scripts/agentic_os.py context --render
+venv/bin/python scripts/agentic_os.py skill-system carousel_jam
+venv/bin/python scripts/agentic_os.py index-memory
+venv/bin/python scripts/agentic_os.py search "visual first carousel"
+venv/bin/python scripts/agentic_os.py recall "kitchen comedy carousel"
+venv/bin/python scripts/agentic_os.py health
+```
+
+Do not treat the Agentic OS as an auto-editing self-learning loop. It may
+capture learning events and create proposals, but skill/context changes must
+stay draft-only until deterministic eval gates pass and a human or explicit
+repo instruction approves the change.
+
+---
+
 ## Autopublish Closeout Gate
 
 At the end of every substantial Codex session that changes repo files, run the

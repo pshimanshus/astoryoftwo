@@ -5699,6 +5699,11 @@ def build_manifest(
             "contact_sheet_path": identity_dossier.get("contact_sheet_path"),
             "status": identity_dossier.get("status"),
         },
+        "agentic_os": {
+            "context_manifest": "config/agentic_context_manifest.json",
+            "skill_systems": "config/skill-systems.json",
+            "skill_system": "carousel_jam",
+        },
         "carousel_story_director_persona": CAROUSEL_STORY_DIRECTOR_CONTRACT,
         "artifacts": ARTIFACT_CONTRACT,
         "quality_spine": {

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "systems": {
+    "carousel_jam": {
+      "description": "Creator jam to final illustrated carousel workflow.",
+      "components": [
+        "config/skills/carousel-jam-autopilot.md",
+        "config/skills/continuous-carousel-agent-room.md",
+        "config/skills/romance-story-selling-engine.md",
+        "config/skills/golden-viral-carousel-theme.md",
+        "config/skills/carousel-story-director-persona.md",
+        "config/skills/illustration-carousel-framework.md",
+        "config/skills/indian-creator-intelligence.md"
+      ],
+      "agents": [
+        "agents/carousel-story-director.md",
+        "agents/carousel-post-copy-visual-room-orchestrator.md",
+        "agents/carousel-visual-evidence-planner.md",
+        "agents/carousel-romance-scene-planner.md",
+        "agents/carousel-visual-continuity-judge.md"
+      ],
+      "gates": [
+        "story_selling_28",
+        "golden_theme_28",
+        "story_director_8_each",
+        "post_copy_visual_room_go",
+        "visual_debate_go",
+        "visual_plan_quality_go",
+        "identity_consistency_pass"
+      ]
+    },
+    "story_article": {
+      "description": "Carousel or love story to Substack article workflow.",
+      "components": [
+        "config/skills/romance-story-selling-engine.md",
+        "config/skills/couple-substack-article-framework.md",
+        "config/voice.md"
+      ],
+      "agents": [
+        "agents/story-canon-orchestrator.md",
+        "agents/story-skill-reviewer.md"
+      ],
+      "gates": [
+        "source_integrity",
+        "love_theme_fit",
+        "structure",
+        "voice_and_taste",
+        "growth_package",
+        "final_approval"
+      ]
+    },
+    "prepost_reel": {
+      "description": "Planned Reel pre-post analysis workflow.",
+      "components": [
+        "config/skills/romance-story-selling-engine.md",
+        "config/skills/hook-and-edit-framework.md",
+        "config/skills/instagram-algorithm-2026.md",
+        "config/skills/indian-creator-intelligence.md"
+      ],
+      "agents": [
+        "agents/hook-analyzer.md",
+        "agents/edit-auditor.md",
+        "agents/algorithm-scorer.md",
+        "agents/caption-advisor.md",
+        "agents/cultural-resonance.md"
+      ],
+      "gates": [
+        "hook_score",
+        "retention",
+        "dm_send_potential",
+        "cultural_authenticity",
+        "verdict"
+      ]
+    },
+    "wiki_health": {
+      "description": "Session close memory and wiki health workflow.",
+      "components": [
+        "scripts/wiki_health.py",
+        "scripts/autopublish.py",
+        "pipeline/stages/wiki_health.py"
+      ],
+      "agents": [],
+      "gates": [
+        "instruction_surface_sync",
+        "memory_surface",
+        "wiki_index_total_pages",
+        "semantic_memory_confidence",
+        "autopublish_closeout"
+      ]
+    }
+  }
+}

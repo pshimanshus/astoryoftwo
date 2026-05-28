@@ -35,6 +35,24 @@ REQUIRED_CLOSEOUT_PHRASES = [
     "scripts/wiki_health.py --write --fix-index",
 ]
 
+REQUIRED_AGENTIC_OS_FILES = [
+    "pipeline/agentic/__init__.py",
+    "pipeline/agentic/contracts.py",
+    "pipeline/agentic/context_loader.py",
+    "pipeline/agentic/skill_registry.py",
+    "pipeline/agentic/memory_index.py",
+    "pipeline/agentic/recall.py",
+    "pipeline/agentic/audit_log.py",
+    "pipeline/agentic/learning_loop.py",
+    "pipeline/agentic/skill_eval.py",
+    "pipeline/agentic/workflow_metadata.py",
+    "pipeline/agentic/workflow_state.py",
+    "scripts/agentic_os.py",
+    "config/agentic_context_manifest.json",
+    "config/skill-systems.json",
+    "docs/superpowers/specs/agentic-os-control-plane.md",
+]
+
 REQUIRED_MEMORY_SURFACE = {
     "wiki_index": "wiki/index.md",
     "wiki_themes": "wiki/themes",
@@ -193,6 +211,21 @@ def collect_wiki_health(root: Path, today: date | None = None) -> dict[str, Any]
             "critical" if instruction_drift else "info",
             "AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands.",
             instruction_evidence,
+        )
+    )
+
+    missing_agentic = [
+        path
+        for path in REQUIRED_AGENTIC_OS_FILES
+        if not (root / path).exists()
+    ]
+    checks.append(
+        make_check(
+            "agentic_os_surface",
+            "FAIL" if missing_agentic else "PASS",
+            "critical" if missing_agentic else "info",
+            "Agentic OS control-plane files exist and are available to future sessions.",
+            {"required": REQUIRED_AGENTIC_OS_FILES, "missing": missing_agentic},
         )
     )
 

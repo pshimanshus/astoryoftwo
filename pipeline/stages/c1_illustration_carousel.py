@@ -290,12 +290,10 @@ def load_agent(name: str) -> str:
 
 
 def load_context() -> str:
-    parts = []
-    if VOICE_FILE.exists():
-        parts.append(f"# Voice Guide\n{VOICE_FILE.read_text(encoding='utf-8')}")
-    if WORKING_MEMORY.exists():
-        parts.append(f"# Working Memory\n{WORKING_MEMORY.read_text(encoding='utf-8')}")
-    return "\n\n---\n\n".join(parts)
+    from pipeline.agentic.context_loader import assemble_context_pack, render_context_pack
+
+    pack = assemble_context_pack(BASE_DIR, profile="a-story-of-two")
+    return render_context_pack(pack)
 
 
 def build_system_prompt(agent_name: str, skill_names: list[str]) -> str:
@@ -488,6 +486,11 @@ def build_manifest(
             {"path": str(path), "role": "Aachu/Zuv face consistency reference"}
             for path in (identity_image_paths or [])
         ],
+        "agentic_os": {
+            "context_manifest": "config/agentic_context_manifest.json",
+            "skill_systems": "config/skill-systems.json",
+            "skill_system": "carousel_jam",
+        },
         "artifacts": ARTIFACT_CONTRACT,
     }
 

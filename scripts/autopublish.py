@@ -237,10 +237,11 @@ def scan_secret_text(root: Path, paths: Sequence[str]) -> list[SecretFinding]:
 
 
 def build_validation_commands(session_note: str) -> list[list[str]]:
+    python_bin = sys.executable
     return [
-        ["venv/bin/python", "-m", "pytest", "-q"],
+        [python_bin, "-m", "pytest", "-q"],
         [
-            "venv/bin/python",
+            python_bin,
             "scripts/wiki_health.py",
             "--write",
             "--fix-index",

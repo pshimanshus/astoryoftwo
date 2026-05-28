@@ -10,10 +10,35 @@ Knowledge layer: LLM-compiled wiki (Karpathy pattern) + memory lifecycle (Rohit 
 
 ## Reading order
 1. `AGENTS.md`            — Platform schema: all operations, agent contracts, memory model
-2. `config/channel.py`    — Instagram channel config, hashtags, content pillars
-3. `config/voice.md`      — @a.storyof.two tone and aesthetic guide
-4. `wiki/index.md`        — Current wiki state
-5. `memory/working.md`    — Current live analysis context
+2. `config/agentic_context_manifest.json` — Agentic OS context-pack manifest
+3. `config/skill-systems.json` — Agentic OS workflow system registry
+4. `config/channel.py`    — Instagram channel config, hashtags, content pillars
+5. `config/voice.md`      — @a.storyof.two tone and aesthetic guide
+6. `wiki/index.md`        — Current wiki state
+7. `memory/working.md`    — Current live analysis context
+
+## Agentic OS Control Plane
+
+Use `pipeline/agentic/` and `scripts/agentic_os.py` before substantial
+workflow work when context, memory recall, skill composition, learning
+proposals, or auditability matter.
+
+Core commands:
+
+```bash
+venv/bin/python scripts/agentic_os.py context --render
+venv/bin/python scripts/agentic_os.py skill-system carousel_jam
+venv/bin/python scripts/agentic_os.py index-memory
+venv/bin/python scripts/agentic_os.py search "visual first carousel"
+venv/bin/python scripts/agentic_os.py recall "kitchen comedy carousel"
+venv/bin/python scripts/agentic_os.py health
+```
+
+The control plane is grounded by `config/agentic_context_manifest.json` and
+`config/skill-systems.json`, with the full technical contract in
+`docs/superpowers/specs/agentic-os-control-plane.md`. It does not auto-apply
+learning. Learning events become draft proposals and must pass eval gates
+before any skill/context file is changed.
 
 ## Channel identity
 - Handle: @a.storyof.two
@@ -47,7 +72,6 @@ The `corpus/` directory contains all scraped Instagram content:
 
 ## Environment variables needed
 ```
-ANTHROPIC_API_KEY=...
 APIFY_API_KEY=...
 APIFY_USER_ID=...
 INSTAGRAM_HANDLE=a.storyof.two

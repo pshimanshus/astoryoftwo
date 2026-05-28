@@ -49,3 +49,5 @@ output/wallpapers/
 
 # Generated diagnostics/log churn can be recreated, but selected docs may be promoted manually.
 logs/
+memory/agentic/index/*.sqlite3
+memory/agentic/index/*.sqlite3-*

@@ -109,12 +109,56 @@ def load_agent(name: str) -> str:
 
 
 def load_context() -> str:
-    parts = []
-    if VOICE_FILE.exists():
-        parts.append(f"# Voice Guide\n{VOICE_FILE.read_text()}")
-    if WORKING_MEMORY.exists():
-        parts.append(f"# Working Memory\n{WORKING_MEMORY.read_text()}")
-    return "\n\n---\n\n".join(parts)
+    from pipeline.agentic.context_loader import assemble_context_pack, render_context_pack
+
+    pack = assemble_context_pack(BASE_DIR, profile="a-story-of-two")
+    return render_context_pack(pack)
+
+
+def build_agentic_os_brief(brief: dict) -> str:
+    from pipeline.agentic.workflow_metadata import (
+        build_workflow_metadata,
+        build_workflow_recall_markdown,
+    )
+
+    query = str(brief.get("concept") or " ".join(str(value) for value in brief.values() if value))
+    if not query.strip():
+        query = "planned Reel pre-post analysis"
+    try:
+        metadata = build_workflow_metadata(
+            BASE_DIR,
+            skill_system_name="prepost_reel",
+            recall_query=query,
+            profile="a-story-of-two",
+        )
+        recall_text = build_workflow_recall_markdown(
+            BASE_DIR,
+            query=query,
+            profile="a-story-of-two",
+        )
+    except Exception as exc:  # noqa: BLE001 - expose missing control-plane setup inside the brief.
+        metadata = {
+            "context_manifest": "config/agentic_context_manifest.json",
+            "skill_systems": "config/skill-systems.json",
+            "skill_system": "prepost_reel",
+            "status": "recall_unavailable",
+            "reason": str(exc),
+        }
+        recall_text = "# Recall Bundle\n\nStatus: recall_unavailable\n"
+
+    return "\n".join(
+        [
+            "# Agentic OS Pre-Post Brief",
+            "",
+            "## Skill System",
+            "",
+            "```json",
+            json.dumps(metadata, indent=2, ensure_ascii=False),
+            "```",
+            "",
+            recall_text,
+        ]
+    )
 
 
 def build_system_prompt(agent_name: str, skill_names: list[str]) -> str:
@@ -139,6 +183,7 @@ Follow the agent definition exactly. Be specific and actionable. Never be vague 
 def run_agent(client: anthropic.Anthropic, agent_name: str, skill_names: list[str], brief: dict) -> str:
     system = build_system_prompt(agent_name, skill_names)
     brief_text = "\n".join([f"{k}: {v}" for k, v in brief.items() if v])
+    agentic_os_brief = build_agentic_os_brief(brief)
 
     message = client.messages.create(
         model="claude-sonnet-4-6",
@@ -147,7 +192,10 @@ def run_agent(client: anthropic.Anthropic, agent_name: str, skill_names: list[st
         messages=[
             {
                 "role": "user",
-                "content": f"Analyze this planned Reel and produce your full evaluation output:\n\n{brief_text}",
+                "content": (
+                    "Analyze this planned Reel and produce your full evaluation output:\n\n"
+                    f"{brief_text}\n\n---\n\n{agentic_os_brief}"
+                ),
             }
         ],
     )
@@ -165,6 +213,7 @@ def run_orchestrator(client: anthropic.Anthropic, brief: dict, agent_outputs: di
     )
 
     brief_text = "\n".join([f"{k}: {v}" for k, v in brief.items() if v])
+    agentic_os_brief = build_agentic_os_brief(brief)
 
     message = client.messages.create(
         model="claude-opus-4-6",
@@ -180,6 +229,9 @@ def run_orchestrator(client: anthropic.Anthropic, brief: dict, agent_outputs: di
 
 # Specialist Agent Reports
 {agent_reports}
+
+# Agentic OS Provenance And Recall
+{agentic_os_brief}
 
 Produce the full Pre-Post Analysis output per your agent definition.""",
             }
@@ -210,16 +262,18 @@ def analyze_prepost(brief: dict, save: bool = True) -> str:
 
     print("  → prepost-orchestrator (synthesis)...")
     final_report = run_orchestrator(client, brief, agent_outputs)
+    agentic_os_brief = build_agentic_os_brief(brief)
+    report_with_provenance = final_report + "\n\n---\n\n" + agentic_os_brief
 
     if save:
         date_str = datetime.now().strftime("%Y-%m-%d")
         concept_slug = brief.get("concept", "reel")[:40].replace(" ", "-").lower()
         concept_slug = "".join(c for c in concept_slug if c.isalnum() or c == "-")
         filename = OUTPUT_DIR / f"{date_str}-{concept_slug}.md"
-        filename.write_text(final_report)
+        filename.write_text(report_with_provenance)
         print(f"\nReport saved → {filename}")
 
-    return final_report
+    return report_with_provenance
 
 
 def interactive_mode() -> dict:
