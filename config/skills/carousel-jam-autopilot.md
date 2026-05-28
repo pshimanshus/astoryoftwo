@@ -96,45 +96,52 @@ Write or update:
 ## Autopilot Sequence
 
 1. Load memory and exclusions:
+   - `wiki/insights/successful-carousel-standard.md`
    - `memory/semantic/carousel-idea-preferences.md`
    - `wiki/themes/calm-enough-for-chaos.md`
    - `output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md`
-2. Run Layer E:
+2. Define what success looks like before writing:
+   - audience success: send/save/tag behavior and "this is us" recognition;
+   - creative success: staged story sequence, behavior receipts, active partner
+     response, emotional turn, and earned thesis;
+   - brand success: ownable warm desi relationship IP;
+   - production success: native 4:5 and separate native 9:16 finals with QA.
+3. Run Layer E:
    - `config/skills/romance-story-selling-engine.md`
-3. Run Golden Theme tournament:
+4. Run Golden Theme tournament:
    - 5-10 routes;
    - 30-point score each;
    - top route must score 28/30+.
-4. Run the Stage-Scene Gate:
+5. Run the Stage-Scene Gate:
    - storyboard-first stage scenes before slide copy;
    - each route must play as action -> reaction -> consequence -> reversal;
    - every scene must define eye-line, hands, body distance, object movement,
      silence, and the partner's active response;
    - text completes the scene; text must not carry the scene.
-5. Load Story Director:
+6. Load Story Director:
    - `config/skills/carousel-story-director-persona.md`
-6. Run parallel agent room and present the creator one selected direction.
-7. After creator approval, lock copy.
-8. Run Post-Copy Visual Creative Room:
+7. Run parallel agent room and present the creator one selected direction.
+8. After creator approval, lock copy.
+9. Run Post-Copy Visual Creative Room:
    - `post-copy-visual-room.json`
-9. Run Visual Debate Gate:
+10. Run Visual Debate Gate:
    - `visual-debate.json`
    - `visual-plan-quality.json`
-10. Build package:
+11. Build package:
     - `slides.json`
     - `copy.json`
     - `prompt-pack.json`
     - `identity-consistency-review.json`
     - `review.json`
-11. Prepare image handoff:
+12. Prepare image handoff:
     - `codex-image-prompts/instagram-post/`
     - `codex-image-prompts/reels-stories/`
-12. Generate one proof slide when risk is high.
-13. If proof passes, generate all remaining native `4:5` and native `9:16`
+13. Generate one proof slide when risk is high.
+14. If proof passes, generate all remaining native `4:5` and native `9:16`
     slides.
-14. Package generated sources:
+15. Package generated sources:
     - `scripts/package_generated_carousel.py`
-15. Run final QA:
+16. Run final QA:
     - `visual-qa.md`
     - `final-audit.json`
     - wiki health if the session is substantial.

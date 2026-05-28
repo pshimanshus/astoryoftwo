@@ -58,6 +58,7 @@ before any skill/context file is changed.
 ## Illustrated carousel hard gates
 - Default to the Codex-native/local carousel path; do not route normal carousel image work through API image generation.
 - For every carousel, use multiple agents or parallel reviewers for concept, visual plan, identity, prompt, and QA.
+- Before carousel ideation or writing, load `wiki/insights/successful-carousel-standard.md` and define audience success, creative success, brand success, and production success; if that definition is missing, Layer E has not actually run.
 - Preserve the Calm Enough For Your Chaos golden-theme machine: universal relationship truth -> Aachu/Zuv proof -> Zuv active care -> tender thesis.
 - Before writing hooks, slide copy, captions, visual direction, prompts, or image handoff instructions, load `config/skills/carousel-story-director-persona.md` after the existing memory/golden-theme gates. Keep it active through final native image sets and QA.
 - Before any image generation, `visual-debate.json`, `visual-plan-quality.json`, and `identity-consistency-review.json` must pass.

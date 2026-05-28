@@ -28,6 +28,7 @@ Read only what is needed for the current request:
 - `config/references/story-selling-canon/concept-process-cards.md`
 - `config/references/story-selling-canon/rubric.md`
 - `config/references/story-selling-canon/source-policy.md`
+- `wiki/insights/successful-carousel-standard.md`
 - `config/skills/golden-viral-carousel-theme.md`
 - `config/references/golden-viral-carousel-theme-reference.md`
 - `config/skills/carousel-story-director-persona.md`
@@ -43,25 +44,28 @@ For carousel ideas, also read the current gold-theme source memory:
    dynamic, and any source-canon pattern that is being used. Do not copy
    copyrighted source text into artifacts.
    If any external source is used, apply `source-policy.md` first.
-2. Choose one concept-process card from
+2. Load `wiki/insights/successful-carousel-standard.md` and define what
+   success looks like before writing: audience success, creative success,
+   brand success, and production success.
+3. Choose one concept-process card from
    `config/references/story-selling-canon/concept-process-cards.md`.
-3. Generate 5-10 concept variants if the task is ideation, carousel selection,
+4. Generate 5-10 concept variants if the task is ideation, carousel selection,
    or article angle selection.
-4. Run the golden-theme variant tournament for carousel work exactly as
+5. Run the golden-theme variant tournament for carousel work exactly as
    required by `config/skills/golden-viral-carousel-theme.md`.
-5. Before writing hooks, slides, copy, visual direction, or prompt text, run
+6. Before writing hooks, slides, copy, visual direction, or prompt text, run
    the Stage-Scene Gate: convert the winning story lens into storyboard-first
    action, reaction, eye-line, hands, distance, object movement, silence,
    consequence, reversal, and payoff. Text completes the scene; text must not
    carry the scene.
-6. Before writing hooks, slides, copy, visual direction, or prompt text, apply
+7. Before writing hooks, slides, copy, visual direction, or prompt text, apply
    `config/skills/carousel-story-director-persona.md` and confirm hook,
    setup, proof, bridge, active Zuv role, earned ending, and send/save reason.
-7. Score the best candidate with the 30-point Story-Selling rubric in
+8. Score the best candidate with the 30-point Story-Selling rubric in
    `config/references/story-selling-canon/rubric.md`.
-8. Proceed only when the selected concept reaches 28/30 on Story-Selling and,
+9. Proceed only when the selected concept reaches 28/30 on Story-Selling and,
    for carousel work, 28/30 on Golden Theme.
-9. Adapt the winner to the proper artifact contract:
+10. Adapt the winner to the proper artifact contract:
    - C-layer: `concept.json`, `slides.json`, `prompt-pack.json`, `copy.json`,
      `review.json`, and final image gates.
    - D-layer: article brief, outline, draft, growth package, editorial gates,

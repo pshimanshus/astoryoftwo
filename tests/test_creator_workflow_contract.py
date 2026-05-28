@@ -61,3 +61,26 @@ def test_creator_jam_requires_layer_e_council_and_stage_scene_gate():
     contract = (WORKSPACE / "config/carousel_style_contract.json").read_text(encoding="utf-8")
     assert '"stage_scene_policy"' in contract
     assert "storyboard-first" in contract
+
+
+def test_creator_jam_requires_successful_carousel_standard_before_writing():
+    files = [
+        WORKSPACE / "AGENTS.md",
+        WORKSPACE / "CLAUDE.md",
+        WORKSPACE / "config/skills/carousel-jam-autopilot.md",
+        WORKSPACE / "config/skills/romance-story-selling-engine.md",
+        WORKSPACE / "config/skills/golden-viral-carousel-theme.md",
+        WORKSPACE / "config/skills/carousel-story-director-persona.md",
+    ]
+
+    for path in files:
+        text = path.read_text(encoding="utf-8")
+        assert "wiki/insights/successful-carousel-standard.md" in text, (
+            f"{path} must load the successful-carousel standard explicitly"
+        )
+        assert "audience success" in text.lower(), (
+            f"{path} must define what success looks like before carousel writing"
+        )
+        assert "creative success" in text.lower(), (
+            f"{path} must keep creative success visible before carousel writing"
+        )

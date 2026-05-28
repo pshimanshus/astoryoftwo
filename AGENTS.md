@@ -114,6 +114,7 @@ When the user asks to "make this more cinematic", "make this more novelistic",
 sell online", "find a stronger article angle", or similar, use:
 
 - `config/skills/romance-story-selling-engine.md`
+- `wiki/insights/successful-carousel-standard.md`
 - `config/references/story-selling-canon/source-policy.md`
 - `config/references/story-selling-canon/a-story-of-two-adaptation.md`
 - `config/references/story-selling-canon/concept-process-cards.md`
@@ -121,12 +122,15 @@ sell online", "find a stronger article angle", or similar, use:
 
 Default process:
 
-1. Check source memory and legality if source-canon material is involved.
-2. Choose one concept-process card.
-3. Score with the 30-point Story-Selling rubric.
-4. Require 28/30 or repair and rescore.
-5. For carousel work, run the golden-theme variant tournament too.
-6. Only then adapt the winner to the C-layer or D-layer artifact contract.
+1. Load `wiki/insights/successful-carousel-standard.md` and define what
+   success looks like before writing: audience success, creative success,
+   brand success, and production success.
+2. Check source memory and legality if source-canon material is involved.
+3. Choose one concept-process card.
+4. Score with the 30-point Story-Selling rubric.
+5. Require 28/30 or repair and rescore.
+6. For carousel work, run the golden-theme variant tournament too.
+7. Only then adapt the winner to the C-layer or D-layer artifact contract.
 
 ### E-Layer Hard Fails
 
@@ -332,7 +336,8 @@ Use any attached pictures or supplied local image paths as references. Default
 to 5 slides, allow only 4 or 5 slides, and follow the @a.storyof.two voice,
 `config/carousel_style_contract.json`, the golden viral theme skill, and visual
 memory from this folder. Before submitting or recommending any new carousel
-idea, first read and use `wiki/themes/calm-enough-for-chaos.md` and
+idea, first read and use `wiki/insights/successful-carousel-standard.md`,
+`wiki/themes/calm-enough-for-chaos.md` and
 `output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md` as the
 first-principles source for why the gold carousel worked. The golden theme is
 mandatory: start from a universal relationship truth, then prove it with
@@ -350,6 +355,14 @@ idea unless the creator explicitly asks to revisit it. When the creator rejects,
 accepts, or cools down a concept, update that ledger immediately with the
 concept, lane, status, reason, and confidence score. Then update
 `memory/working.md` only with a short pointer if the workflow changed.
+
+Before any carousel writing, hooks, slide copy, caption, visual direction,
+prompt work, or image-generation handoff, define the success target from
+`wiki/insights/successful-carousel-standard.md`: audience success ("this is us"
+send/save/tag behavior), creative success (a staged story sequence with
+receipts and an emotional turn), brand success (ownable warm desi relationship
+IP), and production success (native final outputs and QA). If this success
+definition is missing, Layer E has not actually run.
 
 For any new carousel concept, story repair, caption angle, article angle, or
 creator jam where we are deciding what the love story *means*, run Layer E
@@ -445,16 +458,19 @@ interrupt the creative loop. The correct response shape is:
 
 1. Acknowledge the jam in one short line.
 2. Load `config/skills/carousel-jam-autopilot.md`.
-3. Read/use the Calm Enough For Your Chaos theme, full viral-theme analysis,
-   and `memory/semantic/carousel-idea-preferences.md`.
+3. Read/use `wiki/insights/successful-carousel-standard.md`, the Calm Enough
+   For Your Chaos theme, full viral-theme analysis, and
+   `memory/semantic/carousel-idea-preferences.md`.
 4. Exclude recently recommended, rejected, packaged, or cooled-down lanes from
    the tournament unless the creator explicitly asks to revisit them.
 5. If there is no supplied moment, photo, or constraint, ask one practical
    context question at most.
-6. Otherwise run Layer E, the golden-theme variant tournament, the continuous
-   C-layer council, and the Stage-Scene Gate: 5-10 distinct story routes,
-   cross-agent debate, repairs, storyboard-first stage scenes, 30-point scores,
-   selector verdict, and GO / REPAIR / STOP decision.
+6. Otherwise define audience success, creative success, brand success, and
+   production success from the successful-carousel standard, then run Layer E,
+   the golden-theme variant tournament, the continuous C-layer council, and the
+   Stage-Scene Gate: 5-10 distinct story routes, cross-agent debate, repairs,
+   storyboard-first stage scenes, 30-point scores, selector verdict, and
+   GO / REPAIR / STOP decision.
 7. Record the recommendation, rejection, acceptance, or cooldown in
    `memory/semantic/carousel-idea-preferences.md`.
 8. After a 28/30+ winner is selected, package the carousel and continue through

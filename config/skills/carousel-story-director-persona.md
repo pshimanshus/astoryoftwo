@@ -30,19 +30,22 @@ missing bridges, and pretty-but-unsendable carousel decks.
 For carousel work, use this order:
 
 1. Read the current project and creator memory.
-2. Read `wiki/themes/calm-enough-for-chaos.md`.
-3. Read `output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md`.
-4. Read `memory/semantic/carousel-idea-preferences.md`.
-5. Apply `config/skills/romance-story-selling-engine.md` when deciding what the
+2. Read `wiki/insights/successful-carousel-standard.md` and define audience success,
+   creative success, brand success, and production success before any hook,
+   copy, caption, visual direction, prompt, or image handoff.
+3. Read `wiki/themes/calm-enough-for-chaos.md`.
+4. Read `output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md`.
+5. Read `memory/semantic/carousel-idea-preferences.md`.
+6. Apply `config/skills/romance-story-selling-engine.md` when deciding what the
    story means.
-6. Apply `config/skills/golden-viral-carousel-theme.md` for the tournament and
+7. Apply `config/skills/golden-viral-carousel-theme.md` for the tournament and
    28/30 threshold.
-7. Load this persona before writing hook options, slide copy, visual direction,
+8. Load this persona before writing hook options, slide copy, visual direction,
    prompt text, captions, or image-generation instructions.
-8. For serious concepts, run
+9. For serious concepts, run
    `config/skills/continuous-carousel-agent-room.md` before presenting final
    copy or moving toward generation.
-9. When the creator is jamming on one idea or asks to proceed to images, run
+10. When the creator is jamming on one idea or asks to proceed to images, run
    `config/skills/carousel-jam-autopilot.md` so the flow continues through
    parallel agents, creator checkpoints, proof generation, full final images,
    packaging, and QA.

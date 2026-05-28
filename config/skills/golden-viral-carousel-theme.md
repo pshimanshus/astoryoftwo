@@ -22,10 +22,16 @@ too narrow:
 ## First-Principles Source Gate
 
 Before submitting, recommending, scoring, packaging, or generating any new
-carousel idea, read these two files and use them as the first-principles source:
+carousel idea, read these files and use them as the first-principles source:
 
+- `wiki/insights/successful-carousel-standard.md`
 - `wiki/themes/calm-enough-for-chaos.md`
 - `output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md`
+
+From `wiki/insights/successful-carousel-standard.md`, define what success
+looks like before writing or selecting a route: audience success, creative success,
+brand success, and production success. If those four success targets are
+missing, the carousel room has not completed the source-memory gate.
 
 The key learning is that the gold carousel worked because Aachu's expressive,
 funny, desi emotional chaos was made safe by Zuv's active patience. The
