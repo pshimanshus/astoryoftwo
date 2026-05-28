@@ -3614,6 +3614,24 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertFalse(result["dimensions"]["prompt_goal_alignment"]["pass"])
         self.assertIn("object", " ".join(result["issues"]).lower())
 
+    def test_codex_native_carousel_split_modules_expose_public_routes(self):
+        from pipeline.stages.carousel_lanes import build_slides, classify_content_lane
+        from pipeline.stages.carousel_package_writer import build_manifest, try_render_assets, write_package
+        from pipeline.stages.carousel_visual_rooms import (
+            build_post_copy_visual_room,
+            build_visual_debate,
+            build_visual_plan_quality,
+        )
+
+        self.assertTrue(callable(classify_content_lane))
+        self.assertTrue(callable(build_slides))
+        self.assertTrue(callable(build_post_copy_visual_room))
+        self.assertTrue(callable(build_visual_debate))
+        self.assertTrue(callable(build_visual_plan_quality))
+        self.assertTrue(callable(build_manifest))
+        self.assertTrue(callable(try_render_assets))
+        self.assertTrue(callable(write_package))
+
     def test_codex_native_package_embeds_successful_carousel_standard_contract(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
