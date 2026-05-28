@@ -10,6 +10,8 @@ sources:
   generation should use Codex's image tool, not an API key path
 - direct creator correction in Codex chat on 2026-05-28 after stale carousel
   proof artifacts caused story drift
+- direct creator correction in Codex chat on 2026-05-28 to avoid AI sprawl and
+  prefer crisp, low-file, low-repetition code
 
 ## Standing Preference
 
@@ -66,3 +68,10 @@ state "final images." A carousel is final only after separate native 4:5 and
 separate native 9:16 images exist for every slide, packaged under `final/` and
 `final-reels-stories/`, with visual QA and final audit written.
 confidence: 1.0
+
+fact: Prefer crisp engineering with the smallest durable surface area: fewer
+files, one clear route per workflow, one responsibility per module, and no
+duplicated logic. If two lines solve the problem safely, do not write ten; if a
+helper prevents repetition, use the helper instead of adding another parallel
+path.
+confidence: 0.95
