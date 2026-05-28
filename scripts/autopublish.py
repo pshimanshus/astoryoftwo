@@ -174,6 +174,48 @@ def is_closeout_artifact(path: str) -> bool:
     return False
 
 
+def is_session_handoff_path(path: str) -> bool:
+    normalized = normalize_path(path)
+    return bool(
+        re.fullmatch(
+            r"memory/episodic/\d{4}-\d{2}-\d{2}-session-health(?:-\d+)?\.md",
+            normalized,
+        )
+    )
+
+
+def is_readable_session_handoff(root: Path, path: str) -> bool:
+    handoff = root / normalize_path(path)
+    if not handoff.is_file():
+        return False
+    try:
+        text = handoff.read_text(encoding="utf-8")
+    except OSError:
+        return False
+    return (
+        "# Session Health Episode" in text
+        and "## Session Note" in text
+        and "## Outcome" in text
+        and len(text.strip()) >= 80
+    )
+
+
+def require_session_handoff(root: Path, paths: Sequence[str]) -> None:
+    handoff_paths = [path for path in paths if is_session_handoff_path(path)]
+    if any(is_readable_session_handoff(root, path) for path in handoff_paths):
+        return
+
+    sys.stderr.write(
+        "\nBLOCKED: autopublish requires a fresh readable session handoff in "
+        "memory/episodic/.\n"
+    )
+    sys.stderr.write(
+        "Run wiki health with --write --fix-index --session-note so the next "
+        "publish leaves a closeout record.\n"
+    )
+    raise SystemExit(2)
+
+
 def filter_publish_paths(paths: Sequence[str], includes: Sequence[str]) -> list[str]:
     selected = filter_included_paths(paths, includes)
     if not includes:
@@ -372,6 +414,7 @@ def autopublish(
         print("No git changes remain after validation.")
         return 0
 
+    require_session_handoff(root, final_paths)
     block_if_unsafe(root, final_paths)
 
     add_command = ["git", "add", "-A"]

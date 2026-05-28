@@ -139,3 +139,27 @@ def test_generate_commit_message_prefers_autopublish_scope():
         == "chore: add safe autopublish closeout"
     )
     assert autopublish.generate_commit_message(["docs/example.md"]) == "docs: update project docs"
+
+
+def test_requires_readable_session_handoff_for_publish_scope(tmp_path):
+    try:
+        autopublish.require_session_handoff(tmp_path, ["scripts/autopublish.py"])
+    except SystemExit as exc:
+        assert exc.code == 2
+    else:
+        raise AssertionError("missing session handoff should block autopublish")
+
+    handoff = tmp_path / "memory" / "episodic" / "2026-05-28-session-health.md"
+    handoff.parent.mkdir(parents=True)
+    handoff.write_text(
+        "# Session Health Episode\n\n## Session Note\n\nCloseout.\n\n## Outcome\n\n- status: PASS\n",
+        encoding="utf-8",
+    )
+
+    autopublish.require_session_handoff(
+        tmp_path,
+        [
+            "scripts/autopublish.py",
+            "memory/episodic/2026-05-28-session-health.md",
+        ],
+    )
