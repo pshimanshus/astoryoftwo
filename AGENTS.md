@@ -421,10 +421,10 @@ carousel ideation. The product is the strongest creator-facing idea first, then
 final packaged images after creator checkpoints, not a process explanation.
 
 ```bash
-# Interactive mode, no API key required
+# Interactive mode, no external credentials required
 venv/bin/python scripts/create_illustration_carousel.py
 
-# One-liner mode, no API key required
+# One-liner mode, no external credentials required
 venv/bin/python scripts/create_illustration_carousel.py \
   --story "I proposed to Anchal under the stars" \
   --image /path/to/photo-1.jpg \

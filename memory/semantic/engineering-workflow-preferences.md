@@ -6,6 +6,8 @@ sources:
 - direct creator instruction in Codex chat on 2026-05-25
 - direct creator approval in Codex chat on 2026-05-28 to proceed with safe
   autopublish setup
+- direct creator correction in Codex chat on 2026-05-28 that carousel image
+  generation should use Codex's image tool, not an API key path
 
 ## Standing Preference
 
@@ -32,4 +34,10 @@ fact: Blind auto-pushing, timer daemons, or file watchers are rejected for this
 repo because they can publish broken work, secrets, sensitive identity media, or
 half-finished creative artifacts. Automatic publishing is acceptable only when
 it is gated by verification and clear scope.
+confidence: 0.9
+
+fact: For illustrated carousel image generation, do not route the creator into
+an OpenAI API key or external image-client workflow. The expected path is Codex
+native packaging plus Codex image tool generation in-session, followed by
+packaging and visual QA.
 confidence: 0.9

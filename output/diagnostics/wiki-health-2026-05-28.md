@@ -71,7 +71,7 @@ Wiki pages: 62
 
 ```json
 {
-  "count": 56
+  "count": 57
 }
 ```
 
@@ -79,6 +79,6 @@ Wiki pages: 62
 
 ```json
 {
-  "count": 56
+  "count": 57
 }
 ```
