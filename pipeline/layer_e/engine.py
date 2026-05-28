@@ -4,8 +4,20 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.layer_e.contracts import LayerEDecision, LayerERequest
-from pipeline.layer_e.rooms import build_rooms, generate_exploration_routes, process_influences_for_story
-from pipeline.layer_e.scoring import detect_hard_fails, score_route, status_for
+from pipeline.layer_e.rooms import (
+    build_rooms,
+    generate_exploration_routes,
+    human_story_setup_for_route,
+    process_influences_for_story,
+    success_definition_from_memory,
+)
+from pipeline.layer_e.scoring import (
+    detect_hard_fails,
+    score_golden_theme,
+    score_route,
+    stage_scene_gate_for_route,
+    status_for,
+)
 from pipeline.layer_e.source_memory import load_layer_e_source_memory
 
 
@@ -30,14 +42,38 @@ def run_layer_e(root: Path, request: dict[str, Any] | LayerERequest) -> LayerEDe
     routes = generate_exploration_routes(parsed.story_or_moment, influences)
     winner = max(routes, key=lambda route: route.score_total)
     score = score_route(winner)
+    golden_score = score_golden_theme(winner)
+    stage_scene_gate = stage_scene_gate_for_route(winner)
     hard_fails = detect_hard_fails(winner)
     status = status_for(score, hard_fails)
-    rooms = build_rooms(routes)
+    if parsed.task_type in {"carousel_idea", "story_repair"} and golden_score.total < 28:
+        status = "REPAIR" if status == "GO" else status
+    if stage_scene_gate.status != "GO":
+        status = "REPAIR" if status == "GO" else status
     rejected = [route for route in routes if route.name != winner.name and route.verdict != "GO"]
-    repaired = [route for route in routes if route.name != winner.name and route.verdict == "GO"][:2]
-    required_repairs = [] if status == "GO" else [
-        "Repair the story route until it has obstacle, proof, active Zuv role, reversal, and send/save reason."
-    ]
+    repaired = [
+        route
+        for route in sorted(routes, key=lambda route: route.score_total, reverse=True)
+        if route.name != winner.name
+    ][:2]
+    rooms = build_rooms(
+        request=parsed,
+        memory=memory,
+        routes=routes,
+        winner=winner,
+        repaired_routes=repaired,
+    )
+    required_repairs = []
+    if status != "GO":
+        required_repairs.append(
+            "Repair the story route until it has obstacle, proof, active Zuv role, reversal, and send/save reason."
+        )
+    if parsed.task_type in {"carousel_idea", "story_repair"} and golden_score.total < 28:
+        required_repairs.append("Repair Golden Theme alignment to 28/30 or higher before C-layer writing.")
+    if stage_scene_gate.status != "GO":
+        required_repairs.append("Repair Stage-Scene Gate so action, reaction, object movement, consequence, and payoff are drawable before copy.")
+    human_story_setup = human_story_setup_for_route(winner)
+    success_definition = success_definition_from_memory(memory)
     return LayerEDecision(
         status=status,
         task_type=parsed.task_type,
@@ -53,8 +89,12 @@ def run_layer_e(root: Path, request: dict[str, Any] | LayerERequest) -> LayerEDe
         proof_engine=winner.proof_engine,
         reader_mirror=winner.reader_mirror,
         distribution_reason=winner.distribution_reason,
+        human_story_setup=human_story_setup,
+        success_definition=success_definition,
+        stage_scene_gate=stage_scene_gate.model_dump(mode="json"),
         process_influences=influences,
         story_selling_score=score,
+        golden_theme_score=golden_score,
         hard_fails=hard_fails,
         required_repairs=required_repairs,
         golden_theme_gate=_golden_theme_gate(parsed.task_type),

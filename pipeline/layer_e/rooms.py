@@ -3,11 +3,18 @@ from __future__ import annotations
 from pipeline.layer_e.contracts import (
     ExpertAgentOutput,
     LayerERoomOutput,
+    LayerERequest,
     LayerESourceMemory,
     ProcessInfluence,
     StoryRoute,
 )
-from pipeline.layer_e.scoring import detect_hard_fails, score_route, status_for
+from pipeline.layer_e.scoring import (
+    detect_hard_fails,
+    score_golden_theme,
+    score_route,
+    stage_scene_gate_for_route,
+    status_for,
+)
 
 
 def _card(memory: LayerESourceMemory, card_id: str):
@@ -53,9 +60,53 @@ def process_influences_for_story(story: str, memory: LayerESourceMemory) -> list
     return influences
 
 
+def success_definition_from_memory(memory: LayerESourceMemory) -> dict[str, str]:
+    return {
+        "audience_success": (
+            "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the "
+            "relationship truth is recognizable before the art is admired."
+        ),
+        "creative_success": (
+            "The deck works as silent panels: public hook, emotional obstacle, concrete "
+            "receipts, active Zuv behavior, reversal, and earned final thesis."
+        ),
+        "brand_success": (
+            "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where "
+            "small behaviors become evidence of love."
+        ),
+        "production_success": (
+            "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, "
+            "identity, native 4:5, native 9:16, QA, and audit gates must also pass."
+        ),
+        "source": "wiki/insights/successful-carousel-standard.md",
+        "memory_excerpt": memory.success_standard_excerpt[:500],
+    }
+
+
+def human_story_setup_for_route(route: StoryRoute) -> dict[str, str]:
+    return {
+        "cold_reader_doorway": route.reader_mirror,
+        "emotional_obstacle": route.emotional_obstacle,
+        "visible_human_proof": route.proof_engine,
+        "active_partner_role": route.zuv_active_role,
+        "emotional_turn": route.emotional_reversal,
+        "shareable_setup": route.distribution_reason,
+        "earned_payoff": route.payoff,
+    }
+
+
 def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) -> list[StoryRoute]:
     text = story.lower()
     is_plate = "plate" in text and "dono rakh" in text
+    is_photo_identity_request = (
+        any(token in text for token in ["identity photo", "identity photos", "selfie", "photo", "portrait", "resort"])
+        and any(token in text for token in ["carousel", "1m", "view", "post", "next"])
+    )
+    is_high_maintenance_care = "high-maintenance" in text or (
+        "green dress" in text and "barefoot" in text and "notices" in text
+    )
+    is_subtitle_language = "subtitles" in text or ("kuch nahi" in text and "translation" in text)
+    is_first_date_trip = "first date" in text and "ladakh" in text
     relationship_terms = [
         "aachu",
         "zuv",
@@ -138,6 +189,311 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
                 emotional_reversal="The inconvenience becomes evidence of comfort.",
                 payoff="Maybe home is the person who carries your bit with the plates.",
                 distribution_reason="Strong send reason: this is a daily-life proof many couples can reenact.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+        ]
+    elif is_photo_identity_request:
+        routes = [
+            StoryRoute(
+                name="He Chose The Girl Between Photos",
+                story_lens=(
+                    "The shareable story is not the polished photo; it is being loved in the "
+                    "awkward, laughing, hair-fixing seconds between public pictures."
+                ),
+                reader_mirror="Couples who know the posted photo hides three messy real moments before it.",
+                emotional_obstacle=(
+                    "Aesthetic photos can make love look like performance unless the story reveals the "
+                    "unposted version that still gets chosen."
+                ),
+                aachu_specific_spark=(
+                    "Aachu is bright, expressive, adjusting hair/outfit/face between frames, then laughing "
+                    "too honestly to be the polished version."
+                ),
+                zuv_active_role=(
+                    "Zuv keeps the private version safe: he waits, holds the phone, fixes the frame, and "
+                    "smiles at the almost-photo before asking for the final one."
+                ),
+                proof_engine=(
+                    "resort selfie surface -> home cheek-kiss softness -> portrait pose -> unposted "
+                    "hair-fix/laugh/waiting beats between them"
+                ),
+                emotional_reversal="The perfect picture becomes only the receipt; the real choice happened between pictures.",
+                payoff="Maybe love is the person who likes the version between photos.",
+                distribution_reason=(
+                    "Sendable to the partner who has seen every almost-photo, awkward face, and still says "
+                    "one more because they like the real you."
+                ),
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The Photo Was Public. The Patience Was Private.",
+                story_lens=(
+                    "A public smiling photo hides the private patience that made the smile possible."
+                ),
+                reader_mirror="Anyone whose partner waits through retakes, mood shifts, and tiny prep rituals can enter.",
+                emotional_obstacle="The moment risks becoming a photo-taking trope unless it shows private patience as action.",
+                aachu_specific_spark="Aachu wants the photo to feel right because memory matters to her.",
+                zuv_active_role="Zuv quietly holds the frame, waits through retakes, and keeps the mood light.",
+                proof_engine="phone held steady, lamp glow, hair adjustment, one failed take, one private laugh, final smile",
+                emotional_reversal="What looked like vanity becomes a bid to remember the night properly.",
+                payoff="Some photos look cute because someone made you feel safe first.",
+                distribution_reason="People send this to the partner who waits through photos without making them feel silly.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="He Didn't Fall For The Picture Face",
+                story_lens="Reject the polished ideal and reveal love for the face after the camera drops.",
+                reader_mirror="Couples recognize the difference between Instagram face and real partner face.",
+                emotional_obstacle="The hook can shame performance unless the route honors why people want to look remembered.",
+                aachu_specific_spark="Aachu gives the camera her bright public smile, then instantly becomes goofier and softer.",
+                zuv_active_role="Zuv reacts to the after-face with more warmth than the posed face.",
+                proof_engine="posed smile -> camera drops -> silly expression -> his bigger smile -> second private photo",
+                emotional_reversal="The less polished face becomes the one that proves closeness.",
+                payoff="The right person loves the face after the photo too.",
+                distribution_reason="Highly taggable for partners who know each other's real post-photo face.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The Person Behind The Camera",
+                story_lens="The romance is the unseen labor behind the picture: waiting, framing, noticing, and choosing.",
+                reader_mirror="Viewers know the partner who becomes photographer, hype person, and calm witness.",
+                emotional_obstacle="A single nice photo hides the care work that made it possible.",
+                aachu_specific_spark="Aachu wants the memory, the light, and the face to match how the night felt.",
+                zuv_active_role="Zuv becomes the quiet witness who keeps trying until her real smile appears.",
+                proof_engine="him holding phone, failed frame, her laughter, adjusted angle, final photo, private look",
+                emotional_reversal="The person behind the camera becomes the reason the photo has feeling.",
+                payoff="Some people don't just take your photo. They wait for your real smile.",
+                distribution_reason="Sendable to anyone whose partner has become their patient photographer without complaint.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Three Photos, One Private Proof",
+                story_lens="Across public resort, home, and portrait frames, the same proof repeats: he chooses her in every version.",
+                reader_mirror="Couples recognize being loved across outside-face, home-face, and posing-for-memory face.",
+                emotional_obstacle="The route can become generic collage unless the repeated behavior is Zuv's active choosing.",
+                aachu_specific_spark="Aachu shifts from bright travel energy to soft home smile to dressed-up memory-making.",
+                zuv_active_role="Zuv meets each version differently: close behind, arms around her, then quietly proud in the frame.",
+                proof_engine="three different photo contexts showing the same active closeness and private ease",
+                emotional_reversal="Different pictures stop being outfits/places and become evidence of one steady pattern.",
+                payoff="Maybe love is being chosen in every version of yourself.",
+                distribution_reason="Saveable as a broader relationship thesis, but weaker because it risks becoming generic.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Not The Post. The Proof.",
+                story_lens="Use the photos as receipts that love is built from small off-camera behaviors.",
+                reader_mirror="Viewers recognize that the real relationship is usually outside the posted frame.",
+                emotional_obstacle="Without off-camera action, the concept is only 'nice couple photos'.",
+                aachu_specific_spark="Aachu brings the memory-making urge and expressive reaction.",
+                zuv_active_role="Zuv protects the mood around the memory instead of treating it as a task.",
+                proof_engine="light, frame, retake, cheek-kiss, waiting, private laugh, final picture",
+                emotional_reversal="The post becomes less important than the proof trail around it.",
+                payoff="The best part of the photo is who you were with before it.",
+                distribution_reason="Shareable for couples who know every good photo has a tiny relationship story behind it.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+        ]
+    elif is_high_maintenance_care:
+        routes = [
+            StoryRoute(
+                name="She Was Not High-Maintenance",
+                story_lens="Reject the dating-market insult and reveal that tiny needs are bids to be noticed kindly.",
+                reader_mirror="Couples recognize the partner who wants small care without being made to feel difficult.",
+                emotional_obstacle="A small need can be misread as fussiness unless the scene proves it is about comfort and being noticed.",
+                aachu_specific_spark="Aachu chooses the green dress, keeps moving barefoot, and tries not to make her discomfort the whole scene.",
+                zuv_active_role="Zuv notices the uncomfortable step before she asks, slows the path, and offers his hand without shrinking her.",
+                proof_engine="green dress choice -> barefoot step slows -> Zuv notices before she asks -> his hand extends -> route becomes softer",
+                emotional_reversal="What could look like high maintenance becomes proof that love can notice a small need early.",
+                payoff="Maybe the right person does not call it too much. He just notices sooner.",
+                distribution_reason="Sendable to the partner who notices tiny discomfort before it becomes a big announcement.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The Tiny Need Was Not The Problem",
+                story_lens="The emotional machine is not extra needs; it is whether those needs can arrive without shame.",
+                reader_mirror="Anyone who has softened because a partner noticed the small thing can enter.",
+                emotional_obstacle="The premise fails if it praises perfect service or makes Aachu helpless.",
+                aachu_specific_spark="Aachu keeps her expressive dignity: dress, barefoot pause, half-annoyed smile, still wanting the moment.",
+                zuv_active_role="Zuv adjusts the walk and gives her a steady hand while staying playful, not heroic.",
+                proof_engine="dress held up -> barefoot pause -> half-annoyed smile -> Zuv adjusts the walk -> both keep moving",
+                emotional_reversal="The small inconvenience becomes a shared rhythm instead of a complaint.",
+                payoff="Love is not fewer needs. It is safer needs.",
+                distribution_reason="Taggable for couples who know their tiny discomfort rituals and do not turn them into fights.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Barefoot Was The Receipt",
+                story_lens="Use the barefoot moment as evidence, not premise, for care that arrives before explanation.",
+                reader_mirror="Viewers recognize the relief of being read before they have to justify themselves.",
+                emotional_obstacle="Without active noticing, the route becomes only pretty outfit content.",
+                aachu_specific_spark="Aachu wants the look, the memory, and the ease all at once.",
+                zuv_active_role="Zuv reads the pace change, offers balance, and keeps the story light.",
+                proof_engine="green dress -> barefoot step -> pace change -> Zuv reads it -> hand and slower path",
+                emotional_reversal="The outfit stops being the subject; the noticing becomes the proof.",
+                payoff="The best care often arrives before the sentence.",
+                distribution_reason="Saveable for people who want language for being noticed without overexplaining.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Care Without Making Her Small",
+                story_lens="Care works when it supports her spark instead of correcting it.",
+                reader_mirror="Partners recognize the balance between helping and not taking over.",
+                emotional_obstacle="The line can become perfect-husband praise unless Aachu remains active in the scene.",
+                aachu_specific_spark="Aachu keeps choosing the dramatic dress and the moment, even while adjusting to discomfort.",
+                zuv_active_role="Zuv makes the path easier while letting her remain the main character of her own scene.",
+                proof_engine="dress adjustment -> barefoot step -> Zuv notices -> path shifts -> she keeps the moment",
+                emotional_reversal="Help becomes love because it protects her spark instead of managing it.",
+                payoff="The right care makes more room for you, not less.",
+                distribution_reason="Sendable to the partner who helps without turning the moment into a lecture.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Not Too Much, Just Seen",
+                story_lens="The anti-ideal is low-maintenance performance; the real love is being seen in small needs.",
+                reader_mirror="People who have been called too much can recognize the softer counter-story.",
+                emotional_obstacle="The route must not become generic validation; it needs a physical receipt.",
+                aachu_specific_spark="Aachu's green-dress barefoot pause gives the story its specific body-language proof.",
+                zuv_active_role="Zuv notices, slows down, and stays beside her instead of judging the need.",
+                proof_engine="green dress -> barefoot pause -> he notices -> slower path -> she relaxes",
+                emotional_reversal="The need stops being a flaw once it is met with respect.",
+                payoff="Maybe love is not being easier. Maybe it is being seen sooner.",
+                distribution_reason="Strong send/save reason for couples who know small needs can carry big tenderness.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+        ]
+    elif is_subtitle_language:
+        routes = [
+            StoryRoute(
+                name="He Learned Her Subtitles",
+                story_lens="The love story is not mood decoding as magic; it is patient attention learning her real language.",
+                reader_mirror="Couples recognize the partner who understands 'kuch nahi' because the face says the paragraph.",
+                emotional_obstacle="The words say nothing, but the face and silence need to be read without interrogation.",
+                aachu_specific_spark="Aachu says kuch nahi while her face, hands, and pause reveal the whole paragraph.",
+                zuv_active_role="Zuv puts the phone down, watches her face, waits, and answers the feeling instead of the words.",
+                proof_engine="kuch nahi line -> face changes -> hands pause -> Zuv puts phone down -> waits -> answers softly",
+                emotional_reversal="What looked like silence becomes a language they have built together.",
+                payoff="Maybe love is learning the subtitles.",
+                distribution_reason="Sendable to the partner who understands the meaning underneath one tiny sentence.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Kuch Nahi Was A Full Paragraph",
+                story_lens="The joke is that the smallest spoken line carries the biggest emotional script.",
+                reader_mirror="Viewers recognize the home-language of saying nothing while meaning everything.",
+                emotional_obstacle="If Zuv only decodes her, the scene becomes one-way; he must respond with care.",
+                aachu_specific_spark="Aachu's face, posture, and silence make the unsaid feeling visible.",
+                zuv_active_role="Zuv notices the pause, stays close, and changes his response without making her perform the explanation.",
+                proof_engine="kuch nahi -> face says paragraph -> Zuv notices pause -> sits closer -> reply changes",
+                emotional_reversal="The unsaid feeling becomes safer because it is not dismissed.",
+                payoff="Some people hear the sentence. The right person hears the paragraph.",
+                distribution_reason="Taggable for couples with private emotional translations.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The Face Said Everything First",
+                story_lens="The visible proof is her expression changing before the words catch up.",
+                reader_mirror="Anyone whose partner reads their face before their explanation can enter.",
+                emotional_obstacle="The route fails if it becomes a generic mind-reading compliment.",
+                aachu_specific_spark="Aachu's expression turns the tiny line into a whole scene.",
+                zuv_active_role="Zuv reads the expression, puts down the distraction, and chooses patience.",
+                proof_engine="phone in hand -> her face changes -> kuch nahi -> Zuv puts phone down -> patient pause",
+                emotional_reversal="Attention, not translation, becomes the romantic proof.",
+                payoff="Being understood starts before the explanation.",
+                distribution_reason="Saveable as a relationship truth about attention under small silence.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Not Mood Reading, Attention",
+                story_lens="Repair the familiar subtitles lane by making it about practiced attention, not a supernatural husband.",
+                reader_mirror="Couples recognize attention as a skill built over ordinary repeated scenes.",
+                emotional_obstacle="Aachu could feel dismissed if her words are taken literally.",
+                aachu_specific_spark="Aachu protects the feeling with a tiny phrase instead of a speech.",
+                zuv_active_role="Zuv answers the hidden need by slowing down and staying present.",
+                proof_engine="tiny phrase -> protected feeling -> Zuv slows down -> stays present -> answer softens",
+                emotional_reversal="The hidden feeling stops needing a performance.",
+                payoff="The right person learns where your words are hiding.",
+                distribution_reason="Sendable to partners who have learned each other's hidden meanings.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The Translation Was Tender",
+                story_lens="The private language becomes love because the answer is gentle, not clever.",
+                reader_mirror="Viewers with their own couple-language recognize the tenderness of being translated kindly.",
+                emotional_obstacle="A wrong answer could turn silence into distance.",
+                aachu_specific_spark="Aachu's tiny line and expressive face create the private-language proof.",
+                zuv_active_role="Zuv translates the mood into a softer action: closer seat, slower voice, no interrogation.",
+                proof_engine="tiny line -> expressive face -> Zuv moves closer -> slower voice -> no interrogation",
+                emotional_reversal="The translation becomes safety, not control.",
+                payoff="Love is being translated kindly.",
+                distribution_reason="Strong save/share hook for couples with private emotional vocabulary.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+        ]
+    elif is_first_date_trip:
+        routes = [
+            StoryRoute(
+                name="The Story Got Bigger, The Proof Stayed Small",
+                story_lens="A relationship can grow from tiny first-date cups to wide travel views while the real proof stays in small behavior.",
+                reader_mirror="Couples recognize the arc from one small beginning to bigger shared chapters.",
+                emotional_obstacle="The route can become travel nostalgia unless the same couple behavior repeats across the years.",
+                aachu_specific_spark="Aachu brings the first-date laugh, the second-date joke, and the appetite for a bigger story.",
+                zuv_active_role="Zuv keeps choosing the small proof: holding the cup, joining the joke, making space in Ladakh.",
+                proof_engine="first date cups -> second date jokes -> Ladakh view -> same shared laugh -> his hand stays close",
+                emotional_reversal="The place gets bigger, but the love is proved by the same tiny rhythm.",
+                payoff="Maybe the big story was always hiding in the small cups.",
+                distribution_reason="Saveable for couples who can trace their whole story back to one ordinary first receipt.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="From Cups To Mountains",
+                story_lens="Use the travel scale as proof of a small beginning that kept becoming more real.",
+                reader_mirror="Viewers with a first-date object or phrase can see their own origin story.",
+                emotional_obstacle="The mountain view must not become the premise; it is only proof that the small start traveled.",
+                aachu_specific_spark="Aachu carries the joke forward from date two into the trip.",
+                zuv_active_role="Zuv keeps the old joke alive in the new place, making the trip feel like theirs.",
+                proof_engine="cup on table -> date joke -> road to Ladakh -> old joke returns -> both laugh in the view",
+                emotional_reversal="The grand view becomes intimate because an old tiny joke arrives there too.",
+                payoff="Some love stories do not change topic. They just get wider.",
+                distribution_reason="Taggable for couples who still repeat the tiny joke from the beginning.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Second Date Jokes Became A Map",
+                story_lens="The joke is the continuity thread from awkward early dates to confident travel.",
+                reader_mirror="Couples recognize the private joke that becomes relationship geography.",
+                emotional_obstacle="Without continuity, it is only a trip montage.",
+                aachu_specific_spark="Aachu repeats the joke with the same expressive timing in a completely bigger place.",
+                zuv_active_role="Zuv answers the joke immediately, proving the rhythm traveled with them.",
+                proof_engine="second date joke -> travel road -> same joke in Ladakh -> Zuv answers -> Aachu laughs",
+                emotional_reversal="A joke becomes proof of belonging across time.",
+                payoff="Maybe home is the joke that travels with you.",
+                distribution_reason="Sendable to partners with one old line that still works everywhere.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The First Receipt",
+                story_lens="Make the first date object a receipt, not an aesthetic prop.",
+                reader_mirror="People remember the tiny object where their story started.",
+                emotional_obstacle="The memory can feel private unless it proves a wider relationship pattern.",
+                aachu_specific_spark="Aachu gives the tiny beginning emotional color through laughter and recall.",
+                zuv_active_role="Zuv treats the small receipt as important even after the story becomes bigger.",
+                proof_engine="first date cups -> saved joke -> bigger trip -> he remembers the cup story -> she softens",
+                emotional_reversal="The old small thing becomes more romantic after the big chapter.",
+                payoff="The first receipt still knows the whole story.",
+                distribution_reason="Saveable for couples who keep the first tiny proof of their relationship.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="It Was Still Us",
+                story_lens="The travel arc works only if the couple rhythm remains visible under every bigger setting.",
+                reader_mirror="Couples recognize wanting big memories without losing the original ordinary ease.",
+                emotional_obstacle="A beautiful location can swallow the relationship if the behavior is not staged.",
+                aachu_specific_spark="Aachu turns the view into another scene in the same shared story.",
+                zuv_active_role="Zuv anchors the frame with the old rhythm: close hand, shared laugh, no performance.",
+                proof_engine="date cups -> jokes -> mountain view -> close hand -> shared laugh returns",
+                emotional_reversal="The destination stops being the point once the old ease appears there.",
+                payoff="The best part stayed the same: it was still us.",
+                distribution_reason="Sendable to the person who makes every bigger place feel like the same two people.",
                 process_influence_ids=[item.id for item in influences],
             ),
         ]
@@ -255,11 +611,15 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
     scored: list[StoryRoute] = []
     for route in routes:
         score = score_route(route)
+        golden_score = score_golden_theme(route)
+        stage_gate = stage_scene_gate_for_route(route)
         hard_fails = detect_hard_fails(route)
         scored.append(
             route.model_copy(
                 update={
                     "score_total": score.total,
+                    "golden_theme_score_total": golden_score.total,
+                    "stage_scene_gate": stage_gate,
                     "hard_fails": hard_fails,
                     "verdict": status_for(score, hard_fails),
                 }
@@ -268,9 +628,23 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
     return scored
 
 
-def build_rooms(routes: list[StoryRoute]) -> dict[str, LayerERoomOutput]:
+def build_rooms(
+    *,
+    request: LayerERequest,
+    memory: LayerESourceMemory,
+    routes: list[StoryRoute],
+    winner: StoryRoute | None = None,
+    repaired_routes: list[StoryRoute] | None = None,
+) -> dict[str, LayerERoomOutput]:
     winner = max(routes, key=lambda route: route.score_total) if routes else None
+    if winner is None and routes:
+        winner = max(routes, key=lambda route: route.score_total)
+    repaired_routes = repaired_routes or []
     winner_name = winner.name if winner else "No route"
+    top_routes = sorted(routes, key=lambda route: route.score_total, reverse=True)[:3]
+    success_definition = success_definition_from_memory(memory)
+    human_story_setup = human_story_setup_for_route(winner) if winner else {}
+    stage_scene_gate = stage_scene_gate_for_route(winner) if winner else None
     return {
         "source_memory_room": LayerERoomOutput(
             name="Context And Source Memory",
@@ -280,7 +654,23 @@ def build_rooms(routes: list[StoryRoute]) -> dict[str, LayerERoomOutput]:
                 ExpertAgentOutput(agent="Successful Carousel Standard Reader", role="creative north star", claim="Prioritize public identity mirror and concrete couple receipts."),
                 ExpertAgentOutput(agent="Creator Preference Ledger Reader", role="memory", claim="Avoid repeating cooled-down lanes as fresh ideas."),
             ],
-            summary="Source memory loaded before concept selection.",
+            summary="Source memory loaded before concept selection, including the successful-carousel standard and creator preference ledger.",
+            inputs_used=[
+                memory.source_register_path,
+                memory.concept_process_bank_path,
+                memory.pattern_map_path,
+                "wiki/insights/successful-carousel-standard.md",
+                "memory/semantic/carousel-idea-preferences.md",
+            ],
+            debate_records=[
+                "Source Curator: treat photos, objects, outfits, and canon cards as evidence, never as the premise.",
+                "Successful Carousel Standard Reader: define success before writing as cold-viewer recognition, not beautiful art.",
+                "Creator Preference Ledger Reader: avoid stale perfect-husband, aesthetic-first, and repeated chaos/home lanes.",
+            ],
+            selected_outputs={
+                "what_success_looks_like": success_definition["audience_success"],
+                "memory_policy": "fresh route must not recycle cooled-down lanes as fresh ideas",
+            },
         ),
         "story_meaning_room": LayerERoomOutput(
             name="Story Meaning Room",
@@ -292,7 +682,34 @@ def build_rooms(routes: list[StoryRoute]) -> dict[str, LayerERoomOutput]:
                 ExpertAgentOutput(agent="Emotional Obstacle Miner", role="friction", claim="No obstacle means no story engine."),
             ],
             summary=f"Generated {len(routes)} story routes and selected {winner_name} as the strongest raw meaning.",
-            selected_outputs={"raw_winner": winner_name},
+            inputs_used=[
+                request.story_or_moment,
+                *request.reference_images,
+                *request.constraints,
+            ],
+            debate_records=[
+                *[
+                    (
+                        f"Route '{route.name}' human story: obstacle='{route.emotional_obstacle}', "
+                        f"proof='{route.proof_engine}', payoff='{route.payoff}', score={route.score_total}/30."
+                    )
+                    for route in top_routes
+                ],
+                (
+                    "Human story check: the route must be about a relationship pressure becoming visible, "
+                    "not about a nice photo, outfit, place, or object."
+                ),
+                (
+                    "Scene grammar check: Aachu must carry specific spark and Zuv must answer through visible behavior "
+                    "before copy or captions are written."
+                ),
+            ],
+            scores={route.name: route.score_total for route in routes},
+            selected_outputs={
+                "raw_winner": winner_name,
+                "human_story_setup": human_story_setup.get("shareable_setup", ""),
+                "emotional_obstacle": human_story_setup.get("emotional_obstacle", ""),
+            },
         ),
         "audience_algorithm_room": LayerERoomOutput(
             name="Audience And Algorithm Room",
@@ -304,7 +721,26 @@ def build_rooms(routes: list[StoryRoute]) -> dict[str, LayerERoomOutput]:
                 ExpertAgentOutput(agent="Culture And Taste Reader", role="taste", claim="The humor should feel warm, desi, and non-shaming."),
             ],
             summary="Audience pass checked reader mirror, send/save logic, and taste.",
-            selected_outputs={"distribution_reason": winner.distribution_reason if winner else ""},
+            inputs_used=[
+                "wiki/insights/successful-carousel-standard.md#What Success Means",
+                "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md#Comment Behavior",
+            ],
+            debate_records=[
+                f"Reader mirror: {winner.reader_mirror if winner else ''}",
+                f"Send/save reason: {winner.distribution_reason if winner else ''}",
+                (
+                    "Success pressure: a strong route must earn partner tags, saves, or DMs because the viewer "
+                    "is saying 'this is us', not because the art is pretty."
+                ),
+                (
+                    "Swipe pressure: the middle must carry receipt density and at least one visual proof beat "
+                    "that can be understood before reading a caption."
+                ),
+            ],
+            selected_outputs={
+                "distribution_reason": winner.distribution_reason if winner else "",
+                "what_success_looks_like": success_definition["audience_success"],
+            },
         ),
         "contrarian_repair_room": LayerERoomOutput(
             name="Contrarian Repair Room",
@@ -316,8 +752,51 @@ def build_rooms(routes: list[StoryRoute]) -> dict[str, LayerERoomOutput]:
                 ExpertAgentOutput(agent="Visual Generativity Skeptic", role="generation", claim="The concept must become simple scenes."),
             ],
             summary="Top routes were attacked and repair needs were recorded.",
+            inputs_used=[route.name for route in top_routes],
+            debate_records=[
+                *[
+                    (
+                        f"Attack '{route.name}': hard_fails={route.hard_fails or ['none']}; "
+                        f"repair target is stronger human obstacle, share setup, and visible Zuv action."
+                    )
+                    for route in top_routes
+                ],
+                "Genericness Detector: reject routes that would get 'beautiful' but not 'this is us'.",
+                "Visual Generativity Skeptic: block any route that can only be expressed as poster copy.",
+            ],
             objections=winner.hard_fails if winner else ["no route generated"],
-            repairs=[] if winner and not winner.hard_fails else ["Add obstacle, active Zuv role, proof, and send/save reason."],
+            repairs=[
+                "Repair top candidates against the success standard before downstream copy.",
+                "Keep the winner only if the share setup, human obstacle, and visible partner role survive the attack.",
+            ]
+            if winner
+            else ["Add obstacle, active Zuv role, proof, and send/save reason."],
+            repaired_route_names=[route.name for route in repaired_routes],
+        ),
+        "stage_scene_room": LayerERoomOutput(
+            name="Stage-Scene Gate",
+            status=stage_scene_gate.status if stage_scene_gate else "REPAIR",
+            agents=[
+                ExpertAgentOutput(agent="Stage Director", role="blocking", claim="The idea must play as action before copy."),
+                ExpertAgentOutput(agent="Body Language Reader", role="proof", claim="Hands, distance, and object movement must prove the turn."),
+                ExpertAgentOutput(agent="Silent Panel Reviewer", role="visual story", claim="A viewer should understand the beat with text hidden."),
+            ],
+            summary="Winner was checked as a short staged scene before copy, caption, or prompt work.",
+            inputs_used=[winner_name, winner.proof_engine if winner else ""],
+            debate_records=[
+                f"Action: {stage_scene_gate.action if stage_scene_gate else ''}",
+                f"Reaction: {stage_scene_gate.reaction if stage_scene_gate else ''}",
+                f"Hands/object movement: {stage_scene_gate.hands_or_object_movement if stage_scene_gate else ''}",
+                f"Silence/pause: {stage_scene_gate.silence_or_pause if stage_scene_gate else ''}",
+                f"Consequence: {stage_scene_gate.consequence if stage_scene_gate else ''}",
+                "Gate rule: text completes the scene; text must not carry the scene.",
+            ],
+            selected_outputs={
+                "action": stage_scene_gate.action if stage_scene_gate else "",
+                "hands_or_object_movement": stage_scene_gate.hands_or_object_movement if stage_scene_gate else "",
+                "reversal_or_payoff": stage_scene_gate.reversal_or_payoff if stage_scene_gate else "",
+            },
+            objections=stage_scene_gate.blockers if stage_scene_gate else ["no route generated"],
         ),
         "final_synthesis_room": LayerERoomOutput(
             name="Final Synthesis Room",
@@ -328,6 +807,22 @@ def build_rooms(routes: list[StoryRoute]) -> dict[str, LayerERoomOutput]:
                 ExpertAgentOutput(agent="Downstream Contract Writer", role="handoff", claim="Write emotional machine into C/D/B contracts."),
             ],
             summary="Final selector synthesized the route into Layer E handoff fields.",
-            selected_outputs={"selected_story_lens": winner.story_lens if winner else ""},
+            inputs_used=[
+                "story_meaning_room",
+                "audience_algorithm_room",
+                "contrarian_repair_room",
+                "stage_scene_room",
+                "story_selling_score",
+            ],
+            debate_records=[
+                f"Selector chose '{winner_name}' because it best connects human story, proof, reversal, and distribution.",
+                f"Human setup: {human_story_setup.get('shareable_setup', '')}",
+                f"What success looks like: {success_definition['audience_success']}",
+            ],
+            selected_outputs={
+                "selected_story_lens": winner.story_lens if winner else "",
+                "human_story_setup": human_story_setup.get("shareable_setup", ""),
+                "what_success_looks_like": success_definition["audience_success"],
+            },
         ),
     }

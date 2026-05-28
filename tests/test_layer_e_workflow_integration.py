@@ -34,12 +34,21 @@ def test_codex_native_carousel_writes_layer_e_room_artifact(tmp_path: Path):
 
     assert layer_e["status"] == "GO"
     assert layer_e["selected_story_lens"]
+    assert layer_e["human_story_setup"]["emotional_obstacle"]
+    assert layer_e["success_definition"]["audience_success"]
+    assert layer_e["stage_scene_gate"]["status"] == "GO"
+    assert layer_e["golden_theme_score"]["total"] >= 28
     assert len(layer_e["rooms"]) >= 5
     assert len(layer_e["exploration_routes"]) >= 5
     assert any(item["id"] == "card-05" for item in layer_e["process_influences"])
     assert concept["layer_e_story_selling"]["artifact"] == "layer-e-story-selling.json"
     assert concept["layer_e_story_selling"]["selected_story_lens"] == layer_e["selected_story_lens"]
+    assert concept["layer_e_story_selling"]["human_story_setup"] == layer_e["human_story_setup"]
+    assert concept["layer_e_story_selling"]["success_definition"] == layer_e["success_definition"]
+    assert concept["layer_e_story_selling"]["stage_scene_gate"] == layer_e["stage_scene_gate"]
+    assert concept["layer_e_story_selling"]["golden_theme_score"] == layer_e["golden_theme_score"]
     assert review["story_selling_gate"]["source"] == "layer-e-story-selling.json"
+    assert review["story_selling_gate"]["stage_scene_gate"]["status"] == "GO"
 
 
 def test_image_handoff_blocks_missing_layer_e_artifact(tmp_path: Path):

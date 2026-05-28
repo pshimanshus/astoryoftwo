@@ -136,7 +136,7 @@ def test_suitcase_relocation_uses_real_mutual_overpacking_receipts():
     assert any("both" in slide["visual"].lower() and "suitcase" in slide["visual"].lower() for slide in slides)
 
 
-def test_suitcase_relocation_locks_one_packing_room_world_across_slides():
+def test_suitcase_relocation_uses_two_act_visual_continuity_not_one_room():
     story = (
         "Suitcase Relocation. Some couples don't pack. They relocate the house. "
         "She packed just options. He packed every charger except the one they needed. "
@@ -144,12 +144,18 @@ def test_suitcase_relocation_locks_one_packing_room_world_across_slides():
     )
 
     slides = build_slides(story, [], 7)
-    visuals = " ".join(slide["visual"] for slide in slides).lower()
+    by_number = {slide["slide"]: slide["visual"].lower() for slide in slides}
 
-    assert "hotel bathroom" not in visuals
-    assert "hotel-floor" not in visuals
+    for number in [1, 2, 3, 4]:
+        assert "home bedroom packing room" in by_number[number]
+        assert "home bedroom packing room act" in by_number[number]
+    for number in [5, 6, 7]:
+        assert "destination" in by_number[number]
+        assert "destination arrival" in by_number[number]
+    assert "empty toothbrush" in by_number[5]
+
     for anchor in [
-        "same warm bedroom packing room",
+        "two-act visual continuity lock",
         "dark olive hard-shell suitcase",
         "off-white oversized shirt",
         "navy t-shirt",
@@ -178,7 +184,7 @@ def test_suitcase_relocation_visual_quality_blocks_slide_world_drift():
             "slide": 3,
             "copy": "He packed every charger except the one they needed.",
             "role": "zuv-specific proof",
-            "visual": "Zuv shows a charger pile in a hotel bathroom while Aachu judges him.",
+            "visual": "Zuv shows a charger pile in a destination hotel bathroom while Aachu judges him.",
             "emotion": "mutual judgment",
         },
     ]
@@ -194,6 +200,29 @@ def test_suitcase_relocation_visual_quality_blocks_slide_world_drift():
     assert quality["decision"] == "BLOCK_GENERATION"
     assert not quality["can_generate"]
     assert "continuity" in " ".join(quality["issues"]).lower()
+
+
+def test_suitcase_relocation_visual_quality_allows_arrival_discovery_after_packing():
+    slides = build_slides(
+        (
+            "Suitcase Relocation. Some couples don't pack. They relocate the house. "
+            "She packed just options. He packed every charger except the one they needed. "
+            "They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip."
+        ),
+        [],
+        7,
+    )
+
+    quality = build_visual_plan_quality(
+        story="Suitcase Relocation with forgotten toothbrushes and a blamed zip.",
+        slides=slides,
+        visual_debate={"winner": "Short-Film Packing Room", "rejected_visual_patterns": []},
+        lane="Golden Suitcase Relocation",
+    )
+
+    assert quality["status"] == "PASS"
+    assert quality["decision"] == "GO"
+    assert quality["can_generate"]
 
 
 def test_suitcase_relocation_concept_selection_bans_rejected_charger_joke():

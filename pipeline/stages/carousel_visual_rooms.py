@@ -680,8 +680,13 @@ def build_visual_plan_quality(
                 slide_issues.append("Slide 5 must turn the wallet joke into quiet care by showing extra cash prepared.")
 
         if is_suitcase_relocation:
+            scene_visual_lower = visual_lower
+            if "home bedroom packing room act" in scene_visual_lower:
+                scene_visual_lower = scene_visual_lower.split("home bedroom packing room act", 1)[1]
+            elif "destination arrival" in scene_visual_lower:
+                scene_visual_lower = scene_visual_lower.split("destination arrival", 1)[1]
             required_continuity_anchors = [
-                "same warm bedroom packing room",
+                "two-act visual continuity lock",
                 "dark olive hard-shell suitcase",
                 "off-white oversized shirt",
                 "navy t-shirt",
@@ -690,21 +695,34 @@ def build_visual_plan_quality(
             missing_anchors = [
                 anchor for anchor in required_continuity_anchors if anchor not in visual_lower
             ]
-            forbidden_world_jumps = [
-                term for term in ["hotel bathroom", "hotel-floor", "arrival scene", "new room"] if term in visual_lower
-            ]
             if missing_anchors:
                 checks["slide_world_continuity"] = False
                 checks["doubt_flags_resolved"] = False
                 slide_issues.append(
                     f"Slide {number} is missing suitcase continuity anchor(s): {', '.join(missing_anchors)}."
                 )
-            if forbidden_world_jumps:
+            if number in {1, 2, 3, 4}:
+                if "home bedroom packing room" not in visual_lower:
+                    checks["slide_world_continuity"] = False
+                    checks["doubt_flags_resolved"] = False
+                    slide_issues.append(f"Slide {number} must stay in the home bedroom packing room act.")
+                early_destination_terms = [
+                    term for term in ["destination", "hotel", "airbnb", "arrival room", "bathroom corner"] if term in scene_visual_lower
+                ]
+                if early_destination_terms:
+                    checks["slide_world_continuity"] = False
+                    checks["doubt_flags_resolved"] = False
+                    slide_issues.append(
+                        f"Slide {number} jumps to the destination before the toothbrush reversal: {', '.join(early_destination_terms)}."
+                    )
+            if number in {5, 6, 7} and "destination" not in visual_lower:
                 checks["slide_world_continuity"] = False
                 checks["doubt_flags_resolved"] = False
-                slide_issues.append(
-                    f"Slide {number} breaks suitcase continuity with world jump term(s): {', '.join(forbidden_world_jumps)}."
-                )
+                slide_issues.append(f"Slide {number} must move into the destination arrival act, not remain in the home room.")
+            if number == 5 and not any(cue in visual_lower for cue in ["empty toothbrush", "toothbrush cup", "toothbrush slots"]):
+                checks["copy_visual_alignment"] = False
+                checks["golden_theme_proof"] = False
+                slide_issues.append("Slide 5 must discover the missing toothbrushes after arrival.")
 
         for issue in slide_issues:
             issues.append(issue)

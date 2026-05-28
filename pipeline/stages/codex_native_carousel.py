@@ -878,6 +878,8 @@ def build_package(
                 ),
                 "human_story_setup": layer_e_payload["human_story_setup"],
                 "success_definition": layer_e_payload["success_definition"],
+                "stage_scene_gate": layer_e_payload["stage_scene_gate"],
+                "golden_theme_score": layer_e_payload["golden_theme_score"],
                 "proof_engine": layer_e_payload["proof_engine"],
                 "writer_rule": "Layer E is the source of truth; process cards are influences, not the answer.",
                 "story_context": story,
@@ -886,6 +888,8 @@ def build_package(
             },
             "candidate_table": layer_e_payload["exploration_routes"],
             "rooms": layer_e_payload["rooms"],
+            "stage_scene_gate": layer_e_payload["stage_scene_gate"],
+            "golden_theme_score": layer_e_payload["golden_theme_score"],
             "process_influences": layer_e_payload["process_influences"],
         }
     story_selling_score = story_selling_decision["score"]
@@ -1024,6 +1028,8 @@ def build_package(
                 "emotional_machine": layer_e_payload["emotional_machine"],
                 "human_story_setup": layer_e_payload["human_story_setup"],
                 "success_definition": layer_e_payload["success_definition"],
+                "stage_scene_gate": layer_e_payload["stage_scene_gate"],
+                "golden_theme_score": layer_e_payload["golden_theme_score"],
                 "process_influences": layer_e_payload["process_influences"],
             }
             if layer_e_payload
@@ -1081,6 +1087,8 @@ def build_package(
                     "emotional_machine": layer_e_payload["emotional_machine"],
                     "human_story_setup": layer_e_payload["human_story_setup"],
                     "success_definition": layer_e_payload["success_definition"],
+                    "stage_scene_gate": layer_e_payload["stage_scene_gate"],
+                    "golden_theme_score": layer_e_payload["golden_theme_score"],
                     "proof_engine": layer_e_payload["proof_engine"],
                     "distribution_reason": layer_e_payload["distribution_reason"],
                 }
@@ -1299,6 +1307,8 @@ def build_package(
                 "threshold": "28/30",
                 "selector_verdict": story_selling_decision["selector_verdict"],
                 "candidate_count": len(story_selling_decision["candidate_table"]),
+                "stage_scene_gate": story_selling_decision.get("stage_scene_gate", {}),
+                "golden_theme_score": story_selling_decision.get("golden_theme_score", {}),
             },
             "story_selling_hard_fails": story_selling_decision["hard_fails"],
             "issues": [

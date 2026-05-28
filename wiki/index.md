@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-05-29
-total_pages: 65
+total_pages: 66
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,7 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [Suitcase Relocation](carousels/suitcase-relocation-3.md) | 2026-05-29 | 7 | C-layer | 0.7 |
 | [Suitcase Relocation](carousels/suitcase-relocation-2.md) | 2026-05-29 | 7 | C-layer | 0.7 |
 | [Suitcase Relocation](carousels/suitcase-relocation.md) | 2026-05-28 | 7 | C-layer | 0.7 |
 | [Pipeline Repair Final Dry Run Smoke 2](carousels/pipeline-repair-final-dry-run-smoke-2.md) | 2026-05-25 | 5 | C-layer | 0.7 |

@@ -75,9 +75,25 @@ class LayerERoomOutput(BaseModel):
     status: LayerEStatus
     agents: list[ExpertAgentOutput]
     summary: str
+    inputs_used: list[str] = Field(default_factory=list)
+    debate_records: list[str] = Field(default_factory=list)
+    scores: dict[str, float] = Field(default_factory=dict)
     selected_outputs: dict[str, str] = Field(default_factory=dict)
     objections: list[str] = Field(default_factory=list)
     repairs: list[str] = Field(default_factory=list)
+    repaired_route_names: list[str] = Field(default_factory=list)
+
+
+class StageSceneGate(BaseModel):
+    status: LayerEStatus = "REPAIR"
+    action: str = ""
+    reaction: str = ""
+    eye_line_or_attention: str = ""
+    hands_or_object_movement: str = ""
+    silence_or_pause: str = ""
+    consequence: str = ""
+    reversal_or_payoff: str = ""
+    blockers: list[str] = Field(default_factory=list)
 
 
 class StoryRoute(BaseModel):
@@ -93,6 +109,8 @@ class StoryRoute(BaseModel):
     distribution_reason: str
     process_influence_ids: list[str] = Field(default_factory=list)
     score_total: float = Field(ge=0, le=30, default=0)
+    golden_theme_score_total: float = Field(ge=0, le=30, default=0)
+    stage_scene_gate: StageSceneGate = Field(default_factory=StageSceneGate)
     hard_fails: list[str] = Field(default_factory=list)
     verdict: LayerEStatus = "REPAIR"
 
@@ -104,6 +122,16 @@ class StorySellingScore(BaseModel):
     emotional_reversal: float = Field(ge=0, le=5)
     visual_scene_clarity: float = Field(ge=0, le=5)
     online_share_save_sell_potential: float = Field(ge=0, le=5)
+    total: float = Field(ge=0, le=30)
+
+
+class GoldenThemeScore(BaseModel):
+    universal_hook: float = Field(ge=0, le=5)
+    aachu_zuv_specificity: float = Field(ge=0, le=5)
+    concrete_proof: float = Field(ge=0, le=5)
+    zuv_emotional_role: float = Field(ge=0, le=5)
+    tender_thesis: float = Field(ge=0, le=5)
+    share_send_potential: float = Field(ge=0, le=5)
     total: float = Field(ge=0, le=30)
 
 
@@ -121,8 +149,22 @@ class LayerEDecision(BaseModel):
     proof_engine: str
     reader_mirror: str
     distribution_reason: str
+    human_story_setup: dict[str, str] = Field(default_factory=dict)
+    success_definition: dict[str, str] = Field(default_factory=dict)
+    stage_scene_gate: dict[str, Any] = Field(default_factory=dict)
     process_influences: list[ProcessInfluence]
     story_selling_score: StorySellingScore
+    golden_theme_score: GoldenThemeScore = Field(
+        default_factory=lambda: GoldenThemeScore(
+            universal_hook=0,
+            aachu_zuv_specificity=0,
+            concrete_proof=0,
+            zuv_emotional_role=0,
+            tender_thesis=0,
+            share_send_potential=0,
+            total=0,
+        )
+    )
     hard_fails: list[str] = Field(default_factory=list)
     required_repairs: list[str] = Field(default_factory=list)
     golden_theme_gate: Literal["required_for_carousel", "not_applicable"]

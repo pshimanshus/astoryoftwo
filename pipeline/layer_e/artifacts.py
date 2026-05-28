@@ -64,4 +64,14 @@ def layer_e_gate_reason(out_dir: Path) -> str | None:
         return f"{JSON_ARTIFACT} has hard fails: " + "; ".join(decision.hard_fails)
     if decision.story_selling_score.total < 28:
         return f"{JSON_ARTIFACT} score is below 28/30."
+    if decision.golden_theme_gate == "required_for_carousel" and decision.golden_theme_score.total < 28:
+        return f"{JSON_ARTIFACT} Golden Theme score is below 28/30."
+    if not decision.success_definition.get("audience_success"):
+        return f"{JSON_ARTIFACT} is missing the successful-carousel success definition."
+    if not decision.human_story_setup.get("emotional_obstacle"):
+        return f"{JSON_ARTIFACT} is missing the Layer E human story setup."
+    stage_gate = decision.stage_scene_gate or {}
+    if stage_gate.get("status") != "GO":
+        blockers = stage_gate.get("blockers") or ["Stage-Scene Gate did not return GO"]
+        return f"{JSON_ARTIFACT} Stage-Scene Gate is blocked: " + "; ".join(blockers)
     return None

@@ -235,26 +235,43 @@ SUITCASE_RELOCATION_TOKENS = [
     "forgot the toothbrushes",
 ]
 SUITCASE_RELOCATION_CONTINUITY_LOCK = (
-    "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized "
-    "shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige "
-    "pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream "
-    "toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and "
-    "warm ivory wall stay in consistent positions."
+    "Two-act visual continuity lock: slides 1-4 stay in the home bedroom packing room; slides "
+    "5-7 move to the destination arrival room/bathroom corner after travel. Keep the same "
+    "Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt "
+    "and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell "
+    "suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel "
+    "shoes, warm paper palette, and handwritten text system across both acts."
+)
+SUITCASE_RELOCATION_SHARED_VISUAL_LOCK = (
+    "Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white "
+    "oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive "
+    "hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded "
+    "outfits, travel shoes, warm paper palette, and handwritten text system."
+)
+SUITCASE_RELOCATION_HOME_VISUAL_LOCK = (
+    "Two-act visual continuity lock: home bedroom packing room act. "
+    f"{SUITCASE_RELOCATION_SHARED_VISUAL_LOCK}"
+)
+SUITCASE_RELOCATION_DESTINATION_VISUAL_LOCK = (
+    "Two-act visual continuity lock: destination arrival act after travel. "
+    f"{SUITCASE_RELOCATION_SHARED_VISUAL_LOCK}"
 )
 SUITCASE_RELOCATION_WARDROBE_LOCK = (
-    "Aachu wears the same off-white oversized shirt, blue jeans, soft house slippers, and small "
-    "gold earrings in every slide; Zuv wears the same navy t-shirt, beige pants, watch, and simple "
-    "house socks in every slide. Do not change outfits between slides."
+    "Aachu keeps the same off-white oversized shirt, blue jeans, and small gold earrings as "
+    "travel-day continuity; Zuv keeps the same navy t-shirt, beige pants, and watch. Footwear "
+    "may progress naturally from home slippers/socks during packing to travel shoes or shoes-off "
+    "arrival comfort at the destination, but do not invent a new outfit."
 )
 SUITCASE_RELOCATION_PROP_LOCK = (
     "Use the same dark olive hard-shell suitcase with black zip as the central recurring object; "
-    "keep the same cream toiletry pouch, charger pile, folded outfit stack, white sneakers, wooden "
-    "bed edge, potted plant, and warm ivory room details across the carousel."
+    "carry the same cream toiletry pouch, charger pile, folded outfit stack, travel shoes, and "
+    "overpacked clothes from the home-packing act into the destination-arrival act."
 )
 SUITCASE_RELOCATION_BACKGROUND_LOCK = (
-    "Stay inside the same warm bedroom packing room for all slides: warm ivory wall, wooden bed on "
-    "the left, potted plant on the right, suitcase centered on the floor, soft paper edges, no hotel "
-    "bathroom, no hotel-floor jump, and no new room."
+    "Use a clear two-act background: slides 1-4 are the warm home bedroom packing room with wooden "
+    "bed, potted plant, and suitcase on the floor; slides 5-7 are a simple destination hotel/Airbnb "
+    "arrival room or bathroom corner with the same suitcase and pouch. The location change must be "
+    "intentional and readable, not random drift."
 )
 
 STORY_SELLING_CONTRACT = {
@@ -1306,13 +1323,13 @@ def build_suitcase_relocation_slides(image_paths: list[Path], slide_count: int) 
         "Maybe love is two overpackers blaming the zip.",
     ]
     visuals = [
-        "Wide opening frame: Aachu and Zuv stand on opposite sides of the open suitcase, both proudly surrounded by absurd but believable trip piles; folded clothes, pouch, cables, shoes, and toiletries are visible while both look convinced this is normal.",
-        "Aachu kneels beside the suitcase holding three outfit options against herself, with the same folded outfit stack and scarf nearby; Zuv watches from the floor with an amused side-eye, hands paused over his own packing pile.",
-        "Zuv sits seriously with a tangle of real phone chargers, adapters, earphones, and a power bank, looking confident; Aachu leans in with a judging look while the one needed phone cable is clearly missing from the pile.",
-        "Both Aachu and Zuv sit on top of the bulging suitcase together, knees up and hands gripping the edges, trying to zip it with full teamwork while the suitcase pushes back.",
-        "Aachu and Zuv kneel beside the same cream toiletry pouch on the bedroom floor, staring at its empty toothbrush slots in silence while the overpacked suitcase sits open behind them with everything except toothbrushes.",
-        "Close-medium frame in the same room: both point at the stubborn suitcase zip with offended innocent faces, standing shoulder to shoulder so the blame lands on the zip instead of either person.",
-        "Soft final floor scene in the same room: Aachu and Zuv sit beside the half-closed suitcase, tired and laughing, one hand from each still resting near the zip; the mess feels shared, affectionate, and chosen.",
+        "Home bedroom packing room act, wide opening frame: Aachu and Zuv stand on opposite sides of the open suitcase, both proudly surrounded by absurd but believable trip piles; folded clothes, pouch, cables, shoes, and toiletries are visible while both look convinced this is normal.",
+        "Home bedroom packing room act: Aachu kneels beside the suitcase holding three outfit options against herself, with the same folded outfit stack and scarf nearby; Zuv watches from the floor with an amused side-eye, hands paused over his own packing pile.",
+        "Home bedroom packing room act: Zuv sits seriously with a tangle of real phone chargers, adapters, earphones, and a power bank, looking confident; Aachu leans in with a judging look while the one needed phone cable is clearly missing from the pile.",
+        "Home bedroom packing room act: both Aachu and Zuv sit on top of the bulging suitcase together, knees up and hands gripping the edges, trying to zip it with full teamwork while the suitcase pushes back.",
+        "Destination arrival bathroom corner: Aachu and Zuv, still in the same travel-day outfits, stand beside the open dark olive suitcase and stare at the cream toiletry pouch and empty toothbrush cup; the empty toothbrush slots are clearly visible after arrival.",
+        "Destination arrival room: both point at the stubborn suitcase zip with offended innocent faces, standing shoulder to shoulder beside the same open suitcase so the blame lands on the zip instead of either person.",
+        "Destination arrival room, soft final floor scene: Aachu and Zuv sit beside the half-closed suitcase, tired and laughing, one hand from each still resting near the zip; the mess feels shared, affectionate, and chosen.",
     ]
     roles = [
         "universal hook",
@@ -1344,7 +1361,10 @@ def build_suitcase_relocation_slides(image_paths: list[Path], slide_count: int) 
             "slide": index,
             "copy": copies[source_index],
             "role": roles[source_index],
-            "visual": f"{SUITCASE_RELOCATION_CONTINUITY_LOCK} {visuals[source_index]}",
+            "visual": (
+                f"{SUITCASE_RELOCATION_HOME_VISUAL_LOCK if source_index < 4 else SUITCASE_RELOCATION_DESTINATION_VISUAL_LOCK} "
+                f"{visuals[source_index]}"
+            ),
             "emotion": emotions[source_index],
             "cta_intent": "make partners tag the person who overpacks with them and still blames the suitcase zip",
             "continuity_lock": SUITCASE_RELOCATION_CONTINUITY_LOCK,
