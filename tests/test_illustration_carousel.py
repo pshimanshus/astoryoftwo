@@ -2068,7 +2068,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             " ".join(audit["requirements"]["REQ-MODEL-NATIVE-TEXT-001"]["evidence"]["issues"]),
         )
 
-    def test_model_native_generation_marks_missing_key_blocked(self):
+    def test_model_native_generation_prepares_codex_image_tool_handoff_without_api_key(self):
         from pipeline.stages.model_native_image_generation import generate_model_native_images
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -2078,44 +2078,43 @@ class IllustrationCarouselTests(unittest.TestCase):
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
+                identity_image_paths=[image],
                 title="Missing Key",
                 output_root=workspace / "out",
                 render_assets=False,
                 today=date(2026, 5, 16),
             )
 
-            result = generate_model_native_images(out_dir, api_key=None)
+            result = generate_model_native_images(out_dir)
+            manifest = json.loads((out_dir / "final-images.json").read_text(encoding="utf-8"))
+            blocker_text = (out_dir / "image-generation-blocker.md").read_text(encoding="utf-8")
+            slide_01_exists = (out_dir / "final" / "slide-01.png").exists()
+            reels_slide_01_exists = (out_dir / "final-reels-stories" / "slide-01.png").exists()
 
-        self.assertEqual(result["status"], "BLOCKED")
-        self.assertIn("disabled", result["reason"].lower())
-        self.assertIn("Codex built-in", result["reason"])
+        self.assertEqual(result["status"], "handoff_ready")
+        self.assertEqual(manifest["status"], "handoff_ready")
+        self.assertFalse(result["done"])
+        self.assertFalse(result["publishable"])
+        self.assertTrue(result["requires_human_generation"])
+        self.assertFalse(slide_01_exists)
+        self.assertFalse(reels_slide_01_exists)
+        self.assertIn("Codex image tool", blocker_text)
+        self.assertNotIn("OPENAI_API_KEY", blocker_text)
+        self.assertNotIn("API key", blocker_text)
 
-    def test_model_native_generation_is_disabled_for_carousel_work(self):
+    def test_model_native_generation_has_no_api_client_parameters(self):
+        import inspect
+
         from pipeline.stages.model_native_image_generation import generate_model_native_images
 
-        with tempfile.TemporaryDirectory() as tmpdir:
-            workspace = Path(tmpdir)
-            image = workspace / "identity.jpg"
-            image.write_bytes(b"identity-image")
-            out_dir = create_codex_native_carousel(
-                story="He did not marry peace. He married Aachu chaos.",
-                image_paths=[],
-                identity_image_paths=[image],
-                title="Legacy API Disabled",
-                output_root=workspace / "out",
-                render_assets=False,
-                today=date(2026, 5, 19),
-            )
-            client = Mock()
+        parameters = inspect.signature(generate_model_native_images).parameters
 
-            result = generate_model_native_images(out_dir, api_key="test-key", client=client)
+        self.assertNotIn("api_key", parameters)
+        self.assertNotIn("client", parameters)
+        self.assertNotIn("model", parameters)
+        self.assertNotIn("size", parameters)
 
-        self.assertEqual(result["status"], "BLOCKED")
-        self.assertIn("disabled", result["reason"].lower())
-        self.assertIn("Codex built-in", result["reason"])
-        client.images.edit.assert_not_called()
-
-    def test_model_native_generation_blocks_failed_identity_consistency_gate(self):
+    def test_model_native_generation_uses_pre_generation_gates_before_handoff(self):
         from pipeline.stages.model_native_image_generation import generate_model_native_images
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -2142,14 +2141,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
-            client = Mock()
 
-            result = generate_model_native_images(out_dir, api_key="test-key", client=client)
+            result = generate_model_native_images(out_dir)
 
-        self.assertEqual(result["status"], "BLOCKED")
-        self.assertIn("disabled", result["reason"].lower())
-        self.assertIn("Codex built-in", result["reason"])
-        client.images.edit.assert_not_called()
+        self.assertEqual(result["status"], "blocked")
+        self.assertIn("identity-consistency-review.json", result["reason"])
 
     def test_cli_rejects_legacy_api_image_backend_even_without_generation(self):
         repo_root = Path(__file__).resolve().parent.parent
@@ -2183,6 +2179,26 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("invalid choice", result.stderr)
 
+    def test_cli_help_describes_codex_image_tool_without_api_key_path(self):
+        repo_root = Path(__file__).resolve().parent.parent
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(repo_root / "scripts" / "create_illustration_carousel.py"),
+                "--help",
+            ],
+            cwd=repo_root,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0)
+        self.assertIn("Codex image tool", result.stdout)
+        self.assertNotIn("API key", result.stdout)
+        self.assertNotIn("OpenAI", result.stdout)
+
     def test_cli_rejects_local_dry_run_with_handoff_flags(self):
         repo_root = Path(__file__).resolve().parent.parent
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -2215,34 +2231,6 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("local-dry-run cannot be combined", result.stderr)
 
-    def test_model_native_generation_marks_api_error_blocked(self):
-        from pipeline.stages.model_native_image_generation import generate_model_native_images
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            workspace = Path(tmpdir)
-            identity = workspace / "identity.jpg"
-            identity.write_bytes(b"identity-image")
-            out_dir = create_codex_native_carousel(
-                story="Aachu says she is not hungry. Zuv orders extra anyway.",
-                image_paths=[],
-                identity_image_paths=[identity],
-                title="API Error Block",
-                output_root=workspace / "out",
-                render_assets=False,
-                today=date(2026, 5, 19),
-            )
-            client = Mock()
-            client.images.edit.side_effect = RuntimeError("Billing hard limit has been reached.")
-
-            result = generate_model_native_images(out_dir, api_key="test-key", client=client)
-            manifest = json.loads((out_dir / "final-images.json").read_text(encoding="utf-8"))
-
-        self.assertEqual(result["status"], "BLOCKED")
-        self.assertEqual(manifest["status"], "BLOCKED")
-        self.assertIn("disabled", result["reason"].lower())
-        self.assertIn("Codex built-in", result["reason"])
-        client.images.edit.assert_not_called()
-
     def test_model_native_reference_selection_uses_curated_identity_bundle_and_style_refs(self):
         from pipeline.stages.model_native_image_generation import existing_reference_paths
 
@@ -2263,43 +2251,6 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(len(selected), 6)
         self.assertEqual(selected[:4], identity_paths[:4])
         self.assertEqual(selected[-2:], style_paths[:2])
-
-    def test_model_native_generation_never_writes_final_images_with_mocked_client(self):
-        from pipeline.stages.model_native_image_generation import generate_model_native_images
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            workspace = Path(tmpdir)
-            image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
-            style = workspace / "style.png"
-            style.write_bytes(b"style-image")
-            out_dir = create_codex_native_carousel(
-                story="He did not marry peace. He married Aachu chaos.",
-                image_paths=[image],
-                identity_image_paths=[image],
-                title="Mock Native",
-                output_root=workspace / "out",
-                render_assets=False,
-                today=date(2026, 5, 16),
-            )
-            prompt_pack = json.loads((out_dir / "prompt-pack.json").read_text(encoding="utf-8"))
-            prompt_pack["style_reference_images"] = [str(style)]
-            (out_dir / "prompt-pack.json").write_text(json.dumps(prompt_pack), encoding="utf-8")
-
-            client = Mock()
-
-            result = generate_model_native_images(out_dir, api_key="test-key", client=client)
-            manifest = json.loads((out_dir / "final-images.json").read_text(encoding="utf-8"))
-            slide_01_exists = (out_dir / "final" / "slide-01.png").exists()
-            reels_slide_01_exists = (out_dir / "final-reels-stories" / "slide-01.png").exists()
-
-        self.assertEqual(result["status"], "BLOCKED")
-        self.assertEqual(manifest["status"], "BLOCKED")
-        self.assertFalse(slide_01_exists)
-        self.assertFalse(reels_slide_01_exists)
-        self.assertIn("disabled", result["reason"].lower())
-        self.assertIn("Codex built-in", result["reason"])
-        client.images.edit.assert_not_called()
 
     def test_codex_builtin_handoff_writes_identity_reference_prompt_files(self):
         from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
@@ -2395,7 +2346,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("Face identity contract", instagram_prompt_text)
         self.assertIn("actual image inputs", instagram_prompt_text)
         self.assertIn("She was not high-maintenance.", instagram_prompt_text)
-        self.assertIn("No final PNGs were generated", blocker_text)
+        self.assertIn("Final PNGs are pending Codex image tool generation", blocker_text)
         self.assertIn("slide 01", blocker_text)
         self.assertIn(str(instagram_generator_prompt_path), blocker_text)
 
@@ -2606,10 +2557,6 @@ class IllustrationCarouselTests(unittest.TestCase):
                 encoding="utf-8",
             )
             output_root = workspace / "out"
-            env = os.environ.copy()
-            legacy_key = "OPEN" + "AI" + "_API_KEY"
-            env.pop(legacy_key, None)
-
             result = subprocess.run(
                 [
                     sys.executable,
@@ -2628,7 +2575,6 @@ class IllustrationCarouselTests(unittest.TestCase):
                     "--generate-images",
                 ],
                 cwd=repo_root,
-                env=env,
                 text=True,
                 capture_output=True,
                 check=False,
@@ -2639,13 +2585,11 @@ class IllustrationCarouselTests(unittest.TestCase):
             blocker_exists = blocker_path.exists()
 
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("Codex built-in image handoff only", result.stdout)
-        self.assertIn("No final PNGs were generated", result.stdout)
+        self.assertIn("Codex image tool handoff", result.stdout)
+        self.assertIn("Use Codex image generation in-session", result.stdout)
         self.assertEqual(manifest["status"], "handoff_ready")
         self.assertEqual(manifest["backend"], "codex_builtin")
         self.assertTrue(blocker_exists)
-        legacy_key = "OPEN" + "AI" + "_API_KEY"
-        self.assertNotIn(legacy_key, json.dumps(manifest))
 
     def test_cli_proof_slide_implies_codex_builtin_handoff(self):
         repo_root = Path(__file__).resolve().parent.parent
@@ -2698,7 +2642,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             blocker_text = (out_dir / "image-generation-blocker.md").read_text(encoding="utf-8")
 
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("Codex built-in image handoff only", result.stdout)
+        self.assertIn("Codex image tool handoff", result.stdout)
         self.assertEqual(manifest["status"], "handoff_ready")
         self.assertEqual(manifest["requested_proof_slide"], 4)
         self.assertEqual(manifest["requested_formats"], ["instagram_post"])

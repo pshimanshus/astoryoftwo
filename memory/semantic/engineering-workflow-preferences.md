@@ -8,6 +8,10 @@ sources:
   autopublish setup
 - direct creator correction in Codex chat on 2026-05-28 that carousel image
   generation should use Codex's image tool, not an API key path
+- direct creator correction in Codex chat on 2026-05-28 that illustrated
+  carousel identity match comes before all other image checks
+- direct creator correction in Codex chat on 2026-05-28 to avoid AI sprawl and
+  prefer crisp, low-file, low-repetition code
 
 ## Standing Preference
 
@@ -41,3 +45,18 @@ an OpenAI API key or external image-client workflow. The expected path is Codex
 native packaging plus Codex image tool generation in-session, followed by
 packaging and visual QA.
 confidence: 0.9
+
+fact: For illustrated @a.storyof.two carousel generation, identity match is
+the first blocking gate, before story readability, house style, text accuracy,
+or full-batch generation. A proof with generic faces, wrong Aachu/Zuv face
+structure, wrong hair/beard/proportions, or only "close enough" resemblance is
+REJECTED, not PASS_WITH_NOTES. Use the selected identity image(s) as actual
+visual inputs before judging anything else.
+confidence: 1.0
+
+fact: Prefer crisp engineering with the smallest durable surface area: fewer
+files, one clear route per workflow, one responsibility per module, and no
+duplicated logic. If two lines solve the problem safely, do not write ten; if a
+helper prevents repetition, use the helper instead of adding another parallel
+path.
+confidence: 0.95

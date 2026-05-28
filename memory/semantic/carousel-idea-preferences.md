@@ -1,6 +1,6 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-05-24
+last_updated: 2026-05-28
 confidence: 0.8
 sources:
 - direct creator feedback in chat on 2026-05-18
@@ -9,6 +9,7 @@ sources:
 - direct creator feedback in chat on 2026-05-22
 - direct creator feedback in chat on 2026-05-23
 - direct creator feedback in chat on 2026-05-24
+- direct creator feedback in chat on 2026-05-28
 - memory/working.md
 - wiki/themes/calm-enough-for-chaos.md
 - output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md
@@ -59,6 +60,14 @@ before generating, and block/repair any doubtful slide instead of producing
 "maybe okay" final art.
 confidence: 0.9
 
+fact: Identity match is the first gate for all @a.storyof.two illustrated
+carousel image generation. Before evaluating hook, reveal, scene, text, style,
+or whether an image is "closer," verify Aachu/Zuv identity from the selected
+reference inputs. If face structure, hair, beard, proportions, or recognizable
+couple likeness are off, the proof is rejected immediately and no batch
+generation may continue. Never call identity drift PASS_WITH_NOTES.
+confidence: 1.0
+
 fact: Minimal illustrated carousel composition should stay airy but not sterile.
 Do not remove the innocent small-heart/reaction language while simplifying.
 Each slide can keep a few tiny micro-elements such as hearts, blush marks,
@@ -106,12 +115,39 @@ or tag their partner with "this is us." If not, score it closer to the
 creator's 10/30 calibration and repair from the story engine, not from wording.
 confidence: 0.97
 
+fact: For daily-human comedy carousels and reels, use a visual/storyboard-first
+workflow before writing slide copy. Build the sequence as scenes, body language,
+camera angle, props, timing, silent reactions, and thought/speech-bubble beats;
+then add only the minimum text needed to orient the viewer. Do not tell the
+whole story with lines first and then force visuals to illustrate those lines.
+The creator wants emotion carried by highly visual storytelling, not by
+caption-y thesis copy.
+confidence: 0.99
+
+fact: The approved zone for daily-human couple carousels is the Plate Stack
+repair pattern: first define the lived scene as a short film/storybook sequence
+(`dinner -> first instinct -> bad idea -> handoff -> stare -> plate stack ->
+kitchen walk`), then add only text that naturally exists inside the scene:
+context line, thought bubble, speech bubble, tiny reply, or deliberate silence.
+Delete fake-clever poster text, narrator summary, thesis copy, and punchlines
+that sound written before the scene. The text should feel like a prop,
+reaction, or thought inside the frame, not a caption pasted onto the frame.
+confidence: 1.0
+
+fact: Project-wide carousel baseline: @a.storyof.two is creating stories that
+are conveyed via carousels, not carousels that happen to contain stories. Treat
+each deck like a magazine story, short film, or storybook made of scene cuts:
+scene, cut, reaction, drama, payoff. First crack the storyboard and visual
+continuity; only after that add small copy, thought bubbles, or speech bubbles.
+confidence: 0.99
+
 fact: Carousel setup must produce hard-working hook text and slide direction,
-not just pleasant concepts. For every serious carousel idea, force the output
-to include the strongest first-slide hook options, a swipe-by-swipe retention
-ladder, visual direction that proves each text beat, and a selector note
-calibrated to the actual viral carousel analysis and real storytelling themes.
-confidence: 0.96
+not just pleasant concepts, but the hook must serve the visual scene instead of
+replacing it. For every serious carousel idea, force the output to include
+strong scene blocking, a swipe-by-swipe visual retention ladder, and only then
+tiny copy candidates calibrated to the actual viral carousel analysis and real
+storytelling themes.
+confidence: 0.97
 
 fact: Prioritize the researched viral storytelling format and viral-theme bar
 over a repeated "tiny Aachu behavior -> Zuv active care" template. The golden
@@ -271,6 +307,8 @@ confidence: 0.98
 
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
+| 2026-05-28 | Kitchen Forgiveness Glitch | natural everyday couple comedy / visual-first kitchen fight beat / pre-forgiveness vs real reaction | visual_storyboard_draft_created | Active package lives at `output/carousels/2026-05-28/kitchen-forgiveness-glitch/`. Creator approved building the idea and preserving the original illustration guidelines. Source of truth is storyboard-first, copy-last: kitchen after fight -> `Aayega toh maaf kar dungi` thought -> `Koi baat nahi. It's okay` thought -> dramatic doorway arrival/freeze -> shouted `AB AAYE HO?` scene -> silent contradiction with old `It's okay` thought bubble. Preserve the original strong idea: she does chores after a fight and mentally forgives him, but when he enters she shouts. Add drama through full scene cuts, not text. Do not force golden-theme thesis language, perfect-husband help, green-flag repair, or caption-y punchlines. | 0.99 |
+| 2026-05-28 | Plate Stack Marriage Test | natural everyday couple comedy / post-marriage expectation reversal / both-guilty plate duty / anti-perfect-husband | storyboard_first_tiny_copy_repair | Creator rejected fake clever text like `Kitchen: 8000 km` and clarified again: do not think in final slide lines first; think in the story being told. Active package lives at `output/carousels/2026-05-28/plate-stack-marriage-test/`. Current source of truth is `visual-storyboard.md`: dinner -> `rakh deta hoon.` first normal thought -> ring/photo cue + `wait...` -> handoff `yeh rakh dogi?` -> silent deadpan -> stack + `haan.` -> silent kitchen walk. Text must exist only as context, thought bubble, speech bubble, or tiny reply inside the scene. Final proof/finals must use `identity_images/aachu_zuv.png` as an actual reference, not generic couple faces. Do not revive narrator copy, fake punchlines, perfect-husband praise, chore fairness advice, wife-serves-husband sexism, or green-flag language. | 0.99 |
 | 2026-05-24 | Some Couples Come With Private Captions - final reset | Friends-reference mechanic / paired labels / private kindness / varied love moments | fresh_reset_prompt_handoff_ready | Creator chose the old Friends-reference/private-captions session as the format source and asked to create the final illustration carousel with different locations and dresses so it feels like a story of every two people in love. Fresh current-flow package lives at `output/carousels/2026-05-24/some-couples-come-with-private-captions-final/`. Preserve paired labels and same-scene private interpretation, but do not reuse rejected V2/V3 outputs as final art. Use varied moments: city hook, home doorway, rainy listening, street-food joy, grocery agreement, winter softness, car-laugh sound, rooftop thesis. Full generation is blocked until one proof passes the performance-autopsy gate: visible behavior before text, active Zuv, kind labels, no Friends copy, no generic soft tableau. | 0.99 |
 | 2026-05-24 | Blanket Border Dispute | natural everyday couple comedy / bedtime blanket receipt / accidental perfect-husband drift | rejected_autopsy_fail | Creator rejected the direction as still stuck in perfect-husband/tender-care logic instead of what generates shares, saves, sends, and likes. Autopsy failure: the route has a relatable domestic object, but the proposed turn `He tucked her in first` makes Zuv saintly and softens the bit instead of creating a hard public identity mirror with three receipts, one physically funny proof beat, mutual participation, and a taggable punch-to-thesis ending. Do not use this as the next carousel unless rebuilt into a sharper two-person mischief format. | 0.99 |
 | 2026-05-24 | Me With My "Jo Tu Kahegi Wahi Hoga" - fresh illustrated artifact reset | artifact-first / private phrase-world / illustrated relationship artifacts / autopsy-calibrated proof gate | rejected_creator_requested_new_idea | Creator stopped this route on 2026-05-24 with direct feedback: "not this idea, pick a new one." Do not keep generating, packaging, or pitching this as the active concept unless the creator explicitly asks to revisit it. The existing package remains at `output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/`, but treat it as abandoned for the current jam. | 0.99 |

@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Any
 
 
-DEFAULT_MODEL = "disabled-legacy-api-model"
 DEFAULT_SIZE = "1728x2160"
 REELS_STORIES_REQUEST_SIZE = "1080x1920"
 FINAL_UPLOAD_SIZE = (1080, 1350)
@@ -30,10 +29,9 @@ NATIVE_OUTPUT_CONTRACT = {
         "by resizing, cropping, or padding the Instagram post image."
     ),
 }
-LEGACY_API_IMAGE_GENERATION_DISABLED_REASON = (
-    "Legacy API carousel image generation is disabled for @a.storyof.two. "
-    "Use the Codex built-in identity-reference handoff instead: "
-    "scripts/create_illustration_carousel.py --generate-images --image-backend codex-built-in."
+CODEX_IMAGE_TOOL_HANDOFF_REASON = (
+    "Codex image-tool handoff is ready; final carousel PNGs must be created with the "
+    "Codex image generation tool in-session, then packaged with scripts/package_generated_carousel.py."
 )
 NATIVE_OUTPUT_FORMATS = {
     INSTAGRAM_POST_FORMAT: {
@@ -213,17 +211,6 @@ def contain_on_paper(image_bytes: bytes, width: int, height: int) -> bytes:
     return encode_png(canvas)
 
 
-def write_blocked_status(carousel_dir: Path, reason: str) -> dict[str, Any]:
-    result = {
-        "status": "BLOCKED",
-        "reason": reason,
-        "generation_mode": "model_native_publishable",
-    }
-    write_json(carousel_dir / "image-generation.json", result)
-    write_json(carousel_dir / "final-images.json", result)
-    return result
-
-
 def identity_consistency_gate_reason(carousel_dir: Path) -> str | None:
     review_path = carousel_dir / "identity-consistency-review.json"
     if not review_path.exists():
@@ -235,13 +222,20 @@ def identity_consistency_gate_reason(carousel_dir: Path) -> str | None:
     return None
 
 
-def generate_model_native_images(
-    carousel_dir: Path,
-    *,
-    api_key: str | None = None,
-    client: Any | None = None,
-    model: str = DEFAULT_MODEL,
-    size: str = DEFAULT_SIZE,
-) -> dict[str, Any]:
+def generate_model_native_images(carousel_dir: Path) -> dict[str, Any]:
+    """Prepare Codex image-tool handoff files without any external API client.
+
+    The actual image creation is performed by Codex's built-in image generation
+    tool in the agent session. This repository writes the prompt and provenance
+    contract; packaging records generated files afterward.
+    """
     carousel_dir = carousel_dir.expanduser()
-    return write_blocked_status(carousel_dir, LEGACY_API_IMAGE_GENERATION_DISABLED_REASON)
+    from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
+
+    result = prepare_codex_builtin_image_generation(carousel_dir)
+    if result.get("status") == "handoff_ready":
+        result["reason"] = CODEX_IMAGE_TOOL_HANDOFF_REASON
+        payload = json.dumps(result, indent=2, ensure_ascii=False)
+        for filename in ("image-generation.json", "final-images.json"):
+            (carousel_dir / filename).write_text(payload, encoding="utf-8")
+    return result

@@ -5,9 +5,10 @@
 Turn user-supplied photos plus a short story into a complete illustrated
 Instagram carousel package for @a.storyof.two.
 
-The output is not a generic quote carousel. It is a tiny visual love story:
-specific to Anchal and Himanshu, rooted in the supplied pictures, and formatted
-for image generation plus human review.
+The output is not a generic quote carousel. It is a scene-cut story delivered
+through carousel slides: magazine story, short film, and storybook logic, not
+caption-first logic. Each slide is a scene, cut, reaction, or visual reveal.
+Text is a small orientation layer after the storyboard works visually.
 
 Before any concept, slide copy, caption, or prompt work, apply the golden viral
 theme skill:
@@ -33,6 +34,16 @@ This persona persists through concept, arc, visual plan, copy, prompt pack,
 image-generation handoff, visual QA, and final image sets. It must reject any
 deck that lacks a hook, setup, proof, bridge, active Zuv role, earned ending,
 or send/save reason.
+
+For daily-human comedy, natural couple behavior, and creator-supplied small
+scenes, build storyboard before slide copy:
+
+1. Block the full scene sequence as silent visual panels.
+2. Add drama through cuts, camera angle, body language, props, facial shifts,
+   thought bubbles, speech bubbles, and timing.
+3. Add only the minimum on-slide text needed to orient the viewer.
+4. Reject any package where lines tell the whole story and visuals merely
+   illustrate those lines.
 
 For serious carousel concepts, the continuous agent room is mandatory before
 final copy or generation: generate multiple routes, cross-debate story risks,
@@ -65,7 +76,7 @@ Every run must create:
 - `post-copy-visual-room.json`: mandatory visual creative-room record after creator-approved copy, before final visual debate, prompt pack, or image generation
 - `visual-debate.json`: Visual Debate Gate record from three visual agents before visual plan finalization, carousel packaging, or image generation
 - `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, copy-visual alignment, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags
-- `slides.json`: ordered slide copy, role, visual description, emotion, CTA intent
+- `slides.json`: ordered scene cuts, visual action, optional tiny copy, role, emotion, CTA intent
 - `prompt-pack.json`: shared style prompt, negative prompt, slide prompts
 - `identity-consistency-review.json`: C3.5 pre-generation review that verifies face structure, facial expression, clothing/body-language cues, and cross-slide identity continuity are locked from the selected identity bundle
 - `copy.json`: caption options, alt text, hashtags, posting notes
@@ -115,7 +126,7 @@ Use the Product Unshipped-like desi storybook / photo-rooted illustrated style:
 - matte muted colors
 - large whitespace
 - off-white or very light warm background
-- one clear visual idea per slide
+- one clear visual scene, reaction, or cut per slide
 - tiny low-contrast brandmark: `@a.storyof.two`
 - rooted in supplied photos before adding decorative interpretation
 

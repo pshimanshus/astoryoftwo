@@ -147,6 +147,17 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - learning: V4 over-literalized the concept into notes, red thread, doodles, maps, and table scenes. For this concept, visuals must prove mutual private-language co-authorship through ordinary behavior, mirrored gestures, timing, and eye contact, not prop metaphors, phone/chat UI, dictionary/subtitle metaphors, generic listening, or tiny-Aachu-chaos -> Zuv-handler care.
 - package: output/carousels/2026-05-23/marry-the-one-who-joins-your-nonsense
 
+## Creator preference: daily-human carousel zone
+- date: 2026-05-28
+- source: direct creator feedback during Plate Stack Marriage Test repair
+- learning: for daily-human couple comedy, build the carousel like a short
+  visual story first: scene, action, reaction, reversal, consequence. Only
+  after the scene works, add tiny text that belongs inside the frame as
+  context, thought bubble, speech bubble, tiny reply, or deliberate silence.
+  Do not start with slide lines, fake-clever captions, best-husband/best-wife
+  framing, relationship lessons, or generic couple-goals language.
+- package: output/carousels/2026-05-28/plate-stack-marriage-test
+
 ## Reach recovery sprint: carousel-first correction
 - date: 2026-05-24
 - sprint: output/post-sprints/2026-05-24-reach-recovery
@@ -588,6 +599,13 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
   native 4:5 and separate 9:16 PNGs are still pending; proof-first should use
   slide 4, "Her foot found the invisible brake."
 - package: output/carousels/2026-05-24/passenger-seat-traffic-control
+
+## C-layer carousel draft: Kitchen Forgiveness Glitch
+- date: 2026-05-28
+- slug: kitchen-forgiveness-glitch
+- package: output/carousels/2026-05-28/kitchen-forgiveness-glitch
+- status: VISUAL_STORYBOARD_DRAFT; final generation blocked until creator approves storyboard and tiny copy
+- learning: this is the new visual-first baseline in action. The story is built as scene cuts first: kitchen after fight -> internal forgiveness thought -> almost calm -> doorway drama -> shouted reaction -> silent contradiction. Do not revive line-first carousel copy or best-husband/best-wife framing.
 
 ## C-layer carousel reset: Some Couples Come With Private Captions Final
 - date: 2026-05-24
