@@ -8,9 +8,7 @@ sources:
 
 ## Session Note
 
-Merged closeout context: planned executable Layer E story-selling gates and
-completed the continuity drill plus Codex-native carousel split into lanes,
-visual rooms, and package writers.
+Merged carousel module split with Layer E gates plan and verified continuity.
 
 ## Outcome
 
