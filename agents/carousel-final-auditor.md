@@ -34,7 +34,7 @@ reports exist.
   trivia.
 - Slide count is exactly 4 or 5.
 - Prompt slide count matches planned slide count.
-- Shared style prompt preserves desi storybook / photo-rooted direction.
+- Shared style prompt preserves romantic watercolor-and-ink / identity-rooted direction.
 - Negative prompt blocks photorealism, 3D rendering, generic stock couple art,
   and quote-card layout.
 - Brandmark rule is recorded.

@@ -6,9 +6,9 @@ from typing import Any
 
 HOUSE_STYLE_SCENE_RULE = (
     "house-style illustrated scene consistency: @a.storyof.two final image prompts "
-    "must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the "
-    "slide; paper artifacts, posters, receipts, labels, or stationery can only be "
-    "tiny scene details, never the visual system."
+    "must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv "
+    "behavior carries the slide; paper artifacts, posters, receipts, labels, or "
+    "stationery can only be tiny scene details, never the visual system."
 )
 
 FORBIDDEN_PROMPT_STYLE_DRIFT_TERMS = (

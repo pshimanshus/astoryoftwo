@@ -10,9 +10,9 @@ IDENTITY_IMAGE_DIR = "identity_images"
 SUPPORTED_IDENTITY_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_IDENTITY_REFERENCE_BUNDLE = 4
 FALLBACK_COMPACT_STYLE_PROMPT = (
-    "warm hand-drawn desi storybook illustration on off-white paper, imperfect black linework, "
-    "matte muted colors, expressive recurring Aachu/Zuv faces, handwritten text, tiny bottom-right "
-    "@a.storyof.two brandmark"
+    "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper, fine ink/pencil "
+    "linework, soft watercolor wash, muted vintage palette, recurring Aachu/Zuv faces, "
+    "model-native handwritten text, tiny @a.storyof.two brandmark"
 )
 IDENTITY_REFERENCE_RULE = (
     "Do not dump every identity image into a carousel prompt. Treat identity_images/ "

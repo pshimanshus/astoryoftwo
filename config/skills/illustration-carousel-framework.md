@@ -107,17 +107,27 @@ North Star:
 
 > A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.
 
-Use the Product Unshipped-like desi storybook / photo-rooted illustrated style:
+Use the @a.storyof.two romantic watercolor-and-ink master style:
 
-- soft hand-drawn flat vector illustration
-- imperfect black outlines
-- slightly uneven strokes
-- matte muted colors
-- large whitespace
-- off-white or very light warm background
-- one clear visual idea per slide
+- premium hand-drawn romantic editorial illustration
+- soft watercolor wash with fine ink and pencil linework
+- warm ivory paper background with subtle paper grain
+- delicate sketch lines, gentle crosshatching, and imperfect organic edges
+- clean expressive faces with warm skin shading, carefully drawn eyes, and soft blush
+- muted vintage palette: ivory, denim blue, soft navy, terracotta red, camel, gentle brown, faded sage, peach blush, dusty coral
+- tactile clothing and prop details such as denim grain, fabric folds, scarf patterns, leather straps, ceramic cups, small jewelry, and shoe stitching
+- generous warm negative space for model-native slide text
+- one clear Aachu/Zuv behavior scene per slide
 - tiny low-contrast brandmark: `@a.storyof.two`
-- rooted in supplied photos before adding decorative interpretation
+- rooted in supplied photos and selected identity references before adding decorative interpretation
+
+Every final image-generation handoff must include the project master prompt
+structure from `pipeline/stages/carousel_master_prompt.py`. The prompt must
+cover use case, asset type, reference image roles, primary request, scene,
+character identity lock, face preservation, illustration style, color palette,
+composition, emotional direction, wardrobe continuity, recurring props,
+background style, line/texture details, anatomy/quality rules, text rule, final
+identity/style reinforcement, and the final rendering layer.
 
 Adapt the style to the supplied images:
 
@@ -125,6 +135,8 @@ Adapt the style to the supplied images:
 - keep Anchal expressive and emotionally alive
 - keep Himanshu calm, warm, and grounded
 - use Aachu/Zuv identity references for recurring character likeness
+- treat previous successful illustrations as style references only, never as
+  face identity references
 - treat `identity_images/` as a candidate library, then choose a small
   story-specific identity bundle instead of attaching the whole folder
 - use desi details only when the photos or story support them

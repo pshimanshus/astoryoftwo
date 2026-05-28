@@ -17,6 +17,7 @@ from pipeline.stages.c1_illustration_carousel import (
     validate_slide_count,
 )
 from pipeline.stages.carousel_contract import build_character_bible, load_style_contract
+from pipeline.stages.carousel_master_prompt import MASTER_PROMPT_VERSION, master_prompt_contract
 from pipeline.stages.carousel_quality import QualityContext, write_quality_artifacts
 from pipeline.stages.carousel_style_consistency import HOUSE_STYLE_SCENE_RULE
 from pipeline.stages.identity_dossier import build_identity_dossier_artifacts
@@ -860,10 +861,31 @@ def build_package(
             "slide": slide["slide"],
             "slide_count": slide_count,
             "text": slide["copy"],
+            "scene": slide["visual"],
             "visual": slide["visual"],
+            "pose": (
+                "Use the slide scene as a lived-in romantic gesture: the couple should lean into "
+                "the beat through eye contact, a small care action, hand placement, posture, or "
+                f"playful distance that matches this role: {slide['role']}."
+            ),
+            "wardrobe": (
+                "Use casual modern Indo-western wardrobe consistent with the selected identity bundle "
+                "and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, "
+                "navy layers, or story-specific clothes only when the scene supports them."
+            ),
+            "props": (
+                "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; "
+                "props must prove the relationship beat and stay secondary to the couple."
+            ),
+            "background": (
+                "Use a warm minimal setting implied by the slide visual, softly illustrated with faded "
+                "watercolor edges and less detail than the couple."
+            ),
+            "emotion": slide["emotion"],
             "style": compact_style,
             "negative_prompt": contract["shared_negative_prompt"],
             "generation_mode": "model_native_publishable",
+            "master_prompt_version": MASTER_PROMPT_VERSION,
             "style_reference_images": style_reference_paths,
             "identity_reference_images": identity_paths,
             "prompt": (
@@ -871,6 +893,11 @@ def build_package(
                 f"{slide['slide']} of {slide_count}, prepared as two native outputs: "
                 f"1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. "
                 f"Never resize, crop, pad, or extend one output into the other. Story context: {story}. "
+                f"Master prompt version: {MASTER_PROMPT_VERSION}. Every final image rendering prompt must include "
+                "the project master prompt sections: use case, asset type, reference image roles, primary request, "
+                "scene, character identity lock, face preservation, illustration style, color palette, composition, "
+                "emotional direction, wardrobe continuity, props, background, line texture, anatomy, text rule, "
+                "and final rendering layer. "
                 f"North Star: {contract['north_star']} Content lane: {lane}. "
                 f"Golden theme rule: {golden_theme_rule} "
                 f"Successful Carousel Standard source: {SUCCESSFUL_CAROUSEL_STANDARD_PATH}. "
@@ -890,10 +917,10 @@ def build_package(
                 f"Story-Selling authorial rule: {STORY_SELLING_CONTRACT['rule']} "
                 f"Story-Selling score gate: {story_selling_score['total']}/30, decision {story_selling_decision['decision']}. "
                 f"Style reference images: {style_reference_paths}. "
-                "Canonical style lock: the first accepted carousel style references are not mood boards; "
-                "they are character-model references. Preserve the established Aachu/Zuv illustrated character faces, "
-                "hair shapes, expressive eyes, Zuv beard/brows, body proportions, paper texture, linework, "
-                "and handwriting. Do not change the look while simplifying composition. "
+                "Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, "
+                "age, body language, and emotional presence. Previous successful illustrations control only "
+                "watercolor-and-ink visual language, warm paper texture, linework, spacing, wardrobe continuity, "
+                "composition, and recurring props. Do not use style references as face identity references. "
                 f"Identity reference images: {'; '.join(identity_paths)}. "
                 f"Identity dossier path: {identity_dossier.get('path')}. "
                 f"Identity preflight path: {identity_dossier.get('preflight_path')}. "
@@ -913,7 +940,8 @@ def build_package(
                 "minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. "
                 "Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, "
                 "soft thought bubbles, or one small care detail that makes the beat lovable. "
-                "Style: use the slide's compact style field as the canonical style prompt. "
+                "Style: use the slide's compact style field as the canonical style prompt; final art must be "
+                "romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, or glossy AI. "
                 "Generate the complete publishable social slide artwork as one integrated image for each native output. "
                 f"Render this exact handwritten-style text inside the artwork, spelled exactly: '{slide['copy']}'. "
                 f"Render the tiny low-contrast handwritten brandmark '{brandmark}' at bottom-right inside the artwork. "
@@ -998,6 +1026,7 @@ def build_package(
                 "issues": visual_plan_quality["issues"],
             },
             "successful_carousel_standard": SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
+            "model_native_master_prompt": master_prompt_contract(),
             "layer_e_story_selling": (
                 {
                     "artifact": "layer-e-story-selling.json",

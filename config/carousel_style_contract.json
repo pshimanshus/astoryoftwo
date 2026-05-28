@@ -2,9 +2,34 @@
   "schema_version": "1.0",
   "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
   "brandmark": "@a.storyof.two",
-  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring illustrated character faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear Aachu/Zuv behavior scene. Every final prompt must stay scene-first: paper artifacts, receipts, labels, posters, or stationery can appear only as tiny integrated details, never as the main visual system. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
-  "compact_style_prompt": "warm hand-drawn desi storybook illustration on off-white paper, imperfect black linework, matte muted colors, expressive recurring Aachu/Zuv faces, handwritten text, tiny bottom-right @a.storyof.two brandmark",
-  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv hand-drawn romantic watercolor-and-ink carousel look. Identity reference images are the highest-priority face source: preserve the same recurring real-person faces, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful carousel illustrations are style references only: use them for warm ivory paper texture, soft watercolor washes, fine ink and pencil linework, delicate sketch lines, gentle crosshatching, muted vintage palette, composition, wardrobe continuity, handwritten typography, and recurring props. Do not use style references as identity references. Keep the illustration premium, intimate, travel-light, emotionally soft, and story-first, with tactile clothing/prop detail, clean expressive faces, warm negative space, and one clear Aachu/Zuv behavior scene. Paper artifacts, receipts, labels, posters, or stationery can appear only as tiny integrated scene details, never as the main visual system. Render the exact slide copy as fixed handwritten-style dark charcoal text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
+  "compact_style_prompt": "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper, fine ink/pencil linework, soft watercolor wash, muted vintage palette, recurring Aachu/Zuv faces, model-native handwritten text, tiny @a.storyof.two brandmark",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v1",
+    "required": true,
+    "applies_to": [
+      "prompt-pack.json",
+      "codex-image-prompts/**/*.prompt.txt",
+      "Codex built-in image generation",
+      "model-native final image generation"
+    ],
+    "rule": "Every final image-generation prompt must use the project master prompt structure before slide-specific scene details. The master prompt defines asset type, reference image roles, primary request, character identity lock, face preservation, watercolor-and-ink style, color palette, composition, emotional direction, wardrobe continuity, recurring props, background style, line/texture details, anatomy/quality rules, text rule, and final rendering layer.",
+    "asset_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "reference_image_roles": "Identity references control face, hair, skin tone, age, ethnicity, body language, and emotional presence. Previous successful illustrations control only style, palette, line quality, composition, wardrobe continuity, and recurring props.",
+    "text_rule": "Exact slide copy and @a.storyof.two brandmark must be generated inside the image in fixed handwritten storybook typography. Local overlays are legacy fallback only."
+  },
   "typography": {
     "strategy": "model_native",
     "text_color": "#2a2621",

@@ -34,6 +34,6 @@ failed, and what should be remembered.
 - Treat golden-theme alignment as a critical requirement, not a taste note.
 - Prefer explicit `PASS_WITH_NOTES` over vague success when rendering is skipped
   or a limitation exists.
-- Keep desi storybook / photo-rooted illustration as the default style unless
+- Keep romantic watercolor-and-ink / identity-rooted illustration as the default style unless
   the user explicitly asks for a different mode.
 - Ensure every run writes wiki and memory learning records.

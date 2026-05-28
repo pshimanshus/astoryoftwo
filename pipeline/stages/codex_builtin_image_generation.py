@@ -86,8 +86,13 @@ def generator_prompt_text(slide_prompt: dict[str, Any], output_format: str) -> s
         str(slide_prompt["text"]),
         str(visual),
         output_format,
-        str(slide_prompt.get("style") or "warm hand-drawn desi storybook illustration"),
+        str(slide_prompt.get("style") or "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper"),
         str(slide_prompt.get("negative_prompt") or "No photorealism, no 3D, no stock couple, no quote card."),
+        pose=str(slide_prompt.get("pose") or slide_prompt.get("body_language") or ""),
+        wardrobe=str(slide_prompt.get("wardrobe") or ""),
+        props=str(slide_prompt.get("props") or ""),
+        background=str(slide_prompt.get("background") or ""),
+        emotion=str(slide_prompt.get("emotion") or ""),
     )
 
 
@@ -212,6 +217,7 @@ def write_handoff_blocker(carousel_dir: Path, result: dict[str, Any], proof_gate
         "",
         "- generate separate native 4:5 and native 9:16 images;",
         "- do not derive one aspect ratio from the other;",
+        "- use the watercolor-and-ink master prompt in each paste-ready `.prompt.txt`;",
         "- use identity references as actual image inputs;",
         "- preserve exact slide copy and `@a.storyof.two` inside the generated image;",
         "- package generated sources with `scripts/package_generated_carousel.py`.",
@@ -358,6 +364,7 @@ def prompt_file_text(
         "",
         "## Hard Gate",
         "",
+        "- The paste-ready `.prompt.txt` must include the @a.storyof.two watercolor-and-ink master prompt structure.",
         "- Before any slide generation, read `identity-generation-preflight.md` and load/view `identity-face-contact-sheet.jpg`.",
         "- Preserve the carousel story-director spine embedded in `prompt-pack.json`: hook, setup, proof, bridge, active Zuv role, earned ending, and send/save reason.",
         "- Before calling image generation, load/view every identity reference listed below so they are actual image inputs in the Codex context.",

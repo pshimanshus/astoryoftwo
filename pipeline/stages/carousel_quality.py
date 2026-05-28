@@ -118,8 +118,8 @@ def build_requirements(context: QualityContext) -> list[dict[str, Any]]:
     return [
         {
             "id": "REQ-STYLE-001",
-            "label": "Use desi storybook / photo-rooted illustration style",
-            "source": "user approved current C-layer style",
+            "label": "Use romantic watercolor-and-ink / identity-rooted illustration style",
+            "source": "creator master-prompt style requirement",
             "evidence": ["prompt_pack.shared_style_prompt", "concept.visual_style"],
             "critical": True,
         },
@@ -577,6 +577,8 @@ def build_stage_reviews(context: QualityContext, ledger: dict[str, Any]) -> dict
 
     prompt_issues = []
     style_lower = shared_style.lower()
+    if "watercolor" not in style_lower or "ink" not in style_lower:
+        prompt_issues.append("Shared style prompt does not specify watercolor-and-ink illustration.")
     if "hand-drawn" not in style_lower and "hand drawn" not in style_lower:
         prompt_issues.append("Shared style prompt does not specify hand-drawn illustration.")
     if "photo" not in style_lower and "reference" not in style_lower:
@@ -745,7 +747,8 @@ def evaluate_requirements(context: QualityContext) -> dict[str, dict[str, Any]]:
 
     results: dict[str, dict[str, Any]] = {}
     results["REQ-STYLE-001"] = {
-        "pass": ("hand-drawn" in style_lower or "hand drawn" in style_lower)
+        "pass": ("watercolor" in style_lower and "ink" in style_lower)
+        and ("hand-drawn" in style_lower or "hand drawn" in style_lower)
         and ("photo" in style_lower or "reference" in style_lower),
         "evidence": shared_style,
     }
@@ -1106,7 +1109,7 @@ def build_wiki_update(context: QualityContext, audit: dict[str, Any]) -> str:
             "",
             "## Learning",
             "",
-            "- Keep the desi storybook / photo-rooted style as the default for memory-led carousels.",
+            "- Keep the romantic watercolor-and-ink / identity-rooted style as the default for memory-led carousels.",
             "- Preserve source-photo objects before adding decorative story elements.",
             "- Preserve Aachu/Zuv identity references across every generated slide.",
             "- Carry the successful-carousel standard as open agent alignment, not a keyword checklist.",
@@ -1140,8 +1143,8 @@ def build_carousel_wiki_page(context: QualityContext, audit: dict[str, Any]) -> 
         "",
         "## Style Memory",
         "",
-        "- Desi storybook / photo-rooted illustration.",
-        "- Imperfect black outlines, matte muted colors, warm paper background.",
+        "- Romantic watercolor-and-ink / identity-rooted illustration.",
+        "- Fine ink and pencil linework, soft watercolor wash, muted vintage colors, warm ivory paper background.",
         "- Preserve real outfits, poses, settings, and relationship cues.",
         "- Use Aachu/Zuv identity references for recurring character likeness.",
         "- Keep the successful-carousel standard active as open agent alignment: public identity mirror, private receipts, active Zuv response, emotional turn, and send/save thesis.",
@@ -1259,7 +1262,7 @@ def append_working_memory(memory_path: Path, context: QualityContext, audit: dic
             f"- date: {context.today}",
             f"- slug: {context.slug}",
             f"- final_audit: {audit['status']}",
-            "- learning: desi storybook / photo-rooted style remains the default for story carousels.",
+            "- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.",
             f"- package: {context.out_dir}",
         ]
     )
@@ -1289,17 +1292,17 @@ def update_graph(graph_path: Path, context: QualityContext, audit: dict[str, Any
         "content_lane": context.package.get("concept", {}).get("content_lane"),
     }
     graph["themes"].setdefault(
-        "desi_storybook_photo_rooted",
+        "watercolor_ink_identity_rooted",
         {
-            "id": "desi_storybook_photo_rooted",
+            "id": "watercolor_ink_identity_rooted",
             "type": "creative_style",
             "confidence": 0.7,
-            "description": "Soft hand-drawn desi storybook illustration rooted in supplied photos.",
+            "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos.",
         },
     )
     relationship = {
         "from": entity_id,
-        "to": "desi_storybook_photo_rooted",
+        "to": "watercolor_ink_identity_rooted",
         "type": "uses_creative_style",
         "confidence": 0.7,
     }

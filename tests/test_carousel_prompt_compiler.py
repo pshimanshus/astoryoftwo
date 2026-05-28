@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from pipeline.stages.carousel_prompt_compiler import compile_image_prompt, extract_scene_summary
+from pipeline.stages.carousel_prompt_compiler import MAX_PROMPT_CHARS, compile_image_prompt, extract_scene_summary
 from pipeline.stages.codex_builtin_image_generation import generator_prompt_text
 
 
@@ -20,7 +20,7 @@ def test_compile_image_prompt_removes_file_paths_and_contract_noise():
         ),
         format_key="instagram_post",
         style=(
-            "warm hand-drawn desi storybook illustration using "
+            "premium romantic watercolor-and-ink illustration using "
             "/Users/himanshusharma/astoryoftwo-analysis/config/carousel_style_contract.json"
         ),
         negative="No photorealism, no 3D, no stock couple.",
@@ -38,8 +38,11 @@ def test_compile_image_prompt_removes_file_paths_and_contract_noise():
     assert "json." not in prompt
     assert "md." not in prompt
     assert "He saw. He pretended to sleep." in prompt
+    assert "MASTER PROMPT VERSION" in prompt
+    assert "CHARACTER IDENTITY LOCK" in prompt
+    assert "TEXT RULE" in prompt
     assert "4:5" in prompt
-    assert len(prompt) <= 1800
+    assert len(prompt) <= MAX_PROMPT_CHARS
 
 
 def test_compile_image_prompt_uses_native_format_lock():
@@ -49,7 +52,7 @@ def test_compile_image_prompt_uses_native_format_lock():
         slide_copy="Some wives don't ask. They audit wallets.",
         visual="Aachu mock-officially opens the wallet while Zuv watches amused.",
         format_key="instagram_post",
-        style="warm hand-drawn desi storybook illustration",
+        style="premium romantic watercolor-and-ink illustration",
         negative="No photorealism.",
     )
     story = compile_image_prompt(
@@ -58,7 +61,7 @@ def test_compile_image_prompt_uses_native_format_lock():
         slide_copy="Some wives don't ask. They audit wallets.",
         visual="Aachu mock-officially opens the wallet while Zuv watches amused.",
         format_key="reels_stories",
-        style="warm hand-drawn desi storybook illustration",
+        style="premium romantic watercolor-and-ink illustration",
         negative="No photorealism.",
     )
 
@@ -101,7 +104,7 @@ def test_generator_prompt_text_compacts_legacy_prompt_without_visual_or_scene():
         "instagram_post",
     )
 
-    assert len(prompt) <= 1800
+    assert len(prompt) <= MAX_PROMPT_CHARS
     assert "Aachu opens Zuv's wallet" in prompt
     assert "holding out the backup card" in prompt
     assert "legacy package checklist" not in prompt
@@ -127,7 +130,7 @@ def test_compile_image_prompt_rejects_over_budget_prompt():
             slide_number=1,
             slide_count=5,
             slide_copy="Copy",
-            visual="Visual " * 400,
+            visual="Visual " * 1200,
             format_key="instagram_post",
             style="Style",
             negative="Negative",

@@ -42,14 +42,21 @@ preserve the selected post-copy visual system.
 
 Each slide prompt must include:
 
+- the project master prompt structure from
+  `pipeline/stages/carousel_master_prompt.py`
 - asset type: paired native Instagram carousel outputs
 - sizes: 1080x1350 Instagram post and 1080x1920 Reels/Stories
+- reference image roles: identity refs control faces; previous illustrations
+  control style only
 - slide number and total slide count; total must be 4 or 5
 - exact slide text
 - selected `post-copy-visual-room.json` visual system and per-slide blueprint
 - scene/backdrop
 - character direction
 - style and medium
+- character identity lock, face preservation rules, watercolor-and-ink style,
+  palette, wardrobe continuity, recurring props, background style, line/texture
+  detail, anatomy/quality rules, and final style reinforcement
 - composition/framing
 - brandmark: `@a.storyof.two`
 - constraints and negative cues

@@ -658,10 +658,13 @@ class IllustrationCarouselTests(unittest.TestCase):
         contract = load_style_contract()
 
         self.assertIn("Aachu and Zuv", contract["north_star"])
-        self.assertIn("Product Unshipped", contract["shared_style_prompt"])
-        self.assertIn("soft hand-drawn flat vector", contract["shared_style_prompt"])
-        self.assertIn("warm hand-drawn desi storybook illustration", contract["compact_style_prompt"])
+        self.assertIn("watercolor-and-ink", contract["shared_style_prompt"])
+        self.assertIn("Identity reference images are the highest-priority face source", contract["shared_style_prompt"])
+        self.assertIn("premium hand-drawn romantic watercolor-and-ink illustration", contract["compact_style_prompt"])
         self.assertIn("Aachu/Zuv faces", contract["compact_style_prompt"])
+        self.assertEqual(contract["model_native_master_prompt"]["version"], "a-story-of-two-watercolor-ink-v1")
+        self.assertTrue(contract["model_native_master_prompt"]["required"])
+        self.assertIn("Identity references control face", contract["model_native_master_prompt"]["reference_image_roles"])
         self.assertIn("No photorealism", contract["shared_negative_prompt"])
         self.assertEqual(contract["brandmark"], "@a.storyof.two")
         self.assertEqual(contract["typography"]["strategy"], "model_native")
@@ -1635,7 +1638,19 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertTrue(
             all(slide["generation_mode"] == "model_native_publishable" for slide in prompt_pack["slides"])
         )
+        self.assertEqual(
+            prompt_pack["model_native_master_prompt"]["version"],
+            "a-story-of-two-watercolor-ink-v1",
+        )
+        self.assertTrue(
+            all(
+                slide["master_prompt_version"] == "a-story-of-two-watercolor-ink-v1"
+                for slide in prompt_pack["slides"]
+            )
+        )
         self.assertIn("Generate the complete publishable social slide artwork", joined)
+        self.assertIn("Master prompt version: a-story-of-two-watercolor-ink-v1", joined)
+        self.assertIn("identity references control Aachu/Zuv faces", joined)
         self.assertIn("Render this exact handwritten-style text inside the artwork", joined)
         self.assertIn("house-style illustrated scene consistency", joined)
         self.assertIn("illustrated scene", joined)
@@ -2377,6 +2392,9 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("Native output format: Reels/Stories", reels_stories_prompt_text)
         self.assertIn(str(instagram_generator_prompt_path), instagram_prompt_text)
         self.assertIn("exact 4:5 canvas", instagram_generator_prompt_text)
+        self.assertIn("MASTER PROMPT VERSION", instagram_generator_prompt_text)
+        self.assertIn("REFERENCE IMAGE ROLES", instagram_generator_prompt_text)
+        self.assertIn("TEXT RULE", instagram_generator_prompt_text)
         self.assertIn("not a 9:16 story canvas", instagram_generator_prompt_text)
         self.assertIn("exact 9:16 canvas", reels_stories_generator_prompt_text)
         self.assertIn("not a 4:5 carousel canvas", reels_stories_generator_prompt_text)

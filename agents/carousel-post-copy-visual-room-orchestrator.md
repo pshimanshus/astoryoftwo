@@ -172,7 +172,7 @@ For each slide, write:
 - negative prompt additions specific to this slide;
 - what must be visibly true for the slide to pass QA.
 
-Use the established soft hand-drawn desi storybook style, but do not let style
+Use the established premium romantic watercolor-and-ink style, but do not let style
 language replace scene direction.
 ```
 

@@ -511,7 +511,7 @@ def build_post_copy_visual_room(
             "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork.",
         },
         "generation_prompt_brief": {
-            "style_lock": "soft hand-drawn desi storybook illustration with established Aachu/Zuv identity references",
+            "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
             "copy_lock": "Render exact slide copy inside the generated artwork.",
             "negative_prompt_additions": [
                 "no generic couple stock art",

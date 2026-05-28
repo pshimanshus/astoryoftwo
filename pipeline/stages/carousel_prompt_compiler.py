@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import re
 
+from pipeline.stages.carousel_master_prompt import build_generation_master_prompt
 
-MAX_PROMPT_CHARS = 1800
+MAX_PROMPT_CHARS = 14000
 
 FORMAT_COPY = {
     "instagram_post": (
@@ -65,27 +66,60 @@ def compile_image_prompt(
     format_key: str,
     style: str,
     negative: str,
+    *,
+    pose: str | None = None,
+    wardrobe: str | None = None,
+    props: str | None = None,
+    background: str | None = None,
+    emotion: str | None = None,
 ) -> str:
     if format_key not in FORMAT_COPY:
         raise ValueError(f"Unsupported format_key: {format_key}")
 
-    lines = [
-        f"Slide {slide_number:02d} of {slide_count:02d}.",
-        FORMAT_COPY[format_key],
-        "Use the attached identity and style references as visual inputs.",
-        "Do not resize from another format. Generate this canvas natively.",
-        "Draw one soft @a.storyof.two scene where Aachu and Zuv behavior carries the joke.",
-        f"Scene: {clean_text(visual)}",
-        f"Style: {clean_text(style)}",
-        (
-            "Keep warm off-white paper, imperfect black linework, matte muted colors, "
-            "expressive recurring faces, and generous negative space."
+    scene = clean_text(visual)
+    prompt = build_generation_master_prompt(
+        slide_number=slide_number,
+        slide_count=slide_count,
+        slide_copy=clean_text(slide_copy),
+        scene_description=scene,
+        pose_description=clean_text(
+            pose
+            or (
+                "Use scene-specific lived-in couple body language: soft eye contact, a small "
+                "care gesture, warm teasing posture, or leaning toward each other without "
+                "feeling staged."
+            )
         ),
-        f"Render this exact handwritten text inside the artwork: {slide_copy!r}.",
-        "Add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right.",
-        f"Negative: {clean_text(negative)}",
-    ]
-    prompt = "\n".join(lines).strip() + "\n"
+        wardrobe_description=clean_text(
+            wardrobe
+            or (
+                "Choose from the project wardrobe continuity options based on the scene; keep "
+                "white shirts, denim, scarves, sneakers, small jewelry, tan pants, or navy layers "
+                "consistent when they serve the story."
+            )
+        ),
+        prop_description=clean_text(
+            props
+            or (
+                "Use only props implied by the scene or recurring @a.storyof.two motifs; keep "
+                "them secondary to the couple's emotional behavior."
+            )
+        ),
+        background_description=clean_text(
+            background
+            or (
+                "Soft minimal environment implied by the scene, with faded watercolor edges and "
+                "lower detail than the characters."
+            )
+        ),
+        emotion_description=clean_text(
+            emotion
+            or "Quietly in love, comfortable, playful, emotionally safe, and specific to the slide beat."
+        ),
+        format_key=format_key,
+        style_prompt=clean_text(style),
+        negative_prompt=clean_text(negative),
+    ).strip() + "\n"
     if len(prompt) > MAX_PROMPT_CHARS:
         raise ValueError(f"Compiled image prompt is too long: {len(prompt)} characters.")
     return prompt

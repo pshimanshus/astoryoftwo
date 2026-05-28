@@ -219,5 +219,5 @@ Do not wrap the JSON in Markdown. Do not add commentary before or after it.
   generation unless every prompt includes an `Identity continuity lock` for
   face structure, expression, clothing/body-language, and same-couple
   continuity across all slides.
-- Preserve the desi storybook / photo-rooted default unless the user explicitly
+- Preserve the romantic watercolor-and-ink / identity-rooted default unless the user explicitly
   asks for another visual mode.
