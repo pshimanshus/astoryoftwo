@@ -13,6 +13,9 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
+from typing import Any
+
+from pipeline.layer_e.engine import run_layer_e
 
 BASE_DIR = Path(__file__).parent.parent.parent
 SKILLS_DIR = BASE_DIR / "config" / "skills"
@@ -157,8 +160,65 @@ def build_agentic_os_brief(brief: dict) -> str:
             "```",
             "",
             recall_text,
+            "",
+            render_layer_e_prepost_brief(brief),
         ]
     )
+
+
+def build_layer_e_prepost_decision(brief: dict[str, Any]):
+    query = str(brief.get("concept") or " ".join(str(value) for value in brief.values() if value))
+    return run_layer_e(
+        BASE_DIR,
+        {
+            "task_type": "prepost_reel",
+            "story_or_moment": query or "planned Reel pre-post analysis",
+            "constraints": [
+                "prepost reel analysis",
+                "hook/edit/algo/caption/culture agents must consume Layer E first",
+            ],
+            "requested_tone": "Instagram Reel pre-post analysis",
+            "reference_images": [],
+        },
+    )
+
+
+def render_layer_e_prepost_brief(brief: dict[str, Any]) -> str:
+    try:
+        decision = build_layer_e_prepost_decision(brief)
+        payload = decision.model_dump(mode="json")
+        return "\n".join(
+            [
+                "## Layer E Story-Selling",
+                "",
+                "Artifact: `layer-e-story-selling.json`",
+                "",
+                "```json",
+                json.dumps(
+                    {
+                        "status": payload["status"],
+                        "selected_story_lens": payload["selected_story_lens"],
+                        "emotional_machine": payload["emotional_machine"],
+                        "reader_mirror": payload["reader_mirror"],
+                        "distribution_reason": payload["distribution_reason"],
+                        "rooms": list(payload["rooms"].keys()),
+                        "process_influences": payload["process_influences"],
+                    },
+                    indent=2,
+                    ensure_ascii=False,
+                ),
+                "```",
+            ]
+        )
+    except Exception as exc:  # noqa: BLE001 - prepost should expose the missing gate.
+        return "\n".join(
+            [
+                "## Layer E Story-Selling",
+                "",
+                "Status: unavailable",
+                f"Reason: {exc}",
+            ]
+        )
 
 
 def build_system_prompt(agent_name: str, skill_names: list[str]) -> str:

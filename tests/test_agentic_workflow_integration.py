@@ -202,3 +202,13 @@ def test_agentic_os_cli_plan_aliases(tmp_path: Path):
     assert '"name": "carousel_jam"' in skill_system.stdout
     assert index_memory.returncode == 0, index_memory.stderr
     assert "memory.sqlite3" in index_memory.stdout
+
+
+def test_skill_systems_name_layer_e_artifacts():
+    systems = json.loads((Path(__file__).resolve().parents[1] / "config" / "skill-systems.json").read_text())
+
+    for name in ("carousel_jam", "story_article", "prepost_reel"):
+        system = systems["systems"][name]
+        artifacts = system.get("artifacts", [])
+        assert "layer-e-story-selling.json" in artifacts
+        assert "layer-e-story-selling.md" in artifacts

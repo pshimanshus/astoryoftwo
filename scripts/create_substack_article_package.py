@@ -10,6 +10,8 @@ from pipeline.agentic.workflow_metadata import (
     build_workflow_metadata,
     build_workflow_recall_markdown,
 )
+from pipeline.layer_e.artifacts import write_layer_e_artifacts
+from pipeline.layer_e.engine import run_layer_e
 
 
 ARTICLE_ARTIFACTS = [
@@ -115,6 +117,37 @@ def build_article_agentic_os(carousel_dir: Path, article_title: str) -> tuple[di
         return metadata, recall_text
 
 
+def infer_layer_e_root(workspace_root: Path) -> Path:
+    if (workspace_root / "output" / "story-canon").exists():
+        return workspace_root
+    return Path(__file__).resolve().parents[1]
+
+
+def build_article_story_source(carousel_dir: Path, concept: dict[str, Any], article_title: str) -> str:
+    storyboard = (
+        (carousel_dir / "storyboard.md").read_text(encoding="utf-8", errors="ignore")
+        if (carousel_dir / "storyboard.md").exists()
+        else ""
+    )
+    slides = read_json(carousel_dir / "slides.json")
+    slide_text = json.dumps(slides, ensure_ascii=False)[:1800] if slides else ""
+    existing_layer_e = concept.get("layer_e_story_selling", {})
+    existing_lens = existing_layer_e.get("selected_story_lens", "") if isinstance(existing_layer_e, dict) else ""
+    return "\n\n".join(
+        part
+        for part in [
+            f"Article title: {article_title}",
+            f"Carousel title: {concept.get('title', '')}",
+            f"Human truth: {concept.get('human_truth', '')}",
+            f"Emotional arc: {concept.get('emotional_arc', '')}",
+            f"Existing Layer E lens: {existing_lens}",
+            storyboard[:2400],
+            slide_text,
+        ]
+        if part.strip()
+    )
+
+
 def create_article_package(
     carousel_dir: Path,
     title: str | None = None,
@@ -131,6 +164,22 @@ def create_article_package(
     missing = [name for name in REQUIRED_CAROUSEL_ARTIFACTS if not (carousel_dir / name).exists()]
     images = discover_carousel_images(carousel_dir)
     agentic_os, recall_text = build_article_agentic_os(carousel_dir, article_title)
+    workspace_root = infer_workspace_root(carousel_dir)
+    layer_e_decision = run_layer_e(
+        infer_layer_e_root(workspace_root),
+        {
+            "task_type": "article_angle",
+            "story_or_moment": build_article_story_source(carousel_dir, concept, article_title),
+            "constraints": [
+                "Substack love article",
+                "love and couple dynamics first",
+                "no process teardown unless explicitly requested",
+            ],
+            "requested_tone": "warm couple essay",
+            "reference_images": [str(path) for path in images],
+        },
+    )
+    layer_e_payload = layer_e_decision.model_dump(mode="json")
     manifest = {
         "date": today.isoformat(),
         "title": article_title,
@@ -142,6 +191,13 @@ def create_article_package(
         "missing_source_artifacts": missing,
         "carousel_images": [str(path) for path in images],
         "story_selling_contract": STORY_SELLING_CONTRACT,
+        "layer_e_story_selling": {
+            "artifact": "layer-e-story-selling.json",
+            "markdown_artifact": "layer-e-story-selling.md",
+            "status": layer_e_payload["status"],
+            "selected_story_lens": layer_e_payload["selected_story_lens"],
+            "emotional_machine": layer_e_payload["emotional_machine"],
+        },
         "agentic_os": agentic_os,
         "artifacts": ARTICLE_ARTIFACTS,
         "publish_rule": "Do not publish until every gate is PASS or PASS_WITH_NOTES.",
@@ -151,6 +207,7 @@ def create_article_package(
         encoding="utf-8",
     )
     (out_dir / "source-memory-brief.md").write_text(recall_text, encoding="utf-8")
+    write_layer_e_artifacts(out_dir, layer_e_decision)
 
     human_truth = concept.get("human_truth", "Define the emotional truth before drafting.")
     write_if_missing(
@@ -169,6 +226,22 @@ def create_article_package(
 
 {human_truth}
 
+## Layer E Story-Selling Angle
+
+{layer_e_decision.selected_story_lens}
+
+## Emotional Machine
+
+{layer_e_decision.emotional_machine}
+
+## Reader Mirror
+
+{layer_e_decision.reader_mirror}
+
+## Distribution Reason
+
+{layer_e_decision.distribution_reason}
+
 ## Required Angle
 
 Write a love/couple essay, not a tool/process teardown. The article must use the
@@ -178,8 +251,8 @@ chaos, calm, and being fully known.
 ## Story-Selling Contract
 
 Apply `config/skills/romance-story-selling-engine.md` before drafting. Use
-Layer E references to choose one concept-process card, then keep the essay
-rooted in the couple's emotional obstacle, proof beats, reversal, and payoff.
+Layer E as the multi-room story-selling brain, then keep the essay rooted in
+the couple's emotional obstacle, proof beats, reversal, and payoff.
 The story-selling layer must strengthen the love story without replacing the
 golden theme or turning the piece into writing advice.
 
@@ -254,27 +327,27 @@ TBD
 
     write_if_missing(
         out_dir / "outline.md",
-        """# Outline
+        f"""# Outline
 
 ## Opening Hook
 
-TBD
+{layer_e_decision.reader_mirror}
 
 ## Emotional Problem
 
-TBD
+{layer_e_decision.selected_story_lens}
 
 ## Carousel Proof Beats
 
-TBD
+{layer_e_decision.proof_engine}
 
 ## Deeper Turn
 
-TBD
+{layer_e_decision.emotional_machine}
 
 ## Final Payoff
 
-TBD
+{layer_e_decision.distribution_reason}
 
 """,
     )

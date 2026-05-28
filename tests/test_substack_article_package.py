@@ -57,6 +57,9 @@ class SubstackArticlePackageTests(unittest.TestCase):
 
             manifest = json.loads((out_dir / "source-manifest.json").read_text(encoding="utf-8"))
             gates = (out_dir / "editorial-gates.md").read_text(encoding="utf-8")
+            brief = (out_dir / "article-brief.md").read_text(encoding="utf-8")
+            outline = (out_dir / "outline.md").read_text(encoding="utf-8")
+            layer_e = json.loads((out_dir / "layer-e-story-selling.json").read_text(encoding="utf-8"))
             artifact_exists = {artifact: (out_dir / artifact).exists() for artifact in ARTICLE_ARTIFACTS}
 
             self.assertEqual(out_dir.name, "calm-enough-for-my-chaos")
@@ -78,8 +81,12 @@ class SubstackArticlePackageTests(unittest.TestCase):
             self.assertIn("Gate 7 - Final Publish Approval", gates)
             self.assertIn("Gate 8 - Story Selling Fit", gates)
             self.assertIn("Do not publish until every gate is PASS or PASS_WITH_NOTES.", gates)
-
-            brief = (out_dir / "article-brief.md").read_text(encoding="utf-8")
+            self.assertEqual(manifest["layer_e_story_selling"]["artifact"], "layer-e-story-selling.json")
+            self.assertTrue(layer_e["selected_story_lens"])
+            self.assertIn("Layer E Story-Selling Angle", brief)
+            self.assertIn(layer_e["selected_story_lens"], brief)
+            self.assertIn("Opening Hook", outline)
+            self.assertNotIn("TBD", outline)
             self.assertIn("romance-story-selling-engine", brief)
             self.assertIn("Story-Selling", brief)
 

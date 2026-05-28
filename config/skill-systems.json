@@ -27,6 +27,15 @@
         "visual_debate_go",
         "visual_plan_quality_go",
         "identity_consistency_pass"
+      ],
+      "artifacts": [
+        "layer-e-story-selling.json",
+        "layer-e-story-selling.md",
+        "agent-room.json",
+        "concept-selection.json",
+        "post-copy-visual-room.json",
+        "visual-debate.json",
+        "visual-plan-quality.json"
       ]
     },
     "story_article": {
@@ -41,12 +50,21 @@
         "agents/story-skill-reviewer.md"
       ],
       "gates": [
+        "layer_e_story_selling_go",
         "source_integrity",
         "love_theme_fit",
         "structure",
         "voice_and_taste",
         "growth_package",
         "final_approval"
+      ],
+      "artifacts": [
+        "layer-e-story-selling.json",
+        "layer-e-story-selling.md",
+        "article-brief.md",
+        "outline.md",
+        "editorial-gates.md",
+        "publish-package.md"
       ]
     },
     "prepost_reel": {
@@ -65,11 +83,17 @@
         "agents/cultural-resonance.md"
       ],
       "gates": [
+        "layer_e_story_selling_go",
         "hook_score",
         "retention",
         "dm_send_potential",
         "cultural_authenticity",
         "verdict"
+      ],
+      "artifacts": [
+        "layer-e-story-selling.json",
+        "layer-e-story-selling.md",
+        "prepost-analysis.md"
       ]
     },
     "wiki_health": {
