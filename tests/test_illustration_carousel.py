@@ -792,6 +792,25 @@ class IllustrationCarouselTests(unittest.TestCase):
             "prompt-pack/review/final-audit artifacts.",
         )
 
+    def test_package_generated_carousel_direct_script_help_works(self):
+        repo_root = Path(__file__).resolve().parent.parent
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(repo_root / "scripts" / "package_generated_carousel.py"),
+                "--help",
+            ],
+            cwd=repo_root,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("--instagram-post", result.stdout)
+        self.assertIn("--reels-stories", result.stdout)
+
     def test_codex_native_manifest_records_identity_reference(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
