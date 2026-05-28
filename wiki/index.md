@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-05-28
-total_pages: 62
+total_pages: 63
 confidence_floor: 0.4
 
 ---
