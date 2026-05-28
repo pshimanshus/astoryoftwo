@@ -50,6 +50,7 @@ from pipeline.stages.carousel_lanes import (
     build_softness_under_fire_concept_selection,
     build_story_director_gate,
     build_story_selling_decision,
+    build_suitcase_relocation_concept_selection,
     build_tasty_life_concept_selection,
     build_unfiltered_nonsense_concept_selection,
     build_wallet_audit_concept_selection,
@@ -72,6 +73,7 @@ from pipeline.stages.carousel_lanes import (
     is_photo_ritual_story,
     is_private_captions_story,
     is_softness_under_fire_story,
+    is_suitcase_relocation_story,
     is_subtitle_language_story,
     is_tasty_life_story,
     is_unfiltered_nonsense_story,
@@ -127,12 +129,15 @@ def build_package(
     is_private_captions = is_private_captions_story(story)
     is_unfiltered_nonsense = is_unfiltered_nonsense_story(story)
     is_long_distance_ordinary = is_long_distance_ordinary_story(story)
+    is_suitcase_relocation = is_suitcase_relocation_story(story)
     if is_private_captions:
         concept_selection = build_private_captions_concept_selection()
     elif is_unfiltered_nonsense:
         concept_selection = build_unfiltered_nonsense_concept_selection()
     elif is_long_distance_ordinary:
         concept_selection = build_long_distance_ordinary_concept_selection()
+    elif is_suitcase_relocation:
+        concept_selection = build_suitcase_relocation_concept_selection()
     elif is_tasty_life:
         concept_selection = build_tasty_life_concept_selection()
     elif is_wallet_audit:
@@ -282,6 +287,39 @@ def build_package(
             "#LoveInLittleThings",
             "#DesiCouple",
             "#AachuAndZuv",
+        ]
+    elif is_suitcase_relocation:
+        human_truth = (
+            "Some couples do not pack light; they overprepare together, create the suitcase mess together, "
+            "and choose a harmless villain instead of blaming each other."
+        )
+        emotional_arc = (
+            "relocate-the-house hook -> Aachu options proof -> Zuv real charger-mess proof -> "
+            "shared suitcase wrestling -> forgotten toothbrush reversal -> zip-not-each-other bridge -> "
+            "two-overpackers thesis"
+        )
+        caption_recommended = (
+            "some couples pack for a trip.\n"
+            "some couples pack for every possible version of the trip.\n\n"
+            "the outfit options.\n"
+            "the charger pile.\n"
+            "the suitcase negotiation.\n"
+            "the toothbrushes, obviously forgotten.\n\n"
+            "and after all that,\n"
+            "nobody blamed each other.\n"
+            "only the zip.\n\n"
+            "send this to the person who says pack light and still sits on the suitcase with you."
+        )
+        caption_alt = (
+            "Love is not packing perfectly. Sometimes it is two overpackers blaming the zip together."
+        )
+        hashtags = [
+            "#AStoryOfTwo",
+            "#CoupleComedy",
+            "#MarriedLife",
+            "#DesiCouple",
+            "#TravelWithPartner",
+            "#RelationshipHumor",
         ]
     elif is_tasty_life:
         human_truth = (
@@ -834,7 +872,12 @@ def build_package(
             "hard_fails": layer_e_payload["hard_fails"],
             "selector_verdict": layer_e_payload["selected_story_lens"],
             "authorial_flow": {
-                "relationship_obstacle": layer_e_payload["reader_mirror"],
+                "relationship_obstacle": layer_e_payload["human_story_setup"].get(
+                    "emotional_obstacle",
+                    layer_e_payload["reader_mirror"],
+                ),
+                "human_story_setup": layer_e_payload["human_story_setup"],
+                "success_definition": layer_e_payload["success_definition"],
                 "proof_engine": layer_e_payload["proof_engine"],
                 "writer_rule": "Layer E is the source of truth; process cards are influences, not the answer.",
                 "story_context": story,
@@ -863,21 +906,21 @@ def build_package(
             "text": slide["copy"],
             "scene": slide["visual"],
             "visual": slide["visual"],
-            "pose": (
+            "pose": slide.get("pose") or (
                 "Use the slide scene as a lived-in romantic gesture: the couple should lean into "
                 "the beat through eye contact, a small care action, hand placement, posture, or "
                 f"playful distance that matches this role: {slide['role']}."
             ),
-            "wardrobe": (
+            "wardrobe": slide.get("wardrobe") or (
                 "Use casual modern Indo-western wardrobe consistent with the selected identity bundle "
                 "and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, "
                 "navy layers, or story-specific clothes only when the scene supports them."
             ),
-            "props": (
+            "props": slide.get("props") or (
                 "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; "
                 "props must prove the relationship beat and stay secondary to the couple."
             ),
-            "background": (
+            "background": slide.get("background") or (
                 "Use a warm minimal setting implied by the slide visual, softly illustrated with faded "
                 "watercolor edges and less detail than the couple."
             ),
@@ -930,6 +973,7 @@ def build_package(
                 f"Identity reference strategy: {identity_reference_selection['rule']} "
                 f"Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. "
                 f"Character bible: {character_bible}. "
+                f"{'Carousel continuity lock: ' + slide['continuity_lock'] + ' ' if slide.get('continuity_lock') else ''}"
                 f"{build_identity_continuity_prompt(slide, identity_paths)} "
                 f"Scene: {slide['visual']} Mood: {slide['emotion']}. "
                 f"House style consistency: {HOUSE_STYLE_SCENE_RULE} "
@@ -978,6 +1022,8 @@ def build_package(
                 "status": layer_e_payload["status"],
                 "selected_story_lens": layer_e_payload["selected_story_lens"],
                 "emotional_machine": layer_e_payload["emotional_machine"],
+                "human_story_setup": layer_e_payload["human_story_setup"],
+                "success_definition": layer_e_payload["success_definition"],
                 "process_influences": layer_e_payload["process_influences"],
             }
             if layer_e_payload
@@ -1033,6 +1079,8 @@ def build_package(
                     "status": layer_e_payload["status"],
                     "selected_story_lens": layer_e_payload["selected_story_lens"],
                     "emotional_machine": layer_e_payload["emotional_machine"],
+                    "human_story_setup": layer_e_payload["human_story_setup"],
+                    "success_definition": layer_e_payload["success_definition"],
                     "proof_engine": layer_e_payload["proof_engine"],
                     "distribution_reason": layer_e_payload["distribution_reason"],
                 }

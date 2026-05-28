@@ -2,8 +2,8 @@
 # Karpathy LLM Wiki pattern: this file is the catalog of all compiled knowledge pages.
 # Updated by: `wiki compile` operation.
 
-last_updated: 2026-05-28
-total_pages: 63
+last_updated: 2026-05-29
+total_pages: 65
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,8 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [Suitcase Relocation](carousels/suitcase-relocation-2.md) | 2026-05-29 | 7 | C-layer | 0.7 |
+| [Suitcase Relocation](carousels/suitcase-relocation.md) | 2026-05-28 | 7 | C-layer | 0.7 |
 | [Pipeline Repair Final Dry Run Smoke 2](carousels/pipeline-repair-final-dry-run-smoke-2.md) | 2026-05-25 | 5 | C-layer | 0.7 |
 | [Pipeline Repair Final Handoff Smoke 2](carousels/pipeline-repair-final-handoff-smoke-2.md) | 2026-05-25 | 5 | C-layer | 0.7 |
 | [Pipeline Repair Continue Dry Run Smoke](carousels/pipeline-repair-continue-dry-run-smoke.md) | 2026-05-25 | 5 | C-layer | 0.7 |

@@ -5,6 +5,10 @@ from __future__ import annotations
 from typing import Any
 
 from pipeline.stages.carousel_lanes import (
+    SUITCASE_RELOCATION_BACKGROUND_LOCK,
+    SUITCASE_RELOCATION_CONTINUITY_LOCK,
+    SUITCASE_RELOCATION_PROP_LOCK,
+    SUITCASE_RELOCATION_WARDROBE_LOCK,
     is_fifty_fifty_care_story,
     is_food_denial_story,
     is_imperfect_repair_story,
@@ -12,6 +16,7 @@ from pipeline.stages.carousel_lanes import (
     is_main_kar_lungi_story,
     is_private_captions_story,
     is_softness_under_fire_story,
+    is_suitcase_relocation_story,
     is_tasty_life_story,
     is_wallet_audit_story,
 )
@@ -28,10 +33,13 @@ def build_visual_debate(story: str, slides: list[dict[str, Any]], lane: str) -> 
     is_softness_under_fire = is_softness_under_fire_story(story)
     is_imperfect_repair = is_imperfect_repair_story(story)
     is_long_distance_ordinary = is_long_distance_ordinary_story(story)
+    is_suitcase_relocation = is_suitcase_relocation_story(story)
     if is_private_captions:
         winner = "Private Caption Shared Frames"
     elif is_long_distance_ordinary:
         winner = "Chat Bubbles Become Shared Rooms"
+    elif is_suitcase_relocation:
+        winner = "Short-Film Packing Room"
     elif is_independent_care:
         winner = "Outdoor Threshold"
     elif is_fifty_fifty_care:
@@ -217,6 +225,27 @@ def build_visual_debate(story: str, slides: list[dict[str, Any]], lane: str) -> 
             },
         ]
     )
+    if is_suitcase_relocation:
+        options = [
+            {
+                "name": "Short-Film Packing Room",
+                "score": 30,
+                "case_for": "Best for the corrected deck: each slide is a lived packing-room action, both partners are guilty, and the zip becomes the harmless villain.",
+                "risk": "Must keep the couple's bodies, faces, teamwork, and blame visible so the suitcase does not become the lead character.",
+            },
+            {
+                "name": "Split-Screen Evidence Board",
+                "score": 26,
+                "case_for": "Quickly contrasts her outfit options with his tech pile.",
+                "risk": "Rejected as the main system because it becomes label-heavy and object-first.",
+            },
+            {
+                "name": "Suitcase As Relocated House",
+                "score": 25,
+                "case_for": "Very literal hook image.",
+                "risk": "Rejected because a surreal suitcase-house can overpower Aachu/Zuv and turn the story into clever prop art.",
+            },
+        ]
     if is_wallet_audit:
         options = [
             {
@@ -555,6 +584,7 @@ def build_visual_plan_quality(
     rejected_patterns = visual_debate.get("rejected_visual_patterns", [])
     is_softness_under_fire = lane == "Golden Softness Under Fire" or is_softness_under_fire_story(story)
     is_wallet_audit = lane == "Golden Wallet Audit Love" or is_wallet_audit_story(story)
+    is_suitcase_relocation = lane == "Golden Suitcase Relocation" or is_suitcase_relocation_story(story)
 
     for slide in slides:
         number = int(slide.get("slide", 0) or 0)
@@ -568,6 +598,7 @@ def build_visual_plan_quality(
             "relationship_behavior_visible": "aachu" in visual_lower and "zuv" in visual_lower,
             "stage_scene_storytelling": True,
             "no_losing_visual_option_leak": True,
+            "slide_world_continuity": True,
             "aspect_safe_composition": True,
             "doubt_flags_resolved": True,
         }
@@ -648,6 +679,33 @@ def build_visual_plan_quality(
                 checks["emotional_reversal"] = False
                 slide_issues.append("Slide 5 must turn the wallet joke into quiet care by showing extra cash prepared.")
 
+        if is_suitcase_relocation:
+            required_continuity_anchors = [
+                "same warm bedroom packing room",
+                "dark olive hard-shell suitcase",
+                "off-white oversized shirt",
+                "navy t-shirt",
+                "cream toiletry pouch",
+            ]
+            missing_anchors = [
+                anchor for anchor in required_continuity_anchors if anchor not in visual_lower
+            ]
+            forbidden_world_jumps = [
+                term for term in ["hotel bathroom", "hotel-floor", "arrival scene", "new room"] if term in visual_lower
+            ]
+            if missing_anchors:
+                checks["slide_world_continuity"] = False
+                checks["doubt_flags_resolved"] = False
+                slide_issues.append(
+                    f"Slide {number} is missing suitcase continuity anchor(s): {', '.join(missing_anchors)}."
+                )
+            if forbidden_world_jumps:
+                checks["slide_world_continuity"] = False
+                checks["doubt_flags_resolved"] = False
+                slide_issues.append(
+                    f"Slide {number} breaks suitcase continuity with world jump term(s): {', '.join(forbidden_world_jumps)}."
+                )
+
         for issue in slide_issues:
             issues.append(issue)
 
@@ -676,6 +734,16 @@ def build_visual_plan_quality(
         "lane": lane,
         "winner": winner,
         "rejected_visual_patterns": rejected_patterns,
+        "continuity_locks": (
+            {
+                "scene": SUITCASE_RELOCATION_CONTINUITY_LOCK,
+                "wardrobe": SUITCASE_RELOCATION_WARDROBE_LOCK,
+                "props": SUITCASE_RELOCATION_PROP_LOCK,
+                "background": SUITCASE_RELOCATION_BACKGROUND_LOCK,
+            }
+            if is_suitcase_relocation
+            else {}
+        ),
         "agents": [
             "C3A-VisualEvidencePlanner",
             "C3B-RomanceScenePlanner",

@@ -1,6 +1,6 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-05-28
+last_updated: 2026-05-29
 confidence: 0.8
 sources:
 - direct creator feedback in chat on 2026-05-18
@@ -13,6 +13,8 @@ sources:
   Test image/proof repair
 - direct creator correction in chat on 2026-05-28 that carousel ideas must be
   story-driven staged scenes, not text-driven poster-copy spines
+- direct creator correction in chat on 2026-05-29 that Layer E must run the
+  thinking/council and success-definition engine before writing begins
 - memory/working.md
 - wiki/themes/calm-enough-for-chaos.md
 - output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md
@@ -159,6 +161,19 @@ good, but why it will not work: story loopholes, weak universality, unsafe or
 body-shame-adjacent framing, visual generation risk, low send/save behavior,
 and whether the ending is earned.
 confidence: 0.98
+
+fact: Layer E must not be treated as a score wrapper, selected-card wrapper, or
+generic artifact checklist. Before any carousel writing, hook writing, slide
+copy, caption, visual direction, prompt work, or image generation, Layer E must
+run the actual thinking room: define the human story, emotional obstacle,
+shareable setup, cold-reader doorway, active Aachu/Zuv roles, proof engine,
+reversal, and earned payoff. It must also define what success looks like using
+the successful-carousel standard: audience success, creative success, brand
+success, and production success. If Layer E only outputs scores, cards, or a
+candidate table without council debate, room inputs, debate records, repaired
+routes, and a success definition, the workflow has failed before writing has
+started.
+confidence: 1.0
 
 fact: Do not mention the character names "Aachu" or "Zuv" in public-facing
 carousel copy unless the creator explicitly asks for names. Names may appear in
@@ -351,7 +366,7 @@ confidence: 0.98
 
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
-| 2026-05-28 | Suitcase Relocation - review room | travel packing comedy / both-guilty receipts / blame-the-zip-not-each-other | selected_next_repair_before_copy_lock | Creator picked Suitcase Relocation as the next carousel candidate and asked for everyone to review it. Multi-agent room agreed the raw spine is strong but REPAIR before GO: keep the mutual guilt and zip-blame phrase-world, do not make Zuv saintly, and make the emotional thesis that both created the mess but chose a harmless villain instead of blaming each other. Winning route: `Blame The Zip, Not Each Other` with recommended bridge options `Nobody blamed each other. Only the zip.` or `Together, they blamed the zip.` Creator rejected the line `He packed chargers for gadgets they don't own` as implausible; do not use it. Replace with a real-life male overpacking receipt, e.g. packing every charger except the needed one, a power bank without the cable, a speaker nobody asked for, or three backup adapters. Short-film packing-room visual system is preferred; avoid text-driven suitcase poster visuals. | 0.99 |
+| 2026-05-28 | Suitcase Relocation - review room | travel packing comedy / both-guilty receipts / blame-the-zip-not-each-other | selected_next_repair_before_copy_lock | Creator picked Suitcase Relocation as the next carousel candidate and asked for everyone to review it. Multi-agent room agreed the raw spine is strong but REPAIR before GO: keep the mutual guilt and zip-blame phrase-world, do not make Zuv saintly, and make the emotional thesis that both created the mess but chose a harmless villain instead of blaming each other. Winning route: `Blame The Zip, Not Each Other` with recommended bridge options `Nobody blamed each other. Only the zip.` or `Together, they blamed the zip.` Creator rejected the line `He packed chargers for gadgets they don't own` as implausible; do not use it. Replace with a real-life male overpacking receipt, e.g. packing every charger except the needed one, a power bank without the cable, a speaker nobody asked for, or three backup adapters. Short-film packing-room visual system is preferred; avoid text-driven suitcase poster visuals. Creator also flagged the first proof for missing slide consistency; Suitcase Relocation must now use one locked warm bedroom packing-room world across every slide (same Aachu/Zuv outfits, dark olive suitcase, cream toiletry pouch, charger pile, folded clothes, shoes, bed, plant, and handwritten text system). Do not jump to hotel bathroom/hotel-floor discovery beats. | 0.99 |
 | 2026-05-28 | Kitchen Forgiveness Glitch | daily-human kitchen comedy / mouth-versus-hands / cup reveal payoff | handoff_ready_29_30_version | Creator asked to execute the 29/30 version after rejecting the `It's okay` ending. Active package: `output/carousels/2026-05-28/kitchen-forgiveness-glitch/`. Locked spine: `She was still angry.` -> `Aayega toh maaf kar dungi.` -> silent cup/glass preparation -> doorway freeze -> `AB AAYE HO?` -> `Cup ready tha.`. Use standard identity/style handoff only: contact sheet plus selected refs ID36, ID37, ID39, ID44 and accepted style refs. Do not generate text-only images, do not revert to thought-bubble payoff, and do not turn Zuv into a perfect-husband repair. | 1.0 |
 | 2026-05-24 | Some Couples Come With Private Captions - final reset | Friends-reference mechanic / paired labels / private kindness / varied love moments | fresh_reset_prompt_handoff_ready | Creator chose the old Friends-reference/private-captions session as the format source and asked to create the final illustration carousel with different locations and dresses so it feels like a story of every two people in love. Fresh current-flow package lives at `output/carousels/2026-05-24/some-couples-come-with-private-captions-final/`. Preserve paired labels and same-scene private interpretation, but do not reuse rejected V2/V3 outputs as final art. Use varied moments: city hook, home doorway, rainy listening, street-food joy, grocery agreement, winter softness, car-laugh sound, rooftop thesis. Full generation is blocked until one proof passes the performance-autopsy gate: visible behavior before text, active Zuv, kind labels, no Friends copy, no generic soft tableau. | 0.99 |
 | 2026-05-24 | Blanket Border Dispute | natural everyday couple comedy / bedtime blanket receipt / accidental perfect-husband drift | rejected_autopsy_fail | Creator rejected the direction as still stuck in perfect-husband/tender-care logic instead of what generates shares, saves, sends, and likes. Autopsy failure: the route has a relatable domestic object, but the proposed turn `He tucked her in first` makes Zuv saintly and softens the bit instead of creating a hard public identity mirror with three receipts, one physically funny proof beat, mutual participation, and a taggable punch-to-thesis ending. Do not use this as the next carousel unless rebuilt into a sharper two-person mischief format. | 0.99 |

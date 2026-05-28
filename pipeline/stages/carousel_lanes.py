@@ -221,6 +221,41 @@ LONG_DISTANCE_ORDINARY_TOKENS = [
     "ordinary time",
     "same person",
 ]
+SUITCASE_RELOCATION_TOKENS = [
+    "suitcase relocation",
+    "relocate the house",
+    "relocated the house",
+    "overpackers blaming the zip",
+    "blamed the zip",
+    "blame the zip",
+    "only the zip",
+    "packing chaos",
+    "pack light",
+    "forgot toothbrushes",
+    "forgot the toothbrushes",
+]
+SUITCASE_RELOCATION_CONTINUITY_LOCK = (
+    "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized "
+    "shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige "
+    "pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream "
+    "toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and "
+    "warm ivory wall stay in consistent positions."
+)
+SUITCASE_RELOCATION_WARDROBE_LOCK = (
+    "Aachu wears the same off-white oversized shirt, blue jeans, soft house slippers, and small "
+    "gold earrings in every slide; Zuv wears the same navy t-shirt, beige pants, watch, and simple "
+    "house socks in every slide. Do not change outfits between slides."
+)
+SUITCASE_RELOCATION_PROP_LOCK = (
+    "Use the same dark olive hard-shell suitcase with black zip as the central recurring object; "
+    "keep the same cream toiletry pouch, charger pile, folded outfit stack, white sneakers, wooden "
+    "bed edge, potted plant, and warm ivory room details across the carousel."
+)
+SUITCASE_RELOCATION_BACKGROUND_LOCK = (
+    "Stay inside the same warm bedroom packing room for all slides: warm ivory wall, wooden bed on "
+    "the left, potted plant on the right, suitcase centered on the floor, soft paper edges, no hotel "
+    "bathroom, no hotel-floor jump, and no new room."
+)
 
 STORY_SELLING_CONTRACT = {
     "skill": "config/skills/romance-story-selling-engine.md",
@@ -293,6 +328,7 @@ STORY_PROCESS_BY_LANE = {
     "Golden Softness Under Fire": ("Card 02 - Misread To Tender Truth", 29.5),
     "Golden Imperfect Repair": ("Card 06 - Delay The Confession", 29.5),
     "Golden Long Distance Ordinary Time": ("Card 05 - Banter To Belonging", 29.5),
+    "Golden Suitcase Relocation": ("Card 05 - Banter To Belonging", 30),
     "Golden Mood Steadiness": ("Card 11 - Visual Reversal", 29),
     "Tiny Rituals": ("Card 08 - Small Ritual, Large Promise", 28.5),
     "Kashmiri Wife x Non-Kashmiri Husband": ("Card 12 - The Thing She Brings", 28.5),
@@ -655,6 +691,8 @@ def classify_content_lane(story: str) -> str:
         return "Golden Unfiltered Nonsense"
     if is_long_distance_ordinary_story(story):
         return "Golden Long Distance Ordinary Time"
+    if is_suitcase_relocation_story(story):
+        return "Golden Suitcase Relocation"
     if is_tasty_life_story(story):
         return "Golden Tasty Life"
     if is_wallet_audit_story(story):
@@ -1250,6 +1288,72 @@ def build_wallet_audit_slides(image_paths: list[Path], slide_count: int) -> list
             "text_layout": {
                 "primary_position": "top_center" if source_index in {0, 1, 5} else "bottom_center",
                 "speech_bubble": "bas 500" if source_index == 1 else "",
+            },
+            "source_images": source_groups[index - 1],
+        }
+        for index, source_index in enumerate(selected, start=1)
+    ]
+
+
+def build_suitcase_relocation_slides(image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
+    copies = [
+        "Some couples don't pack. They relocate the house.",
+        "She packed \"just options.\"",
+        "He packed every charger except the one they needed.",
+        "They sat on the suitcase.",
+        "Still forgot toothbrushes.",
+        "Nobody blamed each other. Only the zip.",
+        "Maybe love is two overpackers blaming the zip.",
+    ]
+    visuals = [
+        "Wide opening frame: Aachu and Zuv stand on opposite sides of the open suitcase, both proudly surrounded by absurd but believable trip piles; folded clothes, pouch, cables, shoes, and toiletries are visible while both look convinced this is normal.",
+        "Aachu kneels beside the suitcase holding three outfit options against herself, with the same folded outfit stack and scarf nearby; Zuv watches from the floor with an amused side-eye, hands paused over his own packing pile.",
+        "Zuv sits seriously with a tangle of real phone chargers, adapters, earphones, and a power bank, looking confident; Aachu leans in with a judging look while the one needed phone cable is clearly missing from the pile.",
+        "Both Aachu and Zuv sit on top of the bulging suitcase together, knees up and hands gripping the edges, trying to zip it with full teamwork while the suitcase pushes back.",
+        "Aachu and Zuv kneel beside the same cream toiletry pouch on the bedroom floor, staring at its empty toothbrush slots in silence while the overpacked suitcase sits open behind them with everything except toothbrushes.",
+        "Close-medium frame in the same room: both point at the stubborn suitcase zip with offended innocent faces, standing shoulder to shoulder so the blame lands on the zip instead of either person.",
+        "Soft final floor scene in the same room: Aachu and Zuv sit beside the half-closed suitcase, tired and laughing, one hand from each still resting near the zip; the mess feels shared, affectionate, and chosen.",
+    ]
+    roles = [
+        "universal hook",
+        "aachu-specific proof",
+        "zuv-specific proof",
+        "comic escalation",
+        "reversal",
+        "bridge",
+        "save/share thesis",
+    ]
+    emotions = [
+        "instant recognition",
+        "playful denial",
+        "mutual judgment",
+        "physical comedy",
+        "silent realization",
+        "shared delusion",
+        "tender laughter",
+    ]
+    if slide_count == 4:
+        selected = [0, 2, 3, 6]
+    elif slide_count == 5:
+        selected = [0, 1, 2, 3, 6]
+    else:
+        selected = list(range(min(slide_count, len(copies))))
+    source_groups = distribute_sources(image_paths, len(selected)) if image_paths else [[] for _ in selected]
+    return [
+        {
+            "slide": index,
+            "copy": copies[source_index],
+            "role": roles[source_index],
+            "visual": f"{SUITCASE_RELOCATION_CONTINUITY_LOCK} {visuals[source_index]}",
+            "emotion": emotions[source_index],
+            "cta_intent": "make partners tag the person who overpacks with them and still blames the suitcase zip",
+            "continuity_lock": SUITCASE_RELOCATION_CONTINUITY_LOCK,
+            "wardrobe": SUITCASE_RELOCATION_WARDROBE_LOCK,
+            "props": SUITCASE_RELOCATION_PROP_LOCK,
+            "background": SUITCASE_RELOCATION_BACKGROUND_LOCK,
+            "text_layout": {
+                "primary_position": "top_center" if source_index in {0, 1, 2, 6} else "bottom_center",
+                "speech_bubble": "",
             },
             "source_images": source_groups[index - 1],
         }
@@ -2115,6 +2219,102 @@ def build_wallet_audit_concept_selection() -> dict[str, Any]:
     }
 
 
+def build_suitcase_relocation_concept_selection() -> dict[str, Any]:
+    candidates = [
+        {
+            "name": "Blame The Zip, Not Each Other",
+            "universal_truth": "Some couples do not pack light; they create the mess together and choose a harmless villain instead of blaming each other.",
+            "aachu_specific_spark": "Aachu packs 'just options' with full confidence because every possible version of the trip needs a look.",
+            "concrete_proof": "The outfit pile, the cable pile with the needed charger missing, both sitting on the suitcase, forgotten toothbrushes, and the zip getting blamed.",
+            "zuv_role": "Zuv is equally guilty: he overprepares the tech pile, joins the suitcase wrestling, and stands with her against the zip instead of correcting her.",
+            "tender_thesis": "Love is shared ridiculousness without shame: blame the zip, not each other.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 5,
+                "tender_thesis": 5,
+                "share_send_potential": 5,
+            },
+            "total": 30,
+        },
+        {
+            "name": "Two People Carry Their What-Ifs",
+            "universal_truth": "Some couples overpack because they are really packing every tiny what-if.",
+            "aachu_specific_spark": "Aachu carries outfit options for moods, weather, photos, and emergency confidence.",
+            "concrete_proof": "Multiple outfits, medicine pouch, extra scarf, charger mess, and the missing toothbrush reversal.",
+            "zuv_role": "Zuv makes room for her what-ifs while bringing his own, so the suitcase becomes mutual comfort instead of one-person chaos.",
+            "tender_thesis": "Love is making room for each other's just-in-case.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 5,
+                "tender_thesis": 5,
+                "share_send_potential": 5,
+            },
+            "total": 30,
+        },
+        {
+            "name": "Packing Light Was A Lie",
+            "universal_truth": "Every trip starts with 'we will pack light' and ends with a suitcase negotiation.",
+            "aachu_specific_spark": "Aachu's options make the suitcase dramatic before the trip even starts.",
+            "concrete_proof": "Outfit options, adapters, sitting on the bag, forgotten toothbrushes.",
+            "zuv_role": "Zuv participates in the lie and the negotiation instead of becoming the sensible outside observer.",
+            "tender_thesis": "Love is committing to the same little lie together.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 4.5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 4.5,
+                "tender_thesis": 4.5,
+                "share_send_potential": 5,
+            },
+            "total": 28.5,
+        },
+    ]
+    return {
+        "source": "Golden Theme variant tournament and post-review repair for Suitcase Relocation.",
+        "rubric": [
+            "universal_hook",
+            "aachu_zuv_specificity",
+            "concrete_proof",
+            "zuv_emotional_role",
+            "tender_thesis",
+            "share_send_potential",
+        ],
+        "minimum_go_score": 28,
+        "winner": "Blame The Zip, Not Each Other",
+        "winner_score": 30,
+        "decision": "GO",
+        "selector_verdict": (
+            "Winner preserves the creator's both-guilty reset: both people make the packing mess, "
+            "both participate in the physical suitcase proof, and the emotional choice is blaming the zip "
+            "instead of each other. The rejected stale gadget joke is banned."
+        ),
+        "calm_enough_for_chaos_alignment": (
+            "Preserves the gold-machine lesson while intentionally avoiding the perfect-husband engine: "
+            "universal couple mess -> Aachu options proof -> Zuv's equally real overpacking proof -> "
+            "shared physical comedy -> harmless-villain tenderness."
+        ),
+        "story_selling_card": "Card 05 - Banter To Belonging",
+        "screenplay_pattern": (
+            "packing-room pride -> mutual overpacking receipts -> suitcase wrestling -> forgotten essentials -> "
+            "zip blame -> shared ridiculousness payoff"
+        ),
+        "final_public_slide_copy_direction": [
+            "Some couples don't pack. They relocate the house.",
+            "She packed \"just options.\"",
+            "He packed every charger except the one they needed.",
+            "They sat on the suitcase.",
+            "Still forgot toothbrushes.",
+            "Nobody blamed each other. Only the zip.",
+            "Maybe love is two overpackers blaming the zip.",
+        ],
+        "candidates": candidates,
+    }
+
+
 def build_food_denial_concept_selection() -> dict[str, Any]:
     candidates = [
         {
@@ -2953,6 +3153,11 @@ def is_long_distance_ordinary_story(story: str) -> bool:
     return any(token in lower for token in LONG_DISTANCE_ORDINARY_TOKENS)
 
 
+def is_suitcase_relocation_story(story: str) -> bool:
+    lower = story.lower()
+    return any(token in lower for token in SUITCASE_RELOCATION_TOKENS)
+
+
 def is_pakka_reassurance_story(story: str) -> bool:
     lower = story.lower()
     return any(token in lower for token in PAKKA_REASSURANCE_TOKENS)
@@ -3645,6 +3850,8 @@ def build_slides(story: str, image_paths: list[Path], slide_count: int) -> list[
         return build_unfiltered_nonsense_slides(image_paths, slide_count)
     if is_long_distance_ordinary_story(story):
         return build_long_distance_ordinary_slides(image_paths, slide_count)
+    if is_suitcase_relocation_story(story):
+        return build_suitcase_relocation_slides(image_paths, slide_count)
     if is_tasty_life_story(story):
         return build_tasty_life_slides(image_paths, slide_count)
     if is_wallet_audit_story(story):
