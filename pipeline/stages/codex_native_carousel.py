@@ -24,6 +24,11 @@ from pipeline.stages.carousel_generation_state import GenerationStatus, write_ge
 from pipeline.stages.carousel_quality import QUALITY_ARTIFACTS, QualityContext, write_quality_artifacts
 from pipeline.stages.carousel_style_consistency import HOUSE_STYLE_SCENE_RULE
 from pipeline.stages.identity_dossier import build_identity_dossier_artifacts
+from pipeline.stages.successful_carousel_standard import (
+    SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
+    SUCCESSFUL_CAROUSEL_STANDARD_PATH,
+    evaluate_successful_carousel_standard,
+)
 
 
 IDENTITY_IMAGE_DIR = "identity_images"
@@ -5151,6 +5156,9 @@ def build_package(
                 f"Never resize, crop, pad, or extend one output into the other. Story context: {story}. "
                 f"North Star: {contract['north_star']} Content lane: {lane}. "
                 f"Golden theme rule: {golden_theme_rule} "
+                f"Successful Carousel Standard source: {SUCCESSFUL_CAROUSEL_STANDARD_PATH}. "
+                f"Successful Carousel Standard rule: {SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT['rule']} "
+                f"Successful Carousel Standard image rule: {SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT['prompt_rule']} "
                 f"Post-copy visual room winner: {post_copy_visual_room['selected_visual_system']}. "
                 f"Post-copy visual room decision: {post_copy_visual_room['status']} / {post_copy_visual_room['decision']}. "
                 f"Visual Debate Gate winner: {visual_debate['winner']}. "
@@ -5204,12 +5212,12 @@ def build_package(
         prompt_slides=prompt_slides,
         identity_paths=identity_paths,
     )
-
     concept = {
         "title": title,
         "content_lane": lane,
         "north_star": contract["north_star"],
         "golden_theme_contract": golden_theme,
+        "successful_carousel_standard": SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
         "human_truth": human_truth,
         "emotional_arc": emotional_arc,
         "slide_count": slide_count,
@@ -5260,6 +5268,7 @@ def build_package(
                 "can_generate": visual_plan_quality["can_generate"],
                 "issues": visual_plan_quality["issues"],
             },
+            "successful_carousel_standard": SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
             "carousel_story_director_persona": story_director_gate,
             "style_reference_images": style_reference_paths,
             "identity_reference_images": identity_paths,
@@ -5555,6 +5564,7 @@ def write_approval(out_dir: Path, package: dict[str, Any]) -> None:
         "- [ ] `identity-consistency-review.json` passes before image generation.",
         "- [ ] Story-Selling gate is PASS and the selected process card is visible in `concept.json`.",
         "- [ ] Story Director gate is PASS: hook, story, bridge, Zuv role, ending, and send/save reason are visible.",
+        "- [ ] Successful carousel standard is PASS: agents aligned to the real goals, not a keyword checklist.",
         "- [ ] Model-native 4:5 Instagram post images exist in `final/slide-XX.png`.",
         "- [ ] Model-native 9:16 Reels/Stories images exist in `final-reels-stories/slide-XX.png`.",
         "- [ ] The 9:16 outputs were generated natively, not resized/cropped/padded from the 4:5 outputs.",
@@ -5597,6 +5607,12 @@ def write_agent_reports(out_dir: Path, package: dict[str, Any]) -> None:
         f"Status: {package['concept']['carousel_story_director_persona']['status']}",
         f"Selected hook: {package['concept']['carousel_story_director_persona']['selected_hook']}",
         package["concept"]["carousel_story_director_persona"]["verdict"],
+        "",
+        "## Success Carousel Standard",
+        "",
+        f"Source: {package['concept']['successful_carousel_standard']['source']}",
+        package["concept"]["successful_carousel_standard"]["rule"],
+        f"Gate: {package['review']['successful_carousel_standard_gate']['status']}",
         "",
         "## C5.5 - Post-Copy Visual Creative Room",
         "",
@@ -5704,6 +5720,7 @@ def build_manifest(
             "skill_systems": "config/skill-systems.json",
             "skill_system": "carousel_jam",
         },
+        "successful_carousel_standard": SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
         "carousel_story_director_persona": CAROUSEL_STORY_DIRECTOR_CONTRACT,
         "artifacts": ARTIFACT_CONTRACT,
         "quality_spine": {
@@ -5716,6 +5733,7 @@ def build_manifest(
                 "identity_consistency_reviewer",
                 "prompt_reviewer",
                 "copy_reviewer",
+                "success_standard_reviewer",
                 "asset_reviewer",
                 "wiki_learning_reviewer",
                 "C7-Final Contract Auditor",
@@ -5732,6 +5750,10 @@ def build_manifest(
 
 
 def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, Any]) -> None:
+    package["review"]["successful_carousel_standard_gate"] = evaluate_successful_carousel_standard(
+        package,
+        slide_count=len(package["slides"]),
+    )
     out_dir.mkdir(parents=True, exist_ok=True)
     write_json(out_dir / "manifest.json", manifest)
     write_json(out_dir / "concept.json", package["concept"])

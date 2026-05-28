@@ -60,6 +60,31 @@ universal relationship truth
 -> earned send/save payoff
 ```
 
+## Implementation Principle
+
+This standard must not become a small keyword checklist.
+
+The pipeline should carry it as an open agent-alignment contract: concept,
+story, copy, visual, prompt, and final QA agents must explain how their choices
+serve the real goals. Agents may choose any hook, scene system, motif, or slide
+count that gets a cold viewer to the right recognition. A hook can be quiet,
+funny, cinematic, Hinglish, visual-first, or structurally unusual if it still
+creates a public doorway into the relationship truth.
+
+Use deterministic checks only for hard structural misses:
+
+- the object, place, outfit, or aesthetic is the whole premise instead of
+  evidence;
+- no agent records how the concept aligns to the success goals;
+- Story-Selling, golden-theme, story-director, visual-room, or visual-plan
+  gates are missing or below threshold;
+- final image prompts do not carry the success goals into scene-first visual
+  generation.
+
+Identity matching remains a separate hard gate. Do not let face/likeness
+review replace creative success, and do not let creative success excuse
+identity drift. Both must pass.
+
 ## What Success Means
 
 Success has four layers.

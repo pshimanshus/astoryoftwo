@@ -14,6 +14,10 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.stages.carousel_style_consistency import prompt_style_drift_issues
+from pipeline.stages.successful_carousel_standard import (
+    SUCCESSFUL_CAROUSEL_STANDARD_PATH,
+    evaluate_successful_carousel_standard,
+)
 
 
 QUALITY_ARTIFACTS = {
@@ -171,6 +175,17 @@ def build_requirements(context: QualityContext) -> list[dict[str, Any]]:
             "critical": True,
         },
         {
+            "id": "REQ-SUCCESS-STANDARD-001",
+            "label": "Successful carousel standard is carried as open agent alignment and passes before final approval",
+            "source": SUCCESSFUL_CAROUSEL_STANDARD_PATH,
+            "evidence": [
+                "concept.successful_carousel_standard",
+                "prompt_pack.successful_carousel_standard",
+                "review.successful_carousel_standard_gate",
+            ],
+            "critical": True,
+        },
+        {
             "id": "REQ-FINAL-IMAGES-001",
             "label": "Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders",
             "source": "user final-output requirement",
@@ -249,6 +264,7 @@ def build_run_ledger(context: QualityContext) -> dict[str, Any]:
             "identity_consistency": "PENDING",
             "prompt": "PENDING",
             "copy": "PENDING",
+            "success_standard": "PENDING",
             "assets": "PENDING",
             "wiki_learning": "PENDING",
             "final_contract": "PENDING",
@@ -467,6 +483,10 @@ def build_stage_reviews(context: QualityContext, ledger: dict[str, Any]) -> dict
     visual_quality = visual_plan_quality(context)
     shared_style = prompt_pack(context).get("shared_style_prompt", "")
     negative = prompt_pack(context).get("shared_negative_prompt", "")
+    success_gate = evaluate_successful_carousel_standard(
+        context.package,
+        slide_count=context.slide_count,
+    )
     render_status = context.render_result.get("status", "unknown")
     final_files = [
         context.out_dir / "final" / f"slide-{number:02d}.png"
@@ -657,6 +677,21 @@ def build_stage_reviews(context: QualityContext, ledger: dict[str, Any]) -> dict
             [key for key in ["caption_recommended", "alt_text", "posting_notes"] if copy_pack.get(key)],
             copy_issues,
         ),
+        "success_standard_reviewer": review_item(
+            "success_standard",
+            [
+                "open agent alignment to the success goals",
+                "relationship-first premise",
+                "Story-Selling / golden-theme / story-director support",
+                "visual-room and visual-plan support",
+                "prompt-level success-goal handoff",
+            ],
+            [
+                f"standard source: {success_gate['source']}",
+                f"gate: {success_gate['status']}",
+            ],
+            success_gate["issues"],
+        ),
         "asset_reviewer": review_item(
             "assets",
             ["local preview status recorded", "final generated images packaged"],
@@ -681,6 +716,7 @@ def build_stage_reviews(context: QualityContext, ledger: dict[str, Any]) -> dict
         "identity_consistency": reviews["identity_consistency_reviewer"]["status"],
         "prompt": reviews["prompt_reviewer"]["status"],
         "copy": reviews["copy_reviewer"]["status"],
+        "success_standard": reviews["success_standard_reviewer"]["status"],
         "assets": reviews["asset_reviewer"]["status"],
         "wiki_learning": reviews["wiki_learning_reviewer"]["status"],
         "final_contract": "PENDING",
@@ -833,6 +869,14 @@ def evaluate_requirements(context: QualityContext) -> dict[str, dict[str, Any]]:
         and len(package_slides) == context.slide_count
         and len(prompts) == context.slide_count,
         "evidence": f"requested={context.slide_count}, slides={len(package_slides)}, prompts={len(prompts)}",
+    }
+    success_gate = evaluate_successful_carousel_standard(
+        context.package,
+        slide_count=context.slide_count,
+    )
+    results["REQ-SUCCESS-STANDARD-001"] = {
+        "pass": success_gate["pass"],
+        "evidence": success_gate,
     }
     final_files = [
         context.out_dir / "final" / f"slide-{number:02d}.png"
@@ -1065,6 +1109,7 @@ def build_wiki_update(context: QualityContext, audit: dict[str, Any]) -> str:
             "- Keep the desi storybook / photo-rooted style as the default for memory-led carousels.",
             "- Preserve source-photo objects before adding decorative story elements.",
             "- Preserve Aachu/Zuv identity references across every generated slide.",
+            "- Carry the successful-carousel standard as open agent alignment, not a keyword checklist.",
             "- Generate model-native publishable slides when typography, face quality, outfit continuity, and composition must match the reference examples.",
             "",
             "## Caption",
@@ -1099,6 +1144,7 @@ def build_carousel_wiki_page(context: QualityContext, audit: dict[str, Any]) -> 
         "- Imperfect black outlines, matte muted colors, warm paper background.",
         "- Preserve real outfits, poses, settings, and relationship cues.",
         "- Use Aachu/Zuv identity references for recurring character likeness.",
+        "- Keep the successful-carousel standard active as open agent alignment: public identity mirror, private receipts, active Zuv response, emotional turn, and send/save thesis.",
         "",
         "## Slide Flow",
         "",
@@ -1305,6 +1351,7 @@ def build_visual_qa(context: QualityContext) -> str:
             f"- [{mark}] Zuv face is recognizably based on the identity reference.",
             f"- [{mark}] Clothing and dress details follow the identity/style references.",
             f"- [{mark}] Illustration style matches the selected carousel style direction.",
+            f"- [{mark}] Successful carousel standard is visible: scene-first behavior proves the relationship truth before mood or decoration.",
             f"- [{mark}] Rendered text and brandmark are visible, accurate, and part of the artwork.",
             f"- [{mark}] Final publishable files exist in `final/` and `final-reels-stories/`.",
             "",

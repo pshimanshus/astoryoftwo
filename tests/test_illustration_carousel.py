@@ -3553,6 +3553,112 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("## Notes", wiki_update)
         self.assertIn("Typography overlay regenerated", wiki_update)
 
+    def test_successful_carousel_standard_rejects_object_first_deck(self):
+        from pipeline.stages.successful_carousel_standard import evaluate_successful_carousel_standard
+
+        package = {
+            "concept": {
+                "human_truth": "The red bag became special.",
+                "story_selling_decision": {"score": {"total": 22}},
+                "carousel_story_director_persona": {"status": "REPAIR"},
+            },
+            "slides": [
+                {
+                    "slide": 1,
+                    "copy": "The red bag mattered.",
+                    "role": "hook",
+                    "visual": "A red bag on a table.",
+                    "emotion": "soft",
+                    "cta_intent": "",
+                },
+                {
+                    "slide": 2,
+                    "copy": "It travelled everywhere.",
+                    "role": "memory",
+                    "visual": "The bag near a window.",
+                    "emotion": "nostalgic",
+                    "cta_intent": "",
+                },
+                {
+                    "slide": 3,
+                    "copy": "It looked like love.",
+                    "role": "pretty moment",
+                    "visual": "Warm light on the same bag.",
+                    "emotion": "pretty",
+                    "cta_intent": "",
+                },
+                {
+                    "slide": 4,
+                    "copy": "Some things stay.",
+                    "role": "quote",
+                    "visual": "A generic couple silhouette.",
+                    "emotion": "generic",
+                    "cta_intent": "",
+                },
+            ],
+            "prompt_pack": {"slides": [{"slide": 1, "prompt": "Draw a red bag."}]},
+            "copy": {"caption_recommended": "the red bag was never just a bag."},
+            "review": {
+                "story_selling_score": {"total": 22},
+                "story_director_gate": {"status": "REPAIR"},
+            },
+        }
+
+        result = evaluate_successful_carousel_standard(package, slide_count=4)
+
+        self.assertFalse(result["pass"])
+        self.assertEqual(result["status"], "REPAIR")
+        self.assertFalse(result["dimensions"]["agent_goal_alignment"]["pass"])
+        self.assertFalse(result["dimensions"]["relationship_first_premise"]["pass"])
+        self.assertFalse(result["dimensions"]["story_selling_threshold"]["pass"])
+        self.assertFalse(result["dimensions"]["prompt_goal_alignment"]["pass"])
+        self.assertIn("object", " ".join(result["issues"]).lower())
+
+    def test_codex_native_package_embeds_successful_carousel_standard_contract(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            identity_image = workspace / "aachu-zuv.png"
+            identity_image.write_bytes(b"identity-image")
+
+            out_dir = create_codex_native_carousel(
+                story=(
+                    "He did not marry peace. She says mujhe kuch nahi hua while crying, "
+                    "packs too many outfits, and he still smiles like this is normal."
+                ),
+                image_paths=[],
+                identity_image_paths=[identity_image],
+                title="Successful Standard Contract",
+                output_root=workspace / "out",
+                render_assets=False,
+                today=date(2026, 5, 28),
+            )
+
+            manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
+            concept = json.loads((out_dir / "concept.json").read_text(encoding="utf-8"))
+            prompt_pack = json.loads((out_dir / "prompt-pack.json").read_text(encoding="utf-8"))
+            review = json.loads((out_dir / "review.json").read_text(encoding="utf-8"))
+            final_audit = json.loads((out_dir / "final-audit.json").read_text(encoding="utf-8"))
+            approval = (out_dir / "final-approval.md").read_text(encoding="utf-8")
+
+        self.assertEqual(
+            manifest["successful_carousel_standard"]["source"],
+            "wiki/insights/successful-carousel-standard.md",
+        )
+        self.assertEqual(
+            concept["successful_carousel_standard"]["source"],
+            "wiki/insights/successful-carousel-standard.md",
+        )
+        self.assertEqual(
+            prompt_pack["successful_carousel_standard"]["source"],
+            "wiki/insights/successful-carousel-standard.md",
+        )
+        self.assertIn("public identity mirror", prompt_pack["slides"][0]["prompt"].lower())
+        self.assertIn("do not optimize for keywords", prompt_pack["slides"][0]["prompt"].lower())
+        self.assertIn("successful_carousel_standard_gate", review)
+        self.assertIn("agent_alignment", review["successful_carousel_standard_gate"])
+        self.assertIn("REQ-SUCCESS-STANDARD-001", final_audit["requirements"])
+        self.assertIn("successful carousel standard", approval.lower())
+
 
 if __name__ == "__main__":
     unittest.main()
