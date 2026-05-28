@@ -22,6 +22,7 @@ Wiki pages: 62
 | --- | --- | --- | --- |
 | memory_surface | PASS | info | Required wiki, memory, graph, and log surfaces exist. |
 | advertised_pipeline_files | PASS | info | AGENTS/CLAUDE advertised pipeline entry points exist. |
+| instruction_surface_sync | PASS | info | AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands. |
 | wiki_index_total_pages | PASS | info | wiki/index.md total_pages matches actual wiki page count. |
 | wiki_markdown_metadata | PASS | info | Every wiki page has last_updated, confidence, and sources metadata. |
 | semantic_memory_confidence | PASS | info | Semantic memory markdown files carry confidence scores. |
@@ -43,6 +44,23 @@ Wiki pages: 62
 ```json
 {
   "missing": []
+}
+```
+
+### instruction_surface_sync
+
+```json
+{
+  "required_files": [
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
+  "required_phrases": [
+    "scripts/autopublish.py",
+    "scripts/wiki_health.py --write --fix-index"
+  ],
+  "missing_files": [],
+  "missing_phrases": {}
 }
 ```
 
@@ -71,7 +89,7 @@ Wiki pages: 62
 
 ```json
 {
-  "count": 57
+  "count": 60
 }
 ```
 
@@ -79,6 +97,6 @@ Wiki pages: 62
 
 ```json
 {
-  "count": 57
+  "count": 61
 }
 ```

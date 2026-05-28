@@ -25,6 +25,16 @@ ADVERTISED_PIPELINE_FILES = [
     "pipeline/stages/a5_report.py",
 ]
 
+INSTRUCTION_SURFACE_FILES = [
+    "AGENTS.md",
+    "CLAUDE.md",
+]
+
+REQUIRED_CLOSEOUT_PHRASES = [
+    "scripts/autopublish.py",
+    "scripts/wiki_health.py --write --fix-index",
+]
+
 REQUIRED_MEMORY_SURFACE = {
     "wiki_index": "wiki/index.md",
     "wiki_themes": "wiki/themes",
@@ -39,6 +49,41 @@ REQUIRED_MEMORY_SURFACE = {
 }
 
 WIKI_REQUIRED_METADATA = ["last_updated", "confidence", "sources"]
+
+
+def normalize_instruction_text(text: str) -> str:
+    return re.sub(r"\s+", " ", text)
+
+
+def instruction_has_phrase(text: str, phrase: str) -> bool:
+    normalized_text = normalize_instruction_text(text)
+    normalized_phrase = normalize_instruction_text(phrase)
+    return normalized_phrase in normalized_text
+
+
+def instruction_surface_evidence(root: Path) -> dict[str, Any]:
+    missing_files: list[str] = []
+    missing_phrases: dict[str, list[str]] = {}
+    for relative in INSTRUCTION_SURFACE_FILES:
+        path = root / relative
+        if not path.exists():
+            missing_files.append(relative)
+            missing_phrases[relative] = list(REQUIRED_CLOSEOUT_PHRASES)
+            continue
+        text = path.read_text(encoding="utf-8")
+        absent = [
+            phrase
+            for phrase in REQUIRED_CLOSEOUT_PHRASES
+            if not instruction_has_phrase(text, phrase)
+        ]
+        if absent:
+            missing_phrases[relative] = absent
+    return {
+        "required_files": INSTRUCTION_SURFACE_FILES,
+        "required_phrases": REQUIRED_CLOSEOUT_PHRASES,
+        "missing_files": missing_files,
+        "missing_phrases": missing_phrases,
+    }
 
 
 def relative_path(path: Path, root: Path) -> str:
@@ -133,6 +178,21 @@ def collect_wiki_health(root: Path, today: date | None = None) -> dict[str, Any]
             "critical" if missing_pipeline else "info",
             "AGENTS/CLAUDE advertised pipeline entry points exist.",
             {"missing": missing_pipeline},
+        )
+    )
+
+    instruction_evidence = instruction_surface_evidence(root)
+    instruction_drift = bool(
+        instruction_evidence["missing_files"]
+        or instruction_evidence["missing_phrases"]
+    )
+    checks.append(
+        make_check(
+            "instruction_surface_sync",
+            "FAIL" if instruction_drift else "PASS",
+            "critical" if instruction_drift else "info",
+            "AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands.",
+            instruction_evidence,
         )
     )
 

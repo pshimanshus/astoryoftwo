@@ -161,6 +161,33 @@ def filter_included_paths(paths: Sequence[str], includes: Sequence[str]) -> list
     return selected
 
 
+def is_closeout_artifact(path: str) -> bool:
+    normalized = normalize_path(path)
+    if normalized == "wiki/index.md":
+        return True
+    if re.fullmatch(r"memory/episodic/\d{4}-\d{2}-\d{2}-session-health(?:-\d+)?\.md", normalized):
+        return True
+    if re.fullmatch(r"memory/heal/proposals/\d{4}-\d{2}-\d{2}-wiki-health\.md", normalized):
+        return True
+    if re.fullmatch(r"output/diagnostics/wiki-health-\d{4}-\d{2}-\d{2}\.md", normalized):
+        return True
+    return False
+
+
+def filter_publish_paths(paths: Sequence[str], includes: Sequence[str]) -> list[str]:
+    selected = filter_included_paths(paths, includes)
+    if not includes:
+        return selected
+
+    seen = set(selected)
+    for path in paths:
+        normalized = normalize_path(path)
+        if normalized not in seen and is_closeout_artifact(normalized):
+            selected.append(normalized)
+            seen.add(normalized)
+    return selected
+
+
 def is_placeholder_secret(value: str) -> bool:
     cleaned = value.strip().strip("'\"").lower()
     if not cleaned:
@@ -309,7 +336,7 @@ def autopublish(
     includes: Sequence[str] = (),
 ) -> int:
     all_initial_paths = parse_changed_paths(git_status(root))
-    initial_paths = filter_included_paths(all_initial_paths, includes)
+    initial_paths = filter_publish_paths(all_initial_paths, includes)
     if not initial_paths:
         print("No matching git changes to autopublish.")
         return 0
@@ -339,7 +366,7 @@ def autopublish(
         print(f"Running: {' '.join(command)}")
         require_success(run_command(command, root))
 
-    final_paths = filter_included_paths(parse_changed_paths(git_status(root)), includes)
+    final_paths = filter_publish_paths(parse_changed_paths(git_status(root)), includes)
     if not final_paths:
         print("No git changes remain after validation.")
         return 0

@@ -109,6 +109,25 @@ def test_filter_included_paths_limits_mixed_worktree_scope():
     ]
 
 
+def test_filter_publish_paths_keeps_health_artifacts_with_scoped_includes():
+    paths = [
+        "scripts/autopublish.py",
+        "scripts/jam_today.py",
+        "wiki/index.md",
+        "memory/episodic/2026-05-28-session-health-8.md",
+        "memory/heal/proposals/2026-05-28-wiki-health.md",
+        "output/diagnostics/wiki-health-2026-05-28.md",
+    ]
+
+    assert autopublish.filter_publish_paths(paths, ["scripts/autopublish.py"]) == [
+        "scripts/autopublish.py",
+        "wiki/index.md",
+        "memory/episodic/2026-05-28-session-health-8.md",
+        "memory/heal/proposals/2026-05-28-wiki-health.md",
+        "output/diagnostics/wiki-health-2026-05-28.md",
+    ]
+
+
 def test_generate_commit_message_prefers_autopublish_scope():
     assert (
         autopublish.generate_commit_message(

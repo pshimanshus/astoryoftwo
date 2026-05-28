@@ -66,6 +66,10 @@ python -m pipeline.runner
 venv/bin/python scripts/wiki_health.py --write --fix-index \
   --session-note "short human-readable summary of what changed"
 
+# Safe verified publish closeout
+venv/bin/python scripts/autopublish.py \
+  --session-note "short human-readable summary of what changed"
+
 # Individual stages
 python -m pipeline.stages.ingest      # Scrape Instagram via Apify → corpus/raw/
 python -m pipeline.stages.parse       # Raw JSON → structured corpus/posts/
@@ -82,4 +86,9 @@ python scripts/scrape_instagram.py --handle a.storyof.two --limit 50
 - Delete `memory/episodic/` — permanent analysis record
 - Commit `.env` — secrets stay local
 - Modify raw corpus without re-running parse stage
-- End a substantial session without running `scripts/wiki_health.py --write --fix-index`
+- End a substantial session without running
+  `scripts/autopublish.py --session-note "short summary"` after the relevant
+  checks pass
+- Treat `scripts/wiki_health.py --write --fix-index` as sufficient closeout by
+  itself; wiki health records memory state, but autopublish is what commits and
+  pushes verified session state
