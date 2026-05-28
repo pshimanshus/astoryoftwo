@@ -603,6 +603,13 @@ def build_stage_reviews(context: QualityContext, ledger: dict[str, Any]) -> dict
     asset_issues = []
     if render_status == "skipped":
         asset_notes.append(context.render_result.get("reason", "Asset rendering skipped."))
+    elif render_status in {"dry_run_generated", "legacy_preview_generated"}:
+        asset_notes.append(
+            context.render_result.get(
+                "reason",
+                "Preview/dry-run images were generated, but they are not publishable final art.",
+            )
+        )
     elif render_status not in {"rendered", "partial", "generated"}:
         asset_issues.append(f"Unexpected render status: {render_status}.")
     if not all(path.exists() for path in final_files):
