@@ -23,6 +23,7 @@ Wiki pages: 63
 | memory_surface | PASS | info | Required wiki, memory, graph, and log surfaces exist. |
 | advertised_pipeline_files | PASS | info | AGENTS/CLAUDE advertised pipeline entry points exist. |
 | instruction_surface_sync | PASS | info | AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands. |
+| agentic_os_surface | PASS | info | Agentic OS control-plane files exist and are available to future sessions. |
 | wiki_index_total_pages | PASS | info | wiki/index.md total_pages matches actual wiki page count. |
 | wiki_markdown_metadata | PASS | info | Every wiki page has last_updated, confidence, and sources metadata. |
 | semantic_memory_confidence | PASS | info | Semantic memory markdown files carry confidence scores. |
@@ -64,6 +65,31 @@ Wiki pages: 63
 }
 ```
 
+### agentic_os_surface
+
+```json
+{
+  "required": [
+    "pipeline/agentic/__init__.py",
+    "pipeline/agentic/contracts.py",
+    "pipeline/agentic/context_loader.py",
+    "pipeline/agentic/skill_registry.py",
+    "pipeline/agentic/memory_index.py",
+    "pipeline/agentic/recall.py",
+    "pipeline/agentic/audit_log.py",
+    "pipeline/agentic/learning_loop.py",
+    "pipeline/agentic/skill_eval.py",
+    "pipeline/agentic/workflow_metadata.py",
+    "pipeline/agentic/workflow_state.py",
+    "scripts/agentic_os.py",
+    "config/agentic_context_manifest.json",
+    "config/skill-systems.json",
+    "docs/superpowers/specs/agentic-os-control-plane.md"
+  ],
+  "missing": []
+}
+```
+
 ### wiki_index_total_pages
 
 ```json
@@ -89,7 +115,7 @@ Wiki pages: 63
 
 ```json
 {
-  "count": 61
+  "count": 63
 }
 ```
 
@@ -97,6 +123,6 @@ Wiki pages: 63
 
 ```json
 {
-  "count": 63
+  "count": 67
 }
 ```

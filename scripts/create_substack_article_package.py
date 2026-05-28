@@ -5,9 +5,16 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from pipeline.agentic.workflow_metadata import (
+    build_workflow_contract,
+    build_workflow_metadata,
+    build_workflow_recall_markdown,
+)
+
 
 ARTICLE_ARTIFACTS = [
     "source-manifest.json",
+    "source-memory-brief.md",
     "article-brief.md",
     "image-reference-review.md",
     "title-growth-pack.md",
@@ -67,6 +74,47 @@ def write_if_missing(path: Path, content: str) -> None:
         path.write_text(content, encoding="utf-8")
 
 
+def infer_workspace_root(carousel_dir: Path) -> Path:
+    for candidate in [carousel_dir, *carousel_dir.parents]:
+        if (candidate / "config" / "agentic_context_manifest.json").exists():
+            return candidate
+    return Path.cwd()
+
+
+def build_article_agentic_os(carousel_dir: Path, article_title: str) -> tuple[dict[str, Any], str]:
+    workspace_root = infer_workspace_root(carousel_dir)
+    query = f"{article_title} {carousel_dir.name}"
+    try:
+        metadata = build_workflow_metadata(
+            workspace_root,
+            skill_system_name="story_article",
+            recall_query=query,
+            profile="article",
+        )
+        recall_text = build_workflow_recall_markdown(
+            workspace_root,
+            query=query,
+            profile="article",
+        )
+        metadata["recall_brief"] = "source-memory-brief.md"
+        return metadata, recall_text
+    except Exception as exc:  # noqa: BLE001 - package creation should expose, not hide, missing OS setup.
+        metadata = build_workflow_contract("story_article")
+        metadata.update(
+            {
+                "status": "recall_unavailable",
+                "reason": str(exc),
+                "recall_brief": "source-memory-brief.md",
+            }
+        )
+        recall_text = (
+            "# Recall Bundle\n\n"
+            "Status: recall_unavailable\n\n"
+            f"Reason: {exc}\n"
+        )
+        return metadata, recall_text
+
+
 def create_article_package(
     carousel_dir: Path,
     title: str | None = None,
@@ -82,6 +130,7 @@ def create_article_package(
 
     missing = [name for name in REQUIRED_CAROUSEL_ARTIFACTS if not (carousel_dir / name).exists()]
     images = discover_carousel_images(carousel_dir)
+    agentic_os, recall_text = build_article_agentic_os(carousel_dir, article_title)
     manifest = {
         "date": today.isoformat(),
         "title": article_title,
@@ -93,6 +142,7 @@ def create_article_package(
         "missing_source_artifacts": missing,
         "carousel_images": [str(path) for path in images],
         "story_selling_contract": STORY_SELLING_CONTRACT,
+        "agentic_os": agentic_os,
         "artifacts": ARTICLE_ARTIFACTS,
         "publish_rule": "Do not publish until every gate is PASS or PASS_WITH_NOTES.",
     }
@@ -100,6 +150,7 @@ def create_article_package(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+    (out_dir / "source-memory-brief.md").write_text(recall_text, encoding="utf-8")
 
     human_truth = concept.get("human_truth", "Define the emotional truth before drafting.")
     write_if_missing(

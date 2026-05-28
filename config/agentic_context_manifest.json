@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "default_profile": "a-story-of-two",
+  "profiles": {
+    "a-story-of-two": {
+      "budget_tokens": 1800,
+      "sections": [
+        {
+          "id": "channel_voice",
+          "path": "config/voice.md",
+          "kind": "brand_voice",
+          "required": true
+        },
+        {
+          "id": "working_memory",
+          "path": "memory/working.md",
+          "kind": "working_memory",
+          "required": true
+        },
+        {
+          "id": "engineering_preferences",
+          "path": "memory/semantic/engineering-workflow-preferences.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
+          "id": "carousel_preferences",
+          "path": "memory/semantic/carousel-idea-preferences.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
+          "id": "golden_theme",
+          "path": "wiki/themes/calm-enough-for-chaos.md",
+          "kind": "wiki_theme",
+          "required": true
+        },
+        {
+          "id": "agent_contract",
+          "path": "AGENTS.md",
+          "kind": "operating_contract",
+          "required": true
+        }
+      ]
+    },
+    "article": {
+      "budget_tokens": 1800,
+      "sections": [
+        {
+          "id": "channel_voice",
+          "path": "config/voice.md",
+          "kind": "brand_voice",
+          "required": true
+        },
+        {
+          "id": "working_memory",
+          "path": "memory/working.md",
+          "kind": "working_memory",
+          "required": true
+        },
+        {
+          "id": "carousel_preferences",
+          "path": "memory/semantic/carousel-idea-preferences.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
+          "id": "golden_theme",
+          "path": "wiki/themes/calm-enough-for-chaos.md",
+          "kind": "wiki_theme",
+          "required": true
+        },
+        {
+          "id": "article_framework",
+          "path": "config/skills/couple-substack-article-framework.md",
+          "kind": "workflow_skill",
+          "required": true
+        }
+      ]
+    }
+  }
+}

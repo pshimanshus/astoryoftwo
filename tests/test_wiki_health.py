@@ -199,3 +199,22 @@ def test_health_passes_when_agent_instruction_surfaces_share_closeout_commands(t
     checks = checks_by_id(health)
 
     assert checks["instruction_surface_sync"]["status"] == "PASS"
+
+
+def test_wiki_health_checks_agentic_os_surface(tmp_path):
+    minimal_workspace(tmp_path)
+    closeout = "\n".join(
+        [
+            "Run `venv/bin/python scripts/autopublish.py --session-note \"summary\"`.",
+            "Run `venv/bin/python scripts/wiki_health.py --write --fix-index`.",
+        ]
+    )
+    write_text(tmp_path / "AGENTS.md", "# AGENTS\n\n" + closeout)
+    write_text(tmp_path / "CLAUDE.md", "# CLAUDE\n\n" + closeout)
+
+    health = collect_wiki_health(tmp_path, today=date(2026, 5, 28))
+    checks = checks_by_id(health)
+
+    assert checks["agentic_os_surface"]["status"] == "FAIL"
+    assert "pipeline/agentic/contracts.py" in checks["agentic_os_surface"]["evidence"]["missing"]
+    assert "scripts/agentic_os.py" in checks["agentic_os_surface"]["evidence"]["missing"]
