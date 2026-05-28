@@ -205,6 +205,42 @@ python scripts/scrape_instagram.py
 
 ---
 
+## Autopublish Closeout Gate
+
+At the end of every substantial Codex session that changes repo files, run the
+safe autopublish gate so the creator does not need to push manually:
+
+```bash
+venv/bin/python scripts/autopublish.py \
+  --session-note "short human-readable summary of what changed"
+```
+
+This gate is mandatory repo infrastructure. Do not replace it with blind
+background pushing, timed daemons, or manual "remember to push" reminders. The
+script must block publishing if any gate fails:
+
+- risky paths appear in git status, including `.env`, `.env.*`,
+  `identity_images/`, `draft_videos/`, `corpus/raw/`, virtual environments,
+  caches, logs, or generated carousel image/video outputs;
+- changed text files contain live-looking secrets or populated secret
+  assignments;
+- `venv/bin/python -m pytest -q` fails;
+- `venv/bin/python scripts/wiki_health.py --write --fix-index` fails;
+- git cannot commit or push the current branch.
+
+If the worktree contains unrelated human changes or unclear scope, do not stage
+silently. Name the blocker, protect the work, and ask only for the minimum
+decision needed to separate or publish the changes. Use repeated
+`--include PATH` flags to publish only the paths owned by the current session
+when a mixed worktree is unavoidable. If the creator tries to skip this gate
+after substantial work, push back firmly: repo hygiene, memory health, tests,
+and git publication are blocking concerns for this project.
+
+Use `--dry-run` only for rehearsal or debugging. A real closeout should commit
+and push after all gates pass.
+
+---
+
 ## Illustrated Carousel Pipeline (C-Layer) — New
 
 Entry point for turning supplied pictures and a story into an illustrated
