@@ -1,7 +1,15 @@
-"""Gate carousel packages against the living success standard."""
+"""Gate carousel packages against the living success standard.
+
+This module deliberately avoids judging creative success by a narrow list of
+hook words. The standard should travel through the agents as a north star:
+they must record the goals they are serving, while deterministic code only
+blocks missing alignment, weak scores, undersized arcs, and obvious object-first
+drift.
+"""
 
 from __future__ import annotations
 
+import re
 from typing import Any
 
 
@@ -46,34 +54,123 @@ def _score(package: dict[str, Any]) -> float:
     return 0.0
 
 
+def _path(package: dict[str, Any], *keys: str) -> Any:
+    value: Any = package
+    for key in keys:
+        if not isinstance(value, dict):
+            return None
+        value = value.get(key)
+    return value
+
+
+def _slides(package: dict[str, Any]) -> list[dict[str, Any]]:
+    slides = package.get("slides", [])
+    return [slide for slide in slides if isinstance(slide, dict)] if isinstance(slides, list) else []
+
+
+def _alignment_record(package: dict[str, Any]) -> dict[str, Any]:
+    value = _path(package, "concept", "successful_carousel_standard_alignment")
+    return value if isinstance(value, dict) else {}
+
+
+def _standard_contract_present(package: dict[str, Any], section: str) -> bool:
+    value = _path(package, section, "successful_carousel_standard")
+    return isinstance(value, dict) and value.get("source") == SUCCESSFUL_CAROUSEL_STANDARD_PATH
+
+
+def _agent_alignment_pass(package: dict[str, Any]) -> bool:
+    alignment = _alignment_record(package)
+    goals = alignment.get("success_goals_addressed")
+    if isinstance(goals, list) and len([goal for goal in goals if str(goal).strip()]) >= 5:
+        return True
+    return _standard_contract_present(package, "concept") and _standard_contract_present(package, "prompt_pack")
+
+
+def _prompt_alignment_pass(package: dict[str, Any]) -> bool:
+    if _standard_contract_present(package, "prompt_pack"):
+        return True
+    prompt_text = _text(package.get("prompt_pack", {})).lower()
+    return (
+        SUCCESSFUL_CAROUSEL_STANDARD_PATH.lower() in prompt_text
+        and "do not optimize for keywords" in prompt_text
+    )
+
+
+def _object_first_issue(package: dict[str, Any]) -> str | None:
+    """Return a failure only when the premise clearly belongs to a prop/aesthetic.
+
+    This is intentionally conservative. An object can be a brilliant receipt of
+    love; it fails only when it becomes the subject and no relationship behavior
+    is doing the work.
+    """
+
+    first_slide = _slides(package)[:1]
+    first_slide_text = _text(first_slide).lower()
+    concept_text = _text(package.get("concept", {})).lower()
+    premise_text = f"{first_slide_text} {concept_text}"
+    object_terms = (
+        "bag",
+        "dress",
+        "outfit",
+        "photo",
+        "place",
+        "view",
+        "trip",
+        "food",
+        "cafe",
+        "light",
+        "aesthetic",
+        "vibe",
+    )
+    relationship_terms = (
+        "relationship",
+        "love",
+        "care",
+        "partner",
+        "couple",
+        "marry",
+        "married",
+        "he",
+        "she",
+        "they",
+        "aachu",
+        "zuv",
+    )
+    has_object = any(re.search(rf"\b{re.escape(term)}\b", premise_text) for term in object_terms)
+    has_relationship = any(
+        re.search(rf"\b{re.escape(term)}\b", premise_text) for term in relationship_terms
+    )
+    if has_object and not has_relationship:
+        return "Object-first premise: the prop, place, outfit, or aesthetic is the subject instead of relationship proof."
+    return None
+
+
 def _dimension(passed: bool, issue: str) -> tuple[dict[str, bool], list[str]]:
     return {"pass": passed}, ([] if passed else [issue])
 
 
 def evaluate_successful_carousel_standard(package: dict[str, Any], *, slide_count: int) -> dict[str, Any]:
-    text = _text(package).lower()
-    object_first = any(token in text for token in ("red bag", "the bag")) and not any(
-        token in text for token in ("aachu", "zuv", "he ", "she ")
-    )
+    object_first_issue = _object_first_issue(package)
+    agent_alignment = _alignment_record(package)
 
     dimensions: dict[str, dict[str, bool]] = {}
     issues: list[str] = []
     checks = {
         "agent_goal_alignment": _dimension(
-            any(token in text for token in ("public identity mirror", "this is us", "send/save", "send this")),
-            "Missing agent alignment to the public identity mirror.",
+            _agent_alignment_pass(package),
+            "Missing recorded agent alignment to the successful-carousel goals.",
         ),
         "relationship_first_premise": _dimension(
-            not object_first and ("zuv" in text or ("he " in text and "she " in text) or "partner" in text),
-            "Object-first premise: relationship proof is not doing the work.",
+            object_first_issue is None,
+            object_first_issue or "Object-first premise: relationship proof is not doing the work.",
         ),
         "story_selling_threshold": _dimension(
             _score(package) >= 28,
             "Story-Selling score is below 28/30.",
         ),
         "prompt_goal_alignment": _dimension(
-            "scene" in text and any(token in text for token in ("aachu", "zuv", "identity continuity")),
-            "Prompts are not aligned to scene-first Aachu/Zuv proof.",
+            _prompt_alignment_pass(package),
+            "Prompts do not carry the successful-carousel standard into generation handoff.",
         ),
     }
     for name, (dimension, failed) in checks.items():
@@ -87,7 +184,11 @@ def evaluate_successful_carousel_standard(package: dict[str, Any], *, slide_coun
         "source": SUCCESSFUL_CAROUSEL_STANDARD_PATH,
         "status": "PASS" if passed else "REPAIR",
         "pass": passed,
-        "agent_alignment": dimensions["agent_goal_alignment"]["pass"],
+        "agent_alignment": agent_alignment
+        or {
+            "status": "MISSING",
+            "instruction": "Record how concept, copy, visual, prompt, and QA choices serve the success goals.",
+        },
         "dimensions": dimensions,
         "issues": issues,
     }

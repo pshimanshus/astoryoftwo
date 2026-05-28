@@ -71,6 +71,14 @@ count that gets a cold viewer to the right recognition. A hook can be quiet,
 funny, cinematic, Hinglish, visual-first, or structurally unusual if it still
 creates a public doorway into the relationship truth.
 
+Do not make "public hook" a limited vocabulary. The phrase is a job, not a
+template. The job is to let someone outside the marriage recognize the emotional
+stakes quickly. That can happen through contradiction, behavior, scene design,
+comic timing, silence, an exchange of looks, an object used as proof, or a line
+that feels like something a partner would actually send. Agents should be free
+to find the strongest doorway as long as they can explain why it creates public
+recognition and private specificity.
+
 Use deterministic checks only for hard structural misses:
 
 - the object, place, outfit, or aesthetic is the whole premise instead of
@@ -191,12 +199,18 @@ Slide 1 is a public contradiction or recognition point.
 It should be understandable without the caption, without private context, and
 without needing the viewer to care about the photo yet.
 
+These are useful shapes, not mandatory terms. A strong hook earns attention by
+clarifying the relationship tension; it does not need to contain a specific
+keyword, phrase, or formula.
+
 Strong hook shapes:
 
 - rejects a socially approved ideal;
 - names a relationship pattern people know;
 - makes one partner think of the other;
 - creates a curiosity gap that slide 2 must answer;
+- starts from a scene where the relationship behavior is instantly readable;
+- uses an object only as proof of care, not as the topic;
 - feels sendable before it feels poetic.
 
 Weak hook shapes:
