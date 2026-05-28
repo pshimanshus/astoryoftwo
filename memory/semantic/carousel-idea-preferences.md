@@ -194,6 +194,15 @@ thought bubble, speech bubble, or deliberate silence. Do not write explanatory
 poster copy and then force visuals to illustrate it.
 confidence: 1.0
 
+fact: For the Kitchen Forgiveness Glitch story, the successful 29/30 spine is
+`angry chore -> forgiveness thought -> cup prepared -> doorway freeze -> shout
+-> cup reveal`. The final payoff is not an "It's okay" thought bubble. The win
+is that her mouth shouted but the cup/glass already waiting for him proves her
+hands had forgiven first. Preserve `She was still angry.`, `Aayega toh maaf
+kar dungi.`, `AB AAYE HO?`, and `Cup ready tha.` as the locked copy unless the
+creator explicitly reopens it.
+confidence: 1.0
+
 fact: Plate Stack Marriage Test is the approved repair pattern for ordinary
 married-life comedy. The correct story spine is `dinner -> both done -> first
 normal kitchen instinct -> tiny lazy idea -> silent handoff -> deadpan read ->
@@ -330,6 +339,7 @@ confidence: 0.98
 
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
+| 2026-05-28 | Kitchen Forgiveness Glitch | daily-human kitchen comedy / mouth-versus-hands / cup reveal payoff | handoff_ready_29_30_version | Creator asked to execute the 29/30 version after rejecting the `It's okay` ending. Active package: `output/carousels/2026-05-28/kitchen-forgiveness-glitch/`. Locked spine: `She was still angry.` -> `Aayega toh maaf kar dungi.` -> silent cup/glass preparation -> doorway freeze -> `AB AAYE HO?` -> `Cup ready tha.`. Use standard identity/style handoff only: contact sheet plus selected refs ID36, ID37, ID39, ID44 and accepted style refs. Do not generate text-only images, do not revert to thought-bubble payoff, and do not turn Zuv into a perfect-husband repair. | 1.0 |
 | 2026-05-24 | Some Couples Come With Private Captions - final reset | Friends-reference mechanic / paired labels / private kindness / varied love moments | fresh_reset_prompt_handoff_ready | Creator chose the old Friends-reference/private-captions session as the format source and asked to create the final illustration carousel with different locations and dresses so it feels like a story of every two people in love. Fresh current-flow package lives at `output/carousels/2026-05-24/some-couples-come-with-private-captions-final/`. Preserve paired labels and same-scene private interpretation, but do not reuse rejected V2/V3 outputs as final art. Use varied moments: city hook, home doorway, rainy listening, street-food joy, grocery agreement, winter softness, car-laugh sound, rooftop thesis. Full generation is blocked until one proof passes the performance-autopsy gate: visible behavior before text, active Zuv, kind labels, no Friends copy, no generic soft tableau. | 0.99 |
 | 2026-05-24 | Blanket Border Dispute | natural everyday couple comedy / bedtime blanket receipt / accidental perfect-husband drift | rejected_autopsy_fail | Creator rejected the direction as still stuck in perfect-husband/tender-care logic instead of what generates shares, saves, sends, and likes. Autopsy failure: the route has a relatable domestic object, but the proposed turn `He tucked her in first` makes Zuv saintly and softens the bit instead of creating a hard public identity mirror with three receipts, one physically funny proof beat, mutual participation, and a taggable punch-to-thesis ending. Do not use this as the next carousel unless rebuilt into a sharper two-person mischief format. | 0.99 |
 | 2026-05-24 | Me With My "Jo Tu Kahegi Wahi Hoga" - fresh illustrated artifact reset | artifact-first / private phrase-world / illustrated relationship artifacts / autopsy-calibrated proof gate | rejected_creator_requested_new_idea | Creator stopped this route on 2026-05-24 with direct feedback: "not this idea, pick a new one." Do not keep generating, packaging, or pitching this as the active concept unless the creator explicitly asks to revisit it. The existing package remains at `output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/`, but treat it as abandoned for the current jam. | 0.99 |

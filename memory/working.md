@@ -681,3 +681,16 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: NEEDS_FIXES
 - learning: desi storybook / photo-rooted style remains the default for story carousels.
 - package: output/carousels/2026-05-25/pipeline-repair-final-dry-run-smoke-2
+
+## C-layer carousel handoff: Kitchen Forgiveness Glitch
+- date: 2026-05-28
+- slug: kitchen-forgiveness-glitch
+- package: output/carousels/2026-05-28/kitchen-forgiveness-glitch
+- status: HANDOFF_READY_29_30_CUP_REVEAL
+- learning: creator rejected the `It's okay` ending; the stronger payoff is
+  visual proof that her hands had forgiven first. Locked slide spine:
+  `She was still angry.` -> `Aayega toh maaf kar dungi.` -> silent cup
+  preparation -> doorway freeze -> `AB AAYE HO?` -> `Cup ready tha.`
+- generation note: use only the standard Codex built-in handoff with identity
+  contact sheet, selected identity refs ID36/ID37/ID39/ID44, and accepted style
+  refs as actual inputs. Do not use text-only image generation for final art.
