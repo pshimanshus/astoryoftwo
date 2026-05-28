@@ -7,6 +7,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from pipeline.layer_e.artifacts import layer_e_gate_reason
 from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
 from pipeline.stages.carousel_prompt_compiler import compile_image_prompt, extract_scene_summary
 from pipeline.stages.carousel_style_consistency import house_style_consistency_gate_reason
@@ -431,6 +432,10 @@ def prepare_codex_builtin_image_generation(
     style_consistency_reason = house_style_consistency_gate_reason(prompt_pack)
     if style_consistency_reason:
         return write_blocked_status(carousel_dir, style_consistency_reason)
+
+    layer_e_reason = layer_e_gate_reason(carousel_dir)
+    if layer_e_reason:
+        return write_blocked_status(carousel_dir, layer_e_reason)
 
     dossier_paths = existing_paths(prompt_pack.get("identity_dossier_reference_images", []))
     identity_paths = existing_paths(prompt_pack.get("identity_reference_images", []))

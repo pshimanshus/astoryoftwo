@@ -24,6 +24,9 @@ from pipeline.stages.successful_carousel_standard import (
     SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
     SUCCESSFUL_CAROUSEL_STANDARD_PATH,
 )
+from pipeline.layer_e.artifacts import write_layer_e_artifacts
+from pipeline.layer_e.contracts import LayerEDecision
+from pipeline.layer_e.engine import run_layer_e
 
 from pipeline.stages.carousel_lanes import (
     CAROUSEL_STORY_DIRECTOR_CONTRACT,
@@ -101,6 +104,7 @@ def build_package(
     title: str,
     slide_count: int,
     style_brief: str | None,
+    layer_e_decision: LayerEDecision | None = None,
 ) -> dict[str, Any]:
     contract = load_style_contract()
     character_bible = build_character_bible(contract)
@@ -804,6 +808,42 @@ def build_package(
         emotional_arc=emotional_arc,
         concept_selection=concept_selection,
     )
+    original_story_selling_card = story_selling_decision["selected_concept_process_card"]
+    layer_e_payload = layer_e_decision.model_dump(mode="json") if layer_e_decision else None
+    if layer_e_payload:
+        process_cards = [
+            influence
+            for influence in layer_e_payload["process_influences"]
+            if influence.get("influence_type") == "concept_process_card"
+        ]
+        selected_process_label = ", ".join(
+            f"{item['id']} - {item['title']}" for item in process_cards[:3]
+        ) or layer_e_payload["process_influences"][0]["title"]
+        story_selling_decision = {
+            "contract": {
+                **STORY_SELLING_CONTRACT,
+                "source": "layer-e-story-selling.json",
+                "mode": "multi_room_thinking_engine",
+            },
+            "selected_concept_process_card": original_story_selling_card,
+            "process_influence_summary": selected_process_label,
+            "score": layer_e_payload["story_selling_score"],
+            "threshold": "28/30",
+            "decision": layer_e_payload["status"],
+            "hard_fails": layer_e_payload["hard_fails"],
+            "selector_verdict": layer_e_payload["selected_story_lens"],
+            "authorial_flow": {
+                "relationship_obstacle": layer_e_payload["reader_mirror"],
+                "proof_engine": layer_e_payload["proof_engine"],
+                "writer_rule": "Layer E is the source of truth; process cards are influences, not the answer.",
+                "story_context": story,
+                "emotional_machine": layer_e_payload["emotional_machine"],
+                "distribution_reason": layer_e_payload["distribution_reason"],
+            },
+            "candidate_table": layer_e_payload["exploration_routes"],
+            "rooms": layer_e_payload["rooms"],
+            "process_influences": layer_e_payload["process_influences"],
+        }
     story_selling_score = story_selling_decision["score"]
     story_selling_card = story_selling_decision["selected_concept_process_card"]
     story_director_gate = build_story_director_gate(
@@ -903,6 +943,18 @@ def build_package(
         "target_voice": "Aachu/Zuv archive voice: warm, specific, playful underneath the tenderness",
         "story_selling_contract": STORY_SELLING_CONTRACT,
         "story_selling_decision": story_selling_decision,
+        "layer_e_story_selling": (
+            {
+                "artifact": "layer-e-story-selling.json",
+                "markdown_artifact": "layer-e-story-selling.md",
+                "status": layer_e_payload["status"],
+                "selected_story_lens": layer_e_payload["selected_story_lens"],
+                "emotional_machine": layer_e_payload["emotional_machine"],
+                "process_influences": layer_e_payload["process_influences"],
+            }
+            if layer_e_payload
+            else None
+        ),
         "carousel_story_director_persona": story_director_gate,
         "identity_dossier": {
             "path": identity_dossier.get("path"),
@@ -946,6 +998,18 @@ def build_package(
                 "issues": visual_plan_quality["issues"],
             },
             "successful_carousel_standard": SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
+            "layer_e_story_selling": (
+                {
+                    "artifact": "layer-e-story-selling.json",
+                    "status": layer_e_payload["status"],
+                    "selected_story_lens": layer_e_payload["selected_story_lens"],
+                    "emotional_machine": layer_e_payload["emotional_machine"],
+                    "proof_engine": layer_e_payload["proof_engine"],
+                    "distribution_reason": layer_e_payload["distribution_reason"],
+                }
+                if layer_e_payload
+                else None
+            ),
             "carousel_story_director_persona": story_director_gate,
             "style_reference_images": style_reference_paths,
             "identity_reference_images": identity_paths,
@@ -1153,6 +1217,7 @@ def build_package(
             "story_selling_score": story_selling_score,
             "story_selling_gate": {
                 "status": "PASS" if story_selling_decision["decision"] == "GO" else "REPAIR",
+                "source": "layer-e-story-selling.json" if layer_e_payload else "synthetic_lane_story_selling",
                 "selected_concept_process_card": story_selling_card,
                 "threshold": "28/30",
                 "selector_verdict": story_selling_decision["selector_verdict"],
@@ -1198,6 +1263,7 @@ def create_codex_native_carousel(
     validate_slide_count(slide_count)
     today = today or date.today()
     workspace_root = infer_workspace_root(output_root)
+    layer_e_root = workspace_root if (workspace_root / "output" / "story-canon").exists() else Path(__file__).resolve().parents[2]
 
     paths = normalize_paths(image_paths)
     explicit_identity_bundle = identity_image_paths is not None
@@ -1223,6 +1289,20 @@ def create_codex_native_carousel(
     while out_dir.exists():
         out_dir = dated_root / f"{slug}-{suffix}"
         suffix += 1
+    layer_e_decision = run_layer_e(
+        layer_e_root,
+        {
+            "task_type": "carousel_idea",
+            "story_or_moment": story,
+            "constraints": [
+                "C-layer carousel package",
+                "golden theme remains mandatory",
+                "use process cards as influences, not the answer",
+            ],
+            "requested_tone": style_brief or "",
+            "reference_images": [str(path) for path in [*paths, *identity_paths]],
+        },
+    )
     identity_dossier = build_identity_dossier_artifacts(
         workspace_root=workspace_root,
         out_dir=out_dir,
@@ -1239,6 +1319,7 @@ def create_codex_native_carousel(
         title=final_title,
         slide_count=slide_count,
         style_brief=style_brief,
+        layer_e_decision=layer_e_decision,
     )
     manifest = build_manifest(
         title=final_title,
@@ -1252,6 +1333,7 @@ def create_codex_native_carousel(
         today=today,
     )
     write_package(out_dir, manifest, package)
+    write_layer_e_artifacts(out_dir, layer_e_decision)
 
     render_result = (
         try_render_assets(out_dir, package["slides"])
