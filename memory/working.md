@@ -694,3 +694,16 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - generation note: use only the standard Codex built-in handoff with identity
   contact sheet, selected identity refs ID36/ID37/ID39/ID44, and accepted style
   refs as actual inputs. Do not use text-only image generation for final art.
+
+## C-layer workflow correction: Stage-Scene Gate
+- date: 2026-05-28
+- status: workflow_contract_repaired
+- learning: creator corrected that carousel recommendations must not stop at
+  text spines, hook tables, or poster-copy decks. After Layer E and before copy
+  or prompt work, every serious idea must pass a storyboard-first Stage-Scene
+  Gate: action, reaction, eye-line, hands, body distance, object movement,
+  silence, consequence, reversal, and payoff. Text completes the scene; text
+  must not carry the scene.
+- implementation pointer: see `memory/semantic/carousel-idea-preferences.md`
+  for durable preference; executable checks now reject text-driven poster
+  spines in `successful_carousel_standard.py` and `visual-plan-quality`.

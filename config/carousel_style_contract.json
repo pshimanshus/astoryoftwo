@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
   "brandmark": "@a.storyof.two",
-  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv hand-drawn romantic watercolor-and-ink carousel look. Identity reference images are the highest-priority face source: preserve the same recurring real-person faces, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful carousel illustrations are style references only: use them for warm ivory paper texture, soft watercolor washes, fine ink and pencil linework, delicate sketch lines, gentle crosshatching, muted vintage palette, composition, wardrobe continuity, handwritten typography, and recurring props. Do not use style references as identity references. Keep the illustration premium, intimate, travel-light, emotionally soft, and story-first, with tactile clothing/prop detail, clean expressive faces, warm negative space, and one clear Aachu/Zuv behavior scene. Paper artifacts, receipts, labels, posters, or stationery can appear only as tiny integrated scene details, never as the main visual system. Render the exact slide copy as fixed handwritten-style dark charcoal text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv hand-drawn romantic watercolor-and-ink carousel look. Identity reference images are the highest-priority face source: preserve the same recurring real-person faces, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful carousel illustrations are style references only: use them for warm ivory paper texture, soft watercolor washes, fine ink and pencil linework, delicate sketch lines, gentle crosshatching, muted vintage palette, composition, wardrobe continuity, handwritten typography, and recurring props. Do not use style references as identity references. Keep the illustration premium, intimate, travel-light, emotionally soft, and story-first, with tactile clothing/prop detail, clean expressive faces, warm negative space, and one clear Aachu/Zuv behavior scene. The scene must be storyboard-first and stage-scene driven: action, reaction, eye-line, hands, body distance, object movement, silence, consequence, reversal, and payoff must be visible before text is considered. Text completes the scene; text must not carry the scene. Paper artifacts, receipts, labels, posters, or stationery can appear only as tiny integrated scene details, never as the main visual system. Render the exact slide copy as fixed handwritten-style dark charcoal text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
   "compact_style_prompt": "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper, fine ink/pencil linework, soft watercolor wash, muted vintage palette, recurring Aachu/Zuv faces, model-native handwritten text, tiny @a.storyof.two brandmark",
   "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
   "model_native_master_prompt": {
@@ -36,7 +36,7 @@
     "background": "#fbf4e8",
     "max_words_per_slide": 8,
     "max_lines": 3,
-    "placement": "generous whitespace; copy should be a short poster line, not a caption",
+    "placement": "generous whitespace; copy should be scene-native and complete the staged action, not drive the slide as poster copy",
     "brandmark_placement": "bottom-right"
   },
   "legacy_typography": {
@@ -135,7 +135,35 @@
       "selector verdict",
       "winner rationale",
       "GO / REPAIR / STOP decision",
+      "stage-scene storyboard",
       "final public slide-copy direction"
+    ]
+  },
+  "stage_scene_policy": {
+    "required": true,
+    "artifact": "visual-plan-quality.json",
+    "mode": "storyboard-first",
+    "rule": "After Layer E and before hooks, slide copy, prompt finalization, or image generation, every serious carousel route must be staged as visible action. The viewer should understand the relationship beat if poster text is hidden.",
+    "must_include": [
+      "action",
+      "reaction",
+      "eye-line",
+      "hands",
+      "body distance",
+      "object movement",
+      "silence or pause",
+      "consequence",
+      "reversal",
+      "payoff"
+    ],
+    "copy_rule": "Text completes the scene; text must not carry the scene.",
+    "hard_fail_if": [
+      "A recommended idea is only a text spine or candidate table.",
+      "The visual plan is a quote-card, poster-copy layout, or generic couple pose.",
+      "Aachu and Zuv are merely standing beside the line instead of acting inside the beat.",
+      "The story cannot be understood when the on-image text is hidden.",
+      "Layer E is not visible in the creator-facing decision record.",
+      "The continuous C-layer council is skipped before recommendation."
     ]
   },
   "visual_debate_policy": {

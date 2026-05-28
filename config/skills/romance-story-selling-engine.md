@@ -49,14 +49,19 @@ For carousel ideas, also read the current gold-theme source memory:
    or article angle selection.
 4. Run the golden-theme variant tournament for carousel work exactly as
    required by `config/skills/golden-viral-carousel-theme.md`.
-5. Before writing hooks, slides, copy, visual direction, or prompt text, apply
+5. Before writing hooks, slides, copy, visual direction, or prompt text, run
+   the Stage-Scene Gate: convert the winning story lens into storyboard-first
+   action, reaction, eye-line, hands, distance, object movement, silence,
+   consequence, reversal, and payoff. Text completes the scene; text must not
+   carry the scene.
+6. Before writing hooks, slides, copy, visual direction, or prompt text, apply
    `config/skills/carousel-story-director-persona.md` and confirm hook,
    setup, proof, bridge, active Zuv role, earned ending, and send/save reason.
-6. Score the best candidate with the 30-point Story-Selling rubric in
+7. Score the best candidate with the 30-point Story-Selling rubric in
    `config/references/story-selling-canon/rubric.md`.
-7. Proceed only when the selected concept reaches 28/30 on Story-Selling and,
+8. Proceed only when the selected concept reaches 28/30 on Story-Selling and,
    for carousel work, 28/30 on Golden Theme.
-8. Adapt the winner to the proper artifact contract:
+9. Adapt the winner to the proper artifact contract:
    - C-layer: `concept.json`, `slides.json`, `prompt-pack.json`, `copy.json`,
      `review.json`, and final image gates.
    - D-layer: article brief, outline, draft, growth package, editorial gates,

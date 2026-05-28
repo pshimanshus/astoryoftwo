@@ -18,6 +18,9 @@ This is the bridge between approved copy and final visual planning. The room
 must not simply decorate the words. It must discover the strongest visual
 system that proves the locked copy, preserves the selected story engine, and
 gives the image-generation agents enough precision to make publishable slides.
+It must preserve the Stage-Scene Gate: storyboard-first action, reaction,
+eye-line, hands, body distance, object movement, silence, consequence,
+reversal, and payoff. Text completes the scene; text must not carry the scene.
 
 The room is required when the creator says or implies:
 

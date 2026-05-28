@@ -78,6 +78,25 @@ Before any copy or visual direction exists, define:
 
 Reject the direction if any item is missing.
 
+## Stage-Scene Gate
+
+After Layer E defines what the story means, run a Stage-Scene Gate before
+approving hooks, slide copy, captions, visual directions, or prompt text. Think
+like a director staging a short scene, not a writer arranging poster lines.
+
+The deck must work as storyboard-first action:
+
+- what happens on stage;
+- what each partner notices;
+- what the hands, eye-line, posture, distance, and object movement reveal;
+- what silence or pause changes;
+- what consequence earns the next swipe;
+- where the joke becomes tenderness or the surface becomes meaning.
+
+text completes the scene; text must not carry the scene. Return REPAIR if the
+answer is a text spine, quote-card deck, candidate table, generic couple pose,
+or "Aachu/Zuv standing beside the line."
+
 ## Structural Spine
 
 Every carousel must have:

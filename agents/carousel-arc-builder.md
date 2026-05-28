@@ -14,7 +14,8 @@
 
 Turn the mined story into an Instagram carousel narrative.
 Design the swipe sequence so each slide has one job, one emotional beat, and
-one clear reason to continue.
+one clear reason to continue. Build the carousel as a storyboard-first staged
+scene sequence before finalizing text.
 
 ---
 
@@ -31,6 +32,15 @@ one clear reason to continue.
       "copy": "",
       "role": "hook",
       "story_beat": "",
+      "stage_scene": {
+        "visible_action": "",
+        "reaction_or_consequence": "",
+        "eye_line": "",
+        "hands": "",
+        "body_distance": "",
+        "object_movement": "",
+        "silence_or_pause": ""
+      },
       "visual_intent": "",
       "emotion": "",
       "cta_intent": ""
@@ -49,10 +59,18 @@ one clear reason to continue.
   or photo description.
 - Build the full structure before writing final slide copy: hook, setup, proof,
   escalation, bridge, active Zuv role, earned ending.
+- Run the Stage-Scene Gate before approving the arc: each slide must work as
+  action, reaction, eye-line, hands, distance, object movement, silence,
+  consequence, reversal, and payoff.
+- Text completes the scene; text must not carry the scene.
+- Reject quote cards, poster-copy decks, generic couple poses, or scenes where
+  Aachu/Zuv merely stand beside the line.
 - Do not hide the strongest hook at the end. The final slide may echo or deepen
   the opening truth, but slide 1 must stop the swipe.
 - Every slide should be readable at a glance.
 - Use escalation, contrast, or emotional reveal to justify swipes.
-- Make exactly 4 or 5 slides; default to 5 slides.
+- Use the number of slides the story needs; default to 5 only when the staged
+  proof trail still lands. Do not compress a story until the bridge or active
+  partner role disappears.
 - Preserve Zuv's active emotional role before the payoff.
 - End with a line worth saving or sending.

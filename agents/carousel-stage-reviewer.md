@@ -19,7 +19,7 @@ can verify.
 
 - Intake: story, slide count, source images.
 - Story: universal relationship truth, timeline, no invented events.
-- Arc: 4-5 slide flow, golden-theme beginning/middle/payoff.
+- Arc: storyboard-first stage-scene flow, golden-theme beginning/middle/payoff.
 - Visual: one clear visual idea per slide, photo-rooted details.
 - Identity consistency: face structure, facial expressions, clothes, and
   same-couple continuity are locked from the selected identity bundle before
@@ -51,3 +51,7 @@ Each review must include:
 - If a slide prompt could generate generic couple art, flag it.
 - If source-photo details are missing, flag it.
 - If brandmark placement or text readability is unspecified, flag it.
+- If the deck is a text spine, quote-card sequence, or "characters beside the
+  line" plan instead of staged action, mark it `NEEDS_FIXES`.
+- The Stage-Scene Gate must verify that text completes the scene; text must
+  not carry the scene.

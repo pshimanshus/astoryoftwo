@@ -6,6 +6,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from pipeline.stages.successful_carousel_standard import stage_scene_storytelling_issues
+
 IDENTITY_IMAGE_DIR = "identity_images"
 SUPPORTED_IDENTITY_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_IDENTITY_REFERENCE_BUNDLE = 4
@@ -274,6 +276,7 @@ CAROUSEL_STORY_DIRECTOR_CONTRACT = {
         "zuv_role": 8,
         "ending": 8,
         "send_save_potential": 8,
+        "stage_scene": 8,
     },
 }
 
@@ -352,6 +355,7 @@ def build_story_director_gate(
         for token in ["payoff", "thesis", "save", "share", "maybe", "love"]
     )
     has_send_save = any(str(slide.get("cta_intent", "")).strip() for slide in slides)
+    stage_scene_issues = stage_scene_storytelling_issues(slides)
 
     blocks: list[str] = []
     if not has_hook:
@@ -368,6 +372,7 @@ def build_story_director_gate(
         blocks.append("Final slide is not an earned love thesis or save/share payoff.")
     if not has_send_save:
         blocks.append("Slides do not name a send/save/tag reason.")
+    blocks.extend(stage_scene_issues)
 
     scores = {
         "hook": 9 if has_hook else 5,
@@ -376,6 +381,7 @@ def build_story_director_gate(
         "zuv_role": 9 if has_zuv_role else 5,
         "ending": 9 if has_ending else 5,
         "send_save_potential": 9 if has_send_save else 5,
+        "stage_scene": 9 if not stage_scene_issues else 5,
     }
     status = "PASS" if not blocks and all(value >= 8 for value in scores.values()) else "REPAIR"
     selected_hook = str(slide_one.get("copy", ""))
@@ -427,6 +433,11 @@ def build_story_director_gate(
             {"beat": "escalation", "job": "Sharpen recognition or humor.", "must_show": "A more specific receipt."},
             {"beat": "bridge", "job": "Turn surface behavior into emotional meaning.", "must_show": emotional_arc},
             {"beat": "zuv_role", "job": "Make Zuv's calm active.", "must_show": "He notices, chooses, carries, protects, or softens."},
+            {
+                "beat": "stage_scene",
+                "job": "Make the story understandable if poster text is hidden.",
+                "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff.",
+            },
             {"beat": "ending", "job": "Land the earned save/share thesis.", "must_show": str(final_slide.get("copy", ""))},
         ],
         "structural_audit": scores,

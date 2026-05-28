@@ -359,6 +359,17 @@ through Aachu/Zuv behavior, score with the Story-Selling rubric, then write.
 Layer E must not bypass the golden theme;
 it supplies a stronger story lens before the mandatory golden-theme tournament.
 
+### Stage-Scene Gate
+
+After Layer E chooses the story meaning, and before hooks, slide copy, caption
+language, visual prompts, or image generation, run a Stage-Scene Gate. The
+carousel must read like a tiny staged story or short-film sequence first:
+action, reaction, eye-line, hands, distance, object movement, silence,
+consequence, reversal, and payoff. Do not approve a text spine, poster-copy
+deck, quote-card sequence, or concept table as the carousel. Storyboard-first
+means the visual action must prove the relationship truth even if the text is
+temporarily hidden. text completes the scene; text must not carry the scene.
+
 After the memory, Layer E, and golden-theme gates are loaded, always load
 `config/skills/carousel-story-director-persona.md` before writing hooks, slide
 copy, captions, visual directions, prompts, or image-generation handoff text.
@@ -440,8 +451,9 @@ interrupt the creative loop. The correct response shape is:
    the tournament unless the creator explicitly asks to revisit them.
 5. If there is no supplied moment, photo, or constraint, ask one practical
    context question at most.
-6. Otherwise run the golden-theme variant tournament and parallel agent room:
-   5-10 distinct options, cross-agent debate, repairs, 30-point scores,
+6. Otherwise run Layer E, the golden-theme variant tournament, the continuous
+   C-layer council, and the Stage-Scene Gate: 5-10 distinct story routes,
+   cross-agent debate, repairs, storyboard-first stage scenes, 30-point scores,
    selector verdict, and GO / REPAIR / STOP decision.
 7. Record the recommendation, rejection, acceptance, or cooldown in
    `memory/semantic/carousel-idea-preferences.md`.

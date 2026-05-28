@@ -105,33 +105,59 @@ Write or update:
    - 5-10 routes;
    - 30-point score each;
    - top route must score 28/30+.
-4. Load Story Director:
+4. Run the Stage-Scene Gate:
+   - storyboard-first stage scenes before slide copy;
+   - each route must play as action -> reaction -> consequence -> reversal;
+   - every scene must define eye-line, hands, body distance, object movement,
+     silence, and the partner's active response;
+   - text completes the scene; text must not carry the scene.
+5. Load Story Director:
    - `config/skills/carousel-story-director-persona.md`
-5. Run parallel agent room and present the creator one selected direction.
-6. After creator approval, lock copy.
-7. Run Post-Copy Visual Creative Room:
+6. Run parallel agent room and present the creator one selected direction.
+7. After creator approval, lock copy.
+8. Run Post-Copy Visual Creative Room:
    - `post-copy-visual-room.json`
-8. Run Visual Debate Gate:
+9. Run Visual Debate Gate:
    - `visual-debate.json`
    - `visual-plan-quality.json`
-9. Build package:
-   - `slides.json`
-   - `copy.json`
-   - `prompt-pack.json`
-   - `identity-consistency-review.json`
-   - `review.json`
-10. Prepare image handoff:
+10. Build package:
+    - `slides.json`
+    - `copy.json`
+    - `prompt-pack.json`
+    - `identity-consistency-review.json`
+    - `review.json`
+11. Prepare image handoff:
     - `codex-image-prompts/instagram-post/`
     - `codex-image-prompts/reels-stories/`
-11. Generate one proof slide when risk is high.
-12. If proof passes, generate all remaining native `4:5` and native `9:16`
+12. Generate one proof slide when risk is high.
+13. If proof passes, generate all remaining native `4:5` and native `9:16`
     slides.
-13. Package generated sources:
+14. Package generated sources:
     - `scripts/package_generated_carousel.py`
-14. Run final QA:
+15. Run final QA:
     - `visual-qa.md`
     - `final-audit.json`
     - wiki health if the session is substantial.
+
+## Stage-Scene Gate
+
+Do not present an idea as the next carousel just because its hook and slide
+copy score well. After Layer E and before copy lock, stage the route as a tiny
+story first. The creator should be able to understand the relationship beat if
+all poster text is hidden.
+
+A passing staged route has:
+
+- one clear action per slide;
+- a reaction or consequence that earns the next swipe;
+- visible Aachu role and visible Zuv role;
+- eye-line, hands, body distance, posture, object movement, and silence;
+- a joke-to-tenderness or friction-to-belonging turn;
+- scene-native text only after the visual beat works.
+
+Return REPAIR if the route is a text spine, quote-card deck, generic couple
+pose, "Aachu/Zuv standing beside the line," or a candidate table without staged
+behavior. text completes the scene; text must not carry the scene.
 
 ## Proof-First Rule
 

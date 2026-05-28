@@ -380,6 +380,27 @@ Use text that belongs inside the frame: a context line, thought bubble, speech
 bubble, tiny reply, or deliberate silence. Delete fake-clever poster text and
 relationship-lesson lines if the scene can carry them.
 
+### Stage-Scene Gate
+
+Every serious carousel idea must pass this gate after Layer E and before final
+copy, prompt writing, or image generation.
+
+The deck must work as a tiny staged story first. A reviewer should be able to
+hide the on-image text and still understand the relationship beat from action,
+reaction, eye-line, hands, distance, object movement, silence, consequence,
+reversal, and payoff.
+
+Text completes the scene; text must not carry the scene.
+
+Block or repair if:
+
+- the recommendation is only a candidate table or hook/copy spine;
+- the visuals are quote cards with characters added later;
+- Aachu and Zuv merely stand beside the line;
+- the copy explains the joke but the bodies do not act it;
+- a numeric Story-Selling or Golden Theme score is used to bypass staged
+  story proof.
+
 ## Visual Standard
 
 The house look is soft hand-drawn desi storybook illustration on warm paper:

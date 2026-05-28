@@ -44,6 +44,15 @@ parallel room automatically, keep the creator in the loop for idea lock, copy
 lock, proof image approval when needed, and final approval, then continue
 through final image generation instead of stopping at a prompt handoff.
 
+After Layer E and before final hooks, slide copy, visual prompts, or image
+handoff, run the Stage-Scene Gate. This is a storyboard-first gate: the carousel
+must play like staged scenes before it reads like a text carousel. The visual
+sequence must carry action, reaction, eye-line, hands, body distance, object
+movement, silence, consequence, reversal, and payoff. text completes the scene;
+text must not carry the scene. Any route that is only a candidate table, poster
+copy spine, quote-card sequence, or generic couple pose must return REPAIR even
+if Story-Selling and Golden Theme scores are high.
+
 This is mandatory. The supplied photo, place, outfit, or object is evidence for
 a universal relationship truth. It is not enough by itself. Any carousel that
 starts and stays object-first, travel-first, or outfit-first must be rewritten
@@ -64,7 +73,7 @@ Every run must create:
 - `concept.json`: title, human truth, emotional arc, slide summaries
 - `post-copy-visual-room.json`: mandatory visual creative-room record after creator-approved copy, before final visual debate, prompt pack, or image generation
 - `visual-debate.json`: Visual Debate Gate record from three visual agents before visual plan finalization, carousel packaging, or image generation
-- `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, copy-visual alignment, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags
+- `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, stage-scene storytelling, copy-visual alignment, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags
 - `slides.json`: ordered slide copy, role, visual description, emotion, CTA intent
 - `prompt-pack.json`: shared style prompt, negative prompt, slide prompts
 - `identity-consistency-review.json`: C3.5 pre-generation review that verifies face structure, facial expression, clothing/body-language cues, and cross-slide identity continuity are locked from the selected identity bundle

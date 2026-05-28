@@ -19,19 +19,43 @@ SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT: dict[str, Any] = {
     "mode": "creative_north_star",
     "rule": (
         "Build a public identity mirror with concrete couple receipts, active Zuv care, "
-        "an emotional reversal, and a send/save thesis; do not optimize for keywords."
+        "an emotional reversal, and a send/save thesis; stage the story in visible "
+        "actions before choosing poster text; do not optimize for keywords."
     ),
-    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords.",
-    "prompt_rule": "Prompts must prove relationship behavior through scene-first Aachu/Zuv action.",
+    "open_reasoning_policy": (
+        "Expose the real goal and selection logic; do not optimize for keywords or "
+        "let slide copy substitute for staged story action."
+    ),
+    "prompt_rule": (
+        "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; "
+        "text completes the scene instead of carrying it."
+    ),
     "success_goals": [
         "public identity mirror",
         "concrete couple receipts",
         "active Zuv care",
         "emotional reversal",
         "send/save thesis",
-        "scene-first illustration",
+        "stage-scene storytelling",
     ],
 }
+
+TEXT_DRIVEN_VISUAL_TERMS = (
+    "quote-card",
+    "quote card",
+    "poster text",
+    "poster copy",
+    "text carries",
+    "text explains",
+    "text-driven",
+    "characters added",
+    "added later",
+    "stand beside a quote",
+    "stand beside the text",
+    "written large above",
+    "generic couple art",
+    "thesis as the main image",
+)
 
 
 def _text(value: Any) -> str:
@@ -66,6 +90,33 @@ def _path(package: dict[str, Any], *keys: str) -> Any:
 def _slides(package: dict[str, Any]) -> list[dict[str, Any]]:
     slides = package.get("slides", [])
     return [slide for slide in slides if isinstance(slide, dict)] if isinstance(slides, list) else []
+
+
+def stage_scene_storytelling_issues(slides: list[dict[str, Any]]) -> list[str]:
+    """Return deterministic misses for text-driven or unstaged visual plans.
+
+    This check intentionally catches only observable structural misses. It does
+    not try to judge taste; it blocks the old failure mode where strong slide
+    copy and high scores hid the absence of staged action.
+    """
+
+    issues: list[str] = []
+    for slide in slides:
+        number = slide.get("slide", "?")
+        visual = str(slide.get("visual", "")).lower()
+        if not visual.strip():
+            issues.append(f"Slide {number} has no staged visual scene.")
+            continue
+
+        leaked_terms = [term for term in TEXT_DRIVEN_VISUAL_TERMS if term in visual]
+        if leaked_terms:
+            issues.append(
+                f"Slide {number} is text-driven instead of stage-scene storytelling: "
+                f"{', '.join(leaked_terms)}."
+            )
+            continue
+
+    return issues
 
 
 def _alignment_record(package: dict[str, Any]) -> dict[str, Any]:
@@ -172,10 +223,15 @@ def evaluate_successful_carousel_standard(package: dict[str, Any], *, slide_coun
             _prompt_alignment_pass(package),
             "Prompts do not carry the successful-carousel standard into generation handoff.",
         ),
+        "stage_scene_storytelling": _dimension(
+            not stage_scene_storytelling_issues(_slides(package)),
+            "Carousel is text-driven; stage visible action first and use text only to complete the scene.",
+        ),
     }
     for name, (dimension, failed) in checks.items():
         dimensions[name] = dimension
         issues.extend(failed)
+    issues.extend(stage_scene_storytelling_issues(_slides(package)))
     if slide_count < 4:
         issues.append("Carousel needs at least four slides to prove hook, receipt, response, and payoff.")
 

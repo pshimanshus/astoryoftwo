@@ -187,6 +187,20 @@ When choosing a winner, pick the highest-scoring concept. If scores tie, prefer
 the one with the strongest universal hook, clearest Zuv emotional role, and
 most drawable proof beat.
 
+## Stage-Scene Gate
+
+The tournament is not complete when a candidate has good slide copy. After
+Layer E and before recommending a winner, convert each serious finalist into a
+storyboard-first staged sequence. The deck must feel like a tiny stage scene or
+short film: action, reaction, eye-line, hands, distance, object movement,
+silence, consequence, reversal, and payoff.
+
+Hard rule: text completes the scene; text must not carry the scene. If the
+route only works because the poster line explains it, return REPAIR even when
+the numeric Golden Theme score is 28/30+. Do not approve quote-card visuals,
+generic couple poses, "Aachu/Zuv standing beside the line," or concept tables
+as carousel direction.
+
 The winning concept must carry the Calm Enough For Your Chaos learning into the
 visual screen: every slide should prove universal truth -> Aachu/Zuv proof ->
 Zuv active care -> tender thesis through visible behavior, not decoration. If a

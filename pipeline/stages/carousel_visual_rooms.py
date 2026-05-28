@@ -15,6 +15,7 @@ from pipeline.stages.carousel_lanes import (
     is_tasty_life_story,
     is_wallet_audit_story,
 )
+from pipeline.stages.successful_carousel_standard import stage_scene_storytelling_issues
 
 
 def build_visual_debate(story: str, slides: list[dict[str, Any]], lane: str) -> dict[str, Any]:
@@ -565,6 +566,7 @@ def build_visual_plan_quality(
             "copy_visual_alignment": bool(copy and visual),
             "golden_theme_proof": bool(copy and visual),
             "relationship_behavior_visible": "aachu" in visual_lower and "zuv" in visual_lower,
+            "stage_scene_storytelling": True,
             "no_losing_visual_option_leak": True,
             "aspect_safe_composition": True,
             "doubt_flags_resolved": True,
@@ -574,6 +576,13 @@ def build_visual_plan_quality(
             slide_issues.append(f"Slide {number} is missing copy.")
         if not visual:
             slide_issues.append(f"Slide {number} is missing a visual plan.")
+
+        stage_issues = stage_scene_storytelling_issues([slide])
+        if stage_issues:
+            checks["copy_visual_alignment"] = False
+            checks["relationship_behavior_visible"] = False
+            checks["stage_scene_storytelling"] = False
+            slide_issues.extend(stage_issues)
 
         if is_softness_under_fire:
             forbidden_terms = [

@@ -62,14 +62,19 @@ ownership lanes:
    visible repair.
 4. Repair pass: repair the top 2-3 routes, not only the favorite. Record what
    changed.
-5. Selector pass: choose the route that best combines story truth,
+5. Stage-Scene Gate: before selector approval, convert finalists into
+   storyboard-first stage scenes. Each finalist must show action, reaction,
+   eye-line, hands, body distance, object movement, silence, consequence,
+   reversal, and payoff. Text completes the scene; text must not carry the
+   scene.
+6. Selector pass: choose the route that best combines story truth,
    universality, visual proof, retention, safety, and distribution. Highest
    numeric score wins only if no hard gate is open.
-6. Continuous re-entry: after C1 story, C2 arc, C3 visual plan, C4 prompt pack,
+7. Continuous re-entry: after C1 story, C2 arc, C3 visual plan, C4 prompt pack,
    C5 copy, and final images, the relevant agents re-check their ownership.
    Any blocking issue reopens the owning stage and downstream artifacts touched
    by that change.
-7. Final-image closeout: after creator-approved copy and visuals, continue from
+8. Final-image closeout: after creator-approved copy and visuals, continue from
    prompt handoff into proof generation, full batch generation, packaging,
    visual QA, and final audit whenever image generation is available.
 
@@ -181,6 +186,8 @@ Return REPAIR if:
 - the food bridge is missing for a payoff concept;
 - the hook is universal but the visuals are generic;
 - the copy is strong but the story proof is weak.
+- the route is a text spine, quote-card deck, or candidate table without
+  staged scene action.
 
 Return GO only when:
 
