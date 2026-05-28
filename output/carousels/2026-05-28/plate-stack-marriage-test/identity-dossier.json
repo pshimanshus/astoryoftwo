@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "primary_identity_reference": "identity_images/aachu_zuv.png",
+  "contact_sheet": "output/carousels/2026-05-28/plate-stack-marriage-test/identity-face-contact-sheet.jpg",
+  "characters": {
+    "Aachu": {
+      "identity_lock": [
+        "long dark hair with soft volume",
+        "expressive warm Indian face",
+        "natural smaller eyes",
+        "soft face structure",
+        "slim/petite proportions"
+      ],
+      "allowed_expressions": [
+        "ordinary dinner face",
+        "subtle deadpan",
+        "calm phone-returning normalcy"
+      ]
+    },
+    "Zuv": {
+      "identity_lock": [
+        "dark wavy hair with visible volume",
+        "light beard/stubble",
+        "warm rounded Indian face",
+        "grounded broad posture"
+      ],
+      "allowed_expressions": [
+        "basic after-dinner laziness",
+        "tiny shortcut forming",
+        "lightly outplayed but not humiliated"
+      ]
+    }
+  },
+  "hard_fail": "Reject any proof where the couple reads as generic, Korean/webtoon, anime, glossy AI, or unlike identity_images/aachu_zuv.png."
+}

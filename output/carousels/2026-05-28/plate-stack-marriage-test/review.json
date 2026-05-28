@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.1",
+  "status": "PASS_FOR_PROOF",
+  "decision": "GO_PROOF_FIRST_FULL_BATCH_BLOCKED",
+  "scores": {
+    "hook": 9,
+    "story": 9.5,
+    "bridge": 8.5,
+    "active_partner_roles": 9.5,
+    "ending": 9,
+    "send_save_potential": 9,
+    "taste_safety": 9.5
+  },
+  "passes": [
+    "The corrected progression is behavior-first and visually legible.",
+    "The direct ask/reply version has been removed from generation artifacts.",
+    "Slide 6 is a clear proof gate: stack, phone, exact `dono rakh do.`",
+    "Identity and Main Kar Lungi style are explicit hard gates.",
+    "Full batch is blocked until a repaired native 4:5 proof passes."
+  ],
+  "copy_lock": [
+    "When you're finally married...",
+    "rakh deta hoon.",
+    "wait...",
+    "dono rakh do."
+  ],
+  "blockers": [
+    "Generate one repaired slide 6 native 4:5 proof.",
+    "Do not package old proof or old final-source files.",
+    "After proof approval, generate separate native 4:5 and native 9:16 outputs for all 7 slides."
+  ],
+  "do_not_regress_to": [
+    "line-first slide copy",
+    "fake clever poster text",
+    "best husband / best wife framing",
+    "relationship lesson",
+    "generic couple-goals sentiment",
+    "Korean/webtoon/glossy AI style",
+    "direct ask/reply plate beat"
+  ]
+}

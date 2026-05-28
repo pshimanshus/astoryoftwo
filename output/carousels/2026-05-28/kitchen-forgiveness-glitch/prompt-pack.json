@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "status": "READY_FOR_CODEX_BUILTIN_GENERATION",
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv illustrated carousel look: soft hand-drawn flat vector warmth with desi storybook texture. Treat the first supplied style references as canonical character-model sheets: preserve the same recurring illustrated character faces, proportions, hair shapes, expressive eyes, beard/brow structure, handwritten lettering, warm paper texture, and soft desi storybook linework from the accepted earlier carousels. Use Product Unshipped-like simplicity adapted for a desi love story, but do not reinterpret the couple into a new generic illustration style. Use the provided identity and style references to create recurring illustrated versions of Aachu/Anchal and Zuv/Himanshu, not generic stock characters. Keep warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, generous breathing room, expressive faces, detailed-but-soft Indian outfits when story-relevant, and one clear Aachu/Zuv behavior scene. Every final prompt must stay scene-first: paper artifacts, receipts, labels, posters, or stationery can appear only as tiny integrated details, never as the main visual system. Minimalism must still feel alive: keep a few tiny innocent micro-elements such as small hearts, blush marks, reaction ticks, tiny motion lines, soft thought/reaction bubbles, or one small care detail when they support the emotional beat. Render the exact slide copy as handwritten-style black text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no corporate/startup illustration, no stock Indian couple style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no gradients, no isometric style, no anime, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no large logo, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay soft desi storybook full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "identity_dossier_reference_images": [
+    "identity_images/_identity_dossier/identity-face-contact-sheet.jpg"
+  ],
+  "identity_dossier_path": "identity_images/_identity_dossier/identity-dossier.json",
+  "identity_generation_preflight_path": "identity_images/_identity_dossier/identity-generation-preflight.md",
+  "identity_reference_images": [
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "identity_selected_options": [
+    {
+      "option_id": "ID36",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+      "role": "Aachu face, hair, posture, and playful expressive presence"
+    },
+    {
+      "option_id": "ID37",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+      "role": "Aachu smile/face shape and side-body posture anchor"
+    },
+    {
+      "option_id": "ID39",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+      "role": "Zuv face, hair, brows, build, and grounded standing posture"
+    },
+    {
+      "option_id": "ID44",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "role": "Aachu/Zuv close relationship-energy and face-structure anchor"
+    }
+  ],
+  "face_identity_contract": {
+    "aachu": "long dark hair, expressive eyes and brows, warm fair-medium skin tone, soft oval/round face structure, fuller lips, playful dramatic energy under softness, smaller/petite presence relative to Zuv",
+    "zuv": "dark wavy hair with visible volume, thick dark brows, warm brown skin tone, rounded/oval smiling face structure, trimmed full beard and mustache, calm grounded expression, medium-tall broader build relative to Aachu"
+  },
+  "style_reference_images": [
+    "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+    "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+    "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 6,
+      "text": "She was still angry.",
+      "style": "warm hand-drawn desi storybook illustration",
+      "visual": "Wide three-quarter view of an ordinary lived-in Indian kitchen after a small fight. Aachu is alone, scrubbing one already-clean cup or counter spot too hard. The room is normal; her hand pressure is not. Controlled irritation only: shoulders stiff, lips pressed, brow pinched but not raging. Keep only essential kitchen evidence: sink edge, wet cloth, one cup, one spoon slightly out of place, warm ordinary kitchen light.",
+      "negative_prompt": "No softness yet, no forgiving expression, no tender sadness, no relaxed face, no hopeful doorway glance, no Zuv in this slide, no photorealism, no 3D, no quote-card, no moral text, no best-husband framing.",
+      "prompt": "Face identity contract: Aachu has long dark hair, expressive eyes and brows, warm fair-medium skin tone, soft oval/round face structure, fuller lips, playful dramatic energy under softness, smaller/petite presence relative to Zuv. Create the established @a.storyof.two soft hand-drawn desi storybook look using the attached identity dossier, selected identity images, and style references as actual visual inputs. Wide three-quarter view of an ordinary lived-in Indian kitchen after a small fight. Aachu is alone, scrubbing one already-clean cup or counter spot too hard. Controlled irritation only: shoulders stiff, lips pressed, brow pinched but not raging. The room is normal; her hand pressure is not. Keep only essential kitchen evidence: sink edge, wet cloth, one cup, one spoon slightly out of place, warm ordinary kitchen light. Render exact tiny handwritten text: 'She was still angry.' Add tiny low-contrast handwritten '@a.storyof.two' at bottom-right."
+    },
+    {
+      "slide": 2,
+      "slide_count": 6,
+      "text": "Aayega toh maaf kar dungi.",
+      "style": "warm hand-drawn desi storybook illustration",
+      "visual": "Close/medium kitchen detail. Aachu pauses mid-cleaning with the thought bubble. Her face softens slightly compared with slide 1: brow less sharp, eyes tired and vulnerable, mouth unclenched. The tension remains only in her hand: fingers gripping the cloth or cup too tightly, cloth bunched, tiny pressure around the knuckles.",
+      "negative_prompt": "Do not make her look angrier than slide 1. No hard glare, no clenched jaw, no severe brow, no dramatic dark close-up, no photorealism, no 3D, no quote-card, no moral text, no best-husband framing.",
+      "prompt": "Face identity contract: preserve Aachu from the attached identity inputs: long dark hair, expressive eyes and brows, warm fair-medium skin tone, soft oval/round face structure, fuller lips, playful dramatic energy under softness. Create the established @a.storyof.two soft hand-drawn desi storybook look using the attached identity dossier, selected identity images, and style references as actual visual inputs. Close/medium kitchen detail. Aachu pauses mid-cleaning with the thought bubble. Her face softens slightly compared with slide 1: brow less sharp, eyes tired and vulnerable, mouth unclenched. The tension remains only in her hand: fingers gripping the cloth or cup too tightly, cloth bunched, tiny pressure around the knuckles. Render exact small handwritten thought bubble: 'Aayega toh maaf kar dungi.' Add tiny low-contrast handwritten '@a.storyof.two' at bottom-right."
+    },
+    {
+      "slide": 3,
+      "slide_count": 6,
+      "text": "",
+      "style": "warm hand-drawn desi storybook illustration",
+      "visual": "Medium close kitchen shot focused on Aachu's hands and the counter. Without realizing it, she sets Zuv's cup/glass/chai space ready. Her face is still guarded and slightly annoyed, but her hand places the cup carefully and almost gently. No thought bubble.",
+      "negative_prompt": "No thought bubble, no It's okay text, no Koi baat nahi text, no fully peaceful expression, no Zuv yet, no photorealism, no 3D, no quote-card, no moral text, no best-husband framing.",
+      "prompt": "Face identity contract: preserve Aachu from the attached identity inputs: long dark hair, expressive eyes and brows, warm fair-medium skin tone, soft oval/round face structure, fuller lips, playful dramatic energy under softness. Create the established @a.storyof.two soft hand-drawn desi storybook look using the attached identity dossier, selected identity images, and style references as actual visual inputs. Medium close kitchen shot focused on Aachu's hands and the counter. Without realizing it, she sets Zuv's cup/glass/chai space ready. Her face is still guarded and slightly annoyed, but her hand places the cup carefully and almost gently. Keep the cup visually memorable. No thought bubble and no story text, only tiny low-contrast handwritten '@a.storyof.two' at bottom-right."
+    },
+    {
+      "slide": 4,
+      "slide_count": 6,
+      "text": "",
+      "style": "warm hand-drawn desi storybook illustration",
+      "visual": "Deep doorway composition. Aachu is foreground near the prepared cup/glass; her hand freezes mid-air with the cloth. Zuv has just entered at the kitchen doorway in the background, one foot at the threshold, normal and unaware. The prepared cup remains visible on the counter.",
+      "negative_prompt": "No dialogue, no thought bubble, no smiley romantic entrance, no hero pose, no photorealism, no 3D, no quote-card, no moral text, no best-husband framing.",
+      "prompt": "Face identity contract: preserve Aachu and Zuv from the attached identity inputs. Aachu: long dark hair, expressive brows, warm fair-medium skin, soft oval/round face. Zuv: dark wavy hair with visible volume, thick brows, warm brown skin, trimmed full beard and mustache, calm grounded posture. Create the established @a.storyof.two soft hand-drawn desi storybook look using the attached identity dossier, selected identity images, and style references as actual visual inputs. Deep doorway composition. Aachu is foreground near the prepared cup/glass; her hand freezes mid-air with the cloth. Zuv has just entered at the kitchen doorway in the background, one foot at the threshold, normal and unaware. The prepared cup remains visible on the counter. No dialogue or thought bubble. Add tiny low-contrast handwritten '@a.storyof.two' at bottom-right."
+    },
+    {
+      "slide": 5,
+      "slide_count": 6,
+      "text": "AB AAYE HO?",
+      "style": "warm hand-drawn desi storybook illustration",
+      "visual": "Compact dramatic two-shot. Aachu turns quickly toward the doorway with the kitchen cloth still in hand and shouts. Zuv freezes at the doorway with keys or a small bag still in hand, surprised like a normal human. The prepared cup is partly visible but not foregrounded yet.",
+      "negative_prompt": "No cruel angry-wife stereotype, no scared-husband humiliation, no violence, no moral, no best-husband framing, no best-wife framing, no photorealism, no 3D, no quote-card.",
+      "prompt": "Face identity contract: preserve Aachu and Zuv from the attached identity inputs. Aachu: long dark hair, expressive brows, warm fair-medium skin, soft oval/round face, playful dramatic energy. Zuv: dark wavy hair, thick brows, warm brown skin, trimmed beard and mustache, grounded posture. Create the established @a.storyof.two soft hand-drawn desi storybook look using the attached identity dossier, selected identity images, and style references as actual visual inputs. Compact dramatic kitchen two-shot. Aachu turns quickly toward the doorway with the kitchen cloth still in hand and shouts, expressive and theatrical but not cruel. Zuv freezes at the doorway with keys or a small bag still in hand, surprised like a normal human, not humiliated. The prepared cup is partly visible but not foregrounded yet. Render exact speech bubble: 'AB AAYE HO?' Add tiny low-contrast handwritten '@a.storyof.two' at bottom-right."
+    },
+    {
+      "slide": 6,
+      "slide_count": 6,
+      "text": "Cup ready tha.",
+      "style": "warm hand-drawn desi storybook illustration",
+      "visual": "Aftermath freeze. The cup/glass already waiting for Zuv is in the foreground. Zuv notices it and pauses in quiet understanding. Aachu looks away, still annoyed, still holding the cloth, exposed by her own care.",
+      "negative_prompt": "No It's okay text, no thought bubble, no apology speech, no moral, no smug smile, no romantic hug, no best-husband framing, no photorealism, no 3D, no quote-card.",
+      "prompt": "Face identity contract: preserve Aachu and Zuv from the attached identity inputs. Aachu: long dark hair, expressive brows, warm fair-medium skin, soft oval/round face, playful dramatic energy. Zuv: dark wavy hair, thick brows, warm brown skin, trimmed beard and mustache, grounded posture. Create the established @a.storyof.two soft hand-drawn desi storybook look using the attached identity dossier, selected identity images, and style references as actual visual inputs. Aftermath freeze in the kitchen. The cup/glass already waiting for Zuv is in the foreground. Zuv notices it and pauses in quiet understanding. Aachu looks away, still annoyed, still holding the cloth, exposed by her own care. Keep it silent, daily, and human. Render exact tiny handwritten reveal text: 'Cup ready tha.' Add tiny low-contrast handwritten '@a.storyof.two' at bottom-right."
+    }
+  ]
+}

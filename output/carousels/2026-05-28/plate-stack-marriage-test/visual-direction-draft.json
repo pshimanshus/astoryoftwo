@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.1",
+  "status": "REPAIRED_FOR_PROOF",
+  "selected_visual_system": "Silent Plate Ping-Pong",
+  "why_it_wins": "It makes the plate travel carry the whole story: table -> almost kitchen -> paused idea -> silently across to her -> deadpan pause -> stacked back to him -> kitchen.",
+  "core_rule": "Storyboard first. Text belongs only as context, thought bubble, speech bubble, or deliberate silence inside the scene.",
+  "visual_system_candidates": [
+    {
+      "name": "Silent Plate Ping-Pong",
+      "score": 30,
+      "case_for": "Best preserves ordinary daily human behavior. The plate movement is the story.",
+      "risk": "Needs precise expressions, hands, phone, and plate staging."
+    },
+    {
+      "name": "Kitchen Is Too Far",
+      "score": 27,
+      "case_for": "Strong lazy-human setup.",
+      "risk": "Can become a one-note distance gag."
+    },
+    {
+      "name": "Dinner Table Standoff",
+      "score": 24,
+      "case_for": "Clear face-off.",
+      "risk": "Can feel like conflict or chore debate."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "text-led story narration",
+    "direct asking bubble",
+    "old reply-only beat",
+    "best husband ending",
+    "wife scolding",
+    "romantic dinner poster",
+    "chore fairness lecture",
+    "servant / boss framing",
+    "one static angle for all slides",
+    "Korean/webtoon/glossy AI faces"
+  ],
+  "camera_plan": [
+    "Scene 1: wide table",
+    "Scene 2: medium empty plate/kitchen distance",
+    "Scene 3: tight pause from kitchen to her plate",
+    "Scene 4: table-level silent plate handoff",
+    "Scene 5: close deadpan pause",
+    "Scene 6: close stacked plates plus phone reach",
+    "Scene 7: wide kitchen walk"
+  ],
+  "aspect_plan": {
+    "instagram_post_4x5": "Keep hands, plates, phone, and faces readable; reduce excess vertical/table space.",
+    "reels_stories_9x16": "Use vertical room depth: table foreground, kitchen background, standing/walking action on slide 7.",
+    "text": "Use small integrated handwritten text cues; never large quote-card captions."
+  },
+  "tiny_copy_layer": [
+    {
+      "slide": 1,
+      "text": "When you're finally married...",
+      "job": "hook"
+    },
+    {
+      "slide": 2,
+      "text": "rakh deta hoon.",
+      "job": "first normal thought"
+    },
+    {
+      "slide": 3,
+      "text": "wait...",
+      "job": "mental turn"
+    },
+    {
+      "slide": 4,
+      "text": "",
+      "job": "silent handoff"
+    },
+    {
+      "slide": 5,
+      "text": "",
+      "job": "silent deadpan"
+    },
+    {
+      "slide": 6,
+      "text": "dono rakh do.",
+      "job": "plate-stack reveal"
+    },
+    {
+      "slide": 7,
+      "text": "",
+      "job": "silent consequence"
+    }
+  ],
+  "identity_reference_requirement": {
+    "primary": "identity_images/aachu_zuv.png",
+    "contact_sheet": "identity_images/_identity_dossier/identity-face-contact-sheet.jpg",
+    "rule": "Final proof and final slides must use the identity reference as actual visual input before any image is judged."
+  },
+  "proof_requirement": "Generate slide 6 as native 4:5 first, using v5 for story action and v4/Main Kar Lungi for style/aspect."
+}

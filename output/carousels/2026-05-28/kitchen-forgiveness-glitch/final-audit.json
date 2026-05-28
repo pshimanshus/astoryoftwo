@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "status": "NEEDS_FINAL_GENERATION",
+  "checks": {
+    "visual_storyboard_exists": "PASS",
+    "copy_is_minimal": "PASS_DRAFT",
+    "style_contract_referenced": "PASS",
+    "identity_bundle_selected": "PASS_DRAFT",
+    "native_4x5_images_exist": "FAIL_NOT_GENERATED",
+    "native_9x16_images_exist": "FAIL_NOT_GENERATED",
+    "visual_qa_complete": "FAIL_PENDING_GENERATION"
+  },
+  "decision": "NOT_FINAL"
+}

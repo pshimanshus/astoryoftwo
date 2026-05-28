@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "source_story": {
+    "supplied_by_creator": true,
+    "summary": "After a fight, she is in the kitchen doing chores and internally rehearsing forgiveness. She thinks she will forgive him when he comes. He enters. Her real reaction is a shout.",
+    "core_scene": "Kitchen chores, inner forgiveness, doorway entry, dramatic face switch, shouted reaction.",
+    "must_preserve": [
+      "daily human behavior",
+      "visual timing",
+      "thought bubble versus real face contradiction",
+      "ordinary kitchen setting",
+      "very little on-slide text"
+    ]
+  },
+  "memory_constraints": [
+    "Do not turn this into best-husband or best-wife praise.",
+    "Do not turn the scene into a relationship lesson, green-flag post, or soft-love thesis.",
+    "Do not tell the story with caption lines first.",
+    "Use the project-wide baseline: story conveyed through carousel scene cuts.",
+    "For this concept, slide 4 and slide 5 need drama through visuals, not more text."
+  ],
+  "style_memory": {
+    "style_contract": "config/carousel_style_contract.json",
+    "style_reference_images": [
+      "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+      "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+      "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+    ],
+    "identity_candidate": "identity_images/aachu_zuv.png"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_29_30_EXECUTION",
+  "scorecard": {
+    "visual_first_baseline": 10,
+    "daily_human_truth": 10,
+    "scene_cut_storytelling": 10,
+    "copy_restraint": 10,
+    "drama_on_slide_4_5": 10,
+    "visual_payoff": 10,
+    "original_style_fit": 9,
+    "anti_moralizing": 10,
+    "viral_hook_spine": 29
+  },
+  "decision": "GO_FOR_STANDARD_IDENTITY_BASED_GENERATION_HANDOFF",
+  "remaining_work": [
+    "Generate proof slide using actual identity and style references.",
+    "Reject any proof that looks generic, cinematic, or non-house-style.",
+    "Generate native 4:5 and native 9:16 outputs separately with actual identity/style references.",
+    "Visual QA and final audit run after generation."
+  ]
+}

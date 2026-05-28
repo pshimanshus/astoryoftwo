@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.1",
+  "status": "PROOF_READY_FOR_CREATOR_APPROVAL",
+  "current_proof": {
+    "version": 6,
+    "file": "proof/slide-06-proof-v6-agentic-4x5.png",
+    "decision": "AGENTIC_PROOF_PASS_PENDING_CREATOR_APPROVAL",
+    "dimensions": {
+      "width": 1122,
+      "height": 1402,
+      "aspect": 0.8003
+    },
+    "passes": [
+      "Native 4:5 aspect is correct.",
+      "Corrected story beat is visible: Aachu stacks her plate onto Zuv's plate and returns the stack to him.",
+      "Aachu phone beat is visible.",
+      "Exact visible text is `dono rakh do.`",
+      "Identity/style direction stays close to the accepted Main Kar Lungi zone.",
+      "Spacing is tighter and less tall than proof v5."
+    ],
+    "watchouts_before_full_batch": [
+      "Keep the same identity lock on every slide.",
+      "Preserve room/table/kitchen/phone continuity.",
+      "Do not allow the direct ask/reply beat to return.",
+      "Generate 4:5 and 9:16 as separate native images, not crops."
+    ]
+  },
+  "proofs": [
+    {
+      "version": 1,
+      "file": "rejected-proofs/slide-06-proof-v1-rejected.png",
+      "decision": "REJECTED",
+      "reason": "Generic glossy/webtoon face drift, heavy black outfits, extra unapproved sound-effect text, not close enough to Main Kar Lungi house style."
+    },
+    {
+      "version": 2,
+      "file": "proof/slide-06-proof-v2.png",
+      "decision": "REJECTED_IDENTITY_GATE",
+      "reason": "Closer style, but Aachu/Zuv still read as model-invented illustrated faces rather than locked likeness."
+    },
+    {
+      "version": 3,
+      "file": "proof/slide-06-proof-v3-identity-first.png",
+      "decision": "REJECTED_PRODUCTION",
+      "reason": "Better identity direction, but the source aspect was too tall and text followed the old reply beat."
+    },
+    {
+      "version": 4,
+      "file": "proof/slide-06-proof-v4-identity-4x5.png",
+      "decision": "IDENTITY_STYLE_PASS_BUT_STORY_INVALIDATED",
+      "passes": [
+        "Identity direction is much closer to Aachu/Zuv.",
+        "Main Kar Lungi hand-drawn paper style is much closer.",
+        "4:5 source aspect is correct."
+      ],
+      "reason_invalidated": "Creator corrected the story after this proof. Repaired slide 6 needs Aachu stacking her plate on his, saying `dono rakh do.`, and moving to her phone."
+    },
+    {
+      "version": 5,
+      "file": "proof/slide-06-proof-v5-story-repair.png",
+      "decision": "STORY_PROGRESSION_PASS_ASPECT_REPAIR_REQUIRED",
+      "passes": [
+        "Corrected progression is visible.",
+        "Aachu's phone beat is visible.",
+        "The line is now `dono rakh do.`.",
+        "Identity/style direction remains close to the improved proof-v4 zone."
+      ],
+      "repairs_before_final": [
+        "Native 4:5 framing was still required; this source was too tall.",
+        "Reduce excess vertical/table space."
+      ]
+    },
+    {
+      "version": 6,
+      "file": "proof/slide-06-proof-v6-agentic-4x5.png",
+      "decision": "AGENTIC_PROOF_PASS_PENDING_CREATOR_APPROVAL",
+      "passes": [
+        "Native 4:5 aspect.",
+        "Corrected plate-stack story.",
+        "Phone beat.",
+        "Identity/style close.",
+        "Tighter spacing."
+      ]
+    }
+  ],
+  "invalidated_batch_sources": [
+    "proof/slide-01-final-source-4x5.png",
+    "proof/slide-02-final-source-4x5.png",
+    "proof/slide-03-final-source-4x5.png",
+    "proof/slide-04-final-source-4x5.png",
+    "proof/slide-05-final-source-4x5.png",
+    "proof/slide-06-final-source-4x5.png",
+    "proof/slide-07-final-source-4x5.png",
+    "proof/slide-01-final-source-9x16.png",
+    "proof/slide-02-final-source-9x16.png"
+  ],
+  "next_step": "Creator approval of proof v6, then generate the full native 4:5 and separate native 9:16 sets."
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "issues": [],
+  "identity_dossier_reference_images": [
+    {
+      "path": "identity_images/_identity_dossier/identity-face-contact-sheet.jpg",
+      "role": "required contact sheet to verify option IDs and face structure before generation"
+    }
+  ],
+  "selected_identity_bundle": [
+    {
+      "option_id": "ID36",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+      "role": "Aachu face, hair, posture, and playful expressive presence"
+    },
+    {
+      "option_id": "ID37",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+      "role": "Aachu smile/face shape and side-body posture anchor"
+    },
+    {
+      "option_id": "ID39",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+      "role": "Zuv face, hair, brows, build, and grounded standing posture"
+    },
+    {
+      "option_id": "ID44",
+      "path": "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "role": "Aachu/Zuv close relationship-energy and face-structure anchor"
+    }
+  ],
+  "style_reference_bundle": [
+    {
+      "path": "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+      "role": "original warm storybook illustration / expressive Aachu reference"
+    },
+    {
+      "path": "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+      "role": "daily home/relationship action reference"
+    },
+    {
+      "path": "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+      "role": "thought-bubble / expressive face reference"
+    }
+  ],
+  "identity_locks": [
+    "Aachu must keep long dark hair, expressive eyes and brows, warm fair-medium skin, soft oval/round face, fuller lips, and playful dramatic energy.",
+    "Zuv must keep dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed full beard and mustache, and grounded posture.",
+    "Use ordinary home/kitchen clothes, not wedding clothes.",
+    "Do not accept generic stock Indian couple faces.",
+    "The prepared cup/glass is story evidence; it must not replace identity as the visual priority."
+  ],
+  "generation_note": "Final image generation must use the identity face contact sheet and selected identity images as actual visual inputs, not text-only identity descriptions."
+}

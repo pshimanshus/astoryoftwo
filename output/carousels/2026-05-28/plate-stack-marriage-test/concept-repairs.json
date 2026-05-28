@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "status": "COMPLETE_REPAIRED_AFTER_CREATOR_CORRECTION",
+  "repairs": [
+    {
+      "raw_risk": "The husband directly asks the wife to keep his plate.",
+      "repair": "Remove the ask. He silently/casually hands or slides his plate over because she is also done."
+    },
+    {
+      "raw_risk": "The wife replies yes and the scene becomes a wife-service setup.",
+      "repair": "Aachu stacks her own plate on his and says `dono rakh do.` The reversal is visual and equal."
+    },
+    {
+      "raw_risk": "The ending praises him for taking both plates.",
+      "repair": "End on the normal consequence: he carries both plates; she is already on her phone. No praise, no thesis."
+    },
+    {
+      "raw_risk": "The scene becomes a chore fairness lecture.",
+      "repair": "Keep every slide scene-first and low-text. The plate stack does the argument."
+    },
+    {
+      "raw_risk": "Generated art drifts into glossy AI, Korean/webtoon, or generic couple faces.",
+      "repair": "Use identity_images/aachu_zuv.png before everything and match the Main Kar Lungi hand-drawn house style."
+    }
+  ],
+  "approved_direction_after_repair": "Normal domestic banter: two comfortable people, one tiny lazy move, one cleaner counter-move, no sermon."
+}

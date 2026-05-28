@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.1",
+  "status": "FINAL_FOR_PROOF_HANDOFF",
+  "generation_mode": "codex_builtin_proof_first",
+  "proof_gate": "Generate slide 6 first as a native 4:5 proof. Full batch is blocked until this proof passes identity, story, exact text, style, native aspect, and spacing.",
+  "shared_style_prompt": "Warm hand-drawn desi storybook illustration using the attached photo/reference images, off-white paper, imperfect black linework, matte muted colors, natural Indian faces with smaller realistic eyes, ordinary lived-in home, daily body language, tiny integrated handwritten text only when specified, tiny bottom-right @a.storyof.two brandmark.",
+  "shared_negative_prompt": "No photorealism, no 3D, no glossy AI look, no stock couple, no quote-card, no generic romance dinner, no fake clever caption text, no best-husband framing, no best-wife framing, no green flag, no chore lecture, no wife-servant or boss-wife staging, no anger, no humiliation, no Korean webtoon, no anime eyes, no generic faces, no extra words.",
+  "identity_dossier_path": "output/carousels/2026-05-28/plate-stack-marriage-test/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-28/plate-stack-marriage-test/identity-generation-preflight.md",
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-28/plate-stack-marriage-test/identity-face-contact-sheet.jpg"
+  ],
+  "identity_reference_images": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "style_reference_images": [
+    "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+    "output/carousels/2026-05-28/plate-stack-marriage-test/proof/slide-06-proof-v4-identity-4x5.png"
+  ],
+  "story_reference_images": [
+    "output/carousels/2026-05-28/plate-stack-marriage-test/proof/slide-06-proof-v5-story-repair.png"
+  ],
+  "identity_reference_strategy": "Identity match comes before every other image check. Use identity_images/aachu_zuv.png as actual visual reference for face structure, hair, body proportions, posture, and relationship energy.",
+  "face_identity_contract": {
+    "Aachu": {
+      "non_negotiable": [
+        "long dark hair with soft volume",
+        "expressive warm Indian face",
+        "natural smaller eyes",
+        "soft face structure",
+        "slim/petite proportions"
+      ],
+      "expression_range": [
+        "ordinary dinner face",
+        "subtle deadpan",
+        "calm phone-returning normalcy"
+      ]
+    },
+    "Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "light beard/stubble",
+        "warm rounded Indian face",
+        "grounded broad posture"
+      ],
+      "expression_range": [
+        "basic after-dinner laziness",
+        "tiny idea forming",
+        "lightly outplayed but not humiliated"
+      ]
+    }
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 7,
+      "text": "When you're finally married...",
+      "visual": "Wide home dinner table after dinner. Aachu and Zuv are eating normally, both plates nearly done, kitchen doorway visible in the background. Ordinary lived-in home, no romantic dinner glamour.",
+      "style": "Warm hand-drawn desi storybook using attached photo/reference images, off-white paper, loose imperfect black linework, muted matte colors, natural Indian faces, Main Kar Lungi house style.",
+      "negative_prompt": "No photorealism, no 3D, no glossy AI, no stock couple, no quote-card, no extra text, no Korean webtoon, no anime eyes.",
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide. Slide 1 of 7. Exact text: `When you're finally married...` as a small handwritten context line inside the scene. Scene: wide home dinner table after dinner; Aachu and Zuv are eating normally; both plates are nearly done; kitchen doorway visible in the background. Identity continuity lock: use identity_images/aachu_zuv.png as actual visual reference; preserve Aachu's long dark hair and expressive warm Indian face; preserve Zuv's dark wavy hair, beard/stubble, warm rounded Indian face, and grounded posture. Style: match Main Kar Lungi hand-drawn desi storybook warm paper, imperfect linework, muted matte color. Add tiny @a.storyof.two bottom-right. No other words."
+    },
+    {
+      "slide": 2,
+      "slide_count": 7,
+      "text": "rakh deta hoon.",
+      "visual": "Medium shot from Zuv's side. Zuv is done, touching or lifting his empty plate, looking toward the kitchen. Aachu's plate is also visibly nearly done or done.",
+      "style": "Warm hand-drawn desi storybook using attached photo/reference images, off-white paper, loose imperfect black linework, muted matte colors, natural Indian faces, Main Kar Lungi house style.",
+      "negative_prompt": "No photorealism, no 3D, no glossy AI, no stock couple, no quote-card, no extra text, no Korean webtoon, no anime eyes.",
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide. Slide 2 of 7. Exact text: `rakh deta hoon.` as a tiny thought bubble near Zuv. Scene: medium shot from Zuv's side; Zuv is done, hand on or lifting his empty plate, looking once toward the kitchen; Aachu's plate is also visibly nearly done or done. His face says normal after-dinner laziness, not heroism. Identity continuity lock: preserve the same Aachu/Zuv face structure, hair, proportions, and home outfits from identity_images/aachu_zuv.png. Style: Main Kar Lungi hand-drawn warm paper, imperfect linework, muted color. Add tiny @a.storyof.two bottom-right. No other words."
+    },
+    {
+      "slide": 3,
+      "slide_count": 7,
+      "text": "wait...",
+      "visual": "Tight comic pause. Zuv stops halfway with his plate in hand; his eyes move from kitchen to Aachu's finished plate. No lightbulb, no exaggerated clever face.",
+      "style": "Warm hand-drawn desi storybook using attached photo/reference images, off-white paper, loose imperfect black linework, muted matte colors, natural Indian faces, Main Kar Lungi house style.",
+      "negative_prompt": "No photorealism, no 3D, no glossy AI, no stock couple, no quote-card, no extra text, no Korean webtoon, no anime eyes, no lightbulb icon.",
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide. Slide 3 of 7. Exact text: `wait...` as a tiny thought beat near Zuv. Scene: tight comic pause; Zuv stops halfway between getting up and staying seated, his plate in hand; his eyes move from the kitchen to Aachu's finished plate nearby. No lightbulb or big idea icon. Identity continuity lock: preserve Zuv's dark wavy hair, beard/stubble, warm rounded face, and Aachu's long-hair silhouette from identity_images/aachu_zuv.png. Style: Main Kar Lungi hand-drawn warm paper, imperfect linework, muted color. Add tiny @a.storyof.two bottom-right. No other words."
+    },
+    {
+      "slide": 4,
+      "slide_count": 7,
+      "text": "",
+      "visual": "Table-level shot across hands and plates. Zuv silently and casually slides/hands his empty plate toward Aachu. Her own empty plate is beside her and her phone is near her hand.",
+      "style": "Warm hand-drawn desi storybook using attached photo/reference images, off-white paper, loose imperfect black linework, muted matte colors, natural Indian faces, Main Kar Lungi house style.",
+      "negative_prompt": "No photorealism, no 3D, no glossy AI, no stock couple, no quote-card, no text, no speech bubble, no Korean webtoon, no anime eyes.",
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide. Slide 4 of 7. No on-screen text except tiny @a.storyof.two brandmark. Scene: table-level shot across hands and plates; Zuv silently and casually slides or hands his empty plate toward Aachu like a normal handover; her own empty plate is beside her; phone near her hand. He does not ask anything. Identity continuity lock: preserve Aachu/Zuv likeness from identity_images/aachu_zuv.png, especially Aachu's long dark hair and Zuv's hair/beard/face shape. Style: Main Kar Lungi hand-drawn warm paper, imperfect linework, muted color. No speech bubble, no old ask line, no other words."
+    },
+    {
+      "slide": 5,
+      "slide_count": 7,
+      "text": "",
+      "visual": "Close two-shot. Aachu has his plate near or in her hands, her own empty plate beside it, phone nearby. She looks at his plate and then at him with a subtle deadpan stare.",
+      "style": "Warm hand-drawn desi storybook using attached photo/reference images, off-white paper, loose imperfect black linework, muted matte colors, natural Indian faces, Main Kar Lungi house style.",
+      "negative_prompt": "No photorealism, no 3D, no glossy AI, no stock couple, no quote-card, no text, no anger, no boss-wife, no Korean webtoon, no anime eyes.",
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide. Slide 5 of 7. No on-screen text except tiny @a.storyof.two brandmark. Scene: close two-shot; Aachu has Zuv's plate near or in her hands, her own empty plate beside it, phone nearby; she looks at his plate and then at him with a quiet flat married-life stare. She is not angry or scolding. Identity continuity lock: Aachu must match identity_images/aachu_zuv.png, with long dark hair, expressive warm Indian face, and subtle deadpan expression; Zuv remains the same bearded face. Style: Main Kar Lungi hand-drawn warm paper. No other words."
+    },
+    {
+      "slide": 6,
+      "slide_count": 7,
+      "text": "dono rakh do.",
+      "visual": "Native 4:5 proof gate. Close-up on hands and stacked plates with both faces partly visible. Aachu stacks her own plate on top of his plate and gives/pushes the stack back into Zuv's hands while one hand reaches toward or returns to her phone. Zuv looks lightly outplayed.",
+      "style": "Warm hand-drawn desi storybook using attached photo/reference images, off-white paper, loose imperfect black linework, muted matte colors, natural Indian faces, Main Kar Lungi house style. Use proof v4 for 4:5 aspect/style and proof v5 only for corrected story action.",
+      "negative_prompt": "No photorealism, no 3D, no glossy AI, no stock couple, no quote-card, no extra text, no obsolete reply word, no old ask, no clink text, no Korean webtoon, no anime eyes, no tall 9:16 canvas.",
+      "prompt": "Use case: illustration-story. Asset type: complete publishable Instagram carousel proof slide. Slide 6 of 7. Exact text: `dono rakh do.` as one tiny handwritten speech bubble near Aachu. Scene: close-up on hands and stacked plates with both faces partly visible; Aachu calmly stacks her own plate on top of Zuv's plate and gives or pushes the stack back into Zuv's hands while one hand reaches toward or returns to her phone; Zuv looks lightly outplayed, not humiliated or heroic. Identity continuity lock: use identity_images/aachu_zuv.png as actual visual reference before everything; preserve Aachu's long dark hair, expressive warm Indian face, and Zuv's dark wavy hair, beard/stubble, warm rounded Indian face. Style: match Main Kar Lungi hand-drawn warm paper and proof v4's 4:5 spacing; use proof v5 only for corrected plate-stack/phone action. Add tiny @a.storyof.two bottom-right. No other words."
+    },
+    {
+      "slide": 7,
+      "slide_count": 7,
+      "text": "",
+      "visual": "Wide side or behind shot toward the kitchen. Zuv walks to the kitchen carrying both stacked plates. Aachu is already using her phone at the table like nothing happened.",
+      "style": "Warm hand-drawn desi storybook using attached photo/reference images, off-white paper, loose imperfect black linework, muted matte colors, natural Indian faces, Main Kar Lungi house style.",
+      "negative_prompt": "No photorealism, no 3D, no glossy AI, no stock couple, no quote-card, no text, no praise, no moral, no Korean webtoon, no anime eyes.",
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide. Slide 7 of 7. No on-screen text except tiny @a.storyof.two brandmark. Scene: wide side or behind shot toward the kitchen; Zuv walks to the kitchen carrying both stacked plates, mildly defeated and a little amused; Aachu is already using her phone at the table like nothing happened. Identity continuity lock: preserve the same Aachu/Zuv faces and body proportions from identity_images/aachu_zuv.png; Zuv is not proud or heroic. Style: Main Kar Lungi hand-drawn warm paper, imperfect linework, muted color. No moral, no praise line, no other words."
+    }
+  ]
+}

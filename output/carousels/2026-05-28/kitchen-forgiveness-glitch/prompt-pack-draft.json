@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "status": "SUPERSEDED_BY_REPAIRED_PROMPT_PACK",
+  "generation_use": "Superseded after rejected proof audit. Use prompt-pack.json repaired prompts.",
+  "shared_style_prompt": "Create a complete publishable @a.storyof.two carousel slide in the established Aachu/Zuv illustrated look: soft hand-drawn flat vector warmth with desi storybook texture, warm off-white paper, imperfect black outlines, slightly uneven strokes, matte muted colors, expressive recurring Aachu/Zuv faces, ordinary lived-in Indian home kitchen, natural daily body language, generous breathing room, tiny innocent micro-elements only when they support timing, and tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right. Preserve the original accepted illustration guidelines and style references. This is a scene-cut storybook sequence, not a quote card.",
+  "shared_negative_prompt": "No photorealism, no 3D render, no glossy AI look, no stock Indian couple, no generic romantic kitchen poster, no quote-card design, no over-decorated background, no best-husband framing, no best-wife framing, no green flag, no relationship-advice moral, no therapy-caption energy, no cruel angry-wife stereotype, no scared-husband humiliation, no chore lecture, no text-heavy panels.",
+  "identity_reference_images": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "style_reference_images": [
+    "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+    "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
+    "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png"
+  ],
+  "instagram_post_4x5": [
+    {
+      "slide": 1,
+      "exact_text": "After the fight...",
+      "prompt": "4:5 Instagram post slide 1 of 6. Wide three-quarter view of an ordinary lived-in Indian kitchen after a small fight. Aachu is alone, wiping the counter or arranging dishes a little too firmly, shoulders slightly tight, face neutral. Show sink/counter/stove, one spoon slightly out of place, warm kitchen light, generous off-white negative space. Render exact tiny handwritten text: 'After the fight...' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 2,
+      "exact_text": "Aayega toh maaf kar dungi.",
+      "prompt": "4:5 Instagram post slide 2 of 6. Close-up on Aachu's hands and side profile in the kitchen. She wipes the same counter spot or rinses one cup with slightly unnecessary seriousness; face trying to become calm but fingers still tense. Add a small soft thought bubble with exact text: 'Aayega toh maaf kar dungi.' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 3,
+      "exact_text": "Koi baat nahi. It's okay.",
+      "prompt": "4:5 Instagram post slide 3 of 6. Medium close kitchen shot. Aachu exhales and folds the cloth too neatly or places a cup down softly. Her face almost softens but eyebrows remain guarded. Add one small thought bubble with exact text: 'Koi baat nahi. It's okay.' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 4,
+      "exact_text": "",
+      "prompt": "4:5 Instagram post slide 4 of 6. Dramatic doorway cut. Aachu is foreground in the kitchen, hand stopped mid-air with cloth or cup; Zuv has just entered at the kitchen doorway in the background, one foot at the threshold, normal and unaware. Add tiny visual sound cue from latch/spoon/cup clink with no readable word. No slide text except tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 5,
+      "exact_text": "AB AAYE HO?",
+      "prompt": "4:5 Instagram post slide 5 of 6. Full comic shouted scene. Aachu turns quickly toward the doorway with kitchen cloth or spatula still in hand, expressive and theatrical but not cruel. Zuv freezes at the doorway with keys or bag still in hand, surprised like a normal human, not humiliated. Add one speech bubble with exact text: 'AB AAYE HO?' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 6,
+      "exact_text": "It's okay.",
+      "prompt": "4:5 Instagram post slide 6 of 6. Aftermath freeze. Zuv remains at the kitchen doorway, still processing. Aachu is foreground with cloth/spatula in hand, mid-breath after shouting, annoyed but human. Behind her, place a tiny old thought bubble that says exact text: 'It's okay.' Keep the contradiction funny and silent. Add tiny bottom-right '@a.storyof.two'."
+    }
+  ],
+  "reels_stories_9x16": [
+    {
+      "slide": 1,
+      "exact_text": "After the fight...",
+      "prompt": "9:16 Reels/Stories slide 1 of 6. Use vertical kitchen depth: counter foreground, sink/stove middle, warm off-white space above. Aachu is doing chores too firmly after a fight. Render exact tiny handwritten text: 'After the fight...' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 2,
+      "exact_text": "Aayega toh maaf kar dungi.",
+      "prompt": "9:16 Reels/Stories slide 2 of 6. Vertical close-up: tense hands at counter in lower half, Aachu side profile above, small thought bubble in upper negative space. Exact thought bubble text: 'Aayega toh maaf kar dungi.' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 3,
+      "exact_text": "Koi baat nahi. It's okay.",
+      "prompt": "9:16 Reels/Stories slide 3 of 6. Vertical medium close shot: Aachu folds cloth too neatly and exhales. Use upper negative space for thought bubble with exact text: 'Koi baat nahi. It's okay.' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 4,
+      "exact_text": "",
+      "prompt": "9:16 Reels/Stories slide 4 of 6. Vertical doorway drama: Aachu foreground lower/middle with paused cloth; tall doorway in back shows Zuv entering with one foot over threshold. Tiny latch/spoon/cup clink visual cue only; no readable text except tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 5,
+      "exact_text": "AB AAYE HO?",
+      "prompt": "9:16 Reels/Stories slide 5 of 6. Vertical full shouted scene. Aachu foreground, expressive turn with kitchen prop; Zuv doorway background, frozen with keys/bag. Speech bubble must read exactly: 'AB AAYE HO?' Add tiny bottom-right '@a.storyof.two'."
+    },
+    {
+      "slide": 6,
+      "exact_text": "It's okay.",
+      "prompt": "9:16 Reels/Stories slide 6 of 6. Vertical aftermath freeze. Keep Aachu foreground and Zuv doorway background. Tiny old thought bubble behind Aachu reads exactly: 'It's okay.' No moral text. Add tiny bottom-right '@a.storyof.two'."
+    }
+  ]
+}

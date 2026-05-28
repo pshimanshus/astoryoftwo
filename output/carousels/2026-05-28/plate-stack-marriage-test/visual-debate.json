@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.1",
+  "status": "PASS_FOR_PROOF",
+  "decision": "GO_PROOF_FIRST",
+  "winner": "Storyboard-First Domestic Scene Cuts",
+  "visual_options": [
+    {
+      "name": "Storyboard-First Domestic Scene Cuts",
+      "score": 30,
+      "case_for": "The only option that keeps the story human and visual instead of forcing clever lines."
+    },
+    {
+      "name": "Plate Stack Meme Poster",
+      "score": 18,
+      "case_for": "Fast to understand.",
+      "rejected_because": "Would turn the moment into a punchline card and lose the daily-life acting."
+    },
+    {
+      "name": "Soft Married Dinner Romance",
+      "score": 15,
+      "case_for": "Pretty and easy to draw.",
+      "rejected_because": "Would repeat the failed soft-love poster problem and kill the joke."
+    }
+  ],
+  "selector_verdict": "Use the short-film sequence. Slide 6 is the proof gate because the whole reveal depends on the plate stack, phone beat, and `dono rakh do.` reading instantly.",
+  "final_visual_plan": [
+    "Slide 1: wide dinner setup; both almost done; kitchen visible.",
+    "Slide 2: Zuv done, hand on plate, normal kitchen instinct.",
+    "Slide 3: tiny pause as he notices Aachu's finished plate; no lightbulb.",
+    "Slide 4: silent casual handoff/slide of his plate toward Aachu; no speech.",
+    "Slide 5: Aachu registers it with his plate near her, her plate beside it, phone nearby.",
+    "Slide 6: Aachu stacks her plate on his, says `dono rakh do.`, reaches/returns to phone.",
+    "Slide 7: Zuv walks to kitchen with both plates; Aachu is already on phone."
+  ],
+  "aspect_plan": {
+    "instagram_post_4x5": "Native 4:5, tight enough that hands/plates/phone are readable; avoid v5's tall empty space.",
+    "reels_stories_9x16": "Generate separately with vertical room depth; do not crop from 4:5.",
+    "space_consistency": "Same table, same kitchen direction, same phone placement logic, same plate path across slides."
+  },
+  "hard_fails_checked": {
+    "text_leads_story": false,
+    "generic_romance": false,
+    "perfect_husband": false,
+    "wife_service": false,
+    "identity_optional": false,
+    "old_ask_reply_beat": false
+  },
+  "full_batch_blocker": "Full batch waits for a repaired slide 6 proof that passes identity, native 4:5 aspect, story, exact text, style, and spacing."
+}

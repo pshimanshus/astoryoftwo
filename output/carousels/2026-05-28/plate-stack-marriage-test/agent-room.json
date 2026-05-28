@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1",
+  "room_status": "GO_PROOF_FIRST_FULL_BATCH_BLOCKED",
+  "source_memory_used": [
+    "wiki/themes/calm-enough-for-chaos.md",
+    "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md",
+    "memory/semantic/carousel-idea-preferences.md",
+    "config/skills/romance-story-selling-engine.md",
+    "config/skills/golden-viral-carousel-theme.md",
+    "config/skills/carousel-story-director-persona.md",
+    "config/skills/carousel-jam-autopilot.md"
+  ],
+  "brief": "Repair the creator's plate handoff idea so it feels like daily married-life comedy. The handoff is silent and ordinary; Aachu stacks her plate on his, says `dono rakh do.`, then starts using her phone.",
+  "new_agentic_flow": {
+    "storyline_retention_agent": {
+      "agent_id": "019e6f0d-95f4-73d2-ad94-f9b0310d7237",
+      "verdict": "REPAIR_THEN_PROOF_FIRST",
+      "summary": "Corrected spine is dinner -> both done -> first instinct -> lazy shortcut -> silent handoff -> Aachu reads it -> plate stack -> phone -> kitchen walk."
+    },
+    "visual_identity_agent": {
+      "agent_id": "019e6f0d-d6f8-75b2-aec3-c31374421bd7",
+      "verdict": "GO_FOR_ONE_REPAIRED_PROOF_STOP_FULL_BATCH",
+      "summary": "Use v5 as story/action anchor, v4 and Main Kar Lungi as style/aspect anchors, and identity_images/aachu_zuv.png as actual identity reference before everything."
+    },
+    "prompt_packaging_qa_agent": {
+      "agent_id": "019e6f0e-06b1-7283-8f75-22ee53a9d508",
+      "verdict": "PENDING_AT_REPAIR_START",
+      "summary": "Packaging QA requested to check stale artifacts and script expectations before final batch."
+    }
+  },
+  "agents": [
+    {
+      "agent": "Storyline Architect",
+      "verdict": "GO",
+      "summary": "The story works only when the plate movement carries the joke. Zuv silently tries a tiny shortcut; Aachu silently upgrades it."
+    },
+    {
+      "agent": "Contrarian Critic",
+      "verdict": "GO_WITH_GUARDRAILS",
+      "summary": "Raw version can become sexist, chore-advice, or perfect-husband praise. Repair by keeping both characters lazy, quick, and comfortable."
+    },
+    {
+      "agent": "Retention Analyst",
+      "verdict": "GO",
+      "summary": "The open loop is `When you're finally married...`; the peak swipe is the plate stack plus phone move."
+    },
+    {
+      "agent": "Visual Director",
+      "verdict": "GO_PROOF_FIRST",
+      "summary": "One setting works only with changing shot scale and precise hand/plate blocking."
+    },
+    {
+      "agent": "Copy Chief",
+      "verdict": "GO",
+      "summary": "Keep only context, thought, tiny thought beat, and one speech bubble: `dono rakh do.`"
+    },
+    {
+      "agent": "Identity / Style Judge",
+      "verdict": "IDENTITY_FIRST",
+      "summary": "Aachu/Zuv likeness must pass before story, hook, text, or style are considered."
+    },
+    {
+      "agent": "Harsh Final Selector",
+      "verdict": "GO_PROOF_FIRST_FULL_BATCH_BLOCKED",
+      "summary": "Proceed with one repaired slide 6 proof. Full 4:5 and 9:16 batch remains blocked until that proof passes identity, native aspect, story, text, and space consistency."
+    }
+  ],
+  "hard_fails_checked": {
+    "old_direct_ask": false,
+    "best_husband_praise": false,
+    "wife_service_framing": false,
+    "chore_fairness_lecture": false,
+    "generic_couple_dynamic": false,
+    "identity_optional": false
+  }
+}

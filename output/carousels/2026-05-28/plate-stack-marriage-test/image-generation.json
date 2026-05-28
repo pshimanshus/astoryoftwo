@@ -1,0 +1,32 @@
+{
+  "status": "proof_ready_for_review",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 7,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "requires_creator_approval": true,
+  "reason": "Repaired slide 6 proof generated through the agentic proof-first flow. Full final generation is blocked until creator approves this proof direction.",
+  "proof": {
+    "slide": 6,
+    "copy": "dono rakh do.",
+    "file": "output/carousels/2026-05-28/plate-stack-marriage-test/proof/slide-06-proof-v6-agentic-4x5.png",
+    "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e6e44-b2a2-7a31-82ad-b349e2a04274/ig_04cd85353df86fbf016a1858664d8c8191a7644fdc903cb95c.png",
+    "source_dimensions": {
+      "width": 1122,
+      "height": 1402,
+      "aspect": 0.8003
+    },
+    "decision": "AGENTIC_PROOF_PASS_PENDING_CREATOR_APPROVAL"
+  },
+  "slides": [
+    {
+      "slide": 6,
+      "copy": "dono rakh do.",
+      "status": "proof_ready_for_review",
+      "file": "output/carousels/2026-05-28/plate-stack-marriage-test/proof/slide-06-proof-v6-agentic-4x5.png"
+    }
+  ],
+  "next_step": "After creator approval, prepare full handoff for all 7 slides in instagram_post and reels_stories formats, generate separate native sources, package with scripts/package_generated_carousel.py, then run visual QA/final audit."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "status": "REJECTED",
+  "proof_slide": 6,
+  "file": "rejected-proofs/slide-06-proof-v1-rejected.png",
+  "rejected_at": "2026-05-28",
+  "root_cause": "Prompt allowed the image model to satisfy the plate-stack event while drifting away from the approved @a.storyof.two house style and identity setup.",
+  "failures": [
+    "Faces drifted into glossy/webtoon-like generic characters instead of Aachu/Zuv identity.",
+    "Eyes and facial rendering became too large and gimmicky compared with the Main Kar Lungi house style.",
+    "Black home clothes and close-up comic rendering changed the current setup instead of preserving the softer hand-drawn look.",
+    "Extra sound-effect text appeared even though the approved tiny-copy layer allowed only one reply bubble on this slide.",
+    "The frame is too polished/comic-book close-up and not enough airy, soft, hand-drawn desi storybook."
+  ],
+  "repair_requirements": [
+    "Use `output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png` as the primary style reference.",
+    "Use `identity_images/aachu_zuv.png` as the primary identity reference.",
+    "No webtoon, anime, Korean-drama, glossy comic, or generic cute-couple face rendering.",
+    "No extra words, sound effects, or `clink` text.",
+    "Use softer linework, smaller natural eyes, airy paper, muted clothes closer to the identity/current setup."
+  ]
+}

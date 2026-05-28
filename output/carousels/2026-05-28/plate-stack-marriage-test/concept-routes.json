@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "status": "COMPLETE",
+  "selected_process_card": "Card 05 - Banter To Belonging",
+  "routes": [
+    {
+      "id": "R1",
+      "title": "The Plate Handoff Test",
+      "universal_truth": "Marriage does not remove tiny chores; it makes tiny chore negotiations funnier.",
+      "proof_beat": "He hands over his plate. She stacks hers on top.",
+      "partner_roles": "He tries the shortcut. She catches it and upgrades it. He accepts defeat and takes both plates.",
+      "story_selling_score": 29,
+      "golden_theme_score": 28.5,
+      "decision": "WINNER"
+    },
+    {
+      "id": "R2",
+      "title": "Two Lazy People, One Kitchen",
+      "universal_truth": "Some married couples are not divided into helpful and helpless; both are just trying not to get up.",
+      "proof_beat": "Each person tries to make the other carry the plates.",
+      "partner_roles": "Both negotiate through body language instead of speeches.",
+      "story_selling_score": 28.5,
+      "golden_theme_score": 28,
+      "decision": "RUNNER_UP"
+    },
+    {
+      "id": "R3",
+      "title": "Room Service Was Closed",
+      "universal_truth": "Newly married people secretly test what marriage privileges they now have.",
+      "proof_beat": "He offers his plate like room service exists; she returns a bigger order.",
+      "partner_roles": "She refuses servant framing through a comic reversal.",
+      "story_selling_score": 27,
+      "golden_theme_score": 26.5,
+      "decision": "REPAIR",
+      "repair_note": "Funny but too close to wife-as-service unless softened into mutual laziness."
+    },
+    {
+      "id": "R4",
+      "title": "The Silent Counterattack",
+      "universal_truth": "Some partners do not argue; they answer with better timing.",
+      "proof_beat": "She says nothing, just adds her plate.",
+      "partner_roles": "Her silence is the joke; his kitchen walk is the consequence.",
+      "story_selling_score": 28,
+      "golden_theme_score": 27.5,
+      "decision": "RUNNER_UP",
+      "repair_note": "Strong visual reversal, but alone it can become wife-wins/husband-loses instead of shared comfort."
+    },
+    {
+      "id": "R5",
+      "title": "He Got Promoted",
+      "universal_truth": "Marriage has promotions nobody applies for.",
+      "proof_beat": "He thinks he promoted himself; the plate stack promotes him to kitchen department.",
+      "partner_roles": "He starts smug, she stays deadpan, he becomes lightly defeated.",
+      "story_selling_score": 28,
+      "golden_theme_score": 27,
+      "decision": "REPAIR",
+      "repair_note": "Keep 'promoted' as a caption spice, not the whole slide spine."
+    },
+    {
+      "id": "R6",
+      "title": "Wife Privileges Expired Immediately",
+      "universal_truth": "Some marriage assumptions last exactly one second.",
+      "proof_beat": "He tries to use wife privilege; she cancels it instantly.",
+      "partner_roles": "She restores equality through comedy.",
+      "story_selling_score": 26,
+      "golden_theme_score": 25,
+      "decision": "REJECT",
+      "repair_note": "Too risky and too phrase-dependent; can sound like endorsing wife service before the reversal lands."
+    },
+    {
+      "id": "R7",
+      "title": "Shared Plate Duty",
+      "universal_truth": "The smallest tasks reveal the real rhythm of a home.",
+      "proof_beat": "Two dinner plates become the night's negotiation.",
+      "partner_roles": "Both partners participate without speeches.",
+      "story_selling_score": 25.5,
+      "golden_theme_score": 24,
+      "decision": "REJECT",
+      "repair_note": "Too close to chore fairness content and not funny enough."
+    },
+    {
+      "id": "R8",
+      "title": "The Kitchen Was Far",
+      "universal_truth": "After dinner, the kitchen somehow becomes the farthest place in the house.",
+      "proof_beat": "He looks at the kitchen, looks at wife, tries the handoff.",
+      "partner_roles": "Both understand the lazy math immediately.",
+      "story_selling_score": 28,
+      "golden_theme_score": 28,
+      "decision": "RUNNER_UP"
+    }
+  ],
+  "selector_verdict": "Select R1 because it preserves the creator's original scene, has the clearest physical reversal, avoids perfect-husband praise, and gives viewers an immediate 'this is us after dinner' send reason.",
+  "excluded_memory_lanes": [
+    "perfect-husband/caretaker framing",
+    "food denial / best bite repeat",
+    "50-50 chore lecture",
+    "same-old Aachu chaos -> Zuv handler pattern"
+  ]
+}

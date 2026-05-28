@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.1",
+  "agent": "C3.5-IdentityConsistency",
+  "status": "PASS",
+  "decision": "IDENTITY_MATCH_BEFORE_EVERYTHING",
+  "primary_identity_reference": "identity_images/aachu_zuv.png",
+  "identity_contact_sheet": "identity_images/_identity_dossier/identity-face-contact-sheet.jpg",
+  "style_anchor": "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
+  "reference_observed": {
+    "aachu": [
+      "long dark hair with soft volume",
+      "expressive warm Indian face",
+      "natural smaller eyes",
+      "soft face structure",
+      "slim/petite proportions",
+      "deadpan expression should stay subtle, not boss-wife"
+    ],
+    "zuv": [
+      "dark wavy hair with visible volume",
+      "light beard/stubble",
+      "warm rounded Indian face",
+      "grounded broad posture",
+      "slightly sheepish or outplayed expression, not humiliated or heroic"
+    ]
+  },
+  "generation_rules": [
+    "Identity match must be evaluated before hook, reveal, scene quality, text accuracy, or style.",
+    "Final proof and final slides must use identity_images/aachu_zuv.png as an actual visual reference, not only a text description.",
+    "Every slide prompt must include the identity lock.",
+    "Do not change Aachu/Zuv into generic stock Indian couple faces.",
+    "Do not drift into Korean/webtoon/anime face proportions.",
+    "Home clothes are allowed, but face structure, hair, proportions, and relationship energy must stay tied to the reference.",
+    "Reject any proof where Aachu's face/hair or Zuv's hair/beard/face shape drift away from the selected identity reference.",
+    "Never mark identity drift as PASS_WITH_NOTES."
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "When you're finally married...",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "rakh deta hoon.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "wait...",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "dono rakh do.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      }
+    },
+    {
+      "slide": 7,
+      "copy": "",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      }
+    }
+  ],
+  "issues": []
+}

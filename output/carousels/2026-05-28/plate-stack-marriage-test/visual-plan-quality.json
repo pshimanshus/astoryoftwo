@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.1",
+  "status": "PASS",
+  "decision": "GO_PROOF_FIRST",
+  "can_generate": true,
+  "can_generate_proof": true,
+  "can_generate_full_batch": false,
+  "issues": [],
+  "reason_full_batch_blocked": "Creator corrected the progression after old proof/batch attempts. A repaired native 4:5 slide 6 proof must pass identity, story, text, style, and spacing before full 4:5 + 9:16 generation.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "decision": "GO",
+      "visual_evidence": "Both plates nearly done and kitchen visible.",
+      "emotional_proof": "Ordinary after-dinner laziness, not romance poster.",
+      "identity_continuity": "Aachu/Zuv likeness locked to identity_images/aachu_zuv.png.",
+      "typography_safety": "Small context line only.",
+      "aspect_composition": "Native 4:5 wide table setup; 9:16 can use room depth."
+    },
+    {
+      "slide": 2,
+      "decision": "GO",
+      "visual_evidence": "Zuv done, hand on plate, looking toward kitchen; Aachu's plate also done/nearly done.",
+      "emotional_proof": "First normal instinct before shortcut.",
+      "identity_continuity": "Zuv hair/beard/face shape must match reference.",
+      "typography_safety": "Small thought bubble only: `rakh deta hoon.`",
+      "aspect_composition": "Medium shot with kitchen direction still clear."
+    },
+    {
+      "slide": 3,
+      "decision": "GO",
+      "visual_evidence": "Eye-line moves from kitchen to Aachu's finished plate.",
+      "emotional_proof": "Tiny lazy idea arrives without a lightbulb.",
+      "identity_continuity": "Zuv stays recognizable; Aachu plate/phone geography remains consistent.",
+      "typography_safety": "Tiny thought beat only: `wait...`",
+      "aspect_composition": "Tight enough for eyes/plates; no excess empty wall."
+    },
+    {
+      "slide": 4,
+      "decision": "GO",
+      "visual_evidence": "His plate crosses toward Aachu; her plate and phone are nearby.",
+      "emotional_proof": "Silent handoff attempt, no ask.",
+      "identity_continuity": "Aachu silhouette and posture locked to identity reference.",
+      "typography_safety": "No text. Hard ban on any asking bubble.",
+      "aspect_composition": "Table-level hands/plates should read instantly."
+    },
+    {
+      "slide": 5,
+      "decision": "GO",
+      "visual_evidence": "His plate near Aachu, her plate beside it, phone nearby.",
+      "emotional_proof": "Deadpan read before the counter-move.",
+      "identity_continuity": "Aachu face must be subtle deadpan, not boss-wife.",
+      "typography_safety": "No text.",
+      "aspect_composition": "Close two-shot with no overcrowded props."
+    },
+    {
+      "slide": 6,
+      "decision": "GO_PROOF_FIRST",
+      "visual_evidence": "Aachu stacks her plate on his, gives/pushes stack back, and reaches/returns to phone.",
+      "emotional_proof": "The corrected reveal: she redirects his shortcut without a lecture.",
+      "identity_continuity": "Both faces can be partial but must remain recognizable from identity_images/aachu_zuv.png.",
+      "typography_safety": "Tiny speech bubble only: `dono rakh do.`",
+      "aspect_composition": "Native 4:5 proof must be tighter than v5 and avoid tall empty/table space."
+    },
+    {
+      "slide": 7,
+      "decision": "GO",
+      "visual_evidence": "Zuv walks to kitchen with both plates; Aachu is already on phone.",
+      "emotional_proof": "Normal consequence, no praise or moral.",
+      "identity_continuity": "Zuv mildly outplayed/amused, not heroic.",
+      "typography_safety": "No text.",
+      "aspect_composition": "Wide enough for kitchen path and table/phone continuity."
+    }
+  ],
+  "slide_checks": [
+    {
+      "slide": 1,
+      "decision": "GO",
+      "check": "Hook establishes marriage setup without overexplaining. Both plates nearly done and kitchen visible."
+    },
+    {
+      "slide": 2,
+      "decision": "GO",
+      "check": "First instinct is visible: Zuv would normally keep his plate; Aachu's plate is also done or nearly done."
+    },
+    {
+      "slide": 3,
+      "decision": "GO",
+      "check": "Mental turn is clear through eye-line and plate geography. No lightbulb or exaggerated genius face."
+    },
+    {
+      "slide": 4,
+      "decision": "GO",
+      "check": "Silent casual handoff is clear. No speech request or asking bubble."
+    },
+    {
+      "slide": 5,
+      "decision": "GO",
+      "check": "Deadpan silence plus his plate/her plate/phone carries the loaded pause."
+    },
+    {
+      "slide": 6,
+      "decision": "GO_PROOF_FIRST",
+      "check": "Plate stack plus `dono rakh do.` plus phone reach is the corrected reveal and proof gate."
+    },
+    {
+      "slide": 7,
+      "decision": "GO",
+      "check": "Kitchen walk and her phone use end as consequence, not moral or praise."
+    }
+  ],
+  "identity_requirement": "Use identity_images/aachu_zuv.png and identity_images/_identity_dossier/identity-face-contact-sheet.jpg as actual reference inputs before generation.",
+  "style_requirement": "Match output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png: hand-drawn desi storybook, warm paper, imperfect linework, muted matte colors.",
+  "text_requirement": "Text must be integrated as tiny handwritten in-scene thought/speech/context only; no poster captions and no extra words.",
+  "space_requirement": "Native 4:5 proof must reduce v5's vertical/empty space and make hands, stacked plates, phone, and faces readable."
+}

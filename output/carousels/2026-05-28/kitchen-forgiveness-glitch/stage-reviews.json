@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "status": "DRAFT_REVIEWS_COMPLETE",
+  "reviews": [
+    {
+      "stage": "scene_story",
+      "expected": "Story reads through panels before copy.",
+      "actual": "PASS"
+    },
+    {
+      "stage": "daily_human_tone",
+      "expected": "No moralized love content.",
+      "actual": "PASS"
+    },
+    {
+      "stage": "drama_cut",
+      "expected": "Slide 4 changes the room; slide 5 lands the shout.",
+      "actual": "PASS"
+    },
+    {
+      "stage": "copy_restraint",
+      "expected": "Very little text.",
+      "actual": "PASS_DRAFT"
+    },
+    {
+      "stage": "style",
+      "expected": "Original illustration guidelines retained.",
+      "actual": "PASS_DRAFT"
+    },
+    {
+      "stage": "generation",
+      "expected": "Native 4:5 and native 9:16 final images.",
+      "actual": "BLOCKED_NOT_STARTED"
+    }
+  ]
+}

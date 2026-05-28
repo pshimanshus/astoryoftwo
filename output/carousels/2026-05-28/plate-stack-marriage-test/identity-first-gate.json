@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKING",
+  "decision": "IDENTITY_FIRST_BEFORE_EVERYTHING",
+  "created": "2026-05-28",
+  "primary_identity_reference": "identity_images/aachu_zuv.png",
+  "identity_contact_sheet": "identity_images/_identity_dossier/identity-face-contact-sheet.jpg",
+  "rule": "Do not evaluate story, hook, reveal, style, text, or full-batch readiness until Aachu/Zuv identity match passes.",
+  "hard_fail_if": [
+    "Aachu's face is generic or not recognizably tied to the selected reference.",
+    "Aachu's long dark hair shape or volume is wrong.",
+    "Zuv's face structure is generic or not recognizably tied to the selected reference.",
+    "Zuv's dark wavy hair, beard/stubble, or grounded body proportions drift.",
+    "The image looks like a generic webtoon/anime/Korean/stock couple instead of Aachu/Zuv.",
+    "The selected identity image was only described in text and not used as an actual reference input."
+  ],
+  "current_proofs": [
+    {
+      "version": 1,
+      "file": "rejected-proofs/slide-06-proof-v1-rejected.png",
+      "identity_decision": "REJECTED"
+    },
+    {
+      "version": 2,
+      "file": "proof/slide-06-proof-v2.png",
+      "identity_decision": "REJECTED_PENDING_REPAIR",
+      "reason": "Closer to house style, but identity was not validated first and Aachu/Zuv still read as model-invented illustrated faces rather than locked likeness."
+    }
+  ],
+  "next_generation_requirement": "Generate or edit only after attaching selected identity reference image(s) as actual visual references and explicitly prioritizing identity match over all other goals."
+}

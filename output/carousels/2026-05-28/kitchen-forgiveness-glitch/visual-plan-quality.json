@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "can_generate": true,
+  "overall_decision": "GO_FOR_STANDARD_IDENTITY_BASED_GENERATION_HANDOFF",
+  "version": "29_30_cup_reveal",
+  "issues": [],
+  "checks": [
+    {
+      "slide": 1,
+      "decision": "GO",
+      "visual_evidence": "Already-clean cup/counter scrubbed too hard creates an instant after-fight hook.",
+      "copy_restraint": "Tiny hook only: She was still angry.",
+      "risk": "Could become generic chore scene if hand pressure is weak.",
+      "repair_if_needed": "Make the cup visibly already clean and her grip/shoulders sharper."
+    },
+    {
+      "slide": 2,
+      "decision": "GO",
+      "visual_evidence": "Softening face plus tense hand creates the inner/outer split.",
+      "copy_restraint": "One thought bubble only.",
+      "risk": "If her face is too angry, it repeats the earlier failed proof.",
+      "repair_if_needed": "Keep anger in the hand, not the face."
+    },
+    {
+      "slide": 3,
+      "decision": "GO",
+      "visual_evidence": "Preparing his cup/glass silently proves care before she speaks.",
+      "copy_restraint": "No copy.",
+      "risk": "Viewer may miss that the cup is for him.",
+      "repair_if_needed": "Make the cup distinctive and place it in the same counter position used in slides 4 and 6."
+    },
+    {
+      "slide": 4,
+      "decision": "GO",
+      "visual_evidence": "Doorway arrival plus frozen hand near the prepared cup creates drama and open loop.",
+      "copy_restraint": "No copy.",
+      "risk": "Arrival can read generic if the cup is not visible.",
+      "repair_if_needed": "Keep Zuv at threshold and the prepared cup in frame."
+    },
+    {
+      "slide": 5,
+      "decision": "GO",
+      "visual_evidence": "One shouted bubble delivers the comic mouth-versus-hands contradiction.",
+      "copy_restraint": "One short speech bubble.",
+      "risk": "Can become mean if expression is too harsh.",
+      "repair_if_needed": "Make it theatrical and familiar, not cruel; keep Zuv surprised, not humiliated."
+    },
+    {
+      "slide": 6,
+      "decision": "GO",
+      "visual_evidence": "Zuv notices the already-ready cup while Aachu looks away; the cup reveals the hidden forgiveness.",
+      "copy_restraint": "Tiny reveal caption only: Cup ready tha.",
+      "risk": "Can become best-husband or apology scene if he smiles too much or they reconcile too neatly.",
+      "repair_if_needed": "Keep it silent, awkward, and human: he understands; she refuses eye contact."
+    }
+  ],
+  "hard_fails_checked": {
+    "line_first_storytelling": "PASS_BLOCKED",
+    "perfect_husband_praise": "PASS_BLOCKED",
+    "green_flag_moral": "PASS_BLOCKED",
+    "angry_wife_stereotype": "PASS_WITH_ATTENTION",
+    "static_visual_repetition": "PASS",
+    "it_is_okay_ending": "PASS_REMOVED"
+  },
+  "proof_gate": {
+    "status": "REQUIRED_BEFORE_FULL_BATCH",
+    "recommended_proof_slides": [
+      2,
+      6
+    ],
+    "reason": "Slide 2 proves the repaired emotional ladder; slide 6 proves the new cup reveal payoff."
+  }
+}

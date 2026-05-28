@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "core_question": "Can the scene be funny, visual, and ordinary without becoming a relationship lesson?",
+  "what_works": [
+    "The idea has an instantly recognizable human contradiction.",
+    "The visual mismatch between thought bubble and facial reaction is clear without heavy text.",
+    "The doorway arrival gives a cinematic fourth-slide turn.",
+    "The shout can be one clean speech bubble instead of a narrated punchline."
+  ],
+  "risks": [
+    {
+      "risk": "Line-first execution",
+      "repair": "Build storyboard panels first. Copy is only hook, thought bubble, and shout."
+    },
+    {
+      "risk": "Angry-wife stereotype",
+      "repair": "Keep her expressive but not cruel. Show this as emotional timing, not personality defect."
+    },
+    {
+      "risk": "Perfect-husband drift",
+      "repair": "He does not fix, counsel, or rescue. He enters, freezes, and reacts like a normal human."
+    },
+    {
+      "risk": "One static kitchen angle",
+      "repair": "Use distinct cuts: wide, hand close-up, face close-up, doorway depth, full reaction, aftermath freeze."
+    }
+  ],
+  "decision": "GO_FOR_VISUAL_STORYBOARD"
+}

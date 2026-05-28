@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.1",
+  "status": "GO",
+  "decision": "GO_PROOF_FIRST_FULL_BATCH_BLOCKED",
+  "trigger_phrase_or_event": "Creator corrected the progression and asked to fix using the new agentic flow.",
+  "copy_lock_type": "creator-repaired tiny copy inside scene",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "text": "When you're finally married...",
+      "form": "context line"
+    },
+    {
+      "slide": 2,
+      "text": "rakh deta hoon.",
+      "form": "thought bubble"
+    },
+    {
+      "slide": 3,
+      "text": "wait...",
+      "form": "tiny thought beat"
+    },
+    {
+      "slide": 4,
+      "text": "",
+      "form": "silence"
+    },
+    {
+      "slide": 5,
+      "text": "",
+      "form": "silence"
+    },
+    {
+      "slide": 6,
+      "text": "dono rakh do.",
+      "form": "tiny speech bubble"
+    },
+    {
+      "slide": 7,
+      "text": "",
+      "form": "silence"
+    }
+  ],
+  "selected_visual_system": "Storyboard-First Domestic Scene Cuts",
+  "why_it_wins": "It preserves the ordinary daily-human progression: dinner, first instinct, tiny lazy idea, silent handoff, deadpan read, plate-stack reversal, phone, and silent kitchen consequence.",
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "summary": "Use a short-film/storybook sequence, not a quote carousel or meme-poster system."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "summary": "Every slide has a behavior receipt: nearly finished plates, kitchen glance, pause, handoff, deadpan stare, stack, phone, kitchen walk."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "summary": "The relationship is shown through timing and comfort. No one becomes saint, villain, servant, or lecturer."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO_WITH_PROOF_FIRST",
+      "summary": "Text must be tiny and in-scene. Native 4:5 proof is required before any batch because previous story-correct proof was too tall."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO_WITH_IDENTITY_LOCK",
+      "summary": "Every proof/final prompt must use identity_images/aachu_zuv.png and the identity contact sheet as actual visual references."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO_PROOF_FIRST",
+      "summary": "Generate slide 6 first. If plate stack, phone beat, exact line, 4:5 aspect, house style, and identity do not hold, repair before batch generation."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "line-first caption carousel",
+    "direct ask from Zuv",
+    "old one-word reply beat",
+    "fake clever poster text",
+    "best husband / best wife framing",
+    "wife service or chore fairness discourse",
+    "romantic dinner glamour",
+    "boss-wife / helpless-husband exaggeration",
+    "generic AI couple faces",
+    "Korean/webtoon/anime styling"
+  ],
+  "proof_slide": 6,
+  "proof_requirement": "Use v5 as story/action anchor, proof v4 and Main Kar Lungi slide 01 as style/aspect anchors, and identity_images/aachu_zuv.png as identity anchor."
+}

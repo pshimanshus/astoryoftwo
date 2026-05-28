@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "status": "VISUAL_FIRST_ROOM_SIMULATED",
+  "actual_subagents_used": false,
+  "reason": "This package is being built from the creator's approved baseline: storyboard first, copy last. Named lanes were simulated locally to avoid repeating the line-first failure.",
+  "lanes": [
+    {
+      "name": "Storybook Director",
+      "verdict": "GO",
+      "note": "The deck should read as six silent panels: kitchen, thought, softening, doorway drama, shout, freeze."
+    },
+    {
+      "name": "Human Comedy Guard",
+      "verdict": "GO_WITH_RESTRAINT",
+      "note": "The joke is a normal emotional mismatch, not an angry-wife stereotype. Avoid any moral ending."
+    },
+    {
+      "name": "Visual Continuity Judge",
+      "verdict": "GO",
+      "note": "Keep the same kitchen but vary camera language: wide, close hands, close face, doorway depth, wide shout, frozen aftermath."
+    },
+    {
+      "name": "Copy Restraint Judge",
+      "verdict": "GO",
+      "note": "Only the hook, thought bubbles, one shouted line, and brandmark are needed. Delete all thesis copy."
+    }
+  ],
+  "unresolved_objections": [
+    "Creator must approve the exact tiny text before final prompt pack and image generation.",
+    "Final generation must use actual identity and style reference images, not only text prompts."
+  ]
+}
