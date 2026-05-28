@@ -1,6 +1,6 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-05-24
+last_updated: 2026-05-28
 confidence: 0.8
 sources:
 - direct creator feedback in chat on 2026-05-18
@@ -9,6 +9,8 @@ sources:
 - direct creator feedback in chat on 2026-05-22
 - direct creator feedback in chat on 2026-05-23
 - direct creator feedback in chat on 2026-05-24
+- direct creator correction in chat on 2026-05-28 during Plate Stack Marriage
+  Test image/proof repair
 - memory/working.md
 - wiki/themes/calm-enough-for-chaos.md
 - output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md
@@ -182,6 +184,63 @@ small mischief, petty negotiations, sleepy reactions, money/food/phone/ghar
 moments, and jokes people recognize instantly from Instagram Reels. Let the
 humor lead; tenderness can stay implied by the couple's comfort with each
 other instead of being explained.
+confidence: 0.99
+
+fact: For daily-human carousel comedy, crack the storyboard before writing
+carousel lines. Treat the deck like a short film or storybook: action,
+reaction, object movement, face, hands, silence, and consequence first; then
+add only the minimum text that naturally belongs inside the scene as context,
+thought bubble, speech bubble, or deliberate silence. Do not write explanatory
+poster copy and then force visuals to illustrate it.
+confidence: 1.0
+
+fact: Plate Stack Marriage Test is the approved repair pattern for ordinary
+married-life comedy. The correct story spine is `dinner -> both done -> first
+normal kitchen instinct -> tiny lazy idea -> silent handoff -> deadpan read ->
+plate stack -> phone -> kitchen walk`. Zuv must not ask Aachu to keep his
+plate; he silently/casually hands or slides it because she is also done.
+Aachu stacks her own plate on top, says `dono rakh do.`, then starts using her
+phone. This progression must not regress to a direct ask/reply beat.
+confidence: 1.0
+
+fact: For Plate Stack and similar daily-life scenes, the visual joke must carry
+the emotion. Delete lines like clever narrator summaries, kitchen-distance
+gags, best-husband praise, best-wife praise, couple-goals language, green-flag
+framing, chore/fairness lessons, and moral endings. The allowed text layer is
+tiny and scene-native: `When you're finally married...`, `rakh deta hoon.`,
+`wait...`, `dono rakh do.`, or silence.
+confidence: 1.0
+
+fact: Identity match comes before every other image check for @a.storyof.two
+illustrated carousels. Before judging story, hook, text, style, or whether an
+image is "closer," verify that Aachu/Zuv face structure, hair, beard/stubble,
+body proportions, posture, and relationship energy match the selected identity
+references. Reject identity drift immediately; never call it PASS_WITH_NOTES.
+confidence: 1.0
+
+fact: The accepted visual style for the current illustrated carousel direction
+is the `main-kar-lungi` hand-drawn desi storybook zone: warm off-white paper,
+loose imperfect black linework, matte muted colors, natural Indian faces with
+smaller realistic eyes, ordinary body language, and integrated tiny
+handwritten text. Reject Korean/webtoon/anime proportions, glossy AI finish,
+oversized cute eyes, stock couple faces, heavy contrast, and romantic-dinner
+glamour even if the story beat is correct.
+confidence: 1.0
+
+fact: For high-risk carousel image generation, use proof-first and do not
+batch-generate from stale artifacts. After any creator correction, repair the
+storyboard, copy, post-copy visual room, visual debate, visual-plan-quality,
+identity review, prompt-pack, review, manifest, proof review, and image
+generation state before generating again. Run a stale-string audit for old
+beats and block full batch until one proof passes identity, story, exact text,
+style, native aspect, and spacing.
+confidence: 1.0
+
+fact: When repairing a proof, separate the reference jobs explicitly. For the
+Plate Stack repair, proof v4 was an aspect/style anchor, proof v5 was a
+story/action anchor, and the identity image/contact sheet were identity
+anchors. Do not treat a story-correct but wrong-aspect proof as final; do not
+let an aspect-correct but story-invalidated proof drive the story.
 confidence: 0.99
 
 fact: When the creator explicitly asks for a natural/funny post, do not force

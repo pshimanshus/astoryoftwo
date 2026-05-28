@@ -147,6 +147,18 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - learning: V4 over-literalized the concept into notes, red thread, doodles, maps, and table scenes. For this concept, visuals must prove mutual private-language co-authorship through ordinary behavior, mirrored gestures, timing, and eye contact, not prop metaphors, phone/chat UI, dictionary/subtitle metaphors, generic listening, or tiny-Aachu-chaos -> Zuv-handler care.
 - package: output/carousels/2026-05-23/marry-the-one-who-joins-your-nonsense
 
+## C-layer carousel repair: Plate Stack Marriage Test
+- date: 2026-05-28
+- slug: plate-stack-marriage-test
+- package: output/carousels/2026-05-28/plate-stack-marriage-test
+- status: PROOF_READY_FOR_CREATOR_APPROVAL after agentic repair; full 4:5
+  and 9:16 batch remains blocked until proof approval.
+- learning: daily-human comedy must be storyboard-first and identity-first.
+  The corrected plate story is silent handoff, deadpan read, plate stack,
+  phone, kitchen walk. Do not regress to direct ask/reply, generic best
+  husband/wife praise, chore lesson, Korean/webtoon style, or stale prompt
+  artifacts.
+
 ## Reach recovery sprint: carousel-first correction
 - date: 2026-05-24
 - sprint: output/post-sprints/2026-05-24-reach-recovery

@@ -8,6 +8,8 @@ sources:
   autopublish setup
 - direct creator correction in Codex chat on 2026-05-28 that carousel image
   generation should use Codex's image tool, not an API key path
+- direct creator correction in Codex chat on 2026-05-28 after stale carousel
+  proof artifacts caused story drift
 
 ## Standing Preference
 
@@ -41,3 +43,26 @@ an OpenAI API key or external image-client workflow. The expected path is Codex
 native packaging plus Codex image tool generation in-session, followed by
 packaging and visual QA.
 confidence: 0.9
+
+fact: After the creator corrects a carousel story/proof, treat stale downstream
+artifacts as a production bug. Rebuild every generation-facing artifact from
+the corrected source of truth before calling image generation: `slides.json`,
+`copy.json`, `post-copy-visual-room.json`, `visual-debate.json`,
+`visual-plan-quality.json`, `identity-consistency-review.json`,
+`prompt-pack.json`, `review.json`, `manifest.json`, `proof-review.json`, and
+`image-generation.json`/`final-images.json`. Then run `rg` for old phrases and
+block generation if stale copy remains.
+confidence: 1.0
+
+fact: For Codex-native carousel packaging, `prompt-pack.json` must contain a
+complete `slides[]` array before handoff or packaging. A proof-only prompt pack
+or old `prompt-pack-draft.json` is not enough. Handoff gates must pass
+`identity-consistency-review.json` with `status: PASS` and
+`visual-plan-quality.json` with `status: PASS` plus `can_generate: true`.
+confidence: 0.99
+
+fact: Do not call carousel proof images, old generated sources, or handoff
+state "final images." A carousel is final only after separate native 4:5 and
+separate native 9:16 images exist for every slide, packaged under `final/` and
+`final-reels-stories/`, with visual QA and final audit written.
+confidence: 1.0
