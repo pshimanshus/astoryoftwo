@@ -215,7 +215,10 @@ class IllustrationCarouselTests(unittest.TestCase):
 
             prompt_pack = json.loads((out_dir / "prompt-pack.json").read_text(encoding="utf-8"))
 
-        self.assertLessEqual(len(prompt_pack["style_reference_images"]), 3)
+        expected_style_references = json.loads(
+            Path("config/carousel_style_contract.json").read_text(encoding="utf-8")
+        )["style_references"]
+        self.assertEqual(prompt_pack["style_reference_images"], expected_style_references)
         for slide in prompt_pack["slides"]:
             self.assertEqual(slide["slide_count"], 5)
             self.assertTrue(slide["visual"])
@@ -223,6 +226,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             self.assertLessEqual(len(slide["style"]), 260)
             self.assertTrue(slide["negative_prompt"])
             self.assertLessEqual(len(slide["prompt"]), 9500)
+            self.assertIn("reference images are only mood/composition", slide["prompt"])
 
     def test_local_dry_run_backend_creates_both_native_formats(self):
         from pipeline.stages.local_dry_run_image_backend import generate_local_dry_run_images
@@ -674,6 +678,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("Aachu/Zuv identity reference as the face and wardrobe anchor", contract["shared_style_prompt"])
         self.assertIn("exact handwritten text in upper-middle negative space", contract["shared_style_prompt"])
         self.assertIn("tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right", contract["shared_style_prompt"])
+        self.assertEqual(contract["style_reference_attachment_limit"], len(contract["style_references"]))
         self.assertIn("No photorealism", contract["shared_negative_prompt"])
         self.assertEqual(contract["brandmark"], "@a.storyof.two")
         self.assertEqual(contract["typography"]["strategy"], "model_native")
@@ -1690,9 +1695,19 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("illustrated scene", joined)
         self.assertIn("@a.storyof.two", joined)
         self.assertIn(str(identity), joined)
-        self.assertIn("config/references/style-lock/observational-intimacy-premium/slide-01.png", joined)
-        self.assertIn("config/references/style-lock/observational-intimacy-premium/slide-03.png", joined)
-        self.assertIn("config/references/style-lock/observational-intimacy-premium/slide-08.png", joined)
+        self.assertIn("observational-intimacy-premium reference image", joined)
+        self.assertIn(
+            "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+            prompt_pack["style_reference_images"],
+        )
+        self.assertIn(
+            "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+            prompt_pack["style_reference_images"],
+        )
+        self.assertIn(
+            "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+            prompt_pack["style_reference_images"],
+        )
         self.assertNotIn("/Users/himanshusharma/Downloads", joined)
         self.assertNotIn("caricature faces", joined.lower())
         self.assertNotIn("illustrated poster", joined.lower())
