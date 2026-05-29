@@ -29,9 +29,12 @@ The package should also add a carousel page to `wiki/carousels/`, link it from
 
 ## Creative Memory
 
-The approved default visual style remains desi storybook / photo-rooted
-illustration: soft hand-drawn, imperfect black outlines, matte muted colors,
-large whitespace, and real photo details preserved before decorative elements.
+The approved default visual style is now the Observational Intimacy Premium
+watercolor-and-ink lock: warm ivory paper with visible grain, fine ink/pencil
+linework, transparent watercolor blooms, muted vintage palette, tactile
+clothing/props, upper-middle handwritten text, tiny bottom-right
+`@a.storyof.two` brandmark, and Aachu/Zuv identity references anchoring faces,
+expressions, posture, and wardrobe.
 
 ## Failure Memory
 

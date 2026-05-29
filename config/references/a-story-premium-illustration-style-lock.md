@@ -29,21 +29,20 @@ going forward.
 
 ## Style Contract
 
-- Use cool luminous ivory / pearl paper with visible paper grain; avoid
-  yellow, mustard, or sepia cast.
+- Use warm ivory paper with visible paper grain.
 - Preserve rich premium hand-painted watercolor-and-ink with fine graphite,
   ink contours, controlled crosshatching, transparent watercolor blooms, and
   layered pigment.
-- Keep the palette elegant and slightly vintage: pearl ivory, cool beige, soft
-  off-white, muted denim, soft navy, camel, terracotta, faded sage, peach
-  blush, dusty coral.
+- Keep the palette elegant and slightly vintage: warm ivory, soft off-white,
+  muted denim, soft navy, camel, terracotta, faded sage, peach blush, dusty
+  coral.
 - Keep faces identity-first and carefully drawn; preserve Aachu/Zuv likeness
   over decorative style. Use Aachu/Zuv identity references as the face,
   expression, posture, and wardrobe anchor always.
 - Keep scenes intimate, domestic/travel-light, and tactile, with rich detail in
   wardrobe, hair, ceramic, wood, paper, bags, shoes, chargers, phones, scarves,
   and plants.
-- Use clean upper negative space for exact readable hand-drawn uppercase
+- Use clean upper-middle negative space for exact readable hand-drawn
   typography. The text should feel drawn into the paper, not digitally pasted.
   Lock the handwritten font style to the approved references.
 - Always include the tiny low-contrast handwritten `@a.storyof.two` brandmark

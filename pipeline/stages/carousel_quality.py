@@ -1153,7 +1153,7 @@ def build_carousel_wiki_page(context: QualityContext, audit: dict[str, Any]) -> 
         "## Style Memory",
         "",
         "- Romantic watercolor-and-ink / identity-rooted illustration.",
-        "- Fine ink and pencil linework, soft watercolor wash, muted vintage colors, cool luminous ivory / pearl paper background.",
+        "- Fine ink and pencil linework, transparent watercolor blooms, muted vintage colors, warm ivory paper with visible paper grain.",
         "- Preserve real outfits, poses, settings, and relationship cues.",
         "- Use Aachu/Zuv identity references for recurring character likeness.",
         "- Keep the successful-carousel standard active as open agent alignment: public identity mirror, private receipts, active Zuv response, emotional turn, and send/save thesis.",

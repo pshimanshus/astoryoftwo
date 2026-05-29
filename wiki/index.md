@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-05-30
-total_pages: 67
+total_pages: 70
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,9 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [Before Us Timing Found Us](carousels/before-us-timing-found-us-2.md) | 2026-05-30 | 6 | C-layer | 0.7 |
+| [One Brain Cell At Home](carousels/one-brain-cell-at-home.md) | 2026-05-30 | 7 | C-layer | 0.7 |
+| [Before Us Timing Found Us](carousels/before-us-timing-found-us.md) | 2026-05-30 | 6 | C-layer | 0.7 |
 | [OTP Expired Twice](carousels/otp-expired-twice.md) | 2026-05-29 | 7 | C-layer | 0.7 |
 | [Suitcase Relocation](carousels/suitcase-relocation-3.md) | 2026-05-29 | 7 | C-layer | 0.7 |
 | [Suitcase Relocation](carousels/suitcase-relocation-2.md) | 2026-05-29 | 7 | C-layer | 0.7 |
