@@ -1,0 +1,23 @@
+{
+  "composition_role": "brand_integration_text_proof",
+  "typography": {
+    "strategy": "storybook_overlay_for_proof_only",
+    "note": "Production prompts must still include ON-IMAGE TEXT for model-native generation; this proof verifies final composition and readable product labels."
+  },
+  "renderer": {
+    "name": "render_storybook_text_overlays.swift",
+    "purpose": "Add exact slide text and project brandmark for the brand-integration proof."
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "text": "Some couples don't pack.\nThey relocate the house.",
+      "brandmark": "@a.storyof.two",
+      "placement": "top_center",
+      "text_layout": {
+        "primary_position": "top_center",
+        "speech_bubble": ""
+      }
+    }
+  ]
+}

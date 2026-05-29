@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "date": "2026-05-30",
+  "package": "output/illustrations/2026-05-30/observational-intimacy-premium",
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "Eight-slide observational intimacy progression preserved from reference concept while converted into A Story of Two scenes."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID36",
+        "ID37",
+        "ID39",
+        "ID44"
+      ],
+      "likeness_notes": "Aachu keeps long dark wavy hair, expressive eyes, soft oval face, warm real-person smile, white shirt/denim language, and gentle playful presence."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID36",
+        "ID37",
+        "ID39",
+        "ID44"
+      ],
+      "likeness_notes": "Zuv keeps thick dark curly hair, strong brows, short natural stubble, navy-shirt styling, grounded smile, and warm South Asian face structure."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "White shirt, denim, navy tee, tan/camel bottoms, blue-red scarf, cream tote, sneakers, phone heart sticker, cups, plants, and domestic props stay consistent."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Creator-approved premium look: cool luminous ivory paper, rich watercolor-and-ink depth, tactile props, detailed faces, clean upper text space, and dark-charcoal handwritten typography."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "Slide 03 was replaced so socks happen before pants are worn; folded pants are visibly separate. All slides now visually support their copy rather than contradicting it."
+    },
+    "pose_anatomy": {
+      "pass": true,
+      "evidence": "Slide 08 was replaced so Zuv is seated naturally upright with relaxed believable legs; no crouched/cramped final pose remains."
+    },
+    "model_native_text": {
+      "pass": true,
+      "evidence": "Exact on-image text is baked into each image in readable hand-drawn uppercase style; bottom-right @a.storyof.two brandmark was reinforced with a deterministic overlay."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "Final carousel-ready files exist in carousel-ready-977x1610/slide-01.png through slide-08.png."
+    }
+  }
+}

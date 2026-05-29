@@ -118,6 +118,14 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - learning: the gold package should be reused as an information architecture, not a literal text template. Preserve one-line slide clarity, visual proof, role/emotion/CTA intent, character contrast, motif continuity, joke-to-tenderness arc, root-level final PNGs, source-generated provenance, and preview.md. Do not blindly reuse the `he married` phrasing.
 - audit: docs/audits/2026-05-16-gold-carousel-package-anatomy.md
 
+## Illustration style lock: Observational Intimacy Premium
+- date: 2026-05-30
+- status: creator_locked
+- learning: the Observational Intimacy Premium illustrations are now the default style reference family for every future @a.storyof.two image, illustration, and carousel generation. Load `config/references/style-lock/observational-intimacy-premium/` plus the Aachu/Zuv identity references before generating. Shared brief images are mood/composition/story references only; identity refs anchor faces, expressions, posture, and wardrobe.
+- prompt: config/references/a-story-illustration-master-prompt.md
+- style_lock: config/references/a-story-premium-illustration-style-lock.md
+- references: config/references/style-lock/observational-intimacy-premium/
+
 ## C-layer carousel run: From Waterfall To Lantern Light
 - date: 2026-05-16
 - slug: from-waterfall-to-lantern-light
@@ -777,3 +785,19 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: NEEDS_FIXES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-05-29/otp-expired-twice
+
+## Creator-approved illustration style lock: Observational Intimacy Premium
+- date: 2026-05-30
+- reference_bundle: config/references/style-lock/observational-intimacy-premium/
+- original_package: output/illustrations/2026-05-30/observational-intimacy-premium
+- learning: this corrected set is now the preferred premium @a.storyof.two
+  illustration look: warm ivory paper with visible paper grain, rich
+  watercolor-and-ink depth, transparent watercolor blooms, identity-first
+  Aachu/Zuv faces, tactile props, soft faded edges, clean upper-middle negative
+  space, readable hand-drawn text, and tiny bottom-right `@a.storyof.two`
+  brandmark.
+- repair_learning: visual QA must reject slides where the body/clothing/props
+  contradict the copy or make either person look awkward. Slide 03 was
+  repaired so socks visibly happen before pants; slide 08 was repaired so Zuv
+  sits naturally instead of looking crouched.
+- durable_memory: memory/semantic/premium-illustration-style-lock.md

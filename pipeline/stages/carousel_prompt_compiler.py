@@ -4,7 +4,7 @@ import re
 
 from pipeline.stages.carousel_master_prompt import build_generation_master_prompt
 
-MAX_PROMPT_CHARS = 14000
+MAX_PROMPT_CHARS = 17000
 
 FORMAT_COPY = {
     "instagram_post": (

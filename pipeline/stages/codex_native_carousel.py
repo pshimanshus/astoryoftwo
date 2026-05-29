@@ -189,7 +189,8 @@ def build_package(
     face_identity_contract = identity_dossier.get("face_identity_contract", {})
     for slide in slides:
         slide["identity_continuity"] = build_identity_continuity_for_slide(slide, identity_paths)
-    style_reference_paths = contract.get("style_references", [])[:3]
+    style_reference_limit = int(contract.get("style_reference_attachment_limit", 3))
+    style_reference_paths = contract.get("style_references", [])[:style_reference_limit]
     brandmark = contract["brandmark"]
     golden_theme = contract.get("golden_theme_contract", {})
     golden_theme_rule = golden_theme.get(
@@ -940,11 +941,8 @@ def build_package(
                 f"{slide['slide']} of {slide_count}, prepared as two native outputs: "
                 f"1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. "
                 f"Never resize, crop, pad, or extend one output into the other. Story context: {story}. "
-                f"Master prompt version: {MASTER_PROMPT_VERSION}. Every final image rendering prompt must include "
-                "the project master prompt sections: use case, asset type, reference image roles, primary request, "
-                "scene, character identity lock, face preservation, illustration style, color palette, composition, "
-                "emotional direction, wardrobe continuity, props, background, line texture, anatomy, text rule, "
-                "and final rendering layer. "
+                f"Master prompt version: {MASTER_PROMPT_VERSION}. Use the project master prompt sections for "
+                "identity, style, composition, scene logic, typography, brandmark, and final rendering. "
                 f"North Star: {contract['north_star']} Content lane: {lane}. "
                 f"Golden theme rule: {golden_theme_rule} "
                 f"Successful Carousel Standard source: {SUCCESSFUL_CAROUSEL_STANDARD_PATH}. "
@@ -966,7 +964,7 @@ def build_package(
                 f"Style reference images: {style_reference_paths}. "
                 "Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, "
                 "age, body language, and emotional presence. Previous successful illustrations control only "
-                "watercolor-and-ink visual language, warm paper texture, linework, spacing, wardrobe continuity, "
+                "watercolor-and-ink visual language, cool luminous ivory / pearl paper texture, linework, spacing, wardrobe continuity, "
                 "composition, and recurring props. Do not use style references as face identity references. "
                 f"Identity reference images: {'; '.join(identity_paths)}. "
                 f"Identity dossier path: {identity_dossier.get('path')}. "
@@ -983,19 +981,21 @@ def build_package(
                 f"House style consistency: {HOUSE_STYLE_SCENE_RULE} "
                 "Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, "
                 "no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, "
-                "and leave generous warm-paper negative space around the couple and the handwritten text; "
+                "and leave generous cool-ivory paper negative space around the couple and the handwritten text; "
                 "the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. "
                 "minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. "
                 "Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, "
                 "soft thought bubbles, or one small care detail that makes the beat lovable. "
-                "Style: use the slide's compact style field as the canonical style prompt; final art must be "
-                "romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, or glossy AI. "
+                "Style: use the slide's compact style field and the observational-intimacy-premium references "
+                "as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, "
+                "photorealistic, anime, 3D, quote-card design, or glossy AI. "
                 "Generate the complete publishable social slide artwork as one integrated image for each native output. "
                 f"Render this exact handwritten-style text inside the artwork, spelled exactly: '{slide['copy']}'. "
                 f"Render the tiny low-contrast handwritten brandmark '{brandmark}' at bottom-right inside the artwork. "
                 "Follow the faces, clothing, posture, and relationship energy from the identity references. "
-                "Follow the attached style references for warm paper texture, hand-drawn lettering, outfit detail, spacing, and composition. "
-                "Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene."
+                "Follow the attached style references for cool luminous ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. "
+                "Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. "
+                "Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
             ),
         }
         for slide in slides

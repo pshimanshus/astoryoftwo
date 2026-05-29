@@ -136,6 +136,9 @@ Write or update:
 12. Prepare image handoff:
     - `codex-image-prompts/instagram-post/`
     - `codex-image-prompts/reels-stories/`
+    - load `config/references/style-lock/observational-intimacy-premium/` as
+      the default style reference bundle, with Aachu/Zuv identity references as
+      the face and wardrobe anchors
 13. Generate one proof slide when risk is high.
 14. If proof passes, generate all remaining native `4:5` and native `9:16`
     slides.
@@ -174,6 +177,10 @@ Use proof-first generation when any of these are true:
 - the concept can be misread as theft, control, cruelty, body shame, or a fight;
 - the style has recently drifted into photorealism, contact sheets, or generic
   AI stock art;
+- the generated image might drift away from the Observational Intimacy Premium
+  lock: warm ivory paper, visible grain, fine ink/pencil linework, transparent
+  watercolor blooms, upper-middle handwritten text, and tiny bottom-right
+  `@a.storyof.two` brandmark;
 - the creator has rejected a prior generated batch;
 - text rendering or aspect framing is likely to fail.
 

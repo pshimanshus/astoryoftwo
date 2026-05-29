@@ -17,8 +17,8 @@ sources:
 - config/skills/carousel-story-director-persona.md
 - config/carousel_style_contract.json
 - memory/semantic/carousel-idea-preferences.md
-- direct creator approval on 2026-05-30 of the Suitcase Relocation proof
-  illustration as the default visual style
+- direct creator approval on 2026-05-30 of the Observational Intimacy Premium
+  illustrations as the default visual style reference bundle
 
 ---
 
@@ -97,14 +97,19 @@ identity drift. Both must pass.
 
 ## Creator-Approved Visual Style
 
-The approved illustration house style is the Suitcase Relocation proof look:
-tall, airy romantic watercolor-and-ink portrait scenes on warm ivory paper.
-The couple and story objects sit lower or middle-lower in the frame, while the
-upper portion stays clean for exact integrated handwritten text. Faces are identity-first:
-Aachu and Zuv must remain recognizably the same recurring South Asian couple.
-Wardrobe, suitcase/home/travel objects, chargers, pouches, mugs, scarves,
-phones, plants, lamps, and room details should feel tactile and lived-in, but
-secondary to the couple's emotional behavior.
+The approved illustration house style is now the Observational Intimacy Premium
+look stored in `config/references/style-lock/observational-intimacy-premium/`:
+tall, airy romantic watercolor-and-ink portrait scenes on warm ivory paper with
+visible paper grain, fine ink/pencil linework, transparent watercolor blooms,
+delicate sketch texture, muted vintage palette, tactile clothing/props, and
+soft faded edges. The couple and story objects sit lower or middle-lower in the
+frame, while the upper-middle portion stays clean for exact integrated
+handwritten text. Faces are identity-first: Aachu and Zuv must remain
+recognizably the same recurring South Asian couple, with identity references
+anchoring faces, expressions, posture, and wardrobe. Wardrobe,
+suitcase/home/travel objects, chargers, pouches, mugs, scarves, phones, plants,
+lamps, and room details should feel richly tactile and lived-in, but secondary
+to the couple's emotional behavior.
 
 Default final illustrations should use the creator-supplied master prompt with
 exact readable ON-IMAGE TEXT baked naturally into the image. Outside references
@@ -208,6 +213,7 @@ Creative approval is not enough. The carousel must also pass the C-layer gates:
 - final 9:16 Reels/Stories images are separate native outputs, not resized
   derivatives;
 - visual QA confirms identity, text, style, scene logic, and continuity;
+- visual QA confirms copy-visual logic and flattering natural pose/anatomy;
 - final audit is PASS or an explicit PASS_WITH_NOTES with no identity or final
   image blocker.
 
@@ -427,10 +433,13 @@ Block or repair if:
 
 ## Visual Standard
 
-The house look is soft hand-drawn desi storybook illustration on warm paper:
-imperfect black linework, matte muted colors, expressive recurring Aachu/Zuv
-faces, generous whitespace, and small alive details like blush marks, hearts,
-reaction ticks, motion lines, thought bubbles, or one care object.
+The house look is premium hand-drawn desi storybook watercolor-and-ink on warm
+ivory paper with visible paper grain: imperfect fine linework, transparent
+watercolor blooms, matte muted but rich colors, expressive recurring Aachu/Zuv
+faces, generous upper-middle whitespace, readable hand-drawn typography,
+tactile scene objects, soft faded edges, tiny bottom-right `@a.storyof.two`
+brandmark, and small alive details like blush marks, hearts, reaction ticks,
+motion lines, thought bubbles, or one care object.
 
 Visual success is not decoration. Every slide should show one relationship beat.
 
@@ -442,6 +451,10 @@ Strong visual direction:
 - props are few and meaningful;
 - text has safe negative space;
 - Aachu/Zuv identity remains consistent;
+- copy-visual logic is exact: the clothes, props, pose, and action prove the
+  written line instead of contradicting it;
+- poses are natural, flattering, and physically believable; no crouched,
+  cramped, broken, or awkward legs/body language pass visual QA;
 - 4:5 and 9:16 compositions are planned separately;
 - the illustration feels warm and human, not glossy, stock, or generic AI art.
 

@@ -57,14 +57,18 @@ before any skill/context file is changed.
 
 ## Illustrated carousel hard gates
 - Default to the Codex-native/local carousel path; do not route normal carousel image work through API image generation.
-- Creator-approved illustration style lock: use the Suitcase Relocation proof
-  look for future @a.storyof.two illustrations by default: tall airy
-  watercolor-and-ink scene, identity-first Aachu/Zuv faces, warm ivory paper,
-  lower/middle-lower couple placement, tactile wardrobe/props, clean upper
-  negative space for exact integrated ON-IMAGE TEXT, and A Story of Two style
-  even when outside references are used for essence. Product labels are allowed
-  only when the creator explicitly requests a brand-integration test, and the
-  brand/product name must be legible at phone-screen size.
+- Creator-approved illustration style lock: use the Observational Intimacy
+  Premium reference bundle for future @a.storyof.two illustrations by default:
+  `config/references/style-lock/observational-intimacy-premium/`. The look is
+  premium hand-drawn romantic watercolor-and-ink with identity-first Aachu/Zuv
+  faces, warm ivory paper, visible paper grain, fine ink/pencil linework,
+  transparent watercolor blooms, tactile wardrobe/props, lower/middle-lower
+  couple placement, clean upper-middle negative space for exact integrated
+  handwritten ON-IMAGE TEXT, tiny bottom-right `@a.storyof.two` brandmark, and
+  A Story of Two style even when outside references are used for essence.
+  Product labels are allowed only when the creator explicitly requests a
+  brand-integration test, and the brand/product name must be legible at
+  phone-screen size.
 - For every carousel, use multiple agents or parallel reviewers for concept, visual plan, identity, prompt, and QA.
 - Before carousel ideation or writing, load `wiki/insights/successful-carousel-standard.md` and define audience success, creative success, brand success, and production success; if that definition is missing, Layer E has not actually run.
 - Preserve the Calm Enough For Your Chaos golden-theme machine: universal relationship truth -> Aachu/Zuv proof -> Zuv active care -> tender thesis.

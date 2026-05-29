@@ -85,7 +85,7 @@ def generator_prompt_text(slide_prompt: dict[str, Any], output_format: str) -> s
         str(slide_prompt["text"]),
         str(visual),
         output_format,
-        str(slide_prompt.get("style") or "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper"),
+        str(slide_prompt.get("style") or "premium hand-drawn romantic watercolor-and-ink illustration on cool luminous ivory / pearl paper"),
         str(slide_prompt.get("negative_prompt") or "No photorealism, no 3D, no stock couple, no quote card."),
         pose=str(slide_prompt.get("pose") or slide_prompt.get("body_language") or ""),
         wardrobe=str(slide_prompt.get("wardrobe") or ""),

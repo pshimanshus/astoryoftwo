@@ -296,14 +296,21 @@ formats and visual QA exist. The default final generation flow must create a
 separate 4:5 Instagram post image and a separate 9:16 Reels/Stories image for
 each slide; never create one image and resize, crop, or pad it into the other
 format. The final output agents/workers are: Instagram Post Output, Reels/Stories
-Output, and Identity/Visual QA. As of the creator-approved Suitcase Relocation
-proof on 2026-05-30, the default visual style for generated illustrations is
-the tall, airy watercolor-and-ink scene look: identity-first recurring Aachu/Zuv
-faces, warm ivory paper, lower/middle-lower couple placement, tactile
-wardrobe/props, and generous clean upper negative space for exact integrated
-ON-IMAGE TEXT. External references may supply text, message, emotion, story,
-gesture, and composition essence, but the final artwork must stay in the
-A Story of Two house style. Product labels are allowed when a brand-integration
+Output, and Identity/Visual QA. As of the creator-approved Observational
+Intimacy Premium lock on 2026-05-30, the default visual style for generated
+illustrations is the premium tall, airy watercolor-and-ink scene look stored in
+`config/references/style-lock/observational-intimacy-premium/`: identity-first
+recurring Aachu/Zuv faces, warm ivory paper with visible paper grain, fine
+ink/pencil linework, transparent watercolor blooms, delicate sketch texture,
+muted vintage palette, soft faded edges, lower/middle-lower couple placement,
+tactile wardrobe/props, and generous clean upper-middle negative space for
+exact integrated handwritten ON-IMAGE TEXT. External references may supply
+text, message, emotion, story, gesture, and composition essence, but the final
+artwork must stay in the A Story of Two house style. Shared images are
+mood/composition references only unless explicitly overridden; Aachu/Zuv
+identity references remain the face, expression, posture, and wardrobe anchor.
+Every final illustration must include only the tiny low-contrast handwritten
+`@a.storyof.two` brandmark in the bottom-right. Product labels are allowed when a brand-integration
 test explicitly asks for them, and the brand/product name must be legible at
 phone-screen size. The
 Anthropic-backed C1-C6 runner is optional legacy mode: use `--mode anthropic`

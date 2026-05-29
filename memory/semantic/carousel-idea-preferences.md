@@ -26,7 +26,17 @@ sources:
   identity matched, but the illustration had too much dense cinematic landscape
   and not enough @a.storyof.two warm whitespace; the creator supplied a locked
   illustration master prompt to use for all future generation
+- direct creator correction in chat on 2026-05-30 that the
+  Observational Intimacy Premium illustrations are the best achieved so far and
+  must be used as the default style reference set before every future
+  @a.storyof.two image, illustration, and carousel generation
+- direct creator approval in chat on 2026-05-30 that the corrected
+  Observational Intimacy premium carousel is the desired vibe, aesthetic,
+  illustration quality, and typography standard; direct creator correction that
+  slide-level QA must block copy-visual contradictions and awkward/crouched
+  body poses
 - memory/working.md
+- memory/semantic/premium-illustration-style-lock.md
 - wiki/themes/calm-enough-for-chaos.md
 - output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md
 
@@ -121,6 +131,37 @@ fact: Every final @a.storyof.two illustration must include the tiny
 low-contrast handwritten brandmark `@a.storyof.two` at the bottom-right corner
 as part of the artwork. The master prompt must ban external watermarks/logos
 but never ban the project brandmark.
+confidence: 1.0
+
+fact: The creator-approved Observational Intimacy Premium set is the current
+default style lock for all future @a.storyof.two illustration generation. Load
+`config/references/style-lock/observational-intimacy-premium/` before generating
+or prompt-packaging. Use shared brief images only as mood/composition/story
+references; use Aachu/Zuv identity references as the face, expression, posture,
+and wardrobe anchors; use the style-lock images for warm ivory paper, visible
+paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate
+sketch texture, muted vintage palette, tactile clothing detail, soft faded
+edges, exact handwritten text in upper-middle negative space, and the tiny
+bottom-right `@a.storyof.two` brandmark. Missing this lock is a generation
+failure, not a minor style preference.
+confidence: 1.0
+
+fact: The corrected Observational Intimacy Premium carousel is now the
+preferred illustration style reference for this folder. Future generated
+illustrations should match its warm ivory paper with visible paper grain, rich
+premium watercolor-and-ink depth, transparent watercolor blooms, detailed
+identity-first faces, tactile domestic props, soft faded edges, clean
+upper-middle negative space, tiny bottom-right `@a.storyof.two` brandmark, and
+readable hand-drawn charcoal typography. Avoid flat vector, poster-card,
+photorealism, UI/screenshot residue, quote-card design, or generic AI-watercolor
+looks.
+confidence: 1.0
+
+fact: Future visual QA must explicitly block copy-visual logic failures and
+awkward body poses. If the line says socks before pants, Zuv cannot already be
+wearing pants; the clothing/prop state must prove the line. If a final slide
+makes either person look crouched, cramped, folded, broken, or unflattering,
+the slide fails even when the style is beautiful.
 confidence: 1.0
 
 fact: Do not over-repair strong creator-supplied artifact concepts into safer
@@ -419,6 +460,7 @@ confidence: 0.98
 
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
+| 2026-05-30 | One Umbrella Shows Everything | rain walk / mutual noticing / one-sided care becomes shared shelter | rejected_creator_wrong_direction_and_setup_fail | Creator rejected this immediately and corrected that the assistant again failed the setup explained in the learning summary. Failure: the route was still a pretty romantic object-first premise dressed as a physical receipt; the setup was not lived, specific, funny, staged, or creator-calibrated enough. It leaned toward generic rain-romance/perfect-boyfriend visual poetry instead of a hard-working @a.storyof.two scene engine. Do not pitch umbrella/rain/sleeve-wet mutual-shelter concepts as the next direction unless the creator explicitly supplies a real moment and asks to revisit. | 1.0 |
 | 2026-05-29 | OTP Expired Twice | daily-life timer panic / two-person pressure system / mutual comedy | approved_package_handoff_ready | Creator approved this after rejecting Unknown Number Adult Voice as underfleshed and asked to continue carousel creation. Active package: `output/carousels/2026-05-29/otp-expired-twice/`. Locked repaired copy: `30 seconds.`, `jaldi bolo.`, `8 tha ya 3?`, `expired.`, `resend. breathe.`, `submitted.`, `two people panicking correctly.` Winning visual system: cozy home mini mission-control with two color-coded phones, hands, eye-lines, and shared body movement proving the joke before text. Keep this harmless app verification only; avoid shopping/cart framing, money audit, scam/fraud vibes, branded UI, perfect-husband rescue, or making either partner look incompetent. Handoff prompts for native 4:5 and separate native 9:16 exist; final generated images and visual QA remain pending because identity references must be attached as actual image inputs. | 1.0 |
 | 2026-05-29 | Unknown Number Adult Voice | daily-life adulting comedy / unknown-call private teamwork / formal voice rescue | rejected_creator_underfleshed | Creator said the idea is not looking good or fleshed out enough and asked to explore funnier or different angles. Do not pitch the unknown-number/adult-voice scene as the fresh winner unless explicitly revisiting. Failure note: the scene has visual clarity but not enough escalation, comedic surprise, or A Story of Two-specific emotional machine; it still reads like a cute adulting skit rather than a strong carousel premise. | 1.0 |
 | 2026-05-29 | Private Captions, Aachu/Zuv Edition | creator-supplied Friends/Monica-Chandler style mechanic / original Aachu-Zuv illustrated labels / photo-rooted private readings | active_creator_supplied_direction | Creator explicitly supplied Aachu/Zuv photos plus Monica/Chandler-style paired-label references and said they share the same energy. This reopens the private-caption lane with a stronger source basis: use actual source scenes (mountain chai, Crocs + chai, bamboo selfie, home kiss, cafe/garden photo) and tiny paired lowercase labels that reveal private interpretation. Creator corrected that the reference captions are much better than polished lines; labels must be deadpan, blunt, present-tense, 1-4 words, and slightly underwritten (`stressed/listens`, `happy/happy she's smiling` energy), not romantic carousel slogans. Do not use the old rejected V2/V3 outputs or generic label tableaux. Do not copy Friends frames, actors, sets, exact label sets, or sitcom blocking. Use the mechanic only: one candid illustrated Aachu/Zuv scene, one tiny label near each person/object, body language proves label before text. Local active draft: `/Users/himanshusharma/Documents/Codex/2026-05-29/create-next-coausel-theme/next-carousel-theme.md`. | 1.0 |

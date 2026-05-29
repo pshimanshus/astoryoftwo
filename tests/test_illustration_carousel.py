@@ -63,6 +63,8 @@ class IllustrationCarouselTests(unittest.TestCase):
                         },
                         "dress_continuity": {"pass": True, "evidence": "Outfits and continuity cues were checked."},
                         "style": {"pass": True, "evidence": "Warm hand-drawn storybook style was checked."},
+                        "scene_logic": {"pass": True, "evidence": "Copy, clothing, props, and action were checked for contradictions."},
+                        "pose_anatomy": {"pass": True, "evidence": "Aachu/Zuv posture and body anatomy were checked as natural and flattering."},
                         "model_native_text": {"pass": True, "evidence": "Copy and brandmark were checked."},
                         "final_files": {"pass": True, "evidence": "All final files were checked."},
                     },
@@ -662,20 +664,33 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("Identity reference images are the highest-priority face source", contract["shared_style_prompt"])
         self.assertIn("premium hand-drawn romantic watercolor-and-ink illustration", contract["compact_style_prompt"])
         self.assertIn("Aachu/Zuv faces", contract["compact_style_prompt"])
-        self.assertEqual(contract["model_native_master_prompt"]["version"], "a-story-of-two-watercolor-ink-v3-creator-locked-text")
+        self.assertEqual(
+            contract["model_native_master_prompt"]["version"],
+            "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+        )
         self.assertTrue(contract["model_native_master_prompt"]["required"])
         self.assertIn("Identity references control face", contract["model_native_master_prompt"]["reference_image_roles"])
+        self.assertIn("shared images only as mood/composition", contract["shared_style_prompt"])
+        self.assertIn("Aachu/Zuv identity reference as the face and wardrobe anchor", contract["shared_style_prompt"])
+        self.assertIn("exact handwritten text in upper-middle negative space", contract["shared_style_prompt"])
+        self.assertIn("tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right", contract["shared_style_prompt"])
         self.assertIn("No photorealism", contract["shared_negative_prompt"])
         self.assertEqual(contract["brandmark"], "@a.storyof.two")
         self.assertEqual(contract["typography"]["strategy"], "model_native")
         self.assertEqual(
-            contract["style_references"],
+            contract["style_references"][:8],
             [
-                "output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png",
-                "output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png",
-                "output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+                "config/references/style-lock/observational-intimacy-premium/slide-07.png",
             ],
         )
+        self.assertEqual(contract["creator_approved_illustration_style"]["source_run"], "observational-intimacy-premium")
         self.assertEqual(contract["legacy_typography"]["strategy"], "legacy_local_overlay")
         self.assertIn("spark", contract["characters"]["aachu"]["relationship_role"])
         self.assertIn("steady flame", contract["characters"]["zuv"]["relationship_role"])
@@ -1659,25 +1674,25 @@ class IllustrationCarouselTests(unittest.TestCase):
         )
         self.assertEqual(
             prompt_pack["model_native_master_prompt"]["version"],
-            "a-story-of-two-watercolor-ink-v3-creator-locked-text",
+            "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
         )
         self.assertTrue(
             all(
-                slide["master_prompt_version"] == "a-story-of-two-watercolor-ink-v3-creator-locked-text"
+                slide["master_prompt_version"] == "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock"
                 for slide in prompt_pack["slides"]
             )
         )
         self.assertIn("Generate the complete publishable social slide artwork", joined)
-        self.assertIn("Master prompt version: a-story-of-two-watercolor-ink-v3-creator-locked-text", joined)
+        self.assertIn("Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock", joined)
         self.assertIn("identity references control Aachu/Zuv faces", joined)
         self.assertIn("Render this exact handwritten-style text inside the artwork", joined)
         self.assertIn("house-style illustrated scene consistency", joined)
         self.assertIn("illustrated scene", joined)
         self.assertIn("@a.storyof.two", joined)
         self.assertIn(str(identity), joined)
-        self.assertIn("output/carousels/2026-05-19/main-kar-lungi/final/slide-01.png", joined)
-        self.assertIn("output/carousels/2026-05-19/love-carries-the-heavier-half/final/slide-03.png", joined)
-        self.assertIn("output/carousels/2026-05-16/he-learned-her-subtitles/final/slide-02.png", joined)
+        self.assertIn("config/references/style-lock/observational-intimacy-premium/slide-01.png", joined)
+        self.assertIn("config/references/style-lock/observational-intimacy-premium/slide-03.png", joined)
+        self.assertIn("config/references/style-lock/observational-intimacy-premium/slide-08.png", joined)
         self.assertNotIn("/Users/himanshusharma/Downloads", joined)
         self.assertNotIn("caricature faces", joined.lower())
         self.assertNotIn("illustrated poster", joined.lower())
@@ -3383,6 +3398,8 @@ class IllustrationCarouselTests(unittest.TestCase):
                             },
                             "dress_continuity": {"pass": True},
                             "style": {"pass": True},
+                            "scene_logic": {"pass": True},
+                            "pose_anatomy": {"pass": True},
                             "model_native_text": {"pass": True},
                             "final_files": {"pass": True},
                         }
@@ -3575,6 +3592,8 @@ class IllustrationCarouselTests(unittest.TestCase):
                             },
                             "dress_continuity": {"pass": True},
                             "style": {"pass": True},
+                            "scene_logic": {"pass": True},
+                            "pose_anatomy": {"pass": True},
                             "model_native_text": {"pass": True},
                             "final_files": {"pass": True},
                         }

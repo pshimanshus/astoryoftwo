@@ -805,7 +805,15 @@ def write_visual_qa_json(carousel_dir: Path, slides: list[dict[str, Any]], promp
         },
         "style": {
             "pass": False,
-            "evidence": "Warm paper preview styling exists, but this is not model-native final art.",
+            "evidence": "Local paper preview styling exists, but this is not model-native final art.",
+        },
+        "scene_logic": {
+            "pass": False,
+            "evidence": "Legacy local preview cannot verify whether clothing, props, and action truly prove the exact copy.",
+        },
+        "pose_anatomy": {
+            "pass": False,
+            "evidence": "Legacy local preview cannot verify flattering natural Aachu/Zuv pose anatomy.",
         },
         "model_native_text": {
             "pass": False,

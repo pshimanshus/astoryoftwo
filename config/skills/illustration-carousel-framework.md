@@ -73,7 +73,7 @@ Every run must create:
 - `concept.json`: title, human truth, emotional arc, slide summaries
 - `post-copy-visual-room.json`: mandatory visual creative-room record after creator-approved copy, before final visual debate, prompt pack, or image generation
 - `visual-debate.json`: Visual Debate Gate record from three visual agents before visual plan finalization, carousel packaging, or image generation
-- `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, stage-scene storytelling, copy-visual alignment, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags
+- `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, stage-scene storytelling, copy-visual alignment, scene logic, pose/anatomy, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags
 - `slides.json`: ordered slide copy, role, visual description, emotion, CTA intent
 - `prompt-pack.json`: shared style prompt, negative prompt, slide prompts
 - `identity-consistency-review.json`: C3.5 pre-generation review that verifies face structure, facial expression, clothing/body-language cues, and cross-slide identity continuity are locked from the selected identity bundle
@@ -112,27 +112,35 @@ Use `config/carousel_style_contract.json` as the canonical source for visual
 style, negative prompt, typography, brandmark, content lanes, and the Aachu/Zuv
 character bible.
 
+Before any final prompt or generation handoff, also load:
+
+- `config/references/a-story-illustration-master-prompt.md`
+- `config/references/a-story-premium-illustration-style-lock.md`
+- `config/references/style-lock/observational-intimacy-premium/`
+
 North Star:
 
 > A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.
 
 Use the @a.storyof.two romantic watercolor-and-ink master style:
 
-- creator-approved Suitcase Relocation proof look as the default house style:
-  tall airy portrait composition, couple and story props in the lower or
-  middle-lower frame, clean upper negative space for exact integrated
-  handwritten ON-IMAGE TEXT, and strong A Story of Two house style even when
-  outside references supply the message, emotion, story, or pose
+- creator-approved Observational Intimacy Premium look as the default house
+  style: warm ivory paper, visible paper grain, fine ink/pencil linework,
+  transparent watercolor blooms, delicate sketch texture, muted vintage
+  palette, tactile clothing detail, soft faded edges, couple and story props in
+  the lower or middle-lower frame, clean upper-middle negative space for exact
+  integrated handwritten ON-IMAGE TEXT, and strong A Story of Two house style
+  even when outside references supply the message, emotion, story, or pose
 - premium hand-drawn romantic editorial illustration
 - soft watercolor wash with fine ink and pencil linework
-- warm ivory paper background with subtle paper grain
+- warm ivory paper background with visible paper grain
 - delicate sketch lines, gentle crosshatching, and imperfect organic edges
 - clean expressive faces with warm skin shading, carefully drawn eyes, and soft blush
-- muted vintage palette: ivory, denim blue, soft navy, terracotta red, camel, gentle brown, faded sage, peach blush, dusty coral
+- premium muted vintage palette: warm ivory, soft off-white, denim blue, soft navy, terracotta red, camel, gentle brown, faded sage, peach blush, dusty coral
 - tactile clothing and prop details such as denim grain, fabric folds, scarf patterns, leather straps, ceramic cups, small jewelry, and shoe stitching
-- generous warm negative space for model-native slide text
+- generous warm upper-middle negative space for model-native slide text
 - one clear Aachu/Zuv behavior scene per slide
-- tiny low-contrast brandmark: `@a.storyof.two` when requested for the asset
+- tiny low-contrast brandmark: `@a.storyof.two` at bottom-right for every final asset
 - rooted in supplied photos and selected identity references before adding decorative interpretation
 
 Every final image-generation handoff must include the project master prompt
@@ -146,9 +154,12 @@ identity/style reinforcement, and the final rendering layer.
 Adapt the style to the supplied images:
 
 - preserve recognizable outfit, pose, setting, and relationship cues
+- treat shared images only as mood/composition/story references unless the
+  creator explicitly says otherwise
 - keep Anchal expressive and emotionally alive
 - keep Himanshu calm, warm, and grounded
-- use Aachu/Zuv identity references for recurring character likeness
+- use Aachu/Zuv identity references as the face, expression, posture, and
+  wardrobe anchor
 - treat previous successful illustrations as style references only, never as
   face identity references
 - treat `identity_images/` as a candidate library, then choose a small
@@ -364,8 +375,10 @@ Every Codex-native run must include the review spine:
 6. C3.5-IdentityConsistency writes `identity-consistency-review.json` after slide descriptions are generated and before image generation. It must pass before generating final art.
 7. Final generated images are packaged into `final/slide-XX.png` and `final-reels-stories/slide-XX.png` from separate native generated sources.
 8. `final-with-text/slide-XX.png` exists only for legacy local-overlay runs.
-9. `visual-qa.md` checks storyboard match, face consistency, dress continuity, style, exact model-native text, brand/product label visibility when relevant,
-   and final output existence.
+9. `visual-qa.md` and `visual-qa.json` check storyboard match, face
+   consistency, dress continuity, style, scene logic, pose/anatomy, exact
+   model-native text, brand/product label visibility when relevant, and final
+   output existence.
 10. The run writes a carousel wiki page, updates `wiki/index.md`, appends
    `memory/working.md`, and updates `memory/graph.json`.
 

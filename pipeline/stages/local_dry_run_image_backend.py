@@ -151,6 +151,14 @@ def write_visual_qa_json(carousel_dir: Path, prompt_pack: dict[str, Any], record
                     "pass": False,
                     "evidence": "Dry-run placeholder cannot verify watercolor-and-ink final style.",
                 },
+                "scene_logic": {
+                    "pass": False,
+                    "evidence": "Dry-run placeholder cannot verify whether visible clothes, props, and body action prove the exact copy.",
+                },
+                "pose_anatomy": {
+                    "pass": False,
+                    "evidence": "Dry-run placeholder cannot verify natural flattering Aachu/Zuv pose anatomy.",
+                },
                 "model_native_text": {
                     "pass": False,
                     "evidence": "Dry-run placeholder includes text only for plumbing; it is not model-native final typography.",

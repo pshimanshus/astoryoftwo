@@ -5,22 +5,33 @@ status: creator_locked
 confidence: 1.0
 
 Use this prompt as the canonical base for all @a.storyof.two illustration-story
-generation. Replace only the bracketed fields for each slide or asset.
+generation. Replace only the bracketed fields for each slide or asset. Preserve
+this structure and wording; do not swap in a shorter custom prompt. Pair it
+with `config/references/a-story-premium-illustration-style-lock.md` and the
+approved `config/references/style-lock/observational-intimacy-premium/`
+reference bundle before every current illustration/image/carousel generation.
+
+Creator lock, 2026-05-30: the `observational-intimacy-premium` illustrations
+are the best approved style references so far. Shared images from a new brief
+control only mood, composition, story essence, text, gesture, and objects unless
+the creator explicitly says otherwise. Aachu/Zuv identity references control
+faces, expressions, and wardrobe anchors always.
 
 ```text
 USE CASE:
 illustration-story
 
 ASSET TYPE:
-Vertical Instagram carousel illustration, romantic narrative slide, with exact readable text baked naturally into the image.
+Premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is an Instagram post. For Reels/Stories, generate a separate native 9:16 illustration in the same style. Never resize, crop, pad, or extend one surface into the other. Render exact readable text baked naturally into the image and add only the tiny low-contrast bottom-right handwritten brandmark.
 
 REFERENCE IMAGE ROLES:
-Use the provided identity reference images as the highest-priority source for the two main characters' faces, hair, skin tone, age, ethnicity, and emotional presence.
-Use the provided previous illustration references only for illustration style, color palette, line quality, composition, wardrobe continuity, and recurring props.
-Do not copy the exact pose or scene from the references unless requested. Preserve identity and style while creating the new scene.
+Use shared images from the current brief only as mood/composition references unless explicitly told otherwise. Preserve their text, message, emotion, story, hand gesture, scene idea, and requested composition, but do not let their visual style take over.
+Use the Aachu/Zuv identity reference images as the face and wardrobe anchor always: they are the highest-priority source for the two main characters' faces, hair, skin tone, age, ethnicity, expressions, posture, clothing continuity, and emotional presence.
+Use the observational-intimacy-premium and previous A Story illustration references only for illustration style, handwritten font style, color palette, line quality, paper texture, composition, wardrobe continuity, and recurring props.
+Do not copy the exact pose or scene from the style references unless requested. Preserve identity and style while creating the new scene.
 
 PRIMARY REQUEST:
-Create a premium vertical romantic watercolor-and-ink illustration of the same recurring South Asian couple from the reference images, in the scene described below.
+Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration of the same recurring South Asian couple from the identity references, in the scene described below. The image must feel like the creator-approved observational-intimacy-premium references, not a generic AI watercolor, quote-card, poster, or copied external style.
 
 ON-IMAGE TEXT:
 [INSERT EXACT TEXT TO INCLUDE IN THE ILLUSTRATION HERE]
@@ -49,16 +60,17 @@ Do not create new faces.
 Do not over-beautify them into different people.
 
 ILLUSTRATION STYLE:
-Hand-drawn romantic editorial illustration.
-Soft watercolor wash with fine ink and pencil linework.
-Warm ivory paper background with subtle paper grain.
-Delicate sketch lines, visible hand-drawn texture, gentle crosshatching, imperfect organic edges.
+Premium hand-drawn romantic editorial illustration.
+Soft transparent watercolor blooms with fine ink and pencil linework.
+Warm ivory paper background with visible paper grain.
+Delicate sketch texture, visible hand-drawn linework, gentle crosshatching, imperfect organic edges, and soft faded edges.
 Faces should be clean and expressive, with soft blush, warm skin shading, and carefully drawn eyes.
 Clothing and props should have tactile detail: denim grain, fabric folds, seams, scarf patterns, knit texture, leather straps, canvas bags, shoe stitching, wood grain, ceramic cups, small jewelry.
-The style should feel like a modern illustrated love-story journal: intimate, tender, cozy, stylish, and emotionally warm.
+The style should feel like a modern premium illustrated love-story journal: intimate, tender, cozy, stylish, rich, editorial, and emotionally warm.
+No photorealism, no UI, no random text, no quote-card design.
 
 COLOR PALETTE:
-Warm cream and ivory base.
+Warm ivory and soft off-white base.
 Muted denim blue.
 Soft navy.
 Off-white cotton.
@@ -68,11 +80,13 @@ Gentle brown.
 Faded sage green.
 Peach blush accents.
 Dusty coral heart details.
-Keep the palette soft, cohesive, and slightly vintage. No neon colors, no harsh contrast, no glossy digital finish.
+Keep the palette soft, cohesive, slightly vintage, and premium. No mustard
+dominance, heavy sepia wash, neon colors, harsh contrast, or glossy digital
+finish.
 
 COMPOSITION AND FORMAT:
-Vertical portrait format, tall carousel ratio similar to 977x1610.
-Leave generous warm negative space in the upper portion for the integrated on-image text.
+Vertical portrait format. Use native 4:5 for Instagram post outputs, native 9:16 for Reels/Stories outputs, and tall proof compositions similar to 977x1610 only when a proof/reference surface is requested.
+Leave generous warm negative space in the upper-middle portion for the integrated on-image text.
 Place the couple in the lower or middle-lower portion of the canvas unless the scene requires otherwise.
 Use airy framing and soft faded watercolor edges.
 Background should be present but secondary.
@@ -142,8 +156,22 @@ No heavy black outlines.
 No harsh shadows.
 No oversaturated colors.
 
+SCENE LOGIC AND POSE RULES:
+The image must visually prove the exact written line. Clothing state, props,
+hands, body position, and eye-line must not contradict the ON-IMAGE TEXT. If
+the text says socks before pants, the man cannot already be wearing pants; the
+pants must be visibly separate and unworn. If a slide depends on a habit or
+ritual, show the habit or its evidence clearly enough that the scene still
+works when the text is hidden. Aachu and Zuv must always look natural,
+flattering, and physically believable. No crouched, cramped, squatting,
+awkwardly folded, broken, or unflattering poses. Legs and feet must be
+proportional and comfortably placed.
+
 TEXT RULE:
-Include the exact written text provided in the ON-IMAGE TEXT section directly inside the generated illustration. The text must be baked into the image as readable, polished, hand-drawn typography that suits the romantic watercolor-and-ink storybook style of this project. Place the text in the clean warm negative space, preferably in the upper portion of the composition, without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, and wording exactly. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel integrated into the paper and illustration, not like a digital overlay, poster title, or separate graphic layer.
+Include the exact written text provided in the ON-IMAGE TEXT section directly inside the generated illustration. The text must be baked into the image as readable, polished, hand-drawn typography that suits the creator-approved observational-intimacy-premium font styles and romantic watercolor-and-ink storybook style of this project. Place the text in clean warm upper-middle negative space, without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, capitalization, and wording exactly. Lock the handwritten lettering style to the approved references: slightly imperfect, warm black/charcoal, airy, human, and integrated into the paper. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel integrated into the paper and illustration, not like a digital overlay, poster title, or separate graphic layer.
+
+STYLE ACCEPTANCE RULE:
+Identity match is necessary but never sufficient. If the output looks like a generic AI watercolor poster, photorealistic portrait, flat digital art, anime/cartoon, hard-edged screenshot copy, or any non-A Story visual language, the image fails even if the faces are closer. Regenerate until it feels like the observational-intimacy-premium A Story of Two illustrations: warm ivory paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, exact handwritten text, tiny bottom-right brandmark, and no quote-card design.
 
 BRANDMARK RULE:
 Every final @a.storyof.two illustration must include the tiny handwritten brandmark `@a.storyof.two` in the bottom-right corner. Keep it subtle, low-contrast, and integrated into the paper texture. It should read like the project signature, not a platform watermark or large logo. Do not omit it.
@@ -152,7 +180,7 @@ FINAL IDENTITY REINFORCEMENT:
 Before finalizing, ensure the woman and man still look like the exact same recurring couple from the identity references. The scene, pose, outfit, and props may change, but their faces, hair identities, skin tones, and emotional presence must remain consistent.
 
 FINAL STYLE REINFORCEMENT:
-The final image should look like a polished hand-drawn watercolor-and-ink romantic carousel illustration from "A Story of Two": warm, intimate, travel-light, emotionally soft, detailed, premium, and consistent with the previous slides.
+The final image should look like a polished hand-drawn watercolor-and-ink romantic carousel illustration from "A Story of Two": warm, intimate, travel-light, emotionally soft, detailed, premium, and consistent with the observational-intimacy-premium references and previous slides.
 
 REFERENCE ESSENCE RULE:
 When the user provides non-A Story inspiration images or screenshots, preserve the text, message, emotion, story, hand gesture, body-language essence, and requested composition from those references, but convert the final artwork fully into the A Story of Two watercolor-and-ink house style. Remove screenshot UI, social handles, counters, buttons, watermarks, signatures, and other platform artifacts unless explicitly requested as story content.

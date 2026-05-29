@@ -12,7 +12,7 @@ IDENTITY_IMAGE_DIR = "identity_images"
 SUPPORTED_IDENTITY_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_IDENTITY_REFERENCE_BUNDLE = 4
 FALLBACK_COMPACT_STYLE_PROMPT = (
-    "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper, fine ink/pencil "
+    "premium hand-drawn romantic watercolor-and-ink illustration on cool luminous ivory / pearl paper, fine ink/pencil "
     "linework, soft watercolor wash, muted vintage palette, recurring Aachu/Zuv faces, "
     "model-native handwritten text, tiny @a.storyof.two brandmark"
 )
