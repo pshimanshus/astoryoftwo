@@ -1,14 +1,20 @@
 {
   "schema_version": "1.0",
-  "status": "BLOCKED_PENDING_GENERATION",
+  "status": "BLOCKED_PENDING_NATIVE_FINALS",
   "checks": {
     "copy_locked": true,
     "post_copy_visual_room": "GO",
     "visual_debate": "GO",
     "visual_plan_quality": "PASS",
     "prompt_pack": "READY_FOR_CODEX_BUILTIN_GENERATION",
+    "generated_proof_sources": true,
     "native_4x5_finals": false,
     "native_9x16_finals": false,
-    "visual_qa": false
-  }
+    "visual_qa": "PROOF_QA_ONLY"
+  },
+  "blockers": [
+    "Built-in image generation returned tall proof portraits, not strict native 4:5 Instagram post finals.",
+    "Separate native 9:16 Reels/Stories set has not been generated.",
+    "Tiny brandmark appears visually present but should be manually checked/corrected before final acceptance."
+  ]
 }
