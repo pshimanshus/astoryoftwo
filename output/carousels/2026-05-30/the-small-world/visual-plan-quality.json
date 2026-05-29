@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "per_slide": [
+    {
+      "slide": 1,
+      "copy": "Not every love story needs a big life.",
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Wide scale is approved only if the couple's posture still reads as a relationship beat."
+    },
+    {
+      "slide": 2,
+      "copy": "She points at the sky. He looks at her first.",
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Hard gate: his eye-line must be on her, not the sky."
+    },
+    {
+      "slide": 3,
+      "copy": "That small world became home.",
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Close-up must feel natural and lived-in, not proposal/wedding/dramatic romance."
+    }
+  ],
+  "hard_fails_checked": [
+    "no copied external wording",
+    "no copied external visual style",
+    "no UI or watermark residue",
+    "no quote-card design",
+    "no passive male partner",
+    "no landscape-first poster",
+    "no awkward or unflattering pose"
+  ],
+  "issues": []
+}

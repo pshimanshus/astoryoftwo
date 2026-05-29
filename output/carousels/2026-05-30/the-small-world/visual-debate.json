@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "winner": "Zoom-Out To Attention Pivot",
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "verdict": "GO",
+      "recommendation": "Use the sky as evidence only. The relationship proof is his attention shifting toward her."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "verdict": "GO",
+      "recommendation": "Stage a camera move from big-world awe to private noticedness to tactile home."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "verdict": "GO",
+      "recommendation": "Block any output where the first slide becomes a landscape poster or the second slide loses his eye-line."
+    }
+  ],
+  "options": [
+    {
+      "name": "Zoom-Out To Attention Pivot",
+      "score": 30,
+      "case_for": "Best satisfies creator request for zoom-out/zoom-in psychology while preserving A Story emotional proof.",
+      "risk": "Needs careful identity and eye-line prompt control."
+    },
+    {
+      "name": "Wide-Wide-Close",
+      "score": 27,
+      "case_for": "Keeps the reference's open-sky feeling.",
+      "risk": "Two wide slides slow the emotional reveal."
+    },
+    {
+      "name": "Close-Medium-Wide",
+      "score": 25,
+      "case_for": "Starts emotionally strong.",
+      "risk": "Contradicts the requested zoom-out to go-in journey."
+    }
+  ],
+  "selector_verdict": "Use wide -> medium -> close. The psychological reveal must be: the world is big, but he chooses to look at her, so the small world becomes enough.",
+  "rejected_visual_patterns": [
+    "repeating the exact screenshot composition across all slides",
+    "shooting star as the whole premise",
+    "minimal quote-card with tiny couple silhouette",
+    "generic dramatic back-hug",
+    "UI/screenshot residue"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Not every love story needs a big life.",
+      "visual": "Extreme wide open-sky/seaside scene; couple small but emotionally readable in lower frame; her wonder begins and his posture angles toward her."
+    },
+    {
+      "slide": 2,
+      "copy": "She points at the sky. He looks at her first.",
+      "visual": "Medium side/back view; her hand points up and face glows; his eye-line clearly rests on her expression."
+    },
+    {
+      "slide": 3,
+      "copy": "That small world became home.",
+      "visual": "Close tactile frame of hands/shoulders/shared object while walking back; background fades, world narrows to the two of them."
+    }
+  ]
+}

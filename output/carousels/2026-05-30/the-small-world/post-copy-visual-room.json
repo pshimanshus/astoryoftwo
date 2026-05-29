@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "creator approved copy direction and asked for visually captivating zoom-out/zoom-in psychology",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "Not every love story needs a big life.",
+      "role": "public hook"
+    },
+    {
+      "slide": 2,
+      "copy": "She points at the sky. He looks at her first.",
+      "role": "attention pivot"
+    },
+    {
+      "slide": 3,
+      "copy": "That small world became home.",
+      "role": "earned payoff"
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Zoom-Out To Attention Pivot",
+      "score": 30,
+      "case_for": "Uses scale, gaze psychology, and closeness progression to make the emotion readable without heavy copy.",
+      "risk": "Slide 1 can become too landscape-first if the couple is emotionally unreadable."
+    },
+    {
+      "name": "Same-Frame Sky Romance",
+      "score": 24,
+      "case_for": "Directly resembles the supplied inspiration image.",
+      "risk": "Too close to the external reference and likely to become a pretty quote-card scene."
+    },
+    {
+      "name": "Close-Up From The Start",
+      "score": 25,
+      "case_for": "Emotionally immediate and identity-friendly.",
+      "risk": "Loses the creator-requested zoom-out/zoom-in movement and the psychological reveal."
+    }
+  ],
+  "selected_visual_system": "Zoom-Out To Attention Pivot",
+  "why_it_wins": "It gives the viewer a controlled emotional journey: awe opens attention, his gaze redirects the story, and touch/proximity closes the loop as home.",
+  "rejected_visual_patterns": [
+    "copied beach shooting-star frame",
+    "dark purple social quote-card aesthetic",
+    "both partners only staring at the sky",
+    "generic hugging silhouette",
+    "landscape-first cinematic poster"
+  ],
+  "psychology_notes": [
+    "Slide 1 uses scale and negative space to create awe and curiosity.",
+    "Slide 2 uses gaze-cue violation: viewers expect the sky to matter, but his eyes make her the focal reward.",
+    "Slide 3 uses proximity, hands, and shared movement to create attachment closure."
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Keep text in warm upper-middle negative space with the couple lower/middle-lower. Slide 2 text must not cover her pointing hand or his eye-line.",
+    "reels_stories_9x16": "Generate separate native tall compositions with more vertical sky on slide 1, more headroom around the pointing gesture on slide 2, and more warm breathing room above the close-up on slide 3.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork."
+  },
+  "downstream_requirements": [
+    "visual-debate.json must preserve the selected zoom-out to zoom-in system.",
+    "visual-plan-quality.json must block any slide where the relationship emotion is not readable without text.",
+    "prompt-pack.json must use the creator-locked master prompt and the Observational Intimacy Premium style lock."
+  ]
+}

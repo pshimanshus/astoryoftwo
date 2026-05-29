@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "package": "the-small-world",
+  "channel": "@a.storyof.two",
+  "created_at": "2026-05-30",
+  "status": "VISUAL_DIRECTION_LOCKED",
+  "slide_count": 3,
+  "source_reference": {
+    "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 03.48.40.jpeg",
+    "role": "mood/composition/story-reference-only",
+    "use_policy": "Preserve the emotional mechanic of a tiny shared life under a large sky. Do not copy the exact outside-account wording, watermark, platform UI, handle, art style, or character likeness."
+  },
+  "required_style_lock": [
+    "config/references/a-story-illustration-master-prompt.md",
+    "config/references/style-lock/observational-intimacy-premium/"
+  ],
+  "identity_references": [
+    "identity_images/_identity_dossier/identity-face-contact-sheet.jpg",
+    "identity_images/aachu_zuv.png"
+  ],
+  "artifacts": [
+    "concept.json",
+    "copy.json",
+    "slides.json",
+    "post-copy-visual-room.json",
+    "visual-debate.json",
+    "visual-plan-quality.json",
+    "prompt-pack.json"
+  ]
+}
