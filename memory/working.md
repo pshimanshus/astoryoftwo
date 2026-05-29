@@ -801,3 +801,30 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
   repaired so socks visibly happen before pants; slide 08 was repaired so Zuv
   sits naturally instead of looking crouched.
 - durable_memory: memory/semantic/premium-illustration-style-lock.md
+## C-layer carousel run: One Brain Cell At Home
+- date: 2026-05-30
+- slug: one-brain-cell-at-home
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-30/one-brain-cell-at-home
+
+## C-layer workflow correction: Story-Smart Premium Visuals
+- date: 2026-05-30
+- active_package: output/carousels/2026-05-30/before-us-timing-found-us
+- learning: creator strongly approved the Observational Intimacy Premium
+  illustration richness, font, styling, and aesthetics, but rejected decorative
+  symbolic shortcuts when the story is weak. In the timing/fate carousel, the
+  tiny heart ribbon/thread tied to fingers did not make story sense. Future
+  prompts must make text and visuals carry clean cause-and-effect; props should
+  be literal scene evidence unless explicitly supplied by the creator.
+- copy_followup: creator prefers the reference-image text cadence for this
+  timing/fate concept. Preserve the reference spine and repair visuals around
+  it instead of replacing it with weaker original lines.
+- durable_memory: memory/semantic/carousel-idea-preferences.md
+
+## C-layer carousel run: Before Us Timing Found Us
+- date: 2026-05-30
+- slug: before-us-timing-found-us
+- final_audit: PASS_WITH_NOTES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-30/before-us-timing-found-us

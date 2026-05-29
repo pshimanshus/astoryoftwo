@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "status": "PENDING_FINAL_IMAGES",
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "notes": "Seven staged story beats recorded before generation."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID-AACHU-ZUV-PRIMARY"
+      ],
+      "likeness_notes": "Use Aachu face from the selected identity reference: expressive dark eyes, soft oval cheek structure, long dark wavy hair, and warm real-person charm."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID-AACHU-ZUV-PRIMARY"
+      ],
+      "likeness_notes": "Use Zuv face from the selected identity reference: curly dark hair, strong brows, almond eyes, defined nose, natural stubble, and gentle smile."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "notes": "Continuity home wardrobe locked across all slides."
+    },
+    "style": {
+      "pass": true,
+      "notes": "Observational Intimacy Premium style refs are in prompt-pack.json."
+    },
+    "scene_logic": {
+      "pass": true,
+      "notes": "Phone/remote/cushion logic is spelled out per slide."
+    },
+    "pose_anatomy": {
+      "pass": true,
+      "notes": "No crouched/cramped poses allowed; slide 6 explicitly requires natural leaning/kneeling."
+    },
+    "model_native_text": {
+      "pass": false,
+      "notes": "Pending generated images with exact baked text and brandmark."
+    },
+    "final_files": {
+      "pass": false,
+      "notes": "Pending final/ and final-reels-stories/ PNG outputs."
+    }
+  }
+}

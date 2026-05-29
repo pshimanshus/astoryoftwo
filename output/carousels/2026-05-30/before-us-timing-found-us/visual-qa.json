@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "reviewed_on": "2026-05-30",
+  "basis": [
+    "manual visual review of final/ contact sheet",
+    "manual visual review of final-reels-stories/ contact sheet",
+    "identity dossier selected IDs ID36, ID37, ID39, ID44",
+    "native aspect validation for 4:5 and 9:16 sources"
+  ],
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "All six slides follow the restored reference-copy story arc: separation, parallel lives, crossing, one public moment, closeness, shared ending."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID36",
+        "ID37",
+        "ID39",
+        "ID44"
+      ],
+      "likeness_notes": "Aachu is preserved through long dark wavy hair, petite softer presence, light shirt, denim, red scarf/bag cues, and warm expressive posture across distant and close scenes."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID36",
+        "ID37",
+        "ID39",
+        "ID44"
+      ],
+      "likeness_notes": "Zuv is preserved through curly dark hair silhouette, warm medium-brown skin, short stubble, broader calm presence, navy/dark top, tan trousers, and watch across the sequence."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Aachu keeps light shirt/denim/red scarf or bag cues; Zuv keeps navy/dark upper layer, tan trousers, watch, and bag cues."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory paper, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, and soft faded edges match the Observational Intimacy Premium direction."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "The visuals prove the exact text through staged action and distance/route/crossing/hand/embrace/shared-path evidence; no symbolic ribbon/thread/cord carries the story."
+    },
+    "pose_anatomy": {
+      "pass": true,
+      "evidence": "Hands, embraces, walking poses, and transit gestures are natural enough for final review; no obvious broken or cramped body language was selected."
+    },
+    "model_native_text": {
+      "pass": true,
+      "evidence": "Final native generated outputs include baked-in handwritten story text and tiny @a.storyof.two brandmarks; no local overlay output is used."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "Six final Instagram 4:5 slides and six separate final Reels/Stories 9:16 slides exist."
+    }
+  }
+}

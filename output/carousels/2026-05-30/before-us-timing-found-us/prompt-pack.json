@@ -1,0 +1,569 @@
+{
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is Instagram post, and generate separate native 9:16 artwork for Reels/Stories when needed. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise; preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and both people must look natural, flattering, and physically believable.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Parallel Routes To Same Home",
+    "why_it_wins": "The restored copy already has the emotional arc; the visual system wins only if it stages that arc plainly and avoids empty symbolism."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Parallel Routes To Same Home",
+    "selector_verdict": "COPY RESTORED: reference text spine is the story. Visual repair must prove those exact lines through staging and remove decorative heart/thread/ribbon shortcuts.",
+    "hard_fails_checked": [
+      "no exact external copy",
+      "no UI/screenshot residue",
+      "no generic couple posing",
+      "Zuv active role visible",
+      "text not carrying the scene"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+    "required": true,
+    "rule": "Every final Codex/image-generation prompt for @a.storyof.two carousel slides must use this creator-locked watercolor-and-ink master prompt structure, then append the slide-specific on-image text, scene, pose, wardrobe, props, background, and emotion.",
+    "required_sections": [
+      "USE CASE",
+      "ASSET TYPE",
+      "REFERENCE IMAGE ROLES",
+      "PRIMARY REQUEST",
+      "SCENE",
+      "CHARACTER IDENTITY LOCK",
+      "FACE PRESERVATION RULES",
+      "ILLUSTRATION STYLE",
+      "COLOR PALETTE",
+      "COMPOSITION AND FORMAT",
+      "EMOTIONAL DIRECTION",
+      "WARDROBE CONTINUITY",
+      "RECURRING PROPS AND MOTIFS",
+      "BACKGROUND STYLE",
+      "LINE AND TEXTURE DETAILS",
+      "ANATOMY AND QUALITY RULES",
+      "TEXT RULE",
+      "STYLE ACCEPTANCE RULE",
+      "FINAL IDENTITY REINFORCEMENT",
+      "FINAL STYLE REINFORCEMENT",
+      "FINAL IMAGE RENDERING LAYER"
+    ],
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "text_rule": "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally into the illustration as polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. Do not invent any other text."
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "status": "GO",
+    "selected_story_lens": "Parallel lives become one chosen home.",
+    "emotional_machine": "public almostness -> separate Aachu/Zuv lives -> first crossing -> Zuv active steady closeness -> years collapse into one soft fall -> different stories, same home",
+    "human_story_setup": {
+      "cold_reader_doorway": "Before love, both people were already moving through ordinary days that almost touched.",
+      "emotional_obstacle": "The obstacle is the invisible loneliness and near-misses before two people know each other: life keeps them separate until a tiny crossing makes the world smaller.",
+      "visible_human_proof": "Each slide stages a visible receipt: separate routes, crossing shadows, touching hands, escalator closeness, and the final shared path.",
+      "active_partner_role": "Zuv is not passive fate; he slows at the crossing, offers steady hand/rail closeness, steadies Aachu on the escalator, and walks the same path with her.",
+      "emotional_turn": "What first looks like cinematic fate becomes active choosing and daily steadiness.",
+      "shareable_setup": "Tag/send to the person who turned your separate past into a shared home.",
+      "earned_payoff": "Different stories. Same home."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+      "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+      "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+      "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, native 4:5, native 9:16, QA, and audit gates must also pass.",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-05-30\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Two separate public routes move through the same illustrated city world.",
+      "reaction": "Their shadows, eye-lines, and hands begin to answer before either person can explain it.",
+      "eye_line_or_attention": "Aachu turns first with expressive curiosity; Zuv slows and meets the moment calmly.",
+      "hands_or_object_movement": "The story moves from distant path lines to a scarf/bag crossing, then rail-touch, side-hug, and final hand-hold.",
+      "silence_or_pause": "Public noise falls away in the hand/rail and escalator slides; the pause makes the world feel smaller.",
+      "consequence": "After the crossing, the couple moves from two maps to one path.",
+      "reversal_or_payoff": "The deck begins as fate but ends as chosen home.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 4.5,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.5,
+      "tender_thesis": 5.0,
+      "share_send_potential": 4.5,
+      "total": 28.5
+    },
+    "proof_engine": "overhead almosts -> separate city routes -> one crosswalk -> hand touch in transit -> escalator side-hug -> joined hands on one path",
+    "distribution_reason": "The final thesis is sendable to a partner because it turns fate/timing into a simple relationship mirror: we had different stories before we became home."
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "It started with one ordinary moment.",
+      "reader_identity_mirror": "The story begins with one ordinary moment, then grows into shared comfort, travel, and the realization that even in the trip, the real subject is still the two of them.",
+      "emotional_obstacle": "The story begins with one ordinary moment, then grows into shared comfort, travel, and the realization that even in the trip, the real subject is still the two of them.",
+      "aachu_proof": "A close, specific origin frame rooted in the earliest supplied image: food, cups, table, names, or another tiny beginning detail.",
+      "zuv_active_role": "",
+      "bridge": "tiny beginning -> playful proof -> wider world -> quiet emotional payoff",
+      "earned_ending": "But the point was still us.",
+      "send_save_reason": "make the memory feel specific enough to save or send"
+    },
+    "hook_bank": [
+      {
+        "hook": "It started with one ordinary moment.",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "The story begins with one ordinary moment, then grows into shared comfort, travel, and the",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with soft love notes.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "Before us, timing kept practicing.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "It started with one ordinary moment."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "The story begins with one ordinary moment, then grows into shared comfort, travel, and the realization that even in the trip, the real subject is still the two of them."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "tiny beginning -> playful proof -> wider world -> quiet emotional payoff"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "But the point was still us."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9,
+      "stage_scene": 9
+    },
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": [],
+    "concept_selection_used": false,
+    "source_story": "Use the supplied six Instagram-reference screens only as story and composition inspiration, not as final style. Build an original @a.storyof.two six-slide illustrated carousel about two separate lives moving through the same city until timing finally lets them cross. The emotional obstacle is not distance romance; it is the almost-invisible years before two people know each other, where Aachu carries expressive life and Zuv carries quiet steadiness separately. The story should show overhead public spaces, separate routes, a street crossing, two hands in transit, an escalator closeness beat, and finally hand-holding on the same path. Preserve the concept of parallel lives becoming one chosen home, but rewrite all on-image copy into original A Story of Two language. Make it cinematic, novelistic, premium watercolor-and-ink, with Aachu/Zuv identity references, mostly distant faces but consistent hair, posture, wardrobe, and relationship energy."
+  },
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+  ],
+  "identity_reference_images": [
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-05-30/before-us-timing-found-us/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-30/before-us-timing-found-us/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID36",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+      "face_count": 14,
+      "width": 3120,
+      "height": 4160
+    },
+    {
+      "option_id": "ID37",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+      "face_count": 8,
+      "width": 3120,
+      "height": 4160
+    },
+    {
+      "option_id": "ID39",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+      "face_count": 8,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID44",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "face_count": 4,
+      "width": 1737,
+      "height": 3088
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always bottom-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "You were there.\nI was here.",
+      "You lived your life.\nI lived mine.",
+      "Until the day\nour paths crossed.",
+      "Two people.\nOne moment.",
+      "Years apart.\nSeconds to fall.",
+      "Different stories.\nSame ending."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 6,
+      "text": "You were there.\nI was here.",
+      "scene": "High dreamy overhead public square or open court on warm ivory paper. Zuv is a small steady figure on one side, Aachu is a small expressive figure far away on the opposite side. Their locations clearly prove the text: he is there, she is here. Long soft shadows and faint walking paths show distance without sadness. No decorative hearts, no ribbons, no red string, no UI, no copied dark screenshot styling.",
+      "visual": "High dreamy overhead public square or open court on warm ivory paper. Zuv is a small steady figure on one side, Aachu is a small expressive figure far away on the opposite side. Their locations clearly prove the text: he is there, she is here. Long soft shadows and faint walking paths show distance without sadness. No decorative hearts, no ribbons, no red string, no UI, no copied dark screenshot styling.",
+      "pose": "Both are distant but readable through posture: Aachu mid-step and expressive, Zuv steady and unhurried, both facing different directions. Keep the faces tiny or partly turned, but preserve hair silhouette, body proportions, and wardrobe anchors.",
+      "wardrobe": "Aachu: white or cream top with denim and a red patterned scarf or red bag as her recognizable color cue. Zuv: navy or black casual layer, tan trousers, watch, casual sneakers.",
+      "props": "Only public-square lines, soft shadows, and faint route marks. No heart charm, no tied thread, no symbolic ribbon.",
+      "background": "Airy overhead public square with soft faded edges, muted slate-blue ground wash, warm ivory negative space in the upper-middle for text.",
+      "emotion": "quiet distance before love",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, cool luminous ivory / pearl paper, visible grain, fine ink/pencil, transparent watercolor blooms, muted denim/navy/camel/terracotta palette, tactile clothing details, upper-middle handwritten text, tiny @a.storyof.two brandmark, A Story of Two Observational Intimacy Premium style",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 1 of 6. Exact ON-IMAGE TEXT with line breaks: You were there.\nI was here.. Scene: High dreamy overhead public square or open court on warm ivory paper. Zuv is a small steady figure on one side, Aachu is a small expressive figure far away on the opposite side. Their locations clearly prove the text: he is there, she is here. Long soft shadows and faint walking paths show distance without sadness. No decorative hearts, no ribbons, no red string, no UI, no copied dark screenshot styling. Pose/body language: Both are distant but readable through posture: Aachu mid-step and expressive, Zuv steady and unhurried, both facing different directions. Keep the faces tiny or partly turned, but preserve hair silhouette, body proportions, and wardrobe anchors. Wardrobe: Aachu: white or cream top with denim and a red patterned scarf or red bag as her recognizable color cue. Zuv: navy or black casual layer, tan trousers, watch, casual sneakers. Props: Only public-square lines, soft shadows, and faint route marks. No heart charm, no tied thread, no symbolic ribbon. Background: Airy overhead public square with soft faded edges, muted slate-blue ground wash, warm ivory negative space in the upper-middle for text. Emotion: quiet distance before love Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent."
+    },
+    {
+      "slide": 2,
+      "slide_count": 6,
+      "text": "You lived your life.\nI lived mine.",
+      "scene": "Warm elevated sidewalk view. Aachu and Zuv move through the same city on separate routes, living their own ordinary lives. Aachu carries expressive movement, denim, light top, red scarf or red bag; Zuv walks calmly in navy/black and tan with watch. Their shadows nearly align but do not meet. The scene proves parallel lives, not romance yet. No symbolic charms or tied-thread motifs.",
+      "visual": "Warm elevated sidewalk view. Aachu and Zuv move through the same city on separate routes, living their own ordinary lives. Aachu carries expressive movement, denim, light top, red scarf or red bag; Zuv walks calmly in navy/black and tan with watch. Their shadows nearly align but do not meet. The scene proves parallel lives, not romance yet. No symbolic charms or tied-thread motifs.",
+      "pose": "Aachu looks toward something lively outside frame; Zuv walks calmly, slightly inward but not yet noticing. Keep body language natural and unposed.",
+      "wardrobe": "Continue Aachu red scarf/bag, denim, light shirt; Zuv navy/black top, tan trousers, watch.",
+      "props": "Pavement lines, soft streetlamp shadow, phone or tote only if natural. No heart charm, no tied thread, no symbolic ribbon.",
+      "background": "Muted city sidewalk with warm-window light and faded watercolor edges; no readable real-world signs or city labels.",
+      "emotion": "parallel ordinary life",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, cool luminous ivory / pearl paper, visible grain, fine ink/pencil, transparent watercolor blooms, muted denim/navy/camel/terracotta palette, tactile clothing details, upper-middle handwritten text, tiny @a.storyof.two brandmark, A Story of Two Observational Intimacy Premium style",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 2 of 6. Exact ON-IMAGE TEXT with line breaks: You lived your life.\nI lived mine.. Scene: Warm elevated sidewalk view. Aachu and Zuv move through the same city on separate routes, living their own ordinary lives. Aachu carries expressive movement, denim, light top, red scarf or red bag; Zuv walks calmly in navy/black and tan with watch. Their shadows nearly align but do not meet. The scene proves parallel lives, not romance yet. No symbolic charms or tied-thread motifs. Pose/body language: Aachu looks toward something lively outside frame; Zuv walks calmly, slightly inward but not yet noticing. Keep body language natural and unposed. Wardrobe: Continue Aachu red scarf/bag, denim, light shirt; Zuv navy/black top, tan trousers, watch. Props: Pavement lines, soft streetlamp shadow, phone or tote only if natural. No heart charm, no tied thread, no symbolic ribbon. Background: Muted city sidewalk with warm-window light and faded watercolor edges; no readable real-world signs or city labels. Emotion: parallel ordinary life Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent."
+    },
+    {
+      "slide": 3,
+      "slide_count": 6,
+      "text": "Until the day\nour paths crossed.",
+      "scene": "Soft crosswalk from above. Aachu and Zuv step into the same crossing from opposite sides. Their shadows meet first, then their eye-lines begin to notice each other. A scarf edge or bag strap may move naturally with Aachu, but nothing symbolic is attached to them. The crosswalk itself is the story evidence: paths finally crossing.",
+      "visual": "Soft crosswalk from above. Aachu and Zuv step into the same crossing from opposite sides. Their shadows meet first, then their eye-lines begin to notice each other. A scarf edge or bag strap may move naturally with Aachu, but nothing symbolic is attached to them. The crosswalk itself is the story evidence: paths finally crossing.",
+      "pose": "Aachu mid-step, expressive head turn; Zuv slowing with calm attention. Distance narrows but they have not touched yet.",
+      "wardrobe": "Aachu light top, jeans, red scarf/bag. Zuv navy/black layer, tan trousers, sneakers.",
+      "props": "Crosswalk stripes, soft shadow overlap, natural scarf/bag movement. No symbolic thread, no heart motif.",
+      "background": "Warm minimal street corner fading into paper grain; crowd reduced to loose silhouettes.",
+      "emotion": "the first crossing",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, cool luminous ivory / pearl paper, visible grain, fine ink/pencil, transparent watercolor blooms, muted denim/navy/camel/terracotta palette, tactile clothing details, upper-middle handwritten text, tiny @a.storyof.two brandmark, A Story of Two Observational Intimacy Premium style",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 3 of 6. Exact ON-IMAGE TEXT with line breaks: Until the day\nour paths crossed.. Scene: Soft crosswalk from above. Aachu and Zuv step into the same crossing from opposite sides. Their shadows meet first, then their eye-lines begin to notice each other. A scarf edge or bag strap may move naturally with Aachu, but nothing symbolic is attached to them. The crosswalk itself is the story evidence: paths finally crossing. Pose/body language: Aachu mid-step, expressive head turn; Zuv slowing with calm attention. Distance narrows but they have not touched yet. Wardrobe: Aachu light top, jeans, red scarf/bag. Zuv navy/black layer, tan trousers, sneakers. Props: Crosswalk stripes, soft shadow overlap, natural scarf/bag movement. No symbolic thread, no heart motif. Background: Warm minimal street corner fading into paper grain; crowd reduced to loose silhouettes. Emotion: the first crossing Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent."
+    },
+    {
+      "slide": 4,
+      "slide_count": 6,
+      "text": "Two people.\nOne moment.",
+      "scene": "Airy transit or elevator interior with both bodies close enough for the public world to narrow. Their hands pause near the same rail or pole because the carriage shifts; they nearly touch or lightly brush. Aachu has small jewelry and a red scarf/bag edge, Zuv has a watch and dark/navy sleeve. The moment is quiet and real: two people, one pause. No heart ribbon, no tied fingers, no thread charm.",
+      "visual": "Airy transit or elevator interior with both bodies close enough for the public world to narrow. Their hands pause near the same rail or pole because the carriage shifts; they nearly touch or lightly brush. Aachu has small jewelry and a red scarf/bag edge, Zuv has a watch and dark/navy sleeve. The moment is quiet and real: two people, one pause. No heart ribbon, no tied fingers, no thread charm.",
+      "pose": "Hands are natural and flattering, fingers correct, wrists relaxed. Keep it tender, not posed; faces can be off-frame or softly implied in reflection.",
+      "wardrobe": "Aachu sleeve in off-white or soft printed fabric with small jewelry; Zuv dark/navy sleeve with watch.",
+      "props": "Transit pole or rail only, soft abstract panel shapes. No logos, no readable station text, no MTA labels, no heart charm, no tied thread.",
+      "background": "Soft muted transit interior washed into ivory paper, generous upper-middle negative space for text.",
+      "emotion": "public world narrowing into one pause",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, cool luminous ivory / pearl paper, visible grain, fine ink/pencil, transparent watercolor blooms, muted denim/navy/camel/terracotta palette, tactile clothing details, upper-middle handwritten text, tiny @a.storyof.two brandmark, A Story of Two Observational Intimacy Premium style",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 4 of 6. Exact ON-IMAGE TEXT with line breaks: Two people.\nOne moment.. Scene: Airy transit or elevator interior with both bodies close enough for the public world to narrow. Their hands pause near the same rail or pole because the carriage shifts; they nearly touch or lightly brush. Aachu has small jewelry and a red scarf/bag edge, Zuv has a watch and dark/navy sleeve. The moment is quiet and real: two people, one pause. No heart ribbon, no tied fingers, no thread charm. Pose/body language: Hands are natural and flattering, fingers correct, wrists relaxed. Keep it tender, not posed; faces can be off-frame or softly implied in reflection. Wardrobe: Aachu sleeve in off-white or soft printed fabric with small jewelry; Zuv dark/navy sleeve with watch. Props: Transit pole or rail only, soft abstract panel shapes. No logos, no readable station text, no MTA labels, no heart charm, no tied thread. Background: Soft muted transit interior washed into ivory paper, generous upper-middle negative space for text. Emotion: public world narrowing into one pause Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent."
+    },
+    {
+      "slide": 5,
+      "slide_count": 6,
+      "text": "Years apart.\nSeconds to fall.",
+      "scene": "Escalator or station stair scene. Aachu leans into Zuv in a quiet side-hug while the escalator carries them upward. Zuv steadies her shoulder or bag with active gentle care. Other commuters are soft silhouettes. The scene compresses years of separate life into sudden closeness. The fall is emotional, not literal; keep bodies natural and flattering.",
+      "visual": "Escalator or station stair scene. Aachu leans into Zuv in a quiet side-hug while the escalator carries them upward. Zuv steadies her shoulder or bag with active gentle care. Other commuters are soft silhouettes. The scene compresses years of separate life into sudden closeness. The fall is emotional, not literal; keep bodies natural and flattering.",
+      "pose": "Aachu relaxed into him with a soft smile or closed-eye comfort; Zuv steady, calm, protective, face partly visible in profile. Natural arms and hands.",
+      "wardrobe": "Aachu light shirt or soft kurta, denim, red scarf/bag. Zuv navy/black shirt or hoodie, tan trousers, watch.",
+      "props": "Escalator rail, warm station tiles, moving scarf/bag. No readable posters, no heart charm, no tied thread.",
+      "background": "Warm minimal station interior, soft shadows, faded edges, clean text space above.",
+      "emotion": "years collapsing into closeness",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, cool luminous ivory / pearl paper, visible grain, fine ink/pencil, transparent watercolor blooms, muted denim/navy/camel/terracotta palette, tactile clothing details, upper-middle handwritten text, tiny @a.storyof.two brandmark, A Story of Two Observational Intimacy Premium style",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 5 of 6. Exact ON-IMAGE TEXT with line breaks: Years apart.\nSeconds to fall.. Scene: Escalator or station stair scene. Aachu leans into Zuv in a quiet side-hug while the escalator carries them upward. Zuv steadies her shoulder or bag with active gentle care. Other commuters are soft silhouettes. The scene compresses years of separate life into sudden closeness. The fall is emotional, not literal; keep bodies natural and flattering. Pose/body language: Aachu relaxed into him with a soft smile or closed-eye comfort; Zuv steady, calm, protective, face partly visible in profile. Natural arms and hands. Wardrobe: Aachu light shirt or soft kurta, denim, red scarf/bag. Zuv navy/black shirt or hoodie, tan trousers, watch. Props: Escalator rail, warm station tiles, moving scarf/bag. No readable posters, no heart charm, no tied thread. Background: Warm minimal station interior, soft shadows, faded edges, clean text space above. Emotion: years collapsing into closeness Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent."
+    },
+    {
+      "slide": 6,
+      "slide_count": 6,
+      "text": "Different stories.\nSame ending.",
+      "scene": "Final waist-level walking scene on one shared path. Aachu and Zuv are seen from mid-back or waist down to naturally joined hands, walking the same direction. Aachu has red scarf or red bag edge, denim, light top; Zuv has dark/navy sleeve, tan trousers, watch. No string, no ribbon, no charm tied to fingers. The ordinary handhold and shared direction prove the ending.",
+      "visual": "Final waist-level walking scene on one shared path. Aachu and Zuv are seen from mid-back or waist down to naturally joined hands, walking the same direction. Aachu has red scarf or red bag edge, denim, light top; Zuv has dark/navy sleeve, tan trousers, watch. No string, no ribbon, no charm tied to fingers. The ordinary handhold and shared direction prove the ending.",
+      "pose": "Hands joined naturally, shoulders angled toward each other, walking in the same direction. Faces may be mostly unseen but identity cues must remain consistent.",
+      "wardrobe": "Continue the same visual identity cues from earlier slides for both characters; avoid random outfit changes.",
+      "props": "Shared path line, Aachu red scarf/bag, Zuv watch. No heart charm, no tied thread, no symbolic ribbon.",
+      "background": "Soft city walkway fading into ivory paper; no UI, no logos, no copied text from the source reference.",
+      "emotion": "earned shared ending",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, cool luminous ivory / pearl paper, visible grain, fine ink/pencil, transparent watercolor blooms, muted denim/navy/camel/terracotta palette, tactile clothing details, upper-middle handwritten text, tiny @a.storyof.two brandmark, A Story of Two Observational Intimacy Premium style",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 6 of 6. Exact ON-IMAGE TEXT with line breaks: Different stories.\nSame ending.. Scene: Final waist-level walking scene on one shared path. Aachu and Zuv are seen from mid-back or waist down to naturally joined hands, walking the same direction. Aachu has red scarf or red bag edge, denim, light top; Zuv has dark/navy sleeve, tan trousers, watch. No string, no ribbon, no charm tied to fingers. The ordinary handhold and shared direction prove the ending. Pose/body language: Hands joined naturally, shoulders angled toward each other, walking in the same direction. Faces may be mostly unseen but identity cues must remain consistent. Wardrobe: Continue the same visual identity cues from earlier slides for both characters; avoid random outfit changes. Props: Shared path line, Aachu red scarf/bag, Zuv watch. No heart charm, no tied thread, no symbolic ribbon. Background: Soft city walkway fading into ivory paper; no UI, no logos, no copied text from the source reference. Emotion: earned shared ending Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent."
+    }
+  ]
+}

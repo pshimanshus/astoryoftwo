@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "agents": [
+    {
+      "agent": "carousel-visual-evidence-planner",
+      "verdict": "GO",
+      "claim": "The sofa, phone, remote, cushions, eye-lines, and pointing gestures are concrete receipts rather than decorative props."
+    },
+    {
+      "agent": "carousel-romance-scene-planner",
+      "verdict": "GO",
+      "claim": "The romance sits in mutual permission to be silly, not in dramatic posing."
+    },
+    {
+      "agent": "carousel-visual-continuity-judge",
+      "verdict": "GO",
+      "claim": "One location is allowed because each slide changes action/reaction; repeated motif is controlled by story necessity."
+    }
+  ],
+  "visual_options": [
+    {
+      "name": "Cozy Sofa Search Party",
+      "score": 29,
+      "verdict": "WINNER"
+    },
+    {
+      "name": "Kitchen-to-Sofa Chase",
+      "score": 25,
+      "verdict": "REPAIR",
+      "risk": "too many location changes for a tiny domestic joke"
+    },
+    {
+      "name": "Mystery Detective Parody",
+      "score": 21,
+      "verdict": "REJECTED",
+      "risk": "costume/parody would overpower lived-in intimacy"
+    }
+  ],
+  "rejected_visual_patterns": [
+    "poster copy board",
+    "giant phone/remote closeups",
+    "one-way Aachu chaos",
+    "perfect-boyfriend rescue",
+    "generic couple couch pose"
+  ],
+  "winner": "Cozy Sofa Search Party",
+  "selector_verdict": "GO: strong staged domestic proof with mutual reversal and earned payoff.",
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Some couples share one brain cell.",
+      "scene": "A cozy Indian apartment living-room scene in warm evening light: Aachu and Zuv stand near a soft sofa like two very serious detectives, one cushion already lifted, both leaning in with focused eyes while the phone and remote are visible in the scene but not yet noticed. Their body language says this is a shared investigation, not one person being mocked.",
+      "pose": "Both upright and natural beside the sofa, shoulders angled toward the missing-object search; Aachu half points toward a cushion while Zuv peers at the sofa seam, both expressive and comfortable.",
+      "props": "sofa cushions, phone with small heart sticker, TV/AC remote, small side table, potted plant, warm lamp"
+    },
+    {
+      "slide": 2,
+      "copy": "Phone kaha hai?",
+      "scene": "Aachu searches beside the sofa with exaggerated seriousness while her phone with a tiny heart sticker is clearly in the same hand she is using to gesture. Zuv watches from beside her, amused but not announcing the answer yet, letting the comedy breathe.",
+      "pose": "Aachu standing close to the sofa, one hand lifting a cushion and the other hand holding the phone while pointing; Zuv slightly behind or beside her with soft amused attention.",
+      "props": "phone with heart sticker in Aachu hand, sofa cushion, side table, small charging cable"
+    },
+    {
+      "slide": 3,
+      "copy": "It was in her hand.",
+      "scene": "Zuv gently points with one finger toward the phone already in Aachu hand. Aachu freezes for one beat, half guilty and half laughing, with the sofa cushions now slightly messy. The joke lands as affectionate recognition, never insult.",
+      "pose": "Zuv relaxed and kind, pointing lightly toward her hand; Aachu looking down at the phone in her own hand with widened eyes and a soft embarrassed smile.",
+      "props": "phone with heart sticker, lifted sofa cushion, coffee table edge, small plant"
+    },
+    {
+      "slide": 4,
+      "copy": "Remote kaha hai?",
+      "scene": "The reversal: Zuv now searches for the remote with the same grave seriousness while the remote is plainly in his own hand. Aachu watches him with delighted deadpan expression, enjoying that the one brain cell has changed owners.",
+      "pose": "Zuv leans toward the sofa with one cushion lifted while unknowingly holding the remote; Aachu stands beside the sofa, one eyebrow lifted, hand near her mouth as if trying not to laugh.",
+      "props": "TV/AC remote in Zuv hand, sofa cushion, phone now safe on side table, coffee cup"
+    },
+    {
+      "slide": 5,
+      "copy": "It was in his hand.",
+      "scene": "Aachu points at the remote in Zuv hand. Zuv looks down at it, caught, with a small helpless grin. The frame mirrors slide 3 so the audience feels the equal reversal and the no-judgement contract between them.",
+      "pose": "Aachu lightly points at Zuv hand from beside him; Zuv bends his wrist slightly to see the remote, shoulders relaxing as the laugh arrives.",
+      "props": "remote in Zuv hand, phone on side table or tucked in Aachu other hand, slightly messy cushions"
+    },
+    {
+      "slide": 6,
+      "copy": "Sofa still got checked.",
+      "scene": "Even after both reveals, Aachu and Zuv keep checking the sofa together. Two cushions are lifted, one cushion rests on the floor, the phone and remote are already visible and safe, and both are still invested in the useless investigation as if it matters.",
+      "pose": "Both kneel or lean in naturally without cramped anatomy: one lifts a cushion, the other looks under the sofa edge; faces amused, bodies relaxed, no awkward folding.",
+      "props": "phone and remote visible on side table or in hands, sofa cushions, small rug, slippers, coffee table"
+    },
+    {
+      "slide": 7,
+      "copy": "Home is where no one acts smart.",
+      "scene": "Final warm sofa scene: Aachu and Zuv collapse into the sofa together, laughing softly among one or two messy cushions. The phone and remote are safe between them or on the table. The scene feels tender because no one had to perform competence; both are allowed to be fully themselves.",
+      "pose": "Both seated comfortably close on the sofa, shoulders leaning toward each other, relaxed legs, soft smiles, natural hands resting near the recovered phone and remote.",
+      "props": "phone with heart sticker, remote, sofa cushions, warm lamp, small plant, coffee cup"
+    }
+  ],
+  "hard_fails_checked": [
+    "no one-way mockery",
+    "no passive Zuv",
+    "no object-first premise",
+    "no poster/quote-card layout",
+    "no repeated static couch pose"
+  ],
+  "issues": []
+}

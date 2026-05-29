@@ -1,0 +1,122 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "status": "PASS",
+  "identity_references": [
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "status": "PASS",
+      "identity_notes": "Use selected identity bundle as actual visual reference; faces are often distant or partial, so preserve hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy.",
+      "must_preserve": {
+        "slide": 1,
+        "identity_references": [
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+        ],
+        "face_structure": "Preserve Aachu/Zuv identity from the selected bundle even when faces are tiny, profile, back-view, or partly hidden: Aachu long dark wavy hair, expressive brows/eyes, petite softer presence; Zuv curly dark hair, strong brows, stubble, broader/taller calm presence.",
+        "facial_expression": "Match the slide emotion (quiet pre-love almostness, cinematic but safe) without inventing generic faces; use recognizable hair silhouette, posture, and wardrobe when faces are distant.",
+        "clothing": "Keep continuity cues: Aachu light top, denim, red patterned scarf or red bag, small jewelry; Zuv navy/black layer, tan trousers, watch, casual shoes.",
+        "cross_slide_consistency": "The pair must read as the same recurring South Asian couple in every slide through face cues, hair, body proportions, wardrobe, and relationship energy."
+      }
+    },
+    {
+      "slide": 2,
+      "status": "PASS",
+      "identity_notes": "Use selected identity bundle as actual visual reference; faces are often distant or partial, so preserve hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy.",
+      "must_preserve": {
+        "slide": 2,
+        "identity_references": [
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+        ],
+        "face_structure": "Preserve Aachu/Zuv identity from the selected bundle even when faces are tiny, profile, back-view, or partly hidden: Aachu long dark wavy hair, expressive brows/eyes, petite softer presence; Zuv curly dark hair, strong brows, stubble, broader/taller calm presence.",
+        "facial_expression": "Match the slide emotion (ordinary lives, gentle tension, not-yet) without inventing generic faces; use recognizable hair silhouette, posture, and wardrobe when faces are distant.",
+        "clothing": "Keep continuity cues: Aachu light top, denim, red patterned scarf or red bag, small jewelry; Zuv navy/black layer, tan trousers, watch, casual shoes.",
+        "cross_slide_consistency": "The pair must read as the same recurring South Asian couple in every slide through face cues, hair, body proportions, wardrobe, and relationship energy."
+      }
+    },
+    {
+      "slide": 3,
+      "status": "PASS",
+      "identity_notes": "Use selected identity bundle as actual visual reference; faces are often distant or partial, so preserve hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy.",
+      "must_preserve": {
+        "slide": 3,
+        "identity_references": [
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+        ],
+        "face_structure": "Preserve Aachu/Zuv identity from the selected bundle even when faces are tiny, profile, back-view, or partly hidden: Aachu long dark wavy hair, expressive brows/eyes, petite softer presence; Zuv curly dark hair, strong brows, stubble, broader/taller calm presence.",
+        "facial_expression": "Match the slide emotion (the first invisible click, curiosity becoming attention) without inventing generic faces; use recognizable hair silhouette, posture, and wardrobe when faces are distant.",
+        "clothing": "Keep continuity cues: Aachu light top, denim, red patterned scarf or red bag, small jewelry; Zuv navy/black layer, tan trousers, watch, casual shoes.",
+        "cross_slide_consistency": "The pair must read as the same recurring South Asian couple in every slide through face cues, hair, body proportions, wardrobe, and relationship energy."
+      }
+    },
+    {
+      "slide": 4,
+      "status": "PASS",
+      "identity_notes": "Use selected identity bundle as actual visual reference; faces are often distant or partial, so preserve hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy.",
+      "must_preserve": {
+        "slide": 4,
+        "identity_references": [
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+        ],
+        "face_structure": "Preserve Aachu/Zuv identity from the selected bundle even when faces are tiny, profile, back-view, or partly hidden: Aachu long dark wavy hair, expressive brows/eyes, petite softer presence; Zuv curly dark hair, strong brows, stubble, broader/taller calm presence.",
+        "facial_expression": "Match the slide emotion (private closeness inside a public place) without inventing generic faces; use recognizable hair silhouette, posture, and wardrobe when faces are distant.",
+        "clothing": "Keep continuity cues: Aachu light top, denim, red patterned scarf or red bag, small jewelry; Zuv navy/black layer, tan trousers, watch, casual shoes.",
+        "cross_slide_consistency": "The pair must read as the same recurring South Asian couple in every slide through face cues, hair, body proportions, wardrobe, and relationship energy."
+      }
+    },
+    {
+      "slide": 5,
+      "status": "PASS",
+      "identity_notes": "Use selected identity bundle as actual visual reference; faces are often distant or partial, so preserve hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy.",
+      "must_preserve": {
+        "slide": 5,
+        "identity_references": [
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+        ],
+        "face_structure": "Preserve Aachu/Zuv identity from the selected bundle even when faces are tiny, profile, back-view, or partly hidden: Aachu long dark wavy hair, expressive brows/eyes, petite softer presence; Zuv curly dark hair, strong brows, stubble, broader/taller calm presence.",
+        "facial_expression": "Match the slide emotion (years of almostness becoming one gentle surrender) without inventing generic faces; use recognizable hair silhouette, posture, and wardrobe when faces are distant.",
+        "clothing": "Keep continuity cues: Aachu light top, denim, red patterned scarf or red bag, small jewelry; Zuv navy/black layer, tan trousers, watch, casual shoes.",
+        "cross_slide_consistency": "The pair must read as the same recurring South Asian couple in every slide through face cues, hair, body proportions, wardrobe, and relationship energy."
+      }
+    },
+    {
+      "slide": 6,
+      "status": "PASS",
+      "identity_notes": "Use selected identity bundle as actual visual reference; faces are often distant or partial, so preserve hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy.",
+      "must_preserve": {
+        "slide": 6,
+        "identity_references": [
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+          "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+        ],
+        "face_structure": "Preserve Aachu/Zuv identity from the selected bundle even when faces are tiny, profile, back-view, or partly hidden: Aachu long dark wavy hair, expressive brows/eyes, petite softer presence; Zuv curly dark hair, strong brows, stubble, broader/taller calm presence.",
+        "facial_expression": "Match the slide emotion (earned home, quiet certainty, saveable ending) without inventing generic faces; use recognizable hair silhouette, posture, and wardrobe when faces are distant.",
+        "clothing": "Keep continuity cues: Aachu light top, denim, red patterned scarf or red bag, small jewelry; Zuv navy/black layer, tan trousers, watch, casual shoes.",
+        "cross_slide_consistency": "The pair must read as the same recurring South Asian couple in every slide through face cues, hair, body proportions, wardrobe, and relationship energy."
+      }
+    }
+  ],
+  "issues": []
+}

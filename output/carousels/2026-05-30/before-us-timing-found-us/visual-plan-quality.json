@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "Parallel Routes To Same Home",
+  "rejected_visual_patterns": [
+    "dark cinematic screenshot copy",
+    "exact external text reuse",
+    "quote-card deck",
+    "generic faceless city romance",
+    "single red-string gimmick on every slide"
+  ],
+  "continuity_locks": [
+    "Aachu red scarf/bag + long dark hair",
+    "Zuv navy/black layer + tan trousers + watch",
+    "warm ivory paper with upper-middle text",
+    "no real platform UI/logos"
+  ],
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "status": "GO",
+      "copy": "Before us, timing kept practicing.",
+      "visual_evidence": "GO - staged action proves the line without relying only on text.",
+      "emotional_proof": "GO - preserves separate-lives-to-same-home arc.",
+      "identity_continuity": "GO - uses recurring wardrobe/hair/body cues; faces may be small but must not drift.",
+      "typography_safety": "GO - short original copy fits upper-middle negative space.",
+      "aspect_specific_composition": "GO - 4:5 and 9:16 can be generated natively with lower/middle-lower scene placement."
+    },
+    {
+      "slide": 2,
+      "status": "GO",
+      "copy": "We were living separate maps.",
+      "visual_evidence": "GO - staged action proves the line without relying only on text.",
+      "emotional_proof": "GO - preserves separate-lives-to-same-home arc.",
+      "identity_continuity": "GO - uses recurring wardrobe/hair/body cues; faces may be small but must not drift.",
+      "typography_safety": "GO - short original copy fits upper-middle negative space.",
+      "aspect_specific_composition": "GO - 4:5 and 9:16 can be generated natively with lower/middle-lower scene placement."
+    },
+    {
+      "slide": 3,
+      "status": "GO",
+      "copy": "Then one crossing noticed us.",
+      "visual_evidence": "GO - staged action proves the line without relying only on text.",
+      "emotional_proof": "GO - preserves separate-lives-to-same-home arc.",
+      "identity_continuity": "GO - uses recurring wardrobe/hair/body cues; faces may be small but must not drift.",
+      "typography_safety": "GO - short original copy fits upper-middle negative space.",
+      "aspect_specific_composition": "GO - 4:5 and 9:16 can be generated natively with lower/middle-lower scene placement."
+    },
+    {
+      "slide": 4,
+      "status": "GO",
+      "copy": "The world got smaller.",
+      "visual_evidence": "GO - staged action proves the line without relying only on text.",
+      "emotional_proof": "GO - preserves separate-lives-to-same-home arc.",
+      "identity_continuity": "GO - uses recurring wardrobe/hair/body cues; faces may be small but must not drift.",
+      "typography_safety": "GO - short original copy fits upper-middle negative space.",
+      "aspect_specific_composition": "GO - 4:5 and 9:16 can be generated natively with lower/middle-lower scene placement."
+    },
+    {
+      "slide": 5,
+      "status": "GO",
+      "copy": "So many years. One soft fall.",
+      "visual_evidence": "GO - staged action proves the line without relying only on text.",
+      "emotional_proof": "GO - preserves separate-lives-to-same-home arc.",
+      "identity_continuity": "GO - uses recurring wardrobe/hair/body cues; faces may be small but must not drift.",
+      "typography_safety": "GO - short original copy fits upper-middle negative space.",
+      "aspect_specific_composition": "GO - 4:5 and 9:16 can be generated natively with lower/middle-lower scene placement."
+    },
+    {
+      "slide": 6,
+      "status": "GO",
+      "copy": "Different stories. Same home.",
+      "visual_evidence": "GO - staged action proves the line without relying only on text.",
+      "emotional_proof": "GO - preserves separate-lives-to-same-home arc.",
+      "identity_continuity": "GO - uses recurring wardrobe/hair/body cues; faces may be small but must not drift.",
+      "typography_safety": "GO - short original copy fits upper-middle negative space.",
+      "aspect_specific_composition": "GO - 4:5 and 9:16 can be generated natively with lower/middle-lower scene placement."
+    }
+  ],
+  "issues": []
+}

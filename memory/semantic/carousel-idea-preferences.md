@@ -280,6 +280,25 @@ phrase-world, rhythm, and private-text specificity first, then repair only for
 clarity, safety, and carousel flow.
 confidence: 0.99
 
+fact: Creator correction on 2026-05-30 during the timing/fate illustrated
+carousel: the Observational Intimacy Premium illustration style, richness,
+font, and aesthetic were strongly approved, but decorative symbolic shortcuts
+such as a tiny heart ribbon, tied thread, or charm on fingers failed the story
+logic. Future generation must be story-smart: text and visuals need clean
+cause-and-effect, and props must be literal scene evidence unless the creator
+explicitly supplies the symbol. Do not let a pretty motif carry meaning when
+body language, staging, or action should carry it.
+confidence: 1.0
+
+fact: Follow-up correction on the same timing/fate carousel: the creator liked
+the reference-image text cadence and wanted to keep that copy spine. Do not
+over-originalize strong reference copy into weaker abstract lines. For this
+lane, preserve the clean progression of spatial separation, separate lives,
+paths crossing, one moment, years collapsing, and different stories reaching
+the same ending; repair the visuals around that story instead of replacing the
+text.
+confidence: 1.0
+
 fact: For fun posts and Reels, prioritize natural, everyday, relatable couple
 behavior over polished romance, perfect-boyfriend praise, or "he is so good"
 green-flag framing. The creator wants the scene to feel like real daily life:
@@ -461,6 +480,7 @@ confidence: 0.98
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
 | 2026-05-30 | The Small World | real-life tiny-life gratitude / zoom-out to zoom-in visual psychology / sky attention pivot | accepted_visual_direction_packaged | Creator approved the 3-slide adaptation from the external StoriesByPost-style screenshot but wants it visually captivating, emotional, and psychological: use the outside reference only for mood/composition/story essence, not copied wording or style. Locked copy: `Not every love story needs a big life.` -> `She points at the sky. He looks at her first.` -> `That small world became home.` Visual system must move from wide awe/negative-space scale to selective-attention medium shot to tactile close-up intimacy, proving that the real subject is not the sky but the way he notices her. Keep it real-life and minimal, avoid quote-card energy, generic beach romance, copied external text, or non-A Story illustration style. Active package: `output/carousels/2026-05-30/the-small-world/`. | 1.0 |
+| 2026-05-30 | One Brain Cell At Home / Search Party | daily-human mutual incompetence / missing phone and remote / home as no-judgement comedy | accepted_packaging_handoff_pending | Recommended after creator pushed back that the assistant must use semantic memory instead of asking for raw setup. This is setup-first and mutual: at home both become a tiny search party, her phone is already in her hand, his remote is already in his hand, and both still search the sofa together. Use this only as daily-human comedy with ordinary body language, hands, object movement, eye-lines, and tiny scene-native text. Avoid perfect-boyfriend care, one-way Aachu chaos, generic relationship advice, object-first phone/remote premise, or moralizing about forgetfulness. Draft hook/copy direction: `Some couples share one brain cell.`, `Phone kaha hai?`, `It was in her hand.`, `Remote kaha hai?`, `It was in his hand.`, `Sofa still got checked.`, `Home is where no one acts smart.` | 0.94 |
 | 2026-05-30 | One Umbrella Shows Everything | rain walk / mutual noticing / one-sided care becomes shared shelter | rejected_creator_wrong_direction_and_setup_fail | Creator rejected this immediately and corrected that the assistant again failed the setup explained in the learning summary. Failure: the route was still a pretty romantic object-first premise dressed as a physical receipt; the setup was not lived, specific, funny, staged, or creator-calibrated enough. It leaned toward generic rain-romance/perfect-boyfriend visual poetry instead of a hard-working @a.storyof.two scene engine. Do not pitch umbrella/rain/sleeve-wet mutual-shelter concepts as the next direction unless the creator explicitly supplies a real moment and asks to revisit. | 1.0 |
 | 2026-05-29 | OTP Expired Twice | daily-life timer panic / two-person pressure system / mutual comedy | approved_package_handoff_ready | Creator approved this after rejecting Unknown Number Adult Voice as underfleshed and asked to continue carousel creation. Active package: `output/carousels/2026-05-29/otp-expired-twice/`. Locked repaired copy: `30 seconds.`, `jaldi bolo.`, `8 tha ya 3?`, `expired.`, `resend. breathe.`, `submitted.`, `two people panicking correctly.` Winning visual system: cozy home mini mission-control with two color-coded phones, hands, eye-lines, and shared body movement proving the joke before text. Keep this harmless app verification only; avoid shopping/cart framing, money audit, scam/fraud vibes, branded UI, perfect-husband rescue, or making either partner look incompetent. Handoff prompts for native 4:5 and separate native 9:16 exist; final generated images and visual QA remain pending because identity references must be attached as actual image inputs. | 1.0 |
 | 2026-05-29 | Unknown Number Adult Voice | daily-life adulting comedy / unknown-call private teamwork / formal voice rescue | rejected_creator_underfleshed | Creator said the idea is not looking good or fleshed out enough and asked to explore funnier or different angles. Do not pitch the unknown-number/adult-voice scene as the fresh winner unless explicitly revisiting. Failure note: the scene has visual clarity but not enough escalation, comedic surprise, or A Story of Two-specific emotional machine; it still reads like a cute adulting skit rather than a strong carousel premise. | 1.0 |

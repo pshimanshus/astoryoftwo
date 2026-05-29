@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "Before us, timing kept practicing."
+    },
+    {
+      "slide": 2,
+      "copy": "We were living separate maps."
+    },
+    {
+      "slide": 3,
+      "copy": "Then one crossing noticed us."
+    },
+    {
+      "slide": 4,
+      "copy": "The world got smaller."
+    },
+    {
+      "slide": 5,
+      "copy": "So many years. One soft fall."
+    },
+    {
+      "slide": 6,
+      "copy": "Different stories. Same home."
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement for separate native 4:5 and 9:16 outputs."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific model-native prompt constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Parallel Routes To Same Home",
+      "score": 29,
+      "case_for": "Best balance of cinematic overhead references, A Story intimacy, and sendable final thesis.",
+      "risk": "Needs warm ivory whitespace so it does not become dark city poster art."
+    },
+    {
+      "name": "Transit Hands Only",
+      "score": 27,
+      "case_for": "Strong tactile proof and fewer face risks.",
+      "risk": "Too narrow; loses the staged before/after relationship arc."
+    },
+    {
+      "name": "Aerial Fate Map",
+      "score": 26,
+      "case_for": "Beautiful visual continuity through paths and shadows.",
+      "risk": "Can become aesthetic-first unless Aachu/Zuv roles stay visible."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Parallel Routes To Same Home",
+  "why_it_wins": "It preserves the reference mechanic of separate lives crossing while converting every frame into Aachu/Zuv behavior, not quote-card imitation.",
+  "rejected_visual_patterns": [
+    "dark cinematic screenshot copy",
+    "exact external text reuse",
+    "quote-card deck",
+    "generic faceless city romance",
+    "single red-string gimmick on every slide"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "Before us, timing kept practicing.",
+      "visual": "High, dreamy overhead view of a soft city play-court or open public square on warm ivory paper. Many tiny loosely painted people move through the space, but Aachu and Zuv are the only two recurring figures: Aachu is a small figure with long dark wavy hair, blue jeans, and a red patterned scarf or bag near one lower side; Zuv is a small figure with curly dark hair, navy layer, tan trousers, and watch on the opposite side. They do not notice each other yet. Long watercolor shadows and faint dotted path marks suggest their lives are already orbiting without meeting. No Instagram UI, no copied account styling, no photorealism."
+    },
+    {
+      "slide": 2,
+      "copy": "We were living separate maps.",
+      "visual": "Warm city sidewalk from an elevated window angle, inspired by the second reference but translated into A Story watercolor style. Aachu walks along one diagonal route with long hair, red scarf/bag, and light top; Zuv walks along a different route a few meters away in navy/black and tan. Their shadows almost intersect but their bodies do not. A few soft passerby silhouettes create public-life texture. The scene must read even if text is hidden: two lives moving separately through the same day."
+    },
+    {
+      "slide": 3,
+      "copy": "Then one crossing noticed us.",
+      "visual": "A soft crosswalk scene from above, preserving the supplied crossing-composition idea without copying its dark cinematic style. Aachu and Zuv step into the same crosswalk from opposite sides. Their shadows meet first. Aachu turns her head slightly as if she sensed him; Zuv slows, steady and attentive. One tiny fallen leaf, scarf edge, or bag strap creates object movement across the crossing line. The on-image text floats in clean upper-middle ivory space."
+    },
+    {
+      "slide": 4,
+      "copy": "The world got smaller.",
+      "visual": "Close but airy transit interior inspired by the hand/metro reference: two hands near a metal pole or rail, Aachu wearing a delicate ring/bangle and a red scarf edge visible, Zuv with a watch and darker sleeve. Their knuckles or fingertips lightly meet in a small private gesture. The background is a softened transit panel with abstract shapes only, no logos, no readable station text, no MTA labels. This is the first tactile proof that the public world has narrowed to them."
+    },
+    {
+      "slide": 5,
+      "copy": "So many years. One soft fall.",
+      "visual": "Escalator or station stair scene inspired by the fifth reference but redrawn as Aachu and Zuv in A Story style. Aachu leans into Zuv in a quiet side-hug while the escalator carries them upward; her long hair and red scarf/bag create motion. Zuv holds her gently at the shoulder or waist and steadies her bag, active but not possessive. Other commuters are only loose warm silhouettes. The scene proves the line through body distance shrinking from public to intimate."
+    },
+    {
+      "slide": 6,
+      "copy": "Different stories. Same home.",
+      "visual": "Final lower-frame walking scene: Aachu and Zuv are seen from behind or waist-down holding hands on one shared path, echoing the sixth reference while staying original. Aachu has long dark hair, red scarf/bag, denim; Zuv has dark/navy sleeve, tan trousers, watch. Their joined hands are the focal point, with a tiny dusty-coral thread or heart charm between them as a motif. The background city dissolves into warm ivory paper and soft lantern-like bokeh, leaving the text clear above and the tiny @a.storyof.two brandmark bottom-right."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 4:5 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork."
+  },
+  "generation_prompt_brief": "Generate native 4:5 and native 9:16 A Story of Two watercolor-and-ink illustrations. Use supplied screenshots only for composition/story essence, identity refs for Aachu/Zuv, and Observational Intimacy Premium for style/typography.",
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

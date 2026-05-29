@@ -666,6 +666,36 @@
       "slide_count": 7,
       "package": "output/carousels/2026-05-29/otp-expired-twice",
       "content_lane": null
+    },
+    "carousel:before-us-timing-found-us": {
+      "id": "carousel:before-us-timing-found-us",
+      "type": "illustrated_carousel",
+      "title": "Before Us Timing Found Us",
+      "date": "2026-05-30",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-30/before-us-timing-found-us",
+      "content_lane": "Soft Love Notes / timing fate"
+    },
+    "carousel:one-brain-cell-at-home": {
+      "id": "carousel:one-brain-cell-at-home",
+      "type": "illustrated_carousel",
+      "title": "One Brain Cell At Home",
+      "date": "2026-05-30",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-30/one-brain-cell-at-home",
+      "content_lane": "Daily-Human Home Comedy"
+    },
+    "carousel:before-us-timing-found-us-2": {
+      "id": "carousel:before-us-timing-found-us-2",
+      "type": "illustrated_carousel",
+      "title": "Before Us Timing Found Us",
+      "date": "2026-05-30",
+      "status": "NEEDS_FIXES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-30/before-us-timing-found-us-2",
+      "content_lane": "Soft Love Notes"
     }
   },
   "relationships": [
@@ -1082,6 +1112,24 @@
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:before-us-timing-found-us",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:one-brain-cell-at-home",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:before-us-timing-found-us-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1110,5 +1158,5 @@
       "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-05-29"
+  "last_updated": "2026-05-30"
 }

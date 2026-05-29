@@ -115,7 +115,7 @@ Wiki pages: 70
 
 ```json
 {
-  "count": 101
+  "count": 102
 }
 ```
 
@@ -123,6 +123,6 @@ Wiki pages: 70
 
 ```json
 {
-  "count": 126
+  "count": 128
 }
 ```

@@ -1,0 +1,72 @@
+# Codex Built-In Image Prompt - Slide 06 - Reels/Stories
+
+Use the Codex built-in image generator. Do not use external API keys or external image API clients.
+
+## How To Use This File
+
+- This markdown file is the Codex handoff/checklist, not the exact text to paste into the image model.
+- Attach/view the image references below, then paste only `output/carousels/2026-05-30/before-us-timing-found-us/codex-image-prompts/reels-stories/slide-06.prompt.txt` into the image generator.
+- After generation, package the returned image with `scripts/package_generated_carousel.py` or the proof-specific workflow.
+
+## Native Output Contract
+
+- Native output format: Reels/Stories
+- Required aspect ratio: 9:16
+- Required final file: `output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-06.png`
+- Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image.
+- Generate this format as its own artwork. Do not create it by resizing another generated slide.
+
+## Hard Gate
+
+- The paste-ready `.prompt.txt` must include the @a.storyof.two watercolor-and-ink master prompt structure.
+- Before any slide generation, read `identity-generation-preflight.md` and load/view `identity-face-contact-sheet.jpg`.
+- Preserve the carousel story-director spine embedded in `prompt-pack.json`: hook, setup, proof, bridge, active Zuv role, earned ending, and send/save reason.
+- Before calling image generation, load/view every identity reference listed below so they are actual image inputs in the Codex context.
+- Use the selected identity images as face, hair, expression, body proportion, posture, and relationship-energy references.
+- Do not accept generic Aachu/Zuv faces.
+- Keep the exact slide copy and tiny `@a.storyof.two` brandmark inside the generated image.
+
+## Identity Dossier
+
+- Dossier: output/carousels/2026-05-30/before-us-timing-found-us/identity-dossier.json
+- Preflight: output/carousels/2026-05-30/before-us-timing-found-us/identity-generation-preflight.md
+
+## Actual Image Inputs
+
+Identity dossier references:
+- output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg
+
+Identity references:
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg
+
+Story/source references:
+- /Users/himanshusharma/Downloads/WhatsApp Image 2026-05-29 at 23.46.59 (3).jpeg
+
+Style references:
+- config/references/style-lock/observational-intimacy-premium/slide-01.png
+- config/references/style-lock/observational-intimacy-premium/slide-03.png
+- config/references/style-lock/observational-intimacy-premium/slide-08.png
+
+## Exact Slide Copy
+
+Different stories.
+Same ending.
+
+## Prompt
+
+Native output format: Reels/Stories. Generate a complete 9:16 vertical publishable story slide with all text and the tiny @a.storyof.two brandmark inside the image. Reframe the scene for the taller canvas; do not stretch, crop, or pad the Instagram post artwork.
+
+Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 6 of 6. Exact ON-IMAGE TEXT with line breaks: Different stories.
+Same ending.. Scene: Final waist-level walking scene on one shared path. Aachu and Zuv are seen from mid-back or waist down to naturally joined hands, walking the same direction. Aachu has red scarf or red bag edge, denim, light top; Zuv has dark/navy sleeve, tan trousers, watch. No string, no ribbon, no charm tied to fingers. The ordinary handhold and shared direction prove the ending. Pose/body language: Hands joined naturally, shoulders angled toward each other, walking in the same direction. Faces may be mostly unseen but identity cues must remain consistent. Wardrobe: Continue the same visual identity cues from earlier slides for both characters; avoid random outfit changes. Props: Shared path line, Aachu red scarf/bag, Zuv watch. No heart charm, no tied thread, no symbolic ribbon. Background: Soft city walkway fading into ivory paper; no UI, no logos, no copied text from the source reference. Emotion: earned shared ending Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right.
+
+## Expected Output
+
+- Save packaged final to `output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-06.png`.
+- Source provenance should point to the Codex generated image copied into `output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-06.png`.

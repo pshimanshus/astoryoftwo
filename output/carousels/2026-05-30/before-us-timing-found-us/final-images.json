@@ -1,0 +1,342 @@
+{
+  "status": "generated",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 6,
+  "done": true,
+  "publishable": true,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "You were there.\nI was here.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 1 of 6. Exact ON-IMAGE TEXT with line breaks: You were there.\nI was here.. Scene: High dreamy overhead public square or open court on warm ivory paper. Zuv is a small steady figure on one side, Aachu is a small expressive figure far away on the opposite side. Their locations clearly prove the text: he is there, she is here. Long soft shadows and faint walking paths show distance without sadness. No decorative hearts, no ribbons, no red string, no UI, no copied dark screenshot styling. Pose/body language: Both are distant but readable through posture: Aachu mid-step and expressive, Zuv steady and unhurried, both facing different directions. Keep the faces tiny or partly turned, but preserve hair silhouette, body proportions, and wardrobe anchors. Wardrobe: Aachu: white or cream top with denim and a red patterned scarf or red bag as her recognizable color cue. Zuv: navy or black casual layer, tan trousers, watch, casual sneakers. Props: Only public-square lines, soft shadows, and faint route marks. No heart charm, no tied thread, no symbolic ribbon. Background: Airy overhead public square with soft faded edges, muted slate-blue ground wash, warm ivory negative space in the upper-middle for text. Emotion: quiet distance before love Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent.",
+      "reference_images": [
+        "output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-29 at 23.46.59 (8).jpeg"
+      ],
+      "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-01.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0c88c314819191e78e67bef79cdf.png",
+      "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-01.png",
+      "reels_stories_source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-01.png",
+      "reels_stories_file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-01.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-01.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0c88c314819191e78e67bef79cdf.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-01.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-01.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a13e86c1481919966cef6182ba7e2.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-01.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "You lived your life.\nI lived mine.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 2 of 6. Exact ON-IMAGE TEXT with line breaks: You lived your life.\nI lived mine.. Scene: Warm elevated sidewalk view. Aachu and Zuv move through the same city on separate routes, living their own ordinary lives. Aachu carries expressive movement, denim, light top, red scarf or red bag; Zuv walks calmly in navy/black and tan with watch. Their shadows nearly align but do not meet. The scene proves parallel lives, not romance yet. No symbolic charms or tied-thread motifs. Pose/body language: Aachu looks toward something lively outside frame; Zuv walks calmly, slightly inward but not yet noticing. Keep body language natural and unposed. Wardrobe: Continue Aachu red scarf/bag, denim, light shirt; Zuv navy/black top, tan trousers, watch. Props: Pavement lines, soft streetlamp shadow, phone or tote only if natural. No heart charm, no tied thread, no symbolic ribbon. Background: Muted city sidewalk with warm-window light and faded watercolor edges; no readable real-world signs or city labels. Emotion: parallel ordinary life Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent.",
+      "reference_images": [
+        "output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-29 at 23.46.59 (7).jpeg"
+      ],
+      "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-02.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0ce588e481919dd543f8b5c3b826.png",
+      "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-02.png",
+      "reels_stories_source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-02.png",
+      "reels_stories_file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-02.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-02.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0ce588e481919dd543f8b5c3b826.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-02.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-02.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a146752d08191bb142e805b2df195.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-02.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "Until the day\nour paths crossed.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 3 of 6. Exact ON-IMAGE TEXT with line breaks: Until the day\nour paths crossed.. Scene: Soft crosswalk from above. Aachu and Zuv step into the same crossing from opposite sides. Their shadows meet first, then their eye-lines begin to notice each other. A scarf edge or bag strap may move naturally with Aachu, but nothing symbolic is attached to them. The crosswalk itself is the story evidence: paths finally crossing. Pose/body language: Aachu mid-step, expressive head turn; Zuv slowing with calm attention. Distance narrows but they have not touched yet. Wardrobe: Aachu light top, jeans, red scarf/bag. Zuv navy/black layer, tan trousers, sneakers. Props: Crosswalk stripes, soft shadow overlap, natural scarf/bag movement. No symbolic thread, no heart motif. Background: Warm minimal street corner fading into paper grain; crowd reduced to loose silhouettes. Emotion: the first crossing Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent.",
+      "reference_images": [
+        "output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-29 at 23.46.59 (6).jpeg"
+      ],
+      "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-03.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0d3d450481919452a447ef4e9832.png",
+      "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-03.png",
+      "reels_stories_source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-03.png",
+      "reels_stories_file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-03.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-03.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0d3d450481919452a447ef4e9832.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-03.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-03.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a14be63c08191a0a46865519c0e79.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-03.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "Two people.\nOne moment.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 4 of 6. Exact ON-IMAGE TEXT with line breaks: Two people.\nOne moment.. Scene: Airy transit or elevator interior with both bodies close enough for the public world to narrow. Their hands pause near the same rail or pole because the carriage shifts; they nearly touch or lightly brush. Aachu has small jewelry and a red scarf/bag edge, Zuv has a watch and dark/navy sleeve. The moment is quiet and real: two people, one pause. No heart ribbon, no tied fingers, no thread charm. Pose/body language: Hands are natural and flattering, fingers correct, wrists relaxed. Keep it tender, not posed; faces can be off-frame or softly implied in reflection. Wardrobe: Aachu sleeve in off-white or soft printed fabric with small jewelry; Zuv dark/navy sleeve with watch. Props: Transit pole or rail only, soft abstract panel shapes. No logos, no readable station text, no MTA labels, no heart charm, no tied thread. Background: Soft muted transit interior washed into ivory paper, generous upper-middle negative space for text. Emotion: public world narrowing into one pause Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent.",
+      "reference_images": [
+        "output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-29 at 23.46.59 (5).jpeg"
+      ],
+      "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-04.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0d9cda4c8191865474db5a299368.png",
+      "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-04.png",
+      "reels_stories_source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-04.png",
+      "reels_stories_file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-04.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-04.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0d9cda4c8191865474db5a299368.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-04.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-04.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a1517692081919f56e3007d9a22d0.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-04.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "Years apart.\nSeconds to fall.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 5 of 6. Exact ON-IMAGE TEXT with line breaks: Years apart.\nSeconds to fall.. Scene: Escalator or station stair scene. Aachu leans into Zuv in a quiet side-hug while the escalator carries them upward. Zuv steadies her shoulder or bag with active gentle care. Other commuters are soft silhouettes. The scene compresses years of separate life into sudden closeness. The fall is emotional, not literal; keep bodies natural and flattering. Pose/body language: Aachu relaxed into him with a soft smile or closed-eye comfort; Zuv steady, calm, protective, face partly visible in profile. Natural arms and hands. Wardrobe: Aachu light shirt or soft kurta, denim, red scarf/bag. Zuv navy/black shirt or hoodie, tan trousers, watch. Props: Escalator rail, warm station tiles, moving scarf/bag. No readable posters, no heart charm, no tied thread. Background: Warm minimal station interior, soft shadows, faded edges, clean text space above. Emotion: years collapsing into closeness Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent.",
+      "reference_images": [
+        "output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-29 at 23.46.59 (4).jpeg"
+      ],
+      "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-05.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a12e720a88191902331903a553591.png",
+      "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-05.png",
+      "reels_stories_source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-05.png",
+      "reels_stories_file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-05.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-05.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a12e720a88191902331903a553591.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-05.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-05.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a156053fc819187fe6acde1389a0f.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-05.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "Different stories.\nSame ending.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Use case: illustration-story. Generate a complete publishable @a.storyof.two carousel slide as premium romantic watercolor-and-ink art. Use the supplied Instagram screenshots as the preferred story/copy/composition reference; keep the restored reference-copy spine exactly as ON-IMAGE TEXT. Do not copy UI, handles, logos, or dark screenshot style. Use identity references for Aachu/Zuv. Use Observational Intimacy Premium style references for paper, linework, typography, richness, and warmth. CRITICAL STORY REPAIR: the text is already good; make the visual prove it. No heart ribbon, no tied thread, no symbolic string, no decorative charm carrying the story. Every object must be literal scene evidence. Slide 6 of 6. Exact ON-IMAGE TEXT with line breaks: Different stories.\nSame ending.. Scene: Final waist-level walking scene on one shared path. Aachu and Zuv are seen from mid-back or waist down to naturally joined hands, walking the same direction. Aachu has red scarf or red bag edge, denim, light top; Zuv has dark/navy sleeve, tan trousers, watch. No string, no ribbon, no charm tied to fingers. The ordinary handhold and shared direction prove the ending. Pose/body language: Hands joined naturally, shoulders angled toward each other, walking in the same direction. Faces may be mostly unseen but identity cues must remain consistent. Wardrobe: Continue the same visual identity cues from earlier slides for both characters; avoid random outfit changes. Props: Shared path line, Aachu red scarf/bag, Zuv watch. No heart charm, no tied thread, no symbolic ribbon. Background: Soft city walkway fading into ivory paper; no UI, no logos, no copied text from the source reference. Emotion: earned shared ending Leave generous warm ivory upper-middle negative space for exact handwritten text. Place the action lower/middle-lower. Natural hands and anatomy. Tiny @a.storyof.two brandmark bottom-right. Identity continuity lock: preserve the same recurring Aachu/Zuv face structure, facial expression range, clothing continuity, and cross-slide consistency from the selected identity bundle; faces may be distant or partly hidden, but hair silhouette, skin tone, body proportions, wardrobe anchors, and relationship energy must remain consistent.",
+      "reference_images": [
+        "output/carousels/2026-05-30/before-us-timing-found-us/identity-face-contact-sheet.jpg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-29 at 23.46.59 (3).jpeg"
+      ],
+      "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-06.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0eed88688191a915cf0d9ad947b9.png",
+      "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-06.png",
+      "reels_stories_source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-06.png",
+      "reels_stories_file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-06.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/instagram-post-slide-06.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_03301228bd06cc0b016a1a0eed88688191a915cf0d9ad947b9.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final/slide-06.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-30/before-us-timing-found-us/final/model-native-source/reels-stories-slide-06.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7595-6fa7-7672-8727-acb11a27f73b/ig_0779134f840e8e02016a1a15efd27481919eea268a0bf816e2.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-30/before-us-timing-found-us/final-reels-stories/slide-06.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    }
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post",
+      "reels_stories"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "reels_stories_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image."
+  },
+  "instagram_upload_size": "1080x1350",
+  "reels_stories_size": "1080x1920",
+  "normalization": "Each surface is generated from its own native-aspect source; final files are same-aspect upload-size normalizations only. Wrong-ratio sources are rejected before packaging.",
+  "notes": [],
+  "final_audit_status": "PASS_WITH_NOTES",
+  "final_audit_pass": true,
+  "final_audit_path": "output/carousels/2026-05-30/before-us-timing-found-us/final-audit.json"
+}

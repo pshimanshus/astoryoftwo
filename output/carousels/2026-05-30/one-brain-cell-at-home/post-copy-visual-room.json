@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "agent": "C5.5-PostCopyVisualRoom",
+  "status": "GO",
+  "decision": "GO",
+  "copy_locked": true,
+  "selected_visual_system": "Cozy Sofa Search Party",
+  "why_it_wins": "It keeps every slide inside one recognisable home investigation while changing action, eye-line, object position, and emotional beat enough to avoid repeated poses.",
+  "visual_system_candidates": [
+    {
+      "name": "Cozy Sofa Search Party",
+      "verdict": "WINNER",
+      "reason": "Best proof of mutual no-judgement home comedy."
+    },
+    {
+      "name": "Split-Screen Phone Remote Gag",
+      "verdict": "REJECTED",
+      "reason": "Too graphic/poster-like and less cinematic."
+    },
+    {
+      "name": "Object Close-Up Mystery",
+      "verdict": "REJECTED",
+      "reason": "Prop-first and weak on Aachu/Zuv behavior."
+    },
+    {
+      "name": "Perfect Boyfriend Rescue",
+      "verdict": "STOP",
+      "reason": "Wrong lane; makes Zuv perfect instead of mutually human."
+    }
+  ],
+  "rejected_motifs": [
+    "poster copy board",
+    "giant phone/remote closeups",
+    "one-way Aachu chaos",
+    "perfect-boyfriend rescue",
+    "generic couple couch pose"
+  ],
+  "typography_and_aspect_plan": {
+    "text_position": "clean upper-middle negative space, exact handwritten charcoal text",
+    "instagram_post": "native 4:5, couple lower/middle-lower, sofa readable without crowding",
+    "reels_stories": "native 9:16, taller room space above, no crop from 4:5",
+    "brandmark": "tiny low-contrast handwritten @a.storyof.two bottom-right"
+  },
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "Some couples share one brain cell.",
+      "scene_system": "Cozy Sofa Search Party",
+      "visual_job": "Both start the search together like a tiny search party.",
+      "text_job": "complete the scene without carrying it"
+    },
+    {
+      "slide": 2,
+      "copy": "Phone kaha hai?",
+      "scene_system": "Cozy Sofa Search Party",
+      "visual_job": "Aachu asks for the missing phone while searching the sofa.",
+      "text_job": "complete the scene without carrying it"
+    },
+    {
+      "slide": 3,
+      "copy": "It was in her hand.",
+      "scene_system": "Cozy Sofa Search Party",
+      "visual_job": "Zuv points out the phone with gentle timing.",
+      "text_job": "complete the scene without carrying it"
+    },
+    {
+      "slide": 4,
+      "copy": "Remote kaha hai?",
+      "scene_system": "Cozy Sofa Search Party",
+      "visual_job": "Zuv begins his own missing-remote search.",
+      "text_job": "complete the scene without carrying it"
+    },
+    {
+      "slide": 5,
+      "copy": "It was in his hand.",
+      "scene_system": "Cozy Sofa Search Party",
+      "visual_job": "Aachu returns the gentle reveal by pointing at the remote.",
+      "text_job": "complete the scene without carrying it"
+    },
+    {
+      "slide": 6,
+      "copy": "Sofa still got checked.",
+      "scene_system": "Cozy Sofa Search Party",
+      "visual_job": "They continue the sofa search after the mystery is solved.",
+      "text_job": "complete the scene without carrying it"
+    },
+    {
+      "slide": 7,
+      "copy": "Home is where no one acts smart.",
+      "scene_system": "Cozy Sofa Search Party",
+      "visual_job": "They settle together after the nonsense.",
+      "text_job": "complete the scene without carrying it"
+    }
+  ],
+  "generation_brief": "Generate identity-first Observational Intimacy Premium watercolor-and-ink full scenes. Preserve exact slide text and tiny brandmark. No poster, no quote card, no object-first gag.",
+  "issues": []
+}

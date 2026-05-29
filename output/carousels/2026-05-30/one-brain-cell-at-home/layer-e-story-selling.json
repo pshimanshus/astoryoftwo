@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "E0_orchestrator": {
+      "name": "Story Canon Orchestrator",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "E0",
+          "role": "selector",
+          "claim": "Select mutual domestic comedy with earned no-judgement payoff.",
+          "recommendation": "Proceed to C-layer with storyboard-first search-party scenes.",
+          "score": 29.0
+        }
+      ],
+      "summary": "The winning route is a home search-party scene sequence, not a phone/remote object gag.",
+      "inputs_used": [
+        "successful-carousel-standard",
+        "calm-enough-for-chaos",
+        "carousel-idea-preferences"
+      ],
+      "debate_records": [
+        "Rejected one-way Aachu chaos; repaired into mirrored Aachu/Zuv reveals."
+      ],
+      "scores": {
+        "story_selling": 29.0,
+        "golden_theme": 29.0
+      },
+      "selected_outputs": {
+        "winner": "One Brain Cell Search Party"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": [
+        "One Brain Cell Search Party"
+      ]
+    },
+    "E2_romance_arc_miner": {
+      "name": "Romance Arc Miner",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "E2",
+          "role": "arc miner",
+          "claim": "The romantic obstacle is not forgetfulness; it is whether the home makes silliness safe.",
+          "recommendation": "Use mirrored mistake/reversal instead of advice.",
+          "score": 4.8
+        }
+      ],
+      "summary": "Banter turns into belonging when both partners are allowed to be ridiculous.",
+      "inputs_used": [
+        "concept-process-cards"
+      ],
+      "debate_records": [
+        "The tender turn must be earned after the sofa-search proof."
+      ],
+      "scores": {
+        "belonging_arc": 4.8
+      },
+      "selected_outputs": {
+        "arc": "banter to belonging"
+      }
+    },
+    "E5_reviewer": {
+      "name": "Story Skill Reviewer",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "E5",
+          "role": "reviewer",
+          "claim": "Seven distinct staged beats preserve hook, proof, reversal, and payoff.",
+          "objection": "Do not turn it into phone/remote prop-first content.",
+          "recommendation": "Keep the sofa search as relationship proof.",
+          "score": 29.0
+        }
+      ],
+      "summary": "Passes because the scene proves a universal relationship truth with Aachu/Zuv specifics and active roles for both.",
+      "inputs_used": [
+        "rubric",
+        "golden-theme-reference"
+      ],
+      "debate_records": [
+        "Hard fail repaired: Zuv is active and equally vulnerable."
+      ],
+      "scores": {
+        "final": 29.0
+      },
+      "selected_outputs": {
+        "decision": "GO"
+      },
+      "objections": [],
+      "repairs": []
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "One Brain Cell Search Party",
+      "story_lens": "A tiny domestic search party proves that the safest kind of home lets both people be ridiculous without anyone becoming the punchline alone.",
+      "reader_mirror": "Couples recognize the moment where the missing thing is already in someone's hand and the search still becomes a shared ritual.",
+      "emotional_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
+      "aachu_specific_spark": "Aachu carries the expressive phone-search setup with mock panic and a caught-laugh reveal.",
+      "zuv_active_role": "Zuv first notices gently, then becomes equally guilty in the remote reversal, so his role is active and vulnerable rather than perfect-boyfriend background.",
+      "proof_engine": "Phone in her hand, remote in his hand, cushions still checked together.",
+      "emotional_reversal": "The joke shifts from her mistake to his mirror mistake, making the safety mutual.",
+      "payoff": "Home is where no one acts smart.",
+      "distribution_reason": "It is sendable because the viewer can tag a partner without needing the private context.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-05",
+        "card-16",
+        "card-20"
+      ],
+      "score_total": 29.0,
+      "golden_theme_score_total": 29.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu and Zuv physically search the sofa in mirrored phone/remote beats.",
+        "reaction": "Each person gets caught with their own missing object and responds with warmth instead of shame.",
+        "eye_line_or_attention": "Eye-lines shift from sofa cushions, to the object in hand, to each other in the final payoff.",
+        "hands_or_object_movement": "Cushions lift, phone and remote stay visible, pointing gestures reveal the comic truth, and the final frame rests the objects safely between them.",
+        "silence_or_pause": "Slides 3 and 5 use a tiny caught pause before laughter.",
+        "consequence": "The search becomes proof that home is the place where both people can be ridiculous.",
+        "reversal_or_payoff": "The missing-phone joke reverses into the missing-remote joke, then resolves into the no-judgement home thesis.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [
+    {
+      "name": "One Brain Cell Search Party",
+      "story_lens": "A tiny domestic search party proves that the safest kind of home lets both people be ridiculous without anyone becoming the punchline alone.",
+      "reader_mirror": "Couples recognize the moment where the missing thing is already in someone's hand and the search still becomes a shared ritual.",
+      "emotional_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
+      "aachu_specific_spark": "Aachu carries the expressive phone-search setup with mock panic and a caught-laugh reveal.",
+      "zuv_active_role": "Zuv first notices gently, then becomes equally guilty in the remote reversal, so his role is active and vulnerable rather than perfect-boyfriend background.",
+      "proof_engine": "Phone in her hand, remote in his hand, cushions still checked together.",
+      "emotional_reversal": "The joke shifts from her mistake to his mirror mistake, making the safety mutual.",
+      "payoff": "Home is where no one acts smart.",
+      "distribution_reason": "It is sendable because the viewer can tag a partner without needing the private context.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-05",
+        "card-16",
+        "card-20"
+      ],
+      "score_total": 29.0,
+      "golden_theme_score_total": 29.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu and Zuv physically search the sofa in mirrored phone/remote beats.",
+        "reaction": "Each person gets caught with their own missing object and responds with warmth instead of shame.",
+        "eye_line_or_attention": "Eye-lines shift from sofa cushions, to the object in hand, to each other in the final payoff.",
+        "hands_or_object_movement": "Cushions lift, phone and remote stay visible, pointing gestures reveal the comic truth, and the final frame rests the objects safely between them.",
+        "silence_or_pause": "Slides 3 and 5 use a tiny caught pause before laughter.",
+        "consequence": "The search becomes proof that home is the place where both people can be ridiculous.",
+        "reversal_or_payoff": "The missing-phone joke reverses into the missing-remote joke, then resolves into the no-judgement home thesis.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "rejected_routes": [
+    {
+      "name": "One-Way Missing Phone Joke",
+      "story_lens": "A tiny domestic search party proves that the safest kind of home lets both people be ridiculous without anyone becoming the punchline alone.",
+      "reader_mirror": "Couples recognize the moment where the missing thing is already in someone's hand and the search still becomes a shared ritual.",
+      "emotional_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
+      "aachu_specific_spark": "Aachu carries the expressive phone-search setup with mock panic and a caught-laugh reveal.",
+      "zuv_active_role": "Zuv first notices gently, then becomes equally guilty in the remote reversal, so his role is active and vulnerable rather than perfect-boyfriend background.",
+      "proof_engine": "Phone in her hand, remote in his hand, cushions still checked together.",
+      "emotional_reversal": "The joke shifts from her mistake to his mirror mistake, making the safety mutual.",
+      "payoff": "Home is where no one acts smart.",
+      "distribution_reason": "It is sendable because the viewer can tag a partner without needing the private context.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-05",
+        "card-16",
+        "card-20"
+      ],
+      "score_total": 21.0,
+      "golden_theme_score_total": 20.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu and Zuv physically search the sofa in mirrored phone/remote beats.",
+        "reaction": "Each person gets caught with their own missing object and responds with warmth instead of shame.",
+        "eye_line_or_attention": "Eye-lines shift from sofa cushions, to the object in hand, to each other in the final payoff.",
+        "hands_or_object_movement": "Cushions lift, phone and remote stay visible, pointing gestures reveal the comic truth, and the final frame rests the objects safely between them.",
+        "silence_or_pause": "Slides 3 and 5 use a tiny caught pause before laughter.",
+        "consequence": "The search becomes proof that home is the place where both people can be ridiculous.",
+        "reversal_or_payoff": "The missing-phone joke reverses into the missing-remote joke, then resolves into the no-judgement home thesis.",
+        "blockers": []
+      },
+      "hard_fails": [
+        "Aachu is mocked without a mutual reversal."
+      ],
+      "verdict": "REPAIR"
+    },
+    {
+      "name": "Phone And Remote Object Gag",
+      "story_lens": "A tiny domestic search party proves that the safest kind of home lets both people be ridiculous without anyone becoming the punchline alone.",
+      "reader_mirror": "Couples recognize the moment where the missing thing is already in someone's hand and the search still becomes a shared ritual.",
+      "emotional_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
+      "aachu_specific_spark": "Aachu carries the expressive phone-search setup with mock panic and a caught-laugh reveal.",
+      "zuv_active_role": "Zuv first notices gently, then becomes equally guilty in the remote reversal, so his role is active and vulnerable rather than perfect-boyfriend background.",
+      "proof_engine": "Phone in her hand, remote in his hand, cushions still checked together.",
+      "emotional_reversal": "The joke shifts from her mistake to his mirror mistake, making the safety mutual.",
+      "payoff": "Home is where no one acts smart.",
+      "distribution_reason": "It is sendable because the viewer can tag a partner without needing the private context.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-05",
+        "card-16",
+        "card-20"
+      ],
+      "score_total": 23.0,
+      "golden_theme_score_total": 22.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu and Zuv physically search the sofa in mirrored phone/remote beats.",
+        "reaction": "Each person gets caught with their own missing object and responds with warmth instead of shame.",
+        "eye_line_or_attention": "Eye-lines shift from sofa cushions, to the object in hand, to each other in the final payoff.",
+        "hands_or_object_movement": "Cushions lift, phone and remote stay visible, pointing gestures reveal the comic truth, and the final frame rests the objects safely between them.",
+        "silence_or_pause": "Slides 3 and 5 use a tiny caught pause before laughter.",
+        "consequence": "The search becomes proof that home is the place where both people can be ridiculous.",
+        "reversal_or_payoff": "The missing-phone joke reverses into the missing-remote joke, then resolves into the no-judgement home thesis.",
+        "blockers": []
+      },
+      "hard_fails": [
+        "Objects become the premise instead of relationship behavior."
+      ],
+      "verdict": "REPAIR"
+    }
+  ],
+  "selected_story_lens": "A tiny domestic search party proves that the safest kind of home lets both people be ridiculous without anyone becoming the punchline alone.",
+  "emotional_machine": "Public one-brain-cell hook -> Aachu phone setup -> gentle reveal -> Zuv remote reversal -> equal reveal -> useless sofa search -> no-judgement home thesis.",
+  "proof_engine": "Phone in her hand, remote in his hand, cushions still checked together.",
+  "reader_mirror": "Couples recognize the moment where the missing thing is already in someone's hand and the search still becomes a shared ritual.",
+  "distribution_reason": "It is sendable because the viewer can tag a partner without needing the private context.",
+  "human_story_setup": {
+    "cold_reader_doorway": "Every couple has searched for something that was already in hand.",
+    "emotional_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
+    "visible_human_proof": "Phone in her hand, remote in his hand, cushions still checked together.",
+    "active_partner_role": "Zuv notices gently, then becomes the mirrored culprit; Aachu also notices gently, making safety mutual.",
+    "emotional_turn": "What begins as incompetence becomes proof that home is no-judgement territory.",
+    "shareable_setup": "It is sendable because the viewer can tag a partner without needing the private context.",
+    "earned_payoff": "Home is where no one acts smart."
+  },
+  "success_definition": {
+    "audience_success": "A cold viewer thinks 'this is us' and sends/saves/tags a partner because the home-search comedy is recognizable before the art is admired.",
+    "creative_success": "The deck works as silent panels: public hook, Aachu phone setup/reveal, Zuv remote reversal/reveal, shared sofa escalation, earned no-judgement home thesis.",
+    "brand_success": "@a.storyof.two becomes warm, funny, desi relationship IP where tiny domestic behavior proves love without advice-post energy.",
+    "production_success": "Layer E, golden theme, story-director, visual room, identity, prompt, native 4:5, native 9:16, and QA gates are recorded before publication.",
+    "source": "wiki/insights/successful-carousel-standard.md"
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Aachu and Zuv physically search the sofa in mirrored phone/remote beats.",
+    "reaction": "Each person gets caught with their own missing object and responds with warmth instead of shame.",
+    "eye_line_or_attention": "Eye-lines shift from sofa cushions, to the object in hand, to each other in the final payoff.",
+    "hands_or_object_movement": "Cushions lift, phone and remote stay visible, pointing gestures reveal the comic truth, and the final frame rests the objects safely between them.",
+    "silence_or_pause": "Slides 3 and 5 use a tiny caught pause before laughter.",
+    "consequence": "The search becomes proof that home is the place where both people can be ridiculous.",
+    "reversal_or_payoff": "The missing-phone joke reverses into the missing-remote joke, then resolves into the no-judgement home thesis.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "successful-carousel-standard",
+      "title": "Successful Carousel Standard",
+      "influence_type": "mandatory success north star",
+      "source_patterns": [
+        "public identity mirror",
+        "concrete couple receipts",
+        "stage-scene storytelling"
+      ],
+      "confidence": 0.95,
+      "reason": "Forces the idea to be sendable as a relationship mirror."
+    },
+    {
+      "id": "card-05",
+      "title": "Banter To Belonging",
+      "influence_type": "primary process card",
+      "source_patterns": [
+        "shared joke becomes safety"
+      ],
+      "confidence": 0.9,
+      "reason": "Turns domestic comedy into proof of comfort."
+    },
+    {
+      "id": "card-16",
+      "title": "Scene Before Summary",
+      "influence_type": "stage-scene guardrail",
+      "source_patterns": [
+        "visible action proves feeling"
+      ],
+      "confidence": 0.9,
+      "reason": "Prevents quote-card copy from carrying the deck."
+    },
+    {
+      "id": "card-20",
+      "title": "Saveable Lesson From One Scene",
+      "influence_type": "distribution shape",
+      "source_patterns": [
+        "one tiny scene earns a shareable thesis"
+      ],
+      "confidence": 0.86,
+      "reason": "Makes the ending saveable without becoming advice."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 4.5,
+    "total": 29.0
+  },
+  "golden_theme_score": {
+    "universal_hook": 5.0,
+    "aachu_zuv_specificity": 4.5,
+    "concrete_proof": 5.0,
+    "zuv_emotional_role": 4.5,
+    "tender_thesis": 5.0,
+    "share_send_potential": 5.0,
+    "total": 29.0
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "layer": "C-layer illustrated carousel",
+    "slide_count": 7,
+    "status": "approved_for_prompt_handoff"
+  },
+  "metadata": {
+    "created_by": "codex",
+    "date": "2026-05-30",
+    "source_story": "At home, a couple becomes a tiny search party. She is looking for her phone while it is already in her hand. He is looking for the remote while it is already in his hand. They still check the sofa cushions together. The story is not about forgetfulness as advice; it is about the no-judgement comedy of home, where both people can be ridiculous and no one has to act smart."
+  }
+}
