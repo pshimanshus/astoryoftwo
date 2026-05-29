@@ -662,7 +662,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("Identity reference images are the highest-priority face source", contract["shared_style_prompt"])
         self.assertIn("premium hand-drawn romantic watercolor-and-ink illustration", contract["compact_style_prompt"])
         self.assertIn("Aachu/Zuv faces", contract["compact_style_prompt"])
-        self.assertEqual(contract["model_native_master_prompt"]["version"], "a-story-of-two-watercolor-ink-v1")
+        self.assertEqual(contract["model_native_master_prompt"]["version"], "a-story-of-two-watercolor-ink-v3-creator-locked-text")
         self.assertTrue(contract["model_native_master_prompt"]["required"])
         self.assertIn("Identity references control face", contract["model_native_master_prompt"]["reference_image_roles"])
         self.assertIn("No photorealism", contract["shared_negative_prompt"])
@@ -1659,16 +1659,16 @@ class IllustrationCarouselTests(unittest.TestCase):
         )
         self.assertEqual(
             prompt_pack["model_native_master_prompt"]["version"],
-            "a-story-of-two-watercolor-ink-v1",
+            "a-story-of-two-watercolor-ink-v3-creator-locked-text",
         )
         self.assertTrue(
             all(
-                slide["master_prompt_version"] == "a-story-of-two-watercolor-ink-v1"
+                slide["master_prompt_version"] == "a-story-of-two-watercolor-ink-v3-creator-locked-text"
                 for slide in prompt_pack["slides"]
             )
         )
         self.assertIn("Generate the complete publishable social slide artwork", joined)
-        self.assertIn("Master prompt version: a-story-of-two-watercolor-ink-v1", joined)
+        self.assertIn("Master prompt version: a-story-of-two-watercolor-ink-v3-creator-locked-text", joined)
         self.assertIn("identity references control Aachu/Zuv faces", joined)
         self.assertIn("Render this exact handwritten-style text inside the artwork", joined)
         self.assertIn("house-style illustrated scene consistency", joined)

@@ -182,6 +182,39 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - semantic_memory: memory/semantic/carousel-idea-preferences.md
 - style_contract: config/carousel_style_contract.json
 
+## Creator correction: illustration master prompt lock
+- date: 2026-05-30
+- status: saved_to_semantic_memory_and_style_contract
+- learning: Favourite Calm identity matched, but the creator rejected the dense
+  cinematic landscape as not enough @a.storyof.two style. Future illustration
+  prompts must use `config/references/a-story-illustration-master-prompt.md`:
+  tall airy romantic watercolor-and-ink, warm ivory paper, generous whitespace,
+  lower/middle-lower couple placement, soft minimal background, exact readable
+  handwritten ON-IMAGE TEXT only, and no dense poster-landscape takeover.
+- semantic_memory: memory/semantic/carousel-idea-preferences.md
+- style_contract: config/carousel_style_contract.json
+
+## Creator-approved illustration style lock: Suitcase Relocation Proof
+- date: 2026-05-30
+- status: saved_to_memory_style_contract_docs_and_prompt_compiler
+- learning: The creator approved the tall, airy Suitcase Relocation proof
+  illustration as the default @a.storyof.two illustration-story look. Future
+  image generation should preserve identity-first Aachu/Zuv faces, warm ivory
+  watercolor-and-ink paper, lower/middle-lower couple placement, tactile
+  suitcase/home/travel props, and generous clean upper negative space for exact
+  integrated ON-IMAGE TEXT. The creator-supplied master prompt is the permanent
+  default: text must be baked naturally into the illustration when supplied,
+  external references provide essence/story/message/emotion only, and final
+  output must always feel like A Story of Two. Product labels are allowed only
+  when the creator explicitly requests brand integration, and brand/product
+  names must remain legible at phone-screen size or the image fails QA. For
+  tiny packaging text, use a controlled exact label-render pass after the
+  watercolor product body is generated instead of trusting the image model to
+  spell small product copy.
+- semantic_memory: memory/semantic/carousel-idea-preferences.md
+- style_contract: config/carousel_style_contract.json
+- prompt_contract: pipeline/stages/carousel_master_prompt.py
+
 ## Reach recovery sprint: carousel-first correction
 - date: 2026-05-24
 - sprint: output/post-sprints/2026-05-24-reach-recovery

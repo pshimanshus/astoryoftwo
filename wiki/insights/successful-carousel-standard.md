@@ -1,6 +1,6 @@
 # Successful Carousel Standard
 
-last_updated: 2026-05-28
+last_updated: 2026-05-30
 confidence: 0.9
 status: living creative standard
 sources:
@@ -17,6 +17,8 @@ sources:
 - config/skills/carousel-story-director-persona.md
 - config/carousel_style_contract.json
 - memory/semantic/carousel-idea-preferences.md
+- direct creator approval on 2026-05-30 of the Suitcase Relocation proof
+  illustration as the default visual style
 
 ---
 
@@ -92,6 +94,28 @@ Use deterministic checks only for hard structural misses:
 Identity matching remains a separate hard gate. Do not let face/likeness
 review replace creative success, and do not let creative success excuse
 identity drift. Both must pass.
+
+## Creator-Approved Visual Style
+
+The approved illustration house style is the Suitcase Relocation proof look:
+tall, airy romantic watercolor-and-ink portrait scenes on warm ivory paper.
+The couple and story objects sit lower or middle-lower in the frame, while the
+upper portion stays clean for exact integrated handwritten text. Faces are identity-first:
+Aachu and Zuv must remain recognizably the same recurring South Asian couple.
+Wardrobe, suitcase/home/travel objects, chargers, pouches, mugs, scarves,
+phones, plants, lamps, and room details should feel tactile and lived-in, but
+secondary to the couple's emotional behavior.
+
+Default final illustrations should use the creator-supplied master prompt with
+exact readable ON-IMAGE TEXT baked naturally into the image. Outside references
+can supply text, message, emotion, story, hand gesture, body-language essence,
+and composition, but the final result must still look like A Story of Two, not
+like the reference style. For brand integrations, the product may stay a
+secondary story prop, but the brand/product name and product type must be
+legible at phone-screen size; otherwise the image fails QA. Tiny product
+microtext should not be trusted to the image model alone: render the product
+body as part of the illustration, then use a controlled exact label pass when
+needed so the final still feels hand-integrated but reads correctly.
 
 ## What Success Means
 

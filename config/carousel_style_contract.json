@@ -1,12 +1,13 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.3",
   "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
   "brandmark": "@a.storyof.two",
-  "shared_style_prompt": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv hand-drawn romantic watercolor-and-ink carousel look. Identity reference images are the highest-priority face source: preserve the same recurring real-person faces, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful carousel illustrations are style references only: use them for warm ivory paper texture, soft watercolor washes, fine ink and pencil linework, delicate sketch lines, gentle crosshatching, muted vintage palette, composition, wardrobe continuity, handwritten typography, and recurring props. Do not use style references as identity references. Keep the illustration premium, intimate, travel-light, emotionally soft, and story-first, with tactile clothing/prop detail, clean expressive faces, warm negative space, and one clear Aachu/Zuv behavior scene. The scene must be storyboard-first and stage-scene driven: action, reaction, eye-line, hands, body distance, object movement, silence, consequence, reversal, and payoff must be visible before text is considered. Text completes the scene; text must not carry the scene. Paper artifacts, receipts, labels, posters, or stationery can appear only as tiny integrated scene details, never as the main visual system. Render the exact slide copy as fixed handwritten-style dark charcoal text inside the artwork, and add the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the generated image.",
-  "compact_style_prompt": "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper, fine ink/pencil linework, soft watercolor wash, muted vintage palette, recurring Aachu/Zuv faces, model-native handwritten text, tiny @a.storyof.two brandmark",
-  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy.",
+  "canonical_illustration_master_prompt": "config/references/a-story-illustration-master-prompt.md",
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration-story slide using the creator-locked master prompt in config/references/a-story-illustration-master-prompt.md. Preserve the emotional essence, copy, message, and story from supplied references, but never let an external reference style take over; the final artwork must always feel like A Story of Two. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper texture, soft watercolor washes, fine ink and pencil linework, delicate sketch lines, gentle crosshatching, muted vintage palette, tall airy composition similar to 977x1610, lower/middle-lower couple placement, wardrobe continuity, tactile props, and generous clean upper negative space for integrated handwritten text. When ON-IMAGE TEXT is provided, bake only that exact text naturally into the illustration as readable hand-drawn typography in warm negative space. Every final illustration must include the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the paper artwork. For brand integrations, product labels are allowed but the brand/product name must be legible at phone-screen size while remaining a tasteful scene prop.",
+  "compact_style_prompt": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper, identity-first Aachu/Zuv faces, fine ink/pencil linework, muted vintage palette, tall airy lower-scene composition, exact requested handwritten text only",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
   "model_native_master_prompt": {
-    "version": "a-story-of-two-watercolor-ink-v1",
+    "version": "a-story-of-two-watercolor-ink-v3-creator-locked-text",
     "required": true,
     "applies_to": [
       "prompt-pack.json",
@@ -14,7 +15,7 @@
       "Codex built-in image generation",
       "model-native final image generation"
     ],
-    "rule": "Every final image-generation prompt must use the project master prompt structure before slide-specific scene details. The master prompt defines asset type, reference image roles, primary request, character identity lock, face preservation, watercolor-and-ink style, color palette, composition, emotional direction, wardrobe continuity, recurring props, background style, line/texture details, anatomy/quality rules, text rule, and final rendering layer.",
+    "rule": "Every final image-generation prompt must use config/references/a-story-illustration-master-prompt.md before slide-specific scene details. The master prompt defines identity-first reference roles, A Story of Two watercolor-and-ink style, exact ON-IMAGE TEXT handling, reference essence preservation, brand label visibility, composition, emotional direction, wardrobe continuity, recurring props, background style, line/texture details, anatomy/quality rules, and final identity/style reinforcement.",
     "asset_outputs": {
       "instagram_post": {
         "aspect_ratio": "4:5",
@@ -25,10 +26,16 @@
         "aspect_ratio": "9:16",
         "size": "1080x1920",
         "directory": "final-reels-stories/"
+      },
+      "illustration_story_proof": {
+        "aspect_ratio": "tall portrait similar to 977x1610",
+        "size": "model-native tall portrait",
+        "directory": "proofs/ or output/illustrations/"
       }
     },
-    "reference_image_roles": "Identity references control face, hair, skin tone, age, ethnicity, body language, and emotional presence. Previous successful illustrations control only style, palette, line quality, composition, wardrobe continuity, and recurring props.",
-    "text_rule": "Include written text only where it is explicitly requested. Approved carousel slide copy is an explicit text request and must be generated inside the illustration in readable handwritten storybook typography, with clean warm space reserved for it. Add the tiny @a.storyof.two brandmark inside the artwork. Do not invent any other text, captions, labels, signs, speech bubbles, or random typography."
+    "reference_image_roles": "Identity references control face, hair, skin tone, age, ethnicity, body language, and emotional presence. Previous A Story illustrations control only style, palette, line quality, composition, wardrobe continuity, and recurring props. Non-A Story references control only text, message, emotion, story, gesture, and composition essence.",
+    "text_rule": "When ON-IMAGE TEXT is provided, include that exact written text directly inside the generated illustration as readable, polished, hand-drawn typography in clean warm negative space. Preserve spelling, line breaks, punctuation, and wording exactly. Do not add extra words, random letters, labels, signs, logos, watermarks, or speech bubbles beyond the required tiny '@a.storyof.two' brandmark. If no ON-IMAGE TEXT is provided, do not invent text.",
+    "brandmark_rule": "Every final @a.storyof.two illustration must include the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the artwork."
   },
   "typography": {
     "strategy": "model_native",
@@ -36,8 +43,8 @@
     "background": "#fbf4e8",
     "max_words_per_slide": 8,
     "max_lines": 3,
-    "placement": "generous whitespace; copy should be scene-native and complete the staged action, not drive the slide as poster copy",
-    "brandmark_placement": "bottom-right"
+    "placement": "exact requested text belongs in generous clean upper whitespace as integrated hand-drawn storybook typography; never cover faces, hands, props, or emotional gestures",
+    "brandmark_placement": "always bottom-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten"
   },
   "legacy_typography": {
     "strategy": "legacy_local_overlay",
@@ -339,7 +346,7 @@
   },
   "production_gate": {
     "final_art_requirement": "generated_scene_illustrations",
-    "rule": "Identity photos are references for likeness, clothing, posture, and relationship energy. Style references are references for model-native composition, handwritten copy, brandmark, clothing fidelity, and warm paper illustration. Default final art must be generated as complete publishable slides with copy and brandmark inside the image; local overlays are legacy fallback only.",
+    "rule": "Identity photos are references for likeness, clothing, posture, and relationship energy. Style references are references for A Story of Two watercolor-and-ink composition, clothing fidelity, warm paper illustration, and handwritten text integration. Default final art must be generated as complete publishable illustrations with exact ON-IMAGE TEXT baked into the artwork. For brand integration, requested product labels must be readable at phone-screen size and remain tasteful scene props; illegible brand/product names fail QA.",
     "forbidden_final_art": [
       "photo-filter",
       "opencv-cartoon-filter",
@@ -365,5 +372,36 @@
       "wiki-update.md"
     ],
     "approved_creation_path": "Use scripts/create_illustration_carousel.py and the C-layer artifact contract for new carousel work. One-off carousel renderers are not allowed unless they are explicitly approved as legacy fixtures."
+  },
+  "last_updated": "2026-05-30",
+  "creator_approved_illustration_style": {
+    "status": "locked",
+    "source": "direct creator correction on 2026-05-30: identity may match, but every final must still feel like A Story of Two, with exact text baked naturally into the illustration.",
+    "rule": "For @a.storyof.two illustration-story assets, always start from config/references/a-story-illustration-master-prompt.md. Preserve the approved tall airy watercolor-and-ink scene style: identity-first recurring Aachu/Zuv faces, generous clean upper negative space for exact integrated handwritten text, couple and props in the lower or middle-lower canvas, soft minimal background, tactile wardrobe and prop detail, warm ivory paper, delicate ink, muted vintage color, and no dense external-reference style takeover.",
+    "default_text_behavior": "Render ON-IMAGE TEXT exactly inside the generated illustration as readable, polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. If no ON-IMAGE TEXT is provided, ask for the text or explicitly generate a no-text proof only when requested.",
+    "preferred_raw_aspect": "Tall portrait similar to 977x1610 for illustration-story proofs and style tests. When a publishing surface requires 4:5 or 9:16, generate that surface natively in the same visual style instead of cropping, padding, or resizing another aspect.",
+    "reference_roles": "Identity references control the couple faces. Previous A Story illustrations control style, composition, palette, wardrobe continuity, line quality, and text integration. Other references control essence, message, emotion, story, pose, and requested composition only.",
+    "hard_fail_if": [
+      "The image does not feel like the A Story of Two watercolor-and-ink house style.",
+      "The exact ON-IMAGE TEXT is missing, misspelled, unreadable, or not integrated into the warm negative space.",
+      "The top negative space is filled with decorative clutter instead of supporting integrated handwritten text.",
+      "Aachu or Zuv face identity drifts into generic model, anime, doll, stock couple, or photorealistic output.",
+      "The background becomes a dramatic external-reference style or dense cinematic poster instead of warm, airy A Story of Two paper space.",
+      "Unrequested labels, captions, signs, watermarks, or random text appear in the artwork.",
+      "For brand integrations, the brand/product name or product type is too small, occluded, or unreadable at phone-screen size."
+    ]
+  },
+  "brand_integration_policy": {
+    "required_when": "creator asks to test, add, or place a brand/product in an illustration",
+    "rule": "The brand product must be a tasteful story prop, but the brand name, product name/type, and core color/package cue must be legible at phone-screen size.",
+    "implementation": "Use a two-step brand workflow when needed: generate the product body, color, scale, and placement as part of the watercolor illustration; if the image model produces unreadable product text, apply a controlled exact product-label pass with scripts/render_brand_product_labels.swift so the final image has readable brand text without losing the A Story of Two style. Narrative slide copy still belongs in ON-IMAGE TEXT during image generation.",
+    "placement": "Use a front-facing or three-quarter angle, enough size, clean contrast, and minimal occlusion. Keep it near the story object, such as suitcase, toiletry pouch, table, or hand, without making the whole slide an ad.",
+    "hard_fail_if": [
+      "Brand name or wordmark is unreadable.",
+      "Product type/name is unreadable when the integration depends on it.",
+      "Product is hidden behind fabric, hands, glare, clutter, or cropped edges.",
+      "The brand prop overpowers the couple story or changes the A Story of Two illustration style.",
+      "Unrelated logos, fake labels, or random text appear."
+    ]
   }
 }

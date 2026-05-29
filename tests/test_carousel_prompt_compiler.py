@@ -85,12 +85,12 @@ def test_compile_image_prompt_uses_creator_text_rule_without_no_text_conflict():
     )
 
     assert "romantic narrative slide" in prompt
-    assert "Include written text only where it is explicitly requested" in prompt
-    assert "This slide explicitly requests the approved carousel copy" in prompt
-    assert 'Exact approved slide copy: "Cup ready tha."' in prompt
-    assert "leave clean space for the text" in prompt
-    assert "Font must suit the theme of this project" in prompt
-    assert "Do not add unrequested captions" in prompt
+    assert "with exact readable text baked naturally into the image" in prompt
+    assert "ON-IMAGE TEXT:\nCup ready tha." in prompt
+    assert "Include the exact written text provided in the ON-IMAGE TEXT section" in prompt
+    assert "Preserve spelling, line breaks, punctuation, and wording exactly" in prompt
+    assert "Do not add extra words" in prompt
+    assert "BRAND INTEGRATION VISIBILITY RULE" in prompt
     assert "no text baked into image" not in prompt.lower()
 
 

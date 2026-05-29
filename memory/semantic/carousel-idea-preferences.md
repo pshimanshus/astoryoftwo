@@ -1,6 +1,6 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-05-29
+last_updated: 2026-05-30
 confidence: 0.8
 sources:
 - direct creator feedback in chat on 2026-05-18
@@ -18,6 +18,14 @@ sources:
 - direct creator correction in chat on 2026-05-30 that the final illustration
   prompt should allow text only where explicitly requested; approved carousel
   slide copy is such a request and must be readable inside the artwork
+- direct creator correction in chat on 2026-05-30 that the supplied master
+  prompt is the permanent @a.storyof.two illustration-story prompt: exact
+  readable ON-IMAGE TEXT baked naturally into the image, A Story style over
+  external-reference style, and brand/product labels legible when integrated
+- direct creator correction in chat on 2026-05-30 after Favourite Calm proof:
+  identity matched, but the illustration had too much dense cinematic landscape
+  and not enough @a.storyof.two warm whitespace; the creator supplied a locked
+  illustration master prompt to use for all future generation
 - memory/working.md
 - wiki/themes/calm-enough-for-chaos.md
 - output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md
@@ -97,6 +105,23 @@ language, handwritten text in negative space, and warm paper texture. Paper
 artifacts, labels, receipts, posters, or stationery can appear only as tiny
 integrated scene details, never as the main visual system.
 confidence: 0.99
+
+fact: Use `config/references/a-story-illustration-master-prompt.md` as the
+canonical base prompt for @a.storyof.two illustration-story image generation.
+The creator explicitly rejected the Favourite Calm proof as too dense and not
+enough A Story of Two style, even though identity matched. Future prompts must
+preserve the reference's text/message/emotion/story while keeping the house
+style: warm ivory paper, generous whitespace, lower/middle-lower couple
+placement, soft minimal backgrounds, fine ink/pencil linework, muted vintage
+palette, exact readable handwritten ON-IMAGE TEXT only, and no dense
+cinematic-poster landscape takeover.
+confidence: 1.0
+
+fact: Every final @a.storyof.two illustration must include the tiny
+low-contrast handwritten brandmark `@a.storyof.two` at the bottom-right corner
+as part of the artwork. The master prompt must ban external watermarks/logos
+but never ban the project brandmark.
+confidence: 1.0
 
 fact: Do not over-repair strong creator-supplied artifact concepts into safer
 golden-theme abstractions. Preserve the original phrase-world, format mechanic,
@@ -192,11 +217,20 @@ explicitly asks for drafts.
 confidence: 0.99
 
 fact: Creator correction on 2026-05-30: final @a.storyof.two carousel
-illustrations should include written text only where explicitly requested.
-Approved carousel slide copy is an explicit request, so it must be generated
-inside the artwork with readable handwritten typography, clean warm space, and
-the tiny `@a.storyof.two` brandmark. Do not invent extra captions, labels,
-signs, speech bubbles, or random typography.
+illustrations must use the creator-supplied master prompt permanently:
+vertical romantic watercolor-and-ink illustration, exact readable ON-IMAGE TEXT
+baked naturally into the image, identity-first recurring Aachu/Zuv faces,
+warm ivory paper, couple and props placed lower or middle-lower, tactile
+wardrobe/prop detail, and generous clean upper negative space for integrated
+handwritten text. When outside references are provided, preserve their text,
+message, emotion, story, hand gesture, body-language essence, and composition,
+but convert the result fully into the A Story of Two illustration style.
+For brand integrations, product labels are allowed, but the brand/product name
+and product type must be legible at phone-screen size; illegible brand
+placement fails QA and must be regenerated or repaired with a controlled exact
+label-render pass. Do not rely on the image model alone for tiny packaging
+microtext; it can draw the product body and scene integration, but exact brand
+wording needs deterministic QA.
 confidence: 1.0
 
 fact: When the creator supplies stronger carousel copy or reference copy, do

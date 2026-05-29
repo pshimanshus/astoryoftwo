@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 
-MASTER_PROMPT_VERSION = "a-story-of-two-watercolor-ink-v1"
+MASTER_PROMPT_VERSION = "a-story-of-two-watercolor-ink-v3-creator-locked-text"
 
 MASTER_PROMPT_REQUIRED_SECTIONS = [
     "USE CASE",
@@ -54,8 +54,9 @@ def master_prompt_contract() -> dict[str, Any]:
         "required": True,
         "rule": (
             "Every final Codex/image-generation prompt for @a.storyof.two carousel slides "
-            "must use this watercolor-and-ink master prompt structure, then append the "
-            "slide-specific scene, pose, wardrobe, props, background, and emotion."
+            "must use this creator-locked watercolor-and-ink master prompt structure, "
+            "then append the slide-specific on-image text, scene, pose, wardrobe, "
+            "props, background, and emotion."
         ),
         "required_sections": MASTER_PROMPT_REQUIRED_SECTIONS,
         "native_outputs": {
@@ -71,10 +72,10 @@ def master_prompt_contract() -> dict[str, Any]:
             },
         },
         "text_rule": (
-            "Include written text only where it is explicitly requested. In carousel "
-            "generation, approved slide copy is an explicit request and must be rendered "
-            "inside the illustration with readable project-matched handwritten typography; "
-            "do not invent any other text."
+            "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally "
+            "into the illustration as polished hand-drawn typography in clean warm "
+            "negative space. Preserve spelling, punctuation, capitalization, and line "
+            "breaks exactly. Do not invent any other text."
         ),
     }
 
@@ -105,7 +106,7 @@ MASTER PROMPT VERSION:
 {MASTER_PROMPT_VERSION}
 
 ASSET TYPE:
-Vertical Instagram carousel illustration for @a.storyof.two, romantic narrative slide.
+Vertical Instagram carousel illustration for @a.storyof.two, romantic narrative slide, with exact readable text baked naturally into the image.
 Required paired asset flow for every slide:
 - Instagram Post Output: native 4:5, 1080x1350.
 - Reels/Stories Output: native 9:16, 1080x1920.
@@ -122,7 +123,10 @@ Do not copy the exact pose or scene from references unless requested. Preserve i
 If identity references cannot be attached as actual image inputs, do not invent new faces or accept generic stand-ins.
 
 PRIMARY REQUEST:
-Create a premium vertical romantic watercolor-and-ink illustration of the same recurring South Asian couple from the identity references, in the scene described below. The image should feel like a polished hand-drawn love-story journal: intimate, tender, cozy, stylish, emotionally warm, and phone-screen readable.
+Create a premium vertical romantic watercolor-and-ink illustration of the same recurring South Asian couple from the identity references, in the scene described below. Preserve the emotional essence, copy, message, and story from supplied references, but keep the final artwork in the A Story of Two house style: a polished hand-drawn love-story journal, intimate, tender, cozy, stylish, emotionally warm, tall, airy, and phone-screen readable.
+
+ON-IMAGE TEXT:
+{slide_copy}
 
 SCENE:
 {scene_description}
@@ -158,8 +162,8 @@ Keep the palette soft, cohesive, and slightly vintage. No neon colors, harsh con
 
 COMPOSITION AND FORMAT:
 Vertical portrait format for {spec['label']}: {spec['ratio']} at {spec['size']}.
-Use the tall, airy carousel feeling of the creator reference while preserving the required native output canvas above.
-Leave generous warm negative space in the upper portion for requested text when text is part of the slide.
+Use the tall, airy carousel feeling of the creator-approved reference while preserving the required native output canvas above.
+Leave generous warm negative space in the upper portion for the integrated on-image text.
 Place the couple in the lower or middle-lower portion of the canvas unless the scene specifically requires otherwise.
 Use airy framing and soft faded watercolor edges. Background should be present but secondary.
 The couple should be the emotional focus. Keep the scene readable at phone-screen size. Avoid clutter.
@@ -197,18 +201,18 @@ Skin should have warm watercolor shading, not plastic smoothness.
 
 ANATOMY AND QUALITY RULES:
 Natural hands and fingers. Correct number of fingers. Clean facial anatomy. No distorted eyes. No warped smile. No broken wrists. No extra limbs. No duplicated body parts. No melted accessories.
-No random unreadable text. No watermark. No logo except the tiny @a.storyof.two brandmark.
+No random unreadable text. No watermark. No logo except explicitly requested brand/product labels.
 No photorealism. No anime. No 3D render. No flat vector art. No children's cartoon style. No heavy black outlines. No harsh shadows. No AI-looking artifacts.
 Negative prompt: {negative_prompt}
 
 TEXT RULE:
-Include written text only where it is explicitly requested.
-This slide explicitly requests the approved carousel copy, so render that copy inside the illustration as part of the generated image.
-Exact approved slide copy: "{slide_copy}"
-While creating the illustration, leave clean space for the text and place it there so it is readable.
-Font must suit the theme of this project, the illustration concept, and the visuals: handwritten storybook type, dark charcoal/black ink, generous spacing, readable at {spec['size']}, integrated naturally into the warm negative space.
-Add the tiny low-contrast handwritten brandmark "@a.storyof.two" at bottom-right inside the artwork.
-Do not add unrequested captions, labels, signs, speech bubbles, random letters, fake watermarks, or accidental typography.
+Include the exact written text provided in the ON-IMAGE TEXT section directly inside the generated illustration. The text must be baked into the image as readable, polished, hand-drawn typography that suits the romantic watercolor-and-ink storybook style of this project. Place the text in the clean warm negative space, preferably in the upper portion of the composition, without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, and wording exactly. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel integrated into the paper and illustration, not like a digital overlay, poster title, or separate graphic layer.
+
+REFERENCE ESSENCE RULE:
+When non-A Story inspiration images or screenshots are supplied, preserve their text, message, emotion, story, hand gesture, body-language essence, and requested composition, but convert the final artwork fully into the A Story of Two watercolor-and-ink house style. Remove screenshot UI, social handles, counters, buttons, watermarks, signatures, and other platform artifacts unless explicitly requested as story content.
+
+BRAND INTEGRATION VISIBILITY RULE:
+When brand integration is requested, the brand product must remain secondary to the love-story scene but the brand name and core product cue must be clearly readable at phone-screen size. Use a front-facing or three-quarter product angle, enough product size, clean contrast, and minimal occlusion. Do not hide the product name behind scarves, hands, glare, folds, or clutter. If the brand name, logo wordmark, or product type is not legible, the image fails the brand-integration test and must be regenerated. Product labels are allowed only for the requested brand products; do not add unrelated logos, labels, or random text.
 
 FINAL IDENTITY REINFORCEMENT:
 Before finalizing, ensure the woman and man still look like the exact same recurring couple from the identity references. The scene, pose, outfit, and props may change, but their faces, hair identities, skin tones, and emotional presence must remain consistent.
@@ -217,6 +221,9 @@ FINAL STYLE REINFORCEMENT:
 The final image should look like a polished hand-drawn watercolor-and-ink romantic carousel illustration from "A Story of Two": warm, intimate, travel-light, emotionally soft, detailed, premium, and consistent with the previous slides.
 
 FINAL IMAGE RENDERING LAYER:
+ON-IMAGE TEXT:
+{slide_copy}
+
 SCENE:
 {scene_description}
 

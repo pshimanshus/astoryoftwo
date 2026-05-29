@@ -90,9 +90,9 @@ Every run must create:
 
 Final generated images must be copied into:
 
-- `final/slide-XX.png`: native 4:5 Instagram post artwork with illustration, exact slide copy, and brandmark rendered inside the image
-- `final-reels-stories/slide-XX.png`: native 9:16 Reels/Stories artwork generated separately for the taller frame
-- `final-with-text/slide-XX.png`: legacy local typography overlay exports, only when explicitly using the legacy local-overlay path
+- `final/slide-XX.png`: native 4:5 Instagram post artwork in the creator-approved illustration style, with exact ON-IMAGE TEXT baked naturally into the generated image
+- `final-reels-stories/slide-XX.png`: native 9:16 Reels/Stories artwork generated separately for the taller frame, with exact ON-IMAGE TEXT baked naturally into the generated image
+- `final-with-text/slide-XX.png`: legacy local typography overlay exports only
 
 ## Default Format
 
@@ -118,6 +118,11 @@ North Star:
 
 Use the @a.storyof.two romantic watercolor-and-ink master style:
 
+- creator-approved Suitcase Relocation proof look as the default house style:
+  tall airy portrait composition, couple and story props in the lower or
+  middle-lower frame, clean upper negative space for exact integrated
+  handwritten ON-IMAGE TEXT, and strong A Story of Two house style even when
+  outside references supply the message, emotion, story, or pose
 - premium hand-drawn romantic editorial illustration
 - soft watercolor wash with fine ink and pencil linework
 - warm ivory paper background with subtle paper grain
@@ -127,7 +132,7 @@ Use the @a.storyof.two romantic watercolor-and-ink master style:
 - tactile clothing and prop details such as denim grain, fabric folds, scarf patterns, leather straps, ceramic cups, small jewelry, and shoe stitching
 - generous warm negative space for model-native slide text
 - one clear Aachu/Zuv behavior scene per slide
-- tiny low-contrast brandmark: `@a.storyof.two`
+- tiny low-contrast brandmark: `@a.storyof.two` when requested for the asset
 - rooted in supplied photos and selected identity references before adding decorative interpretation
 
 Every final image-generation handoff must include the project master prompt
@@ -247,7 +252,8 @@ Avoid:
 Typography rule:
 
 - Default final slide copy is rendered by the image model inside the illustration.
-- Image-generation prompts must ask for two complete native publishable outputs per slide: 4:5 Instagram post and 9:16 Reels/Stories, each with exact copy and `@a.storyof.two` brandmark inside the artwork.
+- Image-generation prompts must ask for two complete native publishable outputs per slide: 4:5 Instagram post and 9:16 Reels/Stories, each with exact ON-IMAGE TEXT inside the artwork.
+- Brand-integration prompts may include product labels, but brand/product name legibility is a hard QA gate at phone-screen size. If tiny packaging text is misspelled or blurred by generation, render the product body in the illustration first, then use `scripts/render_brand_product_labels.swift` for exact readable label text.
 - Local text overlays are legacy fallback only and must not satisfy the default model-native final gate.
 - Do not claim final images are ready until `final/`, `final-reels-stories/`, and visual QA exist.
 - Do not stop at `READY_FOR_CODEX_BUILTIN_GENERATION` when an image-generation
@@ -358,7 +364,7 @@ Every Codex-native run must include the review spine:
 6. C3.5-IdentityConsistency writes `identity-consistency-review.json` after slide descriptions are generated and before image generation. It must pass before generating final art.
 7. Final generated images are packaged into `final/slide-XX.png` and `final-reels-stories/slide-XX.png` from separate native generated sources.
 8. `final-with-text/slide-XX.png` exists only for legacy local-overlay runs.
-9. `visual-qa.md` checks storyboard match, face consistency, dress continuity, style, model-native text,
+9. `visual-qa.md` checks storyboard match, face consistency, dress continuity, style, exact model-native text, brand/product label visibility when relevant,
    and final output existence.
 10. The run writes a carousel wiki page, updates `wiki/index.md`, appends
    `memory/working.md`, and updates `memory/graph.json`.

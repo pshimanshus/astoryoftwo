@@ -296,9 +296,16 @@ formats and visual QA exist. The default final generation flow must create a
 separate 4:5 Instagram post image and a separate 9:16 Reels/Stories image for
 each slide; never create one image and resize, crop, or pad it into the other
 format. The final output agents/workers are: Instagram Post Output, Reels/Stories
-Output, and Identity/Visual QA. Each generated slide includes the illustration,
-exact copy, brandmark, faces, outfits, and composition together.
-`final-with-text/` is legacy local-overlay fallback only. The
+Output, and Identity/Visual QA. As of the creator-approved Suitcase Relocation
+proof on 2026-05-30, the default visual style for generated illustrations is
+the tall, airy watercolor-and-ink scene look: identity-first recurring Aachu/Zuv
+faces, warm ivory paper, lower/middle-lower couple placement, tactile
+wardrobe/props, and generous clean upper negative space for exact integrated
+ON-IMAGE TEXT. External references may supply text, message, emotion, story,
+gesture, and composition essence, but the final artwork must stay in the
+A Story of Two house style. Product labels are allowed when a brand-integration
+test explicitly asks for them, and the brand/product name must be legible at
+phone-screen size. The
 Anthropic-backed C1-C6 runner is optional legacy mode: use `--mode anthropic`
 only when an external Anthropic API run is explicitly desired.
 For illustrated carousel work, never use a single-pass reviewer path. Use
@@ -588,9 +595,9 @@ Each package contains:
 - `final-approval.md` — human review checklist
 - `agent-reports.md` — raw C-layer agent outputs
 - `final-images.json` — final generated image source mapping, with separate native provenance for 4:5 and 9:16 outputs
-- `visual-qa.md` — storyboard, face, dress continuity, style, model-native text, and final-output checks
-- `final/slide-XX.png` — native 4:5 Instagram post output, not derived from another aspect ratio
-- `final-reels-stories/slide-XX.png` — native 9:16 Reels/Stories output, not derived from the Instagram post output
+- `visual-qa.md` — storyboard, face, dress continuity, A Story of Two style, exact model-native text, brand/product label legibility when relevant, and final-output checks
+- `final/slide-XX.png` — native 4:5 Instagram post illustration output with exact ON-IMAGE TEXT, not derived from another aspect ratio
+- `final-reels-stories/slide-XX.png` — native 9:16 Reels/Stories illustration output with exact ON-IMAGE TEXT, not derived from the Instagram post output
 - `final-with-text/slide-XX.png` — legacy local text-overlay exports only
 
 ---
