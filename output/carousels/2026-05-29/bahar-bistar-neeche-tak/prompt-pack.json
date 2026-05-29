@@ -1,0 +1,61 @@
+{
+  "status": "REPAIRED_PROMPT_READY_FOR_CREATOR_PROOF_REVIEW",
+  "shared_style_prompt": "Hand-drawn desi storybook illustration matching the accepted main-kar-lungi style. Warm off-white paper, loose imperfect black ink linework, matte muted color, simple flat watercolor, ordinary daily-life body language, generous breathing room, and small realistic human eyes. Avoid polished romantic editorial watercolor, glossy AI finish, anime/webtoon faces, doll-like faces, poster-card design, and decorative clutter. Exact slide text must be baked into the artwork as simple readable dark-charcoal handwritten lettering. No extra words anywhere except the approved slide text and an optional tiny low-contrast @a.storyof.two brandmark.",
+  "identity_lock": "Use identity_images/aachu_zuv.png as the primary identity anchor. Aachu/Anchal: long dark hair, soft oval face, warm smile, fair-medium warm skin, white wrap shirt and blue jeans when useful. Zuv/Himanshu: dark wavy hair, thick brows, trimmed beard and mustache, broader build, warm brown skin, pale blue shirt and loose grey pants when useful. Faces must remain recognizable before reading text.",
+  "negative_prompt": "Do not make her nagging, him useless, or either person mean. No date-night glam, no dance-floor/function setting, no couch-only romance, no hand-dragging, no moral quote-card, no 'love is compromise', no polished editorial illustration, no random lettering, no prop text, no wall signs, no frame text, no misspelled slide text, no extra limbs, no distorted hands, no generic Indian stock couple.",
+  "slides": [
+    {
+      "slide": 1,
+      "text": "She wanted bahar.",
+      "instagram_post_prompt_file": "codex-image-prompts/instagram-post/slide-01.md",
+      "reels_stories_prompt_file": "codex-image-prompts/reels-stories/slide-01.md",
+      "scene": "Aachu stands near the home doorway in casual go-out clothes, keys and sandals visible, looking hopefully back into the room."
+    },
+    {
+      "slide": 2,
+      "text": "He wanted bistar.",
+      "instagram_post_prompt_file": "codex-image-prompts/instagram-post/slide-02.md",
+      "reels_stories_prompt_file": "codex-image-prompts/reels-stories/slide-02.md",
+      "scene": "Zuv is half-buried under a blanket on bed/sofa, phone on chest, one sock half-off, low-battery and lovable."
+    },
+    {
+      "slide": 3,
+      "text": "Bas 5 min.",
+      "instagram_post_prompt_file": "codex-image-prompts/instagram-post/slide-03.md",
+      "reels_stories_prompt_file": "codex-image-prompts/reels-stories/slide-03.md",
+      "scene": "Aachu places his sneakers near the bed; Zuv peeks from the blanket and raises one hand in a tiny bargaining gesture."
+    },
+    {
+      "slide": 4,
+      "text": "Bas neeche tak.",
+      "instagram_post_prompt_file": "codex-image-prompts/instagram-post/slide-04.md",
+      "reels_stories_prompt_file": "codex-image-prompts/reels-stories/slide-04.md",
+      "scene": "Half-open home door with outside light; Aachu waits by the door while Zuv sits up with blanket still around shoulders."
+    },
+    {
+      "slide": 5,
+      "text": "One shoe agreed.",
+      "instagram_post_prompt_file": "codex-image-prompts/instagram-post/slide-05.md",
+      "reels_stories_prompt_file": "codex-image-prompts/reels-stories/slide-05.md",
+      "scene": "Zuv appears at the doorway with one sneaker on and one home slipper still on, sleepy and sheepish in pale blue shirt and loose grey pants; Aachu notices with keys in hand and laughs affectionately."
+    },
+    {
+      "slide": 6,
+      "text": "The plan got resized.",
+      "instagram_post_prompt_file": "codex-image-prompts/instagram-post/slide-06.md",
+      "reels_stories_prompt_file": "codex-image-prompts/reels-stories/slide-06.md",
+      "scene": "They sit on building stairs or a tiny gate-side bench; Aachu has outside air, Zuv still has almost-home posture, shoes and slippers visible."
+    },
+    {
+      "slide": 7,
+      "text": "Love chose neeche tak.",
+      "instagram_post_prompt_file": "codex-image-prompts/instagram-post/slide-07.md",
+      "reels_stories_prompt_file": "codex-image-prompts/reels-stories/slide-07.md",
+      "scene": "They sit close on stairs or a small bench near the building gate, she happy beside him, he sleepy but satisfied, open building door behind them."
+    }
+  ],
+  "proof_first": {
+    "slide": 5,
+    "reason": "The one-shoe/one-slipper joke is the clearest proof beat and identity/styling risk point. V4 is saved for creator review, but full batch remains blocked until identity/style are approved."
+  }
+}

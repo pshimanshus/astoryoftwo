@@ -1,0 +1,289 @@
+{
+  "schema_version": "1.0",
+  "auditor": "C7-Final Contract Auditor",
+  "status": "NEEDS_FIXES",
+  "pass": false,
+  "requirements": {
+    "REQ-STYLE-001": {
+      "pass": true,
+      "evidence": "Create a complete publishable @a.storyof.two social slide in the established Aachu/Zuv hand-drawn romantic watercolor-and-ink carousel look. Identity reference images are the highest-priority face source: preserve the same recurring real-person faces, warm South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark eyes, defined nose, short natural stubble, and gentle amused expression. Use warm ivory paper texture, soft watercolor washes, fine ink and pencil linework, muted vintage palette, tactile home detail, and natural ordinary body language. Scene-first: action, reaction, eye-line, hands, body distance, object movement, silence, consequence, reversal, and payoff must be visible before the text. Render the exact slide copy as readable dark-charcoal handwritten text inside the artwork, with tiny low-contrast @a.storyof.two brandmark at bottom-right."
+    },
+    "REQ-HOUSE-STYLE-SCENE-001": {
+      "pass": true,
+      "evidence": "No artifact/poster prompt drift detected."
+    },
+    "REQ-PHOTO-001": {
+      "pass": true,
+      "evidence": "identity-only concept-led run using identity references and creative brief"
+    },
+    "REQ-IDENTITY-001": {
+      "pass": true,
+      "evidence": {
+        "manifest": [
+          {
+            "path": "identity_images/aachu_zuv.png",
+            "role": "Aachu/Zuv face consistency reference"
+          }
+        ],
+        "prompt_pack": [
+          "identity_images/aachu_zuv.png"
+        ]
+      }
+    },
+    "REQ-IDENTITY-DOSSIER-001": {
+      "pass": true,
+      "evidence": {
+        "dossier": "output/carousels/2026-05-29/otp-expired-twice/identity-dossier.json",
+        "preflight": "output/carousels/2026-05-29/otp-expired-twice/identity-generation-preflight.md",
+        "contact_sheet": "output/carousels/2026-05-29/otp-expired-twice/identity-face-contact-sheet.jpg",
+        "prompt_refs": [
+          "output/carousels/2026-05-29/otp-expired-twice/identity-face-contact-sheet.jpg"
+        ]
+      }
+    },
+    "REQ-IDENTITY-CONSISTENCY-001": {
+      "pass": true,
+      "evidence": {
+        "identity_review": "output/carousels/2026-05-29/otp-expired-twice/identity-consistency-review.json",
+        "status": "PASS",
+        "issues": []
+      }
+    },
+    "REQ-POST-COPY-VISUAL-ROOM-001": {
+      "pass": true,
+      "evidence": {
+        "path": "output/carousels/2026-05-29/otp-expired-twice/post-copy-visual-room.json",
+        "status": "GO",
+        "decision": "GO",
+        "selected_visual_system": "Cozy Home Mini Mission-Control",
+        "issues": []
+      }
+    },
+    "REQ-VISUAL-PLAN-QUALITY-001": {
+      "pass": true,
+      "evidence": {
+        "path": "output/carousels/2026-05-29/otp-expired-twice/visual-plan-quality.json",
+        "status": "PASS",
+        "decision": "GO",
+        "issues": []
+      }
+    },
+    "REQ-SLIDES-001": {
+      "pass": true,
+      "evidence": "requested=7, slides=7, prompts=7"
+    },
+    "REQ-SUCCESS-STANDARD-001": {
+      "pass": true,
+      "evidence": {
+        "source": "wiki/insights/successful-carousel-standard.md",
+        "status": "PASS",
+        "pass": true,
+        "agent_alignment": {
+          "source": "wiki/insights/successful-carousel-standard.md",
+          "success_goals_addressed": [
+            "public identity mirror",
+            "concrete couple receipts",
+            "active Zuv care",
+            "emotional reversal",
+            "send/save thesis",
+            "stage-scene storytelling"
+          ],
+          "audience_success": "OTP timer panic is an immediate this-is-us daily-life mirror.",
+          "creative_success": "The sequence has pressure, receipt, failure, reset, success, and earned laugh.",
+          "brand_success": "Warm desi ordinary relationship comedy where small behavior becomes love proof.",
+          "production_success": "Handoff includes identity references, proof-first slide, native 4:5 and 9:16 prompt files, and QA gates."
+        },
+        "dimensions": {
+          "agent_goal_alignment": {
+            "pass": true
+          },
+          "relationship_first_premise": {
+            "pass": true
+          },
+          "story_selling_threshold": {
+            "pass": true
+          },
+          "prompt_goal_alignment": {
+            "pass": true
+          },
+          "stage_scene_storytelling": {
+            "pass": true
+          }
+        },
+        "issues": []
+      }
+    },
+    "REQ-FINAL-IMAGES-001": {
+      "pass": false,
+      "evidence": {
+        "files": [],
+        "manifest": "output/carousels/2026-05-29/otp-expired-twice/final-images.json",
+        "status": "handoff_ready",
+        "issues": [
+          "Missing final images: output/carousels/2026-05-29/otp-expired-twice/final/slide-01.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-02.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-03.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-04.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-05.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-06.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-07.png",
+          "final-images.json status is 'handoff_ready', expected 'packaged' or 'generated'.",
+          "Slide 1 final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final/slide-01.png.",
+          "Slide 1 Reels/Stories final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-01.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-01.png.",
+          "Slide 1 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 2 final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final/slide-02.png.",
+          "Slide 2 Reels/Stories final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-02.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-02.png.",
+          "Slide 2 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 3 final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final/slide-03.png.",
+          "Slide 3 Reels/Stories final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-03.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-03.png.",
+          "Slide 3 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 4 final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final/slide-04.png.",
+          "Slide 4 Reels/Stories final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-04.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-04.png.",
+          "Slide 4 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 5 final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final/slide-05.png.",
+          "Slide 5 Reels/Stories final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-05.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-05.png.",
+          "Slide 5 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 6 final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final/slide-06.png.",
+          "Slide 6 Reels/Stories final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-06.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-06.png.",
+          "Slide 6 native_outputs missing required format(s): instagram_post, reels_stories",
+          "Slide 7 final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final/slide-07.png.",
+          "Slide 7 Reels/Stories final path is ., expected output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-07.png.",
+          "Missing Reels/Stories final image: output/carousels/2026-05-29/otp-expired-twice/final-reels-stories/slide-07.png.",
+          "Slide 7 native_outputs missing required format(s): instagram_post, reels_stories"
+        ]
+      }
+    },
+    "REQ-MODEL-NATIVE-TEXT-001": {
+      "pass": false,
+      "evidence": {
+        "files": [],
+        "manifest": "output/carousels/2026-05-29/otp-expired-twice/final-images.json",
+        "generation_mode": "model_native_publishable",
+        "issues": [
+          "Missing publishable final slides: output/carousels/2026-05-29/otp-expired-twice/final/slide-01.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-02.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-03.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-04.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-05.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-06.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-07.png",
+          "Slide 1 is missing source prompt provenance.",
+          "Slide 2 is missing source prompt provenance.",
+          "Slide 3 is missing source prompt provenance.",
+          "Slide 4 is missing source prompt provenance.",
+          "Slide 5 is missing source prompt provenance.",
+          "Slide 6 is missing source prompt provenance.",
+          "Slide 7 is missing source prompt provenance."
+        ]
+      }
+    },
+    "REQ-VISUAL-QA-001": {
+      "pass": false,
+      "evidence": {
+        "visual_qa": "output/carousels/2026-05-29/otp-expired-twice/visual-qa.md",
+        "structured_visual_qa": "output/carousels/2026-05-29/otp-expired-twice/visual-qa.json",
+        "failed": [
+          "visual-qa.json is missing; visual-qa.md is only a review worksheet."
+        ],
+        "unchecked_face_or_storyboard_items": [
+          "- [ ] Slide 1 final image matches storyboard: 30 seconds.",
+          "- [ ] Slide 2 final image matches storyboard: jaldi bolo.",
+          "- [ ] Slide 3 final image matches storyboard: 8 tha ya 3?",
+          "- [ ] Slide 4 final image matches storyboard: expired.",
+          "- [ ] Slide 5 final image matches storyboard: resend. breathe.",
+          "- [ ] Slide 6 final image matches storyboard: submitted.",
+          "- [ ] Slide 7 final image matches storyboard: two people panicking correctly.",
+          "- [ ] Aachu face is recognizably based on the identity reference.",
+          "- [ ] Zuv face is recognizably based on the identity reference."
+        ]
+      }
+    },
+    "REQ-BRAND-001": {
+      "pass": true,
+      "evidence": {
+        "strategy": "model_native",
+        "composition_role": "publishable_final_illustration_with_text",
+        "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+        "brandmark": "@a.storyof.two",
+        "brandmark_placement": "bottom-right",
+        "slide_copy": [
+          "30 seconds.",
+          "jaldi bolo.",
+          "8 tha ya 3?",
+          "expired.",
+          "resend. breathe.",
+          "submitted.",
+          "two people panicking correctly."
+        ]
+      }
+    },
+    "REQ-NEGATIVE-001": {
+      "pass": true,
+      "evidence": "No photorealism, no 3D, no glossy AI, no stock Indian couple faces, no anime, no doll faces, no quote-card, no corporate tech UI, no banking, no payment, no shopping, no cart, no fraud, no scam visuals, no wallet, no card, no money, no app brand logos, no random unreadable text, no extra digits except harmless generic OTP or timer marks, no distorted hands, no extra fingers, no mean-spirited humor, no perfect-husband rescue."
+    },
+    "REQ-OUTPUT-001": {
+      "pass": true,
+      "evidence": [
+        "manifest.json",
+        "concept.json",
+        "post-copy-visual-room.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "slides.json",
+        "prompt-pack.json",
+        "identity-dossier.json",
+        "identity-generation-preflight.md",
+        "identity-face-contact-sheet.jpg",
+        "identity-consistency-review.json",
+        "copy.json",
+        "review.json",
+        "final-approval.md",
+        "storyboard.md",
+        "agent-reports.md",
+        "image-generation.json",
+        "final-images.json"
+      ]
+    },
+    "REQ-WIKI-001": {
+      "pass": true,
+      "evidence": {
+        "carousel_page": true,
+        "wiki_index": true,
+        "working_memory": true,
+        "graph_memory": true
+      }
+    }
+  },
+  "checked_artifacts": {
+    "manifest.json": true,
+    "concept.json": true,
+    "post-copy-visual-room.json": true,
+    "visual-debate.json": true,
+    "visual-plan-quality.json": true,
+    "slides.json": true,
+    "prompt-pack.json": true,
+    "identity-dossier.json": true,
+    "identity-generation-preflight.md": true,
+    "identity-face-contact-sheet.jpg": true,
+    "identity-consistency-review.json": true,
+    "copy.json": true,
+    "review.json": true,
+    "final-approval.md": true,
+    "storyboard.md": true,
+    "agent-reports.md": true,
+    "image-generation.json": true,
+    "final-images.json": true
+  },
+  "quality_artifacts": {
+    "run_ledger": "run-ledger.json",
+    "stage_reviews": "stage-reviews.json",
+    "final_audit": "final-audit.json",
+    "wiki_update": "wiki-update.md",
+    "visual_qa": "visual-qa.md"
+  },
+  "issues": [
+    "REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders",
+    "REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/",
+    "REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence",
+    "asset_reviewer: Missing final generated images: output/carousels/2026-05-29/otp-expired-twice/final/slide-01.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-02.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-03.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-04.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-05.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-06.png, output/carousels/2026-05-29/otp-expired-twice/final/slide-07.png"
+  ],
+  "notes": [
+    "No story photos supplied; identity references and the creative brief are the source of truth.",
+    "Wiki and memory files are updated after final audit generation.",
+    "render_assets=False"
+  ]
+}

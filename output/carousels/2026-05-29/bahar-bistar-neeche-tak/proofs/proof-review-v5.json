@@ -1,0 +1,14 @@
+{
+  "proof": "proofs/slide-05-proof-v5-identity-style-repair.png",
+  "slide": 5,
+  "text": "One shoe agreed.",
+  "status": "CURRENT_CANDIDATE_CREATOR_REVIEW_REQUIRED",
+  "checks": {
+    "exact_slide_text": "PASS - primary slide text reads exactly.",
+    "extra_text": "PASS - no extra prop/sign/tote text detected.",
+    "identity": "REVIEW - strongest candidate so far; closer wardrobe, body language, and faces, but creator approval required before batch.",
+    "style": "REVIEW - simpler and less cluttered than prior proofs, still slightly cleaner than the raw main-kar-lungi target.",
+    "aspect_ratio": "FAIL_FOR_FINAL - generated 997x1577, not native 4:5."
+  },
+  "allowed_next_step": "Creator reviews V5 identity/style before any full carousel generation."
+}

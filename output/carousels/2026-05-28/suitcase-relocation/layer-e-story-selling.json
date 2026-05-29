@@ -1,0 +1,450 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "source_memory_room": {
+      "name": "Context And Source Memory",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Source Curator",
+          "role": "legality",
+          "claim": "Use derived patterns and source IDs only.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Successful Carousel Standard Reader",
+          "role": "creative north star",
+          "claim": "Prioritize public identity mirror and concrete couple receipts.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Creator Preference Ledger Reader",
+          "role": "memory",
+          "claim": "Avoid repeating cooled-down lanes as fresh ideas.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Source memory loaded before concept selection.",
+      "selected_outputs": {},
+      "objections": [],
+      "repairs": []
+    },
+    "story_meaning_room": {
+      "name": "Story Meaning Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Romance Novelist",
+          "role": "emotional arc",
+          "claim": "The route needs obstacle, proof, reversal, and earned payoff.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Film Scene Director",
+          "role": "scene grammar",
+          "claim": "The meaning must be drawable through behavior.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Aachu/Zuv Dynamics Writer",
+          "role": "character truth",
+          "claim": "Aachu gets spark; Zuv gets active response.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Emotional Obstacle Miner",
+          "role": "friction",
+          "claim": "No obstacle means no story engine.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Generated 5 story routes and selected Proof Before Poetry as the strongest raw meaning.",
+      "selected_outputs": {
+        "raw_winner": "Proof Before Poetry"
+      },
+      "objections": [],
+      "repairs": []
+    },
+    "audience_algorithm_room": {
+      "name": "Audience And Algorithm Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Retention Analyst",
+          "role": "swipe ladder",
+          "claim": "The route must create curiosity and middle-slide re-engagement.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Algorithm / Share-Save Strategist",
+          "role": "distribution",
+          "claim": "The route needs a send/save/tag reason.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Copy Chief",
+          "role": "wording",
+          "claim": "Public copy should stay name-free and behavior-led.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Culture And Taste Reader",
+          "role": "taste",
+          "claim": "The humor should feel warm, desi, and non-shaming.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Audience pass checked reader mirror, send/save logic, and taste.",
+      "selected_outputs": {
+        "distribution_reason": "Saveable when it gives viewers language for a familiar relationship pattern."
+      },
+      "objections": [],
+      "repairs": []
+    },
+    "contrarian_repair_room": {
+      "name": "Contrarian Repair Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Harsh Critic",
+          "role": "route attack",
+          "claim": "The winner must survive genericness and private-context objections.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Genericness Detector",
+          "role": "specificity",
+          "claim": "Specific proof beats beat abstract romance.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Safety/Taste Guard",
+          "role": "safety",
+          "claim": "No shaming, privacy leak, or copied expression.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Visual Generativity Skeptic",
+          "role": "generation",
+          "claim": "The concept must become simple scenes.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Top routes were attacked and repair needs were recorded.",
+      "selected_outputs": {},
+      "objections": [],
+      "repairs": []
+    },
+    "final_synthesis_room": {
+      "name": "Final Synthesis Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Story Lens Selector",
+          "role": "selection",
+          "claim": "Selected Proof Before Poetry.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Story-Selling Rubric Judge",
+          "role": "score",
+          "claim": "Apply 30-point Story-Selling threshold.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Downstream Contract Writer",
+          "role": "handoff",
+          "claim": "Write emotional machine into C/D/B contracts.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Final selector synthesized the route into Layer E handoff fields.",
+      "selected_outputs": {
+        "selected_story_lens": "The story should begin with the behavior that proves love, not the romantic summary."
+      },
+      "objections": [],
+      "repairs": []
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "Proof Before Poetry",
+      "story_lens": "The story should begin with the behavior that proves love, not the romantic summary.",
+      "reader_mirror": "Readers enter through a concrete couple behavior they recognize.",
+      "emotional_obstacle": "The idea risks becoming pretty but emotionally flat.",
+      "aachu_specific_spark": "Aachu carries the expressive pressure in the moment.",
+      "zuv_active_role": "Zuv must make one visible choice toward her.",
+      "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+      "emotional_reversal": "The surface moment becomes proof of care.",
+      "payoff": "Love becomes believable only after the scene proves it.",
+      "distribution_reason": "Saveable when it gives viewers language for a familiar relationship pattern.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Public Scene, Private Meaning",
+      "story_lens": "Turn the visible scene into a private relationship truth.",
+      "reader_mirror": "A stranger can enter through the public scene first.",
+      "emotional_obstacle": "If the private meaning is absent, the scene stays decorative.",
+      "aachu_specific_spark": "Aachu's reaction gives the scene emotional charge.",
+      "zuv_active_role": "Zuv's care must be visible in frame.",
+      "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+      "emotional_reversal": "The public image becomes a private receipt.",
+      "payoff": "The pretty part is only proof; the relationship is the subject.",
+      "distribution_reason": "Shareable if the scene becomes a relationship mirror.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Anti-Ideal To Real Love",
+      "story_lens": "Reject polished romance and find the real imperfect dynamic.",
+      "reader_mirror": "Viewers recognize the gap between ideal romance and real couple behavior.",
+      "emotional_obstacle": "The route fails if no tension or role is visible.",
+      "aachu_specific_spark": "Aachu brings the human imperfection.",
+      "zuv_active_role": "Zuv must respond with grounded behavior.",
+      "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+      "emotional_reversal": "The imperfection becomes the reason it feels true.",
+      "payoff": "Real love is specific enough to be inconvenient.",
+      "distribution_reason": "Sendable when it names what perfect romance misses.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Reader As Third Witness",
+      "story_lens": "Let the reader feel seen before explaining the couple.",
+      "reader_mirror": "The viewer recognizes their own desire to be understood.",
+      "emotional_obstacle": "The route becomes advice if Aachu/Zuv proof is weak.",
+      "aachu_specific_spark": "Aachu provides the emotional receipt.",
+      "zuv_active_role": "Zuv provides the answering action.",
+      "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+      "emotional_reversal": "Advice turns into story once the proof appears.",
+      "payoff": "The lesson must feel discovered through them.",
+      "distribution_reason": "Useful for article, caption, and save behavior.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Scene Before Summary",
+      "story_lens": "Start inside the moment and delay explanation until the scene earns it.",
+      "reader_mirror": "People stay because they want the scene to resolve.",
+      "emotional_obstacle": "Summary too early kills tension.",
+      "aachu_specific_spark": "Aachu's behavior creates the scene's pressure.",
+      "zuv_active_role": "Zuv's action resolves or reframes the pressure.",
+      "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+      "emotional_reversal": "The scene reveals what the summary could not.",
+      "payoff": "The final line lands only after the action.",
+      "distribution_reason": "Retention comes from wanting the next panel.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [
+    {
+      "name": "Public Scene, Private Meaning",
+      "story_lens": "Turn the visible scene into a private relationship truth.",
+      "reader_mirror": "A stranger can enter through the public scene first.",
+      "emotional_obstacle": "If the private meaning is absent, the scene stays decorative.",
+      "aachu_specific_spark": "Aachu's reaction gives the scene emotional charge.",
+      "zuv_active_role": "Zuv's care must be visible in frame.",
+      "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+      "emotional_reversal": "The public image becomes a private receipt.",
+      "payoff": "The pretty part is only proof; the relationship is the subject.",
+      "distribution_reason": "Shareable if the scene becomes a relationship mirror.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Anti-Ideal To Real Love",
+      "story_lens": "Reject polished romance and find the real imperfect dynamic.",
+      "reader_mirror": "Viewers recognize the gap between ideal romance and real couple behavior.",
+      "emotional_obstacle": "The route fails if no tension or role is visible.",
+      "aachu_specific_spark": "Aachu brings the human imperfection.",
+      "zuv_active_role": "Zuv must respond with grounded behavior.",
+      "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+      "emotional_reversal": "The imperfection becomes the reason it feels true.",
+      "payoff": "Real love is specific enough to be inconvenient.",
+      "distribution_reason": "Sendable when it names what perfect romance misses.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "rejected_routes": [],
+  "selected_story_lens": "The story should begin with the behavior that proves love, not the romantic summary.",
+  "emotional_machine": "The idea risks becoming pretty but emotionally flat. -> Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip. -> The surface moment becomes proof of care. -> Love becomes believable only after the scene proves it.",
+  "proof_engine": "Suitcase Relocation. Some couples don't pack. They relocate the house. She packed just options. He packed every charger except the one they needed. They sat on the suitcase. Still forgot toothbrushes. Nobody blamed each other. Only the zip. Maybe love is two overpackers blaming the zip.",
+  "reader_mirror": "Readers enter through a concrete couple behavior they recognize.",
+  "distribution_reason": "Saveable when it gives viewers language for a familiar relationship pattern.",
+  "process_influences": [
+    {
+      "id": "successful-carousel-standard",
+      "title": "Successful Carousel Standard",
+      "influence_type": "living_standard",
+      "source_patterns": [],
+      "confidence": 0.9,
+      "reason": "Defines public identity mirror, couple receipts, active Zuv care, reversal, and send/save thesis."
+    },
+    {
+      "id": "card-20",
+      "title": "Saveable Lesson From One Scene",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "storybrand-framework",
+        "copyblogger-story-that-sells",
+        "animalz-quality-content"
+      ],
+      "confidence": 0.81,
+      "reason": "Useful influence for this story because: The lesson must feel discovered through Aachu/Zuv, not pasted onto them."
+    },
+    {
+      "id": "card-07",
+      "title": "Anti-Ideal To Real Love",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "golden-viral-carousel-theme",
+        "storybrand-framework",
+        "animalz-quality-content"
+      ],
+      "confidence": 0.9,
+      "reason": "Useful influence for this story because: This is the default rescue card when an idea is too aesthetic-first."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 5.0,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 30.0
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "c_layer": {
+      "must_preserve": [
+        "selected_story_lens",
+        "emotional_machine",
+        "proof_engine",
+        "reader_mirror",
+        "distribution_reason"
+      ],
+      "golden_theme_gate": "required_for_carousel"
+    },
+    "d_layer": {
+      "article_angle_source": "selected_story_lens"
+    },
+    "b_layer": {
+      "prepost_brief_source": "rooms"
+    }
+  },
+  "metadata": {
+    "source_register_path": "config/references/story-selling-canon/source-register.json",
+    "concept_process_bank_path": "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+    "pattern_map_path": "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+    "reference_paths": [
+      "wiki/insights/successful-carousel-standard.md",
+      "wiki/themes/calm-enough-for-chaos.md",
+      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md",
+      "memory/semantic/carousel-idea-preferences.md",
+      "config/references/story-selling-canon/source-policy.md",
+      "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+      "config/references/story-selling-canon/concept-process-cards.md",
+      "config/references/story-selling-canon/rubric.md",
+      "config/references/story-selling-canon/romance-novel-canon.md",
+      "config/references/story-selling-canon/romance-film-canon.md",
+      "config/references/story-selling-canon/story-selling-online.md",
+      "story-selling-online.md"
+    ],
+    "constraints": [
+      "C-layer carousel package",
+      "golden theme remains mandatory",
+      "use process cards as influences, not the answer"
+    ],
+    "requested_tone": "",
+    "reference_images": [
+      "identity_images/aachu_zuv.png"
+    ]
+  }
+}

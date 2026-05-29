@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "Some couples don't pack. They relocate the house.",
+      "role": "universal hook"
+    },
+    {
+      "slide": 2,
+      "copy": "She packed \"just options.\"",
+      "role": "aachu-specific proof"
+    },
+    {
+      "slide": 3,
+      "copy": "He packed every charger except the one they needed.",
+      "role": "zuv-specific proof"
+    },
+    {
+      "slide": 4,
+      "copy": "They sat on the suitcase.",
+      "role": "comic escalation"
+    },
+    {
+      "slide": 5,
+      "copy": "Still forgot toothbrushes.",
+      "role": "reversal"
+    },
+    {
+      "slide": 6,
+      "copy": "Nobody blamed each other. Only the zip.",
+      "role": "bridge"
+    },
+    {
+      "slide": 7,
+      "copy": "Maybe love is two overpackers blaming the zip.",
+      "role": "save/share thesis"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement for separate native 4:5 and 9:16 outputs."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific model-native prompt constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Short-Film Packing Room",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Short-Film Packing Room",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Split-Screen Evidence Board",
+    "Suitcase As Relocated House"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "Some couples don't pack. They relocate the house.",
+      "visual_job": "universal hook",
+      "scene": "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall stay in consistent positions. Wide opening frame: Aachu and Zuv stand on opposite sides of the open suitcase, both proudly surrounded by absurd but believable trip piles; folded clothes, pouch, cables, shoes, and toiletries are visible while both look convinced this is normal.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "She packed \"just options.\"",
+      "visual_job": "aachu-specific proof",
+      "scene": "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall stay in consistent positions. Aachu kneels beside the suitcase holding three outfit options against herself, with the same folded outfit stack and scarf nearby; Zuv watches from the floor with an amused side-eye, hands paused over his own packing pile.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "He packed every charger except the one they needed.",
+      "visual_job": "zuv-specific proof",
+      "scene": "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall stay in consistent positions. Zuv sits seriously with a tangle of real phone chargers, adapters, earphones, and a power bank, looking confident; Aachu leans in with a judging look while the one needed phone cable is clearly missing from the pile.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "They sat on the suitcase.",
+      "visual_job": "comic escalation",
+      "scene": "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall stay in consistent positions. Both Aachu and Zuv sit on top of the bulging suitcase together, knees up and hands gripping the edges, trying to zip it with full teamwork while the suitcase pushes back.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "Still forgot toothbrushes.",
+      "visual_job": "reversal",
+      "scene": "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall stay in consistent positions. Aachu and Zuv kneel beside the same cream toiletry pouch on the bedroom floor, staring at its empty toothbrush slots in silence while the overpacked suitcase sits open behind them with everything except toothbrushes.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "Nobody blamed each other. Only the zip.",
+      "visual_job": "bridge",
+      "scene": "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall stay in consistent positions. Close-medium frame in the same room: both point at the stubborn suitcase zip with offended innocent faces, standing shoulder to shoulder so the blame lands on the zip instead of either person.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "Maybe love is two overpackers blaming the zip.",
+      "visual_job": "save/share thesis",
+      "scene": "Same warm bedroom packing room continuity lock: Aachu wears the same off-white oversized shirt with blue jeans and small gold earrings; Zuv wears the same navy t-shirt with beige pants and watch; the same dark olive hard-shell suitcase with black zip stays center; cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall stay in consistent positions. Soft final floor scene in the same room: Aachu and Zuv sit beside the half-closed suitcase, tired and laughing, one hand from each still resting near the zip; the mess feels shared, affectionate, and chosen.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 4:5 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

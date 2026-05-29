@@ -1,0 +1,143 @@
+{
+  "status": "GO",
+  "selected_process_card": "Card 05 - Banter To Belonging",
+  "routes": [
+    {
+      "name": "OTP Expired Twice",
+      "story_lens": "Small pressure turns both partners into a working two-person panic system.",
+      "reader_mirror": "Every couple has done unnecessary emergency behavior over a tiny app timer.",
+      "emotional_obstacle": "The timer makes a normal task feel urgent, and the first failure could become blame.",
+      "aachu_specific_spark": "She reacts fast, dramatic, and fully invested in the 30-second countdown.",
+      "zuv_active_role": "He reads, misreads, resets, leans in, and participates rather than rescuing.",
+      "proof_engine": "30-second timer, unclear digit, expired state, resend reset, submitted checkmark.",
+      "emotional_reversal": "Failure becomes teamwork, and panic becomes shared rhythm.",
+      "payoff": "two people panicking correctly.",
+      "distribution_reason": "Highly taggable for partners who have turned OTPs, logins, and small app tasks into missions.",
+      "process_influence_ids": [
+        "card-05-banter-to-belonging",
+        "card-16-scene-before-summary"
+      ],
+      "score_total": 29.0,
+      "golden_theme_score_total": 28.5,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "A harmless 30-second OTP starts a tiny home mission.",
+        "reaction": "Aachu types fast while Zuv reads too calmly, then both freeze over one unclear digit.",
+        "eye_line_or_attention": "Their eye-lines move between the two phones and each other, proving shared pressure.",
+        "hands_or_object_movement": "Two phones move closer together; his finger tracks digits, her thumb freezes, then both hands reset side by side.",
+        "silence_or_pause": "The expired screen creates a deadpan pause before the resend.",
+        "consequence": "The first attempt fails, forcing them into closer teamwork.",
+        "reversal_or_payoff": "The ordinary task becomes a funny relationship proof: two people panicking correctly.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Pause-Frame Blackmail",
+      "story_lens": "Paused TV catches one terrible face and becomes a private joke.",
+      "reader_mirror": "Couples save bad screenshots and never let each other live them down.",
+      "emotional_obstacle": "The joke can become one-sided teasing if not mutual.",
+      "aachu_specific_spark": "She spots the ridiculous pause first and tries to save it.",
+      "zuv_active_role": "He dives for the remote, then laughs with her.",
+      "proof_engine": "Paused TV face, phone camera, cushion block, photo already taken.",
+      "emotional_reversal": "Embarrassment becomes shared laughter.",
+      "payoff": "delete. never.",
+      "distribution_reason": "Funny and visual, but less tender than OTP.",
+      "process_influence_ids": [
+        "card-05-banter-to-belonging"
+      ],
+      "score_total": 28.5,
+      "golden_theme_score_total": 28.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Reel Inbox Audit",
+      "story_lens": "She sends reels all day; he reacts to the wrong part and gets audited.",
+      "reader_mirror": "Many couples communicate through reels and reaction policing.",
+      "emotional_obstacle": "It can drift into phone-addiction if not anchored in affection.",
+      "aachu_specific_spark": "She knows exactly which second mattered.",
+      "zuv_active_role": "He rewatches and reacts properly.",
+      "proof_engine": "18 reels, wrong emoji, 'watch till end', corrected reaction.",
+      "emotional_reversal": "Spam becomes 'I thought of you'.",
+      "payoff": "watch till end.",
+      "distribution_reason": "Very current but more phone-native than scene-native.",
+      "process_influence_ids": [
+        "card-05-banter-to-belonging"
+      ],
+      "score_total": 28.0,
+      "golden_theme_score_total": 28.0,
+      "stage_scene_gate": {
+        "status": "REPAIR",
+        "blockers": [
+          "too screen-led"
+        ]
+      },
+      "hard_fails": [],
+      "verdict": "REPAIR"
+    },
+    {
+      "name": "Family Video Call Tripod",
+      "story_lens": "A family call turns them into each other's tripod and background rescue team.",
+      "reader_mirror": "Every couple has scrambled to fit both faces into one call.",
+      "emotional_obstacle": "Risk of becoming only a phone-angle joke.",
+      "aachu_specific_spark": "She wants both of them to look presentable instantly.",
+      "zuv_active_role": "He balances the phone and rescues the frame.",
+      "proof_engine": "Dono dikho, bad angle, arm tripod, background rescue.",
+      "emotional_reversal": "Awkward public call becomes private teamwork.",
+      "payoff": "marriage is camera angle.",
+      "distribution_reason": "Strong but less fresh than the OTP countdown.",
+      "process_influence_ids": [
+        "card-05-banter-to-belonging"
+      ],
+      "score_total": 28.0,
+      "golden_theme_score_total": 27.5,
+      "stage_scene_gate": {
+        "status": "GO",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "REPAIR"
+    },
+    {
+      "name": "Voice Search Vs Hinglish",
+      "story_lens": "Smart TV misunderstands both of them until they overpronounce together.",
+      "reader_mirror": "Home tech fails become couple comedy.",
+      "emotional_obstacle": "The machine can become the lead character.",
+      "aachu_specific_spark": "She tries expressive Hinglish commands.",
+      "zuv_active_role": "He joins the overpronunciation instead of judging it.",
+      "proof_engine": "Remote mic, wrong search result, exaggerated pronunciation.",
+      "emotional_reversal": "Tech frustration becomes same-team silliness.",
+      "payoff": "even the TV gave up.",
+      "distribution_reason": "Funny but less emotionally ownable.",
+      "process_influence_ids": [
+        "card-05-banter-to-belonging"
+      ],
+      "score_total": 27.5,
+      "golden_theme_score_total": 27.0,
+      "stage_scene_gate": {
+        "status": "REPAIR",
+        "blockers": [
+          "machine-led premise"
+        ]
+      },
+      "hard_fails": [],
+      "verdict": "REPAIR"
+    }
+  ],
+  "excluded_lanes": [
+    "Unknown Number Adult Voice",
+    "car/passenger-seat",
+    "parcel/shopping alibi",
+    "fight logistics",
+    "dance/function",
+    "chores/fairness",
+    "food/chai defaults",
+    "perfect-husband rescue"
+  ]
+}

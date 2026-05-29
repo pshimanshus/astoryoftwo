@@ -1,0 +1,16 @@
+{
+  "status": "PASS_FOR_PROOF_GENERATION",
+  "scorecard": {
+    "hook": 10,
+    "story": 10,
+    "bridge": 9,
+    "active_partner_role": 9,
+    "ending": 10,
+    "send_save_potential": 10
+  },
+  "required_before_full_batch": [
+    "Creator approval of proof slide identity and story.",
+    "Exact text must render correctly.",
+    "One-shoe/one-slipper proof must be visible."
+  ]
+}

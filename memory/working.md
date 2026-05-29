@@ -159,6 +159,17 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
   husband/wife praise, chore lesson, Korean/webtoon style, or stale prompt
   artifacts.
 
+## Layer E workflow correction: thinking before writing
+- date: 2026-05-29
+- status: saved_to_semantic_memory
+- learning: Layer E must run the actual human-story and success-definition
+  room before any carousel writing, hooks, copy, visual direction, prompts, or
+  generation. It is not enough to output scores, selected cards, or room-shaped
+  artifacts. Future Layer E outputs must preserve human_story_setup,
+  success_definition, room inputs, debate records, repaired routes, and a
+  clear "this is us" send/save success definition before C-layer work starts.
+- semantic_memory: memory/semantic/carousel-idea-preferences.md
+
 ## Reach recovery sprint: carousel-first correction
 - date: 2026-05-24
 - sprint: output/post-sprints/2026-05-24-reach-recovery
@@ -707,3 +718,17 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - implementation pointer: see `memory/semantic/carousel-idea-preferences.md`
   for durable preference; executable checks now reject text-driven poster
   spines in `successful_carousel_standard.py` and `visual-plan-quality`.
+
+## C-layer carousel run: Suitcase Relocation
+- date: 2026-05-29
+- slug: suitcase-relocation-3
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-29/suitcase-relocation-3
+
+## C-layer carousel run: OTP Expired Twice
+- date: 2026-05-29
+- slug: otp-expired-twice
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-29/otp-expired-twice

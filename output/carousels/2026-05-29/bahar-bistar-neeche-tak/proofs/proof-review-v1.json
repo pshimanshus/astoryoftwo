@@ -1,0 +1,12 @@
+{
+  "proof": "proofs/slide-05-instagram-post-proof.png",
+  "status": "REJECTED_FOR_FINAL",
+  "checks": {
+    "story_joke": "PASS - one sneaker and one slipper are visible",
+    "exact_text": "PASS - text reads 'One shoe agreed.'",
+    "tone": "PASS - daily, funny, affectionate",
+    "identity": "PASS_WITH_NOTES - recognizable enough for proof, but full-batch needs stricter identity review",
+    "aspect_ratio": "FAIL - generated 1003x1568, taller than native 4:5"
+  },
+  "repair": "Regenerate with stricter 4:5 landscape-width portrait composition, less tall doorway crop, and explicit 1080x1350 post framing."
+}

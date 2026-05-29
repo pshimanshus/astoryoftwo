@@ -1,0 +1,14 @@
+{
+  "proof": "proofs/slide-05-proof-v4-stripped-identity-style.png",
+  "slide": 5,
+  "text": "One shoe agreed.",
+  "status": "CREATOR_REVIEW_REQUIRED",
+  "checks": {
+    "exact_slide_text": "PASS - primary slide text reads exactly.",
+    "extra_text": "PASS - no extra prop/sign/tote text detected.",
+    "identity": "REVIEW - closer to the identity anchor than prior proofs; creator approval required before batch.",
+    "style": "REVIEW - simpler and cleaner than v3, but still slightly polished versus the raw main-kar-lungi target.",
+    "aspect_ratio": "FAIL_FOR_FINAL - generated 1003x1568, not native 4:5."
+  },
+  "allowed_next_step": "If creator approves identity/style direction, use this stripped prompt for the full set; otherwise repair the style one more time before batch."
+}

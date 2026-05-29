@@ -1,0 +1,158 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Blocks generation unless every slide carries the selected identity bundle and consistent face/body/outfit directions.",
+  "status": "PASS",
+  "identity_references": [
+    "identity_images/aachu_zuv.png"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "30 seconds.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 1,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the selected Aachu/Zuv identity bundle exactly enough that both people read as the same recurring couple: Aachu with long dark hair, expressive eyes and brows, soft oval face, warm fair-medium South Asian skin, and playful dramatic energy; Zuv with dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, calm grounded expression, and gentle amused eyes.",
+        "facial_expression": "Both look suddenly alert, with Aachu more expressive and Zuv calm but pulled into the pressure.",
+        "clothing": "Keep both in the same cozy home outfits across all slides: Aachu in a soft casual kurta or relaxed top with loose hair and small jewelry; Zuv in a simple home T-shirt or hoodie. Do not invent formal, glam, wedding, office, travel, or restaurant styling.",
+        "cross_slide_consistency": "Same faces, hair, body proportions, outfit family, phone props, table/sofa setup, and relationship energy must continue across all seven slides."
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "jaldi bolo.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 2,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the selected Aachu/Zuv identity bundle exactly enough that both people read as the same recurring couple: Aachu with long dark hair, expressive eyes and brows, soft oval face, warm fair-medium South Asian skin, and playful dramatic energy; Zuv with dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, calm grounded expression, and gentle amused eyes.",
+        "facial_expression": "Aachu looks intensely impatient; Zuv looks focused and slightly too calm.",
+        "clothing": "Keep both in the same cozy home outfits across all slides: Aachu in a soft casual kurta or relaxed top with loose hair and small jewelry; Zuv in a simple home T-shirt or hoodie. Do not invent formal, glam, wedding, office, travel, or restaurant styling.",
+        "cross_slide_consistency": "Same faces, hair, body proportions, outfit family, phone props, table/sofa setup, and relationship energy must continue across all seven slides."
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "8 tha ya 3?",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 3,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the selected Aachu/Zuv identity bundle exactly enough that both people read as the same recurring couple: Aachu with long dark hair, expressive eyes and brows, soft oval face, warm fair-medium South Asian skin, and playful dramatic energy; Zuv with dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, calm grounded expression, and gentle amused eyes.",
+        "facial_expression": "Aachu has a dramatic frozen expression; Zuv squints, confused but trying.",
+        "clothing": "Keep both in the same cozy home outfits across all slides: Aachu in a soft casual kurta or relaxed top with loose hair and small jewelry; Zuv in a simple home T-shirt or hoodie. Do not invent formal, glam, wedding, office, travel, or restaurant styling.",
+        "cross_slide_consistency": "Same faces, hair, body proportions, outfit family, phone props, table/sofa setup, and relationship energy must continue across all seven slides."
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "expired.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 4,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the selected Aachu/Zuv identity bundle exactly enough that both people read as the same recurring couple: Aachu with long dark hair, expressive eyes and brows, soft oval face, warm fair-medium South Asian skin, and playful dramatic energy; Zuv with dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, calm grounded expression, and gentle amused eyes.",
+        "facial_expression": "Both share a silent deadpan stare; neither is blamed or mocked.",
+        "clothing": "Keep both in the same cozy home outfits across all slides: Aachu in a soft casual kurta or relaxed top with loose hair and small jewelry; Zuv in a simple home T-shirt or hoodie. Do not invent formal, glam, wedding, office, travel, or restaurant styling.",
+        "cross_slide_consistency": "Same faces, hair, body proportions, outfit family, phone props, table/sofa setup, and relationship energy must continue across all seven slides."
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "resend. breathe.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 5,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the selected Aachu/Zuv identity bundle exactly enough that both people read as the same recurring couple: Aachu with long dark hair, expressive eyes and brows, soft oval face, warm fair-medium South Asian skin, and playful dramatic energy; Zuv with dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, calm grounded expression, and gentle amused eyes.",
+        "facial_expression": "Aachu looks focused but calmer; Zuv looks quietly determined and involved.",
+        "clothing": "Keep both in the same cozy home outfits across all slides: Aachu in a soft casual kurta or relaxed top with loose hair and small jewelry; Zuv in a simple home T-shirt or hoodie. Do not invent formal, glam, wedding, office, travel, or restaurant styling.",
+        "cross_slide_consistency": "Same faces, hair, body proportions, outfit family, phone props, table/sofa setup, and relationship energy must continue across all seven slides."
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "submitted.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 6,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the selected Aachu/Zuv identity bundle exactly enough that both people read as the same recurring couple: Aachu with long dark hair, expressive eyes and brows, soft oval face, warm fair-medium South Asian skin, and playful dramatic energy; Zuv with dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, calm grounded expression, and gentle amused eyes.",
+        "facial_expression": "Aachu is relieved and delighted; Zuv is amused and softened.",
+        "clothing": "Keep both in the same cozy home outfits across all slides: Aachu in a soft casual kurta or relaxed top with loose hair and small jewelry; Zuv in a simple home T-shirt or hoodie. Do not invent formal, glam, wedding, office, travel, or restaurant styling.",
+        "cross_slide_consistency": "Same faces, hair, body proportions, outfit family, phone props, table/sofa setup, and relationship energy must continue across all seven slides."
+      }
+    },
+    {
+      "slide": 7,
+      "copy": "two people panicking correctly.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 7,
+        "identity_references": [
+          "identity_images/aachu_zuv.png"
+        ],
+        "face_structure": "Match the selected Aachu/Zuv identity bundle exactly enough that both people read as the same recurring couple: Aachu with long dark hair, expressive eyes and brows, soft oval face, warm fair-medium South Asian skin, and playful dramatic energy; Zuv with dark wavy hair, thick brows, warm brown skin, rounded/oval face, trimmed beard and mustache, calm grounded expression, and gentle amused eyes.",
+        "facial_expression": "Aachu laughs freely; Zuv smiles warmly at her, equally part of the bit.",
+        "clothing": "Keep both in the same cozy home outfits across all slides: Aachu in a soft casual kurta or relaxed top with loose hair and small jewelry; Zuv in a simple home T-shirt or hoodie. Do not invent formal, glam, wedding, office, travel, or restaurant styling.",
+        "cross_slide_consistency": "Same faces, hair, body proportions, outfit family, phone props, table/sofa setup, and relationship energy must continue across all seven slides."
+      }
+    }
+  ],
+  "issues": []
+}

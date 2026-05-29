@@ -1,0 +1,14 @@
+{
+  "proof": "rejected-images/identity-style-fail/slide-05-proof-v3-rejected.png",
+  "slide": 5,
+  "text": "One shoe agreed.",
+  "status": "REJECTED",
+  "checks": {
+    "exact_slide_text": "PASS - primary slide text reads exactly.",
+    "extra_text": "FAIL - tote contains extra non-approved words.",
+    "identity": "REPAIR - closer to Aachu/Zuv anchor, but not locked enough for batch.",
+    "style": "FAIL - still too polished and over-detailed versus main-kar-lungi hand-drawn desi storybook style.",
+    "aspect_ratio": "FAIL - generated 1003x1568, not native 4:5."
+  },
+  "next_prompt_change": "Strip scene to doorway, one sneaker and one slipper only; ban all signs, tote writing, frame text, labels, and decorative readable marks."
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Bahar Bistar Neeche Tak",
+  "slug": "bahar-bistar-neeche-tak",
+  "date": "2026-05-29",
+  "channel": "@a.storyof.two",
+  "status": "PROOF_GENERATION_READY",
+  "slide_count": 7,
+  "formats": [
+    "instagram_post_4x5_1080x1350",
+    "reels_stories_9x16_1080x1920"
+  ],
+  "source_concept_dir": "output/concepts/2026-05-29/the-plan-got-resized-jam",
+  "identity_reference_images": [
+    "identity_images/_identity_dossier/identity-face-contact-sheet.jpg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "artifact_map": {
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "copy": "copy.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "identity_review": "identity-consistency-review.json",
+    "final_images": "final-images.json",
+    "visual_qa": "visual-qa.md",
+    "proofs": "proofs/"
+  }
+}

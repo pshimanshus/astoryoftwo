@@ -1,0 +1,24 @@
+{
+  "status": "FAILED_GENERATION_PATH",
+  "failed_outputs": [
+    {
+      "path": "rejected-images/identity-style-fail/slide-01-rejected.png",
+      "reason": "Generic Aachu/Zuv faces, too polished watercolor editorial style, tall raw aspect."
+    },
+    {
+      "path": "proofs/slide-05-instagram-post-proof.png",
+      "reason": "Strong joke and text but generic identity/style and tall raw aspect."
+    },
+    {
+      "path": "proofs/slide-05-instagram-post-proof-v2.png",
+      "reason": "Better scene but still generic identity/style, extra poster-like details, tall raw aspect."
+    },
+    {
+      "path": "rejected-images/identity-style-fail/slide-05-proof-v3-rejected.png",
+      "reason": "Closer likeness after loading anchors, but still over-detailed polished watercolor, extra non-approved tote text, and tall raw aspect."
+    }
+  ],
+  "root_cause": "The broad master prompt pulled generation toward a polished generic watercolor-storybook look. The current accepted style requires the tighter main-kar-lungi hand-drawn desi storybook zone and the Aachu/Zuv identity anchor as actual visual context.",
+  "repair_hypothesis": "A proof generated after loading the accepted main-kar-lungi style anchor and aachu_zuv identity anchor, with a stripped-down prompt that bans all extra prop text and decorative objects, may match the intended illustration prompt more closely.",
+  "next_test": "Generate one stripped-down repaired proof for slide 5 only. Do not batch-generate until this proof passes."
+}

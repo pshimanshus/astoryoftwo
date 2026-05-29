@@ -626,6 +626,46 @@
       "slide_count": 5,
       "package": "output/carousels/2026-05-25/pipeline-repair-final-dry-run-smoke-2",
       "content_lane": "Golden Wallet Audit Love"
+    },
+    "carousel:suitcase-relocation": {
+      "id": "carousel:suitcase-relocation",
+      "type": "illustrated_carousel",
+      "title": "Suitcase Relocation",
+      "date": "2026-05-28",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-28/suitcase-relocation",
+      "content_lane": "Golden Suitcase Relocation"
+    },
+    "carousel:suitcase-relocation-2": {
+      "id": "carousel:suitcase-relocation-2",
+      "type": "illustrated_carousel",
+      "title": "Suitcase Relocation",
+      "date": "2026-05-29",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-29/suitcase-relocation-2",
+      "content_lane": "Golden Suitcase Relocation"
+    },
+    "carousel:suitcase-relocation-3": {
+      "id": "carousel:suitcase-relocation-3",
+      "type": "illustrated_carousel",
+      "title": "Suitcase Relocation",
+      "date": "2026-05-29",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-29/suitcase-relocation-3",
+      "content_lane": "Golden Suitcase Relocation"
+    },
+    "carousel:otp-expired-twice": {
+      "id": "carousel:otp-expired-twice",
+      "type": "illustrated_carousel",
+      "title": "OTP Expired Twice",
+      "date": "2026-05-29",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-29/otp-expired-twice",
+      "content_lane": null
     }
   },
   "relationships": [
@@ -1018,6 +1058,30 @@
       "to": "desi_storybook_photo_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:suitcase-relocation",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:suitcase-relocation-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:suitcase-relocation-3",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:otp-expired-twice",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1038,7 +1102,13 @@
       "type": "workflow_mode",
       "confidence": 0.9,
       "description": "Use identity references only for face consistency when no story photos are supplied; creative brief is the source of truth and JSON is export."
+    },
+    "watercolor_ink_identity_rooted": {
+      "id": "watercolor_ink_identity_rooted",
+      "type": "creative_style",
+      "confidence": 0.7,
+      "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-05-25"
+  "last_updated": "2026-05-29"
 }

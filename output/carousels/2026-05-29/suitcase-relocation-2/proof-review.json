@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIR_COMPLETE_PROOF_REQUIRED",
+  "previous_proof": {
+    "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_06714843d69de41c016a18885326c481919a346ef3c9fc8625.png",
+    "verdict": "REJECTED",
+    "reason": "Creator flagged missing slide consistency. The proof did not establish a stable carousel world, wardrobe, suitcase, room, or cross-slide text system."
+  },
+  "repair": {
+    "package": "output/carousels/2026-05-29/suitcase-relocation-2",
+    "continuity_lock": "Single warm bedroom packing-room world across all seven slides.",
+    "must_hold_across_slides": [
+      "same Aachu/Zuv identity references",
+      "same off-white oversized shirt for Aachu",
+      "same navy t-shirt for Zuv",
+      "same dark olive hard-shell suitcase with black zip",
+      "same cream toiletry pouch",
+      "same charger pile, folded outfits, white sneakers, wooden bed, potted plant, and warm ivory wall",
+      "same handwritten text/brandmark system"
+    ],
+    "blocked_until": "A repaired proof slide passes visual consistency review before full batch generation."
+  },
+  "repaired_proof": {
+    "slide": 4,
+    "format": "instagram_post",
+    "source": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a188e94ff688191a661f11bc6d7c359.png",
+    "package_copy": "output/carousels/2026-05-29/suitcase-relocation-2/proof/slide-04-instagram-post-proof.png",
+    "status": "PROOF_READY_FOR_CREATOR_REVIEW",
+    "visual_consistency_notes": [
+      "same warm bedroom packing room",
+      "same off-white oversized shirt and blue jeans for Aachu",
+      "same navy t-shirt and beige pants for Zuv",
+      "same dark olive suitcase with black zip",
+      "cream toiletry pouch, charger pile, folded outfits, white sneakers, wooden bed, and potted plant present"
+    ],
+    "not_final_batch": true
+  }
+}

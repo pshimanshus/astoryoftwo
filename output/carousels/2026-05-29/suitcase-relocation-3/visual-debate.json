@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Suitcase Relocation",
+  "winner": "Short-Film Packing Room",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Short-Film Packing Room",
+      "score": 30,
+      "case_for": "Best for the corrected deck: each slide is a lived packing-room action, both partners are guilty, and the zip becomes the harmless villain.",
+      "risk": "Must keep the couple's bodies, faces, teamwork, and blame visible so the suitcase does not become the lead character."
+    },
+    {
+      "name": "Split-Screen Evidence Board",
+      "score": 26,
+      "case_for": "Quickly contrasts her outfit options with his tech pile.",
+      "risk": "Rejected as the main system because it becomes label-heavy and object-first."
+    },
+    {
+      "name": "Suitcase As Relocated House",
+      "score": 25,
+      "case_for": "Very literal hook image.",
+      "risk": "Rejected because a surreal suitcase-house can overpower Aachu/Zuv and turn the story into clever prop art."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Split-Screen Evidence Board",
+    "Suitcase As Relocated House"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "Some couples don't pack. They relocate the house.",
+      "visual": "Two-act visual continuity lock: home bedroom packing room act. Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel shoes, warm paper palette, and handwritten text system. Home bedroom packing room act, wide opening frame: Aachu and Zuv stand on opposite sides of the open suitcase, both proudly surrounded by absurd but believable trip piles; folded clothes, pouch, cables, shoes, and toiletries are visible while both look convinced this is normal."
+    },
+    {
+      "slide": 2,
+      "copy": "She packed \"just options.\"",
+      "visual": "Two-act visual continuity lock: home bedroom packing room act. Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel shoes, warm paper palette, and handwritten text system. Home bedroom packing room act: Aachu kneels beside the suitcase holding three outfit options against herself, with the same folded outfit stack and scarf nearby; Zuv watches from the floor with an amused side-eye, hands paused over his own packing pile."
+    },
+    {
+      "slide": 3,
+      "copy": "He packed every charger except the one they needed.",
+      "visual": "Two-act visual continuity lock: home bedroom packing room act. Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel shoes, warm paper palette, and handwritten text system. Home bedroom packing room act: Zuv sits seriously with a tangle of real phone chargers, adapters, earphones, and a power bank, looking confident; Aachu leans in with a judging look while the one needed phone cable is clearly missing from the pile."
+    },
+    {
+      "slide": 4,
+      "copy": "They sat on the suitcase.",
+      "visual": "Two-act visual continuity lock: home bedroom packing room act. Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel shoes, warm paper palette, and handwritten text system. Home bedroom packing room act: both Aachu and Zuv sit on top of the bulging suitcase together, knees up and hands gripping the edges, trying to zip it with full teamwork while the suitcase pushes back."
+    },
+    {
+      "slide": 5,
+      "copy": "Still forgot toothbrushes.",
+      "visual": "Two-act visual continuity lock: destination arrival act after travel. Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel shoes, warm paper palette, and handwritten text system. Destination arrival bathroom corner: Aachu and Zuv, still in the same travel-day outfits, stand beside the open dark olive suitcase and stare at the cream toiletry pouch and empty toothbrush cup; the empty toothbrush slots are clearly visible after arrival."
+    },
+    {
+      "slide": 6,
+      "copy": "Nobody blamed each other. Only the zip.",
+      "visual": "Two-act visual continuity lock: destination arrival act after travel. Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel shoes, warm paper palette, and handwritten text system. Destination arrival room: both point at the stubborn suitcase zip with offended innocent faces, standing shoulder to shoulder beside the same open suitcase so the blame lands on the zip instead of either person."
+    },
+    {
+      "slide": 7,
+      "copy": "Maybe love is two overpackers blaming the zip.",
+      "visual": "Two-act visual continuity lock: destination arrival act after travel. Keep the same Aachu/Zuv faces, same watercolor-and-ink style, Aachu's same off-white oversized shirt and blue jeans, Zuv's same navy t-shirt and beige pants, same dark olive hard-shell suitcase with black zip, same cream toiletry pouch, charger pile, folded outfits, travel shoes, warm paper palette, and handwritten text system. Destination arrival room, soft final floor scene: Aachu and Zuv sit beside the half-closed suitcase, tired and laughing, one hand from each still resting near the zip; the mess feels shared, affectionate, and chosen."
+    }
+  ]
+}

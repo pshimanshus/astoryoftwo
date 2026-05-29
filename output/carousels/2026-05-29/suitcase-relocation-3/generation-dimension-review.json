@@ -1,0 +1,85 @@
+{
+  "status": "BLOCKED_DIMENSION_NONCOMPLIANCE",
+  "package": "output/carousels/2026-05-29/suitcase-relocation-3",
+  "rule": "Final packaging requires separate native source images for each surface: Instagram post sources must be native 4:5, and Reels/Stories sources must be native 9:16. Wrong-ratio sources must be rejected and regenerated, not cropped, padded, or contained.",
+  "required_sources": {
+    "instagram_post": {
+      "aspect_ratio": "4:5",
+      "target_upload_size": "1080x1350",
+      "accepted_source_aspect": 0.8
+    },
+    "reels_stories": {
+      "aspect_ratio": "9:16",
+      "target_upload_size": "1080x1920",
+      "accepted_source_aspect": 0.5625
+    }
+  },
+  "accepted_for_aspect_only": [
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a188e94ff688191a661f11bc6d7c359.png",
+      "dimensions": "1122x1402",
+      "aspect": 0.8003,
+      "eligible_format": "instagram_post",
+      "note": "Aspect only; not final story, text, face, or slide-order approved."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a1895f38eec8191843645b16cf320ea.png",
+      "dimensions": "1122x1402",
+      "aspect": 0.8003,
+      "eligible_format": "instagram_post",
+      "note": "Aspect only; not final story, text, face, or slide-order approved."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a189d2b02a8819181b4f85cacb80c27.png",
+      "dimensions": "1122x1402",
+      "aspect": 0.8003,
+      "eligible_format": "instagram_post",
+      "note": "Aspect only; not final story, text, face, or slide-order approved."
+    }
+  ],
+  "rejected_sources": [
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_06714843d69de41c016a18885326c481919a346ef3c9fc8625.png",
+      "dimensions": "977x1610",
+      "aspect": 0.6068,
+      "reason": "Not native 4:5 and not native 9:16."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a1893d2e3988191a74297426e10b0b2.png",
+      "dimensions": "1024x1535",
+      "aspect": 0.6671,
+      "reason": "Not native 4:5 and not native 9:16."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a18949208948191acc0e57ad1f26db8.png",
+      "dimensions": "992x1586",
+      "aspect": 0.6255,
+      "reason": "Not native 4:5 and not native 9:16."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a18953d865881918cff42f04cc5e794.png",
+      "dimensions": "977x1610",
+      "aspect": 0.6068,
+      "reason": "Not native 4:5 and not native 9:16."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a189ab71aa8819196b0899a9c3197ba.png",
+      "dimensions": "1003x1568",
+      "aspect": 0.6397,
+      "reason": "Not native 4:5 and not native 9:16."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a189c1612348191a11f9f12c621fc62.png",
+      "dimensions": "1003x1568",
+      "aspect": 0.6397,
+      "reason": "Not native 4:5 and not native 9:16."
+    },
+    {
+      "path": "/Users/himanshusharma/.codex/generated_images/019e6fc3-0bfc-7893-b34c-716f8430c13e/ig_0964a778306cbdb5016a189da46a988191930a908afe5810f5.png",
+      "dimensions": "1003x1568",
+      "aspect": 0.6397,
+      "reason": "Not native 4:5 and not native 9:16."
+    }
+  ],
+  "next_gate": "Regenerate until there are seven native 4:5 Instagram post sources and seven separate native 9:16 Reels/Stories sources, then run packaging. The packaging code now rejects wrong-ratio sources before final files are written."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "PARTIAL_PASS_SLIDE_05",
+  "blocking_items": [
+    "full native 4:5 set missing",
+    "separate native 9:16 set missing"
+  ],
+  "final_created": {
+    "slide": 5,
+    "path": "final/slide-05.png",
+    "dimensions": "1122x1402",
+    "checks": {
+      "exact_text": "PASS",
+      "extra_text": "PASS",
+      "story_proof": "PASS",
+      "aspect": "PASS_FOR_INSTAGRAM_POST"
+    }
+  },
+  "allowed_next_step": "Generate remaining final 4:5 slides and separate 9:16 versions if creator asks for the full carousel set."
+}
