@@ -28,7 +28,7 @@
       }
     },
     "reference_image_roles": "Identity references control face, hair, skin tone, age, ethnicity, body language, and emotional presence. Previous successful illustrations control only style, palette, line quality, composition, wardrobe continuity, and recurring props.",
-    "text_rule": "Exact slide copy and @a.storyof.two brandmark must be generated inside the image in fixed handwritten storybook typography. Local overlays are legacy fallback only."
+    "text_rule": "Exact slide copy and @a.storyof.two brandmark must be generated inside the image in fixed handwritten storybook typography. Local overlays are legacy fallback only. Creator correction on 2026-05-29: ignore any accidental no-text or overlay-only line in draft prompts; final illustrations must include the approved slide text."
   },
   "typography": {
     "strategy": "model_native",

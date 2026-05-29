@@ -15,6 +15,9 @@ sources:
   story-driven staged scenes, not text-driven poster-copy spines
 - direct creator correction in chat on 2026-05-29 that Layer E must run the
   thinking/council and success-definition engine before writing begins
+- direct creator correction in chat on 2026-05-29 that the final illustration
+  prompt must generate the approved slide text inside the artwork; the earlier
+  no-text line was a typo
 - memory/working.md
 - wiki/themes/calm-enough-for-chaos.md
 - output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md
@@ -187,6 +190,14 @@ identity contact sheet as actual final-generation references, and reserve image
 generation effort for publishable candidate outputs unless the creator
 explicitly asks for drafts.
 confidence: 0.99
+
+fact: Creator correction on 2026-05-29: final @a.storyof.two carousel
+illustrations must include the exact approved slide text and tiny
+`@a.storyof.two` brandmark generated inside the artwork. Any pasted prompt line
+that says "no text," "no captions," or "later text overlay" is a typo and must
+be ignored or repaired before prompt handoff. Keep the text handwritten,
+readable, scene-native, and placed in warm negative space.
+confidence: 1.0
 
 fact: When the creator supplies stronger carousel copy or reference copy, do
 not over-rewrite it into a safer abstract thesis. Preserve the creator's
