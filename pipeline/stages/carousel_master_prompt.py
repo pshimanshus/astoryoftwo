@@ -71,8 +71,10 @@ def master_prompt_contract() -> dict[str, Any]:
             },
         },
         "text_rule": (
-            "The exact slide copy and tiny @a.storyof.two brandmark are rendered by the "
-            "image model inside each native illustration. Local overlays are legacy only."
+            "Include written text only where it is explicitly requested. In carousel "
+            "generation, approved slide copy is an explicit request and must be rendered "
+            "inside the illustration with readable project-matched handwritten typography; "
+            "do not invent any other text."
         ),
     }
 
@@ -103,7 +105,7 @@ MASTER PROMPT VERSION:
 {MASTER_PROMPT_VERSION}
 
 ASSET TYPE:
-Vertical Instagram carousel illustration for @a.storyof.two, romantic narrative slide, with text rendered inside the image.
+Vertical Instagram carousel illustration for @a.storyof.two, romantic narrative slide.
 Required paired asset flow for every slide:
 - Instagram Post Output: native 4:5, 1080x1350.
 - Reels/Stories Output: native 9:16, 1080x1920.
@@ -156,7 +158,8 @@ Keep the palette soft, cohesive, and slightly vintage. No neon colors, harsh con
 
 COMPOSITION AND FORMAT:
 Vertical portrait format for {spec['label']}: {spec['ratio']} at {spec['size']}.
-Leave generous warm negative space in the upper portion for the fixed slide text.
+Use the tall, airy carousel feeling of the creator reference while preserving the required native output canvas above.
+Leave generous warm negative space in the upper portion for requested text when text is part of the slide.
 Place the couple in the lower or middle-lower portion of the canvas unless the scene specifically requires otherwise.
 Use airy framing and soft faded watercolor edges. Background should be present but secondary.
 The couple should be the emotional focus. Keep the scene readable at phone-screen size. Avoid clutter.
@@ -199,11 +202,13 @@ No photorealism. No anime. No 3D render. No flat vector art. No children's carto
 Negative prompt: {negative_prompt}
 
 TEXT RULE:
-Render the exact slide copy inside the illustration as part of the generated image, not as a later overlay.
-Exact slide copy: "{slide_copy}"
-Use the fixed project typography direction: handwritten storybook type, dark charcoal/black ink, generous spacing, readable at {spec['size']}, integrated naturally into the warm negative space.
+Include written text only where it is explicitly requested.
+This slide explicitly requests the approved carousel copy, so render that copy inside the illustration as part of the generated image.
+Exact approved slide copy: "{slide_copy}"
+While creating the illustration, leave clean space for the text and place it there so it is readable.
+Font must suit the theme of this project, the illustration concept, and the visuals: handwritten storybook type, dark charcoal/black ink, generous spacing, readable at {spec['size']}, integrated naturally into the warm negative space.
 Add the tiny low-contrast handwritten brandmark "@a.storyof.two" at bottom-right inside the artwork.
-Do not add any other captions, labels, signs, speech bubbles, random letters, fake watermarks, or accidental typography.
+Do not add unrequested captions, labels, signs, speech bubbles, random letters, fake watermarks, or accidental typography.
 
 FINAL IDENTITY REINFORCEMENT:
 Before finalizing, ensure the woman and man still look like the exact same recurring couple from the identity references. The scene, pose, outfit, and props may change, but their faces, hair identities, skin tones, and emotional presence must remain consistent.

@@ -28,7 +28,7 @@
       }
     },
     "reference_image_roles": "Identity references control face, hair, skin tone, age, ethnicity, body language, and emotional presence. Previous successful illustrations control only style, palette, line quality, composition, wardrobe continuity, and recurring props.",
-    "text_rule": "Exact slide copy and @a.storyof.two brandmark must be generated inside the image in fixed handwritten storybook typography. Local overlays are legacy fallback only. Creator correction on 2026-05-29: ignore any accidental no-text or overlay-only line in draft prompts; final illustrations must include the approved slide text."
+    "text_rule": "Include written text only where it is explicitly requested. Approved carousel slide copy is an explicit text request and must be generated inside the illustration in readable handwritten storybook typography, with clean warm space reserved for it. Add the tiny @a.storyof.two brandmark inside the artwork. Do not invent any other text, captions, labels, signs, speech bubbles, or random typography."
   },
   "typography": {
     "strategy": "model_native",

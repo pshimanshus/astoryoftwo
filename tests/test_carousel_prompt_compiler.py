@@ -73,6 +73,27 @@ def test_compile_image_prompt_uses_native_format_lock():
     assert "do not resize from another format" in story.lower()
 
 
+def test_compile_image_prompt_uses_creator_text_rule_without_no_text_conflict():
+    prompt = compile_image_prompt(
+        slide_number=3,
+        slide_count=5,
+        slide_copy="Cup ready tha.",
+        visual="Aachu stands near the kitchen doorway while Zuv notices the cup already waiting.",
+        format_key="instagram_post",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+    )
+
+    assert "romantic narrative slide" in prompt
+    assert "Include written text only where it is explicitly requested" in prompt
+    assert "This slide explicitly requests the approved carousel copy" in prompt
+    assert 'Exact approved slide copy: "Cup ready tha."' in prompt
+    assert "leave clean space for the text" in prompt
+    assert "Font must suit the theme of this project" in prompt
+    assert "Do not add unrequested captions" in prompt
+    assert "no text baked into image" not in prompt.lower()
+
+
 def test_extract_scene_summary_prefers_scene_block_from_legacy_prompt():
     legacy_prompt = (
         "References: [output/carousels/demo/final-images.json]. "

@@ -170,14 +170,15 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
   clear "this is us" send/save success definition before C-layer work starts.
 - semantic_memory: memory/semantic/carousel-idea-preferences.md
 
-## Creator correction: final illustration text is baked in
+## Creator correction: final illustration text rule
 - date: 2026-05-29
 - status: saved_to_semantic_memory_and_style_contract
-- learning: The creator's pasted no-text rule was a typo. Final carousel
-  illustrations must generate the exact approved slide text and tiny
-  `@a.storyof.two` brandmark inside the artwork in readable handwritten
-  storybook typography. Do not switch to overlay-only or text-free finals
-  unless the creator explicitly asks for that later.
+- learning: Final carousel illustrations should include written text only when
+  explicitly requested. Approved carousel slide copy is an explicit request,
+  so it must be generated inside the artwork in readable handwritten storybook
+  typography with clean warm space reserved for it, plus the tiny
+  `@a.storyof.two` brandmark. Do not invent extra captions, labels, signs,
+  speech bubbles, or random typography.
 - semantic_memory: memory/semantic/carousel-idea-preferences.md
 - style_contract: config/carousel_style_contract.json
 
