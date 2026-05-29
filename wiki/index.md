@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-05-29
-total_pages: 66
+total_pages: 67
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,7 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [OTP Expired Twice](carousels/otp-expired-twice.md) | 2026-05-29 | 7 | C-layer | 0.7 |
 | [Suitcase Relocation](carousels/suitcase-relocation-3.md) | 2026-05-29 | 7 | C-layer | 0.7 |
 | [Suitcase Relocation](carousels/suitcase-relocation-2.md) | 2026-05-29 | 7 | C-layer | 0.7 |
 | [Suitcase Relocation](carousels/suitcase-relocation.md) | 2026-05-28 | 7 | C-layer | 0.7 |

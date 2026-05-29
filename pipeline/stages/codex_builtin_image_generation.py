@@ -18,7 +18,6 @@ from pipeline.stages.model_native_image_generation import (
     NATIVE_OUTPUT_FORMATS,
     REELS_STORIES_FORMAT,
     REELS_STORIES_SIZE,
-    contain_on_paper,
     decode_png,
     existing_reference_paths,
     normalize_native_output,
@@ -284,22 +283,45 @@ def image_dimensions(image_bytes: bytes) -> dict[str, Any]:
     }
 
 
+def target_aspect_for_format(output_format: str) -> float:
+    if output_format == INSTAGRAM_POST_FORMAT:
+        width, height = FINAL_UPLOAD_SIZE
+    elif output_format == REELS_STORIES_FORMAT:
+        width, height = REELS_STORIES_SIZE
+    else:
+        raise ValueError(f"Unsupported native output format: {output_format}")
+    return width / height
+
+
+def require_native_source_aspect(
+    *,
+    image_bytes: bytes,
+    output_format: str,
+    slide_number: int,
+    path: Path,
+    tolerance: float = 0.01,
+) -> dict[str, Any]:
+    dimensions = image_dimensions(image_bytes)
+    actual = float(dimensions["width"]) / float(dimensions["height"])
+    target = target_aspect_for_format(output_format)
+    if abs(actual - target) > tolerance:
+        label = NATIVE_OUTPUT_FORMATS[output_format]["label"]
+        raise ValueError(
+            f"Slide {slide_number} {label} native source aspect is {actual:.4f}; "
+            f"expected {target:.4f}. Regenerate {path} at the native aspect instead of "
+            "cropping, padding, or containing a wrong-ratio source."
+        )
+    return dimensions
+
+
 def normalize_for_upload(image_bytes: bytes, width: int, height: int) -> tuple[bytes, dict[str, Any], str, str | None]:
     dimensions = image_dimensions(image_bytes)
-    try:
-        return (
-            normalize_native_output(image_bytes, width, height),
-            dimensions,
-            "resized same-aspect generated source to upload size",
-            None,
-        )
-    except RuntimeError as error:
-        return (
-            contain_on_paper(image_bytes, width, height),
-            dimensions,
-            "contained on warm paper to preserve full generated artwork",
-            str(error),
-        )
+    return (
+        normalize_native_output(image_bytes, width, height),
+        dimensions,
+        "resized native-aspect generated source to upload size",
+        None,
+    )
 
 
 def infer_workspace_root_from_carousel_dir(carousel_dir: Path) -> Path:
@@ -613,6 +635,18 @@ def package_codex_builtin_outputs(
             raise FileNotFoundError(f"Missing Codex generated image: {reels_stories_source_path}")
         instagram_bytes = instagram_source_path.read_bytes()
         reels_stories_bytes = reels_stories_source_path.read_bytes()
+        require_native_source_aspect(
+            image_bytes=instagram_bytes,
+            output_format=INSTAGRAM_POST_FORMAT,
+            slide_number=number,
+            path=instagram_source_path,
+        )
+        require_native_source_aspect(
+            image_bytes=reels_stories_bytes,
+            output_format=REELS_STORIES_FORMAT,
+            slide_number=number,
+            path=reels_stories_source_path,
+        )
         instagram_source_target = source_dir / f"instagram-post-slide-{number:02d}.png"
         shutil.copyfile(instagram_source_path, instagram_source_target)
         reels_stories_source_target = source_dir / f"reels-stories-slide-{number:02d}.png"
@@ -685,10 +719,8 @@ def package_codex_builtin_outputs(
         )
 
     normalization_text = (
-        "Each surface is generated from its own source. Final files are upload-size normalizations; "
-        "non-target source aspects are contained on warm paper to preserve the complete generated artwork."
-        if normalization_notes
-        else "Each surface is generated from its own native source; final files are same-aspect upload-size normalizations only."
+        "Each surface is generated from its own native-aspect source; final files are same-aspect "
+        "upload-size normalizations only. Wrong-ratio sources are rejected before packaging."
     )
     generation_extra = {
         "native_output_contract": NATIVE_OUTPUT_CONTRACT,

@@ -2874,6 +2874,49 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(final_files, [f"slide-{number:02d}.png" for number in range(1, 6)])
         self.assertEqual(reels_files, [f"slide-{number:02d}.png" for number in range(1, 6)])
 
+    def test_package_codex_builtin_outputs_rejects_wrong_native_source_aspect(self):
+        from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            story_image = workspace / "balcony.jpg"
+            identity = workspace / "aachu-zuv.jpg"
+            story_image.write_bytes(b"story-image")
+            identity.write_bytes(b"identity-image")
+            out_dir = create_codex_native_carousel(
+                story=(
+                    "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
+                    "Aachu is in a green dress, barefoot, and Zuv notices before she asks."
+                ),
+                image_paths=[story_image],
+                identity_image_paths=[identity],
+                title="Codex Builtin Aspect Gate",
+                output_root=workspace / "out",
+                render_assets=False,
+                today=date(2026, 5, 18),
+            )
+            generated_dir = workspace / "generated"
+            generated_dir.mkdir()
+            instagram_paths = []
+            reels_stories_paths = []
+            for number in range(1, 6):
+                instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
+                instagram_path.write_bytes(self.png_bytes(1003, 1568, 240))
+                instagram_paths.append(instagram_path)
+
+                reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
+                reels_stories_path.write_bytes(self.png_bytes(9, 16, 230))
+                reels_stories_paths.append(reels_stories_path)
+
+            with self.assertRaisesRegex(ValueError, "native source aspect"):
+                package_codex_builtin_outputs(
+                    out_dir,
+                    generated_paths_by_format={
+                        "instagram_post": instagram_paths,
+                        "reels_stories": reels_stories_paths,
+                    },
+                )
+
     def test_package_generated_outputs_refreshes_final_audit(self):
         from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
 
