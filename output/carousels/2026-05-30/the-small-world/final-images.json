@@ -1,34 +1,37 @@
 {
   "schema_version": "1.0",
-  "status": "generated_proof_sources",
+  "status": "generated_repaired_proof_sources",
   "generation_mode": "built_in_image_gen",
   "generated_at": "2026-05-30",
   "source_directory": "/Users/himanshusharma/.codex/generated_images/019e75e0-7e3c-7a71-8a54-8832065f8d83",
   "workspace_outputs": [
     {
       "slide": 1,
-      "path": "output/carousels/2026-05-30/the-small-world/generated-sources/builtin/slide-01-proof.png",
-      "dimensions": "1003x1568",
-      "copy": "Not every love story needs a big life."
+      "path": "output/carousels/2026-05-30/the-small-world/generated-sources/builtin-repair-02/slide-01-proof.png",
+      "dimensions": "992x1586",
+      "copy": "The sky was beautiful."
     },
     {
       "slide": 2,
-      "path": "output/carousels/2026-05-30/the-small-world/generated-sources/builtin/slide-02-proof.png",
-      "dimensions": "1003x1568",
-      "copy": "She points at the sky. He looks at her first."
+      "path": "output/carousels/2026-05-30/the-small-world/generated-sources/builtin-repair-02/slide-02-proof.png",
+      "dimensions": "992x1586",
+      "copy": "She said, \"look.\""
     },
     {
       "slide": 3,
-      "path": "output/carousels/2026-05-30/the-small-world/generated-sources/builtin/slide-03-proof.png",
-      "dimensions": "977x1610",
-      "copy": "That small world became home."
+      "path": "output/carousels/2026-05-30/the-small-world/generated-sources/builtin-repair-02/slide-03-proof.png",
+      "dimensions": "992x1586",
+      "copy": "So he looked at her."
     }
   ],
   "native_4x5_status": "blocked_by_builtin_aspect_output",
   "native_9x16_status": "not_generated_as_separate_native_set",
   "notes": [
-    "Generated illustrations are usable visual proofs and emotional/style candidates.",
-    "Built-in image generation returned tall proof-style portraits instead of strict native 4:5 Instagram post canvases.",
+    "Repaired after creator feedback that the first proof copy was not landing and the palette was too yellow.",
+    "Repaired copy uses behavior-first progression: The sky was beautiful. -> She said, \"look.\" -> So he looked at her.",
+    "Repaired palette shifts to cool blue-lavender dusk and neutral ivory, reducing the yellow/golden wash.",
+    "Generated illustrations are usable repaired visual proofs and emotional/style candidates.",
+    "Built-in image generation still returned tall proof-style portraits instead of strict native 4:5 Instagram post canvases.",
     "Do not treat these as final passed carousel masters until aspect-specific native generation and visual QA are complete."
   ]
 }

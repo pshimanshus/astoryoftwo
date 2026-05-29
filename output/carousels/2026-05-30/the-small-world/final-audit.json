@@ -1,8 +1,9 @@
 {
   "schema_version": "1.0",
-  "status": "BLOCKED_PENDING_NATIVE_FINALS",
+  "status": "REPAIRED_PROOFS_READY_PENDING_NATIVE_FINALS",
   "checks": {
-    "copy_locked": true,
+    "copy_repaired": true,
+    "palette_repaired": true,
     "post_copy_visual_room": "GO",
     "visual_debate": "GO",
     "visual_plan_quality": "PASS",
@@ -16,5 +17,10 @@
     "Built-in image generation returned tall proof portraits, not strict native 4:5 Instagram post finals.",
     "Separate native 9:16 Reels/Stories set has not been generated.",
     "Tiny brandmark appears visually present but should be manually checked/corrected before final acceptance."
+  ],
+  "repair_notes": [
+    "Creator rejected the first proof batch for weak on-image copy and yellow palette.",
+    "Repaired proof batch lives at output/carousels/2026-05-30/the-small-world/generated-sources/builtin-repair-02/.",
+    "Remaining blocker is production-format finalization, not the copy/palette direction."
   ]
 }
