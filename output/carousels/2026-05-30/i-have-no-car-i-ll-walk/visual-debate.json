@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Enough Love",
+  "winner": "Seven Visible Vows",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Seven Visible Vows",
+      "score": 30,
+      "case_for": "Best for the authorized exact-text reference: every line becomes a distinct staged promise, from walking to waiting, without repeating the same couple pose.",
+      "risk": "Must avoid copying the third-party visual style or watermark; A Story identity, paper, typography, and brandmark must dominate."
+    },
+    {
+      "name": "Lack Becomes Care Receipts",
+      "score": 28.5,
+      "case_for": "Strong emotional clarity because each limitation is answered by visible care.",
+      "risk": "Can feel too explanatory if text carries the scene instead of body language."
+    },
+    {
+      "name": "Minimal Quote Scenes",
+      "score": 25,
+      "case_for": "Easy to read and close to the source reference.",
+      "risk": "Rejected as the main system because it risks quote-card energy and weak Aachu/Zuv identity."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Minimal Quote Scenes"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "I have no car.\nI’ll walk,",
+      "visual": "Night road scene inspired by the reference but fully remade as Aachu and Zuv: they walk away hand in hand under sparse streetlights, a faint parked-car outline far left as evidence rather than premise. Place 'I have no car.' in upper-middle charcoal text and 'I’ll walk,' just below it in slightly warmer muted terracotta, with generous clean paper space."
+    },
+    {
+      "slide": 2,
+      "copy": "I’m not so good\nI love you.",
+      "visual": "Lakeside or hill-view frame with two wooden chairs and soft mountains, using the source composition only as mood. Zuv sits quietly with a vulnerable posture; Aachu sits beside him with a small camera or phone lowered, turned toward him with affection. Place 'I’m not so good' upper-left near Zuv's side and 'I love you.' upper-right near Aachu's response."
+    },
+    {
+      "slide": 3,
+      "copy": "I have time.\nIt’s a long story.",
+      "visual": "Warm conversation-room scene with two soft armchairs and a small lamp between them. Aachu leans forward with open listening posture and soft eyes, while Zuv sits across from her, tired but ready to explain. Place 'I have time.' upper-left above Aachu's listening side and 'It’s a long story.' upper-right above Zuv."
+    },
+    {
+      "slide": 4,
+      "copy": "a little gift for you 🖤\nit’s worth diamond.",
+      "visual": "Indian train-window gift scene remade with Aachu and Zuv: Zuv stands on the platform in a navy blazer or navy shirt with a small bouquet wrapped in kraft paper, looking up warmly; Aachu leans from a soft sage train doorway, smiling down and holding the window edge. Place 'a little gift for you 🖤' upper-left near the bouquet and 'it’s worth diamond.' upper-right near her response."
+    },
+    {
+      "slide": 5,
+      "copy": "We’ll build together\nI lost\neverything",
+      "visual": "Evening old-city street with string lights and shopfront linework, distinct from the road slide. Aachu and Zuv walk hand in hand from behind through the lane; one partner carries a simple tote, the other a worn shoulder bag, making rebuilding feel practical and shared. Place 'We’ll build together' upper-left along the lane and 'I lost\\neverything' larger on the right with enough negative space."
+    },
+    {
+      "slide": 6,
+      "copy": "I’m here\nI’m so tired",
+      "visual": "Quiet meadow or garden-edge rest scene. Zuv lies on a small blanket in soft grass, visibly exhausted but safe; Aachu leans over him with one hand near his shoulder and a calm, protective expression. Place 'I’m here' upper-center above Aachu, with a tiny dusty-coral heart below, and 'I’m so tired' upper-left above Zuv."
+    },
+    {
+      "slide": 7,
+      "copy": "I’m not successful\nI’ll wait",
+      "visual": "Balcony or rooftop sunset scene with soft city linework below, remade as Aachu and Zuv sitting side by side on a low terrace wall. Zuv looks upward with uncertainty in a navy kurta or shirt; Aachu sits close in a soft marigold/ochre kurta, hands folded, looking at him with patient certainty. Place 'I’m not successful' upper-left and 'I’ll wait' upper-right, each with a tiny low-contrast heart mark."
+    }
+  ]
+}

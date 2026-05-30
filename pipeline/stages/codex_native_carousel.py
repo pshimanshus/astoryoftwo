@@ -44,6 +44,7 @@ from pipeline.stages.carousel_lanes import (
     build_imperfect_repair_concept_selection,
     build_long_distance_ordinary_concept_selection,
     build_main_kar_lungi_concept_selection,
+    build_enough_love_concept_selection,
     build_pakka_reassurance_concept_selection,
     build_commitment_still_love_concept_selection,
     build_private_captions_concept_selection,
@@ -72,6 +73,7 @@ from pipeline.stages.carousel_lanes import (
     is_mood_changed_story,
     is_pakka_reassurance_story,
     is_commitment_still_love_story,
+    is_enough_love_story,
     is_photo_ritual_story,
     is_private_captions_story,
     is_softness_under_fire_story,
@@ -133,7 +135,10 @@ def build_package(
     is_long_distance_ordinary = is_long_distance_ordinary_story(story)
     is_suitcase_relocation = is_suitcase_relocation_story(story)
     is_commitment_still_love = is_commitment_still_love_story(story)
-    if is_commitment_still_love:
+    is_enough_love = is_enough_love_story(story)
+    if is_enough_love:
+        concept_selection = build_enough_love_concept_selection()
+    elif is_commitment_still_love:
         concept_selection = build_commitment_still_love_concept_selection()
     elif is_private_captions:
         concept_selection = build_private_captions_concept_selection()
@@ -202,7 +207,40 @@ def build_package(
         "rule",
         "Start from a universal relationship truth and prove it through Aachu/Zuv specifics.",
     )
-    if is_commitment_still_love:
+    if is_enough_love:
+        human_truth = (
+            "Some people only love when life looks ready; this story is about love that walks, listens, builds, stays, and waits before success has arrived."
+        )
+        emotional_arc = (
+            "no-car effort -> not-good self-doubt -> long-story patience -> little-gift value -> "
+            "lost-everything partnership -> tired-body presence -> not-successful waiting thesis"
+        )
+        caption_recommended = (
+            "some love does not wait for everything to be ready.\n\n"
+            "no car.\n"
+            "long stories.\n"
+            "small gifts.\n"
+            "lost seasons.\n"
+            "tired days.\n"
+            "unfinished success.\n\n"
+            "and still, someone says:\n"
+            "i’ll walk.\n"
+            "i have time.\n"
+            "we’ll build together.\n"
+            "i’ll wait."
+        )
+        caption_alt = (
+            "For the person who does not wait for your life to look finished before choosing you."
+        )
+        hashtags = [
+            "#AStoryOfTwo",
+            "#SoftLoveNotes",
+            "#RelationshipGoals",
+            "#DesiCouple",
+            "#EmotionalConnection",
+            "#LoveInLittleThings",
+        ]
+    elif is_commitment_still_love:
         human_truth = (
             "Lasting love is not the absence of disagreement; it is the repeated choice to stay tender, repair, and imagine the two of you still side by side after every bad day."
         )
@@ -1162,6 +1200,16 @@ def build_package(
                 "Use the first slide as the cover.",
                 "Keep the caption personal and archive-like.",
                 "Review generated text for exact readability before posting.",
+                *(
+                    ["Exact-copy lock: preserve the creator-supplied on-image text verbatim from the authorized reference slides 1-7; do not paraphrase, shorten, or add an eighth slide."]
+                    if is_enough_love
+                    else []
+                ),
+                *(
+                    ["Golden Theme selected concept: I Have No Car, I'll Walk (30/30)."]
+                    if is_enough_love
+                    else []
+                ),
                 *(
                     ["Exact-copy lock: preserve the creator-supplied on-image text verbatim from slides 1-7; do not paraphrase, shorten, or add an eighth slide."]
                     if is_commitment_still_love

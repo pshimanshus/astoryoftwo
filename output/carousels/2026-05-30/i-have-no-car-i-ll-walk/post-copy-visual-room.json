@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "I have no car.\nI’ll walk,",
+      "role": "universal anti-ideal hook"
+    },
+    {
+      "slide": 2,
+      "copy": "I’m not so good\nI love you.",
+      "role": "self-doubt met with love"
+    },
+    {
+      "slide": 3,
+      "copy": "I have time.\nIt’s a long story.",
+      "role": "patience proof"
+    },
+    {
+      "slide": 4,
+      "copy": "a little gift for you 🖤\nit’s worth diamond.",
+      "role": "little gift becomes priceless"
+    },
+    {
+      "slide": 5,
+      "copy": "We’ll build together\nI lost\neverything",
+      "role": "loss met with partnership"
+    },
+    {
+      "slide": 6,
+      "copy": "I’m here\nI’m so tired",
+      "role": "presence during exhaustion"
+    },
+    {
+      "slide": 7,
+      "copy": "I’m not successful\nI’ll wait",
+      "role": "earned waiting thesis"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement for separate native 4:5 and 9:16 outputs."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific model-native prompt constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Seven Visible Vows",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Seven Visible Vows",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Minimal Quote Scenes"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "I have no car.\nI’ll walk,",
+      "visual_job": "universal anti-ideal hook",
+      "scene": "Night road scene inspired by the reference but fully remade as Aachu and Zuv: they walk away hand in hand under sparse streetlights, a faint parked-car outline far left as evidence rather than premise. Place 'I have no car.' in upper-middle charcoal text and 'I’ll walk,' just below it in slightly warmer muted terracotta, with generous clean paper space.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "I’m not so good\nI love you.",
+      "visual_job": "self-doubt met with love",
+      "scene": "Lakeside or hill-view frame with two wooden chairs and soft mountains, using the source composition only as mood. Zuv sits quietly with a vulnerable posture; Aachu sits beside him with a small camera or phone lowered, turned toward him with affection. Place 'I’m not so good' upper-left near Zuv's side and 'I love you.' upper-right near Aachu's response.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "I have time.\nIt’s a long story.",
+      "visual_job": "patience proof",
+      "scene": "Warm conversation-room scene with two soft armchairs and a small lamp between them. Aachu leans forward with open listening posture and soft eyes, while Zuv sits across from her, tired but ready to explain. Place 'I have time.' upper-left above Aachu's listening side and 'It’s a long story.' upper-right above Zuv.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "a little gift for you 🖤\nit’s worth diamond.",
+      "visual_job": "little gift becomes priceless",
+      "scene": "Indian train-window gift scene remade with Aachu and Zuv: Zuv stands on the platform in a navy blazer or navy shirt with a small bouquet wrapped in kraft paper, looking up warmly; Aachu leans from a soft sage train doorway, smiling down and holding the window edge. Place 'a little gift for you 🖤' upper-left near the bouquet and 'it’s worth diamond.' upper-right near her response.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "We’ll build together\nI lost\neverything",
+      "visual_job": "loss met with partnership",
+      "scene": "Evening old-city street with string lights and shopfront linework, distinct from the road slide. Aachu and Zuv walk hand in hand from behind through the lane; one partner carries a simple tote, the other a worn shoulder bag, making rebuilding feel practical and shared. Place 'We’ll build together' upper-left along the lane and 'I lost\\neverything' larger on the right with enough negative space.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "I’m here\nI’m so tired",
+      "visual_job": "presence during exhaustion",
+      "scene": "Quiet meadow or garden-edge rest scene. Zuv lies on a small blanket in soft grass, visibly exhausted but safe; Aachu leans over him with one hand near his shoulder and a calm, protective expression. Place 'I’m here' upper-center above Aachu, with a tiny dusty-coral heart below, and 'I’m so tired' upper-left above Zuv.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "I’m not successful\nI’ll wait",
+      "visual_job": "earned waiting thesis",
+      "scene": "Balcony or rooftop sunset scene with soft city linework below, remade as Aachu and Zuv sitting side by side on a low terrace wall. Zuv looks upward with uncertainty in a navy kurta or shirt; Aachu sits close in a soft marigold/ochre kurta, hands folded, looking at him with patient certainty. Place 'I’m not successful' upper-left and 'I’ll wait' upper-right, each with a tiny low-contrast heart mark.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 4:5 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

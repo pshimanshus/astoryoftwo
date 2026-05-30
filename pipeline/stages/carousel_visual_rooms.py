@@ -15,6 +15,7 @@ from pipeline.stages.carousel_lanes import (
     is_long_distance_ordinary_story,
     is_main_kar_lungi_story,
     is_commitment_still_love_story,
+    is_enough_love_story,
     is_private_captions_story,
     is_softness_under_fire_story,
     is_suitcase_relocation_story,
@@ -36,7 +37,10 @@ def build_visual_debate(story: str, slides: list[dict[str, Any]], lane: str) -> 
     is_long_distance_ordinary = is_long_distance_ordinary_story(story)
     is_suitcase_relocation = is_suitcase_relocation_story(story)
     is_commitment_still_love = is_commitment_still_love_story(story)
-    if is_commitment_still_love:
+    is_enough_love = is_enough_love_story(story)
+    if is_enough_love:
+        winner = "Seven Visible Vows"
+    elif is_commitment_still_love:
         winner = "Future Witness Scenes"
     elif is_private_captions:
         winner = "Private Caption Shared Frames"
@@ -82,6 +86,27 @@ def build_visual_debate(story: str, slides: list[dict[str, Any]], lane: str) -> 
             },
         ]
         if is_commitment_still_love
+        else [
+            {
+                "name": "Seven Visible Vows",
+                "score": 30,
+                "case_for": "Best for the authorized exact-text reference: every line becomes a distinct staged promise, from walking to waiting, without repeating the same couple pose.",
+                "risk": "Must avoid copying the third-party visual style or watermark; A Story identity, paper, typography, and brandmark must dominate.",
+            },
+            {
+                "name": "Lack Becomes Care Receipts",
+                "score": 28.5,
+                "case_for": "Strong emotional clarity because each limitation is answered by visible care.",
+                "risk": "Can feel too explanatory if text carries the scene instead of body language.",
+            },
+            {
+                "name": "Minimal Quote Scenes",
+                "score": 25,
+                "case_for": "Easy to read and close to the source reference.",
+                "risk": "Rejected as the main system because it risks quote-card energy and weak Aachu/Zuv identity."
+            },
+        ]
+        if is_enough_love
         else
         [
             {

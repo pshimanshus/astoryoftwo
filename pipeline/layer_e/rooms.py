@@ -118,6 +118,24 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
             "make it all the way",
         ]
     )
+    is_enough_love = any(
+        token in text
+        for token in [
+            "i have no car",
+            "i'll walk",
+            "i’ll walk",
+            "i’m not so good",
+            "i'm not so good",
+            "a little gift for you",
+            "we’ll build together",
+            "we'll build together",
+            "i lost everything",
+            "i’m not successful",
+            "i'm not successful",
+            "i’ll wait",
+            "i'll wait",
+        ]
+    )
     is_subtitle_language = "subtitles" in text or ("kuch nahi" in text and "translation" in text)
     is_first_date_trip = "first date" in text and "ladakh" in text
     relationship_terms = [
@@ -137,7 +155,95 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
         not any(term in text for term in relationship_terms)
         and any(term in text for term in aesthetic_terms)
     )
-    if is_commitment_still_love:
+    if is_enough_love:
+        routes = [
+            StoryRoute(
+                name="I Have No Car, I'll Walk",
+                story_lens=(
+                    "Love answers lack with visible choice: no car becomes walking, not-good becomes being loved, "
+                    "long stories get time, little gifts become priceless, loss gets rebuilt, tiredness gets presence, and unfinished success gets waiting."
+                ),
+                reader_mirror=(
+                    "Couples who are still building a life can see themselves because the promise arrives before money, status, ease, or success."
+                ),
+                emotional_obstacle=(
+                    "The route could become a copied quote carousel unless every line is staged as a concrete Aachu/Zuv action and not only text on paper."
+                ),
+                aachu_specific_spark=(
+                    "Aachu answers limitation with action: she walks beside him, listens without rushing, values the small gift, builds after loss, stays in tiredness, and waits through unfinished success."
+                ),
+                zuv_active_role=(
+                    "Zuv names the insecurity honestly, keeps walking, tells the long story, offers the small gift, admits the loss, rests when tired, and lets her waiting become mutual courage."
+                ),
+                proof_engine=(
+                    "road walk hand-in-hand -> lakeside self-doubt answered with love -> armchair long-story listening -> train bouquet gift -> "
+                    "city-lane rebuilding after loss -> meadow tired-body presence -> balcony waiting before success"
+                ),
+                emotional_reversal=(
+                    "What first looks like not-enough becomes enough-for-love because every slide shows a limitation being met by chosen presence."
+                ),
+                payoff="I’m not successful / I’ll wait.",
+                distribution_reason=(
+                    "Send this to the partner who is willing to build, walk, listen, stay, and wait before life looks finished."
+                ),
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Love Before Readiness",
+                story_lens=(
+                    "The finished version is not the proof; the person who stays before the finish line is the proof."
+                ),
+                reader_mirror="People who feel behind in life can send this to the person who makes them feel chosen anyway.",
+                emotional_obstacle="Readiness pressure can make love feel conditional unless the route shows care before success.",
+                aachu_specific_spark="Aachu treats every unfinished place as somewhere love can still stand.",
+                zuv_active_role="Zuv stops pretending he has it all together and lets honest vulnerability stay visible.",
+                proof_engine="no car -> walk together -> small gift -> lost everything -> build together -> not successful -> wait",
+                emotional_reversal="The lack becomes romantic only because it is met with behavior, not pity.",
+                payoff="You do not have to arrive before I choose you.",
+                distribution_reason="Strong send/save reason for couples in building seasons.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Everything Small Became Enough",
+                story_lens="The emotional pattern is scale reversal: little effort, little gift, little time, and little certainty become enough because love receives them fully.",
+                reader_mirror="Viewers recognize the person who made their small offering feel valuable.",
+                emotional_obstacle="The deck risks becoming sentimental unless every small thing is attached to a scene.",
+                aachu_specific_spark="Aachu makes the ordinary gestures glow by receiving them with warmth.",
+                zuv_active_role="Zuv keeps offering honestly even when the offering is small.",
+                proof_engine="walk -> chair conversation -> bouquet -> lane walk -> meadow rest -> terrace wait",
+                emotional_reversal="Small stops meaning insufficient and starts meaning intimate.",
+                payoff="It was little, but it was loved like diamond.",
+                distribution_reason="Taggable for partners who made small gestures feel safe and enough.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="We'll Build Together",
+                story_lens="Loss becomes survivable when the relationship turns it into shared construction.",
+                reader_mirror="Couples rebuilding after hard seasons get a direct public doorway.",
+                emotional_obstacle="The route is narrower if it starts only from loss and misses the earlier tender proofs.",
+                aachu_specific_spark="Aachu says together before the future is visible.",
+                zuv_active_role="Zuv does not hide the loss; he lets partnership answer it.",
+                proof_engine="I lost everything -> she takes his hand -> city lane -> shared bag -> balcony future",
+                emotional_reversal="Loss stops being the ending once two people move in the same direction.",
+                payoff="We’ll build together.",
+                distribution_reason="Saveable for couples in rebuilding seasons.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="I Have Time",
+                story_lens="Patience is the love language: the long story gets a listener before it gets a solution.",
+                reader_mirror="Anyone who has needed someone to listen without rushing can enter.",
+                emotional_obstacle="Too narrow as a full carousel because it centers only one proof beat.",
+                aachu_specific_spark="Aachu makes time feel abundant through her listening posture.",
+                zuv_active_role="Zuv trusts her with the long story instead of compressing himself.",
+                proof_engine="armchairs -> lamp -> body leans in -> phone down -> long story begins",
+                emotional_reversal="Listening becomes an act of choosing.",
+                payoff="I have time.",
+                distribution_reason="Saveable as a quiet proof, weaker as the whole seven-slide engine.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+        ]
+    elif is_commitment_still_love:
         routes = [
             StoryRoute(
                 name="I Still Love You",

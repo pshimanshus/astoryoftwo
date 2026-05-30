@@ -44,6 +44,11 @@ def clean_text(value: str) -> str:
     return cleaned.strip()
 
 
+def clean_slide_copy(value: str) -> str:
+    text = str(value).replace("\r\n", "\n").replace("\r", "\n")
+    return "\n".join(clean_text(line) for line in text.split("\n")).strip()
+
+
 def extract_scene_summary(prompt: str) -> str:
     cleaned = clean_text(prompt)
     match = re.search(
@@ -80,7 +85,7 @@ def compile_image_prompt(
     prompt = build_generation_master_prompt(
         slide_number=slide_number,
         slide_count=slide_count,
-        slide_copy=clean_text(slide_copy),
+        slide_copy=clean_slide_copy(slide_copy),
         scene_description=scene,
         pose_description=clean_text(
             pose

@@ -231,6 +231,30 @@ COMMITMENT_STILL_LOVE_TOKENS = [
     "going to be us one day",
     "make it all the way",
 ]
+ENOUGH_LOVE_TOKENS = [
+    "i have no car",
+    "i'll walk",
+    "i’ll walk",
+    "i’m not so good",
+    "i'm not so good",
+    "i have time",
+    "it's a long story",
+    "it’s a long story",
+    "a little gift for you",
+    "it’s worth diamond",
+    "it's worth diamond",
+    "we’ll build together",
+    "we'll build together",
+    "i lost everything",
+    "i’m here",
+    "i'm here",
+    "i’m so tired",
+    "i'm so tired",
+    "i’m not successful",
+    "i'm not successful",
+    "i’ll wait",
+    "i'll wait",
+]
 SUITCASE_RELOCATION_TOKENS = [
     "suitcase relocation",
     "relocate the house",
@@ -346,6 +370,7 @@ STORY_PROCESS_BY_LANE = {
     "Golden Reassurance": ("Card 13 - The Way He Stays", 30),
     "Himanshu POV": ("Card 13 - The Way He Stays", 29),
     "Golden Still Choosing": ("Card 09 - Choice Under Pressure", 30),
+    "Golden Enough Love": ("Card 07 - Anti-Ideal To Real Love", 30),
     "Golden Private Captions": ("Card 05 - Banter To Belonging", 29.7),
     "Golden Care Without Shrinking": ("Card 07 - Anti-Ideal To Real Love", 29.5),
     "Golden Fairness Without Scorekeeping": ("Card 07 - Anti-Ideal To Real Love", 29.5),
@@ -680,6 +705,8 @@ def infer_title(story: str, title: str | None) -> str:
     if title and title.strip():
         return title.strip()
     lower = story.lower()
+    if any(token in lower for token in ENOUGH_LOVE_TOKENS):
+        return "I Have No Car I'll Walk"
     if any(token in lower for token in COMMITMENT_STILL_LOVE_TOKENS):
         return "I Still Love You"
     if any(token in lower for token in UNFILTERED_NONSENSE_TOKENS):
@@ -715,6 +742,8 @@ def infer_origin(story: str) -> str:
 
 def classify_content_lane(story: str) -> str:
     lower = story.lower()
+    if is_enough_love_story(story):
+        return "Golden Enough Love"
     if is_commitment_still_love_story(story):
         return "Golden Still Choosing"
     if is_private_captions_story(story):
@@ -3240,6 +3269,11 @@ def is_commitment_still_love_story(story: str) -> bool:
     return any(token in lower for token in COMMITMENT_STILL_LOVE_TOKENS)
 
 
+def is_enough_love_story(story: str) -> bool:
+    lower = story.lower()
+    return any(token in lower for token in ENOUGH_LOVE_TOKENS)
+
+
 def is_private_captions_story(story: str) -> bool:
     lower = story.lower()
     return any(token in lower for token in PRIVATE_CAPTIONS_TOKENS)
@@ -3465,6 +3499,104 @@ def build_commitment_still_love_slides(image_paths: list[Path], slide_count: int
         selected_indexes = list(range(slide_count - 1)) + [len(full) - 1]
     else:
         selected_indexes = list(range(min(slide_count, len(full))))
+    source_groups = distribute_sources(image_paths, len(selected_indexes)) if image_paths else [[] for _ in selected_indexes]
+    return [
+        {
+            "slide": index,
+            **full[source_index],
+            "source_images": source_groups[index - 1],
+        }
+        for index, source_index in enumerate(selected_indexes, start=1)
+    ]
+
+
+def build_enough_love_slides(image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
+    full = [
+        {
+            "copy": "I have no car.\nI’ll walk,",
+            "role": "universal anti-ideal hook",
+            "visual": (
+                "Night road scene inspired by the reference but fully remade as Aachu and Zuv: they walk away hand in hand under sparse streetlights, "
+                "a faint parked-car outline far left as evidence rather than premise. Place 'I have no car.' in upper-middle charcoal text and "
+                "'I’ll walk,' just below it in slightly warmer muted terracotta, with generous clean paper space."
+            ),
+            "emotion": "choosing effort without embarrassment",
+            "cta_intent": "make viewers send this as the promise that love does not wait for perfect resources",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "I’m not so good\nI love you.",
+            "role": "self-doubt met with love",
+            "visual": (
+                "Lakeside or hill-view frame with two wooden chairs and soft mountains, using the source composition only as mood. Zuv sits quietly with a vulnerable posture; "
+                "Aachu sits beside him with a small camera or phone lowered, turned toward him with affection. Place 'I’m not so good' upper-left near Zuv's side and "
+                "'I love you.' upper-right near Aachu's response."
+            ),
+            "emotion": "one person offers a flaw, the other answers with love",
+            "cta_intent": "make couples recognize being loved before feeling fully enough",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "I have time.\nIt’s a long story.",
+            "role": "patience proof",
+            "visual": (
+                "Warm conversation-room scene with two soft armchairs and a small lamp between them. Aachu leans forward with open listening posture and soft eyes, "
+                "while Zuv sits across from her, tired but ready to explain. Place 'I have time.' upper-left above Aachu's listening side and "
+                "'It’s a long story.' upper-right above Zuv."
+            ),
+            "emotion": "time becomes care",
+            "cta_intent": "make viewers save it as the quiet patience kind of love",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "a little gift for you 🖤\nit’s worth diamond.",
+            "role": "little gift becomes priceless",
+            "visual": (
+                "Indian train-window gift scene remade with Aachu and Zuv: Zuv stands on the platform in a navy blazer or navy shirt with a small bouquet wrapped in kraft paper, "
+                "looking up warmly; Aachu leans from a soft sage train doorway, smiling down and holding the window edge. Place 'a little gift for you 🖤' upper-left near the bouquet "
+                "and 'it’s worth diamond.' upper-right near her response."
+            ),
+            "emotion": "small gesture made priceless by the receiver",
+            "cta_intent": "make partners tag the person who makes tiny gestures feel huge",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "We’ll build together\nI lost\neverything",
+            "role": "loss met with partnership",
+            "visual": (
+                "Evening old-city street with string lights and shopfront linework, distinct from the road slide. Aachu and Zuv walk hand in hand from behind through the lane; "
+                "one partner carries a simple tote, the other a worn shoulder bag, making rebuilding feel practical and shared. Place 'We’ll build together' upper-left along the lane "
+                "and 'I lost\\neverything' larger on the right with enough negative space."
+            ),
+            "emotion": "loss becomes a shared building plan",
+            "cta_intent": "make couples send this as a long-haul partnership promise",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "I’m here\nI’m so tired",
+            "role": "presence during exhaustion",
+            "visual": (
+                "Quiet meadow or garden-edge rest scene. Zuv lies on a small blanket in soft grass, visibly exhausted but safe; Aachu leans over him with one hand near his shoulder "
+                "and a calm, protective expression. Place 'I’m here' upper-center above Aachu, with a tiny dusty-coral heart below, and 'I’m so tired' upper-left above Zuv."
+            ),
+            "emotion": "being present when the other has no energy left",
+            "cta_intent": "make viewers save it for the person who stays through tired seasons",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "I’m not successful\nI’ll wait",
+            "role": "earned waiting thesis",
+            "visual": (
+                "Balcony or rooftop sunset scene with soft city linework below, remade as Aachu and Zuv sitting side by side on a low terrace wall. "
+                "Zuv looks upward with uncertainty in a navy kurta or shirt; Aachu sits close in a soft marigold/ochre kurta, hands folded, looking at him with patient certainty. "
+                "Place 'I’m not successful' upper-left and 'I’ll wait' upper-right, each with a tiny low-contrast heart mark."
+            ),
+            "emotion": "waiting without turning ambition into shame",
+            "cta_intent": "make the final line saveable and sendable for couples building before everything is ready",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+    ]
+    selected_indexes = list(range(min(slide_count, len(full))))
     source_groups = distribute_sources(image_paths, len(selected_indexes)) if image_paths else [[] for _ in selected_indexes]
     return [
         {
@@ -3869,6 +4001,133 @@ def build_commitment_still_love_concept_selection() -> dict[str, Any]:
     }
 
 
+def build_enough_love_concept_selection() -> dict[str, Any]:
+    candidates = [
+        {
+            "name": "I Have No Car, I'll Walk",
+            "universal_truth": "The right love does not wait for perfect status, money, success, or readiness; it chooses effort, time, presence, and patience.",
+            "aachu_specific_spark": "Aachu answers every lack with a concrete act of love: walking, listening, valuing the little gift, building, staying, and waiting.",
+            "concrete_proof": "Road walk, lakeside self-doubt, armchair listening, train-platform gift, city-lane rebuilding, meadow exhaustion, and balcony waiting.",
+            "zuv_role": "Zuv names the lack honestly instead of performing confidence, and lets Aachu's active steadiness make the future feel possible.",
+            "tender_thesis": "I’m not successful / I’ll wait.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 5,
+                "tender_thesis": 5,
+                "share_send_potential": 5,
+            },
+            "total": 30,
+        },
+        {
+            "name": "Love Before Readiness",
+            "universal_truth": "Some people love the finished version; this story is about the person who stays before life looks finished.",
+            "aachu_specific_spark": "Aachu does not ask Zuv to become impressive before she offers care.",
+            "concrete_proof": "No car becomes walking together, not-good becomes love, long story becomes time, lost becomes building together.",
+            "zuv_role": "Zuv's active honesty gives Aachu something real to answer instead of a fake perfect image.",
+            "tender_thesis": "Love waits with you while you become.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 4.5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 4.5,
+                "tender_thesis": 5,
+                "share_send_potential": 5,
+            },
+            "total": 29,
+        },
+        {
+            "name": "Little Things Worth Diamond",
+            "universal_truth": "A tiny gesture becomes priceless when the receiver loves the person behind it.",
+            "aachu_specific_spark": "Aachu turns a small bouquet, a slow walk, and a tired day into proof that the person matters more than the scale.",
+            "concrete_proof": "Gift at train window, walking without a car, listening room, and meadow rest.",
+            "zuv_role": "Zuv offers small honest things instead of pretending they are grand.",
+            "tender_thesis": "The gift is little; the love makes it diamond.",
+            "scores": {
+                "universal_hook": 4.5,
+                "aachu_zuv_specificity": 4.5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 4.5,
+                "tender_thesis": 5,
+                "share_send_potential": 4.5,
+            },
+            "total": 28,
+        },
+        {
+            "name": "We'll Build Together",
+            "universal_truth": "The strongest love is not impressed by what is already built; it is willing to build with you after loss.",
+            "aachu_specific_spark": "Aachu becomes the person who can look at a blank future and still say together.",
+            "concrete_proof": "Lost-everything street walk, patient balcony wait, and the repeated choice to stay beside him.",
+            "zuv_role": "Zuv lets the loss be visible, which lets the relationship answer with real partnership.",
+            "tender_thesis": "We’ll build together.",
+            "scores": {
+                "universal_hook": 4.5,
+                "aachu_zuv_specificity": 4.5,
+                "concrete_proof": 4.5,
+                "zuv_emotional_role": 4.5,
+                "tender_thesis": 5,
+                "share_send_potential": 4.5,
+            },
+            "total": 27.5,
+        },
+        {
+            "name": "I Have Time",
+            "universal_truth": "Love is the person who does not rush the long story.",
+            "aachu_specific_spark": "Aachu's care is shown through attention before solutions.",
+            "concrete_proof": "Armchair listening, lowered phone, open posture, and the long story allowed to arrive slowly.",
+            "zuv_role": "Zuv is active through honesty and vulnerability, but the route is narrower than the full seven-slide arc.",
+            "tender_thesis": "I have time.",
+            "scores": {
+                "universal_hook": 4,
+                "aachu_zuv_specificity": 4,
+                "concrete_proof": 4,
+                "zuv_emotional_role": 4,
+                "tender_thesis": 4.5,
+                "share_send_potential": 4,
+            },
+            "total": 24.5,
+        },
+    ]
+    return {
+        "source": "Layer E plus Golden Theme variant tournament from the authorized exact-text 'I have no car / I'll walk' reference.",
+        "rubric": [
+            "universal_hook",
+            "aachu_zuv_specificity",
+            "concrete_proof",
+            "zuv_emotional_role",
+            "tender_thesis",
+            "share_send_potential",
+        ],
+        "minimum_go_score": 28,
+        "winner": "I Have No Car, I'll Walk",
+        "winner_score": 30,
+        "decision": "GO",
+        "selector_verdict": (
+            "Winner preserves the authorized reference text verbatim while converting the emotional machine into A Story of Two: "
+            "lack, self-doubt, long stories, little gifts, loss, exhaustion, and unfinished success are each met by visible Aachu/Zuv care."
+        ),
+        "calm_enough_for_chaos_alignment": (
+            "Preserves the gold-carousel principle by opening with a universal anti-ideal, proving it through concrete couple receipts, "
+            "making care active on both sides, and landing on a sendable promise about waiting before everything is ready."
+        ),
+        "story_selling_card": "Card 07 - Anti-Ideal To Real Love",
+        "screenplay_pattern": (
+            "no car -> self-doubt -> long story -> little gift -> lost everything -> tired body -> not successful / I'll wait"
+        ),
+        "final_public_slide_copy_direction": [
+            "I have no car.\nI’ll walk,",
+            "I’m not so good\nI love you.",
+            "I have time.\nIt’s a long story.",
+            "a little gift for you 🖤\nit’s worth diamond.",
+            "We’ll build together\nI lost\neverything",
+            "I’m here\nI’m so tired",
+            "I’m not successful\nI’ll wait",
+        ],
+        "candidates": candidates,
+    }
+
+
 def build_unfiltered_nonsense_slides(image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
     full = [
         {
@@ -4108,6 +4367,8 @@ def build_unfiltered_nonsense_concept_selection() -> dict[str, Any]:
 
 def build_slides(story: str, image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
     lane = classify_content_lane(story)
+    if is_enough_love_story(story):
+        return build_enough_love_slides(image_paths, slide_count)
     if is_commitment_still_love_story(story):
         return build_commitment_still_love_slides(image_paths, slide_count)
     if is_private_captions_story(story):
