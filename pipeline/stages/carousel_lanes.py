@@ -221,6 +221,16 @@ LONG_DISTANCE_ORDINARY_TOKENS = [
     "ordinary time",
     "same person",
 ]
+COMMITMENT_STILL_LOVE_TOKENS = [
+    "we disagree, i still love you",
+    "we fight, i still love you",
+    "every time i see an older couple",
+    "older couple",
+    "still choosing each other",
+    "still completely in love",
+    "going to be us one day",
+    "make it all the way",
+]
 SUITCASE_RELOCATION_TOKENS = [
     "suitcase relocation",
     "relocate the house",
@@ -335,6 +345,7 @@ CAROUSEL_STORY_DIRECTOR_CONTRACT = {
 STORY_PROCESS_BY_LANE = {
     "Golden Reassurance": ("Card 13 - The Way He Stays", 30),
     "Himanshu POV": ("Card 13 - The Way He Stays", 29),
+    "Golden Still Choosing": ("Card 09 - Choice Under Pressure", 30),
     "Golden Private Captions": ("Card 05 - Banter To Belonging", 29.7),
     "Golden Care Without Shrinking": ("Card 07 - Anti-Ideal To Real Love", 29.5),
     "Golden Fairness Without Scorekeeping": ("Card 07 - Anti-Ideal To Real Love", 29.5),
@@ -669,6 +680,8 @@ def infer_title(story: str, title: str | None) -> str:
     if title and title.strip():
         return title.strip()
     lower = story.lower()
+    if any(token in lower for token in COMMITMENT_STILL_LOVE_TOKENS):
+        return "I Still Love You"
     if any(token in lower for token in UNFILTERED_NONSENSE_TOKENS):
         return "Marry The One Who Joins Your Nonsense"
     if any(token in lower for token in LONG_DISTANCE_ORDINARY_TOKENS):
@@ -702,6 +715,8 @@ def infer_origin(story: str) -> str:
 
 def classify_content_lane(story: str) -> str:
     lower = story.lower()
+    if is_commitment_still_love_story(story):
+        return "Golden Still Choosing"
     if is_private_captions_story(story):
         return "Golden Private Captions"
     if is_unfiltered_nonsense_story(story):
@@ -3220,6 +3235,11 @@ def is_tasty_life_story(story: str) -> bool:
     return any(token in lower for token in TASTY_LIFE_TOKENS)
 
 
+def is_commitment_still_love_story(story: str) -> bool:
+    lower = story.lower()
+    return any(token in lower for token in COMMITMENT_STILL_LOVE_TOKENS)
+
+
 def is_private_captions_story(story: str) -> bool:
     lower = story.lower()
     return any(token in lower for token in PRIVATE_CAPTIONS_TOKENS)
@@ -3357,6 +3377,103 @@ def build_long_distance_ordinary_slides(image_paths: list[Path], slide_count: in
             }
         )
     return slides
+
+
+def build_commitment_still_love_slides(image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
+    full = [
+        {
+            "copy": "We disagree, I still love you.",
+            "role": "universal hook",
+            "visual": (
+                "A close evening domestic frame after a small disagreement: Aachu and Zuv are turned slightly away from each other, "
+                "but their knees, shoulders, and one almost-touching hand still lean toward the same center. The mood preserves the "
+                "reference's intimate conflict-with-commitment feeling without copying its dark film still."
+            ),
+            "emotion": "quiet disagreement with safety underneath",
+            "cta_intent": "make couples send this as a recognition that disagreement does not cancel love",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "We fight, I still love you.",
+            "role": "conflict proof",
+            "visual": (
+                "After the fight, Aachu folds into Zuv's shoulder in a warm doorway or sofa corner; his hand is steady at her back, "
+                "her face softened but still emotional. The hug is the proof that the conflict stayed inside commitment."
+            ),
+            "emotion": "repair after heat",
+            "cta_intent": "make viewers recognize the kind of fight where both people still come closer",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "You know why?",
+            "role": "curiosity bridge",
+            "visual": (
+                "A small close-up proof beat of their hands finding each other again on a couch, car seat, or cafe bench; one finger "
+                "hooks around the other while the rest of the room fades into warm paper. The question opens the emotional turn."
+            ),
+            "emotion": "held pause before the answer",
+            "cta_intent": "earn the next swipe by making the viewer ask what keeps them choosing",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "Because every time I see an older couple,\nstanding side by side,\nI think about everything it took to get there.",
+            "role": "older-couple witness",
+            "visual": (
+                "Aachu and Zuv quietly notice an older couple standing side by side in a soft gallery, garden path, or cafe queue. "
+                "The older couple is small and respectful in the background; Aachu and Zuv are the emotional focus, watching the proof of time."
+            ),
+            "emotion": "reverent recognition",
+            "cta_intent": "connect the private fight to a universal dream of lasting together",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "All the arguments.\nAll the bad days.\nAll the times they could’ve walked away,\nbut didn’t.",
+            "role": "cost and choice",
+            "visual": (
+                "A staged memory-collage without becoming a collage: one wide warm scene shows traces of hard days around them, "
+                "such as two untouched cups, a wrinkled blanket, a paused phone, and rain at the window, while Aachu and Zuv remain "
+                "near each other instead of walking out of frame."
+            ),
+            "emotion": "the cost of staying",
+            "cta_intent": "make the choice to stay feel earned, not decorative",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "And then I think of us.\nBecause I know that’s going to be us one day.",
+            "role": "future projection",
+            "visual": (
+                "Aachu and Zuv in a lived kitchen or balcony moment, preparing something small together or standing shoulder to shoulder; "
+                "a faint future echo of an older version of them appears only as soft background warmth, not as a literal copied elderly couple."
+            ),
+            "emotion": "certain future tenderness",
+            "cta_intent": "turn the older-couple witness into a promise about this relationship",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+        {
+            "copy": "Still together.\nStill choosing each other.\nStill completely in love.",
+            "role": "save/share thesis",
+            "visual": (
+                "Final airy frame: Aachu and Zuv sit side by side at a small table or overlook, older-couple energy translated into their "
+                "own present-day bodies. He is calm and close, she is soft and expressive, and both faces are clear, warm, and identity-first."
+            ),
+            "emotion": "earned forever feeling",
+            "cta_intent": "make the final line saveable and sendable for couples who want the all-the-way kind of love",
+            "text_layout": {"primary_position": "upper_middle", "speech_bubble": ""},
+        },
+    ]
+    if slide_count < len(full):
+        selected_indexes = list(range(slide_count - 1)) + [len(full) - 1]
+    else:
+        selected_indexes = list(range(min(slide_count, len(full))))
+    source_groups = distribute_sources(image_paths, len(selected_indexes)) if image_paths else [[] for _ in selected_indexes]
+    return [
+        {
+            "slide": index,
+            **full[source_index],
+            "source_images": source_groups[index - 1],
+        }
+        for index, source_index in enumerate(selected_indexes, start=1)
+    ]
 
 
 def build_private_captions_slides(image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
@@ -3625,6 +3742,133 @@ def build_private_captions_concept_selection() -> dict[str, Any]:
     }
 
 
+def build_commitment_still_love_concept_selection() -> dict[str, Any]:
+    candidates = [
+        {
+            "name": "I Still Love You",
+            "universal_truth": "Lasting love is not the absence of disagreement; it is choosing each other while disagreement, fights, and bad days pass through.",
+            "aachu_specific_spark": "Aachu feels the fight fully, then notices the future she wants when she sees older love still standing.",
+            "concrete_proof": "Disagreement, repair hug, hand finding hand, older-couple witness, bad-day traces, and a future-us landing.",
+            "zuv_role": "Zuv keeps his body language safe and close: staying reachable, holding the hug, and choosing softness after the hard moment.",
+            "tender_thesis": "Still together. Still choosing each other. Still completely in love.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 5,
+                "tender_thesis": 5,
+                "share_send_potential": 5,
+            },
+            "total": 30,
+        },
+        {
+            "name": "Everything It Took To Get There",
+            "universal_truth": "Older couples feel romantic because they are visible proof of every small choice not to walk away.",
+            "aachu_specific_spark": "Aachu turns seeing an older couple into a private promise about her own marriage.",
+            "concrete_proof": "Museum/garden witness, small fight receipts, and the two of them returning to the same frame.",
+            "zuv_role": "Zuv remains the steady one who makes disagreement safe enough to repair.",
+            "tender_thesis": "The future is built by all the times they could have left and did not.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 4.5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 5,
+                "tender_thesis": 5,
+                "share_send_potential": 5,
+            },
+            "total": 29.5,
+        },
+        {
+            "name": "Still Choosing",
+            "universal_truth": "The real proof of love is not a perfect day; it is choosing again after an imperfect one.",
+            "aachu_specific_spark": "Aachu carries the question from conflict to future vision with emotional honesty.",
+            "concrete_proof": "A handhold after a fight, bad-day room details, and a quiet side-by-side ending.",
+            "zuv_role": "Zuv answers with closeness and steadiness instead of a speech.",
+            "tender_thesis": "Love is the person who still stands beside you.",
+            "scores": {
+                "universal_hook": 5,
+                "aachu_zuv_specificity": 4.5,
+                "concrete_proof": 4.5,
+                "zuv_emotional_role": 5,
+                "tender_thesis": 5,
+                "share_send_potential": 5,
+            },
+            "total": 29,
+        },
+        {
+            "name": "Bad Days Included",
+            "universal_truth": "A relationship that lasts includes arguments and bad days without letting them become the ending.",
+            "aachu_specific_spark": "Aachu reads the older couple as evidence that love can survive ordinary friction.",
+            "concrete_proof": "Unsent messages, cold tea, a repair hug, and the future-us table.",
+            "zuv_role": "Zuv makes the return feel possible by staying calm and reachable.",
+            "tender_thesis": "The all-the-way kind of love includes the hard days.",
+            "scores": {
+                "universal_hook": 4.5,
+                "aachu_zuv_specificity": 4.5,
+                "concrete_proof": 5,
+                "zuv_emotional_role": 4.5,
+                "tender_thesis": 5,
+                "share_send_potential": 4.5,
+            },
+            "total": 28,
+        },
+        {
+            "name": "Older Couple Mirror",
+            "universal_truth": "Seeing older love makes young love imagine the cost, not only the sweetness, of staying.",
+            "aachu_specific_spark": "Aachu's longing turns a passing older couple into a private future scene.",
+            "concrete_proof": "An older-couple witness scene and the present couple mirroring the same side-by-side posture.",
+            "zuv_role": "Zuv appears beside her in the future mirror, not as a passive prop but as the person still choosing.",
+            "tender_thesis": "One day, that will be us.",
+            "scores": {
+                "universal_hook": 4.5,
+                "aachu_zuv_specificity": 4,
+                "concrete_proof": 4.5,
+                "zuv_emotional_role": 4.5,
+                "tender_thesis": 5,
+                "share_send_potential": 4.5,
+            },
+            "total": 27,
+        },
+    ]
+    return {
+        "source": "Layer E plus Golden Theme variant tournament from the supplied exact-text commitment reference.",
+        "rubric": [
+            "universal_hook",
+            "aachu_zuv_specificity",
+            "concrete_proof",
+            "zuv_emotional_role",
+            "tender_thesis",
+            "share_send_potential",
+        ],
+        "minimum_go_score": 28,
+        "winner": "I Still Love You",
+        "winner_score": 30,
+        "decision": "GO",
+        "selector_verdict": (
+            "Winner keeps the creator-requested exact text and adapts the reference's emotional machine into A Story of Two: "
+            "conflict stays inside commitment, older love becomes proof, and the final line becomes a send/save promise."
+        ),
+        "calm_enough_for_chaos_alignment": (
+            "Preserves the gold carousel principle by starting with a universal relationship tension, proving it through Aachu/Zuv behavior, "
+            "making Zuv's steadiness physically visible, and landing on a tender thesis that cold viewers can send to a partner."
+        ),
+        "story_selling_card": "Card 09 - Choice Under Pressure",
+        "screenplay_pattern": (
+            "disagreement -> fight/repair -> hand proof -> older-couple witness -> bad-day cost -> future-us certainty -> still-choosing thesis"
+        ),
+        "final_public_slide_copy_direction": [
+            "We disagree, I still love you.",
+            "We fight, I still love you.",
+            "You know why?",
+            "Because every time I see an older couple,\nstanding side by side,\nI think about everything it took to get there.",
+            "All the arguments.\nAll the bad days.\nAll the times they could’ve walked away,\nbut didn’t.",
+            "And then I think of us.\nBecause I know that’s going to be us one day.",
+            "Still together.\nStill choosing each other.\nStill completely in love.",
+        ],
+        "candidates": candidates,
+    }
+
+
 def build_unfiltered_nonsense_slides(image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
     full = [
         {
@@ -3864,6 +4108,8 @@ def build_unfiltered_nonsense_concept_selection() -> dict[str, Any]:
 
 def build_slides(story: str, image_paths: list[Path], slide_count: int) -> list[dict[str, Any]]:
     lane = classify_content_lane(story)
+    if is_commitment_still_love_story(story):
+        return build_commitment_still_love_slides(image_paths, slide_count)
     if is_private_captions_story(story):
         return build_private_captions_slides(image_paths, slide_count)
     if is_unfiltered_nonsense_story(story):

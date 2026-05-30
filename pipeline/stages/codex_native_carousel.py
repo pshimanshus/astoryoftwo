@@ -45,6 +45,7 @@ from pipeline.stages.carousel_lanes import (
     build_long_distance_ordinary_concept_selection,
     build_main_kar_lungi_concept_selection,
     build_pakka_reassurance_concept_selection,
+    build_commitment_still_love_concept_selection,
     build_private_captions_concept_selection,
     build_slides,
     build_softness_under_fire_concept_selection,
@@ -70,6 +71,7 @@ from pipeline.stages.carousel_lanes import (
     is_main_kar_lungi_story,
     is_mood_changed_story,
     is_pakka_reassurance_story,
+    is_commitment_still_love_story,
     is_photo_ritual_story,
     is_private_captions_story,
     is_softness_under_fire_story,
@@ -130,7 +132,10 @@ def build_package(
     is_unfiltered_nonsense = is_unfiltered_nonsense_story(story)
     is_long_distance_ordinary = is_long_distance_ordinary_story(story)
     is_suitcase_relocation = is_suitcase_relocation_story(story)
-    if is_private_captions:
+    is_commitment_still_love = is_commitment_still_love_story(story)
+    if is_commitment_still_love:
+        concept_selection = build_commitment_still_love_concept_selection()
+    elif is_private_captions:
         concept_selection = build_private_captions_concept_selection()
     elif is_unfiltered_nonsense:
         concept_selection = build_unfiltered_nonsense_concept_selection()
@@ -197,7 +202,27 @@ def build_package(
         "rule",
         "Start from a universal relationship truth and prove it through Aachu/Zuv specifics.",
     )
-    if is_private_captions:
+    if is_commitment_still_love:
+        human_truth = (
+            "Lasting love is not the absence of disagreement; it is the repeated choice to stay tender, repair, and imagine the two of you still side by side after every bad day."
+        )
+        emotional_arc = (
+            "disagreement hook -> fight/repair proof -> handhold bridge -> older-couple witness -> "
+            "bad-day cost -> future-us certainty -> still-choosing thesis"
+        )
+        caption_recommended = "I know we’re going to make it all the way ♾️"
+        caption_alt = (
+            "For the couple who can disagree, fight, repair, and still know they are choosing the all-the-way version of love."
+        )
+        hashtags = [
+            "#AStoryOfTwo",
+            "#SoftLoveNotes",
+            "#RelationshipGoals",
+            "#DesiCouple",
+            "#EmotionalConnection",
+            "#LoveInLittleThings",
+        ]
+    elif is_private_captions:
         human_truth = (
             "The right person does not only see your public behavior; they give it the kinder private caption, "
             "and over time you learn to caption them kindly too."
@@ -1137,6 +1162,16 @@ def build_package(
                 "Use the first slide as the cover.",
                 "Keep the caption personal and archive-like.",
                 "Review generated text for exact readability before posting.",
+                *(
+                    ["Exact-copy lock: preserve the creator-supplied on-image text verbatim from slides 1-7; do not paraphrase, shorten, or add an eighth slide."]
+                    if is_commitment_still_love
+                    else []
+                ),
+                *(
+                    ["Golden Theme selected concept: I Still Love You (30/30)."]
+                    if is_commitment_still_love
+                    else []
+                ),
                 *(
                     ["Golden Theme selected concept: Some Couples Come With Private Captions (29.7/30)."]
                     if is_private_captions

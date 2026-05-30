@@ -14,6 +14,7 @@ from pipeline.stages.carousel_lanes import (
     is_imperfect_repair_story,
     is_long_distance_ordinary_story,
     is_main_kar_lungi_story,
+    is_commitment_still_love_story,
     is_private_captions_story,
     is_softness_under_fire_story,
     is_suitcase_relocation_story,
@@ -34,7 +35,10 @@ def build_visual_debate(story: str, slides: list[dict[str, Any]], lane: str) -> 
     is_imperfect_repair = is_imperfect_repair_story(story)
     is_long_distance_ordinary = is_long_distance_ordinary_story(story)
     is_suitcase_relocation = is_suitcase_relocation_story(story)
-    if is_private_captions:
+    is_commitment_still_love = is_commitment_still_love_story(story)
+    if is_commitment_still_love:
+        winner = "Future Witness Scenes"
+    elif is_private_captions:
         winner = "Private Caption Shared Frames"
     elif is_long_distance_ordinary:
         winner = "Chat Bubbles Become Shared Rooms"
@@ -57,6 +61,28 @@ def build_visual_debate(story: str, slides: list[dict[str, Any]], lane: str) -> 
     else:
         winner = "Slide-Led Evidence Plan"
     options = (
+        [
+            {
+                "name": "Future Witness Scenes",
+                "score": 30,
+                "case_for": "Best for exact-copy commitment text: conflict, repair, older-couple witness, bad-day cost, and future-us payoff become clear staged scenes.",
+                "risk": "Must not copy the reference film stills or become generic elderly-couple quote art; Aachu/Zuv identity and house style must dominate.",
+            },
+            {
+                "name": "Hands Stay Reachable",
+                "score": 28.5,
+                "case_for": "Very strong for conflict-with-commitment because hands, distance, and posture prove the text without heavy explanation.",
+                "risk": "Can become visually repetitive if every slide is only a close-up handhold.",
+            },
+            {
+                "name": "Older Couple Mirror",
+                "score": 27,
+                "case_for": "Clear reference to the older-couple idea.",
+                "risk": "Rejected as the main system because the older couple can overpower Aachu/Zuv and make the deck less identity-first.",
+            },
+        ]
+        if is_commitment_still_love
+        else
         [
             {
                 "name": "Outdoor Threshold",

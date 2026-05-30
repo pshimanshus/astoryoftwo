@@ -24,6 +24,8 @@ def _card(memory: LayerESourceMemory, card_id: str):
 def process_influences_for_story(story: str, memory: LayerESourceMemory) -> list[ProcessInfluence]:
     text = story.lower()
     influence_ids = ["card-20", "card-07"]
+    if any(token in text for token in ["disagree", "fight", "arguments", "bad days", "older couple", "walked away"]):
+        influence_ids.insert(0, "card-09")
     if any(token in text for token in ["dono rakh", "plate", "banter", "joke", "phone"]):
         influence_ids.insert(0, "card-05")
     if any(token in text for token in ["forgive", "angry", "fight", "maaf", "shout"]):
@@ -105,6 +107,17 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
     is_high_maintenance_care = "high-maintenance" in text or (
         "green dress" in text and "barefoot" in text and "notices" in text
     )
+    is_commitment_still_love = any(
+        token in text
+        for token in [
+            "we disagree, i still love you",
+            "we fight, i still love you",
+            "older couple",
+            "still choosing each other",
+            "going to be us one day",
+            "make it all the way",
+        ]
+    )
     is_subtitle_language = "subtitles" in text or ("kuch nahi" in text and "translation" in text)
     is_first_date_trip = "first date" in text and "ladakh" in text
     relationship_terms = [
@@ -124,7 +137,106 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
         not any(term in text for term in relationship_terms)
         and any(term in text for term in aesthetic_terms)
     )
-    if is_plate:
+    if is_commitment_still_love:
+        routes = [
+            StoryRoute(
+                name="I Still Love You",
+                story_lens=(
+                    "Conflict stays inside commitment: disagreement, fights, and bad days become meaningful "
+                    "because both people keep choosing the all-the-way version of love."
+                ),
+                reader_mirror=(
+                    "Couples who have fought, repaired, and still imagined a future together will recognize themselves."
+                ),
+                emotional_obstacle=(
+                    "The idea could become copied quote-card romance unless the scenes show the tension, cost, "
+                    "repair, and active choice to stay."
+                ),
+                aachu_specific_spark=(
+                    "Aachu feels the disagreement fully, watches older love as proof, and lets that sight become "
+                    "a private promise about her own marriage."
+                ),
+                zuv_active_role=(
+                    "Zuv stays close, holds the repair hug, keeps his hand reachable, and chooses softness after the hard moment."
+                ),
+                proof_engine=(
+                    "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> "
+                    "bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final"
+                ),
+                emotional_reversal=(
+                    "What first looks like conflict becomes proof of staying because the scenes show both people "
+                    "returning to the same frame."
+                ),
+                payoff="Still together. Still choosing each other. Still completely in love.",
+                distribution_reason=(
+                    "Send this to the partner who has seen the hard days and still wants the two-of-you future."
+                ),
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Everything It Took To Get There",
+                story_lens=(
+                    "An older couple is not just a cute future image; they are evidence of all the arguments, "
+                    "bad days, and choices not to walk away."
+                ),
+                reader_mirror="Viewers who look at older couples and imagine their own future get an immediate doorway.",
+                emotional_obstacle=(
+                    "The route risks becoming only a pretty older-couple image unless Aachu/Zuv's own conflict and repair are visible."
+                ),
+                aachu_specific_spark="Aachu reads the older couple through longing, tenderness, and her own emotional future tense.",
+                zuv_active_role="Zuv notices her watching, steps closer, and answers the fear by staying physically beside her.",
+                proof_engine=(
+                    "older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> "
+                    "hard-day receipts -> present couple mirrors the posture"
+                ),
+                emotional_reversal=(
+                    "The older couple stops being a reference image and becomes the proof that staying is built through imperfect days."
+                ),
+                payoff="One day, that will be us because we kept choosing.",
+                distribution_reason="Sendable for couples who want the long-haul version, not only the easy-day version.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Bad Days Included",
+                story_lens="The all-the-way kind of love includes arguments and bad days without letting them become the ending.",
+                reader_mirror="Couples with repair rituals can tag each other because the proof is ordinary and recognizable.",
+                emotional_obstacle="Bad days can look like failure unless the route shows both people choosing not to leave.",
+                aachu_specific_spark="Aachu carries the feeling honestly instead of pretending the fight did not matter.",
+                zuv_active_role="Zuv sits near her, holds the silence, and waits without turning the hard day into distance.",
+                proof_engine="two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+                emotional_reversal="The hard day becomes a receipt of love because neither person exits the frame.",
+                payoff="Love is not no bad days. Love is still us after them.",
+                distribution_reason="Partner-tag reason is clear: this says the hard days did not cancel the relationship.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Still Choosing",
+                story_lens="The repeated word 'still' is the engine: still after disagreement, still after bad days, still beside each other.",
+                reader_mirror="Anyone who wants a love that keeps choosing after friction can enter through the hook.",
+                emotional_obstacle="The concept fails if 'still' is only typography and not visible action.",
+                aachu_specific_spark="Aachu's expressive worry creates the question of whether they will really make it.",
+                zuv_active_role="Zuv shows the answer by reaching, leaning in, and staying close without a speech.",
+                proof_engine="disagree -> lean apart -> hand reaches -> lean back in -> older couple passes -> present couple stays",
+                emotional_reversal="The repetition turns from fear into certainty because the body language answers it.",
+                payoff="Still choosing each other.",
+                distribution_reason="Saveable as a compact line for couples who have repaired more than once.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="Future Us",
+                story_lens="The future is not imagined from perfect romance, but from seeing proof that imperfect love can last.",
+                reader_mirror="Viewers who point at older couples and say 'that will be us' can immediately send this.",
+                emotional_obstacle="Future-us sentiment can become generic unless grounded in specific fights, repairs, and gestures.",
+                aachu_specific_spark="Aachu turns the sight of older love into a private certainty.",
+                zuv_active_role="Zuv stands with her, receives the future as a choice, and keeps the closeness active.",
+                proof_engine="gallery path -> older couple side by side -> Aachu watches -> Zuv watches her -> shoulder touch -> final table",
+                emotional_reversal="A passing scene becomes a promise only because their own repair has already been shown.",
+                payoff="I know that's going to be us one day.",
+                distribution_reason="Send this to the person you want to become older-love with after every imperfect day.",
+                process_influence_ids=[item.id for item in influences],
+            ),
+        ]
+    elif is_plate:
         routes = [
             StoryRoute(
                 name="Banter Becomes Belonging",
