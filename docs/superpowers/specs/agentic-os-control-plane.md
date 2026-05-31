@@ -1,11 +1,14 @@
 # Agentic OS Control Plane
 
-last_updated: 2026-05-28
-confidence: 0.86
+last_updated: 2026-05-31
+confidence: 0.88
 sources:
 - docs/superpowers/plans/2026-05-25-agentic-os-spine.md
+- docs/superpowers/plans/2026-05-31-agentic-os-activation-sprint.md
 - AGENTS.md
 - CLAUDE.md
+- config/rules/
+- pipeline/agentic/checks/
 
 ## Purpose
 
@@ -37,6 +40,61 @@ venv/bin/python scripts/agentic_os.py health
 The legacy aliases `context`, `system`, and `index` remain available. The
 written-plan aliases `skill-system` and `index-memory` are supported so future
 sessions can follow either surface.
+
+## Canonical Rules Layer
+
+Every constraint that drives generation lives in exactly one file under
+`config/rules/`. Skill files, prompt templates, and context sections compose
+rules via `{{rule:NAME}}` markers; `pipeline/agentic/rule_includes.py`
+expands the markers against the canonical files. The context loader runs the
+expander on every section before token estimation, so a rule edit propagates
+immediately to every session.
+
+Required rules in the default profile: palette, identity, on-image-text,
+brandmark, voice, golden-theme, story-selling. brand-zone is optional and
+applies only to sponsored carousels.
+
+Safety net: `RequiredSectionTruncatedError` raises when a required section
+that uses `{{rule:NAME}}` markers would be cut mid-content by the budget.
+Silent truncation of constraint text is unsafe and the loader refuses it.
+
+Known migration gap: existing `config/skills/*.md` files still inline rule
+text. The activation plan's Task 9 migrates them to `{{rule:NAME}}`
+includes. Until that lands, `config/rules/` is canonical at the context-pack
+level but skill files carry their own copies.
+
+## Deterministic Gates Layer
+
+`pipeline/agentic/checks/` carries the runtime gates the workflow runner
+uses to PASS / FAIL a slide on measurement rather than LLM opinion:
+
+- `check_palette` — paper-region warm-ivory tolerance + yellow-band fraction.
+  Calibrated against the 8 approved Observational Intimacy Premium slides on
+  2026-05-31. Both axes must hold; FAIL reason carries the measured values.
+- `check_ocr_text` — OCR vs. `slides.md` with fuzzy partial-ratio tolerance
+  for handwritten variation. Degrades to STOP (soft skip) when easyocr is
+  not installed; install with `venv/bin/pip install easyocr`.
+- `check_image_size` — aspect within ±0.01 plus minimum dimensions for 4:5
+  and 9:16. Catches the "one image resized into both formats" failure.
+- `check_prompt_constraints` — compiled prompt contains 8 canonical
+  fragments. Catches prompt-compile drift before generation. An upstream
+  test (`tests/test_checks_prompt_constraints.py::
+  test_required_fragments_are_present_in_rule_files`) guarantees every
+  required fragment lives in some `config/rules/*.md` file.
+
+Each gate returns a typed `WorkflowGate` from `pipeline/agentic/contracts.py`.
+
+## Workflow Runner (planned — activation sprint)
+
+The current control plane is read-only (context, registry, search, recall,
+capture-learning, evaluate-learning, health). The activation plan adds an
+executable runner that drives `skill-systems.json:carousel_jam` as a typed
+state machine with pause-resume semantics, per-state agent invocation with
+typed I/O, deterministic gates wired in next to LLM gates, and five
+explicit human pauses (concept-lock, copy-lock, visual-plan-lock,
+proof-approval, final-approval). Spec evolves as the runner lands; the
+durable contract is in `docs/superpowers/plans/2026-05-31-agentic-os-
+activation-sprint.md`.
 
 ## Workflow Integration
 
