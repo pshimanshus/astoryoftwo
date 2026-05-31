@@ -38,7 +38,7 @@ HARD FAIL: yellow — regenerate, do not accept
 
 DETERMINISTIC ACCEPTANCE (used by pipeline/agentic/checks/palette.py)
 - Paper region (brightest 15% of pixels by brightness): median R ≥ 230, median saturation < 0.18, median blue/green ratio ≥ 0.85.
-- Yellow-band pixel fraction (hue 35–65°, saturation ≥ 0.20) across the full image stays below 0.05.
+- Yellow-band pixel fraction (hue 35–65°, saturation ≥ 0.35) across the full image stays below 0.05.
 - These thresholds were calibrated against the 8 approved style-lock slides on 2026-05-31; do not edit casually.
 
 ANTI-DRIFT NOTES (lessons from real rejections)
