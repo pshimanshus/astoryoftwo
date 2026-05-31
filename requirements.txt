@@ -19,5 +19,14 @@ click>=8.1.0
 rich>=13.0.0
 tenacity>=8.2.0
 
+# Image gates (deterministic checks)
+Pillow>=10
+numpy>=1.26
+
+# OCR gate (optional but recommended; pulls in torch ~1GB)
+# Install separately with: venv/bin/pip install easyocr
+# The on-image text gate degrades gracefully when easyocr is missing.
+# easyocr>=1.7
+
 # Dev
 pytest>=8.0.0
