@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "notes": "Final images match the five-beat weather-app storyboard."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID20",
+        "ID22",
+        "ID23"
+      ],
+      "likeness_notes": "Aachu keeps long dark hair, expressive brows, soft cheek structure, and dramatic but flattering expressions across the set."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID13",
+        "ID14"
+      ],
+      "likeness_notes": "Zuv keeps curly dark hair, strong brows, short stubble, calm eyes, and the steady deadpan posture used for the joke."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "notes": "Wardrobe changes follow the source concept beats and the final sleepwear ending matches the accepted non-yellow standard."
+    },
+    "style": {
+      "pass": true,
+      "notes": "Premium watercolor-and-ink house style with neutral ivory paper; the rejected yellow cast is not used for the final Story ending."
+    },
+    "scene_logic": {
+      "pass": true,
+      "notes": "Each scene visually proves the copy, especially the phone forecast prop on the ending."
+    },
+    "pose_anatomy": {
+      "pass": true,
+      "notes": "Bodies and hands are natural enough for final social use."
+    },
+    "model_native_text": {
+      "pass": true,
+      "notes": "On-image text and brandmark are baked into both native formats."
+    },
+    "final_files": {
+      "pass": true,
+      "notes": "Five 4:5 files and five 9:16 files are packaged."
+    }
+  }
+}

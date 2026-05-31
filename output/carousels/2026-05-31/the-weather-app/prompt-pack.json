@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star"
+  },
+  "identity_dossier_path": "output/carousels/2026-05-31/the-weather-app/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-31/the-weather-app/identity-generation-preflight.md",
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-31/the-weather-app/identity-face-contact-sheet.jpg"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png"
+  ],
+  "shared_style_prompt": "premium hand-drawn romantic watercolor-and-ink illustration on neutral ivory/off-white paper with visible grain, fine ink and pencil linework, transparent watercolor blooms, muted vintage palette, soft faded edges, photo/reference-rooted Aachu/Zuv identity, and generous negative space",
+  "shared_negative_prompt": "No photorealism, no 3d rendering, no stock couple, no quote-card, no yellow paper, no sepia cast, no generic faces, no UI overlay.",
+  "text_overlay_plan": {
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "tiny low-contrast handwritten bottom-right"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 5,
+      "text": "He didn't marry peace.\nHe married the weather app.",
+      "visual": "Him stands calmly while Her gestures with tiny weather icons around her, establishing the emotional-weather gag.",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten text: He didn't marry peace. / He married the weather app. Native format requested separately. Scene-first behavior proves the relationship truth."
+    },
+    {
+      "slide": 2,
+      "slide_count": 5,
+      "text": "Him\nHer\nblah..\nBlah..\nBlah..",
+      "visual": "Her talks in multiple bubbles while Him stands quietly, listening.",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten labels and speech bubbles: Him, Her, blah.., Blah.., Blah... Native format requested separately. Scene-first behavior proves the relationship truth."
+    },
+    {
+      "slide": 3,
+      "slide_count": 5,
+      "text": "Him\nHer\n*sniff*",
+      "visual": "Her sits crying with knees up while Him stands nearby, confused but present.",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten labels: Him, Her, *sniff*. Native format requested separately. Scene-first behavior proves the relationship truth."
+    },
+    {
+      "slide": 4,
+      "slide_count": 5,
+      "text": "Him\nHer",
+      "visual": "They hold hands while Her switches into a sweet mood and Him remains steady.",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten labels: Him and Her. Native format requested separately. Scene-first behavior proves the relationship truth."
+    },
+    {
+      "slide": 5,
+      "slide_count": 5,
+      "text": "And bro still checks\nthe forecast every day.",
+      "visual": "Him calmly holds a phone with weather mood icons while Her stands annoyed-but-cute with crossed arms.",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten text: And bro still checks / the forecast every day. Keep neutral ivory paper, not yellow. Native format requested separately. Scene-first behavior proves the relationship truth."
+    }
+  ]
+}

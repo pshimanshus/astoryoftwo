@@ -1,0 +1,290 @@
+{
+  "status": "generated",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 5,
+  "done": true,
+  "publishable": true,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "He didn't marry peace.\nHe married the weather app.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten text: He didn't marry peace. / He married the weather app. Native format requested separately. Scene-first behavior proves the relationship truth.",
+      "reference_images": [
+        "output/carousels/2026-05-31/the-weather-app/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg",
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "output/carousels/2026-05-31/the-weather-app/references/concept-composite.png"
+      ],
+      "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-01.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c068d07a88191b37d5a2ead152eb1.png",
+      "file": "output/carousels/2026-05-31/the-weather-app/final/slide-01.png",
+      "reels_stories_source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-01.png",
+      "reels_stories_file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-01.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-01.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c068d07a88191b37d5a2ead152eb1.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final/slide-01.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-01.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c086be56081918de61d6fbbeeaedb.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-01.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "Him\nHer\nblah..\nBlah..\nBlah..",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten labels and speech bubbles: Him, Her, blah.., Blah.., Blah... Native format requested separately. Scene-first behavior proves the relationship truth.",
+      "reference_images": [
+        "output/carousels/2026-05-31/the-weather-app/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg",
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "output/carousels/2026-05-31/the-weather-app/references/concept-composite.png"
+      ],
+      "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-02.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1bfdd8a3e881918a5ea05db9633b7f.png",
+      "file": "output/carousels/2026-05-31/the-weather-app/final/slide-02.png",
+      "reels_stories_source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-02.png",
+      "reels_stories_file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-02.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-02.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1bfdd8a3e881918a5ea05db9633b7f.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final/slide-02.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-02.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c0967b5a481918c56189446ef479a.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-02.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "Him\nHer\n*sniff*",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten labels: Him, Her, *sniff*. Native format requested separately. Scene-first behavior proves the relationship truth.",
+      "reference_images": [
+        "output/carousels/2026-05-31/the-weather-app/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg",
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "output/carousels/2026-05-31/the-weather-app/references/concept-composite.png"
+      ],
+      "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-03.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c0174f4908191a133c65ef6e1153a.png",
+      "file": "output/carousels/2026-05-31/the-weather-app/final/slide-03.png",
+      "reels_stories_source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-03.png",
+      "reels_stories_file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-03.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-03.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c0174f4908191a133c65ef6e1153a.png",
+          "source_dimensions": {
+            "width": 1123,
+            "height": 1401,
+            "aspect": 0.8016
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final/slide-03.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-03.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c0c37f15c8191903acac267a6167c.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-03.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "Him\nHer",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten labels: Him and Her. Native format requested separately. Scene-first behavior proves the relationship truth.",
+      "reference_images": [
+        "output/carousels/2026-05-31/the-weather-app/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg",
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "output/carousels/2026-05-31/the-weather-app/references/concept-composite.png"
+      ],
+      "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-04.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c032b14248191bd50d67b4ae2794a.png",
+      "file": "output/carousels/2026-05-31/the-weather-app/final/slide-04.png",
+      "reels_stories_source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-04.png",
+      "reels_stories_file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-04.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-04.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c032b14248191bd50d67b4ae2794a.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final/slide-04.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-04.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c0ce06ad48191af2611fa5b491cbb.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1671,
+            "aspect": 0.5631
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-04.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "And bro still checks\nthe forecast every day.",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt": "Premium @a.storyof.two watercolor-and-ink scene using identity references. Identity continuity lock: preserve Aachu/Zuv faces from the attached references. Render exact handwritten text: And bro still checks / the forecast every day. Keep neutral ivory paper, not yellow. Native format requested separately. Scene-first behavior proves the relationship truth.",
+      "reference_images": [
+        "output/carousels/2026-05-31/the-weather-app/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg",
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "output/carousels/2026-05-31/the-weather-app/references/concept-composite.png"
+      ],
+      "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-05.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c03cb93708191b33c74bebcf705ff.png",
+      "file": "output/carousels/2026-05-31/the-weather-app/final/slide-05.png",
+      "reels_stories_source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-05.png",
+      "reels_stories_file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-05.png",
+      "native_outputs": {
+        "instagram_post": {
+          "label": "Instagram post",
+          "aspect_ratio": "4:5",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/instagram-post-slide-05.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_0b7ce25c355da79b016a1c03cb93708191b33c74bebcf705ff.png",
+          "source_dimensions": {
+            "width": 1122,
+            "height": 1402,
+            "aspect": 0.8003
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final/slide-05.png",
+          "upload_size": "1080x1350",
+          "normalization": "resized native-aspect generated source to upload size"
+        },
+        "reels_stories": {
+          "label": "Reels/Stories",
+          "aspect_ratio": "9:16",
+          "source": "output/carousels/2026-05-31/the-weather-app/final/model-native-source/reels-stories-slide-05.png",
+          "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e7868-5a03-7712-a5e3-0f949eee32c0/ig_04d9cf22f5e492cb016a1c1138b75c81918bbff0395e94020c.png",
+          "source_dimensions": {
+            "width": 941,
+            "height": 1672,
+            "aspect": 0.5628
+          },
+          "file": "output/carousels/2026-05-31/the-weather-app/final-reels-stories/slide-05.png",
+          "upload_size": "1080x1920",
+          "normalization": "resized native-aspect generated source to upload size"
+        }
+      }
+    }
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post",
+      "reels_stories"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "reels_stories_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image."
+  },
+  "instagram_upload_size": "1080x1350",
+  "reels_stories_size": "1080x1920",
+  "normalization": "Each surface is generated from its own native-aspect source; final files are same-aspect upload-size normalizations only. Wrong-ratio sources are rejected before packaging.",
+  "notes": [],
+  "final_audit_status": "PASS_WITH_NOTES",
+  "final_audit_pass": true,
+  "final_audit_path": "output/carousels/2026-05-31/the-weather-app/final-audit.json"
+}
