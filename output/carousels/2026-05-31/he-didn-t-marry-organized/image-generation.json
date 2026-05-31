@@ -1,57 +1,16 @@
 {
-  "status": "draft",
-  "backend": "none",
-  "generation_mode": "not_generated",
-  "slide_count": 5,
-  "done": false,
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "updated_at": "2026-05-31T17:18:23",
+  "blocked_step": "reference_image_generation_proof_slide_06",
+  "attempted_command": "sh -c \"set -a; . ./.env.local; set +a; venv/bin/python tmp/generate_dot_key_prompt_route_proof.py\"",
+  "error_code": "billing_hard_limit_reached",
+  "error_message": "Billing hard limit has been reached.",
+  "why_not_using_text_only_imagegen": "Final Aachu/Zuv carousel illustrations require actual identity refs and style refs as image inputs; text-only imagegen already failed identity, tone, blocking, and text gates.",
+  "next_unblocked_action": "Rerun the proof script for slide 6. If it passes, generate all 4:5 and 9:16 slides from the prompt pack.",
+  "proof_first_slide": 6,
   "publishable": false,
-  "requires_human_generation": false,
-  "slides": [
-    {
-      "slide": 1,
-      "copy": "He didn't marry peace.",
-      "expected_files": {
-        "instagram_post": "final/slide-01.png",
-        "reels_stories": "final-reels-stories/slide-01.png"
-      },
-      "source_prompt_slide": 1
-    },
-    {
-      "slide": 2,
-      "copy": "\"Mujhe kuch nahi hua\" means something definitely happened.",
-      "expected_files": {
-        "instagram_post": "final/slide-02.png",
-        "reels_stories": "final-reels-stories/slide-02.png"
-      },
-      "source_prompt_slide": 2
-    },
-    {
-      "slide": 3,
-      "copy": "She packed 14 outfits for one plan.",
-      "expected_files": {
-        "instagram_post": "final/slide-03.png",
-        "reels_stories": "final-reels-stories/slide-03.png"
-      },
-      "source_prompt_slide": 3
-    },
-    {
-      "slide": 4,
-      "copy": "She had 10 moods before lunch.",
-      "expected_files": {
-        "instagram_post": "final/slide-04.png",
-        "reels_stories": "final-reels-stories/slide-04.png"
-      },
-      "source_prompt_slide": 4
-    },
-    {
-      "slide": 5,
-      "copy": "Maybe love is not less chaos. Maybe it is safer chaos.",
-      "expected_files": {
-        "instagram_post": "final/slide-05.png",
-        "reels_stories": "final-reels-stories/slide-05.png"
-      },
-      "source_prompt_slide": 5
-    }
-  ],
-  "reason": "Carousel package exists, but image handoff has not been prepared."
+  "done": false,
+  "native_final_outputs": "not_generated",
+  "existing_local_preview_files": "rejected_do_not_use_as_final"
 }

@@ -1,57 +1,90 @@
 {
-  "status": "draft",
-  "backend": "none",
-  "generation_mode": "not_generated",
-  "slide_count": 5,
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "updated_at": "2026-05-31T17:18:23",
+  "blocked_step": "reference_image_generation_proof_slide_06",
+  "attempted_command": "sh -c \"set -a; . ./.env.local; set +a; venv/bin/python tmp/generate_dot_key_prompt_route_proof.py\"",
+  "error_code": "billing_hard_limit_reached",
+  "error_message": "Billing hard limit has been reached.",
+  "why_not_using_text_only_imagegen": "Final Aachu/Zuv carousel illustrations require actual identity refs and style refs as image inputs; text-only imagegen already failed identity, tone, blocking, and text gates.",
+  "next_unblocked_action": "Rerun the proof script for slide 6. If it passes, generate all 4:5 and 9:16 slides from the prompt pack.",
+  "proof_first_slide": 6,
+  "backend": "gpt_image_1_reference_edit",
+  "generation_mode": "reference_image_generation",
+  "slide_count": 8,
   "done": false,
   "publishable": false,
-  "requires_human_generation": false,
+  "requires_human_or_api_generation": true,
+  "existing_final_folder_status": "REJECTED_LOCAL_PREVIEW_DO_NOT_PUBLISH",
+  "identity_reference_images": [
+    "output/carousels/2026-05-31/he-didn-t-marry-organized/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+  ],
   "slides": [
     {
       "slide": 1,
-      "copy": "He didn't marry peace.",
-      "expected_files": {
-        "instagram_post": "final/slide-01.png",
-        "reels_stories": "final-reels-stories/slide-01.png"
-      },
-      "source_prompt_slide": 1
+      "copy": "He didn't marry organized.",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-01.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-01.prompt.txt"
     },
     {
       "slide": 2,
-      "copy": "\"Mujhe kuch nahi hua\" means something definitely happened.",
-      "expected_files": {
-        "instagram_post": "final/slide-02.png",
-        "reels_stories": "final-reels-stories/slide-02.png"
-      },
-      "source_prompt_slide": 2
+      "copy": "He married \"maine yahin rakha tha.\"",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-02.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-02.prompt.txt"
     },
     {
       "slide": 3,
-      "copy": "She packed 14 outfits for one plan.",
-      "expected_files": {
-        "instagram_post": "final/slide-03.png",
-        "reels_stories": "final-reels-stories/slide-03.png"
-      },
-      "source_prompt_slide": 3
+      "copy": "He married drawer-searching.",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-03.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-03.prompt.txt"
     },
     {
       "slide": 4,
-      "copy": "She had 10 moods before lunch.",
-      "expected_files": {
-        "instagram_post": "final/slide-04.png",
-        "reels_stories": "final-reels-stories/slide-04.png"
-      },
-      "source_prompt_slide": 4
+      "copy": "Pouch-searching. Bathroom-searching.",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-04.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-04.prompt.txt"
     },
     {
       "slide": 5,
-      "copy": "Maybe love is not less chaos. Maybe it is safer chaos.",
-      "expected_files": {
-        "instagram_post": "final/slide-05.png",
-        "reels_stories": "final-reels-stories/slide-05.png"
-      },
-      "source_prompt_slide": 5
+      "copy": "And wardrobe-searching also.",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-05.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-05.prompt.txt"
+    },
+    {
+      "slide": 6,
+      "copy": "Then he opened his stock drawer.",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-06.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-06.prompt.txt"
+    },
+    {
+      "slide": 7,
+      "copy": "Her Dot & Key was already there.",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-07.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-07.prompt.txt"
+    },
+    {
+      "slide": 8,
+      "copy": "Maybe love is knowing what she'll need before she does.",
+      "status": "blocked",
+      "instagram_post_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/instagram-post/slide-08.prompt.txt",
+      "reels_stories_prompt": "output/carousels/2026-05-31/he-didn-t-marry-organized/codex-image-prompts/reels-stories/slide-08.prompt.txt"
     }
-  ],
-  "reason": "Carousel package exists, but image handoff has not been prepared."
+  ]
 }

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "pass": false,
+  "updated_at": "2026-05-31T17:18:23",
+  "reason": "No accepted reference-image generated proof exists. Existing local previews are rejected after creator feedback.",
+  "failed": [
+    "text-only/local preview route failed identity, paper tone, scene blocking, and text gates",
+    "API proof route blocked by billing_hard_limit_reached"
+  ],
+  "next_check": "Run slide 6 proof and inspect identity, skin tone, paper tone, action blocking, exact text, and brandmark."
+}

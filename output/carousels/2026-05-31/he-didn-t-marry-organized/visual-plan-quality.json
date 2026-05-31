@@ -3,130 +3,104 @@
   "status": "PASS",
   "decision": "GO",
   "can_generate": true,
-  "lane": "Chaotic Wife, Calm Husband",
-  "winner": "Slide-Led Evidence Plan",
-  "rejected_visual_patterns": [
-    "Photo-First Continuity",
-    "Minimal Symbol Plan"
-  ],
-  "continuity_locks": {},
-  "agents": [
-    "C3A-VisualEvidencePlanner",
-    "C3B-RomanceScenePlanner",
-    "C3C-ContinuityJudge",
-    "C3D-ScreenQualityJudge"
-  ],
-  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "updated_at": "2026-05-31T17:18:23",
+  "lane": "Brand Integration / Household Care Comedy",
+  "winner": "Domestic Inventory Short Film",
+  "screen_policy": "Each slide must prove the relationship truth through action before text; Zuv appears only when active.",
+  "continuity_locks": {
+    "identity": "Use selected identity refs as actual image inputs.",
+    "style": "Neutral warm ivory/off-white Observational Intimacy Premium only.",
+    "product": "Blue Dot & Key Barrier Repair tube legible on reveal/payoff slides; controlled label workflow allowed for product microtext only.",
+    "claim_safety": "No cure/fix/diagnosis claims; strawberry face is an affectionate expression cue."
+  },
   "slide_reviews": [
     {
       "slide": 1,
-      "copy": "He didn't marry peace.",
+      "copy": "He didn't marry organized.",
       "status": "GO",
-      "reviewers": [
-        "C3A-VisualEvidencePlanner",
-        "C3B-RomanceScenePlanner",
-        "C3C-ContinuityJudge",
-        "C3D-ScreenQualityJudge"
-      ],
-      "checks": {
-        "copy_visual_alignment": true,
-        "golden_theme_proof": true,
-        "relationship_behavior_visible": true,
-        "stage_scene_storytelling": true,
-        "no_losing_visual_option_leak": true,
-        "slide_world_continuity": true,
-        "aspect_safe_composition": true,
-        "doubt_flags_resolved": true
-      },
-      "issues": []
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Aachu solo in a quiet bedroom vanity corner at night. She is mid-search, not posing: one hand lifts her loose dark hair away from softly strawberry-blushed cheeks while the other pauses near an open vanity drawer. The drawer shows cotton pads, clips, hair ties, and one clean empty space shaped like a missing blue skincare tube. Only Aachu is visible in this frame. The joke is her search-chaos. Keep the scene affectionate and specific, never mocking."
     },
     {
       "slide": 2,
-      "copy": "\"Mujhe kuch nahi hua\" means something definitely happened.",
+      "copy": "He married \"maine yahin rakha tha.\"",
       "status": "GO",
-      "reviewers": [
-        "C3A-VisualEvidencePlanner",
-        "C3B-RomanceScenePlanner",
-        "C3C-ContinuityJudge",
-        "C3D-ScreenQualityJudge"
-      ],
-      "checks": {
-        "copy_visual_alignment": true,
-        "golden_theme_proof": true,
-        "relationship_behavior_visible": true,
-        "stage_scene_storytelling": true,
-        "no_losing_visual_option_leak": true,
-        "slide_world_continuity": true,
-        "aspect_safe_composition": true,
-        "doubt_flags_resolved": true
-      },
-      "issues": []
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Aachu solo at the vanity table, pointing with total confidence at the exact wrong spot. A denim pouch, clips, comb, cotton pads, and tiny routine objects are scattered around her like evidence. Her expression says she is completely sure she kept it there. Only Aachu is visible in this frame; the relationship is implied by the line and the domestic evidence."
     },
     {
       "slide": 3,
-      "copy": "She packed 14 outfits for one plan.",
+      "copy": "He married drawer-searching.",
       "status": "GO",
-      "reviewers": [
-        "C3A-VisualEvidencePlanner",
-        "C3B-RomanceScenePlanner",
-        "C3C-ContinuityJudge",
-        "C3D-ScreenQualityJudge"
-      ],
-      "checks": {
-        "copy_visual_alignment": true,
-        "golden_theme_proof": true,
-        "relationship_behavior_visible": true,
-        "stage_scene_storytelling": true,
-        "no_losing_visual_option_leak": true,
-        "slide_world_continuity": true,
-        "aspect_safe_composition": true,
-        "doubt_flags_resolved": true
-      },
-      "issues": []
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Hands-first close domestic drawer-search scene. Aachu's hands move through a messy open drawer with bangles, hair ties, cotton pads, and small skincare routine objects. Her face appears only in a partial three-quarter angle at the edge, focused and determined. Zuv is absent. The missing blue-tube-shaped gap should be visible without turning the slide into a product reveal."
     },
     {
       "slide": 4,
-      "copy": "She had 10 moods before lunch.",
+      "copy": "Pouch-searching. Bathroom-searching.",
       "status": "GO",
-      "reviewers": [
-        "C3A-VisualEvidencePlanner",
-        "C3B-RomanceScenePlanner",
-        "C3C-ContinuityJudge",
-        "C3D-ScreenQualityJudge"
-      ],
-      "checks": {
-        "copy_visual_alignment": true,
-        "golden_theme_proof": true,
-        "relationship_behavior_visible": true,
-        "stage_scene_storytelling": true,
-        "no_losing_visual_option_leak": true,
-        "slide_world_continuity": true,
-        "aspect_safe_composition": true,
-        "doubt_flags_resolved": true
-      },
-      "issues": []
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "A single airy domestic composition, not a collage: an open denim or soft pink pouch sits in the foreground while a bathroom shelf and mirror sit softly behind it. Aachu checks both spaces with rising playful suspicion, visible through a natural reflection or side profile. Zuv is absent. Keep the exact text as one line if possible; if it must wrap, preserve the wording and punctuation exactly."
     },
     {
       "slide": 5,
-      "copy": "Maybe love is not less chaos. Maybe it is safer chaos.",
+      "copy": "And wardrobe-searching also.",
       "status": "GO",
-      "reviewers": [
-        "C3A-VisualEvidencePlanner",
-        "C3B-RomanceScenePlanner",
-        "C3C-ContinuityJudge",
-        "C3D-ScreenQualityJudge"
-      ],
-      "checks": {
-        "copy_visual_alignment": true,
-        "golden_theme_proof": true,
-        "relationship_behavior_visible": true,
-        "stage_scene_storytelling": true,
-        "no_losing_visual_option_leak": true,
-        "slide_world_continuity": true,
-        "aspect_safe_composition": true,
-        "doubt_flags_resolved": true
-      },
-      "issues": []
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "A wardrobe door is open. Aachu is half-hidden behind the door, searching between folded clothes and hangers even though a moisturizer obviously should not be there. Only her face, hair, one shoulder, and searching hands need to show. Zuv is absent. The absurdity of the location should carry the slide."
+    },
+    {
+      "slide": 6,
+      "copy": "Then he opened his stock drawer.",
+      "status": "GO",
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Zuv appears for the first time with an active story job. He is seated, kneeling comfortably, or leaning naturally close to a neat household stock drawer while opening it with one hand. The drawer has small organized sections for skincare, chargers, clips, and tiny household backups, but no visible written section labels. Aachu is only a partial surprised side profile, shoulder, or soft edge-of-frame presence if she helps the scene. Frame Zuv through his upper body, hand, and drawer-opening action so the action proves the line."
+    },
+    {
+      "slide": 7,
+      "copy": "Her Dot & Key was already there.",
+      "status": "GO",
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Product-reveal scene inside the same stock drawer. Zuv's hand holds the drawer open. Aachu may appear only as a small side profile or softened reaction at the edge. The blue Dot & Key Barrier Repair tube is front-facing in the drawer and readable at phone-screen size. Product text must include the exact brand cue 'DOT & KEY' and the product cue 'BARRIER REPAIR'. The product is a relationship receipt, not an ad packshot."
+    },
+    {
+      "slide": 8,
+      "copy": "Maybe love is knowing what she'll need before she does.",
+      "status": "GO",
+      "visual_evidence": "GO",
+      "emotional_proof": "GO",
+      "identity_continuity": "GO",
+      "typography_safety": "GO",
+      "aspect_specific_composition": "GO",
+      "notes": "Quiet final home scene. Aachu and Zuv sit naturally close at the vanity or bed edge in a warm cropped seated composition. Aachu's expression softens with playful strawberry-cheek warmth. Zuv either hands her the blue Dot & Key tube or places it quietly near her routine. The tube is visible but secondary. The room is tidy enough to show he keeps stock, messy enough to still feel like them."
     }
   ],
   "issues": []
