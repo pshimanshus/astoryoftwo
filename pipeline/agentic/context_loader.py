@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.agentic.contracts import ContextPack, ContextSection
+from pipeline.agentic.rule_includes import expand_rule_includes
 
 
 MANIFEST_PATH = Path("config/agentic_context_manifest.json")
@@ -56,7 +57,8 @@ def assemble_context_pack(root: Path, profile: str | None = None) -> ContextPack
                 raise FileNotFoundError(f"Missing required context file: {relative}")
             continue
         raw = path.read_text(encoding="utf-8", errors="ignore")
-        content, truncated = trim_to_budget(raw, remaining)
+        expanded = expand_rule_includes(raw, root)
+        content, truncated = trim_to_budget(expanded, remaining)
         tokens = estimate_tokens(content)
         remaining = max(0, remaining - tokens)
         sections.append(
