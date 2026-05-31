@@ -6,6 +6,7 @@ import pytest
 
 from pipeline.agentic.contracts import (
     PauseRequest,
+    RepairAttempt,
     RepairBudget,
     RunArtifact,
     WorkflowGate,
@@ -46,6 +47,36 @@ def test_run_artifact_records_path_and_kind() -> None:
 def test_run_artifact_rejects_unknown_kind() -> None:
     with pytest.raises(ValueError):
         RunArtifact(name="x", path="/tmp/x", kind="not_a_real_kind")
+
+
+def test_run_artifact_accepts_extended_kinds() -> None:
+    for kind in ("input", "intermediate", "output", "blocker", "report", "log"):
+        artifact = RunArtifact(name="x", path="/tmp/x", kind=kind)
+        assert artifact.kind == kind
+
+
+def test_workflow_state_record_collects_repair_history() -> None:
+    record = WorkflowStateRecord(state="proof_generation")
+    assert record.repair_history == []
+    record.repair_history.append(
+        RepairAttempt(
+            reason="palette FAIL on first attempt",
+            gate_failures=[
+                WorkflowGate(name="palette", status="FAIL", reason="yellow drift")
+            ],
+        )
+    )
+    record.repair_history.append(
+        RepairAttempt(
+            reason="palette FAIL on second attempt",
+            gate_failures=[
+                WorkflowGate(name="palette", status="FAIL", reason="still yellow")
+            ],
+        )
+    )
+    assert len(record.repair_history) == 2
+    assert record.repair_history[0].gate_failures[0].name == "palette"
+    assert record.repair_history[1].attempted_at  # auto-stamped
 
 
 def test_pause_request_rejects_unknown_awaiting_value() -> None:

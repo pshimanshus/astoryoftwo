@@ -139,7 +139,14 @@ class RepairBudget(BaseModel):
 class RunArtifact(BaseModel):
     name: str
     path: str
-    kind: Literal["input", "intermediate", "output"]
+    kind: Literal[
+        "input",
+        "intermediate",
+        "output",
+        "blocker",
+        "report",
+        "log",
+    ]
     written_at: str = Field(default_factory=utc_now_iso)
 
 
@@ -158,12 +165,19 @@ class PauseRequest(BaseModel):
     resume_hint: str
 
 
+class RepairAttempt(BaseModel):
+    attempted_at: str = Field(default_factory=utc_now_iso)
+    reason: str
+    gate_failures: list[WorkflowGate] = Field(default_factory=list)
+
+
 class WorkflowStateRecord(BaseModel):
     state: str
     entered_at: str = Field(default_factory=utc_now_iso)
     exited_at: str | None = None
     gates: list[WorkflowGate] = Field(default_factory=list)
     repair_budget: RepairBudget = Field(default_factory=RepairBudget)
+    repair_history: list[RepairAttempt] = Field(default_factory=list)
     pause: PauseRequest | None = None
 
 
