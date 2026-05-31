@@ -2,6 +2,53 @@
 # "The schema file is the real product." — Rohit Ghumare, LLM Wiki v2
 # Karpathy wiki pattern + Rohit v2 memory lifecycle
 
+## Canonical Rules (read first)
+
+Every constraint that drives generation now lives in exactly one file under
+`config/rules/`. This is the load-bearing source of truth. The duplicated
+text that used to live across `config/references/`, `config/skills/`, and
+`memory/semantic/` is being deprecated — those files are reference, not
+authority. The context manifest loads `config/rules/*` into every session.
+
+| Rule | File | Covers |
+|---|---|---|
+| palette | `config/rules/palette.md` | warm-ivory paper, watercolor-and-ink style, hard fails (yellow/mustard/sepia/parchment/tan/beige), accent palette, deterministic acceptance thresholds |
+| identity | `config/rules/identity.md` | Aachu/Zuv hierarchy, identity reference rule, face preservation, heights (5'6"/5'8"), wardrobe continuity, anatomy/pose rules |
+| on-image-text | `config/rules/on-image-text.md` | source-of-truth contract, placement, handwritten typography, anti-text-invention default |
+| brandmark | `config/rules/brandmark.md` | tiny `@a.storyof.two` bottom-right always |
+| brand-zone | `config/rules/brand-zone.md` | brand-integration legibility, brand-label workflow (only when sponsored) |
+| voice | `config/rules/voice.md` | @a.storyof.two voice, aesthetic, content pillars, caption style, story-feel test, public-naming rule |
+| golden-theme | `config/rules/golden-theme.md` | Calm Enough For Your Chaos 5-layer stack, 28/30 rubric, repair playbook |
+| story-selling | `config/rules/story-selling.md` | Layer E 30-point rubric, decision rules, hard fails |
+
+Skill files, prompt templates, and context sections compose rules via the
+`{{rule:NAME}}` include syntax — see `pipeline/agentic/rule_includes.py`.
+The context loader expands includes before token-estimating each section.
+
+**Known migration gap (Task 9 of the activation sprint):** existing
+`config/skills/*.md` files still inline duplicated rule text. Until the
+skill-dedup task lands, rules ARE canonical at the manifest level but
+skill files still carry their own copies. Treat `config/rules/` as
+authoritative when there is any disagreement.
+
+## Deterministic Gates (the runtime checks)
+
+`pipeline/agentic/checks/` carries deterministic gates the workflow
+runner uses to PASS/FAIL slides on measurement instead of LLM opinion:
+
+- `check_palette` — paper-region warm-ivory tolerance + yellow-band
+  fraction. Calibrated against the 8 approved Observational Intimacy
+  Premium reference slides on 2026-05-31.
+- `check_ocr_text` — OCR vs. expected `slides.md` text with fuzzy
+  tolerance for handwritten variation. Degrades to STOP (soft skip)
+  when easyocr is not installed.
+- `check_image_size` — native 4:5 / 9:16 aspect within ±0.01 plus
+  minimum dimensions. Catches "one image resized into both formats."
+- `check_prompt_constraints` — compiled prompt contains 8 canonical
+  fragments. Catches prompt-compile drift before generation.
+
+Active sprint: `docs/superpowers/plans/2026-05-31-agentic-os-activation-sprint.md`.
+
 ## Identity
 - Channel: **@a.storyof.two**
 - Creator: Anchal Sharma
