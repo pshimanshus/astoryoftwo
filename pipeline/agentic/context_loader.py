@@ -8,10 +8,18 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.agentic.contracts import ContextPack, ContextSection
-from pipeline.agentic.rule_includes import expand_rule_includes
+from pipeline.agentic.rule_includes import expand_rule_includes, rule_names_referenced
 
 
 MANIFEST_PATH = Path("config/agentic_context_manifest.json")
+
+
+class RequiredSectionTruncatedError(RuntimeError):
+    """Raised when a required section would be truncated mid-content by the
+    context-pack budget. A silent mid-string cut on a rule-include section
+    can mutilate a constraint (e.g. drop "HARD FAIL: yellow"), so the
+    context-pack assembly fails loudly instead.
+    """
 
 
 def estimate_tokens(text: str) -> int:
@@ -59,6 +67,15 @@ def assemble_context_pack(root: Path, profile: str | None = None) -> ContextPack
         raw = path.read_text(encoding="utf-8", errors="ignore")
         expanded = expand_rule_includes(raw, root)
         content, truncated = trim_to_budget(expanded, remaining)
+        if truncated and required and rule_names_referenced(raw):
+            raise RequiredSectionTruncatedError(
+                f"Required section '{item['id']}' (source: {relative}) expands to "
+                f"{estimate_tokens(expanded)} tokens but only {remaining} remain "
+                f"in the budget. The section references rule includes "
+                f"({rule_names_referenced(raw)}); silently truncating it would "
+                "risk dropping a HARD FAIL constraint. Raise the budget for this "
+                "profile or move this section earlier in the manifest."
+            )
         tokens = estimate_tokens(content)
         remaining = max(0, remaining - tokens)
         sections.append(
