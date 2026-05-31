@@ -6,10 +6,52 @@
       "budget_tokens": 1800,
       "sections": [
         {
-          "id": "channel_voice",
-          "path": "config/voice.md",
-          "kind": "brand_voice",
+          "id": "rule_palette",
+          "path": "config/rules/palette.md",
+          "kind": "canonical_rule",
           "required": true
+        },
+        {
+          "id": "rule_identity",
+          "path": "config/rules/identity.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_on_image_text",
+          "path": "config/rules/on-image-text.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_brandmark",
+          "path": "config/rules/brandmark.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_voice",
+          "path": "config/rules/voice.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_golden_theme",
+          "path": "config/rules/golden-theme.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_story_selling",
+          "path": "config/rules/story-selling.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_brand_zone",
+          "path": "config/rules/brand-zone.md",
+          "kind": "canonical_rule",
+          "required": false
         },
         {
           "id": "working_memory",
@@ -30,40 +72,16 @@
           "required": true
         },
         {
-          "id": "premium_illustration_style_lock",
-          "path": "memory/semantic/premium-illustration-style-lock.md",
-          "kind": "semantic_memory",
-          "required": true
-        },
-        {
           "id": "identity_reference_bundle",
           "path": "config/references/identity/README.md",
           "kind": "identity_reference",
           "required": true
         },
         {
-          "id": "visual_director_intelligence",
-          "path": "memory/semantic/visual-director-intelligence.md",
-          "kind": "semantic_memory",
-          "required": true
-        },
-        {
-          "id": "copywriter_intelligence",
-          "path": "memory/semantic/copywriter-intelligence.md",
-          "kind": "semantic_memory",
-          "required": true
-        },
-        {
-          "id": "golden_theme",
-          "path": "wiki/themes/calm-enough-for-chaos.md",
-          "kind": "wiki_theme",
-          "required": true
-        },
-        {
           "id": "agent_contract",
           "path": "AGENTS.md",
           "kind": "operating_contract",
-          "required": true
+          "required": false
         }
       ]
     },
@@ -71,9 +89,21 @@
       "budget_tokens": 1800,
       "sections": [
         {
-          "id": "channel_voice",
-          "path": "config/voice.md",
-          "kind": "brand_voice",
+          "id": "rule_voice",
+          "path": "config/rules/voice.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_golden_theme",
+          "path": "config/rules/golden-theme.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_story_selling",
+          "path": "config/rules/story-selling.md",
+          "kind": "canonical_rule",
           "required": true
         },
         {
@@ -89,28 +119,10 @@
           "required": true
         },
         {
-          "id": "visual_director_intelligence",
-          "path": "memory/semantic/visual-director-intelligence.md",
-          "kind": "semantic_memory",
-          "required": true
-        },
-        {
-          "id": "copywriter_intelligence",
-          "path": "memory/semantic/copywriter-intelligence.md",
-          "kind": "semantic_memory",
-          "required": true
-        },
-        {
-          "id": "golden_theme",
-          "path": "wiki/themes/calm-enough-for-chaos.md",
-          "kind": "wiki_theme",
-          "required": true
-        },
-        {
           "id": "article_framework",
           "path": "config/skills/couple-substack-article-framework.md",
           "kind": "workflow_skill",
-          "required": true
+          "required": false
         }
       ]
     }
