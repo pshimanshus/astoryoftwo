@@ -47,6 +47,13 @@ Every constraint that drives generation lives in exactly one file under
 `config/skills/`, and `memory/semantic/` reference them, they do not
 re-state them.
 
+**Known migration gap (Task 9 of the activation sprint):** existing
+`config/skills/*.md` files still inline rule text. Until the skill-dedup
+task lands, rules ARE canonical at the manifest level (every session
+loads `config/rules/*` via `config/agentic_context_manifest.json`) but
+skill files still carry their own copies. Treat `config/rules/` as
+authoritative when there is any disagreement.
+
 | Rule | Source of truth | What it covers |
 |---|---|---|
 | palette | `config/rules/palette.md` | Warm-ivory paper, watercolor-and-ink style, hard fails (yellow/mustard/sepia/parchment/tan/beige), accent palette, deterministic acceptance thresholds |

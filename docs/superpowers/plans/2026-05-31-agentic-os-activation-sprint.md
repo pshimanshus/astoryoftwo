@@ -1,5 +1,13 @@
 # Agentic OS Activation Sprint Implementation Plan
 
+> **Progress (2026-05-31):**
+> - Task 1 (Rule Consolidation) ✅ landed in `33de1f9`, hardened in `ebb3fbf`, wired to manifest in `032a9b7`.
+> - Task 2 (Typed Contracts) ✅ landed in `a96eb56`, hardened in `dc2085f`.
+> - Task 3 (Deterministic Gates) ✅ landed in `584a968`, calibrated in `95ffef4`, expanded in `a29fbc2` and `458b021`.
+> - Task 4–11 pending.
+>
+> **Known gap surfaced during R2 review:** existing `config/skills/*.md` files still inline duplicated rule text. The activation plan's Task 9 migrates them to `{{rule:NAME}}` includes. Until then, rules ARE canonical at the context-pack level (every session loads `config/rules/*` via the manifest) but skill files carry their own copies — treat `config/rules/` as authoritative on any disagreement.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Activate the existing Agentic OS so it executes the carousel workflow end-to-end as a typed state machine — replacing the ad-hoc orchestration in `scripts/create_illustration_carousel.py`, collapsing 15-place rule duplication to a single canonical source, swapping LLM-judged-gates for deterministic checks where physics allows, and inserting five explicit human pauses at the moments the creator's taste must enter the loop.
