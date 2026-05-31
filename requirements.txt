@@ -22,6 +22,7 @@ tenacity>=8.2.0
 # Image gates (deterministic checks)
 Pillow>=10
 numpy>=1.26
+rapidfuzz>=3.0  # fuzzy text match for OCR comparison
 
 # OCR gate (optional but recommended; pulls in torch ~1GB)
 # Install separately with: venv/bin/pip install easyocr

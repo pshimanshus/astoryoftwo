@@ -114,6 +114,63 @@ def test_gate_passes_with_stubbed_reader_when_text_matches(tmp_path, monkeypatch
     assert gate.status == "PASS"
 
 
+def test_gate_passes_under_fuzzy_match_for_one_character_ocr_error(tmp_path, monkeypatch) -> None:
+    """Real-world OCR error: 'noticed' read as 'noticei'. Should still PASS
+    via fuzzy match because the typography on phone-screen is fine."""
+    import pipeline.agentic.checks.ocr_text as ocr_mod
+
+    monkeypatch.setattr(ocr_mod, "_easyocr_available", lambda: True)
+
+    class _StubReader:
+        def readtext(self, _path, detail=0):
+            return ["she noticei"]
+
+    monkeypatch.setattr(ocr_mod, "_reader", lambda: _StubReader())
+
+    path = _render_text_image(tmp_path / "noticei.png", "she noticed")
+    gate = check_ocr_text(path, "she noticed")
+    assert gate.status == "PASS"
+    assert "fuzzy match" in gate.reason
+    assert "similarity" in gate.reason
+
+
+def test_gate_passes_under_fuzzy_match_for_minor_word_swap(tmp_path, monkeypatch) -> None:
+    """OCR reads a small variant like 'the' vs 'tho' — still close enough."""
+    import pipeline.agentic.checks.ocr_text as ocr_mod
+
+    monkeypatch.setattr(ocr_mod, "_easyocr_available", lambda: True)
+
+    class _StubReader:
+        def readtext(self, _path, detail=0):
+            return ["he didnt marry organized"]
+
+    monkeypatch.setattr(ocr_mod, "_reader", lambda: _StubReader())
+
+    path = _render_text_image(tmp_path / "near.png", "he didn't marry organized")
+    gate = check_ocr_text(path, "he didn't marry organized")
+    # Either exact substring (after normalization removes the apostrophe difference)
+    # or fuzzy partial match must pass.
+    assert gate.status == "PASS"
+
+
+def test_gate_fails_when_fuzzy_similarity_below_threshold(tmp_path, monkeypatch) -> None:
+    """Detected text is unrelated to expected — should not fuzzy-pass."""
+    import pipeline.agentic.checks.ocr_text as ocr_mod
+
+    monkeypatch.setattr(ocr_mod, "_easyocr_available", lambda: True)
+
+    class _StubReader:
+        def readtext(self, _path, detail=0):
+            return ["completely unrelated wording about plants"]
+
+    monkeypatch.setattr(ocr_mod, "_reader", lambda: _StubReader())
+
+    path = _render_text_image(tmp_path / "drift.png", "she noticed")
+    gate = check_ocr_text(path, "she noticed")
+    assert gate.status == "FAIL"
+    assert "similarity" in gate.reason
+
+
 @easyocr_required
 def test_gate_passes_for_real_render(tmp_path: Path) -> None:
     """Real easyocr round-trip. Skipped when easyocr is not installed."""
