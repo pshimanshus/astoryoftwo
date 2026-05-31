@@ -1,0 +1,45 @@
+{
+  "date": "2026-05-31",
+  "slug": "private-captions-fresh-a-story",
+  "title": "Private Captions",
+  "channel": "@a.storyof.two",
+  "status": "identity_height_repair_in_progress",
+  "fresh_start": true,
+  "reuse_policy": {
+    "no_existing_output_reuse": true,
+    "do_not_copy_from_previous_carousel_or_proof_folders": true,
+    "allowed_inputs": [
+      "creator supplied screenshot references",
+      "creator supplied identity images",
+      "A Story of Two house style contract"
+    ]
+  },
+  "format": {
+    "instagram_post": "4:5 native post images",
+    "reels_stories": "9:16 native story images",
+    "rule": "Generate fresh art for each surface; do not resize one format into the other."
+  },
+  "hard_identity_height_gate": {
+    "path": "identity-height-lock.json",
+    "status": "ACTIVE",
+    "rule": "Do not continue the batch until a corrected proof passes face match and the 5'8 vs 5'6 height relationship."
+  },
+  "identity_references": [
+    "identity_images/Screenshot 2026-05-16 at 7.50.15\u202fPM.png",
+    "identity_images/Screenshot 2026-05-16 at 7.48.59\u202fPM.png",
+    "identity_images/Screenshot 2026-05-16 at 7.45.05\u202fPM.png",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.47 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+    "identity_images/Screenshot 2026-05-16 at 7.49.58\u202fPM.png"
+  ],
+  "story_references": [
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.18.46\u202fPM.png",
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.18.51\u202fPM.png",
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.18.56\u202fPM.png",
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.19.01\u202fPM.png",
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.19.06\u202fPM.png",
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.19.11\u202fPM.png",
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.19.16\u202fPM.png",
+    "/Users/himanshusharma/Desktop/ss/Screenshot 2026-05-23 at 1.19.22\u202fPM.png"
+  ]
+}

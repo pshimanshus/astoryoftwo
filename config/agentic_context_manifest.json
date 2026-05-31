@@ -36,6 +36,24 @@
           "required": true
         },
         {
+          "id": "identity_reference_bundle",
+          "path": "config/references/identity/README.md",
+          "kind": "identity_reference",
+          "required": true
+        },
+        {
+          "id": "visual_director_intelligence",
+          "path": "memory/semantic/visual-director-intelligence.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
+          "id": "copywriter_intelligence",
+          "path": "memory/semantic/copywriter-intelligence.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
           "id": "golden_theme",
           "path": "wiki/themes/calm-enough-for-chaos.md",
           "kind": "wiki_theme",
@@ -67,6 +85,18 @@
         {
           "id": "carousel_preferences",
           "path": "memory/semantic/carousel-idea-preferences.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
+          "id": "visual_director_intelligence",
+          "path": "memory/semantic/visual-director-intelligence.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
+          "id": "copywriter_intelligence",
+          "path": "memory/semantic/copywriter-intelligence.md",
           "kind": "semantic_memory",
           "required": true
         },

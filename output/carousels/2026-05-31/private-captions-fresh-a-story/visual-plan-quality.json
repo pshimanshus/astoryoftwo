@@ -1,0 +1,19 @@
+{
+  "status": "GO",
+  "fresh_start_confirmed": true,
+  "no_existing_output_reuse": true,
+  "overall_verdict": "Generate fresh A Story of Two illustrations from the current screenshot references and identity images only.",
+  "checks": {
+    "exact_copy": "GO",
+    "celebrity_likeness_avoidance": "GO",
+    "a_story_house_style": "GO",
+    "identity_reference_use": "GO",
+    "paired_label_readability": "GO",
+    "native_format_plan": "GO"
+  },
+  "notes": [
+    "The screenshot references are story/composition references only.",
+    "Final characters must be Aachu and Zuv, not the TV actors.",
+    "Exact labels will be applied through a controlled local text pass after clean illustration generation to preserve spelling."
+  ]
+}

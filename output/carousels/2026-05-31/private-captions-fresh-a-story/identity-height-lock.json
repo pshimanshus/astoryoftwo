@@ -1,0 +1,34 @@
+{
+  "status": "ACTIVE_HARD_GATE",
+  "created": "2026-05-31",
+  "reason": "Creator rejected early proofs for face mismatch and height mismatch.",
+  "height_lock": {
+    "himanshu": "5'8\"",
+    "aanchal": "5'6\"",
+    "difference_inches": 2,
+    "ratio": 0.9706,
+    "standing_rule": "They are near the same height. Himanshu is only slightly taller; Aanchal's crown should land around his upper forehead/hairline area, never at shoulder, chin, or low eye level.",
+    "composition_rule": "If one person is sitting, leaning, or closer to camera, the prompt must explicitly protect apparent scale so she does not become tiny and he does not become oversized."
+  },
+  "face_lock": {
+    "aanchal": [
+      "oval youthful face, soft cheek structure, expressive dark eyes",
+      "softly arched brows, delicate nose, natural smile/lips",
+      "long dark hair, usually loose with a center/soft side part",
+      "warm medium South Asian skin tone",
+      "do not make her a generic sharp-featured model or a different woman"
+    ],
+    "himanshu": [
+      "rounder warm South Asian face with gentle masculine structure",
+      "thick dark curly/wavy hair, strong brows, dark eyes",
+      "defined nose, short natural stubble beard, kind smile",
+      "stockier natural build, not overly chiseled, not tall lanky",
+      "do not make him a generic curly-haired model or a different man"
+    ]
+  },
+  "generation_rule": "Do not continue the carousel batch until one corrected proof passes face match and the 5'8 vs 5'6 height relationship.",
+  "rejected_files": [
+    "rejected/identity-height-mismatch/slide-01.png",
+    "rejected/identity-height-mismatch/slide-02.png"
+  ]
+}
