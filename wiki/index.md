@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-05-31
-total_pages: 72
+total_pages: 73
 confidence_floor: 0.4
 
 ---
@@ -111,6 +111,13 @@ Illustrated carousel packages and their learning records.
 | [He Did Not Marry Peace](carousels/he-did-not-marry-peace.md) | 2026-05-16 | 5 | C-layer | 0.7 |
 | [Love Kept The Same Posture](carousels/love-kept-the-same-posture-2.md) | 2026-05-16 | 5 | C-layer | 0.7 |
 | [Love Kept The Same Posture (stale pre-identity run)](carousels/love-kept-the-same-posture.md) | 2026-05-16 | 5 | C-layer | 0.4 |
+
+## Single Posts
+Standalone illustration posts, single-image quote assets, and loopable frame sets.
+
+| Asset | Date | Frames | Format | Confidence |
+|-------|------|--------|--------|------------|
+| [Tum Toh Dil Ho Loop](single-posts/tum-toh-dil-ho-loop.md) | 2026-05-31 | 3 | Single-post loop | 0.74 |
 
 ## Insights
 Distilled strategic insights about the channel.
