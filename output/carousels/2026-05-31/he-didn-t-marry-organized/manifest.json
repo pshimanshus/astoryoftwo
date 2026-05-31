@@ -1,0 +1,167 @@
+{
+  "date": "2026-05-31",
+  "slug": "he-didn-t-marry-organized",
+  "title": "He Didn't Marry Organized",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "draft_for_human_review",
+  "source_story": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.\n",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 8,
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "native_output_rule": "Generate both formats separately. Never resize, crop, pad, or extend one output into the other."
+  },
+  "reference_images": [],
+  "identity_references": [
+    {
+      "path": "config/references/identity/aachu/portrait-02.jpg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "config/references/identity/together/together-19.jpg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "config/references/identity/together/together-21.jpg",
+      "role": "Aachu/Zuv face consistency reference"
+    }
+  ],
+  "identity_reference_selection": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-05-31/he-didn-t-marry-organized/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-05-31/he-didn-t-marry-organized/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-05-31/he-didn-t-marry-organized/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "agentic_os": {
+    "context_manifest": "config/agentic_context_manifest.json",
+    "skill_systems": "config/skill-systems.json",
+    "skill_system": "carousel_jam"
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "carousel_story_director_persona": {
+    "skill": "config/skills/carousel-story-director-persona.md",
+    "agent": "agents/carousel-story-director.md",
+    "activation_order": [
+      "project and creator memory",
+      "Calm Enough For Your Chaos theme",
+      "viral theme analysis",
+      "carousel idea preference ledger",
+      "Layer E story-selling engine",
+      "golden-theme tournament",
+      "carousel story director persona before writing/designing"
+    ],
+    "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+    "persists_until": [
+      "concept.json",
+      "slides.json",
+      "visual-debate.json",
+      "visual-plan-quality.json",
+      "prompt-pack.json",
+      "copy.json",
+      "codex-image-prompts/",
+      "final/",
+      "final-reels-stories/",
+      "visual-qa.md"
+    ],
+    "minimum_scores": {
+      "hook": 8,
+      "story": 8,
+      "bridge": 8,
+      "zuv_role": 8,
+      "ending": 8,
+      "send_save_potential": 8,
+      "stage_scene": 8
+    }
+  },
+  "artifacts": {
+    "concept": "concept.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "intake_reviewer",
+      "story_reviewer",
+      "arc_reviewer",
+      "visual_reviewer",
+      "identity_consistency_reviewer",
+      "prompt_reviewer",
+      "copy_reviewer",
+      "success_standard_reviewer",
+      "asset_reviewer",
+      "wiki_learning_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": "visual-qa.md",
+      "identity_consistency_review": "identity-consistency-review.json",
+      "post_copy_visual_room": "post-copy-visual-room.json",
+      "visual_debate": "visual-debate.json",
+      "visual_plan_quality": "visual-plan-quality.json"
+    }
+  }
+}

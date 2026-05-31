@@ -736,6 +736,16 @@
       "slide_count": 7,
       "package": "output/carousels/2026-05-30/i-have-no-car-i-ll-walk",
       "content_lane": "Golden Enough Love"
+    },
+    "carousel:he-didn-t-marry-organized": {
+      "id": "carousel:he-didn-t-marry-organized",
+      "type": "illustrated_carousel",
+      "title": "He Didn't Marry Organized",
+      "date": "2026-05-31",
+      "status": "NEEDS_FIXES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-05-31/he-didn-t-marry-organized",
+      "content_lane": "Chaotic Wife, Calm Husband"
     }
   },
   "relationships": [
@@ -1194,6 +1204,12 @@
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-didn-t-marry-organized",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1222,5 +1238,5 @@
       "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-05-30"
+  "last_updated": "2026-05-31"
 }

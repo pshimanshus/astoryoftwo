@@ -1,0 +1,57 @@
+{
+  "status": "draft",
+  "backend": "none",
+  "generation_mode": "not_generated",
+  "slide_count": 5,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "He didn't marry peace.",
+      "expected_files": {
+        "instagram_post": "final/slide-01.png",
+        "reels_stories": "final-reels-stories/slide-01.png"
+      },
+      "source_prompt_slide": 1
+    },
+    {
+      "slide": 2,
+      "copy": "\"Mujhe kuch nahi hua\" means something definitely happened.",
+      "expected_files": {
+        "instagram_post": "final/slide-02.png",
+        "reels_stories": "final-reels-stories/slide-02.png"
+      },
+      "source_prompt_slide": 2
+    },
+    {
+      "slide": 3,
+      "copy": "She packed 14 outfits for one plan.",
+      "expected_files": {
+        "instagram_post": "final/slide-03.png",
+        "reels_stories": "final-reels-stories/slide-03.png"
+      },
+      "source_prompt_slide": 3
+    },
+    {
+      "slide": 4,
+      "copy": "She had 10 moods before lunch.",
+      "expected_files": {
+        "instagram_post": "final/slide-04.png",
+        "reels_stories": "final-reels-stories/slide-04.png"
+      },
+      "source_prompt_slide": 4
+    },
+    {
+      "slide": 5,
+      "copy": "Maybe love is not less chaos. Maybe it is safer chaos.",
+      "expected_files": {
+        "instagram_post": "final/slide-05.png",
+        "reels_stories": "final-reels-stories/slide-05.png"
+      },
+      "source_prompt_slide": 5
+    }
+  ],
+  "reason": "Carousel package exists, but image handoff has not been prepared."
+}
