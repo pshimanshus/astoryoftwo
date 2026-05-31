@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIR",
+  "decision": "REPAIR",
+  "lane": "Golden Still Choosing",
+  "winner": "A Story Lived-Scene Reset",
+  "creator_feedback": "Concept is good, but visuals are not @a.storyof.two style.",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Future Witness Scenes",
+      "score": 30,
+      "case_for": "Best for exact-copy commitment text: conflict, repair, older-couple witness, bad-day cost, and future-us payoff become clear staged scenes.",
+      "risk": "Must not copy the reference film stills or become generic elderly-couple quote art; Aachu/Zuv identity and house style must dominate."
+    },
+    {
+      "name": "Hands Stay Reachable",
+      "score": 28.5,
+      "case_for": "Very strong for conflict-with-commitment because hands, distance, and posture prove the text without heavy explanation.",
+      "risk": "Can become visually repetitive if every slide is only a close-up handhold."
+    },
+    {
+      "name": "Older Couple Mirror",
+      "score": 27,
+      "case_for": "Clear reference to the older-couple idea.",
+      "risk": "Rejected as the main system because the older couple can overpower Aachu/Zuv and make the deck less identity-first."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Older Couple Mirror"
+  ],
+  "selector_verdict": "Repair required: the concept can stay, but the old visual plan must not be generated as final art. Rebuild visuals as warm, identity-first Aachu/Zuv lived scenes in the approved A Story house style.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "We disagree, I still love you.",
+      "visual": "A close evening domestic frame after a small disagreement: Aachu and Zuv are turned slightly away from each other, but their knees, shoulders, and one almost-touching hand still lean toward the same center. The mood preserves the reference's intimate conflict-with-commitment feeling without copying its dark film still."
+    },
+    {
+      "slide": 2,
+      "copy": "We fight, I still love you.",
+      "visual": "After the fight, Aachu folds into Zuv's shoulder in a warm doorway or sofa corner; his hand is steady at her back, her face softened but still emotional. The hug is the proof that the conflict stayed inside commitment."
+    },
+    {
+      "slide": 3,
+      "copy": "You know why?",
+      "visual": "A small close-up proof beat of their hands finding each other again on a couch, car seat, or cafe bench; one finger hooks around the other while the rest of the room fades into warm paper. The question opens the emotional turn."
+    },
+    {
+      "slide": 4,
+      "copy": "Because every time I see an older couple,\nstanding side by side,\nI think about everything it took to get there.",
+      "visual": "Aachu and Zuv quietly notice an older couple standing side by side in a soft gallery, garden path, or cafe queue. The older couple is small and respectful in the background; Aachu and Zuv are the emotional focus, watching the proof of time."
+    },
+    {
+      "slide": 5,
+      "copy": "All the arguments.\nAll the bad days.\nAll the times they could’ve walked away,\nbut didn’t.",
+      "visual": "A staged memory-collage without becoming a collage: one wide warm scene shows traces of hard days around them, such as two untouched cups, a wrinkled blanket, a paused phone, and rain at the window, while Aachu and Zuv remain near each other instead of walking out of frame."
+    },
+    {
+      "slide": 6,
+      "copy": "And then I think of us.\nBecause I know that’s going to be us one day.",
+      "visual": "Aachu and Zuv in a lived kitchen or balcony moment, preparing something small together or standing shoulder to shoulder; a faint future echo of an older version of them appears only as soft background warmth, not as a literal copied elderly couple."
+    },
+    {
+      "slide": 7,
+      "copy": "Still together.\nStill choosing each other.\nStill completely in love.",
+      "visual": "Final airy frame: Aachu and Zuv sit side by side at a small table or overlook, older-couple energy translated into their own present-day bodies. He is calm and close, she is soft and expressive, and both faces are clear, warm, and identity-first."
+    }
+  ]
+}

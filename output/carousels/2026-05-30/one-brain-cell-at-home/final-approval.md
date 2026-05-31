@@ -1,15 +1,21 @@
 # Final Approval
 
-status: COPY_REPAIRED_AWAITING_NEW_PROOF
+status: STOP_CURRENT_EXECUTION_REJECTED_AND_IMAGE_GENERATION_BLOCKED
 
-Locked revised daily-life copy:
+The current recut is not approved. Do not generate final illustrations from the
+7-line recut or from any older phone/remote or phone-in-pocket artifacts.
 
-1. Some couples share one brain cell.
-2. Mera phone dekha?
-3. Pocket mein tha.
-4. Remote kahan gaya?
-5. Tum uske upar baithe ho.
-6. Phir bhi sofa check hua.
-7. Love is mostly this only.
+Only approved source state for repair:
 
-Old generated slides were moved to `rejected-drafts/copy-too-thin/` because the visual style was good but the copy did not clearly carry the daily-life fun.
+- `raw-scene-row.md`
+- `raw-scene-row.json`
+
+Next valid step is a storyboard rebuilt from the literal raw row, not more copy
+polish.
+
+Additional image-generation blocker:
+
+The first proof was rejected for yellow/parchment tone and non-matching
+Aachu/Zuv faces. Do not generate final images from text-only identity prompts.
+Final generation must use actual Aachu/Zuv identity references and
+Observational Intimacy Premium style references as image inputs.

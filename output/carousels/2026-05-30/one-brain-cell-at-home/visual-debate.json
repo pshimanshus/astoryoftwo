@@ -1,109 +1,104 @@
 {
   "schema_version": "1.0",
-  "status": "PASS",
-  "decision": "GO",
+  "status": "DRAFT_PENDING_CREATOR_APPROVAL",
+  "decision": "HOLD",
   "agents": [
     {
       "agent": "carousel-visual-evidence-planner",
-      "verdict": "GO",
-      "claim": "The sofa, phone, remote, cushions, eye-lines, and pointing gestures are concrete receipts rather than decorative props."
+      "verdict": "GO_PENDING_APPROVAL",
+      "claim": "The phone, rooms, counter, and pillow are evidence because each object moves the story forward."
     },
     {
       "agent": "carousel-romance-scene-planner",
-      "verdict": "GO",
-      "claim": "The romance sits in mutual permission to be silly, not in dramatic posing."
+      "verdict": "GO_PENDING_APPROVAL",
+      "claim": "The romance is in safe mischief: irritation ends in play, not distance."
     },
     {
       "agent": "carousel-visual-continuity-judge",
-      "verdict": "GO",
-      "claim": "One location is allowed because each slide changes action/reaction; repeated motif is controlled by story necessity."
+      "verdict": "GO_PENDING_APPROVAL",
+      "claim": "The setting changes enough across living room, dining, bag/bathroom, counter, and sofa payoff to avoid repeated poses."
     }
   ],
   "visual_options": [
     {
-      "name": "Cozy Sofa Search Party",
+      "name": "Phone Prank Search Party",
       "score": 29,
-      "verdict": "WINNER"
+      "verdict": "WINNER_PENDING_APPROVAL"
     },
     {
-      "name": "Kitchen-to-Sofa Chase",
-      "score": 25,
-      "verdict": "REPAIR",
-      "risk": "too many location changes for a tiny domestic joke"
-    },
-    {
-      "name": "Mystery Detective Parody",
-      "score": 21,
+      "name": "Single-Sofa Phone Search",
+      "score": 22,
       "verdict": "REJECTED",
-      "risk": "costume/parody would overpower lived-in intimacy"
+      "risk": "too static"
+    },
+    {
+      "name": "Detective Parody",
+      "score": 20,
+      "verdict": "REJECTED",
+      "risk": "too gimmicky and not premium"
     }
   ],
   "rejected_visual_patterns": [
-    "poster copy board",
-    "giant phone/remote closeups",
-    "one-way Aachu chaos",
-    "perfect-boyfriend rescue",
-    "generic couple couch pose"
+    "old object-symmetry gag",
+    "phone in pocket reveal",
+    "poster-copy thesis slides",
+    "object closeups without Aachu/Zuv action",
+    "yellow/sepia premium drift"
   ],
-  "winner": "Cozy Sofa Search Party",
-  "selector_verdict": "GO: strong staged domestic proof with mutual reversal and earned payoff.",
+  "winner": "Phone Prank Search Party",
+  "selector_verdict": "HOLD: visually strong, waiting for creator approval of the story/copy before generation.",
   "final_visual_plan": [
     {
       "slide": 1,
-      "copy": "Some couples share one brain cell.",
-      "scene": "A cozy Indian apartment living-room scene in warm evening light: Aachu and Zuv stand near a soft sofa like two very serious detectives, one cushion already lifted, both leaning in with focused eyes while the phone and remote are visible in the scene but not yet noticed. Their body language says this is a shared investigation, not one person being mocked.",
-      "pose": "Both upright and natural beside the sofa, shoulders angled toward the missing-object search; Aachu half points toward a cushion while Zuv peers at the sofa seam, both expressive and comfortable.",
-      "props": "sofa cushions, phone with small heart sticker, TV/AC remote, small side table, potted plant, warm lamp"
+      "copy": "He hid her phone.",
+      "scene": "Cozy neutral apartment living-room with a hint of dining/kitchen in the background. Aachu is turned away, busy with a small home task. Zuv quietly slips her phone into his hoodie pocket or hides it behind his back, with a tiny guilty smile. The phone is visible to the viewer only as the prank setup.",
+      "pose": "Aachu faces away in relaxed home posture. Zuv stands slightly behind her, shoulders soft, one hand hiding the phone close to his body, face playful but controlled.",
+      "props": "Aachu phone with small heart sticker, sofa cushions, side table, plant, coffee cup, soft warm lamp."
     },
     {
       "slide": 2,
-      "copy": "Phone kaha hai?",
-      "scene": "Aachu searches beside the sofa with exaggerated seriousness while her phone with a tiny heart sticker is clearly in the same hand she is using to gesture. Zuv watches from beside her, amused but not announcing the answer yet, letting the comedy breathe.",
-      "pose": "Aachu standing close to the sofa, one hand lifting a cushion and the other hand holding the phone while pointing; Zuv slightly behind or beside her with soft amused attention.",
-      "props": "phone with heart sticker in Aachu hand, sofa cushion, side table, small charging cable"
+      "copy": "Then helped her find it.",
+      "scene": "Aachu has started searching the living room. Zuv joins her with exaggerated seriousness, lifting a sofa cushion and scanning the room like he is innocent. His hidden phone hand/pocket stays controlled. The comedy is his fake concern.",
+      "pose": "Aachu leans toward the sofa, one hand checking cushions. Zuv bends beside her with over-serious concern, mouth almost hiding a smile.",
+      "props": "Sofa cushions, side table, rug, lamp, phone hidden in Zuv's pocket or covered hand."
     },
     {
       "slide": 3,
-      "copy": "It was in her hand.",
-      "scene": "Zuv gently points with one finger toward the phone already in Aachu hand. Aachu freezes for one beat, half guilty and half laughing, with the sofa cushions now slightly messy. The joke lands as affectionate recognition, never insult.",
-      "pose": "Zuv relaxed and kind, pointing lightly toward her hand; Aachu looking down at the phone in her own hand with widened eyes and a soft embarrassed smile.",
-      "props": "phone with heart sticker, lifted sofa cushion, coffee table edge, small plant"
+      "copy": "Room checked.",
+      "scene": "Living-room search has become real. Sofa cushions are lifted, side table checked, rug corner lifted. Aachu is focused and mildly irritated. Zuv points toward a useless corner with fake seriousness.",
+      "pose": "Aachu crouches/leans naturally near the sofa without awkward anatomy. Zuv stands beside the coffee table, one hand gesturing toward the wrong place, face suspiciously innocent.",
+      "props": "Lifted cushions, side table drawer, rug corner, plant, hidden phone still not visible to Aachu."
     },
     {
       "slide": 4,
-      "copy": "Remote kaha hai?",
-      "scene": "The reversal: Zuv now searches for the remote with the same grave seriousness while the remote is plainly in his own hand. Aachu watches him with delighted deadpan expression, enjoying that the one brain cell has changed owners.",
-      "pose": "Zuv leans toward the sofa with one cushion lifted while unknowingly holding the remote; Aachu stands beside the sofa, one eyebrow lifted, hand near her mouth as if trying not to laugh.",
-      "props": "TV/AC remote in Zuv hand, sofa cushion, phone now safe on side table, coffee cup"
+      "copy": "Dining checked.",
+      "scene": "Dining area or kitchen-bar area, visually distinct from the sofa. Aachu checks the dining table, a chair, or a fruit bowl. Zuv checks the wrong side dramatically while still guarding the hidden phone.",
+      "pose": "Aachu bends slightly over the dining table with one hand on a chair. Zuv leans near the bar/dining edge, too theatrical for someone who knows the answer.",
+      "props": "Dining table, chair, fruit bowl, mug, kitchen/bar counter in background, hidden phone with Zuv."
     },
     {
       "slide": 5,
-      "copy": "It was in his hand.",
-      "scene": "Aachu points at the remote in Zuv hand. Zuv looks down at it, caught, with a small helpless grin. The frame mirrors slide 3 so the audience feels the equal reversal and the no-judgement contract between them.",
-      "pose": "Aachu lightly points at Zuv hand from beside him; Zuv bends his wrist slightly to see the remote, shoulders relaxing as the laugh arrives.",
-      "props": "remote in Zuv hand, phone on side table or tucked in Aachu other hand, slightly messy cushions"
+      "copy": "Bag. Bathroom. Everything.",
+      "scene": "Compact continuous scene in one 4:5 frame: Aachu checks her open bag near a doorway while the bathroom door/tiles are visible as the next checked place. Zuv follows with fake helpfulness, carrying a cushion or pointing to another impossible spot. Aachu is now visibly annoyed, but not humiliated.",
+      "pose": "Aachu stands with the open bag in hand, brows raised in irritation. Zuv follows half a step behind, careful, guilty, trying not to laugh.",
+      "props": "Open handbag, bathroom doorway, towel edge, cushion in Zuv's hand, hidden phone still with Zuv."
     },
     {
       "slide": 6,
-      "copy": "Sofa still got checked.",
-      "scene": "Even after both reveals, Aachu and Zuv keep checking the sofa together. Two cushions are lifted, one cushion rests on the floor, the phone and remote are already visible and safe, and both are still invested in the useless investigation as if it matters.",
-      "pose": "Both kneel or lean in naturally without cramped anatomy: one lifts a cushion, the other looks under the sofa edge; faces amused, bodies relaxed, no awkward folding.",
-      "props": "phone and remote visible on side table or in hands, sofa cushions, small rug, slippers, coffee table"
+      "copy": "Then he kept it on the counter.",
+      "scene": "Kitchen/bar counter reveal. Zuv casually places the hidden phone on the counter/bar top while trying to act normal. Aachu turns and catches the movement or sees the phone appear. His face gives him away.",
+      "pose": "Zuv's hand releases the phone onto the counter, shoulders pretending innocence. Aachu stands a few feet away, turning toward him with the exact caught-you expression.",
+      "props": "Phone clearly on counter/bar top, mug, small bowl/keys, dining chairs in background."
     },
     {
       "slide": 7,
-      "copy": "Home is where no one acts smart.",
-      "scene": "Final warm sofa scene: Aachu and Zuv collapse into the sofa together, laughing softly among one or two messy cushions. The phone and remote are safe between them or on the table. The scene feels tender because no one had to perform competence; both are allowed to be fully themselves.",
-      "pose": "Both seated comfortably close on the sofa, shoulders leaning toward each other, relaxed legs, soft smiles, natural hands resting near the recovered phone and remote.",
-      "props": "phone with heart sticker, remote, sofa cushions, warm lamp, small plant, coffee cup"
+      "copy": "She found the phone. He found the pillow.",
+      "scene": "Final living-room payoff. Aachu throws or has just thrown a soft sofa pillow at Zuv. Zuv is laughing/ducking, not scared. The recovered phone is safe on the counter/table. Cushions are messy. The scene feels playful and safe, never aggressive.",
+      "pose": "Aachu has one arm extended after the pillow throw, face angry-laughing. Zuv ducks with both hands up, laughing. Their body language stays affectionate and safe.",
+      "props": "Soft sofa pillow mid-air or landing on Zuv, recovered phone on counter/table, messy cushions, lamp, plant."
     }
   ],
-  "hard_fails_checked": [
-    "no one-way mockery",
-    "no passive Zuv",
-    "no object-first premise",
-    "no poster/quote-card layout",
-    "no repeated static couch pose"
-  ],
-  "issues": []
+  "issues": [
+    "creator approval pending before image generation"
+  ]
 }

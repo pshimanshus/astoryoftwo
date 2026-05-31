@@ -1,0 +1,570 @@
+{
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is Instagram post, and generate separate native 9:16 artwork for Reels/Stories when needed. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise; preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and both people must look natural, flattering, and physically believable.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Emotional Weather, Reachable Hand",
+    "why_it_wins": "It proves each line with visible Aachu/Zuv behavior: talk, tears, anger, reach, and the active hand that stays.",
+    "slide_visual_blueprint": [
+      {
+        "slide": 1,
+        "copy": "He never asked her to be easier.",
+        "visual_job": "universal anti-ideal hook",
+        "scene": "A warm airy home scene on neutral ivory paper: Aachu stands lower-middle in frame with expressive micro-weather around her, Zuv beside her with open attentive posture and one hand relaxed between them. The frame rejects the idea that she must become smaller or quieter before being loved.",
+        "identity_lock": "Aachu/Zuv remain the same recurring people from selected identity references.",
+        "aspect_plan": "Render separately for native 4:5 Instagram post and native 9:16 Reels/Stories; do not derive one from the other."
+      },
+      {
+        "slide": 2,
+        "copy": "Not when words overflowed.",
+        "visual_job": "expressive proof beat",
+        "scene": "Aachu is animated on a couch or kitchen bench, talking with lively hands and full-face feeling. Zuv has put his phone or cup down and is angled toward her, listening like the details matter. Use the reference screenshot only for the idea of abundant talking, not its cartoon labels or style.",
+        "identity_lock": "Aachu/Zuv remain the same recurring people from selected identity references.",
+        "aspect_plan": "Render separately for native 4:5 Instagram post and native 9:16 Reels/Stories; do not derive one from the other."
+      },
+      {
+        "slide": 3,
+        "copy": "Not when feelings spilled.",
+        "visual_job": "vulnerable proof beat",
+        "scene": "Aachu sits naturally on a bed edge or window bench with one tear and a softened face, hugging a cushion or scarf without looking cramped. Zuv sits or kneels at a respectful comfortable level nearby, offering a tissue and water with calm softness. The scene must feel protective, not pitying.",
+        "identity_lock": "Aachu/Zuv remain the same recurring people from selected identity references.",
+        "aspect_plan": "Render separately for native 4:5 Instagram post and native 9:16 Reels/Stories; do not derive one from the other."
+      },
+      {
+        "slide": 4,
+        "copy": "Not when silence got angry.",
+        "visual_job": "friction escalation",
+        "scene": "Aachu stands a little turned away with crossed arms and a puffed, annoyed expression, but still soft and lovable. Zuv does not argue or crowd her; he stays nearby with patient body language, one small cup or shawl in hand, leaving space while remaining reachable.",
+        "identity_lock": "Aachu/Zuv remain the same recurring people from selected identity references.",
+        "aspect_plan": "Render separately for native 4:5 Instagram post and native 9:16 Reels/Stories; do not derive one from the other."
+      },
+      {
+        "slide": 5,
+        "copy": "He kept his hand there.",
+        "visual_job": "active Zuv proof",
+        "scene": "Close but still airy scene focusing on their hands between them: Aachu looks slightly away but her fingers reach toward Zuv; Zuv keeps his hand open, steady, and easy to find. Their faces are still visible enough for identity. This is the behavioral receipt that changes the meaning of the previous moods.",
+        "identity_lock": "Aachu/Zuv remain the same recurring people from selected identity references.",
+        "aspect_plan": "Render separately for native 4:5 Instagram post and native 9:16 Reels/Stories; do not derive one from the other."
+      },
+      {
+        "slide": 6,
+        "copy": "Maybe love is the hand that stays.",
+        "visual_job": "earned tender thesis",
+        "scene": "Final soft landing: Aachu and Zuv walk or sit close hand-in-hand, her earlier emotional weather fading into tiny watercolor marks behind them. He is not rescuing or fixing her; he is simply still there, and she looks softer because she is held gently.",
+        "identity_lock": "Aachu/Zuv remain the same recurring people from selected identity references.",
+        "aspect_plan": "Render separately for native 4:5 Instagram post and native 9:16 Reels/Stories; do not derive one from the other."
+      }
+    ]
+  },
+  "visual_debate": {
+    "status": "GO",
+    "winner": "Emotional Weather, Reachable Hand",
+    "selector_verdict": "GO: six varied home/path scenes carry the exact copy through action, reaction, eye-line, hands, space, silence, consequence, and payoff.",
+    "hard_fails_checked": [
+      "no copied external cartoon style",
+      "no passive Zuv",
+      "no quote-card deck",
+      "no awkward crouched crying pose",
+      "no yellow/parchment paper",
+      "no generic faces"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+    "required": true,
+    "rule": "Every final Codex/image-generation prompt for @a.storyof.two carousel slides must use this creator-locked watercolor-and-ink master prompt structure, then append the slide-specific on-image text, scene, pose, wardrobe, props, background, and emotion.",
+    "required_sections": [
+      "USE CASE",
+      "ASSET TYPE",
+      "REFERENCE IMAGE ROLES",
+      "PRIMARY REQUEST",
+      "SCENE",
+      "CHARACTER IDENTITY LOCK",
+      "FACE PRESERVATION RULES",
+      "ILLUSTRATION STYLE",
+      "COLOR PALETTE",
+      "COMPOSITION AND FORMAT",
+      "EMOTIONAL DIRECTION",
+      "WARDROBE CONTINUITY",
+      "RECURRING PROPS AND MOTIFS",
+      "BACKGROUND STYLE",
+      "LINE AND TEXTURE DETAILS",
+      "ANATOMY AND QUALITY RULES",
+      "TEXT RULE",
+      "STYLE ACCEPTANCE RULE",
+      "FINAL IDENTITY REINFORCEMENT",
+      "FINAL STYLE REINFORCEMENT",
+      "FINAL IMAGE RENDERING LAYER"
+    ],
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "text_rule": "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally into the illustration as polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. Do not invent any other text."
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "status": "GO",
+    "selected_story_lens": "The Hand That Stays",
+    "emotional_machine": "universal anti-ideal: he never asked her to be easier -> Aachu proof: words overflow, feelings spill, silence gets angry -> Zuv active steadiness: phone down, tissue/water, patient space, open hand -> reversal: her full weather becomes safe -> payoff: maybe love is the hand that stays.",
+    "human_story_setup": {
+      "cold_reader_doorway": "He never asked her to be easier.",
+      "emotional_obstacle": "The expressive partner fears that words, tears, and angry silence make her too much to love gently.",
+      "visible_human_proof": "She talks, cries, turns away angry, and still reaches for his hand; he listens, offers care, gives space, and keeps the hand available.",
+      "active_partner_role": "Zuv actively stays reachable instead of correcting, mocking, retreating, or rushing the feeling away.",
+      "emotional_turn": "The deck turns from emotional weather into proof of chosen safety.",
+      "shareable_setup": "A clean universal hook plus physical hand receipt makes the carousel taggable for couples.",
+      "earned_payoff": "Maybe love is the hand that stays."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+      "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+      "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+      "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, native 4:5, native 9:16, QA, and audit gates must also pass.",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-05-30\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Aachu moves through three visible emotional states: words overflowing, feelings spilling, and angry silence.",
+      "reaction": "Zuv answers each state with a visible, respectful choice: phone down/listening, tissue and water, patient nearby presence, and finally an open reachable hand.",
+      "eye_line_or_attention": "His eyes and shoulders stay oriented toward her without crowding her; her eye-line shifts away and back as the hand becomes safe to reach.",
+      "hands_or_object_movement": "Phone/cup pauses, tissue appears, care cup/shawl stays small, and the final proof is his open hand remaining between them until she reaches.",
+      "silence_or_pause": "The angry-silence slide gives her space; the hand slide lets quiet become contact instead of argument.",
+      "consequence": "The viewer understands the relationship truth before the text explains it: she is not corrected into calm, she is met with steadiness.",
+      "reversal_or_payoff": "What could read as “too much” becomes exactly the version of her he chooses gently.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 4.5,
+      "share_send_potential": 4.5,
+      "total": 29.0
+    },
+    "proof_engine": "Slide-by-slide behavior receipts from the concept references: overflowing words, spilled feelings, angry silence, and the reachable hand. Reference style is rejected; only story mechanic is used.",
+    "distribution_reason": "High send/save potential because the first line and final line give couples a clean “this is us” language for steady love."
+  },
+  "carousel_story_director_persona": {
+    "status": "PASS",
+    "selected_hook": "He never asked her to be easier.",
+    "hook": 9.5,
+    "story": 9.3,
+    "bridge": 9.2,
+    "zuv_role": 9.5,
+    "ending": 9.2,
+    "send_save_potential": 9.3,
+    "stage_scene": 9.5,
+    "reader_identity_mirror": "For partners who love the full emotional version, not only the easy version.",
+    "emotional_obstacle": "The expressive partner fears that words, tears, and angry silence make her too much to love gently.",
+    "aachu_proof": "She talks, cries, turns away angry, and still reaches for his hand; he listens, offers care, gives space, and keeps the hand available.",
+    "zuv_active_role": "Zuv actively stays reachable instead of correcting, mocking, retreating, or rushing the feeling away.",
+    "earned_ending": "Maybe love is the hand that stays.",
+    "verdict": "PASS: hook, proof trail, active Zuv role, bridge, and send/save ending are present.",
+    "blocks": []
+  },
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+    "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+  ],
+  "identity_reference_images": [
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-30/the-hand-that-stays/identity-face-contact-sheet.jpg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+    "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-05-30/the-hand-that-stays/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-30/the-hand-that-stays/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID36",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+      "face_count": 14,
+      "width": 3120,
+      "height": 4160
+    },
+    {
+      "option_id": "ID37",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+      "face_count": 8,
+      "width": 3120,
+      "height": 4160
+    },
+    {
+      "option_id": "ID39",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+      "face_count": 8,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID44",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "filename": "WhatsApp Image 2026-05-19 at 22.28.04.jpeg",
+      "face_count": 4,
+      "width": 1737,
+      "height": 3088
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "text_overlay_plan": {
+    "strategy": "exact integrated handwritten on-image text",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always bottom-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "He never asked her to be easier.",
+      "Not when words overflowed.",
+      "Not when feelings spilled.",
+      "Not when silence got angry.",
+      "He kept his hand there.",
+      "Maybe love is the hand that stays."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 6,
+      "text": "He never asked her to be easier.",
+      "scene": "A warm airy home scene on neutral ivory paper: Aachu stands lower-middle in frame with expressive micro-weather around her, Zuv beside her with open attentive posture and one hand relaxed between them. The frame rejects the idea that she must become smaller or quieter before being loved.",
+      "visual": "A warm airy home scene on neutral ivory paper: Aachu stands lower-middle in frame with expressive micro-weather around her, Zuv beside her with open attentive posture and one hand relaxed between them. The frame rejects the idea that she must become smaller or quieter before being loved.",
+      "pose": "Aachu is expressive but dignified, one hand mid-gesture near her chest. Zuv turns his shoulders toward her, calm and present, with an open hand visible rather than crossed arms or passive distance.",
+      "wardrobe": "Aachu wears a soft printed kurta or off-white shirt with blue jeans, small earrings, natural long dark hair. Zuv wears an off-white casual shirt or navy layer with tan pants, watch, and relaxed styling. Keep the same wardrobe language across slides.",
+      "props": "Only tiny watercolor mood marks, a small home plant, and one subtle heart-reaction mark; no labels, no screenshot UI, no speech-bubble text beyond the required on-image copy.",
+      "background": "Soft cozy home doorway/couch corner suggested with minimal warm lines and faded edges, lower detail than the couple, large clean upper-middle negative space for text.",
+      "emotion": "public recognition, tender refusal to shrink her",
+      "style": "premium observational-intimacy watercolor-and-ink @a.storyof.two scene on neutral warm ivory/off-white paper with visible grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, identity-first Aachu/Zuv faces, tactile domestic details, lower/middle-lower couple placement, clean upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-illustration-master-prompt-2026-05-30",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Complete publishable @a.storyof.two carousel slide 1 of 6. Generate separate native 4:5 Instagram post and native 9:16 Reels/Stories artworks; never crop, pad, or resize one into the other. Story context: Reference adaptation from four screenshots: she has words overflowing, feelings spilling, a hand still reaching, and angry silence; he remains attentive, reachable, and non-shaming. The screenshots are concept/story references only. Final art must be original @a.storyof.two Observational Intimacy Premium watercolor-and-ink with Aachu/Zuv identity references. Selected concept: The Hand That Stays. Story-Selling score 29.5/30, Golden Theme score 29/30. Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes. Reference roles: attached screenshot references are story/message/gesture/composition essence only; do not copy their flat cartoon style, labels, UI, watermarks, or exact poses. Actual Aachu/Zuv identity references control faces, hair, skin tone, expression, posture, wardrobe anchor, body proportions, and relationship energy. Observational Intimacy Premium references control only house style: neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, tactile clothing, soft faded edges, and handwritten text. Exact ON-IMAGE TEXT: He never asked her to be easier. Scene: A warm airy home scene on neutral ivory paper: Aachu stands lower-middle in frame with expressive micro-weather around her, Zuv beside her with open attentive posture and one hand relaxed between them. The frame rejects the idea that she must become smaller or quieter before being loved. Pose/body language: Aachu is expressive but dignified, one hand mid-gesture near her chest. Zuv turns his shoulders toward her, calm and present, with an open hand visible rather than crossed arms or passive distance. Props: Only tiny watercolor mood marks, a small home plant, and one subtle heart-reaction mark; no labels, no screenshot UI, no speech-bubble text beyond the required on-image copy. Emotion: public recognition, tender refusal to shrink her Render exact copy as readable hand-drawn charcoal typography in clean upper-middle negative space. Include only the tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right. No photorealism, no UI, no random text, no labels, no speech bubbles except required exact on-image text, no quote-card design, no flat vector art, no yellow/parchment paper, no generic couple faces. Scene logic and anatomy are hard gates: hands must be natural, Aachu must never be mocked, and Zuv's calm must be visible action.",
+      "identity_continuity_lock": "Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes."
+    },
+    {
+      "slide": 2,
+      "slide_count": 6,
+      "text": "Not when words overflowed.",
+      "scene": "Aachu is animated on a couch or kitchen bench, talking with lively hands and full-face feeling. Zuv has put his phone or cup down and is angled toward her, listening like the details matter. Use the reference screenshot only for the idea of abundant talking, not its cartoon labels or style.",
+      "visual": "Aachu is animated on a couch or kitchen bench, talking with lively hands and full-face feeling. Zuv has put his phone or cup down and is angled toward her, listening like the details matter. Use the reference screenshot only for the idea of abundant talking, not its cartoon labels or style.",
+      "pose": "Aachu leans forward with natural expressive hands; Zuv leans in slightly, eyes on her, phone face-down or cup paused to show active listening.",
+      "wardrobe": "Continue the same Indo-western casual wardrobe from slide 1; Aachu hair loose or softly half-tied, Zuv hair/beard preserved from identity references.",
+      "props": "A face-down phone or paused ceramic cup, tiny motion marks near her hands, no readable random text or “blah” bubbles.",
+      "background": "Soft lived-in kitchen/couch corner with warm wood line, plant, and faded watercolor edges; upper-middle clean for copy.",
+      "emotion": "playful fullness, amused attention",
+      "style": "premium observational-intimacy watercolor-and-ink @a.storyof.two scene on neutral warm ivory/off-white paper with visible grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, identity-first Aachu/Zuv faces, tactile domestic details, lower/middle-lower couple placement, clean upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-illustration-master-prompt-2026-05-30",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Complete publishable @a.storyof.two carousel slide 2 of 6. Generate separate native 4:5 Instagram post and native 9:16 Reels/Stories artworks; never crop, pad, or resize one into the other. Story context: Reference adaptation from four screenshots: she has words overflowing, feelings spilling, a hand still reaching, and angry silence; he remains attentive, reachable, and non-shaming. The screenshots are concept/story references only. Final art must be original @a.storyof.two Observational Intimacy Premium watercolor-and-ink with Aachu/Zuv identity references. Selected concept: The Hand That Stays. Story-Selling score 29.5/30, Golden Theme score 29/30. Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes. Reference roles: attached screenshot references are story/message/gesture/composition essence only; do not copy their flat cartoon style, labels, UI, watermarks, or exact poses. Actual Aachu/Zuv identity references control faces, hair, skin tone, expression, posture, wardrobe anchor, body proportions, and relationship energy. Observational Intimacy Premium references control only house style: neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, tactile clothing, soft faded edges, and handwritten text. Exact ON-IMAGE TEXT: Not when words overflowed. Scene: Aachu is animated on a couch or kitchen bench, talking with lively hands and full-face feeling. Zuv has put his phone or cup down and is angled toward her, listening like the details matter. Use the reference screenshot only for the idea of abundant talking, not its cartoon labels or style. Pose/body language: Aachu leans forward with natural expressive hands; Zuv leans in slightly, eyes on her, phone face-down or cup paused to show active listening. Props: A face-down phone or paused ceramic cup, tiny motion marks near her hands, no readable random text or “blah” bubbles. Emotion: playful fullness, amused attention Render exact copy as readable hand-drawn charcoal typography in clean upper-middle negative space. Include only the tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right. No photorealism, no UI, no random text, no labels, no speech bubbles except required exact on-image text, no quote-card design, no flat vector art, no yellow/parchment paper, no generic couple faces. Scene logic and anatomy are hard gates: hands must be natural, Aachu must never be mocked, and Zuv's calm must be visible action.",
+      "identity_continuity_lock": "Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes."
+    },
+    {
+      "slide": 3,
+      "slide_count": 6,
+      "text": "Not when feelings spilled.",
+      "scene": "Aachu sits naturally on a bed edge or window bench with one tear and a softened face, hugging a cushion or scarf without looking cramped. Zuv sits or kneels at a respectful comfortable level nearby, offering a tissue and water with calm softness. The scene must feel protective, not pitying.",
+      "visual": "Aachu sits naturally on a bed edge or window bench with one tear and a softened face, hugging a cushion or scarf without looking cramped. Zuv sits or kneels at a respectful comfortable level nearby, offering a tissue and water with calm softness. The scene must feel protective, not pitying.",
+      "pose": "Aachu is seated comfortably, shoulders rounded but flattering; Zuv is close enough to help, hand extended with tissue, eyes soft, body stable and non-dramatic.",
+      "wardrobe": "Same wardrobe continuity; add a soft shawl/scarf if it makes the care gesture tactile.",
+      "props": "Tissue, small glass of water, cushion or scarf as emotional object; no puddles, no exaggerated crying cartoon marks.",
+      "background": "Quiet bedroom/window bench corner with soft blanket edge and warm paper fade; generous text space above.",
+      "emotion": "vulnerability made safe",
+      "style": "premium observational-intimacy watercolor-and-ink @a.storyof.two scene on neutral warm ivory/off-white paper with visible grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, identity-first Aachu/Zuv faces, tactile domestic details, lower/middle-lower couple placement, clean upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-illustration-master-prompt-2026-05-30",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Complete publishable @a.storyof.two carousel slide 3 of 6. Generate separate native 4:5 Instagram post and native 9:16 Reels/Stories artworks; never crop, pad, or resize one into the other. Story context: Reference adaptation from four screenshots: she has words overflowing, feelings spilling, a hand still reaching, and angry silence; he remains attentive, reachable, and non-shaming. The screenshots are concept/story references only. Final art must be original @a.storyof.two Observational Intimacy Premium watercolor-and-ink with Aachu/Zuv identity references. Selected concept: The Hand That Stays. Story-Selling score 29.5/30, Golden Theme score 29/30. Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes. Reference roles: attached screenshot references are story/message/gesture/composition essence only; do not copy their flat cartoon style, labels, UI, watermarks, or exact poses. Actual Aachu/Zuv identity references control faces, hair, skin tone, expression, posture, wardrobe anchor, body proportions, and relationship energy. Observational Intimacy Premium references control only house style: neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, tactile clothing, soft faded edges, and handwritten text. Exact ON-IMAGE TEXT: Not when feelings spilled. Scene: Aachu sits naturally on a bed edge or window bench with one tear and a softened face, hugging a cushion or scarf without looking cramped. Zuv sits or kneels at a respectful comfortable level nearby, offering a tissue and water with calm softness. The scene must feel protective, not pitying. Pose/body language: Aachu is seated comfortably, shoulders rounded but flattering; Zuv is close enough to help, hand extended with tissue, eyes soft, body stable and non-dramatic. Props: Tissue, small glass of water, cushion or scarf as emotional object; no puddles, no exaggerated crying cartoon marks. Emotion: vulnerability made safe Render exact copy as readable hand-drawn charcoal typography in clean upper-middle negative space. Include only the tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right. No photorealism, no UI, no random text, no labels, no speech bubbles except required exact on-image text, no quote-card design, no flat vector art, no yellow/parchment paper, no generic couple faces. Scene logic and anatomy are hard gates: hands must be natural, Aachu must never be mocked, and Zuv's calm must be visible action.",
+      "identity_continuity_lock": "Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes."
+    },
+    {
+      "slide": 4,
+      "slide_count": 6,
+      "text": "Not when silence got angry.",
+      "scene": "Aachu stands a little turned away with crossed arms and a puffed, annoyed expression, but still soft and lovable. Zuv does not argue or crowd her; he stays nearby with patient body language, one small cup or shawl in hand, leaving space while remaining reachable.",
+      "visual": "Aachu stands a little turned away with crossed arms and a puffed, annoyed expression, but still soft and lovable. Zuv does not argue or crowd her; he stays nearby with patient body language, one small cup or shawl in hand, leaving space while remaining reachable.",
+      "pose": "Aachu upright and comfortable, crossed arms without harshness. Zuv stands at a gentle diagonal, calm face, open shoulders, offering presence without forcing eye contact.",
+      "wardrobe": "Same characters and outfit family; keep skin tone, hair, beard, body proportions identity-first.",
+      "props": "One small ceramic cup or folded shawl as a care object, tiny red warmth marks near her head kept subtle and hand-drawn; no cartoon anger symbols copied from the reference.",
+      "background": "Minimal home wall/doorway line and warm paper, enough negative space for handwritten copy.",
+      "emotion": "affectionate friction, non-shaming patience",
+      "style": "premium observational-intimacy watercolor-and-ink @a.storyof.two scene on neutral warm ivory/off-white paper with visible grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, identity-first Aachu/Zuv faces, tactile domestic details, lower/middle-lower couple placement, clean upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-illustration-master-prompt-2026-05-30",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Complete publishable @a.storyof.two carousel slide 4 of 6. Generate separate native 4:5 Instagram post and native 9:16 Reels/Stories artworks; never crop, pad, or resize one into the other. Story context: Reference adaptation from four screenshots: she has words overflowing, feelings spilling, a hand still reaching, and angry silence; he remains attentive, reachable, and non-shaming. The screenshots are concept/story references only. Final art must be original @a.storyof.two Observational Intimacy Premium watercolor-and-ink with Aachu/Zuv identity references. Selected concept: The Hand That Stays. Story-Selling score 29.5/30, Golden Theme score 29/30. Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes. Reference roles: attached screenshot references are story/message/gesture/composition essence only; do not copy their flat cartoon style, labels, UI, watermarks, or exact poses. Actual Aachu/Zuv identity references control faces, hair, skin tone, expression, posture, wardrobe anchor, body proportions, and relationship energy. Observational Intimacy Premium references control only house style: neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, tactile clothing, soft faded edges, and handwritten text. Exact ON-IMAGE TEXT: Not when silence got angry. Scene: Aachu stands a little turned away with crossed arms and a puffed, annoyed expression, but still soft and lovable. Zuv does not argue or crowd her; he stays nearby with patient body language, one small cup or shawl in hand, leaving space while remaining reachable. Pose/body language: Aachu upright and comfortable, crossed arms without harshness. Zuv stands at a gentle diagonal, calm face, open shoulders, offering presence without forcing eye contact. Props: One small ceramic cup or folded shawl as a care object, tiny red warmth marks near her head kept subtle and hand-drawn; no cartoon anger symbols copied from the reference. Emotion: affectionate friction, non-shaming patience Render exact copy as readable hand-drawn charcoal typography in clean upper-middle negative space. Include only the tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right. No photorealism, no UI, no random text, no labels, no speech bubbles except required exact on-image text, no quote-card design, no flat vector art, no yellow/parchment paper, no generic couple faces. Scene logic and anatomy are hard gates: hands must be natural, Aachu must never be mocked, and Zuv's calm must be visible action.",
+      "identity_continuity_lock": "Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes."
+    },
+    {
+      "slide": 5,
+      "slide_count": 6,
+      "text": "He kept his hand there.",
+      "scene": "Close but still airy scene focusing on their hands between them: Aachu looks slightly away but her fingers reach toward Zuv; Zuv keeps his hand open, steady, and easy to find. Their faces are still visible enough for identity. This is the behavioral receipt that changes the meaning of the previous moods.",
+      "visual": "Close but still airy scene focusing on their hands between them: Aachu looks slightly away but her fingers reach toward Zuv; Zuv keeps his hand open, steady, and easy to find. Their faces are still visible enough for identity. This is the behavioral receipt that changes the meaning of the previous moods.",
+      "pose": "Aachu seated or standing beside him with a small reluctant reach; Zuv still, patient, no grabbing, no pulling, palm open and relaxed. Hands must look natural and anatomically correct.",
+      "wardrobe": "Same outfit family, sleeves and jewelry visible enough to connect the hands to the same couple.",
+      "props": "No extra objects except perhaps a tiny scarf edge or ring/bangle detail; hands and eye-line carry the scene.",
+      "background": "Almost empty warm ivory paper with faint couch/table line, hand area lower-middle, text safe above.",
+      "emotion": "quiet proof, chosen steadiness",
+      "style": "premium observational-intimacy watercolor-and-ink @a.storyof.two scene on neutral warm ivory/off-white paper with visible grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, identity-first Aachu/Zuv faces, tactile domestic details, lower/middle-lower couple placement, clean upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-illustration-master-prompt-2026-05-30",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Complete publishable @a.storyof.two carousel slide 5 of 6. Generate separate native 4:5 Instagram post and native 9:16 Reels/Stories artworks; never crop, pad, or resize one into the other. Story context: Reference adaptation from four screenshots: she has words overflowing, feelings spilling, a hand still reaching, and angry silence; he remains attentive, reachable, and non-shaming. The screenshots are concept/story references only. Final art must be original @a.storyof.two Observational Intimacy Premium watercolor-and-ink with Aachu/Zuv identity references. Selected concept: The Hand That Stays. Story-Selling score 29.5/30, Golden Theme score 29/30. Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes. Reference roles: attached screenshot references are story/message/gesture/composition essence only; do not copy their flat cartoon style, labels, UI, watermarks, or exact poses. Actual Aachu/Zuv identity references control faces, hair, skin tone, expression, posture, wardrobe anchor, body proportions, and relationship energy. Observational Intimacy Premium references control only house style: neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, tactile clothing, soft faded edges, and handwritten text. Exact ON-IMAGE TEXT: He kept his hand there. Scene: Close but still airy scene focusing on their hands between them: Aachu looks slightly away but her fingers reach toward Zuv; Zuv keeps his hand open, steady, and easy to find. Their faces are still visible enough for identity. This is the behavioral receipt that changes the meaning of the previous moods. Pose/body language: Aachu seated or standing beside him with a small reluctant reach; Zuv still, patient, no grabbing, no pulling, palm open and relaxed. Hands must look natural and anatomically correct. Props: No extra objects except perhaps a tiny scarf edge or ring/bangle detail; hands and eye-line carry the scene. Emotion: quiet proof, chosen steadiness Render exact copy as readable hand-drawn charcoal typography in clean upper-middle negative space. Include only the tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right. No photorealism, no UI, no random text, no labels, no speech bubbles except required exact on-image text, no quote-card design, no flat vector art, no yellow/parchment paper, no generic couple faces. Scene logic and anatomy are hard gates: hands must be natural, Aachu must never be mocked, and Zuv's calm must be visible action.",
+      "identity_continuity_lock": "Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes."
+    },
+    {
+      "slide": 6,
+      "slide_count": 6,
+      "text": "Maybe love is the hand that stays.",
+      "scene": "Final soft landing: Aachu and Zuv walk or sit close hand-in-hand, her earlier emotional weather fading into tiny watercolor marks behind them. He is not rescuing or fixing her; he is simply still there, and she looks softer because she is held gently.",
+      "visual": "Final soft landing: Aachu and Zuv walk or sit close hand-in-hand, her earlier emotional weather fading into tiny watercolor marks behind them. He is not rescuing or fixing her; he is simply still there, and she looks softer because she is held gently.",
+      "pose": "Natural hand-hold with both bodies comfortable and flattering, slight lean toward each other, soft smiles or quiet eye-line. No stiff couple pose.",
+      "wardrobe": "Same recurring Aachu/Zuv identity, same premium casual wardrobe language, tactile fabric folds and jewelry.",
+      "props": "Only tiny fading mood marks and one small heart/reaction mark; no UI, no labels, no quote-card panel.",
+      "background": "Warm airy path/home threshold fading into ivory paper; couple lower/middle-lower, large clean upper-middle text space.",
+      "emotion": "tender acceptance, saveable payoff",
+      "style": "premium observational-intimacy watercolor-and-ink @a.storyof.two scene on neutral warm ivory/off-white paper with visible grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, identity-first Aachu/Zuv faces, tactile domestic details, lower/middle-lower couple placement, clean upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-illustration-master-prompt-2026-05-30",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg",
+        "identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg"
+      ],
+      "prompt": "Use case: illustration-story. Complete publishable @a.storyof.two carousel slide 6 of 6. Generate separate native 4:5 Instagram post and native 9:16 Reels/Stories artworks; never crop, pad, or resize one into the other. Story context: Reference adaptation from four screenshots: she has words overflowing, feelings spilling, a hand still reaching, and angry silence; he remains attentive, reachable, and non-shaming. The screenshots are concept/story references only. Final art must be original @a.storyof.two Observational Intimacy Premium watercolor-and-ink with Aachu/Zuv identity references. Selected concept: The Hand That Stays. Story-Selling score 29.5/30, Golden Theme score 29/30. Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes. Reference roles: attached screenshot references are story/message/gesture/composition essence only; do not copy their flat cartoon style, labels, UI, watermarks, or exact poses. Actual Aachu/Zuv identity references control faces, hair, skin tone, expression, posture, wardrobe anchor, body proportions, and relationship energy. Observational Intimacy Premium references control only house style: neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, tactile clothing, soft faded edges, and handwritten text. Exact ON-IMAGE TEXT: Maybe love is the hand that stays. Scene: Final soft landing: Aachu and Zuv walk or sit close hand-in-hand, her earlier emotional weather fading into tiny watercolor marks behind them. He is not rescuing or fixing her; he is simply still there, and she looks softer because she is held gently. Pose/body language: Natural hand-hold with both bodies comfortable and flattering, slight lean toward each other, soft smiles or quiet eye-line. No stiff couple pose. Props: Only tiny fading mood marks and one small heart/reaction mark; no UI, no labels, no quote-card panel. Emotion: tender acceptance, saveable payoff Render exact copy as readable hand-drawn charcoal typography in clean upper-middle negative space. Include only the tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right. No photorealism, no UI, no random text, no labels, no speech bubbles except required exact on-image text, no quote-card design, no flat vector art, no yellow/parchment paper, no generic couple faces. Scene logic and anatomy are hard gates: hands must be natural, Aachu must never be mocked, and Zuv's calm must be visible action.",
+      "identity_continuity_lock": "Identity continuity lock: use identity-face-contact-sheet.jpg plus the selected identity image bundle as the actual Aachu/Zuv face, hair, skin tone, body proportion, expression, wardrobe-cue, and cross-slide couple-continuity anchor; preserve the same recognizable people before style, text, or composition changes."
+    }
+  ],
+  "proof_gate": "Generate slide 05 first as proof because it is the riskiest identity/hand/anatomy/story beat: He kept his hand there."
+}

@@ -48,20 +48,23 @@ Style references:
 
 ## Exact Slide Copy
 
-Home is where no one acts smart.
+Bathroom checked.
 
 ## Prompt
 
 Native output format: Reels/Stories. Generate a complete 9:16 vertical publishable story slide with all text and the tiny @a.storyof.two brandmark inside the image. Reframe the scene for the taller canvas; do not stretch, crop, or pad the Instagram post artwork.
 
-ON-IMAGE TEXT: Home is where no one acts smart.
-Scene: Final warm sofa scene: Aachu and Zuv collapse into the sofa together, laughing softly among one or two messy cushions. The phone and remote are safe between them or on the table. The scene feels tender because no one had to perform competence; both are allowed to be fully themselves.
-Pose and blocking: Both seated comfortably close on the sofa, shoulders leaning toward each other, relaxed legs, soft smiles, natural hands resting near the recovered phone and remote.
-Wardrobe: Same home outfits; Aachu hair slightly loose from the search; Zuv relaxed and gentle.
-Props: phone with heart sticker, remote, sofa cushions, warm lamp, small plant, coffee cup
-Background: warm apartment corner fading into ivory paper with generous text space and tiny bottom-right brandmark
-Emotion: warm settled comedy
-Identity continuity lock: preserve the same Aachu/Zuv faces, hair, Zuv stubble, Aachu expressive eyes, skin tones, body proportions, and couple energy across every slide. Story continuity rule: do not reveal the punchline too early; plant objects subtly in setup slides and make the next slide earn the reveal. Successful-carousel standard: the staged Aachu/Zuv behavior must prove the relationship truth before the text is read. Use the Observational Intimacy Premium watercolor-and-ink house style with warm ivory paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, soft faded edges, exact handwritten text in clean upper-middle negative space, and only the tiny @a.storyof.two brandmark at bottom-right.
+ON-IMAGE TEXT: Bathroom checked.
+SCENE: Bathroom doorway/vanity area visible as the next searched place. Aachu checks or looks into the bathroom, now clearly annoyed. Zuv follows carefully.
+POSE/BODY LANGUAGE: Aachu at bathroom doorway, annoyed posture but still natural. Zuv behind her, guilty and quiet.
+WARDROBE: Same casual home outfits throughout: Aachu in oversized white shirt, blue jeans, small gold earrings, natural dark wavy hair; Zuv in navy hoodie or white tee with tan pants, short stubble, curly hair.
+PROPS: bathroom doorway, towel edge, small shelf, hidden phone with Zuv
+BACKGROUND: home hallway/bathroom edge, premium neutral paper
+EMOTION: the prank reaches the line
+STYLE: creator-approved Observational Intimacy Premium A Story of Two watercolor-and-ink. Neutral warm ivory/off-white paper only, visible grain, fine ink/pencil linework, transparent watercolor blooms, muted denim/navy/off-white/camel/faded sage/soft coral, soft faded edges, clean upper-middle negative space.
+IDENTITY: use the attached Aachu/Zuv identity reference images and identity contact sheet as actual face references. Faces must match; text-only identity descriptions are not enough.
+STORY LOCK: phone-hiding prank only. Do not add a remote, second missing object, phone-in-pocket gag, or moral thesis.
+FORMAT: native 4:5 Instagram carousel slide, exact readable hand-drawn text, tiny bottom-right @a.storyof.two brandmark.
 
 ## Expected Output
 

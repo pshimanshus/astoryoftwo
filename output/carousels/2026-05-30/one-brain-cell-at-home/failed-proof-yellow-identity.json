@@ -1,0 +1,15 @@
+{
+  "status": "REJECTED_HARD_FAIL",
+  "generated_image": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_029cec0c2746cd32016a1a270967a88191bf345d7ccc41a96b.png",
+  "creator_rejection": [
+    "yellowish/parchment tone instead of neutral premium ivory/off-white",
+    "Aachu/Zuv faces do not match identity references"
+  ],
+  "hard_fail_checks": {
+    "paper_tone": "FAIL",
+    "identity_match": "FAIL",
+    "reference_input_provenance": "FAIL_TEXT_ONLY_IDENTITY_PROMPT"
+  },
+  "decision": "Do not use this proof as a style, identity, or composition reference.",
+  "generation_blocker": "Final generation must use actual Aachu/Zuv identity reference images and Observational Intimacy Premium style references as image inputs. Text-only identity descriptions are blocked for finals."
+}

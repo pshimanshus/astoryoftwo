@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "winner": "Emotional Weather, Reachable Hand",
+  "decision": "GO",
+  "agents": [
+    "carousel-visual-evidence-planner",
+    "carousel-romance-scene-planner",
+    "carousel-visual-continuity-judge"
+  ],
+  "options": [
+    {
+      "name": "home micro-scenes",
+      "score": 29,
+      "verdict": "winner"
+    },
+    {
+      "name": "same-walk sequence",
+      "score": 26,
+      "verdict": "rejected as stale mood-walk retread"
+    },
+    {
+      "name": "symbolic weather",
+      "score": 24,
+      "verdict": "rejected as metaphor-first"
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Him/Her labels",
+    "blah speech bubbles",
+    "flat vector cartoon bodies",
+    "angry comic symbol copied from reference",
+    "quote-card panels",
+    "one-setting passive listening"
+  ],
+  "selector_verdict": "GO: six varied home/path scenes carry the exact copy through action, reaction, eye-line, hands, space, silence, consequence, and payoff.",
+  "hard_fails_checked": [
+    "no copied external cartoon style",
+    "no passive Zuv",
+    "no quote-card deck",
+    "no awkward crouched crying pose",
+    "no yellow/parchment paper",
+    "no generic faces"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "He never asked her to be easier.",
+      "visual": "A warm airy home scene on neutral ivory paper: Aachu stands lower-middle in frame with expressive micro-weather around her, Zuv beside her with open attentive posture and one hand relaxed between them. The frame rejects the idea that she must become smaller or quieter before being loved.",
+      "source_images": [
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.51.jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52 (1).jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52 (2).jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52.jpeg"
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "Not when words overflowed.",
+      "visual": "Aachu is animated on a couch or kitchen bench, talking with lively hands and full-face feeling. Zuv has put his phone or cup down and is angled toward her, listening like the details matter. Use the reference screenshot only for the idea of abundant talking, not its cartoon labels or style.",
+      "source_images": [
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.51.jpeg"
+      ]
+    },
+    {
+      "slide": 3,
+      "copy": "Not when feelings spilled.",
+      "visual": "Aachu sits naturally on a bed edge or window bench with one tear and a softened face, hugging a cushion or scarf without looking cramped. Zuv sits or kneels at a respectful comfortable level nearby, offering a tissue and water with calm softness. The scene must feel protective, not pitying.",
+      "source_images": [
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52 (1).jpeg"
+      ]
+    },
+    {
+      "slide": 4,
+      "copy": "Not when silence got angry.",
+      "visual": "Aachu stands a little turned away with crossed arms and a puffed, annoyed expression, but still soft and lovable. Zuv does not argue or crowd her; he stays nearby with patient body language, one small cup or shawl in hand, leaving space while remaining reachable.",
+      "source_images": [
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52.jpeg"
+      ]
+    },
+    {
+      "slide": 5,
+      "copy": "He kept his hand there.",
+      "visual": "Close but still airy scene focusing on their hands between them: Aachu looks slightly away but her fingers reach toward Zuv; Zuv keeps his hand open, steady, and easy to find. Their faces are still visible enough for identity. This is the behavioral receipt that changes the meaning of the previous moods.",
+      "source_images": [
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52 (2).jpeg"
+      ]
+    },
+    {
+      "slide": 6,
+      "copy": "Maybe love is the hand that stays.",
+      "visual": "Final soft landing: Aachu and Zuv walk or sit close hand-in-hand, her earlier emotional weather fading into tiny watercolor marks behind them. He is not rescuing or fixing her; he is simply still there, and she looks softer because she is held gently.",
+      "source_images": [
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.51.jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52 (1).jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52 (2).jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52.jpeg"
+      ]
+    }
+  ],
+  "continuity_locks": {
+    "wardrobe": "consistent casual Indo-western home wardrobe family",
+    "identity": "selected identity bundle controls faces in every slide",
+    "paper": "neutral warm ivory/off-white only"
+  }
+}

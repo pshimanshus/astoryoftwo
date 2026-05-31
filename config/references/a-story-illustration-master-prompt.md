@@ -17,6 +17,11 @@ control only mood, composition, story essence, text, gesture, and objects unless
 the creator explicitly says otherwise. Aachu/Zuv identity references control
 faces, expressions, and wardrobe anchors always.
 
+Creator correction, 2026-05-30: yellow/parchment paper and generic non-matching
+faces are hard failures. Do not generate or accept final Aachu/Zuv artwork from
+text-only identity descriptions; actual identity references and style
+references must be usable by the image-generation path.
+
 ```text
 USE CASE:
 illustration-story
@@ -29,6 +34,7 @@ Use shared images from the current brief only as mood/composition references unl
 Use the Aachu/Zuv identity reference images as the face and wardrobe anchor always: they are the highest-priority source for the two main characters' faces, hair, skin tone, age, ethnicity, expressions, posture, clothing continuity, and emotional presence.
 Use the observational-intimacy-premium and previous A Story illustration references only for illustration style, handwritten font style, color palette, line quality, paper texture, composition, wardrobe continuity, and recurring props.
 Do not copy the exact pose or scene from the style references unless requested. Preserve identity and style while creating the new scene.
+If actual identity reference images and style reference images cannot be used by the image-generation call, stop and mark the task blocked for identity/style-reference generation. Do not attempt a final illustration from descriptive identity text alone.
 
 PRIMARY REQUEST:
 Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration of the same recurring South Asian couple from the identity references, in the scene described below. The image must feel like the creator-approved observational-intimacy-premium references, not a generic AI watercolor, quote-card, poster, or copied external style.
@@ -51,6 +57,8 @@ Preserve his recognizable face from the identity references. He has warm medium-
 FACE PRESERVATION RULES:
 Faces are the highest priority.
 Preserve identity over decorative style.
+Actual identity reference images must drive the faces. Text-only descriptions
+are not sufficient for final Aachu/Zuv identity preservation.
 Keep eye shape, eyebrow shape, nose, lips, jawline, cheek structure, hairline, skin tone, beard shape, and hairstyle consistent with the reference images.
 The characters may be stylized as watercolor illustrations, but they must still be recognizably the same two people.
 Avoid face drift between slides.
@@ -71,6 +79,8 @@ No photorealism, no UI, no random text, no quote-card design.
 
 COLOR PALETTE:
 Warm ivory and soft off-white base.
+This means neutral premium ivory/off-white paper, not yellow, not mustard, not
+sepia, not beige/tan, not parchment, not coffee-stained, and not heavy cream.
 Muted denim blue.
 Soft navy.
 Off-white cotton.
@@ -81,8 +91,8 @@ Faded sage green.
 Peach blush accents.
 Dusty coral heart details.
 Keep the palette soft, cohesive, slightly vintage, and premium. No mustard
-dominance, heavy sepia wash, neon colors, harsh contrast, or glossy digital
-finish.
+dominance, yellowish cast, parchment cast, heavy cream/yellow paper, heavy
+sepia wash, neon colors, harsh contrast, or glossy digital finish.
 
 COMPOSITION AND FORMAT:
 Vertical portrait format. Use native 4:5 for Instagram post outputs, native 9:16 for Reels/Stories outputs, and tall proof compositions similar to 977x1610 only when a proof/reference surface is requested.
@@ -171,7 +181,7 @@ TEXT RULE:
 Include the exact written text provided in the ON-IMAGE TEXT section directly inside the generated illustration. The text must be baked into the image as readable, polished, hand-drawn typography that suits the creator-approved observational-intimacy-premium font styles and romantic watercolor-and-ink storybook style of this project. Place the text in clean warm upper-middle negative space, without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, capitalization, and wording exactly. Lock the handwritten lettering style to the approved references: slightly imperfect, warm black/charcoal, airy, human, and integrated into the paper. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel integrated into the paper and illustration, not like a digital overlay, poster title, or separate graphic layer.
 
 STYLE ACCEPTANCE RULE:
-Identity match is necessary but never sufficient. If the output looks like a generic AI watercolor poster, photorealistic portrait, flat digital art, anime/cartoon, hard-edged screenshot copy, or any non-A Story visual language, the image fails even if the faces are closer. Regenerate until it feels like the observational-intimacy-premium A Story of Two illustrations: warm ivory paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, exact handwritten text, tiny bottom-right brandmark, and no quote-card design.
+Identity match is necessary but never sufficient. If the output looks like a generic AI watercolor poster, photorealistic portrait, flat digital art, anime/cartoon, hard-edged screenshot copy, or any non-A Story visual language, the image fails even if the faces are closer. If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream, the image fails. If the faces do not clearly match the selected Aachu/Zuv identity references, the image fails. Regenerate only through a path that uses actual identity and style reference images. The approved look is observational-intimacy-premium A Story of Two illustrations: neutral warm ivory/off-white paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, exact handwritten text, tiny bottom-right brandmark, and no quote-card design.
 
 BRANDMARK RULE:
 Every final @a.storyof.two illustration must include the tiny handwritten brandmark `@a.storyof.two` in the bottom-right corner. Keep it subtle, low-contrast, and integrated into the paper texture. It should read like the project signature, not a platform watermark or large logo. Do not omit it.

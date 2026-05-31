@@ -45,15 +45,47 @@ illustration-story generation in this folder.
 Beautiful art is not enough. Every slide must pass a copy-visual logic check:
 the body, clothing, props, and blocking must visibly prove the exact line.
 
+## 2026-05-30 Failed Proof Correction
+
+The first phone-prank proof generated on 2026-05-30 failed. The creator
+explicitly rejected it for two hard reasons:
+
+- the paper/background read yellowish/parchment instead of premium neutral
+  warm ivory/off-white;
+- Aachu/Zuv faces did not match the identity references and looked like generic
+  illustrated South Asian characters.
+
+This is a hard style and identity failure, not a subjective minor note.
+
+Future generation must treat these as STOP conditions:
+
+- any yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy
+  cream cast across the page;
+- any face drift, generic model face, over-beautified face, wrong nose/eyes,
+  wrong jaw/cheek structure, wrong beard/hair silhouette, or identity that
+  does not clearly read as the selected Aachu/Zuv reference;
+- any "final" generation attempted from text-only identity descriptions
+  without actual identity reference images attached/available to the image
+  model.
+
+If the current image-generation path cannot use the Aachu/Zuv identity
+references and the Observational Intimacy Premium style references as actual
+image inputs, do not generate final illustrations. Mark the package blocked
+for identity/style-reference generation instead.
+
 Hard fails:
 
 - the copy says socks before pants, but Zuv is already wearing pants;
 - a character pose makes Aachu or Zuv look crouched, cramped, unflattering, or
   anatomically awkward;
+- the paper reads yellowish/parchment/sepia instead of neutral premium
+  off-white ivory;
+- the faces do not match the selected Aachu/Zuv identity bundle;
 - text can only be understood because of the written line, while the scene
   visually proves something else;
 - the slide is premium-looking but the action/reaction/props contradict the
   story beat.
 
 For future visual QA, require explicit `scene_logic` and `pose_anatomy` checks
-before accepting final art.
+before accepting final art. Also require explicit `paper_tone` and
+`identity_match` checks before accepting or even batch-generating final art.

@@ -35,6 +35,23 @@ sources:
   illustration quality, and typography standard; direct creator correction that
   slide-level QA must block copy-visual contradictions and awkward/crouched
   body poses
+- direct creator correction in chat on 2026-05-30 that the One Brain Cell
+  phone/remote concept was the wrong story; the real bit is Zuv hiding Aachu's
+  phone, fake-helping search room/dining/bag/bathroom, putting it on the
+  counter/bar top, getting caught, and receiving pillow punishment while both
+  laugh
+- direct creator frustration in chat on 2026-05-30 that the wiki/memory setup
+  is failing if Codex keeps converting a simple creator-supplied daily-life
+  row into wrong concepts, stale templates, or repeated wrong decisions
+- direct creator rejection in chat on 2026-05-30 of the first phone-prank image
+  proof: the output was yellowish/parchment and Aachu/Zuv faces did not match;
+  this must be treated as a hard generation failure, not a minor style note
+- direct creator correction in chat on 2026-05-30 for the
+  `We disagree / older couple / still choosing` reference adaptation: the
+  concept is good, but the generated visuals were not @a.storyof.two style
+- direct creator request in chat on 2026-05-30 to adapt the supplied
+  Him/Her emotional-weather reference screenshots into the next premium
+  @a.storyof.two carousel using identity images and premium style lock
 - memory/working.md
 - memory/semantic/premium-illustration-style-lock.md
 - wiki/themes/calm-enough-for-chaos.md
@@ -155,6 +172,20 @@ upper-middle negative space, tiny bottom-right `@a.storyof.two` brandmark, and
 readable hand-drawn charcoal typography. Avoid flat vector, poster-card,
 photorealism, UI/screenshot residue, quote-card design, or generic AI-watercolor
 looks.
+confidence: 1.0
+
+fact: The creator explicitly rejects yellowish paper/background tones. For
+@a.storyof.two illustration generation, neutral warm ivory/off-white paper is
+required; yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or
+heavy cream casts are hard failures. Do not call such outputs "premium" or use
+them as style references.
+confidence: 1.0
+
+fact: Aachu/Zuv identity match is a hard gate. Text-only identity descriptions
+are not enough for final character illustrations. If the generation path cannot
+use actual Aachu/Zuv identity reference images and the Observational Intimacy
+Premium style references as image inputs, block final generation for
+identity/style-reference support instead of producing a "final" image.
 confidence: 1.0
 
 fact: Future visual QA must explicitly block copy-visual logic failures and
@@ -314,6 +345,16 @@ reaction, object movement, face, hands, silence, and consequence first; then
 add only the minimum text that naturally belongs inside the scene as context,
 thought bubble, speech bubble, or deliberate silence. Do not write explanatory
 poster copy and then force visuals to illustrate it.
+confidence: 1.0
+
+fact: When the creator supplies a real moment, preserve the raw action row
+before any Layer E lens, Golden Theme tournament, hook, copy, or prompt work.
+The row must record the literal sequence, locations, objects, actor, watcher,
+object movement, visible proof, and consequence. Do not abstract, symmetrize,
+add second objects, change the cause, soften the prank, or convert the lived
+scene into a safer universal concept. If the row is wrong, all downstream
+copy/prompts/images are wrong even if they look premium. A creator rejection
+means stop and rebuild from the raw row, not polish the same concept.
 confidence: 1.0
 
 fact: Creator correction on 2026-05-29: for every carousel concept, build the
@@ -479,8 +520,11 @@ confidence: 0.98
 
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
+| 2026-05-30 | The Hand That Stays | external emotional-weather reference adaptation / reachable hand / non-shaming steadiness / premium identity-first A Story scene | final_generated_packaged_pass_with_notes | Created from four supplied Him/Her reference screenshots as story and gesture references only. Final package lives at `output/carousels/2026-05-30/the-hand-that-stays/` with six native 4:5 Instagram slides and separate native 9:16 Reels/Stories slides. Locked copy: `He never asked her to be easier.` -> `Not when words overflowed.` -> `Not when feelings spilled.` -> `Not when silence got angry.` -> `He kept his hand there.` -> `Maybe love is the hand that stays.` Preserve this as a completed reference-adaptation lane. Do not repeat the flat cartoon style, Him/Her labels, blah bubbles, UI, external watermark, yellow/parchment tone, or generic comfort poster energy as fresh. | 1.0 |
+| 2026-05-30 | I Still Love You / Older Couple Future | copied reference text / conflict-still-love / older-couple witness / future-us promise | concept_approved_visuals_rejected | Creator clarified that the concept is good, but the visuals are not. Keep the emotional machine and exact reference text available: disagreement/fight -> why -> older-couple witness -> cost of staying -> future-us -> still choosing. Reject the current visual proof and the visual system inside `output/carousels/2026-05-30/i-still-love-you-2/` as approved style reference. Next repair must preserve the concept while rebuilding visuals from the A Story house style: identity-first Aachu/Zuv, neutral warm ivory paper, airy lower/middle-lower couple placement, readable handwritten text, real couple behavior, no screenshot/film-still/gallery-copy drift, no generic older-couple poster energy. | 1.0 |
+| 2026-05-30 | Phone Prank Search Party | daily-human phone prank / fake helper / house-wide search / counter reveal / pillow punishment | raw_scene_locked_image_generation_blocked_identity_style | Creator supplied the actual story after rejecting the abstract phone/remote setup: he hides her phone, then fake-helps search the room, dining area, bag, and bathroom; once she is annoyed, he casually places the phone on the counter/bar top, gets caught, and she throws pillows while both laugh. Creator then rejected the recut/execution as still not working. Active package: `output/carousels/2026-05-30/one-brain-cell-at-home/`. Only valid source is `raw-scene-row.md/json`; the 7-line copy candidate is not approved. First generated proof on 2026-05-30 is rejected because it was yellow/parchment and the faces did not match. Do not use that proof as reference. Next valid generation path must use actual identity and style reference images; text-only built-in generation is blocked for finals. | 1.0 |
 | 2026-05-30 | The Small World | real-life tiny-life gratitude / zoom-out to zoom-in visual psychology / sky attention pivot | accepted_visual_direction_packaged | Creator approved the 3-slide adaptation from the external StoriesByPost-style screenshot but wants it visually captivating, emotional, and psychological: use the outside reference only for mood/composition/story essence, not copied wording or style. Locked copy: `Not every love story needs a big life.` -> `She points at the sky. He looks at her first.` -> `That small world became home.` Visual system must move from wide awe/negative-space scale to selective-attention medium shot to tactile close-up intimacy, proving that the real subject is not the sky but the way he notices her. Keep it real-life and minimal, avoid quote-card energy, generic beach romance, copied external text, or non-A Story illustration style. Active package: `output/carousels/2026-05-30/the-small-world/`. | 1.0 |
-| 2026-05-30 | One Brain Cell At Home / Search Party | daily-human mutual incompetence / missing phone and remote / home as no-judgement comedy | accepted_packaging_handoff_pending | Recommended after creator pushed back that the assistant must use semantic memory instead of asking for raw setup. This is setup-first and mutual: at home both become a tiny search party, her phone is already in her hand, his remote is already in his hand, and both still search the sofa together. Use this only as daily-human comedy with ordinary body language, hands, object movement, eye-lines, and tiny scene-native text. Avoid perfect-boyfriend care, one-way Aachu chaos, generic relationship advice, object-first phone/remote premise, or moralizing about forgetfulness. Draft hook/copy direction: `Some couples share one brain cell.`, `Phone kaha hai?`, `It was in her hand.`, `Remote kaha hai?`, `It was in his hand.`, `Sofa still got checked.`, `Home is where no one acts smart.` | 0.94 |
+| 2026-05-30 | One Brain Cell At Home / Search Party | daily-human mutual incompetence / missing phone and remote / home as no-judgement comedy | rejected_creator_wrong_story_superseded | Creator rejected this direction after multiple copy/visual repairs. Failure: it stayed stuck on a generic missing-phone/remote symmetry and did not convey the real daily-life story or visual continuity. Do not pitch or generate the phone-in-pocket/remote-under-him version as fresh. It is superseded by `Phone Prank Search Party`, where the actual story is Zuv hiding Aachu's phone, fake-helping, house-wide search escalation, counter reveal, and pillow payoff. | 1.0 |
 | 2026-05-30 | One Umbrella Shows Everything | rain walk / mutual noticing / one-sided care becomes shared shelter | rejected_creator_wrong_direction_and_setup_fail | Creator rejected this immediately and corrected that the assistant again failed the setup explained in the learning summary. Failure: the route was still a pretty romantic object-first premise dressed as a physical receipt; the setup was not lived, specific, funny, staged, or creator-calibrated enough. It leaned toward generic rain-romance/perfect-boyfriend visual poetry instead of a hard-working @a.storyof.two scene engine. Do not pitch umbrella/rain/sleeve-wet mutual-shelter concepts as the next direction unless the creator explicitly supplies a real moment and asks to revisit. | 1.0 |
 | 2026-05-29 | OTP Expired Twice | daily-life timer panic / two-person pressure system / mutual comedy | approved_package_handoff_ready | Creator approved this after rejecting Unknown Number Adult Voice as underfleshed and asked to continue carousel creation. Active package: `output/carousels/2026-05-29/otp-expired-twice/`. Locked repaired copy: `30 seconds.`, `jaldi bolo.`, `8 tha ya 3?`, `expired.`, `resend. breathe.`, `submitted.`, `two people panicking correctly.` Winning visual system: cozy home mini mission-control with two color-coded phones, hands, eye-lines, and shared body movement proving the joke before text. Keep this harmless app verification only; avoid shopping/cart framing, money audit, scam/fraud vibes, branded UI, perfect-husband rescue, or making either partner look incompetent. Handoff prompts for native 4:5 and separate native 9:16 exist; final generated images and visual QA remain pending because identity references must be attached as actual image inputs. | 1.0 |
 | 2026-05-29 | Unknown Number Adult Voice | daily-life adulting comedy / unknown-call private teamwork / formal voice rescue | rejected_creator_underfleshed | Creator said the idea is not looking good or fleshed out enough and asked to explore funnier or different angles. Do not pitch the unknown-number/adult-voice scene as the fresh winner unless explicitly revisiting. Failure note: the scene has visual clarity but not enough escalation, comedic surprise, or A Story of Two-specific emotional machine; it still reads like a cute adulting skit rather than a strong carousel premise. | 1.0 |

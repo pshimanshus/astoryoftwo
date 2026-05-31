@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Calm Enough For Emotional Weather",
+  "winner": "Emotional Weather, Reachable Hand",
+  "rejected_visual_patterns": [
+    "Him/Her labels",
+    "blah speech bubbles",
+    "flat vector cartoon bodies",
+    "angry comic symbol copied from reference",
+    "quote-card panels",
+    "one-setting passive listening"
+  ],
+  "continuity_locks": {
+    "wardrobe": "consistent casual Indo-western home wardrobe family",
+    "identity": "selected identity bundle controls faces in every slide",
+    "paper": "neutral warm ivory/off-white only"
+  },
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove exact copy through visible Aachu/Zuv behavior; any doubtful slide blocks generation.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "He never asked her to be easier.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "photo_identity_evidence": true,
+        "identity_continuity": true,
+        "typography_safety": true,
+        "aspect_safe_composition": true,
+        "no_losing_visual_option_leak": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Not when words overflowed.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "photo_identity_evidence": true,
+        "identity_continuity": true,
+        "typography_safety": true,
+        "aspect_safe_composition": true,
+        "no_losing_visual_option_leak": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Not when feelings spilled.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "photo_identity_evidence": true,
+        "identity_continuity": true,
+        "typography_safety": true,
+        "aspect_safe_composition": true,
+        "no_losing_visual_option_leak": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "Not when silence got angry.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "photo_identity_evidence": true,
+        "identity_continuity": true,
+        "typography_safety": true,
+        "aspect_safe_composition": true,
+        "no_losing_visual_option_leak": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "He kept his hand there.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "photo_identity_evidence": true,
+        "identity_continuity": true,
+        "typography_safety": true,
+        "aspect_safe_composition": true,
+        "no_losing_visual_option_leak": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "Maybe love is the hand that stays.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "photo_identity_evidence": true,
+        "identity_continuity": true,
+        "typography_safety": true,
+        "aspect_safe_composition": true,
+        "no_losing_visual_option_leak": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": []
+}

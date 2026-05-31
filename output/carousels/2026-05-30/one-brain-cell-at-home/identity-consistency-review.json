@@ -1,6 +1,5 @@
 {
   "agent": "C3.5-IdentityConsistency",
-  "role": "Blocks image generation unless face structure, expressions, clothing, and cross-slide continuity are locked.",
   "status": "PASS",
   "identity_references": [
     "identity_images/aachu_zuv.png"
@@ -8,161 +7,107 @@
   "identity_dossier_reference_images": [
     "output/carousels/2026-05-30/one-brain-cell-at-home/identity-face-contact-sheet.jpg"
   ],
+  "hard_gate": "Final generation must use these as actual image inputs; text-only identity is blocked.",
   "slides": [
     {
       "slide": 1,
-      "copy": "Some couples share one brain cell.",
+      "copy": "He hid her phone.",
       "checks": {
-        "face_structure": true,
-        "facial_expression": true,
-        "clothing": true,
-        "cross_slide_consistency": true,
         "identity_references_attached": true,
-        "identity_dossier_attached": true
-      },
-      "identity_continuity": {
-        "identity_references": [
-          "identity_images/aachu_zuv.png"
-        ],
-        "face_structure": "Match the real face structure from the selected Aachu/Zuv identity bundle: recurring facial proportions, hairline, cheek/jaw shape, eyes, brows, nose, smile, skin tone, Zuv beard shape, and relative height/posture. Do not substitute generic South Asian couple faces.",
-        "clothing": "Keep the same casual home outfit language across the sequence; use wardrobe from the identity/style lock only as continuity anchor, not random costume changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy.",
-        "slide": 1,
-        "facial_expression": "Keep the expression specific to this beat (deadpan recognition) while preserving the same underlying face structure across all slides."
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
       }
     },
     {
       "slide": 2,
-      "copy": "Phone kaha hai?",
+      "copy": "She started looking.",
       "checks": {
-        "face_structure": true,
-        "facial_expression": true,
-        "clothing": true,
-        "cross_slide_consistency": true,
         "identity_references_attached": true,
-        "identity_dossier_attached": true
-      },
-      "identity_continuity": {
-        "identity_references": [
-          "identity_images/aachu_zuv.png"
-        ],
-        "face_structure": "Match the real face structure from the selected Aachu/Zuv identity bundle: recurring facial proportions, hairline, cheek/jaw shape, eyes, brows, nose, smile, skin tone, Zuv beard shape, and relative height/posture. Do not substitute generic South Asian couple faces.",
-        "clothing": "Keep the same casual home outfit language across the sequence; use wardrobe from the identity/style lock only as continuity anchor, not random costume changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy.",
-        "slide": 2,
-        "facial_expression": "Keep the expression specific to this beat (mock panic) while preserving the same underlying face structure across all slides."
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
       }
     },
     {
       "slide": 3,
-      "copy": "It was in her hand.",
+      "copy": "He helped.",
       "checks": {
-        "face_structure": true,
-        "facial_expression": true,
-        "clothing": true,
-        "cross_slide_consistency": true,
         "identity_references_attached": true,
-        "identity_dossier_attached": true
-      },
-      "identity_continuity": {
-        "identity_references": [
-          "identity_images/aachu_zuv.png"
-        ],
-        "face_structure": "Match the real face structure from the selected Aachu/Zuv identity bundle: recurring facial proportions, hairline, cheek/jaw shape, eyes, brows, nose, smile, skin tone, Zuv beard shape, and relative height/posture. Do not substitute generic South Asian couple faces.",
-        "clothing": "Keep the same casual home outfit language across the sequence; use wardrobe from the identity/style lock only as continuity anchor, not random costume changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy.",
-        "slide": 3,
-        "facial_expression": "Keep the expression specific to this beat (caught and laughing) while preserving the same underlying face structure across all slides."
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
       }
     },
     {
       "slide": 4,
-      "copy": "Remote kaha hai?",
+      "copy": "Room checked.",
       "checks": {
-        "face_structure": true,
-        "facial_expression": true,
-        "clothing": true,
-        "cross_slide_consistency": true,
         "identity_references_attached": true,
-        "identity_dossier_attached": true
-      },
-      "identity_continuity": {
-        "identity_references": [
-          "identity_images/aachu_zuv.png"
-        ],
-        "face_structure": "Match the real face structure from the selected Aachu/Zuv identity bundle: recurring facial proportions, hairline, cheek/jaw shape, eyes, brows, nose, smile, skin tone, Zuv beard shape, and relative height/posture. Do not substitute generic South Asian couple faces.",
-        "clothing": "Keep the same casual home outfit language across the sequence; use wardrobe from the identity/style lock only as continuity anchor, not random costume changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy.",
-        "slide": 4,
-        "facial_expression": "Keep the expression specific to this beat (equal-opportunity chaos) while preserving the same underlying face structure across all slides."
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
       }
     },
     {
       "slide": 5,
-      "copy": "It was in his hand.",
+      "copy": "Dining checked.",
       "checks": {
-        "face_structure": true,
-        "facial_expression": true,
-        "clothing": true,
-        "cross_slide_consistency": true,
         "identity_references_attached": true,
-        "identity_dossier_attached": true
-      },
-      "identity_continuity": {
-        "identity_references": [
-          "identity_images/aachu_zuv.png"
-        ],
-        "face_structure": "Match the real face structure from the selected Aachu/Zuv identity bundle: recurring facial proportions, hairline, cheek/jaw shape, eyes, brows, nose, smile, skin tone, Zuv beard shape, and relative height/posture. Do not substitute generic South Asian couple faces.",
-        "clothing": "Keep the same casual home outfit language across the sequence; use wardrobe from the identity/style lock only as continuity anchor, not random costume changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy.",
-        "slide": 5,
-        "facial_expression": "Keep the expression specific to this beat (soft gotcha) while preserving the same underlying face structure across all slides."
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
       }
     },
     {
       "slide": 6,
-      "copy": "Sofa still got checked.",
+      "copy": "Bag checked.",
       "checks": {
-        "face_structure": true,
-        "facial_expression": true,
-        "clothing": true,
-        "cross_slide_consistency": true,
         "identity_references_attached": true,
-        "identity_dossier_attached": true
-      },
-      "identity_continuity": {
-        "identity_references": [
-          "identity_images/aachu_zuv.png"
-        ],
-        "face_structure": "Match the real face structure from the selected Aachu/Zuv identity bundle: recurring facial proportions, hairline, cheek/jaw shape, eyes, brows, nose, smile, skin tone, Zuv beard shape, and relative height/posture. Do not substitute generic South Asian couple faces.",
-        "clothing": "Keep the same casual home outfit language across the sequence; use wardrobe from the identity/style lock only as continuity anchor, not random costume changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy.",
-        "slide": 6,
-        "facial_expression": "Keep the expression specific to this beat (committed nonsense) while preserving the same underlying face structure across all slides."
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
       }
     },
     {
       "slide": 7,
-      "copy": "Home is where no one acts smart.",
+      "copy": "Bathroom checked.",
       "checks": {
-        "face_structure": true,
-        "facial_expression": true,
-        "clothing": true,
-        "cross_slide_consistency": true,
         "identity_references_attached": true,
-        "identity_dossier_attached": true
-      },
-      "identity_continuity": {
-        "identity_references": [
-          "identity_images/aachu_zuv.png"
-        ],
-        "face_structure": "Match the real face structure from the selected Aachu/Zuv identity bundle: recurring facial proportions, hairline, cheek/jaw shape, eyes, brows, nose, smile, skin tone, Zuv beard shape, and relative height/posture. Do not substitute generic South Asian couple faces.",
-        "clothing": "Keep the same casual home outfit language across the sequence; use wardrobe from the identity/style lock only as continuity anchor, not random costume changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy.",
-        "slide": 7,
-        "facial_expression": "Keep the expression specific to this beat (warm settled comedy) while preserving the same underlying face structure across all slides."
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
+      }
+    },
+    {
+      "slide": 8,
+      "copy": "Phone on the bar top.",
+      "checks": {
+        "identity_references_attached": true,
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
+      }
+    },
+    {
+      "slide": 9,
+      "copy": "She knew.",
+      "checks": {
+        "identity_references_attached": true,
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
+      }
+    },
+    {
+      "slide": 10,
+      "copy": "Pillows first. Laughter after.",
+      "checks": {
+        "identity_references_attached": true,
+        "identity_dossier_attached": true,
+        "face_structure": true,
+        "paper_tone_non_yellow": true
       }
     }
-  ],
-  "issues": []
+  ]
 }

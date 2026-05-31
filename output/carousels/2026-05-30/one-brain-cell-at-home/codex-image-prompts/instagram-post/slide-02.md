@@ -48,20 +48,23 @@ Style references:
 
 ## Exact Slide Copy
 
-Phone kaha hai?
+She started looking.
 
 ## Prompt
 
 Native output format: Instagram post. Generate a complete 4:5 vertical publishable carousel slide with all text and the tiny @a.storyof.two brandmark inside the image. Do not rely on cropping, padding, or resizing from another aspect ratio.
 
-ON-IMAGE TEXT: Phone kaha hai?
-Scene: Aachu searches beside the sofa with exaggerated seriousness. Her phone is not in her hand; it is tucked in her jeans pocket or shirt pocket, with only a small corner barely peeking out so the audience may notice on second look. Zuv watches from beside her, amused but not announcing the answer yet.
-Pose and blocking: Aachu leans toward the sofa and lifts a cushion with one hand while the other hand pats around the sofa. Zuv stands slightly behind or beside her with soft amused attention, eye-line beginning to notice the pocket.
-Wardrobe: Aachu keeps the oversized white shirt and blue jeans; make the pocket placement clear but subtle. Zuv keeps the same home outfit language.
-Props: phone subtly tucked in Aachu pocket, sofa cushion, side table, small charging cable
-Background: same cozy living-room corner, warm light, fabric texture, paper grain
-Emotion: mock panic
-Identity continuity lock: preserve the same Aachu/Zuv faces, hair, Zuv stubble, Aachu expressive eyes, skin tones, body proportions, and couple energy across every slide. Story continuity rule: do not reveal the punchline too early; plant objects subtly in setup slides and make the next slide earn the reveal. Successful-carousel standard: the staged Aachu/Zuv behavior must prove the relationship truth before the text is read. Use the Observational Intimacy Premium watercolor-and-ink house style with warm ivory paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, soft faded edges, exact handwritten text in clean upper-middle negative space, and only the tiny @a.storyof.two brandmark at bottom-right.
+ON-IMAGE TEXT: She started looking.
+SCENE: Aachu begins searching near the sofa and side table, still calm and confused. Zuv stands nearby pretending nothing happened.
+POSE/BODY LANGUAGE: Aachu leans naturally toward the sofa. Zuv watches her with controlled innocent face.
+WARDROBE: Same casual home outfits throughout: Aachu in oversized white shirt, blue jeans, small gold earrings, natural dark wavy hair; Zuv in navy hoodie or white tee with tan pants, short stubble, curly hair.
+PROPS: sofa cushion, side table, phone hidden with Zuv, coffee cup
+BACKGROUND: same home, airy premium off-white paper
+EMOTION: normal confusion
+STYLE: creator-approved Observational Intimacy Premium A Story of Two watercolor-and-ink. Neutral warm ivory/off-white paper only, visible grain, fine ink/pencil linework, transparent watercolor blooms, muted denim/navy/off-white/camel/faded sage/soft coral, soft faded edges, clean upper-middle negative space.
+IDENTITY: use the attached Aachu/Zuv identity reference images and identity contact sheet as actual face references. Faces must match; text-only identity descriptions are not enough.
+STORY LOCK: phone-hiding prank only. Do not add a remote, second missing object, phone-in-pocket gag, or moral thesis.
+FORMAT: native 4:5 Instagram carousel slide, exact readable hand-drawn text, tiny bottom-right @a.storyof.two brandmark.
 
 ## Expected Output
 

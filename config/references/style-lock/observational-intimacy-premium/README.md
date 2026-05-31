@@ -27,3 +27,12 @@ generic AI watercolor, UI/screenshot residue,
 random text, quote-card design, wrong or missing brandmark, text outside the
 warm upper-middle negative space, copy-visual contradictions, awkward/crouched poses,
 or faces that do not match the selected Aachu/Zuv identity bundle.
+
+Also reject immediately if the page reads yellow, mustard, sepia, beige/tan,
+parchment, coffee-stained, or heavy cream. The approved paper is neutral warm
+ivory/off-white with visible grain, not yellowish.
+
+The 2026-05-30 phone-prank proof is a known rejected example: it looked
+yellow/parchment and the faces did not match. Do not use it as a style or
+identity reference. It proves that text-only identity descriptions are not
+enough for final Aachu/Zuv illustrations.

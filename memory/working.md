@@ -828,3 +828,58 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: PASS_WITH_NOTES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-05-30/before-us-timing-found-us
+
+## C-layer workflow correction: Creator Raw Scene Lock
+- date: 2026-05-30
+- status: workflow_contract_repaired
+- trigger: creator frustration that repeated wiki/memory guidance still failed
+  on a simple phone-prank story
+- learning: when the creator supplies a real daily-life moment, Codex must
+  preserve the literal action row before any Layer E lens, Golden Theme score,
+  copy, prompt, or image generation. The row must keep the actual sequence,
+  locations, objects, actor, watcher, object movement, visible proof, and
+  consequence. If the row is wrong, all downstream artifacts are wrong.
+- hard_stop: do not abstract, symmetrize, add second objects, change the cause,
+  or convert the lived moment into a safer relationship thesis. On rejection,
+  mark the previous route dead and rebuild from the raw row.
+- durable_memory: memory/semantic/carousel-idea-preferences.md
+- skill_contracts: config/skills/carousel-story-director-persona.md;
+  config/skills/carousel-jam-autopilot.md
+
+## C-layer generation correction: yellow tone and identity hard fail
+- date: 2026-05-30
+- status: saved_to_memory_style_contract_and_skill_prompt
+- trigger: creator rejected the first phone-prank proof for yellow/parchment
+  tone and non-matching Aachu/Zuv faces
+- learning: @a.storyof.two illustrations must use neutral warm ivory/off-white
+  paper only; yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or
+  heavy cream casts are hard failures. Aachu/Zuv identity match is also a hard
+  gate; text-only identity descriptions are not enough for final art.
+- blocker: if the current image-generation path cannot use actual Aachu/Zuv
+  identity references and Observational Intimacy Premium style references as
+  image inputs, block final generation instead of producing "final" images.
+- durable_memory: memory/semantic/premium-illustration-style-lock.md;
+  memory/semantic/carousel-idea-preferences.md
+- style_contracts: config/references/a-story-illustration-master-prompt.md;
+  config/references/a-story-premium-illustration-style-lock.md;
+  config/references/style-lock/observational-intimacy-premium/README.md
+
+## C-layer carousel run: I Still Love You
+- date: 2026-05-30
+- slug: i-still-love-you-2
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-30/i-still-love-you-2
+## C-layer carousel run: I Have No Car I'll Walk
+- date: 2026-05-30
+- slug: i-have-no-car-i-ll-walk
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-30/i-have-no-car-i-ll-walk
+
+## C-layer carousel run: The Hand That Stays
+- date: 2026-05-30
+- slug: the-hand-that-stays
+- final_audit: PASS_WITH_NOTES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-30/the-hand-that-stays

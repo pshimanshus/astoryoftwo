@@ -696,6 +696,46 @@
       "slide_count": 6,
       "package": "output/carousels/2026-05-30/before-us-timing-found-us-2",
       "content_lane": "Soft Love Notes"
+    },
+    "carousel:i-still-love-you": {
+      "id": "carousel:i-still-love-you",
+      "type": "illustrated_carousel",
+      "title": "I Still Love You",
+      "date": "2026-05-30",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-30/i-still-love-you",
+      "content_lane": "Golden Still Choosing"
+    },
+    "carousel:i-still-love-you-2": {
+      "id": "carousel:i-still-love-you-2",
+      "type": "illustrated_carousel",
+      "title": "I Still Love You",
+      "date": "2026-05-30",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-30/i-still-love-you-2",
+      "content_lane": "Golden Still Choosing"
+    },
+    "carousel:the-hand-that-stays": {
+      "id": "carousel:the-hand-that-stays",
+      "type": "illustrated_carousel",
+      "title": "The Hand That Stays",
+      "date": "2026-05-30",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-30/the-hand-that-stays",
+      "content_lane": "Calm Enough For Emotional Weather"
+    },
+    "carousel:i-have-no-car-i-ll-walk": {
+      "id": "carousel:i-have-no-car-i-ll-walk",
+      "type": "illustrated_carousel",
+      "title": "I Have No Car I'll Walk",
+      "date": "2026-05-30",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-05-30/i-have-no-car-i-ll-walk",
+      "content_lane": "Golden Enough Love"
     }
   },
   "relationships": [
@@ -1127,6 +1167,30 @@
     },
     {
       "from": "carousel:before-us-timing-found-us-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:i-still-love-you",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:i-still-love-you-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:the-hand-that-stays",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:i-have-no-car-i-ll-walk",
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7

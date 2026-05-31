@@ -1,0 +1,77 @@
+{
+  "status": "REAL_PHONE_PRANK_STORY_APPLIED_PENDING_CREATOR_APPROVAL",
+  "principle": "Every slide must read visually before text.",
+  "rejected_visual_logic": [
+    "phone in pocket",
+    "phone/remote symmetry",
+    "obvious prop-only punchlines",
+    "text-first quote cards"
+  ],
+  "locked_story": {
+    "status": "REAL_PHONE_PRANK_STORY_SELECTED_PENDING_CREATOR_APPROVAL",
+    "source": "creator supplied the actual daily-life bit: Zuv hides Aachu's phone, fake-helps search the room, dining area, bag, and bathroom, then places it on the bar/counter, gets caught, and Aachu throws pillows while both laugh.",
+    "story_engine": "prank setup -> fake helper -> house-wide search -> anger edge -> counter reveal -> pillow punishment -> safe laughter",
+    "emotional_machine": {
+      "surface": "He hides her phone and acts innocent.",
+      "obstacle": "A harmless prank can become irritating if it goes too far.",
+      "turn": "He gets caught by putting the phone back on the counter.",
+      "payoff": "Her anger becomes pillow play, which proves the relationship is safe enough for nonsense."
+    },
+    "slide_copy": {
+      "1": "He hid her phone.",
+      "2": "Then helped her find it.",
+      "3": "Room checked.",
+      "4": "Dining checked.",
+      "5": "Bag. Bathroom. Everything.",
+      "6": "Then he kept it on the counter.",
+      "7": "She found the phone. He found the pillow."
+    },
+    "viewer_feeling_arc": [
+      "He is starting trouble.",
+      "He is fake-helping.",
+      "They are searching the room for real.",
+      "The whole house is involved.",
+      "She is getting angry.",
+      "He gets caught at the counter.",
+      "Pillow punishment turns it into laughter."
+    ],
+    "decision": "HOLD_FOR_CREATOR_APPROVAL_BEFORE_GENERATION"
+  },
+  "viewer_reads": {
+    "1": {
+      "first_read": "He is secretly creating the problem.",
+      "text_job": "Names the prank setup in one clean action line.",
+      "swipe_reason": "Why would he hide it, and what happens when she starts looking?"
+    },
+    "2": {
+      "first_read": "He is pretending to help solve the problem he created.",
+      "text_job": "Turns the prank into the fake-helper beat.",
+      "swipe_reason": "How far will he let the search go?"
+    },
+    "3": {
+      "first_read": "The search has moved from one cushion to the whole room.",
+      "text_job": "Marks the first location as checked.",
+      "swipe_reason": "Where else will they search?"
+    },
+    "4": {
+      "first_read": "The bit has moved through the house.",
+      "text_job": "Adds location escalation.",
+      "swipe_reason": "How ridiculous does the search get?"
+    },
+    "5": {
+      "first_read": "They checked absurd places and she is close to catching the mood shift.",
+      "text_job": "Compresses the escalation without over-explaining.",
+      "swipe_reason": "How does the prank finally break?"
+    },
+    "6": {
+      "first_read": "He quietly returns the hidden phone and gets caught.",
+      "text_job": "Names the reveal action.",
+      "swipe_reason": "What is her punishment?"
+    },
+    "7": {
+      "first_read": "She caught him and pillow-punished him, but both are laughing.",
+      "text_job": "Delivers the punchline with object reversal: phone found, pillow found him.",
+      "swipe_reason": "Save/send because this is the exact safe nonsense of couple life."
+    }
+  }
+}

@@ -81,6 +81,39 @@ Before any copy or visual direction exists, define:
 
 Reject the direction if any item is missing.
 
+## Creator Raw Scene Lock
+
+When the creator supplies a real lived moment, the first job is not a hook,
+theme, copy spine, Golden Theme repair, or prettier concept. The first job is
+to preserve the creator's raw action row exactly.
+
+Before writing any carousel line, visual direction, prompt, score, or package
+artifact, create a raw scene row with:
+
+- beat number;
+- exact creator fact;
+- location;
+- person acting;
+- object moving;
+- what the other person notices;
+- visible proof on screen;
+- consequence that earns the next beat.
+
+This raw row must keep the creator's sequence and objects intact. Do not
+replace, abstract, symmetrize, universalize, or "improve" the supplied scene.
+Changing a hidden phone into a misplaced phone, adding a second object, moving
+the reveal, changing the emotional cause, or smoothing a funny daily-life bit
+into a love thesis is a STOP failure.
+
+If the raw row is unclear, ask one concrete factual question. If it is clear,
+lock it and stage the scene from that row. Layer E and the golden theme may
+only explain why the row works; they must not rewrite the row.
+
+For daily-human comedy, copy comes after the raw row and can be tiny,
+scene-native, or absent. The visual row must be understandable with text
+hidden. If the copy makes the row feel less real, delete the copy before
+changing the row.
+
 ## Stage-Scene Gate
 
 After Layer E defines what the story means, run a Stage-Scene Gate before

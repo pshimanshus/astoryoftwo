@@ -54,6 +54,26 @@ If final-image generation is not available or a required reference is missing,
 write a concrete blocker file inside the carousel package and ask the creator
 for only the missing item.
 
+## Creator Raw Scene Lock
+
+If the creator supplies a real moment, lock the literal scene row before any
+concept tournament, Layer E framing, hook, copy, visual style, prompt pack, or
+generation. The row must preserve:
+
+- actual sequence of events;
+- exact locations;
+- exact objects;
+- who acted;
+- who noticed;
+- what changed on screen;
+- what consequence creates the next beat.
+
+Do not convert a supplied story into a more convenient relationship concept.
+Do not add symmetry, extra objects, moral endings, or quote-card structure
+unless the creator asked for them. If the creator says the direction is not
+working, immediately mark the previous route rejected/superseded, clear stale
+prompt-pack language, and rebuild from the raw scene row.
+
 ## Creator Checkpoints
 
 The creator stays in the loop at four points:
@@ -95,6 +115,12 @@ Write or update:
 
 ## Autopilot Sequence
 
+0. If a real moment is supplied, run Creator Raw Scene Lock:
+   - write the action row first;
+   - block hooks, copy, Layer E scoring, prompt packs, and generation until the
+     row preserves the creator's literal facts;
+   - if any beat invents, removes, abstracts, or rearranges the event, return
+     STOP and repair the row before continuing.
 1. Load memory and exclusions:
    - `wiki/insights/successful-carousel-standard.md`
    - `memory/semantic/carousel-idea-preferences.md`

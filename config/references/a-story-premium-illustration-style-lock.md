@@ -29,7 +29,9 @@ going forward.
 
 ## Style Contract
 
-- Use warm ivory paper with visible paper grain.
+- Use neutral warm ivory/off-white paper with visible paper grain. The page
+  must not read yellow, mustard, sepia, beige/tan, parchment, coffee-stained,
+  or heavy cream on a phone screen.
 - Preserve rich premium hand-painted watercolor-and-ink with fine graphite,
   ink contours, controlled crosshatching, transparent watercolor blooms, and
   layered pigment.
@@ -51,7 +53,20 @@ going forward.
   creator explicitly says otherwise. Do not let an external reference style
   override this house look.
 - Reject photorealism, UI, random text, quote-card design, flat vector art,
-  poster design, and generic AI watercolor.
+  poster design, generic AI watercolor, yellow/parchment casts, and generic
+  non-matching couple faces.
+
+## Identity And Reference Gate
+
+Do not accept final Aachu/Zuv illustrations generated from text-only identity
+descriptions. If the generation path cannot attach or otherwise use the actual
+Aachu/Zuv identity references and Observational Intimacy Premium references as
+image inputs, the correct status is BLOCKED_FOR_IDENTITY_STYLE_REFERENCES, not
+final, not proof-passed, and not batch-ready.
+
+Known rejected proof, 2026-05-30: the phone-prank bar-top reveal generated a
+yellow/parchment background and generic faces. That output is a hard fail and
+must not be used as an approved reference.
 
 ## Scene Logic And Pose Gate
 
@@ -63,6 +78,11 @@ Every generated slide must pass:
   the exact line; they must not contradict the copy.
 - `pose_anatomy`: Aachu and Zuv must look natural, flattering, and physically
   believable; no crouched, cramped, folded, broken, or awkward legs/body poses.
+- `paper_tone`: neutral warm ivory/off-white only; no yellow/parchment/sepia
+  cast.
+- `identity_match`: faces, hair, beard/stubble, eyes, brows, nose, cheek/jaw
+  structure, skin tone, and body proportions must match the selected identity
+  bundle.
 
 Rejected examples from the first Observational Intimacy pass:
 

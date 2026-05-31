@@ -48,20 +48,23 @@ Style references:
 
 ## Exact Slide Copy
 
-He was sitting on it.
+Dining checked.
 
 ## Prompt
 
 Native output format: Reels/Stories. Generate a complete 9:16 vertical publishable story slide with all text and the tiny @a.storyof.two brandmark inside the image. Reframe the scene for the taller canvas; do not stretch, crop, or pad the Instagram post artwork.
 
-ON-IMAGE TEXT: He was sitting on it.
-Scene: Aachu points toward the remote as Zuv shifts and realizes he has been sitting on it. He lifts himself slightly from the sofa with a small helpless grin while the remote becomes visible under him. The frame mirrors the earlier phone reveal so both people get equal silly dignity.
-Pose and blocking: Aachu lightly points at the sofa under Zuv; Zuv half-rises or turns to see the remote, shoulders relaxing as the laugh arrives. Keep posture natural and flattering, no awkward crouch.
-Wardrobe: Same home outfits; keep face structures and hair silhouettes consistent with the identity reference.
-Props: remote visible under Zuv on sofa, phone safe in Aachu pocket or hand, slightly messy cushions
-Background: warm domestic background, paper grain, soft faded edges, clean text space
-Emotion: soft gotcha
-Identity continuity lock: preserve the same Aachu/Zuv faces, hair, Zuv stubble, Aachu expressive eyes, skin tones, body proportions, and couple energy across every slide. Story continuity rule: do not reveal the punchline too early; plant objects subtly in setup slides and make the next slide earn the reveal. Successful-carousel standard: the staged Aachu/Zuv behavior must prove the relationship truth before the text is read. Use the Observational Intimacy Premium watercolor-and-ink house style with warm ivory paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, soft faded edges, exact handwritten text in clean upper-middle negative space, and only the tiny @a.storyof.two brandmark at bottom-right.
+ON-IMAGE TEXT: Dining checked.
+SCENE: Dining/bar area search. Aachu checks around dining chairs/table. Zuv acts like a serious helper while guarding the hidden phone.
+POSE/BODY LANGUAGE: Aachu near dining chair/table, Zuv near counter edge, both natural and readable.
+WARDROBE: Same casual home outfits throughout: Aachu in oversized white shirt, blue jeans, small gold earrings, natural dark wavy hair; Zuv in navy hoodie or white tee with tan pants, short stubble, curly hair.
+PROPS: dining chair, fruit bowl, mug, kitchen/bar counter in background
+BACKGROUND: dining area, neutral ivory paper, no yellow wash
+EMOTION: the search travels through the house
+STYLE: creator-approved Observational Intimacy Premium A Story of Two watercolor-and-ink. Neutral warm ivory/off-white paper only, visible grain, fine ink/pencil linework, transparent watercolor blooms, muted denim/navy/off-white/camel/faded sage/soft coral, soft faded edges, clean upper-middle negative space.
+IDENTITY: use the attached Aachu/Zuv identity reference images and identity contact sheet as actual face references. Faces must match; text-only identity descriptions are not enough.
+STORY LOCK: phone-hiding prank only. Do not add a remote, second missing object, phone-in-pocket gag, or moral thesis.
+FORMAT: native 4:5 Instagram carousel slide, exact readable hand-drawn text, tiny bottom-right @a.storyof.two brandmark.
 
 ## Expected Output
 

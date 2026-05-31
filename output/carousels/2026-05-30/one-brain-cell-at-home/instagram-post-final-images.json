@@ -1,0 +1,199 @@
+{
+  "status": "instagram_post_generated",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 10,
+  "format": "instagram_post",
+  "publishable_instagram_carousel": true,
+  "reels_stories_pending": true,
+  "dimension_gate": "PASS: all sources are native 4:5 before upload-size normalization",
+  "style_gate": "PASS: selected outputs avoid the previous yellow/parchment failure and use the premium watercolor-and-ink house style",
+  "identity_gate": "REVIEW_PASS: identity refs were loaded and likeness is materially closer; creator can still request face tweaks",
+  "story_logic_repairs": [
+    "Regenerated slide 03 because the phone appeared too early.",
+    "Regenerated slide 06 because the phone appeared in the bag/table area.",
+    "Regenerated off-ratio slides instead of cropping story-tall outputs."
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-01.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1ac1ac45308191940f46118a22baf7.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-01.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 2,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-02.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1aba0e3bf4819197fb10df61800fee.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-02.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 3,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-03.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1a8dda0288819199cdaf209b4630dd.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-03.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 4,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-04.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1a8e207fa881919ec54e4b841fa207.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-04.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 5,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-05.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1abb57b4b881918ae774de847036c2.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-05.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 6,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-06.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1ac03955a88191b279e7198d7bf48b.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-06.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 7,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-07.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1ac39f96908191a038434a0c2d6326.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-07.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 8,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-08.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1abd7b6ad8819193dee911f252dcde.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-08.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 9,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-09.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1abe591a188191bc2fd23fca707c7e.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-09.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    },
+    {
+      "slide": 10,
+      "format": "instagram_post",
+      "source": "output/carousels/2026-05-30/one-brain-cell-at-home/final/model-native-source/instagram-post-slide-10.png",
+      "codex_generated_source": "/Users/himanshusharma/.codex/generated_images/019e758b-2ace-7e21-8699-1160a4f490bd/ig_0608497f0be4ce3b016a1a8a3d57fc8191a6e82cdc41963dfc.png",
+      "source_dimensions": {
+        "width": 1122,
+        "height": 1402,
+        "aspect": 0.8003
+      },
+      "file": "output/carousels/2026-05-30/one-brain-cell-at-home/final/slide-10.png",
+      "upload_dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspect": 0.8
+      },
+      "normalization": "resized native 4:5 source to Instagram upload size; no crop, pad, or aspect conversion"
+    }
+  ]
+}

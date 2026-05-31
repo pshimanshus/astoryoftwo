@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "generation_mode": "model_native_publishable",
+  "backend": "codex_builtin",
+  "publishable": true,
+  "can_satisfy_final_gate": true,
+  "slide_count": 6,
+  "reviewed_on": "2026-05-30",
+  "reviewer": "Codex visual QA after generated final inspection",
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": [
+        "output/carousels/2026-05-30/the-hand-that-stays/final/slide-01.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final/slide-02.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final/slide-03.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final/slide-04.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final/slide-05.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final/slide-06.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-01.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-02.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-03.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-04.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-05.png",
+        "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-06.png"
+      ],
+      "notes": "All six 4:5 finals and the checked 9:16 finals preserve the locked arc: acceptance, overflow, feelings, angry silence, hand proof, and payoff."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID36",
+        "ID37",
+        "ID39",
+        "ID44"
+      ],
+      "likeness_notes": "Aachu keeps the selected identity bundle cues: long dark hair, warm medium-brown skin, expressive eyes, soft brows, delicate jewelry, and familiar emotional range across slides."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID36",
+        "ID37",
+        "ID39",
+        "ID44"
+      ],
+      "likeness_notes": "Zuv keeps the selected identity bundle cues: curly dark hair, strong brows, warm medium-brown skin, defined nose, short stubble, calm gaze, and steady posture across slides."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Wardrobe stays in the approved premium A Story domestic language: Aachu in off-white/printed soft layers and denim cues, Zuv in navy/dark casual layer with tan pants/watch cues."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Finals use warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, muted vintage palette, soft faded edges, and generous negative space."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "Each scene uses relationship behavior rather than labels: listening, offering tissue/water, patient space, open hand, and final hand-hold prove the copy."
+    },
+    "pose_anatomy": {
+      "pass": true,
+      "evidence": "Hands, seated/standing bodies, eye-lines, and couple distance are natural and readable; slide 5 makes the hand receipt clear without grabbing or forced contact."
+    },
+    "model_native_text": {
+      "pass": true,
+      "evidence": "Exact on-image slide copy is integrated as handwritten charcoal text; only the tiny low-contrast @a.storyof.two brandmark appears at bottom-right."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": [
+        {
+          "slide": 1,
+          "instagram_post": "output/carousels/2026-05-30/the-hand-that-stays/final/slide-01.png",
+          "reels_stories": "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-01.png"
+        },
+        {
+          "slide": 2,
+          "instagram_post": "output/carousels/2026-05-30/the-hand-that-stays/final/slide-02.png",
+          "reels_stories": "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-02.png"
+        },
+        {
+          "slide": 3,
+          "instagram_post": "output/carousels/2026-05-30/the-hand-that-stays/final/slide-03.png",
+          "reels_stories": "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-03.png"
+        },
+        {
+          "slide": 4,
+          "instagram_post": "output/carousels/2026-05-30/the-hand-that-stays/final/slide-04.png",
+          "reels_stories": "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-04.png"
+        },
+        {
+          "slide": 5,
+          "instagram_post": "output/carousels/2026-05-30/the-hand-that-stays/final/slide-05.png",
+          "reels_stories": "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-05.png"
+        },
+        {
+          "slide": 6,
+          "instagram_post": "output/carousels/2026-05-30/the-hand-that-stays/final/slide-06.png",
+          "reels_stories": "output/carousels/2026-05-30/the-hand-that-stays/final-reels-stories/slide-06.png"
+        }
+      ],
+      "notes": "Final files are upload-normalized from separate native generated 4:5 and 9:16 sources."
+    }
+  }
+}

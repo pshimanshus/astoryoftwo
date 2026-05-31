@@ -1,107 +1,159 @@
 {
   "schema_version": "1.0",
   "status": "PASS",
-  "decision": "GO",
+  "decision": "GO_PROOF_FIRST",
   "can_generate": true,
   "issues": [],
   "slide_reviews": [
     {
       "slide": 1,
-      "copy": "Some couples share one brain cell.",
+      "copy": "He hid her phone.",
       "decision": "GO",
       "checks": {
-        "story_continuity": "GO",
-        "punchline_not_too_obvious": "GO",
+        "raw_scene_alignment": "GO",
         "copy_visual_alignment": "GO",
-        "identity_continuity": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
         "text_placement": "GO",
         "doubt_flags": []
       },
-      "notes": "They begin a shared sofa search."
+      "notes": "Cozy home living-room opening. Aachu is turned away doing something ordinary. Zuv quietly hides her phone behind his back or slips it into his hoodie pocket. The viewer clearly sees the phone leave her space and enter his control."
     },
     {
       "slide": 2,
-      "copy": "Phone kaha hai?",
+      "copy": "She started looking.",
       "decision": "GO",
       "checks": {
-        "story_continuity": "GO",
-        "punchline_not_too_obvious": "GO",
+        "raw_scene_alignment": "GO",
         "copy_visual_alignment": "GO",
-        "identity_continuity": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
         "text_placement": "GO",
         "doubt_flags": []
       },
-      "notes": "Aachu asks for the phone while searching the sofa."
+      "notes": "Aachu begins searching near the sofa and side table, still calm and confused. Zuv stands nearby pretending nothing happened."
     },
     {
       "slide": 3,
-      "copy": "It was in her pocket.",
+      "copy": "He helped.",
       "decision": "GO",
       "checks": {
-        "story_continuity": "GO",
-        "punchline_not_too_obvious": "GO",
+        "raw_scene_alignment": "GO",
         "copy_visual_alignment": "GO",
-        "identity_continuity": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
         "text_placement": "GO",
         "doubt_flags": []
       },
-      "notes": "Zuv points out the phone in her pocket."
+      "notes": "Zuv joins the search with exaggerated seriousness, lifting a cushion or checking under the table while secretly knowing he hid the phone."
     },
     {
       "slide": 4,
-      "copy": "Remote kaha hai?",
+      "copy": "Room checked.",
       "decision": "GO",
       "checks": {
-        "story_continuity": "GO",
-        "punchline_not_too_obvious": "GO",
+        "raw_scene_alignment": "GO",
         "copy_visual_alignment": "GO",
-        "identity_continuity": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
         "text_placement": "GO",
         "doubt_flags": []
       },
-      "notes": "Zuv begins his missing-remote search."
+      "notes": "The living room is visibly checked: sofa cushions moved, table checked, rug corner lifted. Aachu is more focused. Zuv points toward a useless corner."
     },
     {
       "slide": 5,
-      "copy": "He was sitting on it.",
+      "copy": "Dining checked.",
       "decision": "GO",
       "checks": {
-        "story_continuity": "GO",
-        "punchline_not_too_obvious": "GO",
+        "raw_scene_alignment": "GO",
         "copy_visual_alignment": "GO",
-        "identity_continuity": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
         "text_placement": "GO",
         "doubt_flags": []
       },
-      "notes": "Aachu reveals that the remote was under him."
+      "notes": "Dining/bar area search. Aachu checks around dining chairs/table. Zuv acts like a serious helper while guarding the hidden phone."
     },
     {
       "slide": 6,
-      "copy": "Sofa still got checked.",
+      "copy": "Bag checked.",
       "decision": "GO",
       "checks": {
-        "story_continuity": "GO",
-        "punchline_not_too_obvious": "GO",
+        "raw_scene_alignment": "GO",
         "copy_visual_alignment": "GO",
-        "identity_continuity": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
         "text_placement": "GO",
         "doubt_flags": []
       },
-      "notes": "They continue the sofa search after both mysteries are solved."
+      "notes": "Aachu opens and searches her bag. Zuv is half a step behind, realizing she is now taking it seriously."
     },
     {
       "slide": 7,
-      "copy": "Home is where no one acts smart.",
+      "copy": "Bathroom checked.",
       "decision": "GO",
       "checks": {
-        "story_continuity": "GO",
-        "punchline_not_too_obvious": "GO",
+        "raw_scene_alignment": "GO",
         "copy_visual_alignment": "GO",
-        "identity_continuity": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
         "text_placement": "GO",
         "doubt_flags": []
       },
-      "notes": "They settle together after the nonsense."
+      "notes": "Bathroom doorway/vanity area visible as the next searched place. Aachu checks or looks into the bathroom, now clearly annoyed. Zuv follows carefully."
+    },
+    {
+      "slide": 8,
+      "copy": "Phone on the bar top.",
+      "decision": "GO",
+      "checks": {
+        "raw_scene_alignment": "GO",
+        "copy_visual_alignment": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
+        "text_placement": "GO",
+        "doubt_flags": []
+      },
+      "notes": "Zuv casually places the hidden phone on the bar top/counter. Aachu catches the movement. The phone is clearly visible on the counter."
+    },
+    {
+      "slide": 9,
+      "copy": "She knew.",
+      "decision": "GO",
+      "checks": {
+        "raw_scene_alignment": "GO",
+        "copy_visual_alignment": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
+        "text_placement": "GO",
+        "doubt_flags": []
+      },
+      "notes": "Aachu looks from the phone on the bar top to Zuv. Zuv freezes with guilty smile. No extra object gag. This is the silent caught moment."
+    },
+    {
+      "slide": 10,
+      "copy": "Pillows first. Laughter after.",
+      "decision": "GO",
+      "checks": {
+        "raw_scene_alignment": "GO",
+        "copy_visual_alignment": "GO",
+        "identity_reference_required": "GO",
+        "paper_tone": "GO_NEUTRAL_IVORY_REQUIRED",
+        "composition": "GO",
+        "text_placement": "GO",
+        "doubt_flags": []
+      },
+      "notes": "Living-room payoff. Aachu throws soft sofa pillows at Zuv. Zuv laughs and protects himself playfully. The phone is safe on the counter/table. Both are laughing or just about to laugh, so the scene reads playful and safe, not aggressive."
     }
   ]
 }

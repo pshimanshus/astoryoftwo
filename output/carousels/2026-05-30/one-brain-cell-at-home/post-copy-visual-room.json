@@ -1,97 +1,91 @@
 {
   "schema_version": "1.0",
   "agent": "C5.5-PostCopyVisualRoom",
-  "status": "GO",
-  "decision": "GO",
-  "copy_locked": true,
-  "selected_visual_system": "Cozy Sofa Search Party",
-  "why_it_wins": "It keeps every slide inside one recognisable home investigation while changing action, eye-line, object position, and emotional beat enough to avoid repeated poses.",
+  "status": "DRAFT_PENDING_CREATOR_APPROVAL",
+  "decision": "HOLD",
+  "copy_locked": false,
+  "selected_visual_system": "Phone Prank Search Party",
+  "why_it_wins": "It gives the viewer a simple cinematic chain: hidden phone, fake search, room/dining/bag/bathroom escalation, counter reveal, pillow payoff.",
   "visual_system_candidates": [
     {
-      "name": "Cozy Sofa Search Party",
-      "verdict": "WINNER",
-      "reason": "Best proof of mutual no-judgement home comedy."
+      "name": "Phone Prank Search Party",
+      "verdict": "WINNER_PENDING_APPROVAL",
+      "reason": "Most faithful to the creator's real story and easiest to understand visually."
     },
     {
-      "name": "Split-Screen Phone Remote Gag",
+      "name": "Phone In Pocket Soft Mistake",
       "verdict": "REJECTED",
-      "reason": "Too graphic/poster-like and less cinematic."
+      "reason": "Not the real story; removes the prank and pillow payoff."
     },
     {
-      "name": "Object Close-Up Mystery",
+      "name": "Old Object Symmetry",
       "verdict": "REJECTED",
-      "reason": "Prop-first and weak on Aachu/Zuv behavior."
-    },
-    {
-      "name": "Perfect Boyfriend Rescue",
-      "verdict": "STOP",
-      "reason": "Wrong lane; makes Zuv perfect instead of mutually human."
+      "reason": "Symmetry without the creator's actual escalation."
     }
   ],
   "rejected_motifs": [
-    "poster copy board",
-    "giant phone/remote closeups",
-    "one-way Aachu chaos",
-    "perfect-boyfriend rescue",
-    "generic couple couch pose"
+    "old object-symmetry gag",
+    "phone in pocket reveal",
+    "poster-copy thesis slides",
+    "object closeups without Aachu/Zuv action",
+    "yellow/sepia premium drift"
   ],
   "typography_and_aspect_plan": {
-    "text_position": "clean upper-middle negative space, exact handwritten charcoal text",
-    "instagram_post": "native 4:5, couple lower/middle-lower, sofa readable without crowding",
-    "reels_stories": "native 9:16, taller room space above, no crop from 4:5",
-    "brandmark": "tiny low-contrast handwritten @a.storyof.two bottom-right"
+    "text_position": "upper-middle negative space",
+    "instagram_post": "native 4:5, exact 1080x1350 final target, no square/tall proof aspect",
+    "reels_stories": "separate native 9:16 artwork later, not cropped from 4:5",
+    "brandmark": "tiny low-contrast handwritten @a.storyof.two bottom-right only"
   },
   "slide_visual_blueprint": [
     {
       "slide": 1,
-      "copy": "Some couples share one brain cell.",
-      "scene_system": "Cozy Sofa Search Party",
-      "visual_job": "Both start the search together like a tiny search party.",
-      "text_job": "complete the scene without carrying it"
+      "copy": "He hid her phone.",
+      "scene_system": "Phone Prank Search Party",
+      "visual_job": "He is secretly creating the problem.",
+      "text_job": "Names the prank setup in one clean action line."
     },
     {
       "slide": 2,
-      "copy": "Phone kaha hai?",
-      "scene_system": "Cozy Sofa Search Party",
-      "visual_job": "Aachu asks for the missing phone while searching the sofa.",
-      "text_job": "complete the scene without carrying it"
+      "copy": "Then helped her find it.",
+      "scene_system": "Phone Prank Search Party",
+      "visual_job": "He is pretending to help solve the problem he created.",
+      "text_job": "Turns the prank into the fake-helper beat."
     },
     {
       "slide": 3,
-      "copy": "It was in her hand.",
-      "scene_system": "Cozy Sofa Search Party",
-      "visual_job": "Zuv points out the phone with gentle timing.",
-      "text_job": "complete the scene without carrying it"
+      "copy": "Room checked.",
+      "scene_system": "Phone Prank Search Party",
+      "visual_job": "The search has moved from one cushion to the whole room.",
+      "text_job": "Marks the first location as checked."
     },
     {
       "slide": 4,
-      "copy": "Remote kaha hai?",
-      "scene_system": "Cozy Sofa Search Party",
-      "visual_job": "Zuv begins his own missing-remote search.",
-      "text_job": "complete the scene without carrying it"
+      "copy": "Dining checked.",
+      "scene_system": "Phone Prank Search Party",
+      "visual_job": "The bit has moved through the house.",
+      "text_job": "Adds location escalation."
     },
     {
       "slide": 5,
-      "copy": "It was in his hand.",
-      "scene_system": "Cozy Sofa Search Party",
-      "visual_job": "Aachu returns the gentle reveal by pointing at the remote.",
-      "text_job": "complete the scene without carrying it"
+      "copy": "Bag. Bathroom. Everything.",
+      "scene_system": "Phone Prank Search Party",
+      "visual_job": "They checked absurd places and she is close to catching the mood shift.",
+      "text_job": "Compresses the escalation without over-explaining."
     },
     {
       "slide": 6,
-      "copy": "Sofa still got checked.",
-      "scene_system": "Cozy Sofa Search Party",
-      "visual_job": "They continue the sofa search after the mystery is solved.",
-      "text_job": "complete the scene without carrying it"
+      "copy": "Then he kept it on the counter.",
+      "scene_system": "Phone Prank Search Party",
+      "visual_job": "He quietly returns the hidden phone and gets caught.",
+      "text_job": "Names the reveal action."
     },
     {
       "slide": 7,
-      "copy": "Home is where no one acts smart.",
-      "scene_system": "Cozy Sofa Search Party",
-      "visual_job": "They settle together after the nonsense.",
-      "text_job": "complete the scene without carrying it"
+      "copy": "She found the phone. He found the pillow.",
+      "scene_system": "Phone Prank Search Party",
+      "visual_job": "She caught him and pillow-punished him, but both are laughing.",
+      "text_job": "Delivers the punchline with object reversal: phone found, pillow found him."
     }
   ],
-  "generation_brief": "Generate identity-first Observational Intimacy Premium watercolor-and-ink full scenes. Preserve exact slide text and tiny brandmark. No poster, no quote card, no object-first gag.",
-  "issues": []
+  "generation_brief": "Generate identity-first Observational Intimacy Premium watercolor-and-ink full scenes only after creator approval."
 }

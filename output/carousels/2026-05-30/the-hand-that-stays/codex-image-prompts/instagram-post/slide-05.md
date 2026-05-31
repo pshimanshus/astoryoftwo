@@ -1,0 +1,78 @@
+# Codex Built-In Image Prompt - Slide 05 - Instagram post
+
+Use the Codex built-in image generator. Do not use external API keys or external image API clients.
+
+## How To Use This File
+
+- This markdown file is the Codex handoff/checklist, not the exact text to paste into the image model.
+- Attach/view the image references below, then paste only `output/carousels/2026-05-30/the-hand-that-stays/codex-image-prompts/instagram-post/slide-05.prompt.txt` into the image generator.
+- After generation, package the returned image with `scripts/package_generated_carousel.py` or the proof-specific workflow.
+
+## Native Output Contract
+
+- Native output format: Instagram post
+- Required aspect ratio: 4:5
+- Required final file: `output/carousels/2026-05-30/the-hand-that-stays/final/slide-05.png`
+- Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image.
+- Generate this format as its own artwork. Do not create it by resizing another generated slide.
+
+## Hard Gate
+
+- The paste-ready `.prompt.txt` must include the @a.storyof.two watercolor-and-ink master prompt structure.
+- Before any slide generation, read `identity-generation-preflight.md` and load/view `identity-face-contact-sheet.jpg`.
+- Preserve the carousel story-director spine embedded in `prompt-pack.json`: hook, setup, proof, bridge, active Zuv role, earned ending, and send/save reason.
+- Before calling image generation, load/view every identity reference listed below so they are actual image inputs in the Codex context.
+- Use the selected identity images as face, hair, expression, body proportion, posture, and relationship-energy references.
+- Do not accept generic Aachu/Zuv faces.
+- Keep the exact slide copy and tiny `@a.storyof.two` brandmark inside the generated image.
+
+## Identity Dossier
+
+- Dossier: output/carousels/2026-05-30/the-hand-that-stays/identity-dossier.json
+- Preflight: output/carousels/2026-05-30/the-hand-that-stays/identity-generation-preflight.md
+
+## Actual Image Inputs
+
+Identity dossier references:
+- output/carousels/2026-05-30/the-hand-that-stays/identity-face-contact-sheet.jpg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg
+
+Identity references:
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.01.jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.03 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04 (1).jpeg
+- identity_images/WhatsApp Image 2026-05-19 at 22.28.04.jpeg
+
+Story/source references:
+- /Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 15.49.52 (2).jpeg
+
+Style references:
+- config/references/style-lock/observational-intimacy-premium/slide-01.png
+- config/references/style-lock/observational-intimacy-premium/slide-03.png
+- config/references/style-lock/observational-intimacy-premium/slide-08.png
+- config/references/style-lock/observational-intimacy-premium/slide-02.png
+- config/references/style-lock/observational-intimacy-premium/slide-04.png
+- config/references/style-lock/observational-intimacy-premium/slide-05.png
+- config/references/style-lock/observational-intimacy-premium/slide-06.png
+- config/references/style-lock/observational-intimacy-premium/slide-07.png
+- config/references/style-lock/observational-intimacy-premium/home-person-seaside.png
+- config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png
+- config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png
+
+## Exact Slide Copy
+
+He kept his hand there.
+
+## Prompt
+
+Native output format: Instagram post. Generate a complete 4:5 vertical publishable carousel slide with all text and the tiny @a.storyof.two brandmark inside the image. Do not rely on cropping, padding, or resizing from another aspect ratio.
+
+Use case: illustration-story. Complete publishable @a.storyof.two carousel slide 5 of 6. Generate separate native 4:5 Instagram post and native 9:16 Reels/Stories artworks; never crop, pad, or resize one into the other. Story context: Reference adaptation from four screenshots: she has words overflowing, feelings spilling, a hand still reaching, and angry silence; he remains attentive, reachable, and non-shaming. The screenshots are concept/story references only. Final art must be original @a.storyof.two Observational Intimacy Premium watercolor-and-ink with Aachu/Zuv identity references. Selected concept: The Hand That Stays. Story-Selling score 29.5/30, Golden Theme score 29/30. Reference roles: attached screenshot references are story/message/gesture/composition essence only; do not copy their flat cartoon style, labels, UI, watermarks, or exact poses. Actual Aachu/Zuv identity references control faces, hair, skin tone, expression, posture, wardrobe anchor, body proportions, and relationship energy. Observational Intimacy Premium references control only house style: neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, tactile clothing, soft faded edges, and handwritten text. Exact ON-IMAGE TEXT: He kept his hand there. Scene: Close but still airy scene focusing on their hands between them: Aachu looks slightly away but her fingers reach toward Zuv; Zuv keeps his hand open, steady, and easy to find. Their faces are still visible enough for identity. This is the behavioral receipt that changes the meaning of the previous moods. Pose/body language: Aachu seated or standing beside him with a small reluctant reach; Zuv still, patient, no grabbing, no pulling, palm open and relaxed. Hands must look natural and anatomically correct. Props: No extra objects except perhaps a tiny scarf edge or ring/bangle detail; hands and eye-line carry the scene. Emotion: quiet proof, chosen steadiness Render exact copy as readable hand-drawn charcoal typography in clean upper-middle negative space. Include only the tiny low-contrast handwritten @a.storyof.two brandmark at bottom-right. No photorealism, no UI, no random text, no labels, no speech bubbles except required exact on-image text, no quote-card design, no flat vector art, no yellow/parchment paper, no generic couple faces. Scene logic and anatomy are hard gates: hands must be natural, Aachu must never be mocked, and Zuv's calm must be visible action.
+
+## Expected Output
+
+- Save packaged final to `output/carousels/2026-05-30/the-hand-that-stays/final/slide-05.png`.
+- Source provenance should point to the Codex generated image copied into `output/carousels/2026-05-30/the-hand-that-stays/final/model-native-source/instagram-post-slide-05.png`.

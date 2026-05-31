@@ -1,0 +1,40 @@
+{
+  "status": "PASS_INSTAGRAM_POST_SET",
+  "format": "instagram_post",
+  "slide_count": 10,
+  "files": {
+    "final_dir": "output/carousels/2026-05-30/one-brain-cell-at-home/final",
+    "contact_sheet": "output/carousels/2026-05-30/one-brain-cell-at-home/final/instagram-post-contact-sheet.png",
+    "source_manifest": "output/carousels/2026-05-30/one-brain-cell-at-home/instagram-post-final-images.json"
+  },
+  "checks": {
+    "native_4x5_sources": {
+      "pass": true,
+      "notes": "All selected Codex generated sources are native 4:5 before upload-size normalization."
+    },
+    "upload_dimensions": {
+      "pass": true,
+      "notes": "All final Instagram carousel files are 1080x1350 PNGs."
+    },
+    "premium_aesthetic": {
+      "pass": true,
+      "notes": "Selected outputs use the Observational Intimacy Premium watercolor-and-ink look with neutral warm ivory paper and visible grain."
+    },
+    "no_yellow_cast": {
+      "pass": true,
+      "notes": "Rejected the previous yellow/parchment direction; selected outputs keep the paper closer to off-white/ivory."
+    },
+    "story_continuity": {
+      "pass": true,
+      "notes": "Regenerated slides where the phone appeared too early; final set preserves hide -> search -> reveal -> caught -> pillow payoff."
+    },
+    "identity": {
+      "pass": true,
+      "notes": "Actual identity references and contact sheet were loaded before generation. Likeness is materially closer than the failed proof, with creator review still welcome for micro face tweaks."
+    },
+    "full_native_package": {
+      "pass": false,
+      "notes": "Separate native 9:16 Reels/Stories outputs are still pending; this QA covers the Instagram 4:5 carousel set."
+    }
+  }
+}

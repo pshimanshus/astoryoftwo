@@ -1,0 +1,113 @@
+{
+  "status": "RAW_SCENE_ROW_LOCK_ONLY_CURRENT_EXECUTION_REJECTED",
+  "source": "creator correction in chat on 2026-05-30",
+  "instruction": "Use only this raw row as the source of truth. Do not reuse the previous phone/remote concept, phone-in-pocket concept, or 7-line recut as approved copy.",
+  "beats": [
+    {
+      "beat": 1,
+      "exact_creator_fact": "He hides her phone.",
+      "location": "home",
+      "actor": "Zuv",
+      "object_moving": "Aachu's phone leaves her space and goes into Zuv's control.",
+      "other_person_notices": "Aachu does not know yet.",
+      "visible_proof": "His hand/body hides the phone.",
+      "consequence": "Her phone is now genuinely missing for her."
+    },
+    {
+      "beat": 2,
+      "exact_creator_fact": "They start finding the phone everywhere.",
+      "location": "room",
+      "actor": "Aachu + Zuv",
+      "object_moving": "Cushions/room objects move during the search.",
+      "other_person_notices": "Zuv knows the truth but performs concern.",
+      "visible_proof": "Both are searching; he is fake-helping.",
+      "consequence": "The prank becomes a shared search."
+    },
+    {
+      "beat": 3,
+      "exact_creator_fact": "They check the dining area.",
+      "location": "dining area",
+      "actor": "Aachu + Zuv",
+      "object_moving": "Dining chair/table objects move.",
+      "other_person_notices": "Aachu still believes it is missing.",
+      "visible_proof": "The search has changed location.",
+      "consequence": "The bit escalates beyond one room."
+    },
+    {
+      "beat": 4,
+      "exact_creator_fact": "They check her bag.",
+      "location": "near bag / room",
+      "actor": "Aachu",
+      "object_moving": "Her bag opens and gets searched.",
+      "other_person_notices": "Zuv sees the search getting serious.",
+      "visible_proof": "Bag open, phone not there.",
+      "consequence": "Her patience starts thinning."
+    },
+    {
+      "beat": 5,
+      "exact_creator_fact": "They check the bathroom.",
+      "location": "bathroom / doorway",
+      "actor": "Aachu + Zuv",
+      "object_moving": "Bathroom door/towel/vanity area gets checked.",
+      "other_person_notices": "Zuv sees she is getting angry.",
+      "visible_proof": "Search reaches an absurd place.",
+      "consequence": "The prank reaches the anger edge."
+    },
+    {
+      "beat": 6,
+      "exact_creator_fact": "She gets angry.",
+      "location": "home transition back toward counter/bar",
+      "actor": "Aachu",
+      "object_moving": "Her body language changes, not the phone yet.",
+      "other_person_notices": "Zuv notices he has pushed it enough.",
+      "visible_proof": "Angry face/posture, no joke thesis.",
+      "consequence": "He needs to end the prank."
+    },
+    {
+      "beat": 7,
+      "exact_creator_fact": "He puts the phone down on the bar top/counter.",
+      "location": "bar top / counter",
+      "actor": "Zuv",
+      "object_moving": "Phone moves from hidden control to visible counter.",
+      "other_person_notices": "Aachu catches or realizes the movement.",
+      "visible_proof": "Phone appears on the counter.",
+      "consequence": "The reveal happens through action."
+    },
+    {
+      "beat": 8,
+      "exact_creator_fact": "She understands he did it.",
+      "location": "counter area",
+      "actor": "Aachu",
+      "object_moving": "Her attention moves from phone to him.",
+      "other_person_notices": "Zuv gets caught.",
+      "visible_proof": "Caught expression between them.",
+      "consequence": "Consequence is coming."
+    },
+    {
+      "beat": 9,
+      "exact_creator_fact": "She throws pillows on him.",
+      "location": "living room / sofa",
+      "actor": "Aachu",
+      "object_moving": "Pillow moves toward Zuv.",
+      "other_person_notices": "Zuv receives the punishment.",
+      "visible_proof": "Pillow hit/throw, safe body language.",
+      "consequence": "Anger converts into play."
+    },
+    {
+      "beat": 10,
+      "exact_creator_fact": "They both laugh.",
+      "location": "living room",
+      "actor": "Aachu + Zuv",
+      "object_moving": "Pillow/phone no longer matter.",
+      "other_person_notices": "Both know the prank is over.",
+      "visible_proof": "Shared laughter.",
+      "consequence": "Emotional payoff is safe daily-life nonsense."
+    }
+  ],
+  "hard_stops": [
+    "Do not turn this into phone was in her pocket.",
+    "Do not add a remote, second missing object, or symmetry gag.",
+    "Do not make the slide copy carry the story.",
+    "Do not generate images until this raw row becomes a creator-approved storyboard."
+  ]
+}

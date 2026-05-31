@@ -1,52 +1,90 @@
 {
-  "title": "One Brain Cell At Home",
-  "content_lane": "Daily-Human Home Comedy",
-  "north_star": "Make a stranger tag their partner with 'this is us' before they notice the art style.",
+  "title": "He Hid Her Phone",
+  "content_lane": "daily-life relationship comedy / safe mischief",
+  "north_star": "A tiny prank becomes a full home search, then a pillow punishment, because the relationship is safe enough for nonsense.",
   "successful_carousel_standard": {
-    "source": "wiki/insights/successful-carousel-standard.md",
-    "mode": "creative_north_star",
-    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
-    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
-    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
-    "success_goals": [
-      "public identity mirror",
-      "concrete couple receipts",
-      "active Zuv care",
-      "emotional reversal",
-      "send/save thesis",
-      "stage-scene storytelling"
-    ]
+    "audience_success": "Viewer thinks, 'this is us' and sends it to the person who fake-helps after creating small home chaos.",
+    "creative_success": "A staged story sequence with object movement, rooms checked, a reveal action, and a comic punishment.",
+    "brand_success": "Ownable warm desi daily-life romance: funny, specific, safe, and visually premium.",
+    "production_success": "Generation waits until this exact recut is approved; final outputs must be native 4:5 and separate native 9:16."
   },
-  "successful_carousel_standard_alignment": {
-    "status": "PASS",
-    "success_goals_addressed": [
-      "public identity mirror",
-      "concrete couple receipts",
-      "active Zuv care",
-      "emotional reversal",
-      "send/save thesis",
-      "stage-scene storytelling"
-    ],
-    "audience_success": "A cold viewer thinks 'this is us' and sends/saves/tags a partner because the home-search comedy is recognizable before the art is admired.",
-    "creative_success": "The deck works as silent panels: public hook, Aachu phone setup/reveal, Zuv remote reversal/reveal, shared sofa escalation, earned no-judgement home thesis.",
-    "brand_success": "@a.storyof.two becomes warm, funny, desi relationship IP where tiny domestic behavior proves love without advice-post energy.",
-    "production_success": "Layer E, golden theme, story-director, visual room, identity, prompt, native 4:5, native 9:16, and QA gates are recorded before publication.",
-    "selector_note": "Chosen because it has universal recognition, concrete Aachu/Zuv receipts, an active reversal for Zuv, and an earned send/save thesis."
-  },
-  "human_truth": "The safest kind of home is where both people can be ridiculous, and the story still makes sense beat by beat.",
-  "emotional_arc": "shared search setup -> phone planted in pocket -> phone reveal -> remote planted under him -> remote reveal -> sofa still blamed -> no-judgement home thesis",
+  "human_truth": "Some couples are not calm because nothing happens. They are calm because even small irritation can turn back into play.",
+  "emotional_arc": [
+    "secret prank",
+    "fake concern",
+    "search escalation",
+    "anger edge",
+    "counter reveal",
+    "pillow punishment",
+    "shared laughter"
+  ],
   "slide_count": 7,
-  "source_story_summary": "At home, a couple becomes a tiny search party. She is looking for her phone while it is already in her hand. He is looking for the remote while it is already in his hand. They still check the sofa cushions together. The story is not about forgetfulness as advice; it is about the no-judgement comedy of home, where both people can be ridiculous and no one has to act smart.",
-  "visual_style": "creator-approved Observational Intimacy Premium watercolor-and-ink house style; cozy domestic search-party comedy, storyboard-first, exact handwritten text, mutual ridiculousness, no perfect-boyfriend framing",
-  "target_voice": "Aachu/Zuv archive voice: warm, specific, deadpan, playful under the tenderness",
+  "source_story_summary": "creator supplied the actual daily-life bit: Zuv hides Aachu's phone, fake-helps search the room, dining area, bag, and bathroom, then places it on the bar/counter, gets caught, and Aachu throws pillows while both laugh.",
+  "visual_style": "Observational Intimacy Premium watercolor-and-ink, neutral off-white ivory paper, not yellow/sepia, exact 4:5 feed output and separate 9:16 later.",
+  "target_voice": "deadpan, visual, daily-life Hinglish-adjacent but mostly clean English; text clarifies the action instead of explaining the feeling.",
   "story_selling_contract": {
-    "skill": "config/skills/romance-story-selling-engine.md",
-    "minimum_score": 28,
-    "rule": "Begin with the emotional obstacle and prove it through visible Aachu/Zuv behavior before writing copy."
-  },
-  "story_selling_decision": {
-    "selected_concept_process_card": "Card 05 - Banter To Belonging",
-    "process_influence_summary": "card-05 Banter To Belonging, card-16 Scene Before Summary, card-20 Saveable Lesson From One Scene",
+    "status": "LAYER_E_REAL_PHONE_PRANK_SELECTED_PENDING_CREATOR_APPROVAL",
+    "diagnosis": {
+      "why_previous_failed": "It tried to make a universal phone/remote concept instead of staging the creator's real prank. The back half had symmetry but no living story.",
+      "true_obstacle": "A harmless prank can irritate the person you love if it stretches too long.",
+      "premium_lens": "Their relationship is safe enough for tiny mischief because anger can become pillow play instead of distance.",
+      "selected_process_card": "Card 15 - Proof Before Poetry, supported by Card 07 - Anti-Ideal To Real Love."
+    },
+    "success_definition": {
+      "audience_success": "Viewer thinks, 'this is us' and sends it to the person who fake-helps after creating small home chaos.",
+      "creative_success": "A staged story sequence with object movement, rooms checked, a reveal action, and a comic punishment.",
+      "brand_success": "Ownable warm desi daily-life romance: funny, specific, safe, and visually premium.",
+      "production_success": "Generation waits until this exact recut is approved; final outputs must be native 4:5 and separate native 9:16."
+    },
+    "candidate_table": [
+      {
+        "route": "Phone Prank Search Party",
+        "story_selling": 29.0,
+        "golden_theme": 28.5,
+        "verdict": "GO_PENDING_CREATOR_APPROVAL",
+        "reason": "Action hook, active Zuv role, escalation across home, counter reveal, pillow payoff, clear sendable daily-life comedy."
+      },
+      {
+        "route": "Phone In Pocket Safe Mistake",
+        "story_selling": 24.0,
+        "golden_theme": 23.5,
+        "verdict": "REJECTED",
+        "reason": "Too gentle and not the real creator story; no prank engine."
+      },
+      {
+        "route": "Phone Remote One Brain Cell",
+        "story_selling": 22.0,
+        "golden_theme": 22.0,
+        "verdict": "REJECTED",
+        "reason": "Symmetrical object gag but weak story continuity and creator rejected it."
+      },
+      {
+        "route": "Love Is Joining The Useless Search",
+        "story_selling": 26.0,
+        "golden_theme": 26.0,
+        "verdict": "REPAIR",
+        "reason": "Good emotional idea, but too thesis-first for the current daily-life prank."
+      }
+    ],
+    "winner_copy": {
+      "1": "He hid her phone.",
+      "2": "Then helped her find it.",
+      "3": "Room checked.",
+      "4": "Dining checked.",
+      "5": "Bag. Bathroom. Everything.",
+      "6": "Then he kept it on the counter.",
+      "7": "She found the phone. He found the pillow."
+    },
+    "stage_scene_gate": {
+      "status": "GO_PENDING_CREATOR_APPROVAL",
+      "action": "Zuv hides the phone, fake-helps search, returns it on the counter, then receives pillow punishment.",
+      "reaction": "Aachu moves from confusion to irritation to caught-you anger to laughter.",
+      "eye_line_or_attention": "Her attention moves room -> dining -> bag/bathroom -> counter -> Zuv; his attention tracks her mood.",
+      "hands_or_object_movement": "Phone moves from Aachu's world to Zuv's hiding place to the counter; pillow becomes the final moving object.",
+      "consequence": "The viewer understands the story visually before reading the text.",
+      "reversal_or_payoff": "The hidden phone finds the counter; Zuv finds the pillow.",
+      "blockers": []
+    },
     "score": {
       "reader_identity_mirror": 5.0,
       "romantic_conflict_stakes": 4.5,
@@ -56,135 +94,49 @@
       "online_share_save_sell_potential": 4.5,
       "total": 29.0
     },
-    "threshold": "28/30",
-    "decision": "GO",
-    "hard_fails": [],
-    "selector_verdict": "A tiny domestic search party proves that the safest kind of home lets both people be ridiculous without anyone becoming the punchline alone.",
-    "authorial_flow": {
-      "relationship_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
-      "human_story_setup": {
-        "cold_reader_doorway": "Every couple has searched for something that was already in hand.",
-        "emotional_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
-        "visible_human_proof": "Phone in her hand, remote in his hand, cushions still checked together.",
-        "active_partner_role": "Zuv notices gently, then becomes the mirrored culprit; Aachu also notices gently, making safety mutual.",
-        "emotional_turn": "What begins as incompetence becomes proof that home is no-judgement territory.",
-        "shareable_setup": "It is sendable because the viewer can tag a partner without needing the private context.",
-        "earned_payoff": "Home is where no one acts smart."
-      },
-      "success_definition": {
-        "audience_success": "A cold viewer thinks 'this is us' and sends/saves/tags a partner because the home-search comedy is recognizable before the art is admired.",
-        "creative_success": "The deck works as silent panels: public hook, Aachu phone setup/reveal, Zuv remote reversal/reveal, shared sofa escalation, earned no-judgement home thesis.",
-        "brand_success": "@a.storyof.two becomes warm, funny, desi relationship IP where tiny domestic behavior proves love without advice-post energy.",
-        "production_success": "Layer E, golden theme, story-director, visual room, identity, prompt, native 4:5, native 9:16, and QA gates are recorded before publication.",
-        "source": "wiki/insights/successful-carousel-standard.md"
-      },
-      "stage_scene_gate": {
-        "status": "GO",
-        "action": "The objects are planted first, then revealed later; the audience gets discovery instead of instant explanation.",
-        "reaction": "Aachu and Zuv each get a caught-laugh beat without shame.",
-        "eye_line_or_attention": "Eye-lines guide the viewer from search area to pocket, then from search area to remote under him.",
-        "hands_or_object_movement": "Phone moves from pocket reveal; remote appears only when Zuv shifts.",
-        "silence_or_pause": "Slides 2 and 4 hold suspense before slides 3 and 5 reveal.",
-        "consequence": "The story has continuity and payoff instead of obvious prop placement.",
-        "reversal_or_payoff": "Phone pocket reveal reverses into remote-under-him reveal, then resolves into home as no-judgement territory.",
-        "blockers": []
-      },
-      "golden_theme_score": {
-        "universal_hook": 5.0,
-        "aachu_zuv_specificity": 4.5,
-        "concrete_proof": 5.0,
-        "zuv_emotional_role": 4.5,
-        "tender_thesis": 5.0,
-        "share_send_potential": 5.0,
-        "total": 29.0
-      },
-      "proof_engine": "Phone in her hand, remote in his hand, cushions still checked together.",
-      "writer_rule": "Text completes the scene; visible action carries the story.",
-      "emotional_machine": "Public one-brain-cell hook -> Aachu phone setup -> gentle reveal -> Zuv remote reversal -> equal reveal -> useless sofa search -> no-judgement home thesis.",
-      "distribution_reason": "It is sendable because the viewer can tag a partner without needing the private context."
-    },
-    "candidate_table": [
-      {
-        "name": "One Brain Cell Search Party",
-        "story_lens": "A tiny domestic search party proves that the safest kind of home lets both people be ridiculous without anyone becoming the punchline alone.",
-        "reader_mirror": "Couples recognize the moment where the missing thing is already in someone's hand and the search still becomes a shared ritual.",
-        "emotional_obstacle": "The risk is making one partner look foolish or turning the carousel into object comedy instead of relationship proof.",
-        "aachu_specific_spark": "Aachu carries the expressive phone-search setup with mock panic and a caught-laugh reveal.",
-        "zuv_active_role": "Zuv first notices gently, then becomes equally guilty in the remote reversal, so his role is active and vulnerable rather than perfect-boyfriend background.",
-        "proof_engine": "Phone in her hand, remote in his hand, cushions still checked together.",
-        "emotional_reversal": "The joke shifts from her mistake to his mirror mistake, making the safety mutual.",
-        "payoff": "Home is where no one acts smart.",
-        "distribution_reason": "It is sendable because the viewer can tag a partner without needing the private context.",
-        "process_influence_ids": [
-          "successful-carousel-standard",
-          "card-05",
-          "card-16",
-          "card-20"
-        ],
-        "score_total": 29.0,
-        "golden_theme_score_total": 29.0,
-        "stage_scene_gate": {
-          "status": "GO",
-          "action": "Aachu and Zuv physically search the sofa in mirrored phone/remote beats.",
-          "reaction": "Each person gets caught with their own missing object and responds with warmth instead of shame.",
-          "eye_line_or_attention": "Eye-lines shift from sofa cushions, to the object in hand, to each other in the final payoff.",
-          "hands_or_object_movement": "Cushions lift, phone and remote stay visible, pointing gestures reveal the comic truth, and the final frame rests the objects safely between them.",
-          "silence_or_pause": "Slides 3 and 5 use a tiny caught pause before laughter.",
-          "consequence": "The search becomes proof that home is the place where both people can be ridiculous.",
-          "reversal_or_payoff": "The missing-phone joke reverses into the missing-remote joke, then resolves into the no-judgement home thesis.",
-          "blockers": []
-        },
-        "hard_fails": [],
-        "verdict": "GO"
-      }
-    ]
+    "golden_theme_score": {
+      "universal_hook": 4.5,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 4.0,
+      "share_send_potential": 5.0,
+      "total": 28.5
+    }
   },
+  "story_selling_decision": "GO_PENDING_CREATOR_APPROVAL",
   "golden_theme_tournament": {
+    "winner": "Phone Prank Search Party",
+    "score": 28.5,
     "threshold": 28,
-    "winner": "One Brain Cell Search Party",
-    "winner_score": 29.0,
-    "options": [
-      {
-        "name": "One Brain Cell Search Party",
-        "score": 29.0,
-        "verdict": "GO",
-        "reason": "Mutual domestic comedy with concrete receipts and an earned home thesis."
-      },
-      {
-        "name": "Missing Phone Only",
-        "score": 20.0,
-        "verdict": "REPAIR",
-        "reason": "One-way joke risks mocking Aachu."
-      },
-      {
-        "name": "Remote War",
-        "score": 22.0,
-        "verdict": "REPAIR",
-        "reason": "Too object-first and sitcom-like."
-      },
-      {
-        "name": "Perfect Boyfriend Finds Everything",
-        "score": 19.0,
-        "verdict": "STOP",
-        "reason": "Repeats rejected perfect-care framing."
-      },
-      {
-        "name": "Cute Messy Home",
-        "score": 24.0,
-        "verdict": "REPAIR",
-        "reason": "Pretty domestic mood without enough staged proof."
-      }
-    ]
+    "decision": "PASS_PENDING_CREATOR_APPROVAL"
   },
   "stage_scene_gate": {
-    "status": "GO",
-    "action": "The objects are planted first, then revealed later; the audience gets discovery instead of instant explanation.",
-    "reaction": "Aachu and Zuv each get a caught-laugh beat without shame.",
-    "eye_line_or_attention": "Eye-lines guide the viewer from search area to pocket, then from search area to remote under him.",
-    "hands_or_object_movement": "Phone moves from pocket reveal; remote appears only when Zuv shifts.",
-    "silence_or_pause": "Slides 2 and 4 hold suspense before slides 3 and 5 reveal.",
-    "consequence": "The story has continuity and payoff instead of obvious prop placement.",
-    "reversal_or_payoff": "Phone pocket reveal reverses into remote-under-him reveal, then resolves into home as no-judgement territory.",
+    "status": "GO_PENDING_CREATOR_APPROVAL",
+    "action": "Zuv hides the phone, fake-helps search, returns it on the counter, then receives pillow punishment.",
+    "reaction": "Aachu moves from confusion to irritation to caught-you anger to laughter.",
+    "eye_line_or_attention": "Her attention moves room -> dining -> bag/bathroom -> counter -> Zuv; his attention tracks her mood.",
+    "hands_or_object_movement": "Phone moves from Aachu's world to Zuv's hiding place to the counter; pillow becomes the final moving object.",
+    "consequence": "The viewer understands the story visually before reading the text.",
+    "reversal_or_payoff": "The hidden phone finds the counter; Zuv finds the pillow.",
     "blockers": []
+  },
+  "copy_repair": {
+    "status": "REAL_STORY_COPY_LOCK_CANDIDATE",
+    "rejected": [
+      "Phone in pocket",
+      "Remote under him",
+      "Love is mostly this only",
+      "Sofa still got checked"
+    ],
+    "locked_candidate": {
+      "1": "He hid her phone.",
+      "2": "Then helped her find it.",
+      "3": "Room checked.",
+      "4": "Dining checked.",
+      "5": "Bag. Bathroom. Everything.",
+      "6": "Then he kept it on the counter.",
+      "7": "She found the phone. He found the pillow."
+    }
   }
 }

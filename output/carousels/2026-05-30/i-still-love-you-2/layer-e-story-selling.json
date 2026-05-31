@@ -1,0 +1,812 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "source_memory_room": {
+      "name": "Context And Source Memory",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Source Curator",
+          "role": "legality",
+          "claim": "Use derived patterns and source IDs only.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Successful Carousel Standard Reader",
+          "role": "creative north star",
+          "claim": "Prioritize public identity mirror and concrete couple receipts.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Creator Preference Ledger Reader",
+          "role": "memory",
+          "claim": "Avoid repeating cooled-down lanes as fresh ideas.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Source memory loaded before concept selection, including the successful-carousel standard and creator preference ledger.",
+      "inputs_used": [
+        "config/references/story-selling-canon/source-register.json",
+        "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+        "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+        "wiki/insights/successful-carousel-standard.md",
+        "memory/semantic/carousel-idea-preferences.md"
+      ],
+      "debate_records": [
+        "Source Curator: treat photos, objects, outfits, and canon cards as evidence, never as the premise.",
+        "Successful Carousel Standard Reader: define success before writing as cold-viewer recognition, not beautiful art.",
+        "Creator Preference Ledger Reader: avoid stale perfect-husband, aesthetic-first, and repeated chaos/home lanes."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+        "memory_policy": "fresh route must not recycle cooled-down lanes as fresh ideas"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "story_meaning_room": {
+      "name": "Story Meaning Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Romance Novelist",
+          "role": "emotional arc",
+          "claim": "The route needs obstacle, proof, reversal, and earned payoff.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Film Scene Director",
+          "role": "scene grammar",
+          "claim": "The meaning must be drawable through behavior.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Aachu/Zuv Dynamics Writer",
+          "role": "character truth",
+          "claim": "Aachu gets spark; Zuv gets active response.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Emotional Obstacle Miner",
+          "role": "friction",
+          "claim": "No obstacle means no story engine.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Generated 5 story routes and selected I Still Love You as the strongest raw meaning.",
+      "inputs_used": [
+        "We disagree, I still love you.\nWe fight, I still love you.\nYou know why?\nBecause every time I see an older couple, standing side by side, I think about everything it took to get there.\nAll the arguments. All the bad days. All the times they could’ve walked away, but didn’t.\nAnd then I think of us. Because I know that’s going to be us one day.\nStill together. Still choosing each other. Still completely in love.\nCaption: I know we’re going to make it all the way ♾️",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.57.jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.56.jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.51.jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50.jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50 (10).jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50 (9).jpeg",
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50 (11).jpeg",
+        "/Users/himanshusharma/astoryoftwo-analysis/identity_images/Screenshot 2026-05-16 at 7.44.38 PM.png",
+        "/Users/himanshusharma/astoryoftwo-analysis/identity_images/Screenshot 2026-05-16 at 7.43.36 PM.png",
+        "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+        "/Users/himanshusharma/astoryoftwo-analysis/identity_images/Screenshot 2026-05-16 at 7.50.15 PM.png",
+        "C-layer carousel package",
+        "golden theme remains mandatory",
+        "use process cards as influences, not the answer"
+      ],
+      "debate_records": [
+        "Route 'I Still Love You' human story: obstacle='The idea could become copied quote-card romance unless the scenes show the tension, cost, repair, and active choice to stay.', proof='doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final', payoff='Still together. Still choosing each other. Still completely in love.', score=30.0/30.",
+        "Route 'Bad Days Included' human story: obstacle='Bad days can look like failure unless the route shows both people choosing not to leave.', proof='two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect', payoff='Love is not no bad days. Love is still us after them.', score=30.0/30.",
+        "Route 'Everything It Took To Get There' human story: obstacle='The route risks becoming only a pretty older-couple image unless Aachu/Zuv's own conflict and repair are visible.', proof='older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> hard-day receipts -> present couple mirrors the posture', payoff='One day, that will be us because we kept choosing.', score=29.0/30.",
+        "Human story check: the route must be about a relationship pressure becoming visible, not about a nice photo, outfit, place, or object.",
+        "Scene grammar check: Aachu must carry specific spark and Zuv must answer through visible behavior before copy or captions are written."
+      ],
+      "scores": {
+        "I Still Love You": 30.0,
+        "Everything It Took To Get There": 29.0,
+        "Bad Days Included": 30.0,
+        "Still Choosing": 28.0,
+        "Future Us": 22.0
+      },
+      "selected_outputs": {
+        "raw_winner": "I Still Love You",
+        "human_story_setup": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+        "emotional_obstacle": "The idea could become copied quote-card romance unless the scenes show the tension, cost, repair, and active choice to stay."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "audience_algorithm_room": {
+      "name": "Audience And Algorithm Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Retention Analyst",
+          "role": "swipe ladder",
+          "claim": "The route must create curiosity and middle-slide re-engagement.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Algorithm / Share-Save Strategist",
+          "role": "distribution",
+          "claim": "The route needs a send/save/tag reason.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Copy Chief",
+          "role": "wording",
+          "claim": "Public copy should stay name-free and behavior-led.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Culture And Taste Reader",
+          "role": "taste",
+          "claim": "The humor should feel warm, desi, and non-shaming.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Audience pass checked reader mirror, send/save logic, and taste.",
+      "inputs_used": [
+        "wiki/insights/successful-carousel-standard.md#What Success Means",
+        "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md#Comment Behavior"
+      ],
+      "debate_records": [
+        "Reader mirror: Couples who have fought, repaired, and still imagined a future together will recognize themselves.",
+        "Send/save reason: Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+        "Success pressure: a strong route must earn partner tags, saves, or DMs because the viewer is saying 'this is us', not because the art is pretty.",
+        "Swipe pressure: the middle must carry receipt density and at least one visual proof beat that can be understood before reading a caption."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "distribution_reason": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+        "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "contrarian_repair_room": {
+      "name": "Contrarian Repair Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Harsh Critic",
+          "role": "route attack",
+          "claim": "The winner must survive genericness and private-context objections.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Genericness Detector",
+          "role": "specificity",
+          "claim": "Specific proof beats beat abstract romance.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Safety/Taste Guard",
+          "role": "safety",
+          "claim": "No shaming, privacy leak, or copied expression.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Visual Generativity Skeptic",
+          "role": "generation",
+          "claim": "The concept must become simple scenes.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Top routes were attacked and repair needs were recorded.",
+      "inputs_used": [
+        "I Still Love You",
+        "Bad Days Included",
+        "Everything It Took To Get There"
+      ],
+      "debate_records": [
+        "Attack 'I Still Love You': hard_fails=['none']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+        "Attack 'Bad Days Included': hard_fails=['none']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+        "Attack 'Everything It Took To Get There': hard_fails=['none']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+        "Genericness Detector: reject routes that would get 'beautiful' but not 'this is us'.",
+        "Visual Generativity Skeptic: block any route that can only be expressed as poster copy."
+      ],
+      "scores": {},
+      "selected_outputs": {},
+      "objections": [],
+      "repairs": [
+        "Repair top candidates against the success standard before downstream copy.",
+        "Keep the winner only if the share setup, human obstacle, and visible partner role survive the attack."
+      ],
+      "repaired_route_names": [
+        "Bad Days Included",
+        "Everything It Took To Get There"
+      ]
+    },
+    "stage_scene_room": {
+      "name": "Stage-Scene Gate",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Stage Director",
+          "role": "blocking",
+          "claim": "The idea must play as action before copy.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Body Language Reader",
+          "role": "proof",
+          "claim": "Hands, distance, and object movement must prove the turn.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Silent Panel Reviewer",
+          "role": "visual story",
+          "claim": "A viewer should understand the beat with text hidden.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Winner was checked as a short staged scene before copy, caption, or prompt work.",
+      "inputs_used": [
+        "I Still Love You",
+        "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final"
+      ],
+      "debate_records": [
+        "Action: doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+        "Reaction: What first looks like conflict becomes proof of staying because the scenes show both people returning to the same frame.",
+        "Hands/object movement: doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+        "Silence/pause: ",
+        "Consequence: Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+        "Gate rule: text completes the scene; text must not carry the scene."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "action": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+        "hands_or_object_movement": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+        "reversal_or_payoff": "Still together. Still choosing each other. Still completely in love."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "final_synthesis_room": {
+      "name": "Final Synthesis Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Story Lens Selector",
+          "role": "selection",
+          "claim": "Selected I Still Love You.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Story-Selling Rubric Judge",
+          "role": "score",
+          "claim": "Apply 30-point Story-Selling threshold.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Downstream Contract Writer",
+          "role": "handoff",
+          "claim": "Write emotional machine into C/D/B contracts.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Final selector synthesized the route into Layer E handoff fields.",
+      "inputs_used": [
+        "story_meaning_room",
+        "audience_algorithm_room",
+        "contrarian_repair_room",
+        "stage_scene_room",
+        "story_selling_score"
+      ],
+      "debate_records": [
+        "Selector chose 'I Still Love You' because it best connects human story, proof, reversal, and distribution.",
+        "Human setup: Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+        "What success looks like: A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "selected_story_lens": "Conflict stays inside commitment: disagreement, fights, and bad days become meaningful because both people keep choosing the all-the-way version of love.",
+        "human_story_setup": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+        "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "I Still Love You",
+      "story_lens": "Conflict stays inside commitment: disagreement, fights, and bad days become meaningful because both people keep choosing the all-the-way version of love.",
+      "reader_mirror": "Couples who have fought, repaired, and still imagined a future together will recognize themselves.",
+      "emotional_obstacle": "The idea could become copied quote-card romance unless the scenes show the tension, cost, repair, and active choice to stay.",
+      "aachu_specific_spark": "Aachu feels the disagreement fully, watches older love as proof, and lets that sight become a private promise about her own marriage.",
+      "zuv_active_role": "Zuv stays close, holds the repair hug, keeps his hand reachable, and chooses softness after the hard moment.",
+      "proof_engine": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+      "emotional_reversal": "What first looks like conflict becomes proof of staying because the scenes show both people returning to the same frame.",
+      "payoff": "Still together. Still choosing each other. Still completely in love.",
+      "distribution_reason": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "golden_theme_score_total": 30.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+        "reaction": "What first looks like conflict becomes proof of staying because the scenes show both people returning to the same frame.",
+        "eye_line_or_attention": "Zuv stays close, holds the repair hug, keeps his hand reachable, and chooses softness after the hard moment.",
+        "hands_or_object_movement": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+        "silence_or_pause": "",
+        "consequence": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+        "reversal_or_payoff": "Still together. Still choosing each other. Still completely in love.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Everything It Took To Get There",
+      "story_lens": "An older couple is not just a cute future image; they are evidence of all the arguments, bad days, and choices not to walk away.",
+      "reader_mirror": "Viewers who look at older couples and imagine their own future get an immediate doorway.",
+      "emotional_obstacle": "The route risks becoming only a pretty older-couple image unless Aachu/Zuv's own conflict and repair are visible.",
+      "aachu_specific_spark": "Aachu reads the older couple through longing, tenderness, and her own emotional future tense.",
+      "zuv_active_role": "Zuv notices her watching, steps closer, and answers the fear by staying physically beside her.",
+      "proof_engine": "older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> hard-day receipts -> present couple mirrors the posture",
+      "emotional_reversal": "The older couple stops being a reference image and becomes the proof that staying is built through imperfect days.",
+      "payoff": "One day, that will be us because we kept choosing.",
+      "distribution_reason": "Sendable for couples who want the long-haul version, not only the easy-day version.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 29.0,
+      "golden_theme_score_total": 29.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> hard-day receipts -> present couple mirrors the posture",
+        "reaction": "The older couple stops being a reference image and becomes the proof that staying is built through imperfect days.",
+        "eye_line_or_attention": "Zuv notices her watching, steps closer, and answers the fear by staying physically beside her.",
+        "hands_or_object_movement": "older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> hard-day receipts -> present couple mirrors the posture",
+        "silence_or_pause": "",
+        "consequence": "Sendable for couples who want the long-haul version, not only the easy-day version.",
+        "reversal_or_payoff": "One day, that will be us because we kept choosing.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Bad Days Included",
+      "story_lens": "The all-the-way kind of love includes arguments and bad days without letting them become the ending.",
+      "reader_mirror": "Couples with repair rituals can tag each other because the proof is ordinary and recognizable.",
+      "emotional_obstacle": "Bad days can look like failure unless the route shows both people choosing not to leave.",
+      "aachu_specific_spark": "Aachu carries the feeling honestly instead of pretending the fight did not matter.",
+      "zuv_active_role": "Zuv sits near her, holds the silence, and waits without turning the hard day into distance.",
+      "proof_engine": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+      "emotional_reversal": "The hard day becomes a receipt of love because neither person exits the frame.",
+      "payoff": "Love is not no bad days. Love is still us after them.",
+      "distribution_reason": "Partner-tag reason is clear: this says the hard days did not cancel the relationship.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "golden_theme_score_total": 30.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+        "reaction": "The hard day becomes a receipt of love because neither person exits the frame.",
+        "eye_line_or_attention": "Zuv sits near her, holds the silence, and waits without turning the hard day into distance.",
+        "hands_or_object_movement": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+        "silence_or_pause": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+        "consequence": "Partner-tag reason is clear: this says the hard days did not cancel the relationship.",
+        "reversal_or_payoff": "Love is not no bad days. Love is still us after them.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Still Choosing",
+      "story_lens": "The repeated word 'still' is the engine: still after disagreement, still after bad days, still beside each other.",
+      "reader_mirror": "Anyone who wants a love that keeps choosing after friction can enter through the hook.",
+      "emotional_obstacle": "The concept fails if 'still' is only typography and not visible action.",
+      "aachu_specific_spark": "Aachu's expressive worry creates the question of whether they will really make it.",
+      "zuv_active_role": "Zuv shows the answer by reaching, leaning in, and staying close without a speech.",
+      "proof_engine": "disagree -> lean apart -> hand reaches -> lean back in -> older couple passes -> present couple stays",
+      "emotional_reversal": "The repetition turns from fear into certainty because the body language answers it.",
+      "payoff": "Still choosing each other.",
+      "distribution_reason": "Saveable as a compact line for couples who have repaired more than once.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 28.0,
+      "golden_theme_score_total": 29.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "disagree -> lean apart -> hand reaches -> lean back in -> older couple passes -> present couple stays",
+        "reaction": "The repetition turns from fear into certainty because the body language answers it.",
+        "eye_line_or_attention": "Zuv shows the answer by reaching, leaning in, and staying close without a speech.",
+        "hands_or_object_movement": "disagree -> lean apart -> hand reaches -> lean back in -> older couple passes -> present couple stays",
+        "silence_or_pause": "",
+        "consequence": "Saveable as a compact line for couples who have repaired more than once.",
+        "reversal_or_payoff": "Still choosing each other.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Future Us",
+      "story_lens": "The future is not imagined from perfect romance, but from seeing proof that imperfect love can last.",
+      "reader_mirror": "Viewers who point at older couples and say 'that will be us' can immediately send this.",
+      "emotional_obstacle": "Future-us sentiment can become generic unless grounded in specific fights, repairs, and gestures.",
+      "aachu_specific_spark": "Aachu turns the sight of older love into a private certainty.",
+      "zuv_active_role": "Zuv stands with her, receives the future as a choice, and keeps the closeness active.",
+      "proof_engine": "gallery path -> older couple side by side -> Aachu watches -> Zuv watches her -> shoulder touch -> final table",
+      "emotional_reversal": "A passing scene becomes a promise only because their own repair has already been shown.",
+      "payoff": "I know that's going to be us one day.",
+      "distribution_reason": "Send this to the person you want to become older-love with after every imperfect day.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 22.0,
+      "golden_theme_score_total": 24.0,
+      "stage_scene_gate": {
+        "status": "REPAIR",
+        "action": "gallery path -> older couple side by side -> Aachu watches -> Zuv watches her -> shoulder touch -> final table",
+        "reaction": "A passing scene becomes a promise only because their own repair has already been shown.",
+        "eye_line_or_attention": "Zuv stands with her, receives the future as a choice, and keeps the closeness active.",
+        "hands_or_object_movement": "",
+        "silence_or_pause": "",
+        "consequence": "Send this to the person you want to become older-love with after every imperfect day.",
+        "reversal_or_payoff": "I know that's going to be us one day.",
+        "blockers": [
+          "stage-scene gate has no visible active partner action"
+        ]
+      },
+      "hard_fails": [
+        "stage-scene gate has no visible active partner action"
+      ],
+      "verdict": "REPAIR"
+    }
+  ],
+  "repaired_routes": [
+    {
+      "name": "Bad Days Included",
+      "story_lens": "The all-the-way kind of love includes arguments and bad days without letting them become the ending.",
+      "reader_mirror": "Couples with repair rituals can tag each other because the proof is ordinary and recognizable.",
+      "emotional_obstacle": "Bad days can look like failure unless the route shows both people choosing not to leave.",
+      "aachu_specific_spark": "Aachu carries the feeling honestly instead of pretending the fight did not matter.",
+      "zuv_active_role": "Zuv sits near her, holds the silence, and waits without turning the hard day into distance.",
+      "proof_engine": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+      "emotional_reversal": "The hard day becomes a receipt of love because neither person exits the frame.",
+      "payoff": "Love is not no bad days. Love is still us after them.",
+      "distribution_reason": "Partner-tag reason is clear: this says the hard days did not cancel the relationship.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 30.0,
+      "golden_theme_score_total": 30.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+        "reaction": "The hard day becomes a receipt of love because neither person exits the frame.",
+        "eye_line_or_attention": "Zuv sits near her, holds the silence, and waits without turning the hard day into distance.",
+        "hands_or_object_movement": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+        "silence_or_pause": "two untouched cups -> paused phone -> rain window -> Zuv sits near -> Aachu looks back -> hands reconnect",
+        "consequence": "Partner-tag reason is clear: this says the hard days did not cancel the relationship.",
+        "reversal_or_payoff": "Love is not no bad days. Love is still us after them.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    },
+    {
+      "name": "Everything It Took To Get There",
+      "story_lens": "An older couple is not just a cute future image; they are evidence of all the arguments, bad days, and choices not to walk away.",
+      "reader_mirror": "Viewers who look at older couples and imagine their own future get an immediate doorway.",
+      "emotional_obstacle": "The route risks becoming only a pretty older-couple image unless Aachu/Zuv's own conflict and repair are visible.",
+      "aachu_specific_spark": "Aachu reads the older couple through longing, tenderness, and her own emotional future tense.",
+      "zuv_active_role": "Zuv notices her watching, steps closer, and answers the fear by staying physically beside her.",
+      "proof_engine": "older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> hard-day receipts -> present couple mirrors the posture",
+      "emotional_reversal": "The older couple stops being a reference image and becomes the proof that staying is built through imperfect days.",
+      "payoff": "One day, that will be us because we kept choosing.",
+      "distribution_reason": "Sendable for couples who want the long-haul version, not only the easy-day version.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 29.0,
+      "golden_theme_score_total": 29.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> hard-day receipts -> present couple mirrors the posture",
+        "reaction": "The older couple stops being a reference image and becomes the proof that staying is built through imperfect days.",
+        "eye_line_or_attention": "Zuv notices her watching, steps closer, and answers the fear by staying physically beside her.",
+        "hands_or_object_movement": "older couple side by side -> Aachu watches -> Zuv steps closer -> hands touch -> hard-day receipts -> present couple mirrors the posture",
+        "silence_or_pause": "",
+        "consequence": "Sendable for couples who want the long-haul version, not only the easy-day version.",
+        "reversal_or_payoff": "One day, that will be us because we kept choosing.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "rejected_routes": [
+    {
+      "name": "Future Us",
+      "story_lens": "The future is not imagined from perfect romance, but from seeing proof that imperfect love can last.",
+      "reader_mirror": "Viewers who point at older couples and say 'that will be us' can immediately send this.",
+      "emotional_obstacle": "Future-us sentiment can become generic unless grounded in specific fights, repairs, and gestures.",
+      "aachu_specific_spark": "Aachu turns the sight of older love into a private certainty.",
+      "zuv_active_role": "Zuv stands with her, receives the future as a choice, and keeps the closeness active.",
+      "proof_engine": "gallery path -> older couple side by side -> Aachu watches -> Zuv watches her -> shoulder touch -> final table",
+      "emotional_reversal": "A passing scene becomes a promise only because their own repair has already been shown.",
+      "payoff": "I know that's going to be us one day.",
+      "distribution_reason": "Send this to the person you want to become older-love with after every imperfect day.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-02",
+        "card-09",
+        "card-20",
+        "card-07"
+      ],
+      "score_total": 22.0,
+      "golden_theme_score_total": 24.0,
+      "stage_scene_gate": {
+        "status": "REPAIR",
+        "action": "gallery path -> older couple side by side -> Aachu watches -> Zuv watches her -> shoulder touch -> final table",
+        "reaction": "A passing scene becomes a promise only because their own repair has already been shown.",
+        "eye_line_or_attention": "Zuv stands with her, receives the future as a choice, and keeps the closeness active.",
+        "hands_or_object_movement": "",
+        "silence_or_pause": "",
+        "consequence": "Send this to the person you want to become older-love with after every imperfect day.",
+        "reversal_or_payoff": "I know that's going to be us one day.",
+        "blockers": [
+          "stage-scene gate has no visible active partner action"
+        ]
+      },
+      "hard_fails": [
+        "stage-scene gate has no visible active partner action"
+      ],
+      "verdict": "REPAIR"
+    }
+  ],
+  "selected_story_lens": "Conflict stays inside commitment: disagreement, fights, and bad days become meaningful because both people keep choosing the all-the-way version of love.",
+  "emotional_machine": "The idea could become copied quote-card romance unless the scenes show the tension, cost, repair, and active choice to stay. -> doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final -> What first looks like conflict becomes proof of staying because the scenes show both people returning to the same frame. -> Still together. Still choosing each other. Still completely in love.",
+  "proof_engine": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+  "reader_mirror": "Couples who have fought, repaired, and still imagined a future together will recognize themselves.",
+  "distribution_reason": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+  "human_story_setup": {
+    "cold_reader_doorway": "Couples who have fought, repaired, and still imagined a future together will recognize themselves.",
+    "emotional_obstacle": "The idea could become copied quote-card romance unless the scenes show the tension, cost, repair, and active choice to stay.",
+    "visible_human_proof": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+    "active_partner_role": "Zuv stays close, holds the repair hug, keeps his hand reachable, and chooses softness after the hard moment.",
+    "emotional_turn": "What first looks like conflict becomes proof of staying because the scenes show both people returning to the same frame.",
+    "shareable_setup": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+    "earned_payoff": "Still together. Still choosing each other. Still completely in love."
+  },
+  "success_definition": {
+    "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+    "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+    "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+    "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, native 4:5, native 9:16, QA, and audit gates must also pass.",
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-05-30\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+    "reaction": "What first looks like conflict becomes proof of staying because the scenes show both people returning to the same frame.",
+    "eye_line_or_attention": "Zuv stays close, holds the repair hug, keeps his hand reachable, and chooses softness after the hard moment.",
+    "hands_or_object_movement": "doorway disagreement -> repair hug -> hands find each other -> older couple witness -> bad-day room traces -> kitchen shoulder-to-shoulder -> side-by-side final",
+    "silence_or_pause": "",
+    "consequence": "Send this to the partner who has seen the hard days and still wants the two-of-you future.",
+    "reversal_or_payoff": "Still together. Still choosing each other. Still completely in love.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "successful-carousel-standard",
+      "title": "Successful Carousel Standard",
+      "influence_type": "living_standard",
+      "source_patterns": [],
+      "confidence": 0.9,
+      "reason": "Defines public identity mirror, couple receipts, active Zuv care, reversal, and send/save thesis."
+    },
+    {
+      "id": "card-02",
+      "title": "Misread To Tender Truth",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "gutenberg-austen-pride-prejudice",
+        "pixar-storytelling"
+      ],
+      "confidence": 0.84,
+      "reason": "Useful influence for this story because: The reversal must make both Aachu and Zuv more lovable."
+    },
+    {
+      "id": "card-09",
+      "title": "Choice Under Pressure",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "storygrid-love-genre",
+        "save-the-cat-beats"
+      ],
+      "confidence": 0.81,
+      "reason": "Useful influence for this story because: The choice must be specific enough to film or draw."
+    },
+    {
+      "id": "card-20",
+      "title": "Saveable Lesson From One Scene",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "storybrand-framework",
+        "copyblogger-story-that-sells",
+        "animalz-quality-content"
+      ],
+      "confidence": 0.81,
+      "reason": "Useful influence for this story because: The lesson must feel discovered through Aachu/Zuv, not pasted onto them."
+    },
+    {
+      "id": "card-07",
+      "title": "Anti-Ideal To Real Love",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "golden-viral-carousel-theme",
+        "storybrand-framework",
+        "animalz-quality-content"
+      ],
+      "confidence": 0.9,
+      "reason": "Useful influence for this story because: This is the default rescue card when an idea is too aesthetic-first."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 5.0,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 30.0
+  },
+  "golden_theme_score": {
+    "universal_hook": 5.0,
+    "aachu_zuv_specificity": 5.0,
+    "concrete_proof": 5.0,
+    "zuv_emotional_role": 5.0,
+    "tender_thesis": 5.0,
+    "share_send_potential": 5.0,
+    "total": 30.0
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "c_layer": {
+      "must_preserve": [
+        "selected_story_lens",
+        "emotional_machine",
+        "proof_engine",
+        "reader_mirror",
+        "distribution_reason"
+      ],
+      "golden_theme_gate": "required_for_carousel"
+    },
+    "d_layer": {
+      "article_angle_source": "selected_story_lens"
+    },
+    "b_layer": {
+      "prepost_brief_source": "rooms"
+    }
+  },
+  "metadata": {
+    "source_register_path": "config/references/story-selling-canon/source-register.json",
+    "concept_process_bank_path": "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+    "pattern_map_path": "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+    "reference_paths": [
+      "wiki/insights/successful-carousel-standard.md",
+      "wiki/themes/calm-enough-for-chaos.md",
+      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md",
+      "memory/semantic/carousel-idea-preferences.md",
+      "config/references/story-selling-canon/source-policy.md",
+      "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+      "config/references/story-selling-canon/concept-process-cards.md",
+      "config/references/story-selling-canon/rubric.md",
+      "config/references/story-selling-canon/romance-novel-canon.md",
+      "config/references/story-selling-canon/romance-film-canon.md",
+      "config/references/story-selling-canon/story-selling-online.md",
+      "story-selling-online.md"
+    ],
+    "constraints": [
+      "C-layer carousel package",
+      "golden theme remains mandatory",
+      "use process cards as influences, not the answer"
+    ],
+    "requested_tone": "",
+    "reference_images": [
+      "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.57.jpeg",
+      "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.56.jpeg",
+      "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.51.jpeg",
+      "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50.jpeg",
+      "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50 (10).jpeg",
+      "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50 (9).jpeg",
+      "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 04.36.50 (11).jpeg",
+      "/Users/himanshusharma/astoryoftwo-analysis/identity_images/Screenshot 2026-05-16 at 7.44.38 PM.png",
+      "/Users/himanshusharma/astoryoftwo-analysis/identity_images/Screenshot 2026-05-16 at 7.43.36 PM.png",
+      "/Users/himanshusharma/astoryoftwo-analysis/identity_images/WhatsApp Image 2026-05-16 at 18.29.46.jpeg",
+      "/Users/himanshusharma/astoryoftwo-analysis/identity_images/Screenshot 2026-05-16 at 7.50.15 PM.png"
+    ]
+  }
+}

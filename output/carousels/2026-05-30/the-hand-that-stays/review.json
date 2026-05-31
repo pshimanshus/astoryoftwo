@@ -1,0 +1,114 @@
+{
+  "status": "pass_ready_for_handoff",
+  "scorecard": {
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 5,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 5
+  },
+  "total": 40,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "PASS",
+    "selected_hook": "He never asked her to be easier.",
+    "hook": 9.5,
+    "story": 9.3,
+    "bridge": 9.2,
+    "zuv_role": 9.5,
+    "ending": 9.2,
+    "send_save_potential": 9.3,
+    "stage_scene": 9.5,
+    "reader_identity_mirror": "For partners who love the full emotional version, not only the easy version.",
+    "emotional_obstacle": "The expressive partner fears that words, tears, and angry silence make her too much to love gently.",
+    "aachu_proof": "She talks, cries, turns away angry, and still reaches for his hand; he listens, offers care, gives space, and keeps the hand available.",
+    "zuv_active_role": "Zuv actively stays reachable instead of correcting, mocking, retreating, or rushing the feeling away.",
+    "earned_ending": "Maybe love is the hand that stays.",
+    "verdict": "PASS: hook, proof trail, active Zuv role, bridge, and send/save ending are present.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Emotional Weather, Reachable Hand",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 29.5
+  },
+  "story_selling_gate": {
+    "status": "GO",
+    "source": "layer-e-story-selling.json",
+    "selected_concept_process_card": "Card 19 - Almost Too Much, Exactly Enough",
+    "threshold": "28/30",
+    "selector_verdict": "The Hand That Stays",
+    "candidate_count": 8,
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Aachu moves through three visible emotional states: words overflowing, feelings spilling, and angry silence.",
+      "reaction": "Zuv answers each state with a visible, respectful choice: phone down/listening, tissue and water, patient nearby presence, and finally an open reachable hand.",
+      "eye_line_or_attention": "His eyes and shoulders stay oriented toward her without crowding her; her eye-line shifts away and back as the hand becomes safe to reach.",
+      "hands_or_object_movement": "Phone/cup pauses, tissue appears, care cup/shawl stays small, and the final proof is his open hand remaining between them until she reaches.",
+      "silence_or_pause": "The angry-silence slide gives her space; the hand slide lets quiet become contact instead of argument.",
+      "consequence": "The viewer understands the relationship truth before the text explains it: she is not corrected into calm, she is met with steadiness.",
+      "reversal_or_payoff": "What could read as “too much” becomes exactly the version of her he chooses gently.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 4.5,
+      "share_send_potential": 4.5,
+      "total": 29.0
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [
+    "Final images still pending Codex built-in generation and QA."
+  ],
+  "required_changes_before_image_generation": [],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "GO",
+    "pass": true,
+    "agent_alignment": {
+      "status": "RECORDED"
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  }
+}

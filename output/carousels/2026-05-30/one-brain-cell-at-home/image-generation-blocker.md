@@ -16,8 +16,8 @@ Prompt handoff:
 
 Final images still required:
 
-- `final/slide-01.png` through `slide-07.png`
-- `final-reels-stories/slide-01.png` through `slide-07.png`
+- `final/slide-01.png` through `slide-10.png`
+- `final-reels-stories/slide-01.png` through `slide-10.png`
 
 Rules:
 
@@ -30,5 +30,5 @@ Rules:
 
 Proof-first recommendation:
 
-- slide 03: `It was in her pocket.`
-- paste only this proof prompt after attaching references: `output/carousels/2026-05-30/one-brain-cell-at-home/codex-image-prompts/instagram-post/slide-03.prompt.txt`
+- slide 10: `Pillows first. Laughter after.`
+- paste only this proof prompt after attaching references: `output/carousels/2026-05-30/one-brain-cell-at-home/codex-image-prompts/instagram-post/slide-10.prompt.txt`
