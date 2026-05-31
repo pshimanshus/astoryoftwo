@@ -1,6 +1,6 @@
 {
   "date": "2026-05-31",
-  "status": "story_spine_repaired_for_creator_review",
+  "status": "creator_repaired_direction_for_review",
   "decision": "GO_FOR_CREATOR_REVIEW",
   "brand_validation": {
     "status": "PASS_WITH_REPAIRS",
@@ -8,11 +8,11 @@
     "validation_artifact": "output/concepts/2026-05-31/dot-key-repair-brand-integration-jam/dot-key-validation.md"
   },
   "selected_concept": {
-    "title": "Blue Tube Theft",
+    "title": "Household Inventory",
     "primary_product": "Dot & Key Barrier Repair Moisturizer (Hyaluronic + Ceramides)",
     "creator_correction": "Aachu has strawberry face; treat this as an affectionate rosy/flushed/sensitive-face visual receipt, not a flaw or diagnosis.",
     "concept_process_card": "Card 17 - The Object Is A Receipt",
-    "emotional_machine": "normal ritual -> missing blue tube -> Aachu strawberry-face suspicion -> Zuv caught using it -> drawer restock reveal -> tender theft thesis",
+    "emotional_machine": "normal ritual -> missing blue tube -> escalating search -> Aachu teases Zuv -> Zuv opens backup drawer -> old tube at parents' place -> household inventory thesis",
     "story_selling_score": 29,
     "golden_theme_score": 29,
     "hard_fails": []
@@ -26,43 +26,48 @@
   "slide_spine": [
     {
       "slide": 1,
-      "text": "She came for her blue tube.",
-      "job": "start inside the ritual"
+      "text": "Raat ka repair time.",
+      "job": "start ordinary"
     },
     {
       "slide": 2,
-      "text": "Drawer empty. Pouch empty.",
-      "job": "missing-object proof"
+      "text": "Blue tube gayab.",
+      "job": "object absence"
     },
     {
       "slide": 3,
-      "text": "Her cheeks said, bas.",
-      "job": "Aachu strawberry-face proof"
+      "text": "Drawer. Pouch. Bathroom.",
+      "job": "search montage"
     },
     {
       "slide": 4,
-      "text": "He walked in too fresh.",
-      "job": "suspicion"
+      "text": "Wardrobe tak dekh li.",
+      "job": "search escalation"
     },
     {
       "slide": 5,
-      "text": "Mera wala kyun?",
-      "job": "caught beat"
+      "text": "Ab shak us par tha.",
+      "job": "teasing suspicion"
     },
     {
       "slide": 6,
-      "text": "He opened another drawer.",
-      "job": "reveal setup"
+      "text": "He opened the stock drawer.",
+      "job": "Zuv role reveal"
     },
     {
       "slide": 7,
-      "text": "Ek tera. Ek mera.",
+      "text": "Backup already home.",
       "job": "product payoff"
     },
     {
       "slide": 8,
-      "text": "Love restocks what it steals.",
-      "job": "save/share thesis"
+      "text": "Old one? Maayke.",
+      "job": "comic correction"
+    },
+    {
+      "slide": 9,
+      "text": "She lives here. He runs inventory.",
+      "job": "send/save thesis"
     }
   ],
   "blocked_until": [

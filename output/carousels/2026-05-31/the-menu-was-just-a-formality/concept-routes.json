@@ -1,0 +1,49 @@
+{
+  "routes": [
+    {
+      "title": "The Menu Was Just A Formality",
+      "hook": "The menu was just a formality.",
+      "score": {
+        "story_selling": 29,
+        "golden_theme": 28.5
+      },
+      "decision": "WINNER"
+    },
+    {
+      "title": "Same Order. Still Special.",
+      "hook": "Same order. Still special.",
+      "score": {
+        "story_selling": 24,
+        "golden_theme": 24
+      },
+      "decision": "REJECTED_TOO_SOFT"
+    },
+    {
+      "title": "Every Couple Has A Usual",
+      "hook": "Every couple has a usual.",
+      "score": {
+        "story_selling": 26,
+        "golden_theme": 26
+      },
+      "decision": "RUNNER_UP"
+    },
+    {
+      "title": "The Order Knew Before We Did",
+      "hook": "The order knew before we did.",
+      "score": {
+        "story_selling": 25.5,
+        "golden_theme": 25
+      },
+      "decision": "REJECTED_TOO_POETIC"
+    },
+    {
+      "title": "Date Night Has A Default Setting",
+      "hook": "Date night has a default setting.",
+      "score": {
+        "story_selling": 27,
+        "golden_theme": 26.5
+      },
+      "decision": "REPAIRABLE_BUT_LESS_WARM"
+    }
+  ]
+}

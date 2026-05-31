@@ -1,6 +1,6 @@
 # Premium Illustration Style Lock
 
-last_updated: 2026-05-30
+last_updated: 2026-05-31
 status: creator_approved
 confidence: 1.0
 
@@ -89,3 +89,27 @@ Hard fails:
 For future visual QA, require explicit `scene_logic` and `pose_anatomy` checks
 before accepting final art. Also require explicit `paper_tone` and
 `identity_match` checks before accepting or even batch-generating final art.
+
+## 2026-05-31 Height And Face Lock Correction
+
+The Private Captions fresh carousel attempt was stopped after the creator
+rejected early proofs for face mismatch and height mismatch. This is a hard
+identity failure, not a style nit.
+
+Hard lock:
+
+- Himanshu/Zuv is 5'8".
+- Aanchal/Aachu is 5'6".
+- The difference is only two inches; they should read close in height when
+  standing on the same plane.
+- Aanchal should never be scaled down to shoulder/chin level beside Himanshu.
+- Himanshu should not become tall, lanky, chiseled, or model-like.
+- Use a standing/together identity reference as the scale anchor whenever both
+  bodies are visible.
+
+Future generation must not batch a carousel after this kind of correction.
+First create one corrected proof that uses actual identity images as inputs and
+passes face match, body proportion, and the 5'8" vs 5'6" height relationship.
+If the available image-generation path ignores the identity/style references or
+produces an unrelated artifact, mark the package blocked and switch to a
+reference-capable generation path instead of continuing.

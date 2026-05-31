@@ -46,6 +46,11 @@ sources:
 - direct creator rejection in chat on 2026-05-30 of the first phone-prank image
   proof: the output was yellowish/parchment and Aachu/Zuv faces did not match;
   this must be treated as a hard generation failure, not a minor style note
+- direct creator correction in chat on 2026-05-31 during the Private Captions
+  fresh carousel: faces were not matching and the height relationship was
+  wrong; Himanshu/Zuv is 5'8", Aanchal/Aachu is 5'6", and the two-inch
+  difference must be treated as a hard identity/scale gate before batch
+  generation
 - direct creator correction in chat on 2026-05-30 for the
   `We disagree / older couple / still choosing` reference adaptation: the
   concept is good, but the generated visuals were not @a.storyof.two style
@@ -398,6 +403,27 @@ body proportions, posture, and relationship energy match the selected identity
 references. Reject identity drift immediately; never call it PASS_WITH_NOTES.
 confidence: 1.0
 
+fact: Height and body scale are part of identity match. Himanshu/Zuv is 5'8"
+and Aanchal/Aachu is 5'6"; the visual difference is only two inches. When they
+stand on the same plane, she should read almost the same height, not tiny,
+childlike, shoulder-level, or dramatically shorter. He should read natural and
+slightly taller, not oversized, lanky, chiseled, or generic model-like. After a
+creator correction about faces or height, stop full-batch generation and require
+one corrected proof that passes face likeness and this scale lock before
+continuing.
+confidence: 1.0
+
+fact: For the 2026-05-31 Private Captions fresh carousel, the creator's exact
+paired-label copies are locked, but final generation is blocked until the
+identity-height proof passes. Do not reuse previous proof folders or existing
+outputs for this run. Use only the creator-supplied sitcom reference
+screenshots as mood/composition/text references, the A Story house style as
+visual language, and actual Aachu/Zuv identity images as face/body anchors.
+If built-in image generation ignores the references or returns an unrelated
+artifact, do not keep trying that path as final; switch to a reference-capable
+edit/API path or mark the package blocked.
+confidence: 1.0
+
 fact: The accepted visual style for the current illustrated carousel direction
 is the `main-kar-lungi` hand-drawn desi storybook zone: warm off-white paper,
 loose imperfect black linework, matte muted colors, natural Indian faces with
@@ -520,6 +546,7 @@ confidence: 0.98
 
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
+| 2026-05-31 | Household Inventory | Dot & Key brand integration / barrier repair moisturizer / household stock / parents-place reveal / teasing game | creator_repaired_direction_active | Creator clarified the idea is still good but the concept needs to land as a teasing household game, not theft/restock or a polite product handoff. Corrected story: Aachu looks for her Dot & Key Barrier Repair tube, checks drawer/pouch/wardrobe/bathroom, suspects Zuv, then he opens the backup drawer because he already ordered before it ran out; final comic correction is that the old tube was left at her parents' place. Emotional thesis: she lives dramatically in the house; he quietly runs inventory. Current slide spine: `Skincare time.` -> `Blue tube missing.` -> `Drawer. Pouch. Bathroom.` -> `Wardrobe bhi check hua.` -> `Tumne rakha hai na?` -> `He opened the backup drawer.` -> `New one was already there.` -> `Old one? Maayke.` -> `She lives here. He runs inventory.` | 0.99 |
 | 2026-05-31 | Blue Tube Theft | Dot & Key brand integration / barrier repair moisturizer / missing product / skincare theft / restock payoff | rejected_creator_not_fitting | Creator rejected the repaired blue-tube-theft sequence as still not fitting well. Diagnosis: even with better discovery order, the concept makes the product too mechanically central and starts feeling like a constructed brand skit. Do not continue the theft/restock route as the active idea. Keep only the lesson: Dot & Key needs to appear as lived-in ritual evidence or a pitch asset, not as a forced plot engine. Next repair should start from a real Aachu moment, real skincare habit, or a creator-facing UGC pitch format before any carousel copy. | 1.0 |
 | 2026-05-31 | Repair First, Fight Later | Dot & Key brand integration / barrier repair moisturizer / strawberry face / skincare ritual as care receipt / no-fixing reset | rejected_creator_not_good | Creator rejected the story-first version as "not good." Diagnosis: the route became too soft, too perfect-husband, and too much like Zuv politely handing Aachu a product; the product did not cause enough plot. Keep the Dot & Key validation learning, but do not proceed with `Repair First, Fight Later` as the active idea. New repair direction should make the blue Barrier Repair tube create action/friction/consequence: missing tube, skincare theft, suspiciously fresh Zuv, Aachu's strawberry-face day, and a restock/payoff. Product should be a story object with movement, not a handoff prop. | 0.99 |
 | 2026-05-31 | The Usual Order Was The Date | shared food ritual / Pizza Bakery / same craving / ordinary date becomes ours | repair_needed_hook_too_soft | Creator supplied a real preference seed: Aachu and Zuv both like Pizza Bakery pizza and hazelnut cold coffee. First recommendation `Same order. Still special.` was rejected because the text did not stop the creator's thumb. Preserve the food-ritual lane, but repair the public doorway: it needs a sharper contradiction, tiny conflict, or instantly recognizable couple behavior before the usual order lands. Avoid older appetite-denial, second-serving, body/food-comfort lanes. The object/place remains proof only; strongest repair candidates should make the hook about failed date planning, menu drama, or the couple pretending to need novelty while repeatedly choosing the same tiny ritual. | 0.98 |

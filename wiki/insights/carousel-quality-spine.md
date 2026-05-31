@@ -1,7 +1,7 @@
 # Carousel Quality Spine
 
-last_updated: 2026-05-10
-confidence: 0.7
+last_updated: 2026-05-31
+confidence: 0.82
 sources:
 - docs/superpowers/specs/2026-05-10-carousel-quality-spine-design.md
 - docs/superpowers/plans/2026-05-10-carousel-quality-spine.md
@@ -41,3 +41,12 @@ expressions, posture, and wardrobe.
 Runs should prefer `PASS_WITH_NOTES` over vague success when rendering is
 skipped, local generation is partial, or any limitation needs to carry forward.
 Critical misses become `NEEDS_FIXES`.
+
+## Identity-Scale Learning
+
+The 2026-05-31 Private Captions fresh run added a stricter identity gate:
+height and body scale are part of likeness. Himanshu/Zuv is 5'8" and
+Aanchal/Aachu is 5'6"; generated scenes must show only a slight two-inch
+difference when both stand on the same plane. If faces or height drift, stop
+batch generation, reject the proofs, and require one corrected reference-based
+proof before continuing.

@@ -883,3 +883,19 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: PASS_WITH_NOTES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-05-30/the-hand-that-stays
+
+## C-layer generation correction: Private Captions identity-height lock
+- date: 2026-05-31
+- slug: private-captions-fresh-a-story
+- status: BLOCKED_UNTIL_CORRECTED_IDENTITY_HEIGHT_PROOF
+- trigger: creator rejected early Private Captions proofs because both faces
+  drifted and the height relationship was wrong.
+- learning: Himanshu/Zuv is 5'8" and Aanchal/Aachu is 5'6"; the two-inch
+  difference is a hard body-scale gate. Future illustrated carousel generation
+  must reject any frame where Aanchal reads tiny or Himanshu reads oversized,
+  lanky, chiseled, or generic. Do not batch after this correction; produce one
+  corrected proof using actual identity images, pass face and height QA, then
+  continue.
+- durable_memory: memory/semantic/premium-illustration-style-lock.md;
+  memory/semantic/carousel-idea-preferences.md
+- wiki: wiki/carousels/private-captions-fresh-a-story.md

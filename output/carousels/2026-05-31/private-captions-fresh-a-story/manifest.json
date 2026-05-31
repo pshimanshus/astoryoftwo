@@ -24,6 +24,11 @@
     "status": "ACTIVE",
     "rule": "Do not continue the batch until a corrected proof passes face match and the 5'8 vs 5'6 height relationship."
   },
+  "generation_blocker": {
+    "status": "BLOCKED_UNTIL_CORRECTED_PROOF",
+    "reason": "Creator rejected early proofs for face mismatch and height mismatch. Built-in generation must not be treated as final unless it uses actual identity references and preserves the two-inch height difference.",
+    "next_step": "Generate one corrected reference-based proof first; resume full 4:5 and 9:16 batch only after identity-height QA passes."
+  },
   "identity_references": [
     "identity_images/Screenshot 2026-05-16 at 7.50.15\u202fPM.png",
     "identity_images/Screenshot 2026-05-16 at 7.48.59\u202fPM.png",

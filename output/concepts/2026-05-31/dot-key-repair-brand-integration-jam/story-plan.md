@@ -1,9 +1,9 @@
 # Dot & Key Repair Brand Integration Jam
 
 date: 2026-05-31
-status: story_spine_repaired_for_creator_review
+status: creator_repaired_direction_for_review
 decision: GO_FOR_CREATOR_REVIEW
-selected_concept: Blue Tube Theft
+selected_concept: Household Inventory
 primary_product: Dot & Key Barrier Repair Moisturizer (Hyaluronic + Ceramides)
 secondary_product: Dot & Key Strawberry Bright or Strawberry Dew cue, optional only if Dot & Key wants a strawberry-line bridge
 brand_validation: PASS_WITH_REPAIRS - see dot-key-validation.md
@@ -62,22 +62,27 @@ Selector verdict: use `Repair First, Fight Later`. It gives Dot & Key a brand-ow
 
 ## Stage-Scene Gate
 
-Creator feedback after the first story share: the story is solid but the slide
-copy sequence destroyed it. The repaired sequence must let the viewer discover
-the missing product with Aachu instead of announcing the whole premise.
+Creator feedback after the theft repair: the idea is good, but theft/restock
+still does not fit. The corrected route is a teasing household game: Aachu
+searches everywhere, suspects Zuv, then discovers he had already ordered a
+backup because he quietly runs household inventory. The old tube was left at
+her parents' place.
 
 | Slide | On-Image Text | Story Job | Visual Beat | Swipe Reason |
 |---:|---|---|---|---|
-| 1 | She came for her blue tube. | Start inside the ritual | Aachu at the mirror, reaching for her Dot & Key Barrier Repair tube. The product is expected, not announced like an ad. | Why does the blue tube matter? |
-| 2 | Drawer empty. Pouch empty. | Missing-object proof | Her hand checks the drawer, then the skincare pouch. The blue tube is absent. | Where did it go? |
-| 3 | Her cheeks said, bas. | Aachu strawberry-face proof | Soft rosy/flushed strawberry-face irritation; she is not shamed, just visibly done. | Someone is in trouble. |
-| 4 | He walked in too fresh. | Suspicion | Zuv enters, avoiding eye contact, looking suspiciously calm/fresh. No skin-result claim; the joke is guilt. | Did he use it? |
-| 5 | Mera wala kyun? | Caught beat | Aachu turns with the empty pouch; Zuv freezes. | What will he do now? |
-| 6 | He opened another drawer. | Reveal setup | His hand opens a drawer/table box. Keep suspense for one more swipe. | What is inside? |
-| 7 | Ek tera. Ek mera. | Product payoff | Two blue Dot & Key Barrier Repair tubes, labels readable. One is hers, one is his. | He had already restocked it. |
-| 8 | Love restocks what it steals. | Save/share thesis | Both at mirror, half-annoyed/half-laughing. Product sits naturally as the receipt. | Tag/save thesis. |
+| 1 | Raat ka repair time. | Start ordinary | Aachu at the mirror or bedroom vanity, reaching into her pouch. No product hero shot yet. | What is she reaching for? |
+| 2 | Blue tube gayab. | Object absence | The Dot & Key Barrier Repair spot is empty; pouch is open. | Where did it go? |
+| 3 | Drawer. Pouch. Bathroom. | Search montage | Three small search actions in one airy scene or a split staged scene. | The search is becoming real. |
+| 4 | Wardrobe tak dekh li. | Escalation | She is checking an unreasonable place, strawberry-face irritation visible. | This is now funny. |
+| 5 | Ab shak us par tha. | Teasing suspicion | Aachu turns to Zuv. He is calm, slightly amused, not guilty. | Did he move it? |
+| 6 | He opened the stock drawer. | Zuv role reveal | Zuv opens the household-stock drawer. The new blue Dot & Key tube is visible. | He knows something. |
+| 7 | Backup already home. | Product payoff | One fresh Barrier Repair tube, label readable. | He had already ordered it. |
+| 8 | Old one? Maayke. | Comic correction | Tiny memory flash/phone note/gesture: she left the old tube at her parents' place. | The accusation flips. |
+| 9 | She lives here. He runs inventory. | Send/save thesis | Both half-laughing at the mirror; product sits naturally as the receipt. | Tag/save thesis. |
 
-Stage-scene verdict: GO. The product now causes the plot: expected -> missing -> searched for -> stolen -> restocked. This is stronger than the polite handoff route.
+Stage-scene verdict: GO. The product now works as household inventory evidence:
+expected -> missing -> searched for -> backup found -> old one at parents'
+place -> relationship thesis.
 
 ## Hook Bank
 

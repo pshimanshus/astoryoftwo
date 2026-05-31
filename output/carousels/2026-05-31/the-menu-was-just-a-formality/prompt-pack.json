@@ -1,0 +1,53 @@
+{
+  "status": "READY_FOR_CODEX_BUILTIN_PROOF",
+  "master_prompt_source": "config/references/a-story-illustration-master-prompt.md",
+  "style_lock": "config/references/style-lock/observational-intimacy-premium/",
+  "identity_lock": "config/references/identity/",
+  "reference_roles": {
+    "pizza_bakery_images": "Venue, object, mood, composition, and ritual evidence only. Do not copy as photoreal output.",
+    "identity_images": "Aachu/Zuv face, hair, skin tone, expression, posture, and wardrobe anchors.",
+    "style_lock_images": "Neutral warm ivory paper, visible grain, fine ink/pencil linework, transparent watercolor, airy lower/middle-lower couple placement, handwritten text style."
+  },
+  "shared_negative_prompt": "No photorealism, no restaurant advertisement, no product-shot carousel, no giant logo dominating, no flat vector art, no anime, no stock Indian couple, no generic AI watercolor, no yellow/parchment/beige/tan paper, no random menu text, no speech bubbles, no extra words, no unreadable typography, no smug expression, no mocking Aachu, no passive Zuv, no awkward hands, no cropped faces.",
+  "formats": {
+    "instagram_post": "native 4:5",
+    "reels_stories": "native 9:16"
+  },
+  "proof": {
+    "slide": 4,
+    "format": "instagram_post",
+    "prompt_file": "codex-image-prompts/instagram-post/slide-04.txt"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "The menu was\njust a formality.",
+      "scene": "Medium-close opening at a Pizza Bakery-inspired table. A menu is being placed or opened like a tiny ceremony; Aachu's hand reaches for it; Zuv's hand rests nearby, relaxed, already knowing. Warm wood, soft lamp, and stripe-wall hint only. No food yet."
+    },
+    {
+      "slide": 2,
+      "copy": "She still studied\nevery page.",
+      "scene": "Clean table two-shot. Aachu leans into the menu with sincere decision-face, finger tracking options. Zuv watches her, not the menu, patient and amused without mocking."
+    },
+    {
+      "slide": 3,
+      "copy": "Like the plot\nmight change.",
+      "scene": "Over-shoulder or side angle. Menu still open in Aachu's hands. Zuv already makes the tiny order move: wallet, phone, chair angle, or glance toward counter/server path. No food reveal yet."
+    },
+    {
+      "slide": 4,
+      "copy": "He ordered before\nthe verdict.",
+      "scene": "Cinematic medium-close insert: Aachu's menu lowered in foreground, her fingers still on it; Zuv's hand slides a tall hazelnut cold coffee into frame and places it near her hand before she asks; Aachu is caught-smiling in partial profile; Pizza Bakery is only blurred warm wood/soft lamp/stripe-wall atmosphere. No pizza, no sign, no full table spread."
+    },
+    {
+      "slide": 5,
+      "copy": "Pizza. Hazelnut cold coffee.\nAgain.",
+      "scene": "First and only fuller food reveal. Pizza and cold coffee together on the table; menu closing or sliding away at edge; Aachu laughs because the order was inevitable; Zuv smiles softly and slides the plate closer."
+    },
+    {
+      "slide": 6,
+      "copy": "The usual,\nchosen again.",
+      "scene": "Quiet final table intimacy; pizza half-shared, coffee between them, closed menu at edge; Zuv nudges the better side or slice closer while Aachu reaches with a small smile."
+    }
+  ]
+}

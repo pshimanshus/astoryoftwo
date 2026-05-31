@@ -1,0 +1,18 @@
+{
+  "name": "tum-toh-dil-ho-petals",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "remotion render src/index.ts PetalLoop ../tum-toh-dil-ho-petals.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p --overwrite",
+    "still": "remotion still src/index.ts PetalLoop out/still-frame-90.png --frame=90 --scale=0.25 --overwrite"
+  },
+  "dependencies": {
+    "@remotion/cli": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "remotion": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}

@@ -95,6 +95,15 @@ Identity matching remains a separate hard gate. Do not let face/likeness
 review replace creative success, and do not let creative success excuse
 identity drift. Both must pass.
 
+Height and body scale are part of identity matching. Himanshu/Zuv is 5'8" and
+Aanchal/Aachu is 5'6"; the visible difference should be only slight when they
+stand on the same plane. Any generated frame where Aanchal reads tiny,
+shoulder-level, childlike, or where Himanshu reads oversized, lanky, chiseled,
+or generic model-like fails before style, copy, or story success is judged.
+After a creator correction about face or height, the workflow must stop the
+full batch and require one corrected proof that passes face likeness and
+height-scale QA.
+
 ## Creator-Approved Visual Style
 
 The approved illustration house style is now the Observational Intimacy Premium

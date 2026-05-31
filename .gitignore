@@ -47,6 +47,9 @@ output/generated-sources/
 output/reference-contact-sheets/
 output/wallpapers/
 
+# Local Remotion project dependencies generated inside single-post packages.
+output/single-posts/**/node_modules/
+
 # Generated diagnostics/log churn can be recreated, but selected docs may be promoted manually.
 logs/
 memory/agentic/index/*.sqlite3

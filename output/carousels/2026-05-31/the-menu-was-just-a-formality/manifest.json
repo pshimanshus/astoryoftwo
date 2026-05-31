@@ -1,0 +1,47 @@
+{
+  "date": "2026-05-31",
+  "slug": "the-menu-was-just-a-formality",
+  "title": "The Menu Was Just A Formality",
+  "channel": "@a.storyof.two",
+  "status": "proof_handoff_ready",
+  "slide_count": 6,
+  "creator_approval": {
+    "concept_approved": true,
+    "approved_title": "The Menu Was Just A Formality",
+    "instruction": "Use Pizza Bakery as reference."
+  },
+  "source_images": {
+    "creator_chat_attachments": [
+      "Pizza Bakery entrance/counter reference with marquee sign, wood slat ceiling, chevron walls, oven, counter, warm lighting.",
+      "Hazelnut cold coffee reference in tall fluted glass with straw on wooden table.",
+      "Pizza Bakery interior reference with marquee sign, warm counter, black-and-white floor, wood, lamps."
+    ],
+    "reference_role": "Mood, venue, object, and composition evidence only. Final art must remain A Story of Two Observational Intimacy Premium style."
+  },
+  "identity_references": {
+    "dossier": "config/references/identity/_dossier/identity-dossier.json",
+    "contact_sheet": "config/references/identity/_dossier/identity-face-contact-sheet.jpg",
+    "required_for_final_generation": true
+  },
+  "style_references": {
+    "bundle": "config/references/style-lock/observational-intimacy-premium/",
+    "contact_sheet": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "required_for_final_generation": true
+  },
+  "formats": {
+    "instagram_post": {
+      "aspect_ratio": "4:5",
+      "directory": "final/"
+    },
+    "reels_stories": {
+      "aspect_ratio": "9:16",
+      "directory": "final-reels-stories/"
+    }
+  },
+  "generation_rule": "Generate native 4:5 and separate native 9:16 images. Do not resize, crop, or pad one format into the other.",
+  "proof_first": {
+    "required": true,
+    "proof_slide": 4,
+    "reason": "Slide 4 tests identity, coffee reference, long on-image text, active Zuv hand movement, and restaurant background restraint."
+  }
+}

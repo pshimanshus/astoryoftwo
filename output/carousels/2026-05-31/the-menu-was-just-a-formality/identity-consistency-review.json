@@ -1,0 +1,22 @@
+{
+  "status": "PASS_FOR_HANDOFF",
+  "final_generation_requirement": "Actual identity reference images from config/references/identity/ must be attached or otherwise available to the image-generation path.",
+  "identity_sources": [
+    "config/references/identity/_dossier/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/",
+    "config/references/identity/zuv/",
+    "config/references/identity/together/"
+  ],
+  "style_sources": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/"
+  ],
+  "checks": {
+    "aachu_face_anchor": "REQUIRED",
+    "zuv_face_anchor": "REQUIRED",
+    "height_and_body_proportion": "REQUIRED",
+    "same_couple_across_slides": "REQUIRED",
+    "no_generic_south_asian_faces": "REQUIRED"
+  },
+  "decision": "GO_FOR_PROOF_WITH_REFERENCES"
+}

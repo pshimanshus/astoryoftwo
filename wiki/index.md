@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-05-31
-total_pages: 73
+total_pages: 74
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,7 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [Private Captions Fresh A Story](carousels/private-captions-fresh-a-story.md) | 2026-05-31 | 8 | C-layer | 0.72 |
 | [I Have No Car I'll Walk](carousels/i-have-no-car-i-ll-walk.md) | 2026-05-30 | 7 | C-layer | 0.7 |
 | [The Hand That Stays](carousels/the-hand-that-stays.md) | 2026-05-30 | 6 | C-layer | 0.7 |
 | [Before Us Timing Found Us](carousels/before-us-timing-found-us-2.md) | 2026-05-30 | 6 | C-layer | 0.7 |
