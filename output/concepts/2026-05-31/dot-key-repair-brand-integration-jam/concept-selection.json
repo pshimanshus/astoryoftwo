@@ -1,18 +1,18 @@
 {
   "date": "2026-05-31",
-  "status": "idea_lock_recommended",
-  "decision": "PASS_WITH_REPAIRS_FOR_CREATOR_REVIEW",
+  "status": "story_spine_repaired_for_creator_review",
+  "decision": "GO_FOR_CREATOR_REVIEW",
   "brand_validation": {
     "status": "PASS_WITH_REPAIRS",
     "summary": "Dot & Key fit is strongest when Barrier Repair remains the hero SKU and strawberry face is treated as an affectionate Aachu cue, not a product claim.",
     "validation_artifact": "output/concepts/2026-05-31/dot-key-repair-brand-integration-jam/dot-key-validation.md"
   },
   "selected_concept": {
-    "title": "Repair First, Fight Later",
+    "title": "Blue Tube Theft",
     "primary_product": "Dot & Key Barrier Repair Moisturizer (Hyaluronic + Ceramides)",
     "creator_correction": "Aachu has strawberry face; treat this as an affectionate rosy/flushed/sensitive-face visual receipt, not a flaw or diagnosis.",
     "concept_process_card": "Card 17 - The Object Is A Receipt",
-    "emotional_machine": "reader mirror -> no-fixing obstacle -> Aachu strawberry-face proof -> Zuv quiet care action -> repair ritual -> tender thesis",
+    "emotional_machine": "normal ritual -> missing blue tube -> Aachu strawberry-face suspicion -> Zuv caught using it -> drawer restock reveal -> tender theft thesis",
     "story_selling_score": 29,
     "golden_theme_score": 29,
     "hard_fails": []
@@ -26,38 +26,43 @@
   "slide_spine": [
     {
       "slide": 1,
-      "text": "She did not want fixing.",
-      "job": "public hook"
+      "text": "She came for her blue tube.",
+      "job": "start inside the ritual"
     },
     {
       "slide": 2,
-      "text": "Her cheeks said it first.",
-      "job": "Aachu strawberry-face proof"
+      "text": "Drawer empty. Pouch empty.",
+      "job": "missing-object proof"
     },
     {
       "slide": 3,
-      "text": "Just ten quiet minutes.",
-      "job": "hidden need"
+      "text": "Her cheeks said, bas.",
+      "job": "Aachu strawberry-face proof"
     },
     {
       "slide": 4,
-      "text": "He moved the mirror closer.",
-      "job": "Zuv active role"
+      "text": "He walked in too fresh.",
+      "job": "suspicion"
     },
     {
       "slide": 5,
-      "text": "Repair first. Fight later.",
-      "job": "brand receipt and emotional reversal"
+      "text": "Mera wala kyun?",
+      "job": "caught beat"
     },
     {
       "slide": 6,
-      "text": "No lecture. Just ritual.",
-      "job": "safety proof"
+      "text": "He opened another drawer.",
+      "job": "reveal setup"
     },
     {
       "slide": 7,
-      "text": "Love made repair feel safe.",
-      "job": "save/share payoff"
+      "text": "Ek tera. Ek mera.",
+      "job": "product payoff"
+    },
+    {
+      "slide": 8,
+      "text": "Love restocks what it steals.",
+      "job": "save/share thesis"
     }
   ],
   "blocked_until": [

@@ -1,9 +1,9 @@
 # Dot & Key Repair Brand Integration Jam
 
 date: 2026-05-31
-status: idea_lock_recommended
+status: story_spine_repaired_for_creator_review
 decision: GO_FOR_CREATOR_REVIEW
-selected_concept: Repair First, Fight Later
+selected_concept: Blue Tube Theft
 primary_product: Dot & Key Barrier Repair Moisturizer (Hyaluronic + Ceramides)
 secondary_product: Dot & Key Strawberry Bright or Strawberry Dew cue, optional only if Dot & Key wants a strawberry-line bridge
 brand_validation: PASS_WITH_REPAIRS - see dot-key-validation.md
@@ -62,19 +62,22 @@ Selector verdict: use `Repair First, Fight Later`. It gives Dot & Key a brand-ow
 
 ## Stage-Scene Gate
 
-The carousel must work as silent scenes first:
+Creator feedback after the first story share: the story is solid but the slide
+copy sequence destroyed it. The repaired sequence must let the viewer discover
+the missing product with Aachu instead of announcing the whole premise.
 
 | Slide | On-Image Text | Story Job | Visual Beat | Swipe Reason |
 |---:|---|---|---|---|
-| 1 | She did not want fixing. | Public hook | Night bedroom/vanity. Aachu sits tired, hair loose, earrings half-off. The blue Dot & Key tube is visible but not pushed forward. | What did she want instead? |
-| 2 | Her cheeks said it first. | Aachu proof | Aachu's cheeks are softly rosy/flushed in a cute strawberry-face way; her mouth still says she is fine. Zuv watches gently from the doorway. | Will he understand without being told? |
-| 3 | Just ten quiet minutes. | Hidden need | She ties her hair, shoulders drop, reaches for her routine, product pouch open. No shame, no skin close-up inspection, only a reset ritual. | Small comic recognition. |
-| 4 | He moved the mirror closer. | Zuv active role | Zuv adjusts the mirror/lamp and clears a tiny space on the table. His hand enters before his advice does. | Care becomes action. |
-| 5 | Repair first. Fight later. | Brand receipt and reversal | He places the blue Dot & Key Barrier Repair Moisturizer near her hand, label readable. She tries not to smile. | Product line becomes relationship line. |
-| 6 | No lecture. Just ritual. | Proof of safety | She applies moisturizer; he sits nearby folding a scarf or untangling a charger, giving quiet company. | Shows he did not take over. |
-| 7 | Love made repair feel safe. | Save/share payoff | Softer final frame. Aachu calmer, Zuv close but not crowding, product on vanity as a natural receipt. | Tag/save thesis. |
+| 1 | She came for her blue tube. | Start inside the ritual | Aachu at the mirror, reaching for her Dot & Key Barrier Repair tube. The product is expected, not announced like an ad. | Why does the blue tube matter? |
+| 2 | Drawer empty. Pouch empty. | Missing-object proof | Her hand checks the drawer, then the skincare pouch. The blue tube is absent. | Where did it go? |
+| 3 | Her cheeks said, bas. | Aachu strawberry-face proof | Soft rosy/flushed strawberry-face irritation; she is not shamed, just visibly done. | Someone is in trouble. |
+| 4 | He walked in too fresh. | Suspicion | Zuv enters, avoiding eye contact, looking suspiciously calm/fresh. No skin-result claim; the joke is guilt. | Did he use it? |
+| 5 | Mera wala kyun? | Caught beat | Aachu turns with the empty pouch; Zuv freezes. | What will he do now? |
+| 6 | He opened another drawer. | Reveal setup | His hand opens a drawer/table box. Keep suspense for one more swipe. | What is inside? |
+| 7 | Ek tera. Ek mera. | Product payoff | Two blue Dot & Key Barrier Repair tubes, labels readable. One is hers, one is his. | He had already restocked it. |
+| 8 | Love restocks what it steals. | Save/share thesis | Both at mirror, half-annoyed/half-laughing. Product sits naturally as the receipt. | Tag/save thesis. |
 
-Stage-scene verdict: GO. The product is necessary to the action, but the story still works if the brand is covered because the relationship behavior is visible.
+Stage-scene verdict: GO. The product now causes the plot: expected -> missing -> searched for -> stolen -> restocked. This is stronger than the polite handoff route.
 
 ## Hook Bank
 
