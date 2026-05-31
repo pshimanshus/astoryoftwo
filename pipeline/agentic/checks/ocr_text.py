@@ -5,10 +5,17 @@ so it is imported lazily and the check degrades to a STOP status if
 easyocr is not installed. STOP is treated as a soft non-blocker by the
 runner; PASS/FAIL are hard signals.
 
-Fuzzy match via rapidfuzz to tolerate normal OCR variation on
-handwritten text — a one-character read error like 'noticei' for
-'noticed' should not fail the gate. Threshold is 85% partial-ratio
-similarity (with whitespace + casing normalized).
+Matching strategy (in order):
+  1. Exact substring after normalization → PASS. The strongest signal.
+  2. For multi-word expected text only: rapidfuzz token_set_ratio
+     similarity ≥ 85 → PASS. token_set_ratio is robust to single-character
+     OCR errors and word-order variation but rejects word swaps
+     ('dumber' vs 'dumbest' scores ~77, not ~91 like partial_ratio).
+  3. Otherwise → FAIL.
+
+Single-word expected text skips the fuzzy fallback entirely — a model
+that rendered the wrong word as a single-word slide is a real failure,
+not OCR noise.
 
 Install OCR backend with: venv/bin/pip install easyocr
 """
@@ -25,7 +32,7 @@ from rapidfuzz import fuzz
 from pipeline.agentic.contracts import WorkflowGate
 
 
-SIMILARITY_THRESHOLD = 85  # rapidfuzz partial_ratio score 0-100
+SIMILARITY_THRESHOLD = 85  # rapidfuzz token_set_ratio score 0-100
 
 
 @lru_cache(maxsize=1)
@@ -45,6 +52,10 @@ def _easyocr_available() -> bool:
 
 def _normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text.lower().strip())
+
+
+def _is_single_word(text: str) -> bool:
+    return " " not in text.strip()
 
 
 def check_ocr_text(image_path: Path, expected_text: str) -> WorkflowGate:
@@ -88,7 +99,7 @@ def check_ocr_text(image_path: Path, expected_text: str) -> WorkflowGate:
             reason="no expected text for this slide",
         )
 
-    # Exact substring is the strongest signal — accept immediately.
+    # Strongest signal: exact substring after normalization.
     if expected in detected:
         return WorkflowGate(
             name="ocr_text",
@@ -97,15 +108,28 @@ def check_ocr_text(image_path: Path, expected_text: str) -> WorkflowGate:
             evidence_paths=[str(image_path)],
         )
 
-    # Fall back to fuzzy partial match — tolerates normal OCR variation on
-    # handwriting (one-character reads, kerning artifacts).
-    similarity = fuzz.partial_ratio(expected, detected)
+    # Single-word slides skip the fuzzy fallback. A model that rendered
+    # the wrong word is a real failure, not OCR noise.
+    if _is_single_word(expected):
+        return WorkflowGate(
+            name="ocr_text",
+            status="FAIL",
+            reason=(
+                f"expected single word '{expected_text}' not found in detected text "
+                f"'{detected[:160]}'; single-word slides require exact match"
+            ),
+            evidence_paths=[str(image_path)],
+        )
+
+    # Multi-word fallback: token_set_ratio tolerates one-char OCR errors
+    # and word-order variation, but rejects word swaps and unrelated text.
+    similarity = fuzz.token_set_ratio(expected, detected)
     if similarity >= SIMILARITY_THRESHOLD:
         return WorkflowGate(
             name="ocr_text",
             status="PASS",
             reason=(
-                f"fuzzy match: similarity={similarity:.0f}/100 "
+                f"fuzzy token-set match: similarity={similarity:.0f}/100 "
                 f">= threshold {SIMILARITY_THRESHOLD}"
             ),
             evidence_paths=[str(image_path)],
@@ -117,7 +141,7 @@ def check_ocr_text(image_path: Path, expected_text: str) -> WorkflowGate:
         reason=(
             f"expected '{expected_text}' not found; "
             f"detected: '{detected[:160]}'; "
-            f"similarity={similarity:.0f}/100 < threshold {SIMILARITY_THRESHOLD}"
+            f"token-set similarity={similarity:.0f}/100 < threshold {SIMILARITY_THRESHOLD}"
         ),
         evidence_paths=[str(image_path)],
     )

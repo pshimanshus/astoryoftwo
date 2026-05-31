@@ -130,8 +130,44 @@ def test_gate_passes_under_fuzzy_match_for_one_character_ocr_error(tmp_path, mon
     path = _render_text_image(tmp_path / "noticei.png", "she noticed")
     gate = check_ocr_text(path, "she noticed")
     assert gate.status == "PASS"
-    assert "fuzzy match" in gate.reason
+    assert "fuzzy token-set match" in gate.reason
     assert "similarity" in gate.reason
+
+
+def test_gate_fails_for_single_word_swap_no_fuzzy_pass(tmp_path, monkeypatch) -> None:
+    """'dumber' vs 'dumbest' was a partial_ratio false positive. With
+    token_set_ratio + single-word strict mode, it correctly FAILS."""
+    import pipeline.agentic.checks.ocr_text as ocr_mod
+
+    monkeypatch.setattr(ocr_mod, "_easyocr_available", lambda: True)
+
+    class _StubReader:
+        def readtext(self, _path, detail=0):
+            return ["dumbest"]
+
+    monkeypatch.setattr(ocr_mod, "_reader", lambda: _StubReader())
+
+    path = _render_text_image(tmp_path / "swap.png", "dumbest")
+    gate = check_ocr_text(path, "dumber")
+    assert gate.status == "FAIL"
+    assert "single-word" in gate.reason
+
+
+def test_gate_passes_for_word_drop_in_multi_word_phrase(tmp_path, monkeypatch) -> None:
+    """OCR misses one word in a long phrase — token_set tolerates this."""
+    import pipeline.agentic.checks.ocr_text as ocr_mod
+
+    monkeypatch.setattr(ocr_mod, "_easyocr_available", lambda: True)
+
+    class _StubReader:
+        def readtext(self, _path, detail=0):
+            return ["the menu was just formality"]
+
+    monkeypatch.setattr(ocr_mod, "_reader", lambda: _StubReader())
+
+    path = _render_text_image(tmp_path / "drop.png", "the menu was just a formality")
+    gate = check_ocr_text(path, "the menu was just a formality")
+    assert gate.status == "PASS"
 
 
 def test_gate_passes_under_fuzzy_match_for_minor_word_swap(tmp_path, monkeypatch) -> None:
