@@ -1,5 +1,23 @@
 # Carousel Autopilot Spine Sprint Implementation Plan
 
+> **⚠️ SUPERSEDED on 2026-05-31** by
+> `docs/superpowers/plans/2026-05-31-agentic-os-activation-sprint.md`.
+>
+> Do not execute this plan as a fresh sprint. Its five P0 items are absorbed
+> as sub-goals of the activation plan:
+>
+> - Workflow Doctor → activation Task 4 (Runner) + Task 10 (Audit)
+> - Canonical Prompt Source → activation Task 1 (Rule Consolidation)
+>   (✅ landed in commit `33de1f9`, hardened in `ebb3fbf` and `95ffef4`)
+> - Handoff Prompt Cleanup → activation Task 5 (Handlers)
+> - Final State Contract → activation Task 2 (Typed Contracts)
+>   (✅ landed in commit `a96eb56`)
+> - 80/20 Final QA → activation Task 3 (Deterministic Gates)
+>   (✅ landed in commit `584a968`, hardened in `95ffef4` and `a29fbc2`)
+>
+> This document is retained for context only. The activation plan is the
+> live executable sprint.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Make the carousel system stop pretending partial handoff states are finished, use one canonical prompt source, and enforce enough executable gates that today’s carousel work becomes reliably smarter, faster, and harder to derail.

@@ -40,6 +40,43 @@ The control plane is grounded by `config/agentic_context_manifest.json` and
 learning. Learning events become draft proposals and must pass eval gates
 before any skill/context file is changed.
 
+## Canonical Rules — `config/rules/`
+
+Every constraint that drives generation lives in exactly one file under
+`config/rules/`. These are the load-bearing source — `config/references/`,
+`config/skills/`, and `memory/semantic/` reference them, they do not
+re-state them.
+
+| Rule | Source of truth | What it covers |
+|---|---|---|
+| palette | `config/rules/palette.md` | Warm-ivory paper, watercolor-and-ink style, hard fails (yellow/mustard/sepia/parchment/tan/beige), accent palette, deterministic acceptance thresholds |
+| identity | `config/rules/identity.md` | Aachu/Zuv hierarchy, identity reference rule, face preservation, heights (5'6"/5'8"), wardrobe continuity, anatomy/pose rules |
+| on-image-text | `config/rules/on-image-text.md` | Source-of-truth contract, placement, handwritten typography, anti-text-invention default |
+| brandmark | `config/rules/brandmark.md` | Tiny `@a.storyof.two` bottom-right always |
+| brand-zone | `config/rules/brand-zone.md` | Brand-integration legibility, brand-label workflow |
+| voice | `config/rules/voice.md` | @a.storyof.two voice, aesthetic, content pillars, caption style, story-feel test, public-naming rule |
+| golden-theme | `config/rules/golden-theme.md` | Calm Enough For Your Chaos 5-layer stack, 28/30 rubric, repair playbook |
+| story-selling | `config/rules/story-selling.md` | Layer E 30-point rubric, decision rules, hard fails |
+
+Skill files, prompt templates, and context sections compose rules via the
+`{{rule:NAME}}` include syntax — `pipeline/agentic/rule_includes.py` expands
+them against `config/rules/`. The context loader (`pipeline/agentic/
+context_loader.py`) expands includes before token-estimating each section.
+
+## Deterministic Gates — `pipeline/agentic/checks/`
+
+These are the runtime checks the workflow runner uses to PASS / FAIL slides
+on measurement instead of LLM opinion. Each returns a typed `WorkflowGate`.
+
+| Check | When to call | What it measures |
+|---|---|---|
+| `check_palette` | after every image generation | Paper-region warm-ivory tolerance + yellow-band fraction. Calibrated against approved style-lock slides on 2026-05-31. |
+| `check_ocr_text` | after every image generation | OCR vs. expected `slides.md` text. Degrades to STOP (soft skip) when easyocr is not installed. |
+| `check_image_size` | after every image generation | Native 4:5 / 9:16 aspect within ±0.01 + min dimensions 1080×1350 / 1080×1920. Catches "one image resized into both formats". |
+| `check_prompt_constraints` | after every prompt compile | Compiled prompt contains 8 canonical fragments (warm ivory, HARD FAIL: yellow, ON-IMAGE TEXT, @a.storyof.two, identity reference, bottom-right, Aachu, Zuv). Catches prompt-compile drift before generation. |
+
+Active sprint: `docs/superpowers/plans/2026-05-31-agentic-os-activation-sprint.md`.
+
 ## Channel identity
 - Handle: @a.storyof.two
 - URL: https://www.instagram.com/a.storyof.two/
