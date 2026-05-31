@@ -122,3 +122,63 @@ class WorkflowGate(BaseModel):
     status: Literal["GO", "REPAIR", "STOP", "PASS", "FAIL"]
     reason: str = ""
     evidence_paths: list[str] = Field(default_factory=list)
+
+
+class RepairBudget(BaseModel):
+    max_retries: int = Field(ge=0, default=2)
+    retries_used: int = Field(ge=0, default=0)
+
+    def increment(self) -> "RepairBudget":
+        return self.model_copy(update={"retries_used": self.retries_used + 1})
+
+    @property
+    def exhausted(self) -> bool:
+        return self.retries_used >= self.max_retries
+
+
+class RunArtifact(BaseModel):
+    name: str
+    path: str
+    kind: Literal["input", "intermediate", "output"]
+    written_at: str = Field(default_factory=utc_now_iso)
+
+
+class PauseRequest(BaseModel):
+    state: str
+    reason: str
+    awaiting: Literal[
+        "concept_lock",
+        "copy_lock",
+        "visual_plan_lock",
+        "proof_approval",
+        "final_approval",
+        "proof_repair_human",
+    ]
+    summary_path: str
+    resume_hint: str
+
+
+class WorkflowStateRecord(BaseModel):
+    state: str
+    entered_at: str = Field(default_factory=utc_now_iso)
+    exited_at: str | None = None
+    gates: list[WorkflowGate] = Field(default_factory=list)
+    repair_budget: RepairBudget = Field(default_factory=RepairBudget)
+    pause: PauseRequest | None = None
+
+
+class WorkflowRun(BaseModel):
+    run_id: str
+    system: str
+    package_dir: str
+    current_state: str
+    history: list[WorkflowStateRecord] = Field(default_factory=list)
+    artifacts: list[RunArtifact] = Field(default_factory=list)
+    started_at: str = Field(default_factory=utc_now_iso)
+    completed_at: str | None = None
+
+    def is_paused(self) -> bool:
+        return bool(self.history and self.history[-1].pause is not None)
+
+    def latest_pause(self) -> PauseRequest | None:
+        return self.history[-1].pause if self.history else None
