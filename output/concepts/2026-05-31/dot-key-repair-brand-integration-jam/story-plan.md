@@ -5,12 +5,14 @@ status: idea_lock_recommended
 decision: GO_FOR_CREATOR_REVIEW
 selected_concept: Repair First, Fight Later
 primary_product: Dot & Key Barrier Repair Moisturizer (Hyaluronic + Ceramides)
-secondary_product: Dot & Key Vitamin C+E SPF 50+ Sunscreen, optional only if Dot & Key wants a day-to-night routine cue
+secondary_product: Dot & Key Strawberry Bright or Strawberry Dew cue, optional only if Dot & Key wants a strawberry-line bridge
 
 ## Source And Research Notes
 
 - Product truth: Dot & Key positions the Barrier Repair Moisturizer for dry, sensitive, and combination skin, with dryness and skin irritation as stated concern cues. The official product page also highlights locks-in moisture, heals and soothes, fragrance-free, 5 ceramides, non-sticky, and non-comedogenic as product cues.
 - Visual source: the supplied reference image shows the orange Vitamin C+E sunscreen and the blue Barrier Repair Moisturizer. Aachu especially likes the repair product, so the blue tube should be the hero product.
+- Creator correction: Aachu has a "strawberry face." Treat this as an affectionate, specific Aachu visual receipt: rosy/flushed/sensitive-looking face energy that makes the repair ritual feel personal. Do not frame it as a flaw, diagnosis, acne/texture problem, or before/after transformation.
+- Strawberry product bridge: Dot & Key also has Strawberry Bright and Strawberry Dew products, so a strawberry cue can be visually and brand-native, but the story should still keep the Barrier Repair Moisturizer as the emotional hero unless the brand asks for a different SKU.
 - UGC/collab reality: creator-brand work can be either public influencer posting or UGC delivered for brand use. Public creator posts need disclosure; UGC can additionally become brand ad/social material if rights are agreed.
 - Dot & Key fit: public creator/UGC platforms list Dot & Key among Indian creator-collab brands, and a prior Dot & Key case study used beauty/lifestyle influencers, hashtags, handles, reposted hamper pictures, and UTM links.
 - Compliance: if there is any payment, free product, affiliate link, usage-rights deal, or brand approval, use the Instagram paid-partnership label where available and put disclosure in the first line. Do not bury disclosure in hashtags. For a pure organic post before a deal, say no paid partnership exists if the product is materially featured in a pitch context.
@@ -19,7 +21,7 @@ secondary_product: Dot & Key Vitamin C+E SPF 50+ Sunscreen, optional only if Dot
 
 Audience success: viewers tag/send it as "this is us after a long day" because the post names the difference between being fixed and being helped to reset.
 
-Creative success: the product is a receipt inside a staged relationship scene. Aachu is expressive and tired, Zuv notices without lecturing, and the blue repair tube becomes part of a quiet ritual.
+Creative success: the product is a receipt inside a staged relationship scene. Aachu's strawberry-face cue makes the moment specific, Zuv notices without lecturing, and the blue repair tube becomes part of a quiet ritual.
 
 Brand success: Dot & Key appears as a believable Aachu product she already likes. The product name and type are readable, but the post still feels like @a.storyof.two, not a product catalogue.
 
@@ -33,9 +35,9 @@ Object: Dot & Key Barrier Repair Moisturizer.
 
 Relationship truth: love is not always fixing the person; sometimes it is knowing the tiny ritual that helps them repair.
 
-Emotional obstacle: Aachu does not want advice, diagnosis, or "calm down" energy when she is tired and overstimulated.
+Emotional obstacle: Aachu does not want advice, diagnosis, or "calm down" energy when her strawberry face has already given away that she needs softness.
 
-Aachu role: expressive, tired, still dramatic enough to say she is fine, but secretly needing ten quiet minutes.
+Aachu role: expressive, strawberry-faced, still dramatic enough to say she is fine, but secretly needing ten quiet minutes.
 
 Zuv role: active steadiness. He notices the reset routine, moves the mirror closer, finds the blue tube, makes space, and does not turn care into a lecture.
 
@@ -45,10 +47,10 @@ Reversal: what looks like skincare content becomes a relationship proof. Repair 
 
 | Route | Core Hook | Why It Works / Fails | Story Score | Golden Score | Verdict |
 |---|---|---|---:|---:|---|
-| Repair First, Fight Later | She did not want fixing. | Strongest reader mirror, product appears as care object, Zuv acts, ends in tender thesis. | 29 | 29 | SELECTED |
+| Repair First, Fight Later | She did not want fixing. | Strongest reader mirror, now anchored by Aachu's strawberry-face receipt; product appears as care object, Zuv acts, ends in tender thesis. | 29 | 29 | SELECTED |
 | The Blue Tube Rule | Every couple has one emergency tube. | Fun and brand-clear, but product becomes too much of the premise. | 25 | 24 | REPAIR |
 | He Learned Her Repair Routine | He did not learn skincare. He learned her reset. | Good emotional role, slightly too explanatory for slide 1. | 28 | 27 | RUNNER-UP |
-| Skin Tired, Mood Tired | Some days everything needs repair. | Strong product fit, but risks sounding like skin-shame/body problem content. | 25 | 25 | REPAIR |
+| Strawberry Face, Soft Reset | Her face went strawberry first. | Very specific and brand-native, but needs careful wording so it feels affectionate, not skin-shaming. | 28 | 28 | RUNNER-UP |
 | Sunscreen Outside, Repair At Home | The day needed sunscreen. The night needed repair. | Nice day-to-night brand bundle, but less Aachu/Zuv-specific. | 24 | 24 | REPAIR |
 | Sunday Night Skin Treaty | They had a peace treaty at the mirror. | Cute, but too private and less sendable. | 23 | 23 | STOP |
 | Not Every Glow Is Loud | Some glow happens quietly. | Beauty-brand friendly, but too generic and glow-cliche. | 22 | 21 | STOP |
@@ -63,8 +65,8 @@ The carousel must work as silent scenes first:
 | Slide | On-Image Text | Story Job | Visual Beat | Swipe Reason |
 |---:|---|---|---|---|
 | 1 | She did not want fixing. | Public hook | Night bedroom/vanity. Aachu sits tired, hair loose, earrings half-off. The blue Dot & Key tube is visible but not pushed forward. | What did she want instead? |
-| 2 | Just ten quiet minutes. | Hidden need | Aachu ties her hair, shoulders drop, face says "bas." Zuv watches gently from the doorway. | Will he understand without being told? |
-| 3 | Skin tired. Mood tired. | Aachu proof | She makes a tiny dramatic face at the mirror, reaches for her routine, product pouch open. No shame, only tiredness. | Small comic recognition. |
+| 2 | Her face said it first. | Aachu proof | Aachu's cheeks are softly rosy/flushed in a cute strawberry-face way; her mouth still says she is fine. Zuv watches gently from the doorway. | Will he understand without being told? |
+| 3 | Just ten quiet minutes. | Hidden need | She ties her hair, shoulders drop, reaches for her routine, product pouch open. No shame, no skin close-up inspection, only a reset ritual. | Small comic recognition. |
 | 4 | He moved the mirror closer. | Zuv active role | Zuv adjusts the mirror/lamp and clears a tiny space on the table. His hand enters before his advice does. | Care becomes action. |
 | 5 | Repair first. Fight later. | Brand receipt and reversal | He places the blue Dot & Key Barrier Repair Moisturizer near her hand, label readable. She tries not to smile. | Product line becomes relationship line. |
 | 6 | No lecture. Just ritual. | Proof of safety | She applies moisturizer; he sits nearby folding a scarf or untangling a charger, giving quiet company. | Shows he did not take over. |
@@ -85,7 +87,7 @@ Alternates:
 - Some love does not fix you.
 - He learned her repair routine.
 - The blue tube came before advice.
-- She said she was fine. Again.
+- Her face went strawberry first.
 - Repair first. Fight later.
 
 ## Caption Draft
@@ -96,6 +98,7 @@ For paid, gifted, affiliate, usage-rights, or brand-approved content:
 #Ad Paid partnership with Dot & Key.
 
 Some days, she does not need a solution.
+Her strawberry face has already said enough.
 She needs the light softened, the mirror moved closer,
 and the tiny blue repair tube handed over without a lecture.
 
@@ -111,6 +114,7 @@ For organic pitch-before-deal content:
 Not a paid partnership yet. Aachu already likes this one, so we built a story around the repair ritual.
 
 Some days, she does not need a solution.
+Her strawberry face has already said enough.
 She needs the light softened, the mirror moved closer,
 and the tiny blue repair tube handed over without a lecture.
 
@@ -123,8 +127,8 @@ Sometimes it is knowing the ritual that helps someone come back to herself.
 - Product label must read `DOT & KEY` and `Barrier Repair` at phone-screen size.
 - Keep the blue tube front-facing or three-quarter facing on slides 1, 5, and 7. Slide 5 is the hero product moment.
 - Do not make claims like "cures", "fixed my skin", or medical treatment language.
-- Use only personally honest phrasing: Aachu likes it, this is part of a reset routine, and the product is a care object.
-- If the brand wants sunscreen included, use it as a tiny daytime receipt in slide 3 or 7, not as a second hero.
+- Use only personally honest phrasing: Aachu likes it, Aachu has strawberry-face days, this is part of a reset routine, and the product is a care object.
+- If the brand wants the strawberry line included, use a small Strawberry Bright/Strawberry Dew cue as a pouch/table detail. Do not let it replace the blue Barrier Repair hero unless the brief changes.
 - Use native disclosure, first-line caption disclosure, and story/reel overlay disclosure if the post is sponsored/gifted/affiliate.
 - Ask Dot & Key for: product naming preference, mandatory claim language, approved hashtag/handle, UTM or coupon, usage rights, whitelisting/boosting permission, and whether they want brand-safe copy review before publishing.
 
@@ -133,7 +137,7 @@ Sometimes it is knowing the ritual that helps someone come back to herself.
 - Use Observational Intimacy Premium: warm ivory, not yellow/sepia/parchment; airy upper negative space; lower/middle-lower couple placement; fine ink/pencil linework; transparent watercolor blooms.
 - Product body should be illustrated in the house style, not pasted as a photo cutout.
 - If image generation blurs tiny package text, preserve the illustrated product body and repair the label with a controlled exact-label pass.
-- No skincare bathroom stock-ad look, no before/after skin comparison, no face close-up promising results, no clinical chart, no generic "glow" poster.
+- No skincare bathroom stock-ad look, no before/after skin comparison, no face close-up promising results, no clinical chart, no generic "glow" poster, no unflattering redness/texture exaggeration.
 - Aachu/Zuv identity references remain mandatory for final generation.
 
 ## Story Director Audit
