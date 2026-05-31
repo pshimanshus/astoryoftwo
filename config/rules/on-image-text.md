@@ -26,6 +26,12 @@ HARD FAIL — regenerate, do not accept
 - Text bleeding into the lower frame where the couple sits.
 - Same-text rendering across two slides that have different `slides.md` content (paste-and-tweak failure).
 
+REFERENCE ADAPTATION HARD FAIL
+- Inspiration screenshots provide dialogue, emotion, blocking, gesture, and scene evidence only.
+- No split-screen divider, vertical center line, phone UI, carousel dots, social handle, engagement icon, black app chrome, or screenshot layout device may appear in final art unless the creator explicitly asks for that graphic device as story content.
+- When a reference uses split-screen or app-layout grammar, translate the relationship idea into one premium lived Aachu/Zuv scene with clean negative space. Use architecture, eye-line, bed placement, doorway, furniture, or distance to separate beats naturally instead of drawing a hard graphic divider.
+- If the output looks like a screenshot redraw, quote-card, meme template, or UI-inspired composition instead of an Observational Intimacy Premium illustration, regenerate.
+
 DETERMINISTIC ACCEPTANCE (used by pipeline/agentic/checks/ocr_text.py)
 - OCR pass on the rendered image returns the expected text from `slides.md` after whitespace normalization, with at least 85% similarity (fuzzy partial match) to account for normal handwritten rendering variation.
 - Empty expected text always passes (the slide has no on-image text).

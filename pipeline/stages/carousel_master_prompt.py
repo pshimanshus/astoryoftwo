@@ -26,6 +26,7 @@ MASTER_PROMPT_REQUIRED_SECTIONS = [
     "ANATOMY AND QUALITY RULES",
     "TEXT RULE",
     "STYLE ACCEPTANCE RULE",
+    "REFERENCE ADAPTATION RULE",
     "FINAL IDENTITY REINFORCEMENT",
     "FINAL STYLE REINFORCEMENT",
     "FINAL IMAGE RENDERING LAYER",
@@ -225,6 +226,9 @@ Identity match is necessary but never sufficient. If the output looks like a gen
 
 REFERENCE ESSENCE RULE:
 When non-A Story inspiration images or screenshots are supplied, preserve their text, message, emotion, story, hand gesture, body-language essence, and requested composition, but convert the final artwork fully into the A Story of Two watercolor-and-ink house style. Remove screenshot UI, social handles, counters, buttons, watermarks, signatures, and other platform artifacts unless explicitly requested as story content.
+
+REFERENCE ADAPTATION RULE:
+Inspiration screenshots are never layout templates. They provide dialogue, emotion, blocking, gesture, and scene evidence only. No split-screen divider, vertical center line, phone UI, carousel dots, social handle, engagement icon, black app chrome, or screenshot layout device may appear in final art unless the creator explicitly asks for that graphic device as story content. If a reference uses split-screen or app-layout grammar, translate the relationship idea into one premium lived Aachu/Zuv scene with clean negative space. Use architecture, eye-line, bed placement, doorway, furniture, or distance to separate beats naturally instead of drawing a hard graphic divider. If the output looks like a screenshot redraw, quote-card, meme template, or UI-inspired composition instead of an Observational Intimacy Premium illustration, regenerate.
 
 BRAND INTEGRATION VISIBILITY RULE:
 When brand integration is requested, the brand product must remain secondary to the love-story scene but the brand name and core product cue must be clearly readable at phone-screen size. Use a front-facing or three-quarter product angle, enough product size, clean contrast, and minimal occlusion. Do not hide the product name behind scarves, hands, glare, folds, or clutter. If the brand name, logo wordmark, or product type is not legible, the image fails the brand-integration test and must be regenerated. Product labels are allowed only for the requested brand products; do not add unrelated logos, labels, or random text.

@@ -24,10 +24,12 @@ def _compose_prompt_with_all_fragments() -> str:
             "Generate an illustration.",
             "PALETTE: warm ivory paper.",
             "HARD FAIL: yellow, sepia, parchment.",
+            "Style lock: Observational Intimacy Premium.",
             "ON-IMAGE TEXT: dumber",
             "Each identity reference image must be attached to the call.",
             "Preserve Aachu and Zuv face identity.",
             "Brandmark: tiny handwritten @a.storyof.two in bottom-right.",
+            "No split-screen divider may appear in final art.",
         ]
     )
 
@@ -71,12 +73,14 @@ def test_required_fragments_match_expected_canonical_set() -> None:
     assert set(REQUIRED_FRAGMENTS) == {
         "warm ivory",
         "HARD FAIL: yellow",
+        "Observational Intimacy Premium",
         "ON-IMAGE TEXT",
         "@a.storyof.two",
         "identity reference",
         "bottom-right",
         "Aachu",
         "Zuv",
+        "No split-screen divider",
     }
 
 

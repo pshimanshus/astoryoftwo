@@ -27,12 +27,14 @@ from pipeline.agentic.contracts import WorkflowGate
 REQUIRED_FRAGMENT_TABLE: tuple[tuple[str, str], ...] = (
     ("warm ivory", "paper-tone rule (palette)"),
     ("HARD FAIL: yellow", "yellow-drift hard-fail (palette)"),
+    ("Observational Intimacy Premium", "creator-approved house style lock"),
     ("ON-IMAGE TEXT", "on-image-text contract"),
     ("@a.storyof.two", "brandmark requirement"),
     ("identity reference", "identity-image attachment rule"),
     ("bottom-right", "brandmark placement"),
     ("Aachu", "identity preservation — woman"),
     ("Zuv", "identity preservation — man"),
+    ("No split-screen divider", "reference screenshot layout-device ban"),
 )
 
 REQUIRED_FRAGMENTS: tuple[str, ...] = tuple(

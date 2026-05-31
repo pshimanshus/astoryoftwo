@@ -156,6 +156,13 @@ Adapt the style to the supplied images:
 - preserve recognizable outfit, pose, setting, and relationship cues
 - treat shared images only as mood/composition/story references unless the
   creator explicitly says otherwise
+- do not import screenshot or app-layout devices into final art. If a
+  reference uses split-screen, phone UI, carousel dots, social handles,
+  engagement icons, black app chrome, or a vertical divider, translate the
+  relationship idea into a premium lived Aachu/Zuv scene using architecture,
+  eye-line, distance, furniture, or natural staging instead. No split-screen
+  divider may appear unless the creator explicitly asks for that graphic device
+  as story content.
 - keep Anchal expressive and emotionally alive
 - keep Himanshu calm, warm, and grounded
 - use Aachu/Zuv identity references as the face, expression, posture, and

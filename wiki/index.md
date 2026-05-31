@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-05-31
-total_pages: 76
+total_pages: 78
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,8 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [Alone Not Behind Beside Me](carousels/alone-not-behind-beside-me.md) | 2026-05-31 | 6 | C-layer | 0.7 |
+| [He Didn't Marry Organized](carousels/he-didn-t-marry-organized-2.md) | 2026-05-31 | 8 | C-layer | 0.7 |
 | [The Weather App](carousels/the-weather-app.md) | 2026-05-31 | 5 | C-layer | 0.7 |
 | [He Didn't Marry Organized](carousels/he-didn-t-marry-organized.md) | 2026-05-31 | 8 | C-layer | 0.7 |
 | [Private Captions Fresh A Story](carousels/private-captions-fresh-a-story.md) | 2026-05-31 | 8 | C-layer | 0.72 |
