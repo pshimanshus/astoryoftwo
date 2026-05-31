@@ -224,24 +224,22 @@ def apply_falling_petals(frame: np.ndarray, frame_index: int, total_frames: int)
         composite_rgba(frame, rotated, petal_x, petal_y, opacity * edge_fade)
 
 
-def apply_hand_lift(base: np.ndarray, clean: np.ndarray, hand_mask: np.ndarray, progress: float) -> np.ndarray:
+def apply_hand_lift(base: np.ndarray, hand_mask: np.ndarray, progress: float) -> np.ndarray:
     lift = ping_pong(progress)
     if lift < 0.001:
         return base.copy()
 
-    dx = 5.0 * lift
-    dy = -14.0 * lift
-    rotation = -1.1 * lift
+    dx = 4.5 * lift
+    dy = -11.0 * lift
+    rotation = -0.75 * lift
     center = (468, 1105)
 
     matrix = cv2.getRotationMatrix2D(center, rotation, 1.0)
     matrix[0, 2] += dx
     matrix[1, 2] += dy
 
-    hand_alpha = hand_mask[:, :, None]
-    premultiplied_hand = base * hand_alpha
-    shifted_hand = cv2.warpAffine(
-        premultiplied_hand,
+    shifted_base = cv2.warpAffine(
+        base,
         matrix,
         (base.shape[1], base.shape[0]),
         flags=cv2.INTER_LINEAR,
@@ -256,11 +254,10 @@ def apply_hand_lift(base: np.ndarray, clean: np.ndarray, hand_mask: np.ndarray, 
         borderValue=0,
     )[:, :, None]
 
-    original_hide = hand_alpha * (0.62 * lift)
-    frame = base * (1 - original_hide) + clean * original_hide
-
-    overlay_alpha = np.clip(shifted_alpha * (0.86 * lift), 0.0, 1.0)
-    frame = frame * (1 - overlay_alpha) + shifted_hand * overlay_alpha
+    # Keep this as a tiny animation cue, not a redraw: the original hand remains
+    # present while a very soft lifted echo suggests movement toward the ear.
+    overlay_alpha = np.clip(shifted_alpha * (0.28 * lift), 0.0, 1.0)
+    frame = base * (1 - overlay_alpha) + shifted_base * overlay_alpha
     return frame
 
 
@@ -273,9 +270,6 @@ def render(base_path: Path, output_path: Path, preview_dir: Path) -> None:
 
     base = base_bgr.astype(np.float32)
     hand_mask = make_hand_mask(HEIGHT, WIDTH)
-    inpaint_mask = (hand_mask > 0.17).astype(np.uint8) * 255
-    clean = cv2.inpaint(base_bgr, inpaint_mask, 3, cv2.INPAINT_TELEA).astype(np.float32)
-
     total_frames = FPS * DURATION_SECONDS
     output_path.parent.mkdir(parents=True, exist_ok=True)
     preview_dir.mkdir(parents=True, exist_ok=True)
@@ -294,7 +288,7 @@ def render(base_path: Path, output_path: Path, preview_dir: Path) -> None:
     preview_frames = {0, total_frames // 2, total_frames - 1}
     for frame_index in range(total_frames):
         progress = frame_index / total_frames
-        frame = apply_hand_lift(base, clean, hand_mask, progress)
+        frame = apply_hand_lift(base, hand_mask, progress)
         apply_falling_petals(frame, frame_index, total_frames)
 
         frame_u8 = np.clip(frame, 0, 255).astype(np.uint8)
