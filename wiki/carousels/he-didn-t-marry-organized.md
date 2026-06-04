@@ -10,7 +10,7 @@ sources:
 
 ## Summary
 
-Aachu brings the plot, the feelings, the backup plans, and the sudden softness; Zuv's steadiness turns that chaos into something safe instead of noisy.
+Love is not only noticing what your person loves; sometimes it is keeping the backup ready before their small routine turns into an emergency.
 
 ## Style Memory
 
@@ -22,36 +22,24 @@ Aachu brings the plot, the feelings, the backup plans, and the sudden softness; 
 
 ## Slide Flow
 
-- Slide 1: He didn't marry peace. - Zuv stands calmly in a simple kurta with chai and keys, looking lovingly confused beside Aachu's tiny storm of dupatta and emotion.
-- Slide 2: "Mujhe kuch nahi hua" means something definitely happened. - Aachu looks away dramatically with one tear while insisting she is fine; Zuv quietly offers tissues and water.
-- Slide 3: She packed 14 outfits for one plan. - Aachu sits on an overflowing suitcase with clothes, bangles, and one sandal visible; Zuv patiently tries to zip it closed.
-- Slide 4: She had 10 moods before lunch. - Three tiny Aachu mood beats around one snack plate: upset, hungry, suddenly cute; Zuv offers food with a steady smile.
-- Slide 5: Maybe love is not less chaos. Maybe it is safer chaos. - Aachu and Zuv walk out hand in hand, her little trail of chaos behind them, his posture calm and chosen.
+- Slide 1: He didn't marry organized. - Bedroom vanity at night. Aachu stands in soft dramatic confusion beside an open bedside drawer, hair loose and cheeks lightly strawberry-blushed. Zuv watches from the doorway with amused patience, already sensing the missing blue routine tube.
+- Slide 2: He married "maine yahin rakha tha." - Aachu points at one exact impossible spot on the table with full confidence. The pouch, clips, comb, and skincare bits are scattered. Zuv leans on the doorframe, half-smiling because he knows this line too well.
+- Slide 3: He married drawer-searching. - Close domestic drawer-search scene. Aachu bends over an open drawer with determined eyebrows; small bangles, cotton pads, hair ties, and a missing blue-tube-shaped gap are visible. Zuv quietly holds the drawer steady.
+- Slide 4: Pouch-searching. Bathroom-searching. - Split domestic scene without looking like a collage: open pink pouch in foreground, bathroom mirror shelf behind it. Aachu checks both spaces with rising suspicion. Zuv stays calm in the reflection.
+- Slide 5: And wardrobe-searching also. - A wardrobe door is open. Aachu searches between folded clothes and hangers even though a moisturizer clearly should not be there. Zuv's expression says he has seen this exact plot before.
+- Slide 6: Then he opened his stock drawer. - Zuv opens a neat household stock drawer with calm pride. The drawer has simple labeled sections: skincare, charger, meds, clips. Aachu pauses mid-search, caught between suspicion and impressed silence.
+- Slide 7: Her Dot & Key was already there. - The blue Dot & Key Barrier Repair tube sits clearly inside the stock drawer, label legible. Aachu's strawberry-faced reaction is soft and amused; Zuv's hand is still on the drawer like this was always obvious.
+- Slide 8: Maybe love is knowing what she'll need before she does. - Quiet final home scene. Aachu leans into Zuv with the blue tube on the vanity beside them. The room is tidy enough because he noticed early, messy enough to still feel like them.
 
 ## Final Audit
 
-Status: NEEDS_FIXES
-
-## Issues
-
-- REQ-IDENTITY-CONSISTENCY-001: Face structure, expressions, clothing, and cross-slide identity continuity are reviewed before image generation
-- REQ-VISUAL-PLAN-QUALITY-001: Per-slide visual screen passes before image generation
-- REQ-SLIDES-001: Create an approved 4-10 slide carousel arc, matching prompt count
-- REQ-SUCCESS-STANDARD-001: Successful carousel standard is carried as open agent alignment and passes before final approval
-- REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders
-- REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/
-- REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
-- arc_reviewer: slides.json has 5 slides, expected 8.; prompt-pack.json has 5 slide prompts, expected 8.
-- visual_reviewer: visual-plan-quality.json has 5 slide records, expected 8.
-- identity_consistency_reviewer: identity-consistency-review.json has 5 slide records, expected 8.
-- success_standard_reviewer: Story-Selling score is below 28/30.
-- asset_reviewer: Missing final generated images: output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-01.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-02.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-03.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-04.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-05.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-06.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-07.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-08.png
+Status: PASS_WITH_NOTES
 
 ## Notes
 
 - No story photos supplied; identity references and the creative brief are the source of truth.
+- model_art_local_text generated final files directly
 - Wiki and memory files are updated after final audit generation.
-- render_assets=False
 
 ## Artifact Links
 

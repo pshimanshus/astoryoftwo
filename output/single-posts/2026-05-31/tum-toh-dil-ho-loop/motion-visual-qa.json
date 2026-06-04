@@ -1,0 +1,24 @@
+{
+  "mp4": "tum-toh-dil-ho-motion-unlock.mp4",
+  "gif_preview": "tum-toh-dil-ho-motion-unlock-preview.gif",
+  "contact_sheet": "tum-toh-dil-ho-motion-unlock-contact-sheet.png",
+  "decoded_width": 1002,
+  "decoded_height": 1568,
+  "fps": 30,
+  "frames": 180,
+  "changed_pixels_gt8_first_to_mid": 476398,
+  "hand_crop_mean_diff_first_to_mid": 8.907,
+  "passes_motion_threshold": true,
+  "visual_artifact_gate": {
+    "status": "REQUIRES_HUMAN_REVIEW",
+    "publishable": false,
+    "hard_fails": [
+      "duplicated flower",
+      "ghost hand",
+      "translucent second wrist",
+      "face smear",
+      "muddy wrist"
+    ],
+    "note": "Pixel motion is not a publish gate. Inspect the GIF/proof sheet for ghosting, duplicated limbs, flower drag, face smear, and muddy wrist before approval."
+  }
+}

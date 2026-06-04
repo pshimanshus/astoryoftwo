@@ -899,10 +899,23 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - durable_memory: memory/semantic/premium-illustration-style-lock.md;
   memory/semantic/carousel-idea-preferences.md
 - wiki: wiki/carousels/private-captions-fresh-a-story.md
+## C-layer carousel run: The Weather App
+- date: 2026-05-31
+- slug: the-weather-app
+- final_audit: PASS_WITH_NOTES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-31/the-weather-app
 
 ## C-layer carousel run: He Didn't Marry Organized
 - date: 2026-05-31
-- slug: he-didn-t-marry-organized
+- slug: he-didn-t-marry-organized-2
 - final_audit: NEEDS_FIXES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
-- package: output/carousels/2026-05-31/he-didn-t-marry-organized
+- package: output/carousels/2026-05-31/he-didn-t-marry-organized-2
+
+## C-layer carousel run: Alone Not Behind Beside Me
+- date: 2026-05-31
+- slug: alone-not-behind-beside-me
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-05-31/alone-not-behind-beside-me

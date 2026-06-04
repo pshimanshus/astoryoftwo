@@ -10,19 +10,20 @@
     "channel_voice_fit": 4,
     "absence_of_generic_couple_content": 4
   },
-  "total": 32,
+  "total": 36,
   "max": 40,
   "pass": true,
   "story_director_gate": {
     "status": "PASS",
-    "hook": 9,
-    "story": 9,
-    "bridge": 9,
-    "zuv_role": 9,
-    "ending": 9,
-    "send_save_potential": 9,
-    "stage_scene": 9,
-    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "hook": true,
+    "setup": true,
+    "proof": true,
+    "escalation": true,
+    "bridge": true,
+    "active_zuv_role": true,
+    "earned_ending": true,
+    "send_save_reason": true,
+    "verdict": "PASS",
     "blocks": []
   },
   "visual_plan_quality_gate": {
@@ -34,79 +35,52 @@
   "post_copy_visual_room_gate": {
     "status": "GO",
     "decision": "GO",
-    "selected_visual_system": "Slide-Led Evidence Plan",
+    "selected_visual_system": "Domestic Inventory Short Film",
     "open_doubts": []
   },
   "story_selling_score": {
-    "reader_identity_mirror": 4.0,
-    "romantic_conflict_stakes": 4.0,
-    "specificity_of_proof": 4.0,
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5.0,
     "emotional_reversal": 5.0,
     "visual_scene_clarity": 5.0,
-    "online_share_save_sell_potential": 2.0,
-    "total": 24.0
+    "online_share_save_sell_potential": 5.0,
+    "total": 29.5
   },
   "story_selling_gate": {
-    "status": "REPAIR",
+    "status": "PASS",
     "source": "layer-e-story-selling.json",
-    "selected_concept_process_card": "Card 19 - Almost Too Much, Exactly Enough",
+    "selected_concept_process_card": "Card 05 - Banter To Belonging",
     "threshold": "28/30",
-    "selector_verdict": "Turn the visible scene into a private relationship truth.",
-    "candidate_count": 5,
+    "selector_verdict": "GO: brand is earned through a household relationship receipt.",
+    "candidate_count": 4,
     "stage_scene_gate": {
       "status": "GO",
-      "action": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
-      "reaction": "The public image becomes a private receipt.",
-      "eye_line_or_attention": "Zuv's care must be visible in frame.",
-      "hands_or_object_movement": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
-      "silence_or_pause": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
-      "consequence": "Shareable if the scene becomes a relationship mirror.",
-      "reversal_or_payoff": "The pretty part is only proof; the relationship is the subject.",
+      "action": "Aachu searches drawer, pouch, bathroom, wardrobe; Zuv opens the stock drawer.",
+      "reaction": "Aachu moves from suspicion to amused softness when the backup is already there.",
+      "eye_line_or_attention": "Zuv watches her search with amused patience, then directs attention to the stock drawer.",
+      "hands_or_object_movement": "Hands open drawers, unzip pouch, slide wardrobe door, and reveal the blue Dot & Key tube.",
+      "silence_or_pause": "A tiny pause on slide 7 lets the brand/product reveal land as a relationship receipt.",
+      "consequence": "The viewer understands he runs the household inventory for things she needs.",
+      "reversal_or_payoff": "The missing-product panic becomes proof that love notices the next need early.",
       "blockers": []
     },
     "golden_theme_score": {
-      "universal_hook": 4.0,
+      "universal_hook": 5.0,
       "aachu_zuv_specificity": 5.0,
-      "concrete_proof": 4.0,
+      "concrete_proof": 5.0,
       "zuv_emotional_role": 5.0,
-      "tender_thesis": 5.0,
-      "share_send_potential": 2.0,
-      "total": 25.0
+      "tender_thesis": 4.5,
+      "share_send_potential": 5.0,
+      "total": 29.5
     }
   },
   "story_selling_hard_fails": [],
-  "issues": [
-    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
-    "Use the Codex built-in local image-generation handoff for final illustrated art."
-  ],
+  "issues": [],
   "required_changes_before_image_generation": [],
   "successful_carousel_standard_gate": {
-    "source": "wiki/insights/successful-carousel-standard.md",
-    "status": "REPAIR",
-    "pass": false,
-    "agent_alignment": {
-      "status": "MISSING",
-      "instruction": "Record how concept, copy, visual, prompt, and QA choices serve the success goals."
-    },
-    "dimensions": {
-      "agent_goal_alignment": {
-        "pass": true
-      },
-      "relationship_first_premise": {
-        "pass": true
-      },
-      "story_selling_threshold": {
-        "pass": false
-      },
-      "prompt_goal_alignment": {
-        "pass": true
-      },
-      "stage_scene_storytelling": {
-        "pass": true
-      }
-    },
-    "issues": [
-      "Story-Selling score is below 28/30."
-    ]
+    "status": "PASS",
+    "pass": true,
+    "issues": []
   }
 }

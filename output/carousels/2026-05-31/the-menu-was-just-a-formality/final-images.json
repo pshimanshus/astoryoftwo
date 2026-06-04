@@ -1,17 +1,26 @@
 {
-  "status": "proof_generated_repair_required",
+  "status": "paper_tone_proof_generated_aspect_blocked",
   "final_images_generated": false,
   "native_instagram_post_complete": false,
   "native_reels_stories_complete": false,
   "proof_required": true,
   "proof_slide": 4,
-  "proof_path": "final/slide-04-proof.png",
-  "proof_verdict": "REPAIR",
+  "proof_path": "final/slide-04-paper-repair-proof.png",
+  "proof_verdict": "PASS_TONE_REPAIR_BUT_ASPECT_BLOCKED",
   "repair_reasons": [
     "Proof was too tall for native 4:5 Instagram post.",
     "Paper tone leaned yellow/parchment instead of neutral warm ivory/off-white.",
-    "Proof overstuffed the frame with sign, menu, pizza, coffee, venue, and both faces instead of choosing one cinematic action."
+    "Proof overstuffed the frame with sign, menu, pizza, coffee, venue, and both faces instead of choosing one cinematic action.",
+    "Second proof improved the DOP shot but still carried an overall yellow/golden wash from the venue warmth. Creator specifically rejected yellowish paper tone."
   ],
   "dop_repair": "Slide 4 now uses one visual verb: Zuv places the hazelnut cold coffee before Aachu asks. Pizza Bakery is only atmosphere; no pizza or marquee sign on this slide.",
+  "paper_tone_repair": "Match the creator-supplied premium reference: neutral off-white ivory paper with visible grain. No amber, golden, tea-stained, sepia, beige, tan, parchment, or restaurant-light wash across the page. Warm browns may appear only inside wood/glass/food objects, not in the negative-space paper.",
+  "latest_proof": {
+    "path": "final/slide-04-paper-repair-proof.png",
+    "dimensions": "992x1586",
+    "tone": "PASS: clean off-white paper much closer to creator reference",
+    "story_blocking": "PASS: menu lowered, Zuv places hazelnut cold coffee, Aachu caught-smiling",
+    "aspect": "FAIL: not native 4:5; do not use as final Instagram post slide"
+  },
   "notes": "Do not mark final until native 4:5 and separate native 9:16 images exist for all six slides and visual QA passes."
 }

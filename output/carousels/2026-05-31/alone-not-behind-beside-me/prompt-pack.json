@@ -1,0 +1,139 @@
+{
+  "generation_mode": "model_native_publishable",
+  "carousel_title": "Alone, Not Behind, Beside Me",
+  "slide_count": 6,
+  "copy_locked": true,
+  "proof_gate": "Generate proof-first slide 5 because it has the longest text line and must prove premium style, identity, typography, and tenderness before full batch.",
+  "identity_dossier_path": "output/carousels/2026-05-31/alone-not-behind-beside-me/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-31/alone-not-behind-beside-me/identity-generation-preflight.md",
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-31/alone-not-behind-beside-me/identity-face-contact-sheet.jpg"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+    "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png"
+  ],
+  "reference_role_lock": {
+    "creator_screenshots": "story, message, text cadence, climb/beside composition only",
+    "identity_images": "Aachu/Zuv face, hair, skin tone, expression, body proportion, posture, and wardrobe anchors",
+    "style_images": "Observational Intimacy Premium paper, watercolor, linework, spacing, handwritten text, soft faded edges, and brandmark"
+  },
+  "sequence_wardrobe_lock": {
+    "rule": "This is one continuous climb/overlook sequence. Do not change clothes between slides.",
+    "aachu": "White oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, cream tote.",
+    "zuv": "Navy casual T-shirt/shirt, tan pants, white casual sneakers, wristwatch.",
+    "hard_fail": "Any slide that changes Aachu's outfit, removes the scarf/tote continuity, changes Zuv into a white shirt/hoodie, changes his tan pants, or alters shoes as a new outfit fails continuity."
+  },
+  "native_output_contract": {
+    "instagram_post": "Generate native 4:5 output separately.",
+    "reels_stories": "Generate native 9:16 output separately.",
+    "rule": "Never resize, crop, pad, or extend one output into the other."
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 6,
+      "text": "I thought I had to do this alone.",
+      "visual": "Aachu begins alone on a soft upward travel path, lower in frame, one hand lightly touching a railing or path edge, cream tote and blue-red scarf visible. The scene feels quiet, capable, and a little heavy, not helpless.",
+      "scene": "Aachu begins alone on a soft upward travel path, lower in frame, one hand lightly touching a railing or path edge, cream tote and blue-red scarf visible.",
+      "pose": "Aachu walks upward with composed posture, expressive eyes, slight effort in shoulders, natural hands, no crouching or helplessness.",
+      "wardrobe": "Sequence wardrobe lock: Aachu wears the same white oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, and cream tote across every slide.",
+      "props": "cream tote, blue-red patterned scarf, path railing or edge, subtle travel path stones",
+      "background": "soft minimal upward path fading into neutral warm ivory paper, no dark green external reference style, no UI",
+      "emotion": "quiet self-reliance, soft effort, warm but not dramatic",
+      "style": "Premium @a.storyof.two Observational Intimacy watercolor-and-ink full scene on neutral warm ivory/off-white paper, visible grain, delicate ink/pencil linework, transparent watercolor blooms, couple lower/middle-lower, generous upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark.",
+      "negative_prompt": "No photorealism, no flat vector, no cartoon blob characters, no green social-media reference style, no UI, no quote-card, no poster, no yellow/parchment/tan/beige paper, no generic faces, no awkward pose, no random text.",
+      "prompt": "Scene: Aachu begins alone on a soft upward travel path, lower in frame, one hand lightly touching a railing or path edge, cream tote and blue-red scarf visible. Mood: quiet self-reliance. The image must prove the line through her solo forward movement and composed effort. Keep the source reference only as emotional cadence; render fully in premium @a.storyof.two watercolor-and-ink house style."
+    },
+    {
+      "slide": 2,
+      "slide_count": 6,
+      "text": "I kept walking like I was fine.",
+      "visual": "Closer path beat: Aachu keeps moving with a tiny effort detail, tote slipping, sandal mid-step, water bottle held close, scarf caught slightly in the breeze. She looks composed but expressive.",
+      "scene": "A closer path moment where Aachu keeps moving like she is fine, with one visible effort detail.",
+      "pose": "Natural mid-step body language, one hand adjusting tote or scarf, face composed with expressive eyes, flattering proportions.",
+      "wardrobe": "Sequence wardrobe lock: same Aachu outfit from slide 1, white oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, cream tote.",
+      "props": "slipping tote, scarf, water bottle, careful sandal step, path stones",
+      "background": "soft path detail fading into warm off-white paper with clean upper-middle text area",
+      "emotion": "soft effort hidden under composure",
+      "style": "Premium @a.storyof.two Observational Intimacy watercolor-and-ink full scene on neutral warm ivory/off-white paper, visible grain, delicate ink/pencil linework, transparent watercolor blooms, couple lower/middle-lower, generous upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark.",
+      "negative_prompt": "No helpless expression, no melodrama, no UI, no external cartoon style, no yellow paper, no quote-card, no random text, no distorted hands.",
+      "prompt": "Scene: Aachu keeps walking like she is fine, with a tiny lived effort detail: tote slipping, scarf caught lightly, careful sandal step, or water bottle held close. Mood: composed softness. The image must show effort without making her weak."
+    },
+    {
+      "slide": 3,
+      "slide_count": 6,
+      "text": "You never made me feel behind.",
+      "visual": "Zuv appears slightly ahead on the path but turned back warmly, attention on Aachu, body softened. He is not pulling or rescuing; he simply notices before she has to ask.",
+      "scene": "Zuv is slightly ahead on the path, looking back warmly toward Aachu, creating emotional safety without a rescue pose.",
+      "pose": "Zuv turns back with a gentle patient gaze and relaxed shoulders; Aachu is behind but not tiny, not childlike. Keep the two-inch height difference natural.",
+      "wardrobe": "Sequence wardrobe lock: Aachu stays in white oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, cream tote. Zuv appears in the same navy casual T-shirt/shirt, tan pants, white casual sneakers, and wristwatch he will keep for the rest of the sequence.",
+      "props": "path railing, water bottle or small hand gesture, scarf/tote continuity",
+      "background": "soft upward path with faded edges and generous text space",
+      "emotion": "being noticed without being exposed",
+      "style": "Premium @a.storyof.two Observational Intimacy watercolor-and-ink full scene on neutral warm ivory/off-white paper, visible grain, delicate ink/pencil linework, transparent watercolor blooms, couple lower/middle-lower, generous upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark.",
+      "negative_prompt": "No pulling, no heroic rescue, no big height gap, no tiny Aachu, no generic Zuv face, no yellow cast, no UI, no quote-card.",
+      "prompt": "Scene: Zuv is slightly ahead on the soft upward path, turned back warmly toward Aachu. He notices her before she has to ask. He does not pull or rescue; his attention and slowed body language make her not feel behind."
+    },
+    {
+      "slide": 4,
+      "slide_count": 6,
+      "text": "You just stayed beside me.",
+      "visual": "Aachu and Zuv are now walking side by side on the same level, small gap closed, hands near each other or lightly touching. The path continues upward but feels easier because their rhythm matches.",
+      "scene": "Aachu and Zuv walk side by side on the same level of the path, hands close, rhythm matched.",
+      "pose": "Natural side-by-side walking, shoulders angled slightly toward each other, hands near-touching or loosely held, both flattering and relaxed.",
+      "wardrobe": "Sequence wardrobe lock: Aachu stays in white oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, cream tote. Zuv stays in navy casual T-shirt/shirt, tan pants, white casual sneakers, and wristwatch.",
+      "props": "path edge, scarf, tote, water bottle as small care receipt if needed",
+      "background": "soft path and pale sky/negative space, no dense landscape",
+      "emotion": "gentle togetherness and relief",
+      "style": "Premium @a.storyof.two Observational Intimacy watercolor-and-ink full scene on neutral warm ivory/off-white paper, visible grain, delicate ink/pencil linework, transparent watercolor blooms, couple lower/middle-lower, generous upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark.",
+      "negative_prompt": "No generic couple pose, no stiff hand-holding, no big height distortion, no green reference style, no yellow paper, no random text.",
+      "prompt": "Scene: Aachu and Zuv now walk side by side on the same level, the path continuing upward but feeling lighter because their rhythm matches. This slide must prove 'stayed beside me' through body distance and eye-line."
+    },
+    {
+      "slide": 5,
+      "slide_count": 6,
+      "text": "Turns out, the view feels better with you by my side.",
+      "visual": "Both sit together at the top or overlook, middle-lower in frame, shoulder-to-shoulder, looking outward. The view is soft and secondary; the emotional focus is closeness, ease, and the quiet relief of not being alone.",
+      "scene": "Aachu and Zuv sit shoulder-to-shoulder at a soft overlook after the climb. The view is gentle and secondary; the real subject is them side by side.",
+      "pose": "Both seated comfortably, no crouching, Aachu and Zuv close but natural, slight shared lean or near-touching hands, faces visible enough for identity proof.",
+      "wardrobe": "Sequence wardrobe lock: Aachu stays in white oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, cream tote. Zuv stays in navy casual T-shirt/shirt, tan pants, white casual sneakers, and wristwatch.",
+      "props": "small water bottle, tote resting nearby, scarf folds, subtle path edge",
+      "background": "airy soft overlook, pale sky and distant watercolor hills fading into warm ivory paper, generous clean upper-middle text zone",
+      "emotion": "tender settled relief, quiet romance, emotionally safe",
+      "style": "Premium @a.storyof.two Observational Intimacy watercolor-and-ink full scene on neutral warm ivory/off-white paper, visible grain, delicate ink/pencil linework, transparent watercolor blooms, couple lower/middle-lower, generous upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark.",
+      "negative_prompt": "No dense cinematic landscape takeover, no yellow/parchment/heavy cream paper, no quote-card, no random words, no UI, no generic AI watercolor, no wrong faces, no awkward seated pose.",
+      "prompt": "Scene: Aachu and Zuv sit shoulder-to-shoulder at a soft overlook after the climb, middle-lower in frame. The view is gentle and secondary; the real subject is the quiet relief of being by each other's side. Preserve exact text in upper-middle negative space."
+    },
+    {
+      "slide": 6,
+      "slide_count": 6,
+      "text": "Next time, car se.",
+      "visual": "Same overlook after the tender beat. Aachu sits beside Zuv with one practical deadpan look, tiny tired side-eye toward the path or her sandals. Zuv smiles because he knows she means it. The joke is small, affectionate, and desi.",
+      "scene": "Aachu and Zuv remain at the overlook. Aachu gives one practical deadpan look after the tender moment; Zuv smiles beside her.",
+      "pose": "Aachu seated comfortably with a tiny deadpan side-eye, one hand near sandal/tote or resting tiredly; Zuv relaxed, amused, close beside her.",
+      "wardrobe": "Sequence wardrobe lock: exact same clothes as slide 5. Aachu stays in white oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, cream tote. Zuv stays in navy casual T-shirt/shirt, tan pants, white casual sneakers, and wristwatch.",
+      "props": "sandals or sneakers, tote, water bottle, path visible behind them as the implied climb",
+      "background": "same soft overlook continuity from slide 5, lighter and more playful, text area clean",
+      "emotion": "warm desi deadpan humor after tenderness",
+      "style": "Premium @a.storyof.two Observational Intimacy watercolor-and-ink full scene on neutral warm ivory/off-white paper, visible grain, delicate ink/pencil linework, transparent watercolor blooms, couple lower/middle-lower, generous upper-middle handwritten text, tiny bottom-right @a.storyof.two brandmark.",
+      "negative_prompt": "No mean sarcasm, no exhausted/unflattering pose, no caricature, no yellow paper, no random text, no UI, no copied external cartoon style.",
+      "prompt": "Scene: After the tender view moment, Aachu sits beside Zuv and gives a practical desi deadpan look: next time, car se. Zuv smiles because he knows she means it. The humor is warm and tiny, not sarcastic at either person."
+    }
+  ]
+}

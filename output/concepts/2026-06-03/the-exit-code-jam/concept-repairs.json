@@ -1,0 +1,25 @@
+{
+  "date": "2026-06-03",
+  "concept_slug": "the-exit-code-jam",
+  "repairs": [
+    {
+      "route": "R1 - The Exit Code",
+      "raw_issue": "Could become too rescue-coded or social-anxiety-heavy.",
+      "repair": "Make the exit code playful, quick, and affectionate. Zuv creates a light excuse; Aachu's expression returns outside.",
+      "result": "GO"
+    },
+    {
+      "route": "R2 - Tu Bol Na",
+      "raw_issue": "Good dynamic but risks perfect-husband/takeover framing.",
+      "repair": "If revisited, make Aachu start and finish the interaction while Zuv only helps with one awkward sentence.",
+      "result": "KEEP_AS_BACKUP"
+    },
+    {
+      "route": "R7 - The Outside Face Was Lying",
+      "raw_issue": "Emotionally true but less funny and more likely to become quiet-route softness.",
+      "repair": "Use R7's public/private read as the emotional bridge inside R1 rather than as the main concept.",
+      "result": "MERGED_INTO_WINNER"
+    }
+  ],
+  "final_winner_after_repair": "R1 - The Exit Code"
+}

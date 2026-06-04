@@ -44,8 +44,8 @@ Use a quiet medium-close table shot, not a wide restaurant tableau.
 Repaired on-image text:
 
 ```text
-He ordered before
-the verdict.
+He was already
+ordering.
 ```
 
 The coffee itself proves what he ordered. Place the text in clean upper-middle

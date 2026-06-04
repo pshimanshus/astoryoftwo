@@ -1,0 +1,67 @@
+{
+  "format": "a-story-motion-plan-v1",
+  "notes": [
+    "Lottie-inspired: JSON describes shape actors, timing, opacity, and keyframed motion.",
+    "Rive-inspired: named actors stay independent from the base illustration so the painting is not regenerated.",
+    "Renderer target: visibly animated, but gentle enough to preserve the original watercolor design."
+  ],
+  "canvas": {
+    "width": 1003,
+    "height": 1568,
+    "fps": 30,
+    "duration_seconds": 6
+  },
+  "base_image": "frame-03.png",
+  "outputs": {
+    "mp4": "tum-toh-dil-ho-motion-unlock.mp4",
+    "gif_preview": "tum-toh-dil-ho-motion-unlock-preview.gif",
+    "preview_dir": "motion-unlock-preview-frames",
+    "contact_sheet": "tum-toh-dil-ho-motion-unlock-contact-sheet.png"
+  },
+  "protected_rects": [
+    [300, 180, 715, 585],
+    [120, 650, 850, 1275],
+    [745, 1395, 985, 1545]
+  ],
+  "actors": [
+    {
+      "name": "falling_petals_visible_but_quiet",
+      "type": "falling_petals",
+      "petals": [
+        {"x": 78, "phase": 0.00, "size": 42, "speed": 250, "sway": 24, "opacity": 0.50, "rotation": -30, "lane": "left"},
+        {"x": 164, "phase": 0.18, "size": 33, "speed": 220, "sway": 30, "opacity": 0.42, "rotation": 18, "lane": "left"},
+        {"x": 244, "phase": 0.42, "size": 25, "speed": 275, "sway": 22, "opacity": 0.32, "rotation": -12, "lane": "left"},
+        {"x": 123, "phase": 0.63, "size": 30, "speed": 235, "sway": 20, "opacity": 0.34, "rotation": 24, "lane": "left"},
+        {"x": 805, "phase": 0.07, "size": 26, "speed": 230, "sway": 24, "opacity": 0.30, "rotation": 20, "lane": "right"},
+        {"x": 886, "phase": 0.26, "size": 48, "speed": 245, "sway": 22, "opacity": 0.50, "rotation": -34, "lane": "right"},
+        {"x": 952, "phase": 0.48, "size": 35, "speed": 270, "sway": 18, "opacity": 0.38, "rotation": 28, "lane": "right"},
+        {"x": 828, "phase": 0.70, "size": 29, "speed": 215, "sway": 20, "opacity": 0.30, "rotation": -18, "lane": "right"},
+        {"x": 52, "phase": 0.35, "size": 22, "speed": 190, "sway": 14, "opacity": 0.22, "rotation": -22, "lane": "edge"},
+        {"x": 940, "phase": 0.86, "size": 24, "speed": 205, "sway": 14, "opacity": 0.24, "rotation": 16, "lane": "edge"}
+      ]
+    },
+    {
+      "name": "zuv_hand_lift_toward_ear",
+      "type": "localized_deform",
+      "region": "hand",
+      "dx": 14,
+      "dy": -42,
+      "rotation": -2.5,
+      "strength": 1.0,
+      "hide_original": 0,
+      "cycle": "lift_then_return"
+    }
+  ],
+  "qa": {
+    "minimum_changed_pixels_gt8_between_keyframes": 35000,
+    "minimum_hand_crop_mean_diff": 5.0,
+    "hard_visual_fails": [
+      "duplicated flower",
+      "ghost hand",
+      "translucent second wrist",
+      "face smear",
+      "muddy wrist"
+    ],
+    "proof_frames": [0, 45, 90, 135, 179]
+  }
+}

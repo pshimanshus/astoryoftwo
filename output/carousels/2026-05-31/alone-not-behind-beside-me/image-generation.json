@@ -1,0 +1,78 @@
+{
+  "status": "handoff_ready",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 6,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": true,
+  "slides": [
+    {
+      "slide": 5,
+      "copy": "Turns out, the view feels better with you by my side.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-05-31/alone-not-behind-beside-me/codex-image-prompts/instagram-post/slide-05.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-05-31/alone-not-behind-beside-me/codex-image-prompts/instagram-post/slide-05.md",
+        "reels_stories": "output/carousels/2026-05-31/alone-not-behind-beside-me/codex-image-prompts/reels-stories/slide-05.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-05-31/alone-not-behind-beside-me/codex-image-prompts/instagram-post/slide-05.prompt.txt",
+        "reels_stories": "output/carousels/2026-05-31/alone-not-behind-beside-me/codex-image-prompts/reels-stories/slide-05.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-05-31/alone-not-behind-beside-me/final/slide-05.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-05-31/alone-not-behind-beside-me/final/slide-05.png",
+        "reels_stories": "output/carousels/2026-05-31/alone-not-behind-beside-me/final-reels-stories/slide-05.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-05-31/alone-not-behind-beside-me/identity-face-contact-sheet.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg"
+      ],
+      "story_reference_images": [
+        "/Users/himanshusharma/Downloads/WhatsApp Image 2026-05-30 at 03.49.04.jpeg"
+      ],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png"
+      ]
+    }
+  ],
+  "reason": "Prompt files are ready; final PNGs still require Codex built-in image generation.",
+  "proof_gate": "Generate proof-first slide 5 because it has the longest text line and must prove premium style, identity, typography, and tenderness before full batch.",
+  "requested_proof_slide": 5,
+  "requested_formats": [
+    "instagram_post",
+    "reels_stories"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post",
+      "reels_stories"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "reels_stories_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image."
+  },
+  "prompt_dir": "output/carousels/2026-05-31/alone-not-behind-beside-me/codex-image-prompts",
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure."
+}

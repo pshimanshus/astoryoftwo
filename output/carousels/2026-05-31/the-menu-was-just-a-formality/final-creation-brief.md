@@ -2,11 +2,26 @@
 
 Title: The Menu Was Just A Formality
 
-Status: FINAL VISUAL DIRECTION LOCKED
+Status: FINAL COPY + VISUAL DIRECTION REPAIRED
+
+## Tone Lock
+
+This is not a philosophical carousel.
+
+This is an ordinary couple ritual, so the copy must sound like people actually
+talking at a table. No big husband/wife lesson. No "love is..." thesis. No
+poetry trying to explain the moment.
+
+Use table-talk:
+
+- "Let's see once."
+- "Properly."
+- "Already ordering."
+- "Obviously."
 
 ## One-Line Film
 
-The menu slowly loses power, and the usual order becomes proof of being known.
+The menu slowly loses power because both people already know the usual order.
 
 ## DOP Rule
 
@@ -15,59 +30,49 @@ Do not illustrate a restaurant. Film a ritual.
 Each slide has one visual verb:
 
 1. Menu opens.
-2. She studies.
-3. He prepares to order.
-4. He places the coffee.
-5. The usual arrives.
-6. The menu is closed and the usual is chosen again.
+2. She says, "Let's see once."
+3. She checks properly.
+4. He is already ordering.
+5. The usual order appears.
+6. The answer is obvious.
 
 ## Final Slide Set
 
 ### Slide 1
-
-Text:
 
 ```text
 The menu was
 just a formality.
 ```
 
-Shot: medium-close opening at the table. Menu is being opened like a tiny
-ceremony. Aachu's hand reaches for it. Zuv's hand rests nearby, relaxed,
-already knowing. Pizza Bakery is only warm wood, soft lamp, and stripe-wall
-hint. No food yet.
+Shot: medium-close opening at the table. Menu is being opened. Aachu's hand
+reaches for it. Zuv's hand rests nearby, relaxed, already knowing. No food yet.
 
 ### Slide 2
 
-Text:
-
 ```text
-She still studied
-every page.
+"Let's see once."
 ```
 
-Shot: Aachu leans into the menu with sincere decision-face. Zuv watches her,
+Shot: Aachu reaches for the menu with sincere decision-face. Zuv watches her,
 not the menu. Patient, amused, not mocking.
 
 ### Slide 3
 
-Text:
-
 ```text
-Like the plot
-might change.
+She checked every
+page properly.
 ```
 
-Shot: menu still open in Aachu's hands. Zuv is already making the tiny order
-move: wallet, phone, chair angle, or glance toward counter/server path.
+Shot: menu still open in Aachu's hands. She is genuinely reading it. Zuv is
+already making the tiny order move: wallet, phone, chair angle, or glance
+toward counter/server path.
 
 ### Slide 4
 
-Text:
-
 ```text
-He ordered before
-the verdict.
+He was already
+ordering.
 ```
 
 Shot: cinematic medium-close insert. Aachu's menu is lowered in foreground.
@@ -76,11 +81,9 @@ Aachu is partial profile, caught-smiling. No pizza. No sign. No full spread.
 
 ### Slide 5
 
-Text:
-
 ```text
-Pizza. Hazelnut cold coffee.
-Again.
+Pizza and hazelnut
+cold coffee?
 ```
 
 Shot: first and only fuller food reveal. Pizza and coffee are visible, but
@@ -88,16 +91,13 @@ hands/faces still carry the joke. Menu is closed or sliding away.
 
 ### Slide 6
 
-Text:
-
 ```text
-The usual,
-chosen again.
+Obviously.
 ```
 
 Shot: quiet final table intimacy. The menu has no power now. Zuv nudges the
-better side/slice closer. Aachu reaches with a small smile. Background fades
-into warm ivory paper.
+better side/slice closer. Aachu reaches with a small smile that says of course.
+Background fades into clean off-white paper.
 
 ## What To Avoid
 
@@ -110,14 +110,15 @@ into warm ivory paper.
 - Do not make Aachu look foolish for having a usual.
 - Do not use yellow, parchment, sepia, beige, or heavy cream paper.
 - Do not generate from text-only identity descriptions.
+- Do not write a motivational quote or relationship lesson.
 
 ## Reference Roles
 
 - Pizza Bakery references: venue mood, warm wood, stripe wall, table, glass,
   pizza board.
 - Identity references: faces, body proportions, expressions, posture.
-- Observational Intimacy Premium references: style, paper, typography, palette,
-  linework, composition.
+- Observational Intimacy Premium references: style, clean off-white paper,
+  typography, palette, linework, composition.
 
 ## Final Decision
 

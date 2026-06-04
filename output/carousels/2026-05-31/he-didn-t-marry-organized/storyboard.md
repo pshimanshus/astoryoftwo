@@ -1,38 +1,31 @@
 # He Didn't Marry Organized
 
-Aachu brings the plot, the feelings, the backup plans, and the sudden softness; Zuv's steadiness turns that chaos into something safe instead of noisy.
-
-## Story-Selling Spine
-
-- Card: Card 19 - Almost Too Much, Exactly Enough
-- Score: 24.0 / 30
-- Decision: REPAIR
-- Authorial rule: Layer E is the source of truth; process cards are influences, not the answer.
-
-## Story Director Persona
-
-- Status: PASS
-- Selected hook: He didn't marry peace.
-- Verdict: PASS: persona spine is loaded and present in package artifacts.
-
-## Emotional Arc
-
-universal hook -> special revelation -> concrete proof beats -> emotional turn -> save/share thesis
+Love is not only noticing what your person loves; sometimes it is keeping the backup ready before their small routine turns into an emergency.
 
 ## Slide Flow
 
-- 1: He didn't marry peace. - Zuv stands calmly in a simple kurta with chai and keys, looking lovingly confused beside Aachu's tiny storm of dupatta and emotion.
-- 2: "Mujhe kuch nahi hua" means something definitely happened. - Aachu looks away dramatically with one tear while insisting she is fine; Zuv quietly offers tissues and water.
-- 3: She packed 14 outfits for one plan. - Aachu sits on an overflowing suitcase with clothes, bangles, and one sandal visible; Zuv patiently tries to zip it closed.
-- 4: She had 10 moods before lunch. - Three tiny Aachu mood beats around one snack plate: upset, hungry, suddenly cute; Zuv offers food with a steady smile.
-- 5: Maybe love is not less chaos. Maybe it is safer chaos. - Aachu and Zuv walk out hand in hand, her little trail of chaos behind them, his posture calm and chosen.
+- 1: He didn't marry organized. - Bedroom vanity at night. Aachu stands in soft dramatic confusion beside an open bedside drawer, hair loose and cheeks lightly strawberry-blushed. Zuv watches from the doorway with amused patience, already sensing the missing blue routine tube.
+- 2: He married "maine yahin rakha tha." - Aachu points at one exact impossible spot on the table with full confidence. The pouch, clips, comb, and skincare bits are scattered. Zuv leans on the doorframe, half-smiling because he knows this line too well.
+- 3: He married drawer-searching. - Close domestic drawer-search scene. Aachu bends over an open drawer with determined eyebrows; small bangles, cotton pads, hair ties, and a missing blue-tube-shaped gap are visible. Zuv quietly holds the drawer steady.
+- 4: Pouch-searching. Bathroom-searching. - Split domestic scene without looking like a collage: open pink pouch in foreground, bathroom mirror shelf behind it. Aachu checks both spaces with rising suspicion. Zuv stays calm in the reflection.
+- 5: And wardrobe-searching also. - A wardrobe door is open. Aachu searches between folded clothes and hangers even though a moisturizer clearly should not be there. Zuv's expression says he has seen this exact plot before.
+- 6: Then he opened his stock drawer. - Zuv opens a neat household stock drawer with calm pride. The drawer has simple labeled sections: skincare, charger, meds, clips. Aachu pauses mid-search, caught between suspicion and impressed silence.
+- 7: Her Dot & Key was already there. - The blue Dot & Key Barrier Repair tube sits clearly inside the stock drawer, label legible. Aachu's strawberry-faced reaction is soft and amused; Zuv's hand is still on the drawer like this was always obvious.
+- 8: Maybe love is knowing what she'll need before she does. - Quiet final home scene. Aachu leans into Zuv with the blue tube on the vanity beside them. The room is tidy enough because he noticed early, messy enough to still feel like them.
 
-## Recommended Caption
+## Caption
 
-some people bring peace.
-aachu brings plot.
+he did not marry organized.
 
-"mujhe kuch nahi hua" means something definitely happened.
-one plan becomes twelve backup plans.
+he married maine yahin rakha tha.
+drawer-searching.
+pouch-searching.
+bathroom-searching.
+wardrobe-searching also.
 
-and somehow, zuv makes all of it feel safe.
+and somehow,
+before the panic became a whole case,
+his stock drawer already knew.
+
+maybe love is knowing what she will need
+before she does.

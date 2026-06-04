@@ -742,10 +742,40 @@
       "type": "illustrated_carousel",
       "title": "He Didn't Marry Organized",
       "date": "2026-05-31",
-      "status": "NEEDS_FIXES",
+      "status": "PASS_WITH_NOTES",
       "slide_count": 8,
       "package": "output/carousels/2026-05-31/he-didn-t-marry-organized",
+      "content_lane": "Brand Integration / Household Care Comedy"
+    },
+    "carousel:the-weather-app": {
+      "id": "carousel:the-weather-app",
+      "type": "illustrated_carousel",
+      "title": "The Weather App",
+      "date": "2026-05-31",
+      "status": "PASS_WITH_NOTES",
+      "slide_count": 5,
+      "package": "output/carousels/2026-05-31/the-weather-app",
+      "content_lane": "relationship-comedy"
+    },
+    "carousel:he-didn-t-marry-organized-2": {
+      "id": "carousel:he-didn-t-marry-organized-2",
+      "type": "illustrated_carousel",
+      "title": "He Didn't Marry Organized",
+      "date": "2026-05-31",
+      "status": "NEEDS_FIXES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-05-31/he-didn-t-marry-organized-2",
       "content_lane": "Chaotic Wife, Calm Husband"
+    },
+    "carousel:alone-not-behind-beside-me": {
+      "id": "carousel:alone-not-behind-beside-me",
+      "type": "illustrated_carousel",
+      "title": "Alone Not Behind Beside Me",
+      "date": "2026-05-31",
+      "status": "NEEDS_FIXES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-05-31/alone-not-behind-beside-me",
+      "content_lane": "Soft Love Notes"
     }
   },
   "relationships": [
@@ -1207,6 +1237,24 @@
     },
     {
       "from": "carousel:he-didn-t-marry-organized",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:the-weather-app",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:he-didn-t-marry-organized-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:alone-not-behind-beside-me",
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7

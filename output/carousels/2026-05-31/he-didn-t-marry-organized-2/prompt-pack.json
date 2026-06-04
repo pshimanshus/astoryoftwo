@@ -1,0 +1,590 @@
+{
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is Instagram post, and generate separate native 9:16 artwork for Reels/Stories when needed. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise; preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and both people must look natural, flattering, and physically believable.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Slide-Led Evidence Plan",
+    "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+    "hard_fails_checked": [
+      "no home-interior default",
+      "story evidence must prove slide copy",
+      "story evidence must prove slide copy",
+      "no repeated object motif across every slide",
+      "no prop-first premise",
+      "no passive Zuv",
+      "no generic couple-stock tableau"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+    "required": true,
+    "rule": "Every final Codex/image-generation prompt for @a.storyof.two carousel slides must use this creator-locked watercolor-and-ink master prompt structure, then append the slide-specific on-image text, scene, pose, wardrobe, props, background, and emotion.",
+    "required_sections": [
+      "USE CASE",
+      "ASSET TYPE",
+      "REFERENCE IMAGE ROLES",
+      "PRIMARY REQUEST",
+      "SCENE",
+      "CHARACTER IDENTITY LOCK",
+      "FACE PRESERVATION RULES",
+      "ILLUSTRATION STYLE",
+      "COLOR PALETTE",
+      "COMPOSITION AND FORMAT",
+      "EMOTIONAL DIRECTION",
+      "WARDROBE CONTINUITY",
+      "RECURRING PROPS AND MOTIFS",
+      "BACKGROUND STYLE",
+      "LINE AND TEXTURE DETAILS",
+      "ANATOMY AND QUALITY RULES",
+      "TEXT RULE",
+      "STYLE ACCEPTANCE RULE",
+      "FINAL IDENTITY REINFORCEMENT",
+      "FINAL STYLE REINFORCEMENT",
+      "FINAL IMAGE RENDERING LAYER"
+    ],
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "text_rule": "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally into the illustration as polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. Do not invent any other text."
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "status": "REPAIR",
+    "selected_story_lens": "Turn the visible scene into a private relationship truth.",
+    "emotional_machine": "If the private meaning is absent, the scene stays decorative. -> Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue. -> The public image becomes a private receipt. -> The pretty part is only proof; the relationship is the subject.",
+    "human_story_setup": {
+      "cold_reader_doorway": "A stranger can enter through the public scene first.",
+      "emotional_obstacle": "If the private meaning is absent, the scene stays decorative.",
+      "visible_human_proof": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
+      "active_partner_role": "Zuv's care must be visible in frame.",
+      "emotional_turn": "The public image becomes a private receipt.",
+      "shareable_setup": "Shareable if the scene becomes a relationship mirror.",
+      "earned_payoff": "The pretty part is only proof; the relationship is the subject."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+      "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+      "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+      "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, native 4:5, native 9:16, QA, and audit gates must also pass.",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-05-30\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
+      "reaction": "The public image becomes a private receipt.",
+      "eye_line_or_attention": "Zuv's care must be visible in frame.",
+      "hands_or_object_movement": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
+      "silence_or_pause": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
+      "consequence": "Shareable if the scene becomes a relationship mirror.",
+      "reversal_or_payoff": "The pretty part is only proof; the relationship is the subject.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 4.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 4.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 2.0,
+      "total": 25.0
+    },
+    "proof_engine": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.",
+    "distribution_reason": "Shareable if the scene becomes a relationship mirror."
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "He didn't marry peace.",
+      "reader_identity_mirror": "Aachu brings the plot, the feelings, the backup plans, and the sudden softness; Zuv's steadiness turns that chaos into something safe instead of noisy.",
+      "emotional_obstacle": "Aachu brings the plot, the feelings, the backup plans, and the sudden softness; Zuv's steadiness turns that chaos into something safe instead of noisy.",
+      "aachu_proof": "Zuv stands calmly in a simple kurta with chai and keys, looking lovingly confused beside Aachu's tiny storm of dupatta and emotion.",
+      "zuv_active_role": "",
+      "bridge": "universal hook -> special revelation -> concrete proof beats -> emotional turn -> save/share thesis",
+      "earned_ending": "Maybe love is not less chaos. Maybe it is safer chaos.",
+      "send_save_reason": "make partners send this as affectionate recognition of lovable chaos"
+    },
+    "hook_bank": [
+      {
+        "hook": "He didn't marry peace.",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "Aachu brings the plot, the feelings, the backup plans, and the sudden softness",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with chaotic wife, calm husband.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "He didn't marry peace.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "He didn't marry peace."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "Aachu brings the plot, the feelings, the backup plans, and the sudden softness; Zuv's steadiness turns that chaos into something safe instead of noisy."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "universal hook -> special revelation -> concrete proof beats -> emotional turn -> save/share thesis"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "Maybe love is not less chaos. Maybe it is safer chaos."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9,
+      "stage_scene": 9
+    },
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": [],
+    "concept_selection_used": false,
+    "source_story": "Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.\n"
+  },
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+    "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID01",
+      "path": "config/references/identity/aachu/portrait-02.jpg",
+      "filename": "portrait-02.jpg",
+      "face_count": 11,
+      "width": 4160,
+      "height": 2773
+    },
+    {
+      "option_id": "ID02",
+      "path": "config/references/identity/together/together-18.jpg",
+      "filename": "together-18.jpg",
+      "face_count": 8,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID03",
+      "path": "config/references/identity/together/together-19.jpg",
+      "filename": "together-19.jpg",
+      "face_count": 9,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID04",
+      "path": "config/references/identity/together/together-21.jpg",
+      "filename": "together-21.jpg",
+      "face_count": 4,
+      "width": 1737,
+      "height": 3088
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "text_overlay_plan": {
+    "strategy": "model_native",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always bottom-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "He didn't marry peace.",
+      "\"Mujhe kuch nahi hua\" means something definitely happened.",
+      "She packed 14 outfits for one plan.",
+      "She had 10 moods before lunch.",
+      "Maybe love is not less chaos. Maybe it is safer chaos."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 8,
+      "text": "He didn't marry peace.",
+      "scene": "Zuv stands calmly in a simple kurta with chai and keys, looking lovingly confused beside Aachu's tiny storm of dupatta and emotion.",
+      "visual": "Zuv stands calmly in a simple kurta with chai and keys, looking lovingly confused beside Aachu's tiny storm of dupatta and emotion.",
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: universal hook.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "playful rupture",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny bottom-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 1 of 8, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.\n. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: He didn't marry peace.. Slide story-director job: universal hook. Story-Selling process card: Card 19 - Almost Too Much, Exactly Enough. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 24.0/30, decision REPAIR. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Identity dossier path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/portrait-02.jpg', 'config/references/identity/together/together-18.jpg', 'config/references/identity/together/together-19.jpg', 'config/references/identity/together/together-21.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03', 'ID04']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (playful rupture) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Zuv stands calmly in a simple kurta with chai and keys, looking lovingly confused beside Aachu's tiny storm of dupatta and emotion. Mood: playful rupture. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'He didn't marry peace.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 2,
+      "slide_count": 8,
+      "text": "\"Mujhe kuch nahi hua\" means something definitely happened.",
+      "scene": "Aachu looks away dramatically with one tear while insisting she is fine; Zuv quietly offers tissues and water.",
+      "visual": "Aachu looks away dramatically with one tear while insisting she is fine; Zuv quietly offers tissues and water.",
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: special revelation.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "soft drama",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny bottom-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 2 of 8, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.\n. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: He didn't marry peace.. Slide story-director job: special revelation. Story-Selling process card: Card 19 - Almost Too Much, Exactly Enough. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 24.0/30, decision REPAIR. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Identity dossier path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/portrait-02.jpg', 'config/references/identity/together/together-18.jpg', 'config/references/identity/together/together-19.jpg', 'config/references/identity/together/together-21.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03', 'ID04']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (soft drama) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Aachu looks away dramatically with one tear while insisting she is fine; Zuv quietly offers tissues and water. Mood: soft drama. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: '\"Mujhe kuch nahi hua\" means something definitely happened.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 3,
+      "slide_count": 8,
+      "text": "She packed 14 outfits for one plan.",
+      "scene": "Aachu sits on an overflowing suitcase with clothes, bangles, and one sandal visible; Zuv patiently tries to zip it closed.",
+      "visual": "Aachu sits on an overflowing suitcase with clothes, bangles, and one sandal visible; Zuv patiently tries to zip it closed.",
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: proof beat.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "comic specificity",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny bottom-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 3 of 8, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.\n. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: He didn't marry peace.. Slide story-director job: proof beat. Story-Selling process card: Card 19 - Almost Too Much, Exactly Enough. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 24.0/30, decision REPAIR. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Identity dossier path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/portrait-02.jpg', 'config/references/identity/together/together-18.jpg', 'config/references/identity/together/together-19.jpg', 'config/references/identity/together/together-21.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03', 'ID04']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (comic specificity) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Aachu sits on an overflowing suitcase with clothes, bangles, and one sandal visible; Zuv patiently tries to zip it closed. Mood: comic specificity. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'She packed 14 outfits for one plan.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 4,
+      "slide_count": 8,
+      "text": "She had 10 moods before lunch.",
+      "scene": "Three tiny Aachu mood beats around one snack plate: upset, hungry, suddenly cute; Zuv offers food with a steady smile.",
+      "visual": "Three tiny Aachu mood beats around one snack plate: upset, hungry, suddenly cute; Zuv offers food with a steady smile.",
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: emotional turn.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "affectionate recognition",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny bottom-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 4 of 8, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.\n. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: He didn't marry peace.. Slide story-director job: emotional turn. Story-Selling process card: Card 19 - Almost Too Much, Exactly Enough. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 24.0/30, decision REPAIR. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Identity dossier path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/portrait-02.jpg', 'config/references/identity/together/together-18.jpg', 'config/references/identity/together/together-19.jpg', 'config/references/identity/together/together-21.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03', 'ID04']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (affectionate recognition) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Three tiny Aachu mood beats around one snack plate: upset, hungry, suddenly cute; Zuv offers food with a steady smile. Mood: affectionate recognition. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'She had 10 moods before lunch.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 5,
+      "slide_count": 8,
+      "text": "Maybe love is not less chaos. Maybe it is safer chaos.",
+      "scene": "Aachu and Zuv walk out hand in hand, her little trail of chaos behind them, his posture calm and chosen.",
+      "visual": "Aachu and Zuv walk out hand in hand, her little trail of chaos behind them, his posture calm and chosen.",
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: save/share thesis.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "tender acceptance",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny bottom-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg",
+        "config/references/identity/together/together-21.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 5 of 8, prepared as two native outputs: 1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. Never resize, crop, pad, or extend one output into the other. Story context: Option 4 locked story spine for @a.storyof.two Dot & Key brand integration.\n\nAachu likes Dot & Key, especially the blue Ceramides & Hyaluronic Barrier Repair Moisturizer. In their home, her night repair routine turns into a tiny teasing game.\n\nShe is expressive, strawberry-faced, and dramatic in the sweetest way. She cannot find her blue tube. Drawer search. Pouch search. Bathroom search. Wardrobe search. The whole room becomes an investigation.\n\nZuv is not doing a grand gesture. He is doing his usual quiet household-running thing. He watches the search, half amused, half ready. He opens the stock drawer and the backup Dot & Key Barrier Repair tube is already home.\n\nThe relationship truth: she lives here like a dramatic tenant of her own routine; he quietly runs inventory for the things that keep her okay.\n\nExact approved slide copy:\n1. He didn't marry organized.\n2. He married \"maine yahin rakha tha.\"\n3. He married drawer-searching.\n4. Pouch-searching. Bathroom-searching.\n5. And wardrobe-searching also.\n6. Then he opened his stock drawer.\n7. Her Dot & Key was already there.\n8. Maybe love is knowing what she'll need before she does.\n\nProduct safety: show Dot & Key Barrier Repair as a loved, already-used routine product and backup household item. Do not make medical claims, before/after claims, cure claims, or imply the product fixes \"strawberry face.\" Strawberry face is only Aachu's affectionate expressive identity cue.\n. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Chaotic Wife, Calm Husband. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: He didn't marry peace.. Slide story-director job: save/share thesis. Story-Selling process card: Card 19 - Almost Too Much, Exactly Enough. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 24.0/30, decision REPAIR. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Identity dossier path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-dossier.json. Identity preflight path: output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-05-31/he-didn-t-marry-organized-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/portrait-02.jpg', 'config/references/identity/together/together-18.jpg', 'config/references/identity/together/together-19.jpg', 'config/references/identity/together/together-21.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03', 'ID04']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/aachu/portrait-02.jpg; config/references/identity/together/together-18.jpg; config/references/identity/together/together-19.jpg; config/references/identity/together/together-21.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (tender acceptance) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Aachu and Zuv walk out hand in hand, her little trail of chaos behind them, his posture calm and chosen. Mood: tender acceptance. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Maybe love is not less chaos. Maybe it is safer chaos.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "source_memory_room": {
+      "name": "Context And Source Memory",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Source Curator",
+          "role": "legality",
+          "claim": "Use the supplied Instagram screenshots only as story, text cadence, mood, and composition references.",
+          "objection": "Do not copy UI, account identity, exact external cartoon style, or platform residue.",
+          "recommendation": "Convert fully into A Story of Two premium watercolor-and-ink house style.",
+          "score": null
+        },
+        {
+          "agent": "Creator Memory Reader",
+          "role": "taste",
+          "claim": "The creator rejected preachy race/pace language and the line 'The climb was still rude, though.'",
+          "objection": "Over-universalizing makes the reference worse.",
+          "recommendation": "Preserve the soft alone -> not behind -> beside cadence, with only a small desi deadpan ending.",
+          "score": null
+        }
+      ],
+      "summary": "Source memory and creator corrections loaded. The repaired route preserves the reference cadence and avoids preachy copy.",
+      "inputs_used": [
+        "creator supplied screenshots",
+        "memory/semantic/carousel-idea-preferences.md",
+        "wiki/insights/successful-carousel-standard.md",
+        "config/references/style-lock/observational-intimacy-premium/"
+      ],
+      "debate_records": [
+        "Use the external reference as source cadence and story mechanic only.",
+        "Keep public copy close to the reference because the creator preferred it.",
+        "Slide 6 humor must be small, desi, and practical: 'Next time, car se.'"
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "memory_policy": "first preachy repair rejected; current copy is repaired after creator feedback",
+        "source_policy": "derived pattern and mood/composition only"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "story_meaning_room": {
+      "name": "Story Meaning Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Romance Story Director",
+          "role": "emotional arc",
+          "claim": "The story is about the relief of not having to keep going alone.",
+          "objection": "A lecture about pace would weaken it.",
+          "recommendation": "Let the scene prove it quietly.",
+          "score": 5
+        },
+        {
+          "agent": "Stage Scene Director",
+          "role": "visual proof",
+          "claim": "The route is drawable as solo path -> hidden effort -> noticing -> side-by-side -> overlook -> deadpan.",
+          "objection": "",
+          "recommendation": "Keep every slide as action, not poster text.",
+          "score": 5
+        },
+        {
+          "agent": "Taste Guard",
+          "role": "humor",
+          "claim": "The final joke should feel spoken, not written.",
+          "objection": "Clever hill jokes were rejected.",
+          "recommendation": "Use 'Next time, car se.' as practical Aachu deadpan.",
+          "score": 5
+        }
+      ],
+      "summary": "The selected meaning is soft support without shame: she thought she had to do it alone; he stayed beside her; the view became better because togetherness changed the climb.",
+      "inputs_used": [
+        "locked six-slide copy",
+        "creator feedback rejecting preachy and try-hard lines"
+      ],
+      "debate_records": [
+        "Aachu is capable, not helpless.",
+        "Zuv is active through presence and attention, not rescue.",
+        "The emotional reversal is from solo effort to beside-me ease.",
+        "The humor button is a lived desi line after tenderness."
+      ],
+      "scores": {
+        "Alone Not Behind Beside Me": 29
+      },
+      "selected_outputs": {
+        "raw_winner": "Alone, Not Behind, Beside Me",
+        "human_story_setup": "She thought she had to keep going alone.",
+        "emotional_obstacle": "Asking to slow down can feel harder than walking."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": [
+        "Alone, Not Behind, Beside Me"
+      ]
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "Alone, Not Behind, Beside Me",
+      "story_lens": "Source-cadence preservation with A Story premium visual staging",
+      "reader_mirror": "Anyone who has tried to keep going alone can recognize the relief of someone simply staying beside them.",
+      "emotional_obstacle": "Aachu thinks she has to handle the climb alone and keep looking fine.",
+      "aachu_specific_spark": "She keeps walking with expressive composure, then ends with a practical 'Next time, car se.' deadpan.",
+      "zuv_active_role": "Zuv notices without exposing her, slows without making it a performance, and stays beside her.",
+      "proof_engine": "solo path -> hidden effort -> Zuv notices -> side-by-side walking -> shared view -> deadpan car joke",
+      "emotional_reversal": "What began as solo effort becomes relief and shared rhythm.",
+      "payoff": "Turns out, the view feels better with you by my side.",
+      "distribution_reason": "Soft send/save for partners who make hard things feel less lonely; slide 6 adds desi commentability.",
+      "process_influence_ids": [
+        "card-01",
+        "card-04",
+        "card-15"
+      ],
+      "score_total": 29,
+      "golden_theme_score_total": 28.5,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu begins alone and keeps walking like she is fine.",
+        "reaction": "Zuv sees the effort and closes the distance gently.",
+        "eye_line_or_attention": "Zuv's attention goes to Aachu before the view.",
+        "hands_or_object_movement": "Tote, scarf, railing, water bottle, sandals, or near-touching hands show the climb and care.",
+        "silence_or_pause": "No rescue speech; he simply stays beside her.",
+        "consequence": "They reach the view together.",
+        "reversal_or_payoff": "The view matters because she is no longer alone.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [
+    {
+      "name": "Alone, Not Behind, Beside Me",
+      "story_lens": "Source-cadence preservation with A Story premium visual staging",
+      "reader_mirror": "Anyone who has tried to keep going alone can recognize the relief of someone simply staying beside them.",
+      "emotional_obstacle": "Aachu thinks she has to handle the climb alone and keep looking fine.",
+      "aachu_specific_spark": "She keeps walking with expressive composure, then ends with a practical 'Next time, car se.' deadpan.",
+      "zuv_active_role": "Zuv notices without exposing her, slows without making it a performance, and stays beside her.",
+      "proof_engine": "solo path -> hidden effort -> Zuv notices -> side-by-side walking -> shared view -> deadpan car joke",
+      "emotional_reversal": "What began as solo effort becomes relief and shared rhythm.",
+      "payoff": "Turns out, the view feels better with you by my side.",
+      "distribution_reason": "Soft send/save for partners who make hard things feel less lonely; slide 6 adds desi commentability.",
+      "process_influence_ids": [
+        "card-01",
+        "card-04",
+        "card-15"
+      ],
+      "score_total": 29,
+      "golden_theme_score_total": 28.5,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu begins alone and keeps walking like she is fine.",
+        "reaction": "Zuv sees the effort and closes the distance gently.",
+        "eye_line_or_attention": "Zuv's attention goes to Aachu before the view.",
+        "hands_or_object_movement": "Tote, scarf, railing, water bottle, sandals, or near-touching hands show the climb and care.",
+        "silence_or_pause": "No rescue speech; he simply stays beside her.",
+        "consequence": "They reach the view together.",
+        "reversal_or_payoff": "The view matters because she is no longer alone.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "rejected_routes": [],
+  "selected_story_lens": "Alone, Not Behind, Beside Me",
+  "emotional_machine": "alone -> hidden effort -> noticed without shame -> beside rhythm -> shared view -> desi deadpan",
+  "proof_engine": "A six-panel path sequence where body distance, eye-line, hand/object details, and final deadpan prove the copy before the caption explains it.",
+  "reader_mirror": "This is for the person who keeps going like they are fine until someone makes the hard thing feel less lonely.",
+  "distribution_reason": "The tender line is saveable and the final Hinglish button is commentable without cheapening the feeling.",
+  "human_story_setup": {
+    "emotional_obstacle": "Aachu thinks she has to do the climb alone and keep looking fine.",
+    "aachu_specific_spark": "Expressive effort, practical deadpan, soft drama under composure.",
+    "zuv_active_role": "He stays beside her without making her feel behind.",
+    "payoff": "The view becomes better because togetherness changes the climb."
+  },
+  "success_definition": {
+    "audience_success": "A viewer sends/saves/tags the partner who made hard things feel less lonely.",
+    "creative_success": "The carousel reads as silent staged action before text: solo path, hidden effort, noticing, side-by-side, shared view, deadpan.",
+    "brand_success": "Warm desi relationship storytelling with premium A Story watercolor-and-ink identity-first scenes.",
+    "production_success": "Native 4:5 and separate native 9:16 image sets with identity/style/text QA before final audit."
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Aachu begins alone and keeps walking like she is fine.",
+    "reaction": "Zuv notices and moves beside her without rescue energy.",
+    "eye_line_or_attention": "His eye-line proves he notices her before the view.",
+    "hands_or_object_movement": "Railing, tote, water bottle, scarf, sandals, and near-touching hands prove the climb.",
+    "silence_or_pause": "The care happens quietly, without speech or lecture.",
+    "consequence": "They reach the view together.",
+    "reversal_or_payoff": "The view feels better because she was not alone.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "card-01",
+      "title": "Obstacle To Care",
+      "influence_type": "primary",
+      "source_patterns": [
+        "writers-digest-romance-conflict",
+        "storygrid-love-genre"
+      ],
+      "confidence": 0.86,
+      "reason": "The tiny obstacle is the difficulty of admitting the climb feels hard."
+    },
+    {
+      "id": "card-04",
+      "title": "Public Scene, Private Meaning",
+      "influence_type": "supporting",
+      "source_patterns": [
+        "film-scene-engine"
+      ],
+      "confidence": 0.78,
+      "reason": "The public view becomes a private proof of being beside each other."
+    },
+    {
+      "id": "card-15",
+      "title": "Proof Before Poetry",
+      "influence_type": "repair",
+      "source_patterns": [
+        "animalz-quality-content"
+      ],
+      "confidence": 0.82,
+      "reason": "The images must prove the feeling before the final line lands."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 4.5,
+    "total": 29
+  },
+  "golden_theme_score": {
+    "universal_hook": 4.5,
+    "aachu_zuv_specificity": 5,
+    "concrete_proof": 5,
+    "zuv_emotional_role": 5,
+    "tender_thesis": 4.5,
+    "share_send_potential": 4.5,
+    "total": 28.5
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "copy_locked": true,
+    "post_copy_visual_room_required": true,
+    "visual_debate_required": true,
+    "proof_first_slide": 5,
+    "final_generation_requires_actual_identity_and_style_references": true
+  },
+  "metadata": {
+    "updated_by": "Codex",
+    "updated_at": "2026-05-31",
+    "creator_feedback_applied": [
+      "avoid preachy race/pace language",
+      "reject 'The climb was still rude, though.'",
+      "use 'Next time, car se.'"
+    ]
+  }
+}

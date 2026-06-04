@@ -1,6 +1,6 @@
 {
   "agent": "C3.5-IdentityConsistency",
-  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "role": "Blocks generation unless face structure, expression, clothing, and cross-slide identity continuity are explicit.",
   "status": "PASS",
   "identity_references": [
     "config/references/identity/aachu/portrait-02.jpg",
@@ -11,7 +11,7 @@
   "slides": [
     {
       "slide": 1,
-      "copy": "He didn't marry peace.",
+      "copy": "He didn't marry organized.",
       "checks": {
         "face_structure": true,
         "facial_expression": true,
@@ -27,15 +27,15 @@
           "config/references/identity/together/together-19.jpg",
           "config/references/identity/together/together-21.jpg"
         ],
-        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
-        "facial_expression": "Keep the facial expression specific to this beat (playful rupture) while preserving the same underlying face structure across all slides.",
-        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: playful recognition.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
       }
     },
     {
       "slide": 2,
-      "copy": "\"Mujhe kuch nahi hua\" means something definitely happened.",
+      "copy": "He married \"maine yahin rakha tha.\"",
       "checks": {
         "face_structure": true,
         "facial_expression": true,
@@ -51,15 +51,15 @@
           "config/references/identity/together/together-19.jpg",
           "config/references/identity/together/together-21.jpg"
         ],
-        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
-        "facial_expression": "Keep the facial expression specific to this beat (soft drama) while preserving the same underlying face structure across all slides.",
-        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: teasing domestic familiarity.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
       }
     },
     {
       "slide": 3,
-      "copy": "She packed 14 outfits for one plan.",
+      "copy": "He married drawer-searching.",
       "checks": {
         "face_structure": true,
         "facial_expression": true,
@@ -75,15 +75,15 @@
           "config/references/identity/together/together-19.jpg",
           "config/references/identity/together/together-21.jpg"
         ],
-        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
-        "facial_expression": "Keep the facial expression specific to this beat (comic specificity) while preserving the same underlying face structure across all slides.",
-        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: comic investigation.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
       }
     },
     {
       "slide": 4,
-      "copy": "She had 10 moods before lunch.",
+      "copy": "Pouch-searching. Bathroom-searching.",
       "checks": {
         "face_structure": true,
         "facial_expression": true,
@@ -99,15 +99,15 @@
           "config/references/identity/together/together-19.jpg",
           "config/references/identity/together/together-21.jpg"
         ],
-        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
-        "facial_expression": "Keep the facial expression specific to this beat (affectionate recognition) while preserving the same underlying face structure across all slides.",
-        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: escalating playful suspicion.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
       }
     },
     {
       "slide": 5,
-      "copy": "Maybe love is not less chaos. Maybe it is safer chaos.",
+      "copy": "And wardrobe-searching also.",
       "checks": {
         "face_structure": true,
         "facial_expression": true,
@@ -123,10 +123,82 @@
           "config/references/identity/together/together-19.jpg",
           "config/references/identity/together/together-21.jpg"
         ],
-        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
-        "facial_expression": "Keep the facial expression specific to this beat (tender acceptance) while preserving the same underlying face structure across all slides.",
-        "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
-        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: affectionate absurdity.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "Then he opened his stock drawer.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 6,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg",
+          "config/references/identity/together/together-21.jpg"
+        ],
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: quiet reveal.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
+      }
+    },
+    {
+      "slide": 7,
+      "copy": "Her Dot & Key was already there.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 7,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg",
+          "config/references/identity/together/together-21.jpg"
+        ],
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: sweet brand reveal.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
+      }
+    },
+    {
+      "slide": 8,
+      "copy": "Maybe love is knowing what she'll need before she does.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 8,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg",
+          "config/references/identity/together/together-21.jpg"
+        ],
+        "face_structure": "Use the selected identity references as actual visual anchors. Aachu keeps large expressive dark eyes, long dark hair, soft oval face, and playful strawberry-cheek energy. Zuv keeps dark curly hair, strong brows, warm eyes, short beard/stubble, and calm patient expression.",
+        "facial_expression": "Expression must fit this beat: tender payoff.",
+        "clothing": "Aachu stays in soft grey/light domestic clothing; Zuv stays in a dark shirt/neutral trousers, matching the selected home references.",
+        "cross_slide_consistency": "The same Aachu/Zuv face anchors and two-inch height difference must continue across the deck."
       }
     }
   ],

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "final_generation_requirement": "Actual identity reference images from config/references/identity/ must be attached or otherwise visible to the image-generation path.",
+  "selected_identity_references": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-05-31/alone-not-behind-beside-me/identity-face-contact-sheet.jpg"
+  ],
+  "checks": {
+    "actual_reference_paths_exist": true,
+    "text_only_identity_generation_allowed": false,
+    "height_rule": "Zuv 5'8, Aachu 5'6; visible difference only slight in standing/two-shot scenes.",
+    "aachu": "large expressive eyes, long dark wavy hair, soft oval face, playful warmth",
+    "zuv": "thick dark curly hair, short stubble beard, kind gaze, relaxed masculine face",
+    "sequence_wardrobe_lock": "Continuous story sequence: Aachu must remain in white oversized shirt, blue jeans, blue-red patterned scarf, small gold jewelry, comfortable travel sneakers or sandals, cream tote. Zuv must remain in navy casual T-shirt/shirt, tan pants, white casual sneakers, wristwatch. Clothing changes are continuity failures."
+  },
+  "issues": [],
+  "notes": "Identity review passes for handoff because real selected references exist and must be used as image inputs. Generated proof still requires visual QA before batch generation."
+}

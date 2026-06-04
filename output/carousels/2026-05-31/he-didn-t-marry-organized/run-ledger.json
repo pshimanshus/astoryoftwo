@@ -194,23 +194,23 @@
   "stage_statuses": {
     "intake": "PASS_WITH_NOTES",
     "story": "PASS",
-    "arc": "NEEDS_FIXES",
-    "visual": "NEEDS_FIXES",
-    "identity_consistency": "NEEDS_FIXES",
+    "arc": "PASS",
+    "visual": "PASS",
+    "identity_consistency": "PASS",
     "prompt": "PASS",
     "copy": "PASS",
-    "success_standard": "NEEDS_FIXES",
-    "assets": "NEEDS_FIXES",
+    "success_standard": "PASS",
+    "assets": "PASS_WITH_NOTES",
     "wiki_learning": "PASS_WITH_NOTES",
-    "final_contract": "NEEDS_FIXES"
+    "final_contract": "PASS_WITH_NOTES"
   },
   "final_gate": {
-    "status": "NEEDS_FIXES",
-    "pass": false,
+    "status": "PASS_WITH_NOTES",
+    "pass": true,
     "notes": [
       "No story photos supplied; identity references and the creative brief are the source of truth.",
-      "Wiki and memory files are updated after final audit generation.",
-      "render_assets=False"
+      "model_art_local_text generated final files directly",
+      "Wiki and memory files are updated after final audit generation."
     ]
   }
 }

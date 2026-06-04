@@ -9,32 +9,17 @@ sources:
 
 ## Status
 
-Final audit: NEEDS_FIXES
-
-## Issues
-
-- REQ-IDENTITY-CONSISTENCY-001: Face structure, expressions, clothing, and cross-slide identity continuity are reviewed before image generation
-- REQ-VISUAL-PLAN-QUALITY-001: Per-slide visual screen passes before image generation
-- REQ-SLIDES-001: Create an approved 4-10 slide carousel arc, matching prompt count
-- REQ-SUCCESS-STANDARD-001: Successful carousel standard is carried as open agent alignment and passes before final approval
-- REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders
-- REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/
-- REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
-- arc_reviewer: slides.json has 5 slides, expected 8.; prompt-pack.json has 5 slide prompts, expected 8.
-- visual_reviewer: visual-plan-quality.json has 5 slide records, expected 8.
-- identity_consistency_reviewer: identity-consistency-review.json has 5 slide records, expected 8.
-- success_standard_reviewer: Story-Selling score is below 28/30.
-- asset_reviewer: Missing final generated images: output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-01.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-02.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-03.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-04.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-05.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-06.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-07.png, output/carousels/2026-05-31/he-didn-t-marry-organized/final/slide-08.png
+Final audit: PASS_WITH_NOTES
 
 ## Notes
 
 - No story photos supplied; identity references and the creative brief are the source of truth.
+- model_art_local_text generated final files directly
 - Wiki and memory files are updated after final audit generation.
-- render_assets=False
 
 ## Human Truth
 
-Aachu brings the plot, the feelings, the backup plans, and the sudden softness; Zuv's steadiness turns that chaos into something safe instead of noisy.
+Love is not only noticing what your person loves; sometimes it is keeping the backup ready before their small routine turns into an emergency.
 
 ## Learning
 
@@ -46,10 +31,17 @@ Aachu brings the plot, the feelings, the backup plans, and the sudden softness; 
 
 ## Caption
 
-some people bring peace.
-aachu brings plot.
+he did not marry organized.
 
-"mujhe kuch nahi hua" means something definitely happened.
-one plan becomes twelve backup plans.
+he married maine yahin rakha tha.
+drawer-searching.
+pouch-searching.
+bathroom-searching.
+wardrobe-searching also.
 
-and somehow, zuv makes all of it feel safe.
+and somehow,
+before the panic became a whole case,
+his stock drawer already knew.
+
+maybe love is knowing what she will need
+before she does.
