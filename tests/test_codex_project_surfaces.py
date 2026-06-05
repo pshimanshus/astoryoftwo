@@ -94,6 +94,9 @@ def test_project_codex_config_hooks_and_rules_are_present_and_safe():
     assert "git push" not in hook_script
     assert "subprocess.run" in hook_script
     assert "scripts/autopublish.py" in hook_script
+    assert "scripts/agentic_os.py" in hook_script
+    assert '"health"' in hook_script
+    assert "Agentic OS health" in hook_script
 
     assert 'pattern = ["venv/bin/python", "-m", "pytest"]' in rules
     assert 'pattern = ["venv/bin/python", "scripts/wiki_health.py"]' in rules
