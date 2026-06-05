@@ -41,6 +41,8 @@ MASTER_PROMPT_REQUIRED_SECTIONS = [
 CANONICAL_REQUIRED_FRAGMENTS = [
     "ON-IMAGE TEXT:",
     "@a.storyof.two",
+    "prompt assembly is autopilot by default",
+    "treat those photos as current-request identity references",
     "This means neutral premium ivory/off-white paper, not yellow, not mustard",
     "If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream",
     "BRANDMARK RULE:",

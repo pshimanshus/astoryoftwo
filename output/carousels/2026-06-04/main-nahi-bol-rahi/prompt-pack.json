@@ -1,0 +1,177 @@
+{
+  "status": "READY_FOR_CODEX_BUILTIN_PROOF",
+  "master_prompt_source": "config/references/a-story-illustration-master-prompt.md",
+  "style_lock": "config/references/style-lock/observational-intimacy-premium/",
+  "identity_lock": "config/references/identity/",
+  "generation_mode": "model_native_publishable",
+  "proof_gate": "Generate slide 05 first because it proves Zuv's active role without saintly rescue.",
+  "shared_style_prompt": "Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration on neutral warm ivory/off-white paper with visible paper grain, fine ink and pencil linework, transparent watercolor blooms, airy composition, soft faded edges, tactile clothing and domestic props, exact readable handwritten text in upper-middle negative space, and tiny low-contrast @a.storyof.two brandmark at bottom-right.",
+  "shared_negative_prompt": "No photorealism, no 3D render, no flat vector art, no anime, no stock Indian couple, no generic AI watercolor, no yellow/parchment/beige/tan paper, no random text, no speech bubbles, no extra words, no unreadable typography, no cruel fight, no teary breakup, no apology hug, no saintly husband, no childish wife, no awkward hands, no cropped faces, no cluttered room.",
+  "formats": {
+    "instagram_post": "native 4:5",
+    "reels_stories": "native 9:16"
+  },
+  "identity_dossier_path": "config/references/identity/_dossier/identity-dossier.json",
+  "identity_generation_preflight_path": "config/references/identity/_dossier/identity-generation-preflight.md",
+  "identity_dossier_reference_images": [
+    "config/references/identity/_dossier/identity-face-contact-sheet.jpg"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/aachu/face-01.png",
+    "config/references/identity/aachu/portrait-01.jpg",
+    "config/references/identity/zuv/face-01.png",
+    "config/references/identity/zuv/portrait-01.jpg",
+    "config/references/identity/together/together-01.jpg"
+  ],
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png"
+  ],
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Care Receipts On The Low Table",
+    "why_it_wins": "The care objects move while the faces stay stubborn, proving both gussa and care."
+  },
+  "visual_debate": {
+    "status": "GO",
+    "winner": "Care Receipts On The Low Table",
+    "selector_verdict": "GO: behavior-first domestic receipt system.",
+    "hard_fails_checked": {
+      "aachu_mocked": false,
+      "zuv_passive": false,
+      "generic_stock_couple": false,
+      "copy_visual_drift": false
+    }
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "successful_carousel_standard": {
+    "audience_success": "tag the partner who stays angry but still cares",
+    "creative_success": "public contradiction plus concrete domestic receipts",
+    "brand_success": "warm desi relationship IP",
+    "production_success": "native 4:5 and separate native 9:16 finals"
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "status": "GO",
+    "selected_story_lens": "Some silence comes with instructions.",
+    "emotional_machine": "tiny fight -> silence -> care instructions leak out -> Zuv reciprocates with one quiet care action -> gussa and care coexist",
+    "proof_engine": "Food reminder, water reminder, glass placement, body distance, turned-away face.",
+    "distribution_reason": "A viewer can send it to the partner who says they are not talking but still asks if you ate."
+  },
+  "carousel_story_director_persona": {
+    "status": "GO",
+    "selected_hook": "Some silence comes with instructions.",
+    "bridge": "Zuv answers the care underneath the gussa by keeping her glass too.",
+    "ending": "Gussa tha. Care bhi."
+  },
+  "text_overlay_plan": {
+    "strategy": "model-native handwritten text baked into each generated illustration",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "tiny low-contrast handwritten bottom-right"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 6,
+      "text": "Some silence comes\nwith instructions.",
+      "copy": "Some silence comes\nwith instructions.",
+      "scene": "Warm domestic room after a tiny fight. Aachu sits lower/middle-lower in the frame, turned slightly away with folded arms and a soft-angry face. Zuv is nearby but not crowding her. A plate, bottle, and two glasses sit as quiet future proof. Clean upper-middle ivory negative space for the text.",
+      "visual": "Warm domestic room after a tiny fight. Aachu sits lower/middle-lower in the frame, turned slightly away with folded arms and a soft-angry face. Zuv is nearby but not crowding her. A plate, bottle, and two glasses sit as quiet future proof. Clean upper-middle ivory negative space for the text.",
+      "pose": "Aachu turned away but safe and expressive; Zuv nearby, attentive, giving her space.",
+      "wardrobe": "Aachu in a soft printed kurta or oversized white shirt with blue jeans and small jewelry; Zuv in a casual white or navy shirt with tan pants.",
+      "props": "Plate, water bottle, two glasses, small folded blanket, warm home lamp.",
+      "background": "Cozy bedroom or living-room corner fading into warm ivory paper.",
+      "emotion": "comic gussa with care under it",
+      "style": "Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration on neutral warm ivory paper.",
+      "negative_prompt": "No cruel argument, no tears, no speech bubble, no quote card, no generic couple, no yellow paper.",
+      "prompt": "Create slide 1 as a full Aachu/Zuv domestic scene where silence and care objects create the contradiction. Render exact text inside the artwork."
+    },
+    {
+      "slide": 2,
+      "slide_count": 6,
+      "text": "\"Main nahi bol rahi.\"",
+      "copy": "\"Main nahi bol rahi.\"",
+      "scene": "Aachu in three-quarter profile, refusing eye contact with a small stop-hand or folded-arm posture. Zuv is visible only as a partial shoulder or seated presence in the lower side of the frame, careful not to turn this into confrontation. The room remains soft and safe.",
+      "visual": "Aachu in three-quarter profile, refusing eye contact with a small stop-hand or folded-arm posture. Zuv is visible only as a partial shoulder or seated presence in the lower side of the frame, careful not to turn this into confrontation. The room remains soft and safe.",
+      "pose": "Aachu's eyes look away; her hand makes a tiny stop gesture; Zuv stays calm and close enough.",
+      "wardrobe": "Same domestic wardrobe as slide 1 for continuity.",
+      "props": "Soft cushion, plate edge, water bottle in background.",
+      "background": "Minimal home corner with faded watercolor edges.",
+      "emotion": "angry but not cruel",
+      "style": "Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration on neutral warm ivory paper.",
+      "negative_prompt": "No cruel argument, no tears, no speech bubble, no quote card, no generic couple, no yellow paper.",
+      "prompt": "Create slide 2 as a safe tiny-fight scene; Aachu's gussa is expressive and warm, not mean. Render exact text inside the artwork."
+    },
+    {
+      "slide": 3,
+      "slide_count": 6,
+      "text": "\"Khana kha lena.\"",
+      "copy": "\"Khana kha lena.\"",
+      "scene": "Still turned away, Aachu nudges a plate or points toward food without looking directly at Zuv. Zuv looks at the plate with a small private smile, not a smug one. The hand movement must prove the line even if text is hidden.",
+      "visual": "Still turned away, Aachu nudges a plate or points toward food without looking directly at Zuv. Zuv looks at the plate with a small private smile, not a smug one. The hand movement must prove the line even if text is hidden.",
+      "pose": "Aachu's body faces away but one hand reaches toward the plate; Zuv's attention follows the care action.",
+      "wardrobe": "Same domestic wardrobe as prior slides.",
+      "props": "Small home plate, spoon, cushion or low table.",
+      "background": "Simple low table and home corner, uncluttered.",
+      "emotion": "care pretending to be angry",
+      "style": "Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration on neutral warm ivory paper.",
+      "negative_prompt": "No food product shot, no cruel argument, no speech bubble, no generic couple, no yellow paper.",
+      "prompt": "Create slide 3 with the plate nudge as the main visual receipt. Render exact text inside the artwork."
+    },
+    {
+      "slide": 4,
+      "slide_count": 6,
+      "text": "\"Paani bhi.\"",
+      "copy": "\"Paani bhi.\"",
+      "scene": "A close domestic insert: Aachu's hand pushes or points at a water glass/bottle while her face stays turned away at frame edge. Zuv's hand or attentive posture enters softly. The glass is the visual receipt, not a product shot.",
+      "visual": "A close domestic insert: Aachu's hand pushes or points at a water glass/bottle while her face stays turned away at frame edge. Zuv's hand or attentive posture enters softly. The glass is the visual receipt, not a product shot.",
+      "pose": "Hands and glass carry the action; faces stay natural and not cropped awkwardly.",
+      "wardrobe": "Same domestic wardrobe as prior slides.",
+      "props": "Water bottle, glass, plate edge, small textile.",
+      "background": "Warm tabletop fading into ivory paper.",
+      "emotion": "deadpan funny, still warm",
+      "style": "Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration on neutral warm ivory paper.",
+      "negative_prompt": "No product-shot composition, no cruel argument, no speech bubble, no generic couple, no yellow paper.",
+      "prompt": "Create slide 4 as a water-glass proof beat with exact readable text inside the artwork."
+    },
+    {
+      "slide": 5,
+      "slide_count": 6,
+      "text": "He kept her glass too.",
+      "copy": "He kept her glass too.",
+      "scene": "Proof-first slide. Zuv quietly places a second water glass near Aachu's side without a speech. Aachu is still turned away but notices from the corner of her eye. Keep the action small, equal, and domestic; he is not rescuing her or apologizing dramatically.",
+      "visual": "Proof-first slide. Zuv quietly places a second water glass near Aachu's side without a speech. Aachu is still turned away but notices from the corner of her eye. Keep the action small, equal, and domestic; he is not rescuing her or apologizing dramatically.",
+      "pose": "Zuv's hand places the glass; Aachu's eyes soften slightly while her posture remains gussa.",
+      "wardrobe": "Same domestic wardrobe as prior slides.",
+      "props": "Two water glasses, plate, small blanket edge.",
+      "background": "Low domestic table with soft negative space above.",
+      "emotion": "quiet reciprocal care",
+      "style": "Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration on neutral warm ivory paper.",
+      "negative_prompt": "No dramatic apology, no saintly husband, no cruel wife, no speech bubble, no generic couple, no yellow paper.",
+      "prompt": "Create slide 5 as the proof-first frame: Zuv quietly keeps her glass too. Render exact text inside the artwork."
+    },
+    {
+      "slide": 6,
+      "slide_count": 6,
+      "text": "Gussa tha.\nCare bhi.",
+      "copy": "Gussa tha.\nCare bhi.",
+      "scene": "Final quiet two-shot. Aachu and Zuv sit with a little distance still between them, but the plate and two glasses sit in the middle like proof. Their faces are soft, amused, and still a little stubborn. No hug needed; the objects and expressions carry the ending.",
+      "visual": "Final quiet two-shot. Aachu and Zuv sit with a little distance still between them, but the plate and two glasses sit in the middle like proof. Their faces are soft, amused, and still a little stubborn. No hug needed; the objects and expressions carry the ending.",
+      "pose": "Both seated naturally, slight distance, softened eye-line, no over-romantic pose.",
+      "wardrobe": "Same domestic wardrobe as prior slides.",
+      "props": "Two glasses, plate, soft blanket, cushion.",
+      "background": "Warm minimal domestic scene dissolving into ivory paper.",
+      "emotion": "tender deadpan, care surviving gussa",
+      "style": "Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration on neutral warm ivory paper.",
+      "negative_prompt": "No hug-as-apology, no quote card, no cruel argument, no generic couple, no yellow paper.",
+      "prompt": "Create slide 6 as the payoff frame where two glasses and tiny distance prove gussa and care together. Render exact text inside the artwork."
+    }
+  ]
+}

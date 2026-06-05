@@ -15,6 +15,7 @@ def test_instruction_surface_contract_declares_required_and_banned_phrases() -> 
     assert data["max_agents_md_lines"] <= 420
     assert "AGENTS.md" in data["surfaces"]
     assert "CLAUDE.md" in data["surfaces"]
+    assert ".claude/commands/story.md" in data["retired_paths"]
 
     required = set(data["required_phrases"])
     assert "config/rules/" in required
@@ -29,3 +30,11 @@ def test_instruction_surface_contract_declares_required_and_banned_phrases() -> 
     banned = set(data["banned_phrases"]["AGENTS.md"])
     assert "Entry: scripts/create_illustration_carousel.py" in banned
     assert "and can be called directly from Claude Code sessions" in banned
+
+
+def test_retired_instruction_paths_are_absent() -> None:
+    path = ROOT / "config" / "instruction_surface_contract.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+
+    for retired_path in data["retired_paths"]:
+        assert not (ROOT / retired_path).exists(), f"{retired_path} is retired"

@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "Creator said create illustrations after selecting Main Nahi Bol Rahi.",
+  "copy_lock": {
+    "approved_by": "creator",
+    "slide_copy": [
+      "Some silence comes\nwith instructions.",
+      "\"Main nahi bol rahi.\"",
+      "\"Khana kha lena.\"",
+      "\"Paani bhi.\"",
+      "He kept her glass too.",
+      "Gussa tha.\nCare bhi."
+    ]
+  },
+  "visual_system_candidates": [
+    {
+      "name": "Care Receipts On The Low Table",
+      "decision": "SELECTED",
+      "reason": "The plate and water glasses make care visible while the body language carries gussa."
+    },
+    {
+      "name": "Doorway Fight",
+      "decision": "REJECTED",
+      "reason": "Too likely to become generic fight/apology staging."
+    },
+    {
+      "name": "Speech Bubble Argument",
+      "decision": "REJECTED",
+      "reason": "Would turn the deck into dialogue graphics instead of scene proof."
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "status": "GO",
+      "summary": "The format mechanic is not a fight scene; it is contradiction proof through care objects moving while faces remain stubborn."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "status": "GO",
+      "summary": "Every slide has one visible action: distance, refusal, plate nudge, water reminder, second glass, two-glass payoff."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "status": "GO",
+      "summary": "Aachu carries visible gussa and hidden care; Zuv answers with reciprocal care, not a speech."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "status": "GO",
+      "summary": "Use upper-middle handwritten text on clean ivory paper. Keep faces and hands lower/middle-lower for both native aspects."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "status": "GO",
+      "summary": "Prompts must emphasize domestic care receipts, exact text, identity references, and premium watercolor-and-ink style."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "status": "GO",
+      "summary": "Selected Care Receipts On The Low Table. Blocks generic argument, apology, saintly husband, or quote-card execution."
+    }
+  ],
+  "cross_debate": [
+    "Do not show a major fight or tears.",
+    "Do not make Zuv over-caretake.",
+    "Do not make Aachu cruel.",
+    "Keep the comedy in the contradiction: not talking, still instructing."
+  ],
+  "selected_visual_system": "Care Receipts On The Low Table",
+  "why_it_wins": "It produces a clean visual receipt trail: gussa is in posture, care is in object movement.",
+  "rejected_visual_patterns": [
+    "generic argument scene",
+    "apology hug",
+    "saintly husband bringing everything",
+    "speech bubbles",
+    "quote-card design",
+    "one person standing over the other"
+  ],
+  "slide_visual_blueprint": [
+    "Slide 1: distance and quiet care objects.",
+    "Slide 2: turned-away refusal.",
+    "Slide 3: plate nudge.",
+    "Slide 4: water/glass reminder.",
+    "Slide 5: Zuv keeps her glass too.",
+    "Slide 6: two glasses and soft stubborn faces."
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post": "Upper-middle text zone; couple and low table in lower/middle-lower third.",
+    "reels_stories": "More vertical ivory space above; text remains upper-middle, action lower half.",
+    "brandmark": "Tiny low-contrast @a.storyof.two at bottom-right."
+  },
+  "generation_prompt_brief": "Generate full Aachu/Zuv domestic scenes in Observational Intimacy Premium watercolor-and-ink style with exact text baked into the image.",
+  "open_doubts": [],
+  "downstream_requirements": [
+    "Proof-first slide 5.",
+    "Visual-plan-quality must pass each slide.",
+    "Identity refs and style refs must be actual image inputs."
+  ]
+}

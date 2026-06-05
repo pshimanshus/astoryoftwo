@@ -155,7 +155,12 @@ Adapt the style to the supplied images:
 
 - preserve recognizable outfit, pose, setting, and relationship cues
 - treat shared images only as mood/composition/story references unless the
-  creator explicitly says otherwise
+  creator explicitly says otherwise or the images clearly depict the requested
+  people/couple for this prompt; in that case, use them as current-request
+  identity references
+- if the creator gives only a rough concept, prompt, screenshot, or photo,
+  infer a first-pass scene, on-image text, and visual direction from that
+  material instead of asking for perfect fields
 - do not import screenshot or app-layout devices into final art. If a
   reference uses split-screen, phone UI, carousel dots, social handles,
   engagement icons, black app chrome, or a vertical divider, translate the

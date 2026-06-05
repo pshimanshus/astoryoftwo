@@ -1,6 +1,6 @@
 # A Story Of Two Illustration Master Prompt
 
-last_updated: 2026-05-30
+last_updated: 2026-06-06
 status: creator_locked
 confidence: 1.0
 
@@ -22,6 +22,13 @@ faces are hard failures. Do not generate or accept final Aachu/Zuv artwork from
 text-only identity descriptions; actual identity references and style
 references must be usable by the image-generation path.
 
+Creator correction, 2026-06-06: prompt assembly is autopilot by default. If the
+creator gives a rough concept, prompt, photo, screenshot, or reference image,
+infer the scene, on-image text, and image roles from that material instead of
+asking for perfect fields. Treat user-shared photos that clearly depict the
+requested people/couple as current-request identity references unless the
+creator or context marks them as inspiration only.
+
 ```text
 USE CASE:
 illustration-story
@@ -30,7 +37,9 @@ ASSET TYPE:
 Premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is an Instagram post. For Reels/Stories, generate a separate native 9:16 illustration in the same style. Never resize, crop, pad, or extend one surface into the other. Render exact readable text baked naturally into the image and add only the tiny low-contrast bottom-right handwritten brandmark.
 
 REFERENCE IMAGE ROLES:
+When the creator provides only a rough concept, prompt assembly is autopilot by default: infer the first-pass scene, on-image text, and image roles from the supplied concept, prompt, photo, screenshot, or reference image instead of asking for perfect fields.
 Use shared images from the current brief only as mood/composition references unless explicitly told otherwise. Preserve their text, message, emotion, story, hand gesture, scene idea, and requested composition, but do not let their visual style take over.
+If the current brief includes user-shared photos that clearly depict the requested people/couple and no explicit role label is provided, treat those photos as current-request identity references for faces, hair, skin tone, age, expressions, posture, wardrobe anchors, and relationship energy.
 Use the Aachu/Zuv identity reference images as the face and wardrobe anchor always: they are the highest-priority source for the two main characters' faces, hair, skin tone, age, ethnicity, expressions, posture, clothing continuity, and emotional presence.
 Use the observational-intimacy-premium and previous A Story illustration references only for illustration style, handwritten font style, color palette, line quality, paper texture, composition, wardrobe continuity, and recurring props.
 Do not copy the exact pose or scene from the style references unless requested. Preserve identity and style while creating the new scene.

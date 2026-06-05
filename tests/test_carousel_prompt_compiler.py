@@ -99,6 +99,8 @@ def test_compile_image_prompt_uses_creator_text_rule_without_no_text_conflict():
 def test_compile_image_prompt_preserves_canonical_master_prompt_fragments():
     canonical = Path("config/references/a-story-illustration-master-prompt.md").read_text(encoding="utf-8")
     required_fragments = [
+        "prompt assembly is autopilot by default",
+        "treat those photos as current-request identity references",
         "If actual identity reference images and style reference images cannot be used by the image-generation call",
         "This means neutral premium ivory/off-white paper, not yellow, not mustard",
         "If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream",

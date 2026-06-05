@@ -44,6 +44,7 @@
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.5;
+      min-width: 320px;
     }
 
     a {
@@ -58,34 +59,49 @@
 
     header {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
+      grid-template-columns: minmax(680px, 1fr) minmax(320px, 420px);
+      gap: clamp(20px, 3vw, 48px);
       align-items: start;
-      padding: 24px 0 26px;
+      padding: clamp(30px, 4vw, 58px) 0 28px;
       border-bottom: 1px solid var(--line);
+      isolation: isolate;
+    }
+
+    .title-block {
+      min-width: 0;
     }
 
     .title-block h1 {
       margin: 0;
-      font-size: clamp(2.2rem, 5vw, 5.4rem);
-      line-height: 0.95;
+      max-width: 900px;
+      font-size: clamp(3.35rem, 5.1vw, 5.1rem);
+      line-height: 1.04;
       letter-spacing: 0;
-      max-width: 980px;
+      text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
     }
 
     .subtitle {
-      max-width: 760px;
-      margin: 18px 0 0;
+      max-width: 840px;
+      margin: 22px 0 0;
       color: var(--muted);
       font-size: 1.05rem;
+      line-height: 1.45;
+      text-wrap: pretty;
+      overflow-wrap: normal;
+      word-break: normal;
     }
 
     .status-panel {
-      width: min(360px, 100%);
+      justify-self: end;
+      width: 100%;
+      max-width: 420px;
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 20px;
       box-shadow: var(--shadow);
     }
 
@@ -130,8 +146,9 @@
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 22px 0 4px;
+      gap: 10px;
+      margin: 30px 0 4px;
+      max-width: 1120px;
     }
 
     nav a,
@@ -142,11 +159,12 @@
       border: 1px solid var(--line);
       background: var(--paper);
       border-radius: 999px;
-      padding: 6px 12px;
+      padding: 7px 13px;
       color: var(--muted);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     nav a:hover,
@@ -574,7 +592,7 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1180px) {
       header,
       .two-col,
       .architecture {
@@ -583,6 +601,8 @@
 
       .status-panel {
         width: 100%;
+        max-width: 760px;
+        justify-self: start;
       }
 
       .architecture-summary,
@@ -606,7 +626,17 @@
       }
 
       .title-block h1 {
-        font-size: 2.35rem;
+        font-size: clamp(2.4rem, 13vw, 3.25rem);
+        line-height: 1.06;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      nav a,
+      .filter-btn {
+        white-space: normal;
       }
 
       .section-head {

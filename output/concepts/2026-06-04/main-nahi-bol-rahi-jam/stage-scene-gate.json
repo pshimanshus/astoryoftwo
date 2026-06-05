@@ -1,0 +1,52 @@
+{
+  "date": "2026-06-04",
+  "concept_slug": "main-nahi-bol-rahi-jam",
+  "selected_copy_option": "A",
+  "decision": "GO_FOR_CREATOR_COPY_LOCK",
+  "stage_scene_test": "The deck can be understood with text hidden: turned-away anger, care instructions, water/food/glass movement, Zuv's quiet reciprocal care, final mutual softness.",
+  "slide_beats": [
+    {
+      "slide": 1,
+      "copy": "Some silence comes with instructions.",
+      "action": "Domestic room after a tiny fight. Aachu sits turned away, arms folded, expression angry-soft. Zuv is nearby, not crowding her.",
+      "visual_receipt": "Distance between them, but the care objects are already in the room."
+    },
+    {
+      "slide": 2,
+      "copy": "\"Main nahi bol rahi.\"",
+      "action": "Aachu refuses eye contact and raises a small stop-hand.",
+      "visual_receipt": "Her face says gussa; posture stays safe and non-cruel."
+    },
+    {
+      "slide": 3,
+      "copy": "\"Khana kha lena.\"",
+      "action": "Still turned away, she nudges or points toward his plate without looking.",
+      "visual_receipt": "Care leaks through action while the fight continues."
+    },
+    {
+      "slide": 4,
+      "copy": "\"Paani bhi.\"",
+      "action": "She adds a water reminder with the same angry face.",
+      "visual_receipt": "Hand, glass, or bottle movement proves the line."
+    },
+    {
+      "slide": 5,
+      "copy": "He kept her glass too.",
+      "action": "Zuv quietly places a glass near her side without making a speech or asking for forgiveness.",
+      "visual_receipt": "His active role is reciprocal care, not saintly rescue."
+    },
+    {
+      "slide": 6,
+      "copy": "Gussa tha. Care bhi.",
+      "action": "Both remain slightly turned away, but the two water glasses/plate/blanket sit between them like proof.",
+      "visual_receipt": "The relationship truth lands through objects and body language."
+    }
+  ],
+  "hard_fail_checks": {
+    "aachu_mocked": false,
+    "zuv_passive_or_saintly": false,
+    "quote_card_sequence": false,
+    "generic_fight_scene": false,
+    "copy_carries_scene_alone": false
+  }
+}

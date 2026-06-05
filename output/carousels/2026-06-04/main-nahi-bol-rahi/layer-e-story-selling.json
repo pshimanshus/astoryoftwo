@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "storyline_architect": {
+      "name": "Storyline Architect",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Storyline Architect",
+          "role": "obstacle and proof",
+          "claim": "The emotional obstacle is that she is not talking, but care still leaks through instructions.",
+          "recommendation": "Stage gussa through body distance and care through plate, water, and glass movement.",
+          "score": 29
+        }
+      ],
+      "summary": "Main Nahi Bol Rahi becomes shareable when silence comes with instructions.",
+      "inputs_used": [
+        "successful-carousel-standard",
+        "carousel-performance-autopsy",
+        "creator selection"
+      ],
+      "debate_records": [
+        "Reject apology/preachy repair.",
+        "Reject saintly Zuv rescue.",
+        "Use physical care receipts."
+      ],
+      "scores": {
+        "story_selling": 29,
+        "golden_theme": 29
+      }
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "Main Nahi Bol Rahi",
+      "story_lens": "Some silence comes with instructions.",
+      "reader_mirror": "The partner who stays angry but still checks food, water, and comfort.",
+      "emotional_obstacle": "A tiny fight creates silence, but the care habit refuses to stop.",
+      "aachu_specific_spark": "Aachu's gussa is expressive, turned away, and still full of practical care.",
+      "zuv_active_role": "Zuv answers her care with his own quiet care by keeping her glass too.",
+      "proof_engine": "Food reminder, water reminder, glass placement, turned-away body language.",
+      "emotional_reversal": "The silence starts as anger and turns into proof that care survives the fight.",
+      "payoff": "Gussa tha. Care bhi.",
+      "distribution_reason": "Viewers can tag the partner who says they are not talking but still cares.",
+      "process_influence_ids": [
+        "card-05"
+      ],
+      "score_total": 29,
+      "golden_theme_score_total": 29,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu turns away but keeps giving care instructions.",
+        "reaction": "Zuv listens and responds by placing her glass too.",
+        "eye_line_or_attention": "Aachu avoids eye contact; Zuv watches the care action, not just the anger.",
+        "hands_or_object_movement": "Plate, water, and glass move across the scene.",
+        "silence_or_pause": "The silence is visible in body distance and turned-away posture.",
+        "consequence": "The fight stays tiny because care keeps moving.",
+        "reversal_or_payoff": "Gussa and care exist together.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [],
+  "rejected_routes": [],
+  "selected_story_lens": "Some silence comes with instructions.",
+  "emotional_machine": "tiny fight -> silence -> care instructions leak out -> Zuv reciprocates with one quiet care action -> gussa and care coexist",
+  "proof_engine": "Food reminder, water reminder, glass placement, body distance, turned-away face.",
+  "reader_mirror": "This is us when one person is angry but still taking care.",
+  "distribution_reason": "A viewer can send it to the partner who says they are not talking but still asks if you ate.",
+  "human_story_setup": {
+    "cold_reader_doorway": "Some silence comes with instructions.",
+    "emotional_obstacle": "A tiny fight creates silence, but care is too habitual to stop.",
+    "aachu_role": "She brings expressive gussa and practical care in the same breath.",
+    "zuv_role": "He notices the care underneath the gussa and answers with quiet reciprocal care.",
+    "proof_engine": "Khana, paani, and her glass become visible receipts.",
+    "emotional_reversal": "Anger is not the absence of love; the instructions prove care is still there.",
+    "earned_payoff": "Gussa tha. Care bhi."
+  },
+  "success_definition": {
+    "audience_success": "Partner tags and 'this is us' comments from people who fight softly but care practically.",
+    "creative_success": "A staged story sequence with concrete receipts and no quote-card dependence.",
+    "brand_success": "Ownable warm desi relationship IP: gussa plus care as a recurring behavior.",
+    "production_success": "Native 4:5 and 9:16 final illustrations with identity/style QA."
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Aachu says she is not talking, then gives care instructions.",
+    "reaction": "Zuv accepts the contradiction and keeps her glass too.",
+    "eye_line_or_attention": "Avoided eye contact turns into quiet attention on the care objects.",
+    "hands_or_object_movement": "Plate, water, glass, and blanket remain physical proof beats.",
+    "silence_or_pause": "The silence is comic, not cruel.",
+    "consequence": "Both remain in the tiny fight, but care continues.",
+    "reversal_or_payoff": "The fight becomes a proof of their care language.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "card-05",
+      "title": "Banter To Belonging",
+      "influence_type": "selected_process_card",
+      "source_patterns": [
+        "golden-viral-carousel-theme"
+      ],
+      "confidence": 0.85,
+      "reason": "The concept uses a desi phrase and turns banter/gussa into belonging."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 4,
+    "total": 29
+  },
+  "golden_theme_score": {
+    "universal_hook": 5,
+    "aachu_zuv_specificity": 5,
+    "concrete_proof": 5,
+    "zuv_emotional_role": 5,
+    "tender_thesis": 4,
+    "share_send_potential": 5,
+    "total": 29
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "copy_locked": true,
+    "visual_room_required": true,
+    "proof_first_slide": 5
+  }
+}
