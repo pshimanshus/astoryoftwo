@@ -23,6 +23,7 @@ Wiki pages: 78
 | memory_surface | PASS | info | Required wiki, memory, graph, and log surfaces exist. |
 | advertised_pipeline_files | PASS | info | AGENTS/CLAUDE advertised pipeline entry points exist. |
 | instruction_surface_sync | PASS | info | AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands. |
+| instruction_surface_contract | PASS | info | Instruction surfaces match the current source hierarchy and avoid stale workflow claims. |
 | agentic_os_surface | PASS | info | Agentic OS control-plane files exist and are available to future sessions. |
 | wiki_index_total_pages | PASS | info | wiki/index.md total_pages matches actual wiki page count. |
 | wiki_markdown_metadata | PASS | info | Every wiki page has last_updated, confidence, and sources metadata. |
@@ -62,6 +63,18 @@ Wiki pages: 78
   ],
   "missing_files": [],
   "missing_phrases": {}
+}
+```
+
+### instruction_surface_contract
+
+```json
+{
+  "contract_path": "config/instruction_surface_contract.json",
+  "missing_contract": false,
+  "missing_phrases": {},
+  "banned_hits": {},
+  "line_count_violations": {}
 }
 ```
 
@@ -115,7 +128,7 @@ Wiki pages: 78
 
 ```json
 {
-  "count": 142
+  "count": 145
 }
 ```
 
@@ -123,6 +136,6 @@ Wiki pages: 78
 
 ```json
 {
-  "count": 195
+  "count": 199
 }
 ```

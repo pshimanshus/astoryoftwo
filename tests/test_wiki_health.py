@@ -218,3 +218,82 @@ def test_wiki_health_checks_agentic_os_surface(tmp_path):
     assert checks["agentic_os_surface"]["status"] == "FAIL"
     assert "pipeline/agentic/contracts.py" in checks["agentic_os_surface"]["evidence"]["missing"]
     assert "scripts/agentic_os.py" in checks["agentic_os_surface"]["evidence"]["missing"]
+
+
+def test_health_flags_stale_agents_instruction_surface(tmp_path):
+    minimal_workspace(tmp_path)
+    write_text(
+        tmp_path / "config" / "instruction_surface_contract.json",
+        json.dumps(
+            {
+                "schema_version": "1.0",
+                "max_agents_md_lines": 20,
+                "surfaces": ["AGENTS.md", "CLAUDE.md"],
+                "required_phrases": [
+                    "config/rules/",
+                    "scripts/agentic_os.py carousel-doctor",
+                    "scripts/autopublish.py",
+                ],
+                "banned_phrases": {
+                    "AGENTS.md": ["Entry: scripts/create_illustration_carousel.py"],
+                    "CLAUDE.md": [],
+                },
+            }
+        ),
+    )
+    write_text(
+        tmp_path / "AGENTS.md",
+        "\n".join(
+            [
+                "# AGENTS",
+                "config/rules/",
+                "scripts/agentic_os.py carousel-doctor",
+                "scripts/autopublish.py",
+                "Entry: scripts/create_illustration_carousel.py",
+            ]
+        ),
+    )
+    write_text(
+        tmp_path / "CLAUDE.md",
+        "# CLAUDE\n\nconfig/rules/\nscripts/agentic_os.py carousel-doctor\nscripts/autopublish.py\n",
+    )
+
+    health = collect_wiki_health(tmp_path, today=date(2026, 6, 6))
+    checks = checks_by_id(health)
+
+    assert checks["instruction_surface_contract"]["status"] == "FAIL"
+    assert (
+        "Entry: scripts/create_illustration_carousel.py"
+        in checks["instruction_surface_contract"]["evidence"]["banned_hits"]["AGENTS.md"]
+    )
+
+
+def test_health_passes_clean_instruction_surface_contract(tmp_path):
+    minimal_workspace(tmp_path)
+    write_text(
+        tmp_path / "config" / "instruction_surface_contract.json",
+        json.dumps(
+            {
+                "schema_version": "1.0",
+                "max_agents_md_lines": 20,
+                "surfaces": ["AGENTS.md", "CLAUDE.md"],
+                "required_phrases": [
+                    "config/rules/",
+                    "scripts/agentic_os.py carousel-doctor",
+                    "scripts/autopublish.py",
+                ],
+                "banned_phrases": {
+                    "AGENTS.md": ["Entry: scripts/create_illustration_carousel.py"],
+                    "CLAUDE.md": [],
+                },
+            }
+        ),
+    )
+    clean = "# SURFACE\n\nconfig/rules/\nscripts/agentic_os.py carousel-doctor\nscripts/autopublish.py\n"
+    write_text(tmp_path / "AGENTS.md", clean)
+    write_text(tmp_path / "CLAUDE.md", clean)
+
+    health = collect_wiki_health(tmp_path, today=date(2026, 6, 6))
+    checks = checks_by_id(health)
+
+    assert checks["instruction_surface_contract"]["status"] == "PASS"

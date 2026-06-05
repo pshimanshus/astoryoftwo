@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "max_agents_md_lines": 420,
+  "surfaces": [
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
+  "source_hierarchy": [
+    "docs/superpowers/plans/creative-os-master-plan.md",
+    "docs/superpowers/plans/THE-PLAN.md",
+    "docs/superpowers/plans/2026-05-31-agentic-os-activation-sprint.md",
+    "config/rules/",
+    "config/skill-systems.json",
+    "config/skills/",
+    "agents/"
+  ],
+  "required_phrases": [
+    "config/rules/",
+    "config/skill-systems.json",
+    "scripts/agentic_os.py context --render",
+    "scripts/agentic_os.py skill-system carousel_jam",
+    "scripts/agentic_os.py carousel-doctor",
+    "memory/semantic/",
+    "memory/working.md is pointer-only",
+    "Learning proposals are draft-only",
+    "scripts/wiki_health.py --write --fix-index",
+    "scripts/autopublish.py"
+  ],
+  "banned_phrases": {
+    "AGENTS.md": [
+      "Entry: scripts/create_illustration_carousel.py",
+      "Each package contains:",
+      "C1-C6 runner",
+      "and can be called directly from Claude Code sessions"
+    ],
+    "CLAUDE.md": []
+  }
+}

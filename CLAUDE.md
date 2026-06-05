@@ -31,14 +31,18 @@ venv/bin/python scripts/agentic_os.py skill-system carousel_jam
 venv/bin/python scripts/agentic_os.py index-memory
 venv/bin/python scripts/agentic_os.py search "visual first carousel"
 venv/bin/python scripts/agentic_os.py recall "kitchen comedy carousel"
+venv/bin/python scripts/agentic_os.py carousel-doctor output/carousels/<date>/<slug>
 venv/bin/python scripts/agentic_os.py health
 ```
 
 The control plane is grounded by `config/agentic_context_manifest.json` and
 `config/skill-systems.json`, with the full technical contract in
 `docs/superpowers/specs/agentic-os-control-plane.md`. It does not auto-apply
-learning. Learning events become draft proposals and must pass eval gates
-before any skill/context file is changed.
+learning. Learning proposals are draft-only. Learning events become draft
+proposals and must pass eval gates before any skill/context file is changed.
+`memory/working.md is pointer-only`; durable corrections belong in
+`memory/semantic/` plus the relevant skill, rule, or contract file when behavior
+changes.
 
 ## Canonical Rules — `config/rules/`
 

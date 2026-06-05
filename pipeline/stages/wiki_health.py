@@ -104,6 +104,56 @@ def instruction_surface_evidence(root: Path) -> dict[str, Any]:
     }
 
 
+def instruction_surface_contract_evidence(root: Path) -> dict[str, Any]:
+    path = root / "config" / "instruction_surface_contract.json"
+    if not path.exists():
+        return {
+            "contract_path": "config/instruction_surface_contract.json",
+            "missing_contract": True,
+            "missing_phrases": {},
+            "banned_hits": {},
+            "line_count_violations": {},
+        }
+
+    contract = json.loads(path.read_text(encoding="utf-8"))
+    required = contract.get("required_phrases", [])
+    banned_by_surface = contract.get("banned_phrases", {})
+    surfaces = contract.get("surfaces", INSTRUCTION_SURFACE_FILES)
+    max_agents_lines = int(contract.get("max_agents_md_lines", 10_000))
+
+    missing_phrases: dict[str, list[str]] = {}
+    banned_hits: dict[str, list[str]] = {}
+    line_count_violations: dict[str, int] = {}
+
+    for relative in surfaces:
+        surface_path = root / relative
+        text = surface_path.read_text(encoding="utf-8") if surface_path.exists() else ""
+        absent = [phrase for phrase in required if not instruction_has_phrase(text, phrase)]
+        if absent:
+            missing_phrases[relative] = absent
+
+        hits = [
+            phrase
+            for phrase in banned_by_surface.get(relative, [])
+            if instruction_has_phrase(text, phrase)
+        ]
+        if hits:
+            banned_hits[relative] = hits
+
+        if relative == "AGENTS.md":
+            line_count = len(text.splitlines())
+            if line_count > max_agents_lines:
+                line_count_violations[relative] = line_count
+
+    return {
+        "contract_path": "config/instruction_surface_contract.json",
+        "missing_contract": False,
+        "missing_phrases": missing_phrases,
+        "banned_hits": banned_hits,
+        "line_count_violations": line_count_violations,
+    }
+
+
 def relative_path(path: Path, root: Path) -> str:
     try:
         return path.relative_to(root).as_posix()
@@ -211,6 +261,23 @@ def collect_wiki_health(root: Path, today: date | None = None) -> dict[str, Any]
             "critical" if instruction_drift else "info",
             "AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands.",
             instruction_evidence,
+        )
+    )
+
+    contract_evidence = instruction_surface_contract_evidence(root)
+    contract_drift = bool(
+        contract_evidence["missing_contract"]
+        or contract_evidence["missing_phrases"]
+        or contract_evidence["banned_hits"]
+        or contract_evidence["line_count_violations"]
+    )
+    checks.append(
+        make_check(
+            "instruction_surface_contract",
+            "FAIL" if contract_drift else "PASS",
+            "critical" if contract_drift else "info",
+            "Instruction surfaces match the current source hierarchy and avoid stale workflow claims.",
+            contract_evidence,
         )
     )
 
