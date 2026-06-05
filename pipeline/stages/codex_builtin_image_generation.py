@@ -22,7 +22,6 @@ from pipeline.stages.model_native_image_generation import (
     decode_png,
     existing_reference_paths,
     normalize_native_output,
-    prompt_for_native_format,
 )
 
 
@@ -342,6 +341,94 @@ def infer_workspace_root_from_carousel_dir(carousel_dir: Path) -> Path:
     return resolved
 
 
+def build_handoff_markdown(
+    *,
+    slide_number: int,
+    output_label: str,
+    prompt_filename: str | Path,
+    reference_paths: list[str | Path],
+    exact_slide_copy: str,
+    expected_file: str | Path,
+    generated_source: str | Path,
+    aspect_ratio: str | None = None,
+    native_output_rule: str | None = None,
+    identity_dossier_path: str | None = None,
+    identity_preflight_path: str | None = None,
+) -> str:
+    prompt_path = Path(str(prompt_filename))
+    prompt_display = prompt_path.name
+    lines = [
+        f"# Codex Built-In Image Prompt - Slide {slide_number:02d} - {output_label}",
+        "",
+        "Use the Codex built-in image generator. Do not use external API keys or external image API clients.",
+        "",
+        "## How To Use This File",
+        "",
+        "- This markdown file is the Codex handoff/checklist, not the exact text to paste into the image model.",
+        f"- Paste the full prompt from `{prompt_display}` into the image generator.",
+        f"- Prompt file path: `{prompt_filename}`.",
+        "- After generation, package the returned image with `scripts/package_generated_carousel.py` or the proof-specific workflow.",
+        "",
+        "## Prompt Source",
+        "",
+        f"Paste the full prompt from `{prompt_display}`. This markdown file intentionally does not duplicate the prompt body, so `.prompt.txt` remains the only generation prompt source.",
+        "",
+        "## Native Output Contract",
+        "",
+        f"- Native output format: {output_label}",
+    ]
+    if aspect_ratio:
+        lines.append(f"- Required aspect ratio: {aspect_ratio}")
+    lines.extend(
+        [
+            f"- Required final file: `{expected_file}`",
+        ]
+    )
+    if native_output_rule:
+        lines.append(f"- {native_output_rule}")
+    lines.extend(
+        [
+            "- Generate this format as its own artwork. Do not create it by resizing another generated slide.",
+            "",
+            "## Hard Gate",
+            "",
+            "- The paste-ready `.prompt.txt` must include the @a.storyof.two watercolor-and-ink master prompt structure.",
+            "- Before any slide generation, read `identity-generation-preflight.md` and load/view `identity-face-contact-sheet.jpg`.",
+            "- Preserve the carousel story-director spine embedded in `prompt-pack.json`: hook, setup, proof, bridge, active Zuv role, earned ending, and send/save reason.",
+            "- Before calling image generation, load/view every identity reference listed below so they are actual image inputs in the Codex context.",
+            "- Use the selected identity images as face, hair, expression, body proportion, posture, and relationship-energy references.",
+            "- Do not accept generic Aachu/Zuv faces.",
+            "- Keep the exact slide copy and tiny `@a.storyof.two` brandmark inside the generated image.",
+            "",
+            "## Identity Dossier",
+            "",
+            f"- Dossier: {identity_dossier_path or 'missing'}",
+            f"- Preflight: {identity_preflight_path or 'missing'}",
+            "",
+            "## Actual Image Inputs",
+            "",
+        ]
+    )
+    if reference_paths:
+        lines.extend(f"- {path}" for path in reference_paths)
+    else:
+        lines.append("- none recorded")
+    lines.extend(
+        [
+            "",
+            "## Exact Slide Copy",
+            "",
+            exact_slide_copy,
+            "",
+            "## Expected Output",
+            "",
+            f"- Save packaged final to `{expected_file}`.",
+            f"- Source provenance should point to the Codex generated image copied into `{generated_source}`.",
+        ]
+    )
+    return "\n".join(lines) + "\n"
+
+
 def prompt_file_text(
     *,
     carousel_dir: Path,
@@ -366,68 +453,24 @@ def prompt_file_text(
         / "model-native-source"
         / f"{'instagram-post' if output_format == INSTAGRAM_POST_FORMAT else 'reels-stories'}-slide-{number:02d}.png"
     )
-    lines = [
-        f"# Codex Built-In Image Prompt - Slide {number:02d} - {output_spec['label']}",
-        "",
-        "Use the Codex built-in image generator. Do not use external API keys or external image API clients.",
-        "",
-        "## How To Use This File",
-        "",
-        "- This markdown file is the Codex handoff/checklist, not the exact text to paste into the image model.",
-        f"- Attach/view the image references below, then paste only `{generator_prompt_path}` into the image generator.",
-        "- After generation, package the returned image with `scripts/package_generated_carousel.py` or the proof-specific workflow.",
-        "",
-        "## Native Output Contract",
-        "",
-        f"- Native output format: {output_spec['label']}",
-        f"- Required aspect ratio: {output_spec['aspect_ratio']}",
-        f"- Required final file: `{expected_file}`",
-        f"- {NATIVE_OUTPUT_CONTRACT['rule']}",
-        "- Generate this format as its own artwork. Do not create it by resizing another generated slide.",
-        "",
-        "## Hard Gate",
-        "",
-        "- The paste-ready `.prompt.txt` must include the @a.storyof.two watercolor-and-ink master prompt structure.",
-        "- Before any slide generation, read `identity-generation-preflight.md` and load/view `identity-face-contact-sheet.jpg`.",
-        "- Preserve the carousel story-director spine embedded in `prompt-pack.json`: hook, setup, proof, bridge, active Zuv role, earned ending, and send/save reason.",
-        "- Before calling image generation, load/view every identity reference listed below so they are actual image inputs in the Codex context.",
-        "- Use the selected identity images as face, hair, expression, body proportion, posture, and relationship-energy references.",
-        "- Do not accept generic Aachu/Zuv faces.",
-        "- Keep the exact slide copy and tiny `@a.storyof.two` brandmark inside the generated image.",
-        "",
-        "## Identity Dossier",
-        "",
-        f"- Dossier: {identity_dossier_path or 'missing'}",
-        f"- Preflight: {identity_preflight_path or 'missing'}",
-        "",
-        "## Actual Image Inputs",
-        "",
-        "Identity dossier references:",
-        *[f"- {path}" for path in dossier_paths],
-        "",
-        "Identity references:",
-        *[f"- {path}" for path in identity_paths],
-        "",
-        "Story/source references:",
-        *[f"- {path}" for path in source_paths],
-        "",
-        "Style references:",
-        *[f"- {path}" for path in style_paths],
-        "",
-        "## Exact Slide Copy",
-        "",
-        text,
-        "",
-        "## Prompt",
-        "",
-        prompt_for_native_format(slide_prompt["prompt"], output_format),
-        "",
-        "## Expected Output",
-        "",
-        f"- Save packaged final to `{expected_file}`.",
-        f"- Source provenance should point to the Codex generated image copied into `{generated_source}`.",
-    ]
-    return "\n".join(lines) + "\n"
+    reference_paths: list[Path] = []
+    reference_paths.extend(dossier_paths)
+    reference_paths.extend(identity_paths)
+    reference_paths.extend(source_paths)
+    reference_paths.extend(style_paths)
+    return build_handoff_markdown(
+        slide_number=number,
+        output_label=output_spec["label"],
+        prompt_filename=generator_prompt_path,
+        reference_paths=reference_paths,
+        exact_slide_copy=str(text),
+        expected_file=expected_file,
+        generated_source=generated_source,
+        aspect_ratio=output_spec["aspect_ratio"],
+        native_output_rule=NATIVE_OUTPUT_CONTRACT["rule"],
+        identity_dossier_path=identity_dossier_path,
+        identity_preflight_path=identity_preflight_path,
+    )
 
 
 def prepare_codex_builtin_image_generation(

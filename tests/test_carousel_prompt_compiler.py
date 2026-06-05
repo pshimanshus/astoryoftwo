@@ -120,6 +120,26 @@ def test_compile_image_prompt_preserves_canonical_master_prompt_fragments():
         assert fragment in prompt
 
 
+def test_handoff_markdown_points_to_prompt_txt_without_second_prompt_body():
+    from pipeline.stages.codex_builtin_image_generation import build_handoff_markdown
+
+    markdown = build_handoff_markdown(
+        slide_number=1,
+        output_label="Instagram Post Output",
+        prompt_filename="slide-01.prompt.txt",
+        reference_paths=["identity_images/aachu-zuv-reference.jpg"],
+        exact_slide_copy="dumber",
+        expected_file="final/slide-01.png",
+        generated_source="final/model-native-source/instagram-post-slide-01.png",
+    )
+
+    assert "Paste the full prompt from `slide-01.prompt.txt`" in markdown
+    assert "This markdown file intentionally does not duplicate the prompt body" in markdown
+    assert "\n## Prompt Source\n" in markdown
+    assert "\n## Prompt\n" not in markdown
+    assert "ON-IMAGE TEXT:\ndumber" not in markdown
+
+
 def test_extract_scene_summary_prefers_scene_block_from_legacy_prompt():
     legacy_prompt = (
         "References: [output/carousels/demo/final-images.json]. "
