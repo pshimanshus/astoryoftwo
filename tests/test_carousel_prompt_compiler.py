@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from pipeline.stages.carousel_prompt_compiler import MAX_PROMPT_CHARS, compile_image_prompt, extract_scene_summary
@@ -92,6 +94,30 @@ def test_compile_image_prompt_uses_creator_text_rule_without_no_text_conflict():
     assert "Do not add extra words" in prompt
     assert "BRAND INTEGRATION VISIBILITY RULE" in prompt
     assert "no text baked into image" not in prompt.lower()
+
+
+def test_compile_image_prompt_preserves_canonical_master_prompt_fragments():
+    canonical = Path("config/references/a-story-illustration-master-prompt.md").read_text(encoding="utf-8")
+    required_fragments = [
+        "If actual identity reference images and style reference images cannot be used by the image-generation call",
+        "This means neutral premium ivory/off-white paper, not yellow, not mustard",
+        "If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream",
+        "BRANDMARK RULE:",
+        "BRAND LABEL WORKFLOW:",
+    ]
+    prompt = compile_image_prompt(
+        slide_number=1,
+        slide_count=5,
+        slide_copy="dumber",
+        visual="Aachu at a kitchen doorway, Zuv smiling from inside.",
+        format_key="instagram_post",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+    )
+
+    for fragment in required_fragments:
+        assert fragment in canonical
+        assert fragment in prompt
 
 
 def test_extract_scene_summary_prefers_scene_block_from_legacy_prompt():

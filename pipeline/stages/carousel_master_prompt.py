@@ -1,11 +1,14 @@
-"""Canonical model-native illustration prompt for @a.storyof.two carousels."""
+"""Disk-backed model-native illustration prompt for @a.storyof.two carousels."""
 
 from __future__ import annotations
 
+from functools import lru_cache
+from pathlib import Path
 from typing import Any
 
 
 MASTER_PROMPT_VERSION = "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock"
+CANONICAL_MASTER_PROMPT_PATH = Path("config/references/a-story-illustration-master-prompt.md")
 
 MASTER_PROMPT_REQUIRED_SECTIONS = [
     "USE CASE",
@@ -24,12 +27,24 @@ MASTER_PROMPT_REQUIRED_SECTIONS = [
     "BACKGROUND STYLE",
     "LINE AND TEXTURE DETAILS",
     "ANATOMY AND QUALITY RULES",
+    "SCENE LOGIC AND POSE RULES",
     "TEXT RULE",
     "STYLE ACCEPTANCE RULE",
-    "REFERENCE ADAPTATION RULE",
+    "BRANDMARK RULE",
     "FINAL IDENTITY REINFORCEMENT",
     "FINAL STYLE REINFORCEMENT",
-    "FINAL IMAGE RENDERING LAYER",
+    "REFERENCE ESSENCE RULE",
+    "BRAND INTEGRATION VISIBILITY RULE",
+    "BRAND LABEL WORKFLOW",
+]
+
+CANONICAL_REQUIRED_FRAGMENTS = [
+    "ON-IMAGE TEXT:",
+    "@a.storyof.two",
+    "This means neutral premium ivory/off-white paper, not yellow, not mustard",
+    "If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream",
+    "BRANDMARK RULE:",
+    "BRAND LABEL WORKFLOW:",
 ]
 
 NATIVE_FORMAT_SPECS: dict[str, dict[str, str]] = {
@@ -50,15 +65,44 @@ NATIVE_FORMAT_SPECS: dict[str, dict[str, str]] = {
 }
 
 
+def _extract_text_fence(markdown: str) -> str:
+    start_marker = "```text"
+    start = markdown.find(start_marker)
+    if start == -1:
+        return markdown.strip()
+
+    body_start = markdown.find("\n", start)
+    if body_start == -1:
+        return markdown.strip()
+
+    end = markdown.find("\n```", body_start)
+    if end == -1:
+        return markdown[body_start:].strip()
+    return markdown[body_start:end].strip()
+
+
+@lru_cache(maxsize=1)
+def load_canonical_master_prompt() -> str:
+    prompt = _extract_text_fence(CANONICAL_MASTER_PROMPT_PATH.read_text(encoding="utf-8"))
+    missing = [fragment for fragment in CANONICAL_REQUIRED_FRAGMENTS if fragment not in prompt]
+    if missing:
+        raise ValueError(
+            "Canonical master prompt is missing required fragments: "
+            + ", ".join(missing)
+        )
+    return prompt
+
+
 def master_prompt_contract() -> dict[str, Any]:
     return {
         "version": MASTER_PROMPT_VERSION,
+        "source_path": str(CANONICAL_MASTER_PROMPT_PATH),
         "required": True,
         "rule": (
             "Every final Codex/image-generation prompt for @a.storyof.two carousel slides "
-            "must use this creator-locked watercolor-and-ink master prompt structure, "
-            "then append the slide-specific on-image text, scene, pose, wardrobe, "
-            "props, background, and emotion."
+            "must load the creator-locked watercolor-and-ink master prompt from disk, "
+            "then fill the slide-specific on-image text, scene, pose, wardrobe, "
+            "props, background, emotion, native format, and negative prompt."
         ),
         "required_sections": MASTER_PROMPT_REQUIRED_SECTIONS,
         "native_outputs": {
@@ -82,6 +126,17 @@ def master_prompt_contract() -> dict[str, Any]:
     }
 
 
+def _fill_slide_placeholders(master_prompt: str, *, slide_copy: str, scene_description: str) -> str:
+    return (
+        master_prompt.replace(
+            "[INSERT EXACT TEXT TO INCLUDE IN THE ILLUSTRATION HERE]",
+            slide_copy,
+        )
+        .replace("[INSERT SLIDE SCENE HERE]", scene_description)
+        .strip()
+    )
+
+
 def build_generation_master_prompt(
     *,
     slide_number: int,
@@ -101,150 +156,26 @@ def build_generation_master_prompt(
         raise ValueError(f"Unsupported format_key: {format_key}")
 
     spec = NATIVE_FORMAT_SPECS[format_key]
-    return f"""USE CASE:
-illustration-story
+    master = _fill_slide_placeholders(
+        load_canonical_master_prompt(),
+        slide_copy=slide_copy,
+        scene_description=scene_description,
+    )
+    slide_contract = f"""
 
 MASTER PROMPT VERSION:
 {MASTER_PROMPT_VERSION}
 
-ASSET TYPE:
-Premium hand-drawn romantic narrative slide in watercolor-and-ink for @a.storyof.two, with exact readable text baked naturally into the image and only the tiny low-contrast bottom-right handwritten brandmark.
-Required paired asset flow for every slide:
-- Instagram Post Output: native 4:5, 1080x1350.
-- Reels/Stories Output: native 9:16, 1080x1920.
+SLIDE-SPECIFIC CONTRACT:
+This is a premium hand-drawn romantic narrative slide with exact readable text baked naturally into the image.
 Current render: {spec['label']}, {spec['canvas']}, {spec['avoid']}.
+Format: native {spec['ratio']} at {spec['size']}.
 Do not resize from another format. Do not resize, crop, pad, stretch, or extend one format from the other. Generate this canvas natively.
+Preserve spelling, line breaks, punctuation, and wording exactly.
 Slide {slide_number:02d} of {slide_count:02d}.
 
-REFERENCE IMAGE ROLES:
-Use the selected identity reference images as the highest-priority source for the two main characters' faces, hair, skin tone, age, ethnicity, body language, and emotional presence.
-Use the Aachu/Zuv identity reference as the face and wardrobe anchor always.
-Use shared images only as mood/composition references unless explicitly told otherwise; preserve their text, message, emotion, story, hand gesture, scene idea, and requested composition, but do not let their visual style take over.
-Use the observational-intimacy-premium and previous successful illustration references only for illustration style, handwritten font style, color palette, line quality, paper texture, composition, wardrobe continuity, and recurring props.
-Use story/source references as evidence for setting, outfits, gestures, and objects when provided.
-Identity references are not style references. Previous illustrations are not identity references. Identity refs control the face; previous successful slides control the visual language.
-Do not copy the exact pose or scene from references unless requested. Preserve identity and style while creating the new scene.
-If identity references cannot be attached as actual image inputs, do not invent new faces or accept generic stand-ins.
-
-PRIMARY REQUEST:
-Create a premium vertical romantic watercolor-and-ink illustration of the same recurring South Asian couple from the identity references, in the scene described below. Preserve the emotional essence, copy, message, and story from supplied references, but keep the final artwork in the observational-intimacy-premium A Story of Two house style: warm ivory paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, intimate, tender, cozy, stylish, emotionally warm, tall, airy, and phone-screen readable.
-
-ON-IMAGE TEXT:
-{slide_copy}
-
-SCENE:
-{scene_description}
-
-CHARACTER IDENTITY LOCK:
-The same two people must appear in every slide.
-
-Woman:
-Preserve her recognizable face from the identity references. She has warm medium-brown South Asian skin, large expressive dark eyes, softly arched brows, a delicate nose, natural lips, a youthful oval face, soft cheek structure, and long dark wavy hair. Her hair may be loose, half-tied, or in a casual ponytail depending on the scene, but the thickness, dark color, natural waves, and face-framing strands must remain consistent. Keep her playful warmth, softness, and real-person charm. Do not turn her into a generic model, anime girl, doll-like character, or different person.
-
-Man:
-Preserve his recognizable face from the identity references. He has warm medium-brown South Asian skin, thick dark curly hair, strong eyebrows, dark almond-shaped eyes, a defined nose, short natural stubble beard, kind smile, and relaxed masculine facial structure. Keep the same curly hair silhouette, beard density, brow shape, smile, and gentle gaze. Do not make him older, younger, overly muscular, overly chiseled, generic, or photorealistic.
-
-FACE PRESERVATION RULES:
-Faces are the highest priority. Preserve identity over decorative style.
-Keep eye shape, eyebrow shape, nose, lips, jawline, cheek structure, hairline, skin tone, beard shape, hairstyle, body type, and age consistent with the reference images.
-The characters may be stylized as watercolor illustrations, but they must still be recognizably the same two people.
-Avoid face drift between slides. Do not change ethnicity, facial proportions, hairstyle identity, body type, or skin tone.
-Do not merge their features with each other. Do not create new faces. Do not over-beautify them into different people.
-Identity continuity lock: same-couple continuity must hold across face structure, facial expression, clothing/body-language cues, and every slide in the carousel.
-
-ILLUSTRATION STYLE:
-Hand-drawn romantic editorial illustration. Soft transparent watercolor blooms with fine ink and pencil linework.
-Warm ivory paper background with visible paper grain. Delicate sketch lines, visible hand-drawn texture, gentle crosshatching, imperfect organic edges.
-Faces should be clean and expressive, with soft blush, warm skin shading, and carefully drawn eyes.
-Clothing and props should have tactile detail: denim grain, fabric folds, seams, scarf patterns, knit texture, leather straps, canvas bags, shoe stitching, wood grain, ceramic cups, small jewelry.
-The style should feel like a modern illustrated love-story journal: intimate, tender, cozy, stylish, emotionally warm, premium, and consistent with previous @a.storyof.two slides.
-Project style lock: {style_prompt}
-
-COLOR PALETTE:
-Warm ivory and soft off-white base. Muted denim blue. Soft navy. Off-white cotton. Terracotta red. Warm tan and camel. Gentle brown. Faded sage green. Peach blush accents. Dusty coral heart details.
-Keep the palette soft, cohesive, slightly vintage, and premium. No mustard dominance, heavy sepia wash, neon colors, harsh contrast, glossy digital finish, oversaturated colors, or one-note purple/blue gradient look.
-
-COMPOSITION AND FORMAT:
-Vertical portrait format for {spec['label']}: {spec['ratio']} at {spec['size']}.
-Use the tall, airy carousel feeling of the creator-approved reference while preserving the required native output canvas above.
-Leave generous warm negative space in the upper-middle portion for the integrated on-image text.
-Place the couple in the lower or middle-lower portion of the canvas unless the scene specifically requires otherwise.
-Use airy framing and soft faded watercolor edges. Background should be present but secondary.
-The couple should be the emotional focus. Keep the scene readable at phone-screen size. Avoid clutter.
-Avoid cropping faces, hands, or important props awkwardly. Avoid a hard rectangular scene box.
-
-EMOTIONAL DIRECTION:
-The couple should feel quietly in love, comfortable, playful, and emotionally safe.
-Use small gestures: eye contact, soft smiles, teasing expressions, hand-holding, leaning toward each other, shared objects, caring body language.
-Romance should feel natural and lived-in, not dramatic or posed.
-Scene emotion: {emotion_description}
-
-WARDROBE CONTINUITY:
-Use casual modern Indo-western styling consistent with previous slides.
-Woman wardrobe options: white oversized shirt, blue jeans, blue-red patterned scarf, red patterned sleeveless top, soft printed kurta, sandals, sneakers, small gold earrings, layered necklaces, bangles, tote bag.
-Man wardrobe options: white casual shirt, navy hoodie, black shirt, tan pants, blue jeans, watch, casual sneakers, backpack.
-Use outfits appropriate to the scene, but keep the clothing language connected to the existing carousel. Repeat recognizable items when helpful: blue-red scarf, cream tote bag, white shirt, denim, sneakers, small jewelry.
-Slide wardrobe: {wardrobe_description}
-
-RECURRING PROPS AND MOTIFS:
-Use subtle recurring story objects only when relevant: cream tote bag, blue-red patterned scarf, denim pouch, coffee cup, sneakers, phone with small heart sticker, travel bag, plants, warm lanterns, balcony lights, wooden bench, cafe table, tiny hand-drawn hearts.
-Props should feel intentional and story-driven, not random decoration.
-Slide props: {prop_description}
-
-BACKGROUND STYLE:
-Backgrounds should be softly illustrated with lower detail than the characters.
-Use warm minimal environments: cozy doorway, bedroom corner, balcony, cafe bench, garden edge, travel path, city overlook, hotel room, wooden furniture, potted plants, soft lights.
-Let background edges fade into cream paper. Do not make the background photorealistic.
-Slide background: {background_description}
-
-LINE AND TEXTURE DETAILS:
-Fine ink outlines with natural variation. Soft pencil construction lines may remain subtly visible.
-Use watercolor blooms, dry-brush texture, paper grain, and transparent layered washes.
-Clothing folds should be sketched with confident thin lines. Hair should be drawn with layered curls and strands, not a flat black mass.
-Skin should have warm watercolor shading, not plastic smoothness.
-
-ANATOMY AND QUALITY RULES:
-Natural hands and fingers. Correct number of fingers. Clean facial anatomy. No distorted eyes. No warped smile. No broken wrists. No extra limbs. No duplicated body parts. No melted accessories.
-No random unreadable text. No watermark. No logo except explicitly requested brand/product labels.
-Always include the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the paper artwork.
-No photorealism. No anime. No 3D render. No flat vector art. No children's cartoon style. No heavy black outlines. No harsh shadows. No AI-looking artifacts.
-Negative prompt: {negative_prompt}
-
-SCENE LOGIC AND POSE RULES:
-The image must visually prove the exact written line. Clothing state, props,
-hands, body position, and eye-line must not contradict the ON-IMAGE TEXT. If a
-line says socks before pants, the man cannot already be wearing pants; the
-pants must be visibly separate and unworn. Aachu and Zuv must always look
-natural, flattering, and physically believable. No crouched, cramped,
-squatting, awkwardly folded, broken, or unflattering poses.
-
-TEXT RULE:
-Include the exact written text provided in the ON-IMAGE TEXT section directly inside the generated illustration. The text must be baked into the image as readable, polished, hand-drawn typography that suits the observational-intimacy-premium font styles and romantic watercolor-and-ink storybook style of this project. Place the text in clean warm upper-middle negative space, without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, and wording exactly; preserve capitalization too. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel integrated into the paper and illustration, not like a digital overlay, poster title, or separate graphic layer.
-
-STYLE ACCEPTANCE RULE:
-Identity match is necessary but never sufficient. If the output looks like a generic AI watercolor poster, photorealistic portrait, flat digital art, anime/cartoon, hard-edged screenshot copy, quote-card design, or any non-A Story visual language, the image fails even if the faces are closer. Regenerate until it feels like the observational-intimacy-premium A Story of Two illustrations.
-
-REFERENCE ESSENCE RULE:
-When non-A Story inspiration images or screenshots are supplied, preserve their text, message, emotion, story, hand gesture, body-language essence, and requested composition, but convert the final artwork fully into the A Story of Two watercolor-and-ink house style. Remove screenshot UI, social handles, counters, buttons, watermarks, signatures, and other platform artifacts unless explicitly requested as story content.
-
-REFERENCE ADAPTATION RULE:
-Inspiration screenshots are never layout templates. They provide dialogue, emotion, blocking, gesture, and scene evidence only. No split-screen divider, vertical center line, phone UI, carousel dots, social handle, engagement icon, black app chrome, or screenshot layout device may appear in final art unless the creator explicitly asks for that graphic device as story content. If a reference uses split-screen or app-layout grammar, translate the relationship idea into one premium lived Aachu/Zuv scene with clean negative space. Use architecture, eye-line, bed placement, doorway, furniture, or distance to separate beats naturally instead of drawing a hard graphic divider. If the output looks like a screenshot redraw, quote-card, meme template, or UI-inspired composition instead of an Observational Intimacy Premium illustration, regenerate.
-
-BRAND INTEGRATION VISIBILITY RULE:
-When brand integration is requested, the brand product must remain secondary to the love-story scene but the brand name and core product cue must be clearly readable at phone-screen size. Use a front-facing or three-quarter product angle, enough product size, clean contrast, and minimal occlusion. Do not hide the product name behind scarves, hands, glare, folds, or clutter. If the brand name, logo wordmark, or product type is not legible, the image fails the brand-integration test and must be regenerated. Product labels are allowed only for the requested brand products; do not add unrelated logos, labels, or random text.
-
-FINAL IDENTITY REINFORCEMENT:
-Before finalizing, ensure the woman and man still look like the exact same recurring couple from the identity references. The scene, pose, outfit, and props may change, but their faces, hair identities, skin tones, and emotional presence must remain consistent.
-
-FINAL STYLE REINFORCEMENT:
-The final image should look like a polished hand-drawn watercolor-and-ink romantic carousel illustration from "A Story of Two": warm, intimate, travel-light, emotionally soft, detailed, premium, and consistent with the observational-intimacy-premium references and previous slides.
-
-FINAL IMAGE RENDERING LAYER:
-ON-IMAGE TEXT:
-{slide_copy}
-
-SCENE:
-{scene_description}
+PROJECT STYLE LOCK:
+{style_prompt}
 
 POSE/BODY LANGUAGE:
 {pose_description}
@@ -260,4 +191,8 @@ BACKGROUND:
 
 EMOTION:
 {emotion_description}
+
+NEGATIVE PROMPT:
+{negative_prompt}
 """
+    return (master + slide_contract).strip() + "\n"
