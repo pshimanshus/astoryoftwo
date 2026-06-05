@@ -13,7 +13,7 @@ reference bundle before every current illustration/image/carousel generation.
 
 Creator lock, 2026-05-30: the `observational-intimacy-premium` illustrations
 are the best approved style references so far. Shared images from a new brief
-control only mood, composition, story essence, text, gesture, and objects unless
+control only mood, composition, story essence, text, gesture, visuals, and objects unless
 the creator explicitly says otherwise. Aachu/Zuv identity references control
 faces, expressions, and wardrobe anchors always.
 
