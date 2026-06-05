@@ -1,0 +1,9 @@
+# Project-local Codex defaults for astoryoftwo-analysis.
+#
+# AGENTS.md is now a lean router, but keep this higher limit while the repo
+# still carries dense nested instructions and generated context docs.
+project_doc_max_bytes = 65536
+
+[features]
+goals = true
+hooks = true

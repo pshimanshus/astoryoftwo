@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "venv/bin/python .codex/hooks/stop_closeout_check.py",
+            "timeout": 30,
+            "statusMessage": "Checking closeout scope"
+          }
+        ]
+      }
+    ]
+  }
+}

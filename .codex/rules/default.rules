@@ -1,0 +1,68 @@
+# Project-local Codex command rules.
+
+prefix_rule(
+    pattern = ["venv/bin/python", "-m", "pytest"],
+    decision = "allow",
+    justification = "Running the Python test suite is a routine repo verification command.",
+    match = [
+        "venv/bin/python -m pytest -q",
+        "venv/bin/python -m pytest tests/test_codex_project_surfaces.py -q",
+    ],
+)
+
+prefix_rule(
+    pattern = ["venv/bin/python", "scripts/wiki_health.py"],
+    decision = "allow",
+    justification = "Wiki health is the required deterministic memory/session diagnostic.",
+    match = [
+        "venv/bin/python scripts/wiki_health.py --write --fix-index --session-note closeout",
+    ],
+)
+
+prefix_rule(
+    pattern = ["venv/bin/python", "scripts/agentic_os.py"],
+    decision = "allow",
+    justification = "Agentic OS inspection commands are expected project diagnostics.",
+    match = [
+        "venv/bin/python scripts/agentic_os.py health",
+        "venv/bin/python scripts/agentic_os.py context --render",
+    ],
+)
+
+prefix_rule(
+    pattern = ["make", "test"],
+    decision = "allow",
+    justification = "The Make test target runs the standard local test command.",
+    match = [
+        "make test",
+    ],
+)
+
+prefix_rule(
+    pattern = ["make", "health"],
+    decision = "allow",
+    justification = "The Make health target runs the standard wiki/memory diagnostic.",
+    match = [
+        "make health NOTE=closeout",
+    ],
+)
+
+prefix_rule(
+    pattern = ["venv/bin/python", "scripts/autopublish.py"],
+    decision = "prompt",
+    justification = "Autopublish can commit and publish changes, so require an explicit scoped approval.",
+    match = [
+        "venv/bin/python scripts/autopublish.py --session-note closeout",
+        "venv/bin/python scripts/autopublish.py --session-note closeout --include AGENTS.md",
+    ],
+)
+
+prefix_rule(
+    pattern = ["make", "publish"],
+    decision = "prompt",
+    justification = "Publishing should ask for approval and should be scoped in mixed worktrees.",
+    match = [
+        "make publish NOTE=closeout",
+        "make publish NOTE=closeout INCLUDE=AGENTS.md",
+    ],
+)
