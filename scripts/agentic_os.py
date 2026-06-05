@@ -13,11 +13,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from pipeline.agentic.context_loader import assemble_context_pack, render_context_pack  # noqa: E402
+from pipeline.agentic.carousel_state import derive_carousel_state  # noqa: E402
 from pipeline.agentic.learning_loop import capture_learning_event, create_learning_proposal  # noqa: E402
 from pipeline.agentic.memory_index import build_memory_index, search_memory  # noqa: E402
 from pipeline.agentic.recall import build_recall_bundle, render_recall_bundle  # noqa: E402
 from pipeline.agentic.skill_eval import evaluate_learning_proposal  # noqa: E402
 from pipeline.agentic.skill_registry import discover_skill_records, load_skill_systems, resolve_skill_system  # noqa: E402
+from pipeline.agentic.workflow_doctor import inspect_carousel_package  # noqa: E402
 
 
 def print_json(data: object) -> None:
@@ -71,6 +73,9 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate = sub.add_parser("evaluate-learning")
     evaluate.add_argument("proposal_path", type=Path)
 
+    doctor = sub.add_parser("carousel-doctor")
+    doctor.add_argument("package_dir", type=Path)
+
     sub.add_parser("health")
     return parser
 
@@ -123,6 +128,15 @@ def main(argv: list[str] | None = None) -> int:
         )
     elif args.command == "evaluate-learning":
         print_json(evaluate_learning_proposal(root, args.proposal_path))
+    elif args.command == "carousel-doctor":
+        package_dir = args.package_dir
+        if not package_dir.is_absolute():
+            package_dir = root / package_dir
+        report = inspect_carousel_package(package_dir)
+        state = derive_carousel_state(package_dir)
+        payload = report.to_dict()
+        payload["state"] = state.to_dict()
+        print_json(payload)
     elif args.command == "health":
         pack = assemble_context_pack(root)
         systems = load_skill_systems(root)

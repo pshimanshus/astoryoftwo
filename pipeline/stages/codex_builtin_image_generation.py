@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.layer_e.artifacts import layer_e_gate_reason
+from pipeline.agentic.generation_capability import write_generation_capability
 from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
 from pipeline.stages.carousel_prompt_compiler import compile_image_prompt, extract_scene_summary
 from pipeline.stages.carousel_style_consistency import house_style_consistency_gate_reason
@@ -436,6 +437,7 @@ def prepare_codex_builtin_image_generation(
     formats: list[str] | None = None,
 ) -> dict[str, Any]:
     carousel_dir = carousel_dir.expanduser()
+    generation_capability = write_generation_capability(carousel_dir)
     prompt_dir = carousel_dir / "codex-image-prompts"
     if prompt_dir.exists():
         shutil.rmtree(prompt_dir)
@@ -564,6 +566,7 @@ def prepare_codex_builtin_image_generation(
             "requested_proof_slide": proof_slide,
             "requested_formats": output_formats,
             "native_output_contract": NATIVE_OUTPUT_CONTRACT,
+            "generation_capability": generation_capability,
             "prompt_dir": str(prompt_dir),
             "identity_reference_requirement": (
                 "Load/view identity-face-contact-sheet.jpg and selected identity images before every "

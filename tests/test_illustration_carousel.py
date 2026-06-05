@@ -792,6 +792,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_no_uncontracted_one_off_carousel_generator_scripts(self):
         repo_root = Path(__file__).resolve().parent.parent
         allowed = {
+            "carousel_doctor.py",
             "create_illustration_carousel.py",
             "create_star_proposal_carousel.py",
             "package_generated_carousel.py",
