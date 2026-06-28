@@ -4,15 +4,20 @@ import re
 
 from pipeline.stages.carousel_master_prompt import build_generation_master_prompt
 
-MAX_PROMPT_CHARS = 18000
+# Upper bound on a single compiled image prompt. The canonical master prompt body
+# alone is ~17k chars; this leaves comfortable headroom for the per-slide contract
+# (size, pose, wardrobe, props, background, emotion, style lock, negative prompt)
+# while still catching runaway inputs. The Codex built-in image path accepts long
+# prompts, so the cap is a guardrail against accidental bloat, not a model limit.
+MAX_PROMPT_CHARS = 24000
 
 FORMAT_COPY = {
     "instagram_post": (
-        "Create an exact 4:5 canvas for an Instagram carousel slide, 1080x1350 if size is "
-        "available, not a 9:16 story canvas."
+        "Create an exact 4:5 canvas for an Instagram carousel slide at exactly 1080x1350 px, "
+        "not a 9:16 story canvas."
     ),
     "reels_stories": (
-        "Create an exact 9:16 canvas for Reels/Stories, 1080x1920 if size is available, "
+        "Create an exact 9:16 canvas for Reels/Stories at exactly 1080x1920 px, "
         "not a 4:5 carousel canvas."
     ),
 }
@@ -98,9 +103,8 @@ def compile_image_prompt(
         wardrobe_description=clean_text(
             wardrobe
             or (
-                "Choose from the project wardrobe continuity options based on the scene; keep "
-                "white shirts, denim, scarves, sneakers, small jewelry, tan pants, or navy layers "
-                "consistent when they serve the story."
+                "Use the selected identity images or current identity photos as wardrobe anchors; "
+                "vary scene-appropriate outfits and repeat items only when continuity requires."
             )
         ),
         prop_description=clean_text(

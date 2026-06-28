@@ -31,8 +31,8 @@ the carousel story director persona before writing or designing:
 
 This persona persists through concept, arc, visual plan, copy, prompt pack,
 image-generation handoff, visual QA, and final image sets. It must reject any
-deck that lacks a hook, setup, proof, bridge, active Zuv role, earned ending,
-or send/save reason.
+deck that lacks a hook, setup, proof, bridge, relationship motion or a relevant
+partner role, earned ending, or send/save reason.
 
 For serious carousel concepts, the continuous agent room is mandatory before
 final copy or generation: generate multiple routes, cross-debate story risks,
@@ -69,14 +69,14 @@ Every run must create:
 - `concept-debate.json`: cross-agent debate of universality, safety, generativity, and distribution risk
 - `concept-repairs.json`: repaired top candidates and objections solved
 - `concept-selection.json`: selector verdict, scores, and GO / REPAIR / STOP decision
-- `story-director-lock.json`: locked hook, obstacle, proof, bridge, active partner role, payoff, and send/save reason
+- `story-director-lock.json`: locked hook, obstacle, proof, bridge, relationship motion / relevant partner role, payoff, and send/save reason
 - `concept.json`: title, human truth, emotional arc, slide summaries
 - `post-copy-visual-room.json`: mandatory visual creative-room record after creator-approved copy, before final visual debate, prompt pack, or image generation
 - `visual-debate.json`: Visual Debate Gate record from three visual agents before visual plan finalization, carousel packaging, or image generation
 - `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, stage-scene storytelling, copy-visual alignment, scene logic, pose/anatomy, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags
 - `slides.json`: ordered slide copy, role, visual description, emotion, CTA intent
 - `prompt-pack.json`: shared style prompt, negative prompt, slide prompts
-- `identity-consistency-review.json`: C3.5 pre-generation review that verifies face structure, facial expression, clothing/body-language cues, and cross-slide identity continuity are locked from the selected identity bundle
+- `identity-consistency-review.json`: C3.5 pre-generation review that verifies face structure, facial expression, clothing/body-language cues, and cross-slide identity continuity are locked from selected actual identity image inputs
 - `copy.json`: caption options, alt text, hashtags, posting notes
 - `review.json`: scorecard and required fixes
 - `storyboard.md`: readable slide-by-slide brief
@@ -90,18 +90,27 @@ Every run must create:
 
 Final generated images must be copied into:
 
-- `final/slide-XX.png`: native 4:5 Instagram post artwork in the creator-approved illustration style, with exact ON-IMAGE TEXT baked naturally into the generated image
-- `final-reels-stories/slide-XX.png`: native 9:16 Reels/Stories artwork generated separately for the taller frame, with exact ON-IMAGE TEXT baked naturally into the generated image
-- `final-with-text/slide-XX.png`: legacy local typography overlay exports only
+- `final/slide-XX.png`: native 4:5 Instagram post artwork in the creator-approved illustration style, with exact ON-IMAGE TEXT integrated into the final image raster
+- `final-reels-stories/slide-XX.png`: native 9:16 Reels/Stories artwork generated separately for the taller frame, with exact ON-IMAGE TEXT integrated into the final image raster
+- `final-with-text/slide-XX.png`: optional compatibility duplicate/intermediate only; the publishable text-bearing asset belongs in `final/`
 
 ## Default Format
 
+- Per `config/rules/image-dimensions.md`, the creator hard rule for proof
+  illustrations, concept illustrations, single-slide outputs, and default
+  Instagram post/carousel slides is native `1080x1350 px` (4:5). Generate
+  `1080x1920 px` (9:16) only when the creator explicitly asks for Story/Reel,
+  and `1080x1080 px` square only when the creator explicitly asks for square.
+  Instruct the image model with the exact pixel size, not the aspect ratio
+  alone. Reject any image whose dimensions do not exactly match the requested
+  format; do not crop, pad, stretch, or resize a wrong-dimension output into
+  compliance; regenerate natively.
 - Platform: Instagram
 - Type: Carousel
 - Aspect ratio: 4:5
-- Upload size: 1080x1350
+- Upload size: 1080x1350 px (exact, mandatory)
 - Reels/Stories aspect ratio: 9:16
-- Reels/Stories size: 1080x1920
+- Reels/Stories size: 1080x1920 px (exact, mandatory)
 - Slide count: default 5, range 4-5
 
 Never stretch artwork to fit a target format. Never create the Reels/Stories output by resizing, cropping, padding, or extending the Instagram post output. The final illustration flow uses three output workers: one native 4:5 Instagram Post Output worker, one native 9:16 Reels/Stories Output worker, and one Identity/Visual QA worker that checks both outputs before packaging.
@@ -138,10 +147,13 @@ Use the @a.storyof.two romantic watercolor-and-ink master style:
 - clean expressive faces with warm skin shading, carefully drawn eyes, and soft blush
 - premium muted vintage palette: warm ivory, soft off-white, denim blue, soft navy, terracotta red, camel, gentle brown, faded sage, peach blush, dusty coral
 - tactile clothing and prop details such as denim grain, fabric folds, scarf patterns, leather straps, ceramic cups, small jewelry, and shoe stitching
-- generous warm upper-middle negative space for model-native slide text
+- generous warm upper-middle negative space for exact final slide text
 - one clear Aachu/Zuv behavior scene per slide
+- a non-repeating shot ladder across the carousel: vary camera angle, shot
+  distance, setting lane, primary action, and who is visible; do not solve
+  variety by wardrobe changes alone
 - tiny low-contrast brandmark: `@a.storyof.two` at bottom-right for every final asset
-- rooted in supplied photos and selected identity references before adding decorative interpretation
+- rooted in supplied photos and selected actual identity images before adding decorative interpretation
 
 Every final image-generation handoff must include the project master prompt
 structure from `pipeline/stages/carousel_master_prompt.py`. The prompt must
@@ -154,6 +166,11 @@ identity/style reinforcement, and the final rendering layer.
 Adapt the style to the supplied images:
 
 - preserve recognizable outfit, pose, setting, and relationship cues
+- break visual patterning across slides. Do not repeat the same front-facing
+  full-couple medium shot, bed/table/chai/books/garden prop cluster, or
+  quiet-listening scene unless the creator has locked a continuous sequence.
+  Use wide, medium, close, over-shoulder, single-person, object-only, detail,
+  doorway, reflection, and transition shots as story evidence.
 - treat shared images only as mood/composition/story references unless the
   creator explicitly says otherwise or the images clearly depict the requested
   people/couple for this prompt; in that case, use them as current-request
@@ -170,12 +187,15 @@ Adapt the style to the supplied images:
   as story content.
 - keep Anchal expressive and emotionally alive
 - keep Himanshu calm, warm, and grounded
-- use Aachu/Zuv identity references as the face, expression, posture, and
-  wardrobe anchor
+- use selected actual Aachu/Zuv identity images as attached face, expression,
+  posture, body-proportion, and wardrobe anchors
+- choose wardrobe from those selected identity/current-request photos first;
+  do not use a fixed wardrobe menu as the source of truth
 - treat previous successful illustrations as style references only, never as
   face identity references
-- treat `identity_images/` as a candidate library, then choose a small
-  story-specific identity bundle instead of attaching the whole folder
+- treat `config/references/identity/` and any legacy `identity_images/` folder
+  as candidate libraries, then choose a small story-specific identity bundle
+  instead of attaching the whole folder
 - use desi details only when the photos or story support them
 - add Kashmiri or wedding cues only when authentic to the story
 
@@ -222,7 +242,7 @@ screen-quality judge. A slide passes only when it proves the exact copy through
 visible Aachu/Zuv behavior, preserves the golden-theme machine, keeps identity
 and outfit continuity plausible, avoids rejected/losing visual options, and is
 safe for both 4:5 and 9:16 composition. Any doubt about likeness, story proof,
-visual repetition, text placement, aspect-specific framing, or place/metaphor
+visual repetition, shot-ladder variety, text placement, aspect-specific framing, or place/metaphor
 drift must return REPAIR or STOP. Do not generate that slide, or the carousel,
 until the doubt is repaired and re-reviewed.
 
@@ -233,8 +253,8 @@ the whole identity library into one generation prompt. The flow is:
 
 1. Browse or discover available identity candidates.
 2. Select a curated bundle of 2-4 images for the current story.
-3. Use the bundle as reference evidence for likeness, posture, outfit, context,
-   or expression.
+3. Attach the bundle as visual input evidence for likeness, posture, outfit,
+   context, or expression.
 4. Keep the relationship truth as the premise; outfits and objects stay proof.
 
 Hard face-consistency rule:
@@ -247,6 +267,9 @@ Hard face-consistency rule:
   stop and mark the package blocked instead of producing final art.
 - Any generated slide that does not clearly preserve Aachu/Zuv face structure
   from the identity bundle must be treated as a failed image, not as a final.
+- Wardrobe must be chosen from the selected identity bundle or current-request
+  identity photos first. Repeat outfits only for same-time continuity,
+  creator-requested continuity, or a deliberate signature anchor.
 
 Default bundle roles:
 
@@ -255,10 +278,11 @@ Default bundle roles:
 - story-relevant outfit or context anchor
 - emotion/detail anchor
 
-If the run auto-discovers more than four images under `identity_images/`, it
-must record the larger candidate count but attach only the selected bundle to
-`prompt-pack.json`. If the user explicitly supplies more than four identity
-references for one run, ask them to narrow the set before image generation.
+If the run auto-discovers more than four candidate images under
+`config/references/identity/` or legacy `identity_images/`, it must record the
+larger candidate count but attach only the selected bundle to `prompt-pack.json`.
+If the user explicitly supplies more than four identity references for one run,
+ask them to narrow the set before image generation.
 
 Avoid:
 
@@ -274,10 +298,11 @@ Avoid:
 
 Typography rule:
 
-- Default final slide copy is rendered by the image model inside the illustration.
-- Image-generation prompts must ask for two complete native publishable outputs per slide: 4:5 Instagram post and 9:16 Reels/Stories, each with exact ON-IMAGE TEXT inside the artwork.
+- Default final slide copy must appear inside the final illustration image, not in a separate caption, mockup, or quote-card layer.
+- When the image model can render the exact text cleanly, image-model text is acceptable. When exact text is long or fragile, generate the illustrated scene with clean reserved paper space, then place the approved text into the same final raster as an integrated lettering/typesetting pass.
+- Image-generation prompts must reserve generous clean paper space and ask for no random text beyond the approved slide copy and tiny brandmark. Final export workers must then produce two complete native publishable outputs per slide when required: 4:5 Instagram post and 9:16 Reels/Stories, each with exact ON-IMAGE TEXT inside the final image.
 - Brand-integration prompts may include product labels, but brand/product name legibility is a hard QA gate at phone-screen size. If tiny packaging text is misspelled or blurred by generation, render the product body in the illustration first, then use `scripts/render_brand_product_labels.swift` for exact readable label text.
-- Local text overlays are legacy fallback only and must not satisfy the default model-native final gate.
+- Local text placement is valid only when it is treated as part of the final illustration composition: same warm paper, same visual rhythm, no flat platform typography, no poster/quote-card feel, no separate text-only deliverable. A visible digital overlay fails.
 - Do not claim final images are ready until `final/`, `final-reels-stories/`, and visual QA exist.
 - Do not stop at `READY_FOR_CODEX_BUILTIN_GENERATION` when an image-generation
   path is available. Generate, package, and QA the native `4:5` and separate
@@ -292,7 +317,8 @@ Every story arc must first pass the golden-theme filter:
 1. Universal relationship truth.
 2. Aachu/Zuv-specific interpretation.
 3. Concrete photo, object, behavior, or ritual proof.
-4. Zuv's active emotional role, not just Aachu's chaos.
+4. Relationship motion or relevant partner role; do not default to
+   Zuv-as-handler or Aachu-as-problem.
 5. Tender save/share thesis.
 
 Then pass the story-director structure:
@@ -302,7 +328,7 @@ Then pass the story-director structure:
 3. Proof.
 4. Escalation.
 5. Bridge.
-6. Zuv role.
+6. Relationship motion.
 7. Earned ending.
 
 Never move the strongest hook to the end. The ending can deepen the opening
@@ -318,10 +344,14 @@ The minimum accepted decision record is:
 
 - 5-10 distinct concept variants from different creative lenses;
 - a 30-point Golden Theme score for each variant;
-- a selector verdict that chooses the highest-rated option;
+- a World-Class Taste Gate record that checks novelty, creator-world
+  specificity, non-obvious staged turn, anti-generic replaceability, and score
+  caps;
+- a selector verdict that chooses the highest-rated option that passes every
+  hard gate;
 - a GO / REPAIR / STOP decision;
 - no image generation or carousel packaging unless the winner scores 28/30 or
-  higher.
+  higher and the World-Class Taste Gate applies no cap.
 
 Use one of these structures:
 
@@ -386,10 +416,10 @@ Every Codex-native run must include the review spine:
 5. C7-Final Contract Auditor writes `final-audit.json`.
 6. C3.5-IdentityConsistency writes `identity-consistency-review.json` after slide descriptions are generated and before image generation. It must pass before generating final art.
 7. Final generated images are packaged into `final/slide-XX.png` and `final-reels-stories/slide-XX.png` from separate native generated sources.
-8. `final-with-text/slide-XX.png` exists only for legacy local-overlay runs.
+8. If `final-with-text/slide-XX.png` exists, it is only a compatibility copy or intermediate; `final/slide-XX.png` is the publishable text-bearing image.
 9. `visual-qa.md` and `visual-qa.json` check storyboard match, face
    consistency, dress continuity, style, scene logic, pose/anatomy, exact
-   model-native text, brand/product label visibility when relevant, and final
+   integrated final text, brand/product label visibility when relevant, and final
    output existence.
 10. The run writes a carousel wiki page, updates `wiki/index.md`, appends
    `memory/working.md`, and updates `memory/graph.json`.

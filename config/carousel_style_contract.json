@@ -13,7 +13,7 @@
       "prompt-pack.json",
       "codex-image-prompts/**/*.prompt.txt",
       "Codex built-in image generation",
-      "model-native final image generation"
+      "final image generation and integrated text placement"
     ],
     "rule": "Every final image-generation prompt must use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the observational-intimacy-premium style bundle before slide-specific scene details. The master prompt defines identity-first reference roles, shared images only as mood/composition, A Story of Two watercolor-and-ink style, exact ON-IMAGE TEXT handling, reference essence preservation, brand label visibility, composition, emotional direction, wardrobe continuity, recurring props, background style, line/texture details, anatomy/quality rules, and final identity/style reinforcement.",
     "asset_outputs": {
@@ -28,22 +28,23 @@
         "directory": "final-reels-stories/"
       },
       "illustration_story_proof": {
-        "aspect_ratio": "tall portrait similar to 977x1610",
-        "size": "model-native tall portrait",
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "square_on_request": "1080x1080",
         "directory": "proofs/ or output/illustrations/"
       }
     },
     "reference_image_roles": "Identity references control face, hair, skin tone, age, ethnicity, expressions, body language, wardrobe anchors, and emotional presence. Observational-intimacy-premium and previous A Story illustrations control only style, palette, font style, paper texture, line quality, composition, wardrobe continuity, and recurring props. Shared/non-A Story references control only text, message, emotion, story, gesture, object evidence, and composition essence.",
-    "text_rule": "When ON-IMAGE TEXT is provided, include that exact written text directly inside the generated illustration as readable, polished, hand-drawn typography in clean warm upper-middle negative space. Preserve spelling, line breaks, punctuation, and wording exactly. Do not add extra words, random letters, labels, signs, logos, watermarks, or speech bubbles beyond the required tiny '@a.storyof.two' brandmark. If no ON-IMAGE TEXT is provided, do not invent text.",
+    "text_rule": "When ON-IMAGE TEXT is provided, the final publishable image must include that exact written text as readable, polished, hand-drawn/storybook typography in clean warm upper-middle negative space. Preserve spelling, line breaks, punctuation, and wording exactly. If the image model cannot reliably render the exact text, generate the scene with reserved paper space and place the approved text into the same final image raster as an integrated lettering/typesetting pass. Do not add extra words, random letters, labels, signs, logos, watermarks, or speech bubbles beyond the required tiny '@a.storyof.two' brandmark. If no ON-IMAGE TEXT is provided, do not invent text.",
     "brandmark_rule": "Every final @a.storyof.two illustration must include the tiny low-contrast handwritten brandmark '@a.storyof.two' at bottom-right as part of the artwork."
   },
   "typography": {
-    "strategy": "model_native",
+    "strategy": "integrated_final_text",
     "text_color": "#2a2621",
     "background": "#fbf4e8",
     "max_words_per_slide": 18,
     "max_lines": 3,
-    "placement": "exact requested text belongs in generous clean warm upper-middle whitespace as integrated hand-drawn storybook typography; never cover faces, hands, props, or emotional gestures",
+    "placement": "exact requested text belongs in generous clean warm upper-middle whitespace as integrated hand-drawn/storybook typography in the final image raster; never cover faces, hands, props, or emotional gestures",
     "brandmark_placement": "always bottom-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten"
   },
   "premium_style_lock": {
@@ -58,12 +59,12 @@
     "pose_anatomy_rule": "Aachu and Zuv must look natural, flattering, and physically believable; crouched, cramped, broken, or awkward poses fail."
   },
   "legacy_typography": {
-    "strategy": "legacy_local_overlay",
+    "strategy": "controlled_final_text_placement",
     "text_color": "#2a2621",
     "background": "#fbf4e8",
-    "max_lines": 3,
-    "placement": "generous whitespace",
-    "brandmark_placement": "bottom-right"
+    "placement": "generous warm upper-middle paper whitespace, integrated into the final illustration image",
+    "brandmark_placement": "bottom-right",
+    "rule": "This is not a legacy quote-card overlay. It is the approved exact-text placement path when image-model text would drift; final/slide-XX.png must be the unified text-bearing illustration."
   },
   "public_copy_policy": {
     "name_rule": "Do not force Aachu/Zuv, Anchal/Himanshu, or other private names into every public slide or caption. Use names only when the story naturally needs them.",
@@ -181,16 +182,49 @@
       "silence or pause",
       "consequence",
       "reversal",
-      "payoff"
+      "payoff",
+      "shot ladder",
+      "camera angle variety",
+      "setting lane variety",
+      "repeated prop audit"
     ],
     "copy_rule": "Text completes the scene; text must not carry the scene.",
     "hard_fail_if": [
       "A recommended idea is only a text spine or candidate table.",
       "The visual plan is a quote-card, poster-copy layout, or generic couple pose.",
       "Aachu and Zuv are merely standing beside the line instead of acting inside the beat.",
+      "The visual plan repeats the same shot type, camera angle, setting, and emotional action across slides.",
+      "The plan changes clothes but keeps the same bed/table/chai/books/garden scene grammar.",
       "The story cannot be understood when the on-image text is hidden.",
       "Layer E is not visible in the creator-facing decision record.",
       "The continuous C-layer council is skipped before recommendation."
+    ]
+  },
+  "visual_variety_policy": {
+    "required": true,
+    "artifact": "visual-plan-quality.json",
+    "rule": "Every carousel must break the visual pattern across slides. Variety means changing shot type, camera angle, setting lane, primary visible action, prop grammar, and who is visible; changing wardrobe alone is not enough.",
+    "must_include_per_slide": [
+      "shot type",
+      "camera angle",
+      "setting lane",
+      "primary visible action",
+      "who is visible",
+      "repeated prop/setting check"
+    ],
+    "minimum_gates": [
+      "No same shot type twice in a row unless it is a deliberate before/after or action/reaction pair.",
+      "No more than two full-couple medium shots in a 5-6 slide carousel.",
+      "At least one slide should use single-person, over-shoulder, object-only, or detail-shot grammar when the story allows it.",
+      "At least three distinct setting lanes are required in a 5-6 slide carousel unless the creator has locked a single continuous sequence.",
+      "If the same setting repeats, camera angle and action must change materially."
+    ],
+    "hard_fail_if": [
+      "Four or more slides use the same front-facing or three-quarter full-couple medium shot.",
+      "Consecutive slides repeat the same camera angle, distance, and emotional action.",
+      "Every slide shows both partners sitting together and processing feelings.",
+      "The deck defaults to bed, table, chai, books, mugs, garden, balcony plants, or quiet-listening scenes without story need.",
+      "The deck feels like the same scene with new captions after hiding the text."
     ]
   },
   "visual_debate_policy": {
@@ -214,6 +248,8 @@
       "Image generation starts before visual-debate.json exists.",
       "Creator-confirmed copy exists but post-copy-visual-room.json is missing or not GO.",
       "The visual plan repeats one prop, color accent, object, or location across every slide without a story reason.",
+      "The visual plan repeats the same shot type, camera angle, composition, or both-people action across slides.",
+      "The visual plan changes wardrobe but not camera/action/setting grammar.",
       "The visual plan defaults to home interiors after the creator asks for outside/public visuals.",
       "The visual plan makes objects, outfits, or places the premise instead of relationship evidence.",
       "Zuv's care is passive, absent, performative, or framed as rescue."
@@ -366,7 +402,7 @@
   },
   "production_gate": {
     "final_art_requirement": "generated_scene_illustrations",
-    "rule": "Identity photos are references for likeness, clothing, posture, and relationship energy. Style references are references for A Story of Two watercolor-and-ink composition, clothing fidelity, warm ivory paper illustration, and handwritten text integration. Default final art must be generated as complete publishable illustrations with exact ON-IMAGE TEXT baked into the artwork. For brand integration, requested product labels must be readable at phone-screen size and remain tasteful scene props; illegible brand/product names fail QA.",
+    "rule": "Identity photos are references for likeness, clothing, posture, and relationship energy. Style references are references for A Story of Two watercolor-and-ink composition, clothing fidelity, warm ivory paper illustration, and handwritten text integration. Default final art must be complete publishable illustrations with exact ON-IMAGE TEXT integrated into the final raster. Model-native text is acceptable only when exact; otherwise use controlled final text placement on the illustrated scene. For brand integration, requested product labels must be readable at phone-screen size and remain tasteful scene props; illegible brand/product names fail QA.",
     "forbidden_final_art": [
       "photo-filter",
       "opencv-cartoon-filter",
@@ -393,15 +429,15 @@
     ],
     "approved_creation_path": "Use scripts/create_illustration_carousel.py and the C-layer artifact contract for new carousel work. One-off carousel renderers are not allowed unless they are explicitly approved as legacy fixtures."
   },
-  "last_updated": "2026-05-30",
+  "last_updated": "2026-06-15",
   "creator_approved_illustration_style": {
     "status": "locked",
     "source": "direct creator correction on 2026-05-30: these are the best illustrations produced so far and must be followed always for every @a.storyof.two image, illustration, and carousel generation.",
     "source_run": "observational-intimacy-premium",
     "reference_bundle": "config/references/style-lock/observational-intimacy-premium/",
-    "rule": "For @a.storyof.two illustration-story assets, always start from config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the observational-intimacy-premium style bundle. Preserve the approved look: identity-first recurring Aachu/Zuv faces, Aachu/Zuv identity reference as the face and wardrobe anchor, shared images only as mood/composition unless they clearly depict the requested people/couple for this prompt, exact handwritten text in upper-middle negative space, couple and props in the lower or middle-lower canvas, soft minimal background, tactile wardrobe and prop detail, warm ivory paper, visible paper grain, transparent watercolor blooms, fine ink/pencil linework, delicate sketch texture, muted vintage color, soft faded edges, tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right, and no dense external-reference style takeover.",
-    "default_text_behavior": "Render ON-IMAGE TEXT exactly inside the generated illustration as readable, polished hand-drawn typography in clean warm upper-middle negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. If no ON-IMAGE TEXT is provided, infer the shortest faithful line from the creator prompt, screenshot text, or reference essence; if no text is implied, generate a no-narrative-text prompt/proof with only the tiny brandmark instead of asking.",
-    "preferred_raw_aspect": "Tall portrait similar to 977x1610 for illustration-story proofs and style tests. When a publishing surface requires 4:5 or 9:16, generate that surface natively in the same visual style instead of cropping, padding, or resizing another aspect.",
+    "rule": "For @a.storyof.two illustration-story assets, always start from config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the observational-intimacy-premium style bundle. Preserve the approved look: identity-first recurring Aachu/Zuv faces, Aachu/Zuv identity reference as the face and wardrobe anchor, shared images only as mood/composition unless they clearly depict the requested people/couple for this prompt, exact handwritten text integrated into the final image's upper-middle negative space, couple and props in the lower or middle-lower canvas, soft minimal background, tactile wardrobe and prop detail, warm ivory paper, visible paper grain, transparent watercolor blooms, fine ink/pencil linework, delicate sketch texture, muted vintage color, soft faded edges, tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right, and no dense external-reference style takeover.",
+    "default_text_behavior": "Every @a.storyof.two proof/concept/final must include exact ON-IMAGE TEXT inside the final image. Preserve spelling, punctuation, capitalization, and line breaks exactly. If the image model cannot reliably render exact copy, generate the illustration with clean reserved paper space and place the approved text into the same final raster as integrated A Story lettering/typesetting. Never present a textless source illustration as proof/final.",
+    "preferred_raw_aspect": "Creator hard rule (config/rules/image-dimensions.md): proof illustrations, concept illustrations, single-slide outputs, and default Instagram post/carousel slides must be generated natively at exactly 1080x1350 px (Instagram Feed Portrait, 4:5). If the creator explicitly asks for Story/Stories/Reel/Reels, generate natively at exactly 1080x1920 px (9:16). Generate square 1080x1080 px only when the creator explicitly asks for square. Instruct the image model with the exact pixel size, not the aspect ratio alone. Reject any image whose dimensions do not exactly match the requested format; do not crop, pad, stretch, or resize to fake compliance.",
     "reference_roles": "Identity references control the couple faces, expressions, posture, body proportions, and wardrobe anchors. User-shared photos that clearly depict the requested people/couple can serve as current-request identity references even without explicit role labels. Observational-intimacy-premium and previous A Story illustrations control style, composition, palette, wardrobe continuity, line quality, font style, and text integration. Other references control essence, message, emotion, story, pose, and requested composition only.",
     "hard_fail_if": [
       "The image does not feel like the A Story of Two watercolor-and-ink house style.",
@@ -419,7 +455,7 @@
   "brand_integration_policy": {
     "required_when": "creator asks to test, add, or place a brand/product in an illustration",
     "rule": "The brand product must be a tasteful story prop, but the brand name, product name/type, and core color/package cue must be legible at phone-screen size.",
-    "implementation": "Use a two-step brand workflow when needed: generate the product body, color, scale, and placement as part of the watercolor illustration; if the image model produces unreadable product text, apply a controlled exact product-label pass with scripts/render_brand_product_labels.swift so the final image has readable brand text without losing the A Story of Two style. Narrative slide copy still belongs in ON-IMAGE TEXT during image generation.",
+    "implementation": "Use a two-step brand workflow when needed: generate the product body, color, scale, and placement as part of the watercolor illustration; if the image model produces unreadable product text, apply a controlled exact product-label pass with scripts/render_brand_product_labels.swift so the final image has readable brand text without losing the A Story of Two style. Narrative slide copy follows the same exactness principle: it must be integrated into the final image raster, with controlled text placement used whenever image-model text would drift.",
     "placement": "Use a front-facing or three-quarter angle, enough size, clean contrast, and minimal occlusion. Keep it near the story object, such as suitcase, toiletry pouch, table, or hand, without making the whole slide an ad.",
     "hard_fail_if": [
       "Brand name or wordmark is unreadable.",

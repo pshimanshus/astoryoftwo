@@ -1,6 +1,6 @@
 # Wiki Health Diagnostics
 
-last_updated: 2026-06-06
+last_updated: 2026-06-15
 confidence: 0.82
 sources:
 - AGENTS.md
@@ -14,7 +14,7 @@ sources:
 Status: PASS
 Failures: 0
 Warnings: 0
-Wiki pages: 78
+Wiki pages: 79
 
 ## Checks
 
@@ -107,8 +107,8 @@ Wiki pages: 78
 
 ```json
 {
-  "declared": 78,
-  "actual": 78
+  "declared": 79,
+  "actual": 79
 }
 ```
 
@@ -128,7 +128,7 @@ Wiki pages: 78
 
 ```json
 {
-  "count": 153
+  "count": 157
 }
 ```
 
@@ -136,6 +136,6 @@ Wiki pages: 78
 
 ```json
 {
-  "count": 210
+  "count": 214
 }
 ```

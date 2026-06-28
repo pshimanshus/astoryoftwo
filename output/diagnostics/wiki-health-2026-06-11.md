@@ -1,6 +1,6 @@
 # Wiki Health Diagnostics
 
-last_updated: 2026-06-06
+last_updated: 2026-06-11
 confidence: 0.82
 sources:
 - AGENTS.md
@@ -128,7 +128,7 @@ Wiki pages: 78
 
 ```json
 {
-  "count": 153
+  "count": 154
 }
 ```
 
@@ -136,6 +136,6 @@ Wiki pages: 78
 
 ```json
 {
-  "count": 210
+  "count": 211
 }
 ```

@@ -1,4 +1,4 @@
-"""Disk-backed model-native illustration prompt for @a.storyof.two carousels."""
+"""Disk-backed final illustration prompt for @a.storyof.two carousels."""
 
 from __future__ import annotations
 
@@ -14,6 +14,7 @@ MASTER_PROMPT_REQUIRED_SECTIONS = [
     "USE CASE",
     "ASSET TYPE",
     "REFERENCE IMAGE ROLES",
+    "IDENTITY IMAGE INPUT CONTRACT",
     "PRIMARY REQUEST",
     "SCENE",
     "CHARACTER IDENTITY LOCK",
@@ -45,6 +46,8 @@ CANONICAL_REQUIRED_FRAGMENTS = [
     "treat those photos as current-request identity references",
     "This means neutral premium ivory/off-white paper, not yellow, not mustard",
     "If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream",
+    "The final image-generation call must attach selected actual identity images",
+    "Wardrobe must be selected from the attached identity images",
     "BRANDMARK RULE:",
     "BRAND LABEL WORKFLOW:",
 ]
@@ -54,14 +57,14 @@ NATIVE_FORMAT_SPECS: dict[str, dict[str, str]] = {
         "label": "Instagram Post Output",
         "ratio": "4:5",
         "size": "1080x1350",
-        "canvas": "exact 4:5 canvas for an Instagram carousel slide, 1080x1350 if size is available",
+        "canvas": "exact 4:5 canvas for an Instagram carousel slide, native 1080x1350 px",
         "avoid": "not a 9:16 story canvas",
     },
     "reels_stories": {
         "label": "Reels/Stories Output",
         "ratio": "9:16",
         "size": "1080x1920",
-        "canvas": "exact 9:16 canvas for Reels/Stories, 1080x1920 if size is available",
+        "canvas": "exact 9:16 canvas for Reels/Stories, native 1080x1920 px",
         "avoid": "not a 4:5 carousel canvas",
     },
 }
@@ -171,7 +174,7 @@ MASTER PROMPT VERSION:
 SLIDE-SPECIFIC CONTRACT:
 This is a premium hand-drawn romantic narrative slide with exact readable text baked naturally into the image.
 Current render: {spec['label']}, {spec['canvas']}, {spec['avoid']}.
-Format: native {spec['ratio']} at {spec['size']}.
+Required output size: exactly {spec['size']} px, native {spec['ratio']}. The pixel size is mandatory, not optional. Generate the canvas natively at exactly {spec['size']} px; never output any other dimension and never rely on the aspect ratio alone.
 Do not resize from another format. Do not resize, crop, pad, stretch, or extend one format from the other. Generate this canvas natively.
 Preserve spelling, line breaks, punctuation, and wording exactly.
 Slide {slide_number:02d} of {slide_count:02d}.

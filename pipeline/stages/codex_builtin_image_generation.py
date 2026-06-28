@@ -351,6 +351,7 @@ def build_handoff_markdown(
     expected_file: str | Path,
     generated_source: str | Path,
     aspect_ratio: str | None = None,
+    pixel_size: str | None = None,
     native_output_rule: str | None = None,
     identity_dossier_path: str | None = None,
     identity_preflight_path: str | None = None,
@@ -377,6 +378,8 @@ def build_handoff_markdown(
         "",
         f"- Native output format: {output_label}",
     ]
+    if pixel_size:
+        lines.append(f"- Required exact pixel size: {pixel_size} px (mandatory; generate natively at exactly this size, not just this ratio)")
     if aspect_ratio:
         lines.append(f"- Required aspect ratio: {aspect_ratio}")
     lines.extend(
@@ -467,6 +470,7 @@ def prompt_file_text(
         expected_file=expected_file,
         generated_source=generated_source,
         aspect_ratio=output_spec["aspect_ratio"],
+        pixel_size=output_spec["upload_size"],
         native_output_rule=NATIVE_OUTPUT_CONTRACT["rule"],
         identity_dossier_path=identity_dossier_path,
         identity_preflight_path=identity_preflight_path,

@@ -14,12 +14,13 @@ reference bundle before every current illustration/image/carousel generation.
 Creator lock, 2026-05-30: the `observational-intimacy-premium` illustrations
 are the best approved style references so far. Shared images from a new brief
 control only mood, composition, story essence, text, gesture, visuals, and objects unless
-the creator explicitly says otherwise. Aachu/Zuv identity references control
-faces, expressions, and wardrobe anchors always.
+the creator explicitly says otherwise. Selected actual Aachu/Zuv identity
+images control faces, expressions, body proportions, and wardrobe anchors
+always.
 
 Creator correction, 2026-05-30: yellow/parchment paper and generic non-matching
 faces are hard failures. Do not generate or accept final Aachu/Zuv artwork from
-text-only identity descriptions; actual identity references and style
+text-only identity descriptions; selected actual identity images and style
 references must be usable by the image-generation path.
 
 Creator correction, 2026-06-06: prompt assembly is autopilot by default. If the
@@ -29,12 +30,35 @@ asking for perfect fields. Treat user-shared photos that clearly depict the
 requested people/couple as current-request identity references unless the
 creator or context marks them as inspiration only.
 
+Creator correction, 2026-06-06: "identity references" means actual selected
+identity images attached to the image-generation call, not text saying "same
+couple." Wardrobe must be selected from the attached identity images or
+current-request identity photos first; do not rely on a fixed wardrobe menu.
+
+Creator correction, 2026-06-14: never generate textless illustrations. Every
+@a.storyof.two proof, concept, carousel, or final illustration must include
+exact on-image text from the first proof onward, plus only the tiny bottom-right
+brandmark. Dimensions follow `config/rules/image-dimensions.md`: proof
+illustrations, concept illustrations, single-slide outputs, and default
+Instagram post/carousel slides must be generated natively at exactly
+`1080x1350 px` (Instagram Feed Portrait, 4:5). Generate `1080x1920 px` (9:16)
+when the creator explicitly asks for Story/Reel, and `1080x1080 px` only when
+the creator explicitly asks for square. Reject any generated illustration whose
+dimensions do not exactly match the requested format; do not crop, pad, stretch,
+or resize to fake compliance.
+
+Creator correction, 2026-06-15: exact text must always be created with the final
+image, but it may be placed after source-scene generation when that is the only
+way to preserve the creator's copy exactly. The publishable asset is the final
+unified text-bearing illustration raster. Source art without the approved text
+is an intermediate only, not a proof/final.
+
 ```text
 USE CASE:
 illustration-story
 
 ASSET TYPE:
-Premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is an Instagram post. For Reels/Stories, generate a separate native 9:16 illustration in the same style. Never resize, crop, pad, or extend one surface into the other. Render exact readable text baked naturally into the image and add only the tiny low-contrast bottom-right handwritten brandmark.
+Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration. Default proof, concept, single-slide, and Instagram post/carousel output is native 4:5 at exactly 1080x1350 px; use native 9:16 at exactly 1080x1920 px only when the creator asks for Story/Reel, and square 1080x1080 px only when explicitly requested. These pixel sizes are mandatory, not derived from the aspect ratio alone; reject any other dimension. Never resize, crop, pad, or extend one surface into the other. The final asset must be one unified image with exact readable text integrated into the illustrated paper composition and only the tiny low-contrast bottom-right handwritten brandmark.
 
 REFERENCE IMAGE ROLES:
 When the creator provides only a rough concept, prompt assembly is autopilot by default: infer the first-pass scene, on-image text, and image roles from the supplied concept, prompt, photo, screenshot, or reference image instead of asking for perfect fields.
@@ -45,8 +69,13 @@ Use the observational-intimacy-premium and previous A Story illustration referen
 Do not copy the exact pose or scene from the style references unless requested. Preserve identity and style while creating the new scene.
 If actual identity reference images and style reference images cannot be used by the image-generation call, stop and mark the task blocked for identity/style-reference generation. Do not attempt a final illustration from descriptive identity text alone.
 
+IDENTITY IMAGE INPUT CONTRACT:
+The final image-generation call must attach selected actual identity images for Aachu and Zuv as visual inputs; text like "same recurring couple," "from identity references," or prose face descriptions is not enough for a final image.
+Use the selected identity image bundle or current-request identity photos to lock faces, hair, body proportions, posture, relationship energy, and wardrobe anchors. If those images cannot be attached, stop and mark the task blocked for identity/style-reference generation.
+Handoffs must list the selected identity image inputs separately and instruct the operator/model to attach them.
+
 PRIMARY REQUEST:
-Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration of the same recurring South Asian couple from the identity references, in the scene described below. The image must feel like the creator-approved observational-intimacy-premium references, not a generic AI watercolor, quote-card, poster, or copied external style.
+Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration using the attached Aachu/Zuv identity reference images as actual visual inputs for the two main characters, in the scene described below. The image must feel like the creator-approved observational-intimacy-premium references, not a generic AI watercolor, quote-card, poster, or copied external style.
 
 ON-IMAGE TEXT:
 [INSERT EXACT TEXT TO INCLUDE IN THE ILLUSTRATION HERE]
@@ -56,12 +85,13 @@ SCENE:
 
 CHARACTER IDENTITY LOCK:
 The same two people must appear in every slide.
+The same-person requirement is satisfied only when the selected Aachu/Zuv identity images or current-request identity photos are attached to the generation call and visibly drive the faces.
 
 Woman:
-Preserve her recognizable face from the identity references. She has warm medium-brown South Asian skin, large expressive dark eyes, softly arched brows, a delicate nose, natural lips, youthful oval face, soft cheek structure, and long dark wavy hair. Her hair may be loose, half-tied, or in a casual ponytail depending on the scene, but the thickness, dark color, natural waves, and face-framing strands must remain consistent. Keep her playful warmth, softness, and real-person charm. Do not turn her into a generic model, anime girl, doll-like character, or different person.
+Preserve her recognizable face from the attached identity images. She has warm medium-brown South Asian skin, large expressive dark eyes, softly arched brows, a delicate nose, natural lips, youthful oval face, soft cheek structure, and long dark wavy hair. Her hair may be loose, half-tied, or in a casual ponytail depending on the scene, but the thickness, dark color, natural waves, and face-framing strands must remain consistent. Keep her playful warmth, softness, and real-person charm. Do not turn her into a generic model, anime girl, doll-like character, or different person.
 
 Man:
-Preserve his recognizable face from the identity references. He has warm medium-brown South Asian skin, thick dark curly hair, strong eyebrows, dark almond-shaped eyes, defined nose, short natural stubble beard, kind smile, and relaxed masculine facial structure. Keep the same curly hair silhouette, beard density, brow shape, smile, and gentle gaze. Do not make him older, younger, overly muscular, overly chiseled, generic, or photorealistic.
+Preserve his recognizable face from the attached identity images. He has warm medium-brown South Asian skin, thick dark curly hair, strong eyebrows, dark almond-shaped eyes, defined nose, short natural stubble beard, kind smile, and relaxed masculine facial structure. Keep the same curly hair silhouette, beard density, brow shape, smile, and gentle gaze. Do not make him older, younger, overly muscular, overly chiseled, generic, or photorealistic.
 
 FACE PRESERVATION RULES:
 Faces are the highest priority.
@@ -93,18 +123,13 @@ sepia, not beige/tan, not parchment, not coffee-stained, and not heavy cream.
 Muted denim blue.
 Soft navy.
 Off-white cotton.
-Terracotta red.
-Warm tan and camel.
-Gentle brown.
 Faded sage green.
-Peach blush accents.
-Dusty coral heart details.
-Keep the palette soft, cohesive, slightly vintage, and premium. No mustard
-dominance, yellowish cast, parchment cast, heavy cream/yellow paper, heavy
-sepia wash, neon colors, harsh contrast, or glossy digital finish.
+Keep the palette soft, cohesive, slightly vintage, aesthetic and premium. No mustard
+dominance, no yellowish cast, no parchment cast, no heavy cream/yellow paper, no heavy
+sepia wash, no neon colors, no harsh contrast, or no glossy digital finish.
 
 COMPOSITION AND FORMAT:
-Vertical portrait format. Use native 4:5 for Instagram post outputs, native 9:16 for Reels/Stories outputs, and tall proof compositions similar to 977x1610 only when a proof/reference surface is requested.
+Default proof, concept, single-slide, and Instagram post/carousel output is native 4:5 at exactly 1080x1350 px. Use native 9:16 at exactly 1080x1920 px for Reels/Stories or Story/Reel requests, and square 1080x1080 px only when explicitly requested. Pixel sizes are mandatory and generated natively, not derived from the aspect ratio.
 Leave generous warm negative space in the upper-middle portion for the integrated on-image text.
 Place the couple in the lower or middle-lower portion of the canvas unless the scene requires otherwise.
 Use airy framing and soft faded watercolor edges.
@@ -121,20 +146,17 @@ Romance should feel natural and lived-in, not dramatic or posed.
 Their expressions should match the scene but remain warm and human.
 
 WARDROBE CONTINUITY:
-Use casual modern Indo-western styling consistent with previous slides.
-
-Woman wardrobe options:
-White oversized shirt, blue jeans, blue-red patterned scarf, red patterned sleeveless top, soft printed kurta, sandals, sneakers, small gold earrings, layered necklaces, bangles, tote bag.
-
-Man wardrobe options:
-White casual shirt, navy hoodie, black shirt, tan pants, blue jeans, watch, casual sneakers, backpack.
-
-Use outfits appropriate to the scene, but keep the clothing language connected to the existing carousel. Repeat recognizable items when helpful: blue-red scarf, cream tote bag, white shirt, denim, sneakers, small jewelry.
+Wardrobe must be selected from the attached identity images or current-request identity photos first. Do not use a fixed wardrobe menu as the source of truth.
+For each carousel or slide, identify visible clothing/accessory anchors in the selected identity images, then choose story-appropriate outfits, colors, fabrics, jewelry, shoes, bags, and small personal details from those anchors.
+Vary wardrobe across slides unless the same scene/time continues, the creator asks for continuity, or a signature anchor supports recognition.
+If a scene needs clothing not visible in the selected identity images, extend conservatively from the same casual modern Indo-western language and state the extension in the slide-specific WARDROBE field. Do not invent random model styling or a new fashion palette.
+Previous approved A Story illustrations may guide tactile rendering and continuity feel only; they do not replace actual identity images as wardrobe anchors.
 
 RECURRING PROPS AND MOTIFS:
 Use subtle recurring story objects when relevant:
-cream tote bag, blue-red patterned scarf, denim pouch, coffee cup, sneakers, phone with small heart sticker, travel bag, plants, warm lanterns, balcony lights, wooden bench, cafe table, tiny hand-drawn hearts.
-Props should feel intentional and story-driven, not random decoration.
+cream tote bag, blue-red patterned scarf, coffee cup, sneakers, phone with small heart sticker, plants, warm lanterns, balcony lights, wooden bench, cafe table, tiny hand-drawn hearts or evil eye, anklet on Aachu's leg, bracelet on Aachu's hand, engagement ring on the couple's fingers, Jenga, Crocs, laptop. Zuv must keep the evil-eye pendant with silver chain whenever the neckline/framing makes it visible or the scene does not logically hide it.
+
+Props should feel intentional and story-driven, not random decoration. Use them only when required by the scene or relationship continuity; do not stuff every motif into every slide.
 
 BACKGROUND STYLE:
 Backgrounds should be softly illustrated with lower detail than the characters.
@@ -187,7 +209,7 @@ awkwardly folded, broken, or unflattering poses. Legs and feet must be
 proportional and comfortably placed.
 
 TEXT RULE:
-Include the exact written text provided in the ON-IMAGE TEXT section directly inside the generated illustration. The text must be baked into the image as readable, polished, hand-drawn typography that suits the creator-approved observational-intimacy-premium font styles and romantic watercolor-and-ink storybook style of this project. Place the text in clean warm upper-middle negative space, without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, capitalization, and wording exactly. Lock the handwritten lettering style to the approved references: slightly imperfect, warm black/charcoal, airy, human, and integrated into the paper. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel integrated into the paper and illustration, not like a digital overlay, poster title, or separate graphic layer.
+Include the exact written text provided in the ON-IMAGE TEXT section inside the final illustration image. If the image model can render the copy exactly, include it directly during generation. If the copy is long or the model risks misspelling it, generate the scene with clean reserved warm upper-middle paper space and place the approved text into the same final raster immediately afterward as an integrated lettering/typesetting pass. The final text must be readable, polished, hand-drawn/storybook typography that suits the creator-approved observational-intimacy-premium font styles and romantic watercolor-and-ink style of this project. Place the text without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, capitalization, and wording exactly. Lock the lettering style to the approved references: slightly imperfect, warm black/charcoal, airy, human, and integrated into the paper. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel like it belongs to the final paper illustration, not like a separate quote card, platform overlay, poster title, or detached graphic layer.
 
 STYLE ACCEPTANCE RULE:
 Identity match is necessary but never sufficient. If the output looks like a generic AI watercolor poster, photorealistic portrait, flat digital art, anime/cartoon, hard-edged screenshot copy, or any non-A Story visual language, the image fails even if the faces are closer. If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream, the image fails. If the faces do not clearly match the selected Aachu/Zuv identity references, the image fails. Regenerate only through a path that uses actual identity and style reference images. The approved look is observational-intimacy-premium A Story of Two illustrations: neutral warm ivory/off-white paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, exact handwritten text, tiny bottom-right brandmark, and no quote-card design.
@@ -196,7 +218,7 @@ BRANDMARK RULE:
 Every final @a.storyof.two illustration must include the tiny handwritten brandmark `@a.storyof.two` in the bottom-right corner. Keep it subtle, low-contrast, and integrated into the paper texture. It should read like the project signature, not a platform watermark or large logo. Do not omit it.
 
 FINAL IDENTITY REINFORCEMENT:
-Before finalizing, ensure the woman and man still look like the exact same recurring couple from the identity references. The scene, pose, outfit, and props may change, but their faces, hair identities, skin tones, and emotional presence must remain consistent.
+Before finalizing, confirm the selected Aachu/Zuv identity images were attached as visual inputs and ensure the woman and man still look like those exact same people. The scene, pose, outfit, and props may change, but their faces, hair identities, skin tones, body proportions, wardrobe anchors, and emotional presence must remain consistent.
 
 FINAL STYLE REINFORCEMENT:
 The final image should look like a polished hand-drawn watercolor-and-ink romantic carousel illustration from "A Story of Two": warm, intimate, travel-light, emotionally soft, detailed, premium, and consistent with the observational-intimacy-premium references and previous slides.
