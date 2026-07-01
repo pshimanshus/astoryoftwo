@@ -1,0 +1,205 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "status": "PASS",
+  "identity_references": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/zuv/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "left?\nseedha?",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 1,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: confused choice, small everyday tension; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "shit.\nleft hi tha!",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 2,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: instant regret, funny defeat; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "I told you.\nAlways listen to me.\nI am always right.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 3,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: playful victory lap; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "where?\nseedha.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 4,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: same confusion returning; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "not you.\nnot me.\nthis.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 5,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: comic alliance, no one is the villain; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "+17 minutes",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 6,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: painfully funny receipt; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 7,
+      "copy": "wrong turn.\nsame team.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 7,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: annoyed-laughing togetherness; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 8,
+      "copy": "Tag the person you have jointly blamed a flyover, Google Maps, or one impossible service lane with.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 8,
+        "identity_references": [
+          "config/references/identity/aachu/portrait-02.jpg",
+          "config/references/identity/zuv/portrait-02.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/together/together-19.jpg"
+        ],
+        "face_structure": "Use selected actual Aachu/Zuv identity images as visual inputs. Preserve Aachu long dark hair, expressive eyes, soft oval face, playful dramatic energy; preserve Zuv dark wavy/curly hair, strong brows, warm brown skin, trimmed beard/stubble, grounded calm expression and broader/taller presence.",
+        "facial_expression": "Match this beat: public invitation, shared complaint; never substitute generic couple faces.",
+        "clothing": "Modern casual travel/car-day clothes based on selected identity/current references: Aachu in light shirt/denim/soft jacket; Zuv in light or navy shirt, casual trousers, watch. Keep outfit continuity across the road sequence.",
+        "cross_slide_consistency": "The couple must read as the same Aachu and Zuv across all slides, with consistent faces, hair, relative height, body proportions, and relationship energy."
+      }
+    }
+  ],
+  "issues": []
+}

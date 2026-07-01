@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "reason": "Two slide 06 proof attempts were generated, but both failed the native 1080x1080 proof dimension gate. Final images do not exist yet.",
+  "checks": {
+    "slides_json_exists": true,
+    "prompt_pack_exists": true,
+    "visual_debate_exists": true,
+    "visual_plan_quality_exists": true,
+    "identity_consistency_pass": false,
+    "proof_generated": true,
+    "proof_dimension_pass": false,
+    "final_4x5_images_exist": false,
+    "final_9x16_images_exist": false,
+    "visual_qa_pass": false
+  }
+}

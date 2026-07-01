@@ -1,0 +1,105 @@
+{
+  "date": "2026-06-11",
+  "slug": "things-i-want-to-do-with-you-a-story",
+  "title": "Things I Want To Do With You",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "visual_plan_lock_pending",
+  "source_story": "Reference adaptation request: preserve the visible wish-list copy from supplied Instagram screenshots, translate the cinematic quiet romance into A Story of Two observational-intimacy illustration, and use faceless / cropped / over-shoulder angles where possible so every slide does not need direct faces.",
+  "copy_rights_note": "Draft retains visible third-party reference copy at creator request. Before publishing, either confirm permission/ownership for exact wording or switch to the included A Story rewrite options in copy.json.",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 7,
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "native_output_rule": "Generate both formats separately. Never resize, crop, pad, or extend one output into the other."
+  },
+  "reference_images": [
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-06-11 at 19.28.20.jpeg",
+      "role": "mood and slide-1 visible copy reference"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-06-11 at 19.28.22 (1).jpeg",
+      "role": "dessert/dinner mood and visible copy reference"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-06-11 at 19.28.22.jpeg",
+      "role": "bed coffee mood and visible copy reference"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-06-11 at 19.28.25 (1).jpeg",
+      "role": "collecting moments mood and visible copy reference"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-06-11 at 19.28.25.jpeg",
+      "role": "thinking of you / shop mood and visible copy reference"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-06-11 at 19.28.26.jpeg",
+      "role": "errand/drive mood and visible copy reference"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp Image 2026-06-11 at 19.28.27.jpeg",
+      "role": "al fresco dinner mood and visible copy reference"
+    }
+  ],
+  "identity_references": [
+    {
+      "path": "config/references/identity/together/together-01.jpg",
+      "role": "couple posture / relationship energy anchor"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "shared-frame emotion anchor"
+    },
+    {
+      "path": "config/references/identity/aachu/portrait-05.jpg",
+      "role": "Aachu face and hair anchor for any visible face slide"
+    },
+    {
+      "path": "config/references/identity/zuv/portrait-05.jpg",
+      "role": "Zuv face and hair anchor for any visible face slide"
+    }
+  ],
+  "style_references": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+  ],
+  "artifacts": {
+    "agent_room": "agent-room.json",
+    "concept_routes": "concept-routes.json",
+    "concept_debate": "concept-debate.json",
+    "concept_repairs": "concept-repairs.json",
+    "taste_gate": "taste-gate.json",
+    "concept_selection": "concept-selection.json",
+    "layer_e": "layer-e-story-selling.json",
+    "concept": "concept.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md"
+  },
+  "next_checkpoint": "visual-plan lock before proof image generation"
+}

@@ -52,8 +52,10 @@ constraints for each slide.
   permanent default and not a full-library dump.
 - For every slide, specify how the selected identity bundle controls face
   structure, facial expression, clothing/body-language cues, and same-couple
-  continuity. This feeds C3.5; do not leave likeness to the prompt model to
-  infer.
+  continuity. The selected bundle must be attachable as actual image input for
+  generation; do not leave likeness or wardrobe to the prompt model to infer.
+- Choose wardrobe from selected identity/current-request photos first. Do not
+  use a static wardrobe menu as the source of truth.
 - Use visual cues as proof of the relationship truth; do not make the object,
   outfit, or location the whole story.
 - Every slide visual must prove the story-director spine through behavior:

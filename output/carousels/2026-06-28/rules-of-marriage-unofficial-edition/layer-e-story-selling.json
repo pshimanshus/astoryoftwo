@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "story_selling": {
+      "name": "story_selling",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Storyline Architect",
+          "role": "obstacle and proof",
+          "claim": "The carousel works because every rule is proved by visible household evidence.",
+          "objection": "A rule list can become generic if the final slide is only a quote.",
+          "recommendation": "Let objects return in slide 9 so chaos becomes closeness.",
+          "score": 29
+        },
+        {
+          "agent": "Retention Analyst",
+          "role": "send/save logic",
+          "claim": "Each rule has a clear taggable partner behavior.",
+          "objection": "Slides 5 and 6 need extra visual contrast so the middle does not flatten.",
+          "recommendation": "Use bedroom silence then dining-table food tension as two distinct beats.",
+          "score": 29
+        }
+      ],
+      "summary": "The route is a sendable marriage comedy deck that turns messy objects into relationship proof and lands softly.",
+      "inputs_used": [
+        "creator supplied copy and concept",
+        "config/skills/carousel-jam-runtime-context.md"
+      ],
+      "debate_records": [
+        "Protect the rulebook wrapper, but make each rule play as staged behavior.",
+        "Do not make either partner cruel; every joke stays warm.",
+        "End on aadat/home, not a moral lesson."
+      ],
+      "scores": {
+        "story_selling": 29,
+        "golden_theme": 29
+      },
+      "selected_outputs": {
+        "winner": "Domestic Rulebook Mini Film"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "Domestic Rulebook Mini Film",
+      "story_lens": "Marriage rules are fake; the real contract is becoming used to each other's chaos.",
+      "reader_mirror": "Couples who recognize blanket politics, stolen snacks, delayed leaving, and phone-in-hand searches.",
+      "emotional_obstacle": "Daily chaos can look like dysfunction until it becomes the private rhythm of a home.",
+      "aachu_specific_spark": "Expressive snack theft, dramatic searching, choosing delays, attitude silence, and warm chaos.",
+      "zuv_active_role": "Waits, notices, investigates, decodes, points gently, and stays close without becoming a handler.",
+      "proof_engine": "messy room setup -> blanket tug -> doorway delay -> fridge snack theft -> silent nothing -> dinner/fight contrast -> store basket truth -> phone-in-hand search -> shared blanket landing",
+      "emotional_reversal": "The unofficial rules stop being complaints and become proof that they have become each other's habit.",
+      "payoff": "There are no real rules. Bas ek dusre ki aadat ban jao.",
+      "distribution_reason": "Every slide is taggable, specific, and easy to send to a partner.",
+      "process_influence_ids": [
+        "relationship-mirror-rulebook",
+        "banter-to-softness"
+      ],
+      "score_total": 29,
+      "golden_theme_score_total": 29,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Each slide has a concrete household action or object movement.",
+        "reaction": "The other partner responds through waiting, detecting, decoding, pointing, or leaning close.",
+        "eye_line_or_attention": "Eye-lines move toward the active proof object: blanket, door, fridge, food bag, basket, phone, or shared blanket.",
+        "hands_or_object_movement": "Hands pull, choose, steal, hold, point, search, and finally rest close.",
+        "silence_or_pause": "Slide 4 uses detective silence; slide 5 uses the 'nothing' pause.",
+        "consequence": "Each rule escalates the sense that marriage is a comic operating system.",
+        "reversal_or_payoff": "The objects return as belonging on slide 9.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [],
+  "rejected_routes": [
+    {
+      "name": "Quote-card Marriage Rulebook",
+      "story_lens": "Rules presented as text-first jokes.",
+      "reader_mirror": "Generic married audience.",
+      "emotional_obstacle": "No visible relationship motion.",
+      "aachu_specific_spark": "Underused.",
+      "zuv_active_role": "Underused.",
+      "proof_engine": "static title cards with small decorations",
+      "emotional_reversal": "Weak sweetness pasted onto jokes.",
+      "payoff": "Generic marriage quote.",
+      "distribution_reason": "Too replaceable.",
+      "process_influence_ids": [],
+      "score_total": 21,
+      "golden_theme_score_total": 21,
+      "stage_scene_gate": {
+        "status": "STOP",
+        "action": "",
+        "reaction": "",
+        "eye_line_or_attention": "",
+        "hands_or_object_movement": "",
+        "silence_or_pause": "",
+        "consequence": "",
+        "reversal_or_payoff": "",
+        "blockers": [
+          "text carries the scene"
+        ]
+      },
+      "hard_fails": [
+        "quote-card risk"
+      ],
+      "verdict": "STOP"
+    }
+  ],
+  "selected_story_lens": "Marriage is two unserious people becoming each other's home rhythm through tiny daily chaos.",
+  "emotional_machine": "funny rule -> visible household proof -> partner reaction -> accumulated private rhythm -> soft aadat landing",
+  "proof_engine": "messy room setup -> blanket tug -> doorway delay -> fridge snack theft -> silent nothing -> dinner/fight contrast -> store basket truth -> phone-in-hand search -> shared blanket landing",
+  "reader_mirror": "Married and long-term couples who recognize their private operating system in ordinary chaos.",
+  "distribution_reason": "Every rule is a taggable partner accusation or confession, with a final saveable thesis.",
+  "human_story_setup": {
+    "emotional_obstacle": "Daily chaos can look like two adults failing, but in love it becomes a shared language.",
+    "concept_process_card": "Banter to Softness",
+    "public_hook": "Rules of Marriage: Unofficial Edition",
+    "earned_ending": "Bas ek dusre ki aadat ban jao."
+  },
+  "success_definition": {
+    "audience_success": "A cold married viewer thinks 'this is us' and sends it to their partner.",
+    "creative_success": "Every slide works as staged behavior with visible proof, not just a line.",
+    "brand_success": "Warm desi domestic chaos, soft comedy, and an earned A Story of Two landing.",
+    "production_success": "Can become square proof first, then native 4:5 and separate 9:16 finals after proof approval."
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Nine visible household actions are staged before image generation.",
+    "reaction": "Each rule includes the other partner noticing or responding.",
+    "eye_line_or_attention": "Attention follows the proof object in each frame.",
+    "hands_or_object_movement": "Blanket, keys, snack, phone, basket, and food bag all move the story.",
+    "silence_or_pause": "Fridge detective silence and 'nothing' silence create comic tension.",
+    "consequence": "The rules accumulate into a marriage operating system.",
+    "reversal_or_payoff": "Chaos resolves into shared blanket closeness.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "relationship-mirror-rulebook",
+      "title": "Rulebook As Relationship Mirror",
+      "influence_type": "carousel wrapper",
+      "source_patterns": [
+        "sendable-list-carousel"
+      ],
+      "confidence": 0.9,
+      "reason": "The rule format makes each slide easy to recognize and send."
+    },
+    {
+      "id": "banter-to-softness",
+      "title": "Banter To Softness",
+      "influence_type": "emotional arc",
+      "source_patterns": [
+        "joke-to-tenderness"
+      ],
+      "confidence": 0.92,
+      "reason": "The ending reframes comic irritation as belonging."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 4.5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 5,
+    "total": 29
+  },
+  "golden_theme_score": {
+    "universal_hook": 5,
+    "aachu_zuv_specificity": 4.5,
+    "concrete_proof": 5,
+    "zuv_emotional_role": 4.5,
+    "tender_thesis": 5,
+    "share_send_potential": 5,
+    "total": 29
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "proof_first": true,
+    "proof_slide": 4,
+    "proof_format": "square_1080",
+    "final_formats_after_approval": [
+      "native_4x5",
+      "native_9x16"
+    ]
+  },
+  "metadata": {
+    "agent_room_mode": "simulated because sub-agent spawning requires explicit user delegation authorization in this environment"
+  }
+}

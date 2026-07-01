@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "title": "Tum Meri Baat Sun Rahe Ho",
+  "visual_system": "single continuous 4-seater dinner-table scene with same wardrobe across all slides",
+  "slides": [
+    {
+      "slide": 1,
+      "text": "Our romance is very simple.",
+      "story_job": "Set up a peaceful dinner-table moment before the trap begins.",
+      "shot_type": "wide establishing two-shot",
+      "camera_angle": "corner or doorway view of the 4-seater table",
+      "setting_lane": "home dinner table",
+      "who_is_visible": "both",
+      "primary_action": "Aachu and Zuv sit opposite each other mid-conversation; table props make the scene feel ordinary and peaceful.",
+      "prompt_path": "codex-image-prompts/instagram-post/slide-01.prompt.txt"
+    },
+    {
+      "slide": 2,
+      "text": "She asks,\n“tum meri baat sun rahe ho?”",
+      "story_job": "Aachu notices the tiny absence and tests it.",
+      "shot_type": "medium-wide Aachu-led two-shot",
+      "camera_angle": "over-Zuv-shoulder / table-level angle",
+      "setting_lane": "home dinner table",
+      "who_is_visible": "both, with Aachu leading",
+      "primary_action": "Aachu leans slightly across the table with one hand mid-gesture; Zuv nods casually.",
+      "prompt_path": "codex-image-prompts/instagram-post/slide-02.prompt.txt"
+    },
+    {
+      "slide": 3,
+      "text": "I say,\n“haan haan, bilkul.”",
+      "story_job": "Show Zuv's fake confidence and the proof that he is on autopilot.",
+      "shot_type": "medium Zuv-led side shot",
+      "camera_angle": "three-quarter table view from Aachu's side",
+      "setting_lane": "home dinner table",
+      "who_is_visible": "Zuv foreground, Aachu across or partial",
+      "primary_action": "Zuv nods too confidently while his phone sits near or in his hand, proving the distraction.",
+      "prompt_path": "codex-image-prompts/instagram-post/slide-03.prompt.txt"
+    },
+    {
+      "slide": 4,
+      "text": "Then she asks,\n“maine kya bola?”",
+      "story_job": "The trap closes.",
+      "shot_type": "medium across-table two-shot",
+      "camera_angle": "straight across the table, both faces and hands readable",
+      "setting_lane": "home dinner table",
+      "who_is_visible": "both",
+      "primary_action": "Aachu leans in with one eyebrow raised; Zuv's smile is about to vanish and the phone becomes a liability.",
+      "prompt_path": "codex-image-prompts/instagram-post/slide-04.prompt.txt"
+    },
+    {
+      "slide": 5,
+      "text": "And suddenly,\nmy entire life flashes before my eyes.",
+      "story_job": "Payoff: Zuv freezes in survival mode while Aachu waits.",
+      "shot_type": "reaction two-shot",
+      "camera_angle": "slight side angle across the table",
+      "setting_lane": "home dinner table",
+      "who_is_visible": "both",
+      "primary_action": "Zuv freezes with phone paused mid-action, eyes widened and mouth slightly open; Aachu waits calmly across the table.",
+      "prompt_path": "codex-image-prompts/instagram-post/slide-05.prompt.txt"
+    },
+    {
+      "slide": 6,
+      "text": "But still, every day,\nwe choose this nonsense.",
+      "story_job": "Melt panic into warmth and shared ritual.",
+      "shot_type": "soft aftermath two-shot",
+      "camera_angle": "slightly wider/lower table angle",
+      "setting_lane": "home dinner table",
+      "who_is_visible": "both",
+      "primary_action": "Aachu is amused now; Zuv gives a sheepish smile, phone face-down beside his plate.",
+      "prompt_path": "codex-image-prompts/instagram-post/slide-06.prompt.txt"
+    },
+    {
+      "slide": 7,
+      "text": "Because love is not always peaceful.\nSometimes love is just getting caught beautifully.",
+      "story_job": "End with playful affection inside the same table scene.",
+      "shot_type": "affectionate dinner-table action shot",
+      "camera_angle": "warm wider table view",
+      "setting_lane": "home dinner table",
+      "who_is_visible": "both",
+      "primary_action": "Aachu lightly flicks/taps Zuv with a folded napkin while smiling; Zuv grins and lifts a hand in surrender.",
+      "prompt_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt"
+    }
+  ]
+}

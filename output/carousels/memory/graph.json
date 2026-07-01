@@ -1,0 +1,31 @@
+{
+  "entities": {
+    "carousel:small-bids": {
+      "id": "carousel:small-bids",
+      "type": "illustrated_carousel",
+      "title": "Small Bids",
+      "date": "2026-06-28",
+      "status": "NEEDS_FIXES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-06-28/2026-06-28/small-bids",
+      "content_lane": "Soft Love Notes"
+    }
+  },
+  "relationships": [
+    {
+      "from": "carousel:small-bids",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    }
+  ],
+  "themes": {
+    "watercolor_ink_identity_rooted": {
+      "id": "watercolor_ink_identity_rooted",
+      "type": "creative_style",
+      "confidence": 0.7,
+      "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
+    }
+  },
+  "last_updated": "2026-06-28"
+}

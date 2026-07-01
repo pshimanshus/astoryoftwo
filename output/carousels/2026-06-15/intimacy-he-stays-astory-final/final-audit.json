@@ -1,0 +1,19 @@
+{
+  "status": "PASS_WITH_NOTES",
+  "scope": "instagram_post_4x5_only",
+  "final_size": [1080, 1350],
+  "slide_count": 6,
+  "checks": {
+    "dimensions": "PASS",
+    "on_image_text_present": "PASS_VISUAL",
+    "style_lock_direction": "PASS_VISUAL",
+    "wardrobe_variation": "PASS_VISUAL",
+    "brandmark_present": "PASS_VISUAL",
+    "separate_9x16_outputs": "NOT_REQUESTED_IN_THIS_PASS"
+  },
+  "notes": [
+    "All 4:5 final post files are exact 1080x1350 PNGs.",
+    "Source art was preserved without horizontal stretching.",
+    "Slide 04 uses the regenerated clean source with no extra checklist writing."
+  ]
+}

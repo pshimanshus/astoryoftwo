@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "status": "LAYER_C_RETHINK",
+  "trigger": "Creator rejected the repeated cafe/doorway visual system and asked to invoke Layer C for a different route.",
+  "locked_copy": "Keep the supplied 8-slide Capricorn man / Aries woman copy, but rebuild the visual story from zero.",
+  "hard_rejections": [
+    "repeated cafe-table tableau",
+    "doorway plus balcony repeated as the whole story",
+    "visual-only frames without designed text",
+    "poster crop with one person cut out",
+    "zodiac graphics or astrology infographic",
+    "quote-card composition where the text does all the work"
+  ],
+  "layer_c_room": {
+    "Storyline Architect": {
+      "route": "Turn the deck into one continuous evening route through the city: he brings the plan, she discovers the night.",
+      "protect": "A real story arc: preparation -> detour -> worry -> care -> instinct -> delight -> belonging."
+    },
+    "Contrarian Critic": {
+      "risk": "Capricorn/Aries can become generic 'planner vs chaos' content. It needs a specific cinematic container.",
+      "repair": "Make the plan a physical route map and make her spark change the route through visible city moments."
+    },
+    "Retention Analyst": {
+      "hook": "Slide 1 must show the entire premise immediately: he has a route, she is already pointing somewhere else.",
+      "swipe_ladder": "Each slide should reveal one more detour, not repeat the same couple pose."
+    },
+        "Visual Director": {
+            "winner": "The Route He Planned, The City She Found",
+            "why": "It creates varied frames: balcony map, auto stand, ticket window, street map, rain shelter, crossing, alley lights, night market, quiet rooftop."
+    },
+    "Copy Chief": {
+      "copy_status": "Use creator copy exactly. No extra public words.",
+      "text_rule": "Text sits in designed negative spaces: sky, wall, awning, route-map blank area, rain-shadow, rooftop sky."
+    },
+    "Final Selector": {
+      "verdict": "GO_FOR_STORYBOARD",
+      "reason": "This route makes the same copy feel like a cinematic mini-film instead of a zodiac quote carousel."
+    }
+  },
+  "route_candidates": [
+    {
+            "name": "The Route He Planned, The City She Found",
+            "score": 29,
+            "verdict": "WINNER",
+            "summary": "One continuous evening walk/ride through the city. His planned route keeps appearing; her instinct keeps opening better scenes. No cafe-table staging.",
+      "why_it_wins": "It gives the carousel movement, visual variety, and a specific story container without needing private context."
+    },
+    {
+      "name": "Two Weather Systems",
+      "score": 26,
+      "verdict": "REJECTED",
+      "summary": "He is calm blue-grey weather; she is red spark/wind. Visually poetic but risks becoming too metaphorical and less specific."
+    },
+    {
+      "name": "One Table, Eight Interruptions",
+      "score": 18,
+      "verdict": "REJECTED",
+      "summary": "Cafe/table setup. Rejected because it already produced repeated frames and weak storyboard progression."
+    },
+    {
+      "name": "Astrology Editorial Portraits",
+      "score": 16,
+      "verdict": "STOP",
+      "summary": "Pretty Capricorn/Aries portraits. Rejected as generic zodiac content."
+    },
+    {
+      "name": "The Notebook Becomes A Love Map",
+      "score": 27,
+      "verdict": "REPAIR_ONLY",
+      "summary": "A notebook transforms across slides. Strong object motif, but could become prop-first if not grounded in scenes."
+    }
+  ],
+  "selected_route": {
+    "name": "The Route He Planned, The City She Found",
+    "logline": "He planned the evening like a route. She turned the route into a story.",
+    "visual_thesis": "Capricorn is not dull structure; he is the map that lets her run. Aries is not random chaos; she is the spark that makes the map worth following.",
+    "style": "premium romantic Indian city-evening slice-of-life watercolor-and-ink, cinematic but not poster-like",
+    "text_strategy": "Exact text remains on-image. Text is composed into each frame from the beginning, not removed and not slapped on afterward."
+  }
+}

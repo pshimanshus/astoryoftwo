@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-06-27",
+  "slug": "one-sec-phone-moment",
+  "title": "One Sec Phone Moment",
+  "status": "STYLE_CALIBRATION_READY",
+  "source_story": "Creator supplied an eight-slide carousel concept about the tiny hurt of saying 'look at this one sec' and not being looked at, then choosing to turn toward each other.",
+  "slide_count": 8,
+  "copy_lock": "Exact creator-supplied on-image copy retained.",
+  "visual_system": "Continuous Couch, Broken Attention: a same-couch micro-story with strict camera grammar, object movement, mutual accountability, and a repaired object-only Slide 3 evidence pause.",
+  "proof_slide": 6,
+  "blocker": "Story/taste is in REPAIR because the current exact copy can read like a familiar phone-attention trope unless the visuals add unmistakable Aachu/Zuv behavioral specificity. Final image generation is also blocked until the generation path can attach the selected actual Aachu/Zuv identity images and Observational Intimacy Premium style references as visual inputs.",
+  "reference_images": {
+    "selected_identity_bundle": [
+      {
+        "path": "config/references/identity/aachu/portrait-02.jpg",
+        "role": "Aachu face, hair, expression, and warmth anchor"
+      },
+      {
+        "path": "config/references/identity/zuv/portrait-05.jpg",
+        "role": "Zuv face, curls, brows, stubble, and calm expression anchor"
+      },
+      {
+        "path": "config/references/identity/together/together-18.jpg",
+        "role": "couple closeness, relative scale, and shared-screen body language anchor"
+      },
+      {
+        "path": "config/references/identity/together/together-21.jpg",
+        "role": "domestic closeness and soft mutual attention anchor"
+      }
+    ],
+    "style_reference_bundle": [
+      "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+      "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+      "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+    ]
+  },
+  "artifact_map": {
+    "source_memory_brief": "source-memory-brief.json",
+    "agent_room": "agent-room.json",
+    "concept_routes": "concept-routes.json",
+    "concept_debate": "concept-debate.json",
+    "concept_repairs": "concept-repairs.json",
+    "concept_selection": "concept-selection.json",
+    "story_director_lock": "story-director-lock.json",
+    "slides": "slides.json",
+    "copy": "copy.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_review": "identity-consistency-review.json",
+    "review": "review.json",
+    "storyboard": "storyboard.md",
+    "generation_blocker": "image-generation-blocker.md",
+    "image_generation": "image-generation.json",
+    "proof_review": "proof-review.json",
+    "visual_qa": "visual-qa.md",
+    "style_correction_review": "style-correction-review.json",
+    "final_audit": "final-audit.json"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "status": "copy_lock_draft_needs_creator_approval",
+  "title": "Roti Side Quest",
+  "version": "v3_quieter_4_screen",
+  "format_rule": {
+    "proof_concept_single_slide_dimensions": "1080x1080",
+    "textless_allowed": false,
+    "wrong_dimension_action": "reject_before_creator_handoff"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "on_image_text": "papa bol rahe the",
+      "story_job": "Establish where Zuv's attention actually is.",
+      "visual_direction": "Wide dining-table shot. Father is visible from side/back/foreground or partly off-frame, speaking. Zuv is angled toward father and listening. Aachu is at the same table but not framed as the punchline yet.",
+      "zuv_eye_line": "father",
+      "zuv_hands": "empty or conversational; no bite",
+      "aachu_action": "present at table",
+      "father_presence": "visible side/back/foreground or strongly implied speaking presence",
+      "hard_fails": [
+        "Zuv looks at Aachu",
+        "Zuv holds a bite",
+        "father conversation is not legible",
+        "text is missing or changed"
+      ]
+    },
+    {
+      "slide": 2,
+      "on_image_text": "roti khul rahi thi",
+      "story_job": "Introduce the physical action without making it a feeding pose.",
+      "visual_direction": "The roti is opening on or near Zuv's plate. Zuv remains oriented toward father. His hands are empty, resting, or in a conversational gesture; no ready bite in hand. Aachu notices the roti quietly.",
+      "zuv_eye_line": "father",
+      "zuv_hands": "empty/resting/gesturing; no torn bite",
+      "aachu_action": "quietly notices roti",
+      "father_presence": "conversation anchor",
+      "hard_fails": [
+        "Zuv has a torn bite in hand",
+        "frame looks like he is offering food",
+        "Aachu snatches from his hand",
+        "text is missing or changed"
+      ]
+    },
+    {
+      "slide": 3,
+      "on_image_text": "bite uske paas chala gaya",
+      "story_job": "Show the quiet transfer.",
+      "visual_direction": "Aachu has the bite and is eating it naturally. Zuv is still engaged with father, not looking at Aachu. The table or plate shows the roti evidence.",
+      "zuv_eye_line": "father",
+      "zuv_hands": "empty; not offering",
+      "aachu_action": "eating the taken bite naturally",
+      "father_presence": "conversation continues",
+      "hard_fails": [
+        "Aachu looks guilty, greedy, or mocked",
+        "Zuv catches her gaze",
+        "Zuv is holding or offering the bite",
+        "text is missing or changed"
+      ]
+    },
+    {
+      "slide": 4,
+      "on_image_text": "baat phir bhi chalti rahi",
+      "story_job": "Land the joke through normalcy, not a thesis.",
+      "visual_direction": "Wider table composition. Father is still the conversation anchor. Zuv continues listening or responding to father, with empty hands. Aachu keeps eating like this is completely normal.",
+      "zuv_eye_line": "father",
+      "zuv_hands": "empty or conversational gesture; no bite",
+      "aachu_action": "keeps eating naturally",
+      "father_presence": "still anchors the frame",
+      "hard_fails": [
+        "shot turns into a romantic two-shot",
+        "father disappears from scene logic",
+        "Zuv looks at Aachu",
+        "copy becomes a moral or love thesis",
+        "text is missing or changed"
+      ]
+    }
+  ]
+}

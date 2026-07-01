@@ -116,6 +116,7 @@ def test_agentic_os_cli_context_and_search(tmp_path: Path):
         text=True,
         capture_output=True,
         check=False,
+        timeout=30,
     )
     search = subprocess.run(
         [sys.executable, "scripts/agentic_os.py", "--workspace-root", str(root), "search", "visual comedy"],
@@ -123,6 +124,7 @@ def test_agentic_os_cli_context_and_search(tmp_path: Path):
         text=True,
         capture_output=True,
         check=False,
+        timeout=30,
     )
 
     assert context.returncode == 0, context.stderr

@@ -21,9 +21,9 @@ can verify.
 - Story: universal relationship truth, timeline, no invented events.
 - Arc: storyboard-first stage-scene flow, golden-theme beginning/middle/payoff.
 - Visual: one clear visual idea per slide, photo-rooted details.
-- Identity consistency: face structure, facial expressions, clothes, and
-  same-couple continuity are locked from the selected identity bundle before
-  image generation.
+- Identity consistency: face structure, facial expressions, clothes, body
+  proportions, and same-couple continuity are locked from selected actual
+  identity image inputs before image generation.
 - Prompt: shared style prompt, negative prompt, per-slide prompts.
 - Copy: caption, alt text, hashtags, posting notes.
 - Assets: generated or explicitly skipped image exports.
@@ -49,9 +49,14 @@ Each review must include:
 - If the concept is object-first, travel-first, or outfit-first without a
   universal relationship truth, mark the stage `NEEDS_FIXES`.
 - If a slide prompt could generate generic couple art, flag it.
+- If identity is only described in text, or wardrobe comes from a static menu
+  instead of selected identity/current-request photos, flag it.
 - If source-photo details are missing, flag it.
 - If brandmark placement or text readability is unspecified, flag it.
 - If the deck is a text spine, quote-card sequence, or "characters beside the
   line" plan instead of staged action, mark it `NEEDS_FIXES`.
 - The Stage-Scene Gate must verify that text completes the scene; text must
   not carry the scene.
+- If `taste-gate.json` is missing for a fresh carousel concept, or if the idea
+  is a generic couple trope with Aachu/Zuv/golden-theme pieces attached and no
+  fresh @a.storyof.two turn, mark the stage `NEEDS_FIXES`.

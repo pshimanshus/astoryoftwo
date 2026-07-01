@@ -1,0 +1,87 @@
+{
+  "status": "handoff_ready",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 8,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": true,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "left?\nseedha?",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/codex-image-prompts/instagram-post/slide-01.md",
+      "prompt_files": {
+        "instagram_post": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/codex-image-prompts/instagram-post/slide-01.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/codex-image-prompts/instagram-post/slide-01.prompt.txt"
+      },
+      "expected_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/final/slide-01.png",
+      "expected_files": {
+        "instagram_post": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/final/slide-01.png"
+      },
+      "identity_dossier_reference_images": [
+        "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "story_reference_images": [
+        "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.24 PM.png",
+        "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.32 PM.png",
+        "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.28 PM.png"
+      ],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ]
+    }
+  ],
+  "reason": "Prompt files are ready; final PNGs still require Codex built-in image generation.",
+  "proof_gate": null,
+  "requested_proof_slide": 1,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post",
+      "reels_stories"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "reels_stories_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Each slide must have two separate native generated sources: one 4:5 Instagram post image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived by resizing, cropping, or padding the Instagram post image."
+  },
+  "generation_capability": {
+    "schema_version": "1.0",
+    "workspace_root": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai",
+    "capability_source": "environment",
+    "can_attach_identity_refs": false,
+    "package_terminal_state": "HANDOFF_READY_FOR_CODEX_WITH_IDENTITY",
+    "reason": "The current session has no declared ability to attach actual identity reference images to generation calls.",
+    "required_identity_inputs": [
+      "identity-face-contact-sheet.jpg",
+      "selected Aachu identity references",
+      "selected Zuv identity references",
+      "selected together reference when available"
+    ],
+    "next_action": "handoff_to_identity_reference_capable_generation_environment"
+  },
+  "prompt_dir": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/codex-image-prompts",
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure."
+}

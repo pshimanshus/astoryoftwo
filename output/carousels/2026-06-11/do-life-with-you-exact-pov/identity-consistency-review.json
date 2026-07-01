@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "issues": [],
+  "selected_identity_bundle": [
+    {
+      "path": "config/references/identity/aachu/portrait-02.jpg",
+      "role": "Aachu face/hair anchor for any partial side visibility"
+    },
+    {
+      "path": "config/references/identity/zuv/portrait-05.jpg",
+      "role": "Zuv face/hair/body anchor for any partial side visibility"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "couple closeness and relative scale"
+    },
+    {
+      "path": "config/references/identity/together/together-21.jpg",
+      "role": "domestic closeness, Zuv curls/profile, Aachu smile/hair cue"
+    }
+  ],
+  "style_reference_bundle": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+  ],
+  "identity_strategy": "Faces may be hidden or partial by design; identity must still carry through hair silhouette, hand scale, jewelry, posture, relative height, and selected identity reference cues.",
+  "wardrobe_strategy": "Each slide uses a distinct outfit while staying within the selected identity/style palette. Repeat clothing is blocked.",
+  "hard_gate": "Generation must use actual visible identity/style references, not text-only identity descriptions.",
+  "proof_slide": 6
+}

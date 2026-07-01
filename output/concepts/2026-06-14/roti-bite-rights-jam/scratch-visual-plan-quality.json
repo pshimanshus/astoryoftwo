@@ -1,0 +1,92 @@
+{
+  "date": "2026-06-14",
+  "jam_slug": "roti-bite-rights-jam",
+  "status": "PRE_GENERATION_SCREEN_COPY_LOCK_DRAFT",
+  "selected_route": "Roti Side Quest",
+  "version": "v3_quieter_4_screen",
+  "dimension_requirement": "1080x1080 exact for every proof/concept screen",
+  "textless_allowed": false,
+  "generation_allowed": false,
+  "blocker": "Creator has not approved the repaired four-screen copy/storyboard yet.",
+  "global_hard_checks": [
+    "exact 1080x1080",
+    "expected on-image text present and unchanged",
+    "no extra text except tiny bottom-right @a.storyof.two",
+    "Zuv eye-line toward father",
+    "Zuv has no bite in hand",
+    "Aachu eating naturally",
+    "father conversation legible",
+    "warm ivory paper, not yellow parchment"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "expected_text": "papa bol rahe the",
+      "decision": "GO_FOR_CREATOR_COPY_REVIEW",
+      "must_prove": [
+        "main father conversation",
+        "Zuv looking at father",
+        "Aachu present but not yet punchline",
+        "no bite in Zuv hand"
+      ],
+      "reject_if": [
+        "text missing",
+        "text changed",
+        "Zuv looks at Aachu",
+        "father not visible or implied"
+      ]
+    },
+    {
+      "slide": 2,
+      "expected_text": "roti khul rahi thi",
+      "decision": "GO_FOR_CREATOR_COPY_REVIEW",
+      "must_prove": [
+        "roti opening visible on plate",
+        "Zuv still in father conversation",
+        "Zuv hands empty or gesturing",
+        "no offering pose"
+      ],
+      "reject_if": [
+        "Zuv holds a bite",
+        "Aachu snatches from his hand",
+        "frame suggests feeding",
+        "text missing or changed"
+      ]
+    },
+    {
+      "slide": 3,
+      "expected_text": "bite uske paas chala gaya",
+      "decision": "GO_FOR_CREATOR_COPY_REVIEW",
+      "must_prove": [
+        "Aachu has/eats the bite",
+        "Zuv still looks toward father",
+        "bite transfer reads as quiet side action",
+        "Aachu is not mocked"
+      ],
+      "reject_if": [
+        "Aachu looks greedy or guilty",
+        "Zuv looks at her",
+        "Zuv is holding/offering food",
+        "text missing or changed"
+      ]
+    },
+    {
+      "slide": 4,
+      "expected_text": "baat phir bhi chalti rahi",
+      "decision": "GO_FOR_CREATOR_COPY_REVIEW",
+      "must_prove": [
+        "father is still the conversation anchor",
+        "Zuv responds/listens to father",
+        "Aachu continues eating",
+        "normalcy lands the joke"
+      ],
+      "reject_if": [
+        "father disappears",
+        "romantic gaze replaces family conversation",
+        "Zuv looks at Aachu",
+        "line becomes preachy",
+        "text missing or changed"
+      ]
+    }
+  ]
+}

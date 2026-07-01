@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "status": "REJECTED_NATIVE_SIZE",
+  "proof_slide": 5,
+  "generator": "built_in_image_gen",
+  "expected_dimensions": "1080x1350",
+  "attempts": [
+    {
+      "attempt": 1,
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f1925-1920-79d1-92e2-d898ea3f0d82/ig_0233fe5b32e43824016a43e243e4388198aecbb7e6669f8d25.png",
+      "workspace_copy": "rejected/native-size-fail/slide-05-proof-v1-1122x1402.png",
+      "actual_dimensions": "1122x1402",
+      "status": "rejected_native_size"
+    },
+    {
+      "attempt": 2,
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f1925-1920-79d1-92e2-d898ea3f0d82/ig_026b7f35714d7dd3016a43e352b8ec8198b75e1e8b50d7f453.png",
+      "workspace_copy": "rejected/native-size-fail/slide-05-proof-v2-1122x1402.png",
+      "actual_dimensions": "1122x1402",
+      "status": "rejected_native_size"
+    },
+    {
+      "attempt": 3,
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f1925-1920-79d1-92e2-d898ea3f0d82/ig_0ad3225ddba833d1016a43e78da74c8191a94fed4b39160f30.png",
+      "workspace_copy": "rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png",
+      "edit_target": "deleted-invalid-diagnostic-blank-target",
+      "edit_target_dimensions": "1080x1350",
+      "actual_dimensions": "1122x1402",
+      "status": "rejected_native_size",
+      "notes": "Diagnostic-only failed attempt. Blank-canvas editing is not an approved repo workflow because it violates the required identity/style/story setup, and it did not preserve native dimensions."
+    },
+    {
+      "attempt": 4,
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f1925-1920-79d1-92e2-d898ea3f0d82/ig_060bb97a8fbb2024016a43f42455588191a61748ae63e4adb8.png",
+      "workspace_copy": "rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png",
+      "reference_inputs": [
+        "config/references/identity/_dossier/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-21.jpg",
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+      ],
+      "actual_dimensions": "1003x1568",
+      "status": "rejected_native_size",
+      "notes": "Real reference-driven built-in generation path did not produce native 1080x1350."
+    }
+  ],
+  "decision": "Do not generate remaining slides through this path until exact native 1080x1350 output is available."
+}

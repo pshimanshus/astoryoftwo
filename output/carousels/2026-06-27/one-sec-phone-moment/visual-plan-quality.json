@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIR_BLOCKED",
+  "can_generate": false,
+  "blocking_reason": "Actual identity/style reference images must be attachable to the generation call before proof or finals.",
+  "shot_ladder": [
+    "1 medium-wide behind-her-shoulder couch evening",
+    "2 close-up hand detail",
+    "3 object-only couch/chai/phone evidence pause",
+    "4 reverse medium over-shoulder role reversal",
+    "5 overhead/table-level two-phones accountability shot",
+    "6 warm close repair two-shot",
+    "7 intimate side close-up shared laughter",
+    "8 quiet closing close-up with phones foreground"
+  ],
+  "per_slide": [
+    {
+      "slide": 1,
+      "status": "GO",
+      "quality_notes": "Clear hook and visible missed bid."
+    },
+    {
+      "slide": 2,
+      "status": "GO",
+      "quality_notes": "Strong object movement; do not overdramatize her expression."
+    },
+    {
+      "slide": 3,
+      "status": "GO",
+      "quality_notes": "Repaired from blank text card into object-only lived evidence. Must not become a poster card."
+    },
+    {
+      "slide": 4,
+      "status": "GO",
+      "quality_notes": "Mutuality beat protects taste."
+    },
+    {
+      "slide": 5,
+      "status": "GO",
+      "quality_notes": "Long text; reserve generous paper space."
+    },
+    {
+      "slide": 6,
+      "status": "GO",
+      "quality_notes": "Proof slide. Must show actual attention and one phone face-down."
+    },
+    {
+      "slide": 7,
+      "status": "GO",
+      "quality_notes": "Earned laughter; phone content must stay abstract."
+    },
+    {
+      "slide": 8,
+      "status": "GO",
+      "quality_notes": "CTA works if phones are visibly down and closeness is soft."
+    }
+  ],
+  "repeated_setting_audit": "Same couch/location is accepted as a continuous micro-story. Camera, distance, subject visibility, and object movement vary on every slide.",
+  "text_risk_audit": "Slides 3, 5, 6, 7, and 8 need controlled integrated lettering if model-native text drifts."
+}

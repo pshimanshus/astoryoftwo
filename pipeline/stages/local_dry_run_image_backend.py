@@ -159,9 +159,9 @@ def write_visual_qa_json(carousel_dir: Path, prompt_pack: dict[str, Any], record
                     "pass": False,
                     "evidence": "Dry-run placeholder cannot verify natural flattering Aachu/Zuv pose anatomy.",
                 },
-                "model_native_text": {
+                "integrated_final_text": {
                     "pass": False,
-                    "evidence": "Dry-run placeholder includes text only for plumbing; it is not model-native final typography.",
+                    "evidence": "Dry-run placeholder includes text only for plumbing; it is not integrated final-image typography.",
                 },
                 "final_files": {
                     "pass": False,

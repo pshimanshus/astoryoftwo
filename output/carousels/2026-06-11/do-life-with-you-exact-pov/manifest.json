@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-06-11",
+  "slug": "do-life-with-you-exact-pov",
+  "title": "Do Life With You - Exact POV Adaptation",
+  "status": "PROOF_HANDOFF_READY",
+  "source_story": "Creator supplied seven screenshots from an ordinary-life romance carousel and requested the visible text remain exact while the visuals become unique, fresh, mostly POV/side/back-shot illustrations with non-repeating clothes.",
+  "slide_count": 7,
+  "sequence_rule": "Use only the seven supplied screenshots, ordered by the visible original carousel counters: 1/15, 2/15, 3/15, 6/15, 8/15, 9/15, 10/15. Do not invent missing slides.",
+  "copy_lock": "Exact visible screenshot text retained at creator request.",
+  "visual_system": "Fresh POV and cropped ordinary-life scenes, not screenshot redraws.",
+  "proof_slide": 6,
+  "reference_images": [
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp/WhatsApp Image 2026-06-11 at 19.28.26.jpeg",
+      "role": "source screenshot, original slide 1/15, text and mood reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp/WhatsApp Image 2026-06-11 at 19.28.19.jpeg",
+      "role": "source screenshot, original slide 2/15, text and mood reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp/WhatsApp Image 2026-06-11 at 19.28.26 (1).jpeg",
+      "role": "source screenshot, original slide 3/15, text and mood reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp/WhatsApp Image 2026-06-11 at 19.28.27.jpeg",
+      "role": "source screenshot, original slide 6/15, text and mood reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp/WhatsApp Image 2026-06-11 at 19.28.27 (1).jpeg",
+      "role": "source screenshot, original slide 8/15, text and mood reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp/WhatsApp Image 2026-06-11 at 19.28.18_3.jpeg",
+      "role": "source screenshot, original slide 9/15, text and mood reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Downloads/WhatsApp/WhatsApp Image 2026-06-11 at 19.28.28.jpeg",
+      "role": "source screenshot, original slide 10/15, text and mood reference only"
+    }
+  ],
+  "artifact_map": {
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "storyboard": "storyboard.md",
+    "layer_e": "layer-e-story-selling.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "identity_review": "identity-consistency-review.json",
+    "generation_state": "image-generation.json"
+  }
+}

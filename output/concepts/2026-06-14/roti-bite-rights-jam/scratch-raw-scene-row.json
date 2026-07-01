@@ -1,0 +1,69 @@
+{
+  "date": "2026-06-14",
+  "jam_slug": "roti-bite-rights-jam",
+  "status": "SCRATCH_RAW_SCENE_LOCKED_AFTER_CREATOR_RESET",
+  "supersedes": [
+    "raw-scene-row.json",
+    "storyboard.md",
+    "concept-selection.json"
+  ],
+  "creator_corrections": [
+    "Text must not be preachy.",
+    "Zuv must look at father, not at Aachu.",
+    "A distant/wider shot is acceptable and preferred.",
+    "Zuv must not have a bite in his hands.",
+    "Agents should catch story, copy, eye-line, hand-state, and dimension failures before creator handoff."
+  ],
+  "raw_scene_row": [
+    {
+      "beat": 1,
+      "exact_fact": "Zuv is eating food and having a conversation with his father.",
+      "location": "Family meal table, likely home or home-like dining setup.",
+      "person_acting": "Zuv and father.",
+      "object_moving": "Conversation gestures, plates, roti on the table.",
+      "what_other_person_notices": "Aachu is beside/near Zuv and eating.",
+      "visible_proof": "Zuv's face and torso are angled toward father; father is the clear conversation partner.",
+      "consequence": "The primary visible action is father-son conversation, not romantic couple eye contact."
+    },
+    {
+      "beat": 2,
+      "exact_fact": "Zuv has opened/torn a roti bite before, but in the chosen frame he must not be holding the bite.",
+      "location": "Same table.",
+      "person_acting": "Zuv.",
+      "object_moving": "Roti evidence remains on plate/table, not in Zuv's hand.",
+      "what_other_person_notices": "The audience can infer that a bite was prepared and is gone.",
+      "visible_proof": "Zuv's hands are empty, resting near plate, or gesturing toward father; no ready bite in his hand.",
+      "consequence": "The frame avoids the false offering/romantic feeding read."
+    },
+    {
+      "beat": 3,
+      "exact_fact": "Aachu has taken the prepared bite and is eating.",
+      "location": "Same table.",
+      "person_acting": "Aachu.",
+      "object_moving": "The bite is with Aachu, near her mouth/hand/plate.",
+      "what_other_person_notices": "The audience notices the side action while Zuv remains in father conversation.",
+      "visible_proof": "Aachu is eating naturally, not snatching, not performing for Zuv.",
+      "consequence": "The joke is discovered by the viewer, not announced by the characters."
+    },
+    {
+      "beat": 4,
+      "exact_fact": "The family conversation continues while Aachu keeps eating the taken bite.",
+      "location": "Same table.",
+      "person_acting": "Father continues talking; Zuv continues listening/talking; Aachu eats.",
+      "object_moving": "A tiny food side-story runs parallel to the conversation.",
+      "what_other_person_notices": "Zuv may not notice in this exact frame; the viewer notices.",
+      "visible_proof": "Zuv eye-line stays toward father. Aachu's bite is visible as a side beat.",
+      "consequence": "The humor becomes observational and real, not preachy or romanticized."
+    }
+  ],
+  "blocked_interpretations": [
+    "Zuv looking at Aachu",
+    "Zuv holding/offering a bite",
+    "romantic close two-shot",
+    "love-thesis text",
+    "food-denial/not-hungry lane",
+    "extra-order or second-serving lane",
+    "Aachu stealing aggressively",
+    "father missing from scene logic"
+  ]
+}

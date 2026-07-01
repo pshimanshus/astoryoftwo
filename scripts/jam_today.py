@@ -14,13 +14,18 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 REQUIRED_CONTEXT = [
+    "config/skills/carousel-jam-runtime-context.md",
+    "config/skills/carousel-jam-autopilot.md",
+    "config/skills/carousel-story-director-persona.md",
+]
+
+DEEP_SOURCE_CONTEXT = [
+    "wiki/insights/successful-carousel-standard.md",
     "memory/semantic/carousel-idea-preferences.md",
     "wiki/themes/calm-enough-for-chaos.md",
     "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md",
     "config/skills/romance-story-selling-engine.md",
     "config/skills/golden-viral-carousel-theme.md",
-    "config/skills/carousel-story-director-persona.md",
-    "config/skills/carousel-jam-autopilot.md",
 ]
 
 
@@ -82,13 +87,18 @@ def main() -> int:
     args = parser.parse_args()
 
     print("# Carousel Jam Prep")
-    print("\n## Required Context")
+    print("\n## Required Runtime Context")
     missing: list[str] = []
     for path, exists in context_status():
         marker = "OK" if exists else "MISSING"
         print(f"- {marker}: {path}")
         if not exists:
             missing.append(path)
+
+    print("\n## Deep Source References")
+    for path in DEEP_SOURCE_CONTEXT:
+        marker = "OK" if (ROOT / path).exists() else "MISSING"
+        print(f"- {marker}: {path}")
 
     print("\n## Recent Carousel Packages")
     for package in recent_carousels():
@@ -105,9 +115,11 @@ def main() -> int:
 
     print("\n## Jam Instruction For Codex")
     print(
-        "Run Layer E, the golden-theme tournament, the story-director persona, "
-        "and the carousel jam autopilot before writing public copy."
+        "Free creative pass first: let the model generate concept, copy, and visual setup. "
+        "Then apply engineering guardrails for repetition, identity, visual quality, exact text, "
+        "brandmark, dimensions, stale artifacts, and house guidance."
     )
+    print("If the creative pass is approved, save it as creative-baseline.json and package with --creative-brief-file.")
     print(f"moment: {args.moment}")
 
     command = build_carousel_command(args)

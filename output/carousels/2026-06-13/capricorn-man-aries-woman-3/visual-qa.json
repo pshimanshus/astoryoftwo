@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "status": "V2_PROOF_CANDIDATE_READY_AWAITING_CREATOR_APPROVAL",
+  "publishable": false,
+  "proof_checks": {
+    "slide_01_v2_instagram_post": {
+      "status": "PASS_WITH_NOTES",
+      "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/slide-01-v2-proof-candidate-colorfixed.png",
+      "source_generated_image": "/Users/himanshusharma/.codex/generated_images/019ec20a-929c-7523-829a-eb09566a7cda/ig_067c2793d0bc74f1016a2da9a4b0dc8191af403f7f1a6c0ad1.png",
+      "dimensions": "1122x1402",
+      "format_check": "PASS: 4:5 ratio 0.8003",
+      "palette_check": "PASS: paper RGB=(239,235,228); paper sat=0.037; paper B/G=0.970; yellow-band fraction=0.038",
+      "text_check": "PASS_MANUAL: visible text matches the slide copy",
+      "ocr_check": "STOP_SOFT_SKIP: easyocr is not installed in this venv",
+      "brandmark_check": "PASS: tiny @a.storyof.two appears bottom-right",
+      "identity_notes": {
+        "Aachu": "Face visible, expressive, not cropped; magnetic forward motion reads clearly.",
+        "Zuv": "Face visible, calm amused gaze, active attention toward Aachu."
+      },
+      "story_scene_check": "PASS: he is planning at the table; she is already starting at the doorway; hand gesture reads as invitation."
+    },
+    "slide_07_instagram_post": {
+      "status": "PASS_WITH_NOTES",
+      "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/instagram-post-slide-07-proof.png",
+      "source_generated_image": "/Users/himanshusharma/.codex/generated_images/019ec20a-929c-7523-829a-eb09566a7cda/ig_067c2793d0bc74f1016a2d9711c9908191824420bcf4b9cad5.png",
+      "dimensions": "1122x1402",
+      "format_check": "PASS: native 4:5 proof output",
+      "palette_check": "PASS: paper RGB=(242,237,227); paper sat=0.062; paper B/G=0.958; yellow-band fraction=0.042",
+      "text_check": "PASS_MANUAL: visible text reads exactly he acts calm. / but he loves the chaos.",
+      "ocr_check": "STOP_SOFT_SKIP: easyocr is not installed in this venv",
+      "brandmark_check": "PASS: tiny @a.storyof.two appears bottom-right",
+      "identity_notes": {
+        "Aachu": "Expressive long dark hair, playful smile, energetic pose; acceptable proof direction, creator approval required.",
+        "Zuv": "Curly hair, stubble, soft watching expression; acceptable proof direction, creator approval required."
+      },
+      "story_scene_check": "PASS: Aachu creates visible chaos; Zuv actively watches with fond calm."
+    }
+  },
+  "rejected_attempts": [
+    {
+      "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/slide-01-v2-proof-candidate.png",
+      "reason": "Visually improved but palette failed before local color correction."
+    },
+    {
+      "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/rejected/slide-01-v2-proof-rejected-tall-yellow-microtext.png",
+      "reason": "Rejected because generated aspect was too tall, palette failed, and notebook/phone contained readable invented microtext."
+    },
+    {
+      "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/rejected/instagram-post-slide-07-proof-v1-yellow-wrong-ratio.png",
+      "reason": "Rejected before creator review because paper read yellow/parchment and the canvas was too tall, not native 4:5."
+    }
+  ],
+  "remaining_blockers": [
+    "Creator approval or repair notes for slide 01 v2 proof candidate.",
+    "Generate all 8 native 4:5 final slides into final/.",
+    "Generate all 8 separate native 9:16 final slides into final-reels-stories/.",
+    "Run full visual QA after final images exist."
+  ]
+}

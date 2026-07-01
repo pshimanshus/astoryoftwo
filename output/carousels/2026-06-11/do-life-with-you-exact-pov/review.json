@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_PROOF",
+  "scores": {
+    "copy_exactness": 10,
+    "camera_variety": 10,
+    "wardrobe_variety": 10,
+    "stage_scene_gate": 9,
+    "house_style_fit": 9,
+    "identity_strategy": 8
+  },
+  "required_before_final": [
+    "Generate slide 06 proof first.",
+    "Creator approves or repairs proof style/wardrobe/text.",
+    "Generate separate native 4:5 and native 9:16 outputs.",
+    "Run visual QA and final audit."
+  ],
+  "known_risks": [
+    "Model-native text may miss exact punctuation or line breaks and must be checked.",
+    "Hidden-face identity must still read as Aachu/Zuv through hands, hair, and posture.",
+    "External reference text should be rights-cleared before publishing."
+  ]
+}

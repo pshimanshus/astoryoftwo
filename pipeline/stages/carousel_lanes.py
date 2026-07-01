@@ -14,7 +14,7 @@ MAX_IDENTITY_REFERENCE_BUNDLE = 4
 FALLBACK_COMPACT_STYLE_PROMPT = (
     "premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper with visible paper grain, fine ink/pencil "
     "linework, transparent watercolor blooms, muted vintage palette, recurring Aachu/Zuv faces, "
-    "model-native handwritten text, tiny @a.storyof.two brandmark"
+    "exact integrated handwritten/storybook text in the final image, tiny @a.storyof.two brandmark"
 )
 IDENTITY_REFERENCE_RULE = (
     "Do not dump every identity image into a carousel prompt. Treat identity_images/ "
@@ -658,6 +658,12 @@ def discover_identity_images(workspace_root: Path) -> list[Path]:
 
 
 def select_identity_reference_bundle(candidate_paths: list[Path], *, explicit: bool) -> list[Path]:
+    if explicit and not candidate_paths:
+        raise ValueError(
+            "At least one curated identity reference image is required when "
+            "identity_image_paths is passed explicitly. Omit the argument to use "
+            "auto-discovery, or pass 1-4 Aachu/Zuv identity reference images."
+        )
     if explicit and len(candidate_paths) > MAX_IDENTITY_REFERENCE_BUNDLE:
         raise ValueError(
             f"Use at most {MAX_IDENTITY_REFERENCE_BUNDLE} curated identity references "

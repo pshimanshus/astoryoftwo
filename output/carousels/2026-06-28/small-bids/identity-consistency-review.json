@@ -1,0 +1,206 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "status": "PASS",
+  "identity_references": [
+    "config/references/identity/together/together-20.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/zuv/face-04.png"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "the smallest moments can make or break connection",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 1,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: quiet recognition with a tiny ache, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "sometimes love asks in very small ways",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 2,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: soft ask, almost too small to notice, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "look at this",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 3,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: small hopeful bid, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "come sit with me",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 4,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: tender invitation, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "you won't believe what happened today",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 5,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: gentle reversal with a little sting, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "turning toward each other is a choice you make in ten seconds",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 6,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: quiet choice, warm repair, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    },
+    {
+      "slide": 7,
+      "copy": "it's never the big fights. it's the small \"look at this\" you didn't look at.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 7,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: small missed-moment ache, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    },
+    {
+      "slide": 8,
+      "copy": "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 8,
+        "identity_references": [
+          "config/references/identity/together/together-20.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/face-04.png"
+        ],
+        "face_structure": "Match Aachu and Zuv from the selected identity bundle: recurring face proportions, hairline, brows, eyes, nose, lips, smile, beard/stubble for Zuv, and relative height/posture. Do not substitute generic couple faces.",
+        "facial_expression": "Expression must match this beat: settled tenderness, while preserving the same underlying real-person faces across slides.",
+        "clothing": "Use the selected references as wardrobe anchors: white/light shirt, denim, grey pinstripe/soft black layers for Aachu where useful; light blue/white or dark shirt, grey/tan trousers for Zuv where useful. Extend only conservatively for a cozy living-room scene.",
+        "cross_slide_consistency": "Across all slides, Aachu and Zuv must read as the same two people with consistent faces, body proportions, hair identities, warm skin tone, and relationship energy."
+      }
+    }
+  ],
+  "issues": []
+}

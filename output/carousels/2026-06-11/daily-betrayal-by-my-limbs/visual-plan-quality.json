@@ -1,0 +1,29 @@
+{
+  "status": "GO_FOR_PROOF",
+  "full_batch_status": "WAIT_FOR_CREATOR_PROOF_APPROVAL",
+  "checks": {
+    "golden_theme_proof": "PASS",
+    "stage_scene_storytelling": "PASS",
+    "copy_visual_alignment": "PASS",
+    "scene_logic": "PASS",
+    "pose_anatomy": "WATCH",
+    "identity_continuity": "WATCH",
+    "paper_tone": "PASS_REQUIRED",
+    "typography": "PASS_REQUIRED",
+    "brandmark": "PASS_REQUIRED"
+  },
+  "per_slide": [
+    {"slide": 1, "verdict": "GO"},
+    {"slide": 2, "verdict": "GO"},
+    {"slide": 3, "verdict": "GO"},
+    {"slide": 4, "verdict": "GO"},
+    {"slide": 5, "verdict": "GO"},
+    {"slide": 6, "verdict": "GO"},
+    {"slide": 7, "verdict": "GO_FOR_PROOF"}
+  ],
+  "doubt_flags": [
+    "Slide 7 must read affectionate, not resentful.",
+    "Faces must match selected identity references before continuing.",
+    "Text must be readable and exact."
+  ]
+}

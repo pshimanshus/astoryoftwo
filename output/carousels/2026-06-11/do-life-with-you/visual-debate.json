@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "winner": "Ritual Evidence Montage",
+  "tooling_note": "Visual council simulated as named reviewers due to sub-agent tool policy.",
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "verdict": "GO",
+      "recommendation": "Use coffee, list, chair, pastry, dishes, laundry, and market objects only as evidence of partnership, never as standalone still lifes."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "verdict": "GO",
+      "recommendation": "Block each slide around one action and one reaction: noticing, making room, choosing the second, drying badly, tossing the sock, forgetting the list."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "verdict": "GO",
+      "recommendation": "Vary location and camera distance while preserving the same identity bundle, warm ivory paper, and tactile casual wardrobe anchors."
+    }
+  ],
+  "options": [
+    {
+      "name": "Ritual Evidence Montage",
+      "score": 30,
+      "case_for": "Most ownable, varied, and generative. It turns the reference into a staged Aachu/Zuv story.",
+      "risk": "Continuity must be maintained across ten slides."
+    },
+    {
+      "name": "One Evening At Home",
+      "score": 26,
+      "case_for": "Strong continuity and intimacy.",
+      "risk": "Too many slides would repeat kitchen/home interiors and feel visually flat."
+    },
+    {
+      "name": "Mostly Object Vignettes",
+      "score": 21,
+      "case_for": "Elegant and close to the inspiration.",
+      "risk": "Fails Stage-Scene Gate because text would carry the carousel."
+    }
+  ],
+  "selector_verdict": "Use a varied ritual montage with Aachu/Zuv action in every slide. Start with a promise, move through daily proofs, use kitchen dancing as the romantic center, then end with all the boring parts becoming home.",
+  "rejected_visual_patterns": [
+    "copying any supplied screenshot composition exactly",
+    "dark moody photorealistic blur",
+    "empty object still life with no couple action",
+    "large centered quote-card typography",
+    "same kitchen angle across multiple slides",
+    "Zuv as passive background"
+  ],
+  "final_visual_plan_source": "slides.json"
+}

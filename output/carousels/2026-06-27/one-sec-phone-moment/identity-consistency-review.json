@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "issues": [
+    {
+      "severity": "blocking",
+      "issue": "The final generation path must attach actual selected Aachu/Zuv identity images and style references as image inputs. Text-only descriptions are not enough."
+    }
+  ],
+  "selected_identity_bundle": [
+    {
+      "path": "config/references/identity/aachu/portrait-02.jpg",
+      "role": "Aachu face/hair/expression anchor"
+    },
+    {
+      "path": "config/references/identity/zuv/portrait-05.jpg",
+      "role": "Zuv face/hair/stubble/expression anchor"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "couple scale and closeness anchor"
+    },
+    {
+      "path": "config/references/identity/together/together-21.jpg",
+      "role": "domestic closeness and mutual attention anchor"
+    }
+  ],
+  "style_reference_bundle": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+  ],
+  "wardrobe_strategy": "Use selected identity/current-request wardrobe cues first. If no current wardrobe photos are attached, keep casual homewear conservative: soft cotton, muted denim/navy/sage/coral/cream, no dramatic fashion styling.",
+  "proof_slide": 6,
+  "hard_gate": "Do not generate or accept final art from text-only identity descriptions."
+}

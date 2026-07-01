@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "repairs_applied": [
+    {
+      "risk": "Derivative source visuals",
+      "repair": "Every slide receives a new camera angle and different blocking from the screenshot."
+    },
+    {
+      "risk": "Repeated wardrobe",
+      "repair": "Every slide has a distinct wardrobe palette and clothing silhouette."
+    },
+    {
+      "risk": "Faces drifting or becoming too visible",
+      "repair": "Most slides use POV, back, side, or partial-body identity cues."
+    },
+    {
+      "risk": "Object-only still lifes",
+      "repair": "Each slide includes a hand, body, or partner action."
+    }
+  ],
+  "remaining_repairs": []
+}

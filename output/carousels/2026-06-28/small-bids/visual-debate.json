@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "winner": "Small Bids, Object Movement, Mutual Turn",
+  "visual_options": [
+    {
+      "name": "Small Bids, Object Movement, Mutual Turn",
+      "score": 30,
+      "case_for": "Best proof of the exact copy through phone, cushion, daily-story role flip, and body-turn action.",
+      "risk": "Must avoid looking like a phone-addiction lecture."
+    },
+    {
+      "name": "Living Room Continuity Film",
+      "score": 28,
+      "case_for": "A continuous room can make the ten-second choice feel real.",
+      "risk": "Could repeat the same sofa shot too often."
+    },
+    {
+      "name": "Symbolic Tiny Signals",
+      "score": 25,
+      "case_for": "Tiny objects around the room are clear.",
+      "risk": "Rejected as the main system because it can become a quote-card/object montage."
+    }
+  ],
+  "agents": [
+    {
+      "agent": "carousel-visual-evidence-planner",
+      "verdict": "GO",
+      "notes": "Phone, cushion, eye-line, and body turn provide concrete evidence."
+    },
+    {
+      "agent": "carousel-romance-scene-planner",
+      "verdict": "GO",
+      "notes": "The role flip gives mutual relationship motion."
+    },
+    {
+      "agent": "carousel-visual-continuity-judge",
+      "verdict": "GO",
+      "notes": "Shot ladder varies wide, medium, over-shoulder, detail, medium two-shot, table-level, doorway, final medium-wide."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "phone UI/screenshot redraw",
+    "quote-card object montage",
+    "same sofa medium two-shot on every slide"
+  ],
+  "selector_verdict": "GO: generate slide 6 proof first; do not batch the rest until proof passes identity, style, exact text, and phone-face-down action.",
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "the smallest moments can make or break connection",
+      "shot_ladder": {
+        "shot_type": "wide establishing scene",
+        "camera_angle": "slightly high corner-of-room view",
+        "setting_lane": "living room",
+        "primary_visible_action": "two people sharing a room while small bids sit between them",
+        "who_visible": "both",
+        "repeated_prop_check": "phone appears as one signal, not the only subject"
+      },
+      "visual": "Wide warm living-room scene in one airy frame: Aachu and Zuv are in the same room but not fully turned toward each other yet. Tiny signals around the room act as visual evidence: a phone glowing softly near a sofa cushion, an empty cushion with a slight handprint, a half-finished cup, a small glance across the room, and one person almost missing the other. Keep it simple, not a collage."
+    },
+    {
+      "slide": 2,
+      "copy": "sometimes love asks in very small ways",
+      "shot_ladder": {
+        "shot_type": "medium sofa-side scene",
+        "camera_angle": "profile three-quarter view",
+        "setting_lane": "living room sofa",
+        "primary_visible_action": "Aachu makes a tiny bid through phone, cushion pat, sigh, and glance",
+        "who_visible": "Aachu primary, Zuv partial in background/edge",
+        "repeated_prop_check": "phone and cushion repeat intentionally as the bid vocabulary"
+      },
+      "visual": "Medium-detail sofa-side scene: Aachu sits with a phone in one hand, the other hand lightly patting the empty cushion beside her. Her body gives a tiny sigh and a small sideways glance toward Zuv. Show the phone, cushion pat, sigh, and glance through posture and object placement, not through UI or speech bubbles."
+    },
+    {
+      "slide": 3,
+      "copy": "look at this",
+      "shot_ladder": {
+        "shot_type": "over-shoulder close-up",
+        "camera_angle": "behind Aachu toward Zuv",
+        "setting_lane": "sofa/table edge",
+        "primary_visible_action": "Aachu offers the phone for him to see",
+        "who_visible": "Aachu shoulder/hand, Zuv face",
+        "repeated_prop_check": "phone is necessary story evidence"
+      },
+      "visual": "Over-shoulder close scene from behind Aachu as she holds her phone out toward Zuv to show him something. The phone screen is visible only as soft light or a tiny illustrated image shape with no readable UI. Zuv is turning from what he was doing, not fully there yet. Focus on her hand offering the phone and the hopeful eye-line."
+    },
+    {
+      "slide": 4,
+      "copy": "come sit with me",
+      "shot_ladder": {
+        "shot_type": "detail shot",
+        "camera_angle": "low cushion-level view",
+        "setting_lane": "sofa cushion detail",
+        "primary_visible_action": "hand pats the empty cushion",
+        "who_visible": "Aachu hand, partial Zuv",
+        "repeated_prop_check": "cushion repeats intentionally, no extra filler props"
+      },
+      "visual": "Close detail shot of Aachu hand patting the empty sofa cushion beside her. The cushion compresses slightly under her palm. Zuv is entering as a cropped knee, hand, or shoulder at the edge, drawn toward the seat. Keep faces optional; the hand and empty cushion carry the scene."
+    },
+    {
+      "slide": 5,
+      "copy": "you won't believe what happened today",
+      "shot_ladder": {
+        "shot_type": "medium two-shot",
+        "camera_angle": "front three-quarter view",
+        "setting_lane": "sofa/living room",
+        "primary_visible_action": "Zuv starts a story while Aachu is half in her phone",
+        "who_visible": "both",
+        "repeated_prop_check": "phone shifts to Aachu to create the role flip"
+      },
+      "visual": "Role-reversal medium scene: Zuv is now the one starting an animated story, leaning forward with one hand mid-gesture and a gentle excited face. Aachu is beside him, half in her phone for one beat, eyes not yet lifted. Keep it affectionate, not accusatory; the reversal is recognizable and funny-soft."
+    },
+    {
+      "slide": 6,
+      "copy": "turning toward each other is a choice you make in ten seconds",
+      "shot_ladder": {
+        "shot_type": "table-level medium close scene",
+        "camera_angle": "low table-level view with phone foreground",
+        "setting_lane": "coffee table / sofa",
+        "primary_visible_action": "phone goes face-down and bodies turn toward each other",
+        "who_visible": "both",
+        "repeated_prop_check": "phone appears face-down as the turning point, not a UI object"
+      },
+      "visual": "The decisive ten-second choice: a phone lies face-down on the table in the foreground. One partner is physically turning their torso and shoulders toward the other; the other partner looks up and meets their eyes. Hands relax away from the phone. The scene must clearly show attention moving from screen to person."
+    },
+    {
+      "slide": 7,
+      "copy": "it's never the big fights. it's the small \"look at this\" you didn't look at.",
+      "shot_ladder": {
+        "shot_type": "quiet reaction scene",
+        "camera_angle": "distant doorway view",
+        "setting_lane": "doorway/living room",
+        "primary_visible_action": "a small missed bid leaves a little space between them",
+        "who_visible": "both, with visible distance",
+        "repeated_prop_check": "phone is dim/background evidence, not centered"
+      },
+      "visual": "Quiet aftermath scene with no dramatic fight: the room is calm, the phone rests dim on a lap or table, and a tiny missed glance creates a small distance between them on the sofa. Use negative space to show that the hurt is small but real. No yelling, no argument pose, no melodrama."
+    },
+    {
+      "slide": 8,
+      "copy": "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "shot_ladder": {
+        "shot_type": "warm final medium-wide",
+        "camera_angle": "soft front view with lower-frame couple",
+        "setting_lane": "living room sofa",
+        "primary_visible_action": "they choose closeness and leave the phone aside",
+        "who_visible": "both",
+        "repeated_prop_check": "phone and cushion resolve the visual story"
+      },
+      "visual": "Final soft payoff: the once-empty cushion is now filled, the phone is face-down and away, and Aachu and Zuv sit turned toward each other in a relaxed close posture. One hand rests near the other, eyes attentive, room signals settled. Keep it warm, save-worthy, and specific to the small-bids story."
+    }
+  ],
+  "brandmark": "@a.storyof.two",
+  "brandmark_placement": "top-right",
+  "brandmark_note": "Creator correction on 2026-06-28: brandmark belongs top-right for this run and future compiled prompts."
+}

@@ -71,7 +71,7 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 ## C-layer generation loop hardening
 - date: 2026-05-16
 - status: implementation_complete_pending_final_package_regeneration
-- learning: `/story` must use `config/carousel_style_contract.json`, Aachu/Zuv identity references, clean generated art in `final/`, local typography in `final-with-text/`, and `visual-qa.md` before final audit can pass.
+- learning: `/story` must use `config/carousel_style_contract.json`, Aachu/Zuv identity references, clean generated art in `final/`, integrated final-image typography in `final/`, and `visual-qa.md` before final audit can pass.
 - audit: docs/audits/2026-05-16-carousel-pipeline-structure-audit.md
 - wiki: wiki/insights/carousel-generation-loop-health.md
 
@@ -919,3 +919,24 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: NEEDS_FIXES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-05-31/alone-not-behind-beside-me
+
+## C-layer carousel run: Capricorn Man Aries Woman
+- date: 2026-06-13
+- slug: capricorn-man-aries-woman-2
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-06-13/capricorn-man-aries-woman-2
+
+## C-layer carousel run: Road Hi Galat Hai
+- date: 2026-06-27
+- slug: road-hi-galat-hai
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-06-27/road-hi-galat-hai
+
+## C-layer carousel run: Small Bids
+- date: 2026-06-28
+- slug: small-bids
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-06-28/small-bids

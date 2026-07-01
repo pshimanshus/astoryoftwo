@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "status": "SCORED",
+  "routes": [
+    {
+      "route": "Tiny Bid Missed",
+      "summary": "Protect the supplied literal story: a small 'look at this' bid closes, then the couple repairs by turning toward each other.",
+      "story_selling_score": 27,
+      "golden_theme_score": 24,
+      "taste_gate": "REPAIR",
+      "reason": "Drawable, mutual, and sendable, but currently capped as a familiar phone-attention trope unless the visual system adds more Aachu/Zuv-specific behavioral receipts."
+    },
+    {
+      "route": "Digital Mirror",
+      "summary": "Make the phones the main metaphor and reduce the couple scenes into object-led reflections.",
+      "story_selling_score": 24,
+      "golden_theme_score": 25,
+      "taste_gate": "REPAIR",
+      "reason": "Too object-first and risks quote-card energy."
+    },
+    {
+      "route": "Comic Blame Loop",
+      "summary": "Play the missed attention as funny escalation before repair.",
+      "story_selling_score": 25,
+      "golden_theme_score": 24,
+      "taste_gate": "REPAIR",
+      "reason": "Risks making one partner look careless or small."
+    },
+    {
+      "route": "Phones Down Sermon",
+      "summary": "Lean into anti-phone relationship advice.",
+      "story_selling_score": 21,
+      "golden_theme_score": 22,
+      "taste_gate": "STOP",
+      "reason": "Generic self-help and not ownable @a.storyof.two."
+    },
+    {
+      "route": "Shared Screen Ritual",
+      "summary": "Begin at the repaired sharing moment and reveal the missed bids later.",
+      "story_selling_score": 26,
+      "golden_theme_score": 27,
+      "taste_gate": "REPAIR",
+      "reason": "Softer but loses the strong opening friction."
+    }
+  ],
+  "selected_route": "Tiny Bid Missed",
+  "selector_verdict": "REPAIR"
+}

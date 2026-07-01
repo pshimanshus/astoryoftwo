@@ -1,0 +1,65 @@
+{
+  "date": "2026-06-14",
+  "jam_slug": "roti-bite-rights-jam",
+  "status": "RAW_SCENE_LOCKED",
+  "beats": [
+    {
+      "beat": 1,
+      "exact_creator_fact": "Aachu and Zuv are eating food while Zuv is talking with his father.",
+      "location": "Family meal table, assumed home unless creator corrects.",
+      "person_acting": "Zuv and father are in conversation; Aachu is eating.",
+      "object_moving": "Food, roti, plate, bite.",
+      "what_other_person_notices": "Aachu is present in the meal rhythm while Zuv's attention is partly on his father.",
+      "visible_proof_on_screen": "Zuv is turned slightly toward father, Aachu has food/bite near her hand or mouth.",
+      "consequence": "The scene has two layers: public family conversation and private couple rhythm."
+    },
+    {
+      "beat": 2,
+      "exact_creator_fact": "Zuv tears a bite to open up a roti.",
+      "location": "Same meal table.",
+      "person_acting": "Zuv.",
+      "object_moving": "A torn roti bite opens between Zuv's fingers.",
+      "what_other_person_notices": "Aachu notices the bite before it reaches Zuv.",
+      "visible_proof_on_screen": "Zuv's hand is mid-air or above plate with the roti bite prepared.",
+      "consequence": "The bite becomes the moving object that changes ownership."
+    },
+    {
+      "beat": 3,
+      "exact_creator_fact": "Every time Zuv is tearing the bite open, Aachu takes it.",
+      "location": "Same meal table.",
+      "person_acting": "Aachu.",
+      "object_moving": "The prepared roti bite moves from Zuv's hand/plate zone toward Aachu.",
+      "what_other_person_notices": "Zuv notices the repeated pattern.",
+      "visible_proof_on_screen": "Aachu's hand or mouth receives the bite while Zuv's hand remains slightly paused.",
+      "consequence": "This is not one accidental steal; it is a tiny ritual forming in real time."
+    },
+    {
+      "beat": 4,
+      "exact_creator_fact": "Zuv is just looking at her face.",
+      "location": "Same meal table.",
+      "person_acting": "Zuv.",
+      "object_moving": "The roti bite is gone from his side; Aachu is eating it.",
+      "what_other_person_notices": "Aachu may still be eating naturally while Zuv watches her.",
+      "visible_proof_on_screen": "Zuv's eyes are on Aachu's face, not on the missing bite.",
+      "consequence": "The emotional turn is his look: amused, softened, quietly accepting."
+    },
+    {
+      "beat": 5,
+      "exact_creator_fact": "The moment is still happening inside ordinary family conversation.",
+      "location": "Same meal table.",
+      "person_acting": "All remain at the table.",
+      "object_moving": "Roti, plate, hands, food continue the scene rhythm.",
+      "what_other_person_notices": "The private couple joke can exist while the father conversation continues.",
+      "visible_proof_on_screen": "Father is gesturing/talking or implied off-frame; the couple has a silent side beat.",
+      "consequence": "The scene becomes public setting, private meaning."
+    }
+  ],
+  "hard_fail_check": {
+    "changed_sequence": false,
+    "invented_extra_objects": false,
+    "converted_to_food_denial": false,
+    "made_aachu_the_joke": false,
+    "made_zuv_passive_furniture": false,
+    "needs_creator_correction": "Only if father placement or home/restaurant location is wrong."
+  }
+}

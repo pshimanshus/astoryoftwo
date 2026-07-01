@@ -1,0 +1,164 @@
+{
+  "date": "2026-06-23",
+  "jam_slug": "seeti-count-marriage-jam",
+  "status": "REJECTED_BY_CREATOR",
+  "selected_recommendation": "option_a",
+  "hook_bank": [
+    {
+      "id": "H1",
+      "text": "Two adults. One cooker. No witness.",
+      "reason": "Fastest public mirror, visually immediate, no private setup."
+    },
+    {
+      "id": "H2",
+      "text": "Marriage is counting seetis together.",
+      "reason": "More tender, but slightly less thumb-stopping."
+    },
+    {
+      "id": "H3",
+      "text": "The cooker whistled. Confidence left.",
+      "reason": "Funny and clean, but less obviously couple-specific."
+    },
+    {
+      "id": "H4",
+      "text": "Nobody knows the second seeti.",
+      "reason": "Most meme-like; needs the visual to clarify."
+    },
+    {
+      "id": "H5",
+      "text": "Some kitchens need two witnesses.",
+      "reason": "Warm, but not as sharp as H1."
+    }
+  ],
+  "options": [
+    {
+      "id": "option_a",
+      "title": "No Reliable Witness",
+      "verdict": "RECOMMENDED",
+      "slides": [
+        {
+          "slide": 1,
+          "on_image_text": "Two adults. One cooker. No witness.",
+          "story_job": "Public hook and contradiction.",
+          "visual_direction": "Wide kitchen scene; pressure cooker in foreground; both visible, suddenly alert.",
+          "swipe_reason": "Viewer wants to know what happened."
+        },
+        {
+          "slide": 2,
+          "on_image_text": "First seeti toh clear thi.",
+          "story_job": "Establish the domestic task and false confidence.",
+          "visual_direction": "Aachu counting on one finger with confident face; Zuv relaxed near the stove.",
+          "swipe_reason": "The confidence is about to break."
+        },
+        {
+          "slide": 3,
+          "on_image_text": "Second? Third? Wait.",
+          "story_job": "Escalate into shared doubt.",
+          "visual_direction": "Close reaction: both looking at each other, different finger counts visible.",
+          "swipe_reason": "The tiny panic becomes funny."
+        },
+        {
+          "slide": 4,
+          "on_image_text": "Gas low karu?",
+          "story_job": "Give Zuv an active role without making him the expert.",
+          "visual_direction": "Zuv's hand near the stove knob, looking to Aachu for the verdict.",
+          "swipe_reason": "He is inside the problem with her."
+        },
+        {
+          "slide": 5,
+          "on_image_text": "They counted again. Silently.",
+          "story_job": "Let silence and body language carry the comedy.",
+          "visual_direction": "Medium side view; cooker between them; both counting on fingers with serious faces.",
+          "swipe_reason": "The shared seriousness is the relationship proof."
+        },
+        {
+          "slide": 6,
+          "on_image_text": "Some homes run on maybe.",
+          "story_job": "Save/share thesis: home is shared uncertainty, not perfect competence.",
+          "visual_direction": "Soft aftermath; flame low, both half-laughing near the counter.",
+          "swipe_reason": "Tender, sendable ending."
+        }
+      ]
+    },
+    {
+      "id": "option_b",
+      "title": "Joint Investigation",
+      "verdict": "BACKUP_MORE_COMEDIC",
+      "slides": [
+        {
+          "slide": 1,
+          "on_image_text": "The cooker whistled. Confidence left."
+        },
+        {
+          "slide": 2,
+          "on_image_text": "\"Second thi.\""
+        },
+        {
+          "slide": 3,
+          "on_image_text": "\"Third lag rahi thi.\""
+        },
+        {
+          "slide": 4,
+          "on_image_text": "Both became witnesses."
+        },
+        {
+          "slide": 5,
+          "on_image_text": "Gas went low. Ego also."
+        },
+        {
+          "slide": 6,
+          "on_image_text": "Marriage survived the seeti."
+        }
+      ]
+    },
+    {
+      "id": "option_c",
+      "title": "Tiny Adulting",
+      "verdict": "BACKUP_WARMER",
+      "slides": [
+        {
+          "slide": 1,
+          "on_image_text": "Marriage is counting seetis together."
+        },
+        {
+          "slide": 2,
+          "on_image_text": "One was obvious."
+        },
+        {
+          "slide": 3,
+          "on_image_text": "Then life got technical."
+        },
+        {
+          "slide": 4,
+          "on_image_text": "\"Ab?\""
+        },
+        {
+          "slide": 5,
+          "on_image_text": "He lowered the flame."
+        },
+        {
+          "slide": 6,
+          "on_image_text": "She lowered the confidence."
+        },
+        {
+          "slide": 7,
+          "on_image_text": "Home still happened."
+        }
+      ]
+    }
+  ],
+  "structural_audit": {
+    "hook": 9,
+    "story": 9,
+    "bridge": 8.5,
+    "zuv_role": 9,
+    "ending": 8.5,
+    "send_save_potential": 9,
+    "verdict": "FAIL_REJECTED_BY_CREATOR"
+  },
+  "notes": [
+    "Creator rejected this concept/copy as pathetic, unshareable, and far away from winning carousel quality.",
+    "Do not polish this route.",
+    "Rebuild from a stronger raw lived incident, creator-supplied reference mechanic, or hard public contradiction with visible receipts."
+  ]
+}

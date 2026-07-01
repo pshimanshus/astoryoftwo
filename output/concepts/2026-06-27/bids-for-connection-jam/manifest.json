@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-27",
+  "jam_slug": "bids-for-connection-jam",
+  "status": "COPY_REPAIRED_AFTER_CREATOR_REJECTION",
+  "source_seed": "Gottman's bids for connection: couples who last turn toward each other's small bids about 86% of the time; couples who divorce about 33%.",
+  "source_claim_guard": {
+    "verified_source": "https://www.gottman.com/blog/turn-toward-instead-of-away/",
+    "usage": "Use the statistic as research-backed context, not as a deterministic promise or diagnosis.",
+    "public_copy_note": "If the 86/33 statistic appears in copy or caption, cite Gottman clearly and keep the story human-first."
+  },
+  "artifact_map": {
+    "source_memory_brief": "source-memory-brief.json",
+    "agent_room": "agent-room.json",
+    "concept_routes": "concept-routes.json",
+    "concept_debate": "concept-debate.json",
+    "concept_repairs": "concept-repairs.json",
+    "taste_gate": "taste-gate.json",
+    "stage_scene_gate": "stage-scene-gate.json",
+    "story_director_lock": "story-director-lock.json",
+    "concept_selection": "concept-selection.json",
+    "hook_bank": "hook-bank.json",
+    "slides": "slides.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "storyboard": "storyboard.md",
+    "copy_repair": "copy-repair-v2.json"
+  },
+  "copy_locked": false,
+  "visuals_locked": false,
+  "next_checkpoint": "creator copy lock"
+}

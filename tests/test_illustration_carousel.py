@@ -24,16 +24,31 @@ from pipeline.stages.c1_illustration_carousel import (
     validate_slide_count,
 )
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel, try_render_assets
+from tests.helpers.images import encoded_image_bytes
 
 
 class IllustrationCarouselTests(unittest.TestCase):
     def png_bytes(self, width: int, height: int, value: int = 255) -> bytes:
-        import cv2
-        import numpy as np
+        return encoded_image_bytes(width=width, height=height, value=value, extension=".png")
 
-        ok, encoded = cv2.imencode(".png", np.full((height, width, 3), value, dtype=np.uint8))
-        self.assertTrue(ok)
-        return encoded.tobytes()
+    def image_bytes(
+        self,
+        width: int = 64,
+        height: int = 64,
+        value: int = 240,
+        *,
+        extension: str = ".jpg",
+    ) -> bytes:
+        return encoded_image_bytes(width=width, height=height, value=value, extension=extension)
+
+    def package_dir_for_slug(self, output_root: Path, slug: str) -> Path:
+        matches = sorted(output_root.glob(f"*/{slug}"))
+        self.assertEqual(
+            len(matches),
+            1,
+            f"Expected one package directory for {slug}, found: {matches}",
+        )
+        return matches[0]
 
     def png_size(self, path: Path) -> tuple[int, int]:
         import cv2
@@ -65,7 +80,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                         "style": {"pass": True, "evidence": "Warm hand-drawn storybook style was checked."},
                         "scene_logic": {"pass": True, "evidence": "Copy, clothing, props, and action were checked for contradictions."},
                         "pose_anatomy": {"pass": True, "evidence": "Aachu/Zuv posture and body anatomy were checked as natural and flattering."},
-                        "model_native_text": {"pass": True, "evidence": "Copy and brandmark were checked."},
+                        "integrated_final_text": {"pass": True, "evidence": "Copy and brandmark were checked."},
                         "final_files": {"pass": True, "evidence": "All final files were checked."},
                     },
                 }
@@ -99,7 +114,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_build_manifest_uses_artifact_contract_and_reference_images(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "moment.jpg"
-            image.write_bytes(b"not-real-image-data")
+            image.write_bytes(self.image_bytes())
 
             manifest = build_manifest(
                 title="Proposal Under Stars",
@@ -125,8 +140,8 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             story_image = Path(tmpdir) / "story.jpg"
             identity_image = Path(tmpdir) / "identity.jpg"
-            story_image.write_bytes(b"story")
-            identity_image.write_bytes(b"identity")
+            story_image.write_bytes(self.image_bytes())
+            identity_image.write_bytes(self.image_bytes())
 
             manifest = build_manifest(
                 title="Legacy Identity",
@@ -164,7 +179,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_codex_native_builder_creates_package_without_anthropic_key(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "first-date.jpg"
-            image.write_bytes(b"not-real-image-data")
+            image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="First date cups, second date jokes, then Ladakh.",
@@ -195,10 +210,111 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("Story-Selling Spine", storyboard)
         self.assertIn("Story-Selling Gate: PASS", approval)
 
+    def test_codex_native_preserves_supplied_free_creative_baseline(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            identity_image = workspace / "identity.png"
+            identity_image.write_bytes(self.image_bytes())
+            baseline_path = workspace / "creative-baseline.json"
+            baseline_path.write_text(
+                json.dumps(
+                    {
+                        "source": "attached transcript model pass",
+                        "concept": {
+                            "title": "Our Daily Romance",
+                            "human_truth": "Daily couple energy is tiny nonsense becoming comfort.",
+                            "emotional_arc": "fake listening -> caught instantly -> panic -> warmth",
+                        },
+                        "slides": [
+                            {
+                                "slide": 1,
+                                "copy": "Our romance is very simple.",
+                                "visual": "Cozy room, both present, calm before the trap.",
+                                "emotion": "warm setup",
+                            },
+                            {
+                                "slide": 2,
+                                "copy": "She asks,\n\"tum meri baat sun rahe ho?\"",
+                                "visual": "She looks at him with suspicious softness while he nods.",
+                                "emotion": "playful suspicion",
+                            },
+                            {
+                                "slide": 3,
+                                "copy": "I say,\n\"haan haan, bilkul.\"",
+                                "visual": "He nods too confidently with a phone in hand.",
+                                "emotion": "fake confidence",
+                            },
+                            {
+                                "slide": 4,
+                                "copy": "Then she asks,\n\"maine kya bola?\"",
+                                "visual": "She turns fully toward him, eyebrow raised.",
+                                "emotion": "trap lands",
+                            },
+                            {
+                                "slide": 5,
+                                "copy": "And suddenly,\nmy entire life flashes before my eyes.",
+                                "visual": "He freezes in survival mode, phone paused mid-air.",
+                                "emotion": "comic panic",
+                            },
+                            {
+                                "slide": 6,
+                                "copy": "But still, every day,\nwe choose this nonsense.",
+                                "visual": "The room softens; she is amused, he is sheepish.",
+                                "emotion": "warm repair",
+                            },
+                            {
+                                "slide": 7,
+                                "copy": "Because love is not always peaceful.\nSometimes love is just getting caught beautifully.",
+                                "visual": "She lightly hits him with a cushion while both smile.",
+                                "emotion": "earned affection",
+                            },
+                        ],
+                        "copy": {
+                            "caption_recommended": "Couple life is 10% romance, 90% getting caught.",
+                            "caption_alt": "Tag the person who says haan haan without hearing anything.",
+                            "hashtags": ["#AStoryOfTwo"],
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            out_dir = create_codex_native_carousel(
+                story="Chaotic daily couple energy and tiny moments.",
+                image_paths=[],
+                identity_image_paths=[identity_image],
+                title="Our Daily Romance",
+                output_root=workspace / "out",
+                render_assets=False,
+                today=date(2026, 7, 1),
+                creative_baseline_path=baseline_path,
+            )
+
+            creative_baseline = json.loads((out_dir / "creative-baseline.json").read_text(encoding="utf-8"))
+            manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
+            concept = json.loads((out_dir / "concept.json").read_text(encoding="utf-8"))
+            slides = json.loads((out_dir / "slides.json").read_text(encoding="utf-8"))
+            prompt_pack = json.loads((out_dir / "prompt-pack.json").read_text(encoding="utf-8"))
+            copy = json.loads((out_dir / "copy.json").read_text(encoding="utf-8"))
+
+        expected_copy = [slide["copy"] for slide in creative_baseline["slides"]]
+        expected_visuals = [slide["visual"] for slide in creative_baseline["slides"]]
+        self.assertEqual(creative_baseline["status"], "supplied")
+        self.assertEqual(creative_baseline["creative_authority"], "model_first")
+        self.assertEqual(manifest["artifacts"]["creative_baseline"], "creative-baseline.json")
+        self.assertEqual(concept["creative_baseline"]["artifact"], "creative-baseline.json")
+        self.assertEqual(concept["creative_baseline"]["status"], "supplied")
+        self.assertEqual([slide["copy"] for slide in slides], expected_copy)
+        self.assertEqual([slide["visual"] for slide in slides], expected_visuals)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
+        self.assertIn("Creative baseline source of truth", prompt_pack["slides"][0]["prompt"])
+        self.assertEqual(copy["caption_recommended"], "Couple life is 10% romance, 90% getting caught.")
+        self.assertEqual(len(slides), 7)
+
     def test_codex_native_prompt_pack_has_compact_generation_fields(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity_image = Path(tmpdir) / "aachu-zuv.png"
-            identity_image.write_bytes(b"identity-image")
+            identity_image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -233,7 +349,7 @@ class IllustrationCarouselTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmpdir:
             identity_image = Path(tmpdir) / "aachu-zuv.png"
-            identity_image.write_bytes(b"identity-image")
+            identity_image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -334,7 +450,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity_image = workspace / "aachu-zuv.png"
-            identity_image.write_bytes(b"identity-image")
+            identity_image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -403,7 +519,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_private_captions_story_uses_selected_agent_room_copy_and_visual_system(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -447,7 +563,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         ).lower()
         self.assertEqual(concept["content_lane"], "Golden Private Captions")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertEqual(concept_selection["winner"], "Some Couples Come With Private Captions")
         self.assertGreaterEqual(concept_selection["winner_score"], 28)
         self.assertEqual(visual_debate["winner"], "Private Caption Shared Frames")
@@ -493,7 +609,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         joined_visuals = " ".join(slide["visual"] for slide in slides).lower()
         self.assertEqual(concept["content_lane"], "Golden Tasty Life")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertEqual(concept["concept_selection"]["winner"], "The Second Serving Was Never Just Food")
         self.assertEqual(concept_selection["winner_score"], 29.7)
         self.assertEqual(
@@ -524,7 +640,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "first-date.jpg"
-            image.write_bytes(b"not-real-image-data")
+            image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="First date cups, second date jokes, then Ladakh.",
@@ -550,11 +666,11 @@ class IllustrationCarouselTests(unittest.TestCase):
         requirement_ids = {requirement["id"] for requirement in ledger["requirements"]}
         self.assertTrue({"REQ-STYLE-001", "REQ-PHOTO-001", "REQ-SLIDES-001"}.issubset(requirement_ids))
         self.assertTrue({"REQ-BRAND-001", "REQ-NEGATIVE-001", "REQ-WIKI-001"}.issubset(requirement_ids))
-        self.assertTrue({"REQ-MODEL-NATIVE-TEXT-001", "REQ-VISUAL-QA-001"}.issubset(requirement_ids))
+        self.assertTrue({"REQ-INTEGRATED-FINAL-TEXT-001", "REQ-VISUAL-QA-001"}.issubset(requirement_ids))
         self.assertIn("REQ-IDENTITY-CONSISTENCY-001", requirement_ids)
         self.assertIn("REQ-VISUAL-PLAN-QUALITY-001", requirement_ids)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["brandmark"], "@a.storyof.two")
-        self.assertIn("bottom-right", prompt_pack["text_overlay_plan"]["brandmark_placement"])
+        self.assertEqual(prompt_pack["integrated_text_plan"]["brandmark"], "@a.storyof.two")
+        self.assertIn("top-right", prompt_pack["integrated_text_plan"]["brandmark_placement"])
         self.assertIn("identity_consistency_review", manifest["quality_spine"]["artifacts"])
         self.assertIn("visual_plan_quality", manifest["quality_spine"]["artifacts"])
         self.assertEqual(manifest["quality_spine"]["observer"], "C0.5-Jarvis")
@@ -569,7 +685,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertFalse(final_audit["requirements"]["REQ-IDENTITY-001"]["pass"])
         self.assertFalse(final_audit["requirements"]["REQ-IDENTITY-CONSISTENCY-001"]["pass"])
         self.assertTrue(final_audit["requirements"]["REQ-VISUAL-PLAN-QUALITY-001"]["pass"])
-        self.assertFalse(final_audit["requirements"]["REQ-MODEL-NATIVE-TEXT-001"]["pass"])
+        self.assertFalse(final_audit["requirements"]["REQ-INTEGRATED-FINAL-TEXT-001"]["pass"])
         self.assertFalse(final_audit["requirements"]["REQ-VISUAL-QA-001"]["pass"])
         self.assertTrue(all(final_audit["requirements"]["REQ-WIKI-001"]["evidence"].values()))
         self.assertIn("First Date To Ladakh", wiki_update)
@@ -582,7 +698,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         repo_root = Path(__file__).resolve().parent.parent
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "first-date.jpg"
-            image.write_bytes(b"not-real-image-data")
+            image.write_bytes(self.image_bytes())
             output_root = Path(tmpdir) / "out"
             env = os.environ.copy()
             env.pop("ANTHROPIC_API_KEY", None)
@@ -606,9 +722,10 @@ class IllustrationCarouselTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=False,
+                timeout=30,
             )
 
-            manifest_path = output_root / str(date.today()) / "cli-native" / "manifest.json"
+            manifest_path = self.package_dir_for_slug(output_root, "cli-native") / "manifest.json"
             manifest_exists = manifest_path.exists()
 
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -620,8 +737,8 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             story_image = Path(tmpdir) / "anklet.jpg"
             identity_image = Path(tmpdir) / "identity.jpg"
-            story_image.write_bytes(b"story-image")
-            identity_image.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity_image.write_bytes(self.image_bytes())
             output_root = Path(tmpdir) / "out"
             env = os.environ.copy()
             env.pop("ANTHROPIC_API_KEY", None)
@@ -647,9 +764,10 @@ class IllustrationCarouselTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=False,
+                timeout=30,
             )
 
-            manifest_path = output_root / str(date.today()) / "cli-identity" / "manifest.json"
+            manifest_path = self.package_dir_for_slug(output_root, "cli-identity") / "manifest.json"
             manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
 
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -677,11 +795,11 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("shared images only as mood/composition", contract["shared_style_prompt"])
         self.assertIn("Aachu/Zuv identity reference as the face and wardrobe anchor", contract["shared_style_prompt"])
         self.assertIn("exact handwritten text in upper-middle negative space", contract["shared_style_prompt"])
-        self.assertIn("tiny low-contrast handwritten brandmark '@a.storyof.two' in the bottom-right", contract["shared_style_prompt"])
+        self.assertIn("tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right", contract["shared_style_prompt"])
         self.assertEqual(contract["style_reference_attachment_limit"], len(contract["style_references"]))
         self.assertIn("No photorealism", contract["shared_negative_prompt"])
         self.assertEqual(contract["brandmark"], "@a.storyof.two")
-        self.assertEqual(contract["typography"]["strategy"], "model_native")
+        self.assertEqual(contract["typography"]["strategy"], "integrated_final_text")
         self.assertEqual(
             contract["style_references"][:8],
             [
@@ -696,7 +814,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             ],
         )
         self.assertEqual(contract["creator_approved_illustration_style"]["source_run"], "observational-intimacy-premium")
-        self.assertEqual(contract["legacy_typography"]["strategy"], "legacy_local_overlay")
+        self.assertEqual(contract["legacy_typography"]["strategy"], "controlled_final_text_placement")
         self.assertIn("spark", contract["characters"]["aachu"]["relationship_role"])
         self.assertIn("steady flame", contract["characters"]["zuv"]["relationship_role"])
 
@@ -794,9 +912,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         allowed = {
             "carousel_doctor.py",
             "create_illustration_carousel.py",
-            "create_star_proposal_carousel.py",
             "package_generated_carousel.py",
-            "package_star_proposal_generated_carousel.py",
             "render_carousel_text_overlays.py",
         }
 
@@ -812,6 +928,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             "or the C-layer package flow; do not add one-off renderers that bypass "
             "prompt-pack/review/final-audit artifacts.",
         )
+        self.assertTrue((repo_root / "scripts" / "legacy" / "create_star_proposal_carousel.py").exists())
+        self.assertTrue((repo_root / "scripts" / "legacy" / "package_star_proposal_generated_carousel.py").exists())
 
     def test_package_generated_carousel_direct_script_help_works(self):
         repo_root = Path(__file__).resolve().parent.parent
@@ -826,6 +944,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             text=True,
             capture_output=True,
             check=False,
+            timeout=30,
         )
 
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -837,8 +956,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "anklet.jpg"
             identity_image = workspace / "aachu-zuv-7.43.23\u202fPM.png"
-            story_image.write_bytes(b"story-image")
-            identity_image.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity_image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="He tied the anklet before proposing; after marriage he still ties her sandals.",
@@ -884,8 +1003,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             identity_dir = workspace / "identity_images"
             identity_dir.mkdir()
             identity_image = identity_dir / "aachu_zuv.png"
-            story_image.write_bytes(b"story-image")
-            identity_image.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity_image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="He tied the anklet before proposing; after marriage he still ties her sandals.",
@@ -912,11 +1031,11 @@ class IllustrationCarouselTests(unittest.TestCase):
             story_image = workspace / "story.jpg"
             identity_dir = workspace / "identity_images"
             identity_dir.mkdir()
-            story_image.write_bytes(b"story-image")
+            story_image.write_bytes(self.image_bytes())
             discovered = []
             for index in range(7):
                 image = identity_dir / f"identity-{index:02d}.jpg"
-                image.write_bytes(b"identity-image")
+                image.write_bytes(self.image_bytes())
                 discovered.append(image.resolve())
 
             out_dir = create_codex_native_carousel(
@@ -946,11 +1065,11 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             story_image = workspace / "story.jpg"
-            story_image.write_bytes(b"story-image")
+            story_image.write_bytes(self.image_bytes())
             identity_paths = []
             for index in range(5):
                 image = workspace / f"identity-{index:02d}.jpg"
-                image.write_bytes(b"identity-image")
+                image.write_bytes(self.image_bytes())
                 identity_paths.append(image)
 
             with self.assertRaisesRegex(ValueError, "at most 4 curated identity references"):
@@ -984,7 +1103,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_tiny_ritual_story_uses_aachu_zuv_theme_not_travel_template(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "anklet.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="Before proposing I tied her anklet. After marriage I still tie her shoes and sandals.",
@@ -1008,7 +1127,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_chaotic_wife_story_uses_viral_reference_pattern(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1039,7 +1158,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_mood_changed_story_preserves_selected_golden_theme_copy(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1073,7 +1192,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         ]
         self.assertEqual(concept["content_lane"], "Golden Mood Steadiness")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         joined = " ".join(expected_copy + [slide["visual"] for slide in slides]).lower()
         self.assertIn("hand", joined)
         self.assertIn("pace", joined)
@@ -1085,7 +1204,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_morning_person_story_uses_chai_silence_arc(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1120,8 +1239,8 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             waterfall = Path(tmpdir) / "waterfall.jpg"
             lantern = Path(tmpdir) / "lantern.jpg"
-            waterfall.write_bytes(b"waterfall")
-            lantern.write_bytes(b"lantern")
+            waterfall.write_bytes(self.image_bytes())
+            lantern.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1166,7 +1285,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_kashmiri_language_story_uses_family_belonging_arc(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1203,7 +1322,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_subtitles_story_uses_mood_translation_arc(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1245,7 +1364,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_workday_homecoming_story_uses_himanshu_pov_arc_and_tournament(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1277,7 +1396,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         joined = " ".join(expected_copy + [slide["visual"] for slide in slides]).lower()
         self.assertEqual(concept["content_lane"], "Himanshu POV")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertEqual(concept["concept_selection"]["decision"], "GO")
         self.assertGreaterEqual(concept["concept_selection"]["winner_score"], 28)
         self.assertEqual(concept_selection["winner"], "Maybe Chaos Is Also Home")
@@ -1295,8 +1414,8 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "ayatana-balcony.jpg"
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1332,7 +1451,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         joined = " ".join(expected_copy + [slide["visual"] for slide in slides]).lower()
         self.assertEqual(concept["content_lane"], "Golden Care Without Shrinking")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertEqual(concept["concept_selection"]["decision"], "GO")
         self.assertEqual(concept["concept_selection"]["winner"], "She Was Not High-Maintenance")
         self.assertEqual(concept_selection["winner_score"], 29.5)
@@ -1352,9 +1471,9 @@ class IllustrationCarouselTests(unittest.TestCase):
             restaurant = Path(tmpdir) / "restaurant-wall.jpg"
             aquarium = Path(tmpdir) / "aquarium.jpg"
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            restaurant.write_bytes(b"story-image")
-            aquarium.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            restaurant.write_bytes(self.image_bytes())
+            aquarium.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1390,7 +1509,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         joined = " ".join(expected_copy + [slide["visual"] for slide in slides]).lower()
         self.assertEqual(concept["content_lane"], "Golden Softness Under Fire")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertEqual(concept["concept_selection"]["decision"], "GO")
         self.assertEqual(concept_selection["winner"], "Softness Under Fire")
         self.assertGreaterEqual(concept_selection["winner_score"], 28)
@@ -1478,7 +1597,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_imperfect_repair_story_uses_spacious_apology_arc(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1517,7 +1636,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         ).lower()
         self.assertEqual(concept["content_lane"], "Golden Imperfect Repair")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertEqual(visual_debate["winner"], "One Gesture, Wide Silence")
         self.assertEqual(concept_selection["winner"], "She Was Sorry. Bas Style Alag Tha.")
         self.assertEqual(concept["story_selling_decision"]["selected_concept_process_card"], "Card 06 - Delay The Confession")
@@ -1536,7 +1655,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_main_kar_lungi_story_uses_visual_debate_gate_and_outdoor_care_arc(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -1569,7 +1688,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         joined = " ".join(expected_copy + [slide["visual"] for slide in slides]).lower()
         self.assertEqual(concept["content_lane"], "Golden Independent Care")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
-        self.assertEqual(prompt_pack["text_overlay_plan"]["slide_copy"], expected_copy)
+        self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertEqual(visual_debate["status"], "PASS")
         self.assertEqual(len(visual_debate["agents"]), 3)
         self.assertEqual(visual_debate["winner"], "Outdoor Threshold")
@@ -1591,7 +1710,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         repo_root = Path(__file__).resolve().parent.parent
         with tempfile.TemporaryDirectory() as tmpdir:
             identity_image = Path(tmpdir) / "identity.jpg"
-            identity_image.write_bytes(b"identity-image")
+            identity_image.write_bytes(self.image_bytes())
             output_root = Path(tmpdir) / "out"
             env = os.environ.copy()
             env.pop("ANTHROPIC_API_KEY", None)
@@ -1615,9 +1734,10 @@ class IllustrationCarouselTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=False,
+                timeout=30,
             )
 
-            manifest_path = output_root / str(date.today()) / "cli-identity-only" / "manifest.json"
+            manifest_path = self.package_dir_for_slug(output_root, "cli-identity-only") / "manifest.json"
             manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
 
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -1630,7 +1750,7 @@ class IllustrationCarouselTests(unittest.TestCase):
     def test_storyboard_prompt_pack_and_text_plan_match_slides(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "anklet.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="Before proposing I tied her anklet. After marriage I still tie her sandals.",
@@ -1646,17 +1766,17 @@ class IllustrationCarouselTests(unittest.TestCase):
             storyboard = (out_dir / "storyboard.md").read_text(encoding="utf-8")
 
         slide_copy = [slide["copy"] for slide in slides]
-        self.assertEqual(prompts["text_overlay_plan"]["slide_copy"], slide_copy)
+        self.assertEqual(prompts["integrated_text_plan"]["slide_copy"], slide_copy)
         self.assertEqual([prompt["text"] for prompt in prompts["slides"]], slide_copy)
         for copy in slide_copy:
             self.assertIn(copy, storyboard)
 
-    def test_prompts_require_model_native_publishable_art(self):
+    def test_prompts_require_publishable_art_with_integrated_text(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "anklet.jpg"
             identity = Path(tmpdir) / "identity.jpg"
-            image.write_bytes(b"story")
-            identity.write_bytes(b"identity")
+            image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="Before proposing I tied her anklet. After marriage I still tie her sandals.",
@@ -1672,7 +1792,7 @@ class IllustrationCarouselTests(unittest.TestCase):
 
         joined = "\n".join(slide["prompt"] for slide in prompt_pack["slides"])
         self.assertEqual(
-            prompt_pack["text_overlay_plan"]["composition_role"],
+            prompt_pack["integrated_text_plan"]["composition_role"],
             "publishable_final_illustration_with_text",
         )
         self.assertTrue(
@@ -1725,8 +1845,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             carousel_dir.mkdir()
             identity = carousel_dir / "identity.jpg"
             contact_sheet = carousel_dir / "identity-face-contact-sheet.jpg"
-            identity.write_bytes(b"identity")
-            contact_sheet.write_bytes(b"contact-sheet")
+            identity.write_bytes(self.image_bytes())
+            contact_sheet.write_bytes(self.image_bytes())
 
             (carousel_dir / "visual-plan-quality.json").write_text(
                 json.dumps({"status": "PASS", "can_generate": True, "issues": []}),
@@ -1850,6 +1970,58 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertTrue(reels_slide_05_exists)
         self.assertIn("native_outputs", manifest["slides"][0])
 
+    def test_package_generated_carousel_refuses_doctor_blocked_package(self):
+        from scripts.package_generated_carousel import package_generated_images
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            out_dir = workspace / "output" / "carousels" / "2026-05-16" / "blocked"
+            source_dir = workspace / "generated"
+            out_dir.mkdir(parents=True)
+            source_dir.mkdir()
+            slides = [{"slide": number, "copy": f"Slide {number}"} for number in range(1, 3)]
+            (out_dir / "slides.json").write_text(json.dumps(slides), encoding="utf-8")
+            prompt_pack = {
+                "slides": [
+                    {
+                        "slide": number,
+                        "text": f"Slide {number}",
+                        "prompt": f"Prompt for slide {number}",
+                    }
+                    for number in range(1, 3)
+                ]
+            }
+            (out_dir / "prompt-pack.json").write_text(json.dumps(prompt_pack), encoding="utf-8")
+            (out_dir / "identity-consistency-review.json").write_text(
+                json.dumps({"status": "PASS"}),
+                encoding="utf-8",
+            )
+            (out_dir / "visual-plan-quality.json").write_text(
+                json.dumps({"status": "PASS", "can_generate": True, "issues": []}),
+                encoding="utf-8",
+            )
+            (out_dir / "image-generation.json").write_text(
+                json.dumps({"status": "blocked", "reason": "dimension gate failed"}),
+                encoding="utf-8",
+            )
+            (out_dir / "final-images.json").write_text(
+                json.dumps({"status": "blocked", "publishable": False}),
+                encoding="utf-8",
+            )
+            (out_dir / "image-generation-blocker.md").write_text("status: BLOCKED\n", encoding="utf-8")
+            for number in range(1, 3):
+                (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1350, value=240))
+                (source_dir / f"reels-stories-{number}.png").write_bytes(self.png_bytes(1080, 1920, value=230))
+
+            with self.assertRaises(ValueError) as error:
+                package_generated_images(
+                    carousel_dir=out_dir,
+                    instagram_post_paths=[source_dir / f"instagram-{number}.png" for number in range(1, 3)],
+                    reels_stories_paths=[source_dir / f"reels-stories-{number}.png" for number in range(1, 3)],
+                )
+
+        self.assertIn("blocked carousel package", str(error.exception))
+
     def test_package_generated_carousel_rejects_local_native_renderer_sources(self):
         from scripts.package_generated_carousel import package_generated_images
 
@@ -1891,17 +2063,17 @@ class IllustrationCarouselTests(unittest.TestCase):
 
         self.assertIn("local-native", str(error.exception))
 
-    def test_overlay_manifest_preserves_slide_copy(self):
-        from scripts.render_carousel_text_overlays import build_overlay_manifest
+    def test_integrated_text_manifest_preserves_slide_copy(self):
+        from scripts.render_carousel_text_overlays import build_integrated_text_manifest
 
         slides = [
             {"slide": 1, "copy": "Before the ring, there was an anklet."},
             {"slide": 2, "copy": "He thought he was tying jewellery."},
         ]
 
-        manifest = build_overlay_manifest(slides)
+        manifest = build_integrated_text_manifest(slides)
 
-        self.assertEqual(manifest["typography"]["strategy"], "legacy_local_overlay")
+        self.assertEqual(manifest["typography"]["strategy"], "controlled_final_text_placement")
         self.assertEqual(manifest["composition_role"], "publishable_final_illustration_with_text")
         self.assertEqual(manifest["slides"][0]["text"], "Before the ring, there was an anklet.")
         self.assertEqual(
@@ -1910,10 +2082,10 @@ class IllustrationCarouselTests(unittest.TestCase):
         )
         self.assertEqual(manifest["slides"][1]["brandmark"], "@a.storyof.two")
 
-    def test_overlay_manifest_records_storybook_typography_rules(self):
-        from scripts.render_carousel_text_overlays import build_overlay_manifest
+    def test_integrated_text_manifest_records_storybook_typography_rules(self):
+        from scripts.render_carousel_text_overlays import build_integrated_text_manifest
 
-        manifest = build_overlay_manifest(
+        manifest = build_integrated_text_manifest(
             [
                 {
                     "slide": 1,
@@ -1930,12 +2102,12 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(renderer["font_role"], "hand_drawn_storybook")
         self.assertEqual(renderer["panel_style"], "no_quote_card_panel")
         self.assertEqual(renderer["brandmark_style"], "subtle_but_readable")
-        self.assertIn("reference-style", renderer["placement"])
+        self.assertIn("integrated final-image text placement", renderer["placement"])
         self.assertEqual(manifest["slides"][0]["text_layout"]["primary_position"], "bottom_center")
         self.assertIn("mujhe kuch", manifest["slides"][0]["text_layout"]["speech_bubble"])
 
-    def test_render_overlays_fails_when_final_images_are_missing(self):
-        from scripts.render_carousel_text_overlays import render_overlays
+    def test_integrated_text_pass_fails_when_final_images_are_missing(self):
+        from scripts.render_carousel_text_overlays import render_integrated_text
 
         with tempfile.TemporaryDirectory() as tmpdir:
             out_dir = Path(tmpdir)
@@ -1946,14 +2118,14 @@ class IllustrationCarouselTests(unittest.TestCase):
             (out_dir / "slides.json").write_text(json.dumps(slides), encoding="utf-8")
 
             with self.assertRaises(FileNotFoundError) as raised:
-                render_overlays(out_dir)
+                render_integrated_text(out_dir)
 
-        self.assertIn("Missing final images for overlay", str(raised.exception))
+        self.assertIn("Missing source final images for integrated text pass", str(raised.exception))
 
     def test_final_audit_fails_when_final_images_are_missing(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             image = Path(tmpdir) / "anklet.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story="Before proposing I tied her anklet. After marriage I still tie her sandals.",
@@ -1976,7 +2148,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="Every trip has one bas ek photo aur person. Zuv says haan baba.",
                 image_paths=[image],
@@ -1988,7 +2160,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             final_dir = out_dir / "final"
             final_dir.mkdir()
             for number in range(1, 6):
-                (final_dir / f"slide-{number:02d}.png").write_bytes(b"fake-png")
+                (final_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
 
             manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
             package = {
@@ -2017,7 +2189,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertNotEqual(asset_review["status"], "NEEDS_FIXES")
         self.assertNotIn("Unexpected render status", " ".join(asset_review["issues"]))
 
-    def test_final_audit_fails_without_local_overlays_and_checked_visual_qa(self):
+    def test_final_audit_fails_without_integrated_text_and_checked_visual_qa(self):
         from pipeline.stages.carousel_quality import (
             QualityContext,
             build_final_audit,
@@ -2029,8 +2201,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             image = workspace / "anklet.jpg"
             identity = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="Before proposing I tied her anklet. After marriage I still tie her sandals.",
                 image_paths=[image],
@@ -2043,7 +2215,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             final_dir = out_dir / "final"
             final_dir.mkdir()
             for number in range(1, 6):
-                (final_dir / f"slide-{number:02d}.png").write_bytes(b"fake-png")
+                (final_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
 
             manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
             package = {
@@ -2070,11 +2242,11 @@ class IllustrationCarouselTests(unittest.TestCase):
             audit = build_final_audit(context, ledger, stage_reviews)
 
         self.assertFalse(audit["requirements"]["REQ-FINAL-IMAGES-001"]["pass"])
-        self.assertFalse(audit["requirements"]["REQ-MODEL-NATIVE-TEXT-001"]["pass"])
+        self.assertFalse(audit["requirements"]["REQ-INTEGRATED-FINAL-TEXT-001"]["pass"])
         self.assertFalse(audit["requirements"]["REQ-VISUAL-QA-001"]["pass"])
         self.assertEqual(audit["status"], "NEEDS_FIXES")
 
-    def test_final_audit_rejects_local_overlay_for_model_native_default(self):
+    def test_final_audit_rejects_final_with_text_as_publishable_output(self):
         from pipeline.stages.carousel_quality import (
             QualityContext,
             build_final_audit,
@@ -2085,7 +2257,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
@@ -2094,12 +2266,33 @@ class IllustrationCarouselTests(unittest.TestCase):
                 render_assets=False,
                 today=date(2026, 5, 16),
             )
-            for folder in ["final", "final-with-text"]:
+            for folder in ["final", "final-with-text", "final-reels-stories"]:
                 (out_dir / folder).mkdir(exist_ok=True)
                 for number in range(1, 6):
-                    (out_dir / folder / f"slide-{number:02d}.png").write_bytes(b"fake-png")
+                    size = (1080, 1920) if folder == "final-reels-stories" else (1080, 1350)
+                    (out_dir / folder / f"slide-{number:02d}.png").write_bytes(self.png_bytes(*size))
             (out_dir / "text-overlay.json").write_text(
                 json.dumps({"status": "rendered", "slides": []}),
+                encoding="utf-8",
+            )
+            (out_dir / "final-images.json").write_text(
+                json.dumps(
+                    {
+                        "status": "packaged",
+                        "backend": "model_art_local_text",
+                        "generation_mode": "model_art_local_text_publishable",
+                        "slides": [
+                            {
+                                "slide": number,
+                                "backend": "model_art_local_text",
+                                "generation_mode": "model_art_local_text_publishable",
+                                "file": str(out_dir / "final-with-text" / f"slide-{number:02d}.png"),
+                                "prompt": "test prompt",
+                            }
+                            for number in range(1, 6)
+                        ],
+                    }
+                ),
                 encoding="utf-8",
             )
 
@@ -2127,10 +2320,10 @@ class IllustrationCarouselTests(unittest.TestCase):
             stage_reviews = build_stage_reviews(context, ledger)
             audit = build_final_audit(context, ledger, stage_reviews)
 
-        self.assertFalse(audit["requirements"]["REQ-MODEL-NATIVE-TEXT-001"]["pass"])
+        self.assertFalse(audit["requirements"]["REQ-INTEGRATED-FINAL-TEXT-001"]["pass"])
         self.assertIn(
             "final-with-text",
-            " ".join(audit["requirements"]["REQ-MODEL-NATIVE-TEXT-001"]["evidence"]["issues"]),
+            " ".join(audit["requirements"]["REQ-INTEGRATED-FINAL-TEXT-001"]["evidence"]["issues"]),
         )
 
     def test_model_native_generation_marks_missing_key_blocked(self):
@@ -2139,7 +2332,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
@@ -2161,7 +2354,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"identity-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[],
@@ -2186,7 +2379,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
@@ -2220,7 +2413,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         repo_root = Path(__file__).resolve().parent.parent
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "identity.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
             legacy_backend = "open" + "ai"
 
             result = subprocess.run(
@@ -2243,6 +2436,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=False,
+                timeout=30,
             )
 
         self.assertNotEqual(result.returncode, 0)
@@ -2252,7 +2446,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         repo_root = Path(__file__).resolve().parent.parent
         with tempfile.TemporaryDirectory() as tmpdir:
             identity = Path(tmpdir) / "identity.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             result = subprocess.run(
                 [
@@ -2275,6 +2469,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=False,
+                timeout=30,
             )
 
         self.assertNotEqual(result.returncode, 0)
@@ -2286,7 +2481,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity = workspace / "identity.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="Aachu says she is not hungry. Zuv orders extra anyway.",
                 image_paths=[],
@@ -2316,7 +2511,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             identity_paths = [workspace / f"identity-{index:02d}.jpg" for index in range(18)]
             style_paths = [workspace / f"style-{index:02d}.png" for index in range(3)]
             for path in [*identity_paths, *style_paths]:
-                path.write_bytes(b"image")
+                path.write_bytes(self.image_bytes(extension=path.suffix))
 
             selected = existing_reference_paths(
                 {
@@ -2335,9 +2530,9 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             style = workspace / "style.png"
-            style.write_bytes(b"style-image")
+            style.write_bytes(self.image_bytes(extension=".png"))
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
@@ -2374,8 +2569,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             (workspace / "AGENTS.md").write_text("test workspace marker\n", encoding="utf-8")
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2398,7 +2593,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                     "Create a soft desi storybook full-scene illustration on warm paper. "
                     "Aachu is fully alive and Zuv notices before she asks. "
                     "Render this exact handwritten-style text inside the artwork: She was not high-maintenance. "
-                    "Add tiny @a.storyof.two brandmark bottom-right."
+                    "Add tiny @a.storyof.two brandmark top-right."
                 )
             prompt_pack["proof_gate"] = "Generate Slide 1 Instagram post proof first."
             (out_dir / "prompt-pack.json").write_text(json.dumps(prompt_pack), encoding="utf-8")
@@ -2478,7 +2673,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity = workspace / "aachu-zuv.png"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -2508,7 +2703,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity = workspace / "aachu-zuv.png"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -2565,7 +2760,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity = workspace / "aachu-zuv.png"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -2600,7 +2795,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity = workspace / "aachu-zuv.png"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(
@@ -2634,8 +2829,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2669,8 +2864,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             story_file = workspace / "story.txt"
             story_file.write_text(
                 "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2704,10 +2899,12 @@ class IllustrationCarouselTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=False,
+                timeout=30,
             )
-            final_images_path = output_root / str(date.today()) / "cli-codex-builtin" / "final-images.json"
+            out_dir = self.package_dir_for_slug(output_root, "cli-codex-builtin")
+            final_images_path = out_dir / "final-images.json"
             manifest = json.loads(final_images_path.read_text(encoding="utf-8")) if final_images_path.exists() else {}
-            blocker_path = output_root / str(date.today()) / "cli-codex-builtin" / "image-generation-blocker.md"
+            blocker_path = out_dir / "image-generation-blocker.md"
             blocker_exists = blocker_path.exists()
 
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -2725,8 +2922,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             story_file = workspace / "story.txt"
             story_file.write_text(
                 "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2759,8 +2956,9 @@ class IllustrationCarouselTests(unittest.TestCase):
                 text=True,
                 capture_output=True,
                 check=False,
+                timeout=30,
             )
-            out_dir = output_root / str(date.today()) / "cli-proof-handoff"
+            out_dir = self.package_dir_for_slug(output_root, "cli-proof-handoff")
             manifest = json.loads((out_dir / "final-images.json").read_text(encoding="utf-8"))
             prompt_files = sorted(
                 path.relative_to(out_dir / "codex-image-prompts").as_posix()
@@ -2793,8 +2991,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2813,11 +3011,11 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(8, 10, 240))
+                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
                 instagram_paths.append(instagram_path)
 
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
-                reels_stories_path.write_bytes(self.png_bytes(9, 16, 230))
+                reels_stories_path.write_bytes(self.png_bytes(1080, 1920, 230))
                 reels_stories_paths.append(reels_stories_path)
 
             with self.assertRaises(ValueError):
@@ -2839,9 +3037,9 @@ class IllustrationCarouselTests(unittest.TestCase):
 
         self.assertEqual(result["status"], "generated")
         self.assertTrue(result["done"])
-        self.assertTrue(result["publishable"])
+        self.assertFalse(result["publishable"])
         self.assertTrue(manifest["done"])
-        self.assertTrue(manifest["publishable"])
+        self.assertFalse(manifest["publishable"])
         self.assertEqual(manifest["backend"], "codex_builtin")
         self.assertEqual(manifest["generation_mode"], "model_native_publishable")
         self.assertEqual(manifest["native_output_contract"]["formats"], ["instagram_post", "reels_stories"])
@@ -2866,8 +3064,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2890,10 +3088,10 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(8, 10, 240))
+                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
                 instagram_paths.append(instagram_path)
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
-                reels_stories_path.write_bytes(self.png_bytes(9, 16, 230))
+                reels_stories_path.write_bytes(self.png_bytes(1080, 1920, 230))
                 reels_stories_paths.append(reels_stories_path)
 
             package_codex_builtin_outputs(
@@ -2909,15 +3107,15 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(final_files, [f"slide-{number:02d}.png" for number in range(1, 6)])
         self.assertEqual(reels_files, [f"slide-{number:02d}.png" for number in range(1, 6)])
 
-    def test_package_codex_builtin_outputs_rejects_wrong_native_source_aspect(self):
+    def test_package_codex_builtin_outputs_rejects_wrong_native_source_dimensions(self):
         from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
 
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2940,10 +3138,53 @@ class IllustrationCarouselTests(unittest.TestCase):
                 instagram_paths.append(instagram_path)
 
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
-                reels_stories_path.write_bytes(self.png_bytes(9, 16, 230))
+                reels_stories_path.write_bytes(self.png_bytes(1080, 1920, 230))
                 reels_stories_paths.append(reels_stories_path)
 
-            with self.assertRaisesRegex(ValueError, "native source aspect"):
+            with self.assertRaisesRegex(ValueError, "native source dimensions"):
+                package_codex_builtin_outputs(
+                    out_dir,
+                    generated_paths_by_format={
+                        "instagram_post": instagram_paths,
+                        "reels_stories": reels_stories_paths,
+                    },
+                )
+
+    def test_package_codex_builtin_outputs_rejects_native_aspect_but_wrong_size(self):
+        from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            story_image = workspace / "balcony.jpg"
+            identity = workspace / "aachu-zuv.jpg"
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
+            out_dir = create_codex_native_carousel(
+                story=(
+                    "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
+                    "Aachu is in a green dress, barefoot, and Zuv notices before she asks."
+                ),
+                image_paths=[story_image],
+                identity_image_paths=[identity],
+                title="Codex Builtin Exact Size Gate",
+                output_root=workspace / "out",
+                render_assets=False,
+                today=date(2026, 5, 18),
+            )
+            generated_dir = workspace / "generated"
+            generated_dir.mkdir()
+            instagram_paths = []
+            reels_stories_paths = []
+            for number in range(1, 6):
+                instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
+                instagram_path.write_bytes(self.png_bytes(1440, 1800, 240))
+                instagram_paths.append(instagram_path)
+
+                reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
+                reels_stories_path.write_bytes(self.png_bytes(1080, 1920, 230))
+                reels_stories_paths.append(reels_stories_path)
+
+            with self.assertRaisesRegex(ValueError, "native source dimensions"):
                 package_codex_builtin_outputs(
                     out_dir,
                     generated_paths_by_format={
@@ -2959,8 +3200,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -2981,11 +3222,11 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(8, 10, 240))
+                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
                 instagram_paths.append(instagram_path)
 
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
-                reels_stories_path.write_bytes(self.png_bytes(9, 16, 230))
+                reels_stories_path.write_bytes(self.png_bytes(1080, 1920, 230))
                 reels_stories_paths.append(reels_stories_path)
 
             result = package_codex_builtin_outputs(
@@ -3001,7 +3242,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace_wiki_exists = (workspace / "wiki").exists()
             workspace_memory_exists = (workspace / "memory").exists()
 
-        self.assertEqual(result["status"], "generated")
+        self.assertEqual(result["status"], "publish_ready")
         self.assertIn(final_audit["status"], {"PASS", "PASS_WITH_NOTES"})
         self.assertEqual(refreshed_visual_qa_markdown, visual_qa_markdown)
         self.assertTrue(workspace_wiki_exists)
@@ -3014,8 +3255,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             story_image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            story_image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            story_image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
@@ -3034,11 +3275,11 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(8, 10, 240))
+                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
                 instagram_paths.append(instagram_path)
 
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
-                reels_stories_path.write_bytes(self.png_bytes(9, 16, 230))
+                reels_stories_path.write_bytes(self.png_bytes(1080, 1920, 230))
                 reels_stories_paths.append(reels_stories_path)
 
             result = package_codex_builtin_outputs(
@@ -3083,8 +3324,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace = Path(tmpdir)
             image = workspace / "balcony.jpg"
             identity = workspace / "aachu-zuv.jpg"
-            image.write_bytes(b"story-image")
-            identity.write_bytes(b"identity-image")
+            image.write_bytes(self.image_bytes())
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="She said bas 500. He kept extra there.",
                 image_paths=[image],
@@ -3135,7 +3376,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
@@ -3258,7 +3499,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
@@ -3279,9 +3520,9 @@ class IllustrationCarouselTests(unittest.TestCase):
                 source = generated_dir / f"slide-{number:02d}.png"
                 final = final_dir / f"slide-{number:02d}.png"
                 reels = reels_stories_dir / f"slide-{number:02d}.png"
-                source.write_bytes(b"generated-png")
-                final.write_bytes(b"generated-png")
-                reels.write_bytes(b"same-source-derived-png")
+                source.write_bytes(self.png_bytes(1080, 1350))
+                final.write_bytes(self.png_bytes(1080, 1350))
+                reels.write_bytes(self.png_bytes(1080, 1920))
                 records.append(
                     {
                         "slide": number,
@@ -3340,7 +3581,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity = workspace / "aachu-zuv.jpg"
-            identity.write_bytes(b"identity-image")
+            identity.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story=(
                     "Some people come with subtitles. Aachu says kuch nahi but her face "
@@ -3359,10 +3600,10 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_dir.mkdir()
             for number in range(1, 6):
                 (out_dir / "final" / f"slide-{number:02d}.png").parent.mkdir(exist_ok=True)
-                (out_dir / "final" / f"slide-{number:02d}.png").write_bytes(b"generated-png")
-                (reels_stories_dir / f"slide-{number:02d}.png").write_bytes(b"generated-reels-png")
-                (source_dir / f"instagram-post-slide-{number:02d}.png").write_bytes(b"generated-source-png")
-                (source_dir / f"reels-stories-slide-{number:02d}.png").write_bytes(b"generated-reels-source-png")
+                (out_dir / "final" / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
+                (reels_stories_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1920))
+                (source_dir / f"instagram-post-slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
+                (source_dir / f"reels-stories-slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1920))
             prompt_pack = json.loads((out_dir / "prompt-pack.json").read_text(encoding="utf-8"))
             final_manifest = {
                 "status": "generated",
@@ -3404,6 +3645,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             (out_dir / "visual-qa.json").write_text(
                 json.dumps(
                     {
+                        "schema_version": "1.0",
+                        "status": "PASS",
                         "checks": {
                             "storyboard": {"pass": True},
                             "aachu_face": {
@@ -3420,7 +3663,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                             "style": {"pass": True},
                             "scene_logic": {"pass": True},
                             "pose_anatomy": {"pass": True},
-                            "model_native_text": {"pass": True},
+                            "integrated_final_text": {"pass": True},
                             "final_files": {"pass": True},
                         }
                     }
@@ -3486,7 +3729,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             image = workspace / "identity.jpg"
-            image.write_bytes(b"story-image")
+            image.write_bytes(self.image_bytes())
             out_dir = create_codex_native_carousel(
                 story="He did not marry peace. He married Aachu chaos.",
                 image_paths=[image],
@@ -3509,11 +3752,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 reels_source = generated_dir / f"reels-stories-slide-{number:02d}.png"
                 final = final_dir / f"slide-{number:02d}.png"
                 reels = reels_stories_dir / f"slide-{number:02d}.png"
-                instagram_source.write_bytes(b"generated-png")
-                reels_source.write_bytes(b"generated-reels-png")
-                final.write_bytes(b"generated-png")
-                reels.write_bytes(b"generated-reels-png")
-                (overlay_dir / f"slide-{number:02d}.png").write_bytes(b"overlay-png")
+                instagram_source.write_bytes(self.png_bytes(1080, 1350))
+                reels_source.write_bytes(self.png_bytes(1080, 1920))
+                final.write_bytes(self.png_bytes(1080, 1350))
+                reels.write_bytes(self.png_bytes(1080, 1920))
+                (overlay_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
                 records.append(
                     {
                         "slide": number,
@@ -3614,7 +3857,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                             "style": {"pass": True},
                             "scene_logic": {"pass": True},
                             "pose_anatomy": {"pass": True},
-                            "model_native_text": {"pass": True},
+                            "integrated_final_text": {"pass": True},
                             "final_files": {"pass": True},
                         }
                     }
@@ -3640,6 +3883,57 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertFalse(result["pass"])
         self.assertIn("aachu_face", " ".join(result["failed"]))
 
+    def test_structured_visual_qa_rejects_missing_status(self):
+        from pipeline.stages.carousel_quality import QualityContext, structured_visual_qa_gate
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            out_dir = Path(tmpdir)
+            (out_dir / "visual-qa.json").write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.0",
+                        "checks": {
+                            "storyboard": {"pass": True},
+                            "aachu_face": {
+                                "pass": True,
+                                "reference_option_ids": ["ID30"],
+                                "likeness_notes": "Long dark hair, expressive brows, soft oval face, and smile energy match ID30.",
+                            },
+                            "zuv_face": {
+                                "pass": True,
+                                "reference_option_ids": ["ID34"],
+                                "likeness_notes": "Dark wavy hair, thick brows, beard, face structure, and grounded expression match ID34.",
+                            },
+                            "dress_continuity": {"pass": True},
+                            "style": {"pass": True},
+                            "scene_logic": {"pass": True},
+                            "pose_anatomy": {"pass": True},
+                            "integrated_final_text": {"pass": True},
+                            "final_files": {"pass": True},
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            context = QualityContext(
+                story="x",
+                title="x",
+                slug="x",
+                today=date(2026, 5, 19),
+                out_dir=out_dir,
+                image_paths=[],
+                slide_count=5,
+                package={},
+                manifest={},
+                render_result={},
+                workspace_root=out_dir,
+            )
+
+            result = structured_visual_qa_gate(context)
+
+        self.assertFalse(result["pass"])
+        self.assertIn("visual-qa.json status must be PASS", " ".join(result["failed"]))
+
     def test_wiki_update_records_audit_issues_and_notes(self):
         from pipeline.stages.carousel_quality import QualityContext, build_wiki_update
 
@@ -3662,7 +3956,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         audit = {
             "status": "NEEDS_FIXES",
             "issues": ["REQ-VISUAL-QA-001: Aachu/Zuv face likeness needs regeneration."],
-            "notes": ["Typography overlay regenerated with storybook renderer."],
+            "notes": ["Integrated text pass regenerated with storybook renderer."],
         }
 
         wiki_update = build_wiki_update(context, audit)
@@ -3670,7 +3964,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("## Issues", wiki_update)
         self.assertIn("Aachu/Zuv face likeness needs regeneration", wiki_update)
         self.assertIn("## Notes", wiki_update)
-        self.assertIn("Typography overlay regenerated", wiki_update)
+        self.assertIn("Integrated text pass regenerated", wiki_update)
 
     def test_successful_carousel_standard_rejects_object_first_deck(self):
         from pipeline.stages.successful_carousel_standard import evaluate_successful_carousel_standard
@@ -3755,7 +4049,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
             identity_image = workspace / "aachu-zuv.png"
-            identity_image.write_bytes(b"identity-image")
+            identity_image.write_bytes(self.image_bytes())
 
             out_dir = create_codex_native_carousel(
                 story=(

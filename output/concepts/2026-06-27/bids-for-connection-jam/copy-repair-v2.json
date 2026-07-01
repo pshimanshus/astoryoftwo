@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-27",
+  "jam_slug": "bids-for-connection-jam",
+  "trigger": "creator rejected v1 as not story-connected",
+  "diagnosis": {
+    "v1_failure": "The draft stated a thesis instead of telling a story. It had no wound, no consequence, and no repair.",
+    "repair_principle": "Start with a missed bid and make the emotional cost visible before the tender turn.",
+    "ig_connection_logic": "A strong carousel needs a first-slide open loop, a recognizable tiny conflict, a visible consequence, and a final line people want to send as repair."
+  },
+  "repaired_story": {
+    "title": "The Third Dekh Na",
+    "emotional_machine": "tiny bid missed twice -> third bid disappears -> partner notices silence -> repair invitation",
+    "why_it_connects": "Most couples recognize both sides: asking someone to enter a tiny moment, and realizing too late that your 'hmm' made them stop asking."
+  },
+  "repaired_slide_copy": [
+    "The third \"dekh na\" never came.",
+    "The first two got \"hmm.\"",
+    "So she kept it to herself.",
+    "He noticed the silence.",
+    "\"Show me again?\""
+  ],
+  "verdict": "GO_PENDING_CREATOR_COPY_APPROVAL"
+}

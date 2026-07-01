@@ -1,0 +1,766 @@
+{
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is Instagram post, and generate separate native 9:16 artwork for Reels/Stories when needed. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and both people must look natural, flattering, and physically believable.",
+  "shared_negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Small Bids, Object Movement, Mutual Turn",
+    "why_it_wins": "It turns abstract relationship advice into visible bids: phone, cushion, story-listening, phone-down turn, and the filled cushion payoff."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Small Bids, Object Movement, Mutual Turn",
+    "selector_verdict": "GO: the winner gives the carousel a non-repeating shot ladder and makes the small bids legible with text hidden.",
+    "hard_fails_checked": [
+      "no quote-card sequence",
+      "no repeated full-couple medium shot sequence",
+      "no phone UI/screenshot motif",
+      "no one-partner rescue dynamic",
+      "no generic couple stock tableau"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+    "source_path": "config/references/a-story-illustration-master-prompt.md",
+    "required": true,
+    "rule": "Every final Codex/image-generation prompt for @a.storyof.two carousel slides must load the creator-locked watercolor-and-ink master prompt from disk, then fill the slide-specific on-image text, scene, pose, wardrobe, props, background, emotion, native format, and negative prompt.",
+    "required_sections": [
+      "USE CASE",
+      "ASSET TYPE",
+      "REFERENCE IMAGE ROLES",
+      "IDENTITY IMAGE INPUT CONTRACT",
+      "PRIMARY REQUEST",
+      "SCENE",
+      "CHARACTER IDENTITY LOCK",
+      "FACE PRESERVATION RULES",
+      "ILLUSTRATION STYLE",
+      "COLOR PALETTE",
+      "COMPOSITION AND FORMAT",
+      "EMOTIONAL DIRECTION",
+      "WARDROBE CONTINUITY",
+      "RECURRING PROPS AND MOTIFS",
+      "BACKGROUND STYLE",
+      "LINE AND TEXTURE DETAILS",
+      "ANATOMY AND QUALITY RULES",
+      "SCENE LOGIC AND POSE RULES",
+      "TEXT RULE",
+      "STYLE ACCEPTANCE RULE",
+      "BRANDMARK RULE",
+      "FINAL IDENTITY REINFORCEMENT",
+      "FINAL STYLE REINFORCEMENT",
+      "REFERENCE ESSENCE RULE",
+      "BRAND INTEGRATION VISIBILITY RULE",
+      "BRAND LABEL WORKFLOW"
+    ],
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "text_rule": "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally into the illustration as polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. Do not invent any other text."
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "status": "GO",
+    "selected_story_lens": "Tiny Bids Become Closeness",
+    "emotional_machine": "small bids for attention -> both partners experience missing and being missed -> phone goes face-down -> turning toward each other becomes the love proof -> closeness is built in the small moments almost missed",
+    "human_story_setup": {
+      "cold_reader_doorway": "Everyone recognizes being left on one sec or accidentally leaving someone there.",
+      "emotional_obstacle": "The bids are so small that they are easy to miss until the missed attention becomes distance.",
+      "visible_human_proof": "phone shown, cushion pat, half-heard daily story, phone face-down, body turning, eyes up",
+      "active_partner_role": "Both partners become the bidder and the one who must turn toward the bid; the motion is mutual, not one-person rescue.",
+      "emotional_turn": "The phone is not the enemy; the ten-second turn is the love proof.",
+      "shareable_setup": "Tag/send to the person you do not want to leave on one sec.",
+      "earned_payoff": "Closeness is built in the small moments you almost missed."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+      "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+      "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+      "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, native 4:5, native 9:16, QA, and audit gates must also pass.",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Small bids are staged as visible object movement and body turns across eight slides.",
+      "reaction": "A tiny missed look creates a little distance; a ten-second turn repairs it.",
+      "eye_line_or_attention": "Eye-line moves from phone/cushion/story to the partner by slide 6.",
+      "hands_or_object_movement": "phone shown, hand patting cushion, phone shifting roles, phone face-down, hands relaxing away from screen",
+      "silence_or_pause": "Slide 7 uses quiet distance instead of a big fight.",
+      "consequence": "The viewer understands why tiny bids matter even with text hidden.",
+      "reversal_or_payoff": "Both partners realize attention is a choice; closeness returns in slide 8.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 4.5,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.5,
+      "tender_thesis": 5.0,
+      "share_send_potential": 4.5,
+      "total": 28.5
+    },
+    "proof_engine": "Tiny bids proven through phone, cushion, story-listening role flip, and the phone-face-down turn.",
+    "distribution_reason": "Highly taggable for couples who hate being left on one sec and want to be chosen in tiny moments."
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "the smallest moments can make or break connection",
+      "reader_identity_mirror": "The viewer recognizes the tiny bids for attention inside everyday love.",
+      "emotional_obstacle": "Small bids are easy to dismiss until they become emotional distance.",
+      "aachu_proof": "Aachu offers the phone and pats the cushion; later she becomes the distracted one.",
+      "zuv_active_role": "Zuv turns toward the bid and later becomes the one asking to be heard.",
+      "bridge": "The phone goes face-down and both bodies turn toward each other.",
+      "earned_ending": "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "send_save_reason": "Tag the one you never want to leave on \"one sec.\""
+    },
+    "hook_bank": [
+      {
+        "hook": "It started with one ordinary moment.",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "The story begins with one ordinary moment, then grows into shared comfort, travel, and the",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with soft love notes.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "the smallest moments can make or break connection",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "It started with one ordinary moment."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "The story begins with one ordinary moment, then grows into shared comfort, travel, and the realization that even in the trip, the real subject is still the two of them."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "tiny beginning -> playful proof -> wider world -> quiet emotional payoff"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "But the point was still us."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 10,
+      "stage_scene": 9
+    },
+    "verdict": "PASS: exact copy is locked and every slide has a visible small-bid action.",
+    "blocks": [],
+    "concept_selection_used": false,
+    "source_story": "Carousel with exact approved slide copy about small bids for connection. Slide 1: the smallest moments can make or break connection. Visual: tiny signals around the room. Slide 2: sometimes love asks in very small ways. Visual: phone shown, cushion pat, sigh, small glance. Slide 3: look at this. Visual: the original phone bid. Slide 4: come sit with me. Visual: hand patting the empty cushion. Slide 5: you won't believe what happened today. Visual: role flip; he starts a story, she is half in her phone. Slide 6: turning toward each other is a choice you make in ten seconds. Visual: phone face-down, body turning, eyes looking up. Slide 7: it's never the big fights. it's the small \"look at this\" you didn't look at. Slide 8: closeness isn't built in big moments. it's built in the small ones you almost missed. Caption CTA: Tag the one you never want to leave on \"one sec.\""
+  },
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+    "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/together/together-20.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/zuv/face-04.png"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-06-28/small-bids/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-20.jpg",
+    "config/references/identity/zuv/face-04.png"
+  ],
+  "identity_dossier_path": "output/carousels/2026-06-28/small-bids/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-06-28/small-bids/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID01",
+      "path": "config/references/identity/aachu/face-04.png",
+      "filename": "face-04.png",
+      "face_count": 6,
+      "width": 1236,
+      "height": 1410
+    },
+    {
+      "option_id": "ID02",
+      "path": "config/references/identity/together/together-18.jpg",
+      "filename": "together-18.jpg",
+      "face_count": 8,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID03",
+      "path": "config/references/identity/together/together-20.jpg",
+      "filename": "together-20.jpg",
+      "face_count": 9,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID04",
+      "path": "config/references/identity/zuv/face-04.png",
+      "filename": "face-04.png",
+      "face_count": 1,
+      "width": 1396,
+      "height": 1510
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 4,
+    "selected_count": 4,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor",
+      "emotion/detail anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "integrated_text_plan": {
+    "strategy": "integrated_final_text",
+    "rule": "Exact on-image text must be baked into each final raster in warm upper-middle handwritten style; no extra text except the top-right brandmark.",
+    "proof_slide": 6,
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "top-right"
+  },
+  "text_overlay_plan": {
+    "strategy": "integrated_final_text",
+    "rule": "Exact on-image text must be baked into each final raster in warm upper-middle handwritten style; no extra text except the top-right brandmark.",
+    "proof_slide": 6,
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "top-right"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 8,
+      "text": "the smallest moments can make or break connection",
+      "scene": "Wide living room: both in frame, tiny bids visible as phone glow, empty cushion, cup, and small glance.",
+      "visual": "Wide living room: both in frame, tiny bids visible as phone glow, empty cushion, cup, and small glance.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "wide establishing scene",
+        "camera_angle": "slightly high corner-of-room view",
+        "setting_lane": "living room",
+        "primary_visible_action": "two people sharing a room while small bids sit between them",
+        "who_visible": "both",
+        "repeated_prop_check": "phone appears as one signal, not the only subject"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 1 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: 'the smallest moments can make or break connection'. Scene: Wide warm living-room scene in one airy frame: Aachu and Zuv are in the same room but not fully turned toward each other yet. Tiny signals around the room act as visual evidence: a phone glowing softly near a sofa cushion, an empty cushion with a slight handprint, a half-finished cup, a small glance across the room, and one person almost missing the other. Keep it simple, not a collage. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    },
+    {
+      "slide": 2,
+      "slide_count": 8,
+      "text": "sometimes love asks in very small ways",
+      "scene": "Aachu on sofa softly shows phone, pats empty cushion, sighs, and glances toward Zuv.",
+      "visual": "Aachu on sofa softly shows phone, pats empty cushion, sighs, and glances toward Zuv.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "medium sofa-side scene",
+        "camera_angle": "profile three-quarter view",
+        "setting_lane": "living room sofa",
+        "primary_visible_action": "Aachu makes a tiny bid through phone, cushion pat, sigh, and glance",
+        "who_visible": "Aachu primary, Zuv partial in background/edge",
+        "repeated_prop_check": "phone and cushion repeat intentionally as the bid vocabulary"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 2 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: 'sometimes love asks in very small ways'. Scene: Medium-detail sofa-side scene: Aachu sits with a phone in one hand, the other hand lightly patting the empty cushion beside her. Her body gives a tiny sigh and a small sideways glance toward Zuv. Show the phone, cushion pat, sigh, and glance through posture and object placement, not through UI or speech bubbles. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    },
+    {
+      "slide": 3,
+      "slide_count": 8,
+      "text": "look at this",
+      "scene": "Over Aachu shoulder: her hand offers phone to Zuv; he begins turning toward it.",
+      "visual": "Over Aachu shoulder: her hand offers phone to Zuv; he begins turning toward it.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "over-shoulder close-up",
+        "camera_angle": "behind Aachu toward Zuv",
+        "setting_lane": "sofa/table edge",
+        "primary_visible_action": "Aachu offers the phone for him to see",
+        "who_visible": "Aachu shoulder/hand, Zuv face",
+        "repeated_prop_check": "phone is necessary story evidence"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 3 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: 'look at this'. Scene: Over-shoulder close scene from behind Aachu as she holds her phone out toward Zuv to show him something. The phone screen is visible only as soft light or a tiny illustrated image shape with no readable UI. Zuv is turning from what he was doing, not fully there yet. Focus on her hand offering the phone and the hopeful eye-line. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    },
+    {
+      "slide": 4,
+      "slide_count": 8,
+      "text": "come sit with me",
+      "scene": "Close cushion-level detail: Aachu hand pats the empty sofa space as Zuv enters edge of frame.",
+      "visual": "Close cushion-level detail: Aachu hand pats the empty sofa space as Zuv enters edge of frame.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "detail shot",
+        "camera_angle": "low cushion-level view",
+        "setting_lane": "sofa cushion detail",
+        "primary_visible_action": "hand pats the empty cushion",
+        "who_visible": "Aachu hand, partial Zuv",
+        "repeated_prop_check": "cushion repeats intentionally, no extra filler props"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 4 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: 'come sit with me'. Scene: Close detail shot of Aachu hand patting the empty sofa cushion beside her. The cushion compresses slightly under her palm. Zuv is entering as a cropped knee, hand, or shoulder at the edge, drawn toward the seat. Keep faces optional; the hand and empty cushion carry the scene. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    },
+    {
+      "slide": 5,
+      "slide_count": 8,
+      "text": "you won't believe what happened today",
+      "scene": "Role flip: Zuv starts an animated daily story while Aachu is half in her phone.",
+      "visual": "Role flip: Zuv starts an animated daily story while Aachu is half in her phone.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "medium two-shot",
+        "camera_angle": "front three-quarter view",
+        "setting_lane": "sofa/living room",
+        "primary_visible_action": "Zuv starts a story while Aachu is half in her phone",
+        "who_visible": "both",
+        "repeated_prop_check": "phone shifts to Aachu to create the role flip"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 5 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: \"you won't believe what happened today\". Scene: Role-reversal medium scene: Zuv is now the one starting an animated story, leaning forward with one hand mid-gesture and a gentle excited face. Aachu is beside him, half in her phone for one beat, eyes not yet lifted. Keep it affectionate, not accusatory; the reversal is recognizable and funny-soft. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    },
+    {
+      "slide": 6,
+      "slide_count": 8,
+      "text": "turning toward each other is a choice you make in ten seconds",
+      "scene": "Phone face-down on table; bodies turn toward each other; eyes lift and meet.",
+      "visual": "Phone face-down on table; bodies turn toward each other; eyes lift and meet.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "table-level medium close scene",
+        "camera_angle": "low table-level view with phone foreground",
+        "setting_lane": "coffee table / sofa",
+        "primary_visible_action": "phone goes face-down and bodies turn toward each other",
+        "who_visible": "both",
+        "repeated_prop_check": "phone appears face-down as the turning point, not a UI object"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 6 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: 'turning toward each other is a choice you make in ten seconds'. Scene: The decisive ten-second choice: a phone lies face-down on the table in the foreground. One partner is physically turning their torso and shoulders toward the other; the other partner looks up and meets their eyes. Hands relax away from the phone. The scene must clearly show attention moving from screen to person. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    },
+    {
+      "slide": 7,
+      "slide_count": 8,
+      "text": "it's never the big fights. it's the small \"look at this\" you didn't look at.",
+      "scene": "Quiet no-fight aftermath: dim phone, small missed glance, slight sofa distance.",
+      "visual": "Quiet no-fight aftermath: dim phone, small missed glance, slight sofa distance.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "quiet reaction scene",
+        "camera_angle": "distant doorway view",
+        "setting_lane": "doorway/living room",
+        "primary_visible_action": "a small missed bid leaves a little space between them",
+        "who_visible": "both, with visible distance",
+        "repeated_prop_check": "phone is dim/background evidence, not centered"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 7 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: 'it\\'s never the big fights. it\\'s the small \"look at this\" you didn\\'t look at.'. Scene: Quiet aftermath scene with no dramatic fight: the room is calm, the phone rests dim on a lap or table, and a tiny missed glance creates a small distance between them on the sofa. Use negative space to show that the hurt is small but real. No yelling, no argument pose, no melodrama. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    },
+    {
+      "slide": 8,
+      "slide_count": 8,
+      "text": "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "scene": "Final sofa closeness: phone away, cushion filled, both turned toward each other.",
+      "visual": "Final sofa closeness: phone away, cushion filled, both turned toward each other.",
+      "pose": "Natural small-bid body language matching the scene.",
+      "wardrobe": "Use attached identity refs.",
+      "props": "Only story props.",
+      "background": "Soft warm room.",
+      "emotion": "warm, specific, lived-in",
+      "style": "A Story watercolor ink, ivory paper.",
+      "negative_prompt": "No photo, UI, extra text, quote card, generic faces.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/face-04.png"
+      ],
+      "shot_ladder": {
+        "shot_type": "warm final medium-wide",
+        "camera_angle": "soft front view with lower-frame couple",
+        "setting_lane": "living room sofa",
+        "primary_visible_action": "they choose closeness and leave the phone aside",
+        "who_visible": "both",
+        "repeated_prop_check": "phone and cushion resolve the visual story"
+      },
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 8 of 8. Story context: Small-bids carousel: love is tested in the tiny bids for attention: look at this, come sit with me, listen to what happened today, and the ten-second choice to turn from the phone toward the person.. Exact ON-IMAGE TEXT: \"closeness isn't built in big moments. it's built in the small ones you almost missed.\". Scene: Final soft payoff: the once-empty cushion is now filled, the phone is face-down and away, and Aachu and Zuv sit turned toward each other in a relaxed close posture. One hand rests near the other, eyes attentive, room signals settled. Keep it warm, save-worthy, and specific to the small-bids story. Style: premium hand-drawn romantic watercolor-and-ink illustration, neutral warm ivory/off-white paper grain, Aachu/Zuv faces from attached identity images, fine ink/pencil linework, transparent watercolor blooms, muted vintage palette, tactile casual clothing, soft faded edges, exact upper-middle handwritten text, tiny top-right @a.storyof.two. Use attached identity images as actual visual inputs for Aachu/Zuv faces and wardrobe anchors. Use style references only for watercolor-and-ink house style, warm ivory paper, handwritten text, and composition. Tiny top-right brandmark '@a.storyof.two'. No extra text."
+    }
+  ]
+}

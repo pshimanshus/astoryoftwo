@@ -1,7 +1,7 @@
 # A Story Of Two Illustration Master Prompt
 
-last_updated: 2026-06-06
-status: creator_locked
+last_updated: 2026-06-30
+status: creator_locked_current_canon
 confidence: 1.0
 
 Use this prompt as the canonical base for all @a.storyof.two illustration-story
@@ -11,7 +11,8 @@ with `config/references/a-story-premium-illustration-style-lock.md` and the
 approved `config/references/style-lock/observational-intimacy-premium/`
 reference bundle before every current illustration/image/carousel generation.
 
-Creator lock, 2026-05-30: the `observational-intimacy-premium` illustrations
+Creator lock, 2026-05-30: the Observational Intimacy Premium
+(`observational-intimacy-premium`) illustrations
 are the best approved style references so far. Shared images from a new brief
 control only mood, composition, story essence, text, gesture, visuals, and objects unless
 the creator explicitly says otherwise. Selected actual Aachu/Zuv identity
@@ -37,7 +38,7 @@ current-request identity photos first; do not rely on a fixed wardrobe menu.
 
 Creator correction, 2026-06-14: never generate textless illustrations. Every
 @a.storyof.two proof, concept, carousel, or final illustration must include
-exact on-image text from the first proof onward, plus only the tiny bottom-right
+exact on-image text from the first proof onward, plus only the tiny top-right
 brandmark. Dimensions follow `config/rules/image-dimensions.md`: proof
 illustrations, concept illustrations, single-slide outputs, and default
 Instagram post/carousel slides must be generated natively at exactly
@@ -48,17 +49,27 @@ dimensions do not exactly match the requested format; do not crop, pad, stretch,
 or resize to fake compliance.
 
 Creator correction, 2026-06-15: exact text must always be created with the final
-image, but it may be placed after source-scene generation when that is the only
-way to preserve the creator's copy exactly. The publishable asset is the final
-unified text-bearing illustration raster. Source art without the approved text
-is an intermediate only, not a proof/final.
+image. Updated 2026-06-30 after the marriage carousel failure: if exact copy
+cannot be rendered, block or retry with a text-bearing prompt. Do not create,
+keep, or trust a textless generated image as an intermediate, proof, or final.
+
+Creator correction, 2026-06-30: canonical rules override stale output, memory,
+or old package artifacts. Ignore any historical package, final audit, visual QA,
+or memory fragment that still says old square-by-default proof sizing,
+wrong-corner brandmark placement, blank source-image workflow, deferred text
+overlay, or both partners in every slide.
+Current canon is native `1080x1350 px` by default, native `1080x1920 px` for
+explicit Story/Reel companion outputs, square only on explicit request, tiny
+top-right `@a.storyof.two`, text-bearing generation from first proof, and
+carousel shot ladders that may show one partner, both, partial presence,
+object-only evidence, or no faces when the story needs it.
 
 ```text
 USE CASE:
 illustration-story
 
 ASSET TYPE:
-Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration. Default proof, concept, single-slide, and Instagram post/carousel output is native 4:5 at exactly 1080x1350 px; use native 9:16 at exactly 1080x1920 px only when the creator asks for Story/Reel, and square 1080x1080 px only when explicitly requested. These pixel sizes are mandatory, not derived from the aspect ratio alone; reject any other dimension. Never resize, crop, pad, or extend one surface into the other. The final asset must be one unified image with exact readable text integrated into the illustrated paper composition and only the tiny low-contrast bottom-right handwritten brandmark.
+Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration. Default proof, concept, single-slide, and Instagram post/carousel output is native 4:5 at exactly 1080x1350 px; use native 9:16 at exactly 1080x1920 px only when the creator asks for Story/Reel, and square 1080x1080 px only when explicitly requested. These pixel sizes are mandatory, not derived from the aspect ratio alone; reject any other dimension. Never resize, crop, pad, or extend one surface into the other. The final asset must be one unified image with exact readable text integrated into the illustrated paper composition and only the tiny low-contrast top-right handwritten brandmark.
 
 REFERENCE IMAGE ROLES:
 When the creator provides only a rough concept, prompt assembly is autopilot by default: infer the first-pass scene, on-image text, and image roles from the supplied concept, prompt, photo, screenshot, or reference image instead of asking for perfect fields.
@@ -84,14 +95,17 @@ SCENE:
 [INSERT SLIDE SCENE HERE]
 
 CHARACTER IDENTITY LOCK:
-The same two people must appear in every slide.
-The same-person requirement is satisfied only when the selected Aachu/Zuv identity images or current-request identity photos are attached to the generation call and visibly drive the faces.
+Across a carousel, preserve the same recurring Aachu/Zuv identity. The same-person requirement is satisfied only when the selected Aachu/Zuv identity images or current-request identity photos are attached to the generation call and visibly drive any visible faces, hair, body proportions, wardrobe anchors, posture, and emotional presence.
+Do not force both partners into every frame. A slide may show Aachu alone, Zuv alone, both partners, partial presence such as hands/backs/shoulders/reflections, object-only evidence, or no faces when the shot ladder requires it.
 
 Woman:
-Preserve her recognizable face from the attached identity images. She has warm medium-brown South Asian skin, large expressive dark eyes, softly arched brows, a delicate nose, natural lips, youthful oval face, soft cheek structure, and long dark wavy hair. Her hair may be loose, half-tied, or in a casual ponytail depending on the scene, but the thickness, dark color, natural waves, and face-framing strands must remain consistent. Keep her playful warmth, softness, and real-person charm. Do not turn her into a generic model, anime girl, doll-like character, or different person.
+Preserve her recognizable face from the attached identity images. Aachu is 5'6". She has warm medium-brown South Asian skin, large expressive dark eyes, softly arched brows, a delicate nose, natural lips, youthful oval face, soft cheek structure, and long dark wavy hair. Her hair may be loose, half-tied, or in a casual ponytail depending on the scene, but the thickness, dark color, natural waves, and face-framing strands must remain consistent. Keep her playful warmth, softness, and real-person charm. Do not turn her into a generic model, anime girl, doll-like character, or different person.
 
 Man:
-Preserve his recognizable face from the attached identity images. He has warm medium-brown South Asian skin, thick dark curly hair, strong eyebrows, dark almond-shaped eyes, defined nose, short natural stubble beard, kind smile, and relaxed masculine facial structure. Keep the same curly hair silhouette, beard density, brow shape, smile, and gentle gaze. Do not make him older, younger, overly muscular, overly chiseled, generic, or photorealistic.
+Preserve his recognizable face from the attached identity images. Zuv is 5'8". He has warm medium-brown South Asian skin, thick dark curly hair, strong eyebrows, dark almond-shaped eyes, defined nose, short natural stubble beard, kind smile, and relaxed masculine facial structure. Keep the same curly hair silhouette, beard density, brow shape, smile, and gentle gaze. Do not make him older, younger, overly muscular, overly chiseled, generic, or photorealistic.
+
+HEIGHT LOCK:
+In any two-shot, preserve the real two-inch height difference: Aachu is 5'6" and Zuv is 5'8". Zuv may read slightly taller, never oversized or lanky. Aachu must never read tiny, pixie-sized, or childlike. Sitting, leaning, partial, and asymmetric shots may hide the height difference, but they must not contradict it.
 
 FACE PRESERVATION RULES:
 Faces are the highest priority.
@@ -120,6 +134,8 @@ COLOR PALETTE:
 Warm ivory and soft off-white base.
 This means neutral premium ivory/off-white paper, not yellow, not mustard, not
 sepia, not beige/tan, not parchment, not coffee-stained, and not heavy cream.
+HARD FAIL: yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or
+heavy cream paper/background tones.
 Muted denim blue.
 Soft navy.
 Off-white cotton.
@@ -127,6 +143,9 @@ Faded sage green.
 Keep the palette soft, cohesive, slightly vintage, aesthetic and premium. No mustard
 dominance, no yellowish cast, no parchment cast, no heavy cream/yellow paper, no heavy
 sepia wash, no neon colors, no harsh contrast, or no glossy digital finish.
+
+PAPER TONE LOCK:
+The whole paper/negative-space field must stay neutral premium warm ivory/off-white with visible paper grain. Story warmth may appear inside illustrated objects, skin, blush, lamps, textiles, or small accents, but it must not tint the paper itself yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream. If the paper reads yellow or parchment on a phone screen, the image fails even when the scene, faces, and text are otherwise strong.
 
 COMPOSITION AND FORMAT:
 Default proof, concept, single-slide, and Instagram post/carousel output is native 4:5 at exactly 1080x1350 px. Use native 9:16 at exactly 1080x1920 px for Reels/Stories or Story/Reel requests, and square 1080x1080 px only when explicitly requested. Pixel sizes are mandatory and generated natively, not derived from the aspect ratio.
@@ -139,11 +158,20 @@ Keep the scene readable at phone-screen size.
 Avoid clutter.
 Avoid cropping faces, hands, or important props awkwardly.
 
+STAGE-SCENE / VISUAL RECEIPT:
+The image must stage the exact human moment, not decorate the caption. Show a visible receipt for the line: a behavior, object movement, body position, expression, contradiction, ritual, or aftermath that would still make the slide understandable if the text were hidden. Do not settle for two people sitting together with soft eye contact unless that specific sitting/action is the receipt. The scene, wardrobe state, props, hands, eye-lines, and object positions must not contradict the ON-IMAGE TEXT.
+
+SHOT LADDER / VISUAL VARIETY:
+For carousel generation, each slide must carry a distinct shot role before image generation: wide, medium, close-up, over-shoulder, single-person, object-only, detail, reaction, or transition. Vary camera angle, setting lane, primary action, and who is visible. Do not repeat the same full-couple medium shot, same front/three-quarter angle, same bed/table/chai/books/garden/balcony setup, or same emotional listening action across the carousel. One slide may show one partner; another may show both; another may show hands, a reflection, a doorway view, an object, or no faces if that is the stronger visual proof.
+
 EMOTIONAL DIRECTION:
 The couple should feel quietly in love, comfortable, playful, and emotionally safe.
 Use small gestures: eye contact, soft smiles, teasing expressions, hand-holding, leaning toward each other, shared objects, caring body language.
 Romance should feel natural and lived-in, not dramatic or posed.
 Their expressions should match the scene but remain warm and human.
+
+RELATIONSHIP MOTION:
+The slide must show relationship movement through a real behavior, receipt, rhythm, contradiction, shared action, or emotional turn. Do not default to Zuv handling, saving, admiring, or absorbing Aachu unless the story is genuinely his beat. Relationship motion may come from Aachu, Zuv, both partners, a shared object, a repeated phrase, a visible aftermath, or a generic couple mirror that viewers instantly recognize as "this is us."
 
 WARDROBE CONTINUITY:
 Wardrobe must be selected from the attached identity images or current-request identity photos first. Do not use a fixed wardrobe menu as the source of truth.
@@ -186,7 +214,8 @@ No melted accessories.
 No random unreadable text.
 No external watermark.
 No external logo.
-Always include the tiny low-contrast handwritten brandmark `@a.storyof.two` at the bottom-right corner as part of the artwork.
+No split-screen divider may appear in final art.
+Always include the tiny low-contrast handwritten brandmark `@a.storyof.two` at the top-right corner as part of the artwork.
 No AI-looking artifacts.
 No hyperrealism.
 No anime.
@@ -209,13 +238,13 @@ awkwardly folded, broken, or unflattering poses. Legs and feet must be
 proportional and comfortably placed.
 
 TEXT RULE:
-Include the exact written text provided in the ON-IMAGE TEXT section inside the final illustration image. If the image model can render the copy exactly, include it directly during generation. If the copy is long or the model risks misspelling it, generate the scene with clean reserved warm upper-middle paper space and place the approved text into the same final raster immediately afterward as an integrated lettering/typesetting pass. The final text must be readable, polished, hand-drawn/storybook typography that suits the creator-approved observational-intimacy-premium font styles and romantic watercolor-and-ink style of this project. Place the text without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, capitalization, and wording exactly. Lock the lettering style to the approved references: slightly imperfect, warm black/charcoal, airy, human, and integrated into the paper. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel like it belongs to the final paper illustration, not like a separate quote card, platform overlay, poster title, or detached graphic layer.
+Include the exact written text provided in the ON-IMAGE TEXT section inside the generated final illustration image from the start. If the copy is long or the model risks misspelling it, keep the package blocked or retry with a stronger text-bearing prompt; do not create a textless scene as a workaround. A local typography repair may only correct an already text-bearing raster, and the repaired final must still read as one unified paper illustration. The final text must be readable, polished, hand-drawn/storybook typography that suits the creator-approved observational-intimacy-premium font styles and romantic watercolor-and-ink style of this project. Place the text without covering faces, hands, important props, or emotional gestures. Preserve spelling, line breaks, punctuation, capitalization, and wording exactly. Lock the lettering style to the approved references: slightly imperfect, warm black/charcoal, airy, human, and integrated into the paper. Do not add extra words, random letters, unreadable marks, labels, signs, logos, watermarks, or speech bubbles unless explicitly requested. The typography should feel like it belongs to the final paper illustration, not like a separate quote card, platform overlay, poster title, or detached graphic layer.
 
 STYLE ACCEPTANCE RULE:
-Identity match is necessary but never sufficient. If the output looks like a generic AI watercolor poster, photorealistic portrait, flat digital art, anime/cartoon, hard-edged screenshot copy, or any non-A Story visual language, the image fails even if the faces are closer. If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream, the image fails. If the faces do not clearly match the selected Aachu/Zuv identity references, the image fails. Regenerate only through a path that uses actual identity and style reference images. The approved look is observational-intimacy-premium A Story of Two illustrations: neutral warm ivory/off-white paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, exact handwritten text, tiny bottom-right brandmark, and no quote-card design.
+Identity match is necessary but never sufficient. If the output looks like a generic AI watercolor poster, photorealistic portrait, flat digital art, anime/cartoon, hard-edged screenshot copy, or any non-A Story visual language, the image fails even if the faces are closer. If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream, the image fails. If the faces do not clearly match the selected Aachu/Zuv identity references, the image fails. Regenerate only through a path that uses actual identity and style reference images. The approved look is Observational Intimacy Premium A Story of Two illustration: neutral warm ivory/off-white paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, exact handwritten text, tiny top-right brandmark, and no quote-card design.
 
 BRANDMARK RULE:
-Every final @a.storyof.two illustration must include the tiny handwritten brandmark `@a.storyof.two` in the bottom-right corner. Keep it subtle, low-contrast, and integrated into the paper texture. It should read like the project signature, not a platform watermark or large logo. Do not omit it.
+Every final @a.storyof.two illustration must include the tiny handwritten brandmark `@a.storyof.two` in the top-right corner. Keep it subtle, low-contrast, and integrated into the paper texture. It should read like the project signature, not a platform watermark or large logo. Do not omit it.
 
 FINAL IDENTITY REINFORCEMENT:
 Before finalizing, confirm the selected Aachu/Zuv identity images were attached as visual inputs and ensure the woman and man still look like those exact same people. The scene, pose, outfit, and props may change, but their faces, hair identities, skin tones, body proportions, wardrobe anchors, and emotional presence must remain consistent.

@@ -30,6 +30,24 @@
           "required": true
         },
         {
+          "id": "rule_image_dimensions",
+          "path": "config/rules/image-dimensions.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_visual_variety",
+          "path": "config/rules/visual-variety.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
+          "id": "rule_relationship_motion",
+          "path": "config/rules/relationship-motion.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
           "id": "rule_voice",
           "path": "config/rules/voice.md",
           "kind": "canonical_rule",
@@ -66,9 +84,9 @@
           "required": true
         },
         {
-          "id": "carousel_preferences",
-          "path": "memory/semantic/carousel-idea-preferences.md",
-          "kind": "semantic_memory",
+          "id": "carousel_runtime_context",
+          "path": "config/skills/carousel-jam-runtime-context.md",
+          "kind": "workflow_runtime_context",
           "required": true
         },
         {

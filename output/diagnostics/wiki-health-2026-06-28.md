@@ -4,7 +4,6 @@ last_updated: 2026-06-28
 confidence: 0.82
 sources:
 - AGENTS.md
-- CLAUDE.md
 - wiki/index.md
 - memory/working.md
 - memory/graph.json
@@ -21,8 +20,8 @@ Wiki pages: 81
 | Check | Status | Severity | Message |
 | --- | --- | --- | --- |
 | memory_surface | PASS | info | Required wiki, memory, graph, and log surfaces exist. |
-| advertised_pipeline_files | PASS | info | AGENTS/CLAUDE advertised pipeline entry points exist. |
-| instruction_surface_sync | PASS | info | AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands. |
+| advertised_pipeline_files | PASS | info | AGENTS.md advertised pipeline entry points exist. |
+| instruction_surface_sync | PASS | info | AGENTS.md carries the required health and autopublish closeout commands. |
 | instruction_surface_contract | PASS | info | Instruction surfaces match the current source hierarchy and avoid stale workflow claims. |
 | agentic_os_surface | PASS | info | Agentic OS control-plane files exist and are available to future sessions. |
 | wiki_index_total_pages | PASS | info | wiki/index.md total_pages matches actual wiki page count. |
@@ -54,8 +53,7 @@ Wiki pages: 81
 ```json
 {
   "required_files": [
-    "AGENTS.md",
-    "CLAUDE.md"
+    "AGENTS.md"
   ],
   "required_phrases": [
     "scripts/autopublish.py",
@@ -74,7 +72,8 @@ Wiki pages: 81
   "missing_contract": false,
   "missing_phrases": {},
   "banned_hits": {},
-  "line_count_violations": {}
+  "line_count_violations": {},
+  "retired_hits": []
 }
 ```
 
@@ -128,7 +127,7 @@ Wiki pages: 81
 
 ```json
 {
-  "count": 164
+  "count": 171
 }
 ```
 
@@ -136,6 +135,6 @@ Wiki pages: 81
 
 ```json
 {
-  "count": 221
+  "count": 230
 }
 ```

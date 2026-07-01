@@ -7,6 +7,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from pipeline.agentic.checks.prompt_constraints import check_prompt_constraints
 from pipeline.layer_e.artifacts import layer_e_gate_reason
 from pipeline.agentic.generation_capability import write_generation_capability
 from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
@@ -283,33 +284,30 @@ def image_dimensions(image_bytes: bytes) -> dict[str, Any]:
     }
 
 
-def target_aspect_for_format(output_format: str) -> float:
+def target_size_for_format(output_format: str) -> tuple[int, int]:
     if output_format == INSTAGRAM_POST_FORMAT:
-        width, height = FINAL_UPLOAD_SIZE
-    elif output_format == REELS_STORIES_FORMAT:
-        width, height = REELS_STORIES_SIZE
-    else:
-        raise ValueError(f"Unsupported native output format: {output_format}")
-    return width / height
+        return FINAL_UPLOAD_SIZE
+    if output_format == REELS_STORIES_FORMAT:
+        return REELS_STORIES_SIZE
+    raise ValueError(f"Unsupported native output format: {output_format}")
 
 
-def require_native_source_aspect(
+def require_native_source_dimensions(
     *,
     image_bytes: bytes,
     output_format: str,
     slide_number: int,
     path: Path,
-    tolerance: float = 0.01,
 ) -> dict[str, Any]:
     dimensions = image_dimensions(image_bytes)
-    actual = float(dimensions["width"]) / float(dimensions["height"])
-    target = target_aspect_for_format(output_format)
-    if abs(actual - target) > tolerance:
+    expected_width, expected_height = target_size_for_format(output_format)
+    if (dimensions["width"], dimensions["height"]) != (expected_width, expected_height):
         label = NATIVE_OUTPUT_FORMATS[output_format]["label"]
         raise ValueError(
-            f"Slide {slide_number} {label} native source aspect is {actual:.4f}; "
-            f"expected {target:.4f}. Regenerate {path} at the native aspect instead of "
-            "cropping, padding, or containing a wrong-ratio source."
+            f"Slide {slide_number} {label} native source dimensions are "
+            f"{dimensions['width']}x{dimensions['height']}; expected exact "
+            f"{expected_width}x{expected_height}. Regenerate {path} at the native pixel size "
+            "instead of resizing, cropping, padding, or containing a wrong-size source."
         )
     return dimensions
 
@@ -319,7 +317,7 @@ def normalize_for_upload(image_bytes: bytes, width: int, height: int) -> tuple[b
     return (
         normalize_native_output(image_bytes, width, height),
         dimensions,
-        "resized native-aspect generated source to upload size",
+        "source already matches exact native upload size",
         None,
     )
 
@@ -559,6 +557,18 @@ def prepare_codex_builtin_image_generation(
                 generator_prompt_text(slide_prompt, output_format),
                 encoding="utf-8",
             )
+            gate = check_prompt_constraints(
+                generator_prompt_path,
+                expected_text=str(slide_prompt["text"]),
+            )
+            if gate.status != "PASS":
+                return write_blocked_status(
+                    carousel_dir,
+                    (
+                        f"Compiled prompt constraints failed for slide {number:02d} "
+                        f"{format_prompt_dir_name(output_format)}: {gate.reason}"
+                    ),
+                )
             prompt_path.write_text(
                 prompt_file_text(
                     carousel_dir=carousel_dir,
@@ -685,13 +695,13 @@ def package_codex_builtin_outputs(
             raise FileNotFoundError(f"Missing Codex generated image: {reels_stories_source_path}")
         instagram_bytes = instagram_source_path.read_bytes()
         reels_stories_bytes = reels_stories_source_path.read_bytes()
-        require_native_source_aspect(
+        require_native_source_dimensions(
             image_bytes=instagram_bytes,
             output_format=INSTAGRAM_POST_FORMAT,
             slide_number=number,
             path=instagram_source_path,
         )
-        require_native_source_aspect(
+        require_native_source_dimensions(
             image_bytes=reels_stories_bytes,
             output_format=REELS_STORIES_FORMAT,
             slide_number=number,
@@ -769,8 +779,8 @@ def package_codex_builtin_outputs(
         )
 
     normalization_text = (
-        "Each surface is generated from its own native-aspect source; final files are same-aspect "
-        "upload-size normalizations only. Wrong-ratio sources are rejected before packaging."
+        "Each surface is generated from its own exact native pixel source. Wrong-size sources "
+        "are rejected before packaging instead of being resized, cropped, or padded."
     )
     generation_extra = {
         "native_output_contract": NATIVE_OUTPUT_CONTRACT,
@@ -838,7 +848,7 @@ def package_codex_builtin_outputs(
         else:
             result = write_generation_state(
                 carousel_dir,
-                status=GenerationStatus.GENERATED,
+                status=GenerationStatus.PUBLISH_READY,
                 backend=BACKEND,
                 generation_mode=GENERATION_MODE,
                 slide_count=len(slides),

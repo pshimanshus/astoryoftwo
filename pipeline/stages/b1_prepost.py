@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).parent.parent.parent
 SKILLS_DIR = BASE_DIR / "config" / "skills"
 AGENTS_DIR = BASE_DIR / "agents"
 OUTPUT_DIR = BASE_DIR / "output" / "prepost"
-VOICE_FILE = BASE_DIR / "config" / "voice.md"
+VOICE_FILE = BASE_DIR / "config" / "rules" / "voice.md"
 WORKING_MEMORY = BASE_DIR / "memory" / "working.md"
 
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

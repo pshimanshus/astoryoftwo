@@ -556,7 +556,7 @@ def build_post_copy_visual_room(
             {
                 "agent": "Generation Prompt Director",
                 "verdict": "GO",
-                "prompt_summary": "Translate the selected visual system into specific model-native prompt constraints.",
+                "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints.",
             },
             {
                 "agent": "Harsh Visual Selector",
@@ -589,7 +589,7 @@ def build_post_copy_visual_room(
         "typography_and_aspect_plan": {
             "instagram_post_4x5": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
             "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 4:5 artwork.",
-            "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork.",
+            "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork.",
         },
         "generation_prompt_brief": {
             "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",

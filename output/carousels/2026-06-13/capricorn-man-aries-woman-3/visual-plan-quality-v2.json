@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "status": "V2_APPROVED_GENERATING_BATCH",
+  "decision": "GENERATE_4X5_SET",
+  "can_generate_batch": true,
+  "reason": "Previous visual gate approved broad concepts but did not enforce cinematic frame logic. A v2 slide 01 proof candidate now passes the hard DOP gates and awaits creator approval before batch generation.",
+  "hard_gates": {
+    "both_faces_visible": "required",
+    "no_torso_only_partner": "required",
+    "no_restraint_reading_handhold": "required",
+    "native_4x5_composition": "required",
+    "logic_readable_without_text": "required",
+    "text_safe_negative_space": "required",
+    "no_zodiac_graphics": "required",
+    "no_quote_card_or_infographic": "required"
+  },
+  "rejected_previous_proof": {
+    "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/instagram-post-slide-07-proof.png",
+    "reason": "Composition is not acceptable for final batch: Aachu crop risk and model tendency toward fragmentary blocking. Use as style-learning only, not a final visual approval."
+  },
+  "proof_candidate": {
+    "slide": 1,
+    "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/slide-01-v2-proof-candidate-colorfixed.png",
+    "source_generated_image": "/Users/himanshusharma/.codex/generated_images/019ec20a-929c-7523-829a-eb09566a7cda/ig_067c2793d0bc74f1016a2da9a4b0dc8191af403f7f1a6c0ad1.png",
+    "dimensions": "1122x1402",
+    "aspect_ratio": "0.8003",
+    "palette_gate": "PASS: paper RGB=(239,235,228); paper sat=0.037; paper B/G=0.970; yellow-band fraction=0.038",
+    "ocr_gate": "STOP_SOFT_SKIP: easyocr is not installed; visible text manually checked",
+    "visual_logic": "PASS: both faces visible, Aachu is not cropped, hand gesture reads as invitation, Zuv is actively watching, scene reads as planning versus starting before text."
+  },
+  "next_required_step": "Creator approval or repair notes for the v2 slide 01 proof candidate. Do not batch until creator approves the new visual system.",
+  "approval": "Creator said continue after v2 proof candidate."
+}

@@ -46,6 +46,90 @@ def test_flags_handoff_blocker_with_fake_publishable_final_state(tmp_path: Path)
     assert report.highest_severity == "blocker"
 
 
+def test_flags_blocked_generation_manifest(tmp_path: Path) -> None:
+    package = tmp_path / "blocked-generation"
+    package.mkdir()
+    write_json(package / "image-generation.json", {"status": "blocked", "reason": "dimension gate failed"})
+    write_json(package / "final-images.json", {"status": "blocked", "publishable": False})
+    (package / "image-generation-blocker.md").write_text("status: BLOCKED\n", encoding="utf-8")
+
+    report = inspect_carousel_package(package)
+
+    assert "image_generation_blocked" in issue_codes(report)
+    assert report.highest_severity == "blocker"
+
+
+def test_flags_semantic_generation_blockers_from_current_package_shape(tmp_path: Path) -> None:
+    package = tmp_path / "rules-of-marriage-unofficial-edition"
+    package.mkdir()
+    write_json(
+        package / "final-images.json",
+        {
+            "status": "not_final",
+            "final_status": "blocked_for_native_1080x1350_and_exact_text_qa",
+            "publishable": False,
+        },
+    )
+    write_json(
+        package / "text-generated-candidates.json",
+        {
+            "publish_gate": {"status": "BLOCKED"},
+            "textless_sources": {"status": "REJECTED_HARD_FAIL"},
+        },
+    )
+
+    report = inspect_carousel_package(package)
+
+    codes = issue_codes(report)
+    assert "semantic_generation_blocked" in codes
+    assert "publish_gate_blocked" in codes
+    assert "textless_sources_rejected" in codes
+    assert report.blocked is True
+    assert report.highest_severity == "blocker"
+
+
+def test_flags_active_textless_prompt_artifact(tmp_path: Path) -> None:
+    package = tmp_path / "rules-of-marriage-unofficial-edition"
+    package.mkdir()
+    write_json(
+        package / "prompt-pack.json",
+        {
+            "slides": [
+                {
+                    "slide": 4,
+                    "text": "Rule no. 3\nAlways ask if the fight is still happening.",
+                }
+            ]
+        },
+    )
+    prompt_dir = package / "codex-image-prompts"
+    prompt_dir.mkdir()
+    (prompt_dir / "square-proof-slide-04.prompt.txt").write_text(
+        "\n".join(
+            [
+                "PALETTE: warm ivory paper.",
+                "HARD FAIL: yellow, sepia, parchment.",
+                "Style lock: Observational Intimacy Premium.",
+                "ON-IMAGE TEXT: exact final copy.",
+                "Each identity reference image must be attached to the call.",
+                "Preserve Aachu and Zuv face identity.",
+                "Brandmark: tiny handwritten @a.storyof.two in top-right.",
+                "No split-screen divider may appear in final art.",
+                "This is source art for a proof; leave clean upper-middle paper space for exact text placement afterward.",
+                "Text rule for source art:",
+                "Do not include any text, lettering, brandmark, labels, signs, readable packaging words, random letters, watermarks, speech bubbles, or UI in this source image.",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    report = inspect_carousel_package(package)
+
+    assert "active_textless_prompt" in issue_codes(report)
+    assert report.blocked is True
+    assert report.highest_severity == "blocker"
+
+
 def test_flags_missing_required_c_layer_artifacts_for_fresh_generation(tmp_path: Path) -> None:
     package = tmp_path / "private-captions-fresh-a-story"
     package.mkdir()

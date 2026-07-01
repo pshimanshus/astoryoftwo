@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIR_WITH_BLOCKER",
+  "scorecard": {
+    "golden_theme_alignment": 3,
+    "story_specificity": 4,
+    "visual_simplicity": 5,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 3,
+    "identity_handoff": 0
+  },
+  "required_fixes_before_generation": [
+    "Use an image-generation path that can attach actual selected identity and style references.",
+    "Add more Aachu/Zuv-specific behavioral receipt in the proof image without changing creator-supplied copy.",
+    "Treat Slide 3 as object-only evidence, not a blank quote card.",
+    "Proof slide 06 first at native 1080x1080 with exact text and brandmark.",
+    "Run OCR/text QA after proof because several lines are long."
+  ],
+  "notes": "Package is handoff-ready for inspection, but not generation-ready. Story/taste is capped until visual proof adds enough Aachu/Zuv specificity; final image generation remains blocked by reference attachment."
+}

@@ -38,10 +38,11 @@ class ContextPack(BaseModel):
 class SkillRecord(BaseModel):
     skill_id: str
     name: str
-    kind: Literal["skill", "agent", "reference", "system", "unknown"] = "unknown"
+    kind: Literal["skill", "repo_skill", "agent", "reference", "system", "unknown"] = "unknown"
     path: str
     description: str = ""
     dependencies: list[str] = Field(default_factory=list)
+    implicit_invocation: bool | None = None
     confidence: float = Field(ge=0.0, le=1.0, default=0.5)
 
     @field_validator("skill_id")

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_WITH_NOTES",
+  "score": 43,
+  "max_score": 45,
+  "scores": {
+    "golden_theme_alignment": 5,
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 5,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 4
+  },
+  "notes": [
+    "Package is handoff-ready, not final-image complete.",
+    "Final native 4:5 and 9:16 images still need Codex built-in generation with the selected identity inputs."
+  ]
+}

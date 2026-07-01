@@ -1,0 +1,40 @@
+{
+  "date": "2026-06-06",
+  "concept_slug": "own-plate-theory-jam",
+  "status": "CREATOR_REJECTED",
+  "layer_e_status": "REJECTED_AFTER_REPAIR",
+  "creator_feedback": "didn't like the idea",
+  "agents_ran_as": "Simulated named reviewers in-session; no external subagent spawning was used because the available sub-agent tool requires explicit user permission for delegation.",
+  "owner_notes": {
+    "storyline_architect": "Selected the food-denial ritual because it has a tiny emotional obstacle and strong visible proof.",
+    "contrarian_critic": "Passed only after removing body-shame, food-policing, and 'no means yes' interpretations.",
+    "retention_analyst": "The DM-send trigger is immediate: tag the partner who says they do not want food and eats from yours.",
+    "visual_director": "Hands, eye-lines, plate movement, and the reveal of the spare plate carry the story before text.",
+    "copy_chief": "Copy must stay short, spoken, name-free, and scene-native; no polished thesis before proof.",
+    "algorithm_strategist": "Food-denial rituals are broad Indian couple recognition, but the execution must be warm and non-shaming.",
+    "final_selector": "Stop this lane. Creator rejected the idea after Layer E repair; do not continue polishing it."
+  },
+  "artifacts": [
+    "source-memory-brief.json",
+    "concept-routes.json",
+    "concept-debate.json",
+    "concept-repairs.json",
+    "stage-scene-gate.json",
+    "story-director-lock.json",
+    "concept-selection.json",
+    "jam-summary.md",
+    "process-correction.md",
+    "layer-e-story-selling.json",
+    "layer-e-story-selling.md",
+    "rejection-note.md"
+  ],
+  "blocking_gates_before_next_phase": [
+    "creator concept approval",
+    "copy lock",
+    "post-copy visual room",
+    "visual debate",
+    "visual plan quality",
+    "identity reference selection",
+    "style-lock reference load"
+  ]
+}

@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from scripts.start_agentic_session import build_session_takeover
-from tests.test_agentic_workflow_integration import write_minimal_agentic_workspace
+from tests.helpers.agentic_workspace import write_minimal_agentic_workspace
 
 
 def test_session_takeover_loads_context_recall_git_health_and_writes_intent(tmp_path: Path):

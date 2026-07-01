@@ -16,7 +16,7 @@ Read the growth reference before drafting:
 
 Also read:
 
-- `config/voice.md`
+- `config/rules/voice.md`
 - `config/skills/golden-viral-carousel-theme.md`
 - `config/skills/romance-story-selling-engine.md`
 - `config/references/story-selling-canon/concept-process-cards.md`

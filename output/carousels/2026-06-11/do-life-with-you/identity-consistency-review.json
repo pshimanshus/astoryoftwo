@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_PROOF_HANDOFF",
+  "selected_identity_bundle": [
+    {
+      "path": "config/references/identity/aachu/portrait-02.jpg",
+      "role": "Aachu solo face anchor and daylight hair/skin reference"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "Zuv primary face anchor; both close faces and domestic closeness"
+    },
+    {
+      "path": "config/references/identity/together/together-19.jpg",
+      "role": "couple closeness, white shirt/scarf color anchors, warm lantern context"
+    },
+    {
+      "path": "config/references/identity/together/together-21.jpg",
+      "role": "domestic hug, Zuv profile/curls/beard, Aachu smile and grey floral outfit"
+    }
+  ],
+  "style_reference_bundle": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+  ],
+  "wardrobe_anchors": [
+    "Aachu: white shirt / grey floral kurta / soft grey blazer language, long dark wavy hair, delicate necklace or small jewelry",
+    "Zuv: dark charcoal/navy shirt, short natural stubble, thick dark curls, warm grounded posture"
+  ],
+  "hard_gate": "Proof generation must use actual visible identity/style references, not text-only identity descriptions.",
+  "proof_slide": 6
+}

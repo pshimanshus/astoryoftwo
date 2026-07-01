@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "status": "REFERENCE_BUNDLE_SELECTED_PROOF_NOT_ACCEPTED",
+  "selected_identity_bundle": [
+    {
+      "path": "config/references/identity/aachu/face-04.png",
+      "role": "Aachu face, hair, expression, casual black/denim wardrobe anchor"
+    },
+    {
+      "path": "config/references/identity/aachu/face-05.png",
+      "role": "Aachu face and body/proportion anchor"
+    },
+    {
+      "path": "config/references/identity/zuv/portrait-07.jpg",
+      "role": "Zuv solo face, curly hair, stubble, body/proportion, white jacket/grey trouser anchor"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "Couple face proximity, Zuv smile/stubble, Aachu face/hair, sofa intimacy"
+    },
+    {
+      "path": "config/references/identity/together/together-21.jpg",
+      "role": "Couple height/body relationship, domestic affection, home setting"
+    }
+  ],
+  "style_bundle": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+  ],
+  "pre_generation_identity_gate": "pass",
+  "proof_identity_notes": [
+    "Slide 5 v2 preserved broad Aachu/Zuv readable roles and house style better than v1.",
+    "Neither proof can be accepted as final because both failed exact native dimensions."
+  ],
+  "required_next_review": [
+    "Confirm Aachu's expressive eyes and long dark wavy hair are still recognizable.",
+    "Confirm Zuv's curly hair, brows, stubble/beard, and softer doomed expression are recognizable.",
+    "Reject any batch where Zuv becomes generic, overly chiseled, or too tall/broad."
+  ]
+}

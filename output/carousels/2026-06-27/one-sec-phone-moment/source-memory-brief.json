@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "status": "LOCKED",
+  "creator_supplied_facts": [
+    "The sequence starts on a couch in the evening with two cups of chai.",
+    "She leans toward him and turns her phone out to show something; her face is lit up.",
+    "He is looking at his own phone instead of looking at what she is showing.",
+    "The moment she wanted to show closes before he looks.",
+    "The same pattern later happens in reverse.",
+    "Both partners notice the two phones between them.",
+    "The repair is not a grand apology; it is one phone face-down and actual attention.",
+    "The final closeness is both phones face-down and foreheads close."
+  ],
+  "exact_text_policy": "Preserve the creator's on-image text exactly in slides.json. Do not clean up punctuation, capitalization, or wording.",
+  "story_protected": "Tiny bids for attention become relationship evidence. The carousel should not shame either partner; it should make the viewer recognize the ten-second choice.",
+  "visual_constraints": [
+    "No screenshot redraw, phone UI, app chrome, social handles, or literal readable content on the phones.",
+    "The phone is evidence, not the whole premise.",
+    "The couch may repeat because the creator supplied a continuous same-couch story, but shot type, angle, and action must change materially.",
+    "Slide 3 is an intentional cream text pause with no people.",
+    "Slide 6 is proof-first because it must make the repair feel lived, not preachy."
+  ],
+  "selected_identity_bundle": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/zuv/portrait-05.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "known_unknowns": [
+    "Exact current-request wardrobe photos were not supplied in this chat.",
+    "Final generation cannot proceed until the image path attaches the selected identity and style reference images as actual visual inputs."
+  ]
+}

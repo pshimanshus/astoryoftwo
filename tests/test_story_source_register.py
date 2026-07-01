@@ -38,6 +38,7 @@ def run_validator(path: Path, *extra_args: str) -> subprocess.CompletedProcess:
         text=True,
         capture_output=True,
         check=False,
+        timeout=30,
     )
 
 

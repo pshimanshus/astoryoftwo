@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).parent.parent.parent
 SKILLS_DIR = BASE_DIR / "config" / "skills"
 AGENTS_DIR = BASE_DIR / "agents"
 OUTPUT_ROOT = BASE_DIR / "output" / "carousels"
-VOICE_FILE = BASE_DIR / "config" / "voice.md"
+VOICE_FILE = BASE_DIR / "config" / "rules" / "voice.md"
 WORKING_MEMORY = BASE_DIR / "memory" / "working.md"
 MIN_STORY_SLIDES = 4
 MAX_STORY_SLIDES = 10
@@ -49,6 +49,7 @@ RELATED_SKILL_REFERENCES = {
 }
 
 ARTIFACT_CONTRACT = {
+    "creative_baseline": "creative-baseline.json",
     "concept": "concept.json",
     "post_copy_visual_room": "post-copy-visual-room.json",
     "visual_debate": "visual-debate.json",
@@ -651,6 +652,18 @@ def write_package(
 ) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     write_json(out_dir / "manifest.json", manifest)
+    write_json(
+        out_dir / "creative-baseline.json",
+        package.get(
+            "creative_baseline",
+            {
+                "status": "not_supplied",
+                "source": "anthropic_c_layer_agents",
+                "creative_authority": "model_first_expected",
+                "guardrail_role": "engineering blocks hard failures after the creative pass",
+            },
+        ),
+    )
     write_json(out_dir / "concept.json", package["concept"])
     write_json(out_dir / "post-copy-visual-room.json", package["post_copy_visual_room"])
     write_json(out_dir / "visual-debate.json", package["visual_debate"])

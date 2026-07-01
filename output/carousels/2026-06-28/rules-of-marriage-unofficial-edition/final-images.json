@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "status": "not_final",
+  "slide_count": 9,
+  "final_status": "blocked_for_native_1080x1350_and_exact_text_qa",
+  "text_bearing_candidates": [
+    "source/text-bearing/slide-01-text-generated.png",
+    "source/text-bearing/slide-02-text-generated.png",
+    "source/text-bearing/slide-03-text-generated.png",
+    "source/text-bearing/slide-04-text-generated.png",
+    "source/text-bearing/slide-05-text-generated.png",
+    "source/text-bearing/slide-06-text-generated.png",
+    "source/text-bearing/slide-07-text-generated.png",
+    "source/text-bearing/slide-08-text-generated.png",
+    "source/text-bearing/slide-09-text-generated.png"
+  ],
+  "contact_sheet": "contact-sheets/text-generated-contact-sheet.png",
+  "post_overlay_used": false,
+  "reason_not_final": "All current corrected images have generated on-image text, but none are exactly 1080x1350 and several need exact line-break/quote QA before publish.",
+  "required_next_action": "Regenerate using an image path that can guarantee native 1080x1350 while baking the exact slides.json text and top-right @a.storyof.two brandmark into the illustration."
+}

@@ -1,6 +1,6 @@
 # Successful Carousel Standard
 
-last_updated: 2026-05-30
+last_updated: 2026-06-27
 confidence: 0.9
 status: living creative standard
 sources:
@@ -56,9 +56,9 @@ For @a.storyof.two, that usually translates to:
 
 ```text
 universal relationship truth
--> Aachu-specific spark
+-> Aachu/Zuv, mutual, or generic-couple spark
 -> visible proof
--> Zuv's active steadiness
+-> relationship motion or relevant partner response
 -> earned send/save payoff
 ```
 
@@ -171,7 +171,8 @@ A successful carousel has:
 - a small emotional obstacle;
 - behavior-based proof beats;
 - one physically funny, surprising, or highly visual receipt;
-- Zuv doing care as action, not mood;
+- relationship motion as behavior, not mood: Aachu, Zuv, both partners, or the
+  shared situation must visibly change the beat;
 - a turn from joke, friction, or surface detail into tenderness;
 - a final line that would still work if reposted as a quote, but only because
   the previous slides earned it.
@@ -213,6 +214,8 @@ Creative approval is not enough. The carousel must also pass the C-layer gates:
 
 - Story-Selling score: 28/30 or higher;
 - Golden Theme score: 28/30 or higher;
+- World-Class Taste Gate passes with no novelty, creator-world, known-trope, or
+  generic-replaceability score cap;
 - concept-selection record exists with 5-10 variants and a selector verdict;
 - post-copy visual room exists after copy approval;
 - visual debate returns GO;
@@ -304,26 +307,27 @@ Weak receipts:
 Objects, outfits, food, cities, phones, wallets, flowers, bags, chai, and shoes
 are evidence. They are not the thesis.
 
-### The Partner Role
+### Relationship Motion
 
-Zuv must have an active emotional role.
+The story must have visible relationship motion.
 
-He is not a passive good husband, a saintly background figure, or a man who
-only waits while Aachu performs the story. His steadiness must become visible
-behavior.
+Do not default to "Aachu performs the story and Zuv handles/admires/saves her."
+Zuv should act when it is genuinely his beat, but the motion can also come from
+Aachu revealing love through action, both partners doing the same stupid/sweet
+thing together, a generic couple pattern, or a shared rhythm/repeated phrase
+that creates the sendable "this is us" mirror.
 
-Strong Zuv actions:
+Strong motion sources:
 
-- notices what she is not saying;
-- orders extra before she admits hunger;
-- stands close enough without taking over;
-- holds space in a crowd;
-- joins the joke instead of judging it;
-- carries the awkward part quietly;
-- protects her softness without shrinking her;
-- smiles because he has chosen this exact life, not because he is absent.
+- Aachu does something and the story reveals her love;
+- Zuv does something when the beat is truly his;
+- both partners join the same bit instead of one person managing the other;
+- the object/phrase/situation moves and changes the emotional meaning;
+- no one is heroic, but the shared rhythm or contradiction is instantly
+  recognizable.
 
-If Zuv can be removed and the story still works, the concept fails.
+If the route only works by making Zuv the default caretaker, or making Aachu the
+permanent problem to endure, the concept fails.
 
 ### The Emotional Turn
 
@@ -371,17 +375,17 @@ Beautiful is not enough. The final line needs identity pressure.
 ## Slide Architecture
 
 Use the number of slides the story needs. Five slides are useful, but not a
-law. Do not compress a real story until the bridge, proof trail, Zuv response,
-and emotional payoff become thin.
+law. Do not compress a real story until the bridge, proof trail, relationship
+motion, and emotional payoff become thin.
 
 ### Five-Slide Shape
 
 | Slide | Job | Question It Answers |
 |---:|---|---|
 | 1 | Universal hook | What relationship truth is this about? |
-| 2 | Aachu spark | What specific version of the truth lives here? |
+| 2 | Specific spark | What Aachu/Zuv, mutual, or generic-couple version of the truth lives here? |
 | 3 | Concrete receipt | What behavior proves it? |
-| 4 | Zuv action | What does love do in response? |
+| 4 | Relationship motion | What action, shared rhythm, or situation changes the beat? |
 | 5 | Tender thesis | What can the viewer send or save? |
 
 ### Seven-Slide Shape
@@ -538,11 +542,12 @@ artifact.
 | Emotional obstacle | There is friction, misread, cost, or desire. |
 | Concrete receipts | Middle slides contain behavior-based proof, not abstract mood. |
 | Physical visual proof | At least one receipt is instantly drawable or physically funny. |
-| Aachu role | She brings specific spark, not generic wife/girl energy. |
-| Zuv role | His care is visible action, not passive patience. |
+| Specific role | Aachu, Zuv, both, or the generic couple pattern brings specific spark, not interchangeable couple content. |
+| Relationship motion | The motion is visible behavior, not passive patience or mood. |
 | Emotional reversal | The deck turns from surface to meaning. |
 | Final thesis | The final line can be sent or saved without backstory. |
 | Visual scene clarity | The deck works as silent panels. |
+| World-Class Taste | The concept is fresh, ownable, and not replaceable by a generic couple account. |
 | Caption expansion | The caption adds proof and distribution reason. |
 | Identity continuity | Faces, posture, outfits, and couple likeness pass QA. |
 | Native outputs | Separate 4:5 and 9:16 final images exist. |
@@ -550,11 +555,19 @@ artifact.
 Decision rule:
 
 - GO: all critical dimensions pass and both Story-Selling and Golden Theme
-  scores are 28/30 or higher.
+  scores are 28/30 or higher, with no World-Class Taste Gate score cap.
 - REPAIR: one or more dimensions are weak but the emotional machine is alive.
 - REWORK: the premise is private, abstract, derivative, or visually thin.
-- STOP: no obstacle, no active Zuv role, generic couple dynamic, object-first
+- STOP: no obstacle, no relationship motion, generic couple dynamic, object-first
   premise, mean framing, or unfixable identity/art failure.
+
+World-Class Taste score caps override mechanical scores:
+
+- weak novelty: cap at 24/30;
+- weak creator-world specificity: cap at 24/30;
+- known trope plus tender ending but no non-obvious staged turn: cap at 23/30;
+- generic couple-account idea after names and art style are removed: cap at
+  22/30.
 
 ## Hard Fails
 
@@ -581,7 +594,7 @@ Why it passed:
 
 - contradiction hook: "peace" is a socially approved ideal;
 - specific receipts: tears, shoes, moods, breakfast;
-- active Zuv role: he smiles like this is normal;
+- relationship motion: he smiles like this is normal;
 - emotional turn: the chaos becomes safe;
 - final thesis: "calm enough for your chaos" is taggable and portable.
 
@@ -623,7 +636,8 @@ Why it had promise:
 
 - the phrase is culturally real;
 - the translation idea is strong;
-- Zuv's care can be active and respectful.
+- relationship motion can be active and respectful without forcing Zuv as the
+  caretaker in every route.
 
 Why it needed repair:
 

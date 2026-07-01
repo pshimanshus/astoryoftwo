@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "generation_mode": "model_native_publishable",
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram carousel illustration in the creator-approved Observational Intimacy Premium house style: neutral warm ivory/off-white paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing and prop details, generous upper-middle negative space, exact readable hand-drawn text, and a tiny low-contrast @a.storyof.two brandmark at bottom-right. Preserve Aachu/Zuv identity from selected actual identity references when faces appear, and preserve identity through hands, hair silhouettes, jewelry, body proportion, wardrobe palette, and relationship energy when faces are cropped or hidden. Use the supplied Instagram screenshots only for mood, text, gesture, and composition essence; do not copy app UI, exact photo composition, dark photo style, social handles, carousel dots, or external account identity.",
+  "shared_negative_prompt": "No photorealism, no Instagram UI, no copied screenshot layout, no dark black photo background, no stock couple, no generic couple fantasy, no yellow/parchment/sepia/beige paper, no Canva quote-card, no poster-only design, no random text, no external watermark, no extra words beyond exact ON-IMAGE TEXT and tiny @a.storyof.two, no distorted hands, no broken anatomy, no repeated wardrobe, no face drift.",
+  "proof_gate": "Generate slide 06 first as proof before batch generation.",
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/zuv/portrait-05.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "config/references/identity/_dossier/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/zuv/portrait-05.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "identity_dossier_path": "config/references/identity/_dossier/identity-dossier.json",
+  "identity_generation_preflight_path": "config/references/identity/_dossier/identity-generation-preflight.md",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Same Text, New Camera Life"
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Same Text, New Camera Life",
+    "selector_verdict": "Proceed proof-first with slide 06, then batch only after approval."
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 7,
+      "text": "When I say I want to do life with you, I mean:",
+      "visual": "Back-shot from just behind Aachu and Zuv as they step from a small home threshold into late-afternoon garden light. Faces not visible. Their hands almost meet at the lower frame; a key ring, canvas tote, and soft doorway prove the ordinary-life premise without copying the supplied garden-path screenshot.",
+      "scene": "A low doorway back-shot: Aachu and Zuv move away from the viewer into garden light, hands near each other, ordinary home objects at the threshold.",
+      "pose": "Both bodies mostly back-facing, relaxed walking posture, one almost-touching hand gesture, faces hidden.",
+      "wardrobe": "Aachu in a dusty coral cotton kurta with soft cream pants; Zuv in a faded sage overshirt and dark trousers.",
+      "props": "Key ring, canvas tote, small home threshold, soft garden path, tiny @a.storyof.two brandmark.",
+      "background": "Warm ivory paper with soft garden light and faded edges; upper-middle text-safe negative space.",
+      "emotion": "quiet invitation",
+      "style": "premium A Story watercolor-and-ink, neutral ivory paper, fine ink, tactile clothing",
+      "negative_prompt": "No photorealism, app UI, screenshot copy, yellow paper, repeated wardrobe, or extra text.",
+      "prompt": "Create slide 01 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: When I say I want to do life with you, I mean:. Stage it as a fresh low back-shot from a home doorway, Aachu and Zuv moving into garden light with hands almost meeting, key ring and tote as ordinary-life evidence. Faces hidden. Do not copy the source screenshot or include Instagram UI. Keep neutral ivory/off-white paper, readable hand-drawn text in upper-middle negative space, and tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 2,
+      "slide_count": 7,
+      "text": "I want to take turns brewing coffee every morning.",
+      "visual": "Countertop POV between two mugs: Aachu's hand nudges one mug forward while Zuv's hand lifts a small kettle. Steam rises softly into the text-safe space. Faces cropped out; the scene is active, not a still life.",
+      "scene": "Morning coffee as shared action from a low counter-level POV, with two mugs, kettle, steam, and two different hands participating.",
+      "pose": "Hands only; one hand nudges a mug forward, the other pours/lifts kettle, no faces.",
+      "wardrobe": "Aachu in an off-white sleep tee sleeve with a small bracelet; Zuv in a muted navy sleep shirt sleeve.",
+      "props": "Two ceramic mugs, kettle, steam, soft window light, tiny @a.storyof.two brandmark.",
+      "background": "Kitchen counter fading into warm ivory paper; upper-middle text remains clean and readable.",
+      "emotion": "morning care",
+      "style": "premium A Story watercolor-and-ink observational intimacy, tactile ceramic detail, neutral ivory paper",
+      "negative_prompt": "No object-only still life, no photorealism, no copied screenshot, no random mug text, no yellow paper, no distorted hands.",
+      "prompt": "Create slide 02 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: I want to take turns brewing coffee every morning. Stage it as a counter-level POV with two mugs, a kettle, steam, and both partners' hands actively sharing the coffee ritual. Faces cropped out. Keep the frame fresh, not a redraw of the reference. Neutral ivory paper, exact readable hand-drawn text, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 3,
+      "slide_count": 7,
+      "text": "I want to make grocery lists with you every week.",
+      "visual": "Over-shoulder table scene from behind Aachu's shoulder: a notebook with loose non-readable scribble marks, two different pens, Zuv's hand sliding a cloth tote closer, and Aachu's hand adding one mark. No legible grocery words except the exact slide text.",
+      "scene": "Shared grocery list from an over-shoulder side crop, two hands, two pens, a tote, and a notebook with non-readable marks.",
+      "pose": "Aachu's shoulder/hair partly foregrounded; both hands active around the notebook; faces not visible.",
+      "wardrobe": "Aachu in a faded denim shirt; Zuv in a rust-brown knit sleeve.",
+      "props": "Notebook with non-readable marks, two pens, cloth tote, plain coins or folded receipt with no legible text.",
+      "background": "Warm table surface dissolving into ivory paper; text in clean upper-middle space.",
+      "emotion": "domestic teamwork",
+      "style": "premium A Story watercolor-and-ink observational intimacy, tactile paper/cloth detail, neutral ivory paper",
+      "negative_prompt": "No legible list words except the exact on-image text, no flat lay still life, no app UI, no copied screenshot, no yellow paper.",
+      "prompt": "Create slide 03 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: I want to make grocery lists with you every week. Show an over-shoulder table scene with two hands, two pens, a tote, and a notebook with only loose non-readable marks. Do not render any grocery words or extra labels. Make it active and fresh, not a source screenshot redraw. Neutral ivory paper, exact readable hand-drawn text, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 4,
+      "slide_count": 7,
+      "text": "I want to wander aimlessly\nthrough farmers’ markets with you.",
+      "visual": "Basket-level POV from a crate of tomatoes and flowers as Aachu and Zuv walk away through a soft farmers' market lane. Faces mostly hidden from the back. Aachu points at something off-frame while Zuv carries a tote and slows with her.",
+      "scene": "Farmers' market from a low produce-crate POV; couple walking away, one pointing, one carrying tote, flowers and produce soft in foreground.",
+      "pose": "Back-shot mid-distance, Aachu points, Zuv turns/slows toward her; faces hidden or tiny.",
+      "wardrobe": "Aachu in a soft sage midi dress with a cream tote; Zuv in a light linen shirt and charcoal trousers.",
+      "props": "Tomatoes, flowers, cloth tote, soft market awnings without readable signs.",
+      "background": "Outdoor market lane softened into watercolor edges; avoid crowding and keep text readable.",
+      "emotion": "aimless togetherness",
+      "style": "premium A Story watercolor-and-ink observational intimacy, muted fresh market accents, neutral ivory paper",
+      "negative_prompt": "No tourist postcard, no crowded background, no readable market signage, no copied screenshot angle, no yellow cast.",
+      "prompt": "Create slide 04 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text with line break: I want to wander aimlessly through farmers’ markets with you. Stage the scene from a low produce-crate POV with tomatoes/flowers in the foreground and Aachu/Zuv walking away, one pointing and one carrying a tote. Faces mostly hidden. No readable signs. Fresh composition, not a copy of the reference. Neutral ivory paper, exact readable hand-drawn text, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 5,
+      "slide_count": 7,
+      "text": "I want to wash the dishes while you dry them.",
+      "visual": "Side/back shot through sink steam: Aachu's hands are in soap water while Zuv, beside her, dries a plate with a towel. Their shoulders nearly touch, faces mostly turned away, window light soft behind them.",
+      "scene": "Sink-side teamwork from a side/back crop, washing and drying both visible with shoulders close and window steam.",
+      "pose": "Aachu washes with hands in water; Zuv dries a plate beside her; partial side/back silhouettes only.",
+      "wardrobe": "Aachu in a terracotta home kurti; Zuv in a soft grey cotton tee.",
+      "props": "Sink, soap bubbles, plate, towel, window light, dish rack, tiny @a.storyof.two brandmark.",
+      "background": "Soft kitchen window light, gentle steam, ivory paper upper negative space.",
+      "emotion": "quiet partnership",
+      "style": "premium A Story watercolor-and-ink observational intimacy, tactile water/ceramic/fabric details, neutral ivory paper",
+      "negative_prompt": "No passive Zuv, no messy fight mood, no photoreal blur, no copied screenshot, no yellow paper, no extra text.",
+      "prompt": "Create slide 05 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: I want to wash the dishes while you dry them. Show a side/back sink-height crop through soft steam: Aachu washing, Zuv drying beside her, shoulders close, faces mostly turned away. Keep it active, tender, fresh, and not a screenshot redraw. Neutral ivory paper, exact hand-drawn text, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 6,
+      "slide_count": 7,
+      "text": "I want to slow dance in the kitchen,\njust because.",
+      "visual": "Side shot through a half-open kitchen doorway at night: Aachu and Zuv are mostly side/back as they slow dance barefoot near the counter. One clasped hand is visible; Zuv's other hand rests gently at her back. Aachu's hair partly hides her face. Soft counter-lamp glow; neutral ivory paper.",
+      "scene": "Private kitchen slow dance from a half-open doorway, with clasped hands, close body distance, soft counter lamp, and mostly hidden faces.",
+      "pose": "Natural slow dance: one clasped hand, one gentle back/waist hand, relaxed feet, side/back view.",
+      "wardrobe": "Aachu in a pale blue cotton house dress; Zuv in a black tee and tan lounge trousers.",
+      "props": "Kitchen counter, small lamp or candle glow, two mugs, dish towel, soft cabinets, tiny @a.storyof.two brandmark.",
+      "background": "Night kitchen fading into neutral ivory paper; clean upper-middle text space.",
+      "emotion": "private romance",
+      "style": "premium A Story watercolor-and-ink observational intimacy, neutral ivory paper, fine ink linework",
+      "negative_prompt": "No photorealism, ballroom pose, screenshot copy, app UI, yellow cast, awkward hands, face drift, or repeated wardrobe.",
+      "prompt": "Create slide 06 proof in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text with line break: I want to slow dance in the kitchen, just because. Make it a fresh side-shot through a half-open kitchen doorway at night. Aachu and Zuv are mostly side/back, faces hidden or softly partial; one clasped hand visible, Zuv's other hand gently at her back, relaxed barefoot kitchen slow dance near the counter. Aachu wears a pale blue cotton house dress; Zuv wears a black tee and tan lounge trousers. Keep the romance intimate and ordinary, not a ballroom pose. Neutral ivory/off-white paper, exact readable hand-drawn text in upper-middle negative space, tiny @a.storyof.two bottom-right. Do not copy the source screenshot or include Instagram UI."
+    },
+    {
+      "slide": 7,
+      "slide_count": 7,
+      "text": "I want to fold laundry while we\ntoss socks at each other.",
+      "visual": "Floor-level POV from beside a laundry basket: one sock flies toward the camera while Aachu ducks/laughs in side silhouette and Zuv is half-caught folding another shirt. Faces can stay partial or hidden. The room is tidy enough to feel warm, not messy.",
+      "scene": "Laundry scene from floor-level sock POV, with sock motion foreground, one partner ducking/laughing and the other still folding.",
+      "pose": "Aachu ducks or leans laughing in side silhouette; Zuv folds and tosses from side/back; bodies natural and flattering.",
+      "wardrobe": "Aachu in a dusty lavender sweatshirt and soft home pants; Zuv in a deep forest green hoodie and dark joggers.",
+      "props": "Laundry basket, folded clothes, one flying sock, one shirt being folded, tiny @a.storyof.two brandmark.",
+      "background": "Warm bedroom/living room with soft ivory paper edges; text kept away from sock motion.",
+      "emotion": "small chaos",
+      "style": "premium A Story watercolor-and-ink observational intimacy, tactile fabric folds and playful motion lines, neutral ivory paper",
+      "negative_prompt": "No messy-room joke, no mean expression, no distorted hands, no photoreal blur, no copied screenshot, no yellow paper.",
+      "prompt": "Create slide 07 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text with line break: I want to fold laundry while we toss socks at each other. Stage it from floor-level POV beside a laundry basket, one sock flying toward the viewer, Aachu ducking/laughing in side silhouette, Zuv half-folding and half-teasing. Faces partial or hidden. Keep the room warm, clean, playful, and fresh. Neutral ivory paper, exact readable hand-drawn text, tiny @a.storyof.two bottom-right."
+    }
+  ]
+}

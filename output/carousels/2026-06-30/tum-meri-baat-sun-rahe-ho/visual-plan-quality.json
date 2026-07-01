@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "status": "GO_FOR_PROMPT_HANDOFF_BLOCKED_FOR_GENERATION_SIZE",
+  "can_generate_when_backend_supports_native_size": true,
+  "creator_correction_applied": {
+    "same_clothes": true,
+    "single_setting": "home 4-seater dinner table",
+    "visual_storytelling_priority": "posture, hands, eye-line, phone movement, table silence, and folded napkin gesture",
+    "removed_wrong_directions": [
+      "different wardrobe per slide",
+      "bedroom/sofa/bed staging",
+      "cushion/pillow ending",
+      "generic handwritten text without house typography lock"
+    ]
+  },
+  "shot_ladder_status": "pass",
+  "same_setting_exception": "The creator corrected the carousel to one continuous dinner-table conversation. Same table and same clothes are required; visual variety comes from angle, body language, hands, eye-line, phone movement, and napkin/table gesture.",
+  "visual_repetition_audit": {
+    "dinner_table_repeats": true,
+    "repetition_reason": "single continuous trap-and-payoff scene",
+    "mitigation": "vary wide establishing, over-shoulder Aachu-led, Zuv-led side shot, across-table trap, reaction freeze, softened aftermath, and playful napkin action"
+  },
+  "typography_gate": {
+    "status": "GO",
+    "standard": "Observational Intimacy Premium @a.storyof.two handwritten lettering",
+    "requirements": [
+      "warm charcoal/black ink",
+      "airy slightly imperfect human lettering",
+      "integrated into paper grain",
+      "no flat digital font",
+      "no quote-card box",
+      "no speech bubble",
+      "no platform caption styling"
+    ]
+  },
+  "continuity_gate": {
+    "status": "GO",
+    "wardrobe_all_slides": {
+      "aachu": "black sleeveless top, light blue denim, loose dark wavy hair, small warm-gold pendant/bracelet",
+      "zuv": "dark charcoal/navy casual shirt or tee, grey lounge trousers"
+    },
+    "setting_all_slides": "small 4-seater home dinner table",
+    "props_all_slides": [
+      "two dinner plates",
+      "water glasses",
+      "small bowl",
+      "folded cloth napkins",
+      "Zuv's phone",
+      "two empty side chairs"
+    ]
+  },
+  "slide_checks": [
+    {
+      "slide": 1,
+      "status": "GO",
+      "reason": "Wide 4-seater dinner-table setup establishes calm ordinary romance."
+    },
+    {
+      "slide": 2,
+      "status": "GO",
+      "reason": "Aachu-led over-shoulder/table-level angle shows suspicion without anger."
+    },
+    {
+      "slide": 3,
+      "status": "GO",
+      "reason": "Zuv-led side shot and phone prop prove autopilot listening."
+    },
+    {
+      "slide": 4,
+      "status": "GO",
+      "reason": "Across-table trap turn is visually clear through eyebrow, lean, phone, and fading smile."
+    },
+    {
+      "slide": 5,
+      "status": "GO_FOR_SCENE_REPAIR_COMPLETE",
+      "reason": "Payoff now happens at the same dinner table with same wardrobe and clear freeze/phone evidence."
+    },
+    {
+      "slide": 6,
+      "status": "GO",
+      "reason": "Aftermath softens joke into couple truth with phone face-down and sheepish smile."
+    },
+    {
+      "slide": 7,
+      "status": "GO",
+      "reason": "Folded napkin gesture creates affection ending without leaving the dinner-table setup."
+    }
+  ],
+  "hard_blockers": [
+    {
+      "type": "native_size",
+      "expected": "1080x1350",
+      "actual_attempts": [
+        "1122x1402",
+        "1122x1402",
+        "1003x1568",
+        "971x1619",
+        "986x1595",
+        "999x1575",
+        "992x1586"
+      ],
+      "action": "Use an image-generation path that can produce exact native 1080x1350, or keep package blocked."
+    }
+  ]
+}

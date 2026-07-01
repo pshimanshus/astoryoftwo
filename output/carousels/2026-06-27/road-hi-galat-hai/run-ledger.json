@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "observer": {
+    "agent": "C0.5-Jarvis",
+    "role": "Track requirements, stage completion, reviewer findings, and final gate status."
+  },
+  "run": {
+    "date": "2026-06-27",
+    "title": "Road Hi Galat Hai",
+    "slug": "road-hi-galat-hai",
+    "channel": "@a.storyof.two",
+    "pipeline": "C-layer illustrated carousel",
+    "runtime": "codex_native_local",
+    "output_dir": "output/carousels/2026-06-27/road-hi-galat-hai"
+  },
+  "source_inputs": {
+    "story": "A couple is driving through confusing flyovers and service lanes. First she says left, he goes straight, they miss the left cut, and the map adds time. She says bola tha na. Then another confusing road appears, he asks ab?, she says seedha, they miss the tiny right cut too, the map recalculates +16 min, and both finally agree: road hi galat hai. The carousel should make road hi galat hai the hook and repeated shared cope, with +16 min as the sticky receipt.",
+    "slide_count": 7,
+    "reference_images": [
+      "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.24 PM.png",
+      "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.32 PM.png",
+      "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.28 PM.png",
+      "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.55 PM.png",
+      "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.07.00 PM.png"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "REQ-STYLE-001",
+      "label": "Use romantic watercolor-and-ink / identity-rooted illustration style",
+      "source": "creator master-prompt style requirement",
+      "evidence": [
+        "prompt_pack.shared_style_prompt",
+        "concept.visual_style"
+      ],
+      "critical": true
+    },
+    {
+      "id": "REQ-HOUSE-STYLE-SCENE-001",
+      "label": "Final prompts stay scene-first in the @a.storyof.two house style",
+      "source": "creator style-consistency correction on 2026-05-24",
+      "evidence": [
+        "prompt_pack.slides[].prompt"
+      ],
+      "critical": true
+    },
+    {
+      "id": "REQ-PHOTO-001",
+      "label": "Preserve supplied photo cues, outfits, settings, poses, and relationship energy",
+      "source": "C-layer framework",
+      "evidence": [
+        "slides[].source_images",
+        "prompt_pack.slides[].prompt"
+      ],
+      "critical": true
+    },
+    {
+      "id": "REQ-IDENTITY-001",
+      "label": "Aachu/Zuv identity reference is present in manifest and prompt pack",
+      "source": "user face-consistency requirement",
+      "critical": true
+    },
+    {
+      "id": "REQ-IDENTITY-DOSSIER-001",
+      "label": "Identity dossier, preflight checklist, and face contact sheet are present before image generation",
+      "source": "user face-consistency requirement",
+      "critical": true
+    },
+    {
+      "id": "REQ-IDENTITY-CONSISTENCY-001",
+      "label": "Face structure, expressions, clothing, and cross-slide identity continuity are reviewed before image generation",
+      "source": "user identity-consistency gate requirement",
+      "critical": true
+    },
+    {
+      "id": "REQ-POST-COPY-VISUAL-ROOM-001",
+      "label": "Run the post-copy visual creative room after approved copy and before prompt/image handoff",
+      "source": "creator mandatory visual-room workflow",
+      "critical": true
+    },
+    {
+      "id": "REQ-VISUAL-PLAN-QUALITY-001",
+      "label": "Per-slide visual screen passes before image generation",
+      "source": "user pre-generation storyboard QA requirement",
+      "critical": true
+    },
+    {
+      "id": "REQ-SLIDES-001",
+      "label": "Create an approved 4-10 slide carousel arc, matching prompt count",
+      "source": "/story contract",
+      "expected": 7,
+      "critical": true
+    },
+    {
+      "id": "REQ-SUCCESS-STANDARD-001",
+      "label": "Successful carousel standard is carried as open agent alignment and passes before final approval",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "evidence": [
+        "concept.successful_carousel_standard",
+        "prompt_pack.successful_carousel_standard",
+        "review.successful_carousel_standard_gate"
+      ],
+      "critical": true
+    },
+    {
+      "id": "REQ-FINAL-IMAGES-001",
+      "label": "Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders",
+      "source": "user final-output requirement",
+      "expected": 7,
+      "critical": true
+    },
+    {
+      "id": "REQ-INTEGRATED-FINAL-TEXT-001",
+      "label": "Default final slides include exact integrated copy and brandmark inside both final/ and final-reels-stories/",
+      "source": "user publishable composition requirement",
+      "expected": 7,
+      "critical": true
+    },
+    {
+      "id": "REQ-VISUAL-QA-001",
+      "label": "Structured face and storyboard visual QA gate passes with evidence",
+      "source": "user face/storyboard QA requirement",
+      "critical": true
+    },
+    {
+      "id": "REQ-BRAND-001",
+      "label": "Keep @a.storyof.two as a tiny, low-contrast bottom-right brandmark",
+      "source": "brandmark rule",
+      "critical": true
+    },
+    {
+      "id": "REQ-NEGATIVE-001",
+      "label": "Block photorealism, 3D rendering, generic stock couple art, and quote-card layout",
+      "source": "negative prompt contract",
+      "critical": true
+    },
+    {
+      "id": "REQ-OUTPUT-001",
+      "label": "Write complete C-layer artifact contract",
+      "source": "AGENTS.md C-layer output",
+      "expected": [
+        "agent-reports.md",
+        "concept.json",
+        "copy.json",
+        "final-approval.md",
+        "final-audit.json",
+        "final-images.json",
+        "identity-consistency-review.json",
+        "identity-dossier.json",
+        "identity-face-contact-sheet.jpg",
+        "identity-generation-preflight.md",
+        "image-generation.json",
+        "manifest.json",
+        "post-copy-visual-room.json",
+        "prompt-pack.json",
+        "review.json",
+        "run-ledger.json",
+        "slides.json",
+        "stage-reviews.json",
+        "storyboard.md",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "visual-qa.md",
+        "wiki-update.md"
+      ],
+      "critical": true
+    },
+    {
+      "id": "REQ-WIKI-001",
+      "label": "Enrich wiki, index, working memory, and graph memory after the run",
+      "source": "Rohit v2 wiki memory lifecycle",
+      "critical": true
+    }
+  ],
+  "expected_artifacts": {
+    "manifest": "manifest.json",
+    "concept": "concept.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md",
+    "image_generation": "image-generation.json",
+    "final_images": "final-images.json",
+    "run_ledger": "run-ledger.json",
+    "stage_reviews": "stage-reviews.json",
+    "final_audit": "final-audit.json",
+    "wiki_update": "wiki-update.md",
+    "visual_qa": "visual-qa.md"
+  },
+  "stage_statuses": {
+    "intake": "PASS",
+    "story": "PASS",
+    "arc": "NEEDS_FIXES",
+    "visual": "NEEDS_FIXES",
+    "identity_consistency": "NEEDS_FIXES",
+    "prompt": "PASS",
+    "copy": "PASS",
+    "success_standard": "NEEDS_FIXES",
+    "assets": "NEEDS_FIXES",
+    "wiki_learning": "PASS_WITH_NOTES",
+    "final_contract": "NEEDS_FIXES"
+  },
+  "final_gate": {
+    "status": "NEEDS_FIXES",
+    "pass": false,
+    "notes": [
+      "Wiki and memory files are updated after final audit generation.",
+      "render_assets=False"
+    ]
+  }
+}

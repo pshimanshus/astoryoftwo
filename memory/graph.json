@@ -776,6 +776,36 @@
       "slide_count": 6,
       "package": "output/carousels/2026-05-31/alone-not-behind-beside-me",
       "content_lane": "Soft Love Notes"
+    },
+    "carousel:capricorn-man-aries-woman-2": {
+      "id": "carousel:capricorn-man-aries-woman-2",
+      "type": "illustrated_carousel",
+      "title": "Capricorn Man Aries Woman",
+      "date": "2026-06-13",
+      "status": "NEEDS_FIXES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-06-13/capricorn-man-aries-woman-2",
+      "content_lane": "Golden Unfiltered Nonsense"
+    },
+    "carousel:road-hi-galat-hai": {
+      "id": "carousel:road-hi-galat-hai",
+      "type": "illustrated_carousel",
+      "title": "Road Hi Galat Hai",
+      "date": "2026-06-27",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-06-27/road-hi-galat-hai",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:small-bids": {
+      "id": "carousel:small-bids",
+      "type": "illustrated_carousel",
+      "title": "Small Bids",
+      "date": "2026-06-28",
+      "status": "NEEDS_FIXES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-06-28/small-bids",
+      "content_lane": "Soft Love Notes"
     }
   },
   "relationships": [
@@ -1258,6 +1288,24 @@
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:capricorn-man-aries-woman-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:road-hi-galat-hai",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:small-bids",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1286,5 +1334,5 @@
       "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-05-31"
+  "last_updated": "2026-06-28"
 }

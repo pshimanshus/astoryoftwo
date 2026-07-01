@@ -1,0 +1,85 @@
+{
+  "date": "2026-06-14",
+  "jam_slug": "roti-bite-rights-jam",
+  "status": "SCRATCH_TOURNAMENT_COMPLETE",
+  "routes": [
+    {
+      "id": "A",
+      "title": "Roti Side Quest",
+      "one_line": "He was in the main conversation; she quietly completed the roti side mission.",
+      "visual_truth": "Father-son conversation leads the frame; Aachu's eating is the discovered side action.",
+      "copy_direction": "deadpan, scene-native Hinglish",
+      "sample_text": "bas papa se baat kar raha tha",
+      "story_selling_score": 29,
+      "golden_theme_score": 28.5,
+      "taste_gate": "PASS_NO_CAP",
+      "verdict": "WINNER"
+    },
+    {
+      "id": "B",
+      "title": "Main Table, Side Plot",
+      "one_line": "The table had one official conversation and one unofficial food plot.",
+      "visual_truth": "Wide shot makes two simultaneous layers clear.",
+      "copy_direction": "slightly meta, still scene-native",
+      "sample_text": "main baat wahan chal rahi thi",
+      "story_selling_score": 28,
+      "golden_theme_score": 28,
+      "taste_gate": "PASS_WITH_WATCH",
+      "verdict": "RUNNER_UP"
+    },
+    {
+      "id": "C",
+      "title": "Roti Transfer Protocol",
+      "one_line": "The prepared bite had an invisible transfer system.",
+      "visual_truth": "A little more clever than lived; risks feeling designed.",
+      "copy_direction": "deadpan system joke",
+      "sample_text": "roti transfer ho chuki thi",
+      "story_selling_score": 27,
+      "golden_theme_score": 27,
+      "taste_gate": "REPAIR",
+      "verdict": "REJECT_CLEVER_OVER_REAL"
+    },
+    {
+      "id": "D",
+      "title": "Papa Conversation, Aachu Operation",
+      "one_line": "He was answering father; she was managing the bite operation.",
+      "visual_truth": "Funny but maybe too label-like and less natural.",
+      "copy_direction": "Hinglish incident title",
+      "sample_text": "papa conversation, aachu operation",
+      "story_selling_score": 27.5,
+      "golden_theme_score": 27,
+      "taste_gate": "REPAIR",
+      "verdict": "REJECT_TOO_WRITTEN"
+    },
+    {
+      "id": "E",
+      "title": "The Bite Went Missing",
+      "one_line": "A bite disappeared while he stayed in conversation.",
+      "visual_truth": "Clear but too generic and theft-coded.",
+      "copy_direction": "simple mystery",
+      "sample_text": "ek bite missing thi",
+      "story_selling_score": 25,
+      "golden_theme_score": 24,
+      "taste_gate": "CAP_GENERIC_FOOD_JOKE",
+      "verdict": "REJECT"
+    },
+    {
+      "id": "F",
+      "title": "Not Hungry Again",
+      "one_line": "She says no and eats his bite.",
+      "visual_truth": "Directly repeats a rejected/packaged lane.",
+      "copy_direction": "food denial",
+      "sample_text": "mujhe nahi chahiye",
+      "story_selling_score": 18,
+      "golden_theme_score": 18,
+      "taste_gate": "STOP_MEMORY_CONFLICT",
+      "verdict": "STOP"
+    }
+  ],
+  "selector": {
+    "selected_route_id": "A",
+    "selected_route_title": "Roti Side Quest",
+    "reason": "It preserves the corrected raw frame: Zuv is occupied with father, Aachu's bite-taking is a side action, and the humor is observational rather than preachy.",
+    "decision": "GO_FOR_CREATOR_CONCEPT_LOCK"
+  }
+}

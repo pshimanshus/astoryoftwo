@@ -1,0 +1,53 @@
+{
+  "date": "2026-06-14",
+  "jam_slug": "roti-bite-rights-jam",
+  "reviewed_image": "rejected/roti-bite-rights-proof-01-rejected-wrong-dimensions-978x1608.png",
+  "verdict": "STOP",
+  "do_not_handoff_to_creator_as_approved": true,
+  "findings": [
+    {
+      "gate": "dimensions",
+      "status": "FAIL",
+      "expected": "1080x1080 exact",
+      "actual": "978x1608",
+      "agent_should_have_said": "Reject immediately. Wrong dimensions cannot be accepted or resized into compliance."
+    },
+    {
+      "gate": "copy",
+      "status": "FAIL",
+      "expected": "deadpan scene-native proof text",
+      "actual": "the bite was already hers",
+      "agent_should_have_said": "Too preachy/title-card-like for this daily-life scene."
+    },
+    {
+      "gate": "eye_line",
+      "status": "FAIL",
+      "expected": "Zuv looks at father",
+      "actual": "Zuv looks at Aachu",
+      "agent_should_have_said": "The proof changes the raw moment. Rebuild blocking."
+    },
+    {
+      "gate": "hand_object_state",
+      "status": "FAIL",
+      "expected": "Zuv has no bite in hand; Aachu is eating/taking the prepared bite",
+      "actual": "Zuv holds a bite/roti piece toward Aachu",
+      "agent_should_have_said": "The object state contradicts the creator's fact."
+    },
+    {
+      "gate": "composition",
+      "status": "FAIL",
+      "expected": "wider/distant family table shot",
+      "actual": "close romantic two-shot",
+      "agent_should_have_said": "Use a distant shot to preserve father conversation and private side-story."
+    }
+  ],
+  "corrected_storyboard_requirements": {
+    "dimensions": "1080x1080 exact",
+    "recommended_on_image_text": "bas papa se baat kar raha tha",
+    "zuv_eye_line": "toward father",
+    "zuv_hands": "empty/resting/gesturing, no bite in hand",
+    "aachu_action": "eating the taken prepared bite",
+    "shot": "wider/distant table scene",
+    "father": "side/back/off-frame table presence, not detailed lead character"
+  }
+}

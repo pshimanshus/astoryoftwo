@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "creator supplied locked slide copy and requested a new carousel set",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json",
+    "visual-plan-quality.json",
+    "prompt-pack.json",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "Capricorn man\nAries woman\n\nhe plans the future.\nshe starts it.",
+      "role": "public zodiac hook and premise lock"
+    },
+    {
+      "slide": 2,
+      "copy": "he says,\n\"let's think about it.\"\n\nshe says,\n\"too late.\"",
+      "role": "banter setup"
+    },
+    {
+      "slide": 3,
+      "copy": "he makes the plan.\nshe becomes the plot twist.",
+      "role": "relationship proof beat"
+    },
+    {
+      "slide": 4,
+      "copy": "he worries in silence.\nshe fights out loud.",
+      "role": "friction and emotional obstacle"
+    },
+    {
+      "slide": 5,
+      "copy": "he brings stability.\nshe brings spark.",
+      "role": "bridge from contrast to complement"
+    },
+    {
+      "slide": 6,
+      "copy": "he saves screenshots.\nshe follows instinct.",
+      "role": "escalation through travel/action proof"
+    },
+    {
+      "slide": 7,
+      "copy": "he acts calm.\nbut he loves the chaos.",
+      "role": "reversal and Zuv active affection"
+    },
+    {
+      "slide": 8,
+      "copy": "somehow,\nthey make perfect sense.",
+      "role": "earned final thesis"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Use the zodiac label as doorway only; the visual format is lived scenes, not astrology graphics."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Every slide has an object receipt: keys, phone, checklist, bracelet/sleeve, maps, lights, closed notebook."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Track eye-lines, hands, distance, and the joke-to-tenderness turn."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Preserve exact multiline text in upper-middle warm negative space for both native formats."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Attach selected identity bundle plus identity-face contact sheet before generation."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Reject quote-card astrology, generic sign symbols, passive Zuv, and chaos-as-mockery."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Balcony-To-Road Mini Film",
+      "score": 29.5,
+      "case_for": "Best matches the supplied scenes and creates movement from planning to action to quiet payoff.",
+      "risk": "Must not overuse balcony on every slide."
+    },
+    {
+      "name": "Objects As Temperament Receipts",
+      "score": 29,
+      "case_for": "Strong for phone/calendar/checklist/keys/screenshot proof.",
+      "risk": "Could become prop-first if faces and hands are weak."
+    },
+    {
+      "name": "Astrology Label Frames",
+      "score": 23,
+      "case_for": "Immediately clear zodiac hook.",
+      "risk": "Rejected because it becomes generic quote-card astrology."
+    }
+  ],
+  "selected_visual_system": "Balcony-To-Road Mini Film",
+  "why_it_wins": "It lets the carousel behave like a short romantic sequence: he plans, she starts, the plan bends, the fight softens, the road opens, and the notebook closes beside them.",
+  "rejected_visual_patterns": [
+    "generic zodiac wheel or sign icons",
+    "quote-card labels on plain paper",
+    "one balcony pose repeated eight times",
+    "Aachu as random chaos without Zuv affection"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "Capricorn man\nAries woman\n\nhe plans the future.\nshe starts it.",
+      "visual_job": "public zodiac hook and premise lock",
+      "scene": "Cozy balcony evening. Zuv sits with chai, a small notebook, and a phone calendar open, calmly planning tomorrow. Aachu is already standing with keys in hand, gently pulling him up by the wrist with an excited half-smile. His eyes move from the calendar to her hand; her body is angled toward the door. The balcony lights make the scene warm, lived-in, and playful.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    },
+    {
+      "slide": 2,
+      "copy": "he says,\n\"let's think about it.\"\n\nshe says,\n\"too late.\"",
+      "visual_job": "banter setup",
+      "scene": "Cafe table scene. Zuv is mid-explanation with one finger raised, soft and logical rather than scolding. Aachu smiles across from him while already booking something on her phone. The phone is angled enough to show booking/list energy without readable app UI. His chai/coffee and her small grin carry the joke.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    },
+    {
+      "slide": 3,
+      "copy": "he makes the plan.\nshe becomes the plot twist.",
+      "visual_job": "relationship proof beat",
+      "scene": "Zuv holds a neat checklist with tidy boxes, times, and small travel/home icons drawn as non-readable marks. Aachu leans from behind him and adds a playful red heart and arrow to the page. He notices the change with a tiny helpless smile instead of annoyance. Her hand movement visibly changes the plan.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    },
+    {
+      "slide": 4,
+      "copy": "he worries in silence.\nshe fights out loud.",
+      "visual_job": "friction and emotional obstacle",
+      "scene": "Small disagreement moment in a soft home or balcony corner. Zuv stands quiet with folded arms but a soft face, looking down for a breath before looking back at her. Aachu leans in, expressive and fiery, one hand open in explanation, not angry-cute and not cruel. The distance between them is small enough to show safety; the pause proves they fight differently, not against each other.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    },
+    {
+      "slide": 5,
+      "copy": "he brings stability.\nshe brings spark.",
+      "visual_job": "bridge from contrast to complement",
+      "scene": "Zuv gently fixes Aachu's bracelet, dupatta edge, or sleeve as she laughs and half-turns away like she cannot stay still. His hand is careful and grounding; her body still carries motion. The scene should feel like care meeting energy, not restraint.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    },
+    {
+      "slide": 6,
+      "copy": "he saves screenshots.\nshe follows instinct.",
+      "visual_job": "escalation through travel/action proof",
+      "scene": "Travel planning threshold. Zuv holds a phone with map/list shapes and saved screenshots represented as tiny non-readable cards. Aachu's hand points outward toward the road and evening lights beyond the doorway or balcony. He looks at the phone, then toward where she points, visibly deciding to follow.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    },
+    {
+      "slide": 7,
+      "copy": "he acts calm.\nbut he loves the chaos.",
+      "visual_job": "reversal and Zuv active affection",
+      "scene": "Balcony lights at night. Aachu does something impulsive and cute, like dancing under string lights with keys still in hand. Zuv watches from the side with a tiny helpless smile, chai or notebook forgotten beside him. His calm is active attention: eyes on her, shoulders softened, clearly in love with the chaos.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    },
+    {
+      "slide": 8,
+      "copy": "somehow,\nthey make perfect sense.",
+      "visual_job": "earned final thesis",
+      "scene": "Quiet final frame on balcony floor or steps. Aachu and Zuv sit close, her head near his shoulder, his notebook closed beside them, keys resting near her hand. The phone calendar is face down now. The action has settled into belonging: plans paused, spark held, both at ease.",
+      "must_show": "Visible Aachu/Zuv behavior must prove the exact copy before text is read."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4x5": "Upper-middle handwritten text on warm ivory negative space; couple and props in lower/middle-lower frame.",
+    "reels_stories_9x16": "Recompose taller with more breathing room above text and fuller body/setting below; do not crop 4:5 art.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink Observational Intimacy Premium",
+    "copy_lock": "Render exact slide copy including line breaks.",
+    "negative_prompt_additions": [
+      "no zodiac wheel clutter",
+      "no quote-card-only layout",
+      "no generic couple stock art",
+      "no passive Zuv",
+      "no mocking Aachu"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "Run visual-debate and visual-plan-quality before image generation."
+  ]
+}

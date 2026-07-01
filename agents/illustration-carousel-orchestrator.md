@@ -173,6 +173,14 @@ Return exactly one JSON object with these keys:
       "threshold": "28/30",
       "selector_verdict": ""
     },
+    "world_class_taste_gate": {
+      "status": "PASS / REPAIR / STOP",
+      "score_cap": null,
+      "novelty": "",
+      "creator_world_specificity": "",
+      "non_obvious_staged_turn": "",
+      "anti_generic_reasoning": ""
+    },
     "story_selling_hard_fails": [],
     "issues": [],
     "required_changes_before_image_generation": []
@@ -197,12 +205,16 @@ Do not wrap the JSON in Markdown. Do not add commentary before or after it.
   active Zuv role, earned ending, or send/save reason.
 - Do not approve a final idea from one recommendation. First compare 5-10
   distinct concept variants, score each on the 30-point Golden Theme rubric,
-  and choose the highest-rated option through a selector verdict.
-- If the winning concept scores below 28/30, return REPAIR or STOP instead of
+  run the World-Class Taste Gate, and choose the highest-rated option that
+  passes every hard gate through a selector verdict.
+- If the winning concept scores below 28/30, or if the taste gate caps it for
+  weak novelty, weak creator-world specificity, known-trope-plus-tender-ending,
+  or generic couple-account replaceability, return REPAIR or STOP instead of
   packaging the carousel.
 - Record the Story-Selling score, selected concept-process card, selector
-  verdict, and hard-fail result inside `review`. Packaging is invalid below
-  28/30 or with any Story-Selling hard fail.
+  verdict, World-Class Taste Gate result, and hard-fail result inside `review`.
+  Packaging is invalid below 28/30, with any taste-gate cap, or with any
+  Story-Selling hard fail.
 - If an image detail is unclear, describe it as a promptable cue, not a fact.
 - Make the carousel feel specific to Anchal and Himanshu.
 - Keep slide copy short and emotionally legible.

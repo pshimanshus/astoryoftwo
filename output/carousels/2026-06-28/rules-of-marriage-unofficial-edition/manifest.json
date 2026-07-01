@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "title": "Rules of Marriage: Unofficial Edition",
+  "slug": "rules-of-marriage-unofficial-edition",
+  "created_at": "2026-06-28",
+  "status": "TEXT_BEARING_CANDIDATES_CREATED__BLOCKED_FOR_NATIVE_1080X1350_AND_EXACT_TEXT_QA",
+  "creator_request": "create the illustration from the supplied Rules of Marriage carousel copy and concept",
+  "package_dir": "output/carousels/2026-06-28/rules-of-marriage-unofficial-edition",
+  "slide_count": 9,
+  "proof_slide": 4,
+  "proof_reason": "Slide 4 tests comedy, night lighting, facial expression, scene logic, snack props, exact text, and Aachu/Zuv identity continuity.",
+  "selected_identity_references": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "style_references": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+  ],
+  "blocker": {
+    "reason": "Corrected generation produced all 9 slides with text inside the image, but the built-in image generator did not return native 1080x1350. Some long-copy slides also reflowed line breaks or quote glyphs. Per current gates these are candidates, not publish-pass finals.",
+    "corrected_candidates": "source/text-bearing/slide-01-text-generated.png through slide-09-text-generated.png",
+    "contact_sheet": "contact-sheets/text-generated-contact-sheet.png",
+    "rejected_textless_sources": "rejected-images/textless-hard-fail-2026-06-28/"
+  },
+  "artifacts": {
+    "slides": "slides.json",
+    "layer_e": "layer-e-story-selling.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "identity_review": "identity-consistency-review.json",
+    "prompt_pack": "prompt-pack.json",
+    "proof_generation": "proof-generation.json",
+    "final_images": "final-images.json",
+    "text_generated_candidates": "text-generated-candidates.json",
+    "text_generated_contact_sheet": "contact-sheets/text-generated-contact-sheet.png"
+  },
+  "creator_correction": "Never generate @a.storyof.two carousel images without the slide text baked into the illustration."
+}

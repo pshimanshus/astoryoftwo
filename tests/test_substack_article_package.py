@@ -10,6 +10,7 @@ from scripts.create_substack_article_package import (
     discover_carousel_images,
     slugify_title,
 )
+from tests.helpers.images import write_png
 
 
 class SubstackArticlePackageTests(unittest.TestCase):
@@ -22,8 +23,8 @@ class SubstackArticlePackageTests(unittest.TestCase):
             carousel = Path(tmpdir) / "carousel"
             final = carousel / "final"
             final.mkdir(parents=True)
-            (carousel / "slide-01.png").write_bytes(b"root")
-            (final / "slide-01.png").write_bytes(b"final")
+            write_png(carousel / "slide-01.png")
+            write_png(final / "slide-01.png")
 
             images = discover_carousel_images(carousel)
 
@@ -46,7 +47,7 @@ class SubstackArticlePackageTests(unittest.TestCase):
             (carousel / "storyboard.md").write_text("# Storyboard", encoding="utf-8")
             (carousel / "slides.json").write_text("[]", encoding="utf-8")
             (carousel / "copy.json").write_text("{}", encoding="utf-8")
-            (carousel / "slide-01.png").write_bytes(b"image")
+            write_png(carousel / "slide-01.png")
 
             out_dir = create_article_package(
                 carousel_dir=carousel,

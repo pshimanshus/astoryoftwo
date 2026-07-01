@@ -7,12 +7,16 @@ trusts a PASS/GO/handoff label.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from pipeline.agentic.checks.prompt_constraints import check_prompt_constraints
+
 
 SEVERITY_RANK = {"ok": 0, "info": 1, "warning": 2, "blocker": 3}
+SLIDE_NUMBER_RE = re.compile(r"slide[-_](\d+)", re.IGNORECASE)
 
 
 @dataclass(frozen=True)
@@ -101,6 +105,44 @@ def _status(value: Any) -> str:
     return str(value or "").strip().lower()
 
 
+def _text_from_slide_record(record: dict[str, Any]) -> str:
+    for key in ("text", "copy", "on_image_text", "slide_text"):
+        value = record.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
+
+
+def _expected_copy_by_slide(package_dir: Path) -> dict[int, str]:
+    expected: dict[int, str] = {}
+    for filename in ("prompt-pack.json", "slides.json"):
+        data = _read_json(package_dir / filename)
+        records = data.get("slides")
+        if not isinstance(records, list):
+            continue
+        for index, record in enumerate(records):
+            if not isinstance(record, dict):
+                continue
+            try:
+                number = int(record.get("slide") or record.get("slide_number") or index + 1)
+            except (TypeError, ValueError):
+                continue
+            copy = _text_from_slide_record(record)
+            if number > 0 and copy:
+                expected[number] = copy
+    return expected
+
+
+def _prompt_slide_number(prompt_path: Path) -> int | None:
+    match = SLIDE_NUMBER_RE.search(prompt_path.name)
+    if not match:
+        return None
+    try:
+        return int(match.group(1))
+    except ValueError:
+        return None
+
+
 def _slide_numbers(package_dir: Path, final_images: dict[str, Any]) -> list[int]:
     records = final_images.get("slides")
     if isinstance(records, list) and records:
@@ -168,8 +210,78 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
     image_generation = _read_json(package_dir / "image-generation.json")
     final_images = _read_json(package_dir / "final-images.json")
     final_audit = _read_json(package_dir / "final-audit.json")
+    text_generated_candidates = _read_json(package_dir / "text-generated-candidates.json")
     raw_scene = _read_text(package_dir / "raw-scene-row.md").lower()
     blocker_text = _read_text(package_dir / "image-generation-blocker.md").lower()
+
+    if _status(image_generation.get("status")) == "blocked" or _status(final_images.get("status")) == "blocked":
+        issues.append(
+            _issue(
+                "image_generation_blocked",
+                "blocker",
+                image_generation.get("reason")
+                or final_images.get("reason")
+                or "Image generation manifest is blocked.",
+                evidence=[package_dir / "image-generation.json", package_dir / "final-images.json"],
+                next_action="repair_blockers",
+            )
+        )
+
+    final_images_status = _status(final_images.get("status"))
+    final_status = _status(final_images.get("final_status"))
+    if final_images_status == "not_final" or "not_final" in final_images_status or "blocked" in final_status:
+        issues.append(
+            _issue(
+                "semantic_generation_blocked",
+                "blocker",
+                "Final image metadata says the package is not final or remains blocked.",
+                evidence=[package_dir / "final-images.json"],
+                next_action="retry_text_bearing_generation_or_keep_blocked",
+            )
+        )
+
+    publish_gate = text_generated_candidates.get("publish_gate")
+    if isinstance(publish_gate, dict) and _status(publish_gate.get("status")) == "blocked":
+        issues.append(
+            _issue(
+                "publish_gate_blocked",
+                "blocker",
+                "Text-generated candidates publish gate is BLOCKED.",
+                evidence=[package_dir / "text-generated-candidates.json"],
+                next_action="repair_candidate_blockers_before_generation",
+            )
+        )
+
+    textless_sources = text_generated_candidates.get("textless_sources")
+    if isinstance(textless_sources, dict) and _status(textless_sources.get("status")) == "rejected_hard_fail":
+        issues.append(
+            _issue(
+                "textless_sources_rejected",
+                "blocker",
+                "Textless source images were rejected as a hard fail.",
+                evidence=[package_dir / "text-generated-candidates.json"],
+                next_action="discard_textless_sources_and_retry_text_bearing_generation",
+            )
+        )
+
+    expected_copy = _expected_copy_by_slide(package_dir)
+    prompt_root = package_dir / "codex-image-prompts"
+    for prompt_path in sorted(prompt_root.rglob("*.prompt.txt")) if prompt_root.exists() else []:
+        slide_number = _prompt_slide_number(prompt_path)
+        expected_text = expected_copy.get(slide_number or 0)
+        gate = check_prompt_constraints(prompt_path, expected_text=expected_text)
+        if gate.status == "PASS":
+            continue
+        is_textless = "forbidden textless/source-art directive" in gate.reason
+        issues.append(
+            _issue(
+                "active_textless_prompt" if is_textless else "active_prompt_constraints_failed",
+                "blocker",
+                f"Active prompt file fails prompt constraints: {gate.reason}",
+                evidence=[prompt_path],
+                next_action="repair_or_quarantine_active_prompt_before_generation",
+            )
+        )
 
     if "status: rejected" in raw_scene and visual_plan_quality.get("can_generate") is True:
         issues.append(

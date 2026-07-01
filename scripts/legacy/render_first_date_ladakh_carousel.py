@@ -186,25 +186,20 @@ def export_slide(slide: dict[str, object]) -> dict[str, str]:
         canvas = add_inset(canvas, str(slide["inset"]))
 
     clean = canvas.copy()
-    story = canvas.copy()
-    draw_text_block(story, str(slide["copy"]), tuple(slide["accent"]))
-    add_footer(story, str(slide["number"]))
+    text_preview = canvas.copy()
+    draw_text_block(text_preview, str(slide["copy"]), tuple(slide["accent"]))
+    add_footer(text_preview, str(slide["number"]))
     add_footer(clean, str(slide["number"]))
-
-    ig_clean = cv2.resize(clean, (1080, 1350), interpolation=cv2.INTER_AREA)
-    ig_story = cv2.resize(story, (1080, 1350), interpolation=cv2.INTER_AREA)
+    clean = cv2.resize(clean, (1080, 1350), interpolation=cv2.INTER_AREA)
+    text_preview = cv2.resize(text_preview, (1080, 1350), interpolation=cv2.INTER_AREA)
 
     number = str(slide["number"])
     outputs = {
-        "hd_clean": f"hd-clean/slide-{number}.jpg",
-        "hd_story": f"hd-story/slide-{number}.jpg",
-        "instagram_clean": f"instagram-clean/slide-{number}.jpg",
-        "instagram_story": f"instagram-story/slide-{number}.jpg",
+        "legacy_preview_clean": f"legacy-preview-clean/slide-{number}.jpg",
+        "legacy_preview_text": f"legacy-preview-text/slide-{number}.jpg",
     }
-    write_jpg(OUT_ROOT / outputs["hd_clean"], clean)
-    write_jpg(OUT_ROOT / outputs["hd_story"], story)
-    write_jpg(OUT_ROOT / outputs["instagram_clean"], ig_clean)
-    write_jpg(OUT_ROOT / outputs["instagram_story"], ig_story)
+    write_jpg(OUT_ROOT / outputs["legacy_preview_clean"], clean)
+    write_jpg(OUT_ROOT / outputs["legacy_preview_text"], text_preview)
     return outputs
 
 
@@ -223,14 +218,14 @@ def make_preview(paths: list[Path], out_path: Path) -> None:
 
 
 def main() -> None:
-    for folder in ["instagram-story", "instagram-clean", "hd-story", "hd-clean"]:
+    for folder in ["legacy-preview-clean", "legacy-preview-text"]:
         (OUT_ROOT / folder).mkdir(parents=True, exist_ok=True)
 
     rendered = []
     preview_paths = []
     for slide in SLIDES:
         outputs = export_slide(slide)
-        preview_paths.append(OUT_ROOT / outputs["instagram_story"])
+        preview_paths.append(OUT_ROOT / outputs["legacy_preview_text"])
         rendered.append(
             {
                 "slide": int(slide["number"]),
@@ -245,7 +240,7 @@ def main() -> None:
             }
         )
 
-    make_preview(preview_paths, OUT_ROOT / "preview-story.jpg")
+    make_preview(preview_paths, OUT_ROOT / "preview-text.jpg")
     manifest = {
         "status": "legacy_preview_generated",
         "backend": "legacy_local_renderer",
@@ -271,10 +266,10 @@ def main() -> None:
             [
                 "# Preview",
                 "",
-                "![story preview](preview-story.jpg)",
+                "![text preview](preview-text.jpg)",
                 "",
-                "Instagram story exports live in `instagram-story/`.",
-                "Clean visual exports live in `instagram-clean/`.",
+                "Text previews live in `legacy-preview-text/`.",
+                "Clean previews live in `legacy-preview-clean/`.",
             ]
         )
         + "\n",

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "title": "Tum Meri Baat Sun Rahe Ho",
+  "created_at": "2026-06-30",
+  "status": "PROMPTS_REPAIRED_BLOCKED_FOR_NATIVE_SIZE",
+  "reason": "Creative prompt failures have been repaired: the carousel now uses one continuous 4-seater dinner-table scene, same wardrobe across all slides, and the Observational Intimacy Premium typography lock. Final generation remains blocked until a backend can produce exact native 1080x1350 outputs.",
+  "platform": "instagram",
+  "format": {
+    "instagram_post": {
+      "required_px": "1080x1350",
+      "status": "blocked"
+    },
+    "reels_stories": {
+      "required_px": "1080x1920",
+      "status": "not_requested"
+    }
+  },
+  "slide_count": 7,
+  "selected_identity_references": [
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/aachu/face-05.png",
+    "config/references/identity/zuv/portrait-07.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "style_references": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/a-story-illustration-master-prompt.md",
+    "config/references/a-story-premium-illustration-style-lock.md"
+  ],
+  "proofs": [
+    {
+      "slide": 5,
+      "path": "rejected/native-size-fail/slide-05-proof-v1-1122x1402.png",
+      "dimensions": "1122x1402",
+      "status": "rejected_native_size"
+    },
+    {
+      "slide": 5,
+      "path": "rejected/native-size-fail/slide-05-proof-v2-1122x1402.png",
+      "dimensions": "1122x1402",
+      "status": "rejected_native_size"
+    },
+    {
+      "slide": 5,
+      "path": "rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png",
+      "dimensions": "1122x1402",
+      "status": "rejected_native_size",
+      "notes": "Diagnostic-only failed attempt from a blank 1080x1350 edit target. This route is invalid for the repo because blank-page editing violates the required identity/style/story generation setup and still did not preserve dimensions."
+    },
+    {
+      "slide": 5,
+      "path": "rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png",
+      "dimensions": "1003x1568",
+      "status": "rejected_native_size",
+      "notes": "Generated after loading the selected real identity/style references into context; rejected because the output dimensions are not native 1080x1350."
+    }
+  ],
+  "artifact_map": {
+    "slides": "slides.json",
+    "storyboard": "storyboard.md",
+    "prompt_pack": "prompt-pack.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "proof_generation": "proof-generation.json",
+    "visual_qa": "visual-qa.md",
+    "final_images": "final-images.json"
+  }
+}

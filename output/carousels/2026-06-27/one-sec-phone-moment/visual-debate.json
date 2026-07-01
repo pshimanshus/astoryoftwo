@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "status": "STOP_FOR_GENERATION",
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "status": "REPAIR",
+      "verdict": "The couch can repeat because it is the literal arena, but Slide 3 must become object evidence and every slide needs a materially different camera sentence."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "status": "GO",
+      "verdict": "The emotional turn is mutuality, not blame. Slide 6 must show the choice happening, not a symbolic phone-down pose only."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "status": "STOP",
+      "verdict": "Generation is not allowed until actual identity/style references are attached and proof is native 1080x1080."
+    }
+  ],
+  "winner": "Continuous Couch, Broken Attention",
+  "selector_verdict": "Prompt handoff can be inspected, but proof generation is STOP until actual identity/style reference inputs can be attached.",
+  "repairs_required": [
+    "Keep slide 3 as an object-only evidence pause, not a blank quote card.",
+    "Do not draw phone UI or readable phone contents.",
+    "Use controlled integrated text if long copy fails model lettering."
+  ],
+  "rejected_visual_patterns": [
+    "Split-screen graphic device",
+    "Quote-card-only slide sequence",
+    "Generic couple stock couch pose",
+    "Every slide as both partners sitting and processing"
+  ],
+  "final_visual_plan": "See slides.json for per-slide shot ladder and prompt-pack.json for generation instructions."
+}

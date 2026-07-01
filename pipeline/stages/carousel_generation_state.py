@@ -23,6 +23,10 @@ class GenerationStatus(StrEnum):
 
 DONE_STATUSES = {
     GenerationStatus.GENERATED,
+    GenerationStatus.PUBLISH_READY,
+}
+PUBLISHABLE_STATUSES = {
+    GenerationStatus.PUBLISH_READY,
 }
 HUMAN_GENERATION_STATUSES = {
     GenerationStatus.HANDOFF_READY,
@@ -50,7 +54,7 @@ def write_generation_state(
         "generation_mode": generation_mode,
         "slide_count": slide_count,
         "done": status in DONE_STATUSES,
-        "publishable": status in DONE_STATUSES,
+        "publishable": status in PUBLISHABLE_STATUSES,
         "requires_human_generation": status in HUMAN_GENERATION_STATUSES,
         "slides": slides or [],
     }

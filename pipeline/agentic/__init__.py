@@ -6,6 +6,7 @@ __all__ = [
     "contracts",
     "context_loader",
     "skill_registry",
+    "skill_usage",
     "memory_index",
     "recall",
     "audit_log",

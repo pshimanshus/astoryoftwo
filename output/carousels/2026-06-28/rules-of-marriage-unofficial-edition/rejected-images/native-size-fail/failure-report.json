@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "status": "REJECTED",
+  "reason": "Native square proof dimension hard gate failed.",
+  "required_dimension": "1080x1080",
+  "attempts": [
+    {
+      "path": "rejected-images/native-size-fail/slide-04-source-v1-1254.png",
+      "actual_dimension": "1254x1254",
+      "visual_notes": "Useful fridge-snack concept candidate, but not acceptable as proof."
+    },
+    {
+      "path": "rejected-images/native-size-fail/slide-04-source-v2-1254.png",
+      "actual_dimension": "1254x1254",
+      "visual_notes": "Stronger identity/style candidate with clean upper space, but not acceptable as proof."
+    }
+  ],
+  "rule": "Do not crop, pad, stretch, or resize a wrong-dimension proof into compliance."
+}

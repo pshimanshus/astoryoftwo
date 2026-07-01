@@ -1,0 +1,37 @@
+{
+  "date": "2026-06-06",
+  "concept_slug": "post-analysis-repair-jam",
+  "decision": "SELECTABLE_SHORTLIST_FOR_CREATOR",
+  "rejected_previous": "Own Plate Theory",
+  "recommended_route": {
+    "id": "A",
+    "title": "Aachu Dictionary",
+    "status": "RECOMMENDED_NOT_LOCKED",
+    "story_selling_score": 29,
+    "golden_theme_score": 29,
+    "why": "It directly follows the June 6 analysis: public contradiction, Hinglish specificity, recurring series potential, and Zuv as active translator rather than saint."
+  },
+  "selectable_alternates": [
+    {
+      "id": "B",
+      "title": "Ready Means The Search Has Started",
+      "status": "STRONG_FALLBACK",
+      "score": "28/30 Story-Selling, 28/30 Golden Theme"
+    }
+  ],
+  "internal_repair_not_suggested": [
+    {
+      "id": "C",
+      "title": "House Weather System",
+      "status": "NOT_CREATOR_SELECTABLE_REPAIR_VISUAL_REPETITION",
+      "score": "27/30 Story-Selling, 28/30 Golden Theme"
+    },
+    {
+      "id": "D",
+      "title": "Jaldi Has No Definition",
+      "status": "NOT_CREATOR_SELECTABLE_REPAIR_LEDGER_ADJACENCY",
+      "score": "27/30 Story-Selling, 28/30 Golden Theme"
+    }
+  ],
+  "blocked_until": "creator selects A or B, rejects both, or gives a raw lived moment"
+}

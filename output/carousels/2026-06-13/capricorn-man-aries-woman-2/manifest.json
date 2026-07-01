@@ -1,0 +1,173 @@
+{
+  "date": "2026-06-13",
+  "slug": "capricorn-man-aries-woman-2",
+  "title": "Capricorn Man Aries Woman",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "handoff_ready_images_pending",
+  "source_story": "# Capricorn Man x Aries Woman\n\nPlatform: Instagram carousel for @a.storyof.two\nSlide count: 8\nStatus: creator-supplied copy and scene brief\n\n## Concept\n\nCapricorn man x Aries woman.\n\nOne has a 5-year plan.\nOne has already left the house.\nAnd somehow, it works.\n\n## Locked Slides\n\n### Slide 1\n\nOn-image text:\n\nCapricorn man\nAries woman\n\nhe plans the future.\nshe starts it.\n\nIllustration:\nCozy balcony evening. He has chai, notebook, phone calendar. She's already standing with keys in hand, pulling him up.\n\n### Slide 2\n\nOn-image text:\n\nhe says,\n\"let's think about it.\"\n\nshe says,\n\"too late.\"\n\nIllustration:\nCafe table. He's mid-explanation with one finger raised. She's smiling, already booking something on her phone.\n\n### Slide 3\n\nOn-image text:\n\nhe makes the plan.\nshe becomes the plot twist.\n\nIllustration:\nHe is holding a neat checklist. She is behind him adding a playful red heart/arrow to the page.\n\n### Slide 4\n\nOn-image text:\n\nhe worries in silence.\nshe fights out loud.\n\nIllustration:\nSmall disagreement moment. He's quiet, arms folded but soft-faced. She's expressive, leaning in, not angry-cute, just fiery.\n\n### Slide 5\n\nOn-image text:\n\nhe brings stability.\nshe brings spark.\n\nIllustration:\nHe fixes her bracelet/dupatta/sleeve gently. She's laughing, still half-moving away like she can't stay still.\n\n### Slide 6\n\nOn-image text:\n\nhe saves screenshots.\nshe follows instinct.\n\nIllustration:\nTravel planning scene. His phone has maps/lists. Her hand is pointing outside toward the road/lights.\n\n### Slide 7\n\nOn-image text:\n\nhe acts calm.\nbut he loves the chaos.\n\nIllustration:\nShe's doing something impulsive and cute, like dancing in balcony lights. He watches with a tiny helpless smile.\n\n### Slide 8\n\nOn-image text:\n\nsomehow,\nthey make perfect sense.\n\nIllustration:\nQuiet final frame. They're sitting close on steps/balcony floor, her head near his shoulder, his notebook closed beside them.\n\n## Caption\n\nCapricorn man x Aries woman:\n\none has a 5-year plan.\none has already left the house.\n\nand somehow, it works.\n\n## Selected Identity Bundle\n\n- Aachu face/expression anchor: `/Users/himanshusharma/Desktop/Identity Images /Aachu Images/aachu-face-crop-lavender-smile-01.jpg`\n- Aachu cafe/body/wardrobe anchor: `/Users/himanshusharma/Desktop/Identity Images /Aachu Images/aachu-face-cafe-neutral-01.jpg`\n- Zuv balcony neutral face/posture anchor: `/Users/himanshusharma/Desktop/Identity Images /Zuv Images/zuv-face-crop-balcony-neutral-01.jpg`\n- Zuv dinner smile/softness anchor: `/Users/himanshusharma/Desktop/Identity Images /Zuv Images/zuv-smile-dinner-close-01.jpg`\n",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 8,
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "4:5",
+        "size": "1080x1350",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "native_output_rule": "Generate both formats separately. Never resize, crop, pad, or extend one output into the other."
+  },
+  "reference_images": [],
+  "identity_references": [
+    {
+      "path": "/Users/himanshusharma/Desktop/Identity Images /Aachu Images/aachu-face-crop-lavender-smile-01.jpg",
+      "role": "selected actual identity reference for generation"
+    },
+    {
+      "path": "/Users/himanshusharma/Desktop/Identity Images /Aachu Images/aachu-face-cafe-neutral-01.jpg",
+      "role": "selected actual identity reference for generation"
+    },
+    {
+      "path": "/Users/himanshusharma/Desktop/Identity Images /Zuv Images/zuv-face-crop-balcony-neutral-01.jpg",
+      "role": "selected actual identity reference for generation"
+    },
+    {
+      "path": "/Users/himanshusharma/Desktop/Identity Images /Zuv Images/zuv-smile-dinner-close-01.jpg",
+      "role": "selected actual identity reference for generation"
+    }
+  ],
+  "identity_reference_selection": {
+    "mode": "creator_supplied_curated_bundle",
+    "rule": "Creator supplied 12 candidate references; package selects 4 for the current story to keep prompts focused.",
+    "max_prompt_images": 4,
+    "candidate_count": 12,
+    "selected_count": 4,
+    "unselected_count": 8,
+    "selected_roles": [
+      "Aachu face/expression anchor",
+      "Aachu body/wardrobe/context anchor",
+      "Zuv face/posture anchor",
+      "Zuv smile/softness anchor"
+    ]
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-06-13/capricorn-man-aries-woman-2/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-06-13/capricorn-man-aries-woman-2/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-06-13/capricorn-man-aries-woman-2/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "agentic_os": {
+    "context_manifest": "config/agentic_context_manifest.json",
+    "skill_systems": "config/skill-systems.json",
+    "skill_system": "carousel_jam"
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "carousel_story_director_persona": {
+    "skill": "config/skills/carousel-story-director-persona.md",
+    "agent": "agents/carousel-story-director.md",
+    "activation_order": [
+      "project and creator memory",
+      "Calm Enough For Your Chaos theme",
+      "viral theme analysis",
+      "carousel idea preference ledger",
+      "Layer E story-selling engine",
+      "golden-theme tournament",
+      "carousel story director persona before writing/designing"
+    ],
+    "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+    "persists_until": [
+      "concept.json",
+      "slides.json",
+      "visual-debate.json",
+      "visual-plan-quality.json",
+      "prompt-pack.json",
+      "copy.json",
+      "codex-image-prompts/",
+      "final/",
+      "final-reels-stories/",
+      "visual-qa.md"
+    ],
+    "minimum_scores": {
+      "hook": 8,
+      "story": 8,
+      "bridge": 8,
+      "zuv_role": 8,
+      "ending": 8,
+      "send_save_potential": 8,
+      "stage_scene": 8
+    }
+  },
+  "artifacts": {
+    "concept": "concept.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md",
+    "source_brief": "source-brief.md",
+    "source_memory_brief": "source-memory-brief.json",
+    "concept_routes": "concept-routes.json",
+    "concept_debate": "concept-debate.json",
+    "concept_repairs": "concept-repairs.json",
+    "taste_gate": "taste-gate.json",
+    "story_director_lock": "story-director-lock.json"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "intake_reviewer",
+      "story_reviewer",
+      "arc_reviewer",
+      "visual_reviewer",
+      "identity_consistency_reviewer",
+      "prompt_reviewer",
+      "copy_reviewer",
+      "success_standard_reviewer",
+      "asset_reviewer",
+      "wiki_learning_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": "visual-qa.md",
+      "identity_consistency_review": "identity-consistency-review.json",
+      "post_copy_visual_room": "post-copy-visual-room.json",
+      "visual_debate": "visual-debate.json",
+      "visual_plan_quality": "visual-plan-quality.json"
+    }
+  }
+}

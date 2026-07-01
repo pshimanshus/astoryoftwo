@@ -1,0 +1,76 @@
+{
+  "date": "2026-06-14",
+  "jam_slug": "roti-bite-rights-jam",
+  "status": "SIMULATED_AGENT_ROOM_COMPLETE",
+  "limitation": "Actual parallel sub-agents were not spawned because the available multi-agent tool requires explicit user permission for sub-agent use. Reviewers below are simulated named lenses.",
+  "room": [
+    {
+      "voice": "Storyline Architect",
+      "protects": "The exact action row: father conversation, roti bite prepared, Aachu takes it, Zuv looks at her face.",
+      "cuts": "Any version where she says she is not hungry or he orders extra.",
+      "repair": "Make the bite movement the plot engine and his gaze the emotional turn.",
+      "rejects": "A generic plate-sharing or food-love summary."
+    },
+    {
+      "voice": "Creative Editor 1",
+      "protects": "The father-at-table layer, because it turns the scene into public room / private couple meaning.",
+      "cuts": "Making father a large visual character without references.",
+      "repair": "Keep father as side/back/off-frame presence so the couple beat stays readable.",
+      "rejects": "A romantic two-shot that removes the family conversation."
+    },
+    {
+      "voice": "Creative Editor 2",
+      "protects": "Aachu's entitlement as adorable comfort, not childish stealing.",
+      "cuts": "Words like stealing, snatching, greedy, or theft in public copy unless used extremely gently.",
+      "repair": "Frame her as comfortable, absorbed, and naturally herself.",
+      "rejects": "Anything that makes Aachu look rude at the table."
+    },
+    {
+      "voice": "Writer 1",
+      "protects": "The clean hook: the bite was already hers.",
+      "cuts": "Overwritten food metaphors.",
+      "repair": "Use one short line and let the image carry the joke.",
+      "rejects": "Caption-style explanation on the artwork."
+    },
+    {
+      "voice": "Writer 2",
+      "protects": "The deadpan domestic comedy of roti custody.",
+      "cuts": "Big romance language too early.",
+      "repair": "Keep the copy small, almost observational.",
+      "rejects": "A final thesis that sounds like a quote card."
+    },
+    {
+      "voice": "Contrarian Critic",
+      "protects": "Taste and safety: Aachu cannot be mocked, Zuv cannot be passive.",
+      "cuts": "Food-denial repetition from the rejected lane.",
+      "repair": "Show Zuv choosing the moment through his gaze and still-open hand.",
+      "rejects": "A one-note joke about her taking food."
+    },
+    {
+      "voice": "Retention Analyst",
+      "protects": "Cold-viewer doorway: every couple recognizes invisible rights over tiny things.",
+      "cuts": "Private father context as the only hook.",
+      "repair": "Lead with the bite-rights truth, then let the father context add specificity.",
+      "rejects": "A hook that only works if people know the exact family story."
+    },
+    {
+      "voice": "Visual Director",
+      "protects": "One-frame object movement: torn roti bite, Aachu eating, Zuv's gaze.",
+      "cuts": "Crowded table, too many dishes, and full father portrait.",
+      "repair": "Use warm table diagonals, empty space above for one line, father implied on the edge.",
+      "rejects": "Static couple pose or restaurant-table stock art."
+    },
+    {
+      "voice": "Harsh Final Selector",
+      "protects": "The freshest route that passes memory and taste gates.",
+      "cuts": "Routes B-G unless they repair into route A's scene-first spine.",
+      "repair": "Keep the selected title as concept lock and postpone copy lock until creator approval.",
+      "rejects": "Any immediate final image generation without actual identity references."
+    }
+  ],
+  "selector_verdict": {
+    "winner": "The Bite Was Already Hers",
+    "decision": "GO_FOR_CREATOR_CONCEPT_LOCK",
+    "reason": "This is the only route that keeps the literal moment, broadens it into a sendable relationship truth, and avoids the already rejected or packaged food-sharing lanes."
+  }
+}

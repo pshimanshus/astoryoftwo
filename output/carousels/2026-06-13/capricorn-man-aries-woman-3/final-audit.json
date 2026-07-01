@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "auditor": "C7-Final Contract Auditor",
+  "status": "BLOCKED_PENDING_PROOF_APPROVAL",
+  "pass": false,
+  "summary": "Creative package and prompt handoff gates pass; slide 07 proof is generated and awaits creator approval before native 4:5/9:16 batch generation.",
+  "requirements": {
+    "REQ-COPY-LOCK": {
+      "pass": true,
+      "evidence": "slides.json contains 8 locked creator-supplied copies"
+    },
+    "REQ-LAYER-E": {
+      "pass": true,
+      "evidence": "Layer E and Golden Theme scores are 29.5/30"
+    },
+    "REQ-VISUAL-GATES": {
+      "pass": true,
+      "evidence": "post-copy visual room, visual debate, and visual plan quality are GO/PASS"
+    },
+    "REQ-IDENTITY": {
+      "pass": true,
+      "evidence": "4 selected actual identity references plus identity-face contact sheet required"
+    },
+    "REQ-FINAL-IMAGES": {
+      "pass": false,
+      "evidence": "slide 07 proof exists; final/ and final-reels-stories/ full PNG sets remain pending creator proof approval and batch generation"
+    },
+    "REQ-PROOF-SLIDE": {
+      "pass": true,
+      "evidence": "output/carousels/2026-06-13/capricorn-man-aries-woman-3/proofs/instagram-post-slide-07-proof.png"
+    }
+  },
+  "blockers": [
+    "Creator approval or repair notes for slide 07 proof.",
+    "Generate and package native 4:5 final slides after proof approval.",
+    "Generate and package separate native 9:16 final slides after proof approval.",
+    "Run visual QA after final images exist."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "status": "GO_FOR_PROOF",
+  "scorecard": {
+    "hook": 9,
+    "story": 9,
+    "bridge": 9,
+    "relationship_motion": 9,
+    "ending": 9,
+    "send_save_potential": 9,
+    "visual_clarity": 8
+  },
+  "total": 62,
+  "max": 70,
+  "pass": true,
+  "story_selling_gate": {
+    "status": "GO",
+    "score": 29
+  },
+  "golden_theme_gate": {
+    "status": "GO",
+    "score": 29
+  },
+  "required_changes_before_image_generation": [],
+  "issues": [
+    "Proof-first required before full batch because text, identity, and road geometry are high risk."
+  ]
+}

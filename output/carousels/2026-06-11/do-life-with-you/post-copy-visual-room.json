@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "creator approved copy and asked to proceed with image creation",
+  "tooling_note": "Parallel sub-agent spawning was not used because the active tool policy requires explicit user request for sub-agents. This room is simulated as separate named reviewers and recorded accordingly.",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "When I say I want to do life with you, I mean:",
+      "role": "open loop"
+    },
+    {
+      "slide": 6,
+      "copy": "Slow dancing in the kitchen, just because.",
+      "role": "romantic proof"
+    },
+    {
+      "slide": 10,
+      "copy": "Choosing the boring parts, because they're ours.",
+      "role": "earned payoff"
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Ritual Evidence Montage",
+      "score": 30,
+      "case_for": "Each slide stages one tiny ritual as visible Aachu/Zuv behavior, preserving the reference premise while making the carousel ownable.",
+      "risk": "Needs strong continuity so it does not become ten unrelated cozy images."
+    },
+    {
+      "name": "Object-Led Domestic Still Lifes",
+      "score": 22,
+      "case_for": "Closest to several supplied screenshots and easy to render.",
+      "risk": "Fails A Story because text and objects would carry the deck while Aachu/Zuv disappear."
+    },
+    {
+      "name": "Photographic Screenshot Redraw",
+      "score": 12,
+      "case_for": "Would preserve the reference most literally.",
+      "risk": "Copyright/style risk, UI residue risk, and not the A Story illustration language."
+    }
+  ],
+  "selected_visual_system": "Ritual Evidence Montage",
+  "why_it_wins": "It translates the outside reference into A Story's own engine: tiny life rituals become proof because Aachu and Zuv act inside them. The story stays recognizable, but the expression is original.",
+  "rejected_visual_patterns": [
+    "Instagram screenshot redraw",
+    "quote-card text over moody stills",
+    "object-only coffee/list/laundry slides",
+    "generic faceless cozy couple",
+    "same dark brown candlelit palette on every slide",
+    "photorealistic grainy lifestyle frame"
+  ],
+  "visual_format_anthropologist": {
+    "verdict": "GO",
+    "extract": "Borrow only the mechanic: ordinary-love declarations over intimate daily scenes. Remove UI, external handles, exact frame shapes, and cinematic photo blur."
+  },
+  "scene_evidence_director": {
+    "verdict": "GO",
+    "requirement": "Every slide must show a hand, eye-line, object movement, or body-distance cue that proves the line without relying on the text."
+  },
+  "romance_blocking_director": {
+    "verdict": "GO",
+    "requirement": "Zuv must actively make room, choose, hold, dry, fold, or dance. Aachu must remain expressive and emotionally alive."
+  },
+  "typography_and_aspect_director": {
+    "verdict": "GO",
+    "requirement": "Keep exact copy in upper-middle negative space for both 4:5 and 9:16. No text over faces, hands, chairs, mugs, lists, or socks."
+  },
+  "generation_prompt_director": {
+    "verdict": "GO",
+    "requirement": "Use the master prompt, selected identity bundle, Observational Intimacy Premium style contact sheet, exact text, and screenshot references as mood-only."
+  },
+  "harsh_visual_selector": {
+    "verdict": "GO",
+    "repair": "Proof slide 6 first. Block full batch if faces are generic, paper is yellow/parchment, text is wrong, or kitchen dance looks staged like a ballroom pose."
+  }
+}

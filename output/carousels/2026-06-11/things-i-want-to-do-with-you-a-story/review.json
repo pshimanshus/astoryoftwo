@@ -1,0 +1,28 @@
+{
+  "status": "PASS_FOR_VISUAL_PLAN_LOCK",
+  "scorecard": {
+    "audience_success": 9,
+    "creative_success": 9,
+    "brand_success": 8.5,
+    "production_success": 9,
+    "story_selling": 29,
+    "golden_theme": 28.5
+  },
+  "strengths": [
+    "Reference mechanic is highly sendable.",
+    "Visual plan avoids face repetition while preserving identity strategy.",
+    "Each slide has a visible action or object proof.",
+    "Prompt pack is proof-first and native-format ready."
+  ],
+  "risks": [
+    "Exact third-party text should not be published without permission or rewrite.",
+    "Faceless identity requires strong hand/jewelry/hair continuity in generation.",
+    "Dark reference mood must not pull the house style into black photorealism."
+  ],
+  "required_before_batch_generation": [
+    "Creator approves visual plan.",
+    "Use the no-text-generation plus local storybook typography method before batching.",
+    "Approve paper tone, text readability, hand anatomy, and A Story style.",
+    "Then generate remaining 4:5 and separate native 9:16 slides."
+  ]
+}

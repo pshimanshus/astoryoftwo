@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "winner": "Same Text, New Camera Life",
+  "tooling_note": "Visual council simulated as named reviewers.",
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "verdict": "GO",
+      "recommendation": "Use mugs, pens, tote, dish towel, clasped dance hands, sock, and doorway/path as action evidence rather than decorative props."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "verdict": "GO",
+      "recommendation": "Preserve intimacy through partial touch, side/back posture, and shared object focus instead of needing full faces."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "verdict": "GO",
+      "recommendation": "Vary camera and wardrobe every slide while keeping the same couple through hair, hand scale, jewelry, posture, and A Story style."
+    }
+  ],
+  "options": [
+    {
+      "name": "Same Text, New Camera Life",
+      "score": 30,
+      "case_for": "Most aligned with the creator's exact request.",
+      "risk": "Requires strong prompt discipline to avoid repeated soft domestic compositions."
+    },
+    {
+      "name": "One Continuous Day",
+      "score": 25,
+      "case_for": "Strong narrative continuity.",
+      "risk": "Would force repeated wardrobe and contradict the creator's no-repeat-clothes request."
+    },
+    {
+      "name": "Empty Poetic Rooms",
+      "score": 20,
+      "case_for": "Minimal and moody.",
+      "risk": "Fails Stage-Scene Gate and loses Aachu/Zuv active roles."
+    }
+  ],
+  "selector_verdict": "Proceed with seven unique scenes, proof slide 06 first. No final batch until proof approval.",
+  "rejected_visual_patterns": [
+    "source screenshot redraw",
+    "empty object still life",
+    "generic faceless cozy couple",
+    "same wardrobe repeated",
+    "same room repeated",
+    "yellow/parchment paper",
+    "visible Instagram UI"
+  ],
+  "final_visual_plan_source": "slides.json"
+}

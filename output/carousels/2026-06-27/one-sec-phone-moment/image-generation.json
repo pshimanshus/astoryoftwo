@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "status": "PROOF_FAILED_DIMENSION_GATE",
+  "generation_mode": "Codex built-in image_gen",
+  "generated_at": "2026-06-27",
+  "proof_slide": 6,
+  "generated_sources": [
+    {
+      "slide": 6,
+      "attempt": 1,
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f080a-f9fa-79c2-8715-1097286b4a29/ig_0d34c8d958cfaa5f016a3f95e0fbd48191897d0947d10ad927.png",
+      "workspace_path": "proofs/slide-06-proof.png",
+      "dimensions": "1254x1254",
+      "status": "REJECTED"
+    },
+    {
+      "slide": 6,
+      "attempt": 2,
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f080a-f9fa-79c2-8715-1097286b4a29/ig_0d34c8d958cfaa5f016a3f97256d248191bb79f8ddb77d1116.png",
+      "workspace_path": "proofs/slide-06-proof-v2.png",
+      "dimensions": "1254x1254",
+      "status": "REJECTED"
+    }
+  ],
+  "batch_generation": "BLOCKED",
+  "blocker": "Proof-first carousel flow blocks batch generation because both proof attempts failed the native 1080x1080 dimension gate."
+}

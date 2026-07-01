@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-06-14",
+  "slug": "capricorn-aries-operating-systems",
+  "status": "GO",
+  "trigger_phrase_or_event": "Creator said 'create illustrations' after concept-lock summary.",
+  "copy_lock": {
+    "approved_by": "creator implied approval",
+    "copy_source": "creator-supplied concept text with spelling cleanup",
+    "slides_file": "slides.json"
+  },
+  "visual_system_candidates": [
+    {
+      "name": "Planner And Starter Scenes",
+      "summary": "Every slide is a lived scene where logistics meets motion.",
+      "score": 92,
+      "verdict": "SELECTED"
+    },
+    {
+      "name": "Zodiac Editorial Portraits",
+      "summary": "Elegant character portraits with subtle earth/fire cues.",
+      "score": 58,
+      "verdict": "REJECTED_GENERIC_QUOTE_CARD_RISK"
+    },
+    {
+      "name": "Object Receipts Only",
+      "summary": "Planner, screenshots, keys, notes, phone as still-life evidence.",
+      "score": 70,
+      "verdict": "REJECTED_TOO_OBJECT_FIRST"
+    }
+  ],
+  "agents": {
+    "visual_format_anthropologist": {
+      "rules": [
+        "Use astrology as title doorway only, not literal zodiac symbols.",
+        "Put readable handwritten text in upper-middle negative space.",
+        "Let the eye travel from text to one clear couple action.",
+        "Use repeated decision objects lightly: planner, keys, phone, screenshots."
+      ],
+      "selected_system": "Planner And Starter Scenes"
+    },
+    "scene_evidence_director": {
+      "verdict": "GO",
+      "note": "Every slide has a drawable Aachu/Zuv behavior receipt."
+    },
+    "romance_blocking_director": {
+      "verdict": "GO",
+      "note": "The emotional obstacle is tempo mismatch; the answer is mutual usefulness."
+    },
+    "typography_and_aspect_director": {
+      "verdict": "GO_FOR_PROOF",
+      "note": "Proof slide text is longer than ideal; use upper-middle text block, couple lower third, no face overlap."
+    },
+    "generation_prompt_director": {
+      "verdict": "GO",
+      "note": "Slide 1 proof prompt must use selected visible identity references and Observational Intimacy style."
+    },
+    "harsh_visual_selector": {
+      "verdict": "GO",
+      "why": "The selected system proves the locked copy through relationship action and avoids generic zodiac art."
+    }
+  },
+  "selected_visual_system": "Planner And Starter Scenes",
+  "why_it_wins": "It turns a zodiac contrast into a staged relationship engine: he prepares, she begins, and the image carries the story without needing symbols.",
+  "rejected_visual_patterns": [
+    "literal zodiac wheel, ram, goat, fire/earth symbols",
+    "static side-by-side portraits",
+    "quote-card text with tiny couple below",
+    "one cafe/table scene repeated across all slides",
+    "Aachu as reckless chaos or Zuv as passive saint"
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_4_5": "Text in upper-middle 38-45% of canvas, couple lower/middle-lower, brandmark bottom-right.",
+    "reels_stories_9_16": "Text in upper third, couple lower half, keep extra vertical breathing room; generate separately."
+  },
+  "open_doubts": [
+    "Built-in image generation may not guarantee perfect text rendering or identity likeness on first proof."
+  ],
+  "downstream_requirements": [
+    "Generate slide 1 proof first.",
+    "Do not batch-generate finals until proof passes creator approval.",
+    "Use selected actual identity references and style reference context for all final prompts."
+  ]
+}

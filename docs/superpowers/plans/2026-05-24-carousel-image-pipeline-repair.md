@@ -328,8 +328,8 @@ import re
 
 
 FORMAT_COPY = {
-    "instagram_post": "Create an exact 4:5 Instagram carousel slide, 1080x1350 if size is available.",
-    "reels_stories": "Create an exact 9:16 Reels/Stories slide, 1080x1920 if size is available.",
+    "instagram_post": "Create an exact 4:5 Instagram carousel slide at 1080x1350 px.",
+    "reels_stories": "Create an exact 9:16 Reels/Stories slide at 1080x1920 px.",
 }
 
 
@@ -1107,4 +1107,3 @@ Type consistency:
 - Status values use lowercase strings through `GenerationStatus`.
 - `proof_slide` and `formats` are defined in Task 4 and used only after that task.
 - `refresh_quality` is introduced in Task 5 and passed through the script in the same task.
-

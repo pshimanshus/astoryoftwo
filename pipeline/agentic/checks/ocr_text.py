@@ -3,7 +3,8 @@
 Uses easyocr if available. easyocr is a large dependency (pulls torch),
 so it is imported lazily and the check degrades to a STOP status if
 easyocr is not installed. STOP is treated as a soft non-blocker by the
-runner; PASS/FAIL are hard signals.
+runner; PASS/FAIL are hard signals. In publish mode, missing OCR is a
+FAIL because final text verification is a publish-readiness gate.
 
 Matching strategy (in order):
   1. Exact substring after normalization → PASS. The strongest signal.
@@ -58,7 +59,12 @@ def _is_single_word(text: str) -> bool:
     return " " not in text.strip()
 
 
-def check_ocr_text(image_path: Path, expected_text: str) -> WorkflowGate:
+def check_ocr_text(
+    image_path: Path,
+    expected_text: str,
+    *,
+    publish_mode: bool = False,
+) -> WorkflowGate:
     image_path = Path(image_path)
     if not image_path.exists():
         return WorkflowGate(
@@ -68,6 +74,16 @@ def check_ocr_text(image_path: Path, expected_text: str) -> WorkflowGate:
         )
 
     if not _easyocr_available():
+        if publish_mode:
+            return WorkflowGate(
+                name="ocr_text",
+                status="FAIL",
+                reason=(
+                    "easyocr is not installed; OCR is required in publish mode "
+                    "before final on-image text can be accepted."
+                ),
+                evidence_paths=[str(image_path)],
+            )
         return WorkflowGate(
             name="ocr_text",
             status="STOP",

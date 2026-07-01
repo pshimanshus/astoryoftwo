@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "PASS",
+  "candidate_count": 47,
+  "selected_count": 4,
+  "selected_identity_bundle": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "face_structure_lock": "Actual selected identity images must be attached to generation; text-only identity descriptions are blocked.",
+  "wardrobe_lock": "Use selected identity/current-request photos first for wardrobe cues, extending conservatively into casual home clothes for domestic scenes.",
+  "slides": [
+    {
+      "slide": 1,
+      "status": "PASS",
+      "identity_risk": "medium",
+      "expression_anchor": "warm chaos, helpless amusement"
+    },
+    {
+      "slide": 2,
+      "status": "PASS",
+      "identity_risk": "low",
+      "expression_anchor": "faces mostly hidden; keep hair, hands, body scale anchored"
+    },
+    {
+      "slide": 3,
+      "status": "PASS",
+      "identity_risk": "medium",
+      "expression_anchor": "accepted destiny and serious choosing"
+    },
+    {
+      "slide": 4,
+      "status": "PASS",
+      "identity_risk": "high",
+      "expression_anchor": "guilty mischief and calm detective face"
+    },
+    {
+      "slide": 5,
+      "status": "PASS",
+      "identity_risk": "medium",
+      "expression_anchor": "attitude and gentle confusion"
+    },
+    {
+      "slide": 6,
+      "status": "PASS",
+      "identity_risk": "medium",
+      "expression_anchor": "animated rant and food-focused destiny"
+    },
+    {
+      "slide": 7,
+      "status": "PASS",
+      "identity_risk": "medium",
+      "expression_anchor": "mutual accusation over basket"
+    },
+    {
+      "slide": 8,
+      "status": "PASS",
+      "identity_risk": "medium",
+      "expression_anchor": "dramatic search and patient pointing"
+    },
+    {
+      "slide": 9,
+      "status": "PASS",
+      "identity_risk": "medium",
+      "expression_anchor": "tired closeness and soft belonging"
+    }
+  ],
+  "issues": []
+}

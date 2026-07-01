@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "copy_status": "creator_requested_exact_visible_reference_copy",
+  "selected_visual_system": "Little Futures, Mostly Faceless",
+  "why_it_wins": "It honors the reference mood and the creator's note that faces are not needed in every post, while making the scenes A Story-specific through hands, ordinary objects, posture, and memory continuity.",
+  "systems_compared": [
+    {
+      "name": "Little Futures, Mostly Faceless",
+      "decision": "WINNER",
+      "score": 29,
+      "case_for": "Most cinematic, most faithful to the user direction, strongest Stage-Scene proof."
+    },
+    {
+      "name": "Soft Full-Couple Portraits",
+      "decision": "REJECTED",
+      "score": 24,
+      "case_for": "Clear identity but repetitive and less reference-aligned."
+    },
+    {
+      "name": "Object-Only Still Lifes",
+      "decision": "REPAIR_ONLY",
+      "score": 25,
+      "case_for": "Beautiful but risks losing relationship behavior; objects can support, not replace, Aachu/Zuv."
+    }
+  ],
+  "roles": [
+    "Visual Format Anthropologist",
+    "Scene Evidence Director",
+    "Romance Blocking Director",
+    "Typography And Aspect Director",
+    "Generation Prompt Director",
+    "Harsh Visual Selector"
+  ],
+  "prompting_rule": "Do not import Instagram UI, carousel dots, handles, dark screenshot framing, or exact photo compositions. Translate mood and text into original A Story watercolor scenes."
+}

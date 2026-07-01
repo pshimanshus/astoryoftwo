@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "status": "GO_FOR_PROOF",
+  "decision": "GO_FOR_SLIDE_06_PROOF_ONLY",
+  "full_batch_status": "WAITING_FOR_CREATOR_PROOF_APPROVAL",
+  "reviewers": [
+    "visual-story reviewer",
+    "romance-scene reviewer",
+    "continuity judge",
+    "screen-quality judge"
+  ],
+  "global_pass_conditions": [
+    "Exact on-image text from slides.json only",
+    "Tiny @a.storyof.two brandmark at bottom-right",
+    "Neutral warm ivory/off-white paper, not yellow, parchment, sepia, or beige/tan",
+    "Aachu/Zuv identity references visibly influence faces and body proportions",
+    "Each slide has action/reaction/object movement readable without text",
+    "No screenshot UI, external handle, engagement icons, carousel dots, or copied photographic framing"
+  ],
+  "slide_06_proof_gate": {
+    "slide": 6,
+    "copy": "Slow dancing in the kitchen, just because.",
+    "decision": "GO_FOR_PROOF",
+    "why_this_slide_first": "It tests the riskiest combination: two recognizable faces, close body blocking, hands, romantic warmth, kitchen staging, exact text, and A Story style.",
+    "must_pass": [
+      "both characters recognizable as Aachu and Zuv",
+      "slow dance is believable and flattering",
+      "hands have correct anatomy",
+      "kitchen evidence is clear but not cluttered",
+      "text is exact and readable",
+      "brandmark is correct and subtle"
+    ],
+    "repair_if": [
+      "generic faces",
+      "yellow/parchment cast",
+      "ballroom or proposal energy",
+      "awkward pose or extra fingers",
+      "missing or misspelled text",
+      "screenshot-like dark photo style"
+    ]
+  }
+}

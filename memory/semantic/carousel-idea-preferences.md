@@ -1,8 +1,39 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-06-03
+last_updated: 2026-06-27
 confidence: 0.8
 sources:
+- direct creator correction in chat on 2026-06-27: rejected `The Cart Was Never
+  Empty` as not something they would send; taste agent scored it 21/30 STOP
+  because structural relatability is not enough without unusual observation,
+  creator-world specificity, and a deeper private receipt
+- direct creator correction in chat on 2026-06-27 for `The Cart Was Never
+  Empty`: slide 6 should be the native Hinglish bill-laugh line, `bhai bahut
+  sasta tha yha toh, maza aagya shopping kr k`, with both laughing at the bill;
+  avoid drifting into moral, legal, or narrator-summary endings
+- direct creator correction in chat on 2026-06-27: the final carousel slides
+  are the conversion engine; if slides 5 and 6 drift, the whole carousel loses
+  send/save power, so the ending must sharpen the reversal and payoff instead
+  of politely wrapping up
+- direct creator rejection in chat on 2026-06-27: rejected the `Draft Control`
+  / `The Screenshot Jury` copy direction with `nooooo`; do not polish or
+  re-present that before-send/screenshot-jury wording as fresh unless the
+  creator explicitly asks to rebuild the underlying behavior from a different
+  scene-first mechanic
+- direct creator correction in chat on 2026-06-27: do not build every carousel
+  as Zuv admiring, handling, saving, or understanding Aachu; relationship
+  motion can come from Aachu, Zuv, both, a generic couple pattern, or shared
+  rhythm/situation with no heroic actor
+- direct creator correction in chat on 2026-06-27: always suggest only carousel
+  ideas that score 28/30 or above and always discard ideas below that threshold
+  instead of showing them as creator-facing options
+- direct creator correction in chat on 2026-06-15: always break the visual
+  pattern across carousel images; do not repeat the same angle, same
+  both-people action, or the same books/bed/chai/garden scene grammar
+- direct creator correction in chat on 2026-06-15: on-image text must always be
+  created with the final image; updated 2026-06-30 after the marriage carousel
+  failure: every generated @a.storyof.two raster must already contain exact
+  text and the top-right brandmark, otherwise the package blocks or retries
 - direct creator feedback in chat on 2026-05-18
 - direct creator jam in chat on 2026-05-19
 - direct creator feedback in chat on 2026-05-20
@@ -22,6 +53,10 @@ sources:
   prompt is the permanent @a.storyof.two illustration-story prompt: exact
   readable ON-IMAGE TEXT baked naturally into the image, A Story style over
   external-reference style, and brand/product labels legible when integrated
+- direct creator correction in chat on 2026-06-14: never ever generate
+  textless illustrations; every @a.storyof.two proof/concept/final image must
+  include exact on-image text from the first proof onward, plus the tiny
+  top-right brandmark
 - direct creator correction in chat on 2026-05-30 after Favourite Calm proof:
   identity matched, but the illustration had too much dense cinematic landscape
   and not enough @a.storyof.two warm whitespace; the creator supplied a locked
@@ -90,11 +125,25 @@ or emotional lanes that were recently recommended, rejected, or explicitly
 cooled down unless the creator asks to revisit them.
 confidence: 0.9
 
-fact: Preserve the golden-theme machine, but rotate the surface lane: universal
-relationship truth -> Aachu/Zuv proof -> Zuv active care -> tender thesis.
-Do not rely on the same "chaos," "home," "high-maintenance," or
-"overthinking/reassurance" language repeatedly.
-confidence: 0.82
+fact: Preserve the golden-theme bar, but correct the machine away from a fixed
+Zuv-caretaker template. The working gate is: public relationship mirror ->
+concrete receipts -> relationship motion -> earned send/save thesis. Motion can
+come from Aachu doing something and revealing her love, Zuv doing something when
+it is genuinely his beat, both doing the same stupid/sweet thing together, a
+generic couple pattern, or even no heroic actor when the shared rhythm,
+repeated phrase, contradiction, or situation is the point. Do not ask "did Zuv
+actively save/handle/understand Aachu?" as the default pass/fail test.
+confidence: 1.0
+
+fact: After creator correction on 2026-06-24, do not generate fresh carousel
+ideas by transposing the gold-post template (`He didn't marry X`, `he married
+Y`, tender thesis) onto new topics. This is the "same stuck in template" failure.
+The golden carousel should be used to understand bar and mechanics, not as a
+mad-lib chassis. Fresh ideation must start from a raw lived incident, a proven
+reference mechanic, corpus/comment behavior, or a new format constraint, then
+derive its own hook architecture. If the output sounds like a costume of the
+gold post, reject it before showing the creator.
+confidence: 1.0
 
 fact: Avoid using chai as a default proof beat in fresh carousel copy. It is
 starting to feel repetitive unless the source moment is specifically about
@@ -113,12 +162,61 @@ must be calibrated against the golden carousel bar and should feel written by
 a strong storyteller, not like descriptive scene labels.
 confidence: 1.0
 
+fact: When the creator starts a jam, do not answer with 5-line slide copy,
+hook banks, or slide architecture as the first output. First think from the
+story, viral theme, or golden-theme machine the carousel should protect, then
+run a detailed debate room around that spine. The first checkpoint is concept lock:
+story/theme diagnosis, multi-voice debate summary, stage-scene proof,
+scores, rejected lanes, selector verdict, and GO / REPAIR / STOP.
+Public slide copy comes only after the creator approves the concept direction.
+confidence: 1.0
+
+fact: Never generate textless @a.storyof.two proof, concept, carousel, or final
+illustrations. If copy is not locked, lock an explicit proof line first and
+produce a text-bearing proof/final. If exact text control fails, block or retry
+with a stronger text-bearing generation prompt; do not create, keep, or trust a
+textless generated image as a workaround.
+Identity-only textless proofs are blocked; identity, style, scene, and
+typography must be tested together. The only extra text allowed is the tiny
+top-right `@a.storyof.two` brandmark.
+confidence: 1.0
+
+fact: For @a.storyof.two proof illustrations, concept illustrations,
+single-slide image-generation outputs, and default Instagram post/carousel
+slides, generate native `1080x1350` portrait. Generate native `1080x1920` only
+for explicit Story/Reel or companion story outputs, and native `1080x1080` only
+when the creator explicitly requests square. Reject any image whose pixel
+dimensions do not exactly match the requested format; do not crop, pad,
+stretch, or resize a wrong-dimension proof into compliance. The rejected
+2026-06-14 roti-bite proof at `978x1608` remains a wrong-dimension failure
+example, but old square-proof defaults are stale and must not override
+`config/rules/image-dimensions.md`.
+confidence: 1.0
+
+fact: Roti Bite Rights raw-scene correction from 2026-06-14: in the real moment,
+Zuv must be looking at his father, not at Aachu. Zuv must not have the bite in
+his hand; Aachu is already eating/taking the prepared bite while the father
+conversation continues. A distant/wider table shot is acceptable and likely
+better than a romantic close two-shot. Reject preachy text such as `the bite
+was already hers`; use scene-native deadpan copy only after storyboard approval.
+confidence: 1.0
+
 fact: For illustrated carousel work, always use multiple agents or parallel
 reviewers before generation. Preserve the golden-theme machine from Calm Enough
 For Your Chaos, run `visual-plan-quality.json` as a per-slide visual screen
 before generating, and block/repair any doubtful slide instead of producing
 "maybe okay" final art.
 confidence: 0.9
+
+fact: For every illustrated carousel, break the visual pattern across slides.
+Do not make each image a same-angle full-couple medium shot where both people
+are doing the same emotional action. Do not default to repeated books, bed,
+chai/mugs, garden/balcony, table, or quiet-listening scenes. Variety must come
+from shot type, camera angle, setting lane, visible action, object movement,
+and who is visible, not only from changing clothes. Before generation, require
+a shot ladder and repeated-prop/setting audit; if hiding the text makes the
+deck feel like the same scene with new captions, return REPAIR.
+confidence: 1.0
 
 fact: Minimal illustrated carousel composition should stay airy but not sterile.
 Do not remove the innocent small-heart/reaction language while simplifying.
@@ -136,7 +234,7 @@ confidence: 0.96
 
 fact: Do not artificially compress a relationship story into five slides. Use
 the number of slides the story needs, including 7, 8, or 10 slides, when that
-is required for the setup, proof trail, Zuv's active response, emotional turn,
+is required for the setup, proof trail, relationship motion, emotional turn,
 and final shareable thesis to land. Story landing and tag/comment behavior are
 more important than fitting the default C-layer slide count.
 confidence: 0.95
@@ -162,7 +260,7 @@ cinematic-poster landscape takeover.
 confidence: 1.0
 
 fact: Every final @a.storyof.two illustration must include the tiny
-low-contrast handwritten brandmark `@a.storyof.two` at the bottom-right corner
+low-contrast handwritten brandmark `@a.storyof.two` at the top-right corner
 as part of the artwork. The master prompt must ban external watermarks/logos
 but never ban the project brandmark.
 confidence: 1.0
@@ -176,7 +274,7 @@ and wardrobe anchors; use the style-lock images for warm ivory paper, visible
 paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate
 sketch texture, muted vintage palette, tactile clothing detail, soft faded
 edges, exact handwritten text in upper-middle negative space, and the tiny
-bottom-right `@a.storyof.two` brandmark. Missing this lock is a generation
+top-right `@a.storyof.two` brandmark. Missing this lock is a generation
 failure, not a minor style preference.
 confidence: 1.0
 
@@ -185,7 +283,7 @@ preferred illustration style reference for this folder. Future generated
 illustrations should match its warm ivory paper with visible paper grain, rich
 premium watercolor-and-ink depth, transparent watercolor blooms, detailed
 identity-first faces, tactile domestic props, soft faded edges, clean
-upper-middle negative space, tiny bottom-right `@a.storyof.two` brandmark, and
+upper-middle negative space, tiny top-right `@a.storyof.two` brandmark, and
 readable hand-drawn charcoal typography. Avoid flat vector, poster-card,
 photorealism, UI/screenshot residue, quote-card design, or generic AI-watercolor
 looks.
@@ -217,11 +315,14 @@ into every scene. If Zuv has no active story job in a search/detail/proof
 slide, keep him out of frame or use only a partial presence such as a hand,
 shoulder, reflection, or later reveal. Repeated "Zuv standing and watching
 Aachu" blocking is a hard visual failure. Text inside generated illustrations
-must be exact, integrated into the paper as A Story handwritten typography,
-and rejected if the model changes words, punctuation, line breaks, brandmark,
-or makes it feel like an overlay. Face tone/expression must stay close to the
-identity references; too-dark faces or expression-driven identity drift are
-generation failures, not small polish issues.
+must be exact, integrated into the final paper image as A Story handwritten
+typography, and rejected if words, punctuation, line breaks, brandmark, or
+placement drift. If the image model cannot preserve exact text, retry or keep
+the package blocked; controlled typography repair is valid only on an already
+text-bearing raster. Reject anything that feels like a separate quote-card or
+flat overlay. Face tone/expression must stay
+close to the identity references; too-dark faces or expression-driven identity
+drift are generation failures, not small polish issues.
 confidence: 1.0
 
 fact: Do not over-repair strong creator-supplied artifact concepts into safer
@@ -235,8 +336,9 @@ confidence: 0.97
 fact: Golden-theme scoring must be calibrated against the actual viral
 carousel analysis, especially its tag-your-partner behavior. A concept should
 not receive a high score just because it mechanically contains a universal
-hook, Aachu proof, Zuv response, and thesis. Before rating anything 28/30 or
-higher, ask whether a stranger would recognize themselves, send it, save it,
+hook, character proof, partner response, and thesis. Before rating anything 28/30 or
+higher, ask whether the route has a public relationship mirror, concrete
+receipts, and relationship motion that a stranger would recognize, send, save,
 or tag their partner with "this is us." If not, score it closer to the
 creator's 10/30 calibration and repair from the story engine, not from wording.
 confidence: 0.97
@@ -260,7 +362,8 @@ fact: Before writing any carousel copy or slide direction, load a creator
 persona that behaves like a world-class short-form content director: retention
 obsessed, hook-first, story-structured, bridge-aware, emotionally precise, and
 Instagram-share calibrated. The persona must reject loose lines that do not
-have hook, story, bridge, Zuv role, ending, and send/save reason.
+have hook, story, bridge, relationship motion / relevant partner role, ending,
+and send/save reason.
 confidence: 0.96
 
 fact: Once the creator confirms carousel copy/copies as final, approved, or
@@ -279,6 +382,14 @@ then run an exchange pass where agents critique the shared options before the
 creator-facing recommendation is finalized.
 confidence: 0.96
 
+fact: For serious carousel jams, one isolated agent per role is not enough.
+Each top route must get a nested discussion with multiple creative-editor and
+writer voices debating the same story in detail: what story/viral/golden-theme
+spine it protects, what would be lost by writing too early, why the proof
+engine is visual, why the ending is earned, and why rejected interpretations
+are weaker.
+confidence: 1.0
+
 fact: Serious carousel ideation must preserve multiple topic/routes through
 the exchange pass. Do not let the room collapse into debating only the first
 favorite. The final selector may combine strengths, but must name the source
@@ -295,7 +406,7 @@ fact: Layer E must not be treated as a score wrapper, selected-card wrapper, or
 generic artifact checklist. Before any carousel writing, hook writing, slide
 copy, caption, visual direction, prompt work, or image generation, Layer E must
 run the actual thinking room: define the human story, emotional obstacle,
-shareable setup, cold-reader doorway, active Aachu/Zuv roles, proof engine,
+shareable setup, cold-reader doorway, relationship motion / relevant roles, proof engine,
 reversal, and earned payoff. It must also define what success looks like using
 the successful-carousel standard: audience success, creative success, brand
 success, and production success. If Layer E only outputs scores, cards, or a
@@ -499,8 +610,10 @@ joins through gesture, expression, timing, or mirrored action. Avoid phones or
 chat UI, cafe/couch/table-note scenes, dictionary/subtitle/manual/clue-board
 metaphors, paper slips, red strings, doodle maps, and the stale
 tiny-Aachu-chaos -> Zuv-handler dynamic. Final slides must use the identity
-image, integrated exact text, and model-native generation; local deterministic
-previews and semantic-prop proof outputs are not acceptable final art.
+image and integrated exact text in the publishable final raster; local
+deterministic previews and semantic-prop proof outputs are not acceptable final
+art unless rebuilt as one coherent A Story illustration with exact text
+integrated into the paper.
 confidence: 0.99
 
 fact: For future carousel jams, the creator wants automatic jam-to-final
@@ -520,15 +633,92 @@ full-body, warm-paper Aachu/Zuv scenes if they do not create a behavior-based
 receipt that a stranger can instantly recognize and tag with "this is us." The
 image must make the relationship truth visible before the text does: public
 contradiction, concrete receipts, one physically funny or surprising moment,
-active Zuv behavior, and a final sendable identity mirror. Beautiful/generic
+relationship motion, and a final sendable identity mirror. Beautiful/generic
 AI romance, posed street/home scenes, passive listening, and mood-first
 illustrations are a hard visual fail even when the outfits, paper texture, and
 brand styling look correct.
 confidence: 0.99
 
+fact: Carousel ideation must not award 28/30+ scores to concepts that are only
+recognizable domestic couple tropes with the required Aachu/Zuv/golden-theme
+pieces attached. A concept can have a public hook, specific character behavior,
+partner care, proof object, and tender thesis and still be low-average if it
+lacks novelty, creator-world specificity, relationship motion, or a surprising
+staged turn; likewise, a mutual or generic-couple route can pass when its public
+mirror and receipts are stronger.
+confidence: 1.0
+
+fact: Before creator-facing recommendation, run a World-Class Taste Gate in
+addition to Story-Selling, Golden Theme, and Stage-Scene gates. The selector
+must answer what is fresh, ownable, physically staged, and slightly surprising
+about this route; why only @a.storyof.two can post it this way; and what would
+make a cold viewer send it instead of merely nodding "relatable." If the
+selector cannot answer cleanly, the route is REWORK or STOP, not GO.
+confidence: 1.0
+
+fact: Score caps for fresh carousel ideas: if novelty is weak, cap at 24/30; if
+creator-world specificity is weak, cap at 24/30; if the route is a known trope
+with a tender ending but no non-obvious scene turn, cap at 23/30; if the idea
+could be posted by any generic couple account after replacing names and art
+style, cap at 22/30. These caps override mechanical checklist scores.
+confidence: 1.0
+
+fact: Creator-facing carousel ideation has a hard 28/30 display filter. Always
+suggest only routes that score 28/30 or higher after Story-Selling, Golden
+Theme, Stage-Scene, and taste-gate caps. Discard every below-28 route
+internally; do not present it as a suggestion, runner-up, shortlist item,
+alternate option, or "could work" idea. If no route clears 28/30, say no route
+cleared the bar and rebuild from a stronger raw incident, reference mechanic,
+corpus/comment signal, object movement, or visible contradiction.
+confidence: 1.0
+
+fact: The last slides are the conversion engine. For creator-facing carousel
+copy, slides 5 and 6 must be the sharpest escalation/payoff zone: the strongest
+visual receipt, the reversal that recontextualizes the joke, and a final
+send/save thesis. Do not let slide 5 become generic aftermath or slide 6 become
+soft moralizing. If the first four slides work but the last two drift, repair
+the ending before copy lock.
+confidence: 1.0
+
+fact: For `The Cart Was Never Empty`, preserve the creator-approved final beat:
+slide 5 should turn the basket into the bill/receipt reveal, and slide 6 should
+land as spoken Hinglish shared delusion while both laugh at the bill:
+`bhai bahut sasta tha yha toh, maza aagya shopping kr k`. Do not replace this
+with `maybe love is...`, `choose your co-accused`, `the basket did it`, or any
+legal/crime/narrator-summary ending. The conversion comes from both being
+equally guilty and pretending shopping was a bargain.
+confidence: 1.0
+
+fact: `The Cart Was Never Empty` / one-item shopping mission is a real creator
+incident, not a generic invented shopping premise. The failure on 2026-06-27
+was Codex conversion/story packaging: it treated real raw material as
+low-average instead of extracting the sharper relationship machine. Rebuild it
+as a mutual shared-delusion story: one-item mission, her `bas yeh`, his
+responsible look, his own `bas yeh`, hard bill silence, then both laughing at
+the bill with `bhai bhut sasta tha yha toh, maza aagya shopping kr k`.
+Do not discard the lane as fake/generic when the creator says it is real; make
+the visuals and copy prove the exact contradiction and shared excuse.
+confidence: 1.0
+
+fact: After creator rejection for "low average idea" or "not impressed," stop
+polishing the same lane and stop presenting near-neighbor replacements as if
+the process worked. Rebuild from one of five stronger inputs only: a raw lived
+Aachu/Zuv incident, a recurring phrase with a visible consequence, an object
+that moves and changes the scene state, a one-second contradiction with a
+visible reversal, or a creator-supplied reference mechanic transformed into a
+stage scene.
+confidence: 1.0
+
+fact: `Own Plate Theory` / `nahi chahiye -> one bite -> extra bite ready` is a
+current rejected example of score inflation. It was relatable and drawable, but
+not fresh or creator-specific enough after the June 6 analysis. Do not reuse
+or rename this food-denial lane as a fresh route unless the creator explicitly
+asks to revisit it with a real lived moment.
+confidence: 1.0
+
 fact: The 2026-05-24 "private captions / Friends-label" visual batch is
 rejected as a direction. It copied the minimal label mechanic but drifted into
-pleasant illustrated couple scenes and local text-overlay fixes instead of the
+pleasant illustrated couple scenes and detached text fixes instead of the
 viral receipt engine. Do not continue from the V2/V3 outputs or use them as a
 visual reference. If revisiting the reference-caption concept, rebuild it from
 the autopsy gate first: each slide needs a specific funny physical receipt,
@@ -570,6 +760,12 @@ confidence: 0.98
 
 | Date | Concept | Lane | Status | Memory Note | Confidence |
 |---|---|---|---|---|---:|
+| 2026-06-27 | The Cart Was Never Empty / One-Item Shopping Mission | real store-one-thing mission / `bas yeh` contradiction / responsible look reversal / bill-laugh Hinglish payoff | active_real_incident_rebuild_required | Creator corrected Codex: this is a real incident, and Codex was failing to convert it into an impactful carousel. Preserve the real machine: they came for one thing; she adds a `bas yeh`; he gives the responsible look; then his own `bas yeh` enters; bill arrives and both go silent; final payoff is both laughing at the bill with `bhai bhut sasta tha yha toh, maza aagya shopping kr k`. Do not label this fake/generic. The task is to make illustration and copy justify the incident with a strong receipt/reversal/payoff, especially slides 5-6. | 1.0 |
+| 2026-06-27 | Draft Control / The Screenshot Jury | before-send screenshot review / phone reply court / draft-control wording | rejected_creator_copy_direction_no | Creator rejected the copy direction immediately with `nooooo`. Do not continue polishing `Before replying, send screenshot.`, `Screenshot Jury`, `Draft Control`, phone-reply courtroom, or line-delete wording as a fresh route. If revisiting, rebuild from a stronger scene-first mechanic with real lived behavior and less tech/product-language energy, then re-run the full 28/30 gate before showing it. | 1.0 |
+| 2026-06-23 | Seeti Count Marriage | pressure-cooker whistle count / tiny domestic uncertainty / shared adulting comedy | rejected_creator_hard_no_unshareable | Creator rejected the concept/copy strongly: `YUK chiii shit pathetics... no one will send this and this is 1000000000km far away from winning posts caraousel`. Treat the prior Story-Selling 29/30, Golden Theme 28.5/30, and PASS_NO_CAP as invalid score inflation. Do not polish or re-present pressure-cooker/seeti-count, `two adults unsure together`, `no reliable witness`, or `home runs on maybe` as a fresh route unless the creator explicitly asks to revisit it from a real lived incident. Lesson: recognizably desi and drawable is not enough; the winning-carousel bar requires a hard public contradiction, strong receipt engine, and obvious partner-send behavior. Jam record: `output/concepts/2026-06-23/seeti-count-marriage-jam/`. | 1.0 |
+| 2026-06-11 | Bas Ek Pin / Current Fresh Jam Batch | getting-ready safety-pin / Aachu Dictionary / Mummy Ko Mat Batana / ready-search / generic domestic repair routes | rejected_creator_hard_no_dumped | Creator rejected `Bas Ek Pin` and explicitly dumped all other current jam ideas with `dump it and all other jammed idea - dump it all are shit`. Treat this as a hard concept-level NO for the full batch, including `Bas Ek Pin`, `Aachu Dictionary` as a current suggestion, `Mummy Ko Mat Batana` as a current suggestion, `Ready Means The Search Has Started`, `Nothing To Wear`, `Side Se Bolna`, `House Weather System`, and `AC Border Treaty`. Do not polish, copy-lock, repair, or re-present these as fresh. The previous 29/30 scores are invalidated as score inflation. Next rebuild must start from a real lived incident, a creator-supplied reference mechanic, or a materially sharper public contradiction with visible receipts. Jam record: `output/concepts/2026-06-11/bas-ek-pin-jam/`. | 1.0 |
+| 2026-06-06 | Own Plate Theory / Nahi Chahiye One Bite | food-denial ritual / extra bite / being known without explanation | rejected_creator_did_not_like | Creator rejected the idea after Layer E repair with `didn't like the idea`. Do not continue polishing, copy-locking, or re-presenting this food-denial/one-bite/extra-plate lane as fresh. Failure: the concept did not land at concept level and felt too indirect against the 2026-06-06 analysis need for sharper public contradiction and faster Hinglish/domestic recognition. Jam record: `output/concepts/2026-06-06/own-plate-theory-jam/`. Replacement shortlist record: `output/concepts/2026-06-06/post-analysis-repair-jam/`. | 1.0 |
+| 2026-06-06 | Post-Analysis Repair Shortlist / Aachu Dictionary | public contradiction / Hinglish private-language translations / things she says vs what she means | selectable_shortlist_requires_taste_review | After rejecting Own Plate Theory, rebuilt from `output/reports/2026-06-06-instagram-page-and-competitor-analysis.md`. Earlier artifacts called `Aachu Dictionary` a 29/30 recommended route, but this is not locked: it must first pass the World-Class Taste Gate for novelty, creator-world specificity, and a non-obvious staged turn. Treat `Ready Means The Search Has Started` the same way. `House Weather System` and `Jaldi Has No Definition` are internal repair ideas, not creator-facing suggestions, unless separately repaired. Do not proceed to copy until the selected route passes taste gate and the creator selects it, rejects both, or supplies a raw moment. | 1.0 |
 | 2026-06-04 | Main Nahi Bol Rahi | angry care / silence with instructions / gussa plus care / domestic proof receipts | creator_selected_copy_options_ready | Creator selected `Main Nahi Bol Rahi` as the best replacement route from the shareability repair shortlist. Repaired away from `Softness Under Fire` and generic apology framing by making the share hook `Some silence comes with instructions.` Recommended Option A copy: `Some silence comes with instructions.` -> `"Main nahi bol rahi."` -> `"Khana kha lena."` -> `"Paani bhi."` -> `He kept her glass too.` -> `Gussa tha. Care bhi.` Story-Selling 29/30, Golden Theme 29/30, GO for creator copy lock. Guardrails: do not make Aachu cruel/manipulative/childish, do not make Zuv a saint/therapist, stage care through physical receipts while both remain safely in the tiny fight. Jam record: `output/concepts/2026-06-04/main-nahi-bol-rahi-jam/`. | 1.0 |
 | 2026-06-03 | Shareability Repair Shortlist / Mummy Ko Mat Batana | two-person alibi / harmless desi mischief / couple conspiracy / high-tag carousel repair | replacement_shortlist_presented | After creator rejected `The Exit Code` as low-shareability, the room reran against a harsher no-explanation partner-tag test. Four replacement options were preserved: `Mummy Ko Mat Batana`, `Main Nahi Bol Rahi`, `Nothing To Wear`, and `Jo Karna Hai Karo`. Selector recommends `Mummy Ko Mat Batana`: `He didn't marry innocent.` -> `He married "mummy ko mat batana."` -> `The bag was "old only."` -> `The bill was "sale tha."` -> `He nodded like legal team.` -> `Some love comes with an alibi.` Guardrails: keep the mischief harmless, desi, and visibly mutual; no serious lying, money secrecy, parent-mocking, or perfect-husband/enabler framing. Jam record: `output/concepts/2026-06-03/shareability-repair-jam/`. | 0.9 |
 | 2026-06-03 | The Exit Code | family function / small talk / social battery / private exit signal / public scene private meaning | rejected_creator_low_shareability | Creator rejected this direction as "not something people will share" and called out that the room was going in the wrong direction again. Diagnosis: the concept is recognizable but not urgent or identity-defining enough to create partner tags; it lacks the gold-post force of public contradiction plus hard physical receipts. Do not reuse social-battery/exit-code/small-talk rescue as the next fresh idea unless rebuilt around a much sharper viral receipt engine. Jam record: `output/concepts/2026-06-03/the-exit-code-jam/`. | 1.0 |
@@ -587,7 +783,7 @@ confidence: 0.98
 | 2026-05-30 | One Umbrella Shows Everything | rain walk / mutual noticing / one-sided care becomes shared shelter | rejected_creator_wrong_direction_and_setup_fail | Creator rejected this immediately and corrected that the assistant again failed the setup explained in the learning summary. Failure: the route was still a pretty romantic object-first premise dressed as a physical receipt; the setup was not lived, specific, funny, staged, or creator-calibrated enough. It leaned toward generic rain-romance/perfect-boyfriend visual poetry instead of a hard-working @a.storyof.two scene engine. Do not pitch umbrella/rain/sleeve-wet mutual-shelter concepts as the next direction unless the creator explicitly supplies a real moment and asks to revisit. | 1.0 |
 | 2026-05-29 | OTP Expired Twice | daily-life timer panic / two-person pressure system / mutual comedy | approved_package_handoff_ready | Creator approved this after rejecting Unknown Number Adult Voice as underfleshed and asked to continue carousel creation. Active package: `output/carousels/2026-05-29/otp-expired-twice/`. Locked repaired copy: `30 seconds.`, `jaldi bolo.`, `8 tha ya 3?`, `expired.`, `resend. breathe.`, `submitted.`, `two people panicking correctly.` Winning visual system: cozy home mini mission-control with two color-coded phones, hands, eye-lines, and shared body movement proving the joke before text. Keep this harmless app verification only; avoid shopping/cart framing, money audit, scam/fraud vibes, branded UI, perfect-husband rescue, or making either partner look incompetent. Handoff prompts for native 4:5 and separate native 9:16 exist; final generated images and visual QA remain pending because identity references must be attached as actual image inputs. | 1.0 |
 | 2026-05-29 | Unknown Number Adult Voice | daily-life adulting comedy / unknown-call private teamwork / formal voice rescue | rejected_creator_underfleshed | Creator said the idea is not looking good or fleshed out enough and asked to explore funnier or different angles. Do not pitch the unknown-number/adult-voice scene as the fresh winner unless explicitly revisiting. Failure note: the scene has visual clarity but not enough escalation, comedic surprise, or A Story of Two-specific emotional machine; it still reads like a cute adulting skit rather than a strong carousel premise. | 1.0 |
-| 2026-05-29 | Private Captions, Aachu/Zuv Edition | creator-supplied Friends/Monica-Chandler style mechanic / original Aachu-Zuv illustrated labels / photo-rooted private readings | active_creator_supplied_direction | Creator explicitly supplied Aachu/Zuv photos plus Monica/Chandler-style paired-label references and said they share the same energy. This reopens the private-caption lane with a stronger source basis: use actual source scenes (mountain chai, Crocs + chai, bamboo selfie, home kiss, cafe/garden photo) and tiny paired lowercase labels that reveal private interpretation. Creator corrected that the reference captions are much better than polished lines; labels must be deadpan, blunt, present-tense, 1-4 words, and slightly underwritten (`stressed/listens`, `happy/happy she's smiling` energy), not romantic carousel slogans. Do not use the old rejected V2/V3 outputs or generic label tableaux. Do not copy Friends frames, actors, sets, exact label sets, or sitcom blocking. Use the mechanic only: one candid illustrated Aachu/Zuv scene, one tiny label near each person/object, body language proves label before text. Local active draft: `/Users/himanshusharma/Documents/Codex/2026-05-29/create-next-coausel-theme/next-carousel-theme.md`. | 1.0 |
+| 2026-05-29 | Private Captions, Aachu/Zuv Edition | creator-supplied Friends/Monica-Chandler style mechanic / original Aachu-Zuv illustrated labels / photo-rooted private readings | active_creator_supplied_direction | Creator explicitly supplied Aachu/Zuv photos plus Monica/Chandler-style paired-label references and said they share the same energy. This reopens the private-caption lane with a stronger source basis: use actual referenced moments (mountain chai, Crocs + chai, bamboo selfie, home kiss, cafe/garden photo) and tiny paired lowercase labels that reveal private interpretation. Creator corrected that the reference captions are much better than polished lines; labels must be deadpan, blunt, present-tense, 1-4 words, and slightly underwritten (`stressed/listens`, `happy/happy she's smiling` energy), not romantic carousel slogans. Do not use the old rejected V2/V3 outputs or generic label tableaux. Do not copy Friends frames, actors, sets, exact label sets, or sitcom blocking. Use the mechanic only: one candid illustrated Aachu/Zuv scene, one tiny label near each person/object, body language proves label before text. Local active draft: `/Users/himanshusharma/Documents/Codex/2026-05-29/create-next-coausel-theme/next-carousel-theme.md`. | 1.0 |
 | 2026-05-29 | The Plan Got Resized / Bahar-Bistar-Neeche Tak | daily homebody vs outside energy / lazy-homesick rest mode / tiny outing compromise | approved_creator_perfect_copy_lock | Creator corrected the prior glam/function idea and supplied the real pulse: daily things, male partner lazy/homesick wanting to stay and rest while she wants to go out. Approved raw spine: `She wanted bahar. He wanted bistar. So love chose neeche tak.` Keep this raw, funny, daily, and desi. Use home doorway, blanket/bed, shoes/slippers, keys, half-open door, and building gate/stairs/bench as proof. Do not turn it into `love is compromise`, a polished moral, perfect-husband rescue, nagging-wife/lazy-husband insult, couch-only romance, or date-night glam. Active copy-lock artifacts: `output/concepts/2026-05-29/the-plan-got-resized-jam/`. | 1.0 |
 | 2026-05-29 | Some Couples Have No Responsible Adult - Dance Floor Version | mutual harmless chaos / sangeet dance-floor misstep / co-conspirator love | rejected_creator_wrong_lane | Creator corrected this after the recommendation: the idea must feel like daily things, specifically male partner being lazy/homesick wanting to stay and rest while she wants to go out. Do not continue the dance-floor/function/glam route as the fresh carousel. The useful lesson is only to keep mutual participation and avoid perfect-husband drift. Old idea-lock artifacts remain at `output/concepts/2026-05-29/no-responsible-adult-dance-floor-jam/`. | 1.0 |
 | 2026-05-29 | Passenger Seat Is Mission Control | car-ride comedy / passenger commentary / command-center co-pilot / same-bit participation | rejected_creator_yuck | Creator rejected this immediately with "yuk." Do not pitch or repair car/navigation/passenger-seat mission-control concepts as the next carousel. Failure is creator taste and premise fit, not copy polish. Avoid leaning on sitcom-ish "woman gives instructions / man plays along" dynamics unless the creator supplies a real source moment and explicitly wants that lane. | 1.0 |
@@ -595,7 +791,7 @@ confidence: 0.98
 | 2026-05-29 | Parcel Alibi / The Doorbell Exposed Both Of Them | daily-human parcel comedy / mutual shopping guilt / shared alibi | rejected_creator_yuck | Creator rejected this immediately: "yuck how did the council even suggested this". Postmortem: the council overcorrected toward mutual guilt, concrete receipts, and anti-perfect-husband structure, but missed creator taste and @a.storyof.two specificity. It feels like generic online-shopping sitcom content, not a cinematic/desi love-story idea; the legalistic `statements/alibi` language is try-hard; the emotional obstacle is too thin; and the visual world is indoor boxes/sofa instead of a memorable relationship scene. Do not pitch parcel/shopping-alibi/doorbell-box concepts as fresh unless the creator explicitly asks to revisit. Jam record: `output/concepts/2026-05-29/parcel-alibi-jam/`. | 1.0 |
 | 2026-05-28 | Suitcase Relocation - review room | travel packing comedy / both-guilty receipts / blame-the-zip-not-each-other | selected_next_repair_before_copy_lock | Creator picked Suitcase Relocation as the next carousel candidate and asked for everyone to review it. Multi-agent room agreed the raw spine is strong but REPAIR before GO: keep the mutual guilt and zip-blame phrase-world, do not make Zuv saintly, and make the emotional thesis that both created the mess but chose a harmless villain instead of blaming each other. Winning route: `Blame The Zip, Not Each Other` with recommended bridge options `Nobody blamed each other. Only the zip.` or `Together, they blamed the zip.` Creator rejected the line `He packed chargers for gadgets they don't own` as implausible; do not use it. Replace with a real-life male overpacking receipt, e.g. packing every charger except the needed one, a power bank without the cable, a speaker nobody asked for, or three backup adapters. Short-film packing-room visual system is preferred; avoid text-driven suitcase poster visuals. Creator also flagged the first proof for missing slide consistency; Suitcase Relocation must now use one locked warm bedroom packing-room world across every slide (same Aachu/Zuv outfits, dark olive suitcase, cream toiletry pouch, charger pile, folded clothes, shoes, bed, plant, and handwritten text system). Do not jump to hotel bathroom/hotel-floor discovery beats. | 0.99 |
 | 2026-05-28 | Kitchen Forgiveness Glitch | daily-human kitchen comedy / mouth-versus-hands / cup reveal payoff | handoff_ready_29_30_version | Creator asked to execute the 29/30 version after rejecting the `It's okay` ending. Active package: `output/carousels/2026-05-28/kitchen-forgiveness-glitch/`. Locked spine: `She was still angry.` -> `Aayega toh maaf kar dungi.` -> silent cup/glass preparation -> doorway freeze -> `AB AAYE HO?` -> `Cup ready tha.`. Use standard identity/style handoff only: contact sheet plus selected refs ID36, ID37, ID39, ID44 and accepted style refs. Do not generate text-only images, do not revert to thought-bubble payoff, and do not turn Zuv into a perfect-husband repair. | 1.0 |
-| 2026-05-24 | Some Couples Come With Private Captions - final reset | Friends-reference mechanic / paired labels / private kindness / varied love moments | fresh_reset_prompt_handoff_ready | Creator chose the old Friends-reference/private-captions session as the format source and asked to create the final illustration carousel with different locations and dresses so it feels like a story of every two people in love. Fresh current-flow package lives at `output/carousels/2026-05-24/some-couples-come-with-private-captions-final/`. Preserve paired labels and same-scene private interpretation, but do not reuse rejected V2/V3 outputs as final art. Use varied moments: city hook, home doorway, rainy listening, street-food joy, grocery agreement, winter softness, car-laugh sound, rooftop thesis. Full generation is blocked until one proof passes the performance-autopsy gate: visible behavior before text, active Zuv, kind labels, no Friends copy, no generic soft tableau. | 0.99 |
+| 2026-05-24 | Some Couples Come With Private Captions - final reset | Friends-reference mechanic / paired labels / private kindness / varied love moments | fresh_reset_prompt_handoff_ready | Creator chose the old Friends-reference/private-captions session as the format source and asked to create the final illustration carousel with different locations and dresses so it feels like a story of every two people in love. Fresh current-flow package lives at `output/carousels/2026-05-24/some-couples-come-with-private-captions-final/`. Preserve paired labels and same-scene private interpretation, but do not reuse rejected V2/V3 outputs as final art. Use varied moments: city hook, home doorway, rainy listening, street-food joy, grocery agreement, winter softness, car-laugh sound, rooftop thesis. Full generation is blocked until one proof passes the performance-autopsy gate: visible behavior before text, kind labels, relationship motion, no Friends copy, no generic soft tableau. | 0.99 |
 | 2026-05-24 | Blanket Border Dispute | natural everyday couple comedy / bedtime blanket receipt / accidental perfect-husband drift | rejected_autopsy_fail | Creator rejected the direction as still stuck in perfect-husband/tender-care logic instead of what generates shares, saves, sends, and likes. Autopsy failure: the route has a relatable domestic object, but the proposed turn `He tucked her in first` makes Zuv saintly and softens the bit instead of creating a hard public identity mirror with three receipts, one physically funny proof beat, mutual participation, and a taggable punch-to-thesis ending. Do not use this as the next carousel unless rebuilt into a sharper two-person mischief format. | 0.99 |
 | 2026-05-24 | Me With My "Jo Tu Kahegi Wahi Hoga" - fresh illustrated artifact reset | artifact-first / private phrase-world / illustrated relationship artifacts / autopsy-calibrated proof gate | rejected_creator_requested_new_idea | Creator stopped this route on 2026-05-24 with direct feedback: "not this idea, pick a new one." Do not keep generating, packaging, or pitching this as the active concept unless the creator explicitly asks to revisit it. The existing package remains at `output/carousels/2026-05-24/jo-tu-kahegi-wahi-hoga-illustrated-artifacts/`, but treat it as abandoned for the current jam. | 0.99 |
 | 2026-05-24 | Passenger Seat Traffic Control | carousel jam / driving commentary / co-pilot couple comedy / autopsy-calibrated identity mirror | recommended_autopsy_calibrated | Recommended after creator rejected `The Fake Time Husband` against the carousel performance autopsy. Slide 1 candidate: `He didn't marry a quiet passenger. He married mission control.` Core proof: Maps says left in 300 meters; she says LEFT-LEFT-LEFT now; her foot finds the invisible brake; AC has a committee; playlist gets vetoed; he asks `Captain, next?` Autopsy Gate 33.5/35, Story-Selling 28.5/30, Golden Theme 28/30. Must be repaired so it reads as shared co-pilot language, not nagging wife/helpless husband or unsafe driving. Jam record: `output/concepts/2026-05-24/passenger-seat-traffic-control-jam/`. | 0.94 |
@@ -620,7 +816,7 @@ confidence: 0.98
 | 2026-05-23 | Home Never Counted Her Bites | fuller-life / food as comfort / best-bite home proof | superseded_by_second_serving | Creator supplied the sharper seed: "She stopped saying, bas thoda sa. Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi." This repaired the prior gap by making the food/appetite bridge visible before the 55-to-70 payoff, but it is superseded by the 6-slide "The Second Serving Was Never Just Food" route after the continuous agent room found stronger Hinglish retention and clearer bridge logic. Do not use this as the active package unless the creator asks to revert. | 0.96 |
 | 2026-05-23 | Marry The One Who Likes Your Annoying Version | pure-insight / everyday unfiltered self / affectionate irritation / partner-tag mirror | recommended_winner_after_spark_rejection | Generated as Agent C retention-strategy answer after creator rejected "Some People Only Love Your Spark In Private" as too niche. Winner beats the spark/social-visibility lane because nearly every couple has an "annoying but mine" version: repeated questions, weird voices, dramatic micro-updates, random theories, unnecessary commentary, and affectionate participation. Preserve the broad hook, escalating receipts, slide 4/5 reversal where tolerance becomes fondness, and final send line. Avoid turning it into high-maintenance, overthinking/reassurance, chaos/home, or generic "accept me as I am" therapy copy. | 0.94 |
 | 2026-05-23 | The Second Serving Was Never Just Food | fuller-life / appetite safe / home food bridge / comfort not comments | instagram_post_final_packaged | Exchange/debate pass repaired the six-route room. Final selector rejected "Some Love Doesn't Count Bites" as too surveillance-coded and chose a hybrid of the Khaya/Aur Logi retention hook plus Appetite Safe emotional truth. Active 6-slide package: `output/carousels/2026-05-23/the-second-serving-was-never-just-food-2/`. Public spine: "Woh bas 'khaya?' nahi poochta." -> "Woh 'aur logi?' bolta hai." -> "The second serving wasn't just food." -> "No comments. Just comfort." -> "Wanting started feeling safe." -> "55 se 70 nahi. Bas life zyada tasty ho gayi." Six illustrated Instagram post finals now exist in `final/slide-01.png` through `final/slide-06.png` at 1080x1350, split from the Codex-generated illustrated contact sheet. Visual QA is PASS_WITH_NOTES for Instagram post entry; separate native 9:16 Reels/Stories finals remain pending and are not claimed. | 0.99 |
-| 2026-05-23 | Some Couples Come With Private Captions / Same Scene, Two Inner Worlds | paired-label meme / private translation / mutual adoration in ordinary frames | concept_approved_visuals_repairing_model_native_required | Creator challenged the first answer for not spawning the creative room and for flattening the Friends-style screenshots into generic "right reaction." Four-agent repair clarified the real mechanic: paired lowercase labels placed directly on each partner inside candid shared scenes, where one label names visible state/behavior and the other names the partner's private translation, delight, care, loyalty, or softness. The concept is approved, but the first local deterministic final output was visually rejected because it looked like a renderer mockup, not an Instagram carousel illustration. Later visual corrections clarified the reference format: less text, clear visuals, light context, no side notes, no arrows, no annotation clutter, no `him:`/`her:` prefixes, and one short label per person directly on/near the character while body language carries the joke. Package lives at `output/carousels/2026-05-23/some-couples-come-with-private-captions/`; use `visual-format-room.md` and `visual-label-lock.json` as the mandatory repaired visual brief. Winning label spine: "some couples come with private captions" -> "being dramatic / taking it seriously," "stressed / listening first," "excited / happy she's smiling," "doesn't like it / agrees," "acting tough / knows he's soft," "bad joke / favorite sound" -> "the right person captions you kindly." Future final outputs must be model-native illustrated scene-first private label frames with simple Aachu/Zuv composition, clear body language, minimal context hints, and actual identity/style references; do not treat the local deterministic `final/` and `final-reels-stories/` files as acceptable final art. Use original Aachu/Zuv illustrated scenes only; no Friends frames, likenesses, exact label copying, roast/dumb-dumber framing, generic compatibility quotes, "subtitles" retread, one-setting cafe repetition, micro-annotation systems, crowded scenes, or one-way "she is chaos/he handles it" emotional labor. | 0.99 |
+| 2026-05-23 | Some Couples Come With Private Captions / Same Scene, Two Inner Worlds | paired-label meme / private translation / mutual adoration in ordinary frames | concept_approved_visuals_repairing_integrated_text_required | Creator challenged the first answer for not spawning the creative room and for flattening the Friends-style screenshots into generic "right reaction." Four-agent repair clarified the real mechanic: paired lowercase labels placed directly on each partner inside candid shared scenes, where one label names visible state/behavior and the other names the partner's private translation, delight, care, loyalty, or softness. The concept is approved, but the first local deterministic final output was visually rejected because it looked like a renderer mockup, not an Instagram carousel illustration. Later visual corrections clarified the reference format: less text, clear visuals, light context, no side notes, no arrows, no annotation clutter, no `him:`/`her:` prefixes, and one short label per person directly on/near the character while body language carries the joke. Package lives at `output/carousels/2026-05-23/some-couples-come-with-private-captions/`; use `visual-format-room.md` and `visual-label-lock.json` as the mandatory repaired visual brief. Winning label spine: "some couples come with private captions" -> "being dramatic / taking it seriously," "stressed / listening first," "excited / happy she's smiling," "doesn't like it / agrees," "acting tough / knows he's soft," "bad joke / favorite sound" -> "the right person captions you kindly." Future final outputs must be scene-first Aachu/Zuv illustration frames with simple composition, clear body language, minimal context hints, actual identity/style references, and exact labels integrated into the final image raster; do not treat local deterministic mockups or textless generated artifacts as acceptable final art. Use original Aachu/Zuv illustrated scenes only; no Friends frames, likenesses, exact label copying, roast/dumb-dumber framing, generic compatibility quotes, "subtitles" retread, one-setting cafe repetition, micro-annotation systems, crowded scenes, or one-way "she is chaos/he handles it" emotional labor. | 0.99 |
 | 2026-05-23 | Life Zyada Tasty Ho Gayi - six storyline routes | fuller-life / food-appetite bridge / home joy without being watched | storyline_routes_presented | Built six distinct home-set storyline routes for the approved payoff "55 se 70 nahi. Bas life zyada tasty ho gayi." Strongest recommendations: "Some Love Doesn't Count Bites" and "She Stopped Living Carefully." Required constraints: no public Aachu/Zuv names, no slim/fat or before-after body premise, no scales/measuring tape, visible food/appetite/life-taste bridge before the ending, and food as emotional evidence that joy became safe at home. | 0.96 |
 | 2026-05-23 | Someone Who Stays For The Full Story | storytelling partner / side plots / full-version listening | final_generated_pass_with_notes | Creator approved the final copy and asked to crack the visual structure before final illustrations. Final package lives at `output/carousels/2026-05-22/someone-stays-for-the-full-story/` with 7 slides, visual system `Performance To Presence`, and final generated `final/` plus `final-reels-stories/` outputs. Core thesis: Aachu performs the full incident with side plots and a timeline only she understands; Zuv's active love is phone-down attention and staying for the full story. Do not pitch side-plot/full-story listening as a fresh lane unless revisiting this package. Audit is `PASS_WITH_NOTES` because the built-in generator returned taller-than-4:5 post sources, so final post files preserve the full art with warm-paper contain margins. | 0.97 |
 | 2026-05-23 | The Right Reaction / Not Same Energy | paired emotional roles / shared-scene subtext / complementary inner captions | creator_feedback_repair_required | Creator said the first recommendation failed to spawn the agent room and flattened the supplied Friends-style references into generic "right reaction." Corrected read: the magic is paired emotional roles inside the same scene, sometimes symmetrical and sometimes complementary, with tiny labels exposing hidden subtext. Future repair must use a film/story lens and multiple-agent creative-room process before recommendation. Do not pitch "right reaction" as the concept; build the deeper engine from obstacle, reversal, Aachu active role, Zuv active role, and earned thesis. Avoid copying Friends frames, likenesses, exact labels, or turning the format into generic compatibility advice. | 0.97 |

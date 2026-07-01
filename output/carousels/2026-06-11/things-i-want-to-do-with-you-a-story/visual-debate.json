@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "winner": "Little Futures, Mostly Faceless",
+  "agents": [
+    {
+      "agent": "carousel-visual-evidence-planner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete object/hand/action evidence per slide, never repeated pretty backgrounds.",
+      "recommendation": "Hands, mugs, dessert spoons, car gear area, balcony table, shop object, and saved-memory pile should each prove one text line."
+    },
+    {
+      "agent": "carousel-romance-scene-planner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "The romance is in wanting ordinary time to repeat.",
+      "recommendation": "Block each scene around small touch, attention, or saving behavior rather than face-forward posing."
+    },
+    {
+      "agent": "carousel-visual-continuity-judge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "GO if identity cues stay consistent despite faceless framing.",
+      "recommendation": "Use recurring hand/jewelry/hair/posture details and selected identity references whenever a face is visible."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "literal screenshot recreation",
+    "all-black cinematic night-photo mood",
+    "generic Western stock couple",
+    "quote card with decorative background",
+    "same face-forward composition on every slide"
+  ],
+  "selector_verdict": "Proceed to prompt handoff with proof slide 04 first. The car hand-hold scene best tests the faceless identity, ordinary romance, typography, and A Story house style in one frame.",
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "visual": "hands lifted against open meadow/sky, faces hidden"
+    },
+    {
+      "slide": 2,
+      "visual": "top-down bed coffee and croissants, hands only"
+    },
+    {
+      "slide": 3,
+      "visual": "dessert table with spoons/hands/candlelight, partial silhouettes"
+    },
+    {
+      "slide": 4,
+      "visual": "clean inside-car center-console hand-hold with dashboard minimized"
+    },
+    {
+      "slide": 5,
+      "visual": "balcony/garden dinner from behind, shared serving action"
+    },
+    {
+      "slide": 6,
+      "visual": "Zuv in shop thinking of Aachu, over-shoulder/object proof"
+    },
+    {
+      "slide": 7,
+      "visual": "shared saved-moments pile, soft partial couple identity"
+    }
+  ]
+}

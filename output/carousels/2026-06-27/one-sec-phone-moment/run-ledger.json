@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "PROOF_FAILED_DIMENSION_GATE",
+  "requirements": [
+    {
+      "requirement": "Exact creator copy preserved",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Stage-scene gate",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Visual debate gate",
+      "status": "PASS"
+    },
+    {
+      "requirement": "Identity consistency gate",
+      "status": "BLOCKED"
+    },
+    {
+      "requirement": "Proof-first generation",
+      "status": "FAILED_DIMENSION_GATE"
+    },
+    {
+      "requirement": "Final native 4:5 and 9:16 outputs",
+      "status": "PENDING"
+    }
+  ],
+  "final_gate": "PROOF_FAILED_DIMENSION_GATE"
+}

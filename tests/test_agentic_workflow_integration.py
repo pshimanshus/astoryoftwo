@@ -10,88 +10,8 @@ from pipeline.stages.c1_illustration_carousel import build_manifest as build_ant
 from pipeline.stages.c1_illustration_carousel import load_context as load_anthropic_context
 from pipeline.stages.b1_prepost import build_agentic_os_brief, load_context as load_prepost_context
 from scripts.create_substack_article_package import create_article_package
-
-
-def write_minimal_agentic_workspace(root: Path) -> None:
-    (root / "config").mkdir(parents=True, exist_ok=True)
-    (root / "memory" / "semantic").mkdir(parents=True, exist_ok=True)
-    (root / "memory").mkdir(exist_ok=True)
-    (root / "config" / "voice.md").write_text("Warm A Story of Two voice.", encoding="utf-8")
-    (root / "memory" / "working.md").write_text("Current visual-first carousel work.", encoding="utf-8")
-    (root / "memory" / "semantic" / "prefs.md").write_text(
-        "# Preferences\n\nconfidence: 0.9\n\nfact: Use visual-first proof for couple stories.\n",
-        encoding="utf-8",
-    )
-    (root / "config" / "agentic_context_manifest.json").write_text(
-        json.dumps(
-            {
-                "schema_version": "1.0",
-                "default_profile": "a-story-of-two",
-                "profiles": {
-                    "a-story-of-two": {
-                        "budget_tokens": 500,
-                        "sections": [
-                            {
-                                "id": "voice",
-                                "path": "config/voice.md",
-                                "kind": "brand_voice",
-                                "required": True,
-                            },
-                            {
-                                "id": "working",
-                                "path": "memory/working.md",
-                                "kind": "working_memory",
-                                "required": True,
-                            },
-                        ],
-                    },
-                    "article": {
-                        "budget_tokens": 500,
-                        "sections": [
-                            {
-                                "id": "voice",
-                                "path": "config/voice.md",
-                                "kind": "brand_voice",
-                                "required": True,
-                            },
-                            {
-                                "id": "working",
-                                "path": "memory/working.md",
-                                "kind": "working_memory",
-                                "required": True,
-                            },
-                        ],
-                    },
-                },
-            }
-        ),
-        encoding="utf-8",
-    )
-    (root / "config" / "skill-systems.json").write_text(
-        json.dumps(
-            {
-                "schema_version": "1.0",
-                "systems": {
-                    "carousel_jam": {
-                        "components": ["config/skills/carousel-jam-autopilot.md"],
-                        "agents": [],
-                        "gates": ["visual_debate_go"],
-                    },
-                    "story_article": {
-                        "components": ["config/skills/couple-substack-article-framework.md"],
-                        "agents": [],
-                        "gates": ["final_approval"],
-                    },
-                    "prepost_reel": {
-                        "components": ["config/skills/hook-and-edit-framework.md"],
-                        "agents": [],
-                        "gates": ["verdict"],
-                    },
-                },
-            }
-        ),
-        encoding="utf-8",
-    )
+from tests.helpers.agentic_workspace import write_minimal_agentic_workspace
+from tests.helpers.images import write_jpeg
 
 
 def test_anthropic_context_and_manifest_use_agentic_os():
@@ -125,6 +45,26 @@ def test_codex_native_manifest_records_agentic_os_contract():
     assert manifest["agentic_os"]["skill_system"] == "carousel_jam"
     assert manifest["agentic_os"]["context_manifest"] == "config/agentic_context_manifest.json"
     assert manifest["agentic_os"]["skill_systems"] == "config/skill-systems.json"
+
+
+def test_codex_native_workflow_rejects_empty_explicit_identity_refs(tmp_path: Path):
+    story_image = tmp_path / "story.jpg"
+    write_jpeg(story_image)
+
+    try:
+        codex_native_carousel.create_codex_native_carousel(
+            story="A small proof story with Aachu and Zuv.",
+            image_paths=[story_image],
+            identity_image_paths=[],
+            title="Empty Identity",
+            output_root=tmp_path / "output" / "carousels",
+            render_assets=False,
+            today=date(2026, 5, 28),
+        )
+    except ValueError as exc:
+        assert "identity reference" in str(exc).lower()
+    else:
+        raise AssertionError("empty explicit identity refs should not create a publishable workflow package")
 
 
 def test_prepost_context_and_brief_use_agentic_os():
@@ -183,6 +123,7 @@ def test_agentic_os_cli_plan_aliases(tmp_path: Path):
         text=True,
         capture_output=True,
         check=False,
+        timeout=30,
     )
     index_memory = subprocess.run(
         [
@@ -196,6 +137,7 @@ def test_agentic_os_cli_plan_aliases(tmp_path: Path):
         text=True,
         capture_output=True,
         check=False,
+        timeout=30,
     )
 
     assert skill_system.returncode == 0, skill_system.stderr

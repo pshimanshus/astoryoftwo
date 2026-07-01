@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "routes": [
+    {
+      "name": "Same Text, New Camera Life",
+      "score": 29,
+      "golden_theme_score": 28.5,
+      "verdict": "GO",
+      "summary": "Preserve exact copy while restaging each line through unique POV, side, back, and cropped ordinary-life illustrations."
+    },
+    {
+      "name": "Source-Mood Photo Redraw",
+      "score": 18,
+      "golden_theme_score": 18,
+      "verdict": "STOP",
+      "summary": "Too close to the screenshots and too dependent on photo atmosphere."
+    },
+    {
+      "name": "Object-Only Poetic Still Lifes",
+      "score": 21,
+      "golden_theme_score": 20,
+      "verdict": "STOP",
+      "summary": "Elegant but fails the Stage-Scene Gate because the text carries the emotion."
+    }
+  ]
+}

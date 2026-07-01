@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "agent_room_mode": "simulated",
+  "limitation": "Sub-agent spawning was not used because the current tool contract allows it only when the user explicitly asks for delegation or parallel agent work.",
+  "locked_copy_source": "slides.json",
+  "visual_systems_compared": [
+    {
+      "name": "Domestic Rulebook Mini Film",
+      "verdict": "GO",
+      "reason": "Every rule becomes a different lived scene with object proof, escalating from chaos to aadat."
+    },
+    {
+      "name": "Illustrated Legal Manual",
+      "verdict": "STOP",
+      "reason": "Too likely to become text-first poster artifacts and lose relationship motion."
+    },
+    {
+      "name": "One-Room Continuous Chaos",
+      "verdict": "REPAIR",
+      "reason": "Warm and cohesive, but too much repeated bedroom/living-room grammar for nine slides."
+    }
+  ],
+  "selected_visual_system": "Domestic Rulebook Mini Film",
+  "rejected_motifs": [
+    "quote-card rulebook pages",
+    "legal document parody",
+    "same sofa scene with different captions",
+    "mean-spirited fight staging",
+    "busy clutter that hides the couple"
+  ],
+  "selector_verdict": "GO: generate a square proof for slide 04 first."
+}

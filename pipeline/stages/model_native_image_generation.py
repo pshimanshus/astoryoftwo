@@ -6,10 +6,9 @@ from typing import Any
 
 
 DEFAULT_MODEL = "disabled-legacy-api-model"
-DEFAULT_SIZE = "1728x2160"
+DEFAULT_SIZE = "1080x1350"
 REELS_STORIES_REQUEST_SIZE = "1080x1920"
 FINAL_UPLOAD_SIZE = (1080, 1350)
-HD_MASTER_SIZE = (2160, 2700)
 REELS_STORIES_SIZE = (1080, 1920)
 MAX_REFERENCE_IMAGES = 16
 MAX_IDENTITY_REFERENCES_WITH_STYLE = 4
@@ -25,9 +24,10 @@ NATIVE_OUTPUT_CONTRACT = {
         "identity_visual_qa",
     ],
     "rule": (
-        "Each slide must have two separate native generated sources: one 4:5 Instagram post "
-        "image and one 9:16 Reels/Stories image. Reels/Stories output must never be derived "
-        "by resizing, cropping, or padding the Instagram post image."
+        "Each slide must have two separate native generated sources: one Instagram post image "
+        "generated exactly at 1080x1350 and one Reels/Stories image generated exactly at "
+        "1080x1920. Reels/Stories output must never be derived by resizing, cropping, or "
+        "padding the Instagram post image."
     ),
 }
 LEGACY_API_IMAGE_GENERATION_DISABLED_REASON = (
@@ -130,87 +130,15 @@ def decode_png(image_bytes: bytes) -> Any:
     return source
 
 
-def encode_png(image: Any) -> bytes:
-    import cv2
-
-    ok, encoded = cv2.imencode(".png", image, [cv2.IMWRITE_PNG_COMPRESSION, 3])
-    if not ok:
-        raise RuntimeError("Could not encode normalized carousel image.")
-    return encoded.tobytes()
-
-
-def cover_resize(image_bytes: bytes, width: int, height: int) -> bytes:
-    import cv2
-
-    source = decode_png(image_bytes)
-    source_height, source_width = source.shape[:2]
-    # Uniform scale only. Never non-uniformly stretch generated artwork to fit
-    # the carousel canvas; crop is preferable to distorting people or text.
-    scale = max(width / source_width, height / source_height)
-    resized = cv2.resize(
-        source,
-        (round(source_width * scale), round(source_height * scale)),
-        interpolation=cv2.INTER_LANCZOS4,
-    )
-    resized_height, resized_width = resized.shape[:2]
-    x = max(0, (resized_width - width) // 2)
-    y = max(0, (resized_height - height) // 2)
-    cropped = resized[y : y + height, x : x + width]
-    return encode_png(cropped)
-
-
 def normalize_native_output(image_bytes: bytes, width: int, height: int) -> bytes:
-    import cv2
-
     source = decode_png(image_bytes)
     source_height, source_width = source.shape[:2]
-    source_aspect = source_width / source_height
-    target_aspect = width / height
-    if abs(source_aspect - target_aspect) > 0.02:
+    if (source_width, source_height) != (width, height):
         raise RuntimeError(
-            "Generated image aspect ratio does not match its native target: "
+            "Generated image dimensions do not match the exact native target: "
             f"source={source_width}x{source_height}, target={width}x{height}."
         )
-    resized = cv2.resize(source, (width, height), interpolation=cv2.INTER_LANCZOS4)
-    return encode_png(resized)
-
-
-def paper_color(source: Any) -> Any:
-    import cv2
-    import numpy as np
-
-    source_height, source_width = source.shape[:2]
-    band = max(12, min(source_height, source_width) // 30)
-    pixels = np.concatenate(
-        [
-            source[:band, :, :].reshape(-1, 3),
-            source[-band:, :, :].reshape(-1, 3),
-            source[:, :band, :].reshape(-1, 3),
-            source[:, -band:, :].reshape(-1, 3),
-        ]
-    )
-    hsv = cv2.cvtColor(pixels.reshape(-1, 1, 3), cv2.COLOR_BGR2HSV).reshape(-1, 3)
-    paper_pixels = pixels[(hsv[:, 1] < 50) & (hsv[:, 2] > 185)]
-    return np.median(paper_pixels if len(paper_pixels) else pixels, axis=0).astype("uint8")
-
-
-def contain_on_paper(image_bytes: bytes, width: int, height: int) -> bytes:
-    import cv2
-    import numpy as np
-
-    source = decode_png(image_bytes)
-    source_height, source_width = source.shape[:2]
-    scale = min(width / source_width, height / source_height)
-    resized_width = round(source_width * scale)
-    resized_height = round(source_height * scale)
-    resized = cv2.resize(source, (resized_width, resized_height), interpolation=cv2.INTER_LANCZOS4)
-
-    canvas = np.empty((height, width, 3), dtype=np.uint8)
-    canvas[:, :] = paper_color(source)
-    x = (width - resized_width) // 2
-    y = (height - resized_height) // 2
-    canvas[y : y + resized_height, x : x + resized_width] = resized
-    return encode_png(canvas)
+    return image_bytes
 
 
 def write_blocked_status(carousel_dir: Path, reason: str) -> dict[str, Any]:

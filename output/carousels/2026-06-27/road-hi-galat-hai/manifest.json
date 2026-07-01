@@ -1,0 +1,70 @@
+{
+  "date": "2026-06-27",
+  "slug": "road-hi-galat-hai",
+  "title": "Road Hi Galat Hai",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local_plus_builtin_imagegen_proof",
+  "status": "copy_locked_proof_ready",
+  "source_story": "Confusing flyover/service-lane couple navigation story. First missed left cut, playful I-told-you beat, second confusing right cut, shared blame, +17 minutes receipt, wrong turn/same team payoff.",
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 8,
+    "proof_rule": "Generate one square 1080x1080 proof first; final publishable package later needs native 4:5 plus separate native 9:16 outputs."
+  },
+  "reference_images": [
+    {
+      "path": "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.24 PM.png",
+      "role": "story/style reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.32 PM.png",
+      "role": "story/style reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.28 PM.png",
+      "role": "story/style reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.06.55 PM.png",
+      "role": "story/style reference only"
+    },
+    {
+      "path": "/Users/himanshusharma/Desktop/Best Illustration/Screenshot 2026-06-13 at 1.07.00 PM.png",
+      "role": "story/style reference only"
+    },
+    {
+      "path": "/var/folders/02/gt7632z95lv6y_w6gpf1whsh0000gn/T/TemporaryItems/NSIRD_screencaptureui_Dixje3/Screenshot 2026-06-27 at 11.18.47 AM.png",
+      "role": "story/style reference only"
+    }
+  ],
+  "identity_references": [
+    {
+      "path": "config/references/identity/aachu/portrait-02.jpg",
+      "role": "actual Aachu/Zuv identity reference"
+    },
+    {
+      "path": "config/references/identity/zuv/portrait-02.jpg",
+      "role": "actual Aachu/Zuv identity reference"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "actual Aachu/Zuv identity reference"
+    },
+    {
+      "path": "config/references/identity/together/together-19.jpg",
+      "role": "actual Aachu/Zuv identity reference"
+    }
+  ],
+  "artifacts": {
+    "slides": "slides.json",
+    "copy": "copy.json",
+    "concept": "concept.json",
+    "prompt_pack": "prompt-pack.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "final_images": "final-images.json",
+    "visual_qa": "visual-qa.md"
+  }
+}

@@ -34,7 +34,7 @@ Status: NEEDS_FIXES
 ## Issues
 
 - REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as final/slide-XX.png and match slide count
-- REQ-TEXT-OVERLAY-001: Final text overlays are rendered locally into final-with-text/slide-XX.png
+- REQ-INTEGRATED-FINAL-TEXT-001: Exact text is integrated into the final publishable image raster
 - REQ-VISUAL-QA-001: Face and storyboard visual QA exists and has no failed or unchecked identity/storyboard checks
 - asset_reviewer: Missing final generated images: output/carousels/2026-05-16/he-did-not-marry-a-morning-person/final/slide-01.png, output/carousels/2026-05-16/he-did-not-marry-a-morning-person/final/slide-02.png, output/carousels/2026-05-16/he-did-not-marry-a-morning-person/final/slide-03.png, output/carousels/2026-05-16/he-did-not-marry-a-morning-person/final/slide-04.png, output/carousels/2026-05-16/he-did-not-marry-a-morning-person/final/slide-05.png
 

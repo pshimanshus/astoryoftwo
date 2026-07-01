@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIR",
+  "trigger_phrase_or_event": "Creator supplied final slide copy and asked to create the illustration.",
+  "copy_lock": {
+    "approved_by": "creator",
+    "source": "chat message on 2026-06-27",
+    "slides": [
+      "look at this one sec",
+      "the moment just closed",
+      "\"one sec\" never feels like a big deal. that's exactly why it is one.",
+      "it goes both ways",
+      "it's never the big fights. it's the small \"look at this\" you didn't look at.",
+      "turning toward each other is a choice you make in ten seconds",
+      "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "Tag the one you never want to leave on \"one sec.\""
+    ]
+  },
+  "visual_system_candidates": [
+    {
+      "name": "Continuous Couch, Broken Attention",
+      "score": 27,
+      "description": "One evening couch story told through changing camera grammar, object movement, and mutual recognition."
+    },
+    {
+      "name": "Phone-As-Mirror Object Study",
+      "score": 24,
+      "description": "Mostly hands, screens, cups, and table objects."
+    },
+    {
+      "name": "Split Roles Graphic Device",
+      "score": 21,
+      "description": "Graphic before/after or split-screen treatment."
+    }
+  ],
+  "selected_visual_system": "Continuous Couch, Broken Attention",
+  "why_it_wins": "It preserves the creator's couch/chai continuity while repairing the quote-card risk through object evidence, strict shot variety, eye-line, hands, distance, and phone movement.",
+  "rejected_visual_patterns": [
+    "Hard split-screen divider",
+    "Readable phone UI or social app content",
+    "Every slide as the same full-couple medium shot",
+    "Moralizing digital-detox poster",
+    "Phone-only still lifes with no relationship motion"
+  ],
+  "slide_visual_blueprint": "See slides.json.",
+  "typography_and_aspect_plan": {
+    "instagram_post": "Native 4:5. Reserve upper-middle warm paper for exact text. Keep faces and phones in lower/middle-lower zones.",
+    "reels_stories": "Native 9:16. Move text slightly higher with more vertical breathing room; keep couple action in lower half.",
+    "long_text_slides": [
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "text_strategy": "If model text is not exact, generate scene with reserved paper space and place exact copy as integrated lettering in the final raster."
+  },
+  "generation_prompt_brief": "Use Observational Intimacy Premium style, attach selected identity images and style references, include exact on-image text plus only tiny @a.storyof.two brandmark.",
+  "open_doubts": [
+    "Story/taste remains capped until Aachu/Zuv-specific visual behavior is strong enough in proof.",
+    "Built-in generation path in this session does not expose actual reference-image attachment."
+  ],
+  "downstream_requirements": [
+    "visual-debate.json must preserve Continuous Couch, Broken Attention.",
+    "visual-plan-quality.json must pass every slide or block generation.",
+    "prompt-pack.json must name selected identity/style inputs and mark generation blocked if they cannot be attached."
+  ]
+}

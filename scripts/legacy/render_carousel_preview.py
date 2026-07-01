@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render a lightweight illustrated storyboard preview for a carousel package.
 
-This is a local QA preview, not the model-native final artwork. It creates
+This is a local QA preview, not the final publishable artwork. It creates
 simple hand-drawn-style scene cards from slides.json so the story flow can be
 reviewed before final Codex built-in image generation.
 """

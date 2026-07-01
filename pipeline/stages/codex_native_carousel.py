@@ -8,6 +8,7 @@ Instagram-ready stylized image exports from the supplied photos.
 
 from __future__ import annotations
 
+import json
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -101,6 +102,123 @@ from pipeline.stages.carousel_visual_rooms import (
 )
 
 
+CREATIVE_BASELINE_RULE = (
+    "Creative baseline source of truth: model owns concept, copy, and visual invention; "
+    "engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, "
+    "stale artifacts, house guidance."
+)
+
+
+def load_creative_baseline(path: str | Path | None) -> dict[str, Any] | None:
+    if not path:
+        return None
+
+    baseline_path = Path(path).expanduser()
+    if not baseline_path.exists():
+        raise FileNotFoundError(f"Creative baseline file not found: {baseline_path}")
+
+    data = json.loads(baseline_path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError("Creative baseline must be a JSON object.")
+
+    raw_slides = data.get("slides")
+    if not isinstance(raw_slides, list) or not raw_slides:
+        raise ValueError("Creative baseline must include a non-empty slides array.")
+
+    slides: list[dict[str, Any]] = []
+    for index, item in enumerate(raw_slides, start=1):
+        if not isinstance(item, dict):
+            raise ValueError("Each creative baseline slide must be an object.")
+        copy = item.get("copy") or item.get("text")
+        visual = item.get("visual") or item.get("scene")
+        if not isinstance(copy, str) or not copy.strip():
+            raise ValueError("Each creative baseline slide must include copy/text.")
+        if not isinstance(visual, str) or not visual.strip():
+            raise ValueError("Each creative baseline slide must include visual/scene.")
+        slides.append(
+            {
+                "slide": int(item.get("slide") or index),
+                "copy": copy,
+                "visual": visual,
+                "role": item.get("role") or f"Free creative baseline beat {index}",
+                "emotion": item.get("emotion") or "warm, specific, lived-in couple energy",
+                **{
+                    key: item[key]
+                    for key in ("pose", "wardrobe", "props", "background", "continuity_lock")
+                    if key in item
+                },
+            }
+        )
+
+    copy_block = data.get("copy") if isinstance(data.get("copy"), dict) else {}
+    concept = data.get("concept") if isinstance(data.get("concept"), dict) else {}
+    return {
+        "status": "supplied",
+        "source": data.get("source") or str(baseline_path),
+        "source_file": str(baseline_path),
+        "creative_authority": "model_first",
+        "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+        "preservation_rule": CREATIVE_BASELINE_RULE,
+        "concept": concept,
+        "slides": slides,
+        "copy": copy_block,
+        "visual_setup": data.get("visual_setup") or data.get("visual_direction") or "",
+    }
+
+
+def build_local_creative_baseline_record(
+    *,
+    story: str,
+    title: str,
+    slides: list[dict[str, Any]],
+) -> dict[str, Any]:
+    return {
+        "status": "not_supplied",
+        "source": "codex_native_local_builder",
+        "creative_authority": "model_first_expected",
+        "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+        "preservation_rule": CREATIVE_BASELINE_RULE,
+        "concept": {"title": title, "source_story": story},
+        "slides": [
+            {
+                "slide": slide["slide"],
+                "copy": slide["copy"],
+                "visual": slide["visual"],
+                "role": slide.get("role", ""),
+                "emotion": slide.get("emotion", ""),
+            }
+            for slide in slides
+        ],
+        "copy": {},
+        "visual_setup": "",
+    }
+
+
+def slides_from_creative_baseline(
+    creative_baseline: dict[str, Any] | None,
+    image_paths: list[Path],
+) -> list[dict[str, Any]] | None:
+    if not creative_baseline or creative_baseline.get("status") != "supplied":
+        return None
+
+    source_images = [str(path) for path in image_paths]
+    slides: list[dict[str, Any]] = []
+    for item in creative_baseline["slides"]:
+        slide = {
+            "slide": item["slide"],
+            "copy": item["copy"],
+            "role": item.get("role") or f"Free creative baseline beat {item['slide']}",
+            "visual": item["visual"],
+            "emotion": item.get("emotion") or "warm, specific, lived-in couple energy",
+            "source_images": source_images,
+        }
+        for key in ("pose", "wardrobe", "props", "background", "continuity_lock"):
+            if item.get(key):
+                slide[key] = item[key]
+        slides.append(slide)
+    return slides
+
+
 def build_package(
     *,
     story: str,
@@ -112,6 +230,7 @@ def build_package(
     slide_count: int,
     style_brief: str | None,
     layer_e_decision: LayerEDecision | None = None,
+    creative_baseline: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     contract = load_style_contract()
     character_bible = build_character_bible(contract)
@@ -172,7 +291,11 @@ def build_package(
         concept_selection = None
     place = infer_place(story)
     origin = infer_origin(story)
-    slides = build_slides(story, image_paths, slide_count)
+    slides = slides_from_creative_baseline(creative_baseline, image_paths) or build_slides(
+        story,
+        image_paths,
+        slide_count,
+    )
     visual_debate = build_visual_debate(story, slides, lane)
     post_copy_visual_room = build_post_copy_visual_room(
         story=story,
@@ -904,6 +1027,21 @@ def build_package(
             f"#{place.replace(' ', '')}Diaries" if place != "the trip" else "#TravelMemories",
         ]
 
+    if creative_baseline and creative_baseline.get("status") == "supplied":
+        baseline_concept = creative_baseline.get("concept", {})
+        baseline_copy = creative_baseline.get("copy", {})
+        human_truth = baseline_concept.get("human_truth") or human_truth
+        emotional_arc = baseline_concept.get("emotional_arc") or emotional_arc
+        caption_recommended = baseline_copy.get("caption_recommended") or caption_recommended
+        caption_alt = baseline_copy.get("caption_alt") or caption_alt
+        hashtags = baseline_copy.get("hashtags") or hashtags
+
+    creative_baseline_record = creative_baseline or build_local_creative_baseline_record(
+        story=story,
+        title=title,
+        slides=slides,
+    )
+
     story_selling_decision = build_story_selling_decision(
         lane=lane,
         story=story,
@@ -966,6 +1104,11 @@ def build_package(
         emotional_arc=emotional_arc,
         concept_selection=concept_selection,
     )
+    creative_baseline_prompt_rule = (
+        f"{creative_baseline_record['preservation_rule']} "
+        if creative_baseline_record["status"] == "supplied"
+        else ""
+    )
 
     prompt_slides = [
         {
@@ -1011,6 +1154,7 @@ def build_package(
                 f"Successful Carousel Standard source: {SUCCESSFUL_CAROUSEL_STANDARD_PATH}. "
                 f"Successful Carousel Standard rule: {SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT['rule']} "
                 f"Successful Carousel Standard image rule: {SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT['prompt_rule']} "
+                f"{creative_baseline_prompt_rule}"
                 f"Post-copy visual room winner: {post_copy_visual_room['selected_visual_system']}. "
                 f"Post-copy visual room decision: {post_copy_visual_room['status']} / {post_copy_visual_room['decision']}. "
                 f"Visual Debate Gate winner: {visual_debate['winner']}. "
@@ -1056,7 +1200,7 @@ def build_package(
                 "photorealistic, anime, 3D, quote-card design, or glossy AI. "
                 "Generate the complete publishable social slide artwork as one integrated image for each native output. "
                 f"Render this exact handwritten-style text inside the artwork, spelled exactly: '{slide['copy']}'. "
-                f"Render the tiny low-contrast handwritten brandmark '{brandmark}' at bottom-right inside the artwork. "
+                f"Render the tiny low-contrast handwritten brandmark '{brandmark}' at top-right inside the artwork. "
                 "Follow the faces, clothing, posture, and relationship energy from the identity references. "
                 "Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. "
                 "Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. "
@@ -1107,11 +1251,19 @@ def build_package(
             "contact_sheet_path": identity_dossier.get("contact_sheet_path"),
             "status": identity_dossier.get("status"),
         },
+        "creative_baseline": {
+            "artifact": "creative-baseline.json",
+            "status": creative_baseline_record["status"],
+            "creative_authority": creative_baseline_record["creative_authority"],
+            "preservation_rule": creative_baseline_record["preservation_rule"],
+            "source": creative_baseline_record["source"],
+        },
     }
     if concept_selection:
         concept["concept_selection"] = concept_selection
 
     return {
+        "creative_baseline": creative_baseline_record,
         "concept": concept,
         "post_copy_visual_room": post_copy_visual_room,
         "visual_debate": visual_debate,
@@ -1143,6 +1295,13 @@ def build_package(
                 "issues": visual_plan_quality["issues"],
             },
             "successful_carousel_standard": SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
+            "creative_baseline": {
+                "artifact": "creative-baseline.json",
+                "status": creative_baseline_record["status"],
+                "creative_authority": creative_baseline_record["creative_authority"],
+                "guardrail_role": creative_baseline_record["guardrail_role"],
+                "preservation_rule": creative_baseline_record["preservation_rule"],
+            },
             "model_native_master_prompt": master_prompt_contract(),
             "layer_e_story_selling": (
                 {
@@ -1177,10 +1336,23 @@ def build_package(
                 "into the prompt."
             ),
             "character_bible": character_bible,
-            "text_overlay_plan": {
+            "integrated_text_plan": {
                 "strategy": contract["typography"]["strategy"],
                 "composition_role": "publishable_final_illustration_with_text",
-                "font_direction": "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920, rendered by the image model inside each native illustration",
+                "font_direction": (
+                    "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920; "
+                    "exact slide copy must be integrated into the generated final image raster; "
+                    "if the model cannot render exact copy, block or retry with a text-bearing prompt"
+                ),
+                "brandmark": contract["brandmark"],
+                "brandmark_placement": contract["typography"]["brandmark_placement"],
+                "slide_copy": [slide["copy"] for slide in slides],
+            },
+            "text_overlay_plan": {
+                "deprecated_alias_of": "integrated_text_plan",
+                "strategy": contract["typography"]["strategy"],
+                "composition_role": "publishable_final_illustration_with_text",
+                "font_direction": "Deprecated compatibility field. Use integrated_text_plan.",
                 "brandmark": contract["brandmark"],
                 "brandmark_placement": contract["typography"]["brandmark_placement"],
                 "slide_copy": [slide["copy"] for slide in slides],
@@ -1429,9 +1601,13 @@ def create_codex_native_carousel(
     output_root: Path = Path("output") / "carousels",
     render_assets: bool = True,
     today: date | None = None,
+    creative_baseline_path: str | Path | None = None,
 ) -> Path:
     if not story.strip():
         raise ValueError("Story is required.")
+    creative_baseline = load_creative_baseline(creative_baseline_path)
+    if creative_baseline and creative_baseline.get("slides"):
+        slide_count = len(creative_baseline["slides"])
     validate_slide_count(slide_count)
     today = today or date.today()
     workspace_root = infer_workspace_root(output_root)
@@ -1492,6 +1668,7 @@ def create_codex_native_carousel(
         slide_count=slide_count,
         style_brief=style_brief,
         layer_e_decision=layer_e_decision,
+        creative_baseline=creative_baseline,
     )
     manifest = build_manifest(
         title=final_title,

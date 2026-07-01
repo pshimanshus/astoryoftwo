@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO_FOR_PROOF_HANDOFF",
+  "selected_identity_bundle": [
+    "config/references/identity/together/together-01.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/portrait-05.jpg",
+    "config/references/identity/zuv/portrait-05.jpg"
+  ],
+  "identity_strategy": "This set intentionally uses faceless, cropped, back-angle, and over-shoulder scenes. Identity continuity is still required through selected reference images, hand scale, jewelry, hair silhouettes, wardrobe palette, posture, and any visible face on partial-profile slides.",
+  "slide_notes": [
+    {
+      "slide": 1,
+      "identity_visibility": "hands only",
+      "pass": true
+    },
+    {
+      "slide": 2,
+      "identity_visibility": "hands and jewelry only",
+      "pass": true
+    },
+    {
+      "slide": 3,
+      "identity_visibility": "hands / partial silhouettes",
+      "pass": true
+    },
+    {
+      "slide": 4,
+      "identity_visibility": "hands only",
+      "pass": true
+    },
+    {
+      "slide": 5,
+      "identity_visibility": "back/side hair silhouettes",
+      "pass": true
+    },
+    {
+      "slide": 6,
+      "identity_visibility": "Zuv side/back profile",
+      "pass": true
+    },
+    {
+      "slide": 7,
+      "identity_visibility": "partial couple identity",
+      "pass": true
+    }
+  ],
+  "hard_gates": {
+    "actual_identity_references_selected": true,
+    "style_references_selected": true,
+    "text_only_identity_blocked": true,
+    "faceless_identity_strategy_recorded": true
+  },
+  "issues": []
+}

@@ -6,7 +6,6 @@ sources:
 - docs/superpowers/plans/2026-05-25-agentic-os-spine.md
 - docs/superpowers/plans/2026-05-31-agentic-os-activation-sprint.md
 - AGENTS.md
-- CLAUDE.md
 - config/rules/
 - pipeline/agentic/checks/
 
@@ -74,8 +73,9 @@ uses to PASS / FAIL a slide on measurement rather than LLM opinion:
 - `check_ocr_text` — OCR vs. `slides.md` with fuzzy partial-ratio tolerance
   for handwritten variation. Degrades to STOP (soft skip) when easyocr is
   not installed; install with `venv/bin/pip install easyocr`.
-- `check_image_size` — aspect within ±0.01 plus minimum dimensions for 4:5
-  and 9:16. Catches the "one image resized into both formats" failure.
+- `check_image_size` — exact native pixel dimensions: 1080x1350 for
+  post/carousel, 1080x1920 for Story/Reel, and 1080x1080 for explicit square.
+  Rejects same-ratio/minimum-size variants instead of resizing them.
 - `check_prompt_constraints` — compiled prompt contains 8 canonical
   fragments. Catches prompt-compile drift before generation. An upstream
   test (`tests/test_checks_prompt_constraints.py::

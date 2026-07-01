@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "package": "do-life-with-you",
+  "channel": "@a.storyof.two",
+  "created_at": "2026-06-11",
+  "status": "PROOF_READY_FOR_CREATOR_REVIEW",
+  "slide_count": 10,
+  "source_reference": {
+    "role": "mood-message-composition-reference-only",
+    "policy": "Use the supplied Instagram screenshots for the tiny everyday love-language premise, soft domestic mood, and simple text rhythm only. Do not copy screenshot UI, external handle, engagement counters, exact photographic frames, external watermark, or platform layout."
+  },
+  "locked_copy_source": "slides.json",
+  "required_style_lock": [
+    "config/references/a-story-illustration-master-prompt.md",
+    "config/references/a-story-premium-illustration-style-lock.md",
+    "config/references/style-lock/observational-intimacy-premium/"
+  ],
+  "identity_references": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "proof_slide": 6,
+  "artifacts": [
+    "slides.json",
+    "copy.json",
+    "post-copy-visual-room.json",
+    "visual-debate.json",
+    "visual-plan-quality.json",
+    "identity-consistency-review.json",
+    "prompt-pack.json",
+    "review.json",
+    "final-images.json",
+    "visual-qa.md",
+    "codex-image-prompts/instagram-post/slide-06-proof.prompt.txt"
+  ]
+}

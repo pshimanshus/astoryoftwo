@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "author_room": {
+      "name": "Layer E Author Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Storyline Architect",
+          "role": "emotional obstacle and proof engine",
+          "claim": "The story is not the list of activities; the story is wanting a life where ordinary things repeat with one person.",
+          "objection": "If the visuals only decorate the copied text, the deck becomes generic.",
+          "recommendation": "Make every wish a physical scene with action, object movement, and consequence.",
+          "score": 29
+        },
+        {
+          "agent": "Taste Judge",
+          "role": "brand specificity and publish safety",
+          "claim": "The selected visual system can be A Story-specific even with faceless frames.",
+          "objection": "Exact third-party text must be treated as draft unless rights are cleared.",
+          "recommendation": "Proceed to visual plan and proof with a copy-rights note; use rewrite options for public version if needed.",
+          "score": 28.5
+        }
+      ],
+      "summary": "The route passes because it turns wish-list romance into staged ordinary-life behavior while preserving A Story visual ownership.",
+      "inputs_used": [
+        "supplied Instagram screenshots",
+        "config/skills/carousel-jam-runtime-context.md",
+        "config/skills/carousel-story-director-persona.md",
+        "config/references/a-story-illustration-master-prompt.md"
+      ],
+      "debate_records": [
+        "Keep exact visible text only as draft until rights are cleared.",
+        "Reject screenshot recreation and quote-card layout.",
+        "Use faceless/cropped identity continuity as the creative constraint."
+      ],
+      "scores": {
+        "story_selling": 29,
+        "golden_theme": 28.5
+      },
+      "selected_outputs": {
+        "winner": "Little Futures, Mostly Faceless",
+        "proof_slide": "04"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "Little Futures, Mostly Faceless",
+      "story_lens": "Ordinary future wishes become proof of wanting a shared life.",
+      "reader_mirror": "People do not only want grand romance; they want Sundays, errands, dinners, and private noticing with their person.",
+      "emotional_obstacle": "A poetic wish list can feel generic unless the scene proves a specific relationship.",
+      "aachu_specific_spark": "Aachu is present through expressive hand cues, jewelry, hair silhouette, the objects Zuv notices for her, and the softness of their shared domestic world.",
+      "zuv_active_role": "Zuv drives, serves, notices, chooses, and helps collect the moments instead of simply standing beside the copy.",
+      "proof_engine": "Hands, mugs, dessert spoons, grocery tote, balcony dinner, shop object, and memory pile turn text into visible behavior.",
+      "emotional_reversal": "The fantasy stops being cinematic and becomes ordinary enough to believe.",
+      "payoff": "The moments were being collected all along so they could be shared with each other.",
+      "distribution_reason": "Viewers can send it to a partner as a soft, specific list of ordinary futures they want together.",
+      "process_influence_ids": [
+        "card-08-small-ritual-large-promise",
+        "golden-theme-ordinary-proof"
+      ],
+      "score_total": 29,
+      "golden_theme_score_total": 28.5,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Each slide stages a concrete physical action connected to the line.",
+        "reaction": "Hands, posture, and object focus show desire or response.",
+        "eye_line_or_attention": "Attention moves toward the shared object, hand, food, road, or memory pile.",
+        "hands_or_object_movement": "Holding, serving, choosing, saving, and collecting are visible.",
+        "silence_or_pause": "Clean negative space and soft pauses match the reference's quiet romance.",
+        "consequence": "The viewer understands the relationship beat without needing faces on every slide.",
+        "reversal_or_payoff": "The final slide reveals the whole list as a private archive of small proofs.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [],
+  "rejected_routes": [
+    {
+      "name": "Quote Card Over A Story Paper",
+      "story_lens": "Text carries the whole carousel.",
+      "reader_mirror": "Viewers like the lines but do not see a lived relationship.",
+      "emotional_obstacle": "The scene is absent.",
+      "aachu_specific_spark": "Missing.",
+      "zuv_active_role": "Missing.",
+      "proof_engine": "Typography only.",
+      "emotional_reversal": "None.",
+      "payoff": "Pretty but generic.",
+      "distribution_reason": "Weak because it is not ownable.",
+      "process_influence_ids": [],
+      "score_total": 19,
+      "golden_theme_score_total": 19,
+      "stage_scene_gate": {
+        "status": "STOP",
+        "action": "",
+        "reaction": "",
+        "eye_line_or_attention": "",
+        "hands_or_object_movement": "",
+        "silence_or_pause": "",
+        "consequence": "",
+        "reversal_or_payoff": "",
+        "blockers": [
+          "Text carries the scene."
+        ]
+      },
+      "hard_fails": [
+        "text_only_spine"
+      ],
+      "verdict": "STOP"
+    }
+  ],
+  "selected_story_lens": "Ordinary future wishes become proof of wanting a shared life.",
+  "emotional_machine": "generic wish-list risk -> staged ordinary behavior -> private noticing and active care -> saved-moments payoff",
+  "proof_engine": "Hands, mugs, dessert spoons, grocery tote, balcony dinner, shop object, and memory pile turn text into visible behavior.",
+  "reader_mirror": "People want the ordinary life with their person as much as the cinematic one.",
+  "distribution_reason": "A viewer can send this as a gentle list of future ordinary moments they want with their partner.",
+  "human_story_setup": {
+    "emotional_obstacle": "A poetic wish list can feel generic unless the visuals prove a specific relationship.",
+    "aachu_role": "She is present through expressive details and the objects Zuv keeps associating with her.",
+    "zuv_role": "He actively drives, serves, notices, chooses, and collects.",
+    "proof_engine": "Physical action and object movement carry each text line.",
+    "earned_payoff": "Quietly collecting moments until they can be shared."
+  },
+  "success_definition": {
+    "audience_success": "A cold viewer sends/saves it because it names ordinary futures they want with their person.",
+    "creative_success": "Every slide reads as a staged scene before text.",
+    "brand_success": "The deck feels like A Story of Two, not generic couple-photo romance.",
+    "production_success": "The route supports native 4:5 and separate native 9:16 outputs with visual QA."
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Seven ordinary future actions are storyboarded.",
+    "reaction": "Hands, posture, and object attention show emotional response.",
+    "eye_line_or_attention": "Attention is directed toward shared objects and each other through touch/pose.",
+    "hands_or_object_movement": "Hands hold, reach, serve, choose, and collect.",
+    "silence_or_pause": "Quiet negative space creates the pause.",
+    "consequence": "The reference text becomes drawable A Story behavior.",
+    "reversal_or_payoff": "The saved-moments final slide reframes the whole list.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "card-08-small-ritual-large-promise",
+      "title": "Small Ritual, Large Promise",
+      "influence_type": "primary",
+      "source_patterns": [
+        "ordinary love proof",
+        "wish-list to behavior"
+      ],
+      "confidence": 0.92,
+      "reason": "The reference works because small ordinary rituals imply a larger shared life."
+    },
+    {
+      "id": "golden-theme-ordinary-proof",
+      "title": "Golden Theme Ordinary Proof",
+      "influence_type": "gate",
+      "source_patterns": [
+        "universal truth -> concrete proof -> active Zuv role -> tender thesis"
+      ],
+      "confidence": 0.88,
+      "reason": "The selected route proves a universal relationship truth through Aachu/Zuv-specific staged behavior."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 4.5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 5,
+    "total": 29
+  },
+  "golden_theme_score": {
+    "universal_hook": 5,
+    "aachu_zuv_specificity": 4.5,
+    "concrete_proof": 5,
+    "zuv_emotional_role": 4.5,
+    "tender_thesis": 4.5,
+    "share_send_potential": 5,
+    "total": 28.5
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "c_layer": {
+      "must_preserve": [
+        "faceless/cropped visual system",
+        "exact visible draft copy unless creator switches to rewrite",
+        "A Story watercolor-and-ink house style",
+        "proof slide 04 before batch"
+      ],
+      "golden_theme_gate": "required_for_carousel"
+    }
+  },
+  "metadata": {
+    "created_by": "Codex",
+    "created_at": "2026-06-11",
+    "reference_copy_mode": "exact_visible_draft_with_publish_note"
+  }
+}

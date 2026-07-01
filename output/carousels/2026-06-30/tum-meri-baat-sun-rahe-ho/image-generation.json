@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "status": "blocked",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 7,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "reason": "No final images accepted. Built-in image generation returned non-native proof outputs for slide 5, including 1003x1568 from the real identity/style reference-driven attempt. The root issue is generator execution: the built-in image_gen call does not expose/enforce a native pixel-size parameter, so prompt text requesting 1080x1350 is advisory and not a hard output contract. Repo rules require native 1080x1350 and forbid crop, pad, stretch, or resize repair.",
+  "expected_dimensions": "1080x1350",
+  "accepted_final_images": [],
+  "rejected": [
+    {
+      "path": "rejected/native-size-fail/slide-05-proof-v1-1122x1402.png",
+      "dimensions": "1122x1402",
+      "status": "rejected_native_size"
+    },
+    {
+      "path": "rejected/native-size-fail/slide-05-proof-v2-1122x1402.png",
+      "dimensions": "1122x1402",
+      "status": "rejected_native_size"
+    },
+    {
+      "path": "rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png",
+      "dimensions": "1122x1402",
+      "status": "rejected_native_size"
+    },
+    {
+      "path": "rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png",
+      "dimensions": "1003x1568",
+      "status": "rejected_native_size"
+    }
+  ],
+  "next_valid_action": "Use a generation backend or export worker that hard-enforces true native 1080x1350 images with identity references and exact text, then rerun packaging and visual QA. Do not use blank-canvas edit hacks and do not derive finals from the rejected 1122x1402 proofs."
+}

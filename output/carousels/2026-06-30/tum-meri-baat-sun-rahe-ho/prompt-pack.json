@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "status": "prompt_repaired_handoff_ready_blocked_for_native_size",
+  "shared_style_prompt": "Premium hand-drawn romantic editorial watercolor-and-ink @a.storyof.two illustration. Native Instagram carousel post at exactly 1080x1350 px. Neutral warm ivory/off-white paper with visible grain, never yellow/mustard/sepia/parchment/beige/tan/coffee-stained/heavy cream. Fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted denim, soft navy, off-white cotton, faded sage, peach blush, dusty coral. Clean upper-middle negative space for exact handwritten charcoal text. Typography must match the Observational Intimacy Premium @a.storyof.two handwritten lettering: warm charcoal ink, airy, slightly imperfect, human, integrated into the paper grain, never a flat digital font, quote-card box, platform caption style, or speech bubble. Tiny low-contrast handwritten @a.storyof.two brandmark at top-right. Use the selected Aachu/Zuv identity images as actual visual inputs for faces, hair, skin tone, body proportions, expressions, and wardrobe anchors. Use the Observational Intimacy Premium style references only for paper, line quality, palette, text style, and composition.",
+  "negative_prompt": "No photorealism, no 3D, no anime, no flat vector art, no generic AI watercolor, no quote-card layout, no UI, no split-screen divider, no platform watermark, no random text, no extra labels, no speech bubbles, no hard rectangular scene box, no yellow/parchment paper, no harsh shadows, no glossy digital finish, no distorted hands, no extra fingers, no warped faces, no awkward crouching, no unflattering poses, no generic couple faces, no bedroom, no sofa, no bed, no cushion, no wardrobe changes between slides.",
+  "visual_continuity_lock": {
+    "setting": "one continuous home dinner-table scene",
+    "table": "small 4-seater dining table with two empty side chairs",
+    "wardrobe_all_slides": {
+      "aachu": "black sleeveless top, light blue denim, loose dark wavy hair, small warm-gold pendant/bracelet",
+      "zuv": "dark charcoal/navy casual shirt or tee, grey lounge trousers"
+    },
+    "recurring_props": [
+      "two dinner plates",
+      "water glasses",
+      "small bowl",
+      "folded cloth napkins",
+      "Zuv's phone near or in his hand"
+    ],
+    "visual_storytelling_controls": [
+      "vary camera angle instead of wardrobe",
+      "use posture, hands, eye-line, phone movement, table silence, and folded napkin gesture",
+      "keep same room, same clothes, same props, same lighting, same faces, same proportions"
+    ]
+  },
+  "selected_identity_references": [
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/aachu/face-05.png",
+    "config/references/identity/zuv/portrait-07.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "style_references": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+  ],
+  "slide_prompt_paths": [
+    "codex-image-prompts/instagram-post/slide-01.prompt.txt",
+    "codex-image-prompts/instagram-post/slide-02.prompt.txt",
+    "codex-image-prompts/instagram-post/slide-03.prompt.txt",
+    "codex-image-prompts/instagram-post/slide-04.prompt.txt",
+    "codex-image-prompts/instagram-post/slide-05.prompt.txt",
+    "codex-image-prompts/instagram-post/slide-06.prompt.txt",
+    "codex-image-prompts/instagram-post/slide-07.prompt.txt"
+  ]
+}

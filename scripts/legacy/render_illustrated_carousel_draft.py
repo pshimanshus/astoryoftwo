@@ -3,7 +3,7 @@
 
 This creates actual raster PNG slides from slides.json in the final carousel
 folders. It is a deterministic local renderer for review and posting drafts,
-not a substitute for face-accurate model-native generation.
+not a substitute for face-accurate final image generation.
 """
 
 from __future__ import annotations
@@ -491,8 +491,8 @@ def write_run_artifacts(carousel_dir: Path, slides: list[dict[str, Any]], output
                     "likeness_notes": "Simplified Zuv symbol is not face-accurate model-native identity evidence.",
                 },
                 "dress_continuity": {"pass": False, "notes": "Local symbols are preview-only; model-native continuity QA is pending."},
-                "style": {"pass": False, "notes": "Warm storybook preview exists; final style QA is pending on model-native outputs."},
-                "model_native_text": {"pass": False, "notes": "Text is locally rendered preview typography, not model-native final text evidence."},
+                "style": {"pass": False, "notes": "Warm storybook preview exists; final style QA is pending on final text-bearing outputs."},
+                "integrated_final_text": {"pass": False, "notes": "Text is locally rendered preview typography, not integrated final-text evidence."},
                 "final_files": {"pass": False, "notes": "4:5 and 9:16 preview PNGs exist but are not publishable final files."},
             },
             "notes": [
@@ -507,19 +507,19 @@ def write_run_artifacts(carousel_dir: Path, slides: list[dict[str, Any]], output
         "",
         "status: PREVIEW_ONLY_PENDING_MODEL_NATIVE_QA",
         "",
-        "- [ ] Slide 1 model-native final image has human QA approval.",
-        "- [ ] Slide 2 model-native final image has human QA approval.",
-        "- [ ] Slide 3 model-native final image has human QA approval.",
-        "- [ ] Slide 4 model-native final image has human QA approval.",
-        "- [ ] Slide 5 model-native final image has human QA approval.",
+        "- [ ] Slide 1 final text-bearing image has human QA approval.",
+        "- [ ] Slide 2 final text-bearing image has human QA approval.",
+        "- [ ] Slide 3 final text-bearing image has human QA approval.",
+        "- [ ] Slide 4 final text-bearing image has human QA approval.",
+        "- [ ] Slide 5 final text-bearing image has human QA approval.",
         "- [ ] Aachu face is checked against the selected identity references.",
         "- [ ] Zuv face is checked against the selected identity references.",
-        "- [ ] Clothing and dress details are checked on model-native final images.",
-        "- [ ] Illustration style is checked on model-native final images.",
-        "- [ ] Text and brandmark are checked on model-native final images.",
+        "- [ ] Clothing and dress details are checked on final text-bearing images.",
+        "- [ ] Illustration style is checked on final text-bearing images.",
+        "- [ ] Text and brandmark are checked on final text-bearing images.",
         "- [ ] Publishable final files exist in `final/` and `final-reels-stories/`.",
         "",
-        "Note: this is a preview-only local illustrated render. It cannot satisfy final publishable QA; run the Codex built-in prompt pack before treating the set as model-native final.",
+        "Note: this is a preview-only local illustrated render. It cannot satisfy final publishable QA; run the Codex built-in prompt pack before treating the set as final publishable.",
     ]
     (carousel_dir / "visual-qa.md").write_text("\n".join(visual_lines) + "\n", encoding="utf-8")
 

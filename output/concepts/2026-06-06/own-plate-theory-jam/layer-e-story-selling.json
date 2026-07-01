@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-06-06",
+  "status": "REPAIR",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "concept_slug": "own-plate-theory-jam",
+  "audit_reason": "Creator did not understand the concept and flagged that Layer E was not properly invoked before concept selection.",
+  "source_memory_check": {
+    "supplied_raw_moment": false,
+    "photo_evidence": false,
+    "external_source_used": false,
+    "source_policy_status": "PASS_NO_EXTERNAL_SOURCE",
+    "loaded_sources": [
+      "wiki/insights/successful-carousel-standard.md",
+      "memory/semantic/carousel-idea-preferences.md",
+      "wiki/themes/calm-enough-for-chaos.md",
+      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md",
+      "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+      "config/references/story-selling-canon/concept-process-cards.md",
+      "config/references/story-selling-canon/rubric.md",
+      "config/references/story-selling-canon/source-policy.md"
+    ],
+    "memory_exclusions_applied": [
+      "phone prank/search party",
+      "plate stack",
+      "suitcase relocation",
+      "wallet/money audit",
+      "OTP panic",
+      "passenger-seat/car control",
+      "parcel/shopping alibi",
+      "blanket/umbrella/rain",
+      "Pizza Bakery/menu ritual",
+      "angry-care water/food instructions"
+    ]
+  },
+  "success_definition": {
+    "audience_success": "A cold viewer should instantly understand the food bit and tag the partner who says no food, then takes the first bite.",
+    "creative_success": "The carousel must stage a real mini-scene: refusal, eye-line, stolen bite, Zuv's prepared extra bite, and the turn from joke to being known.",
+    "brand_success": "Warm desi married-life behavior where food becomes a care receipt, not a body joke, food-policing joke, or restaurant ritual.",
+    "production_success": "Concept repair only. Copy, visuals, prompt pack, identity references, proof, final native images, QA, and audit remain blocked."
+  },
+  "rooms": {
+    "source_memory_room": {
+      "name": "Context And Source Memory",
+      "status": "GO",
+      "summary": "No raw creator moment was supplied, so this remains a fresh-idea jam. Recently rejected or cooled-down lanes were excluded.",
+      "agents": [
+        {
+          "agent": "Source Curator",
+          "role": "legality",
+          "claim": "No external source text or copyrighted expression is used.",
+          "recommendation": "Proceed from derived channel patterns only.",
+          "score": null
+        },
+        {
+          "agent": "Successful Carousel Standard Reader",
+          "role": "creative north star",
+          "claim": "The concept must be a public identity mirror with concrete couple receipts before it becomes poetic.",
+          "recommendation": "The public doorway must be the spoken food ritual, not the abstract phrase 'Own Plate Theory'.",
+          "score": null
+        },
+        {
+          "agent": "Creator Preference Ledger Reader",
+          "role": "memory",
+          "claim": "The lane should avoid recent phone, plate-stack, suitcase, OTP, money, and angry-care surfaces.",
+          "recommendation": "If kept, stage this as food-denial/being-known, not as restaurant/menu/plate-stack content.",
+          "score": null
+        }
+      ]
+    },
+    "human_story_room": {
+      "name": "Human Story Setup",
+      "status": "REPAIR",
+      "summary": "The underlying story can work, but the concept wrapper was unclear.",
+      "human_story": "One partner says she does not want her own plate, but her body language keeps orbiting his food. The other partner knows the small private ritual and quietly keeps room for it.",
+      "cold_reader_doorway": "The everyday line: 'nahi chahiye' followed by one bite from the other person's plate.",
+      "emotional_obstacle": "The tension is not hunger. It is the small gap between what she says and the private need to be included without having to make a clean ask.",
+      "aachu_role": "She brings expressive denial, curiosity, tiny mischief, and the softness of wanting to be included while pretending she does not.",
+      "zuv_role": "He notices the ritual and makes space for it without forcing, mocking, lecturing, or becoming a saint.",
+      "proof_engine": "No plate -> eye-line to food -> first bite from his plate -> he reveals the extra bite or small plate -> both know this was always the plan.",
+      "emotional_reversal": "What first looks like food stealing turns into proof that he knows the sentence behind the sentence.",
+      "earned_payoff": "Love is not the extra plate. Love is being known without being made to explain the ritual."
+    },
+    "process_card_room": {
+      "name": "Concept Process Card",
+      "status": "GO",
+      "selected_card": {
+        "id": "card-03",
+        "title": "Dramatic Want, Quiet Need",
+        "reason": "The visible want is 'I do not want food'; the quiet need is inclusion and being known without explanation."
+      },
+      "card_application": [
+        {
+          "step": "Let Aachu want something visible and specific.",
+          "application": "She visibly refuses an own plate."
+        },
+        {
+          "step": "Find the hidden need underneath it.",
+          "application": "She wants to stay included in the shared-food ritual without having to admit it directly."
+        },
+        {
+          "step": "Put a small obstacle between want and need.",
+          "application": "If Zuv takes the sentence literally, the ritual dies; if he pushes food, it becomes controlling."
+        },
+        {
+          "step": "Show Zuv noticing the need.",
+          "application": "He keeps the extra bite ready and slides it in quietly."
+        },
+        {
+          "step": "End with the need being met, not merely the want.",
+          "application": "The payoff is not that she gets food; it is that she is known gently."
+        }
+      ]
+    },
+    "contrarian_repair_room": {
+      "name": "Hard-Fail And Taste Repair",
+      "status": "REPAIR",
+      "summary": "The route is blocked unless it avoids consent-adjacent, body-shaming, and over-clever framing.",
+      "objections": [
+        {
+          "objection": "The phrase 'Own Plate Theory' is unclear and too internal.",
+          "repair": "Rename the concept-facing doorway to the spoken bit: 'Nahi chahiye. Bas ek bite.'"
+        },
+        {
+          "objection": "The idea can sound like ignoring a stated no.",
+          "repair": "Stage Zuv's action as optional space, not pressure. She chooses the bite."
+        },
+        {
+          "objection": "The idea can become a food/appetite/body joke.",
+          "repair": "No diet, greed, weight, or appetite-shame language. The food is only a relationship receipt."
+        },
+        {
+          "objection": "Zuv can drift into perfect-husband mind-reader.",
+          "repair": "Make him playful and deadpan, not saintly. One quiet action, no speech."
+        }
+      ]
+    },
+    "story_selling_rubric_room": {
+      "name": "Story-Selling Rubric",
+      "status": "REPAIR",
+      "presented_concept_score": {
+        "reader_identity_mirror": 3,
+        "romantic_conflict_and_stakes": 4,
+        "specificity_of_proof": 5,
+        "emotional_reversal": 4,
+        "visual_scene_clarity": 5,
+        "online_share_save_sell_potential": 4,
+        "total": 25,
+        "decision": "REPAIR",
+        "reason": "The underlying proof is drawable, but the concept as presented was not immediately understandable."
+      },
+      "repaired_plain_language_score": {
+        "reader_identity_mirror": 5,
+        "romantic_conflict_and_stakes": 4,
+        "specificity_of_proof": 5,
+        "emotional_reversal": 5,
+        "visual_scene_clarity": 5,
+        "online_share_save_sell_potential": 5,
+        "total": 29,
+        "decision": "GO_AFTER_CREATOR_RELOCK",
+        "reason": "The repaired version has a clear public doorway, but must be re-presented to the creator before downstream work."
+      }
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "Presented Route: Own Plate Theory",
+      "story_lens": "Food-denial ritual as being-known proof.",
+      "reader_mirror": "Weak as presented because the title and explanation were too abstract.",
+      "score_total": 25,
+      "verdict": "REPAIR"
+    },
+    {
+      "name": "Repaired Route: Nahi Chahiye. Bas Ek Bite.",
+      "story_lens": "The spoken food ritual becomes the public doorway; the extra bite becomes the care receipt.",
+      "reader_mirror": "Strong because the behavior is instantly recognizable.",
+      "emotional_obstacle": "She wants to be included without having to say it cleanly.",
+      "aachu_specific_spark": "Expressive denial, side-eye toward food, one mischievous bite.",
+      "zuv_active_role": "He leaves room for the ritual with an extra bite or small plate, without forcing or teasing cruelly.",
+      "proof_engine": "No plate -> stolen bite -> extra bite appears -> both pretend this was not obvious.",
+      "emotional_reversal": "The bite stops being a joke and becomes proof of being known.",
+      "payoff": "He knew the real ask without making her ask.",
+      "score_total": 29,
+      "verdict": "GO_AFTER_CREATOR_RELOCK"
+    }
+  ],
+  "selected_story_lens": "Nahi chahiye, bas ek bite: a food-denial ritual that proves being known without explanation.",
+  "emotional_machine": "spoken refusal -> visible orbit toward food -> chosen bite -> Zuv quietly prepared space -> joke turns into being known",
+  "proof_engine": "Plate refusal, eye-line, hand movement, bite, extra small plate or saved bite.",
+  "reader_mirror": "This is us when one person says they do not want food and the other knows to keep one bite ready.",
+  "distribution_reason": "A viewer can send it to the partner who says 'I do not want anything' and then eats from their plate.",
+  "hard_fails": [],
+  "required_repairs": [
+    "Do not proceed under the title 'Own Plate Theory' without a plain-language explanation.",
+    "Re-present the repaired concept to the creator before copy lock.",
+    "Block any wording that implies ignoring a no, food policing, body shame, or perfect-husband superiority."
+  ],
+  "golden_theme_gate": "PENDING_RELOCK",
+  "downstream_contract": {
+    "copy_locked": false,
+    "visual_room_required": true,
+    "prompt_pack_allowed": false,
+    "image_generation_allowed": false,
+    "next_checkpoint": "creator concept re-lock"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "status": "STYLE_CALIBRATION_READY",
+  "creator_feedback": "setup and visual are good but not in our style",
+  "rejected_style_drafts": [
+    {
+      "path": "rejected-style-drafts/slide-01-style-rejected.png",
+      "reason": "too dense/generic/polished; not A Story house style"
+    },
+    {
+      "path": "rejected-style-drafts/slide-02-style-rejected.png",
+      "reason": "too dense/generic/polished; not A Story house style"
+    },
+    {
+      "path": "rejected-style-drafts/slide-03-style-rejected.png",
+      "reason": "too dense/generic/polished; not A Story house style"
+    }
+  ],
+  "style_calibration_source": {
+    "path": "style-calibration/slide-01-style-calibration.png",
+    "dimensions": "1003x1568",
+    "status": "source_draft"
+  },
+  "style_calibration_publish_crop": {
+    "path": "style-calibration/slide-01-style-calibration-1080x1350.png",
+    "dimensions": "1080x1350",
+    "status": "ready_for_creator_style_review"
+  },
+  "prompt_repairs": [
+    "Use individual approved style slides as dominant references, not only the contact sheet.",
+    "Reduce dense rendered storybook detail.",
+    "Keep large clean off-white paper space.",
+    "Use thinner hand ink, transparent watercolor wash, soft faded edges, muted denim/navy/off-white palette.",
+    "Keep composition airy with figures in the lower half.",
+    "Reject yellow/parchment/sepia and generic AI watercolor."
+  ],
+  "batch_generation": "PAUSED_UNTIL_STYLE_LOCK"
+}

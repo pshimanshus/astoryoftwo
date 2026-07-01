@@ -1,0 +1,30 @@
+{
+  "status": "GO",
+  "winning_system": "domestic_collision_sequence",
+  "agents": [
+    {
+      "name": "carousel-visual-evidence-planner",
+      "verdict": "GO",
+      "notes": "The visual evidence should be ordinary home geography: kitchen counter, doorway, sofa, corridor, hand-check apology. Avoid abstract body-part closeups."
+    },
+    {
+      "name": "carousel-romance-scene-planner",
+      "verdict": "GO",
+      "notes": "The final slide must make the whole deck tender: she stays physically close even while performing betrayal."
+    },
+    {
+      "name": "carousel-visual-continuity-judge",
+      "verdict": "GO_WITH_CAUTION",
+      "notes": "Keep wardrobe and domestic setting coherent. Do not change the couple into generic South Asian characters. No yellow parchment paper."
+    }
+  ],
+  "rejected_motifs": [
+    "exaggerated slapstick impact",
+    "injury marks",
+    "angry shouting",
+    "literal courtroom betrayal props",
+    "quote-card scenes without action",
+    "repeating the same sofa composition across all slides"
+  ],
+  "proof_slide": 7
+}

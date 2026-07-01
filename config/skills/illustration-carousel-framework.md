@@ -152,16 +152,18 @@ Use the @a.storyof.two romantic watercolor-and-ink master style:
 - a non-repeating shot ladder across the carousel: vary camera angle, shot
   distance, setting lane, primary action, and who is visible; do not solve
   variety by wardrobe changes alone
-- tiny low-contrast brandmark: `@a.storyof.two` at bottom-right for every final asset
+- tiny low-contrast brandmark: `@a.storyof.two` at top-right for every final asset
 - rooted in supplied photos and selected actual identity images before adding decorative interpretation
 
 Every final image-generation handoff must include the project master prompt
 structure from `pipeline/stages/carousel_master_prompt.py`. The prompt must
 cover use case, asset type, reference image roles, primary request, scene,
-character identity lock, face preservation, illustration style, color palette,
-composition, emotional direction, wardrobe continuity, recurring props,
-background style, line/texture details, anatomy/quality rules, text rule, final
-identity/style reinforcement, and the final rendering layer.
+character identity lock, Aachu/Zuv two-inch height lock, face preservation,
+illustration style, color palette, PAPER TONE LOCK, composition,
+STAGE-SCENE / VISUAL RECEIPT, SHOT LADDER / VISUAL VARIETY,
+RELATIONSHIP MOTION, wardrobe continuity, recurring props, background style,
+line/texture details, anatomy/quality rules, text rule, final identity/style
+reinforcement, and the final rendering layer.
 
 Adapt the style to the supplied images:
 
@@ -299,10 +301,10 @@ Avoid:
 Typography rule:
 
 - Default final slide copy must appear inside the final illustration image, not in a separate caption, mockup, or quote-card layer.
-- When the image model can render the exact text cleanly, image-model text is acceptable. When exact text is long or fragile, generate the illustrated scene with clean reserved paper space, then place the approved text into the same final raster as an integrated lettering/typesetting pass.
+- When the image model can render the exact text cleanly, image-model text is acceptable. When exact text is long or fragile, retry with a stronger text-bearing generation prompt or keep the package blocked. Do not create, keep, or use a textless generated image as the workaround.
 - Image-generation prompts must reserve generous clean paper space and ask for no random text beyond the approved slide copy and tiny brandmark. Final export workers must then produce two complete native publishable outputs per slide when required: 4:5 Instagram post and 9:16 Reels/Stories, each with exact ON-IMAGE TEXT inside the final image.
 - Brand-integration prompts may include product labels, but brand/product name legibility is a hard QA gate at phone-screen size. If tiny packaging text is misspelled or blurred by generation, render the product body in the illustration first, then use `scripts/render_brand_product_labels.swift` for exact readable label text.
-- Local text placement is valid only when it is treated as part of the final illustration composition: same warm paper, same visual rhythm, no flat platform typography, no poster/quote-card feel, no separate text-only deliverable. A visible digital overlay fails.
+- Local typography repair is valid only on an already text-bearing raster and only when it is treated as part of the final illustration composition: same warm paper, same visual rhythm, no flat platform typography, no poster/quote-card feel, no separate text-only deliverable. A visible digital overlay fails.
 - Do not claim final images are ready until `final/`, `final-reels-stories/`, and visual QA exist.
 - Do not stop at `READY_FOR_CODEX_BUILTIN_GENERATION` when an image-generation
   path is available. Generate, package, and QA the native `4:5` and separate

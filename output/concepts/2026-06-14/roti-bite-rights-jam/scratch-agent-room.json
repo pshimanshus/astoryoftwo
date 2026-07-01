@@ -1,0 +1,47 @@
+{
+  "date": "2026-06-14",
+  "jam_slug": "roti-bite-rights-jam",
+  "status": "SCRATCH_AGENT_ROOM_COMPLETE",
+  "limitation": "Actual parallel sub-agents were not spawned because the current tool policy only permits spawning when explicitly requested. This is a simulated internal agent room recorded for the C-layer gate.",
+  "agents": [
+    {
+      "name": "Raw Scene Keeper",
+      "verdict": "STOP_PREVIOUS_ROUTE",
+      "feedback": "The old route changed the factual frame. Zuv looked at Aachu and held a bite. The corrected frame must show Zuv looking at father, with no bite in hand."
+    },
+    {
+      "name": "Copy Chief",
+      "verdict": "REPAIR",
+      "feedback": "The text cannot be a thesis like 'the bite was already hers.' This needs a deadpan table-observation line that sounds like the scene, not a moral."
+    },
+    {
+      "name": "Film Blocking Director",
+      "verdict": "REPAIR",
+      "feedback": "Use a wider shot from across the table. Father-son conversation must be legible before the viewer notices Aachu's side action."
+    },
+    {
+      "name": "Continuity Judge",
+      "verdict": "REPAIR",
+      "feedback": "Zuv's hands must be empty/resting/gesturing. If he holds roti toward Aachu, the image becomes feeding/offering, not the real incident."
+    },
+    {
+      "name": "Taste Judge",
+      "verdict": "REPAIR",
+      "feedback": "Do not make this a food-sharing romance poster. The freshness is the unnoticed tiny side-quest during a family conversation."
+    },
+    {
+      "name": "Final Selector",
+      "verdict": "GO_FOR_CREATOR_CONCEPT_LOCK_AFTER_REBUILD",
+      "feedback": "Winner should be 'Roti Side Quest' or an equivalent deadpan incident title. Do not generate until creator approves the rebuilt storyboard."
+    }
+  ],
+  "hard_blocks_before_generation": [
+    "No exact 1080x1080 output plan",
+    "No approved scene-native text",
+    "Zuv eye-line not toward father",
+    "Zuv has bite/roti in hand",
+    "Shot is close romantic two-shot",
+    "Aachu looks rude or greedy",
+    "Father conversation is not visually readable"
+  ]
+}

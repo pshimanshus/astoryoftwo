@@ -1,0 +1,44 @@
+{
+  "date": "2026-06-27",
+  "jam_slug": "bids-for-connection-jam",
+  "stage": "copy repair v2",
+  "scorecard": {
+    "hook": {
+      "score": 9.7,
+      "notes": "Story-first hook with open loop and emotional stakes."
+    },
+    "story": {
+      "score": 9.5,
+      "notes": "Missed bid -> quiet consequence -> noticed silence -> repair."
+    },
+    "bridge": {
+      "score": 9.4,
+      "notes": "The object becomes secondary; the silence reveals the real need."
+    },
+    "relationship_motion": {
+      "score": 9,
+      "notes": "The motion is repair and return. It is less symmetrical than v1 but far more story-connected."
+    },
+    "ending": {
+      "score": 9.5,
+      "notes": "The final line is an action, an apology, and an invitation."
+    },
+    "send_save_potential": {
+      "score": 9.5,
+      "notes": "Strong partner-send mirror because it names a repair people actually want."
+    }
+  },
+  "hard_fails": {
+    "slide_1_not_hook": "PASS",
+    "private_context_start": "PASS",
+    "missing_bridge": "PASS",
+    "missing_relationship_motion": "PASS",
+    "aachu_reduced_to_joke": "PASS",
+    "pleasant_lines_only": "PASS",
+    "unearned_quote_ending": "PASS",
+    "undrawable_scene": "PASS",
+    "generic_couple_account": "PASS"
+  },
+  "overall_verdict": "GO_PENDING_CREATOR_COPY_APPROVAL",
+  "next_gate": "After creator approves copy, run Post-Copy Visual Creative Room before visual debate, prompt pack, or image generation."
+}

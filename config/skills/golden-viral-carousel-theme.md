@@ -6,9 +6,10 @@ Use this before planning, writing, reviewing, or generating any illustrated
 carousel for @a.storyof.two.
 
 The golden theme is the universal relationship truth that made the strongest
-carousel work: Aachu's expressive, dramatic, loving energy meets Zuv's calm,
-patient, choosing-her energy. The exact wording can change. The theme grammar
-must not.
+carousel work: expressive, dramatic, loving energy met a calm, choosing
+response. That gold post used Aachu and Zuv in those roles, but future
+carousels must not force Zuv into permanent handler/caretaker mode. The exact
+wording can change. The theme grammar must not become a cage.
 
 The goal is not to make every carousel say "He didn't marry..." The goal is to
 make every carousel feel instantly recognizable to strangers and still
@@ -21,8 +22,15 @@ too narrow:
 
 ## First-Principles Source Gate
 
+For normal carousel jams, start with
+`config/skills/carousel-jam-runtime-context.md`. It condenses the repeated
+first-principles source memory below so Codex does not full-read the same long
+files every time.
+
 Before submitting, recommending, scoring, packaging, or generating any new
-carousel idea, read these files and use them as the first-principles source:
+carousel idea, use these files as the first-principles source. Open the full
+file only when the current task needs targeted detail for scoring, repair,
+conflict resolution, durable memory updates, or final audit evidence:
 
 - `wiki/insights/successful-carousel-standard.md`
 - `wiki/themes/calm-enough-for-chaos.md`
@@ -33,15 +41,15 @@ looks like before writing or selecting a route: audience success, creative succe
 brand success, and production success. If those four success targets are
 missing, the carousel room has not completed the source-memory gate.
 
-The key learning is that the gold carousel worked because Aachu's expressive,
-funny, desi emotional chaos was made safe by Zuv's active patience. The
-copyable unit is not the literal "He didn't marry..." wording. The copyable
-unit is the emotional machine:
+The key learning is that the gold carousel worked because a private dynamic
+became a public relationship mirror with concrete receipts. The copyable unit
+is not the literal "He didn't marry..." wording, and it is not always
+"Aachu-proof plus Zuv-care." The copyable unit is the emotional machine:
 
 ```text
 universal anti-ideal
--> concrete Aachu proof
--> Zuv steady response
+-> concrete couple proof
+-> relationship motion or relevant partner response
 -> tender acceptance thesis
 ```
 
@@ -83,9 +91,10 @@ image-generation instructions, load:
 - `config/skills/continuous-carousel-agent-room.md`
 
 This persona must stay active through final native image sets and QA. It checks
-that every direction has a real hook, setup, proof, escalation, bridge, active
-Zuv role, earned ending, and send/save reason. If a concept only has a good
-line without story structure, mark it REPAIR.
+that every direction has a real hook, setup, proof, escalation, bridge,
+relationship motion or relevant partner role, earned ending, and send/save
+reason. If a concept only has a good line without story structure, mark it
+REPAIR.
 
 For serious carousel concepts, the continuous agent room is a hard gate. It
 must generate multiple routes, debate why each can or cannot work, repair the
@@ -98,14 +107,17 @@ generation. Do not collapse the room into debating only the first favorite.
    - The first idea must be understandable without seeing the original photo.
    - A follower should think, "This is us," or "I know this couple."
 
-2. Use Aachu and Zuv as the specific proof.
-   - Aachu brings the plot: emotion, chaos, hunger, overthinking, drama,
-     softness, main-character energy, sudden mood shifts, or tiny rituals.
-   - Zuv brings the safety: patience, snacks, tissues, chai, silence, calm
-     posture, amused smile, or quietly choosing her again.
-   - This is a creative/visual requirement, not a mandate to name Aachu and
-     Zuv in every visible slide or caption. Public copy should usually stay
-     universal unless names are emotionally necessary.
+2. Use Aachu and Zuv as proof when the story wants them, but keep the actor
+   flexible.
+   - Aachu can carry the motion and reveal love through action.
+   - Zuv can carry the motion when the beat is genuinely his.
+   - Both can be equally guilty, silly, sweet, or tender together.
+   - A generic couple pattern can win when the exact identity matters less than
+     the instantly sendable "this is us" mirror.
+   - This is a creative/visual requirement to prove the relationship, not a
+     mandate to make Zuv admire, handle, save, or understand Aachu in every
+     concept. Public copy should usually stay universal unless names are
+     emotionally necessary.
 
 3. Treat photos, places, outfits, and objects as evidence, not the premise.
    - A red bag, waterfall, shoes, food, flowers, or a city view can prove the
@@ -172,15 +184,24 @@ then report the winner with evidence.
 Each variation must include:
 
 - universal relationship truth;
-- Aachu-specific spark;
+- Aachu/Zuv, mutual, or generic-couple spark;
 - concrete proof beat;
-- Zuv's active love, care, patience, or choosing-her role;
+- relationship motion or relevant partner role;
 - save/share thesis;
 - a 30-point Golden Theme score.
 
 Score every variation using the review rubric below. The final selector must
-compare all scored options and choose the highest-rated concept. Do not proceed
-with a carousel direction unless the selected variation scores 28/30 or higher.
+compare all scored options, apply the World-Class Taste Gate, and choose the
+highest-rated concept that passes every hard gate. Do not proceed with a
+carousel direction unless the selected variation scores 28/30 or higher and is
+not score-capped by the taste gate.
+
+Creator-facing suggestions use a hard 28/30 display filter. Routes below 28/30
+after Story-Selling, Golden Theme, Stage-Scene, and taste-gate caps are
+discarded as internal rejects, not shown as recommendations, runner-ups,
+shortlist options, or "could work" ideas. Internal artifacts may record them
+for audit evidence, but the creator-facing answer should either show only
+28/30+ GO/REPAIR candidates or say no route cleared the bar and rebuild.
 
 If no variation reaches 28/30:
 
@@ -189,9 +210,38 @@ If no variation reaches 28/30:
 3. rescore them;
 4. only then choose a winner.
 
-When choosing a winner, pick the highest-scoring concept. If scores tie, prefer
-the one with the strongest universal hook, clearest Zuv emotional role, and
-most drawable proof beat.
+When choosing a winner, pick the highest-scoring concept that also passes the
+taste gate. If scores tie, prefer the one with the strongest universal hook,
+clearest relationship motion, most drawable proof beat, and most ownable
+@a.storyof.two surprise.
+
+## World-Class Taste Gate
+
+Run this after the variant tournament and before recommending, packaging,
+copy-locking, or generating any carousel direction. This gate exists because a
+concept can satisfy the golden-theme checklist and still feel average.
+
+The selector must answer:
+
+- what is fresh, ownable, and physically staged about the route;
+- why only @a.storyof.two can post this version;
+- what is the non-obvious turn beyond a common couple trope;
+- what makes a cold viewer send it instead of merely nodding "relatable";
+- which recent rejected or cooled-down lane it avoids.
+
+Score caps override the Golden Theme score:
+
+- weak novelty: cap at 24/30;
+- weak creator-world specificity: cap at 24/30;
+- known trope plus tender ending but no non-obvious scene turn: cap at 23/30;
+- generic couple-account idea after names and art style are removed: cap at
+  22/30.
+
+Return REWORK or STOP if the selector cannot name the route's freshness,
+ownability, physical staging, and cold-viewer send reason. Do not repair this
+by changing wording only; rebuild from a raw lived incident, recurring phrase
+with consequence, object movement, one-second contradiction with reversal, or
+creator-supplied reference mechanic.
 
 ## Stage-Scene Gate
 
@@ -208,18 +258,22 @@ generic couple poses, "Aachu/Zuv standing beside the line," or concept tables
 as carousel direction.
 
 The winning concept must carry the Calm Enough For Your Chaos learning into the
-visual screen: every slide should prove universal truth -> Aachu/Zuv proof ->
-Zuv active care -> tender thesis through visible behavior, not decoration. If a
-planned slide cannot show that emotional machine, or if a lower-scored/risky
-visual option leaks into the final plan, repair before packaging or generation.
+visual screen without turning it into a Zuv-handler template: every slide should
+prove universal truth -> concrete proof -> relationship motion -> tender thesis
+through visible behavior, not decoration. If a planned slide cannot show that
+emotional machine, or if a lower-scored/risky visual option leaks into the final
+plan, repair before packaging or generation.
 
 Required tournament record:
 
-- candidate table with 5-10 options and scores;
+- internal candidate table with 5-10 options and scores; creator-facing output
+  must filter out every route below 28/30;
 - selector verdict explaining why the winner beat the runners-up;
 - explicit note showing how the winner uses the Calm Enough For Your Chaos
   first-principles analysis;
 - explicit note showing which memory-ledger lanes were excluded or avoided;
+- explicit `taste-gate.json` or equivalent taste-gate section with score caps,
+  novelty, creator-world specificity, and anti-generic reasoning;
 - explicit note showing the story-director hook/bridge/ending check passed;
 - explicit GO / REPAIR / STOP decision;
 - if GO, the final public slide-copy direction;
@@ -250,13 +304,14 @@ answer. The response should be compact and useful:
 4. ask one practical context question only if the moment/photo/constraint is
    missing;
 5. run the golden-theme variant tournament when enough context exists;
-6. name the winner, score, selector rationale, avoided lanes, and GO / REPAIR
-   / STOP decision;
+6. name only 28/30+ creator-facing candidates, the winner, score, selector
+   rationale, avoided lanes, and GO / REPAIR / STOP decision;
 7. update the persistent idea ledger after the creator accepts, rejects, or
    cools down a concept.
 
 The goal is momentum: give the creator the strongest idea surface first, then
-package or generate only after a 28/30+ concept is selected.
+package or generate only after a 28/30+ concept is selected and the
+World-Class Taste Gate applies no cap.
 
 ## Hard Fails
 
@@ -273,6 +328,8 @@ Reject or rewrite the idea if:
 - The final slide says the same thing as the first slide with softer wording.
 - The emotional payoff is generic romance: "you are my home" without a specific
   Aachu/Zuv proof trail.
+- The route is only a recognizable domestic/couple trope with golden-theme
+  pieces attached and no fresh, ownable, non-obvious staged turn.
 
 ## Better Rewrite Pattern
 
@@ -283,7 +340,7 @@ Object-first: The red bag was never just a bag.
 
 Universal theme: Some people bring the main-character energy.
 Specific proof: Aachu brings color, drama, and one more photo.
-Zuv role: Zuv quietly matches her pace and makes it feel safe.
+relationship motion: the relevant partner quietly matches her pace and makes it feel safe.
 Payoff: Maybe love is not matching outfits. Maybe it is matching someone's
 energy without asking them to shrink it.
 ```
@@ -299,11 +356,12 @@ compress the golden seven-beat structure into this map:
 1. Universal hook: one swipe-stopping relationship truth.
 2. Aachu-specific reveal: her version of the truth.
 3. Concrete proof: a drawable behavior, object, or ritual.
-4. Zuv role: what his calm does for the relationship.
+4. Relationship motion: what the relevant partner, both partners, or the shared
+   situation does for the relationship.
 5. Save/share thesis: the tender truth underneath the joke.
 
-For 4 slides, merge slides 2 and 3. Never remove the Zuv role or the final
-thesis.
+For 4 slides, merge slides 2 and 3. Never remove relationship motion or the
+final thesis.
 
 ## Caption Formula
 

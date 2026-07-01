@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "generation_mode": "model_native_publishable",
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram carousel illustration in the creator-approved Observational Intimacy Premium house style: neutral warm ivory/off-white paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing and prop details, generous upper-middle negative space, exact readable hand-drawn text, and a tiny low-contrast @a.storyof.two brandmark at bottom-right. Preserve Aachu/Zuv identity from selected actual identity references when faces appear, and preserve identity through hands, hair silhouettes, jewelry, body proportion, wardrobe palette, and relationship energy when faces are cropped or hidden. Use the supplied Instagram screenshots only for mood, text, gesture, and composition essence; do not copy app UI, exact photo composition, dark photo style, social handles, carousel dots, or external account identity.",
+  "shared_negative_prompt": "No photorealism, no Instagram UI, no copied screenshot layout, no dark black photo background, no stock couple, no generic Western couple fantasy, no yellow/parchment/sepia paper, no Canva quote-card, no poster-only design, no random text, no external watermark, no extra words beyond exact ON-IMAGE TEXT and tiny @a.storyof.two, no distorted hands, no broken anatomy, no face drift.",
+  "proof_gate": "Generate slide 04 first as proof before batch generation.",
+  "copy_rights_note": "Exact visible reference text is retained in this draft prompt pack at creator request. Confirm permission/ownership or use copy.json rewrite options before public publishing.",
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/together/together-01.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/portrait-05.jpg",
+    "config/references/identity/zuv/portrait-05.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "config/references/identity/_dossier/identity-face-contact-sheet.jpg",
+    "config/references/identity/together/together-01.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/portrait-05.jpg",
+    "config/references/identity/zuv/portrait-05.jpg"
+  ],
+  "identity_dossier_path": "config/references/identity/_dossier/identity-dossier.json",
+  "identity_generation_preflight_path": "config/references/identity/_dossier/identity-generation-preflight.md",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Little Futures, Mostly Faceless"
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Little Futures, Mostly Faceless",
+    "selector_verdict": "Proceed proof-first with slide 04, then batch only after approval."
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true
+  },
+  "carousel_story_director_persona": {
+    "status": "PASS",
+    "selected_hook": "Things I want to do with you:",
+    "story_spine": "open wish -> domestic ease -> date abundance -> errand intimacy -> shared dinner -> private noticing -> collected moments payoff",
+    "send_save_reason": "The viewer can send it as a soft list of ordinary futures they want with their person."
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 7,
+      "text": "Things I want to do with you:",
+      "visual": "A wide lower-frame meadow or quiet travel overlook in A Story watercolor style: two hands interlocked upward in the center-lower frame, faces cropped out, soft sky and open negative space above for the text.",
+      "scene": "Hands-only opening wish scene: Aachu and Zuv lying or sitting out of frame, their hands raised and interlocked against a soft open sky/meadow. No faces, no Instagram UI, no copied photo look.",
+      "pose": "Only forearms and hands visible; fingers naturally interlocked, relaxed and affectionate.",
+      "wardrobe": "Use muted denim/off-white sleeves and subtle Aachu bracelet/ring cues from selected identity references.",
+      "props": "No extra props beyond grass/sky and tiny @a.storyof.two signature.",
+      "background": "Soft meadow or travel overlook fading into warm ivory paper with upper-middle negative space.",
+      "emotion": "open longing",
+      "style": "premium A Story watercolor-and-ink observational intimacy, warm ivory paper, fine ink linework, muted vintage palette, exact hand-drawn text",
+      "negative_prompt": "No photorealism, no app UI, no copied screenshot, no generic stock couple, no quote-card-only design, no yellow paper, no distorted hands.",
+      "prompt": "Create slide 01 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: Things I want to do with you:. Stage the line as a hands-only opening wish: interlocked hands raised against meadow/sky, faces hidden, warm ivory paper, clean upper-middle negative space, tiny @a.storyof.two bottom-right. The scene must read as Aachu/Zuv through hand scale, jewelry, sleeve color, and tenderness, not as a copied photo."
+    },
+    {
+      "slide": 2,
+      "slide_count": 7,
+      "text": "Spend a whole\nSunday in bed.\n\nCoffee, croissants,\nno plans except each other.",
+      "visual": "Top-down bed scene on warm off-white sheets: two mugs held from opposite sides, one latte, one black coffee, a small croissant plate half in frame, Aachu jewelry detail and Zuv larger hand visible.",
+      "scene": "A calm Sunday bed seen from above: wrinkled off-white sheets, two hands holding coffee mugs, a croissant plate near the bottom edge, no faces.",
+      "pose": "Hands enter naturally from opposite sides, relaxed around mugs, not stiff or distorted.",
+      "wardrobe": "Soft off-white bedding, Aachu delicate bracelet/ring, Zuv simple sleeve or bare wrist, muted casual palette.",
+      "props": "Latte, black coffee, croissant plate, subtle sheet folds.",
+      "background": "Warm off-white bedding fading into paper grain; keep the text readable and integrated.",
+      "emotion": "quiet domestic ease",
+      "style": "premium A Story watercolor-and-ink observational intimacy, tactile fabric and ceramic detail, soft ivory paper",
+      "negative_prompt": "No photorealism, no hotel-stock feel, no extra text, no messy clutter, no distorted mugs or hands.",
+      "prompt": "Create slide 02 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text with line breaks: Spend a whole Sunday in bed. Coffee, croissants, no plans except each other. Stage it as a top-down hands-and-bed scene with two mugs and croissants, no faces, soft warm ivory paper, tactile bedding folds, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 3,
+      "slide_count": 7,
+      "text": "Order one of everything.\n\nLaugh over dessert\nas the lights start to dim.",
+      "visual": "A tiny candlelit cafe table in A Story style, viewed from a slight side angle: multiple dessert plates, two spoons meeting over one dish, hands almost touching, warm lamps in the back, only partial cheek/jaw silhouettes if any faces appear.",
+      "scene": "Dessert table at dimming lights: candle, two spoons, several small plates, hands leaning into the same dessert. Faces cropped or only partial silhouettes.",
+      "pose": "Hands and spoons create the action; one hand reaches, the other pauses as if laughing.",
+      "wardrobe": "Muted evening sleeves from identity palette; no formal fantasy styling.",
+      "props": "Dessert plates, candle, spoons, soft lamp glow, tiny table details.",
+      "background": "Warm cafe glow softened into watercolor edges; no black photo void.",
+      "emotion": "soft playful indulgence",
+      "style": "premium A Story watercolor-and-ink observational intimacy, warm candle glow controlled by ivory paper, readable hand-drawn text",
+      "negative_prompt": "No dark black background, no photoreal restaurant photo, no copied candle-table composition, no unreadable text.",
+      "prompt": "Create slide 03 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: Order one of everything. Laugh over dessert as the lights start to dim. Stage the scene around hands, spoons, dessert plates, and warm dim lights; faces may be cropped/partial. Keep it tender, original, and A Story-specific with tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 4,
+      "slide_count": 7,
+      "text": "I want to hold hands during drives,\neven if it’s just to the store.",
+      "visual": "Lived-in inside-car hand-hold: warm ivory paper above, road and windshield atmosphere through the front window, a small left steering-wheel cue, Aachu and Zuv's hands held over the center console, and a tiny tote with vegetables as the store cue.",
+      "scene": "Inside a car during a tiny ordinary drive to the store. Faces are hidden. The proof baseline keeps the windshield/road view, soft trees outside, left steering-wheel edge, center hand-hold, denim/off-white clothing, and tiny grocery tote. Repair the execution without flattening the lived-in scene.",
+      "pose": "Natural seated hand-hold over the center console; fingers relaxed and believable, not twisted, fused, or over-interlaced. No faces.",
+      "wardrobe": "Casual sleeves, muted denim/off-white, Aachu bracelet/ring, Zuv grounded larger hand.",
+      "props": "Simple center console/armrest, subtle left steering-wheel cue, windshield/road view, tiny plain tote with vegetables as store cue; no readable markings.",
+      "background": "Warm ivory upper paper with soft road/trees through windshield below; keep the car readable but not mechanically detailed.",
+      "emotion": "ordinary closeness",
+      "style": "premium A Story watercolor-and-ink observational intimacy, warm ivory paper, lived-in car composition, clean hand-drawn lettering",
+      "negative_prompt": "No over-minimal empty hand crop, no store-arrival market scene, no cluttered dashboard, no detailed controls, no readable signs or receipt text, no distorted hands, no app UI, no serif font, no yellow/parchment cast.",
+      "prompt": "Create slide 04 as the proof repair in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text with line break: I want to hold hands during drives, even if it’s just to the store. Preserve the strongest baseline composition: warm ivory paper above, text in clean upper negative space, soft road and trees through the windshield, a small steering-wheel cue at left, the couple's hands held naturally over the center console, denim on one side, off-white clothing on the other, and a tiny plain tote with vegetables as the store cue. Make it cleaner and more premium than the baseline: calmer dashboard/console, fewer noisy textures, accurate fingers and wrists, refined A Story-style handwritten lettering, neutral ivory/off-white paper, tiny @a.storyof.two bottom-right. Do not move the scene to a market. Do not remove the windshield/road or tote cue. Do not make it a close-up hand crop."
+    },
+    {
+      "slide": 5,
+      "slide_count": 7,
+      "text": "I want to cook dinners with you\nand eat them al fresco.",
+      "visual": "A small balcony or garden-table dinner at dusk in warm ivory watercolor: two plates, a simple bowl, flatbread, one glass, soft plants, and the couple shown from behind/three-quarter back as they sit close.",
+      "scene": "Balcony/garden table at dusk after cooking: two people seated close from behind, one serving bowl, plates, flatbread, plants, soft lights.",
+      "pose": "Aachu turns slightly toward Zuv; Zuv reaches for or serves from the bowl so his role is active.",
+      "wardrobe": "Casual A Story palette: soft off-white, denim, muted navy/sage; Aachu long dark hair silhouette and Zuv curly hair silhouette.",
+      "props": "Dinner plates, serving bowl, flatbread, glass, plants, small balcony lights.",
+      "background": "Garden/balcony edge fading into warm paper; no hard photo rectangle.",
+      "emotion": "settled future warmth",
+      "style": "premium A Story watercolor-and-ink observational intimacy, dusk warmth but ivory paper stays neutral",
+      "negative_prompt": "No Tuscan stock fantasy, no crowded table, no copied photo, no yellow cast, no passive Zuv.",
+      "prompt": "Create slide 05 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: I want to cook dinners with you and eat them al fresco. Show a small balcony/garden dinner from behind/three-quarter back, Aachu/Zuv hair silhouettes, Zuv serving or reaching, warm plants and plates, exact text in upper-middle negative space, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 6,
+      "slide_count": 7,
+      "text": "My love language is\nthinking, “you’d love this,”\nat least ten times a day.",
+      "visual": "A record/book/object shop aisle in soft warm watercolor: Zuv is seen in profile or from behind holding a tiny object/record/book toward the light, smiling to himself because he knows Aachu would love it.",
+      "scene": "Zuv alone in a warm little shop, browsing and holding up a small object/record/book that makes him think of Aachu. Aachu is implied through the object and his private smile, not physically present.",
+      "pose": "Over-shoulder or side profile; one hand holds the object, the other steadies a shelf/bin.",
+      "wardrobe": "Zuv muted dark/navy shirt or casual A Story palette from identity references; preserve curly hair and grounded posture.",
+      "props": "Record/book/object bins, tiny chosen object, warm shop shelves, no signs or extra readable text.",
+      "background": "Soft shop aisle with faded edges, warm lamps, clean upper-middle text space.",
+      "emotion": "private tenderness",
+      "style": "premium A Story watercolor-and-ink observational intimacy, warm ivory paper, tactile shelf/object detail",
+      "negative_prompt": "No external shop signage text, no random labels, no photoreal record store, no generic male model, no speech bubble.",
+      "prompt": "Create slide 06 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: My love language is thinking, “you’d love this,” at least ten times a day. Show Zuv from behind/side in a small shop holding an object he knows Aachu would love, with a private soft smile, no extra readable text, exact hand-drawn carousel text, tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 7,
+      "slide_count": 7,
+      "text": "And quietly collecting those moments\nuntil I can share them all with you.",
+      "visual": "Warm evening room, intentionally soft and slightly motion-blurred in illustration: Aachu and Zuv sit close looking through a small pile of saved notes/photos/receipts from the prior scenes.",
+      "scene": "Shared memory-pile payoff: saved receipts, tiny photo, object from shop, maybe a dessert wrapper or grocery receipt, Aachu and Zuv close together in a warm room, hands over the pile.",
+      "pose": "Partial faces or soft side crop allowed; the hands and saved-moment pile are the foreground story.",
+      "wardrobe": "Soft home clothes in off-white/denim/navy; preserve Aachu hair and Zuv curly hair if visible.",
+      "props": "Small pile of notes/photos/receipts, object from slide 06, coffee/dessert/drive memory hints.",
+      "background": "Warm room with soft lamp and paper grain; no dark blurry photo imitation.",
+      "emotion": "tender payoff",
+      "style": "premium A Story watercolor-and-ink observational intimacy, soft motion feeling through sketch lines not blur artifacts",
+      "negative_prompt": "No heavy blur, no black background, no unreadable random text on notes, no external watermark, no generic couple faces.",
+      "prompt": "Create slide 07 in @a.storyof.two Observational Intimacy Premium watercolor-and-ink style. Use the exact on-image text: And quietly collecting those moments until I can share them all with you. Show Aachu and Zuv close together with a small pile of saved moments from the prior slides, hands in foreground, partial faces optional, exact readable hand-drawn text, tiny @a.storyof.two bottom-right."
+    }
+  ]
+}

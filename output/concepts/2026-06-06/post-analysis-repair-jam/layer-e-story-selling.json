@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-06-06",
+  "status": "SELECTABLE_SHORTLIST_PRESENTED",
+  "task_type": "carousel_idea_repair",
+  "adaptation_target": "C-layer",
+  "concept_slug": "post-analysis-repair-jam",
+  "source": "output/reports/2026-06-06-instagram-page-and-competitor-analysis.md",
+  "rooms": {
+    "story_meaning_room": {
+      "name": "Layer E Story Meaning Room",
+      "status": "GO",
+      "summary": "The replacement should not be another soft concept. It should start from a one-second public contradiction and then reveal tenderness through receipts.",
+      "human_story_requirement": "Daily married-life phrase or behavior that looks funny first and reveals being known second.",
+      "emotional_obstacle_requirement": "A small mismatch between what one partner says and what the moment actually needs.",
+      "proof_requirement": "At least three concrete receipts before any thesis.",
+      "active_zuv_requirement": "Zuv must translate, adjust, wait, find, hold, or deadpan-react. He cannot be passive furniture or saintly rescuer."
+    },
+    "contrarian_room": {
+      "name": "Contrarian Repair Room",
+      "status": "GO",
+      "rejections": [
+        "No food-denial lane after creator rejection.",
+        "No polished abstract love opening.",
+        "No broad spouse-roast energy.",
+        "No repeated chaos/calm wording without a new physical receipt.",
+        "No private setup that needs caption explanation."
+      ]
+    }
+  },
+  "selectable_routes": [
+    {
+      "id": "A",
+      "title": "Aachu Dictionary",
+      "plain_concept": "Things she says vs what she actually means, staged as tiny domestic translations.",
+      "public_doorway": "Some husbands become translators.",
+      "emotional_obstacle": "Her words and her needs do not always arrive in the same language.",
+      "proof_engine": "`jaldi`, `main kar lungi`, `kuch nahi hua`, `theek hai` each gets one visible contradiction.",
+      "zuv_active_role": "Zuv reads the scene and responds to the real need, not the literal sentence.",
+      "payoff": "Love becomes fluency.",
+      "story_selling_score": 29,
+      "golden_theme_score": 29,
+      "verdict": "RECOMMENDED"
+    },
+    {
+      "id": "B",
+      "title": "Ready Means The Search Has Started",
+      "plain_concept": "She says she is ready at the door, then the one-earring/key/lip-balm search begins.",
+      "public_doorway": "Ready is not a status. Ready is a process.",
+      "emotional_obstacle": "The leaving moment creates time pressure, but the relationship stays playful instead of blaming.",
+      "proof_engine": "Door half-open, one earring missing, phone flashlight under bed, Zuv holding keys and finding the tiny object.",
+      "zuv_active_role": "He joins the search like this is part of leaving, not a failure.",
+      "payoff": "Love waits for the whole person, not just the schedule.",
+      "story_selling_score": 28,
+      "golden_theme_score": 28,
+      "verdict": "STRONG_FALLBACK"
+    }
+  ],
+  "internal_repair_or_reject_routes": [
+    {
+      "id": "C",
+      "title": "House Weather System",
+      "plain_concept": "AC, fan, blanket, window, and body temperature become a domestic climate negotiation.",
+      "public_doorway": "Some couples don't fight. They update the house weather.",
+      "emotional_obstacle": "Two comfort systems share one room.",
+      "proof_engine": "Fan remote, blanket edge, AC temperature, window crack, Zuv shifting the airflow instead of arguing.",
+      "zuv_active_role": "He physically adjusts the room so both can exist in it.",
+      "payoff": "Love is the climate both people can survive in.",
+      "story_selling_score": 27,
+      "golden_theme_score": 28,
+      "verdict": "NOT_CREATOR_SELECTABLE_REPAIR_VISUAL_REPETITION"
+    },
+    {
+      "id": "D",
+      "title": "Jaldi Has No Definition",
+      "plain_concept": "He says jaldi; she hears a full ceremony. The joke is acted through escalating getting-ready receipts.",
+      "public_doorway": "He said jaldi. Now define jaldi.",
+      "emotional_obstacle": "Time pressure meets expressive preparation.",
+      "proof_engine": "One earring, outfit check, dupatta/hair, door waiting, Zuv's deadpan timer face.",
+      "zuv_active_role": "He becomes the straight-face witness and adjusts to real time without making her small.",
+      "payoff": "Some people are not late. They are arriving with plot.",
+      "story_selling_score": 27,
+      "golden_theme_score": 28,
+      "verdict": "NOT_CREATOR_SELECTABLE_REPAIR_LEDGER_ADJACENCY"
+    }
+  ],
+  "selector_note": "Recommend Aachu Dictionary because it turns the report's strongest strategic lesson into a recurring format: private language made public, Hinglish contradiction, visible receipts, and active Zuv translation.",
+  "decision": "SELECTABLE_SHORTLIST_FOR_CREATOR",
+  "next_checkpoint": "Creator selects A or B, rejects both, or supplies a raw moment. C and D are not selectable unless repaired in a separate pass."
+}

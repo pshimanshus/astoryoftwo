@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-27",
+  "jam_slug": "bids-for-connection-jam",
+  "repairs": [
+    {
+      "route": "The Dekh Na Test",
+      "raw_problem": "Initial version risked becoming 'he notices all her tiny bids,' which repeats perfect-husband care.",
+      "repair": "Make the relationship motion mutual: she offers a small bid, he turns toward; later he offers one, she turns toward. The pattern, not one person's patience, is the love proof.",
+      "score_before": {
+        "story_selling": 26.5,
+        "golden_theme": 26.5
+      },
+      "score_after": {
+        "story_selling": 29,
+        "golden_theme": 28.5
+      },
+      "decision": "GO"
+    },
+    {
+      "route": "Love Is Looking Up",
+      "raw_problem": "Strong verb, weak creator-world specificity.",
+      "repair": "Add desi micro-phrase and physical bid staging.",
+      "score_before": {
+        "story_selling": 26,
+        "golden_theme": 26
+      },
+      "score_after": {
+        "story_selling": 27.5,
+        "golden_theme": 27.5
+      },
+      "decision": "REJECT_BELOW_GATE_AFTER_CAP"
+    },
+    {
+      "route": "86 Percent Is Not Grand Gestures",
+      "raw_problem": "The statistic becomes the hook and forces the deck toward quote-card education.",
+      "repair": "Move the stat into source context and make the on-screen proof a tiny lived bid.",
+      "score_before": {
+        "story_selling": 24,
+        "golden_theme": 25
+      },
+      "score_after": {
+        "story_selling": 26,
+        "golden_theme": 27
+      },
+      "decision": "REJECT_PUBLIC_SPINE"
+    }
+  ],
+  "selector_note": "Only Route A clears both 28/30 gates with no taste cap."
+}

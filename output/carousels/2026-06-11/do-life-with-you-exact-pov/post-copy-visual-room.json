@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "creator asked to create illustrations with exact text, fresh camera angles, non-repeating clothes, and mostly POV/side/back shots",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "When I say I want to do life with you, I mean:"
+    },
+    {
+      "slide": 2,
+      "copy": "I want to take turns brewing coffee every morning."
+    },
+    {
+      "slide": 3,
+      "copy": "I want to make grocery lists with you every week."
+    },
+    {
+      "slide": 4,
+      "copy": "I want to wander aimlessly\nthrough farmers’ markets with you."
+    },
+    {
+      "slide": 5,
+      "copy": "I want to wash the dishes while you dry them."
+    },
+    {
+      "slide": 6,
+      "copy": "I want to slow dance in the kitchen,\njust because."
+    },
+    {
+      "slide": 7,
+      "copy": "I want to fold laundry while we\ntoss socks at each other."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Same Text, New Camera Life",
+      "score": 30,
+      "case_for": "Directly satisfies the creator: exact text, fresh POV/side/back angles, no repeated clothes, and visible action.",
+      "risk": "Needs identity continuity even when faces are hidden."
+    },
+    {
+      "name": "Moody Object Archive",
+      "score": 22,
+      "case_for": "Close to the source mood.",
+      "risk": "Too many object-only slides; text would carry the deck."
+    },
+    {
+      "name": "Full Couple Scenes",
+      "score": 24,
+      "case_for": "Romantic and legible.",
+      "risk": "Contradicts creator preference for POV, side, back, and non-face-dependent shots."
+    }
+  ],
+  "selected_visual_system": "Same Text, New Camera Life",
+  "why_it_wins": "It preserves the feeling of small ordinary love while making each frame visually new and A Story-specific.",
+  "rejected_visual_patterns": [
+    "Instagram screenshot redraw",
+    "source account UI or engagement icons",
+    "same wardrobe repeated",
+    "same kitchen/window camera across slides",
+    "object-only still lifes",
+    "large centered quote-card typography",
+    "photorealistic moody grain"
+  ],
+  "visual_format_anthropologist": {
+    "verdict": "GO",
+    "extract": "Borrow only the mechanic: exact ordinary-life declarations paired with intimate daily scenes."
+  },
+  "scene_evidence_director": {
+    "verdict": "GO",
+    "requirement": "Every slide must include visible action through hands, body distance, object movement, or partner response."
+  },
+  "romance_blocking_director": {
+    "verdict": "GO",
+    "requirement": "Aachu and Zuv remain active even when faces are hidden."
+  },
+  "typography_and_aspect_director": {
+    "verdict": "GO",
+    "requirement": "Exact text in clean upper-middle negative space for native 4:5 and native 9:16."
+  },
+  "generation_prompt_director": {
+    "verdict": "GO",
+    "requirement": "Use identity and style reference images as actual inputs before generation."
+  },
+  "harsh_visual_selector": {
+    "verdict": "GO",
+    "proof_slide": 6,
+    "repair": "Block full batch if text is wrong, paper turns yellow, hands/anatomy are broken, or the image looks like a copied screenshot."
+  }
+}

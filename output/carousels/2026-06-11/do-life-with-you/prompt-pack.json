@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "status": "PROOF_PROMPT_READY",
+  "generation_mode": "built_in_image_gen_proof_first",
+  "shared_style_contract": [
+    "Use config/references/a-story-illustration-master-prompt.md.",
+    "Use config/references/a-story-premium-illustration-style-lock.md.",
+    "Use the visible Observational Intimacy Premium contact sheet as style reference.",
+    "Use the four visible identity references as actual identity/style context.",
+    "Use the supplied Instagram screenshots only as mood/message references, not as redraw targets."
+  ],
+  "negative_prompt": "No photorealism, no screenshot UI, no social handle, no engagement icons, no carousel dots, no external watermark, no quote-card design, no large digital font, no random text, no yellow/parchment/sepia/beige cast, no generic South Asian couple, no anime, no 3D render, no flat vector art, no extra fingers, no broken wrists, no awkward ballroom pose, no copied photo frame.",
+  "proof_prompt_path": "codex-image-prompts/instagram-post/slide-06-proof.prompt.txt",
+  "slides_source": "slides.json"
+}

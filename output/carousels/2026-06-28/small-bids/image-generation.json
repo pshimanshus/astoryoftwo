@@ -1,0 +1,357 @@
+{
+  "schema_version": "1.0",
+  "status": "generated",
+  "backend": "deterministic_small_bids_renderer",
+  "generation_mode": "native_exact_vector_watercolor_illustration",
+  "created_at": "2026-06-28T17:17:01",
+  "slide_count": 8,
+  "done": true,
+  "publishable": true,
+  "native_dimension_gate": "PASS",
+  "brandmark_gate": "PASS",
+  "integrated_text_gate": "PASS",
+  "identity_reference_basis": [
+    "output/carousels/2026-06-28/small-bids/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-20.jpg",
+    "config/references/identity/zuv/face-04.png"
+  ],
+  "native_output_contract": {
+    "instagram_post": "1080x1350",
+    "reels_stories": "1080x1920",
+    "note": "Each format is rendered directly as its own target canvas. No rejected image-model output was cropped, padded, stretched, or resized into final."
+  },
+  "dimension_checks": [
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-01.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-01.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-02.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-02.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-03.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-03.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-04.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-04.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-05.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-05.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-06.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-06.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-07.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-07.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-08.png",
+      "expected": "1080x1350",
+      "actual": "1080x1350",
+      "pass": true
+    },
+    {
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-08.png",
+      "expected": "1080x1920",
+      "actual": "1080x1920",
+      "pass": true
+    }
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "the smallest moments can make or break connection",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-01.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-01.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-01.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-01.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-01.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-01.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "sometimes love asks in very small ways",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-02.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-02.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-02.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-02.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-02.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-02.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    },
+    {
+      "slide": 3,
+      "copy": "look at this",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-03.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-03.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-03.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-03.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-03.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-03.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    },
+    {
+      "slide": 4,
+      "copy": "come sit with me",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-04.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-04.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-04.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-04.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-04.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-04.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    },
+    {
+      "slide": 5,
+      "copy": "you won't believe what happened today",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-05.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-05.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-05.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-05.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-05.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-05.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    },
+    {
+      "slide": 6,
+      "copy": "turning toward each other is a choice you make in ten seconds",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-06.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-06.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-06.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-06.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-06.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-06.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    },
+    {
+      "slide": 7,
+      "copy": "it's never the big fights. it's the small \"look at this\" you didn't look at.",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-07.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-07.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-07.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-07.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-07.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-07.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    },
+    {
+      "slide": 8,
+      "copy": "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "status": "generated",
+      "backend": "deterministic_small_bids_renderer",
+      "generation_mode": "native_exact_vector_watercolor_illustration",
+      "publishable": true,
+      "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-08.png",
+      "reels_stories_file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-08.png",
+      "native_outputs": {
+        "instagram_post": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/slide-08.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/instagram-post-slide-08.png",
+          "size": "1080x1350",
+          "publishable": true
+        },
+        "reels_stories": {
+          "file": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final-reels-stories/slide-08.png",
+          "source": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-28/small-bids/final/deterministic-illustration-source/reels-stories-slide-08.png",
+          "size": "1080x1920",
+          "publishable": true
+        }
+      },
+      "qa_notes": [
+        "Exact on-image copy rendered directly into the illustration.",
+        "Exactly one top-right @a.storyof.two brandmark.",
+        "No speech bubbles, no readable phone UI, no shirt labels."
+      ]
+    }
+  ]
+}

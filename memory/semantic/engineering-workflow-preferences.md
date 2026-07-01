@@ -1,7 +1,7 @@
 # Engineering Workflow Preferences
 
-last_updated: 2026-05-28
-confidence: 0.9
+last_updated: 2026-07-01
+confidence: 0.92
 sources:
 - direct creator instruction in Codex chat on 2026-05-25
 - direct creator approval in Codex chat on 2026-05-28 to proceed with safe
@@ -12,6 +12,10 @@ sources:
   proof artifacts caused story drift
 - direct creator correction in Codex chat on 2026-05-28 to avoid AI sprawl and
   prefer crisp, low-file, low-repetition code
+- direct creator correction in Codex chat on 2026-07-01 from a simple prompt
+  transcript: simple model freedom generated strong couple concepts, copy, and
+  visual setup; engineering should perfect and guard the output, not own the
+  initial idea
 
 ## Standing Preference
 
@@ -45,6 +49,15 @@ an OpenAI API key or external image-client workflow. The expected path is Codex
 native packaging plus Codex image tool generation in-session, followed by
 packaging and visual QA.
 confidence: 0.9
+
+fact: For carousel ideation and packaging, model owns concept, copy, and visual
+invention, and engineering is the guardrail layer: it checks for repeated ideas,
+identity drift, weak or broken visuals, exact on-image text, brandmark,
+dimensions, stale artifacts, and house guidance failures. Start with or
+preserve the free creative pass first; scoring, memory, and QA should block hard
+failures or repair issues without replacing the strongest alive route with a
+safer template.
+confidence: 1.0
 
 fact: After the creator corrects a carousel story/proof, treat stale downstream
 artifacts as a production bug. Rebuild every generation-facing artifact from

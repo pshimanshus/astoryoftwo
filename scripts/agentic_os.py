@@ -19,6 +19,7 @@ from pipeline.agentic.memory_index import build_memory_index, search_memory  # n
 from pipeline.agentic.recall import build_recall_bundle, render_recall_bundle  # noqa: E402
 from pipeline.agentic.skill_eval import evaluate_learning_proposal  # noqa: E402
 from pipeline.agentic.skill_registry import discover_skill_records, load_skill_systems, resolve_skill_system  # noqa: E402
+from pipeline.agentic.skill_usage import record_skill_run, summarize_skill_usage  # noqa: E402
 from pipeline.agentic.workflow_doctor import inspect_carousel_package  # noqa: E402
 
 
@@ -56,6 +57,11 @@ def build_parser() -> argparse.ArgumentParser:
     system.add_argument("name")
     skill_system = sub.add_parser("skill-system")
     skill_system.add_argument("name")
+    sub.add_parser("skill-usage")
+    record_skill = sub.add_parser("record-skill-run")
+    record_skill.add_argument("skill_name")
+    record_skill.add_argument("--outcome", required=True, choices=["pass", "fail", "blocked"])
+    record_skill.add_argument("--note", default="")
 
     event = sub.add_parser("capture-learning")
     event.add_argument("--source", required=True)
@@ -100,6 +106,17 @@ def main(argv: list[str] | None = None) -> int:
         print_json(bundle) if args.json else print(render_recall_bundle(bundle))
     elif args.command in {"system", "skill-system"}:
         print_json(resolve_skill_system(load_skill_systems(root), args.name))
+    elif args.command == "skill-usage":
+        print_json(summarize_skill_usage(root))
+    elif args.command == "record-skill-run":
+        print_json(
+            record_skill_run(
+                root,
+                skill_name=args.skill_name,
+                outcome=args.outcome,
+                note=args.note,
+            )
+        )
     elif args.command == "capture-learning":
         print_json(
             capture_learning_event(

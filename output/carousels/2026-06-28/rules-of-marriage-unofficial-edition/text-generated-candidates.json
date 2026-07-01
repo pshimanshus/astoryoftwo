@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "status": "TEXT_BEARING_CANDIDATES_CREATED__NOT_FINAL",
+  "created_at": "2026-06-28",
+  "creator_correction": "No image may be generated without on-image text; text must be generated with the illustration, not added afterward.",
+  "textless_sources": {
+    "status": "REJECTED_HARD_FAIL",
+    "moved_to": "rejected-images/textless-hard-fail-2026-06-28/"
+  },
+  "corrected_generation": {
+    "status": "all_9_slides_generated_with_text_baked_into_image",
+    "directory": "source/text-bearing/",
+    "contact_sheet": "contact-sheets/text-generated-contact-sheet.png",
+    "post_overlay_used": false,
+    "controlled_resize_or_crop_used": false
+  },
+  "publish_gate": {
+    "status": "BLOCKED",
+    "reasons": [
+      "No candidate is exactly native 1080x1350.",
+      "Some generated text reflowed line breaks and/or quote glyphs compared with slides.json.",
+      "OCR validation could not run because tesseract/pytesseract are unavailable in this environment."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "expected_copy": "Rules of Marriage: Unofficial Edition\nthat nobody tells you",
+      "path": "source/text-bearing/slide-01-text-generated.png",
+      "dimensions": "997x1577",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": false,
+      "manual_text_qa": "Text-bearing candidate. Title and brandmark visible; native size failed."
+    },
+    {
+      "slide": 2,
+      "expected_copy": "Rule no. 1\nThe blanket belongs to whoever pulls harder.",
+      "path": "source/text-bearing/slide-02-text-generated.png",
+      "dimensions": "1122x1402",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": true,
+      "manual_text_qa": "Text-bearing candidate. Words readable; model reflowed the second text line; native size failed though ratio is 4:5."
+    },
+    {
+      "slide": 3,
+      "expected_copy": "Rule no. 2\n“Bas 5 minute” is legally allowed to mean 45 minutes.",
+      "path": "source/text-bearing/slide-03-text-generated.png",
+      "dimensions": "1122x1402",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": true,
+      "manual_text_qa": "Text-bearing regenerated candidate. Words readable; quotation marks may be straight rather than curly; native size failed though ratio is 4:5."
+    },
+    {
+      "slide": 4,
+      "expected_copy": "Rule no. 3\nThere is no such thing as “my snack” after marriage.",
+      "path": "source/text-bearing/slide-04-text-generated.png",
+      "dimensions": "1003x1568",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": false,
+      "manual_text_qa": "Text-bearing candidate. Words readable; model reflowed text and fridge/magnet details may create extra-text risk; native size failed."
+    },
+    {
+      "slide": 5,
+      "expected_copy": "Rule no. 4\nIf one person says “nothing,” the case is definitely not closed.",
+      "path": "source/text-bearing/slide-05-text-generated.png",
+      "dimensions": "1122x1402",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": true,
+      "manual_text_qa": "Text-bearing regenerated candidate. Words readable; model reflowed second line; native size failed though ratio is 4:5."
+    },
+    {
+      "slide": 6,
+      "expected_copy": "Rule no. 5\nOne person will remember the fight.\nThe other will remember what was ordered for dinner.",
+      "path": "source/text-bearing/slide-06-text-generated.png",
+      "dimensions": "1122x1402",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": true,
+      "manual_text_qa": "Text-bearing regenerated candidate. Words readable; model reflowed final line; delivery bag is blank; native size failed though ratio is 4:5."
+    },
+    {
+      "slide": 7,
+      "expected_copy": "Rule no. 6\nShopping lists are fake.\nThe basket knows the truth.",
+      "path": "source/text-bearing/slide-07-text-generated.png",
+      "dimensions": "1003x1568",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": false,
+      "manual_text_qa": "Text-bearing candidate. Text reads cleanly; basket joke visible; native size failed."
+    },
+    {
+      "slide": 8,
+      "expected_copy": "Rule no. 7\nMarriage is mostly asking,\n“Phone kahan hai?”\nwhile holding the phone.",
+      "path": "source/text-bearing/slide-08-text-generated.png",
+      "dimensions": "1023x1537",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": false,
+      "manual_text_qa": "Text-bearing candidate. Hinglish line readable and scene proof is strong; native size failed."
+    },
+    {
+      "slide": 9,
+      "expected_copy": "Rule no. 8\nThere are no real rules.\nBas ek dusre ki aadat ban jao.",
+      "path": "source/text-bearing/slide-09-text-generated.png",
+      "dimensions": "997x1577",
+      "native_1080x1350_pass": false,
+      "aspect_4x5_pass": false,
+      "manual_text_qa": "Text-bearing candidate. Emotional landing works; small snack-pack detail risk; native size failed."
+    }
+  ]
+}

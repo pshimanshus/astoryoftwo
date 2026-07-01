@@ -1,0 +1,276 @@
+{
+  "shared_style_prompt": "Watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs.",
+  "shared_negative_prompt": "No UI, no random text, no photorealism.",
+  "house_style_scene_rule": "Full lived Aachu/Zuv scene; labels/text complete the scene but do not replace the action.",
+  "generation_mode": "model_native_publishable",
+  "identity_reference_images": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/zuv/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/zuv/portrait-02.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-19.jpg"
+  ],
+  "identity_dossier_path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/identity-dossier.json",
+  "identity_generation_preflight_path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-06-27/road-hi-galat-hai/identity-generation-preflight.md",
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+  ],
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Confusing Road / Shared Blame Story Map",
+    "open_doubts": []
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Confusing Road / Shared Blame Story Map",
+    "selector_verdict": "GO: the repeated road geometry plus car interior reactions creates a clear swipe story.",
+    "hard_fails_checked": [
+      "no UI redraw",
+      "no repeated generic couple pose",
+      "no Zuv-saves-Aachu default",
+      "text does not carry scene alone"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO_FOR_PROOF",
+    "can_generate": true,
+    "issues": [],
+    "proof_slide": 1
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 8,
+      "text": "left?\nseedha?",
+      "scene": "High aerial road: big flyover straight ahead, tiny confusing left service-lane cut beside it, small car near split. Text labels near choices, not centered.",
+      "visual": "High aerial road: big flyover straight ahead, tiny confusing left service-lane cut beside it, small car near split. Text labels near choices, not centered.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "confused choice, small everyday tension",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 1 of 8. Exact text: 'left?\\nseedha?'. Scene: High aerial road: big flyover straight ahead, tiny confusing left service-lane cut beside it, small car near split. Text labels near choices, not centered. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    },
+    {
+      "slide": 2,
+      "slide_count": 8,
+      "text": "shit.\nleft hi tha!",
+      "scene": "Rear road view: car already on flyover, missed left cut clearly behind/below with divider. Funny regret.",
+      "visual": "Rear road view: car already on flyover, missed left cut clearly behind/below with divider. Funny regret.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "instant regret, funny defeat",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 2 of 8. Exact text: 'shit.\\nleft hi tha!'. Scene: Rear road view: car already on flyover, missed left cut clearly behind/below with divider. Funny regret. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    },
+    {
+      "slide": 3,
+      "slide_count": 8,
+      "text": "I told you.\nAlways listen to me.\nI am always right.",
+      "scene": "Interior car: Aachu passenger-side turned to Zuv in playful see-I-told-you lecture; Zuv drives quietly, calm.",
+      "visual": "Interior car: Aachu passenger-side turned to Zuv in playful see-I-told-you lecture; Zuv drives quietly, calm.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "playful victory lap",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 3 of 8. Exact text: 'I told you.\\nAlways listen to me.\\nI am always right.'. Scene: Interior car: Aachu passenger-side turned to Zuv in playful see-I-told-you lecture; Zuv drives quietly, calm. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    },
+    {
+      "slide": 4,
+      "slide_count": 8,
+      "text": "where?\nseedha.",
+      "scene": "Second confusing road split through windshield: small right cut beside flyover. Zuv slows. Aachu confidently says straight.",
+      "visual": "Second confusing road split through windshield: small right cut beside flyover. Zuv slows. Aachu confidently says straight.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "same confusion returning",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 4 of 8. Exact text: 'where?\\nseedha.'. Scene: Second confusing road split through windshield: small right cut beside flyover. Zuv slows. Aachu confidently says straight. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    },
+    {
+      "slide": 5,
+      "slide_count": 8,
+      "text": "not you.\nnot me.\nthis.",
+      "scene": "After missed right cut, both point outward at confusing road/map, not at each other. Shared blame.",
+      "visual": "After missed right cut, both point outward at confusing road/map, not at each other. Shared blame.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "comic alliance, no one is the villain",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 5 of 8. Exact text: 'not you.\\nnot me.\\nthis.'. Scene: After missed right cut, both point outward at confusing road/map, not at each other. Shared blame. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    },
+    {
+      "slide": 6,
+      "slide_count": 8,
+      "text": "+17 minutes",
+      "scene": "Hand-drawn map-like detour loop with tiny car taking absurd route. No phone UI.",
+      "visual": "Hand-drawn map-like detour loop with tiny car taking absurd route. No phone UI.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "painfully funny receipt",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 6 of 8. Exact text: '+17 minutes'. Scene: Hand-drawn map-like detour loop with tiny car taking absurd route. No phone UI. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    },
+    {
+      "slide": 7,
+      "slide_count": 8,
+      "text": "wrong turn.\nsame team.",
+      "scene": "They finally reach by parked car; one annoyed, one laughing, close same-team body language.",
+      "visual": "They finally reach by parked car; one annoyed, one laughing, close same-team body language.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "annoyed-laughing togetherness",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 7 of 8. Exact text: 'wrong turn.\\nsame team.'. Scene: They finally reach by parked car; one annoyed, one laughing, close same-team body language. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    },
+    {
+      "slide": 8,
+      "slide_count": 8,
+      "text": "Tag the person you have jointly blamed a flyover, Google Maps, or one impossible service lane with.",
+      "scene": "Tiny parked car lower frame; both look back at flyover like it betrayed them; large clean text space.",
+      "visual": "Tiny parked car lower frame; both look back at flyover like it betrayed them; large clean text space.",
+      "pose": "Natural action.",
+      "wardrobe": "Casual identity-ref clothes.",
+      "props": "Only needed props.",
+      "background": "Sparse road setting.",
+      "emotion": "public invitation, shared complaint",
+      "style": "Watercolor ink, warm ivory paper, exact handwritten text.",
+      "negative_prompt": "No UI, no random text, no photorealism.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/portrait-02.jpg",
+        "config/references/identity/zuv/portrait-02.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-19.jpg"
+      ],
+      "prompt": "Slide 8 of 8. Exact text: 'Tag the person you have jointly blamed a flyover, Google Maps, or one impossible service lane with.'. Scene: Tiny parked car lower frame; both look back at flyover like it betrayed them; large clean text space. Style: watercolor ink, warm ivory paper, exact handwritten text, Aachu/Zuv identity refs."
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO_FOR_SLIDE_01_PROOF_FIRST",
+  "can_generate": true,
+  "proof_slide": 1,
+  "full_batch_status": "WAITING_FOR_CREATOR_PROOF_APPROVAL",
+  "global_pass_conditions": [
+    "exact on-image text from slides.json",
+    "tiny @a.storyof.two brandmark",
+    "identity references influence faces/body",
+    "road split readable at phone size",
+    "no screenshot UI or random road-sign text"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "decision": "GO",
+      "why": "hook / first choice",
+      "text": "left?\nseedha?",
+      "risk": "composition/legibility"
+    },
+    {
+      "slide": 2,
+      "decision": "GO",
+      "why": "first receipt / consequence",
+      "text": "shit.\nleft hi tha!",
+      "risk": "composition/legibility"
+    },
+    {
+      "slide": 3,
+      "decision": "GO",
+      "why": "comic overconfidence",
+      "text": "I told you.\nAlways listen to me.\nI am always right.",
+      "risk": "long text"
+    },
+    {
+      "slide": 4,
+      "decision": "GO",
+      "why": "second choice / reversal setup",
+      "text": "where?\nseedha.",
+      "risk": "composition/legibility"
+    },
+    {
+      "slide": 5,
+      "decision": "GO",
+      "why": "shared blame / relationship turn",
+      "text": "not you.\nnot me.\nthis.",
+      "risk": "composition/legibility"
+    },
+    {
+      "slide": 6,
+      "decision": "GO",
+      "why": "sticky receipt / consequence",
+      "text": "+17 minutes",
+      "risk": "composition/legibility"
+    },
+    {
+      "slide": 7,
+      "decision": "GO",
+      "why": "earned payoff",
+      "text": "wrong turn.\nsame team.",
+      "risk": "composition/legibility"
+    },
+    {
+      "slide": 8,
+      "decision": "GO",
+      "why": "CTA / participation",
+      "text": "Tag the person you have jointly blamed a flyover, Google Maps, or one impossible service lane with.",
+      "risk": "long text"
+    }
+  ],
+  "issues": []
+}

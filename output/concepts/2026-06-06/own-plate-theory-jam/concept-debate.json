@@ -1,0 +1,106 @@
+{
+  "date": "2026-06-06",
+  "concept_slug": "own-plate-theory-jam",
+  "agents_ran_as": "Simulated named reviewers in-session; concrete multi-agent spawning was not used because the available sub-agent tool requires explicit user permission for delegation.",
+  "room_inputs": {
+    "selected_source_memory": [
+      "successful-carousel-standard",
+      "calm-enough-for-chaos",
+      "he-didnt-marry-peace-viral-theme-analysis",
+      "carousel-idea-preferences"
+    ],
+    "hard_constraints": [
+      "No public Aachu/Zuv names in slide copy by default.",
+      "Do not repeat recently rejected or packaged lanes.",
+      "No body-shame, appetite-shame, consent-adjacent phrasing, or food policing.",
+      "Text must complete the staged scene; text cannot carry it."
+    ]
+  },
+  "cross_debate": [
+    {
+      "agent": "Storyline Architect",
+      "protects": "R1 because the obstacle is tiny but instantly legible: she refuses the plate while wanting the ritual of being included.",
+      "cuts": "Any version where the joke is that she is greedy, silly, or dishonest.",
+      "repair": "Make the second plate a recurring care receipt, not a punchline or a boundary violation."
+    },
+    {
+      "agent": "Contrarian Critic",
+      "protects": "The scene only if it avoids the dangerous wording of 'no means yes' and avoids body/weight jokes.",
+      "cuts": "Food policing, forcing her to eat, 'girls always steal food' stereotypes, and a saintly husband who knows better than her.",
+      "repair": "Frame it as a mutual, familiar ritual: she is allowed to refuse; he simply keeps room for the version of her he knows may arrive."
+    },
+    {
+      "agent": "Retention Analyst",
+      "protects": "R1 has the cleanest send trigger. Viewers immediately know the 'I don't want food' partner.",
+      "cuts": "R3 because bedtime scrolling is relatable but visually familiar and less emotionally specific.",
+      "repair": "Slide 1 should name the contradiction quickly, then slide 2 should show the first hand/eye-line receipt."
+    },
+    {
+      "agent": "Visual Director",
+      "protects": "R1 because the plate, eye-line, hand, and spare bite create simple drawable action.",
+      "cuts": "UI-heavy screenshot ideas and fan/remote concepts that become object-first or visually repetitive.",
+      "repair": "Keep a single cozy table/takeout/street-food setup, warm ivory negative space, and one object movement per beat."
+    },
+    {
+      "agent": "Copy Chief",
+      "protects": "The phrase-world around plate, bite, and 'nahi chahiye' because it is spoken and taggable.",
+      "cuts": "Polished abstract lines like 'appetite for life' before the scene has earned them.",
+      "repair": "Use Hinglish sparingly and keep copy low-text, name-free, and scene-native."
+    },
+    {
+      "agent": "Algorithm / Brand Strategist",
+      "protects": "R1 because partner-tag behavior is native: one person sends it saying 'you after saying no.'",
+      "cuts": "Routes that need private setup or that viewers admire as cute art instead of recognizing themselves.",
+      "repair": "The final payoff should be saveable but the middle must stay funny enough to earn comments and tags."
+    },
+    {
+      "agent": "Final Selector",
+      "protects": "R1 as winner, with R2 held as a strong fallback if the creator wants a less food-led surface.",
+      "cuts": "R4, R6, R7, and R8 for ledger adjacency, UI risk, recent-care similarity, or thin proof.",
+      "repair": "Advance R1 only as concept-lock, then wait for creator approval before copy lock."
+    }
+  ],
+  "nested_debate": {
+    "R1": {
+      "creative_editor_voice_1": "This protects a public contradiction: the sentence says no food, the body-language says include me. The story is not hunger; it is being known.",
+      "creative_editor_voice_2": "The object movement is clean: plate refused, hand reaches, extra plate appears. That gives the carousel visible receipts before tenderness.",
+      "writer_voice_1": "The line-world must stay colloquial. 'Nahi chahiye' and 'own plate' are stronger than a poetic thesis too early.",
+      "writer_voice_2": "The ending should not be 'he knows her better than she knows herself.' That sounds controlling. It should be 'he left room for her ritual.'",
+      "protected_spine": "No plate -> stolen bite -> spare plate -> playful denial -> known-without-lecture payoff.",
+      "rejected_interpretations": [
+        "No means yes.",
+        "She is greedy or childish.",
+        "He forces care onto her.",
+        "Food/weight/body joke."
+      ],
+      "repair_status": "GO after consent/body-shame wording repair."
+    },
+    "R2": {
+      "creative_editor_voice_1": "This is elegant and very A Story: the real answer is in her face, not in the options.",
+      "creative_editor_voice_2": "Risk: it can become a fashion carousel or a perfect-husband mind-reader fantasy.",
+      "writer_voice_1": "The hook is strong if it is about being noticed, not outfit approval.",
+      "writer_voice_2": "Keep it as fallback; it may have lower comment velocity than R1 but higher romance polish.",
+      "protected_spine": "Question -> visible preference -> he notices -> answer becomes care.",
+      "rejected_interpretations": [
+        "High-maintenance outfit chaos.",
+        "Husband as judge.",
+        "Fashion/lookbook premise."
+      ],
+      "repair_status": "GOOD_FALLBACK"
+    },
+    "R5": {
+      "creative_editor_voice_1": "The 'ready means beginning' hook is broadly recognizable.",
+      "creative_editor_voice_2": "It is also easy to slip into nagging-wife/late-wife stereotypes.",
+      "writer_voice_1": "Could work if the forgotten object is emotionally specific.",
+      "writer_voice_2": "Without a source moment, it feels thinner than R1 and less fresh than R2.",
+      "protected_spine": "Ready -> one more thing -> patient wait -> love makes room.",
+      "rejected_interpretations": [
+        "Women take forever.",
+        "Cute delay with no deeper turn.",
+        "Generic doorway tableau."
+      ],
+      "repair_status": "REPAIR"
+    }
+  },
+  "selector_note": "R1 wins because it is the cleanest public identity mirror with the strongest drawable proof: the viewer can understand the joke and the care from hands, eyes, and plate movement before reading a final line."
+}

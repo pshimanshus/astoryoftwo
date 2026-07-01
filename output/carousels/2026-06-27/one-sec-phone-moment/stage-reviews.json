@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "REPAIR_WITH_BLOCKER",
+  "stages": [
+    {
+      "stage": "raw_scene_lock",
+      "expected": "Preserve creator's supplied eight-slide sequence.",
+      "actual": "PASS"
+    },
+    {
+      "stage": "concept_selection",
+      "expected": "Winner scores 28/30+ and avoids generic trope cap.",
+      "actual": "PASS"
+    },
+    {
+      "stage": "copy_lock",
+      "expected": "Creator copy is exact.",
+      "actual": "PASS"
+    },
+    {
+      "stage": "post_copy_visual_room",
+      "expected": "Three visual systems compared and winner selected.",
+      "actual": "PASS"
+    },
+    {
+      "stage": "identity_preflight",
+      "expected": "Actual identity/style inputs attachable.",
+      "actual": "BLOCKED"
+    }
+  ]
+}

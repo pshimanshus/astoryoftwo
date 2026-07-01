@@ -1,0 +1,285 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "Small Bids, Object Movement, Mutual Turn",
+  "rejected_visual_patterns": [
+    "phone UI/screenshot redraw",
+    "quote-card object montage",
+    "same sofa medium two-shot on every slide"
+  ],
+  "continuity_locks": {
+    "proof_slide": 6,
+    "identity_bundle": [
+      "config/references/identity/together/together-20.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/face-04.png"
+    ]
+  },
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible small-bid behavior; any doubtful slide blocks batch generation.",
+  "shot_ladder": [
+    {
+      "shot_type": "wide establishing scene",
+      "camera_angle": "slightly high corner-of-room view",
+      "setting_lane": "living room",
+      "primary_visible_action": "two people sharing a room while small bids sit between them",
+      "who_visible": "both",
+      "repeated_prop_check": "phone appears as one signal, not the only subject",
+      "slide": 1
+    },
+    {
+      "shot_type": "medium sofa-side scene",
+      "camera_angle": "profile three-quarter view",
+      "setting_lane": "living room sofa",
+      "primary_visible_action": "Aachu makes a tiny bid through phone, cushion pat, sigh, and glance",
+      "who_visible": "Aachu primary, Zuv partial in background/edge",
+      "repeated_prop_check": "phone and cushion repeat intentionally as the bid vocabulary",
+      "slide": 2
+    },
+    {
+      "shot_type": "over-shoulder close-up",
+      "camera_angle": "behind Aachu toward Zuv",
+      "setting_lane": "sofa/table edge",
+      "primary_visible_action": "Aachu offers the phone for him to see",
+      "who_visible": "Aachu shoulder/hand, Zuv face",
+      "repeated_prop_check": "phone is necessary story evidence",
+      "slide": 3
+    },
+    {
+      "shot_type": "detail shot",
+      "camera_angle": "low cushion-level view",
+      "setting_lane": "sofa cushion detail",
+      "primary_visible_action": "hand pats the empty cushion",
+      "who_visible": "Aachu hand, partial Zuv",
+      "repeated_prop_check": "cushion repeats intentionally, no extra filler props",
+      "slide": 4
+    },
+    {
+      "shot_type": "medium two-shot",
+      "camera_angle": "front three-quarter view",
+      "setting_lane": "sofa/living room",
+      "primary_visible_action": "Zuv starts a story while Aachu is half in her phone",
+      "who_visible": "both",
+      "repeated_prop_check": "phone shifts to Aachu to create the role flip",
+      "slide": 5
+    },
+    {
+      "shot_type": "table-level medium close scene",
+      "camera_angle": "low table-level view with phone foreground",
+      "setting_lane": "coffee table / sofa",
+      "primary_visible_action": "phone goes face-down and bodies turn toward each other",
+      "who_visible": "both",
+      "repeated_prop_check": "phone appears face-down as the turning point, not a UI object",
+      "slide": 6
+    },
+    {
+      "shot_type": "quiet reaction scene",
+      "camera_angle": "distant doorway view",
+      "setting_lane": "doorway/living room",
+      "primary_visible_action": "a small missed bid leaves a little space between them",
+      "who_visible": "both, with visible distance",
+      "repeated_prop_check": "phone is dim/background evidence, not centered",
+      "slide": 7
+    },
+    {
+      "shot_type": "warm final medium-wide",
+      "camera_angle": "soft front view with lower-frame couple",
+      "setting_lane": "living room sofa",
+      "primary_visible_action": "they choose closeness and leave the phone aside",
+      "who_visible": "both",
+      "repeated_prop_check": "phone and cushion resolve the visual story",
+      "slide": 8
+    }
+  ],
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "the smallest moments can make or break connection",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "sometimes love asks in very small ways",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "look at this",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "come sit with me",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "you won't believe what happened today",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "turning toward each other is a choice you make in ten seconds",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "it's never the big fights. it's the small \"look at this\" you didn't look at.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 8,
+      "copy": "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "brandmark": "@a.storyof.two",
+  "brandmark_placement": "top-right",
+  "brandmark_note": "Creator correction on 2026-06-28: brandmark belongs top-right for this run and future compiled prompts."
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "agent_room_mode": "simulated",
+  "selected_visual_system": "Domestic Rulebook Mini Film",
+  "visual_agents": [
+    {
+      "agent": "Visual Evidence Planner",
+      "verdict": "GO",
+      "protect": "Each rule must have one unmistakable object receipt.",
+      "repair": "Keep background mess readable but not crowded."
+    },
+    {
+      "agent": "Romance Scene Planner",
+      "verdict": "GO",
+      "protect": "Jokes should show safety and closeness, not contempt.",
+      "repair": "Make Zuv's detective/waiting/pointing responses active without making him a scolder."
+    },
+    {
+      "agent": "Visual Continuity Judge",
+      "verdict": "GO",
+      "protect": "Shot ladder must vary across bedroom, doorway, kitchen, dining, shop, sofa, and floor landing.",
+      "repair": "Do not let food, blanket, or sofa become default filler."
+    }
+  ],
+  "winning_visual_plan": [
+    "01 overhead home chaos",
+    "02 top-down blanket tug",
+    "03 doorway delay",
+    "04 night fridge theft",
+    "05 bedside nothing",
+    "06 dining-table momos",
+    "07 store basket",
+    "08 sofa phone search",
+    "09 floor closeness"
+  ],
+  "rejected_visual_patterns": [
+    "single room for all nine slides",
+    "poster/quote-card typography as the main visual",
+    "angry partner comedy",
+    "photoreal night scene",
+    "overcrowded grocery aisle"
+  ],
+  "selector_verdict": "GO",
+  "proof_slide": 4
+}

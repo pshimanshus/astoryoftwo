@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "selected_visual_system": "Domestic Rulebook Mini Film",
+  "proof_first_recommendation": {
+    "slide": 4,
+    "reason": "Slide 4 is the riskiest proof because it combines night fridge lighting, comic theft, exact text, readable props, and both faces."
+  },
+  "shot_ladder": [
+    "01 wide overhead bedroom/living-room chaos",
+    "02 top-down partial-body blanket tug",
+    "03 doorway waiting scene",
+    "04 night kitchen fridge-light detective scene",
+    "05 low bedside side-angle silence scene",
+    "06 low table-level dining argument scene",
+    "07 store aisle basket-as-villain scene",
+    "08 living-room sofa phone-in-hand scene",
+    "09 quiet floor emotional landing"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Slide 1 introduces the lived rulebook through household objects and two different body positions."
+    },
+    {
+      "slide": 2,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Faces can be partly hidden; the body comedy and blanket movement prove the rule."
+    },
+    {
+      "slide": 3,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Door, keys, helmet, missing shoe, and comparison choice make the five-minutes joke visible."
+    },
+    {
+      "slide": 4,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Fridge light and hidden snack are the receipt; Zuv detective posture stays warm."
+    },
+    {
+      "slide": 5,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Body direction and decoding object make the 'nothing' rule visible."
+    },
+    {
+      "slide": 6,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Food delivery bag and mid-rant expression create the fight/dinner contrast."
+    },
+    {
+      "slide": 7,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Store aisle breaks the home pattern and the basket carries the joke."
+    },
+    {
+      "slide": 8,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "Phone in hand must be unmistakable without becoming a UI screenshot."
+    },
+    {
+      "slide": 9,
+      "status": "GO",
+      "checks": {
+        "golden_theme_proof": true,
+        "stage_scene_storytelling": true,
+        "copy_visual_alignment": true,
+        "scene_logic": true,
+        "identity_continuity": true,
+        "composition_square_proof": true,
+        "typography_space": true
+      },
+      "notes": "The returning blanket/snacks convert previous chaos into belonging."
+    }
+  ],
+  "issues": []
+}

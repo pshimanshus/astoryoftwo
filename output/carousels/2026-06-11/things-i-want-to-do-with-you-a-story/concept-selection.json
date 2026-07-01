@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "status": "GO_WITH_COPY_RIGHTS_NOTE",
+  "selected_route": "Little Futures, Mostly Faceless",
+  "selected_score": 28.5,
+  "story_selling_score": 29,
+  "golden_theme_score": 28.5,
+  "routes": [
+    {
+      "name": "Little Futures, Mostly Faceless",
+      "score": 28.5,
+      "case_for": "It preserves the reference's soft future-tense sendability while making the visuals A Story-specific through hands, props, posture, and selective identity.",
+      "risk": "Exact copied text requires permission or rewrite before publishing.",
+      "decision": "GO_WITH_COPY_RIGHTS_NOTE"
+    },
+    {
+      "name": "Exact Photo Mood Rebuild",
+      "score": 22,
+      "case_for": "Would look close to the screenshots quickly.",
+      "risk": "Too close to source imagery; generic stock romance; weak A Story ownership.",
+      "decision": "REJECT"
+    },
+    {
+      "name": "Full Face Couple In Every Slide",
+      "score": 24,
+      "case_for": "Identity would be obvious.",
+      "risk": "Less cinematic, more repetitive, and contrary to the creator's note that every slide need not show faces.",
+      "decision": "REJECT"
+    },
+    {
+      "name": "Quote Card Over A Story Paper",
+      "score": 19,
+      "case_for": "Fast typography execution.",
+      "risk": "Fails Stage-Scene Gate because text carries the whole carousel.",
+      "decision": "REJECT"
+    },
+    {
+      "name": "A Story Rewrite With Similar Emotion",
+      "score": 29.5,
+      "case_for": "Most publish-safe and most ownable.",
+      "risk": "Does not satisfy the creator's current request to retain same copy.",
+      "decision": "KEEP_AS_PUBLISH_REWRITE_OPTION"
+    }
+  ],
+  "selector_rationale": "Use Little Futures, Mostly Faceless as the requested draft because it honors the supplied text and aesthetic direction while making the image language original and A Story-led. Keep the rewrite option ready for public posting.",
+  "world_class_taste_gate": {
+    "novelty": 4.5,
+    "creator_world_specificity": 4.5,
+    "physical_staging": 5,
+    "anti_generic_reasoning": 4.5,
+    "send_reason": 5,
+    "score": 28.5,
+    "caps_applied": [
+      "Exact copied public text creates a publish-rights cap until permission or rewrite."
+    ],
+    "decision": "GO_WITH_COPY_RIGHTS_NOTE"
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Each slide has a visible physical action rather than only a caption.",
+    "reaction": "Hands, posture, and object placement show response or desire.",
+    "eye_line_or_attention": "Attention moves between the shared object, road, food, memory pile, or imagined partner.",
+    "hands_or_object_movement": "Hands carry the deck: holding, serving, choosing, saving, collecting.",
+    "silence_or_pause": "The visuals hold quiet spaces around the text, matching the soft wish-list tone.",
+    "consequence": "The list stops being generic because every wish becomes a small lived receipt.",
+    "reversal_or_payoff": "The final slide reframes the list as a private archive of moments saved for each other.",
+    "blockers": []
+  }
+}

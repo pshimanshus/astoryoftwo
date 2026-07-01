@@ -58,6 +58,8 @@ FORBIDDEN_FINAL_SOURCE_PARTS = {
     "hd-story",
     "instagram-clean",
     "instagram-story",
+    "legacy-preview-clean",
+    "legacy-preview-text",
 }
 
 REQUIRED_VISUAL_QA_CHECKS = {
@@ -68,7 +70,7 @@ REQUIRED_VISUAL_QA_CHECKS = {
     "style",
     "scene_logic",
     "pose_anatomy",
-    "model_native_text",
+    "integrated_final_text",
     "final_files",
 }
 
@@ -195,8 +197,8 @@ def build_requirements(context: QualityContext) -> list[dict[str, Any]]:
             "critical": True,
         },
         {
-            "id": "REQ-MODEL-NATIVE-TEXT-001",
-            "label": "Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/",
+            "id": "REQ-INTEGRATED-FINAL-TEXT-001",
+            "label": "Default final slides include exact integrated copy and brandmark inside both final/ and final-reels-stories/",
             "source": "user publishable composition requirement",
             "expected": context.slide_count,
             "critical": True,
@@ -209,7 +211,7 @@ def build_requirements(context: QualityContext) -> list[dict[str, Any]]:
         },
         {
             "id": "REQ-BRAND-001",
-            "label": "Keep @a.storyof.two as a tiny, low-contrast bottom-right brandmark",
+            "label": "Keep @a.storyof.two as a tiny, low-contrast top-right brandmark",
             "source": "brandmark rule",
             "critical": True,
         },
@@ -443,6 +445,8 @@ def structured_visual_qa_gate(context: QualityContext) -> dict[str, Any]:
         failed.append("visual-qa.json is missing; visual-qa.md is only a review worksheet.")
     else:
         qa = json.loads(qa_path.read_text(encoding="utf-8"))
+        if qa.get("status") != "PASS":
+            failed.append("visual-qa.json status must be PASS.")
         raw_checks = qa.get("checks", {})
         if isinstance(raw_checks, list):
             checks = {str(item.get("id", "")): item for item in raw_checks if isinstance(item, dict)}
@@ -450,6 +454,9 @@ def structured_visual_qa_gate(context: QualityContext) -> dict[str, Any]:
             checks = raw_checks
         else:
             failed.append("visual-qa.json checks must be an object or list.")
+
+        if "integrated_final_text" not in checks and "model_native_text" in checks:
+            checks["integrated_final_text"] = checks["model_native_text"]
 
         missing = sorted(REQUIRED_VISUAL_QA_CHECKS - set(checks))
         if missing:
@@ -938,11 +945,13 @@ def evaluate_requirements(context: QualityContext) -> dict[str, dict[str, Any]]:
             if not record.get("prompt"):
                 model_native_issues.append(f"Slide {record.get('slide')} is missing source prompt provenance.")
     if (context.out_dir / "final-with-text").exists():
-        model_native_issues.append(
-            "final-with-text exists; default publishable runs must publish both final/slide-XX.png "
-            "and final-reels-stories/slide-XX.png, not local overlays."
-        )
-    results["REQ-MODEL-NATIVE-TEXT-001"] = {
+        compatibility_outputs = sorted((context.out_dir / "final-with-text").glob("slide-*.png"))
+        if compatibility_outputs and not all(path.exists() for path in final_files):
+            model_native_issues.append(
+                "final-with-text exists without complete publishable final/slide-XX.png outputs; "
+                "text placement must be integrated into final/, not left only in a compatibility folder."
+            )
+    results["REQ-INTEGRATED-FINAL-TEXT-001"] = {
         "pass": not model_native_issues,
         "evidence": {
             "files": [str(path) for path in final_files if path.exists()],
@@ -981,10 +990,11 @@ def evaluate_requirements(context: QualityContext) -> dict[str, dict[str, Any]]:
             "unchecked_face_or_storyboard_items": unchecked_face_or_storyboard_items,
         },
     }
+    integrated_text_plan = prompt_pack(context).get("integrated_text_plan") or prompt_pack(context).get("text_overlay_plan", {})
     results["REQ-BRAND-001"] = {
-        "pass": prompt_pack(context).get("text_overlay_plan", {}).get("brandmark") == "@a.storyof.two"
-        and "bottom-right" in prompt_pack(context).get("text_overlay_plan", {}).get("brandmark_placement", ""),
-        "evidence": prompt_pack(context).get("text_overlay_plan", {}),
+        "pass": integrated_text_plan.get("brandmark") == "@a.storyof.two"
+        and "top-right" in integrated_text_plan.get("brandmark_placement", ""),
+        "evidence": integrated_text_plan,
     }
     results["REQ-NEGATIVE-001"] = {
         "pass": all(token in negative_lower for token in ["photorealism", "3d", "stock", "quote-card"]),

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "status": "FAILED_DIMENSION_GATE",
+  "proof_slide": 6,
+  "attempts": [
+    {
+      "path": "proofs/slide-06-proof.png",
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f080a-f9fa-79c2-8715-1097286b4a29/ig_0d34c8d958cfaa5f016a3f95e0fbd48191897d0947d10ad927.png",
+      "dimensions": "1254x1254",
+      "status": "REJECTED",
+      "failures": [
+        "wrong dimensions; required native 1080x1080",
+        "paper tone reads too yellow/parchment"
+      ],
+      "passes": [
+        "core scene legible",
+        "exact text appears visually correct",
+        "one active phone and one face-down phone visible"
+      ]
+    },
+    {
+      "path": "proofs/slide-06-proof-v2.png",
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f080a-f9fa-79c2-8715-1097286b4a29/ig_0d34c8d958cfaa5f016a3f97256d248191bb79f8ddb77d1116.png",
+      "dimensions": "1254x1254",
+      "status": "REJECTED",
+      "failures": [
+        "wrong dimensions; required native 1080x1080"
+      ],
+      "passes": [
+        "cleaner neutral paper tone than v1",
+        "scene/action reads well",
+        "Zuv is visibly turned toward Aachu/phone",
+        "one face-down phone visible",
+        "exact text appears visually correct",
+        "tiny bottom-right brandmark present"
+      ]
+    }
+  ],
+  "selected_rough_visual": "proofs/slide-06-proof-v2.png",
+  "accepted_as_final_or_proof": false,
+  "next_step": "Use a generation path that can produce native 1080x1080, or explicitly approve using this as a rough non-publishable visual draft only."
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "generation_mode": "model_native_publishable_after_reference_attachment",
+  "status": "REPAIR_READY_FOR_REFERENCE_ATTACHED_PROOF_AFTER_CREATOR_APPROVAL",
+  "can_generate_in_current_session": false,
+  "blocker": "The current built-in generation interface does not expose actual local identity/style image attachment. Also, the story/taste pass capped the current exact-copy route as familiar until proof visuals add stronger Aachu/Zuv-specific behavior or creator approves copy repairs. Use a path that can attach the selected reference files, then generate slide 06 first only after this repair is accepted.",
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram carousel illustration in the creator-approved Observational Intimacy Premium house style: neutral warm ivory/off-white paper, visible paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing and prop details, generous upper-middle negative space, exact readable hand-drawn text, and a tiny low-contrast @a.storyof.two brandmark at bottom-right. Preserve Aachu/Zuv identity from selected actual identity references. No photorealism, no UI, no quote-card design.",
+  "shared_negative_prompt": "No photorealism, no phone UI, no readable phone content, no screenshot redraw, no stock couple, no generic model faces, no yellow/parchment/sepia/beige paper, no Canva quote-card, no poster-only design, no random text, no external watermark, no extra words beyond exact ON-IMAGE TEXT and tiny @a.storyof.two, no distorted hands, no broken anatomy, no face drift.",
+  "proof_gate": "Generate slide 06 first as native 1080x1080 proof with exact text integrated. Full native 4:5 and separate native 9:16 finals stay blocked until proof approval.",
+  "identity_reference_images": [
+    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/zuv/portrait-05.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg"
+  ],
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "text": "look at this one sec",
+      "prompt": "Evening living-room couch in warm ivory watercolor paper space. Two cups of chai sit near the lower frame; chai appears only on this opening beat. From slightly behind Aachu's shoulder, Aachu leans toward Zuv, phone turned outward with abstract glow, her face lit with excitement. Zuv sits beside her looking down at his own phone, unaware. Medium-wide, warm, not accusatory, just a tiny missed bid. Exact on-image text: look at this one sec. Place 'look at this' upper-left near her and 'one sec' upper-right near him, away from faces and hands."
+    },
+    {
+      "slide": 2,
+      "text": "the moment just closed",
+      "prompt": "Close hand-level detail on Aachu's hand slowly lowering her phone. The screen is dim/blank/abstract enough to show the thing is gone, with no readable UI. Zuv is only a soft partial blur in the background, still looking down. Tiny hurt, quiet, not dramatic. Exact on-image text: the moment just closed. Upper-middle text space."
+    },
+    {
+      "slide": 3,
+      "text": "\"one sec\" never feels like a big deal. that's exactly why it is one.",
+      "prompt": "Object-only evidence slide, no people: empty couch cushion dent, two chai cups cooling from the previous moment, and Aachu's phone face-down or locked between them. Warm ivory paper grain, quiet lived-in stillness, no poster border. Exact integrated hand-drawn text with line break: \"one sec\" never feels like a big deal. / that's exactly why it is one. Keep the text in generous upper-middle space and the objects lower/middle-lower. Tiny @a.storyof.two bottom-right."
+    },
+    {
+      "slide": 4,
+      "text": "it goes both ways",
+      "prompt": "Same couch later, roles flipped. Zuv holds his phone outward with a small excited expression, trying to show Aachu something. Aachu is mid-scroll on her own phone and has not looked up yet. Over-shoulder angle from behind Zuv, clear role reversal, affectionate not blaming. Exact on-image text: it goes both ways."
+    },
+    {
+      "slide": 5,
+      "text": "it's never the big fights. it's the small \"look at this\" you didn't look at.",
+      "prompt": "Overhead or low table-level accountability shot. Two phones lie between Aachu and Zuv on the couch or low table. Both hands pause mid-scroll and both glance down at the phones at the same time, recognizing the shared pattern. No fighting, only soft realization. Exact on-image text: it's never the big fights. it's the small \"look at this\" you didn't look at. Reserve generous upper-middle paper space."
+    },
+    {
+      "slide": 6,
+      "text": "turning toward each other is a choice you make in ten seconds",
+      "prompt": "PROOF SLIDE. Warm close two-shot from table height. One phone lies face-down on the table. Aachu is actually showing Zuv the thing on the other phone, and Zuv is actually watching with her, body turned toward her. Their shoulders are close, expressions soft and present. Exact on-image text: turning toward each other is a choice you make in ten seconds. Reserve upper-middle paper space and keep the repair visible."
+    },
+    {
+      "slide": 7,
+      "text": "closeness isn't built in big moments. it's built in the small ones you almost missed.",
+      "prompt": "Intimate side close-up of Aachu and Zuv leaned over one shared screen, laughing at whatever it was. Phone content is abstract and unreadable. Their shoulders touch; the mood is ordinary, private, and warm. Exact on-image text: closeness isn't built in big moments. it's built in the small ones you almost missed. Upper-middle paper space."
+    },
+    {
+      "slide": 8,
+      "text": "Tag the one you never want to leave on \"one sec.\"",
+      "prompt": "Closing CTA. Both phones are face-down on the table in the lower foreground. Aachu and Zuv sit close on the couch with foreheads close, soft smiles, no screen glow. Quiet phones-down intimacy. Exact on-image text: Tag the one you never want to leave on \"one sec.\" Tiny @a.storyof.two bottom-right."
+    }
+  ]
+}

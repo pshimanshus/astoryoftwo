@@ -1,0 +1,30 @@
+{
+  "status": "GO",
+  "copy_locked": true,
+  "selected_visual_system": "domestic_collision_sequence",
+  "systems_considered": [
+    {
+      "name": "limb_evidence_montage",
+      "verdict": "REJECTED",
+      "reason": "Could become too object-first and make the joke feel like body-part labels instead of a lived couple story."
+    },
+    {
+      "name": "single_room_sofa_escalation",
+      "verdict": "REJECTED",
+      "reason": "Too narrow for an all-day home pattern; it collapses the user's correction back into one incident."
+    },
+    {
+      "name": "domestic_collision_sequence",
+      "verdict": "WINNER",
+      "reason": "Shows the all-day pattern across normal home spaces while preserving gentle, affectionate accident energy."
+    }
+  ],
+  "room_notes": {
+    "visual_format_anthropologist": "Use a soft seven-panel domestic ritual, not slapstick injury.",
+    "scene_evidence_director": "Every slide must show a different tiny collision receipt: elbow, shoulder, foot, sudden turn, apology, close-range anger.",
+    "romance_blocking_director": "Keep Aachu close even while annoyed. Keep Zuv guilty and checking on her.",
+    "typography_and_aspect_director": "Use upper-middle negative space for exact handwritten text. Keep figures lower or middle-lower.",
+    "generation_prompt_director": "Use the locked master prompt, identity bundle, and observational-intimacy style references.",
+    "harsh_visual_selector": "GO only if no slide reads as violence, pain, or mean comedy."
+  }
+}
