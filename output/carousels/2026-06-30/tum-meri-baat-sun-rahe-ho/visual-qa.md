@@ -27,6 +27,7 @@ Rejected generated candidates remain rejected:
 - `rejected/native-size-fail/slide-05-proof-v2-1122x1402.png`
 - `rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png`
 - `rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png`
+- `rejected/native-size-fail/slide-05-proof-v5-dinner-table-1122x1402.png`
 - `generated-candidates/non-native/slide-01-candidate-971x1619.png`
 - `generated-candidates/non-native/slide-02-candidate-986x1595.png`
 - `generated-candidates/non-native/slide-03-candidate-999x1575.png`

@@ -45,6 +45,15 @@
       "actual_dimensions": "1003x1568",
       "status": "rejected_native_size",
       "notes": "Real reference-driven built-in generation path did not produce native 1080x1350."
+    },
+    {
+      "attempt": 5,
+      "source_path": "/Users/himanshusharma/.codex/generated_images/019f1925-1920-79d1-92e2-d898ea3f0d82/ig_05e930c309dc257f016a44f0f861bc8191958b775144bc05dc.png",
+      "workspace_copy": "rejected/native-size-fail/slide-05-proof-v5-dinner-table-1122x1402.png",
+      "prompt": "codex-image-prompts/instagram-post/slide-05.prompt.txt",
+      "actual_dimensions": "1122x1402",
+      "status": "rejected_native_size",
+      "notes": "Generated from the repaired dinner-table prompt after reloading the selected identity/style references. Visual direction is closer, but the file is still not native 1080x1350, so it cannot be accepted as a proof or final."
     }
   ],
   "decision": "Do not generate remaining slides through this path until exact native 1080x1350 output is available."

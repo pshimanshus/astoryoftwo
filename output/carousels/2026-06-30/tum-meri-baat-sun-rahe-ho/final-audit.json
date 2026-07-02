@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "status": "BLOCKED",
   "publishable": false,
-  "reason": "Final image generation is blocked because the available built-in image generation path returned non-native proof outputs instead of native 1080x1350, including 1003x1568 from the real identity/style reference-driven attempt. The root issue is generator execution: the built-in image_gen call does not expose/enforce a native pixel-size parameter, so prompt text requesting 1080x1350 is not enough.",
+  "reason": "Final image generation is blocked because the available built-in image generation path returned non-native proof outputs instead of native 1080x1350, including 1003x1568 from the real identity/style reference-driven attempt and 1122x1402 from the repaired dinner-table prompt. The root issue is generator execution: the built-in image_gen call does not expose/enforce a native pixel-size parameter, so prompt text requesting 1080x1350 is not enough.",
   "hard_failures": [
     {
       "gate": "native_instagram_post_dimensions",
@@ -12,7 +12,8 @@
         "rejected/native-size-fail/slide-05-proof-v1-1122x1402.png",
         "rejected/native-size-fail/slide-05-proof-v2-1122x1402.png",
         "rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png",
-        "rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png"
+        "rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png",
+        "rejected/native-size-fail/slide-05-proof-v5-dinner-table-1122x1402.png"
       ]
     }
   ],
