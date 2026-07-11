@@ -70,6 +70,7 @@ def test_runner_dry_run_lists_requested_stage_without_executing():
         text=True,
         capture_output=True,
         check=False,
+        timeout=30,
     )
 
     assert result.returncode == 0

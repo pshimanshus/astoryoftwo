@@ -23,6 +23,7 @@ def test_carousel_doctor_cli_outputs_json(tmp_path: Path) -> None:
         check=True,
         capture_output=True,
         text=True,
+        timeout=30,
     )
 
     payload = json.loads(result.stdout)
@@ -41,6 +42,7 @@ def test_carousel_doctor_cli_returns_nonzero_for_blocker(tmp_path: Path) -> None
         [sys.executable, "scripts/carousel_doctor.py", str(package), "--json"],
         capture_output=True,
         text=True,
+        timeout=30,
     )
 
     payload = json.loads(result.stdout)

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-004-fake-publishable-package",
+  "title": "Reject fake publishable carousel packages",
+  "category": "carousel_package",
+  "difficulty": "medium",
+  "suites": ["smoke", "carousel", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "final-images.json claims generated and publishable output.",
+    "Native PNGs are missing, invalid, or missing the separate Reels/Stories folder.",
+    "Visual QA or final audit evidence is missing."
+  ],
+  "done_when": [
+    "The package state is blocked or partial, not publishable.",
+    "Carousel doctor reports specific blocker issue codes.",
+    "Image-size and final-asset tests pass."
+  ],
+  "allowed_paths": ["pipeline/agentic/**", "pipeline/stages/**", "tests/**", "output/carousels/**/final-images.json", "output/carousels/**/final-audit.json", "output/carousels/**/visual-qa.md"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/agentic/workflow_doctor.py", "pipeline/agentic/carousel_state.py", "tests/test_carousel_state_contract.py", "tests/test_carousel_workflow_doctor.py"],
+  "forbidden_changes": ["Do not create fake PNG files to satisfy the checker.", "Do not mark a package publishable without visual QA and final audit."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_carousel_state_contract.py", "tests/test_carousel_workflow_doctor.py", "tests/test_checks_image_size.py", "-q"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should use corrupt PNG bytes and mismatched slide counts."]
+}

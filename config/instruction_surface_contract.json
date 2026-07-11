@@ -2,10 +2,11 @@
   "schema_version": "1.0",
   "max_agents_md_lines": 420,
   "surfaces": [
-    "AGENTS.md",
-    "CLAUDE.md"
+    "AGENTS.md"
   ],
+  "agents_md_edit_policy": "Do not edit AGENTS.md to resolve downstream mismatches. Treat AGENTS.md as the creator-provided source text and update dependent instruction, rule, prompt, and test surfaces to match it unless the creator explicitly asks to replace AGENTS.md.",
   "retired_paths": [
+    "CLAUDE.md",
     ".claude/commands/story.md"
   ],
   "source_hierarchy": [
@@ -35,7 +36,6 @@
       "Each package contains:",
       "C1-C6 runner",
       "and can be called directly from Claude Code sessions"
-    ],
-    "CLAUDE.md": []
+    ]
   }
 }

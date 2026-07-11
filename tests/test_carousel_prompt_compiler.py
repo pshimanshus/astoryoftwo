@@ -43,7 +43,7 @@ def test_compile_image_prompt_removes_file_paths_and_contract_noise():
     assert "MASTER PROMPT VERSION" in prompt
     assert "CHARACTER IDENTITY LOCK" in prompt
     assert "TEXT RULE" in prompt
-    assert "4:5" in prompt
+    assert "3:4" in prompt
     assert len(prompt) <= MAX_PROMPT_CHARS
 
 
@@ -67,10 +67,10 @@ def test_compile_image_prompt_uses_native_format_lock():
         negative="No photorealism.",
     )
 
-    assert "exact 4:5 canvas" in post
+    assert "exact 3:4 canvas" in post
     assert "not a 9:16 story canvas" in post
     assert "exact 9:16 canvas" in story
-    assert "not a 4:5 carousel canvas" in story
+    assert "not a 3:4 carousel canvas" in story
     assert "do not resize from another format" in post.lower()
     assert "do not resize from another format" in story.lower()
 
@@ -102,10 +102,20 @@ def test_compile_image_prompt_preserves_canonical_master_prompt_fragments():
         "prompt assembly is autopilot by default",
         "treat those photos as current-request identity references",
         "If actual identity reference images and style reference images cannot be used by the image-generation call",
+        "The final image-generation call must attach selected actual identity images",
+        "Wardrobe must be selected from the attached identity images",
+        "PAPER TONE LOCK:",
+        "STAGE-SCENE / VISUAL RECEIPT:",
+        "SHOT LADDER / VISUAL VARIETY:",
+        "RELATIONSHIP MOTION:",
+        "Aachu is 5'6\"",
+        "Zuv is 5'8\"",
         "This means neutral premium ivory/off-white paper, not yellow, not mustard",
         "If the paper/background reads yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream",
         "BRANDMARK RULE:",
         "BRAND LABEL WORKFLOW:",
+        "Run Format Inference Preflight first",
+        "Do not silently snap back to `3:4`, `9:16`, feed, Story",
     ]
     prompt = compile_image_prompt(
         slide_number=1,
@@ -177,7 +187,7 @@ def test_generator_prompt_text_compacts_legacy_prompt_without_visual_or_scene():
     assert "Aachu opens Zuv's wallet" in prompt
     assert "holding out the backup card" in prompt
     assert "legacy package checklist" not in prompt
-    assert "exact 4:5 canvas" in prompt
+    assert "exact 3:4 canvas" in prompt
 
 
 def test_compile_image_prompt_rejects_unsupported_format():

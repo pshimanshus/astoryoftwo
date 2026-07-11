@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-007-context-rule-truncation",
+  "title": "Prevent context packing from truncating required rule includes",
+  "category": "agentic_os",
+  "difficulty": "hard",
+  "suites": ["contract", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "A required context section expands rule includes near the end of the token budget.",
+    "The context loader silently truncates it, dropping a hard-fail rule fragment."
+  ],
+  "done_when": [
+    "Required rule-include sections fail loudly rather than truncating mid-rule.",
+    "Context loader tests cover the error.",
+    "Agentic OS context rendering still works for the default manifest."
+  ],
+  "allowed_paths": ["pipeline/agentic/**", "config/agentic_context_manifest.json", "tests/**", "docs/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/agentic/context_loader.py", "tests/test_context_loader_truncation.py", "tests/test_agentic_context_loader.py"],
+  "forbidden_changes": ["Do not increase the budget just to hide truncation.", "Do not make required rule sections optional."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_agentic_context_loader.py", "tests/test_context_loader_truncation.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "context", "--render"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should use a synthetic manifest with {{rule:palette}} near the budget boundary."]
+}

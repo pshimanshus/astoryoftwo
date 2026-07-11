@@ -27,7 +27,6 @@ ADVERTISED_PIPELINE_FILES = [
 
 INSTRUCTION_SURFACE_FILES = [
     "AGENTS.md",
-    "CLAUDE.md",
 ]
 
 REQUIRED_CLOSEOUT_PHRASES = [
@@ -118,12 +117,18 @@ def instruction_surface_contract_evidence(root: Path) -> dict[str, Any]:
     contract = json.loads(path.read_text(encoding="utf-8"))
     required = contract.get("required_phrases", [])
     banned_by_surface = contract.get("banned_phrases", {})
+    retired_paths = contract.get("retired_paths", [])
     surfaces = contract.get("surfaces", INSTRUCTION_SURFACE_FILES)
     max_agents_lines = int(contract.get("max_agents_md_lines", 10_000))
 
     missing_phrases: dict[str, list[str]] = {}
     banned_hits: dict[str, list[str]] = {}
     line_count_violations: dict[str, int] = {}
+    retired_hits = [
+        relative
+        for relative in retired_paths
+        if (root / relative).exists()
+    ]
 
     for relative in surfaces:
         surface_path = root / relative
@@ -151,6 +156,7 @@ def instruction_surface_contract_evidence(root: Path) -> dict[str, Any]:
         "missing_phrases": missing_phrases,
         "banned_hits": banned_hits,
         "line_count_violations": line_count_violations,
+        "retired_hits": retired_hits,
     }
 
 
@@ -244,7 +250,7 @@ def collect_wiki_health(root: Path, today: date | None = None) -> dict[str, Any]
             "advertised_pipeline_files",
             "FAIL" if missing_pipeline else "PASS",
             "critical" if missing_pipeline else "info",
-            "AGENTS/CLAUDE advertised pipeline entry points exist.",
+            "AGENTS.md advertised pipeline entry points exist.",
             {"missing": missing_pipeline},
         )
     )
@@ -259,7 +265,7 @@ def collect_wiki_health(root: Path, today: date | None = None) -> dict[str, Any]
             "instruction_surface_sync",
             "FAIL" if instruction_drift else "PASS",
             "critical" if instruction_drift else "info",
-            "AGENTS.md and CLAUDE.md share the required health and autopublish closeout commands.",
+            "AGENTS.md carries the required health and autopublish closeout commands.",
             instruction_evidence,
         )
     )
@@ -270,6 +276,7 @@ def collect_wiki_health(root: Path, today: date | None = None) -> dict[str, Any]
         or contract_evidence["missing_phrases"]
         or contract_evidence["banned_hits"]
         or contract_evidence["line_count_violations"]
+        or contract_evidence["retired_hits"]
     )
     checks.append(
         make_check(
@@ -431,7 +438,6 @@ def health_markdown(health: dict[str, Any]) -> str:
         "confidence: 0.82",
         "sources:",
         "- AGENTS.md",
-        "- CLAUDE.md",
         "- wiki/index.md",
         "- memory/working.md",
         "- memory/graph.json",

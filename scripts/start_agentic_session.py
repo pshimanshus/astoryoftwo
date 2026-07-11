@@ -21,6 +21,16 @@ from pipeline.agentic.skill_registry import load_skill_systems, resolve_skill_sy
 from pipeline.stages.wiki_health import collect_wiki_health  # noqa: E402
 
 
+RESEARCH_PARTNER_MEMORY = Path("memory/semantic/engineering-workflow-preferences.md")
+RESEARCH_PARTNER_QUESTIONS = [
+    "What does memory say has worked?",
+    "What recently failed or drifted?",
+    "What hypothesis are we testing next?",
+    "What weak idea or stale default should be challenged?",
+    "What learning would become durable if this works?",
+]
+
+
 def run_git_status(root: Path) -> dict[str, Any]:
     result = subprocess.run(
         ["git", "status", "--short", "--branch"],
@@ -56,6 +66,46 @@ def unique_intent_path(root: Path) -> Path:
         if not candidate.exists():
             return candidate
     raise RuntimeError("Could not allocate unique session intent path.")
+
+
+def load_research_partner_lens(root: Path) -> dict[str, Any]:
+    relative = RESEARCH_PARTNER_MEMORY.as_posix()
+    path = root / RESEARCH_PARTNER_MEMORY
+    if not path.exists():
+        return {
+            "status": "missing",
+            "path": relative,
+            "session_questions": RESEARCH_PARTNER_QUESTIONS,
+            "operating_rules": [],
+        }
+
+    rules: list[str] = []
+    fallback_rules: list[str] = []
+    in_partner_behavior = False
+    for raw_line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw_line.strip()
+        if line.lower().startswith("the partner behavior is"):
+            in_partner_behavior = True
+            continue
+        if in_partner_behavior and line.startswith("## "):
+            break
+        if line.startswith("- "):
+            rule = line.removeprefix("- ").rstrip(";.")
+            if in_partner_behavior:
+                rules.append(rule)
+            else:
+                fallback_rules.append(rule)
+        if len(rules) >= 6:
+            break
+    if not rules:
+        rules = fallback_rules[:6]
+
+    return {
+        "status": "loaded",
+        "path": relative,
+        "session_questions": RESEARCH_PARTNER_QUESTIONS,
+        "operating_rules": rules,
+    }
 
 
 def build_session_takeover(
@@ -99,6 +149,7 @@ def build_session_takeover(
     dirty_git_state = run_git_status(root)
     wiki_health = collect_wiki_health(root)
     creative_work_blocked = wiki_health["status"] == "NEEDS_HEAL"
+    research_partner = load_research_partner_lens(root)
     payload = {
         "schema_version": "1.0",
         "created_at": datetime.now().isoformat(timespec="seconds"),
@@ -106,6 +157,7 @@ def build_session_takeover(
         "skill_system": skill_system,
         "context": context_status,
         "recall": recall_status,
+        "research_partner": research_partner,
         "dirty_git_state": dirty_git_state,
         "wiki_health": {
             "status": wiki_health["status"],

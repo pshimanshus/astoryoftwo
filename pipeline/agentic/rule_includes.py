@@ -13,12 +13,23 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-RULE_INCLUDE_PATTERN = re.compile(r"\{\{rule:([a-z0-9_\-]+)\}\}")
+RULE_INCLUDE_PATTERN = re.compile(r"\{\{rule:([^}]+)\}\}")
+RULE_NAME_PATTERN = re.compile(r"^[a-z0-9_\-]+$")
 RULES_DIR_NAME = "config/rules"
+
+
+def _validate_rule_name(name: str) -> str:
+    if not RULE_NAME_PATTERN.fullmatch(name):
+        raise ValueError(
+            f"Invalid rule include: {name}. Rule names may only contain "
+            "lowercase letters, numbers, underscores, and hyphens."
+        )
+    return name
 
 
 @lru_cache(maxsize=64)
 def _load_rule(workspace_root: Path, name: str) -> str:
+    name = _validate_rule_name(name)
     path = workspace_root / RULES_DIR_NAME / f"{name}.md"
     if not path.exists():
         raise FileNotFoundError(
@@ -33,14 +44,19 @@ def expand_rule_includes(text: str, workspace_root: Path) -> str:
     """
 
     def _sub(match: re.Match[str]) -> str:
-        return _load_rule(workspace_root, match.group(1))
+        return _load_rule(workspace_root, _validate_rule_name(match.group(1)))
 
     return RULE_INCLUDE_PATTERN.sub(_sub, text)
 
 
 def rule_names_referenced(text: str) -> list[str]:
     """Return the sorted unique list of rule names referenced in text."""
-    return sorted({match.group(1) for match in RULE_INCLUDE_PATTERN.finditer(text)})
+    return sorted(
+        {
+            _validate_rule_name(match.group(1))
+            for match in RULE_INCLUDE_PATTERN.finditer(text)
+        }
+    )
 
 
 def clear_rule_cache() -> None:

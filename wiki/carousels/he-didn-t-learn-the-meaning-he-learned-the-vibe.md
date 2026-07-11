@@ -40,7 +40,7 @@ Status: NEEDS_FIXES
 
 - REQ-PHOTO-001: Preserve supplied photo cues, outfits, settings, poses, and relationship energy
 - REQ-FINAL-IMAGES-001: Final generated carousel images are packaged from approved generated art, not local placeholders
-- REQ-MODEL-NATIVE-TEXT-001: Default final slides include model-rendered copy and brandmark inside final/slide-XX.png
+- REQ-INTEGRATED-FINAL-TEXT-001: Default final slides include exact integrated copy and brandmark inside final/slide-XX.png
 - REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
 - intake_reviewer: No reference images were supplied.
 - visual_reviewer: Slide 1 missing: source_images.; Slide 2 missing: source_images.; Slide 3 missing: source_images.; Slide 4 missing: source_images.; Slide 5 missing: source_images.

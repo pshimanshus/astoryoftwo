@@ -1,6 +1,9 @@
 import json
+import importlib.util
 import tomllib
 from pathlib import Path
+
+from pipeline.agentic.skill_registry import discover_skill_records
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,6 +65,11 @@ def test_original_operating_contract_is_preserved_outside_agents_router():
 
 
 def test_repo_codex_skills_wrap_existing_agentic_os_workflows():
+    actual_skills = {
+        path.parent.name for path in (ROOT / ".agents" / "skills").glob("*/SKILL.md")
+    }
+    assert actual_skills == set(EXPECTED_SKILLS)
+
     for skill_name, required_fragments in EXPECTED_SKILLS.items():
         skill_file = ROOT / ".agents" / "skills" / skill_name / "SKILL.md"
         text = skill_file.read_text(encoding="utf-8")
@@ -71,6 +79,46 @@ def test_repo_codex_skills_wrap_existing_agentic_os_workflows():
         assert "description:" in text
         for fragment in required_fragments:
             assert fragment in text
+
+
+def test_repo_codex_skills_are_registered_with_invocation_policy():
+    records = discover_skill_records(ROOT)
+    repo_records = {
+        record.name: record for record in records if record.kind == "repo_skill"
+    }
+
+    assert set(repo_records) == set(EXPECTED_SKILLS)
+    assert repo_records["a-story-closeout"].implicit_invocation is False
+    assert repo_records["a-story-wiki-health"].implicit_invocation is False
+    assert repo_records["a-story-carousel-jam"].implicit_invocation is True
+    assert "carousel-jam-runtime-context" in repo_records["a-story-carousel-jam"].dependencies
+
+
+def test_risky_repo_codex_skills_require_explicit_invocation():
+    for skill_name in ("a-story-closeout", "a-story-wiki-health"):
+        metadata_path = ROOT / ".agents" / "skills" / skill_name / "agents" / "openai.yaml"
+        metadata = metadata_path.read_text(encoding="utf-8")
+
+        assert "policy:" in metadata
+        assert "allow_implicit_invocation: false" in metadata
+        assert f'default_prompt: "Use ${skill_name}' in metadata
+
+
+def test_active_workflow_surfaces_use_canonical_voice_rule():
+    active_paths = [
+        ROOT / "config" / "skill-systems.json",
+        ROOT / "config" / "skills" / "couple-substack-article-framework.md",
+        ROOT / "pipeline" / "stages" / "b1_prepost.py",
+        ROOT / "pipeline" / "stages" / "c1_illustration_carousel.py",
+    ]
+
+    for path in active_paths:
+        text = path.read_text(encoding="utf-8")
+        assert "config/voice.md" not in text
+        if path.suffix == ".py":
+            assert '"config" / "rules" / "voice.md"' in text
+        else:
+            assert "config/rules/voice.md" in text
 
 
 def test_project_codex_config_hooks_and_rules_are_present_and_safe():
@@ -103,6 +151,31 @@ def test_project_codex_config_hooks_and_rules_are_present_and_safe():
     assert 'pattern = ["venv/bin/python", "scripts/autopublish.py"]' in rules
     assert 'pattern = ["make", "publish"]' in rules
     assert 'decision = "prompt"' in rules
+
+
+def test_stop_closeout_check_preserves_git_status_paths():
+    hook_path = ROOT / ".codex" / "hooks" / "stop_closeout_check.py"
+    spec = importlib.util.spec_from_file_location("stop_closeout_check", hook_path)
+    assert spec is not None
+    assert spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    status = "\n".join(
+        [
+            " M AGENTS.md",
+            " D output/illustrations/final/slide-02.png",
+            "R  old/path.md -> wiki/carousels/new-path.md",
+            "?? tests/test_codex_project_surfaces.py",
+        ]
+    )
+
+    assert module.parse_status_paths(status) == [
+        "AGENTS.md",
+        "output/illustrations/final/slide-02.png",
+        "wiki/carousels/new-path.md",
+        "tests/test_codex_project_surfaces.py",
+    ]
 
 
 def test_project_local_worktree_directory_is_ignored_for_git_fallback():

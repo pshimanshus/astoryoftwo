@@ -16,7 +16,7 @@ copy was locked, not guessed before the copy settled.
 - C3B Romance Scene Planner output
 - C0.25 Story Director output
 - Selected Golden Theme and Story-Selling scores
-- Draft slide copy, visuals, prompt pack, and identity references
+- Draft slide copy, visuals, prompt pack, and selected actual identity image inputs
 - Creator preference memory and recent rejected motifs
 - `post-copy-visual-room.json` when copy has been confirmed
 
@@ -51,6 +51,9 @@ Reject the room unless it shows:
 - specific body language, eye-lines, hands, distance, expressions, and props;
 - no leaked rejected motifs;
 - no copied reference frames, likenesses, or exact labels;
+- selected identity images are attachable as actual generation inputs;
+- wardrobe/body-language anchors come from selected identity/current-request
+  photos, not a static menu;
 - typography-safe composition for both 4:5 and 9:16;
 - prompt-ready instructions specific enough to avoid generic couple art.
 
@@ -65,6 +68,8 @@ shareability. If any slide is doubtful, return REPAIR for the entire carousel.
 - Image generation starts after copy confirmation but before
   `post-copy-visual-room.json` exists and returns GO.
 - Image generation starts before `visual-plan-quality.json` exists and passes.
+- Image generation starts from text-only identity descriptions or vague
+  "same couple" language instead of selected actual identity image inputs.
 - A lower-scored, rejected, or risky visual option leaks into the final visual
   plan without an explicit repair and selector approval.
 - A slide explains the emotional beat abstractly but does not show it through

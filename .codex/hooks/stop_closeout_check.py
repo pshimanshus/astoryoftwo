@@ -35,9 +35,9 @@ RISKY_CONTAINS = (
 def parse_status_paths(status: str) -> list[str]:
     paths: list[str] = []
     for raw_line in status.splitlines():
-        line = raw_line.strip()
-        if not line:
+        if not raw_line.strip():
             continue
+        line = raw_line.rstrip()
         path = line[3:] if len(line) > 3 else line
         if " -> " in path:
             path = path.split(" -> ", 1)[1]

@@ -5,10 +5,21 @@ from __future__ import annotations
 
 import argparse
 import re
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from scripts.start_agentic_session import load_research_partner_lens  # noqa: E402
+from pipeline.agentic.learning_loop import (  # noqa: E402
+    compact,
+    learning_debt_records,
+    list_hypotheses,
+    recent_learning_records,
+    relative_to,
+)
 
 
 def newest(paths: list[Path]) -> Path | None:
@@ -91,12 +102,39 @@ def fact_summaries(path: Path, limit: int = 6) -> list[str]:
 
 
 def relative(path: Path | None) -> str:
-    if not path:
-        return "missing"
-    try:
-        return str(path.relative_to(ROOT))
-    except ValueError:
-        return str(path)
+    return relative_to(ROOT, path)
+
+
+def hypothesis_brief_records(root: Path, limit: int = 5) -> list[dict[str, str]]:
+    open_records = list_hypotheses(root, status="open", limit=limit)
+    resolved_records = list_hypotheses(root, status="resolved", limit=limit)
+    records: list[dict[str, str]] = []
+
+    for payload in open_records:
+        records.append(
+            {
+                "kind": "open",
+                "path": str(payload.get("hypothesis_path", "missing")),
+                "line": (
+                    f"open {payload.get('hypothesis_id', 'unknown')} from "
+                    f"{payload.get('source', 'unknown source')}: "
+                    f"{compact(payload.get('hypothesis', ''))}"
+                ),
+            }
+        )
+    for payload in resolved_records:
+        outcome = payload.get("outcome", "inconclusive")
+        records.append(
+            {
+                "kind": "resolved",
+                "path": str(payload.get("hypothesis_path", "missing")),
+                "line": (
+                    f"resolved {outcome} {payload.get('hypothesis_id', 'unknown')}: "
+                    f"{compact(payload.get('result_summary', ''))}"
+                ),
+            }
+        )
+    return records[:limit]
 
 
 def print_section(title: str) -> None:
@@ -110,6 +148,7 @@ def build_brief() -> int:
     latest_prepost = newest_glob("output/prepost/*.md")
     ledger = ROOT / "memory" / "semantic" / "carousel-idea-preferences.md"
     engineering_prefs = ROOT / "memory" / "semantic" / "engineering-workflow-preferences.md"
+    research_partner = load_research_partner_lens(ROOT)
 
     print("# AI Command Center Brief")
     print(f"workspace: {ROOT}")
@@ -140,6 +179,41 @@ def build_brief() -> int:
     print(f"engineering prefs: {relative(engineering_prefs)}")
     for line in fact_summaries(engineering_prefs, limit=4):
         print(f"- {line}")
+
+    print_section("Research Partner Lens")
+    print(f"memory: {research_partner['path']} ({research_partner['status']})")
+    rules = " ".join(research_partner["operating_rules"])
+    print("- hypothesis: name the working bet before building")
+    if "challenge" in rules.lower():
+        print("- challenge: push back on weak or stale directions with repo evidence")
+    else:
+        print("- challenge: ask what weak idea or stale default should be challenged")
+    if "durable" in rules.lower():
+        print("- durable learning: write repeated learnings into memory, rules, skills, wiki, or tests")
+    else:
+        print("- durable learning: identify what should become memory if this works")
+
+    print_section("Hypothesis Tracker")
+    hypotheses = hypothesis_brief_records(ROOT, limit=5)
+    for record in hypotheses:
+        print(f"- {record['line']} [{record['path']}]")
+    if not hypotheses:
+        print("- no hypotheses captured yet")
+
+    print_section("Recent Learning Loop")
+    print("policy: proposal-only until approved/applied; no silent self-editing")
+    records = recent_learning_records(ROOT, limit=5)
+    for record in records:
+        print(f"- {record['line']} [{record['path']}]")
+    if not records:
+        print("- no learning events or proposals yet")
+
+    print_section("Learning Debt")
+    debt = learning_debt_records(ROOT, limit=5)
+    for record in debt:
+        print(f"- {record['line']} [{record['path']}]")
+    if not debt:
+        print("- no unresolved learning debt")
 
     print_section("Next Commands")
     print("make jam MOMENT=\"specific couple moment\"")

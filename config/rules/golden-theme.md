@@ -20,8 +20,13 @@ A stranger should feel "this is me" before knowing Aachu and Zuv.
 2. AACHU-SPECIFIC SPARK
 Aachu is not just "wife" or "girl." She is the spark: expressive face, dramatic body language, sudden tears, sudden laughter, "mujhe kuch nahi hua" energy, "bas ek photo aur" energy, too many outfits / backups / plans / moods, food/chai/shoes/bag/dupatta/phone as emotion props, softness immediately under the drama. The carousel must love this energy, never punish it.
 
-3. ZUV-SPECIFIC STEADINESS — his calm is an action
-Zuv is not background furniture. He: brings chai, water, tissues, snacks, charger, shoes; waits without shaming her; smiles like he has chosen this exact life; helps the plan without taking over the story; gives the chaos somewhere safe to land. If the carousel only shows Aachu's chaos and forgets Zuv's emotional job, it misses the gold pattern.
+3. RELATIONSHIP MOTION — the story has to move
+The gold post used Zuv's calm as action, but future posts must not make him
+the permanent handler. Motion can come from Aachu revealing love through action,
+Zuv acting when it is genuinely his beat, both partners doing the same
+stupid/sweet thing together, or a generic couple rhythm that instantly reads
+"this is us." If the carousel has no behavior, receipts, contradiction, or
+shared situation, it misses the gold pattern.
 
 4. CONCRETE PROOF — photos and identity images as proof, not as thesis
 Good (drawable) proof beats:
@@ -50,9 +55,10 @@ Aachu proof:
 She feels deeply, denies feelings badly, leaves without shoes, changes moods,
 or needs closeness without saying it directly.
 
-Zuv role:
+Gold-post relationship motion:
 He smiles, waits, sits closer, brings softness, and treats her emotions as
-normal rather than irritating.
+normal rather than irritating. Treat this as one winning example, not the only
+valid role pattern.
 
 Tender thesis:
 Love is not finding someone calm. Love is finding someone calm enough to hold
@@ -64,19 +70,27 @@ REUSABLE CONTAINER (use as shape, do not phrase-copy)
 He didn't marry [ideal].
 He married [specific quirk].
 He married [another specific quirk].
-And somehow, he [patient response].
+And then [relationship motion / earned response].
 Maybe love is not [ideal].
 Maybe it is [acceptance thesis].
 ```
 Do not overuse the literal "He didn't marry..." opener. Preserve the emotional machine, not the sentence.
 
+RELATIONSHIP MOTION UPDATE
+The gold post used Zuv's calm response, but future concepts must not force that
+same role. The required fourth beat is relationship motion: Aachu may reveal
+love through action, Zuv may act when it is his beat, both may create the
+receipt together, or the sendable mirror may come from a repeated phrase,
+shared rhythm, contradiction, or situation. Do not fail a route just because
+Zuv is not the active caretaker.
+
 FIVE-SLIDE COMPRESSION (current C-layer default)
 | Slide | Job | Must include |
 |---|---|---|
 | 1 | Universal hook | Relationship truth, not object trivia |
-| 2 | Aachu reveal | Her specific version of the truth |
+| 2 | Specific reveal | Aachu, Zuv, both, or generic-couple version of the truth |
 | 3 | Proof beat | Photo-rooted behavior, object, or ritual |
-| 4 | Zuv role | His calm, patience, care, or choice |
+| 4 | Relationship motion | Relevant partner action, mutual action, shared rhythm, or situation |
 | 5 | Tender thesis | Save/share emotional line |
 For 4 slides, combine slides 2 and 3.
 
@@ -84,7 +98,7 @@ REVIEW RUBRIC — 30 points, 28/30 to pass
 - Universal hook: 0–5
 - Aachu/Zuv specificity: 0–5
 - Concrete proof: 0–5
-- Zuv emotional role: 0–5
+- Relationship motion / relevant partner role: 0–5
 - Tender thesis: 0–5
 - Share/send potential: 0–5
 
@@ -92,12 +106,13 @@ Below 28 → REPAIR and rescore. Below 24 → REWORK from process cards. Below 1
 
 AUTOMATIC FAIL (cap at REPAIR regardless of numeric score)
 - universal hook below 3
-- Zuv role below 3
+- relationship motion below 3
 - final thesis below 3
 - concept is primarily about an object, place, outfit, or photo aesthetic
 
 HARD FAIL — do not generate
-- Only showing Aachu as chaotic without Zuv's care.
+- Making Zuv the default handler/rescuer/caretaker, or making Aachu the
+  permanent problem to be endured.
 - Making the joke mean, shaming, or "too much" in a negative way.
 - Ending with generic romance instead of a specific tender thesis.
 - Making the theme about a prop, outfit, place, or aesthetic instead of the relationship dynamic.
@@ -105,9 +120,9 @@ HARD FAIL — do not generate
 - Text spine carries the meaning while the visuals are interchangeable poster art. Storyboard-first: the visual action must prove the truth even if the text is hidden.
 
 REPAIR PLAYBOOK
-- Object-first draft → ask what relationship behavior the object proves; turn that behavior into the hook; put the object on slide 3 as proof; add Zuv's active care on slide 4; rewrite the final line so it would still work without the object.
+- Object-first draft → ask what relationship behavior the object proves; turn that behavior into the hook; put the object on slide 3 as proof; add the relevant relationship motion on slide 4; rewrite the final line so it would still work without the object.
 - Travel-first draft → ask what the place revealed about them; make the hook about that couple dynamic; use the place as scale or mood, not the point; end on why being together changed the place.
-- Too-generic draft → add one Aachu behavior; add one Zuv response; add one prop or setting from the photo; replace abstract words ("magical", "special", "beautiful") with a specific action.
+- Too-generic draft → add one concrete behavior or shared rhythm, one relevant partner response if earned, and one prop or setting from the photo; replace abstract words ("magical", "special", "beautiful") with a specific action.
 
 QUICK APPROVAL QUESTION (ask before moving forward)
 > Would a stranger send this to their partner because it explains their relationship, while Aachu and Zuv still feel like the only two people it could be about?

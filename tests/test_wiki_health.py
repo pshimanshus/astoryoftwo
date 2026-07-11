@@ -20,10 +20,6 @@ def minimal_workspace(root: Path) -> None:
         "# AGENTS\n\nPipeline promises `pipeline.runner` and A1-A5 stage files.\n",
     )
     write_text(
-        root / "CLAUDE.md",
-        "# CLAUDE\n\nRun wiki health at session close.\n",
-    )
-    write_text(
         root / "wiki" / "index.md",
         "\n".join(
             [
@@ -153,38 +149,27 @@ def test_health_flags_instruction_surface_drift_for_missing_autopublish(tmp_path
     write_text(
         tmp_path / "AGENTS.md",
         "\n".join(
-            [
-                "# AGENTS",
-                "",
-                "Run `venv/bin/python scripts/autopublish.py --session-note \"summary\"`.",
-                "Run `venv/bin/python scripts/wiki_health.py --write --fix-index`.",
-            ]
-        ),
-    )
-    write_text(
-        tmp_path / "CLAUDE.md",
-        "\n".join(
-            [
-                "# CLAUDE",
-                "",
-                "Run `venv/bin/python scripts/wiki_health.py --write --fix-index`.",
-            ]
-        ),
-    )
+                [
+                    "# AGENTS",
+                    "",
+                    "Run `venv/bin/python scripts/wiki_health.py --write --fix-index`.",
+                ]
+            ),
+        )
 
     health = collect_wiki_health(tmp_path, today=date(2026, 5, 28))
     checks = checks_by_id(health)
 
     assert health["status"] == "NEEDS_HEAL"
     assert checks["instruction_surface_sync"]["status"] == "FAIL"
-    assert "CLAUDE.md" in checks["instruction_surface_sync"]["evidence"]["missing_phrases"]
+    assert "AGENTS.md" in checks["instruction_surface_sync"]["evidence"]["missing_phrases"]
     assert (
         "scripts/autopublish.py"
-        in checks["instruction_surface_sync"]["evidence"]["missing_phrases"]["CLAUDE.md"]
+        in checks["instruction_surface_sync"]["evidence"]["missing_phrases"]["AGENTS.md"]
     )
 
 
-def test_health_passes_when_agent_instruction_surfaces_share_closeout_commands(tmp_path):
+def test_health_passes_when_agents_md_carries_closeout_commands(tmp_path):
     minimal_workspace(tmp_path)
     closeout = "\n".join(
         [
@@ -193,7 +178,6 @@ def test_health_passes_when_agent_instruction_surfaces_share_closeout_commands(t
         ]
     )
     write_text(tmp_path / "AGENTS.md", "# AGENTS\n\n" + closeout)
-    write_text(tmp_path / "CLAUDE.md", "# CLAUDE\n\n" + closeout)
 
     health = collect_wiki_health(tmp_path, today=date(2026, 5, 28))
     checks = checks_by_id(health)
@@ -210,7 +194,6 @@ def test_wiki_health_checks_agentic_os_surface(tmp_path):
         ]
     )
     write_text(tmp_path / "AGENTS.md", "# AGENTS\n\n" + closeout)
-    write_text(tmp_path / "CLAUDE.md", "# CLAUDE\n\n" + closeout)
 
     health = collect_wiki_health(tmp_path, today=date(2026, 5, 28))
     checks = checks_by_id(health)
@@ -228,7 +211,8 @@ def test_health_flags_stale_agents_instruction_surface(tmp_path):
             {
                 "schema_version": "1.0",
                 "max_agents_md_lines": 20,
-                "surfaces": ["AGENTS.md", "CLAUDE.md"],
+                "surfaces": ["AGENTS.md"],
+                "retired_paths": ["CLAUDE.md"],
                 "required_phrases": [
                     "config/rules/",
                     "scripts/agentic_os.py carousel-doctor",
@@ -236,7 +220,6 @@ def test_health_flags_stale_agents_instruction_surface(tmp_path):
                 ],
                 "banned_phrases": {
                     "AGENTS.md": ["Entry: scripts/create_illustration_carousel.py"],
-                    "CLAUDE.md": [],
                 },
             }
         ),
@@ -253,10 +236,6 @@ def test_health_flags_stale_agents_instruction_surface(tmp_path):
             ]
         ),
     )
-    write_text(
-        tmp_path / "CLAUDE.md",
-        "# CLAUDE\n\nconfig/rules/\nscripts/agentic_os.py carousel-doctor\nscripts/autopublish.py\n",
-    )
 
     health = collect_wiki_health(tmp_path, today=date(2026, 6, 6))
     checks = checks_by_id(health)
@@ -268,6 +247,31 @@ def test_health_flags_stale_agents_instruction_surface(tmp_path):
     )
 
 
+def test_health_flags_retired_claude_instruction_surface(tmp_path):
+    minimal_workspace(tmp_path)
+    write_text(
+        tmp_path / "config" / "instruction_surface_contract.json",
+        json.dumps(
+            {
+                "schema_version": "1.0",
+                "max_agents_md_lines": 20,
+                "surfaces": ["AGENTS.md"],
+                "retired_paths": ["CLAUDE.md"],
+                "required_phrases": ["scripts/autopublish.py"],
+                "banned_phrases": {"AGENTS.md": []},
+            }
+        ),
+    )
+    write_text(tmp_path / "AGENTS.md", "# AGENTS\n\nscripts/autopublish.py\n")
+    write_text(tmp_path / "CLAUDE.md", "# Retired compatibility surface\n")
+
+    health = collect_wiki_health(tmp_path, today=date(2026, 6, 28))
+    checks = checks_by_id(health)
+
+    assert checks["instruction_surface_contract"]["status"] == "FAIL"
+    assert "CLAUDE.md" in checks["instruction_surface_contract"]["evidence"]["retired_hits"]
+
+
 def test_health_passes_clean_instruction_surface_contract(tmp_path):
     minimal_workspace(tmp_path)
     write_text(
@@ -276,7 +280,8 @@ def test_health_passes_clean_instruction_surface_contract(tmp_path):
             {
                 "schema_version": "1.0",
                 "max_agents_md_lines": 20,
-                "surfaces": ["AGENTS.md", "CLAUDE.md"],
+                "surfaces": ["AGENTS.md"],
+                "retired_paths": ["CLAUDE.md"],
                 "required_phrases": [
                     "config/rules/",
                     "scripts/agentic_os.py carousel-doctor",
@@ -284,14 +289,12 @@ def test_health_passes_clean_instruction_surface_contract(tmp_path):
                 ],
                 "banned_phrases": {
                     "AGENTS.md": ["Entry: scripts/create_illustration_carousel.py"],
-                    "CLAUDE.md": [],
                 },
             }
         ),
     )
     clean = "# SURFACE\n\nconfig/rules/\nscripts/agentic_os.py carousel-doctor\nscripts/autopublish.py\n"
     write_text(tmp_path / "AGENTS.md", clean)
-    write_text(tmp_path / "CLAUDE.md", clean)
 
     health = collect_wiki_health(tmp_path, today=date(2026, 6, 6))
     checks = checks_by_id(health)

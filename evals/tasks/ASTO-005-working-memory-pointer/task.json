@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-005-working-memory-pointer",
+  "title": "Keep working memory pointer-only while preserving durable learning",
+  "category": "memory_wiki",
+  "difficulty": "medium",
+  "suites": ["contract", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "A session wrote long durable creator preferences directly into memory/working.md.",
+    "The same learning should live in semantic memory with confidence and sources."
+  ],
+  "done_when": [
+    "memory/working.md is pointer-only again.",
+    "Durable learning appears in memory/semantic with confidence and sources.",
+    "Wiki health passes or reports only unrelated pre-existing issues."
+  ],
+  "allowed_paths": ["memory/working.md", "memory/semantic/**", "memory/episodic/**", "memory/heal/**", "wiki/**", "output/diagnostics/**", "tests/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["memory/working.md", "memory/semantic/engineering-workflow-preferences.md", "tests/test_wiki_health.py"],
+  "forbidden_changes": ["Do not delete episodic memory.", "Do not remove semantic confidence requirements."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_wiki_health.py", "tests/test_agentic_memory_recall.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "health"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should fail if memory/working.md becomes a second source of truth."]
+}

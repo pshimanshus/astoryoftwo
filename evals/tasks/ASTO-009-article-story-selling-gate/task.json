@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-009-article-story-selling-gate",
+  "title": "Restore Story-Selling gate in Substack article packages",
+  "category": "article_workflow",
+  "difficulty": "medium",
+  "suites": ["contract", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "Article packages can be created without Layer E Story-Selling references or Gate 8.",
+    "The source carousel still has concept/story artifacts."
+  ],
+  "done_when": [
+    "Article packages include Layer E story-selling artifact references.",
+    "Editorial gates include Story Selling Fit and final approval.",
+    "Article package tests pass."
+  ],
+  "allowed_paths": ["scripts/create_substack_article_package.py", "config/skills/**", "pipeline/**", "tests/**", "output/articles/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["scripts/create_substack_article_package.py", "config/skills/couple-substack-article-framework.md", "tests/test_substack_article_package.py"],
+  "forbidden_changes": ["Do not replace source-integrity gates with generic writing advice.", "Do not remove Story-Selling threshold references."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_substack_article_package.py", "-q"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should inspect generated article package artifacts, not only source code strings."]
+}

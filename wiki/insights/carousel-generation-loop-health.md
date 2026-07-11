@@ -14,7 +14,7 @@ sources:
 
 The C-layer must treat final carousel images as a separate hard gate from prompt
 packages or local previews. A `/story` run is not ready until the package has
-Aachu/Zuv identity references, clean generated art in `final/`, local typography
+Aachu/Zuv identity references, clean generated art in `final/`, integrated final-image typography
 exports when needed, and a visual QA checklist with no failed checks.
 
 ## Canonical Rule
@@ -26,7 +26,7 @@ exports when needed, and a visual QA checklist with no failed checks.
 - Product Unshipped-like soft flat vector style
 - negative prompt
 - brandmark
-- local typography policy
+- integrated final-image typography policy
 - content lanes
 
 ## Failure Memory
@@ -43,5 +43,5 @@ Every final carousel requires `visual-qa.md` to check:
 - Aachu face consistency
 - Zuv face consistency
 - soft flat illustration style
-- readable local typography
+- readable integrated final-image typography
 - final image existence

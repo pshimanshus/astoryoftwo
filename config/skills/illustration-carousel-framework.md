@@ -90,30 +90,43 @@ Every run must create:
 
 Final generated images must be copied into:
 
-- `final/slide-XX.png`: native 4:5 Instagram post artwork in the creator-approved illustration style, with exact ON-IMAGE TEXT integrated into the final image raster
+- `final/slide-XX.png`: exact `1080x1440` native 3:4 Instagram post export in the creator-approved illustration style, with exact ON-IMAGE TEXT integrated into the final image raster
 - `final-reels-stories/slide-XX.png`: native 9:16 Reels/Stories artwork generated separately for the taller frame, with exact ON-IMAGE TEXT integrated into the final image raster
 - `final-with-text/slide-XX.png`: optional compatibility duplicate/intermediate only; the publishable text-bearing asset belongs in `final/`
 
 ## Default Format
 
+- Format Inference Preflight: before prompt handoff, generation, export, or
+  packaging, lock the requested canvas from the current creator instruction,
+  attached references, accepted prior screen, and immediate chat corrections.
+  A current creator correction overrides the default format rules below. Do not
+  infer `3:4`, `9:16`, feed, Story, Reel, square, or multi-format output from
+  repo defaults after the creator removes or rejects that format. If the canvas
+  is unclear after a correction, ask for the exact canvas before generating.
 - Per `config/rules/image-dimensions.md`, the creator hard rule for proof
   illustrations, concept illustrations, single-slide outputs, and default
-  Instagram post/carousel slides is native `1080x1350 px` (4:5). Generate
-  `1080x1920 px` (9:16) only when the creator explicitly asks for Story/Reel,
-  and `1080x1080 px` square only when the creator explicitly asks for square.
-  Instruct the image model with the exact pixel size, not the aspect ratio
-  alone. Reject any image whose dimensions do not exactly match the requested
-  format; do not crop, pad, stretch, or resize a wrong-dimension output into
-  compliance; regenerate natively.
+  Instagram post/carousel slides is exact final export `1080x1440 px` (3:4).
+  Generate model source art at native `1440x1920 px` when the model path needs
+  a hard-enforced source size, then export proportionally to `1080x1440`.
+  Generate `1080x1920 px` (9:16) only when the creator explicitly asks for
+  Story/Reel, and `1080x1080 px` square only when the creator explicitly asks
+  for square. Instruct the image model with the exact source pixel size and the
+  exact final export size, not the aspect ratio alone. Reject any image whose
+  dimensions do not match an approved source or final format; do not crop, pad,
+  stretch, or arbitrarily resize a wrong-dimension output into compliance.
 - Platform: Instagram
 - Type: Carousel
-- Aspect ratio: 4:5
-- Upload size: 1080x1350 px (exact, mandatory)
+- Aspect ratio: 3:4
+- Source size: 1440x1920 px (exact, preferred for generation)
+- Upload size: 1080x1440 px (exact, mandatory)
 - Reels/Stories aspect ratio: 9:16
 - Reels/Stories size: 1080x1920 px (exact, mandatory)
-- Slide count: default 5, range 4-5
+- Slide count: default 7-part carousel pattern: Cover, Cold Open, Mirror,
+  Spine, Rhythm, Turn, Payoff. Use fewer slides only when the creator
+  explicitly asks for a shorter deck or a production constraint requires
+  compression.
 
-Never stretch artwork to fit a target format. Never create the Reels/Stories output by resizing, cropping, padding, or extending the Instagram post output. The final illustration flow uses three output workers: one native 4:5 Instagram Post Output worker, one native 9:16 Reels/Stories Output worker, and one Identity/Visual QA worker that checks both outputs before packaging.
+Never stretch artwork to fit a target format. Never create the Reels/Stories output by resizing, cropping, padding, or extending the Instagram post output. The final illustration flow uses three output workers: one native 3:4 Instagram Post Output worker, one native 9:16 Reels/Stories Output worker, and one Identity/Visual QA worker that checks both outputs before packaging.
 
 ## Visual Direction
 
@@ -152,16 +165,18 @@ Use the @a.storyof.two romantic watercolor-and-ink master style:
 - a non-repeating shot ladder across the carousel: vary camera angle, shot
   distance, setting lane, primary action, and who is visible; do not solve
   variety by wardrobe changes alone
-- tiny low-contrast brandmark: `@a.storyof.two` at bottom-right for every final asset
+- tiny low-contrast brandmark: `@a.storyof.two` at top-right for every final asset
 - rooted in supplied photos and selected actual identity images before adding decorative interpretation
 
 Every final image-generation handoff must include the project master prompt
 structure from `pipeline/stages/carousel_master_prompt.py`. The prompt must
 cover use case, asset type, reference image roles, primary request, scene,
-character identity lock, face preservation, illustration style, color palette,
-composition, emotional direction, wardrobe continuity, recurring props,
-background style, line/texture details, anatomy/quality rules, text rule, final
-identity/style reinforcement, and the final rendering layer.
+character identity lock, Aachu/Zuv two-inch height lock, face preservation,
+illustration style, color palette, PAPER TONE LOCK, composition,
+STAGE-SCENE / VISUAL RECEIPT, SHOT LADDER / VISUAL VARIETY,
+RELATIONSHIP MOTION, wardrobe continuity, recurring props, background style,
+line/texture details, anatomy/quality rules, text rule, final identity/style
+reinforcement, and the final rendering layer.
 
 Adapt the style to the supplied images:
 
@@ -241,7 +256,7 @@ visual/story reviewer, a romance-scene reviewer, a continuity judge, and a
 screen-quality judge. A slide passes only when it proves the exact copy through
 visible Aachu/Zuv behavior, preserves the golden-theme machine, keeps identity
 and outfit continuity plausible, avoids rejected/losing visual options, and is
-safe for both 4:5 and 9:16 composition. Any doubt about likeness, story proof,
+safe for both 3:4 and 9:16 composition. Any doubt about likeness, story proof,
 visual repetition, shot-ladder variety, text placement, aspect-specific framing, or place/metaphor
 drift must return REPAIR or STOP. Do not generate that slide, or the carousel,
 until the doubt is repaired and re-reviewed.
@@ -299,13 +314,13 @@ Avoid:
 Typography rule:
 
 - Default final slide copy must appear inside the final illustration image, not in a separate caption, mockup, or quote-card layer.
-- When the image model can render the exact text cleanly, image-model text is acceptable. When exact text is long or fragile, generate the illustrated scene with clean reserved paper space, then place the approved text into the same final raster as an integrated lettering/typesetting pass.
-- Image-generation prompts must reserve generous clean paper space and ask for no random text beyond the approved slide copy and tiny brandmark. Final export workers must then produce two complete native publishable outputs per slide when required: 4:5 Instagram post and 9:16 Reels/Stories, each with exact ON-IMAGE TEXT inside the final image.
+- When the image model can render the exact text cleanly, image-model text is acceptable. When exact text is long or fragile, retry with a stronger text-bearing generation prompt or keep the package blocked. Do not create, keep, or use a textless generated image as the workaround.
+- Image-generation prompts must reserve generous clean paper space and ask for no random text beyond the approved slide copy and tiny brandmark. Final export workers must then produce two complete native publishable outputs per slide when required: 3:4 Instagram post and 9:16 Reels/Stories, each with exact ON-IMAGE TEXT inside the final image.
 - Brand-integration prompts may include product labels, but brand/product name legibility is a hard QA gate at phone-screen size. If tiny packaging text is misspelled or blurred by generation, render the product body in the illustration first, then use `scripts/render_brand_product_labels.swift` for exact readable label text.
-- Local text placement is valid only when it is treated as part of the final illustration composition: same warm paper, same visual rhythm, no flat platform typography, no poster/quote-card feel, no separate text-only deliverable. A visible digital overlay fails.
+- Local typography repair is valid only on an already text-bearing raster and only when it is treated as part of the final illustration composition: same warm paper, same visual rhythm, no flat platform typography, no poster/quote-card feel, no separate text-only deliverable. A visible digital overlay fails.
 - Do not claim final images are ready until `final/`, `final-reels-stories/`, and visual QA exist.
 - Do not stop at `READY_FOR_CODEX_BUILTIN_GENERATION` when an image-generation
-  path is available. Generate, package, and QA the native `4:5` and separate
+  path is available. Generate, package, and QA the native `3:4` and separate
   native `9:16` outputs. If generation is unavailable, write the concrete
   blocker inside the package and call the state `handoff ready` or `blocked`,
   not `final images ready`.
@@ -383,7 +398,9 @@ Use one of these structures:
 - Hinglish is welcome when the story is playful or culturally specific.
 - Use Voice 1 for banter and couple chaos.
 - Use Voice 2 for proposals, anniversaries, grief, distance, or reflective love.
-- Default to 5 slides unless the user explicitly asks for 4.
+- Default to the seven-part pattern: Cover, Cold Open, Mirror, Spine, Rhythm,
+  Turn, Payoff. If the creator explicitly asks for fewer slides, preserve the
+  order and story job of those beats while compressing.
 - Final slide should be worth saving or sending.
 
 ## Review Rules

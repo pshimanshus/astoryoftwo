@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Closeout"
+  short_description: "Safe A Story publish closeout"
+  default_prompt: "Use $a-story-closeout to verify, scope, and close out this A Story repo session."
+policy:
+  allow_implicit_invocation: false

@@ -69,8 +69,32 @@ def test_generated_state_requires_slide_records(tmp_path):
     assert final_images == state
     assert final_images["status"] == "generated"
     assert final_images["done"] is True
-    assert final_images["publishable"] is True
+    assert final_images["publishable"] is False
     assert final_images["slides"][0]["file"] == "final/slide-01.png"
+
+
+def test_publish_ready_state_is_the_publishable_manifest_state(tmp_path):
+    state = write_generation_state(
+        tmp_path,
+        status=GenerationStatus.PUBLISH_READY,
+        backend="codex_builtin",
+        generation_mode="model_native_publishable",
+        slide_count=1,
+        slides=[
+            {
+                "slide": 1,
+                "file": "final/slide-01.png",
+                "reels_stories_file": "final-reels-stories/slide-01.png",
+            }
+        ],
+        extra={"final_audit_pass": True},
+    )
+
+    final_images = read_json(tmp_path / "final-images.json")
+    assert final_images == state
+    assert final_images["status"] == "publish_ready"
+    assert final_images["done"] is True
+    assert final_images["publishable"] is True
 
 
 def test_extra_cannot_overwrite_schema_fields(tmp_path):
@@ -85,7 +109,7 @@ def test_extra_cannot_overwrite_schema_fields(tmp_path):
         )
 
 
-def test_only_generated_state_is_done(tmp_path):
+def test_only_generated_and_publish_ready_states_are_done(tmp_path):
     state = write_generation_state(
         tmp_path,
         status=GenerationStatus.QA_PASSED,

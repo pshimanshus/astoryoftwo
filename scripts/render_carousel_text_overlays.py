@@ -11,7 +11,7 @@ from typing import Any
 from pipeline.stages.carousel_contract import load_style_contract
 
 
-def build_overlay_manifest(slides: list[dict[str, Any]]) -> dict[str, Any]:
+def build_integrated_text_manifest(slides: list[dict[str, Any]]) -> dict[str, Any]:
     contract = load_style_contract()
     typography = contract.get("legacy_typography", contract["typography"])
     return {
@@ -21,7 +21,7 @@ def build_overlay_manifest(slides: list[dict[str, Any]]) -> dict[str, Any]:
             "font_role": "hand_drawn_storybook",
             "font_engine": "macos_coretext_noteworthy",
             "panel_style": "no_quote_card_panel",
-            "placement": "reference-style top or bottom whitespace with optional speech bubble",
+            "placement": "integrated final-image text placement in reserved illustrated paper whitespace",
             "brandmark_style": "subtle_but_readable",
         },
         "slides": [
@@ -57,13 +57,17 @@ def render_with_macos_storybook_renderer(carousel_dir: Path, manifest: dict[str,
         check=False,
     )
     if result.returncode != 0:
-        raise RuntimeError(result.stderr.strip() or "Storybook text overlay renderer failed.")
+        raise RuntimeError(result.stderr.strip() or "Storybook integrated text renderer failed.")
     return json.loads(result.stdout)
 
 
-def render_overlays(carousel_dir: Path) -> dict[str, Any]:
+def build_overlay_manifest(slides: list[dict[str, Any]]) -> dict[str, Any]:
+    return build_integrated_text_manifest(slides)
+
+
+def render_integrated_text(carousel_dir: Path) -> dict[str, Any]:
     slides = json.loads((carousel_dir / "slides.json").read_text(encoding="utf-8"))
-    manifest = build_overlay_manifest(slides)
+    manifest = build_integrated_text_manifest(slides)
     final_dir = carousel_dir / "final"
     out_dir = carousel_dir / "final-with-text"
     missing = [
@@ -72,7 +76,7 @@ def render_overlays(carousel_dir: Path) -> dict[str, Any]:
         if not (final_dir / f"slide-{int(record['slide']):02d}.png").exists()
     ]
     if missing:
-        raise FileNotFoundError("Missing final images for overlay: " + ", ".join(str(path) for path in missing))
+        raise FileNotFoundError("Missing source final images for integrated text pass: " + ", ".join(str(path) for path in missing))
 
     swift_result = render_with_macos_storybook_renderer(carousel_dir, manifest)
     if swift_result is not None:
@@ -156,14 +160,24 @@ def render_overlays(carousel_dir: Path) -> dict[str, Any]:
         "slides": rendered,
     }
     (carousel_dir / "text-overlay.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
+    (carousel_dir / "integrated-text-pass.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     return result
 
 
+def render_overlays(carousel_dir: Path) -> dict[str, Any]:
+    return render_integrated_text(carousel_dir)
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Apply consistent local text overlays to final carousel art.")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Apply an integrated exact-text pass to carousel art. This creates unified "
+            "text-bearing illustration outputs; it is not a quote-card overlay workflow."
+        )
+    )
     parser.add_argument("carousel_dir", type=Path)
     args = parser.parse_args()
-    result = render_overlays(args.carousel_dir)
+    result = render_integrated_text(args.carousel_dir)
     print(json.dumps(result, indent=2))
 
 

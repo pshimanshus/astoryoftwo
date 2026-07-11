@@ -1,6 +1,6 @@
 # Continuous Carousel Agent Room
 
-last_updated: 2026-05-23
+last_updated: 2026-06-27
 confidence: 0.97
 sources:
 - direct creator feedback in chat on 2026-05-23
@@ -49,6 +49,23 @@ ownership lanes:
 - Final Selector: compares all routes, repairs top candidates, and returns one
   GO / REPAIR / STOP verdict.
 
+## Nested Debate Requirement
+
+For opening jam sessions, the room must think from the story, viral theme, or
+golden-theme machine first. The first checkpoint is concept/story lock; it is
+not slide copy, a hook bank, or a 5-line carousel draft.
+
+Do not treat one isolated agent per role as enough for serious ideation. For
+each top route, run a nested discussion with at least two creative-editor
+voices and two writer voices. They must debate the same route in detail: what
+story it is really proving, what viral recognition it protects, where the
+emotional obstacle lives, what the proof engine is, why the ending is earned,
+and why it could fail if written too soon.
+
+Only after this nested debate and creator concept lock should the Copy Chief
+draft public slide copy. Before concept lock, any creator-facing text should be
+a story/theme decision record, not final slide copy.
+
 ## Required Exchange
 
 1. Blind route generation: create at least 5 distinct topics or routes, not one
@@ -57,24 +74,32 @@ ownership lanes:
    works, what breaks, whether it is universal or too private, whether it is
    safe or risky, whether it can be drawn/generated, and whether it can travel
    through sends, saves, comments, or tags.
-3. Loophole pass: the Contrarian Critic must score the raw winner before
+3. Nested story/theme debate: the top routes get the multi-voice
+   creative-editor and writer discussion described above. Record the debate,
+   protected story spine, rejected interpretation, and repair notes before
+   selector approval.
+4. Loophole pass: the Contrarian Critic must score the raw winner before
    repair. If the raw score is below 24/30, the winner cannot proceed without a
    visible repair.
-4. Repair pass: repair the top 2-3 routes, not only the favorite. Record what
+5. Repair pass: repair the top 2-3 routes, not only the favorite. Record what
    changed.
-5. Stage-Scene Gate: before selector approval, convert finalists into
+6. World-Class Taste Gate: before selector approval, record why the finalist
+   is fresh, ownable, physically staged, and not a generic couple-account
+   trope. Apply score caps for weak novelty, weak creator-world specificity,
+   known-trope-plus-tender-ending, or generic replaceable couple content.
+7. Stage-Scene Gate: before selector approval, convert finalists into
    storyboard-first stage scenes. Each finalist must show action, reaction,
    eye-line, hands, body distance, object movement, silence, consequence,
    reversal, and payoff. Text completes the scene; text must not carry the
    scene.
-6. Selector pass: choose the route that best combines story truth,
+8. Selector pass: choose the route that best combines story truth,
    universality, visual proof, retention, safety, and distribution. Highest
    numeric score wins only if no hard gate is open.
-7. Continuous re-entry: after C1 story, C2 arc, C3 visual plan, C4 prompt pack,
+9. Continuous re-entry: after C1 story, C2 arc, C3 visual plan, C4 prompt pack,
    C5 copy, and final images, the relevant agents re-check their ownership.
    Any blocking issue reopens the owning stage and downstream artifacts touched
    by that change.
-8. Final-image closeout: after creator-approved copy and visuals, continue from
+10. Final-image closeout: after creator-approved copy and visuals, continue from
    prompt handoff into proof generation, full batch generation, packaging,
    visual QA, and final audit whenever image generation is available.
 
@@ -115,11 +140,11 @@ Required visual lanes:
   locked copy through visible behavior.
 - Romance Blocking Director: defines wants, hidden needs, eye-lines, hands,
   posture, distance, expressions, and the joke-to-tenderness movement.
-- Typography And Aspect Director: designs text/label placement for native 4:5
+- Typography And Aspect Director: designs text/label placement for native 3:4
   and native 9:16 outputs, including face-safe zones and brandmark placement.
 - Generation Prompt Director: converts the winning visual system into
-  model-native prompt instructions with identity, style, copy, and negative
-  prompt locks.
+  final-generation prompt instructions with identity, style, copy, reserved text space,
+  integrated text-placement, and negative prompt locks.
 - Harsh Visual Selector: attacks all options, repairs the winner, and returns
   GO / REPAIR / STOP.
 
@@ -166,6 +191,13 @@ Use these gates separately, not as one blended vibe score:
   caption/search, and skip risk.
 - Visual Generativity: 27/30 minimum across photo evidence, simple scenes,
   non-repetition, identity, aspect/text safety, and non-generic prompts.
+- Shot Ladder: PASS required. The visual plan must vary shot type, camera
+  angle, setting lane, primary action, and who is visible. Repeated
+  front-facing full-couple medium shots, bed/table/chai/books/garden defaults,
+  or "both sitting together processing feelings" scenes return REPAIR even if
+  style and identity are good.
+- World-Class Taste: PASS with no score cap for novelty, creator-world
+  specificity, non-obvious staged turn, and anti-generic replaceability.
 - Safety/Taste: all PASS for respect, privacy, copyright, cultural
   authenticity, and non-shaming framing.
 
@@ -175,9 +207,11 @@ Return STOP if:
 
 - no route reaches 28/30 after repair;
 - the concept is primarily body-shame, object-first, or private-context-first;
-- there is no active partner role;
+- there is no relationship motion or relevant partner role;
 - the visual plan cannot be generated as simple scenes;
 - safety, taste, copyright, or privacy fails.
+- the route is a generic couple trope with golden-theme parts attached and no
+  ownable @a.storyof.two turn.
 
 Return REPAIR if:
 
@@ -188,11 +222,14 @@ Return REPAIR if:
 - the copy is strong but the story proof is weak.
 - the route is a text spine, quote-card deck, or candidate table without
   staged scene action.
+- the taste gate caps novelty, creator-world specificity, known-trope, or
+  generic replaceability below the 28/30 threshold.
 
 Return GO only when:
 
 - Story-Selling score is 28/30+;
 - Golden Theme score is 28/30+;
+- World-Class Taste Gate passes with no cap;
 - Contrarian repair is resolved;
 - retention, visual, copy, safety, and algorithm checks pass;
 - required artifacts exist before final copy or generation.
@@ -206,8 +243,11 @@ Before final copy:
 - `concept-routes.json`
 - `concept-debate.json`
 - `concept-repairs.json`
+- `taste-gate.json`
 - `concept-selection.json`
 - `story-director-lock.json`
+- nested story/theme debate notes with multiple creative-editor and writer
+  voices for each top route
 
 Before image generation:
 
@@ -235,7 +275,7 @@ If the session has image-generation capability, continue automatically:
 1. Generate the riskiest proof slide first when identity, taste, or safety risk
    is high.
 2. Ask the creator to approve or reject the proof image.
-3. If approved, generate every remaining native `4:5` slide and separate native
+3. If approved, generate every remaining native `3:4` slide and separate native
    `9:16` slide.
 4. Package the outputs into `final/` and `final-reels-stories/`.
 5. Run visual QA and final audit.

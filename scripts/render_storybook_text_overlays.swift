@@ -78,7 +78,7 @@ func readManifest(_ path: String) throws -> OverlayManifest {
 
 func savePNG(_ rep: NSBitmapImageRep, to path: String) throws {
     guard let data = rep.representation(using: .png, properties: [:]) else {
-        throw NSError(domain: "storybook-overlay", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not encode PNG: \(path)"])
+        throw NSError(domain: "storybook-integrated-text", code: 1, userInfo: [NSLocalizedDescriptionKey: "Could not encode PNG: \(path)"])
     }
     try data.write(to: URL(fileURLWithPath: path))
 }
@@ -194,7 +194,7 @@ func renderSlide(carouselDir: String, record: SlideRecord) throws -> RenderedSli
     let source = "\(carouselDir)/final/slide-\(number).png"
     let target = "\(carouselDir)/final-with-text/slide-\(number).png"
     guard let image = NSImage(contentsOfFile: source) else {
-        throw NSError(domain: "storybook-overlay", code: 2, userInfo: [NSLocalizedDescriptionKey: "Could not read image: \(source)"])
+        throw NSError(domain: "storybook-integrated-text", code: 2, userInfo: [NSLocalizedDescriptionKey: "Could not read image: \(source)"])
     }
     let width = Int(image.size.width)
     let height = Int(image.size.height)
@@ -210,7 +210,7 @@ func renderSlide(carouselDir: String, record: SlideRecord) throws -> RenderedSli
         bytesPerRow: 0,
         bitsPerPixel: 0
     ) else {
-        throw NSError(domain: "storybook-overlay", code: 3, userInfo: [NSLocalizedDescriptionKey: "Could not create bitmap for: \(target)"])
+        throw NSError(domain: "storybook-integrated-text", code: 3, userInfo: [NSLocalizedDescriptionKey: "Could not create bitmap for: \(target)"])
     }
 
     NSGraphicsContext.saveGraphicsState()
@@ -232,7 +232,7 @@ func renderSlide(carouselDir: String, record: SlideRecord) throws -> RenderedSli
 
 do {
     guard CommandLine.arguments.count == 3 else {
-        throw NSError(domain: "storybook-overlay", code: 4, userInfo: [NSLocalizedDescriptionKey: "Usage: render_storybook_text_overlays.swift <carousel_dir> <manifest_json>"])
+        throw NSError(domain: "storybook-integrated-text", code: 4, userInfo: [NSLocalizedDescriptionKey: "Usage: render_storybook_text_overlays.swift <carousel_dir> <manifest_json>"])
     }
     let carouselDir = CommandLine.arguments[1]
     let manifest = try readManifest(CommandLine.arguments[2])
@@ -246,6 +246,7 @@ do {
     )
     let data = try JSONEncoder().encode(result)
     try data.write(to: URL(fileURLWithPath: "\(carouselDir)/text-overlay.json"))
+    try data.write(to: URL(fileURLWithPath: "\(carouselDir)/integrated-text-pass.json"))
     print(String(data: data, encoding: .utf8) ?? "{}")
 } catch {
     fputs("render_storybook_text_overlays.swift: \(error)\n", stderr)

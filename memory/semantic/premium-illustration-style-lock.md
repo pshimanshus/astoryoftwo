@@ -1,6 +1,6 @@
 # Premium Illustration Style Lock
 
-last_updated: 2026-05-31
+last_updated: 2026-06-30
 status: creator_approved
 confidence: 1.0
 
@@ -29,16 +29,28 @@ illustration-story generation in this folder.
   chargers, scarves, and denim;
 - identity-first Aachu/Zuv faces with expressive eyes, real-person warmth,
   preserved hair silhouettes, and no over-beautified generic model drift;
-- native 4:5 for Instagram posts, separate native 9:16 for Reels/Stories, and
-  tall vertical 977x1610-style proof composition only when a proof/reference
-  surface is requested;
+- native 4:5 `1080x1350` for proofs, concepts, single-slide outputs, and
+  Instagram posts/carousel slides by default; separate native 9:16 `1080x1920`
+  for Reels/Stories; square only on explicit request;
 - clean upper-middle negative space for exact readable hand-drawn text;
-- tiny low-contrast handwritten `@a.storyof.two` brandmark at bottom-right;
+- tiny low-contrast handwritten `@a.storyof.two` brandmark at top-right;
 - premium hand-drawn storybook typography like the approved set: neat,
   readable, dark charcoal, slightly imperfect, integrated into the paper.
 - shared brief images are mood/composition/story references only unless the
   creator explicitly says otherwise; Aachu/Zuv identity references remain the
   face, expression, posture, and wardrobe anchors.
+- PAPER TONE LOCK: the paper itself must stay neutral premium warm
+  ivory/off-white; warmth belongs in scene accents, not in yellow/parchment
+  paper.
+- STAGE-SCENE / VISUAL RECEIPT: every slide needs visible behavior, object
+  movement, body position, expression, contradiction, ritual, or aftermath that
+  proves the exact line.
+- SHOT LADDER / VISUAL VARIETY: across a carousel, vary shot type, camera,
+  setting, action, and who is visible; valid slides may show Aachu, Zuv, both,
+  partial presence, object-only evidence, or no faces.
+- RELATIONSHIP MOTION: love proof may come from either partner, both partners,
+  a shared rhythm, an object, or a public couple mirror; do not force Zuv into
+  a default handler/caretaker role.
 
 ## New QA Learning
 
