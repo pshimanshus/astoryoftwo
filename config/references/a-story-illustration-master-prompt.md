@@ -36,17 +36,19 @@ identity images attached to the image-generation call, not text saying "same
 couple." Wardrobe must be selected from the attached identity images or
 current-request identity photos first; do not rely on a fixed wardrobe menu.
 
-Creator correction, 2026-06-14: never generate textless illustrations. Every
-@a.storyof.two proof, concept, carousel, or final illustration must include
-exact on-image text from the first proof onward, plus only the tiny top-right
-brandmark. Dimensions follow `config/rules/image-dimensions.md`: proof
-illustrations, concept illustrations, single-slide outputs, and default
-Instagram post/carousel slides must be generated natively at exactly
-`1080x1350 px` (Instagram Feed Portrait, 4:5). Generate `1080x1920 px` (9:16)
-when the creator explicitly asks for Story/Reel, and `1080x1080 px` only when
-the creator explicitly asks for square. Reject any generated illustration whose
-dimensions do not exactly match the requested format; do not crop, pad, stretch,
-or resize to fake compliance.
+Creator correction, 2026-06-14, updated 2026-07-02: never generate textless
+illustrations. Every @a.storyof.two proof, concept, carousel, or final
+illustration must include exact on-image text from the first proof onward, plus
+only the tiny top-right brandmark. Dimensions follow
+`config/rules/image-dimensions.md`: proof illustrations, concept illustrations,
+single-slide outputs, and default Instagram post/carousel slides must finish as
+exact `1080x1440 px` exports (Instagram Feed Portrait, 3:4). For model
+generation, use native `1440x1920 px` source art when exact `1080x1440` cannot
+be hard-enforced, then export proportionally to `1080x1440`. Generate
+`1080x1920 px` (9:16) when the creator explicitly asks for Story/Reel, and
+`1080x1080 px` only when the creator explicitly asks for square. Reject any
+generated illustration whose dimensions do not match an approved source or final
+format; do not crop, pad, stretch, or arbitrarily resize to fake compliance.
 
 Creator correction, 2026-06-15: exact text must always be created with the final
 image. Updated 2026-06-30 after the marriage carousel failure: if exact copy
@@ -58,18 +60,28 @@ or old package artifacts. Ignore any historical package, final audit, visual QA,
 or memory fragment that still says old square-by-default proof sizing,
 wrong-corner brandmark placement, blank source-image workflow, deferred text
 overlay, or both partners in every slide.
-Current canon is native `1080x1350 px` by default, native `1080x1920 px` for
-explicit Story/Reel companion outputs, square only on explicit request, tiny
-top-right `@a.storyof.two`, text-bearing generation from first proof, and
-carousel shot ladders that may show one partner, both, partial presence,
-object-only evidence, or no faces when the story needs it.
+Current canon is `1440x1920` source art exported to exact `1080x1440 px` by
+default, native `1080x1920 px` for explicit Story/Reel companion outputs, square
+only on explicit request, tiny top-right `@a.storyof.two`, text-bearing
+generation from first proof, and carousel shot ladders that may show one
+partner, both, partial presence, object-only evidence, or no faces when the story
+needs it.
+
+Creator correction, 2026-07-02: never infer or regenerate a different
+canvas/aspect/social format after the creator removes or rejects that format.
+Run a Format Inference Preflight before generation/export: lock the requested
+canvas from the current creator instruction, attached references, accepted
+prior screen, and immediate chat corrections. A current correction overrides
+repo defaults.
+If the current canvas is unclear after a correction, stop and ask for the exact
+canvas instead of generating.
 
 ```text
 USE CASE:
 illustration-story
 
 ASSET TYPE:
-Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration. Default proof, concept, single-slide, and Instagram post/carousel output is native 4:5 at exactly 1080x1350 px; use native 9:16 at exactly 1080x1920 px only when the creator asks for Story/Reel, and square 1080x1080 px only when explicitly requested. These pixel sizes are mandatory, not derived from the aspect ratio alone; reject any other dimension. Never resize, crop, pad, or extend one surface into the other. The final asset must be one unified image with exact readable text integrated into the illustrated paper composition and only the tiny low-contrast top-right handwritten brandmark.
+Premium hand-drawn romantic watercolor-and-ink @a.storyof.two illustration. Default proof, concept, single-slide, and Instagram post/carousel source art is native 3:4 at exactly 1440x1920 px, then exported proportionally to an exact 1080x1440 px final; use native 9:16 at exactly 1080x1920 px only when the creator asks for Story/Reel, and square 1080x1080 px only when explicitly requested. These pixel sizes are mandatory, not derived from the aspect ratio alone; reject any other dimension. Never crop, pad, stretch, or extend one surface into the other. The final asset must be one unified image with exact readable text integrated into the illustrated paper composition and only the tiny low-contrast top-right handwritten brandmark.
 
 REFERENCE IMAGE ROLES:
 When the creator provides only a rough concept, prompt assembly is autopilot by default: infer the first-pass scene, on-image text, and image roles from the supplied concept, prompt, photo, screenshot, or reference image instead of asking for perfect fields.
@@ -148,7 +160,13 @@ PAPER TONE LOCK:
 The whole paper/negative-space field must stay neutral premium warm ivory/off-white with visible paper grain. Story warmth may appear inside illustrated objects, skin, blush, lamps, textiles, or small accents, but it must not tint the paper itself yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream. If the paper reads yellow or parchment on a phone screen, the image fails even when the scene, faces, and text are otherwise strong.
 
 COMPOSITION AND FORMAT:
-Default proof, concept, single-slide, and Instagram post/carousel output is native 4:5 at exactly 1080x1350 px. Use native 9:16 at exactly 1080x1920 px for Reels/Stories or Story/Reel requests, and square 1080x1080 px only when explicitly requested. Pixel sizes are mandatory and generated natively, not derived from the aspect ratio.
+Run Format Inference Preflight first: use the current creator instruction,
+attached references, accepted prior screen, and immediate corrections to lock
+the requested canvas. Do not silently snap back to `3:4`, `9:16`, feed, Story,
+Reel, square, or multi-format output from repo defaults after the creator has
+removed or rejected that format. If the current canvas is unclear after a
+correction, stop and ask for the exact canvas before generating.
+Default proof, concept, single-slide, and Instagram post/carousel source art is native 3:4 at exactly 1440x1920 px, then exported proportionally to exact 1080x1440 px. Use native 9:16 at exactly 1080x1920 px for Reels/Stories or Story/Reel requests, and square 1080x1080 px only when explicitly requested. Pixel sizes are mandatory and generated/exported deliberately, not derived from the aspect ratio alone.
 Leave generous warm negative space in the upper-middle portion for the integrated on-image text.
 Place the couple in the lower or middle-lower portion of the canvas unless the scene requires otherwise.
 Use airy framing and soft faded watercolor edges.

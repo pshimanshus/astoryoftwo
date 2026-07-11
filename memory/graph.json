@@ -806,6 +806,26 @@
       "slide_count": 8,
       "package": "output/carousels/2026-06-28/small-bids",
       "content_lane": "Soft Love Notes"
+    },
+    "carousel:still-learning-love": {
+      "id": "carousel:still-learning-love",
+      "type": "illustrated_carousel",
+      "title": "Still Learning Love",
+      "date": "2026-07-03",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-07-03/still-learning-love",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:still-learning-love-2": {
+      "id": "carousel:still-learning-love-2",
+      "type": "illustrated_carousel",
+      "title": "Still Learning Love",
+      "date": "2026-07-03",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-07-03/still-learning-love-2",
+      "content_lane": "Soft Love Notes"
     }
   },
   "relationships": [
@@ -1306,6 +1326,18 @@
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:still-learning-love",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:still-learning-love-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1334,5 +1366,5 @@
       "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-06-28"
+  "last_updated": "2026-07-03"
 }

@@ -1145,7 +1145,7 @@ def build_package(
             "prompt": (
                 f"Use case: illustration-story. Asset type: complete publishable carousel slide "
                 f"{slide['slide']} of {slide_count}, prepared as two native outputs: "
-                f"1080x1350 vertical 4:5 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. "
+                f"1080x1440 vertical 3:4 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. "
                 f"Never resize, crop, pad, or extend one output into the other. Story context: {story}. "
                 f"Master prompt version: {MASTER_PROMPT_VERSION}. Use the project master prompt sections for "
                 "identity, style, composition, scene logic, typography, brandmark, and final rendering. "
@@ -1340,7 +1340,7 @@ def build_package(
                 "strategy": contract["typography"]["strategy"],
                 "composition_role": "publishable_final_illustration_with_text",
                 "font_direction": (
-                    "handwritten storybook type, dark charcoal, readable at 1080x1350 and 1080x1920; "
+                    "handwritten storybook type, dark charcoal, readable at 1080x1440 and 1080x1920; "
                     "exact slide copy must be integrated into the generated final image raster; "
                     "if the model cannot render exact copy, block or retry with a text-bearing prompt"
                 ),
@@ -1433,7 +1433,7 @@ def build_package(
                     else []
                 ),
                 *(
-                    ["Carousel-first route: no Reel script or Reel signal gate; generate native 4:5 and separate native 9:16 slide sets from the same idea."]
+                    ["Carousel-first route: no Reel script or Reel signal gate; generate native 3:4 and separate native 9:16 slide sets from the same idea."]
                     if is_wallet_audit
                     else []
                 ),

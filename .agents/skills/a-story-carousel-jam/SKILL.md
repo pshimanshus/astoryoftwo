@@ -13,10 +13,11 @@ It wraps the existing Agentic OS system instead of duplicating the long workflow
 ## Load First
 
 1. `config/skill-systems.json` -> `carousel_jam`
-2. `config/skills/carousel-jam-runtime-context.md`
-3. `config/skills/carousel-jam-autopilot.md`
-4. `config/skills/carousel-story-director-persona.md`
-5. `config/skills/illustration-carousel-framework.md`
+2. `config/skills/creator-skill-stack.md`
+3. `config/skills/carousel-jam-runtime-context.md`
+4. `config/skills/carousel-jam-autopilot.md`
+5. `config/skills/carousel-story-director-persona.md`
+6. `config/skills/illustration-carousel-framework.md`
 
 Use the compact runtime context first. Do not full-read
 `wiki/insights/successful-carousel-standard.md`,
@@ -34,9 +35,20 @@ machine-readable workflow record.
 - Small Brief First: preserve the creator's exact feeling, situation, line, or
   image premise when one exists. If the creator asks to jam from scratch, propose
   fresh concept seeds instead of demanding a finished concept.
+- Format Inference Preflight: before generating or exporting images, lock the
+  requested canvas from the current creator instruction, attached references,
+  and immediate corrections. A current correction overrides repo defaults. Do
+  not infer `3:4`, `9:16`, feed, Story, Reel, square, or multi-format output
+  from repo defaults after the creator removes or rejects that format. If the
+  current canvas is unclear after a correction, ask for the exact canvas instead
+  of generating.
 - Fresh Idea Standard: concept seeds should feel shareable on Instagram,
   partner-sendable, and rooted in couple love moments that make someone think
   "this is me", "this is her", or "this is us."
+- Creator Skill Stack Hook: before creator-facing concept suggestions, define
+  the scroll stop, recognition mirror, emotional contradiction, scene proof,
+  retention ladder, payoff, format remix, audience mirror, volume path, taste
+  gate, and DM Send Test from `config/skills/creator-skill-stack.md`.
 - Format First: choose whether the idea is strongest as a post, Reel, carousel,
   or multi-format package before building assets.
 - Free Creative Pass First: model owns concept, copy, and visual invention.
@@ -60,7 +72,7 @@ machine-readable workflow record.
   Identity references must guide the whole illustrated person, not just a face
   patch. Wardrobe and couple styling must be chosen from attached
   identity/current-request photos first.
-- Do not call the carousel final unless native 1080 x 1350 post finals,
+- Do not call the carousel final unless native 1080 x 1440 post finals,
   separate native 1080 x 1920 story/reel finals, tiny `@a.storyof.two`
   brandmark, visual QA, and final audit exist.
 - Prefer one-command automation through Make/script workflows. If the one-command

@@ -1,0 +1,53 @@
+{
+  "status": "GO",
+  "decision": "GO",
+  "copy_lock": true,
+  "selected_visual_system": "Borders Got Lazy",
+  "system_summary": "A continuous shared home where separation dissolves into overlap. The proof is not where objects are kept; the proof is routines, objects, and care crossing into each other.",
+  "reviewers": [
+    {
+      "role": "Visual Format Anthropologist",
+      "protect": "The home must feel like a lived Indian couple space, not a graphic his-versus-hers diagram.",
+      "reject": "Split-screen, labels, social UI, quote-card layouts, and inventory drawers as the main system."
+    },
+    {
+      "role": "Scene Evidence Director",
+      "protect": "Each slide must show one crossing: sound crossing, objects crossing, hands crossing, routines crossing.",
+      "reject": "Static objects that only say 'they know where things are.'"
+    },
+    {
+      "role": "Romance Blocking Director",
+      "protect": "Care must be mutual: Zuv prepares her office bag, Aachu makes his shake, and neither becomes the assistant.",
+      "reject": "One-partner caretaker dynamics or heroic rescue framing."
+    },
+    {
+      "role": "Typography And Aspect Director",
+      "protect": "Short text placed in walls, steam, table edges, mirror space, and airy upper negative space.",
+      "reject": "Flat overlay text, crowded lines over faces, poster text blocks."
+    },
+    {
+      "role": "Generation Prompt Director",
+      "protect": "Use actual identity references as attached image inputs for every final slide.",
+      "reject": "Text-only likeness prompting or generic South Asian couple faces."
+    },
+    {
+      "role": "Harsh Visual Selector",
+      "protect": "The winning route must be emotionally legible with the text hidden.",
+      "reject": "Cute object list, neat-home aesthetic, or repeated medium couple shots."
+    }
+  ],
+  "rejected_visual_systems": [
+    {
+      "name": "Inventory Receipts",
+      "reason": "It makes the carousel about where sugar, snacks, and medicines are kept instead of emotional overlap."
+    },
+    {
+      "name": "His Corner / Her Corner",
+      "reason": "It contradicts the approved copy because the emotional move is away from sides."
+    },
+    {
+      "name": "Quote-Card Home",
+      "reason": "It would make the text carry the idea instead of the lived scenes."
+    }
+  ]
+}

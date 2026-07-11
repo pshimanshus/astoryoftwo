@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "suites": {
+    "smoke": {
+      "description": "Fast evals for the most dangerous repo-contract failures."
+    },
+    "contract": {
+      "description": "Instruction, rule authority, memory, Agentic OS, and closeout safety tasks."
+    },
+    "carousel": {
+      "description": "Carousel package and image-production gate tasks."
+    },
+    "creative": {
+      "description": "Creative-production behavior tasks that pair deterministic checks with rubric review."
+    },
+    "full": {
+      "description": "All starter eval tasks."
+    }
+  },
+  "tasks": [
+    "ASTO-001-brandmark-drift",
+    "ASTO-002-format-snapback",
+    "ASTO-003-textless-prompt",
+    "ASTO-004-fake-publishable-package",
+    "ASTO-005-working-memory-pointer",
+    "ASTO-006-creator-skill-routing",
+    "ASTO-007-context-rule-truncation",
+    "ASTO-008-autopublish-risky-paths",
+    "ASTO-009-article-story-selling-gate",
+    "ASTO-010-prepost-layer-e",
+    "ASTO-011-small-brief-no-framework-dump",
+    "ASTO-012-visual-variety-shot-ladder"
+  ]
+}

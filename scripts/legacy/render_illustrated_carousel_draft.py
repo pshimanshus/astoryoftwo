@@ -493,7 +493,7 @@ def write_run_artifacts(carousel_dir: Path, slides: list[dict[str, Any]], output
                 "dress_continuity": {"pass": False, "notes": "Local symbols are preview-only; model-native continuity QA is pending."},
                 "style": {"pass": False, "notes": "Warm storybook preview exists; final style QA is pending on final text-bearing outputs."},
                 "integrated_final_text": {"pass": False, "notes": "Text is locally rendered preview typography, not integrated final-text evidence."},
-                "final_files": {"pass": False, "notes": "4:5 and 9:16 preview PNGs exist but are not publishable final files."},
+                "final_files": {"pass": False, "notes": "3:4 and 9:16 preview PNGs exist but are not publishable final files."},
             },
             "notes": [
                 "Local renderer can preview copy, aspect, story, and composition.",

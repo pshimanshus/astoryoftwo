@@ -3,7 +3,7 @@
   "status": "REJECTED_NATIVE_SIZE",
   "proof_slide": 5,
   "generator": "built_in_image_gen",
-  "expected_dimensions": "1080x1350",
+  "expected_dimensions": "1080x1440",
   "attempts": [
     {
       "attempt": 1,
@@ -24,7 +24,7 @@
       "source_path": "/Users/himanshusharma/.codex/generated_images/019f1925-1920-79d1-92e2-d898ea3f0d82/ig_0ad3225ddba833d1016a43e78da74c8191a94fed4b39160f30.png",
       "workspace_copy": "rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png",
       "edit_target": "deleted-invalid-diagnostic-blank-target",
-      "edit_target_dimensions": "1080x1350",
+      "edit_target_dimensions": "1080x1440",
       "actual_dimensions": "1122x1402",
       "status": "rejected_native_size",
       "notes": "Diagnostic-only failed attempt. Blank-canvas editing is not an approved repo workflow because it violates the required identity/style/story setup, and it did not preserve native dimensions."
@@ -44,7 +44,7 @@
       ],
       "actual_dimensions": "1003x1568",
       "status": "rejected_native_size",
-      "notes": "Real reference-driven built-in generation path did not produce native 1080x1350."
+      "notes": "Real reference-driven built-in generation path did not produce an approved 1440x1920 source or exact 1080x1440 final."
     },
     {
       "attempt": 5,
@@ -53,8 +53,8 @@
       "prompt": "codex-image-prompts/instagram-post/slide-05.prompt.txt",
       "actual_dimensions": "1122x1402",
       "status": "rejected_native_size",
-      "notes": "Generated from the repaired dinner-table prompt after reloading the selected identity/style references. Visual direction is closer, but the file is still not native 1080x1350, so it cannot be accepted as a proof or final."
+      "notes": "Generated from the repaired dinner-table prompt after reloading the selected identity/style references. Visual direction is closer, but the file is still not an approved 1440x1920 source or exact 1080x1440 final, so it cannot be accepted as a proof or final."
     }
   ],
-  "decision": "Do not generate remaining slides through this path until exact native 1080x1350 output is available."
+  "decision": "Do not generate remaining slides through this path until 1440x1920 source plus exact 1080x1440 final export output is available."
 }

@@ -3,11 +3,11 @@
   "title": "Tum Meri Baat Sun Rahe Ho",
   "created_at": "2026-06-30",
   "status": "PROMPTS_REPAIRED_BLOCKED_FOR_NATIVE_SIZE",
-  "reason": "Creative prompt failures have been repaired: the carousel now uses one continuous 4-seater dinner-table scene, same wardrobe across all slides, and the Observational Intimacy Premium typography lock. Final generation remains blocked until a backend can produce exact native 1080x1350 outputs.",
+  "reason": "Creative prompt failures have been repaired: the carousel now uses one continuous 4-seater dinner-table scene, same wardrobe across all slides, and the Observational Intimacy Premium typography lock. Final generation remains blocked until a backend can produce 1440x1920 source plus exact 1080x1440 final export outputs.",
   "platform": "instagram",
   "format": {
     "instagram_post": {
-      "required_px": "1080x1350",
+      "required_px": "1080x1440",
       "status": "blocked"
     },
     "reels_stories": {
@@ -46,21 +46,21 @@
       "path": "rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png",
       "dimensions": "1122x1402",
       "status": "rejected_native_size",
-      "notes": "Diagnostic-only failed attempt from a blank 1080x1350 edit target. This route is invalid for the repo because blank-page editing violates the required identity/style/story generation setup and still did not preserve dimensions."
+      "notes": "Diagnostic-only failed attempt from a blank 1080x1440 edit target. This route is invalid for the repo because blank-page editing violates the required identity/style/story generation setup and still did not preserve dimensions."
     },
     {
       "slide": 5,
       "path": "rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png",
       "dimensions": "1003x1568",
       "status": "rejected_native_size",
-      "notes": "Generated after loading the selected real identity/style references into context; rejected because the output dimensions are not native 1080x1350."
+      "notes": "Generated after loading the selected real identity/style references into context; rejected because the output dimensions are not approved 1440x1920 source or exact 1080x1440 final."
     },
     {
       "slide": 5,
       "path": "rejected/native-size-fail/slide-05-proof-v5-dinner-table-1122x1402.png",
       "dimensions": "1122x1402",
       "status": "rejected_native_size",
-      "notes": "Generated from the repaired single-setting dinner-table prompt after reloading selected identity/style references; rejected because the output dimensions are not native 1080x1350."
+      "notes": "Generated from the repaired single-setting dinner-table prompt after reloading selected identity/style references; rejected because the output dimensions are not approved 1440x1920 source or exact 1080x1440 final."
     }
   ],
   "artifact_map": {

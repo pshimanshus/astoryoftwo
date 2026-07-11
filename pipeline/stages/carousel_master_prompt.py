@@ -55,9 +55,9 @@ CANONICAL_REQUIRED_FRAGMENTS = [
 NATIVE_FORMAT_SPECS: dict[str, dict[str, str]] = {
     "instagram_post": {
         "label": "Instagram Post Output",
-        "ratio": "4:5",
-        "size": "1080x1350",
-        "canvas": "exact 4:5 canvas for an Instagram carousel slide, native 1080x1350 px",
+        "ratio": "3:4",
+        "size": "1080x1440",
+        "canvas": "exact 3:4 canvas for an Instagram carousel source, native 1440x1920 px, exported proportionally to 1080x1440 px",
         "avoid": "not a 9:16 story canvas",
     },
     "reels_stories": {
@@ -65,7 +65,7 @@ NATIVE_FORMAT_SPECS: dict[str, dict[str, str]] = {
         "ratio": "9:16",
         "size": "1080x1920",
         "canvas": "exact 9:16 canvas for Reels/Stories, native 1080x1920 px",
-        "avoid": "not a 4:5 carousel canvas",
+        "avoid": "not a 3:4 carousel canvas",
     },
 }
 
@@ -112,8 +112,9 @@ def master_prompt_contract() -> dict[str, Any]:
         "required_sections": MASTER_PROMPT_REQUIRED_SECTIONS,
         "native_outputs": {
             "instagram_post": {
-                "aspect_ratio": "4:5",
-                "size": "1080x1350",
+                "aspect_ratio": "3:4",
+                "size": "1080x1440",
+                "source_size": "1440x1920",
                 "directory": "final/",
             },
             "reels_stories": {

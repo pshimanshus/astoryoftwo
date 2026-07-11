@@ -45,4 +45,4 @@ Use the standard @a.storyof.two handwritten lettering from the Observational Int
 
 ## Remaining Blocker
 
-The prompt and visual storytelling have been repaired. The generation backend must still prove exact native `1080x1350` output before any image can move into `final/`.
+The prompt and visual storytelling have been repaired. The generation backend must still prove `1440x1920` source with exact `1080x1440` final export output before any image can move into `final/`.

@@ -140,7 +140,7 @@ Required visual lanes:
   locked copy through visible behavior.
 - Romance Blocking Director: defines wants, hidden needs, eye-lines, hands,
   posture, distance, expressions, and the joke-to-tenderness movement.
-- Typography And Aspect Director: designs text/label placement for native 4:5
+- Typography And Aspect Director: designs text/label placement for native 3:4
   and native 9:16 outputs, including face-safe zones and brandmark placement.
 - Generation Prompt Director: converts the winning visual system into
   final-generation prompt instructions with identity, style, copy, reserved text space,
@@ -275,7 +275,7 @@ If the session has image-generation capability, continue automatically:
 1. Generate the riskiest proof slide first when identity, taste, or safety risk
    is high.
 2. Ask the creator to approve or reject the proof image.
-3. If approved, generate every remaining native `4:5` slide and separate native
+3. If approved, generate every remaining native `3:4` slide and separate native
    `9:16` slide.
 4. Package the outputs into `final/` and `final-reels-stories/`.
 5. Run visual QA and final audit.

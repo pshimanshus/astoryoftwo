@@ -47,12 +47,28 @@ phrase. Do not full-read the four source files as a routine opening move.
 
 ## Runtime Contract
 
+session-start creator hook: load `config/skills/creator-skill-stack.md` before
+fresh ideation, carousel jams, Reel routes, caption routes, or format decisions.
+Use it to define Scroll-Stop, Recognition, Emotional Contradiction, Scene-Proof,
+Retention Ladder, Payoff, Format Remix, Audience Mirror, Volume, Taste Gate, and
+DM Send Test before creator-facing concept suggestions. Keep the skill names
+private unless the creator asks for operating analysis.
+
 free creative pass before scoring: model owns concept, copy, and visual
 invention, and engineering is the guardrail layer for repeated ideas, identity
 drift, visual issues, exact text, brandmark, dimensions, stale artifacts, and
 house guidance. The checks should protect the first alive route and block hard
 failures; they should not replace the model's strongest concept/copy/visual
 setup with a safer template.
+
+format inference preflight: before prompt handoff, generation, export, or
+packaging, lock the canvas from the current creator instruction, current
+attached references, and any immediate correction in the chat. If the creator
+removes, rejects, or corrects a format/aspect/size decision, that correction
+overrides repo defaults for the current task. Do not silently snap back to
+`3:4`, `9:16`, feed, Story, Reel, square, or multi-format output from workflow
+defaults. If the canvas is unclear after a correction, stop and ask for the
+exact canvas instead of generating.
 
 Before writing hooks, slide copy, captions, visual directions, prompt text, or
 image handoff, define:
@@ -63,7 +79,7 @@ image handoff, define:
   active reaction, emotional turn, and earned payoff;
 - brand success: the idea feels like warm, desi, specific @a.storyof.two IP,
   not generic couple content;
-- production success: the route can become native 4:5 and separate native 9:16
+- production success: the route can become native 3:4 and separate native 9:16
   finals with visual QA and final audit;
 - relationship-motion success: the post creates a public relationship mirror
   through enough behavior, receipts, contradiction, rhythm, or situation to
@@ -97,6 +113,13 @@ When the creator starts a jam, do not answer with 5-line slide copy, a hook
 bank, or slide architecture. First lock the concept: story/theme diagnosis,
 multi-voice debate summary, Stage-Scene proof, scores, rejected lanes, selector
 verdict, and GO / REPAIR / STOP.
+
+After concept lock, the default copy architecture is the creator's seven-part
+pattern in this exact order: `Cover`, `Cold Open`, `Mirror`, `Spine`, `Rhythm`,
+`Turn`, `Payoff`. Treat it as the baseline for fresh carousel jams and copy
+drafts, not an optional template. Compress only when the creator explicitly
+asks for a shorter deck or a production constraint requires it, and preserve
+the same narrative order.
 
 ## Layer E
 
@@ -158,5 +181,5 @@ Before image generation, attach selected actual Aachu/Zuv identity images and
 style references. Text-only "same couple" prompts are blocked, and wardrobe
 comes from attached identity/current-request photos first.
 
-Do not call the carousel done until separate native 4:5 finals, separate native
+Do not call the carousel done until separate native 3:4 finals, separate native
 9:16 finals, visual QA, and final audit exist.

@@ -6,9 +6,10 @@ from typing import Any
 
 
 DEFAULT_MODEL = "disabled-legacy-api-model"
-DEFAULT_SIZE = "1080x1350"
+DEFAULT_SIZE = "1440x1920"
 REELS_STORIES_REQUEST_SIZE = "1080x1920"
-FINAL_UPLOAD_SIZE = (1080, 1350)
+INSTAGRAM_POST_SOURCE_SIZE = (1440, 1920)
+FINAL_UPLOAD_SIZE = (1080, 1440)
 REELS_STORIES_SIZE = (1080, 1920)
 MAX_REFERENCE_IMAGES = 16
 MAX_IDENTITY_REFERENCES_WITH_STYLE = 4
@@ -24,10 +25,10 @@ NATIVE_OUTPUT_CONTRACT = {
         "identity_visual_qa",
     ],
     "rule": (
-        "Each slide must have two separate native generated sources: one Instagram post image "
-        "generated exactly at 1080x1350 and one Reels/Stories image generated exactly at "
-        "1080x1920. Reels/Stories output must never be derived by resizing, cropping, or "
-        "padding the Instagram post image."
+        "Each slide must have separate generated sources per surface: one Instagram post "
+        "source generated at 1440x1920 for deterministic export to 1080x1440, and one "
+        "Reels/Stories image generated exactly at 1080x1920. Reels/Stories output must "
+        "never be derived from the Instagram post image."
     ),
 }
 LEGACY_API_IMAGE_GENERATION_DISABLED_REASON = (
@@ -38,8 +39,10 @@ LEGACY_API_IMAGE_GENERATION_DISABLED_REASON = (
 NATIVE_OUTPUT_FORMATS = {
     INSTAGRAM_POST_FORMAT: {
         "label": "Instagram post",
-        "aspect_ratio": "4:5",
+        "aspect_ratio": "3:4",
         "upload_size": f"{FINAL_UPLOAD_SIZE[0]}x{FINAL_UPLOAD_SIZE[1]}",
+        "source_size": INSTAGRAM_POST_SOURCE_SIZE,
+        "source_size_label": f"{INSTAGRAM_POST_SOURCE_SIZE[0]}x{INSTAGRAM_POST_SOURCE_SIZE[1]}",
         "target_size": FINAL_UPLOAD_SIZE,
         "request_size": DEFAULT_SIZE,
     },
@@ -47,6 +50,8 @@ NATIVE_OUTPUT_FORMATS = {
         "label": "Reels/Stories",
         "aspect_ratio": "9:16",
         "upload_size": f"{REELS_STORIES_SIZE[0]}x{REELS_STORIES_SIZE[1]}",
+        "source_size": REELS_STORIES_SIZE,
+        "source_size_label": f"{REELS_STORIES_SIZE[0]}x{REELS_STORIES_SIZE[1]}",
         "target_size": REELS_STORIES_SIZE,
         "request_size": REELS_STORIES_REQUEST_SIZE,
     },
@@ -97,9 +102,11 @@ def existing_reference_paths(prompt_pack: dict[str, Any]) -> list[Path]:
 def prompt_for_native_format(prompt: str, format_key: str) -> str:
     if format_key == INSTAGRAM_POST_FORMAT:
         return (
-            "Native output format: Instagram post. Generate a complete 4:5 vertical "
-            "publishable carousel slide with all text and the tiny @a.storyof.two brandmark inside the image. "
-            "Do not rely on cropping, padding, or resizing from another aspect ratio.\n\n"
+            "Native output format: Instagram post. Generate a complete 3:4 vertical "
+            "carousel source at 1440x1920 with all text and the tiny @a.storyof.two brandmark "
+            "inside the image; the package exporter will downsample proportionally to the "
+            "1080x1440 publish file. Do not rely on cropping, padding, or resizing from another "
+            "aspect ratio.\n\n"
             f"{prompt}"
         )
     if format_key == REELS_STORIES_FORMAT:

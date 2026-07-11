@@ -3,7 +3,7 @@
   "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
   "brandmark": "@a.storyof.two",
   "canonical_illustration_master_prompt": "config/references/a-story-illustration-master-prompt.md",
-  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 4:5 portrait composition when the requested surface is Instagram post, and generate separate native 9:16 artwork for Reels/Stories when needed. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition when the requested surface is Instagram post: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork for Reels/Stories when needed. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
   "compact_style_prompt": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
   "shared_negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
   "model_native_master_prompt": {
@@ -26,8 +26,9 @@
     ],
     "asset_outputs": {
       "instagram_post": {
-        "aspect_ratio": "4:5",
-        "size": "1080x1350",
+        "aspect_ratio": "3:4",
+        "source_size": "1440x1920",
+        "size": "1080x1440",
         "directory": "final/"
       },
       "reels_stories": {
@@ -36,8 +37,9 @@
         "directory": "final-reels-stories/"
       },
       "illustration_story_proof": {
-        "aspect_ratio": "4:5",
-        "size": "1080x1350",
+        "aspect_ratio": "3:4",
+        "source_size": "1440x1920",
+        "size": "1080x1440",
         "square_on_request": "1080x1080",
         "directory": "proofs/ or output/illustrations/"
       }
@@ -314,7 +316,7 @@
       "Fewer than three visual systems are compared.",
       "The selected visuals decorate the copy but do not prove it through visible Aachu/Zuv behavior.",
       "A reference format is copied as frames, likenesses, or exact labels instead of abstracted into original mechanics.",
-      "Text placement is not planned separately for native 4:5 and native 9:16 outputs."
+      "Text placement is not planned separately for native 3:4 and native 9:16 outputs."
     ],
     "decision_record_required_fields": [
       "trigger phrase or confirmation event",
@@ -372,7 +374,7 @@
       "Zuv stays visually steady: smiling, holding shoes, tissue, water, snacks, charger, or simply sitting closer.",
       "Use recurring wedding/desi details when relevant: lehenga, sherwani, jasmine, mehendi, marigold, diya.",
       "Final slide should soften the figures and foreground a simple metaphor object.",
-      "Every final slide must have two native generated outputs: 4:5 Instagram post and 9:16 Reels/Stories.",
+      "Every final slide must have two native generated outputs: 3:4 Instagram post and 9:16 Reels/Stories.",
       "Do not derive the Reels/Stories output by resizing, cropping, padding, or extending the Instagram post output."
     ]
   },
@@ -445,7 +447,7 @@
     "reference_bundle": "config/references/style-lock/observational-intimacy-premium/",
     "rule": "For @a.storyof.two illustration-story assets, always start from config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the observational-intimacy-premium style bundle. Preserve the approved look: identity-first recurring Aachu/Zuv faces, Aachu/Zuv identity reference as the face and wardrobe anchor, shared images only as mood/composition unless they clearly depict the requested people/couple for this prompt, exact handwritten text integrated into the final image's upper-middle negative space, couple and props in the lower or middle-lower canvas, soft minimal background, tactile wardrobe and prop detail, warm ivory paper, visible paper grain, transparent watercolor blooms, fine ink/pencil linework, delicate sketch texture, muted vintage color, soft faded edges, tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right, and no dense external-reference style takeover.",
     "default_text_behavior": "Every @a.storyof.two proof/concept/final must include exact ON-IMAGE TEXT inside the generated final image. Preserve spelling, punctuation, capitalization, and line breaks exactly. If the image model cannot reliably render exact copy, block the package or retry with a text-bearing generation prompt. Typography repair may only correct an already text-bearing raster. Never present a textless generated image as proof/final.",
-    "preferred_raw_aspect": "Creator hard rule (config/rules/image-dimensions.md): proof illustrations, concept illustrations, single-slide outputs, and default Instagram post/carousel slides must be generated natively at exactly 1080x1350 px (Instagram Feed Portrait, 4:5). If the creator explicitly asks for Story/Stories/Reel/Reels, generate natively at exactly 1080x1920 px (9:16). Generate square 1080x1080 px only when the creator explicitly asks for square. Instruct the image model with the exact pixel size, not the aspect ratio alone. Reject any image whose dimensions do not exactly match the requested format; do not crop, pad, stretch, or resize to fake compliance.",
+    "preferred_raw_aspect": "Creator hard rule (config/rules/image-dimensions.md): proof illustrations, concept illustrations, single-slide outputs, and default Instagram post/carousel slides must finish as exact 1080x1440 px exports (Instagram Feed Portrait, 3:4). Generate Instagram post/carousel source art at exactly 1440x1920 px when the model path needs a hard-enforced source size, then export proportionally to 1080x1440. If the creator explicitly asks for Story/Stories/Reel/Reels, generate natively at exactly 1080x1920 px (9:16). Generate square 1080x1080 px only when the creator explicitly asks for square. Instruct the image model with the exact source pixel size and final export size, not the aspect ratio alone. Reject any image whose dimensions do not match an approved source or final format; do not crop, pad, stretch, or arbitrarily resize to fake compliance.",
     "reference_roles": "Identity references control the couple faces, expressions, posture, body proportions, and wardrobe anchors. User-shared photos that clearly depict the requested people/couple can serve as current-request identity references even without explicit role labels. Observational-intimacy-premium and previous A Story illustrations control style, composition, palette, wardrobe continuity, line quality, font style, and text integration. Other references control essence, message, emotion, story, pose, and requested composition only.",
     "hard_fail_if": [
       "The image does not feel like the A Story of Two watercolor-and-ink house style.",

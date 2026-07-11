@@ -1,0 +1,32 @@
+{
+  "status": "post_carousel_generated",
+  "format": "native_3_4_instagram_post",
+  "final_directory": "final/",
+  "source_directory": "generated-sources/",
+  "generated": [
+    {"slide": 1, "path": "final/slide-01.png", "source": "generated-sources/slide-01-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 2, "path": "final/slide-02.png", "source": "generated-sources/slide-02-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 3, "path": "final/slide-03.png", "source": "generated-sources/slide-03-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 4, "path": "final/slide-04.png", "source": "generated-sources/slide-04-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 5, "path": "final/slide-05.png", "source": "generated-sources/slide-05-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 6, "path": "final/slide-06.png", "source": "generated-sources/slide-06-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 7, "path": "final/slide-07.png", "source": "generated-sources/slide-07-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 8, "path": "final/slide-08.png", "source": "generated-sources/slide-08-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 9, "path": "final/slide-09.png", "source": "generated-sources/slide-09-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 10, "path": "final/slide-10.png", "source": "generated-sources/slide-10-source.png", "dimensions": "1080x1440", "status": "generated"},
+    {"slide": 11, "path": "final/slide-11.png", "source": "generated-sources/slide-11-source.png", "dimensions": "1080x1440", "status": "generated"}
+  ],
+  "contact_sheet": "final/contact-sheet.png",
+  "not_generated": [
+    {
+      "format": "native_9_16_reels_stories",
+      "reason": "Not requested in the current generation instruction."
+    }
+  ],
+  "notes": [
+    "Built-in image generation was used.",
+    "Slide 1 first attempt was rejected for 9:16 shape; regenerated in 3:4.",
+    "Slide 3 first attempt was rejected for a visible laptop logo; regenerated cleanly.",
+    "Slide 9 first attempt was rejected because the action flipped; regenerated with Aachu making the shake."
+  ]
+}

@@ -2,18 +2,27 @@
   "schema_version": "1.0",
   "status": "BLOCKED",
   "publishable": false,
-  "reason": "Final image generation is blocked because the available built-in image generation path returned non-native proof outputs instead of native 1080x1350, including 1003x1568 from the real identity/style reference-driven attempt and 1122x1402 from the repaired dinner-table prompt. The root issue is generator execution: the built-in image_gen call does not expose/enforce a native pixel-size parameter, so prompt text requesting 1080x1350 is not enough.",
+  "reason": "Final image generation is blocked because the available built-in image generation path returned non-native proof/candidate outputs instead of approved 1440x1920 source art for exact 1080x1440 final export, including a complete seven-slide full-carousel pass on 2026-07-02. The full pass produced slide dimensions 979x1606, 1092x1440, 978x1608, 983x1600, 999x1575, 1000x1573, and 999x1574. The root issue is generator execution: the built-in image_gen call does not expose/enforce a native pixel-size parameter, so prompt text requesting 1080x1440 final export is not enough without an approved 1440x1920 source.",
   "hard_failures": [
     {
       "gate": "native_instagram_post_dimensions",
-      "expected": "1080x1350",
-      "actual": "1122x1402 and 1003x1568",
+      "expected": "1080x1440",
+      "actual": "1122x1402, 1003x1568, 971x1619, 979x1606, 1092x1440, 978x1608, 983x1600, 999x1575, 1000x1573, and 999x1574",
       "evidence": [
         "rejected/native-size-fail/slide-05-proof-v1-1122x1402.png",
         "rejected/native-size-fail/slide-05-proof-v2-1122x1402.png",
         "rejected/native-size-fail/slide-05-proof-v3-edit-target-1122x1402.png",
         "rejected/native-size-fail/slide-05-proof-v4-real-refs-1003x1568.png",
-        "rejected/native-size-fail/slide-05-proof-v5-dinner-table-1122x1402.png"
+        "rejected/native-size-fail/slide-05-proof-v5-dinner-table-1122x1402.png",
+        "generated-candidates/non-native/slide-06-candidate-eyeline-v1-971x1619.png",
+        "generated-candidates/non-native/slide-07-candidate-eyeline-v1-1122x1402.png",
+        "generated-candidates/non-native/slide-01-full-carousel-v1-979x1606.png",
+        "generated-candidates/non-native/slide-02-full-carousel-v1-1092x1440.png",
+        "generated-candidates/non-native/slide-03-full-carousel-v1-978x1608.png",
+        "generated-candidates/non-native/slide-04-full-carousel-v1-983x1600.png",
+        "generated-candidates/non-native/slide-05-full-carousel-v1-999x1575.png",
+        "generated-candidates/non-native/slide-06-full-carousel-v1-1000x1573.png",
+        "generated-candidates/non-native/slide-07-full-carousel-v1-999x1574.png"
       ]
     }
   ],
@@ -21,5 +30,5 @@
     "final": [],
     "final-reels-stories": []
   },
-  "next_valid_action": "Generate true native 1080x1350 source art through a hard-enforced backend/export worker before packaging; do not use blank-canvas edit hacks, local resize, crop, pad, stretch, or wrong-size source repair."
+  "next_valid_action": "Generate true 1440x1920 source art through a hard-enforced backend/export worker before packaging; do not use blank-canvas edit hacks, local resize, crop, pad, stretch, or wrong-size source repair."
 }

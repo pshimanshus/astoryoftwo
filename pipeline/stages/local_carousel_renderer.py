@@ -752,7 +752,7 @@ def recover_post_copy_visual_room(carousel_dir: Path, slides: list[dict[str, Any
                 "slide": int(slide.get("slide", 0) or 0),
                 "copy": slide.get("copy", ""),
                 "visual": slide.get("visual", ""),
-                "format_note": "Render separately for 4:5 and 9:16 without deriving one format from the other.",
+                "format_note": "Render separately for 3:4 and 9:16 without deriving one format from the other.",
             }
             for slide in slides
         ],

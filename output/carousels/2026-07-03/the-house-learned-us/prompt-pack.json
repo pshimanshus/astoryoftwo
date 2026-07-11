@@ -1,0 +1,79 @@
+{
+  "status": "post_carousel_generated",
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram carousel illustration. Use warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing and object detail, soft faded edges, clean expressive faces, and generous warm negative space for exact integrated handwritten on-image text. The visual system is 'Borders Got Lazy': a shared home where separation dissolves into overlap through objects, routines, and mutual care. Do not make quote cards, split screens, diagrams, labels, UI, or inventory posters. Every slide must include the exact approved on-image text only, plus a tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right.",
+  "shared_negative_prompt": "No photorealism, no 3D rendering, no glossy AI look, no flat vector art, no Canva quote-card layout, no social media UI, no speech bubbles, no split-screen divider, no labels beyond approved copy, no random text, no generic South Asian stock couple, no cruel humor, no cluttered inventory scene, no perfect showroom home, no overdramatic fight, no text over faces, no incorrect brandmark.",
+  "identity_reference_inputs_required": [
+    "/Users/himanshusharma/Desktop/Identity Images /Zuv Images/WhatsApp Image 2026-06-07 at 20.38.25 (16).jpeg",
+    "/Users/himanshusharma/Desktop/Identity Images /Zuv Images/WhatsApp Image 2026-06-07 at 20.38.25 (1).jpeg",
+    "/Users/himanshusharma/Desktop/Identity Images /Aachu Images/aachu-face-crop-home-black-01.jpg"
+  ],
+  "native_outputs": {
+    "instagram_post": {
+      "source_size": "1440x1920",
+      "final_size": "1080x1440",
+      "directory": "final/"
+    },
+    "reels_stories": {
+      "final_size": "1080x1920",
+      "directory": "final-reels-stories/"
+    }
+  },
+  "proof_slide": 5,
+  "slide_prompts": [
+    {
+      "slide": 1,
+      "on_image_text": "THE HOUSE LEARNED US.",
+      "prompt": "Wide warm shared-home establishing scene with no clean division: soft morning/evening light, two mugs, laptop, hair band, watch, small pooja corner, breakfast hints. Aachu and Zuv may appear small or as soft traces. Place exact text high center in clean warm wall space."
+    },
+    {
+      "slide": 2,
+      "on_image_text": "At first, everything had a side.",
+      "prompt": "Early shared-home scene where objects still sit in polite separate zones: his watch, charger, cup on one side; her clip, hair band, small pouch on the other. Keep it natural, not diagrammatic. Place exact text upper left on empty wall."
+    },
+    {
+      "slide": 3,
+      "on_image_text": "Mine. Yours. Here. There.",
+      "prompt": "Overhead detail of a table or shelf where objects are separated by invisible habits. No labels, no arrows. Place the exact words as four small handwritten clusters around the composition without looking like object labels."
+    },
+    {
+      "slide": 4,
+      "on_image_text": "Then slowly, the borders got lazy.",
+      "prompt": "The same shared surface begins to soften: charger near her pouch, clip near his watch, cup beside the laptop, objects crossing old sides. Show a gentle organic fading boundary through composition, not a graphic divider. Place text along the soft diagonal negative space."
+    },
+    {
+      "slide": 5,
+      "on_image_text": "The pooja bell met breakfast sounds.",
+      "prompt": "Morning continuous room, not split-screen: Aachu at a small home mandir with diya and bell, Zuv in kitchen preparing breakfast. Steam and diya smoke meet in the air. The whole room feels like one shared morning. Place exact text in smoke/steam negative space."
+    },
+    {
+      "slide": 6,
+      "on_image_text": "A hair band lived next to a laptop.",
+      "prompt": "Dining/work table close scene with laptop open, hair band beside it, half cup, charger, tiny crumbs, shared morning mess. One hand reaches for the laptop while another passes through frame. Keep it clean and emotional, not cluttered. Text along table edge or upper table negative space."
+    },
+    {
+      "slide": 7,
+      "on_image_text": "The mirror kept a clip and his watch.",
+      "prompt": "Mirror and tray close-up: her clip and his watch rest together near the mirror, with one soft reflection of Aachu or Zuv passing behind. Preserve identity if face appears. Text placed on empty mirror or wall area, away from reflected face."
+    },
+    {
+      "slide": 8,
+      "on_image_text": "Her office bag knew his hands.",
+      "prompt": "Zuv casually prepares or straightens her office bag: laptop, charger, water bottle, notebook. Care should feel ordinary and intimate, not heroic or servant-like. Aachu may appear in doorway or as partial presence. Place text near the bag in empty floor/wall space."
+    },
+    {
+      "slide": 9,
+      "on_image_text": "His protein shake knew hers.",
+      "prompt": "Aachu makes his protein shake with familiar ease: shaker, scoop, jar, water, perhaps his watch or gym towel nearby. Zuv is nearby tying his watch or leaving for the day. Keep the shake as relationship proof, not a fitness/product post. Text near shaker in clean counter space."
+    },
+    {
+      "slide": 10,
+      "on_image_text": "Nothing was perfectly arranged anymore.",
+      "prompt": "Overhead lived-in home tableau: pooja flowers, breakfast plate, laptop, hair band, watch, shaker, office bag. Both hands enter from different directions and cross naturally. Make the mix feel tender, not messy-for-mess-sake. Text high center."
+    },
+    {
+      "slide": 11,
+      "on_image_text": "But everything looked like us.",
+      "prompt": "Wide evening payoff: warm glowing shared home full of mixed traces. Aachu and Zuv are together in the room, small but settled. Objects are not clutter; they are proof. Place final text upper center, quiet and save-worthy."
+    }
+  ]
+}

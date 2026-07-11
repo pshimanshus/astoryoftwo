@@ -1,0 +1,28 @@
+{
+  "status": "PASS_WITH_NOTES",
+  "decision": "POST_CAROUSEL_GENERATED",
+  "blocker": null,
+  "overall_checks": {
+    "copy_visual_alignment": "PASS",
+    "stage_scene_storytelling": "PASS",
+    "non_repeating_shot_ladder": "PASS",
+    "relationship_motion": "PASS",
+    "identity_reference_selected": "PASS",
+    "identity_reference_attachable_in_current_tool": "PASS_WITH_VISIBLE_CONTEXT_REFERENCES",
+    "text_placement_plan": "PASS",
+    "aspect_ratio_safety": "PASS"
+  },
+  "per_slide": [
+    {"slide": 1, "status": "GENERATED", "risk": "medium", "note": "Title legibility holds without becoming a quote-card cover."},
+    {"slide": 2, "status": "GENERATED", "risk": "low", "note": "Sides are implied through objects, not diagrammed."},
+    {"slide": 3, "status": "GENERATED", "risk": "medium", "note": "Text clusters read as mental-map rhythm, not object labels."},
+    {"slide": 4, "status": "GENERATED", "risk": "medium", "note": "The fading border is organic through hands and objects."},
+    {"slide": 5, "status": "GENERATED", "risk": "high", "note": "Proof slide: pooja and breakfast read as one shared morning."},
+    {"slide": 6, "status": "GENERATED", "risk": "low", "note": "Object overlap is clear and not cluttered."},
+    {"slide": 7, "status": "GENERATED", "risk": "medium", "note": "Mirror scene avoids reflected-face distortion and random text."},
+    {"slide": 8, "status": "GENERATED", "risk": "medium", "note": "Care reads casual and ordinary, not service."},
+    {"slide": 9, "status": "GENERATED", "risk": "medium", "note": "Aachu is primary and the shake reads as relationship proof, not fitness ad."},
+    {"slide": 10, "status": "GENERATED", "risk": "medium", "note": "Mixed objects feel tender, not messy-for-mess sake."},
+    {"slide": 11, "status": "GENERATED", "risk": "low", "note": "Final line has open negative space and settled body language."}
+  ]
+}

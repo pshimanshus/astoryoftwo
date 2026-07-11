@@ -19,7 +19,7 @@ def encoded_image_bytes(
     return encoded.tobytes()
 
 
-def write_png(path: Path, width: int = 1080, height: int = 1350, value: int = 240) -> None:
+def write_png(path: Path, width: int = 1080, height: int = 1440, value: int = 240) -> None:
     path.write_bytes(encoded_image_bytes(width=width, height=height, value=value, extension=".png"))
 
 

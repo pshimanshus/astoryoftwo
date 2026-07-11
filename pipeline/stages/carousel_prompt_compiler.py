@@ -13,12 +13,12 @@ MAX_PROMPT_CHARS = 24000
 
 FORMAT_COPY = {
     "instagram_post": (
-        "Create an exact 4:5 canvas for an Instagram carousel slide at exactly 1080x1350 px, "
-        "not a 9:16 story canvas."
+        "Create an exact 3:4 canvas for an Instagram carousel source at exactly 1440x1920 px, "
+        "to be exported proportionally to a 1080x1440 final; not a 9:16 story canvas."
     ),
     "reels_stories": (
         "Create an exact 9:16 canvas for Reels/Stories at exactly 1080x1920 px, "
-        "not a 4:5 carousel canvas."
+        "not a 3:4 carousel canvas."
     ),
 }
 

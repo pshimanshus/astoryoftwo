@@ -66,7 +66,7 @@ def test_flags_semantic_generation_blockers_from_current_package_shape(tmp_path:
         package / "final-images.json",
         {
             "status": "not_final",
-            "final_status": "blocked_for_native_1080x1350_and_exact_text_qa",
+            "final_status": "blocked_for_native_1080x1440_and_exact_text_qa",
             "publishable": False,
         },
     )

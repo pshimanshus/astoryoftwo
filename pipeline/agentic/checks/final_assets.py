@@ -11,7 +11,7 @@ from PIL import Image
 EXPECTED_FINAL_ASSETS = {
     "instagram_post": {
         "default_path": "final/slide-{slide:02d}.png",
-        "size": (1080, 1350),
+        "size": (1080, 1440),
         "label": "Instagram post",
     },
     "reels_stories": {
@@ -165,7 +165,7 @@ def validate_publishable_final_assets(package_dir: Path) -> FinalAssetReport:
     can be considered publishable.
 
     Required per slide:
-    - final/slide-XX.png => 1080x1350
+    - final/slide-XX.png => 1080x1440
     - final-reels-stories/slide-XX.png => 1080x1920
 
     This intentionally checks real image readability, not just file existence.

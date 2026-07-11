@@ -24,13 +24,17 @@ handoffs, audits, and publishing closeout.
   package unless the creator asks for one exact format.
 - The creator may bring a seed, or may ask the agent to jam and propose fresh
   concept ideas. Do not make the creator arrive with the concept already solved.
+- At creative session start and jam start, use
+  `config/skills/creator-skill-stack.md` as the hook for scroll stop,
+  recognition, scene proof, retention, payoff, format remix, and DM-send
+  thinking before showing concepts.
 - Aachu and Zuv must both stay recognizable. Actual identity/reference images
   must guide the whole illustrated person, not just a face patch.
 - Keep face, hair, body proportions, height, expression, posture, and clothing
   style consistent across the work. When current/couple photos are provided,
   clothing and couple styling come from those images first.
 - Native formats and brandmark are production gates, not polish: post/carousel
-  `1080x1350`, Reel/story `1080x1920`, square only when requested, and tiny
+  `1080x1440`, Reel/story `1080x1920`, square only when requested, and tiny
   `@a.storyof.two`.
 - Prefer one-command workflows. If one command cannot create the brief/package,
   run checks, and produce the relevant post/Reel/carousel outputs, name the
@@ -42,6 +46,12 @@ handoffs, audits, and publishing closeout.
 - Important learnings must update the durable layer: `config/rules/`,
   `config/skills/`, `memory/semantic/`, tests, and any matching skill surface.
   Keep this file human, concise, and specific; no generic AI process fluff.
+- When the creator asks to explore a product, startup, or tool idea, act like a
+  rigorous AI PM before designing features: establish the user and buyer, the
+  painful job, current alternatives, demand signals, urgency, budget, trust or
+  switching barriers, wedge, and falsifiable tests. Do need and demand first;
+  do not jump to UI, architecture, or feature lists until the market case is
+  crisp.
 
 The repo has failed in predictable ways:
 
@@ -94,7 +104,7 @@ old package disagrees with `config/rules/`, the rule file wins.
 | identity | `config/rules/identity.md` | Aachu/Zuv identity, face preservation, height, wardrobe, pose |
 | on-image-text | `config/rules/on-image-text.md` | exact slide text, typography, anti-invention |
 | brandmark | `config/rules/brandmark.md` | tiny `@a.storyof.two` top-right signature |
-| image-dimensions | `config/rules/image-dimensions.md` | native 1080x1350 post and 1080x1920 story/reel outputs; square only for explicit experiments |
+| image-dimensions | `config/rules/image-dimensions.md` | native 1080x1440 post and 1080x1920 story/reel outputs; square only for explicit experiments |
 | visual-variety | `config/rules/visual-variety.md` | shot ladder, setting/action variety, repeated-scene hard fails |
 | relationship-motion | `config/rules/relationship-motion.md` | relationship proof without defaulting to Zuv-handler care |
 | brand-zone | `config/rules/brand-zone.md` | sponsored brand/product legibility workflow |
@@ -217,7 +227,7 @@ current-request photos before any static menu.
 
 Do not call a carousel done until it has:
 
-- native 1080x1350 post finals;
+- native 1080x1440 post finals;
 - native 1080x1920 story/reel finals;
 - exact on-image text or a documented text exception;
 - identity/style-reference review;

@@ -1,0 +1,17 @@
+{
+  "status": "REJECTED",
+  "updated": "2026-07-03",
+  "creator_correction": "NEVER GENERATE IMAGE W/O TEXT EVER",
+  "rule": "Every generated @a.storyof.two proof, source, carousel slide, and final raster must contain the exact approved slide text and tiny top-right @a.storyof.two brandmark inside the generated image itself.",
+  "rejections": [
+    {
+      "slide": 5,
+      "format": "instagram_post",
+      "reason": "Generated textless source art for later typography pass; creator explicitly rejected this workflow.",
+      "generated_image": "/Users/himanshusharma/.codex/generated_images/019f27fa-519c-7ff0-b5b7-3416c7389eb3/ig_0b1e14be495d0ae5016a47bb2521ec81919aae7c8c3e68f60f.png",
+      "required_text": "we talk about saying sorry,\nbut some apologies come as tea.",
+      "required_brandmark": "@a.storyof.two",
+      "next_action": "Regenerate slide 5 with exact text and brandmark baked into the generated image; do not package or repair the textless raster."
+    }
+  ]
+}

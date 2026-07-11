@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-010-prepost-layer-e",
+  "title": "Keep planned Reel pre-post analysis grounded in Layer E",
+  "category": "prepost_workflow",
+  "difficulty": "medium",
+  "suites": ["contract", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "The pre-post Reel analysis agents can score hooks and algorithm risk without loading the romance story-selling spine.",
+    "The resulting brief lacks Layer E room decision artifacts."
+  ],
+  "done_when": [
+    "Every prepost agent config includes the romance-story-selling engine.",
+    "The orchestrator brief includes Layer E Story-Selling and artifact names.",
+    "Prepost tests pass."
+  ],
+  "allowed_paths": ["pipeline/stages/**", "scripts/analyze_prepost.py", "config/skills/**", "agents/**", "tests/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/stages/b1_prepost.py", "scripts/analyze_prepost.py", "tests/test_prepost_story_selling.py"],
+  "forbidden_changes": ["Do not make hook score the only gate.", "Do not remove cultural or caption review agents."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_prepost_story_selling.py", "-q"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should inspect ORCHESTRATOR_SKILLS and all PREPOST_AGENT_CONFIGS."]
+}

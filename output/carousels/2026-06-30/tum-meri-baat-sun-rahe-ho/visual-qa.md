@@ -10,6 +10,7 @@ Creator correction applied:
 - Removed bedroom/sofa/bed/cushion staging.
 - Removed wardrobe changes between slides.
 - Strengthened typography lock to the standard Observational Intimacy Premium @a.storyof.two handwritten lettering.
+- Added explicit eye-line lock after creator screenshot feedback: when Zuv is visible, his face angle and pupils must land on Aachu, not on the phone, table, camera, window, or empty space.
 
 Repaired shot ladder:
 
@@ -32,10 +33,28 @@ Rejected generated candidates remain rejected:
 - `generated-candidates/non-native/slide-02-candidate-986x1595.png`
 - `generated-candidates/non-native/slide-03-candidate-999x1575.png`
 - `generated-candidates/non-native/slide-04-candidate-992x1586.png`
+- `generated-candidates/non-native/slide-06-candidate-eyeline-v1-971x1619.png`
+- `generated-candidates/non-native/slide-07-candidate-eyeline-v1-1122x1402.png`
+
+Latest candidate note:
+
+- Slide 6 and slide 7 were regenerated with the eye-line lock. Visually, the core correction is improved: Zuv is directed toward Aachu instead of the phone/table. They still fail native dimensions and cannot be final assets.
+
+Full-carousel candidate pass, 2026-07-02:
+
+- `generated-candidates/non-native/slide-01-full-carousel-v1-979x1606.png`
+- `generated-candidates/non-native/slide-02-full-carousel-v1-1092x1440.png`
+- `generated-candidates/non-native/slide-03-full-carousel-v1-978x1608.png`
+- `generated-candidates/non-native/slide-04-full-carousel-v1-983x1600.png`
+- `generated-candidates/non-native/slide-05-full-carousel-v1-999x1575.png`
+- `generated-candidates/non-native/slide-06-full-carousel-v1-1000x1573.png`
+- `generated-candidates/non-native/slide-07-full-carousel-v1-999x1574.png`
+
+Full-pass result: all seven slides were generated from the repaired dinner-table prompts with same wardrobe, single setting, and explicit Zuv-to-Aachu eye-line lock. All seven remain non-native dimension candidates, so they are not publishable finals.
 
 Accepted final folders remain empty:
 
 - `final/`
 - `final-reels-stories/`
 
-Next valid action: generate one new proof from the repaired slide 5 dinner-table prompt through a backend/export worker that hard-enforces exact native `1080x1350`; only then continue the remaining slides. Do not crop, pad, stretch, resize, or package non-native outputs as finals.
+Next valid action: generate one new proof from the repaired slide 5 dinner-table prompt through a backend/export worker that hard-enforces `1440x1920` source with exact `1080x1440` final export; only then continue the remaining slides. Do not crop, pad, stretch, resize, or package non-native outputs as finals.

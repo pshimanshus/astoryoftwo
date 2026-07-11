@@ -467,8 +467,8 @@ def build_manifest(
             "type": "carousel",
             "native_outputs": {
                 "instagram_post": {
-                    "aspect_ratio": "4:5",
-                    "size": "1080x1350",
+                    "aspect_ratio": "3:4",
+                    "size": "1080x1440",
                     "directory": "final/",
                 },
                 "reels_stories": {
@@ -620,8 +620,8 @@ def write_approval_checklist(out_dir: Path, package: dict[str, Any]) -> None:
         "- [ ] `post-copy-visual-room.json` is GO after copy confirmation.",
         "- [ ] The prompts preserve the supplied photos and story.",
         "- [ ] The package does not feel like generic couple content.",
-        "- [ ] Text is short enough for both 1080x1350 post slides and 1080x1920 Reels/Stories slides.",
-        "- [ ] Final generation will create separate native 4:5 and 9:16 outputs, not a resized duplicate.",
+        "- [ ] Text is short enough for both 1080x1440 post slides and 1080x1920 Reels/Stories slides.",
+        "- [ ] Final generation will create separate native 3:4 and 9:16 outputs, not a resized duplicate.",
         "- [ ] Brandmark is tiny and low contrast.",
         "",
         "## Required Changes",

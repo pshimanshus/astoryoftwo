@@ -72,15 +72,21 @@
           "required": false
         },
         {
+          "id": "engineering_preferences",
+          "path": "memory/semantic/engineering-workflow-preferences.md",
+          "kind": "semantic_memory",
+          "required": true
+        },
+        {
           "id": "working_memory",
           "path": "memory/working.md",
           "kind": "working_memory",
           "required": true
         },
         {
-          "id": "engineering_preferences",
-          "path": "memory/semantic/engineering-workflow-preferences.md",
-          "kind": "semantic_memory",
+          "id": "creator_skill_stack",
+          "path": "config/skills/creator-skill-stack.md",
+          "kind": "creative_session_hook",
           "required": true
         },
         {

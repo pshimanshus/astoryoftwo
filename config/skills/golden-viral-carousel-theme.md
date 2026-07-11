@@ -348,20 +348,21 @@ energy without asking them to shrink it.
 This does not mean using that exact copy. It means rescuing the concept by
 moving from object to relationship truth.
 
-## Five-Slide Map
+## Default Carousel Map
 
-The current C-layer supports 4 or 5 slides. For the default 5-slide format,
-compress the golden seven-beat structure into this map:
+The creator's current default carousel pattern is seven parts:
 
-1. Universal hook: one swipe-stopping relationship truth.
-2. Aachu-specific reveal: her version of the truth.
-3. Concrete proof: a drawable behavior, object, or ritual.
-4. Relationship motion: what the relevant partner, both partners, or the shared
-   situation does for the relationship.
-5. Save/share thesis: the tender truth underneath the joke.
+1. Cover: one swipe-stopping relationship truth.
+2. Cold Open: the first visible scene or contradiction.
+3. Mirror: the public recognition beat.
+4. Spine: the protected relationship truth and proof engine.
+5. Rhythm: repeated behavior, object movement, or couple pattern.
+6. Turn: the reversal where surface behavior becomes meaning.
+7. Payoff: the tender save/share thesis underneath the joke.
 
-For 4 slides, merge slides 2 and 3. Never remove relationship motion or the
-final thesis.
+Use fewer slides only when the creator explicitly asks for a shorter deck or a
+production constraint requires compression. When compressing, preserve the
+order, relationship motion, and final thesis.
 
 ## Caption Formula
 

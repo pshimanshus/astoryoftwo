@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-006-creator-skill-routing",
+  "title": "Restore creator-skill-stack routing for carousel jams",
+  "category": "agentic_os",
+  "difficulty": "medium",
+  "suites": ["contract", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "config/skills/creator-skill-stack.md exists, but one or more routing surfaces stopped loading it.",
+    "Fresh jams can now skip scroll-stop, recognition, scene-proof, payoff, and DM-send thinking."
+  ],
+  "done_when": [
+    "The skill stack is listed in skill systems, context manifest, runtime context, autopilot, and jam command flow.",
+    "Creator workflow contract tests pass.",
+    "Agentic OS health still lists expected skill systems."
+  ],
+  "allowed_paths": ["config/skill-systems.json", "config/agentic_context_manifest.json", "config/skills/**", ".agents/skills/**", "scripts/**", "pipeline/agentic/**", "tests/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/skill-systems.json", "config/agentic_context_manifest.json", "scripts/jam_today.py", "tests/test_creator_workflow_contract.py"],
+  "forbidden_changes": ["Do not make wiki-health or closeout skills implicitly invoked.", "Do not remove compact runtime context loading."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_agentic_skill_registry.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "health"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should inspect every carousel_jam component surface for the creator skill stack path."]
+}

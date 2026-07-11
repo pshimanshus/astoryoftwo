@@ -7,8 +7,8 @@
   "done": false,
   "publishable": false,
   "requires_human_generation": false,
-  "reason": "No final images accepted. Built-in image generation returned non-native proof outputs for slide 5, including 1003x1568 from the real identity/style reference-driven attempt and 1122x1402 from the repaired dinner-table prompt. The root issue is generator execution: the built-in image_gen call does not expose/enforce a native pixel-size parameter, so prompt text requesting 1080x1350 is advisory and not a hard output contract. Repo rules require native 1080x1350 and forbid crop, pad, stretch, or resize repair.",
-  "expected_dimensions": "1080x1350",
+  "reason": "No final images accepted. Built-in image generation returned non-native proof/candidate outputs, including a complete seven-slide full-carousel pass on 2026-07-02. The full pass produced slide dimensions 979x1606, 1092x1440, 978x1608, 983x1600, 999x1575, 1000x1573, and 999x1574. The root issue is generator execution: the built-in image_gen call does not expose/enforce a native pixel-size parameter, so prompt text requesting a final size is advisory unless the generator path can enforce the approved 1440x1920 source size. Repo rules require approved 1440x1920 source art and exact 1080x1440 final exports.",
+  "expected_dimensions": "1080x1440",
   "accepted_final_images": [],
   "rejected": [
     {
@@ -35,7 +35,61 @@
       "path": "rejected/native-size-fail/slide-05-proof-v5-dinner-table-1122x1402.png",
       "dimensions": "1122x1402",
       "status": "rejected_native_size"
+    },
+    {
+      "path": "generated-candidates/non-native/slide-06-candidate-eyeline-v1-971x1619.png",
+      "dimensions": "971x1619",
+      "status": "candidate_rejected_native_size",
+      "notes": "Generated after adding the Zuv-to-Aachu eye-line lock; kept as a visual candidate only, not final."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-07-candidate-eyeline-v1-1122x1402.png",
+      "dimensions": "1122x1402",
+      "status": "candidate_rejected_native_size",
+      "notes": "Generated after adding the Zuv-to-Aachu eye-line lock; kept as a visual candidate only, not final."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-01-full-carousel-v1-979x1606.png",
+      "dimensions": "979x1606",
+      "status": "candidate_rejected_native_size",
+      "notes": "Full-carousel pass candidate generated after the dinner-table, wardrobe, typography, and eye-line repairs."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-02-full-carousel-v1-1092x1440.png",
+      "dimensions": "1092x1440",
+      "status": "candidate_rejected_native_size",
+      "notes": "Full-carousel pass candidate generated after the dinner-table, wardrobe, typography, and eye-line repairs."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-03-full-carousel-v1-978x1608.png",
+      "dimensions": "978x1608",
+      "status": "candidate_rejected_native_size",
+      "notes": "Full-carousel pass candidate generated after the dinner-table, wardrobe, typography, and eye-line repairs."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-04-full-carousel-v1-983x1600.png",
+      "dimensions": "983x1600",
+      "status": "candidate_rejected_native_size",
+      "notes": "Full-carousel pass candidate generated after the dinner-table, wardrobe, typography, and eye-line repairs."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-05-full-carousel-v1-999x1575.png",
+      "dimensions": "999x1575",
+      "status": "candidate_rejected_native_size",
+      "notes": "Full-carousel pass candidate generated after the dinner-table, wardrobe, typography, and eye-line repairs."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-06-full-carousel-v1-1000x1573.png",
+      "dimensions": "1000x1573",
+      "status": "candidate_rejected_native_size",
+      "notes": "Full-carousel pass candidate generated after the dinner-table, wardrobe, typography, and eye-line repairs."
+    },
+    {
+      "path": "generated-candidates/non-native/slide-07-full-carousel-v1-999x1574.png",
+      "dimensions": "999x1574",
+      "status": "candidate_rejected_native_size",
+      "notes": "Full-carousel pass candidate generated after the dinner-table, wardrobe, typography, and eye-line repairs."
     }
   ],
-  "next_valid_action": "Use a generation backend or export worker that hard-enforces true native 1080x1350 images with identity references and exact text, then rerun packaging and visual QA. Do not use blank-canvas edit hacks and do not derive finals from the rejected 1122x1402 proofs."
+  "next_valid_action": "Use a generation backend or export worker that hard-enforces 1440x1920 source images and exact 1080x1440 final exports with identity references and exact text, then rerun packaging and visual QA. Do not use blank-canvas edit hacks and do not derive finals from the rejected 1122x1402 proofs."
 }

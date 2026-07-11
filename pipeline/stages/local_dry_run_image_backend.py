@@ -15,7 +15,7 @@ from typing import Any
 BACKEND = "local_dry_run"
 GENERATION_MODE = "local_dry_run_not_publishable"
 STATUS = "dry_run_generated"
-INSTAGRAM_POST_SIZE = (1080, 1350)
+INSTAGRAM_POST_SIZE = (1080, 1440)
 REELS_STORIES_SIZE = (1080, 1920)
 
 
@@ -254,7 +254,7 @@ def generate_local_dry_run_images(carousel_dir: Path) -> dict[str, Any]:
             size=INSTAGRAM_POST_SIZE,
             slide_number=number,
             copy=copy,
-            format_label="instagram_post 4:5",
+            format_label="instagram_post 3:4",
         )
         write_png(
             reels_path,

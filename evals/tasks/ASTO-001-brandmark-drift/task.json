@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-001-brandmark-drift",
+  "title": "Repair brandmark placement drift without editing AGENTS.md",
+  "category": "instruction_drift",
+  "difficulty": "medium",
+  "suites": ["smoke", "contract", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "A dependent prompt or rule surface says the @a.storyof.two brandmark belongs bottom-right.",
+    "AGENTS.md still declares the source-truth placement as a tiny top-right signature."
+  ],
+  "done_when": [
+    "Every active dependent surface follows the top-right brandmark placement.",
+    "AGENTS.md is untouched.",
+    "Instruction-surface tests pass."
+  ],
+  "allowed_paths": ["config/**", "agents/**", "pipeline/**", "tests/**", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/rules/brandmark.md", "config/references/a-story-illustration-master-prompt.md", "pipeline/agentic/checks/prompt_constraints.py", "tests/test_instruction_surface_contract.py"],
+  "forbidden_changes": ["Do not edit AGENTS.md.", "Do not introduce a second root instruction surface.", "Do not weaken brandmark tests."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_instruction_surface_contract.py", "tests/test_checks_prompt_constraints.py", "-q"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should search for affirmative bottom-right brandmark lines outside negative examples."]
+}

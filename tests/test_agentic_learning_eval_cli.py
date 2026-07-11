@@ -131,3 +131,199 @@ def test_agentic_os_cli_context_and_search(tmp_path: Path):
     assert '"profile": "a-story-of-two"' in context.stdout
     assert search.returncode == 0, search.stderr
     assert "memory/semantic/prefs.md" in search.stdout
+
+
+def test_agentic_os_cli_reports_learning_debt(tmp_path: Path):
+    root = tmp_path
+    event_dir = root / "memory" / "agentic" / "learning-events"
+    proposal_dir = root / "memory" / "agentic" / "learning-proposals"
+    event_dir.mkdir(parents=True)
+    proposal_dir.mkdir(parents=True)
+    (event_dir / "event-unproposed.json").write_text(
+        json.dumps(
+            {
+                "event_id": "event-unproposed",
+                "source": "jam: unproposed lesson",
+                "summary": "Object-first hook failed and needs a durable anti-pattern.",
+                "created_at": "2026-07-04T11:00:00+00:00",
+            }
+        ),
+        encoding="utf-8",
+    )
+    (event_dir / "event-draft.json").write_text(
+        json.dumps(
+            {
+                "event_id": "event-draft",
+                "source": "jam: draft lesson",
+                "summary": "A draft proposal exists for this lesson.",
+                "created_at": "2026-07-04T11:05:00+00:00",
+            }
+        ),
+        encoding="utf-8",
+    )
+    (proposal_dir / "proposal-draft.json").write_text(
+        json.dumps(
+            {
+                "proposal_id": "proposal-draft",
+                "source_event_id": "event-draft",
+                "target_path": "memory/semantic/carousel-idea-preferences.md",
+                "rationale": "Persist the draft lesson.",
+                "status": "draft",
+                "created_at": "2026-07-04T11:10:00+00:00",
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    repo_root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        [sys.executable, "scripts/agentic_os.py", "--workspace-root", str(root), "learning-debt"],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    lines = "\n".join(record["line"] for record in payload["records"])
+
+    assert payload["debt_count"] == 2
+    assert "needs proposal event-unproposed" in lines
+    assert "review draft proposal proposal-draft" in lines
+
+
+def test_agentic_os_cli_captures_and_lists_hypotheses(tmp_path: Path):
+    root = tmp_path
+    repo_root = Path(__file__).resolve().parents[1]
+    capture = subprocess.run(
+        [
+            sys.executable,
+            "scripts/agentic_os.py",
+            "--workspace-root",
+            str(root),
+            "capture-hypothesis",
+            "--source",
+            "jam: blanket border moved again",
+            "--hypothesis",
+            "Blanket border can become a sendable ritual if it proves shared negotiation.",
+            "--success-signal",
+            "Creator chooses it over generic care concepts.",
+            "--falsifier",
+            "It reads as cute private trivia without a reader mirror.",
+        ],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert capture.returncode == 0, capture.stderr
+    captured = json.loads(capture.stdout)
+    assert captured["status"] == "open"
+    assert captured["source"] == "jam: blanket border moved again"
+    assert captured["hypothesis_path"].startswith("memory/agentic/hypotheses/")
+
+    listed = subprocess.run(
+        [sys.executable, "scripts/agentic_os.py", "--workspace-root", str(root), "hypotheses"],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert listed.returncode == 0, listed.stderr
+    payload = json.loads(listed.stdout)
+    assert payload["open_count"] == 1
+    assert payload["records"][0]["hypothesis_id"] == captured["hypothesis_id"]
+    assert "sendable ritual" in payload["records"][0]["hypothesis"]
+
+
+def test_agentic_os_cli_resolves_hypotheses_with_outcomes(tmp_path: Path):
+    root = tmp_path
+    repo_root = Path(__file__).resolve().parents[1]
+    capture = subprocess.run(
+        [
+            sys.executable,
+            "scripts/agentic_os.py",
+            "--workspace-root",
+            str(root),
+            "capture-hypothesis",
+            "--source",
+            "jam: blanket border moved again",
+            "--hypothesis",
+            "Blanket border can become a sendable ritual if it proves shared negotiation.",
+            "--success-signal",
+            "Creator chooses it over generic care concepts.",
+            "--falsifier",
+            "It reads as cute private trivia without a reader mirror.",
+        ],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+    captured = json.loads(capture.stdout)
+
+    resolve = subprocess.run(
+        [
+            sys.executable,
+            "scripts/agentic_os.py",
+            "--workspace-root",
+            str(root),
+            "resolve-hypothesis",
+            captured["hypothesis_id"],
+            "--outcome",
+            "supported",
+            "--result-summary",
+            "Creator picked the route because it felt like a shared ritual, not private trivia.",
+            "--evidence",
+            "output/carousels/blanket-border/review.json",
+        ],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert resolve.returncode == 0, resolve.stderr
+    resolved = json.loads(resolve.stdout)
+    assert resolved["status"] == "resolved"
+    assert resolved["outcome"] == "supported"
+    assert "shared ritual" in resolved["result_summary"]
+    assert "output/carousels/blanket-border/review.json" in resolved["evidence_paths"]
+
+    open_list = subprocess.run(
+        [sys.executable, "scripts/agentic_os.py", "--workspace-root", str(root), "hypotheses"],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+    resolved_list = subprocess.run(
+        [
+            sys.executable,
+            "scripts/agentic_os.py",
+            "--workspace-root",
+            str(root),
+            "hypotheses",
+            "--status",
+            "resolved",
+        ],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert json.loads(open_list.stdout)["open_count"] == 0
+    resolved_payload = json.loads(resolved_list.stdout)
+    assert resolved_payload["records"][0]["hypothesis_id"] == captured["hypothesis_id"]
+    assert resolved_payload["records"][0]["outcome"] == "supported"

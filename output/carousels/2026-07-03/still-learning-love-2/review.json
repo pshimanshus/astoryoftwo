@@ -1,0 +1,113 @@
+{
+  "status": "draft_review",
+  "scorecard": {
+    "story_specificity": 4,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 4,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 4,
+    "emotional_payoff": 4,
+    "channel_voice_fit": 4,
+    "absence_of_generic_couple_content": 4
+  },
+  "total": 32,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "PASS",
+    "hook": 9,
+    "story": 9,
+    "bridge": 9,
+    "zuv_role": 9,
+    "ending": 9,
+    "send_save_potential": 9,
+    "stage_scene": 9,
+    "verdict": "PASS: staged contradiction-to-repair route has a public hook, visible proof trail, mutual repair role, and send/save payoff.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 4.5,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 29.0
+  },
+  "story_selling_gate": {
+    "status": "PASS",
+    "source": "layer-e-story-selling.json",
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "threshold": "28/30",
+    "selector_verdict": "GO: contradiction theme is made ownable through concrete Aachu/Zuv repair receipts.",
+    "candidate_count": 6,
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "The couple moves through a small fight: distance, a too-firm cup, listening poorly, asking for space, offering tea, repairing at night, returning softer in the morning.",
+      "reaction": "Each slide shows the body reacting before the moral arrives: still-angled feet, frozen hands, held breath, half-open door, lowered eyes, tired closeness, morning touch.",
+      "eye_line_or_attention": "Eye-lines shift from avoidance to partial attention to direct soft return by the final slide.",
+      "hands_or_object_movement": "Cup set down, napkin/phone gripped, door left ajar, tea placed beside a hand, blanket or shared mess repaired, two cups together by morning.",
+      "silence_or_pause": "The strongest beats are pauses: after the fight, before the reply, behind the half-open door, and before accepting the tea.",
+      "consequence": "Sendable to a partner as a gentle 'this is us when we are trying' mirror, especially after small fights or apology moments.",
+      "reversal_or_payoff": "The carousel moves from confession of imperfection to proof that awareness can become tenderness in the very next ordinary action.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 4.5,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.5,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [
+    "Final publishable PNGs are still pending Codex built-in identity-referenced generation."
+  ],
+  "required_changes_before_image_generation": [],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "pass": true,
+    "agent_alignment": {
+      "status": "PASS",
+      "concept": "Reference contradiction pattern transformed into a couple-specific repair story, not a quote deck.",
+      "copy": "Every slide keeps the 'we talk about...' confession while staying short enough for handwritten artwork.",
+      "visual": "Each line has a staged couple receipt; hiding the text still leaves a visible action/reaction trail.",
+      "prompt": "Prompt pack preserves identity anchors, scene proof, native formats, exact text, and the screenshot font lock.",
+      "qa": "Image generation remains blocked until identity-referenced final art exists and visual QA can inspect exact text, faces, brandmark, and dimensions."
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  }
+}

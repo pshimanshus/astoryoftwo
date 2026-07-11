@@ -3,6 +3,10 @@ VISUAL VARIETY — every @a.storyof.two carousel must break the visual pattern.
 CREATOR HARD RULE
 - Do not make every slide the same medium two-shot of both people doing the
   same emotional action from the same front/three-quarter angle.
+- If the carousel is a montage across time, feeling, or family rhythm rather
+  than one continuous real-time scene, every slide must be written and prompted
+  as a different setup with different clothes. Identity references anchor the
+  people; they do not lock one outfit, one room, or one pose across the deck.
 - Do not let a carousel collapse into repeated bed, table, chai, books,
   garden, balcony, or generic listening scenes unless the creator's real story
   specifically requires that repeated place.
@@ -52,6 +56,9 @@ EXCEPTIONS
 - A single continuous-scene story may intentionally keep the same wardrobe and
   location, but must still vary camera angle, distance, action, and whose
   perspective we see.
+- Same wardrobe across slides is allowed only when the creator explicitly locks
+  a continuous sequence. Otherwise, repeated clothing makes the carousel read
+  as one setup and fails the visual plan.
 - A quiet emotional carousel may stay subtle, but subtle does not mean static:
   use hands, doors, backs, objects, distance, partial presence, or negative
   space to change the visual sentence.

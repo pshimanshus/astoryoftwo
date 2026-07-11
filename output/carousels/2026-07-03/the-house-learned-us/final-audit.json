@@ -1,0 +1,25 @@
+{
+  "status": "PASS_WITH_NOTES",
+  "scope": "native_3_4_instagram_post_carousel",
+  "checks": {
+    "slide_count": "PASS",
+    "final_directory_exists": "PASS",
+    "all_post_slides_exist": "PASS",
+    "all_post_slides_1080x1440": "PASS",
+    "generated_sources_exist": "PASS",
+    "contact_sheet_exists": "PASS",
+    "exact_text_visual_review": "PASS_WITH_NOTES",
+    "brandmark_visual_review": "PASS",
+    "visual_sequence": "PASS",
+    "identity": "PASS_WITH_NOTES",
+    "native_9_16_story_reel_set": "NOT_GENERATED"
+  },
+  "notes": [
+    "All 11 Instagram post slides were generated and saved as exact 1080x1440 PNG files.",
+    "The visual arc preserves the locked emotional context: overlap, not inventory; shared home, not his/her corners.",
+    "Exact text is readable in the contact sheet; slide 8 text is lower and smaller than the others but still readable in the final asset.",
+    "Creator likeness review is recommended before publishing.",
+    "Separate native 9:16 story/reel slides were not generated because the current request was to create the carousel images."
+  ],
+  "verdict": "Post carousel image set ready for creator review."
+}

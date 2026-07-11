@@ -11,9 +11,13 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from scripts.start_agentic_session import load_research_partner_lens  # noqa: E402
 
 
 REQUIRED_CONTEXT = [
+    "config/skills/creator-skill-stack.md",
     "config/skills/carousel-jam-runtime-context.md",
     "config/skills/carousel-jam-autopilot.md",
     "config/skills/carousel-story-director-persona.md",
@@ -75,6 +79,50 @@ def print_shell_command(command: list[str]) -> None:
     print(" ".join(shlex.quote(part) for part in command))
 
 
+def print_research_partner_lens(moment: str) -> None:
+    lens = load_research_partner_lens(ROOT)
+    rules = " ".join(lens["operating_rules"]).lower()
+    source = f"jam: {moment}"
+    hypothesis_command = [
+        sys.executable,
+        "scripts/agentic_os.py",
+        "capture-hypothesis",
+        "--source",
+        source,
+        "--hypothesis",
+        "this moment can become a sendable relationship mirror if the first route proves a real shared pattern, not just a cute incident",
+        "--success-signal",
+        "creator selects the route or it beats generic alternatives on recognition and scene proof",
+        "--falsifier",
+        "the idea reads as private trivia, stale template, or cute incident without a reader mirror",
+    ]
+    capture_command = [
+        sys.executable,
+        "scripts/agentic_os.py",
+        "capture-learning",
+        "--source",
+        source,
+        "--summary",
+        "what worked, failed, or should become durable",
+    ]
+
+    print("\n## Research Partner Lens")
+    print(f"memory: {lens['path']} ({lens['status']})")
+    print(f"- hypothesis: this moment can become a sendable relationship mirror if the first route proves a real shared pattern, not just a cute incident")
+    if "challenge" in rules:
+        print("- challenge: reject stale, generic, or template-shaped routes with repo evidence before packaging")
+    else:
+        print("- challenge: ask what weak idea or stale default should be challenged before packaging")
+    if "durable" in rules:
+        print("- durable learning: after creator approval/rejection, capture what worked or failed for memory/rules/skills/wiki/tests")
+    else:
+        print("- durable learning: after the jam, identify what should become memory if this route works")
+    print("hypothesis capture:")
+    print_shell_command(hypothesis_command)
+    print("learning capture:")
+    print_shell_command(capture_command)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Prepare or run today's carousel jam route.")
     parser.add_argument("--moment", help="Specific couple moment or story seed.")
@@ -115,12 +163,18 @@ def main() -> int:
 
     print("\n## Jam Instruction For Codex")
     print(
+        "Creator Skill Stack hook first: define scroll stop, recognition, emotional "
+        "contradiction, scene proof, retention ladder, payoff, format remix, audience "
+        "mirror, volume path, taste gate, and DM Send Test before showing concepts."
+    )
+    print(
         "Free creative pass first: let the model generate concept, copy, and visual setup. "
         "Then apply engineering guardrails for repetition, identity, visual quality, exact text, "
         "brandmark, dimensions, stale artifacts, and house guidance."
     )
     print("If the creative pass is approved, save it as creative-baseline.json and package with --creative-brief-file.")
     print(f"moment: {args.moment}")
+    print_research_partner_lens(args.moment)
 
     command = build_carousel_command(args)
     print("\n## Package Command")

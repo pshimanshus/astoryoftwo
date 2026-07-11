@@ -78,9 +78,9 @@ def write_approval(out_dir: Path, package: dict[str, Any]) -> None:
         "- [ ] Story-Selling gate is PASS and the selected process card is visible in `concept.json`.",
         "- [ ] Story Director gate is PASS: hook, story, bridge, Zuv role, ending, and send/save reason are visible.",
         "- [ ] Successful carousel standard is PASS: agents aligned to the real goals, not a keyword checklist.",
-        "- [ ] Model-native 4:5 Instagram post images exist in `final/slide-XX.png`.",
+        "- [ ] Model-native 3:4 Instagram post images exist in `final/slide-XX.png`.",
         "- [ ] Model-native 9:16 Reels/Stories images exist in `final-reels-stories/slide-XX.png`.",
-        "- [ ] The 9:16 outputs were generated natively, not resized/cropped/padded from the 4:5 outputs.",
+        "- [ ] The 9:16 outputs were generated natively, not resized/cropped/padded from the 3:4 outputs.",
         "- [ ] Exact slide copy and brandmark are rendered inside the artwork.",
         "- [ ] Text is readable at Instagram size and has no spelling errors.",
         "- [ ] `visual-qa.md` has no failed checks.",
@@ -201,8 +201,8 @@ def build_manifest(
             "slide_count": slide_count,
             "native_outputs": {
                 "instagram_post": {
-                    "aspect_ratio": "4:5",
-                    "size": "1080x1350",
+                    "aspect_ratio": "3:4",
+                    "size": "1080x1440",
                     "directory": "final/",
                 },
                 "reels_stories": {
@@ -387,7 +387,7 @@ def try_render_assets(out_dir: Path, slides: list[dict[str, Any]]) -> dict[str, 
         except Exception as exc:  # noqa: BLE001 - best-effort renderer should not break package creation.
             return {"status": "partial", "reason": str(exc), "slides": rendered}
 
-        clean = cover_resize(image, 1080, 1350)
+        clean = cover_resize(image, 1080, 1440)
         text_preview = clean.copy()
         copy_lines = wrap(slide["copy"], 30)
         panel_height = 85 + (len(copy_lines) * 63)

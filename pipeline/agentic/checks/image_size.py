@@ -14,7 +14,7 @@ from pipeline.agentic.contracts import WorkflowGate
 
 
 EXACT_DIMENSIONS = {
-    "4:5": (1080, 1350),
+    "3:4": (1080, 1440),
     "9:16": (1080, 1920),
     "1:1": (1080, 1080),
     "square": (1080, 1080),

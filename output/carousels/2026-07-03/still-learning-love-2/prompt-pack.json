@@ -1,0 +1,877 @@
+{
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition when the requested surface is Instagram post: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork for Reels/Stories when needed. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable. Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+  "shared_negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Slide-Led Evidence Plan",
+    "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+    "hard_fails_checked": [
+      "no home-interior default",
+      "story evidence must prove slide copy",
+      "story evidence must prove slide copy",
+      "no repeated object motif across every slide",
+      "no prop-first premise",
+      "no passive Zuv",
+      "no generic couple-stock tableau"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ],
+    "status": "PASS",
+    "agent_alignment": {
+      "status": "PASS",
+      "concept": "Reference contradiction pattern transformed into a couple-specific repair story, not a quote deck.",
+      "copy": "Every slide keeps the 'we talk about...' confession while staying short enough for handwritten artwork.",
+      "visual": "Each line has a staged couple receipt; hiding the text still leaves a visible action/reaction trail.",
+      "prompt": "Prompt pack preserves identity anchors, scene proof, native formats, exact text, and the screenshot font lock.",
+      "qa": "Image generation remains blocked until identity-referenced final art exists and visual QA can inspect exact text, faces, brandmark, and dimensions."
+    }
+  },
+  "creative_baseline": {
+    "artifact": "creative-baseline.json",
+    "status": "supplied",
+    "creative_authority": "model_first",
+    "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+    "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance."
+  },
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+    "source_path": "config/references/a-story-illustration-master-prompt.md",
+    "required": true,
+    "rule": "Every final Codex/image-generation prompt for @a.storyof.two carousel slides must load the creator-locked watercolor-and-ink master prompt from disk, then fill the slide-specific on-image text, scene, pose, wardrobe, props, background, emotion, native format, and negative prompt.",
+    "required_sections": [
+      "USE CASE",
+      "ASSET TYPE",
+      "REFERENCE IMAGE ROLES",
+      "IDENTITY IMAGE INPUT CONTRACT",
+      "PRIMARY REQUEST",
+      "SCENE",
+      "CHARACTER IDENTITY LOCK",
+      "FACE PRESERVATION RULES",
+      "ILLUSTRATION STYLE",
+      "COLOR PALETTE",
+      "COMPOSITION AND FORMAT",
+      "EMOTIONAL DIRECTION",
+      "WARDROBE CONTINUITY",
+      "RECURRING PROPS AND MOTIFS",
+      "BACKGROUND STYLE",
+      "LINE AND TEXTURE DETAILS",
+      "ANATOMY AND QUALITY RULES",
+      "SCENE LOGIC AND POSE RULES",
+      "TEXT RULE",
+      "STYLE ACCEPTANCE RULE",
+      "BRANDMARK RULE",
+      "FINAL IDENTITY REINFORCEMENT",
+      "FINAL STYLE REINFORCEMENT",
+      "REFERENCE ESSENCE RULE",
+      "BRAND INTEGRATION VISIBILITY RULE",
+      "BRAND LABEL WORKFLOW"
+    ],
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "3:4",
+        "size": "1080x1440",
+        "source_size": "1440x1920",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      }
+    },
+    "text_rule": "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally into the illustration as polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. Do not invent any other text."
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "status": "GO",
+    "selected_story_lens": "Still Learning Love In Real Time",
+    "emotional_machine": "The danger is pretending healthy love means no contradiction; the story works because the contradiction is visible and repaired, not hidden. -> Seven concrete receipts: mid-fight distance, too-firm cup, waiting-to-reply posture, half-open door, tea apology, late-night repair, morning softness. -> The carousel moves from confession of imperfection to proof that awareness can become tenderness in the very next ordinary action. -> Maybe love is noticing the pattern, and choosing softness sooner.",
+    "human_story_setup": {
+      "cold_reader_doorway": "we talk about healthy love, but we still learn it mid-fight.",
+      "emotional_obstacle": "The danger is pretending healthy love means no contradiction; the story works because the contradiction is visible and repaired, not hidden.",
+      "visible_human_proof": "Seven concrete receipts: mid-fight distance, too-firm cup, waiting-to-reply posture, half-open door, tea apology, late-night repair, morning softness.",
+      "active_partner_role": "Zuv is not a rescuer; he participates in the mutual repair through the half-open door, the tea/apology beat, and the quieter morning return.",
+      "emotional_turn": "The carousel moves from confession of imperfection to proof that awareness can become tenderness in the very next ordinary action.",
+      "shareable_setup": "Sendable to a partner as a gentle 'this is us when we are trying' mirror, especially after small fights or apology moments.",
+      "earned_payoff": "Maybe love is noticing the pattern, and choosing softness sooner."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer recognizes a real post-fight repair pattern and sends it to their partner.",
+      "creative_success": "The deck proves self-awareness through staged couple behavior, not self-help advice.",
+      "brand_success": "The idea feels like @a.storyof.two because it turns a small home repair ritual into a soft love thesis.",
+      "production_success": "The route can become native 3:4 and separate 9:16 identity-referenced illustrations with exact handwritten text.",
+      "story_theme_success": "Protect the reference's human contradiction theme while making it couple-specific and visually staged."
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "The couple moves through a small fight: distance, a too-firm cup, listening poorly, asking for space, offering tea, repairing at night, returning softer in the morning.",
+      "reaction": "Each slide shows the body reacting before the moral arrives: still-angled feet, frozen hands, held breath, half-open door, lowered eyes, tired closeness, morning touch.",
+      "eye_line_or_attention": "Eye-lines shift from avoidance to partial attention to direct soft return by the final slide.",
+      "hands_or_object_movement": "Cup set down, napkin/phone gripped, door left ajar, tea placed beside a hand, blanket or shared mess repaired, two cups together by morning.",
+      "silence_or_pause": "The strongest beats are pauses: after the fight, before the reply, behind the half-open door, and before accepting the tea.",
+      "consequence": "Sendable to a partner as a gentle 'this is us when we are trying' mirror, especially after small fights or apology moments.",
+      "reversal_or_payoff": "The carousel moves from confession of imperfection to proof that awareness can become tenderness in the very next ordinary action.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 4.5,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.5,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    },
+    "proof_engine": "Seven concrete receipts: mid-fight distance, too-firm cup, waiting-to-reply posture, half-open door, tea apology, late-night repair, morning softness.",
+    "distribution_reason": "Sendable to a partner as a gentle 'this is us when we are trying' mirror, especially after small fights or apology moments."
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "we talk about healthy love,\nbut we still learn it mid-fight.",
+      "reader_identity_mirror": "Healthy love is not proved by never contradicting yourself; it is proved by noticing the pattern sooner and repairing with more softness than last time.",
+      "emotional_obstacle": "Healthy love is not proved by never contradicting yourself; it is proved by noticing the pattern sooner and repairing with more softness than last time.",
+      "aachu_proof": "After a small argument in a lived-in room, Aachu and Zuv sit on opposite edges of the same sofa or floor rug. Two cups sit untouched between them. Their bodies are turned away, but their feet or hands still angle toward each other. Clean upper-middle wall/paper space for text.",
+      "zuv_active_role": "Zuv is not a rescuer; he participates in the mutual repair through the half-open door, the tea/apology beat, and the quieter morning return.",
+      "bridge": "tiny beginning -> playful proof -> wider world -> quiet emotional payoff",
+      "earned_ending": "maybe love is noticing the pattern,\nand choosing softness sooner.",
+      "send_save_reason": "Sendable to a partner as a gentle 'this is us when we are trying' mirror, especially after small fights or apology moments."
+    },
+    "hook_bank": [
+      {
+        "hook": "we talk about healthy love,\nbut we still learn it mid-fight.",
+        "score": 5,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "Healthy love is not proved by never contradicting yourself",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with soft love notes.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "we talk about healthy love,\nbut we still learn it mid-fight.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "we talk about healthy love,\nbut we still learn it mid-fight."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "Healthy love is not proved by never contradicting yourself; it is proved by noticing the pattern sooner and repairing with more softness than last time."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "tiny beginning -> playful proof -> wider world -> quiet emotional payoff"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "maybe love is noticing the pattern,\nand choosing softness sooner."
+      }
+    ],
+    "structural_audit": {
+      "hook": 5,
+      "story": 6,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 5,
+      "stage_scene": 9
+    },
+    "verdict": "REPAIR: fix blocks before image generation or final copy.",
+    "blocks": [
+      "Slide 1 is not clearly marked as a public hook.",
+      "No clear concrete proof or Aachu-specific reveal found.",
+      "Slides do not name a send/save/tag reason."
+    ],
+    "concept_selection_used": false,
+    "source_story": "Aachu and Zuv believe in healthy love, but one ordinary fight shows they are still learning it. A cup lands too firmly on the kitchen counter before patience arrives. At the table, one listens while also preparing a reply. One asks for space, but the bedroom door stays half open. The apology does not come as a speech; it comes as a warm cup of tea placed beside a quiet hand. Later that night, they do not solve forever, they only repair today. By morning, the door is open, the cups are together, and they choose softness sooner than last time."
+  },
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+    "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+    "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/together/together-20.jpg",
+    "config/references/identity/aachu/face-05.png",
+    "config/references/identity/zuv/portrait-07.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-07-03/still-learning-love-2/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/face-05.png",
+    "config/references/identity/together/together-20.jpg",
+    "config/references/identity/zuv/portrait-07.jpg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-07-03/still-learning-love-2/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-07-03/still-learning-love-2/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID01",
+      "path": "config/references/identity/aachu/face-05.png",
+      "filename": "face-05.png",
+      "face_count": 3,
+      "width": 1010,
+      "height": 1554
+    },
+    {
+      "option_id": "ID02",
+      "path": "config/references/identity/together/together-20.jpg",
+      "filename": "together-20.jpg",
+      "face_count": 9,
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "option_id": "ID03",
+      "path": "config/references/identity/zuv/portrait-07.jpg",
+      "filename": "portrait-07.jpg",
+      "face_count": 6,
+      "width": 3024,
+      "height": 4032
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 3,
+    "selected_count": 3,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "integrated_text_plan": {
+    "strategy": "integrated_final_text",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type. Exact slide copy must be integrated into the generated final image raster; if the model cannot render exact copy, block or retry.",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "we talk about healthy love,\nbut we still learn it mid-fight.",
+      "we talk about patience,\nbut sometimes our tone arrives first.",
+      "we talk about listening,\nbut sometimes we wait for our turn.",
+      "we talk about giving space,\nbut still leave the door half open.",
+      "we talk about saying sorry,\nbut some apologies come as tea.",
+      "we talk about forever,\nbut some nights we only repair today.",
+      "maybe love is noticing the pattern,\nand choosing softness sooner."
+    ]
+  },
+  "text_overlay_plan": {
+    "deprecated_alias_of": "integrated_text_plan",
+    "strategy": "integrated_final_text",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "Deprecated compatibility field. Use integrated_text_plan.",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "we talk about healthy love,\nbut we still learn it mid-fight.",
+      "we talk about patience,\nbut sometimes our tone arrives first.",
+      "we talk about listening,\nbut sometimes we wait for our turn.",
+      "we talk about giving space,\nbut still leave the door half open.",
+      "we talk about saying sorry,\nbut some apologies come as tea.",
+      "we talk about forever,\nbut some nights we only repair today.",
+      "maybe love is noticing the pattern,\nand choosing softness sooner."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 7,
+      "text": "we talk about healthy love,\nbut we still learn it mid-fight.",
+      "scene": "Immediate cover contradiction: Aachu and Zuv are mid-fight in a lived-in room, verbally tense but not cruel. Their bodies are angled away, hands animated, brows tight, with tiny signs they still care: one cup between them, a blanket half-shared, feet still pointed toward each other. Make it active, not quiet poster sadness.",
+      "visual": "Immediate cover contradiction: Aachu and Zuv are mid-fight in a lived-in room, verbally tense but not cruel. Their bodies are angled away, hands animated, brows tight, with tiny signs they still care: one cup between them, a blanket half-shared, feet still pointed toward each other. Make it active, not quiet poster sadness.",
+      "pose": "Seven-beat format role: Cover (1/7 in Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff). Action over words: stage the couple behavior so the scene reads even if text is hidden.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "active conflict, honest, still loving underneath",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "prompt": "Create @a.storyof.two slide 1 of 7 in the locked seven-beat order Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff. Beat: Cover. Exact ON-IMAGE TEXT must be baked into the generated image, spelled exactly with line breaks: 'we talk about healthy love,\\nbut we still learn it mid-fight.'. Tiny top-right brandmark must be exactly '@a.storyof.two'. Never generate textless art. Scene/action: Immediate cover contradiction: Aachu and Zuv are mid-fight in a lived-in room, verbally tense but not cruel. Their bodies are angled away, hands animated, brows tight, with tiny signs they still care: one cup between them, a blanket half-shared, feet still pointed toward each other. Make it active, not quiet poster sadness. Emotion: active conflict, honest, still loving underneath. Use Aachu/Zuv identity references for faces/body/wardrobe anchors and Observational Intimacy Premium watercolor-and-ink style. Make room for action over words: visible hands, posture, distance, mouths/eye-lines, object movement, and consequences must prove the line. No extra words, no random letters, no UI, no quote-card design.",
+      "cta_intent": "stop_scroll_with_fight_truth",
+      "role": "Cover",
+      "beat": "cover",
+      "format_role": "Cover",
+      "structure_position": 1,
+      "story_director_job": "Stop the scroll with the honest contradiction and make the fight theme immediately legible.",
+      "format_order": [
+        "Cover",
+        "Cold Open",
+        "Mirror",
+        "Spine",
+        "Rhythm",
+        "Turn",
+        "Payoff"
+      ],
+      "copy": "we talk about healthy love,\nbut we still learn it mid-fight."
+    },
+    {
+      "slide": 2,
+      "slide_count": 7,
+      "text": "we talk about patience,\nbut sometimes our tone arrives first.",
+      "scene": "Show the two verbally fighting or sharply talking over each other in a kitchen or small room. One partner points or lifts a hand mid-sentence while the other reacts, a cup/spoon/object landing too hard on the counter. The receipt is tone arriving before patience: visible mouths open, tense hands, not physical aggression.",
+      "visual": "Show the two verbally fighting or sharply talking over each other in a kitchen or small room. One partner points or lifts a hand mid-sentence while the other reacts, a cup/spoon/object landing too hard on the counter. The receipt is tone arriving before patience: visible mouths open, tense hands, not physical aggression.",
+      "pose": "Seven-beat format role: Cold Open (2/7 in Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff). Action over words: stage the couple behavior so the scene reads even if text is hidden.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "sharp tone, verbal fight, not cruel",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "prompt": "Create @a.storyof.two slide 2 of 7 in the locked seven-beat order Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff. Beat: Cold Open. Exact ON-IMAGE TEXT must be baked into the generated image, spelled exactly with line breaks: 'we talk about patience,\\nbut sometimes our tone arrives first.'. Tiny top-right brandmark must be exactly '@a.storyof.two'. Never generate textless art. Scene/action: Show the two verbally fighting or sharply talking over each other in a kitchen or small room. One partner points or lifts a hand mid-sentence while the other reacts, a cup/spoon/object landing too hard on the counter. The receipt is tone arriving before patience: visible mouths open, tense hands, not physical aggression. Emotion: sharp tone, verbal fight, not cruel. Use Aachu/Zuv identity references for faces/body/wardrobe anchors and Observational Intimacy Premium watercolor-and-ink style. Make room for action over words: visible hands, posture, distance, mouths/eye-lines, object movement, and consequences must prove the line. No extra words, no random letters, no UI, no quote-card design.",
+      "cta_intent": "name_the_first_visible_friction",
+      "role": "Cold Open",
+      "beat": "cold_open",
+      "format_role": "Cold Open",
+      "structure_position": 2,
+      "story_director_job": "Stage the first specific verbal-fight behavior that proves the contradiction.",
+      "format_order": [
+        "Cover",
+        "Cold Open",
+        "Mirror",
+        "Spine",
+        "Rhythm",
+        "Turn",
+        "Payoff"
+      ],
+      "copy": "we talk about patience,\nbut sometimes our tone arrives first."
+    },
+    {
+      "slide": 3,
+      "slide_count": 7,
+      "text": "we talk about listening,\nbut sometimes we just don't listen at all.",
+      "scene": "Stage a clear not-listening beat: both partners are in the same room but mentally elsewhere, one talking while the other looks away at a phone, cupboard, or floor; or both speak at once with crossed eye-lines. It should feel instantly recognizable: they are hearing sound, not receiving each other.",
+      "visual": "Stage a clear not-listening beat: both partners are in the same room but mentally elsewhere, one talking while the other looks away at a phone, cupboard, or floor; or both speak at once with crossed eye-lines. It should feel instantly recognizable: they are hearing sound, not receiving each other.",
+      "pose": "Seven-beat format role: Mirror (3/7 in Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff). Action over words: stage the couple behavior so the scene reads even if text is hidden.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "recognizable frustration, talked past each other",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "prompt": "Create @a.storyof.two slide 3 of 7 in the locked seven-beat order Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff. Beat: Mirror. Exact ON-IMAGE TEXT must be baked into the generated image, spelled exactly with line breaks: \"we talk about listening,\\nbut sometimes we just don't listen at all.\". Tiny top-right brandmark must be exactly '@a.storyof.two'. Never generate textless art. Scene/action: Stage a clear not-listening beat: both partners are in the same room but mentally elsewhere, one talking while the other looks away at a phone, cupboard, or floor; or both speak at once with crossed eye-lines. It should feel instantly recognizable: they are hearing sound, not receiving each other. Emotion: recognizable frustration, talked past each other. Use Aachu/Zuv identity references for faces/body/wardrobe anchors and Observational Intimacy Premium watercolor-and-ink style. Make room for action over words: visible hands, posture, distance, mouths/eye-lines, object movement, and consequences must prove the line. No extra words, no random letters, no UI, no quote-card design.",
+      "cta_intent": "viewer_mirror",
+      "role": "Mirror",
+      "beat": "mirror",
+      "format_role": "Mirror",
+      "structure_position": 3,
+      "story_director_job": "Make viewers recognize how not-listening looks inside a relationship.",
+      "format_order": [
+        "Cover",
+        "Cold Open",
+        "Mirror",
+        "Spine",
+        "Rhythm",
+        "Turn",
+        "Payoff"
+      ],
+      "copy": "we talk about listening,\nbut sometimes we just don't listen at all."
+    },
+    {
+      "slide": 4,
+      "slide_count": 7,
+      "text": "we talk about giving space,\nbut still always irritate the hell out of each other.",
+      "scene": "Action over words: one partner tries to get space on a bed, sofa, or floor corner, while the other keeps hovering nearby and irritating them in a petty familiar way: poking, making faces, moving a pillow, tapping the door, or standing too close. Make it funny-irritating, not mean.",
+      "visual": "Action over words: one partner tries to get space on a bed, sofa, or floor corner, while the other keeps hovering nearby and irritating them in a petty familiar way: poking, making faces, moving a pillow, tapping the door, or standing too close. Make it funny-irritating, not mean.",
+      "pose": "Seven-beat format role: Spine (4/7 in Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff). Action over words: stage the couple behavior so the scene reads even if text is hidden.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "irritated, familiar, comic friction",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "prompt": "Create @a.storyof.two slide 4 of 7 in the locked seven-beat order Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff. Beat: Spine. Exact ON-IMAGE TEXT must be baked into the generated image, spelled exactly with line breaks: 'we talk about giving space,\\nbut still always irritate the hell out of each other.'. Tiny top-right brandmark must be exactly '@a.storyof.two'. Never generate textless art. Scene/action: Action over words: one partner tries to get space on a bed, sofa, or floor corner, while the other keeps hovering nearby and irritating them in a petty familiar way: poking, making faces, moving a pillow, tapping the door, or standing too close. Make it funny-irritating, not mean. Emotion: irritated, familiar, comic friction. Use Aachu/Zuv identity references for faces/body/wardrobe anchors and Observational Intimacy Premium watercolor-and-ink style. Make room for action over words: visible hands, posture, distance, mouths/eye-lines, object movement, and consequences must prove the line. No extra words, no random letters, no UI, no quote-card design.",
+      "cta_intent": "make_the_pattern_specific",
+      "role": "Spine",
+      "beat": "spine",
+      "format_role": "Spine",
+      "structure_position": 4,
+      "story_director_job": "Carry the truth through familiar irritation and failed space.",
+      "format_order": [
+        "Cover",
+        "Cold Open",
+        "Mirror",
+        "Spine",
+        "Rhythm",
+        "Turn",
+        "Payoff"
+      ],
+      "copy": "we talk about giving space,\nbut still always irritate the hell out of each other."
+    },
+    {
+      "slide": 5,
+      "slide_count": 7,
+      "text": "we talk about saying sorry,\nbut never apologies when we should.",
+      "scene": "Show the apology failure actively: both partners are close enough to repair but stubbornly not apologizing. One holds a cup or folded arms; the other looks away with a wounded-but-proud face. The apology is available in the room but withheld. No peaceful tea apology; this beat is the stubborn silence after the fight.",
+      "visual": "Show the apology failure actively: both partners are close enough to repair but stubbornly not apologizing. One holds a cup or folded arms; the other looks away with a wounded-but-proud face. The apology is available in the room but withheld. No peaceful tea apology; this beat is the stubborn silence after the fight.",
+      "pose": "Seven-beat format role: Rhythm (5/7 in Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff). Action over words: stage the couple behavior so the scene reads even if text is hidden.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "stubborn, unsaid apology, tense closeness",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "prompt": "Create @a.storyof.two slide 5 of 7 in the locked seven-beat order Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff. Beat: Rhythm. Exact ON-IMAGE TEXT must be baked into the generated image, spelled exactly with line breaks: 'we talk about saying sorry,\\nbut never apologies when we should.'. Tiny top-right brandmark must be exactly '@a.storyof.two'. Never generate textless art. Scene/action: Show the apology failure actively: both partners are close enough to repair but stubbornly not apologizing. One holds a cup or folded arms; the other looks away with a wounded-but-proud face. The apology is available in the room but withheld. No peaceful tea apology; this beat is the stubborn silence after the fight. Emotion: stubborn, unsaid apology, tense closeness. Use Aachu/Zuv identity references for faces/body/wardrobe anchors and Observational Intimacy Premium watercolor-and-ink style. Make room for action over words: visible hands, posture, distance, mouths/eye-lines, object movement, and consequences must prove the line. No extra words, no random letters, no UI, no quote-card design.",
+      "cta_intent": "repeat_the_pattern_with_action",
+      "role": "Rhythm",
+      "beat": "rhythm",
+      "format_role": "Rhythm",
+      "structure_position": 5,
+      "story_director_job": "Repeat the contradiction through the stubborn apology gap.",
+      "format_order": [
+        "Cover",
+        "Cold Open",
+        "Mirror",
+        "Spine",
+        "Rhythm",
+        "Turn",
+        "Payoff"
+      ],
+      "copy": "we talk about saying sorry,\nbut never apologies when we should."
+    },
+    {
+      "slide": 6,
+      "slide_count": 7,
+      "text": "we talk about forever,\nbut we fight like we don't know each other.",
+      "scene": "The strongest fight receipt: late evening, both tired and emotional, standing/sitting apart like strangers in their own room. Their posture says they know each other deeply, but the fight has made them act unfamiliar. Use distance, crossed eye-lines, scattered blanket/cups, and one small shared object between them.",
+      "visual": "The strongest fight receipt: late evening, both tired and emotional, standing/sitting apart like strangers in their own room. Their posture says they know each other deeply, but the fight has made them act unfamiliar. Use distance, crossed eye-lines, scattered blanket/cups, and one small shared object between them.",
+      "pose": "Seven-beat format role: Turn (6/7 in Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff). Action over words: stage the couple behavior so the scene reads even if text is hidden.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "painful turn, stranger-like fight, still intimate underneath",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "prompt": "Create @a.storyof.two slide 6 of 7 in the locked seven-beat order Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff. Beat: Turn. Exact ON-IMAGE TEXT must be baked into the generated image, spelled exactly with line breaks: \"we talk about forever,\\nbut we fight like we don't know each other.\". Tiny top-right brandmark must be exactly '@a.storyof.two'. Never generate textless art. Scene/action: The strongest fight receipt: late evening, both tired and emotional, standing/sitting apart like strangers in their own room. Their posture says they know each other deeply, but the fight has made them act unfamiliar. Use distance, crossed eye-lines, scattered blanket/cups, and one small shared object between them. Emotion: painful turn, stranger-like fight, still intimate underneath. Use Aachu/Zuv identity references for faces/body/wardrobe anchors and Observational Intimacy Premium watercolor-and-ink style. Make room for action over words: visible hands, posture, distance, mouths/eye-lines, object movement, and consequences must prove the line. No extra words, no random letters, no UI, no quote-card design.",
+      "cta_intent": "sharpen_the_reversal",
+      "role": "Turn",
+      "beat": "turn",
+      "format_role": "Turn",
+      "structure_position": 6,
+      "story_director_job": "Sharpen the reversal: forever-talk versus stranger-like fighting.",
+      "format_order": [
+        "Cover",
+        "Cold Open",
+        "Mirror",
+        "Spine",
+        "Rhythm",
+        "Turn",
+        "Payoff"
+      ],
+      "copy": "we talk about forever,\nbut we fight like we don't know each other."
+    },
+    {
+      "slide": 7,
+      "slide_count": 7,
+      "text": "maybe love is noticing the pattern,\nand choosing softness sooner.",
+      "scene": "Morning-after or after-fight payoff: the fight energy softens through action, not a grand hug. One partner reaches first, adjusts a blanket, moves closer, or offers a small touch; the other accepts. The room still has traces of the fight, but the body language shows they noticed the pattern sooner.",
+      "visual": "Morning-after or after-fight payoff: the fight energy softens through action, not a grand hug. One partner reaches first, adjusts a blanket, moves closer, or offers a small touch; the other accepts. The room still has traces of the fight, but the body language shows they noticed the pattern sooner.",
+      "pose": "Seven-beat format role: Payoff (7/7 in Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff). Action over words: stage the couple behavior so the scene reads even if text is hidden.",
+      "wardrobe": "Use casual modern Indo-western wardrobe consistent with the selected identity bundle and previous slides: white shirts, denim, scarves, sneakers, small jewelry, tan pants, navy layers, or story-specific clothes only when the scene supports them.",
+      "props": "Use only story-driven props from the slide visual or recurring @a.storyof.two motifs; props must prove the relationship beat and stay secondary to the couple.",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "softening, repair, earned tenderness",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two Typography override from supplied screenshots: rounded, imperfect, airy handwritten lowercase; uneven human spacing; warm white ink on dark scenes and warm charcoal on light scenes; integrated into the artwork, never UI or quote-card type.",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside.png",
+        "config/references/style-lock/observational-intimacy-premium/home-person-seaside-variant.png",
+        "config/references/style-lock/observational-intimacy-premium/favourite-calm-sky.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "prompt": "Create @a.storyof.two slide 7 of 7 in the locked seven-beat order Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff. Beat: Payoff. Exact ON-IMAGE TEXT must be baked into the generated image, spelled exactly with line breaks: 'maybe love is noticing the pattern,\\nand choosing softness sooner.'. Tiny top-right brandmark must be exactly '@a.storyof.two'. Never generate textless art. Scene/action: Morning-after or after-fight payoff: the fight energy softens through action, not a grand hug. One partner reaches first, adjusts a blanket, moves closer, or offers a small touch; the other accepts. The room still has traces of the fight, but the body language shows they noticed the pattern sooner. Emotion: softening, repair, earned tenderness. Use Aachu/Zuv identity references for faces/body/wardrobe anchors and Observational Intimacy Premium watercolor-and-ink style. Make room for action over words: visible hands, posture, distance, mouths/eye-lines, object movement, and consequences must prove the line. No extra words, no random letters, no UI, no quote-card design.",
+      "cta_intent": "saveable_lesson",
+      "role": "Payoff",
+      "beat": "payoff",
+      "format_role": "Payoff",
+      "structure_position": 7,
+      "story_director_job": "Land the saveable lesson through a visible choice toward softness.",
+      "format_order": [
+        "Cover",
+        "Cold Open",
+        "Mirror",
+        "Spine",
+        "Rhythm",
+        "Turn",
+        "Payoff"
+      ],
+      "copy": "maybe love is noticing the pattern,\nand choosing softness sooner."
+    }
+  ],
+  "structure_lock": {
+    "status": "PASS",
+    "raw_creator_format_note": "better copy supplied 2026-07-03; create fresh images on this; make room for action over words",
+    "canonical_order": [
+      "Cover",
+      "Cold Open",
+      "Mirror",
+      "Spine",
+      "Rhythm",
+      "Turn",
+      "Payoff"
+    ],
+    "order_text": "Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff",
+    "slide_count": 7,
+    "creator_copy_rule": "On-image copy is the text before any ~ note, preserved exactly as supplied.",
+    "text_generation_rule": "Never generate an @a.storyof.two carousel image without exact slide text and the tiny top-right @a.storyof.two brandmark baked into the image itself.",
+    "slides": [
+      {
+        "slide": 1,
+        "role": "Cover",
+        "beat": "cover",
+        "copy": "we talk about healthy love,\nbut we still learn it mid-fight.",
+        "visual": "Immediate cover contradiction: Aachu and Zuv are mid-fight in a lived-in room, verbally tense but not cruel. Their bodies are angled away, hands animated, brows tight, with tiny signs they still care: one cup between them, a blanket half-shared, feet still pointed toward each other. Make it active, not quiet poster sadness.",
+        "job": "Stop the scroll with the honest contradiction and make the fight theme immediately legible."
+      },
+      {
+        "slide": 2,
+        "role": "Cold Open",
+        "beat": "cold_open",
+        "copy": "we talk about patience,\nbut sometimes our tone arrives first.",
+        "visual": "Show the two verbally fighting or sharply talking over each other in a kitchen or small room. One partner points or lifts a hand mid-sentence while the other reacts, a cup/spoon/object landing too hard on the counter. The receipt is tone arriving before patience: visible mouths open, tense hands, not physical aggression.",
+        "job": "Stage the first specific verbal-fight behavior that proves the contradiction."
+      },
+      {
+        "slide": 3,
+        "role": "Mirror",
+        "beat": "mirror",
+        "copy": "we talk about listening,\nbut sometimes we just don't listen at all.",
+        "visual": "Stage a clear not-listening beat: both partners are in the same room but mentally elsewhere, one talking while the other looks away at a phone, cupboard, or floor; or both speak at once with crossed eye-lines. It should feel instantly recognizable: they are hearing sound, not receiving each other.",
+        "job": "Make viewers recognize how not-listening looks inside a relationship."
+      },
+      {
+        "slide": 4,
+        "role": "Spine",
+        "beat": "spine",
+        "copy": "we talk about giving space,\nbut still always irritate the hell out of each other.",
+        "visual": "Action over words: one partner tries to get space on a bed, sofa, or floor corner, while the other keeps hovering nearby and irritating them in a petty familiar way: poking, making faces, moving a pillow, tapping the door, or standing too close. Make it funny-irritating, not mean.",
+        "job": "Carry the truth through familiar irritation and failed space."
+      },
+      {
+        "slide": 5,
+        "role": "Rhythm",
+        "beat": "rhythm",
+        "copy": "we talk about saying sorry,\nbut never apologies when we should.",
+        "visual": "Show the apology failure actively: both partners are close enough to repair but stubbornly not apologizing. One holds a cup or folded arms; the other looks away with a wounded-but-proud face. The apology is available in the room but withheld. No peaceful tea apology; this beat is the stubborn silence after the fight.",
+        "job": "Repeat the contradiction through the stubborn apology gap."
+      },
+      {
+        "slide": 6,
+        "role": "Turn",
+        "beat": "turn",
+        "copy": "we talk about forever,\nbut we fight like we don't know each other.",
+        "visual": "The strongest fight receipt: late evening, both tired and emotional, standing/sitting apart like strangers in their own room. Their posture says they know each other deeply, but the fight has made them act unfamiliar. Use distance, crossed eye-lines, scattered blanket/cups, and one small shared object between them.",
+        "job": "Sharpen the reversal: forever-talk versus stranger-like fighting."
+      },
+      {
+        "slide": 7,
+        "role": "Payoff",
+        "beat": "payoff",
+        "copy": "maybe love is noticing the pattern,\nand choosing softness sooner.",
+        "visual": "Morning-after or after-fight payoff: the fight energy softens through action, not a grand hug. One partner reaches first, adjusts a blanket, moves closer, or offers a small touch; the other accepts. The room still has traces of the fight, but the body language shows they noticed the pattern sooner.",
+        "job": "Land the saveable lesson through a visible choice toward softness."
+      }
+    ]
+  },
+  "text_generation_rule": "Never generate an @a.storyof.two carousel image without exact slide text and the tiny top-right @a.storyof.two brandmark baked into the image itself."
+}

@@ -14,7 +14,14 @@ sys.path.insert(0, str(ROOT))
 
 from pipeline.agentic.context_loader import assemble_context_pack, render_context_pack  # noqa: E402
 from pipeline.agentic.carousel_state import derive_carousel_state  # noqa: E402
-from pipeline.agentic.learning_loop import capture_learning_event, create_learning_proposal  # noqa: E402
+from pipeline.agentic.learning_loop import (  # noqa: E402
+    capture_hypothesis,
+    capture_learning_event,
+    create_learning_proposal,
+    learning_debt_records,
+    list_hypotheses,
+    resolve_hypothesis,
+)
 from pipeline.agentic.memory_index import build_memory_index, search_memory  # noqa: E402
 from pipeline.agentic.recall import build_recall_bundle, render_recall_bundle  # noqa: E402
 from pipeline.agentic.skill_eval import evaluate_learning_proposal  # noqa: E402
@@ -63,6 +70,27 @@ def build_parser() -> argparse.ArgumentParser:
     record_skill.add_argument("--outcome", required=True, choices=["pass", "fail", "blocked"])
     record_skill.add_argument("--note", default="")
 
+    hypothesis = sub.add_parser("capture-hypothesis")
+    hypothesis.add_argument("--source", required=True)
+    hypothesis.add_argument("--hypothesis", required=True)
+    hypothesis.add_argument("--success-signal", required=True)
+    hypothesis.add_argument("--falsifier", required=True)
+    hypothesis.add_argument("--evidence", action="append", default=[])
+
+    hypotheses = sub.add_parser("hypotheses")
+    hypotheses.add_argument("--status", default="open")
+    hypotheses.add_argument("--limit", type=int, default=20)
+
+    resolve_hypothesis_parser = sub.add_parser("resolve-hypothesis")
+    resolve_hypothesis_parser.add_argument("hypothesis_id")
+    resolve_hypothesis_parser.add_argument(
+        "--outcome",
+        required=True,
+        choices=["supported", "refuted", "inconclusive"],
+    )
+    resolve_hypothesis_parser.add_argument("--result-summary", required=True)
+    resolve_hypothesis_parser.add_argument("--evidence", action="append", default=[])
+
     event = sub.add_parser("capture-learning")
     event.add_argument("--source", required=True)
     event.add_argument("--summary", required=True)
@@ -78,6 +106,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     evaluate = sub.add_parser("evaluate-learning")
     evaluate.add_argument("proposal_path", type=Path)
+    learning_debt = sub.add_parser("learning-debt")
+    learning_debt.add_argument("--limit", type=int, default=8)
 
     doctor = sub.add_parser("carousel-doctor")
     doctor.add_argument("package_dir", type=Path)
@@ -117,6 +147,35 @@ def main(argv: list[str] | None = None) -> int:
                 note=args.note,
             )
         )
+    elif args.command == "capture-hypothesis":
+        print_json(
+            capture_hypothesis(
+                root,
+                source=args.source,
+                hypothesis=args.hypothesis,
+                success_signal=args.success_signal,
+                falsifier=args.falsifier,
+                evidence_paths=args.evidence,
+            )
+        )
+    elif args.command == "hypotheses":
+        records = list_hypotheses(root, status=args.status, limit=args.limit)
+        print_json(
+            {
+                "open_count": len([record for record in records if record.get("status") == "open"]),
+                "records": records,
+            }
+        )
+    elif args.command == "resolve-hypothesis":
+        print_json(
+            resolve_hypothesis(
+                root,
+                hypothesis_id=args.hypothesis_id,
+                outcome=args.outcome,
+                result_summary=args.result_summary,
+                evidence_paths=args.evidence,
+            )
+        )
     elif args.command == "capture-learning":
         print_json(
             capture_learning_event(
@@ -145,6 +204,14 @@ def main(argv: list[str] | None = None) -> int:
         )
     elif args.command == "evaluate-learning":
         print_json(evaluate_learning_proposal(root, args.proposal_path))
+    elif args.command == "learning-debt":
+        records = learning_debt_records(root, limit=args.limit)
+        print_json(
+            {
+                "debt_count": len(records),
+                "records": records,
+            }
+        )
     elif args.command == "carousel-doctor":
         package_dir = args.package_dir
         if not package_dir.is_absolute():

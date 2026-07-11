@@ -940,3 +940,10 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: NEEDS_FIXES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-06-28/small-bids
+
+## C-layer carousel run: Still Learning Love
+- date: 2026-07-03
+- slug: still-learning-love-2
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-03/still-learning-love-2

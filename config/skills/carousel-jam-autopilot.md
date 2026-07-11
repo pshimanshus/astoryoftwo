@@ -4,6 +4,7 @@ last_updated: 2026-06-27
 confidence: 0.99
 sources:
 - direct creator instruction on 2026-05-24
+- config/skills/creator-skill-stack.md
 - config/skills/continuous-carousel-agent-room.md
 - config/skills/carousel-story-director-persona.md
 - config/skills/illustration-carousel-framework.md
@@ -18,7 +19,7 @@ single idea into a finished @a.storyof.two carousel.
 The goal is not a plan, prompt pack, or handoff. The goal is final packaged
 images:
 
-- `final/slide-XX.png` for native `4:5` Instagram carousel;
+- `final/slide-XX.png` for native `3:4` Instagram carousel;
 - `final-reels-stories/slide-XX.png` for separate native `9:16` companion
   slides;
 - `final-images.json`, `visual-qa.md`, and `final-audit.json` updated after
@@ -62,6 +63,12 @@ let the model generate concept, copy, and visual setup together so the alive
 route can reveal itself. Then use engineering guardrails to check repetition,
 identity, visual quality, exact text, brandmark, dimensions, stale artifacts,
 and house guidance.
+
+Before showing any concept suggestion, invoke
+`config/skills/creator-skill-stack.md`: define scroll stop, recognition,
+emotional contradiction, scene proof, retention ladder, payoff, format remix,
+audience mirror, volume path, taste gate, and DM Send Test. This is the jam
+hook, not public copy.
 
 Do not answer an opening jam with a 5-line slide copy, hook bank, or slide
 architecture. Before concept lock, creator-facing output may include the
@@ -121,7 +128,7 @@ Minimum room:
 - Storyline Architect: obstacle, proof, reversal, payoff, 5-10 routes.
 - Contrarian Critic: why it fails, safety/taste risks, private-context risk.
 - Retention Analyst: hook, swipe ladder, middle re-engagement, send/save.
-- Visual Director: scenes, identity, typography, 4:5 and 9:16 feasibility.
+- Visual Director: scenes, identity, typography, 3:4 and 9:16 feasibility.
 - Copy Chief: slide copy, caption, no-name public wording, exact text.
 - Algorithm / Brand Strategist: shareability, comment/tag behavior, brand IP.
 - World-Class Taste Judge: novelty, creator-world specificity, non-obvious
@@ -169,7 +176,7 @@ Write or update:
    - creative success: staged story sequence, behavior receipts, active partner
      response, emotional turn, and earned thesis;
    - brand success: ownable warm desi relationship IP;
-   - production success: native 4:5 and separate native 9:16 finals with QA.
+   - production success: native 3:4 and separate native 9:16 finals with QA.
    - story/theme success: the specific story, viral theme, or golden-theme
      machine the carousel must prove before any copy is drafted.
 4. Run Layer E:
@@ -225,7 +232,7 @@ Write or update:
       comes from selected identity/current-request photos first, not a static
       menu.
 16. Generate one proof slide when risk is high.
-17. If proof passes, generate all remaining native `4:5` and native `9:16`
+17. If proof passes, generate all remaining native `3:4` and native `9:16`
     slides.
 18. Package generated sources:
     - `scripts/package_generated_carousel.py`

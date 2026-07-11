@@ -103,7 +103,7 @@ def test_publishable_requires_final_audit_and_no_doctor_blockers(tmp_path: Path)
     )
     write_json(package / "final-audit.json", {"status": "PASS", "pass": True})
     (package / "visual-qa.md").write_text("- [x] PASS final files\n", encoding="utf-8")
-    write_png(package / "final" / "slide-01.png", (1080, 1350))
+    write_png(package / "final" / "slide-01.png", (1080, 1440))
     write_png(package / "final-reels-stories" / "slide-01.png", (1080, 1920))
 
     state = derive_carousel_state(package)
@@ -151,7 +151,7 @@ def test_compact_publish_ready_package_passes_combined_gates(
     package.mkdir()
     slide_text = "dumber"
     identity_ref = tmp_path / "identity.jpg"
-    write_png(identity_ref, (1080, 1350))
+    write_png(identity_ref, (1080, 1440))
     write_json(
         package / "manifest.json",
         {
@@ -182,7 +182,7 @@ def test_compact_publish_ready_package_passes_combined_gates(
     (package / "visual-qa.md").write_text("- [x] PASS final files\n", encoding="utf-8")
     post = package / "final" / "slide-01.png"
     story = package / "final-reels-stories" / "slide-01.png"
-    write_png(post, (1080, 1350))
+    write_png(post, (1080, 1440))
     write_png(story, (1080, 1920))
     prompt = package / "codex-image-prompts" / "instagram-post" / "slide-01.prompt.txt"
     prompt.parent.mkdir(parents=True)

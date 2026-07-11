@@ -1,8 +1,51 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-06-27
+last_updated: 2026-07-03
 confidence: 0.8
 sources:
+- direct creator correction in chat on 2026-07-03 during `Still Learning Love`
+  generation: after a textless proof was generated, creator said `NEVER
+  GENERATE IMAGE W/O TEXT EVER`. Treat any textless @a.storyof.two image
+  generation, including proof/source-art attempts intended for later overlay,
+  as an immediate rejected artifact and retry only with exact slide text and
+  top-right `@a.storyof.two` baked into the generated image itself
+- direct creator correction in chat on 2026-07-03 during `Mera Ghar. Uski
+  Team.` image generation: use different clothes for all people on each slide
+  when the carousel is not one continuous setup. The creator said this is
+  "not happening in one setup" and must be understood and never forgotten.
+  Treat a current family/couple photo as identity reference first, not as a
+  same-outfit/same-room lock across all slides
+- direct creator correction in chat on 2026-07-03: for poetic carousel copy,
+  text does not always need to be tiny; the creator said `not necessarily text
+  can be small, it can be more also to explain impact, think like a poet`.
+  Allow medium-length slide copy when it reads as one emotional note, remains
+  readable inside the artwork, and makes the impact land better than forced
+  brevity
+- direct creator correction in chat on 2026-07-03: the quiet emotional-shelter
+  lane around `I'm fine`, stopped talking, silence, arriving first, or a
+  partner gently making space has been used multiple times and should be
+  treated as cooled down unless a very specific new incident transforms it
+- direct creator rejection in chat on 2026-07-02: rejected the married-couple
+  AC/shared-room-temperature chaos concept with `nahhhhhhh`; avoid treating
+  common married-couple temperature/blanket fights as fresh without a much more
+  specific private incident or unusual object proof
+- direct creator correction in chat on 2026-07-02: when the creator asks for
+  marriage bhasad/chaos for married couples, do not make it wedding planning,
+  shaadi logistics, guest lists, or marriage origin-story content; build from
+  daily married-life bhasad after the wedding
+- direct creator correction in chat on 2026-07-02: when using the seven-part
+  carousel pattern or a reference format, do not over-emphasize format at the
+  expense of emotion; the format must serve an alive emotional scene, not
+  become the concept engine
+- direct creator correction in chat on 2026-07-02: for fresh carousel jams,
+  always follow the pattern `Cover`, `Cold Open`, `Mirror`, `Spine`,
+  `Rhythm`, `Turn`, `Payoff`
+- direct creator correction in chat on 2026-07-02: for `The Hands Remember`,
+  the original quiet-care-after-fight free creative pass was better than the
+  checker-repaired `She Was Sorry. Bas Style Alag Tha.` direction; do not let
+  deterministic/lane checks override a stronger creator-approved emotional
+  machine, especially when the checker pulls the route into a previously used
+  apology-language lane
 - direct creator correction in chat on 2026-06-27: rejected `The Cart Was Never
   Empty` as not something they would send; taste agent scored it 21/30 STOP
   because structural relatability is not enough without unusual observation,
@@ -162,6 +205,15 @@ must be calibrated against the golden carousel bar and should feel written by
 a strong storyteller, not like descriptive scene labels.
 confidence: 1.0
 
+fact: For `The Hands Remember` / quiet care after a fight, preserve the core
+emotional machine: the fight stops speech, but hands keep doing love. Do not
+repair it into the older apology-language lane `She Was Sorry. Bas Style Alag
+Tha.` or the line `Love learns the apology's accent`; the creator explicitly
+said the original version was much better. If checks flag send/save weakness,
+sharpen the last-slide thesis and concrete care receipts inside the same quiet
+care world instead of swapping concepts.
+confidence: 1.0
+
 fact: When the creator starts a jam, do not answer with 5-line slide copy,
 hook banks, or slide architecture as the first output. First think from the
 story, viral theme, or golden-theme machine the carousel should protect, then
@@ -169,6 +221,58 @@ run a detailed debate room around that spine. The first checkpoint is concept lo
 story/theme diagnosis, multi-voice debate summary, stage-scene proof,
 scores, rejected lanes, selector verdict, and GO / REPAIR / STOP.
 Public slide copy comes only after the creator approves the concept direction.
+confidence: 1.0
+
+fact: For fresh carousel jams and copy-lock drafts, use the creator's default
+pattern in this exact order: `Cover`, `Cold Open`, `Mirror`, `Spine`,
+`Rhythm`, `Turn`, `Payoff`. Treat `Cover` as the scroll-stop/thumbnail promise
+and the six named beats as the swipe ladder. Do not fall back to the older
+5-slide default unless the creator explicitly asks for fewer slides or a
+specific production constraint requires compression; if compressing, preserve
+the order and story job of the seven-part pattern.
+confidence: 1.0
+
+fact: The seven-part pattern and any reference format must stay subordinate to
+emotion. If a carousel starts to feel like it is matching a structure instead
+of discovering a lived feeling, stop and rebuild from the emotional scene,
+the object/gesture that proves it, and the exact human contradiction. The
+format should disappear into the work; it should not be visible as the idea.
+confidence: 1.0
+
+fact: Carousel slide copy may be medium-length when a poetic line needs more
+room to explain impact. Do not force every slide into tiny copy if a fuller
+line reads better as one continuous note, stays readable as on-image text, and
+deepens the emotional turn. Brevity is a tool, not the rule.
+confidence: 1.0
+
+fact: For montage carousels, do not write or prompt every slide as the same
+setup. Use the selected identity photo to preserve faces, body proportions, and
+family relationship cues, but vary clothes, location, action, and scene grammar
+on every slide unless the creator explicitly says the deck is one continuous
+sequence. For `Mera Ghar. Uski Team.`, all people should have different clothes
+per slide and the scenes should show different family moments over time.
+confidence: 1.0
+
+fact: For married-couple chaos asks, use post-wedding daily-life bhasad:
+household systems, food timing, sleep, family calls, chores, bills, repairs,
+plans, routines, tiny territory disputes, and the way two people become a team
+inside ordinary mess. Do not interpret this as wedding, guest-list, shaadi
+planning, engagement, or origin-story content unless the creator explicitly
+asks for that.
+confidence: 1.0
+
+fact: Avoid presenting the generic AC-temperature/shared-blanket married-couple
+fight as a fresh concept. The creator rejected that lane as not sharp enough.
+Only revisit temperature or blanket chaos if it comes from a specific lived
+incident with a non-obvious object movement, reversal, or emotional receipt.
+confidence: 1.0
+
+fact: Cool down the quiet emotional-shelter route where one partner says
+`I'm fine`, stops talking, comes home withdrawn, needs to arrive first, or is
+given gentle silence/space. The creator said this has been used multiple times.
+For profound love concepts, seek a fresh emotional engine such as witnessing,
+record keeping, inherited habits, ordinary evidence, time passing, shared
+systems, private rituals, or the way married life quietly archives a person.
 confidence: 1.0
 
 fact: Never generate textless @a.storyof.two proof, concept, carousel, or final

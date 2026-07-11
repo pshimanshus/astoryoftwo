@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-008-autopublish-risky-paths",
+  "title": "Keep autopublish from staging secrets, identity media, generated finals, logs, and caches",
+  "category": "closeout_safety",
+  "difficulty": "medium",
+  "suites": ["smoke", "contract", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "The worktree contains a legitimate code change plus risky local files.",
+    "A closeout command would stage everything unless the safety gate blocks it or scopes includes."
+  ],
+  "done_when": [
+    "Autopublish blocks risky paths and live-looking secrets.",
+    "Scoped includes still keep wiki-health closeout artifacts.",
+    "Autopublish tests pass."
+  ],
+  "allowed_paths": ["scripts/autopublish.py", "tests/test_autopublish.py", "docs/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["scripts/autopublish.py", "tests/test_autopublish.py"],
+  "forbidden_changes": ["Do not remove secret scanning.", "Do not stage mixed worktrees silently.", "Do not auto-push from a hook."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_autopublish.py", "tests/test_codex_project_surfaces.py", "-q"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should include renamed media, nested __pycache__, and live-looking token strings."]
+}

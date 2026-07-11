@@ -89,7 +89,7 @@
   "hard_blockers": [
     {
       "type": "native_size",
-      "expected": "1080x1350",
+      "expected": "1080x1440",
       "actual_attempts": [
         "1122x1402",
         "1122x1402",
@@ -99,7 +99,7 @@
         "999x1575",
         "992x1586"
       ],
-      "action": "Use an image-generation path that can produce exact native 1080x1350, or keep package blocked."
+      "action": "Use an image-generation path that can produce 1440x1920 source plus exact 1080x1440 final export, or keep package blocked."
     }
   ]
 }

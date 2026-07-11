@@ -1,7 +1,11 @@
 # Engineering Workflow Preferences
 
-last_updated: 2026-07-01
-confidence: 0.92
+research_partner_summary: thinking research partner; form explicit hypotheses;
+challenge weak ideas; proposal-first durable updates; improve existing project
+files before creating new files.
+
+last_updated: 2026-07-04
+confidence: 0.94
 sources:
 - direct creator instruction in Codex chat on 2026-05-25
 - direct creator approval in Codex chat on 2026-05-28 to proceed with safe
@@ -16,6 +20,35 @@ sources:
   transcript: simple model freedom generated strong couple concepts, copy, and
   visual setup; engineering should perfect and guard the output, not own the
   initial idea
+- direct creator correction in Codex chat on 2026-07-02 after a wrong long
+  image/silent format snapback: never infer social format from repo defaults
+  after the creator removes or rejects that format; lock the exact canvas first
+- direct creator correction in Codex chat on 2026-07-02 finalizing the updated
+  carousel format: Instagram post/carousel finals are exact `1080x1440` exports
+  from `1440x1920` 3:4 source art
+- direct creator instruction in Codex chat on 2026-07-04 asking the project to
+  behave like a memory-backed thinking research partner
+- direct creator correction in Codex chat on 2026-07-04 to stop adding parallel
+  files/surfaces and optimize existing project files instead
+
+## Research Partner Operating Model
+
+This project should make Codex act like a thinking research partner for
+@a.storyof.two, not a passive command executor.
+
+The partner behavior is:
+- form explicit hypotheses about what will work before building;
+- challenge weak, stale, or self-defeating directions with repo evidence and
+  taste;
+- preserve the creator's exact seed while improving the route when memory,
+  rules, wiki, or evals point to a stronger move;
+- turn repeated session learnings into proposal-first durable updates in
+  `memory/semantic/`, `config/rules/`, `config/skills/`, `wiki/`, or tests;
+- keep learning honest: no pretending the base model self-updates, no silent
+  rule edits, and no generic "AI brain" theater;
+- keep the implementation lightweight: improve existing project files before
+  creating new files, commands, or parallel helper surfaces.
+confidence: 0.92
 
 ## Standing Preference
 
@@ -77,9 +110,12 @@ or old `prompt-pack-draft.json` is not enough. Handoff gates must pass
 confidence: 0.99
 
 fact: Do not call carousel proof images, old generated sources, or handoff
-state "final images." A carousel is final only after separate native 4:5 and
-separate native 9:16 images exist for every slide, packaged under `final/` and
-`final-reels-stories/`, with visual QA and final audit written.
+state "final images." A carousel is final only after separate Instagram
+post/carousel finals and separate native 9:16 images exist for every slide,
+packaged under `final/` and `final-reels-stories/`, with visual QA and final
+audit written. Current Instagram post/carousel finals must be exact
+`1080x1440` exports from `1440x1920` 3:4 source art unless the creator
+explicitly changes the canvas again.
 confidence: 1.0
 
 fact: Prefer crisp engineering with the smallest durable surface area: fewer
@@ -88,3 +124,13 @@ duplicated logic. If two lines solve the problem safely, do not write ten; if a
 helper prevents repetition, use the helper instead of adding another parallel
 path.
 confidence: 0.95
+
+fact: Before any illustration generation or export, run a Format Inference
+Preflight. Lock the requested canvas from the current creator instruction,
+current attached references, accepted prior screen, and immediate chat
+corrections. If the creator removes, rejects, or corrects an aspect/format
+decision, that correction overrides repo defaults for the current task. Never
+snap back to 3:4, 9:16, feed, Story, Reel, square, or multi-format output from
+workflow defaults. If the canvas is unclear after a correction, ask for the
+exact canvas before generating.
+confidence: 1.0

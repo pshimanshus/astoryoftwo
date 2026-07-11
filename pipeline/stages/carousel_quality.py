@@ -191,7 +191,7 @@ def build_requirements(context: QualityContext) -> list[dict[str, Any]]:
         },
         {
             "id": "REQ-FINAL-IMAGES-001",
-            "label": "Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders",
+            "label": "Final generated carousel images are packaged as separate native 3:4 and 9:16 outputs, not local placeholders",
             "source": "user final-output requirement",
             "expected": context.slide_count,
             "critical": True,

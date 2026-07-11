@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 
@@ -76,7 +77,7 @@ def test_agents_md_protects_identity_wardrobe_dimensions_and_brandmark():
         "whole illustrated person, not just a face patch",
         "face, hair, body proportions, height, expression, posture, and clothing",
         "clothing and couple styling come from those images first",
-        "1080x1350",
+        "1080x1440",
         "1080x1920",
         "square only when requested",
         "tiny `@a.storyof.two`",
@@ -128,10 +129,33 @@ def test_agents_md_preserves_project_specific_sources_and_commands():
 def test_agents_md_uses_native_output_dimensions_not_square_default():
     agents = _read("AGENTS.md")
 
-    assert "native 1080x1350 post" in agents
+    assert "native 1080x1440 post" in agents
     assert "1080x1920 story/reel" in agents
     assert "square only for explicit experiments" in agents
     assert "1080x1080 proof/concept/single-slide generation gate" not in agents
+
+
+def test_format_inference_preflight_blocks_repo_default_snapback():
+    rule = _flat("config/rules/image-dimensions.md")
+    skill = _flat(".agents/skills/a-story-carousel-jam/SKILL.md")
+    runtime = _flat("config/skills/carousel-jam-runtime-context.md")
+    framework = _flat("config/skills/illustration-carousel-framework.md")
+    master = _flat("config/references/a-story-illustration-master-prompt.md")
+    memory = _flat("memory/semantic/engineering-workflow-preferences.md")
+
+    for text in (rule, skill, runtime, framework, master, memory):
+        assert "format inference preflight" in text.lower()
+        assert "current creator instruction" in text
+        assert "correction overrides" in text or "correction, that correction overrides" in text
+        assert "repo defaults" in text
+        assert "ask for the exact canvas" in text
+
+    assert "Do not silently snap back to `3:4`, `9:16`, feed, Story, Reel, square" in _read(
+        "config/rules/image-dimensions.md"
+    )
+    assert "Generating an unrequested Story/Reel/long variant" in _read(
+        "config/rules/image-dimensions.md"
+    )
 
 
 def test_carousel_jam_skill_matches_hot_path_contract():
@@ -156,6 +180,35 @@ def test_carousel_jam_skill_matches_hot_path_contract():
     assert "Visual Debate" not in skill
 
 
+def test_creator_skill_stack_hook_loads_on_session_start_and_jam():
+    skill_stack = _read("config/skills/creator-skill-stack.md")
+    skill_systems = _read("config/skill-systems.json")
+    context_manifest = _read("config/agentic_context_manifest.json")
+    jam_today = _read("scripts/jam_today.py")
+    runtime = _read("config/skills/carousel-jam-runtime-context.md")
+    autopilot = _read("config/skills/carousel-jam-autopilot.md")
+
+    for fragment in (
+        "Session Start Hook",
+        "Jam Hook",
+        "Scroll-Stop Skill",
+        "Recognition Skill",
+        "Emotional Contradiction Skill",
+        "Scene-Proof Skill",
+        "Retention Ladder Skill",
+        "Payoff Skill",
+        "Format Remix Skill",
+        "Audience Mirror Skill",
+        "Volume Skill",
+        "Taste Gate Skill",
+        "DM Send Test",
+    ):
+        assert fragment in skill_stack
+
+    for surface in (skill_systems, context_manifest, jam_today, runtime, autopilot):
+        assert "config/skills/creator-skill-stack.md" in surface
+
+
 def test_hot_path_makes_model_first_creative_authority_durable():
     agents = _flat("AGENTS.md")
     runtime = _flat("config/skills/carousel-jam-runtime-context.md")
@@ -167,6 +220,29 @@ def test_hot_path_makes_model_first_creative_authority_durable():
 
     assert "free creative pass before private scoring" in agents
     assert "free creative pass before scoring" in runtime
+
+
+def test_research_partner_memory_is_loaded_by_agentic_context():
+    manifest = json.loads(_read("config/agentic_context_manifest.json"))
+    sections = manifest["profiles"]["a-story-of-two"]["sections"]
+    memory = _flat("memory/semantic/engineering-workflow-preferences.md")
+    section_paths = [section["path"] for section in sections]
+
+    assert not any(section["path"] == "memory/semantic/research-partner-operating-model.md" for section in sections)
+    assert any(section["path"] == "memory/semantic/engineering-workflow-preferences.md" for section in sections)
+    assert section_paths.index("memory/semantic/engineering-workflow-preferences.md") < section_paths.index(
+        "memory/working.md"
+    )
+
+    for fragment in (
+        "thinking research partner",
+        "form explicit hypotheses",
+        "challenge weak",
+        "proposal-first durable updates",
+        "no pretending the base model self-updates",
+        "improve existing project files before",
+    ):
+        assert fragment in memory
 
 
 def test_instruction_contract_protects_actual_project_failures():

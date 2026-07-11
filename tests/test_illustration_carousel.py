@@ -380,7 +380,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             self.assertFalse(manifest["publishable"])
             self.assertTrue(instagram_path.exists())
             self.assertTrue(reels_path.exists())
-            self.assertEqual(self.png_size(instagram_path), (1080, 1350))
+            self.assertEqual(self.png_size(instagram_path), (1080, 1440))
             self.assertEqual(self.png_size(reels_path), (1080, 1920))
             self.assertEqual(instagram_path.read_bytes(), first_instagram_bytes)
             self.assertEqual(reels_path.read_bytes(), first_reels_bytes)
@@ -1948,7 +1948,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 encoding="utf-8",
             )
             for number in range(1, 6):
-                (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1350, value=240))
+                (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1440, value=240))
                 (source_dir / f"reels-stories-{number}.png").write_bytes(self.png_bytes(1080, 1920, value=230))
 
             manifest = package_generated_images(
@@ -2010,7 +2010,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             )
             (out_dir / "image-generation-blocker.md").write_text("status: BLOCKED\n", encoding="utf-8")
             for number in range(1, 3):
-                (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1350, value=240))
+                (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1440, value=240))
                 (source_dir / f"reels-stories-{number}.png").write_bytes(self.png_bytes(1080, 1920, value=230))
 
             with self.assertRaises(ValueError) as error:
@@ -2051,7 +2051,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 encoding="utf-8",
             )
             for number in range(1, 6):
-                (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1350, value=240))
+                (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1440, value=240))
                 (source_dir / f"reels-{number}.png").write_bytes(self.png_bytes(1080, 1920, value=230))
 
             with self.assertRaises(ValueError) as error:
@@ -2160,7 +2160,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             final_dir = out_dir / "final"
             final_dir.mkdir()
             for number in range(1, 6):
-                (final_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
+                (final_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1440))
 
             manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
             package = {
@@ -2215,7 +2215,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             final_dir = out_dir / "final"
             final_dir.mkdir()
             for number in range(1, 6):
-                (final_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
+                (final_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1440))
 
             manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
             package = {
@@ -2269,7 +2269,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             for folder in ["final", "final-with-text", "final-reels-stories"]:
                 (out_dir / folder).mkdir(exist_ok=True)
                 for number in range(1, 6):
-                    size = (1080, 1920) if folder == "final-reels-stories" else (1080, 1350)
+                    size = (1080, 1920) if folder == "final-reels-stories" else (1080, 1440)
                     (out_dir / folder / f"slide-{number:02d}.png").write_bytes(self.png_bytes(*size))
             (out_dir / "text-overlay.json").write_text(
                 json.dumps({"status": "rendered", "slides": []}),
@@ -2636,13 +2636,13 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("Native output format: Instagram post", instagram_prompt_text)
         self.assertIn("Native output format: Reels/Stories", reels_stories_prompt_text)
         self.assertIn(str(instagram_generator_prompt_path), instagram_prompt_text)
-        self.assertIn("exact 4:5 canvas", instagram_generator_prompt_text)
+        self.assertIn("exact 3:4 canvas", instagram_generator_prompt_text)
         self.assertIn("MASTER PROMPT VERSION", instagram_generator_prompt_text)
         self.assertIn("REFERENCE IMAGE ROLES", instagram_generator_prompt_text)
         self.assertIn("TEXT RULE", instagram_generator_prompt_text)
         self.assertIn("not a 9:16 story canvas", instagram_generator_prompt_text)
         self.assertIn("exact 9:16 canvas", reels_stories_generator_prompt_text)
-        self.assertIn("not a 4:5 carousel canvas", reels_stories_generator_prompt_text)
+        self.assertIn("not a 3:4 carousel canvas", reels_stories_generator_prompt_text)
         self.assertNotIn("Save packaged final", instagram_generator_prompt_text)
         self.assertNotIn("Source provenance", instagram_generator_prompt_text)
         self.assertNotIn("Required final file", instagram_generator_prompt_text)
@@ -3011,7 +3011,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
+                instagram_path.write_bytes(self.png_bytes(1440, 1920, 240))
                 instagram_paths.append(instagram_path)
 
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
@@ -3045,10 +3045,13 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(manifest["native_output_contract"]["formats"], ["instagram_post", "reels_stories"])
         self.assertTrue(slide_01_exists)
         self.assertTrue(reels_slide_01_exists)
-        self.assertEqual(instagram_size, (1080, 1350))
+        self.assertEqual(instagram_size, (1080, 1440))
         self.assertEqual(reels_stories_size, (1080, 1920))
         self.assertIn("instagram_post", slide_01_native_outputs)
         self.assertIn("reels_stories", slide_01_native_outputs)
+        self.assertEqual(slide_01_native_outputs["instagram_post"]["source_dimensions"]["width"], 1440)
+        self.assertEqual(slide_01_native_outputs["instagram_post"]["source_dimensions"]["height"], 1920)
+        self.assertIn("proportional export", slide_01_native_outputs["instagram_post"]["normalization"])
         self.assertNotEqual(
             slide_01_native_outputs["instagram_post"]["source"],
             slide_01_native_outputs["reels_stories"]["source"],
@@ -3088,7 +3091,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
+                instagram_path.write_bytes(self.png_bytes(1080, 1440, 240))
                 instagram_paths.append(instagram_path)
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
                 reels_stories_path.write_bytes(self.png_bytes(1080, 1920, 230))
@@ -3222,7 +3225,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
+                instagram_path.write_bytes(self.png_bytes(1080, 1440, 240))
                 instagram_paths.append(instagram_path)
 
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
@@ -3275,7 +3278,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_paths = []
             for number in range(1, 6):
                 instagram_path = generated_dir / f"instagram-post-slide-{number:02d}.png"
-                instagram_path.write_bytes(self.png_bytes(1080, 1350, 240))
+                instagram_path.write_bytes(self.png_bytes(1080, 1440, 240))
                 instagram_paths.append(instagram_path)
 
                 reels_stories_path = generated_dir / f"reels-stories-slide-{number:02d}.png"
@@ -3520,8 +3523,8 @@ class IllustrationCarouselTests(unittest.TestCase):
                 source = generated_dir / f"slide-{number:02d}.png"
                 final = final_dir / f"slide-{number:02d}.png"
                 reels = reels_stories_dir / f"slide-{number:02d}.png"
-                source.write_bytes(self.png_bytes(1080, 1350))
-                final.write_bytes(self.png_bytes(1080, 1350))
+                source.write_bytes(self.png_bytes(1080, 1440))
+                final.write_bytes(self.png_bytes(1080, 1440))
                 reels.write_bytes(self.png_bytes(1080, 1920))
                 records.append(
                     {
@@ -3600,9 +3603,9 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_stories_dir.mkdir()
             for number in range(1, 6):
                 (out_dir / "final" / f"slide-{number:02d}.png").parent.mkdir(exist_ok=True)
-                (out_dir / "final" / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
+                (out_dir / "final" / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1440))
                 (reels_stories_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1920))
-                (source_dir / f"instagram-post-slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
+                (source_dir / f"instagram-post-slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1440))
                 (source_dir / f"reels-stories-slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1920))
             prompt_pack = json.loads((out_dir / "prompt-pack.json").read_text(encoding="utf-8"))
             final_manifest = {
@@ -3752,11 +3755,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 reels_source = generated_dir / f"reels-stories-slide-{number:02d}.png"
                 final = final_dir / f"slide-{number:02d}.png"
                 reels = reels_stories_dir / f"slide-{number:02d}.png"
-                instagram_source.write_bytes(self.png_bytes(1080, 1350))
+                instagram_source.write_bytes(self.png_bytes(1080, 1440))
                 reels_source.write_bytes(self.png_bytes(1080, 1920))
-                final.write_bytes(self.png_bytes(1080, 1350))
+                final.write_bytes(self.png_bytes(1080, 1440))
                 reels.write_bytes(self.png_bytes(1080, 1920))
-                (overlay_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1350))
+                (overlay_dir / f"slide-{number:02d}.png").write_bytes(self.png_bytes(1080, 1440))
                 records.append(
                     {
                         "slide": number,

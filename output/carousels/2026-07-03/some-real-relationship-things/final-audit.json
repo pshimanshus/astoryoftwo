@@ -1,0 +1,17 @@
+{
+  "status": "PASS_WITH_NOTES",
+  "scope": "instagram_post_3x4_and_reels_stories_9x16",
+  "passes": [
+    "final/ contains 9 generated post slides",
+    "all final post slides are exact 1080x1440",
+    "final-reels-stories/ contains 9 generated Reels/Stories slides",
+    "all Reels/Stories slides are exact 1080x1920",
+    "corrected wardrobe was applied across the generated set",
+    "post and Reels/Stories contact sheets created for sequence review",
+    "visual sequence avoids pure quote-card treatment"
+  ],
+  "notes": [
+    "Reels/Stories slides were generated as separate vertical compositions and exported to exact final size; the post finals were not reused as story crops.",
+    "Text appears readable in the contact sheets, with minor handwritten apostrophe normalization."
+  ]
+}

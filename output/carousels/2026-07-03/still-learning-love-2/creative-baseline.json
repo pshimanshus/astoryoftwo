@@ -1,0 +1,171 @@
+{
+  "status": "revised_by_creator_copy",
+  "source": "creator supplied victorianpoetry reference screenshots on 2026-07-03; Codex novelty-engine route",
+  "source_file": "output/carousels/2026-07-03/still-learning-love-creative-baseline.json",
+  "creative_authority": "model_first",
+  "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+  "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance.",
+  "concept": {
+    "title": "Still Learning Love",
+    "slug": "still-learning-love",
+    "human_truth": "Healthy love is not proved by never contradicting yourself; it is proved by noticing the pattern sooner and repairing with more softness than last time.",
+    "reference_theme": "I talk about a value, but I still fail at it sometimes.",
+    "a_story_translation": "We talk about healthy love, but we are still learning it in real time through tone, listening, space, apologies, and repair.",
+    "format": "7-slide Instagram carousel, native 1080x1440 post handoff with separate 1080x1920 reels/stories handoff when generated"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "we talk about healthy love,\nbut we still learn it mid-fight.",
+      "visual": "Immediate cover contradiction: Aachu and Zuv are mid-fight in a lived-in room, verbally tense but not cruel. Their bodies are angled away, hands animated, brows tight, with tiny signs they still care: one cup between them, a blanket half-shared, feet still pointed toward each other. Make it active, not quiet poster sadness.",
+      "role": "Cover",
+      "beat": "cover",
+      "emotion": "active conflict, honest, still loving underneath",
+      "story_director_job": "Stop the scroll with the honest contradiction and make the fight theme immediately legible."
+    },
+    {
+      "slide": 2,
+      "copy": "we talk about patience,\nbut sometimes our tone arrives first.",
+      "visual": "Show the two verbally fighting or sharply talking over each other in a kitchen or small room. One partner points or lifts a hand mid-sentence while the other reacts, a cup/spoon/object landing too hard on the counter. The receipt is tone arriving before patience: visible mouths open, tense hands, not physical aggression.",
+      "role": "Cold Open",
+      "beat": "cold_open",
+      "emotion": "sharp tone, verbal fight, not cruel",
+      "story_director_job": "Stage the first specific verbal-fight behavior that proves the contradiction."
+    },
+    {
+      "slide": 3,
+      "copy": "we talk about listening,\nbut sometimes we just don't listen at all.",
+      "visual": "Stage a clear not-listening beat: both partners are in the same room but mentally elsewhere, one talking while the other looks away at a phone, cupboard, or floor; or both speak at once with crossed eye-lines. It should feel instantly recognizable: they are hearing sound, not receiving each other.",
+      "role": "Mirror",
+      "beat": "mirror",
+      "emotion": "recognizable frustration, talked past each other",
+      "story_director_job": "Make viewers recognize how not-listening looks inside a relationship."
+    },
+    {
+      "slide": 4,
+      "copy": "we talk about giving space,\nbut still always irritate the hell out of each other.",
+      "visual": "Action over words: one partner tries to get space on a bed, sofa, or floor corner, while the other keeps hovering nearby and irritating them in a petty familiar way: poking, making faces, moving a pillow, tapping the door, or standing too close. Make it funny-irritating, not mean.",
+      "role": "Spine",
+      "beat": "spine",
+      "emotion": "irritated, familiar, comic friction",
+      "story_director_job": "Carry the truth through familiar irritation and failed space."
+    },
+    {
+      "slide": 5,
+      "copy": "we talk about saying sorry,\nbut never apologies when we should.",
+      "visual": "Show the apology failure actively: both partners are close enough to repair but stubbornly not apologizing. One holds a cup or folded arms; the other looks away with a wounded-but-proud face. The apology is available in the room but withheld. No peaceful tea apology; this beat is the stubborn silence after the fight.",
+      "role": "Rhythm",
+      "beat": "rhythm",
+      "emotion": "stubborn, unsaid apology, tense closeness",
+      "story_director_job": "Repeat the contradiction through the stubborn apology gap."
+    },
+    {
+      "slide": 6,
+      "copy": "we talk about forever,\nbut we fight like we don't know each other.",
+      "visual": "The strongest fight receipt: late evening, both tired and emotional, standing/sitting apart like strangers in their own room. Their posture says they know each other deeply, but the fight has made them act unfamiliar. Use distance, crossed eye-lines, scattered blanket/cups, and one small shared object between them.",
+      "role": "Turn",
+      "beat": "turn",
+      "emotion": "painful turn, stranger-like fight, still intimate underneath",
+      "story_director_job": "Sharpen the reversal: forever-talk versus stranger-like fighting."
+    },
+    {
+      "slide": 7,
+      "copy": "maybe love is noticing the pattern,\nand choosing softness sooner.",
+      "visual": "Morning-after or after-fight payoff: the fight energy softens through action, not a grand hug. One partner reaches first, adjusts a blanket, moves closer, or offers a small touch; the other accepts. The room still has traces of the fight, but the body language shows they noticed the pattern sooner.",
+      "role": "Payoff",
+      "beat": "payoff",
+      "emotion": "softening, repair, earned tenderness",
+      "story_director_job": "Land the saveable lesson through a visible choice toward softness."
+    }
+  ],
+  "copy": {
+    "caption_options": [
+      "we are not perfect at the love we believe in.\n\nsome days patience comes late.\nsorry comes as a cup.\nforever becomes one repaired evening.\n\nmaybe the point is not never repeating the pattern.\nmaybe it is noticing sooner,\nand coming back softer.",
+      "for the couples who are still learning the love they keep choosing."
+    ],
+    "hashtags": [
+      "#AStoryOfTwo",
+      "#SoftLoveNotes",
+      "#LoveInLittleThings",
+      "#DesiCouple",
+      "#RelationshipNotes"
+    ],
+    "posting_notes": "Keep the caption quiet. Do not mention the reference account publicly. If posted, the carousel itself carries the theme."
+  },
+  "visual_setup": "Action-forward fight/repair carousel: the couple verbally fights, fails to listen, irritates each other, withholds apologies, then notices the pattern and chooses softness sooner.",
+  "structure_lock": {
+    "status": "PASS",
+    "raw_creator_format_note": "better copy supplied 2026-07-03; create fresh images on this; make room for action over words",
+    "canonical_order": [
+      "Cover",
+      "Cold Open",
+      "Mirror",
+      "Spine",
+      "Rhythm",
+      "Turn",
+      "Payoff"
+    ],
+    "order_text": "Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff",
+    "slide_count": 7,
+    "creator_copy_rule": "On-image copy is the text before any ~ note, preserved exactly as supplied.",
+    "text_generation_rule": "Never generate an @a.storyof.two carousel image without exact slide text and the tiny top-right @a.storyof.two brandmark baked into the image itself.",
+    "slides": [
+      {
+        "slide": 1,
+        "role": "Cover",
+        "beat": "cover",
+        "copy": "we talk about healthy love,\nbut we still learn it mid-fight.",
+        "visual": "Immediate cover contradiction: Aachu and Zuv are mid-fight in a lived-in room, verbally tense but not cruel. Their bodies are angled away, hands animated, brows tight, with tiny signs they still care: one cup between them, a blanket half-shared, feet still pointed toward each other. Make it active, not quiet poster sadness.",
+        "job": "Stop the scroll with the honest contradiction and make the fight theme immediately legible."
+      },
+      {
+        "slide": 2,
+        "role": "Cold Open",
+        "beat": "cold_open",
+        "copy": "we talk about patience,\nbut sometimes our tone arrives first.",
+        "visual": "Show the two verbally fighting or sharply talking over each other in a kitchen or small room. One partner points or lifts a hand mid-sentence while the other reacts, a cup/spoon/object landing too hard on the counter. The receipt is tone arriving before patience: visible mouths open, tense hands, not physical aggression.",
+        "job": "Stage the first specific verbal-fight behavior that proves the contradiction."
+      },
+      {
+        "slide": 3,
+        "role": "Mirror",
+        "beat": "mirror",
+        "copy": "we talk about listening,\nbut sometimes we just don't listen at all.",
+        "visual": "Stage a clear not-listening beat: both partners are in the same room but mentally elsewhere, one talking while the other looks away at a phone, cupboard, or floor; or both speak at once with crossed eye-lines. It should feel instantly recognizable: they are hearing sound, not receiving each other.",
+        "job": "Make viewers recognize how not-listening looks inside a relationship."
+      },
+      {
+        "slide": 4,
+        "role": "Spine",
+        "beat": "spine",
+        "copy": "we talk about giving space,\nbut still always irritate the hell out of each other.",
+        "visual": "Action over words: one partner tries to get space on a bed, sofa, or floor corner, while the other keeps hovering nearby and irritating them in a petty familiar way: poking, making faces, moving a pillow, tapping the door, or standing too close. Make it funny-irritating, not mean.",
+        "job": "Carry the truth through familiar irritation and failed space."
+      },
+      {
+        "slide": 5,
+        "role": "Rhythm",
+        "beat": "rhythm",
+        "copy": "we talk about saying sorry,\nbut never apologies when we should.",
+        "visual": "Show the apology failure actively: both partners are close enough to repair but stubbornly not apologizing. One holds a cup or folded arms; the other looks away with a wounded-but-proud face. The apology is available in the room but withheld. No peaceful tea apology; this beat is the stubborn silence after the fight.",
+        "job": "Repeat the contradiction through the stubborn apology gap."
+      },
+      {
+        "slide": 6,
+        "role": "Turn",
+        "beat": "turn",
+        "copy": "we talk about forever,\nbut we fight like we don't know each other.",
+        "visual": "The strongest fight receipt: late evening, both tired and emotional, standing/sitting apart like strangers in their own room. Their posture says they know each other deeply, but the fight has made them act unfamiliar. Use distance, crossed eye-lines, scattered blanket/cups, and one small shared object between them.",
+        "job": "Sharpen the reversal: forever-talk versus stranger-like fighting."
+      },
+      {
+        "slide": 7,
+        "role": "Payoff",
+        "beat": "payoff",
+        "copy": "maybe love is noticing the pattern,\nand choosing softness sooner.",
+        "visual": "Morning-after or after-fight payoff: the fight energy softens through action, not a grand hug. One partner reaches first, adjusts a blanket, moves closer, or offers a small touch; the other accepts. The room still has traces of the fight, but the body language shows they noticed the pattern sooner.",
+        "job": "Land the saveable lesson through a visible choice toward softness."
+      }
+    ]
+  }
+}

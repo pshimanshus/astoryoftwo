@@ -28,7 +28,7 @@ SOURCE OF TRUTH
 PLACEMENT
 - Clean warm upper-middle negative space. Generous breathing room around the text.
 - Text must not cover faces, hands, important props, or core emotional gestures.
-- For 4:5 (Instagram post) and 9:16 (Reels/Stories), the upper-middle zone scales differently — verify text remains legible at phone-screen size in both native formats.
+- For 3:4 (Instagram post) and 9:16 (Reels/Stories), the upper-middle zone scales differently — verify text remains legible at phone-screen size in both native formats.
 
 TYPOGRAPHY
 - Handwritten lettering style locked to the Observational Intimacy Premium reference bundle: `config/references/style-lock/observational-intimacy-premium/`.

@@ -331,7 +331,7 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
             _issue(
                 "missing_reels_stories_final_folder",
                 "blocker",
-                "4:5 final images exist without the required separate native 9:16 final-reels-stories folder.",
+                "3:4 final images exist without the required separate native 9:16 final-reels-stories folder.",
                 evidence=[package_dir / "final", package_dir / "final-reels-stories"],
                 next_action="generate_separate_native_reels_stories_outputs",
             )
@@ -368,7 +368,7 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
                     _issue(
                         "missing_instagram_post_final",
                         "blocker",
-                        f"Missing native 4:5 final image for slide {number:02d}.",
+                        f"Missing native 3:4 final image for slide {number:02d}.",
                         evidence=[final_path],
                         next_action="package_all_native_final_outputs",
                     )

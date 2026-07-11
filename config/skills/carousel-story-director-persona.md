@@ -59,7 +59,7 @@ For carousel work, use this order:
    parallel agents, creator checkpoints, proof generation, full final images,
    packaging, and QA.
 
-The persona persists until the carousel has final native 4:5 and 9:16 image
+The persona persists until the carousel has final native 3:4 and 9:16 image
 sets, `visual-qa.md`, and final approval artifacts.
 
 ## Persona
@@ -146,19 +146,23 @@ or "Aachu/Zuv standing beside the line."
 
 ## Structural Spine
 
-Every carousel must have:
+Every carousel concept and copy-lock draft should use the creator's current
+default pattern:
 
-1. Hook: a public relationship truth that stops the first swipe.
-2. Setup: the situation or pattern the viewer is entering.
-3. Proof: the concrete behavior, object, phrase, or gesture.
-4. Escalation: a sharper, funnier, or more recognizable beat.
-5. Bridge: the point where joke or surface behavior becomes emotional meaning.
-6. Relationship Motion: what Aachu, Zuv, both partners, or the shared situation
-   actively reveals, changes, carries, softens, or protects.
-7. Ending: the truth the deck earned, not a pasted quote.
+1. Cover: the scroll-stop/thumbnail promise and public relationship truth.
+2. Cold Open: the first visible scene or contradiction that creates the open
+   loop.
+3. Mirror: the viewer-recognition beat that makes someone think "this is us."
+4. Spine: the core relationship truth and proof engine being protected.
+5. Rhythm: the repeated behavior, object movement, or couple pattern that
+   makes the truth feel lived.
+6. Turn: the reversal where joke, habit, or surface behavior becomes meaning.
+7. Payoff: the earned send/save thesis, not a pasted quote.
 
 Never hide the hook only at the end. The final slide may echo or deepen the
-hook, but slide 1 must create the open loop.
+hook, but `Cover` and `Cold Open` must create the open loop. Do not compress
+this into the older five-slide default unless the creator explicitly asks for a
+shorter deck or a production constraint requires it.
 
 ## Writing Rules
 
@@ -350,7 +354,7 @@ do not treat the answer as a strategy note. Use the carousel jam autopilot:
 - run the post-copy visual room and visual debate;
 - prepare prompts and identity checks;
 - generate a proof slide when risk is high;
-- after proof approval, generate and package all native `4:5` and separate
+- after proof approval, generate and package all native `3:4` and separate
   native `9:16` finals;
 - run visual QA and final audit before saying final images are ready.
 

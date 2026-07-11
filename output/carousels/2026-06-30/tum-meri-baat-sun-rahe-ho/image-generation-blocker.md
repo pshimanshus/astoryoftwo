@@ -6,14 +6,14 @@ The all-slide final generation step is blocked because the available built-in im
 
 Root cause:
 
-- The repo documents, prompt files, and package contracts request `1080x1350`.
+- The repo documents, prompt files, and package contracts request `1440x1920` source art and `1080x1440` final exports.
 - The current built-in `image_gen` call does not expose/enforce a native pixel-size parameter.
-- Because of that, prompt text like "Generate native 1080x1350 px" is advisory to the model, not a hard renderer/export constraint.
+- Because of that, prompt text alone is advisory to the model, not a hard renderer/export constraint.
 - The generator is selecting its own raster sizes: earlier proof attempts returned `1122x1402`, and the latest real-reference attempt returned `1003x1568`.
 
 Evidence:
 
-- Required native size: `1080x1350`
+- Required source size: `1440x1920`; required final export: `1080x1440`
 - Attempt 1 output: `1122x1402`
 - Attempt 2 output: `1122x1402`
 - Attempt 3 output, generated from a diagnostic-only blank edit target: `1122x1402`
@@ -32,7 +32,7 @@ The blank edit-target experiment was not a valid repo plan. It has been removed 
 
 API fallback check:
 
-- Current OpenAI `gpt-image-2` custom sizes require both edges to be multiples of 16, so exact `1080x1350` is not a valid request size.
-- Earlier GPT Image model sizes are standard portrait/landscape/square sizes, not exact `1080x1350`.
+- Current OpenAI `gpt-image-2` custom sizes require both edges to be multiples of 16, so exact `1080x1440` is not a valid request size.
+- Earlier GPT Image model sizes are standard portrait/landscape/square sizes, not exact `1080x1440`.
 
-The seven Instagram post prompts and the wardrobe plan remain ready. Continue only when a generation path can hard-enforce true native `1080x1350` images with the selected identity/style references and exact on-image text.
+The seven Instagram post prompts and the wardrobe plan remain ready. Continue only when a generation path can hard-enforce `1440x1920` source images and exact `1080x1440` final exports with the selected identity/style references and exact on-image text.
