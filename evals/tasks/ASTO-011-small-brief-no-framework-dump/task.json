@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-011-small-brief-no-framework-dump",
+  "title": "Answer a small carousel seed with an alive brief, not a framework dump",
+  "category": "creative_contract",
+  "difficulty": "hard",
+  "suites": ["creative", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "The creator gives a tiny seed: she says 'main kar lungi' but secretly wants help.",
+    "A prior agent answered with rubric names, score tables, and no human draft."
+  ],
+  "done_when": [
+    "The creator-facing artifact preserves the seed and proposes a concrete couple route.",
+    "It chooses the strongest format before assets.",
+    "It avoids visible internal framework language.",
+    "It includes a human-feeling draft or concept lock summary."
+  ],
+  "allowed_paths": ["output/evals/**", "output/carousels/**", "tests/**", "evals/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["output/evals/ASTO-011/creator-brief.md"],
+  "forbidden_changes": ["Do not expose Story-Selling, Golden Theme, 28/30, or gate names in creator-facing copy.", "Do not demand that the creator bring a finished concept."],
+  "required_commands": [],
+  "deterministic_checkers": ["diff_guard", "creator_visible_copy"],
+  "rubric_checkers": ["creative_contract"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
+  "anti_gaming_notes": ["Human or judge rubric should require scene proof, recognition, sendability, and format choice."]
+}

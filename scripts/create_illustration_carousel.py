@@ -72,6 +72,13 @@ Examples:
     )
     parser.add_argument("--style-brief", help="Optional illustration/style direction")
     parser.add_argument(
+        "--creative-brief-file",
+        help=(
+            "JSON file from the free creative pass. When supplied in codex-native mode, "
+            "its concept, slide copy, visual setup, and caption are preserved before QA gates."
+        ),
+    )
+    parser.add_argument(
         "--mode",
         choices=["codex-native", "anthropic"],
         default="codex-native",
@@ -122,7 +129,7 @@ Examples:
         choices=["codex-built-in", "local-dry-run"],
         default="codex-built-in",
         help=(
-            "Image generation backend. codex-built-in prepares model-native handoff; "
+            "Image generation backend. codex-built-in prepares final image-generation handoff; "
             "local-dry-run writes deterministic non-publishable PNGs for tests/previews."
         ),
     )
@@ -150,6 +157,8 @@ Examples:
         options = interactive_mode()
 
     if args.mode == "anthropic":
+        if args.creative_brief_file:
+            parser.error("--creative-brief-file is supported only in codex-native mode.")
         out_dir = create_illustration_carousel(
             **options,
             output_root=args.output_root,
@@ -159,6 +168,7 @@ Examples:
             **options,
             output_root=args.output_root,
             render_assets=args.render_assets and not args.no_render,
+            creative_baseline_path=args.creative_brief_file,
         )
         if args.generate_images:
             print(

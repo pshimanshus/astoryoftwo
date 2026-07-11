@@ -551,12 +551,12 @@ def build_post_copy_visual_room(
             {
                 "agent": "Typography And Aspect Director",
                 "verdict": "GO",
-                "prompt_summary": "Plan readable text and brandmark placement for separate native 4:5 and 9:16 outputs.",
+                "prompt_summary": "Plan readable text and brandmark placement for separate native 3:4 and 9:16 outputs.",
             },
             {
                 "agent": "Generation Prompt Director",
                 "verdict": "GO",
-                "prompt_summary": "Translate the selected visual system into specific model-native prompt constraints.",
+                "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints.",
             },
             {
                 "agent": "Harsh Visual Selector",
@@ -587,9 +587,9 @@ def build_post_copy_visual_room(
             for slide in slides
         ],
         "typography_and_aspect_plan": {
-            "instagram_post_4x5": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
-            "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 4:5 artwork.",
-            "brandmark": "Tiny low-contrast handwritten @a.storyof.two at bottom-right inside artwork.",
+            "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+            "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+            "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork.",
         },
         "generation_prompt_brief": {
             "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",

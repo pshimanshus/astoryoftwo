@@ -6,6 +6,14 @@ PAPER
 - Soft faded edges where the watercolor wash dissolves into the paper.
 - The page must not read yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy cream on a phone screen. This is the most common rejection reason in this project; treat it as a hard fail, not a stylistic note.
 
+PAPER TONE LOCK
+- The whole negative-space paper field stays neutral premium warm ivory/off-white.
+- Warmth belongs inside illustrated scene elements, skin, blush, lamps, textiles,
+  or small accents; it must not tint the paper yellow, mustard, sepia,
+  beige/tan, parchment, coffee-stained, or heavy cream.
+- If the paper reads yellow/parchment on a phone screen, reject the image even
+  when text, identity, and composition otherwise pass.
+
 WATERCOLOR AND INK
 - Premium hand-painted watercolor-and-ink with fine graphite and ink contours.
 - Soft transparent watercolor blooms; layered pigment; controlled crosshatching.

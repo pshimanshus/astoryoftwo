@@ -2,8 +2,8 @@
 # Karpathy LLM Wiki pattern: this file is the catalog of all compiled knowledge pages.
 # Updated by: `wiki compile` operation.
 
-last_updated: 2026-06-28
-total_pages: 81
+last_updated: 2026-07-11
+total_pages: 83
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,8 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [Still Learning Love](carousels/still-learning-love-2.md) | 2026-07-03 | 7 | C-layer | 0.7 |
+| [Still Learning Love](carousels/still-learning-love.md) | 2026-07-03 | 7 | C-layer | 0.7 |
 | [Small Bids](carousels/small-bids.md) | 2026-06-28 | 8 | C-layer | 0.7 |
 | [Road Hi Galat Hai](carousels/road-hi-galat-hai.md) | 2026-06-27 | 7 | C-layer | 0.7 |
 | [Capricorn Man Aries Woman](carousels/capricorn-man-aries-woman-2.md) | 2026-06-13 | 8 | C-layer | 0.7 |

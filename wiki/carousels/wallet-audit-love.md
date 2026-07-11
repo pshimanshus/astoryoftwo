@@ -36,7 +36,7 @@ Status: NEEDS_FIXES
 
 - REQ-VISUAL-PLAN-QUALITY-001: Per-slide visual screen passes before image generation
 - REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders
-- REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/
+- REQ-INTEGRATED-FINAL-TEXT-001: Default final slides include exact integrated copy and brandmark inside both final/ and final-reels-stories/
 - REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
 - visual_reviewer: Slide 1 has theft/financial-control risk terms: crime.; Slide 4 has theft/financial-control risk terms: angry, helpless.
 - asset_reviewer: Missing final generated images: output/carousels/2026-05-24/wallet-audit-love/final/slide-01.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-02.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-03.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-04.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-05.png, output/carousels/2026-05-24/wallet-audit-love/final/slide-06.png

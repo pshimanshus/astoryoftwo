@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "last_checked": "2026-07-04",
+  "sources": [
+    {
+      "name": "SWE-bench",
+      "url": "https://www.swebench.com/original.html",
+      "claim": "SWE-bench tasks give an AI system an issue text and repository, then evaluate the generated patch with fail-to-pass tests.",
+      "use_in_this_repo": "A Story eval tasks should be issue-like and patch-based, with explicit fail-to-pass gates for the broken behavior.",
+      "confidence": 0.95
+    },
+    {
+      "name": "SWE-bench Verified",
+      "url": "https://www.swebench.com/verified.html",
+      "claim": "Verified is a human-validated subset intended to improve reliability of coding-agent evaluation.",
+      "use_in_this_repo": "Task quality needs human review: clear prompt, fair checker, realistic issue, and no ambiguous hidden expectation.",
+      "confidence": 0.92
+    },
+    {
+      "name": "OpenAI SWE-bench Verified launch",
+      "url": "https://openai.com/index/introducing-swe-bench-verified/",
+      "claim": "Human validation can filter unclear or low-quality tasks from a larger SWE benchmark.",
+      "use_in_this_repo": "Every A Story task should have a review checklist before it becomes part of the stable suite.",
+      "confidence": 0.9
+    },
+    {
+      "name": "OpenAI on SWE-bench Verified limitations",
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+      "claim": "Overly specific tests, underspecified task statements, and environment sensitivity can underreport capable agents.",
+      "use_in_this_repo": "Hidden checkers must validate contract behavior without rejecting legitimate alternate fixes; prompts must be explicit enough to avoid one-right-patch traps.",
+      "confidence": 0.9
+    },
+    {
+      "name": "SWE-bench-Live",
+      "url": "https://arxiv.org/html/2505.23419v2",
+      "claim": "Continuously updated benchmarks reduce contamination and better reflect live software development.",
+      "use_in_this_repo": "The suite should evolve from fresh creator corrections, wiki-health findings, closeout blocks, and carousel failures.",
+      "confidence": 0.88
+    },
+    {
+      "name": "OpenAI evaluation best practices",
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "claim": "Evals help test AI systems despite variability; current OpenAI docs also note the Evals platform deprecation timeline.",
+      "use_in_this_repo": "Keep the durable harness repo-local and portable; do not build around a deprecated hosted eval product.",
+      "confidence": 0.92
+    },
+    {
+      "name": "UTBoost SWE-bench analysis",
+      "url": "https://arxiv.org/html/2506.09289v1",
+      "claim": "Coding-agent patch evaluation commonly combines fail-to-pass and pass-to-pass tests.",
+      "use_in_this_repo": "Each task deep spec must state both the failing behavior that should flip and the regression surface that should remain stable.",
+      "confidence": 0.82
+    }
+  ]
+}

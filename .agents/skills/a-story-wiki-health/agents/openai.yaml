@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Wiki Health"
+  short_description: "Repair A Story workflow health"
+  default_prompt: "Use $a-story-wiki-health to inspect repo workflow health and repair the nearest existing A Story surface."
+policy:
+  allow_implicit_invocation: false

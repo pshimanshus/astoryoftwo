@@ -7,6 +7,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from pipeline.agentic.checks.prompt_constraints import check_prompt_constraints
 from pipeline.layer_e.artifacts import layer_e_gate_reason
 from pipeline.agentic.generation_capability import write_generation_capability
 from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
@@ -21,7 +22,6 @@ from pipeline.stages.model_native_image_generation import (
     REELS_STORIES_SIZE,
     decode_png,
     existing_reference_paths,
-    normalize_native_output,
 )
 
 
@@ -214,7 +214,7 @@ def write_handoff_blocker(carousel_dir: Path, result: dict[str, Any], proof_gate
         "",
         "Rules:",
         "",
-        "- generate separate native 4:5 and native 9:16 images;",
+        "- generate separate native 3:4 and native 9:16 images;",
         "- do not derive one aspect ratio from the other;",
         "- use the watercolor-and-ink master prompt in each paste-ready `.prompt.txt`;",
         "- use identity references as actual image inputs;",
@@ -283,43 +283,79 @@ def image_dimensions(image_bytes: bytes) -> dict[str, Any]:
     }
 
 
-def target_aspect_for_format(output_format: str) -> float:
+def target_size_for_format(output_format: str) -> tuple[int, int]:
     if output_format == INSTAGRAM_POST_FORMAT:
-        width, height = FINAL_UPLOAD_SIZE
-    elif output_format == REELS_STORIES_FORMAT:
-        width, height = REELS_STORIES_SIZE
-    else:
-        raise ValueError(f"Unsupported native output format: {output_format}")
-    return width / height
+        return FINAL_UPLOAD_SIZE
+    if output_format == REELS_STORIES_FORMAT:
+        return REELS_STORIES_SIZE
+    raise ValueError(f"Unsupported native output format: {output_format}")
 
 
-def require_native_source_aspect(
+def source_size_for_format(output_format: str) -> tuple[int, int]:
+    output_spec = NATIVE_OUTPUT_FORMATS[output_format]
+    raw_size = output_spec.get("source_size") or output_spec.get("target_size")
+    return int(raw_size[0]), int(raw_size[1])
+
+
+def allowed_source_sizes_for_format(output_format: str) -> list[tuple[int, int]]:
+    source_size = source_size_for_format(output_format)
+    target_size = target_size_for_format(output_format)
+    if source_size == target_size:
+        return [source_size]
+    return [source_size, target_size]
+
+
+def require_native_source_dimensions(
     *,
     image_bytes: bytes,
     output_format: str,
     slide_number: int,
     path: Path,
-    tolerance: float = 0.01,
 ) -> dict[str, Any]:
     dimensions = image_dimensions(image_bytes)
-    actual = float(dimensions["width"]) / float(dimensions["height"])
-    target = target_aspect_for_format(output_format)
-    if abs(actual - target) > tolerance:
+    actual_size = (dimensions["width"], dimensions["height"])
+    expected_sizes = allowed_source_sizes_for_format(output_format)
+    if actual_size not in expected_sizes:
         label = NATIVE_OUTPUT_FORMATS[output_format]["label"]
+        expected = " or ".join(f"{width}x{height}" for width, height in expected_sizes)
         raise ValueError(
-            f"Slide {slide_number} {label} native source aspect is {actual:.4f}; "
-            f"expected {target:.4f}. Regenerate {path} at the native aspect instead of "
-            "cropping, padding, or containing a wrong-ratio source."
+            f"Slide {slide_number} {label} native source dimensions are "
+            f"{dimensions['width']}x{dimensions['height']}; expected {expected}. "
+            f"Regenerate {path} at an approved source size instead of cropping, padding, "
+            "stretching, or containing a wrong-size source."
         )
     return dimensions
 
 
 def normalize_for_upload(image_bytes: bytes, width: int, height: int) -> tuple[bytes, dict[str, Any], str, str | None]:
+    import cv2
+
     dimensions = image_dimensions(image_bytes)
+    source = decode_png(image_bytes)
+    source_height, source_width = source.shape[:2]
+    if (source_width, source_height) == (width, height):
+        return (
+            image_bytes,
+            dimensions,
+            "source already matches exact native upload size",
+            None,
+        )
+
+    if source_width * height != source_height * width:
+        raise RuntimeError(
+            "Generated source aspect ratio does not match the upload target: "
+            f"source={source_width}x{source_height}, target={width}x{height}."
+        )
+
+    interpolation = cv2.INTER_AREA if source_width >= width and source_height >= height else cv2.INTER_LANCZOS4
+    resized = cv2.resize(source, (width, height), interpolation=interpolation)
+    ok, encoded = cv2.imencode(".png", resized)
+    if not ok:
+        raise RuntimeError("Could not encode normalized native upload PNG.")
     return (
-        normalize_native_output(image_bytes, width, height),
+        encoded.tobytes(),
         dimensions,
-        "resized native-aspect generated source to upload size",
+        f"proportional export from {source_width}x{source_height} to exact {width}x{height}",
         None,
     )
 
@@ -351,7 +387,8 @@ def build_handoff_markdown(
     expected_file: str | Path,
     generated_source: str | Path,
     aspect_ratio: str | None = None,
-    pixel_size: str | None = None,
+    source_pixel_size: str | None = None,
+    upload_pixel_size: str | None = None,
     native_output_rule: str | None = None,
     identity_dossier_path: str | None = None,
     identity_preflight_path: str | None = None,
@@ -378,8 +415,13 @@ def build_handoff_markdown(
         "",
         f"- Native output format: {output_label}",
     ]
-    if pixel_size:
-        lines.append(f"- Required exact pixel size: {pixel_size} px (mandatory; generate natively at exactly this size, not just this ratio)")
+    if source_pixel_size:
+        lines.append(
+            f"- Required generated source size: {source_pixel_size} px "
+            "(mandatory; generate this source size, not just this ratio)"
+        )
+    if upload_pixel_size:
+        lines.append(f"- Required final upload/export size: {upload_pixel_size} px")
     if aspect_ratio:
         lines.append(f"- Required aspect ratio: {aspect_ratio}")
     lines.extend(
@@ -391,7 +433,7 @@ def build_handoff_markdown(
         lines.append(f"- {native_output_rule}")
     lines.extend(
         [
-            "- Generate this format as its own artwork. Do not create it by resizing another generated slide.",
+            "- Generate this format as its own artwork. Do not create it by resizing another social format.",
             "",
             "## Hard Gate",
             "",
@@ -470,7 +512,8 @@ def prompt_file_text(
         expected_file=expected_file,
         generated_source=generated_source,
         aspect_ratio=output_spec["aspect_ratio"],
-        pixel_size=output_spec["upload_size"],
+        source_pixel_size=output_spec.get("source_size_label") or output_spec["upload_size"],
+        upload_pixel_size=output_spec["upload_size"],
         native_output_rule=NATIVE_OUTPUT_CONTRACT["rule"],
         identity_dossier_path=identity_dossier_path,
         identity_preflight_path=identity_preflight_path,
@@ -559,6 +602,18 @@ def prepare_codex_builtin_image_generation(
                 generator_prompt_text(slide_prompt, output_format),
                 encoding="utf-8",
             )
+            gate = check_prompt_constraints(
+                generator_prompt_path,
+                expected_text=str(slide_prompt["text"]),
+            )
+            if gate.status != "PASS":
+                return write_blocked_status(
+                    carousel_dir,
+                    (
+                        f"Compiled prompt constraints failed for slide {number:02d} "
+                        f"{format_prompt_dir_name(output_format)}: {gate.reason}"
+                    ),
+                )
             prompt_path.write_text(
                 prompt_file_text(
                     carousel_dir=carousel_dir,
@@ -685,13 +740,13 @@ def package_codex_builtin_outputs(
             raise FileNotFoundError(f"Missing Codex generated image: {reels_stories_source_path}")
         instagram_bytes = instagram_source_path.read_bytes()
         reels_stories_bytes = reels_stories_source_path.read_bytes()
-        require_native_source_aspect(
+        require_native_source_dimensions(
             image_bytes=instagram_bytes,
             output_format=INSTAGRAM_POST_FORMAT,
             slide_number=number,
             path=instagram_source_path,
         )
-        require_native_source_aspect(
+        require_native_source_dimensions(
             image_bytes=reels_stories_bytes,
             output_format=REELS_STORIES_FORMAT,
             slide_number=number,
@@ -769,8 +824,8 @@ def package_codex_builtin_outputs(
         )
 
     normalization_text = (
-        "Each surface is generated from its own native-aspect source; final files are same-aspect "
-        "upload-size normalizations only. Wrong-ratio sources are rejected before packaging."
+        "Each surface is generated from its own exact native pixel source. Wrong-size sources "
+        "are rejected before packaging instead of being resized, cropped, or padded."
     )
     generation_extra = {
         "native_output_contract": NATIVE_OUTPUT_CONTRACT,
@@ -838,7 +893,7 @@ def package_codex_builtin_outputs(
         else:
             result = write_generation_state(
                 carousel_dir,
-                status=GenerationStatus.GENERATED,
+                status=GenerationStatus.PUBLISH_READY,
                 backend=BACKEND,
                 generation_mode=GENERATION_MODE,
                 slide_count=len(slides),

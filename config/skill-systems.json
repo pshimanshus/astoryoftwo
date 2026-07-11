@@ -4,13 +4,19 @@
     "carousel_jam": {
       "description": "Creator jam to final illustrated carousel workflow.",
       "components": [
+        "config/skills/creator-skill-stack.md",
+        "config/skills/carousel-jam-runtime-context.md",
         "config/skills/carousel-jam-autopilot.md",
         "config/skills/continuous-carousel-agent-room.md",
-        "config/skills/romance-story-selling-engine.md",
-        "config/skills/golden-viral-carousel-theme.md",
         "config/skills/carousel-story-director-persona.md",
         "config/skills/illustration-carousel-framework.md",
         "config/skills/indian-creator-intelligence.md"
+      ],
+      "source_references": [
+        "wiki/insights/successful-carousel-standard.md",
+        "memory/semantic/carousel-idea-preferences.md",
+        "config/skills/romance-story-selling-engine.md",
+        "config/skills/golden-viral-carousel-theme.md"
       ],
       "agents": [
         "agents/carousel-story-director.md",
@@ -22,6 +28,7 @@
       "gates": [
         "story_selling_28",
         "golden_theme_28",
+        "world_class_taste_gate",
         "story_director_8_each",
         "post_copy_visual_room_go",
         "visual_debate_go",
@@ -33,6 +40,7 @@
         "layer-e-story-selling.md",
         "agent-room.json",
         "concept-selection.json",
+        "taste-gate.json",
         "post-copy-visual-room.json",
         "visual-debate.json",
         "visual-plan-quality.json"
@@ -43,7 +51,7 @@
       "components": [
         "config/skills/romance-story-selling-engine.md",
         "config/skills/couple-substack-article-framework.md",
-        "config/voice.md"
+        "config/rules/voice.md"
       ],
       "agents": [
         "agents/story-canon-orchestrator.md",

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-003-textless-prompt",
+  "title": "Block active textless source-art prompts",
+  "category": "carousel_package",
+  "difficulty": "medium",
+  "suites": ["smoke", "carousel", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "A carousel package contains an active prompt file that asks for source art with blank space and text added later.",
+    "The package also has approved slide copy in prompt-pack.json."
+  ],
+  "done_when": [
+    "The active prompt is repaired into a text-bearing prompt or quarantined as blocked.",
+    "Prompt constraints fail any source-art/text-later workaround.",
+    "Carousel doctor reports no active_textless_prompt blocker."
+  ],
+  "allowed_paths": ["pipeline/agentic/**", "pipeline/stages/**", "tests/**", "output/carousels/**/codex-image-prompts/**", "output/carousels/**/prompt-pack.json", "output/carousels/**/image-generation*.json", "output/carousels/**/image-generation-blocker.md"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/agentic/checks/prompt_constraints.py", "pipeline/agentic/workflow_doctor.py", "tests/test_checks_prompt_constraints.py", "tests/test_carousel_workflow_doctor.py"],
+  "forbidden_changes": ["Do not permit text placement afterward for narrative slide text.", "Do not remove exact ON-IMAGE TEXT requirements."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_checks_prompt_constraints.py", "tests/test_carousel_workflow_doctor.py", "-q"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": [],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden checker should vary the wording: clean reserved paper space, add text afterward, text placement later."]
+}

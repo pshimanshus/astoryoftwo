@@ -68,7 +68,7 @@ A hard fail caps the decision at REPAIR regardless of numeric score.
 HARD FAIL — reject or repair before proceeding
 - No emotional obstacle (only a pretty moment).
 - Generic couple dynamic (could be any two people).
-- Zuv has no active emotional role.
+- There is no relationship motion or relevant partner role.
 - Ending is a quote, advice, or generic relationship maxim, not an earned payoff.
 - Copyrighted source text copied verbatim into the artifact.
 - Premise relies on private context the reader cannot infer.

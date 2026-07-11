@@ -64,6 +64,24 @@ def test_expander_raises_on_unknown_rule(tmp_path: Path) -> None:
     assert "does_not_exist" in str(exc_info.value)
 
 
+def test_expander_rejects_path_traversal_rule_name(tmp_path: Path) -> None:
+    _make_rules_dir(tmp_path)
+    secret = tmp_path / "config" / "secret.md"
+    secret.write_text("DO_NOT_INCLUDE", encoding="utf-8")
+
+    with pytest.raises(ValueError) as exc_info:
+        expand_rule_includes("{{rule:../secret}}", tmp_path)
+
+    assert "Invalid rule include" in str(exc_info.value)
+
+
+def test_rule_names_referenced_rejects_path_traversal_marker() -> None:
+    with pytest.raises(ValueError) as exc_info:
+        rule_names_referenced("{{rule:../../secret}}")
+
+    assert "Invalid rule include" in str(exc_info.value)
+
+
 def test_expander_strips_trailing_whitespace_from_rule_files(tmp_path: Path) -> None:
     rules_dir = _make_rules_dir(tmp_path)
     (rules_dir / "voice.md").write_text("VOICE_BODY\n\n\n", encoding="utf-8")

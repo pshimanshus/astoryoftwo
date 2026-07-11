@@ -752,7 +752,7 @@ def recover_post_copy_visual_room(carousel_dir: Path, slides: list[dict[str, Any
                 "slide": int(slide.get("slide", 0) or 0),
                 "copy": slide.get("copy", ""),
                 "visual": slide.get("visual", ""),
-                "format_note": "Render separately for 4:5 and 9:16 without deriving one format from the other.",
+                "format_note": "Render separately for 3:4 and 9:16 without deriving one format from the other.",
             }
             for slide in slides
         ],
@@ -805,7 +805,7 @@ def write_visual_qa_json(carousel_dir: Path, slides: list[dict[str, Any]], promp
         },
         "style": {
             "pass": False,
-            "evidence": "Local paper preview styling exists, but this is not model-native final art.",
+            "evidence": "Local paper preview styling exists, but this is not final publishable art.",
         },
         "scene_logic": {
             "pass": False,
@@ -815,7 +815,7 @@ def write_visual_qa_json(carousel_dir: Path, slides: list[dict[str, Any]], promp
             "pass": False,
             "evidence": "Legacy local preview cannot verify flattering natural Aachu/Zuv pose anatomy.",
         },
-        "model_native_text": {
+        "integrated_final_text": {
             "pass": False,
             "evidence": "Exact copy and @a.storyof.two brandmark are rendered into local preview artwork only.",
             "notes": "Check id preserved for audit compatibility; generation mode is legacy_local_preview_not_publishable.",

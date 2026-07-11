@@ -609,18 +609,14 @@ from PIL import Image
 
 from pipeline.agentic.contracts import WorkflowGate
 
-ASPECT_TARGETS = {
-    "4:5": (4 / 5, 0.01),
-    "9:16": (9 / 16, 0.01),
-}
-MIN_DIMENSIONS = {
+EXACT_DIMENSIONS = {
     "4:5": (1080, 1350),
     "9:16": (1080, 1920),
 }
 
 
 def check_image_size(image_path: Path, aspect: str) -> WorkflowGate:
-    if aspect not in ASPECT_TARGETS:
+    if aspect not in EXACT_DIMENSIONS:
         return WorkflowGate(
             name="image_size", status="FAIL", reason=f"unknown aspect: {aspect}"
         )
@@ -628,29 +624,20 @@ def check_image_size(image_path: Path, aspect: str) -> WorkflowGate:
         return WorkflowGate(
             name="image_size", status="FAIL", reason=f"image missing: {image_path}"
         )
-    target_ratio, tol = ASPECT_TARGETS[aspect]
-    min_w, min_h = MIN_DIMENSIONS[aspect]
+    exact_w, exact_h = EXACT_DIMENSIONS[aspect]
     with Image.open(image_path) as img:
         w, h = img.size
-    actual_ratio = w / h
-    if abs(actual_ratio - target_ratio) > tol:
+    if (w, h) != (exact_w, exact_h):
         return WorkflowGate(
             name="image_size",
             status="FAIL",
-            reason=f"{w}x{h} ratio {actual_ratio:.3f} != target {target_ratio:.3f} ±{tol}",
-            evidence_paths=[str(image_path)],
-        )
-    if w < min_w or h < min_h:
-        return WorkflowGate(
-            name="image_size",
-            status="FAIL",
-            reason=f"{w}x{h} below minimum {min_w}x{min_h}",
+            reason=f"{w}x{h} != exact {exact_w}x{exact_h} for {aspect}",
             evidence_paths=[str(image_path)],
         )
     return WorkflowGate(
         name="image_size",
         status="PASS",
-        reason=f"{w}x{h} matches {aspect}",
+        reason=f"{w}x{h} matches exact {aspect}",
         evidence_paths=[str(image_path)],
     )
 ```

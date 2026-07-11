@@ -67,13 +67,18 @@ Full character descriptions: `../README.md`.
 
 ---
 
-## Slides That Skip Identity References
+## Slides With Hidden Faces
 
-No photos needed for:
-- Object-only slides (cup of tea, locket, note on counter)
-- Detail shots (her anklet, his hand, bracelet, evil eye locket)
-- Over-shoulder shots where faces are not visible
-- Scene-only slides (empty doorway, suitcase at the door)
+Do not drop the selected identity bundle from final carousel generation just
+because a slide hides faces. The package and handoff must still carry the
+selected identity image inputs so wardrobe, hands, jewelry, body scale, and
+relationship continuity stay anchored.
+
+For object-only, detail, over-shoulder, or scene-only slides, QA should not
+claim face preservation from the image itself. Instead verify that the slide
+does not invent new faces or bodies, and that any visible clothing, hands,
+jewelry, or recurring personal details match the selected identity bundle or
+current-request identity photos.
 
 ---
 

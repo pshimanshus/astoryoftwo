@@ -1,17 +1,24 @@
-IDENTITY — the same two recurring people appear in every slide. Aachu (Anchal, the woman) and Zuv (Himanshu, the man). Identity preservation is the highest creative priority, above decorative style.
+IDENTITY — Aachu (Anchal, the woman) and Zuv (Himanshu, the man) are the same recurring people across the carousel. Individual slides may show Aachu, Zuv, both, partial presence, object-only evidence, or no faces when the shot ladder requires it. Identity preservation is the highest creative priority, above decorative style.
 
 HIERARCHY
-- Aachu/Zuv identity references control faces, expressions, posture, body proportions, and wardrobe anchors — always.
+- Selected actual Aachu/Zuv identity images control faces, expressions,
+  posture, body proportions, and wardrobe anchors — always.
 - Style references (Observational Intimacy Premium) control illustration style, paper, palette, line quality, composition — never the faces.
 - Shared brief images control mood, composition, story essence, text, hand gesture, and objects — unless the creator explicitly says otherwise.
 - If these three sources conflict, identity wins.
 
-IDENTITY REFERENCES — `identity_images/`
-- These must be attached to the image-generation call. Text descriptions alone are not sufficient for final Aachu/Zuv artwork.
+IDENTITY REFERENCES — `config/references/identity/`
+- Select a small story-relevant identity bundle from
+  `config/references/identity/` or current-request identity photos before
+  generation. Legacy `identity_images/` references are candidate-library
+  aliases only when that folder exists.
+- These selected images must be attached to the image-generation call. Text
+  descriptions alone are not sufficient for final Aachu/Zuv artwork.
 - If the current generation path cannot accept actual identity reference images, the correct status is `BLOCKED_FOR_IDENTITY_STYLE_REFERENCES`, not "final" and not "proof passed."
 - The 2026-05-30 phone-prank rejection proved this: with only text identity, the model produced generic illustrated characters that the creator rejected on first proof.
 
 AACHU (woman)
+- Aachu is 5'6".
 - Warm medium-brown South Asian skin.
 - Large expressive dark eyes; softly arched brows; delicate nose; natural lips.
 - Youthful oval face; soft cheek structure.
@@ -20,12 +27,16 @@ AACHU (woman)
 - Height: 5'6".
 
 ZUV (man)
+- Zuv is 5'8".
 - Warm medium-brown South Asian skin.
 - Thick dark curly hair (consistent silhouette across slides).
 - Strong eyebrows; dark almond-shaped eyes; defined nose.
 - Short natural stubble beard (consistent density and shape).
 - Kind smile; relaxed masculine facial structure; gentle gaze.
-- Steadiness, patience, active care. He notices, brings, holds, waits — never a passive backdrop.
+- Steadiness, patience, grounded humor, and care when the story is genuinely
+  his beat. Do not make him the default handler, rescuer, admirer, or caretaker
+  for every Aachu-led story; relationship motion may come from Aachu, Zuv,
+  both, a shared rhythm, or a generic couple situation.
 - Height: 5'8".
 
 HEIGHT RULE (hard body-scale gate)
@@ -41,9 +52,18 @@ FACE PRESERVATION
 - Do not create new faces. Do not over-beautify them into different people.
 
 WARDROBE CONTINUITY — casual modern Indo-western
-- Aachu wardrobe options: white oversized shirt, blue jeans, blue-red patterned scarf, red patterned sleeveless top, soft printed kurta, sandals, sneakers, small gold earrings, layered necklaces, bangles, tote bag.
-- Zuv wardrobe options: white casual shirt, navy hoodie, black shirt, tan pants, blue jeans, watch, casual sneakers, backpack.
-- Use outfits appropriate to the scene, but keep the clothing language connected across the carousel. Repeat recognizable items when helpful: blue-red scarf, cream tote bag, white shirt, denim, sneakers.
+- Wardrobe must be selected from the attached identity images or
+  current-request identity photos first. Do not use a fixed wardrobe menu as
+  the source of truth.
+- For each carousel or slide, identify visible clothing/accessory anchors in
+  the selected identity images, then choose story-appropriate outfits, colors,
+  fabrics, jewelry, shoes, bags, and small personal details from those anchors.
+- Vary wardrobe across slides unless the same scene/time continues, the creator
+  asks for continuity, or a signature anchor supports recognition.
+- If a scene needs clothing not visible in the selected identity images, extend
+  conservatively from the same casual modern Indo-western language and state
+  the extension in the slide-specific WARDROBE field. Do not invent random
+  model styling or a new fashion palette.
 
 RECURRING PROPS
 - cream tote bag, blue-red patterned scarf, denim pouch, coffee cup, sneakers, phone with small heart sticker, travel bag, plants, warm lanterns, balcony lights, wooden bench, cafe table, tiny hand-drawn hearts.
@@ -61,6 +81,8 @@ HARD FAIL — regenerate, do not accept
 - new faces invented; either face does not clearly match the selected identity references
 - characters over-beautified into different people (model-prettified, lankier, chiseled, more European, anime-fied)
 - identity built from text-only description without using actual identity reference images
+- wardrobe chosen from a static menu instead of attached identity/current
+  identity photos
 - height proportions wrong (Aachu reads tiny or Zuv reads oversized)
 - crouched / cramped / unflattering poses
 - distorted hands, extra fingers, broken wrists, warped facial features

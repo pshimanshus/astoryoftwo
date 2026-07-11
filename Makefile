@@ -29,6 +29,9 @@ prepost:
 	$(PY) scripts/analyze_prepost.py $(if $(CONCEPT),--concept "$(CONCEPT)") $(if $(HOOK),--hook "$(HOOK)") $(if $(CAPTION),--caption "$(CAPTION)") $(if $(EDIT),--edit "$(EDIT)") $(if $(AUDIO),--audio "$(AUDIO)") $(if $(COVER),--cover "$(COVER)")
 
 carousel:
+	$(PY) -m pytest tests/test_agentic_docs_contract.py tests/test_instruction_surface_contract.py tests/test_codex_project_surfaces.py tests/test_creator_workflow_contract.py -q
+	$(PY) -m pytest tests/test_checks_prompt_constraints.py tests/test_checks_image_size.py tests/test_carousel_state_contract.py tests/test_carousel_workflow_doctor.py tests/test_carousel_doctor_cli.py -q
+	$(PY) scripts/agentic_os.py health
 	$(PY) scripts/create_illustration_carousel.py $(if $(STORY),--story "$(STORY)") $(if $(TITLE),--title "$(TITLE)") --slide-count "$(SLIDES)" $(foreach image,$(IMAGE),--image "$(image)") $(foreach identity,$(IDENTITY_IMAGE),--identity-image "$(identity)")
 
 article:

@@ -35,7 +35,7 @@ Status: NEEDS_FIXES
 
 - REQ-VISUAL-PLAN-QUALITY-001: Per-slide visual screen passes before image generation
 - REQ-FINAL-IMAGES-001: Final generated carousel images are packaged as separate native 4:5 and 9:16 outputs, not local placeholders
-- REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/
+- REQ-INTEGRATED-FINAL-TEXT-001: Default final slides include exact integrated copy and brandmark inside both final/ and final-reels-stories/
 - REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
 - visual_reviewer: Slide 4 must prove Zuv/Himanshu knowingly participates in the bit.; Slide 5 must turn the wallet joke into quiet care by showing extra cash prepared.
 - asset_reviewer: Missing final generated images: output/carousels/2026-05-25/pipeline-dry-run-smoke-test/final/slide-01.png, output/carousels/2026-05-25/pipeline-dry-run-smoke-test/final/slide-02.png, output/carousels/2026-05-25/pipeline-dry-run-smoke-test/final/slide-03.png, output/carousels/2026-05-25/pipeline-dry-run-smoke-test/final/slide-04.png, output/carousels/2026-05-25/pipeline-dry-run-smoke-test/final/slide-05.png

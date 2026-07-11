@@ -2,10 +2,16 @@
 # This file loads every session. It is the visual brain.
 # When you make any illustration decision, check here first.
 
-last_updated: 2026-05-31
+last_updated: 2026-06-30
 confidence: 1.0
 sources:
 - direct creator instruction 2026-05-31
+- direct creator correction 2026-06-15: break the pattern across carousel
+  images; do not repeat the same angle, same couple action, same books/bed/chai
+  garden scene grammar
+- direct creator correction 2026-06-30: on-image text must be present from the
+  first proof onward; blank-scene/deferred-lettering workflows are blocked,
+  not valid intermediates
 - memory/semantic/premium-illustration-style-lock.md
 - config/references/a-story-illustration-master-prompt.md
 - config/references/identity/README.md
@@ -178,6 +184,26 @@ Slide 6+: MEDIUM or CLOSE (the earned ending — together or apart, both work)
 Never repeat the same shot type twice in a row. Never use full-couple medium
 shots for 4 of 5 slides.
 
+## Pattern-Breaking Rule
+
+Changing outfits is not enough. Every carousel visual plan must change the
+visual sentence across slides:
+- shot type: wide, medium, close-up, over-shoulder, single-person, object-only,
+  detail, reaction, or transition;
+- camera angle: front, profile, overhead, table-level, doorway, reflection,
+  behind/over-shoulder, or distant establishing view;
+- setting lane: bedroom, kitchen, street, cafe, balcony, travel, doorway,
+  car/ride, bathroom/vanity, terrace, shop, hotel, family-function, or
+  object-only paper space;
+- primary action and who is visible.
+
+Hard fail: every slide shows both of them from the same three-quarter/front
+angle doing the same emotional listening/comforting action. Hard fail: the deck
+keeps returning to the same bed, books, chai, mugs, garden table, balcony
+plants, or generic soft-couple setup without story need. If the story needs one
+continuous location, vary distance, angle, hand/object focus, and perspective
+so the carousel still feels like a sequence rather than repeated captions.
+
 ---
 
 ## Font + Typography
@@ -186,7 +212,12 @@ shots for 4 of 5 slides.
 - Dark charcoal, slightly imperfect, naturally integrated into the paper
 - Readable at phone screen size — never smaller than a comfortable phone read
 - Upper-middle placement: the text sits in the clean space, not overlaid on faces
-- On-image text is BAKED into the illustration, not overlaid in post
+- On-image text is generated into the illustration from the first proof onward.
+  If exact copy fails, block or retry with a stronger text-bearing prompt. A
+  local typography repair may only correct an already text-bearing raster; it
+  is not permission to create a blank illustration for deferred lettering. The
+  final must read as one integrated A Story paper illustration, not a separate
+  quote-card, platform overlay, or flat digital layer.
 - Reaction annotations use the same font family but with a slightly rougher/faster
   feel, as if written in the moment
 
@@ -248,4 +279,6 @@ The visual feels like @a.storyof.two when:
 - Dense cinematic landscape takes over the frame (the couple becomes tiny)
 - Yellow/parchment paper that reads warm in a bad way
 - No shot variation — same framing slide after slide
+- Same bed/table/chai/books/garden prop cluster repeated across the deck
+- Wardrobe changes but camera, action, and blocking stay the same
 - Text placed on faces or clothing instead of clean upper space

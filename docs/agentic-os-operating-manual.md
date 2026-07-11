@@ -40,8 +40,9 @@ runner uses to PASS/FAIL slides on measurement instead of LLM opinion:
 - `check_ocr_text` — OCR vs. expected `slides.md` text with fuzzy
   tolerance for handwritten variation. Degrades to STOP (soft skip)
   when easyocr is not installed.
-- `check_image_size` — native 4:5 / 9:16 aspect within ±0.01 plus
-  minimum dimensions. Catches "one image resized into both formats."
+- `check_image_size` — exact native pixel dimensions: 1080x1350 for
+  post/carousel, 1080x1920 for Story/Reel, and 1080x1080 for explicit square.
+  Rejects same-ratio/minimum-size variants instead of resizing them.
 - `check_prompt_constraints` — compiled prompt contains 8 canonical
   fragments. Catches prompt-compile drift before generation.
 
@@ -173,7 +174,7 @@ Reject or repair before C-layer or D-layer work if:
 - no emotional obstacle;
 - only a pretty moment;
 - generic couple dynamic;
-- Zuv has no active emotional role;
+- there is no relationship motion or relevant partner role;
 - ending is a quote, not an earned payoff;
 - copyrighted source text is copied into artifacts.
 
@@ -435,8 +436,8 @@ After the memory, Layer E, and golden-theme gates are loaded, always load
 copy, captions, visual directions, prompts, or image-generation handoff text.
 The persona persists until final native 4:5 and 9:16 image sets, visual QA,
 and approval artifacts exist. It must block any direction that lacks a hook,
-setup, proof, escalation, bridge, active Zuv role, earned ending, or
-send/save reason.
+setup, proof, escalation, bridge, relationship motion or relevant partner role,
+earned ending, or send/save reason.
 
 Before finalizing any next carousel idea or theme, run the golden-theme variant
 tournament: create 5-10 distinct concept options, score each on the 30-point
@@ -745,7 +746,7 @@ This writes:
 
 The health gate checks that:
 
-- advertised pipeline files in `AGENTS.md` / `CLAUDE.md` exist;
+- advertised pipeline files in `AGENTS.md` exist;
 - `wiki/index.md` page counts are current;
 - wiki pages carry `last_updated`, `confidence`, and `sources`;
 - semantic memory files carry confidence scores;

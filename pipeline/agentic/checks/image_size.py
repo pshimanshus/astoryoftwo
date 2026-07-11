@@ -1,7 +1,7 @@
-"""Image size + aspect check — is this a real native 4:5 or 9:16 export?
+"""Image size check — is this a real native image export?
 
 Catches "single image resized into the other format" failures by
-asserting both ratio (within tolerance) and minimum dimensions.
+requiring the exact native pixel dimensions for the requested surface.
 """
 
 from __future__ import annotations
@@ -13,23 +13,22 @@ from PIL import Image
 from pipeline.agentic.contracts import WorkflowGate
 
 
-ASPECT_TARGETS = {
-    "4:5": (4 / 5, 0.01),
-    "9:16": (9 / 16, 0.01),
-}
-MIN_DIMENSIONS = {
-    "4:5": (1080, 1350),
+EXACT_DIMENSIONS = {
+    "3:4": (1080, 1440),
     "9:16": (1080, 1920),
+    "1:1": (1080, 1080),
+    "square": (1080, 1080),
+    "square_1080": (1080, 1080),
 }
 
 
 def check_image_size(image_path: Path, aspect: str) -> WorkflowGate:
     image_path = Path(image_path)
-    if aspect not in ASPECT_TARGETS:
+    if aspect not in EXACT_DIMENSIONS:
         return WorkflowGate(
             name="image_size",
             status="FAIL",
-            reason=f"unknown aspect '{aspect}' (expected one of {sorted(ASPECT_TARGETS)})",
+            reason=f"unknown aspect '{aspect}' (expected one of {sorted(EXACT_DIMENSIONS)})",
         )
     if not image_path.exists():
         return WorkflowGate(
@@ -38,32 +37,20 @@ def check_image_size(image_path: Path, aspect: str) -> WorkflowGate:
             reason=f"image missing: {image_path}",
         )
 
-    target_ratio, tol = ASPECT_TARGETS[aspect]
-    min_w, min_h = MIN_DIMENSIONS[aspect]
+    exact_w, exact_h = EXACT_DIMENSIONS[aspect]
     with Image.open(image_path) as img:
         width, height = img.size
 
-    actual_ratio = width / height
-    if abs(actual_ratio - target_ratio) > tol:
+    if (width, height) != (exact_w, exact_h):
         return WorkflowGate(
             name="image_size",
             status="FAIL",
-            reason=(
-                f"{width}x{height} ratio {actual_ratio:.3f} != target "
-                f"{target_ratio:.3f} (tol ±{tol})"
-            ),
-            evidence_paths=[str(image_path)],
-        )
-    if width < min_w or height < min_h:
-        return WorkflowGate(
-            name="image_size",
-            status="FAIL",
-            reason=f"{width}x{height} below minimum {min_w}x{min_h} for {aspect}",
+            reason=f"{width}x{height} != exact {exact_w}x{exact_h} for {aspect}",
             evidence_paths=[str(image_path)],
         )
     return WorkflowGate(
         name="image_size",
         status="PASS",
-        reason=f"{width}x{height} matches {aspect}",
+        reason=f"{width}x{height} matches exact {aspect}",
         evidence_paths=[str(image_path)],
     )

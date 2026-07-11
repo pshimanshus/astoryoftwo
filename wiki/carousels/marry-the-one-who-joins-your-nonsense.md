@@ -35,7 +35,7 @@ Status: NEEDS_FIXES
 
 ## Issues
 
-- REQ-MODEL-NATIVE-TEXT-001: Default final slides include rendered copy and brandmark inside both final/ and final-reels-stories/
+- REQ-INTEGRATED-FINAL-TEXT-001: Default final slides include exact integrated copy and brandmark inside both final/ and final-reels-stories/
 
 ## Notes
 

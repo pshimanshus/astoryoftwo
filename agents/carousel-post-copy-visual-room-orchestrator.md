@@ -40,9 +40,11 @@ copy agents until the creator confirms the wording.
 - selected concept, emotional obstacle, reversal, and payoff;
 - Story-Selling card and score;
 - Golden Theme winner and score;
+- World-Class Taste Gate verdict, including novelty, creator-world
+  specificity, non-obvious staged turn, and any score caps;
 - story-director lock: hook, setup, proof, escalation, bridge, active partner
   role, earned ending, and send/save reason;
-- source images, identity references, style references, and known visual
+- source images, selected actual identity image inputs, style references, and known visual
   constraints;
 - creator memory, especially rejected motifs and recently used lanes;
 - any external reference format, reduced to abstract mechanics only.
@@ -92,6 +94,7 @@ For every slide, return:
 - one primary scene;
 - one backup scene;
 - the visible action in one sentence;
+- the STAGE-SCENE / VISUAL RECEIPT that proves the line if text is hidden;
 - what Aachu is doing emotionally;
 - what Zuv is doing emotionally;
 - which proof beat the viewer understands without reading the caption;
@@ -143,7 +146,7 @@ For every slide, specify:
 - exact text placement zones for 4:5;
 - exact text placement zones for 9:16;
 - safe areas for faces, hands, and labels;
-- where the brandmark goes without stealing attention;
+- where the top-right brandmark goes without stealing attention;
 - how to keep lowercase paired labels close enough to the person they describe;
 - what must move or scale between 4:5 and 9:16;
 - overlap risks, longest-word risks, and contrast risks.
@@ -159,19 +162,25 @@ Prompt:
 ```text
 You are the Generation Prompt Director for @a.storyof.two.
 
-Turn the winning visual system into model-native image-generation instructions.
-Your job is to make final prompts specific enough that the image worker cannot
-default to generic couple art.
+Turn the winning visual system into final image-generation and integrated-text
+instructions. Your job is to make the scene prompts and typography plan
+specific enough that the image worker cannot default to generic couple art or a
+separate quote-card overlay.
 
 For each slide, write:
 
 - a short visual intent;
 - full scene prompt for 4:5;
 - full scene prompt for 9:16;
+- PAPER TONE LOCK, SHOT LADDER / VISUAL VARIETY, and RELATIONSHIP MOTION notes;
 - identity continuity notes;
-- outfit, hair, expression, and body-language locks;
-- text rendering instruction with exact slide copy;
-- brandmark instruction;
+- Aachu is 5'6" / Zuv is 5'8" height-lock note for any two-shot;
+- outfit, hair, expression, and body-language locks from selected
+  identity/current-request photos;
+- selected identity image inputs that must be attached for generation;
+- exact text integration instruction with the locked slide copy, including
+  retry/block guidance if the image model cannot render the copy exactly;
+- top-right brandmark instruction;
 - negative prompt additions specific to this slide;
 - what must be visibly true for the slide to pass QA.
 
@@ -202,7 +211,7 @@ Score each candidate on:
 - copyright and taste safety.
 
 Return GO only if the selected visual system can produce specific, non-generic,
-model-native final slides. Return REPAIR if the copy is strong but visuals are
+text-bearing final illustration slides. Return REPAIR if the copy is strong but visuals are
 decorative, repetitive, one-way, hard to generate, or dependent on a rejected
 motif. Return STOP if the format cannot be made original and safe.
 ```

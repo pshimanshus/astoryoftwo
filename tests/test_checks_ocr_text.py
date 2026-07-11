@@ -56,6 +56,17 @@ def test_gate_returns_stop_when_easyocr_unavailable(tmp_path, monkeypatch) -> No
     assert "easyocr" in gate.reason.lower()
 
 
+def test_gate_fails_in_publish_mode_when_easyocr_unavailable(tmp_path, monkeypatch) -> None:
+    import pipeline.agentic.checks.ocr_text as ocr_mod
+
+    monkeypatch.setattr(ocr_mod, "_easyocr_available", lambda: False)
+    path = _render_text_image(tmp_path / "hello.png", "hello")
+    gate = check_ocr_text(path, "hello", publish_mode=True)
+    assert gate.status == "FAIL"
+    assert "publish" in gate.reason.lower()
+    assert "easyocr" in gate.reason.lower()
+
+
 def test_gate_fails_when_image_missing(tmp_path) -> None:
     gate = check_ocr_text(tmp_path / "missing.png", "anything")
     assert gate.status == "FAIL"

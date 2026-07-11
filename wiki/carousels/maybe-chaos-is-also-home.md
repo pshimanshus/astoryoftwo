@@ -34,7 +34,7 @@ Status: BLOCKED
 ## Issues
 
 - REQ-FINAL-IMAGES-001: Final generated carousel images are packaged from approved generated art, not local placeholders
-- REQ-MODEL-NATIVE-TEXT-001: Default final slides include model-rendered copy and brandmark inside final/slide-XX.png
+- REQ-INTEGRATED-FINAL-TEXT-001: Default final slides include exact integrated copy and brandmark inside final/slide-XX.png
 - REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
 - asset_reviewer: Unexpected render status: BLOCKED.; Missing final generated images: output/carousels/2026-05-18/maybe-chaos-is-also-home/final/slide-01.png, output/carousels/2026-05-18/maybe-chaos-is-also-home/final/slide-02.png, output/carousels/2026-05-18/maybe-chaos-is-also-home/final/slide-03.png, output/carousels/2026-05-18/maybe-chaos-is-also-home/final/slide-04.png, output/carousels/2026-05-18/maybe-chaos-is-also-home/final/slide-05.png
 

@@ -1,6 +1,6 @@
 # A Story Of Two Premium Illustration Style Lock
 
-last_updated: 2026-05-30
+last_updated: 2026-06-30
 status: creator_locked
 confidence: 1.0
 
@@ -39,16 +39,32 @@ going forward.
   muted denim, soft navy, camel, terracotta, faded sage, peach blush, dusty
   coral.
 - Keep faces identity-first and carefully drawn; preserve Aachu/Zuv likeness
-  over decorative style. Use Aachu/Zuv identity references as the face,
-  expression, posture, and wardrobe anchor always.
+  over decorative style. Use selected actual Aachu/Zuv identity images as
+  attached face, expression, posture, body-proportion, and wardrobe anchors.
+  Wardrobe comes from those identity/current-request photos first, not from a
+  static outfit menu.
+- Preserve the height lock whenever both bodies are visible: Aachu is 5'6" and
+  Zuv is 5'8"; the two-inch difference must read naturally, never tiny/oversized.
 - Keep scenes intimate, domestic/travel-light, and tactile, with rich detail in
   wardrobe, hair, ceramic, wood, paper, bags, shoes, chargers, phones, scarves,
   and plants.
+- PAPER TONE LOCK: the whole paper field must stay neutral premium warm
+  ivory/off-white; scene warmth belongs inside objects, skin, textiles, lamps,
+  or accents, not in yellow/parchment paper.
 - Use clean upper-middle negative space for exact readable hand-drawn
   typography. The text should feel drawn into the paper, not digitally pasted.
   Lock the handwritten font style to the approved references.
 - Always include the tiny low-contrast handwritten `@a.storyof.two` brandmark
-  at bottom-right.
+  at top-right.
+- STAGE-SCENE / VISUAL RECEIPT: every slide must visibly prove the line through
+  behavior, object movement, body position, expression, contradiction, ritual,
+  or aftermath.
+- SHOT LADDER / VISUAL VARIETY: a carousel may show Aachu, Zuv, both, partial
+  presence, object-only evidence, or no faces; vary camera, action, setting,
+  and who is visible instead of forcing a repeated couple medium shot.
+- RELATIONSHIP MOTION: the love proof may come from Aachu, Zuv, both, a shared
+  object, a repeated rhythm, or a public couple mirror; do not force Zuv into a
+  default handler/caretaker role.
 - Use shared brief images only as mood/composition/story references unless the
   creator explicitly says otherwise. Do not let an external reference style
   override this house look.

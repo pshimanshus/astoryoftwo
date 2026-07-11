@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).parent.parent.parent
 SKILLS_DIR = BASE_DIR / "config" / "skills"
 AGENTS_DIR = BASE_DIR / "agents"
 OUTPUT_ROOT = BASE_DIR / "output" / "carousels"
-VOICE_FILE = BASE_DIR / "config" / "voice.md"
+VOICE_FILE = BASE_DIR / "config" / "rules" / "voice.md"
 WORKING_MEMORY = BASE_DIR / "memory" / "working.md"
 MIN_STORY_SLIDES = 4
 MAX_STORY_SLIDES = 10
@@ -49,6 +49,7 @@ RELATED_SKILL_REFERENCES = {
 }
 
 ARTIFACT_CONTRACT = {
+    "creative_baseline": "creative-baseline.json",
     "concept": "concept.json",
     "post_copy_visual_room": "post-copy-visual-room.json",
     "visual_debate": "visual-debate.json",
@@ -466,8 +467,8 @@ def build_manifest(
             "type": "carousel",
             "native_outputs": {
                 "instagram_post": {
-                    "aspect_ratio": "4:5",
-                    "size": "1080x1350",
+                    "aspect_ratio": "3:4",
+                    "size": "1080x1440",
                     "directory": "final/",
                 },
                 "reels_stories": {
@@ -619,8 +620,8 @@ def write_approval_checklist(out_dir: Path, package: dict[str, Any]) -> None:
         "- [ ] `post-copy-visual-room.json` is GO after copy confirmation.",
         "- [ ] The prompts preserve the supplied photos and story.",
         "- [ ] The package does not feel like generic couple content.",
-        "- [ ] Text is short enough for both 1080x1350 post slides and 1080x1920 Reels/Stories slides.",
-        "- [ ] Final generation will create separate native 4:5 and 9:16 outputs, not a resized duplicate.",
+        "- [ ] Text is short enough for both 1080x1440 post slides and 1080x1920 Reels/Stories slides.",
+        "- [ ] Final generation will create separate native 3:4 and 9:16 outputs, not a resized duplicate.",
         "- [ ] Brandmark is tiny and low contrast.",
         "",
         "## Required Changes",
@@ -651,6 +652,18 @@ def write_package(
 ) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     write_json(out_dir / "manifest.json", manifest)
+    write_json(
+        out_dir / "creative-baseline.json",
+        package.get(
+            "creative_baseline",
+            {
+                "status": "not_supplied",
+                "source": "anthropic_c_layer_agents",
+                "creative_authority": "model_first_expected",
+                "guardrail_role": "engineering blocks hard failures after the creative pass",
+            },
+        ),
+    )
     write_json(out_dir / "concept.json", package["concept"])
     write_json(out_dir / "post-copy-visual-room.json", package["post_copy_visual_room"])
     write_json(out_dir / "visual-debate.json", package["visual_debate"])

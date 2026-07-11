@@ -53,6 +53,7 @@ output/wallpapers/
 output/single-posts/**/node_modules/
 
 # Generated diagnostics/log churn can be recreated, but selected docs may be promoted manually.
-logs/
+logs/*
+!logs/.gitkeep
 memory/agentic/index/*.sqlite3
 memory/agentic/index/*.sqlite3-*

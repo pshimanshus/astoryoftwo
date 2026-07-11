@@ -8,6 +8,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from pipeline.agentic.workflow_doctor import inspect_carousel_package
 from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
 
 
@@ -19,6 +20,11 @@ def package_generated_images(
     refresh_quality: bool = False,
 ) -> dict[str, Any]:
     """Package paired native outputs; never derive one social format from another."""
+
+    doctor_report = inspect_carousel_package(carousel_dir)
+    if doctor_report.blocked:
+        issue_codes = ", ".join(issue.code for issue in doctor_report.issues)
+        raise ValueError(f"Cannot package generated images for blocked carousel package: {issue_codes}")
 
     return package_codex_builtin_outputs(
         carousel_dir,

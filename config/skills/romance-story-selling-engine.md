@@ -22,6 +22,10 @@ packaging or image generation.
 
 ## Required References
 
+For normal carousel jams, start with
+`config/skills/carousel-jam-runtime-context.md`. It is the compact runtime
+entrypoint for the repeated source-memory gate.
+
 Read only what is needed for the current request:
 
 - `config/references/story-selling-canon/a-story-of-two-adaptation.md`
@@ -44,9 +48,12 @@ For carousel ideas, also read the current gold-theme source memory:
    dynamic, and any source-canon pattern that is being used. Do not copy
    copyrighted source text into artifacts.
    If any external source is used, apply `source-policy.md` first.
-2. Load `wiki/insights/successful-carousel-standard.md` and define what
-   success looks like before writing: audience success, creative success,
-   brand success, and production success.
+2. Use `config/skills/carousel-jam-runtime-context.md` to define what success
+   looks like before writing: audience success, creative success, brand
+   success, and production success. Open
+   `wiki/insights/successful-carousel-standard.md` only when the full source
+   standard is needed for scoring, repair, conflict resolution, or audit
+   evidence.
 3. Choose one concept-process card from
    `config/references/story-selling-canon/concept-process-cards.md`.
 4. Generate 5-10 concept variants if the task is ideation, carousel selection,
@@ -59,13 +66,18 @@ For carousel ideas, also read the current gold-theme source memory:
    consequence, reversal, and payoff. Text completes the scene; text must not
    carry the scene.
 7. Before writing hooks, slides, copy, visual direction, or prompt text, apply
-   `config/skills/carousel-story-director-persona.md` and confirm hook,
-   setup, proof, bridge, active Zuv role, earned ending, and send/save reason.
+   `config/skills/carousel-story-director-persona.md` and confirm hook, setup,
+   proof, bridge, relationship motion or relevant partner role, earned ending,
+   and send/save reason.
 8. Score the best candidate with the 30-point Story-Selling rubric in
    `config/references/story-selling-canon/rubric.md`.
-9. Proceed only when the selected concept reaches 28/30 on Story-Selling and,
-   for carousel work, 28/30 on Golden Theme.
-10. Adapt the winner to the proper artifact contract:
+9. For carousel work, run the World-Class Taste Gate from
+   `config/skills/golden-viral-carousel-theme.md`. Any novelty,
+   creator-world, known-trope, or generic-couple score cap overrides the
+   Story-Selling score.
+10. Proceed only when the selected concept reaches 28/30 on Story-Selling and,
+   for carousel work, 28/30 on Golden Theme with no taste-gate cap.
+11. Adapt the winner to the proper artifact contract:
    - C-layer: `concept.json`, `slides.json`, `prompt-pack.json`, `copy.json`,
      `review.json`, and final image gates.
    - D-layer: article brief, outline, draft, growth package, editorial gates,
@@ -90,6 +102,7 @@ For creator-facing ideation, return:
 - selected concept-process card;
 - candidate table with Story-Selling scores;
 - for carousel work, Golden Theme scores too;
+- for carousel work, World-Class Taste Gate verdict and any score caps;
 - selector verdict;
 - GO / REPAIR / STOP decision;
 - one-line explanation of the emotional machine.
@@ -108,7 +121,9 @@ Reject or repair before C-layer or D-layer work if:
 - there is no emotional obstacle;
 - the idea is only a pretty moment;
 - the couple dynamic is generic;
-- Zuv has no active emotional role;
+- the idea is a recognizable trope with golden-theme pieces attached but no
+  novelty, creator-world specificity, or non-obvious staged turn;
+- there is no relationship motion or relevant partner role;
 - the ending is a quote, not an earned payoff;
 - copyrighted source text is copied into artifacts.
 
@@ -116,4 +131,7 @@ Reject or repair before C-layer or D-layer work if:
 
 When this skill is invoked, the selected concept must score 28/30 or higher on
 the Story-Selling rubric before carousel packaging or article drafting proceeds.
-If no candidate reaches 28/30, repair the top candidates and rescore.
+For carousel work, this is necessary but not sufficient: the Golden Theme score
+must also be 28/30+, and the World-Class Taste Gate must apply no cap. If no
+candidate reaches 28/30 after taste caps, repair the top candidates from story
+and scene, not wording only, then rescore.

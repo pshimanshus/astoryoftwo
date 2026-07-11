@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-012-visual-variety-shot-ladder",
+  "title": "Repair a repeated-scene carousel visual plan with a shot ladder",
+  "category": "creative_contract",
+  "difficulty": "hard",
+  "suites": ["creative", "carousel", "full"],
+  "prompt": "prompt.md",
+  "starting_state": [
+    "A seven-slide carousel plan uses the same medium two-shot in the same room for every slide.",
+    "The copy is warm, but hiding the text makes the visuals interchangeable."
+  ],
+  "done_when": [
+    "The visual plan includes a shot ladder before image generation.",
+    "Slides vary camera distance, angle, action, setting or sub-location, props, and who is visible.",
+    "Generation remains blocked until visual-plan-quality is GO/PASS."
+  ],
+  "allowed_paths": ["pipeline/stages/**", "pipeline/agentic/**", "config/rules/visual-variety.md", "tests/**", "output/carousels/**/visual-plan-quality.json", "output/carousels/**/storyboard.md"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/stages/carousel_visual_rooms.py", "tests/test_story_scene_first_contract.py", "tests/test_illustration_carousel.py"],
+  "forbidden_changes": ["Do not allow quote-card visuals with characters added later.", "Do not approve repeated full-couple medium shots by changing the threshold."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_story_scene_first_contract.py", "tests/test_illustration_carousel.py", "-q"]],
+  "deterministic_checkers": ["diff_guard"],
+  "rubric_checkers": ["visual_variety"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
+  "anti_gaming_notes": ["Hidden checker should hide slide text and compare visual fields for repeated setting/action/shot patterns."]
+}

@@ -78,9 +78,9 @@ def write_approval(out_dir: Path, package: dict[str, Any]) -> None:
         "- [ ] Story-Selling gate is PASS and the selected process card is visible in `concept.json`.",
         "- [ ] Story Director gate is PASS: hook, story, bridge, Zuv role, ending, and send/save reason are visible.",
         "- [ ] Successful carousel standard is PASS: agents aligned to the real goals, not a keyword checklist.",
-        "- [ ] Model-native 4:5 Instagram post images exist in `final/slide-XX.png`.",
+        "- [ ] Model-native 3:4 Instagram post images exist in `final/slide-XX.png`.",
         "- [ ] Model-native 9:16 Reels/Stories images exist in `final-reels-stories/slide-XX.png`.",
-        "- [ ] The 9:16 outputs were generated natively, not resized/cropped/padded from the 4:5 outputs.",
+        "- [ ] The 9:16 outputs were generated natively, not resized/cropped/padded from the 3:4 outputs.",
         "- [ ] Exact slide copy and brandmark are rendered inside the artwork.",
         "- [ ] Text is readable at Instagram size and has no spelling errors.",
         "- [ ] `visual-qa.md` has no failed checks.",
@@ -201,8 +201,8 @@ def build_manifest(
             "slide_count": slide_count,
             "native_outputs": {
                 "instagram_post": {
-                    "aspect_ratio": "4:5",
-                    "size": "1080x1350",
+                    "aspect_ratio": "3:4",
+                    "size": "1080x1440",
                     "directory": "final/",
                 },
                 "reels_stories": {
@@ -269,6 +269,7 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
     )
     out_dir.mkdir(parents=True, exist_ok=True)
     write_json(out_dir / "manifest.json", manifest)
+    write_json(out_dir / "creative-baseline.json", package["creative_baseline"])
     write_json(out_dir / "concept.json", package["concept"])
     if package.get("concept_selection"):
         write_json(out_dir / "concept-selection.json", package["concept_selection"])
@@ -365,7 +366,7 @@ def try_render_assets(out_dir: Path, slides: list[dict[str, Any]]) -> dict[str, 
             raise RuntimeError(f"Could not encode {path}")
         path.write_bytes(encoded.tobytes())
 
-    for folder in ["instagram-story", "instagram-clean", "hd-story", "hd-clean"]:
+    for folder in ["legacy-preview-clean", "legacy-preview-text"]:
         (out_dir / folder).mkdir(parents=True, exist_ok=True)
 
     rendered = []
@@ -386,31 +387,27 @@ def try_render_assets(out_dir: Path, slides: list[dict[str, Any]]) -> dict[str, 
         except Exception as exc:  # noqa: BLE001 - best-effort renderer should not break package creation.
             return {"status": "partial", "reason": str(exc), "slides": rendered}
 
-        hd = cover_resize(image, 2160, 2700)
-        story = hd.copy()
+        clean = cover_resize(image, 1080, 1440)
+        text_preview = clean.copy()
         copy_lines = wrap(slide["copy"], 30)
-        panel_height = 170 + (len(copy_lines) * 126)
-        overlay = story.copy()
-        cv2.rectangle(overlay, (95, 85), (2065, panel_height), (236, 226, 207), -1)
-        story = cv2.addWeighted(overlay, 0.72, story, 0.28, 0)
-        y = 190
+        panel_height = 85 + (len(copy_lines) * 63)
+        overlay = text_preview.copy()
+        cv2.rectangle(overlay, (48, 42), (1032, panel_height), (236, 226, 207), -1)
+        text_preview = cv2.addWeighted(overlay, 0.72, text_preview, 0.28, 0)
+        y = 95
         for line in copy_lines:
-            cv2.putText(story, line, (145, y), cv2.FONT_HERSHEY_SIMPLEX, 2.0, (42, 38, 33), 5, cv2.LINE_AA)
-            y += 126
-        cv2.putText(story, f"{slide['slide']:02d} / {len(slides):02d}", (145, 2545), cv2.FONT_HERSHEY_SIMPLEX, 0.78, (92, 86, 76), 2, cv2.LINE_AA)
-        cv2.putText(story, "@a.storyof.two", (1560, 2545), cv2.FONT_HERSHEY_SIMPLEX, 0.78, (92, 86, 76), 2, cv2.LINE_AA)
+            cv2.putText(text_preview, line, (72, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (42, 38, 33), 3, cv2.LINE_AA)
+            y += 63
+        cv2.putText(text_preview, f"{slide['slide']:02d} / {len(slides):02d}", (72, 1272), cv2.FONT_HERSHEY_SIMPLEX, 0.42, (92, 86, 76), 1, cv2.LINE_AA)
+        cv2.putText(text_preview, "@a.storyof.two", (780, 1272), cv2.FONT_HERSHEY_SIMPLEX, 0.42, (92, 86, 76), 1, cv2.LINE_AA)
 
         number = f"{slide['slide']:02d}"
         outputs = {
-            "hd_clean": f"hd-clean/slide-{number}.jpg",
-            "hd_story": f"hd-story/slide-{number}.jpg",
-            "instagram_clean": f"instagram-clean/slide-{number}.jpg",
-            "instagram_story": f"instagram-story/slide-{number}.jpg",
+            "legacy_preview_clean": f"legacy-preview-clean/slide-{number}.jpg",
+            "legacy_preview_text": f"legacy-preview-text/slide-{number}.jpg",
         }
-        write_jpg(out_dir / outputs["hd_clean"], hd)
-        write_jpg(out_dir / outputs["hd_story"], story)
-        write_jpg(out_dir / outputs["instagram_clean"], cv2.resize(hd, (1080, 1350), interpolation=cv2.INTER_AREA))
-        write_jpg(out_dir / outputs["instagram_story"], cv2.resize(story, (1080, 1350), interpolation=cv2.INTER_AREA))
+        write_jpg(out_dir / outputs["legacy_preview_clean"], clean)
+        write_jpg(out_dir / outputs["legacy_preview_text"], text_preview)
         rendered.append({"slide": slide["slide"], "source": source, "outputs": outputs})
 
     return {"status": "rendered", "mode": "local_cv2_stylized_render", "slides": rendered}

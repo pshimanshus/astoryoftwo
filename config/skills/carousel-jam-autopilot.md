@@ -1,9 +1,10 @@
 # Carousel Jam Autopilot
 
-last_updated: 2026-05-24
+last_updated: 2026-06-27
 confidence: 0.99
 sources:
 - direct creator instruction on 2026-05-24
+- config/skills/creator-skill-stack.md
 - config/skills/continuous-carousel-agent-room.md
 - config/skills/carousel-story-director-persona.md
 - config/skills/illustration-carousel-framework.md
@@ -18,7 +19,7 @@ single idea into a finished @a.storyof.two carousel.
 The goal is not a plan, prompt pack, or handoff. The goal is final packaged
 images:
 
-- `final/slide-XX.png` for native `4:5` Instagram carousel;
+- `final/slide-XX.png` for native `3:4` Instagram carousel;
 - `final-reels-stories/slide-XX.png` for separate native `9:16` companion
   slides;
 - `final-images.json`, `visual-qa.md`, and `final-audit.json` updated after
@@ -53,6 +54,27 @@ packaging, and QA.
 If final-image generation is not available or a required reference is missing,
 write a concrete blocker file inside the carousel package and ask the creator
 for only the missing item.
+
+## Jam Debate First
+
+When the creator starts with "jam", the first creator-facing checkpoint is
+story/theme lock, not slide copy. Internally, run a free creative pass first:
+let the model generate concept, copy, and visual setup together so the alive
+route can reveal itself. Then use engineering guardrails to check repetition,
+identity, visual quality, exact text, brandmark, dimensions, stale artifacts,
+and house guidance.
+
+Before showing any concept suggestion, invoke
+`config/skills/creator-skill-stack.md`: define scroll stop, recognition,
+emotional contradiction, scene proof, retention ladder, payoff, format remix,
+audience mirror, volume path, taste gate, and DM Send Test. This is the jam
+hook, not public copy.
+
+Do not answer an opening jam with a 5-line slide copy, hook bank, or slide
+architecture. Before concept lock, creator-facing output may include the
+emotional machine, reader mirror, obstacle, proof engine, Stage-Scene beats,
+rejected lanes, scores, and GO / REPAIR / STOP verdict. Public slide copy
+waits until the creator approves the concept direction.
 
 ## Creator Raw Scene Lock
 
@@ -95,14 +117,23 @@ moving unless they change public copy, visual meaning, identity, or safety.
 Use actual parallel/sub-agent tools when available. If tools are unavailable,
 simulate the room as separate named reviewers and record the limitation.
 
+Each serious route needs a discussion room, not one isolated agent per role.
+For the top routes, run at least two creative-editor voices and two writer
+voices debating the same story spine before the selector sees it. The room must
+argue what story/viral/golden theme is being protected, what the idea loses if
+written too soon, and why the rejected routes are weaker.
+
 Minimum room:
 
 - Storyline Architect: obstacle, proof, reversal, payoff, 5-10 routes.
 - Contrarian Critic: why it fails, safety/taste risks, private-context risk.
 - Retention Analyst: hook, swipe ladder, middle re-engagement, send/save.
-- Visual Director: scenes, identity, typography, 4:5 and 9:16 feasibility.
+- Visual Director: scenes, identity, typography, 3:4 and 9:16 feasibility.
 - Copy Chief: slide copy, caption, no-name public wording, exact text.
 - Algorithm / Brand Strategist: shareability, comment/tag behavior, brand IP.
+- World-Class Taste Judge: novelty, creator-world specificity, non-obvious
+  staged turn, anti-generic score caps, and whether only @a.storyof.two can
+  post this route this way.
 - Harsh Final Selector: one winner, repairs, GO / REPAIR / STOP.
 
 Write or update:
@@ -111,6 +142,7 @@ Write or update:
 - `concept-routes.json`
 - `concept-debate.json`
 - `concept-repairs.json`
+- `taste-gate.json`
 - `concept-selection.json`
 
 ## Autopilot Sequence
@@ -121,56 +153,90 @@ Write or update:
      row preserves the creator's literal facts;
    - if any beat invents, removes, abstracts, or rearranges the event, return
      STOP and repair the row before continuing.
-1. Load memory and exclusions:
-   - `wiki/insights/successful-carousel-standard.md`
-   - `memory/semantic/carousel-idea-preferences.md`
-   - `wiki/themes/calm-enough-for-chaos.md`
-   - `output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md`
-2. Define what success looks like before writing:
+1. Load compact runtime context:
+   - `config/skills/carousel-jam-runtime-context.md`
+   - do not full-read the four long source files below as a routine opening
+     move; open only the needed section when scoring, repairing, resolving a
+     conflict, updating durable memory, or gathering final audit evidence.
+   - deep source references:
+     - `wiki/insights/successful-carousel-standard.md`
+     - `memory/semantic/carousel-idea-preferences.md`
+     - `config/skills/romance-story-selling-engine.md`
+     - `config/skills/golden-viral-carousel-theme.md`
+     - `wiki/themes/calm-enough-for-chaos.md`
+     - `output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md`
+2. Run or preserve the free creative pass before scoring:
+   - model owns concept, copy, and visual invention;
+   - if the creator or model has already produced a strong route, save it as
+     `creative-baseline.json`;
+   - engineering is the guardrail layer and should block hard failures rather
+     than replace the alive route with a safer template.
+3. Define what success looks like before writing:
    - audience success: send/save/tag behavior and "this is us" recognition;
    - creative success: staged story sequence, behavior receipts, active partner
      response, emotional turn, and earned thesis;
    - brand success: ownable warm desi relationship IP;
-   - production success: native 4:5 and separate native 9:16 finals with QA.
-3. Run Layer E:
+   - production success: native 3:4 and separate native 9:16 finals with QA.
+   - story/theme success: the specific story, viral theme, or golden-theme
+     machine the carousel must prove before any copy is drafted.
+4. Run Layer E:
    - `config/skills/romance-story-selling-engine.md`
-4. Run Golden Theme tournament:
+5. Run Golden Theme tournament:
    - 5-10 routes;
    - 30-point score each;
-   - top route must score 28/30+.
-5. Run the Stage-Scene Gate:
+   - top route must score 28/30+ before taste caps.
+6. Run the nested story/theme debate room:
+   - at least two creative-editor voices and two writer voices debate the top
+     routes against the desired story/viral/golden-theme spine;
+   - record what each voice would protect, cut, repair, and refuse;
+   - do not write public slide copy yet.
+7. Run the World-Class Taste Gate:
+   - write `taste-gate.json` or an equivalent section in `concept-selection.json`;
+   - require novelty, creator-world specificity, a non-obvious staged turn,
+     anti-generic reasoning, and a cold-viewer send reason;
+   - cap weak novelty or weak creator-world specificity at 24/30;
+   - cap a known trope plus tender ending at 23/30;
+   - cap a generic couple-account route at 22/30;
+   - if the creator says the idea is low-average or unimpressive, stop
+     polishing the lane and rebuild from a raw incident, recurring phrase,
+     object movement, one-second contradiction, or creator-supplied reference
+     mechanic.
+8. Run the Stage-Scene Gate:
    - storyboard-first stage scenes before slide copy;
    - each route must play as action -> reaction -> consequence -> reversal;
    - every scene must define eye-line, hands, body distance, object movement,
      silence, and the partner's active response;
    - text completes the scene; text must not carry the scene.
-6. Load Story Director:
+9. Load Story Director:
    - `config/skills/carousel-story-director-persona.md`
-7. Run parallel agent room and present the creator one selected direction.
-8. After creator approval, lock copy.
-9. Run Post-Copy Visual Creative Room:
+10. Present the creator one selected concept direction for concept lock, with
+   debate summary and staged beats but without a finished slide-copy list.
+11. After creator approval, write and lock copy.
+12. Run Post-Copy Visual Creative Room:
    - `post-copy-visual-room.json`
-10. Run Visual Debate Gate:
+13. Run Visual Debate Gate:
    - `visual-debate.json`
    - `visual-plan-quality.json`
-11. Build package:
+14. Build package:
     - `slides.json`
     - `copy.json`
     - `prompt-pack.json`
     - `identity-consistency-review.json`
     - `review.json`
-12. Prepare image handoff:
+15. Prepare image handoff:
     - `codex-image-prompts/instagram-post/`
     - `codex-image-prompts/reels-stories/`
     - load `config/references/style-lock/observational-intimacy-premium/` as
-      the default style reference bundle, with Aachu/Zuv identity references as
-      the face and wardrobe anchors
-13. Generate one proof slide when risk is high.
-14. If proof passes, generate all remaining native `4:5` and native `9:16`
+      the default style reference bundle, with selected actual Aachu/Zuv
+      identity images attached as face, body, and wardrobe anchors. Wardrobe
+      comes from selected identity/current-request photos first, not a static
+      menu.
+16. Generate one proof slide when risk is high.
+17. If proof passes, generate all remaining native `3:4` and native `9:16`
     slides.
-15. Package generated sources:
+18. Package generated sources:
     - `scripts/package_generated_carousel.py`
-16. Run final QA:
+19. Run final QA:
     - `visual-qa.md`
     - `final-audit.json`
     - wiki health if the session is substantial.
@@ -186,7 +252,8 @@ A passing staged route has:
 
 - one clear action per slide;
 - a reaction or consequence that earns the next swipe;
-- visible Aachu role and visible Zuv role;
+- visible relationship motion: Aachu, Zuv, both partners, or the shared
+  situation must create behavior/reaction that earns the next swipe;
 - eye-line, hands, body distance, posture, object movement, and silence;
 - a joke-to-tenderness or friction-to-belonging turn;
 - scene-native text only after the visual beat works.
@@ -205,7 +272,7 @@ Use proof-first generation when any of these are true:
   AI stock art;
 - the generated image might drift away from the Observational Intimacy Premium
   lock: warm ivory paper, visible grain, fine ink/pencil linework, transparent
-  watercolor blooms, upper-middle handwritten text, and tiny bottom-right
+  watercolor blooms, upper-middle handwritten text, and tiny top-right
   `@a.storyof.two` brandmark;
 - the creator has rejected a prior generated batch;
 - text rendering or aspect framing is likely to fail.

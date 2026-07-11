@@ -9,10 +9,12 @@ from pipeline.agentic.checks.image_size import check_image_size
 from pipeline.agentic.checks.ocr_text import check_ocr_text
 from pipeline.agentic.checks.palette import check_palette
 from pipeline.agentic.checks.prompt_constraints import check_prompt_constraints
+from pipeline.agentic.checks.final_assets import validate_publishable_final_assets
 
 __all__ = [
     "check_image_size",
     "check_ocr_text",
     "check_palette",
     "check_prompt_constraints",
+    "validate_publishable_final_assets",
 ]

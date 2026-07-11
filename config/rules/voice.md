@@ -23,6 +23,7 @@ CAPTION STYLE
 - Personal and warm — speaks directly from Anchal's perspective. First-person, not third-person observer.
 - Storytelling over description — captions explain the *feeling*, not just the scene.
 - Often poetic or lyrical — short lines, white space, emotional weight.
+- Slide copy may be medium-length when the emotional impact needs room; do not force tiny text if a fuller poetic line makes the story land better.
 - One Hinglish line allowed if it feels spoken.
 - Final line is soft, shareable, emotionally true.
 - No hard CTA unless the line itself naturally invites one.
