@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "winner": "Life Defaults",
+  "selector_verdict": "The selected system has the strongest novelty and proof. It keeps the romance lifelong but stages it through everyday defaults rather than a copied older-couple answer deck.",
+  "agent_verdicts": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "status": "GO",
+      "reason": "The plan uses objects as receipts, not premises, and each slide remains drawable with text hidden."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "status": "GO",
+      "reason": "The blocking is mutual and low-drama. No slide depends on Zuv saving Aachu or Aachu being a problem."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "status": "GO",
+      "reason": "Shot ladder has enough variety and avoids copying the reference panels."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "six-panel square strip format",
+    "older couple seated in every final beat",
+    "borrowed handwritten Q/A copy",
+    "readable phone screens",
+    "readable paperwork labels",
+    "dense yellow/parchment backgrounds"
+  ],
+  "final_visual_plan": [
+    {"slide": 1, "shot_type": "object-only", "camera_angle": "overhead", "setting_lane": "entryway/object table", "primary_action": "two hands enter shared-object archive", "who_visible": "partial hands"},
+    {"slide": 2, "shot_type": "wide", "camera_angle": "doorway view", "setting_lane": "home hallway", "primary_action": "leaving-home ritual", "who_visible": "both"},
+    {"slide": 3, "shot_type": "close-up", "camera_angle": "over-shoulder", "setting_lane": "phone/object", "primary_action": "thumb hovers by habit", "who_visible": "Aachu partial, Zuv soft background"},
+    {"slide": 4, "shot_type": "detail", "camera_angle": "side profile of hands", "setting_lane": "doorway", "primary_action": "spare key added", "who_visible": "hands only"},
+    {"slide": 5, "shot_type": "medium", "camera_angle": "low bed-level", "setting_lane": "bedroom", "primary_action": "morning routine around shared bed", "who_visible": "both or partial both"},
+    {"slide": 6, "shot_type": "medium profile", "camera_angle": "desk-level", "setting_lane": "paperwork/waiting room", "primary_action": "blank form filled with partner beside", "who_visible": "both"},
+    {"slide": 7, "shot_type": "transition/wide", "camera_angle": "behind doorway", "setting_lane": "home entry", "primary_action": "two keys hung before entering home", "who_visible": "backs/partial both"}
+  ]
+}

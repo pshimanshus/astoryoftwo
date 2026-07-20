@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "winner": "Archive Of Changed Versions",
+  "selector_verdict": "The plan has enough novelty because it turns lifelong love into evidence objects and changed-life actions, not a pretty answer deck.",
+  "agent_verdicts": [
+    {"agent": "C3A-VisualEvidencePlanner", "status": "GO", "reason": "Every slide has object/action evidence."},
+    {"agent": "C3B-RomanceScenePlanner", "status": "GO", "reason": "The turn slide is mutual, not one-sided rescue."},
+    {"agent": "C3C-VisualContinuityJudge", "status": "GO", "reason": "Shot ladder varies object-only, close-up, wide motion, medium action, mutual two-action, and future echo."}
+  ],
+  "final_visual_plan": [
+    {"slide": 1, "shot_type": "object-only with partial hands/edge bodies", "camera_angle": "overhead", "setting_lane": "archive table", "primary_action": "hands hover over memory objects", "who_visible": "partial both"},
+    {"slide": 2, "shot_type": "close-up", "camera_angle": "low table-level", "setting_lane": "early date table", "primary_action": "nervous hands near cups while Aachu laughs", "who_visible": "both partial/close"},
+    {"slide": 3, "shot_type": "wide", "camera_angle": "room corner", "setting_lane": "moving room", "primary_action": "both carry boxes and plans shift", "who_visible": "both"},
+    {"slide": 4, "shot_type": "medium", "camera_angle": "side profile", "setting_lane": "packing room", "primary_action": "old note/outfit packed as new label is taped", "who_visible": "both"},
+    {"slide": 5, "shot_type": "medium two-action", "camera_angle": "three-quarter home interior", "setting_lane": "home routine", "primary_action": "both adjust small things for each other at once", "who_visible": "both"},
+    {"slide": 6, "shot_type": "wide transition", "camera_angle": "behind/doorway", "setting_lane": "archive room/future echo", "primary_action": "young couple leaves while older echo repeats gesture far behind", "who_visible": "both plus subtle older echo"}
+  ]
+}

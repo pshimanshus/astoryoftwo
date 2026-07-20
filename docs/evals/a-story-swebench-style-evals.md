@@ -92,9 +92,13 @@ The initial harness lives in `evals/`:
   state.
 - `evals/checkers/creative_rubric.py` provides deterministic prechecks for
   creator-visible framework leakage.
+- `evals/checkers/task_specific.py` maps task metadata checker names to
+  executable project-specific checks.
 - `evals/checkers/report.py` aggregates severity and resolved status.
 - `evals/tasks/*/deep-spec.md` records evaluator intent so tasks do not decay
   into one-line labels.
+- `evals/tasks/*/fixtures/` stores concrete broken starting states for tasks
+  that can be materialized locally.
 - `evals/research/` stores the source ledger and project failure taxonomy.
 - `evals/rubrics/` stores anchored subjective rubrics.
 
@@ -107,6 +111,16 @@ Future iterations should add:
 - per-task timeout and resource limits;
 - calibrated human/judge rubric files.
 
+The first executable fixture layer supports:
+
+```bash
+venv/bin/python evals/runner.py prepare ASTO-003-textless-prompt --output /tmp/asto-eval
+```
+
+This writes the visible task prompt plus fixture overlay files into a scratch
+directory. In a full agent benchmark, apply the overlay to an isolated repo
+checkout before running the task prompt.
+
 ## Task Quality Bar
 
 A task is not accepted merely because it has a prompt and a test command. It
@@ -114,13 +128,15 @@ must identify:
 
 - the project failure it represents;
 - the exact starting fixture;
-- the fail-to-pass behavior that should change;
-- the pass-to-pass behavior that must remain stable;
+- the structured `fail_to_pass` behavior that should change;
+- the structured `pass_to_pass` behavior that must remain stable;
 - allowed and forbidden files;
 - realistic anti-gaming risks;
 - severity levels;
 - whether rubric review is needed and what observable evidence the rubric
   should score.
+- for smoke/high-risk tasks, a fixture overlay that demonstrably triggers a
+  local checker before the fix.
 
 This bar exists because shallow evals teach agents to satisfy labels. The goal
 is to test whether an agent can preserve the repo's contract under realistic

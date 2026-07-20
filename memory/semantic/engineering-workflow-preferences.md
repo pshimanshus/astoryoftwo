@@ -30,6 +30,9 @@ sources:
   behave like a memory-backed thinking research partner
 - direct creator correction in Codex chat on 2026-07-04 to stop adding parallel
   files/surfaces and optimize existing project files instead
+- direct creator correction in Codex chat on 2026-07-12 after The Almosts Were
+  Practicing images moved forward without structured face identity eval; the
+  correct behavior is to stop instead of continuing
 
 ## Research Partner Operating Model
 
@@ -49,6 +52,9 @@ The partner behavior is:
 - keep the implementation lightweight: improve existing project files before
   creating new files, commands, or parallel helper surfaces.
 confidence: 0.92
+
+fact: During carousel jams, broad theme seeds should be challenged before packaging. If a seed has abstract relationship language but no concrete couple scene or reader-recognition proof, block packaging with a REWORK verdict and ask for one visible action, object, room, line of dialogue, or private repeated pattern. Concrete couple moments should continue through the jam path.
+confidence: 0.9
 
 ## Standing Preference
 
@@ -133,4 +139,13 @@ decision, that correction overrides repo defaults for the current task. Never
 snap back to 3:4, 9:16, feed, Story, Reel, square, or multi-format output from
 workflow defaults. If the canvas is unclear after a correction, ask for the
 exact canvas before generating.
+confidence: 1.0
+
+fact: For illustrated carousel proof generation, no identity eval means no next
+slide. After a proof slide or any creator correction about likeness, stop before
+batching the remaining images until a structured `identity-consistency-review.json`
+or `visual-qa.json` records selected Aachu/Zuv reference IDs and specific
+likeness notes. If real likeness comparison is unavailable, mark
+`BLOCKED_FOR_IDENTITY_EVAL` or `IDENTITY_UNVERIFIED`, tell the creator, and do
+not call the proof final or continue generating more slides.
 confidence: 1.0

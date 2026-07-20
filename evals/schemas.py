@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 
@@ -16,6 +16,40 @@ DEEP_SPEC_REQUIRED_HEADINGS = (
     "## Anti-Gaming",
     "## Severity Model",
 )
+KNOWN_DETERMINISTIC_CHECKERS = {
+    "diff_guard",
+    "brandmark_top_right_rule",
+    "carousel_doctor_fixture",
+    "autopublish_safety_fixture",
+    "creator_visible_copy",
+}
+
+
+def _fixture_path_issue(raw_path: str, *, label: str) -> str | None:
+    normalized = raw_path.replace("\\", "/")
+    pure = PurePosixPath(normalized)
+    if normalized in {"", "."}:
+        return f"{label} fixture path is empty"
+    if pure.is_absolute():
+        return f"{label} fixture path must be relative: {raw_path}"
+    if any(part == ".." for part in pure.parts):
+        return f"{label} fixture path may not contain '..': {raw_path}"
+    return None
+
+
+@dataclass(frozen=True)
+class FixtureOverlay:
+    source: str
+    target: str
+    mode: str = "text"
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "FixtureOverlay":
+        return cls(
+            source=str(data["source"]),
+            target=str(data["target"]),
+            mode=str(data.get("mode", "text")),
+        )
 
 
 @dataclass(frozen=True)
@@ -55,6 +89,9 @@ class EvalTask:
     deterministic_checkers: list[str]
     rubric_checkers: list[str]
     pass_criteria: PassCriteria
+    fail_to_pass: list[str] = field(default_factory=list)
+    pass_to_pass: list[str] = field(default_factory=list)
+    fixture_overlay: list[FixtureOverlay] = field(default_factory=list)
     anti_gaming_notes: list[str] = field(default_factory=list)
     task_dir: Path = Path(".")
 
@@ -78,7 +115,13 @@ class EvalTask:
             required_commands=[list(command) for command in data.get("required_commands", [])],
             deterministic_checkers=list(data.get("deterministic_checkers", [])),
             rubric_checkers=list(data.get("rubric_checkers", [])),
+            fail_to_pass=list(data.get("fail_to_pass", [])),
+            pass_to_pass=list(data.get("pass_to_pass", [])),
             pass_criteria=PassCriteria.from_dict(data.get("pass_criteria")),
+            fixture_overlay=[
+                FixtureOverlay.from_dict(item)
+                for item in data.get("fixture_overlay", [])
+            ],
             anti_gaming_notes=list(data.get("anti_gaming_notes", [])),
             task_dir=path.parent,
         )
@@ -181,8 +224,26 @@ def validate_task_suite(root: Path) -> dict[str, Any]:
             issues.append(f"{task.id}: starting_state must not be empty")
         if not task.done_when:
             issues.append(f"{task.id}: done_when must not be empty")
+        if not task.fail_to_pass:
+            issues.append(f"{task.id}: fail_to_pass must not be empty")
+        if not task.pass_to_pass:
+            issues.append(f"{task.id}: pass_to_pass must not be empty")
+        unknown_checkers = sorted(set(task.deterministic_checkers) - KNOWN_DETERMINISTIC_CHECKERS)
+        if unknown_checkers:
+            issues.append(f"{task.id}: unknown deterministic checkers: {unknown_checkers}")
         if "AGENTS.md" not in task.forbidden_paths and task.category != "instruction_surface":
             issues.append(f"{task.id}: AGENTS.md should be forbidden")
+        for overlay in task.fixture_overlay:
+            source_issue = _fixture_path_issue(overlay.source, label="source")
+            target_issue = _fixture_path_issue(overlay.target, label="target")
+            if source_issue:
+                issues.append(f"{task.id}: {source_issue}")
+            if target_issue:
+                issues.append(f"{task.id}: {target_issue}")
+            if source_issue is None and not (task.task_dir / overlay.source).exists():
+                issues.append(f"{task.id}: fixture source missing: {overlay.source}")
+            if overlay.mode not in {"text", "binary"}:
+                issues.append(f"{task.id}: unsupported fixture mode: {overlay.mode}")
 
     registered_suites = set(registry.suites)
     for task in tasks:

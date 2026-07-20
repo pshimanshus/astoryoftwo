@@ -105,7 +105,10 @@ The creator stays in the loop at four points:
 2. Copy lock: the creator approves or edits slide copy.
 3. Visual proof lock: generate one proof slide first when identity, safety,
    money, body, or style risk is high. The default proof slide is the slide
-   that proves the riskiest story beat, not necessarily slide 1.
+   that proves the riskiest story beat, not necessarily slide 1. If identity
+   is in scope, no identity eval means no next slide: stop until a structured
+   `identity-consistency-review.json` or `visual-qa.json` records the selected
+   Aachu/Zuv reference IDs and specific likeness notes.
 4. Final approval: after all images are packaged and visual QA is written, the
    creator gets the final folder and any failed checks.
 
@@ -231,9 +234,15 @@ Write or update:
       identity images attached as face, body, and wardrobe anchors. Wardrobe
       comes from selected identity/current-request photos first, not a static
       menu.
-16. Generate one proof slide when risk is high.
-17. If proof passes, generate all remaining native `3:4` and native `9:16`
-    slides.
+16. Generate one proof slide when risk is high. If the proof includes Aachu or
+    Zuv, immediately run the identity eval stop gate before any next slide:
+    write or update `identity-consistency-review.json` or `visual-qa.json` with
+    Aachu/Zuv reference IDs, face/hair/body/wardrobe notes, and PASS/REPAIR/
+    STOP. If tools cannot perform real likeness comparison, record
+    `BLOCKED_FOR_IDENTITY_EVAL` or `IDENTITY_UNVERIFIED`, tell the creator, and
+    stop instead of batching.
+17. If proof passes structured identity, style, story, text, aspect, and safety
+    QA, generate all remaining native `3:4` and native `9:16` slides.
 18. Package generated sources:
     - `scripts/package_generated_carousel.py`
 19. Run final QA:
@@ -284,6 +293,13 @@ The proof slide must be the riskiest slide. For Wallet Audit Love, use slide 4:
 Full-batch generation is blocked until the proof slide passes identity, style,
 story, text, aspect, and safety QA.
 
+Identity is a stop gate, not a taste note. "Looks good", dimension checks, or a
+manual visual impression do not pass the gate unless a structured
+`identity-consistency-review.json` or `visual-qa.json` records selected
+reference IDs and specific likeness notes. If that structured review cannot be
+performed, mark `BLOCKED_FOR_IDENTITY_EVAL` or `IDENTITY_UNVERIFIED`, tell the
+creator, and do not call the proof final or generate the remaining slides.
+
 ## Done Means
 
 Do not say the carousel is done until all are true:
@@ -293,6 +309,9 @@ Do not say the carousel is done until all are true:
 - both formats came from separate native generated sources;
 - exact copy and brandmark are inside the images;
 - identity, style, text, and safety QA pass;
+- `identity-consistency-review.json` or `visual-qa.json` contains selected
+  Aachu/Zuv reference IDs and specific likeness notes, or the work is marked
+  blocked/unverified instead of final;
 - `final-images.json` status is `generated` or `packaged`;
 - `final-audit.json` is `PASS` or `PASS_WITH_NOTES`.
 

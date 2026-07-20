@@ -65,7 +65,8 @@ carousel idea, read:
 
 This file is the persistent creator preference ledger. It records concepts and
 lanes that were recommended, rejected, packaged, or cooled down in prior
-sessions. Treat it as memory that survives the current chat.
+sessions. Use its "How This Ledger Learns" method so the memory evolves instead
+of accumulating stale notes.
 
 Rules:
 
@@ -76,8 +77,8 @@ Rules:
 - If a concept was only recommended but not selected, avoid recycling it in the
   next jam unless it is materially transformed.
 - After the creator accepts, rejects, or cools down a recommendation, update
-  the ledger immediately with date, concept, lane, status, reason, and
-  confidence.
+  the ledger through its learning method: match existing memory, then update,
+  merge, downgrade, delete, or add one concise row only if the lane is new.
 - Keep `memory/working.md` as a short pointer only; the semantic ledger is the
   durable source for idea preferences.
 

@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "some people change the weather inside you.",
+      "visual": "A warm interior scene with one partner arriving emotionally crowded by the day: bag dropped, phone in hand, shoulders tense, the room feeling slightly compressed. The other partner is present nearby but not heroic or therapist-like, simply noticing with gentle attention. The feeling should be weather-like through light and posture, not literal clouds."
+    },
+    {
+      "slide": 2,
+      "copy": "before them, everything feels too loud.",
+      "visual": "A closer, slightly crowded frame: notifications glow on the phone, keys or bag are messy, shoulders lifted, eyes tired. The other partner is not solving anything yet; the room and objects make the loudness visible without using literal sound effects."
+    },
+    {
+      "slide": 3,
+      "copy": "the same thoughts. the same worries. the same life.",
+      "visual": "A wider room scene where the practical world is still visible: phone, small bills or notebook without readable text, laundry or daily objects, unfinished cup. One partner is mid-thought, the other sits close enough to be present. Nothing is fixed yet."
+    },
+    {
+      "slide": 4,
+      "copy": "then they sit next to you, and somehow...",
+      "visual": "The partner simply sits beside them on the bed, sofa, or floor edge. No advice pose, no lecture. Hands are close but not forced; eye-line softens; body distance reduces a little. The scene should prove presence as the action."
+    },
+    {
+      "slide": 5,
+      "copy": "your chest stops arguing with the world.",
+      "visual": "A gentle mid-hour beat: the tense partner is now exhaling, maybe leaning back or laughing softly while still holding the phone face down. The other partner's presence makes the body loosen; hands unclench, shoulders drop. Use chest/shoulder posture as the receipt."
+    },
+    {
+      "slide": 6,
+      "copy": "nothing is fixed.\nbut everything feels softer.",
+      "visual": "The key proof slide: same phone/problem remains in the frame, but the emotional weather has changed. The couple is calmer, closer, maybe sharing a small laugh or quiet side-by-side silence. The outside world is unchanged; light and posture are softer."
+    },
+    {
+      "slide": 7,
+      "copy": "maybe love is just this.\none person making life feel bearable again.",
+      "visual": "A final quiet wide shot after the hour: both people settled close in the same room, ordinary objects still around, but the frame breathes. One small shared gesture, like shoulder against shoulder, fingers touching, or a shared smile, lands the emotional thesis without grand romance."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "some people change the weather inside you.",
+      "visual": "Cover scene from Zuv's emotional POV: he enters or sits in a warm ordinary room carrying stress in his shoulders, phone/laptop/bag nearby, gaze heavy. Aachu is already in the room noticing him, slightly playful and alert, ready to change the energy without giving advice. The weather shift is shown through posture and light, not literal clouds."
+    },
+    {
+      "slide": 2,
+      "copy": "before them, everything feels too loud.",
+      "visual": "Zuv alone or nearly alone in a slightly crowded frame: phone glowing with no readable UI text, laptop half-open or work bag dropped, keys and cup nearby. His shoulders are tight and face is tired. Aachu is just entering the edge of frame or watching from the doorway, reading his mood."
+    },
+    {
+      "slide": 3,
+      "copy": "the same thoughts. the same worries. the same life.",
+      "visual": "A wider scene of Zuv still surrounded by the same practical worries: laptop, phone, notebook or bills without readable text, unfinished cup. Aachu sits near him, studying his face, maybe holding a random object or cushion like she is about to start her tiny performance. Nothing is solved yet."
+    },
+    {
+      "slide": 4,
+      "copy": "then they sit next to you, and somehow...",
+      "visual": "Aachu deliberately sits too close beside stressed Zuv on the sofa, bed edge, or floor, invading his quiet in a loving way. She makes a small silly face, exaggeratedly serious expression, or comic little gesture. Zuv is still guarded but his attention has shifted from the phone/laptop to her."
+    },
+    {
+      "slide": 5,
+      "copy": "your chest stops arguing with the world.",
+      "visual": "Aachu is now actively trying to cheer him: making a ridiculous face, overacting with a cushion or cup, doing tiny unnecessary drama, or telling a bad joke through body language. Zuv's posture starts to loosen; his phone is face down, one hand unclenches, the corner of his mouth almost breaks."
+    },
+    {
+      "slide": 6,
+      "copy": "nothing is fixed.\nbut everything feels softer.",
+      "visual": "The key proof slide: the same phone/laptop/problem remains visible, but Zuv has finally softened. Aachu is beside him making one last tiny silly expression or leaning into him with playful warmth. He laughs or smiles despite himself. Nothing practical is fixed; his inner weather is different."
+    },
+    {
+      "slide": 7,
+      "copy": "maybe love is just this.\none person making life feel bearable again.",
+      "visual": "Final quiet wide shot after the hour: Zuv is visibly lighter, close to Aachu, the same work/phone objects still around but less central. Aachu looks pleased with her successful little nonsense. A small shared gesture, shoulder-to-shoulder, fingers touching, or a private smile lands the thesis."
+    }
+  ]
+}

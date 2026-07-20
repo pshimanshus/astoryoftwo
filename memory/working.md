@@ -947,3 +947,17 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: NEEDS_FIXES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-07-03/still-learning-love-2
+
+## C-layer carousel run: After One Hour With You
+- date: 2026-07-12
+- slug: after-one-hour-with-you
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-12/after-one-hour-with-you
+
+## C-layer carousel run: After One Hour With You - Zuv POV
+- date: 2026-07-12
+- slug: after-one-hour-with-you-zuv-pov
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov

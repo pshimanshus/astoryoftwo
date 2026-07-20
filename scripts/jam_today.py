@@ -32,6 +32,18 @@ DEEP_SOURCE_CONTEXT = [
     "config/skills/golden-viral-carousel-theme.md",
 ]
 
+ABSTRACT_IDEA_WORDS = set(
+    "love relationship relationships couple couples important should need needs care caring "
+    "communicate communication trust respect support understand understanding".split()
+)
+CONCRETE_SCENE_WORDS = set(
+    "blanket border moved plate kitchen cup tea coffee phone sofa bed door car bag shirt hair "
+    "listening haan trap fight argument".split()
+)
+RECOGNITION_WORDS = set(
+    "again always still secretly pretend pretending trap listening moved forgot remembered waited".split()
+)
+
 
 def rel(path: Path) -> str:
     try:
@@ -53,6 +65,37 @@ def recent_carousels(limit: int = 5) -> list[Path]:
         if day.is_dir():
             packages.extend(item for item in day.iterdir() if item.is_dir())
     return sorted(packages, key=lambda item: (item.stat().st_mtime, str(item)), reverse=True)[:limit]
+
+
+def words(text: str) -> set[str]:
+    return {"".join(char for char in token.lower() if char.isalnum()) for token in text.split()} - {""}
+
+
+def research_challenge(moment: str) -> dict[str, object]:
+    tokens = words(moment)
+    abstract_hits = tokens & ABSTRACT_IDEA_WORDS
+    concrete_hits = tokens & CONCRETE_SCENE_WORDS
+    recognition_hits = tokens & RECOGNITION_WORDS
+    reasons: list[str] = []
+    repairs: list[str] = []
+
+    if abstract_hits and not concrete_hits:
+        reasons.append("missing concrete couple scene")
+        repairs.append("replace the theme with one visible action, object, room, or line of dialogue")
+    if abstract_hits and not recognition_hits:
+        reasons.append("missing reader-recognition proof")
+        repairs.append("name the private pattern that makes someone think this is us")
+    if len(tokens) < 4 and not (concrete_hits or recognition_hits):
+        reasons.append("too thin to test")
+        repairs.append("add the tiny conflict, gesture, or repeated habit before packaging")
+    if abstract_hits and len(abstract_hits) >= max(2, len(tokens) // 3) and not concrete_hits:
+        reasons.append("too abstract for a sendable moment")
+
+    return {
+        "verdict": "REWORK" if reasons else "PASS",
+        "reasons": reasons,
+        "repairs": repairs,
+    }
 
 
 def build_carousel_command(args: argparse.Namespace) -> list[str]:
@@ -77,6 +120,22 @@ def build_carousel_command(args: argparse.Namespace) -> list[str]:
 
 def print_shell_command(command: list[str]) -> None:
     print(" ".join(shlex.quote(part) for part in command))
+
+
+def print_research_challenge_gate(moment: str) -> dict[str, object]:
+    challenge = research_challenge(moment)
+    print("\n## Research Challenge Gate")
+    print(f"verdict: {challenge['verdict']}")
+    if challenge["reasons"]:
+        print("why:")
+        for reason in challenge["reasons"]:
+            print(f"- {reason}")
+        print("repair before packaging:")
+        for repair in challenge["repairs"]:
+            print(f"- {repair}")
+    else:
+        print("- seed has a concrete scene or private pattern to test")
+    return challenge
 
 
 def print_research_partner_lens(moment: str) -> None:
@@ -174,7 +233,12 @@ def main() -> int:
     )
     print("If the creative pass is approved, save it as creative-baseline.json and package with --creative-brief-file.")
     print(f"moment: {args.moment}")
+    challenge = print_research_challenge_gate(args.moment)
     print_research_partner_lens(args.moment)
+
+    if challenge["verdict"] == "REWORK":
+        print("\nBlocked: sharpen the seed before packaging so the jam starts from a couple moment, not a generic theme.")
+        return 2
 
     command = build_carousel_command(args)
     print("\n## Package Command")

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "status": "GO_REPAIRED",
+  "trigger_phrase_or_event": "Creator asked to make entries less generic, more chaotic/Indian, and improve text hierarchy.",
+  "copy_lock": {
+    "approved_by": "creator",
+    "slides": [
+      {"slide": 1, "text": ["SHAADI", "DICTIONARY"]},
+      {"slide": 2, "text": ["BAS 5 MIN", "= 40 min + last look"]},
+      {"slide": 3, "text": ["MERA CHARGER", "= tumhare bag mein"]},
+      {"slide": 4, "text": ["MIL NAHI RAHA", "= ek drawer checked"]},
+      {"slide": 5, "text": ["THEEK HAI", "= paani rakh diya"]},
+      {"slide": 6, "text": ["CHALO", "= bills + dessert bhi"]},
+      {"slide": 7, "text": ["GHAR", "= same words, new meanings"]}
+    ]
+  },
+  "agents": [
+    {
+      "lane": "Visual Format Anthropologist",
+      "finding": "The recognizable mechanic is Hinglish dictionary entry plus lived proof. Preserve the definition format, but make every slide a real scene with a visible object movement.",
+      "rules": [
+        "The key phrase is clear but not oversized; the scene is the main storytelling engine.",
+        "Definition is one small translation line beneath the phrase.",
+        "Scene proof lives in lower or middle-lower frame.",
+        "Each word must be understandable as a relationship behavior if text is hidden.",
+        "Avoid textbook pages, app UI, flat quote cards, and random dictionary filler text."
+      ]
+    },
+    {
+      "lane": "Scene Evidence Director",
+      "finding": "The strongest plan uses a different domestic receipt per word: waiting, migrated objects, search, silent water, budget-dessert, final mixed home evidence.",
+      "blockers": []
+    },
+    {
+      "lane": "Romance Blocking Director",
+      "finding": "Both partners must be implicated. Aachu cannot be the only chaos source, and Zuv cannot become a patient saint; the definitions should show mutual ridiculousness and mutual care."
+    },
+    {
+      "lane": "Typography And Aspect Director",
+      "finding": "The approved copy is short enough for native integrated text. Use upper-middle negative space, never covering faces or hands; 9:16 needs slightly higher text and more vertical breathing room."
+    },
+    {
+      "lane": "Generation Prompt Director",
+      "finding": "Prompt every slide as illustration-story, not infographic. Include exact text only, tiny top-right brandmark, ivory paper, identity bundle, and hard negative prompt against quote-card design."
+    },
+    {
+      "lane": "Harsh Visual Selector",
+      "finding": "Selected system can pass because it is format-clear, scene-first, visually varied, and partner-sendable.",
+      "verdict": "GO"
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Living Dictionary Entries",
+      "summary": "Each slide is a warm illustrated dictionary entry with the definition integrated above a lived scene.",
+      "verdict": "GO"
+    },
+    {
+      "name": "Object Migration Trail",
+      "summary": "Objects move across the deck like evidence from one definition to another.",
+      "verdict": "REPAIR",
+      "why_cut": "Good continuity, but too object-first if used alone."
+    },
+    {
+      "name": "Full Dictionary Book World",
+      "summary": "A literal open dictionary appears on every slide as the main canvas.",
+      "verdict": "REPAIR",
+      "why_cut": "Risks becoming a prop gimmick and repeating one layout."
+    }
+  ],
+  "selected_visual_system": "Living Dictionary Entries",
+  "why_it_wins": "It keeps the format instantly clear while preserving @a.storyof.two's scene-first intimacy. Every word has a drawable couple receipt.",
+  "rejected_visual_patterns": [
+    "Flat definition cards with tiny decorative couple art.",
+    "One open book repeated on every slide.",
+    "Generic home couch/table scenes with new captions.",
+    "Aachu-as-chaos and Zuv-as-handler framing.",
+    "Random background dictionary text or fake UI."
+  ],
+  "slide_visual_blueprint": [
+    {"slide": 1, "scene": "dictionary opens on a lived home surface; both lean in", "proof": "the couple is co-authoring the meanings"},
+    {"slide": 2, "scene": "doorway waiting scene with mirror/getting-ready action", "proof": "soon has a visible delay"},
+    {"slide": 3, "scene": "bag detail with Zuv-owned item migrated into Aachu's bag", "proof": "mine became ours"},
+    {"slide": 4, "scene": "drawer/search scene with Aachu directing and Zuv finding the wrong thing", "proof": "yours still requires his search"},
+    {"slide": 5, "scene": "silent water glass after a small fight", "proof": "sorry arrives through care"},
+    {"slide": 6, "scene": "grocery/bill list plus dessert box", "proof": "plans include adulting and one random treat"},
+    {"slide": 7, "scene": "final home evidence tableau with couple close and amused", "proof": "their shared home changed the definitions"}
+  ],
+  "typography_and_aspect_plan": {
+    "post_4_5": "Compact upper label in dark charcoal. Keyword/phrase line is about 1.4-1.6x larger than the translation line. Scene occupies most of the frame and must communicate the joke without reading.",
+    "reels_stories_9_16": "Compact upper-third label with the scene carrying the story vertically. Faces and hands stay below text safe area.",
+    "risks": ["Roman Hinglish spelling must remain exact.", "Avoid random dictionary microtext."]
+  },
+  "generation_prompt_brief": "Generate premium watercolor-and-ink A Story illustrations, identity-first, text-bearing, one slide at a time. Exact on-image text only plus tiny brandmark.",
+  "open_doubts": [
+    "Need repaired proof slide to verify scene-first communication with smaller text.",
+    "The preflight-recommended together-19.jpg identity path is absent; together-20.jpg is substituted."
+  ],
+  "downstream_requirements": [
+    "visual-debate.json must preserve Living Dictionary Entries.",
+    "visual-plan-quality.json must pass every slide with shot-ladder variety.",
+    "prompt-pack.json must attach selected identity references to every final generation call.",
+    "Generate slide 2 as proof first because it tests titleless definition text, identity, body language, and daily-comedy staging."
+  ]
+}

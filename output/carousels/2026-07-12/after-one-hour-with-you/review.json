@@ -1,0 +1,110 @@
+{
+  "status": "draft_review",
+  "scorecard": {
+    "story_specificity": 4,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 4,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 4,
+    "emotional_payoff": 4,
+    "channel_voice_fit": 4,
+    "absence_of_generic_couple_content": 4
+  },
+  "total": 32,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "PASS",
+    "hook": 5,
+    "story": 6,
+    "bridge": 9,
+    "zuv_role": 9,
+    "ending": 9,
+    "send_save_potential": 5,
+    "stage_scene": 9,
+    "verdict": "GO",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 4.5,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 29.5
+  },
+  "story_selling_gate": {
+    "status": "PASS",
+    "source": "layer-e-story-selling.json",
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "threshold": "28/30",
+    "selector_verdict": "Presence changes the emotional weather without pretending the day is fixed.",
+    "candidate_count": 5,
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "An emotionally crowded partner enters the room with a phone/bag/day still attached, then the other partner quietly comes close and sits beside them.",
+      "reaction": "Shoulders drop, hands unclench, the phone turns face down, and the room opens without the practical problem disappearing.",
+      "eye_line_or_attention": "Attention shifts from phone/world to the person beside them; the partner watches gently without a fixing or advice pose.",
+      "hands_or_object_movement": "Bag drops, phone stays visible, hands move from clenched/active to relaxed/near-touch, and ordinary objects remain in frame as proof that life is unchanged.",
+      "silence_or_pause": "The strongest beat is quiet side-by-side presence, not a speech or solution.",
+      "consequence": "The viewer can understand the relationship truth even with text hidden: the same room feels softer because of who is there.",
+      "reversal_or_payoff": "Maybe love is one person making life feel bearable again.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 4.5,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.5,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [
+    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
+    "Use the Codex built-in local image-generation handoff for final illustrated art."
+  ],
+  "required_changes_before_image_generation": [],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "pass": true,
+    "agent_alignment": {
+      "status": "MISSING",
+      "instruction": "Record how concept, copy, visual, prompt, and QA choices serve the success goals."
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  }
+}

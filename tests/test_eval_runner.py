@@ -2,7 +2,7 @@ from pathlib import Path
 
 from evals.checkers.diff_guard import check_changed_paths
 from evals.checkers.report import score_checks
-from evals.runner import select_tasks
+from evals.runner import main, prepare_task_fixture_by_id, run_task_checks, select_tasks
 from evals.schemas import CheckResult, EvalTask, PassCriteria, discover_tasks
 
 
@@ -86,3 +86,43 @@ def test_select_tasks_by_suite_and_id() -> None:
     assert smoke
     assert all("smoke" in task.suites for task in smoke)
     assert first == [tasks[0]]
+
+
+def test_prepare_task_fixture_by_id_materializes_overlay(tmp_path: Path) -> None:
+    written = prepare_task_fixture_by_id(
+        ROOT,
+        "ASTO-003-textless-prompt",
+        tmp_path,
+    )
+
+    written_paths = {path.relative_to(tmp_path).as_posix() for path in written}
+    assert ".eval/ASTO-003-textless-prompt-prompt.md" in written_paths
+    assert (
+        "output/carousels/fixtures/textless-prompt/prompt-pack.json"
+        in written_paths
+    )
+
+
+def test_run_task_checks_executes_named_task_specific_checker(tmp_path: Path) -> None:
+    task = next(task for task in discover_tasks(ROOT) if task.id == "ASTO-001-brandmark-drift")
+    prepare_task_fixture_by_id(ROOT, task.id, tmp_path)
+
+    report = run_task_checks(
+        task,
+        tmp_path,
+        skip_commands=True,
+        explicit_changed_paths=["config/rules/brandmark.md"],
+    )
+
+    checks = {check.code: check for check in report.checks}
+    assert report.resolved is False
+    assert checks["brandmark_top_right_rule"].status == "FAIL"
+
+
+def test_prepare_unknown_task_is_cli_friendly(tmp_path: Path, capsys) -> None:
+    status = main(["prepare", "ASTO-DOES-NOT-EXIST", "--output", str(tmp_path)])
+    captured = capsys.readouterr()
+
+    assert status == 2
+    assert "Unknown eval task" in captured.err
+    assert "Traceback" not in captured.err

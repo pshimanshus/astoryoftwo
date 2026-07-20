@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_PROOF_SERIES_WITH_NOTES",
+  "selected_identity_bundle": [
+    {
+      "path": "config/references/identity/aachu/face-05.png",
+      "role": "Aachu face and casual outfit/body anchor"
+    },
+    {
+      "path": "config/references/identity/zuv/portrait-07.jpg",
+      "role": "Zuv solo face, hair, stubble, posture anchor"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "both faces, closeness, casual domestic energy"
+    },
+    {
+      "path": "config/references/identity/together/together-20.jpg",
+      "role": "both faces, casual couple energy, substitute for missing together-19.jpg"
+    }
+  ],
+  "preflight_note": "config/references/identity/_dossier/identity-generation-preflight.md recommends together-19.jpg, but that file is not present. together-20.jpg is used as the fourth anchor.",
+  "non_negotiables": [
+    "Aachu: large expressive dark eyes, long dark wavy hair, soft oval face, warm medium-brown skin, playful expressiveness.",
+    "Zuv: thick dark curly hair, short natural stubble, warm dark almond eyes, grounded posture, warm medium-brown skin.",
+    "Aachu is 5'6 and Zuv is 5'8 in two-shots.",
+    "No generic South Asian couple faces."
+  ],
+  "wardrobe_direction": "Casual contemporary daily-marriage wardrobe inspired by selected identity refs: Aachu in black top/blue denim or soft grey homewear depending on scene; Zuv in off-white or dark casual shirt/polo/trousers. Wardrobe supports daily scenes and must not become the premise.",
+  "proof_v4_likeness_notes": {
+    "path": "proofs/slide-02-proof-v4.png",
+    "status": "PASS_WITH_NOTES",
+    "aachu": "Recognizable enough for proof direction: expressive eyes, long dark hair, warm playful face, casual outfit energy.",
+    "zuv": "Recognizable enough for proof direction: curly dark hair, stubble, warm grounded gaze, casual waiting posture.",
+    "limitations": [
+      "Proof v4 remains generated proof only, not a final likeness pass.",
+      "Brandmark spacing drift and non-final dimensions remain unresolved.",
+      "Every final slide still requires identity references attached and final visual QA."
+    ]
+  },
+  "generation_requirement": "Attach the selected identity bundle to every final slide generation call. Text-only identity descriptions are blocked. Proof v4 may be used only as a compact text/scene-layout reference, not as the source of face identity."
+}

@@ -22,6 +22,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_carousel_prompt_compiler.py", "-q"]],
   "deterministic_checkers": ["diff_guard"],
   "rubric_checkers": [],
+  "fail_to_pass": ["latest creator correction to one square proof wins over carousel/story defaults"],
+  "pass_to_pass": ["native 1080x1440 post and 1080x1920 story/reel requirements remain defaults when explicitly requested"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should assert the latest prompt correction wins over repo defaults."]
 }

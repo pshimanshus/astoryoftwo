@@ -20,8 +20,20 @@
   "expected_files_changed": ["pipeline/agentic/checks/prompt_constraints.py", "pipeline/agentic/workflow_doctor.py", "tests/test_checks_prompt_constraints.py", "tests/test_carousel_workflow_doctor.py"],
   "forbidden_changes": ["Do not permit text placement afterward for narrative slide text.", "Do not remove exact ON-IMAGE TEXT requirements."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_checks_prompt_constraints.py", "tests/test_carousel_workflow_doctor.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "carousel_doctor_fixture"],
   "rubric_checkers": [],
+  "fail_to_pass": ["seeded source-art/text-later prompt is blocked with active_textless_prompt"],
+  "pass_to_pass": ["safe prompts with exact integrated ON-IMAGE TEXT continue to pass prompt constraints"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/carousels/fixtures/textless-prompt/prompt-pack.json",
+      "target": "output/carousels/fixtures/textless-prompt/prompt-pack.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/textless-prompt/codex-image-prompts/instagram-post/slide-04.prompt.txt",
+      "target": "output/carousels/fixtures/textless-prompt/codex-image-prompts/instagram-post/slide-04.prompt.txt"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should vary the wording: clean reserved paper space, add text afterward, text placement later."]
 }

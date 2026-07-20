@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "PROOF_READY_FOR_CREATOR_REVIEW",
+  "note": "This is a proof-first run. Full 3:4 final carousel and separate native 9:16 companion outputs are not claimed.",
+  "proof_slide": 6,
+  "required_final_outputs_before_publishable": [
+    "final/slide-01.png through final/slide-07.png at 1080x1440",
+    "final-reels-stories/slide-01.png through final-reels-stories/slide-07.png at 1080x1920",
+    "visual-qa.md",
+    "final-audit.json"
+  ],
+  "generated_assets": [
+    {
+      "slide": 6,
+      "version": "v1",
+      "source": "source/slide-06-source-v1.png",
+      "status": "REJECTED",
+      "reason": "Wrong aspect/dimensions: generated as 941x1672, not an approved 3:4 post source."
+    },
+    {
+      "slide": 6,
+      "version": "v2",
+      "source": "source/slide-06-source-v2.png",
+      "final": "final/slide-06.png",
+      "status": "PROOF_READY_FOR_CREATOR_REVIEW",
+      "source_dimensions": "1086x1448",
+      "final_dimensions": "1080x1440",
+      "dimension_note": "Source is exact 3:4, so proportional export to 1080x1440 was allowed."
+    }
+  ]
+}

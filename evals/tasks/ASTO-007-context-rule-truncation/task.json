@@ -22,6 +22,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_agentic_context_loader.py", "tests/test_context_loader_truncation.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "context", "--render"]],
   "deterministic_checkers": ["diff_guard"],
   "rubric_checkers": [],
+  "fail_to_pass": ["required rule includes near the budget boundary fail loudly instead of truncating silently"],
+  "pass_to_pass": ["default Agentic OS context rendering still succeeds within budget"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should use a synthetic manifest with {{rule:palette}} near the budget boundary."]
 }

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "GO_FOR_PROOF",
+  "scope": "3:4 proof slide only before full batch",
+  "shot_ladder_pass": true,
+  "slides": [
+    {"slide": 1, "status": "GO", "risk": "object-only still must feel romantic", "repair": "include two human hands and paired personal objects"},
+    {"slide": 2, "status": "GO", "risk": "could become generic hallway", "repair": "make the leaving ritual physically specific"},
+    {"slide": 3, "status": "GO", "risk": "phone UI text hallucination", "repair": "keep phone screen blank/glowing"},
+    {"slide": 4, "status": "GO", "risk": "key labels/text hallucination", "repair": "no readable key tags"},
+    {"slide": 5, "status": "GO", "risk": "bedroom/chai default", "repair": "use body-memory and shared charger/blanket, not generic cozy pose"},
+    {"slide": 6, "status": "GO_FOR_PROOF_FIRST", "risk": "form labels, hospital melodrama, or caretaker pose", "repair": "calm paperwork desk, blank lines only, mutual closeness"},
+    {"slide": 7, "status": "GO", "risk": "soft ending without receipt", "repair": "two keys/two shoes/home light must prove the line"}
+  ],
+  "hard_requirements_for_generation": [
+    "Attach selected actual identity images.",
+    "Attach Observational Intimacy style references.",
+    "Exact on-image text must be present.",
+    "Tiny top-right @a.storyof.two must be present.",
+    "Neutral ivory paper, not yellow/parchment.",
+    "No random text except approved slide copy and brandmark."
+  ]
+}

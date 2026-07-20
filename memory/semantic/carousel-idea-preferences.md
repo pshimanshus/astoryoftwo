@@ -1,8 +1,12 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-07-03
+last_updated: 2026-07-11
 confidence: 0.8
 sources:
+- direct creator correction in chat on 2026-07-11: this file must be a crisp
+  evolving preference ledger with a learning method, not a stuffed archive or
+  another policy block. Update, merge, downgrade, or remove obsolete
+  guidance before adding anything new
 - direct creator correction in chat on 2026-07-03 during `Still Learning Love`
   generation: after a textless proof was generated, creator said `NEVER
   GENERATE IMAGE W/O TEXT EVER`. Treat any textless @a.storyof.two image
@@ -147,9 +151,9 @@ sources:
 
 ## Purpose
 
-Track creator-facing carousel concepts that have already been recommended,
-rejected, or cooled down so future ideation does not keep returning to the same
-surface area.
+Keep the current idea memory sharp enough to use during carousel jams:
+live preferences, rejected/cooled lanes, active repair conditions, and only the
+historical rows that still change future recommendations.
 
 ## Persistence Hooks
 
@@ -160,6 +164,18 @@ This ledger is required reading before carousel ideation by:
 
 Future sessions should treat this file as the durable source of truth for
 carousel idea preferences, not as a temporary chat note.
+
+## How This Ledger Learns
+
+1. Match the new feedback to an existing fact, lane, concept row, or rule.
+2. Decide the smallest truthful change: update, merge, downgrade, delete, or
+   append only when the lane is genuinely new.
+3. Keep one crisp live instruction with the reason, repair condition, and
+   confidence; move long provenance to package artifacts or episodic memory.
+4. Reconcile conflicts immediately: latest creator correction and
+   `config/rules/` beat older rows.
+5. At closeout, remove at least one stale duplicate or obsolete live claim
+   whenever a new memory note is added.
 
 ## Standing Preference
 
@@ -287,13 +303,14 @@ confidence: 1.0
 
 fact: For @a.storyof.two proof illustrations, concept illustrations,
 single-slide image-generation outputs, and default Instagram post/carousel
-slides, generate native `1080x1350` portrait. Generate native `1080x1920` only
-for explicit Story/Reel or companion story outputs, and native `1080x1080` only
-when the creator explicitly requests square. Reject any image whose pixel
-dimensions do not exactly match the requested format; do not crop, pad,
-stretch, or resize a wrong-dimension proof into compliance. The rejected
-2026-06-14 roti-bite proof at `978x1608` remains a wrong-dimension failure
-example, but old square-proof defaults are stale and must not override
+slides, follow `config/rules/image-dimensions.md`: final post/carousel exports
+are `1080x1440`, acceptable post/carousel sources may be native `1440x1920`
+for proportional export, Story/Reel outputs are `1080x1920`, and square is
+only for explicit square requests. Reject any image whose pixel dimensions do
+not match the current request or rule; do not crop, pad, stretch, or arbitrary
+resize a wrong-dimension proof into compliance. The rejected 2026-06-14
+roti-bite proof remains a wrong-dimension failure example, and old 4:5 post
+or square-proof defaults are stale historical guidance that must not override
 `config/rules/image-dimensions.md`.
 confidence: 1.0
 
@@ -919,7 +936,7 @@ confidence: 0.98
 | 2026-05-23 | Compatibility Is Overrated. Being In On It Is Everything. | public relationship mirror / same-team inside-bit behavior / everyday couple conspiracy | recommended_agent_a | Agent A generated this as the strongest broad pure-relationship-insight candidate after the creator rejected the social-visibility/spark lane as too niche. Core thesis: the most taggable couples are not admired because one partner lets the other shine publicly; they are recognizable because both partners move like they are in the same small conspiracy through ordinary life. Preserve contradiction hook, escalating everyday receipts, emotional reversal, and "this is us" tag behavior. Avoid drifting into Private Captions/Subtitles, social spark/visibility, chores/fairness, errands-as-dates, food/chai, or Aachu-quirk-then-Zuv-care formula. | 0.86 |
 | 2026-05-23 | Home Never Counted Her Bites | fuller-life / food as comfort / best-bite home proof | superseded_by_second_serving | Creator supplied the sharper seed: "She stopped saying, bas thoda sa. Home never counted her bites. He saved the best one for her. Food became comfort, not calculation. 55 se 70 nahi. Bas life zyada tasty ho gayi." This repaired the prior gap by making the food/appetite bridge visible before the 55-to-70 payoff, but it is superseded by the 6-slide "The Second Serving Was Never Just Food" route after the continuous agent room found stronger Hinglish retention and clearer bridge logic. Do not use this as the active package unless the creator asks to revert. | 0.96 |
 | 2026-05-23 | Marry The One Who Likes Your Annoying Version | pure-insight / everyday unfiltered self / affectionate irritation / partner-tag mirror | recommended_winner_after_spark_rejection | Generated as Agent C retention-strategy answer after creator rejected "Some People Only Love Your Spark In Private" as too niche. Winner beats the spark/social-visibility lane because nearly every couple has an "annoying but mine" version: repeated questions, weird voices, dramatic micro-updates, random theories, unnecessary commentary, and affectionate participation. Preserve the broad hook, escalating receipts, slide 4/5 reversal where tolerance becomes fondness, and final send line. Avoid turning it into high-maintenance, overthinking/reassurance, chaos/home, or generic "accept me as I am" therapy copy. | 0.94 |
-| 2026-05-23 | The Second Serving Was Never Just Food | fuller-life / appetite safe / home food bridge / comfort not comments | instagram_post_final_packaged | Exchange/debate pass repaired the six-route room. Final selector rejected "Some Love Doesn't Count Bites" as too surveillance-coded and chose a hybrid of the Khaya/Aur Logi retention hook plus Appetite Safe emotional truth. Active 6-slide package: `output/carousels/2026-05-23/the-second-serving-was-never-just-food-2/`. Public spine: "Woh bas 'khaya?' nahi poochta." -> "Woh 'aur logi?' bolta hai." -> "The second serving wasn't just food." -> "No comments. Just comfort." -> "Wanting started feeling safe." -> "55 se 70 nahi. Bas life zyada tasty ho gayi." Six illustrated Instagram post finals now exist in `final/slide-01.png` through `final/slide-06.png` at 1080x1350, split from the Codex-generated illustrated contact sheet. Visual QA is PASS_WITH_NOTES for Instagram post entry; separate native 9:16 Reels/Stories finals remain pending and are not claimed. | 0.99 |
+| 2026-05-23 | The Second Serving Was Never Just Food | fuller-life / appetite safe / home food bridge / comfort not comments | instagram_post_final_packaged | Exchange/debate pass repaired the six-route room. Final selector rejected "Some Love Doesn't Count Bites" as too surveillance-coded and chose a hybrid of the Khaya/Aur Logi retention hook plus Appetite Safe emotional truth. Active 6-slide package: `output/carousels/2026-05-23/the-second-serving-was-never-just-food-2/`. Public spine: "Woh bas 'khaya?' nahi poochta." -> "Woh 'aur logi?' bolta hai." -> "The second serving wasn't just food." -> "No comments. Just comfort." -> "Wanting started feeling safe." -> "55 se 70 nahi. Bas life zyada tasty ho gayi." Six illustrated Instagram post finals exist as historical old-format files in `final/slide-01.png` through `final/slide-06.png`, split from the Codex-generated illustrated contact sheet. Visual QA was PASS_WITH_NOTES for that package; the package is historical evidence, not a current dimensions precedent. Separate native 9:16 Reels/Stories finals remain pending and are not claimed. | 0.99 |
 | 2026-05-23 | Some Couples Come With Private Captions / Same Scene, Two Inner Worlds | paired-label meme / private translation / mutual adoration in ordinary frames | concept_approved_visuals_repairing_integrated_text_required | Creator challenged the first answer for not spawning the creative room and for flattening the Friends-style screenshots into generic "right reaction." Four-agent repair clarified the real mechanic: paired lowercase labels placed directly on each partner inside candid shared scenes, where one label names visible state/behavior and the other names the partner's private translation, delight, care, loyalty, or softness. The concept is approved, but the first local deterministic final output was visually rejected because it looked like a renderer mockup, not an Instagram carousel illustration. Later visual corrections clarified the reference format: less text, clear visuals, light context, no side notes, no arrows, no annotation clutter, no `him:`/`her:` prefixes, and one short label per person directly on/near the character while body language carries the joke. Package lives at `output/carousels/2026-05-23/some-couples-come-with-private-captions/`; use `visual-format-room.md` and `visual-label-lock.json` as the mandatory repaired visual brief. Winning label spine: "some couples come with private captions" -> "being dramatic / taking it seriously," "stressed / listening first," "excited / happy she's smiling," "doesn't like it / agrees," "acting tough / knows he's soft," "bad joke / favorite sound" -> "the right person captions you kindly." Future final outputs must be scene-first Aachu/Zuv illustration frames with simple composition, clear body language, minimal context hints, actual identity/style references, and exact labels integrated into the final image raster; do not treat local deterministic mockups or textless generated artifacts as acceptable final art. Use original Aachu/Zuv illustrated scenes only; no Friends frames, likenesses, exact label copying, roast/dumb-dumber framing, generic compatibility quotes, "subtitles" retread, one-setting cafe repetition, micro-annotation systems, crowded scenes, or one-way "she is chaos/he handles it" emotional labor. | 0.99 |
 | 2026-05-23 | Life Zyada Tasty Ho Gayi - six storyline routes | fuller-life / food-appetite bridge / home joy without being watched | storyline_routes_presented | Built six distinct home-set storyline routes for the approved payoff "55 se 70 nahi. Bas life zyada tasty ho gayi." Strongest recommendations: "Some Love Doesn't Count Bites" and "She Stopped Living Carefully." Required constraints: no public Aachu/Zuv names, no slim/fat or before-after body premise, no scales/measuring tape, visible food/appetite/life-taste bridge before the ending, and food as emotional evidence that joy became safe at home. | 0.96 |
 | 2026-05-23 | Someone Who Stays For The Full Story | storytelling partner / side plots / full-version listening | final_generated_pass_with_notes | Creator approved the final copy and asked to crack the visual structure before final illustrations. Final package lives at `output/carousels/2026-05-22/someone-stays-for-the-full-story/` with 7 slides, visual system `Performance To Presence`, and final generated `final/` plus `final-reels-stories/` outputs. Core thesis: Aachu performs the full incident with side plots and a timeline only she understands; Zuv's active love is phone-down attention and staying for the full story. Do not pitch side-plot/full-story listening as a fresh lane unless revisiting this package. Audit is `PASS_WITH_NOTES` because the built-in generator returned taller-than-4:5 post sources, so final post files preserve the full art with warm-paper contain margins. | 0.97 |
@@ -953,5 +970,3 @@ confidence: 0.98
 - Prefer new emotional engines over simple wording variants.
 - Do not repeat a recently used slide chassis with only a new prop.
 - Treat object, outfit, location, or photo aesthetics as proof beats only.
-- If the creator rejects a concept, add it here immediately with the rejected
-  surface, the deeper reason, and any repair condition.

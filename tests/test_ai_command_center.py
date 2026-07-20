@@ -105,6 +105,45 @@ def test_jam_today_prints_research_partner_lens_and_learning_capture():
     assert "scripts/agentic_os.py capture-learning" in result.stdout
 
 
+def test_jam_today_challenges_weak_abstract_moments_before_packaging():
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(WORKSPACE / "scripts" / "jam_today.py"),
+            "--moment",
+            "love is important and couples should care more",
+        ],
+        cwd=WORKSPACE,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert result.returncode == 2
+    assert "## Research Challenge Gate" in result.stdout
+    assert "verdict: REWORK" in result.stdout
+    assert "missing concrete couple scene" in result.stdout
+    assert "missing reader-recognition proof" in result.stdout
+    assert "Package Command" not in result.stdout
+
+
+def test_jam_today_allows_concrete_couple_moments_through_challenge_gate():
+    result = subprocess.run(
+        [sys.executable, str(WORKSPACE / "scripts" / "jam_today.py"), "--moment", "blanket border moved again"],
+        cwd=WORKSPACE,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert result.returncode == 0
+    assert "## Research Challenge Gate" in result.stdout
+    assert "verdict: PASS" in result.stdout
+    assert "## Package Command" in result.stdout
+
+
 def test_daily_creator_brief_surfaces_research_partner_lens():
     result = subprocess.run(
         [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py")],
@@ -246,7 +285,13 @@ def test_daily_creator_brief_surfaces_learning_debt_section():
 
     assert result.returncode == 0
     assert "## Learning Debt" in result.stdout
-    assert "no unresolved learning debt" in result.stdout.lower() or "needs proposal" in result.stdout.lower()
+    debt_text = result.stdout.lower()
+    assert (
+        "no unresolved learning debt" in debt_text
+        or "needs proposal" in debt_text
+        or "review draft proposal" in debt_text
+        or "apply approved proposal" in debt_text
+    )
 
 
 def test_daily_creator_brief_collects_hypothesis_tracker_records(tmp_path: Path):

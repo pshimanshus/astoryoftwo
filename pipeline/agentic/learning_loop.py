@@ -8,8 +8,9 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from pipeline.agentic.audit_log import snapshot_file
+from pipeline.agentic.audit_log import append_audit_event, snapshot_file
 from pipeline.agentic.contracts import LearningEvent, LearningProposal, utc_now_iso
+from pipeline.agentic.skill_eval import evaluate_learning_proposal
 
 
 def hash_text(text: str) -> str:
@@ -76,6 +77,95 @@ def create_learning_proposal(
     path = directory / f"{proposal_id}.json"
     path.write_text(json.dumps(proposal.model_dump(), indent=2) + "\n", encoding="utf-8")
     return path
+
+
+def apply_learning_proposal(root: Path, proposal_path: Path, *, approved_by: str) -> dict[str, Any]:
+    root = root.resolve()
+    if not proposal_path.is_absolute():
+        proposal_path = root / proposal_path
+    payload = read_json(proposal_path)
+    proposal_status = str(payload.get("status", ""))
+    if proposal_status not in {"draft", "approved"}:
+        raise ValueError(f"proposal status must be draft or approved before apply, got {proposal_status}")
+    result = evaluate_learning_proposal(root, proposal_path)
+    if result.status != "PASS":
+        raise ValueError(f"skill_eval failed: {'; '.join(result.issues)}")
+
+    content_path = payload.get("proposed_content_path")
+    if not content_path:
+        raise ValueError("proposal missing proposed_content_path")
+    target_path = str(payload.get("target_path", ""))
+    target = root / target_path
+    proposed_content = (root / str(content_path)).read_text(encoding="utf-8")
+
+    snapshot = snapshot_file(root, target_path) if target.exists() else None
+    if payload.get("proposed_action") in {"create", "modify"}:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(proposed_content, encoding="utf-8")
+    elif payload.get("proposed_action") == "deprecate":
+        target.write_text(proposed_content, encoding="utf-8")
+    else:
+        raise ValueError(f"unsupported proposed_action: {payload.get('proposed_action')}")
+
+    payload["status"] = "applied"
+    payload["approved_by"] = approved_by
+    payload["applied_at"] = utc_now_iso()
+    proposal_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    evidence = [relative_to(root, proposal_path)]
+    if snapshot:
+        evidence.append(relative_to(root, snapshot))
+    audit_path = append_audit_event(
+        root,
+        actor=approved_by,
+        action="apply_learning_proposal",
+        target_path=target_path,
+        rationale=str(payload.get("rationale", "")),
+        evidence_paths=evidence,
+    )
+
+    return {
+        "proposal_id": payload.get("proposal_id", proposal_path.stem),
+        "status": "applied",
+        "target_path": target_path,
+        "proposal_path": relative_to(root, proposal_path),
+        "snapshot_path": relative_to(root, snapshot),
+        "audit_path": relative_to(root, audit_path),
+    }
+
+
+def evaluate_learning_proposal_review(root: Path, proposal_path: Path) -> dict[str, Any]:
+    root = root.resolve()
+    if not proposal_path.is_absolute():
+        proposal_path = root / proposal_path
+    payload = read_json(proposal_path)
+    result = evaluate_learning_proposal(root, proposal_path)
+    proposal_status = str(payload.get("status", "unknown"))
+    next_action = "fix_proposal"
+    if result.status == "PASS" and proposal_status == "draft":
+        next_action = "review_then_apply_learning"
+    elif result.status == "PASS" and proposal_status == "approved":
+        next_action = "apply_learning"
+    elif result.status == "PASS" and proposal_status == "applied":
+        next_action = "none"
+
+    return {
+        "proposal_id": result.proposal_id,
+        "status": result.status,
+        "issues": result.issues,
+        "warnings": result.warnings,
+        "proposal_status": proposal_status,
+        "target_path": payload.get("target_path", ""),
+        "proposed_action": payload.get("proposed_action", ""),
+        "rationale": payload.get("rationale", ""),
+        "proposed_content_path": payload.get("proposed_content_path", ""),
+        "auto_apply": payload.get("auto_apply"),
+        "next_action": next_action,
+        "apply_command": (
+            f"venv/bin/python scripts/agentic_os.py apply-learning "
+            f"{relative_to(root, proposal_path)} --approved-by <reviewer>"
+        ),
+    }
 
 
 def compact(text: object, limit: int = 180) -> str:
@@ -149,6 +239,7 @@ def recent_learning_records(root: Path, limit: int = 5) -> list[dict[str, str]]:
 def learning_debt_records(root: Path, limit: int = 5) -> list[dict[str, str]]:
     events: list[tuple[Path, dict[str, Any]]] = []
     proposals: list[tuple[Path, dict[str, Any]]] = []
+    hypotheses: list[tuple[Path, dict[str, Any]]] = []
     for path in root.glob("memory/agentic/learning-events/*.json"):
         payload = read_json(path)
         if payload:
@@ -157,11 +248,21 @@ def learning_debt_records(root: Path, limit: int = 5) -> list[dict[str, str]]:
         payload = read_json(path)
         if payload:
             proposals.append((path, payload))
+    for path in root.glob("memory/agentic/hypotheses/*.json"):
+        payload = read_json(path)
+        if payload:
+            hypotheses.append((path, payload))
 
     proposed_event_ids = {
         str(payload.get("source_event_id", ""))
         for _, payload in proposals
         if payload.get("source_event_id")
+    }
+    learned_hypothesis_paths = {
+        str(evidence)
+        for _, payload in events
+        for evidence in payload.get("evidence_paths", [])
+        if str(evidence).startswith("memory/agentic/hypotheses/")
     }
 
     candidates: list[tuple[str, Path, dict[str, Any], str]] = []
@@ -169,6 +270,14 @@ def learning_debt_records(root: Path, limit: int = 5) -> list[dict[str, str]]:
         event_id = str(payload.get("event_id", path.stem))
         if event_id not in proposed_event_ids:
             candidates.append(("event", path, payload, str(payload.get("created_at", ""))))
+    for path, payload in hypotheses:
+        hypothesis_reference = relative_to(root, path)
+        if (
+            payload.get("status") == "resolved"
+            and payload.get("outcome") == "supported"
+            and hypothesis_reference not in learned_hypothesis_paths
+        ):
+            candidates.append(("supported_hypothesis", path, payload, str(payload.get("resolved_at", ""))))
     for path, payload in proposals:
         status = str(payload.get("status", "draft"))
         if status == "draft":
@@ -188,15 +297,22 @@ def learning_debt_records(root: Path, limit: int = 5) -> list[dict[str, str]]:
                 f"{payload.get('source', 'unknown source')}: "
                 f"{compact(payload.get('summary', ''))}"
             )
+        elif kind == "supported_hypothesis":
+            line = (
+                f"capture learning from supported hypothesis {payload.get('hypothesis_id', path.stem)}: "
+                f"{compact(payload.get('result_summary') or payload.get('hypothesis', ''))}"
+            )
         elif kind == "draft_proposal":
             line = (
                 f"review draft proposal {payload.get('proposal_id', path.stem)} "
+                f"(skill_eval: {proposal_eval_status(root, path)}) "
                 f"-> {payload.get('target_path', 'unknown target')}: "
                 f"{compact(payload.get('rationale', ''))}"
             )
         else:
             line = (
                 f"apply approved proposal {payload.get('proposal_id', path.stem)} "
+                f"(skill_eval: {proposal_eval_status(root, path)}) "
                 f"-> {payload.get('target_path', 'unknown target')}: "
                 f"{compact(payload.get('rationale', ''))}"
             )
@@ -208,6 +324,13 @@ def learning_debt_records(root: Path, limit: int = 5) -> list[dict[str, str]]:
             }
         )
     return records
+
+
+def proposal_eval_status(root: Path, path: Path) -> str:
+    try:
+        return evaluate_learning_proposal(root, path).status
+    except (OSError, json.JSONDecodeError, KeyError, TypeError, ValueError):
+        return "FAIL"
 
 
 def hypothesis_directory(root: Path) -> Path:

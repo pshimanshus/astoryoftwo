@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "status": "POST_3_4_PROOF_SET_READY_FOR_CREATOR_REVIEW",
+  "note": "This pass targets 3:4 Instagram carousel proof/final-post exports only. Separate native 9:16 story/reel outputs are not generated yet.",
+  "generated_assets": [
+    {"slide": 1, "version": "v1", "source": "source/slide-01-source-v1.png", "final": "final/slide-01.png", "status": "READY_FOR_REVIEW", "dimensions": "1080x1440"},
+    {"slide": 2, "version": "v1", "source": "source/slide-02-source-v1.png", "final": "final/slide-02.png", "status": "READY_FOR_REVIEW", "dimensions": "1080x1440"},
+    {"slide": 3, "version": "v1", "source": "source/slide-03-source-v1.png", "final": "final/slide-03.png", "status": "READY_FOR_REVIEW", "dimensions": "1080x1440"},
+    {"slide": 4, "version": "v1", "source": "source/slide-04-source-v1.png", "final": "final/slide-04.png", "status": "READY_FOR_REVIEW", "dimensions": "1080x1440"},
+    {"slide": 5, "version": "v1", "source": "source/slide-05-source-v1.png", "status": "REJECTED", "reason": "Mutual update action read too one-sided."},
+    {"slide": 5, "version": "v2", "source": "source/slide-05-source-v2.png", "final": "final/slide-05.png", "status": "READY_FOR_REVIEW", "dimensions": "1080x1440"},
+    {"slide": 6, "version": "v1", "source": "source/slide-06-source-v1.png", "final": "final/slide-06.png", "status": "READY_FOR_REVIEW", "dimensions": "1080x1440"}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_GENERATION_HANDOFF",
+  "selected_identity_bundle": [
+    {"path": "config/references/identity/together/together-18.jpg", "role": "primary together face anchor, especially Zuv hair/stubble and Aachu close face"},
+    {"path": "config/references/identity/together/together-21.jpg", "role": "body/posture and intimate couple blocking anchor"},
+    {"path": "config/references/identity/aachu/face-04.png", "role": "Aachu solo face and casual wardrobe anchor"},
+    {"path": "config/references/identity/zuv/portrait-07.jpg", "role": "Zuv solo face, hair, stubble, and wardrobe anchor"}
+  ],
+  "identity_locks": [
+    "Aachu: warm medium-brown South Asian skin, large expressive dark eyes, long dark wavy hair, soft oval face, lively warmth.",
+    "Zuv: warm medium-brown South Asian skin, thick dark curly hair, short natural stubble, strong brows, dark almond eyes, grounded warmth.",
+    "Use identity references as actual image inputs for every slide.",
+    "Manual likeness review required after generation; do not call final if faces drift."
+  ]
+}

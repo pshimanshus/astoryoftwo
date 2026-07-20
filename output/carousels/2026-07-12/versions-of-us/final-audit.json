@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_WITH_NOTES_FOR_3_4_PROOF_SET",
+  "not_full_final_reason": "Separate native 1080x1920 story/reel outputs were not generated in this pass.",
+  "checks": {
+    "post_3_4_finals_exist": "PASS",
+    "post_3_4_dimensions": "PASS",
+    "exact_text_manual_review": "PASS_WITH_NOTES",
+    "brandmark_manual_review": "PASS",
+    "identity_manual_review": "PASS_WITH_NOTES",
+    "visual_variety": "PASS",
+    "no_repeated_older_couple": "PASS",
+    "native_9_16_outputs": "MISSING",
+    "ocr": "NOT_RUN_TESSERACT_NOT_INSTALLED"
+  },
+  "accepted_final_slides": [
+    "final/slide-01.png",
+    "final/slide-02.png",
+    "final/slide-03.png",
+    "final/slide-04.png",
+    "final/slide-05.png",
+    "final/slide-06.png"
+  ],
+  "rejected_sources": [
+    {
+      "path": "source/slide-05-source-v1.png",
+      "reason": "Mutual update action read too one-sided."
+    }
+  ]
+}

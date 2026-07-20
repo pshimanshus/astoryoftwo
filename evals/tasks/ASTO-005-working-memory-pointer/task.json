@@ -22,6 +22,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_wiki_health.py", "tests/test_agentic_memory_recall.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "health"]],
   "deterministic_checkers": ["diff_guard"],
   "rubric_checkers": [],
+  "fail_to_pass": ["long durable learning is removed from memory/working.md and moved to semantic memory"],
+  "pass_to_pass": ["memory/working.md remains a pointer surface and episodic memory is preserved"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should fail if memory/working.md becomes a second source of truth."]
 }

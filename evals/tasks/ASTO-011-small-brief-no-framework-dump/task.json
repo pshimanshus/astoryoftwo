@@ -23,6 +23,8 @@
   "required_commands": [],
   "deterministic_checkers": ["diff_guard", "creator_visible_copy"],
   "rubric_checkers": ["creative_contract"],
+  "fail_to_pass": ["creator-facing brief contains no visible framework terms and preserves the exact seed"],
+  "pass_to_pass": ["private analysis artifacts may use rubric language when separated from creator-facing copy"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
   "anti_gaming_notes": ["Human or judge rubric should require scene proof, recognition, sendability, and format choice."]
 }

@@ -1,0 +1,36 @@
+{
+  "status": "STOP",
+  "proof_image": "proof/slide-06-before-us-proof.png",
+  "slide": 6,
+  "copy_variant": "Before Us",
+  "text_expected": "Then one day,\none ordinary table.",
+  "checks": {
+    "visual_quality": {
+      "status": "PASS_WITH_NOTES",
+      "notes": "The proof preserves the strong high-angle restaurant setup, Aachu focused on food, Zuv entering, warm paper texture, and the same successful visual language."
+    },
+    "copy_depth": {
+      "status": "PASS",
+      "notes": "The revised line is simpler and more poetic than the prior slide 6 copy."
+    },
+    "text_accuracy": {
+      "status": "PASS_BY_VISUAL_INSPECTION",
+      "notes": "The visible text reads: Then one day, / one ordinary table."
+    },
+    "brandmark": {
+      "status": "PASS_BY_VISUAL_INSPECTION",
+      "notes": "Tiny @a.storyof.two brandmark is visible at top-right."
+    },
+    "dimensions": {
+      "status": "FAIL",
+      "expected": "1080x1440",
+      "actual": "1086x1448",
+      "notes": "The generated image is exact 3:4 ratio but not the required final upload dimensions."
+    },
+    "identity": {
+      "status": "IDENTITY_UNVERIFIED",
+      "notes": "Structured identity review was recorded, but no real face/likeness comparison tool was available, so batching is blocked."
+    }
+  },
+  "can_continue_batch": false
+}

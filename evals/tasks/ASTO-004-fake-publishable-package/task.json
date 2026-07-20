@@ -21,8 +21,36 @@
   "expected_files_changed": ["pipeline/agentic/workflow_doctor.py", "pipeline/agentic/carousel_state.py", "tests/test_carousel_state_contract.py", "tests/test_carousel_workflow_doctor.py"],
   "forbidden_changes": ["Do not create fake PNG files to satisfy the checker.", "Do not mark a package publishable without visual QA and final audit."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_carousel_state_contract.py", "tests/test_carousel_workflow_doctor.py", "tests/test_checks_image_size.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "carousel_doctor_fixture"],
   "rubric_checkers": [],
+  "fail_to_pass": ["seeded fake-publishable package derives blocked non-publishable state"],
+  "pass_to_pass": ["minimal valid package with real native finals, visual QA, and passing audit can still become publishable"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/carousels/fixtures/fake-publishable/final-images.json",
+      "target": "output/carousels/fixtures/fake-publishable/final-images.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/fake-publishable/final-audit.json",
+      "target": "output/carousels/fixtures/fake-publishable/final-audit.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/fake-publishable/visual-qa.md",
+      "target": "output/carousels/fixtures/fake-publishable/visual-qa.md"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/fake-publishable/image-generation-blocker.md",
+      "target": "output/carousels/fixtures/fake-publishable/image-generation-blocker.md"
+    },
+    {
+      "source": "fixtures/fixture-assets/corrupt-post-slide-01.fixture",
+      "target": "output/carousels/fixtures/fake-publishable/final/slide-01.png"
+    },
+    {
+      "source": "fixtures/fixture-assets/corrupt-story-slide-01.fixture",
+      "target": "output/carousels/fixtures/fake-publishable/final-reels-stories/slide-01.png"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should use corrupt PNG bytes and mismatched slide counts."]
 }

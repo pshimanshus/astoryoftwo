@@ -20,8 +20,16 @@
   "expected_files_changed": ["config/rules/brandmark.md", "config/references/a-story-illustration-master-prompt.md", "pipeline/agentic/checks/prompt_constraints.py", "tests/test_instruction_surface_contract.py"],
   "forbidden_changes": ["Do not edit AGENTS.md.", "Do not introduce a second root instruction surface.", "Do not weaken brandmark tests."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_instruction_surface_contract.py", "tests/test_checks_prompt_constraints.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "brandmark_top_right_rule"],
   "rubric_checkers": [],
+  "fail_to_pass": ["affirmative bottom-right brandmark placement is removed from active rule surfaces"],
+  "pass_to_pass": ["top-right brandmark requirement remains present and negative examples may still mention bottom-right as forbidden"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/config/rules/brandmark.md",
+      "target": "config/rules/brandmark.md"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should search for affirmative bottom-right brandmark lines outside negative examples."]
 }

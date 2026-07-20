@@ -25,6 +25,8 @@ def test_starter_tasks_are_issue_like_and_cover_project_contract() -> None:
     assert all(task.title for task in tasks)
     assert all(task.done_when for task in tasks)
     assert all(task.starting_state for task in tasks)
+    assert all(task.fail_to_pass for task in tasks)
+    assert all(task.pass_to_pass for task in tasks)
     assert all(task.pass_criteria.critical_failures_allowed == 0 for task in tasks)
 
     categories = {task.category for task in tasks}

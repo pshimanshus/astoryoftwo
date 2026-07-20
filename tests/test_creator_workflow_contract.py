@@ -89,6 +89,30 @@ def test_agents_md_protects_identity_wardrobe_dimensions_and_brandmark():
     assert "tiny `@a.storyof.two`" in skill
 
 
+def test_identity_eval_stop_gate_blocks_batching_without_structured_review():
+    surfaces = {
+        "identity rule": _flat("config/rules/identity.md"),
+        "carousel skill": _flat(".agents/skills/a-story-carousel-jam/SKILL.md"),
+        "runtime context": _flat("config/skills/carousel-jam-runtime-context.md"),
+        "autopilot": _flat("config/skills/carousel-jam-autopilot.md"),
+        "illustration framework": _flat("config/skills/illustration-carousel-framework.md"),
+        "engineering memory": _flat("memory/semantic/engineering-workflow-preferences.md"),
+    }
+
+    for name, text in surfaces.items():
+        lowered = text.lower()
+
+        assert "no identity eval" in lowered, name
+        assert "no next slide" in lowered, name
+        assert "identity-consistency-review.json" in text, name
+        assert "visual-qa.json" in text, name
+        assert "reference IDs" in text or "reference ids" in lowered, name
+        assert "specific likeness notes" in lowered, name
+        assert "BLOCKED_FOR_IDENTITY_EVAL" in text, name
+        assert "IDENTITY_UNVERIFIED" in text, name
+        assert "do not call" in lowered or "instead of calling it final" in lowered, name
+
+
 def test_agents_md_requires_one_command_currentness_and_learning_updates():
     agents = _flat("AGENTS.md")
     skill = _flat(".agents/skills/a-story-carousel-jam/SKILL.md")

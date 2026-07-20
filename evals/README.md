@@ -30,6 +30,17 @@ Check one task after an agent has attempted it:
 venv/bin/python evals/runner.py check ASTO-003-textless-prompt
 ```
 
+For fixture-backed tasks, apply the fixture overlay to an isolated repo
+checkout before giving the prompt to the agent. The checker should then run
+against that prepared checkout, not against the fixture source directory.
+
+Materialize a task's broken starting fixture into a scratch directory:
+
+```bash
+tmpdir=$(mktemp -d)
+venv/bin/python evals/runner.py prepare ASTO-003-textless-prompt --output "$tmpdir"
+```
+
 Run only metadata and diff checks while developing a checker:
 
 ```bash
@@ -53,10 +64,20 @@ Each task lives at `evals/tasks/<task-id>/` and contains:
 - `prompt.md`: the issue-like prompt given to the agent.
 - `deep-spec.md`: evaluator-facing design notes: why the task exists,
   starting fixture, failure modes, checker design, anti-gaming, and severity.
-- optional fixtures or hidden checkers in future iterations.
+- `fixtures/`: optional concrete broken starting-state files that can be
+  materialized by `evals/runner.py prepare`.
+- optional hidden checkers in future iterations.
 
 The task metadata deliberately uses JSON instead of YAML so the harness can run
 without adding a parser dependency.
+
+Each task must declare:
+
+- `fail_to_pass`: the seeded failure or regression that should flip after the
+  agent's patch.
+- `pass_to_pass`: behavior that must remain stable while fixing the failure.
+- `deterministic_checkers`: executable checker names. Unknown names fail
+  validation instead of becoming decorative labels.
 
 ## Scoring
 
@@ -71,6 +92,14 @@ Mechanical gates should cover:
 - focused tests or scripts the task must pass;
 - structural package checks such as carousel doctor and image-size gates;
 - instruction-surface and rule-authority checks.
+
+Current named deterministic checkers are:
+
+- `diff_guard`: forbidden/out-of-scope path protection.
+- `brandmark_top_right_rule`: active brandmark rule authority.
+- `carousel_doctor_fixture`: fixture-backed carousel doctor/state behavior.
+- `autopublish_safety_fixture`: risky path and synthetic secret scanning.
+- `creator_visible_copy`: creator-facing framework language leakage.
 
 Rubric gates should cover:
 
@@ -87,12 +116,14 @@ Rubric gates should cover:
 2. Reduce it to one issue-like prompt with one primary failure mode.
 3. Write `task.json` with allowed paths, forbidden paths, required commands,
    and anti-gaming notes.
-4. Write `deep-spec.md` before treating the task as real. It must name the
+4. Add a concrete fixture overlay for smoke or high-risk tasks. The fixture
+   should trigger an existing checker before the fix.
+5. Write `deep-spec.md` before treating the task as real. It must name the
    fail-to-pass condition, pass-to-pass regression surface, hidden variant,
    anti-gaming strategy, and severity model.
-5. Add or update deterministic tests/checkers before adding subjective rubrics.
-6. Add a hidden variant when the visible task could be gamed by string matching.
-7. Run `venv/bin/python evals/runner.py validate`.
+6. Add or update deterministic tests/checkers before adding subjective rubrics.
+7. Add a hidden variant when the visible task could be gamed by string matching.
+8. Run `venv/bin/python evals/runner.py validate`.
 
 Keep creative-quality judging separate from mechanical contract checks.
 

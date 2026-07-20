@@ -1,0 +1,96 @@
+{
+  "status": "supplied",
+  "source": "creator approved in Codex chat on 2026-07-12 after reference theme screenshot",
+  "source_file": "output/carousels/2026-07-12/after-one-hour-with-you-creative-baseline.json",
+  "creative_authority": "model_first",
+  "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+  "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance.",
+  "concept": {
+    "title": "After One Hour With You",
+    "slug": "after-one-hour-with-you",
+    "human_truth": "Some people do not solve the problem; their presence changes the emotional texture of the same life until it feels softer and more bearable.",
+    "reference_theme": "Some people are human medicine. You spend an hour with them and everything feels better.",
+    "a_story_translation": "A lived Aachu/Zuv hour where the same thoughts and same world are still there, but being together changes the inner weather.",
+    "format": "7-slide Instagram carousel with native 1080x1440 post handoff and separate 1080x1920 reels/stories handoff when generated"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "some people change the weather inside you.",
+      "visual": "A warm interior scene with one partner arriving emotionally crowded by the day: bag dropped, phone in hand, shoulders tense, the room feeling slightly compressed. The other partner is present nearby but not heroic or therapist-like, simply noticing with gentle attention. The feeling should be weather-like through light and posture, not literal clouds.",
+      "role": "Cover",
+      "emotion": "quiet emotional weather shift beginning",
+      "props": "phone, bag, soft home light, small ordinary home objects",
+      "continuity_lock": "This is one emotional hour; keep the same broad time-of-day continuity while varying angles and actions."
+    },
+    {
+      "slide": 2,
+      "copy": "before them, everything feels too loud.",
+      "visual": "A closer, slightly crowded frame: notifications glow on the phone, keys or bag are messy, shoulders lifted, eyes tired. The other partner is not solving anything yet; the room and objects make the loudness visible without using literal sound effects.",
+      "role": "Cold Open",
+      "emotion": "overstimulated, tenderly observed",
+      "props": "phone with no readable UI text, keys, bag, shoes half-off",
+      "continuity_lock": "No random invented text on objects or phone; only approved on-image text and brandmark."
+    },
+    {
+      "slide": 3,
+      "copy": "the same thoughts. the same worries. the same life.",
+      "visual": "A wider room scene where the practical world is still visible: phone, small bills or notebook without readable text, laundry or daily objects, unfinished cup. One partner is mid-thought, the other sits close enough to be present. Nothing is fixed yet.",
+      "role": "Mirror",
+      "emotion": "recognition, the problem remains",
+      "props": "phone, notebook or bills without readable writing, cup, everyday home details",
+      "continuity_lock": "Keep the world ordinary, not dramatic; the proof is same life, different feeling."
+    },
+    {
+      "slide": 4,
+      "copy": "then they sit next to you, and somehow...",
+      "visual": "The partner simply sits beside them on the bed, sofa, or floor edge. No advice pose, no lecture. Hands are close but not forced; eye-line softens; body distance reduces a little. The scene should prove presence as the action.",
+      "role": "Spine",
+      "emotion": "presence, no fixing",
+      "props": "sofa or bed edge, shared blanket edge or cushion",
+      "continuity_lock": "Avoid therapist/savior staging; this is equal couple presence."
+    },
+    {
+      "slide": 5,
+      "copy": "your chest stops arguing with the world.",
+      "visual": "A gentle mid-hour beat: the tense partner is now exhaling, maybe leaning back or laughing softly while still holding the phone face down. The other partner's presence makes the body loosen; hands unclench, shoulders drop. Use chest/shoulder posture as the receipt.",
+      "role": "Rhythm",
+      "emotion": "inner softening, body unclenches",
+      "props": "phone face down, cushion, warm light",
+      "continuity_lock": "Text should complete the body-language proof, not replace it."
+    },
+    {
+      "slide": 6,
+      "copy": "nothing is fixed.\nbut everything feels softer.",
+      "visual": "The key proof slide: same phone/problem remains in the frame, but the emotional weather has changed. The couple is calmer, closer, maybe sharing a small laugh or quiet side-by-side silence. The outside world is unchanged; light and posture are softer.",
+      "role": "Turn",
+      "emotion": "same problem, changed feeling",
+      "props": "same phone, same ordinary objects from earlier, softened warm light",
+      "continuity_lock": "This slide carries the concept; do not make it a quote card."
+    },
+    {
+      "slide": 7,
+      "copy": "maybe love is just this.\none person making life feel bearable again.",
+      "visual": "A final quiet wide shot after the hour: both people settled close in the same room, ordinary objects still around, but the frame breathes. One small shared gesture, like shoulder against shoulder, fingers touching, or a shared smile, lands the emotional thesis without grand romance.",
+      "role": "Payoff",
+      "emotion": "earned relief, sendable tenderness",
+      "props": "soft home light, phone now less central, ordinary room details",
+      "continuity_lock": "Final image should feel saveable and intimate, not moralizing."
+    }
+  ],
+  "copy": {
+    "caption_options": [
+      "some people do not change the whole day.\n\nthey just sit beside you long enough\nfor your heart to stop fighting it.\n\nsame thoughts.\nsame worries.\nsame life.\n\nbut softer,\nbecause they are there.",
+      "for the person whose presence makes the same life feel lighter."
+    ],
+    "hashtags": [
+      "#AStoryOfTwo",
+      "#SoftLoveNotes",
+      "#LoveInLittleThings",
+      "#DesiCouple",
+      "#RelationshipNotes"
+    ],
+    "posting_notes": "Do not mention the reference account publicly. Keep the caption soft and presence-led, not advice or therapy language."
+  },
+  "visual_setup": "One emotional hour in an ordinary room. The same problem stays visible while body language, light, and distance soften. The relationship motion is presence and mutual ease, not one partner saving the other."
+}

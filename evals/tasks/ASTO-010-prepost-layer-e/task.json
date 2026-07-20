@@ -22,6 +22,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_prepost_story_selling.py", "-q"]],
   "deterministic_checkers": ["diff_guard"],
   "rubric_checkers": [],
+  "fail_to_pass": ["pre-post Reel analysis loads the romance story-selling spine and emits Layer E room artifacts"],
+  "pass_to_pass": ["hook, cultural, caption, and edit-agent analysis remain active"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should inspect ORCHESTRATOR_SKILLS and all PREPOST_AGENT_CONFIGS."]
 }

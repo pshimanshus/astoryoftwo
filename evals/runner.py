@@ -12,6 +12,8 @@ sys.path.insert(0, str(ROOT))
 from evals.checkers.deterministic import check_prompt_exists, run_required_commands  # noqa: E402
 from evals.checkers.diff_guard import changed_paths, check_changed_paths  # noqa: E402
 from evals.checkers.report import EvalReport, score_checks  # noqa: E402
+from evals.checkers.task_specific import run_named_checkers  # noqa: E402
+from evals.fixtures import UnsafeFixturePathError, materialize_task_fixture  # noqa: E402
 from evals.schemas import EvalTask, discover_tasks, validate_task_suite  # noqa: E402
 
 
@@ -39,9 +41,18 @@ def run_task_checks(
     paths = explicit_changed_paths if explicit_changed_paths is not None else changed_paths(root)
     if "diff_guard" in task.deterministic_checkers:
         checks.extend(check_changed_paths(task, paths))
+    checks.extend(run_named_checkers(task, root, task.deterministic_checkers))
     if not skip_commands:
         checks.extend(run_required_commands(task, root))
     return score_checks(task, checks)
+
+
+def prepare_task_fixture_by_id(root: Path, task_id: str, output_dir: Path) -> list[Path]:
+    tasks = discover_tasks(root)
+    selected = select_tasks(tasks, task_id=task_id)
+    if not selected:
+        raise ValueError(f"Unknown eval task: {task_id}")
+    return materialize_task_fixture(selected[0], output_dir)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -59,6 +70,10 @@ def build_parser() -> argparse.ArgumentParser:
     check.add_argument("--suite")
     check.add_argument("--skip-commands", action="store_true")
     check.add_argument("--changed-path", action="append", default=[])
+
+    prepare = sub.add_parser("prepare")
+    prepare.add_argument("task_id")
+    prepare.add_argument("--output", type=Path, required=True)
     return parser
 
 
@@ -93,6 +108,24 @@ def main(argv: Sequence[str] | None = None) -> int:
         ]
         print(json.dumps(reports, indent=2))
         return 0 if all(report["resolved"] for report in reports) else 1
+
+    if args.command == "prepare":
+        try:
+            written = prepare_task_fixture_by_id(root, args.task_id, args.output)
+        except (ValueError, UnsafeFixturePathError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 2
+        print(
+            json.dumps(
+                {
+                    "task_id": args.task_id,
+                    "output": str(args.output.resolve()),
+                    "written": [str(path) for path in written],
+                },
+                indent=2,
+            )
+        )
+        return 0
 
     return 2
 

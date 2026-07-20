@@ -22,6 +22,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_agentic_skill_registry.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "health"]],
   "deterministic_checkers": ["diff_guard"],
   "rubric_checkers": [],
+  "fail_to_pass": ["carousel_jam routing surfaces load config/skills/creator-skill-stack.md again"],
+  "pass_to_pass": ["compact carousel runtime context and explicit workflow routing continue to work"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should inspect every carousel_jam component surface for the creator skill stack path."]
 }

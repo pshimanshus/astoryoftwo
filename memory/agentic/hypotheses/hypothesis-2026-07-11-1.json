@@ -1,0 +1,17 @@
+{
+  "hypothesis_id": "hypothesis-2026-07-11-1",
+  "source": "jam gate verification",
+  "hypothesis": "The jam challenge gate improves research-partner behavior by blocking abstract theme seeds before packaging while allowing concrete couple moments through.",
+  "success_signal": "A weak abstract seed exits 2 without a Package Command, a concrete seed exits 0 with a Package Command, and the focused command-center tests pass.",
+  "falsifier": "The weak seed reaches packaging, the concrete seed is blocked, or tests fail.",
+  "status": "resolved",
+  "evidence_paths": [
+    "scripts/jam_today.py",
+    "tests/test_ai_command_center.py",
+    "tests/test_agentic_learning_eval_cli.py"
+  ],
+  "created_at": "2026-07-11T12:32:23+00:00",
+  "outcome": "supported",
+  "result_summary": "Weak abstract seeds now exit 2 before packaging, concrete couple-moment seeds still exit 0 with a Package Command, and focused tests covering both behaviors pass.",
+  "resolved_at": "2026-07-11T12:32:36+00:00"
+}

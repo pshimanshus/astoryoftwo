@@ -22,6 +22,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_story_scene_first_contract.py", "tests/test_illustration_carousel.py", "-q"]],
   "deterministic_checkers": ["diff_guard"],
   "rubric_checkers": ["visual_variety"],
+  "fail_to_pass": ["repeated-scene visual plan is blocked until a shot ladder varies camera, action, setting, and subject visibility"],
+  "pass_to_pass": ["warm relationship copy remains allowed when visual plan quality is GO/PASS"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
   "anti_gaming_notes": ["Hidden checker should hide slide text and compare visual fields for repeated setting/action/shot patterns."]
 }

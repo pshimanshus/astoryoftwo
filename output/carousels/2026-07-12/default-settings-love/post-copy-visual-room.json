@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "trigger_phrase_or_event": "Creator said \"proceeed\" after rejecting the earlier reference-like direction and asking for novelty/thought in slide planning.",
+  "copy_lock": {
+    "status": "locked_for_proof",
+    "slides": [
+      "LOVE DOESN'T ALWAYS FEEL BIG.",
+      "SOMETIMES IT BECOMES A DEFAULT.",
+      "THE FIRST NAME YOU TYPE.",
+      "THE EXTRA KEY YOU STOP HIDING.",
+      "THE SIDE OF THE BED THAT KNOWS YOU.",
+      "THE PERSON LIFE CALLS FIRST.",
+      "FOREVER, IN SMALL SETTINGS."
+    ]
+  },
+  "visual_system_candidates": [
+    {
+      "name": "Life Defaults",
+      "description": "Ordinary adult systems as romance evidence: keys, blank forms, bedside rhythm, first-contact muscle memory.",
+      "score": 29,
+      "verdict": "GO"
+    },
+    {
+      "name": "Versions Archive",
+      "description": "Relationship as an archive of changed selves and old plans.",
+      "score": 26,
+      "verdict": "REPAIR",
+      "reason": "Emotionally true but more abstract, and too close to the already discussed route."
+    },
+    {
+      "name": "Future Echo",
+      "description": "Young couple scenes mirrored by older-couple scenes.",
+      "score": 22,
+      "verdict": "STOP",
+      "reason": "Too close to the supplied reference strip and likely to feel copied."
+    }
+  ],
+  "selected_visual_system": "Life Defaults",
+  "why_it_wins": "It keeps the lifelong romance concept but proves it through new, drawable, adult receipts. The viewer can send it as 'this is us' without needing the original reference.",
+  "rejected_visual_patterns": [
+    "question-and-answer copy structure",
+    "older-couple echo on every slide",
+    "gallery/cafe/beach montage copied from the reference strip",
+    "generic couple standing beside text",
+    "readable phone UI or readable form labels",
+    "one partner as caretaker while the other is the problem"
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "notes": "Preserve the reference mechanic of a quiet question about lifelong love, but translate it into original infrastructure scenes rather than copied panels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "notes": "Every slide has a visible receipt: keys, phone habit, bedside trace, blank paperwork, doorway ritual."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "notes": "The couple is mutual. Aachu acts, Zuv acts, and several slides are object/detail-led instead of rescue-led."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO_FOR_3_4_PROOF_ONLY",
+      "notes": "Use upper-middle handwritten text. Story/Reel native text placement remains pending because this pass only generates the 3:4 proof."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "notes": "Attach selected identity references and Observational Intimacy style references to the built-in image generation call."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "notes": "Generate slide 6 first because it is the strongest turn and the easiest to ruin with readable form clutter or hospital melodrama."
+    }
+  ],
+  "slide_visual_blueprint": [
+    {"slide": 1, "shot": "object-only overhead", "setting": "entryway table", "proof": "love appears as shared everyday objects"},
+    {"slide": 2, "shot": "wide hallway", "setting": "home exit", "proof": "the couple moves through a default ritual"},
+    {"slide": 3, "shot": "close over-shoulder", "setting": "phone moment", "proof": "the first name is muscle memory, no readable UI"},
+    {"slide": 4, "shot": "hands/detail", "setting": "door key hook", "proof": "a spare key becomes trust"},
+    {"slide": 5, "shot": "medium morning", "setting": "bedroom", "proof": "a side of bed knows the body and routine"},
+    {"slide": 6, "shot": "medium profile", "setting": "calm paperwork desk", "proof": "one person becomes the adult first call"},
+    {"slide": 7, "shot": "distant doorway transition", "setting": "home at evening", "proof": "forever lands as two small settings"}
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3_4": "Upper-middle negative space, dark charcoal handwritten style, exact slide copy, tiny @a.storyof.two top-right.",
+    "story_reel_9_16": "Pending separate native generation after proof approval; do not crop or extend post art."
+  },
+  "open_doubts": [
+    "Built-in image model may miss exact text; proof must be checked before batch.",
+    "Slide 6 must not invent readable form text beyond the approved slide copy and brandmark."
+  ]
+}

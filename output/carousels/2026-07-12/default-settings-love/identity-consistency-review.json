@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS_FOR_PROOF_HANDOFF",
+  "selected_identity_bundle": [
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "primary together face anchor, especially Zuv curls/beard and Aachu face proximity"
+    },
+    {
+      "path": "config/references/identity/together/together-21.jpg",
+      "role": "body/posture and intimate couple blocking anchor"
+    },
+    {
+      "path": "config/references/identity/aachu/face-04.png",
+      "role": "Aachu solo face and casual outfit anchor"
+    },
+    {
+      "path": "config/references/identity/zuv/portrait-07.jpg",
+      "role": "Zuv solo face, hair, stubble, and white jacket/urban outfit anchor"
+    }
+  ],
+  "identity_locks": [
+    "Aachu: warm medium-brown South Asian skin, large expressive dark eyes, long dark wavy hair, soft oval face, lively warmth.",
+    "Zuv: warm medium-brown South Asian skin, thick dark curly hair, short natural stubble, strong brows, dark almond eyes, gentle grounded presence.",
+    "Two-shot height lock: Zuv 5'8\", Aachu 5'6\"; natural two-inch difference only.",
+    "Wardrobe extends from selected identity images: Aachu casual black/denim or soft home kurta language; Zuv dark shirt/white jacket/calm casual language."
+  ],
+  "generation_gate": "The image-generation call must pass these files as actual visual inputs. Text-only identity descriptions do not satisfy the gate."
+}

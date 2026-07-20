@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "trigger_phrase_or_event": "Creator supplied the slide plan and said \"continue wiht this\".",
+  "copy_lock": {
+    "status": "creator_locked",
+    "slides": [
+      "LOVE IS NOT LOVING ONE VERSION.",
+      "THE FIRST VERSION IS EASY.",
+      "THEN LIFE STARTS EDITING YOU.",
+      "SOME DREAMS GET REPLACED.",
+      "THE RIGHT PERSON LEARNS THE UPDATE.",
+      "STILL CHOOSING. STILL LEARNING."
+    ]
+  },
+  "visual_system_candidates": [
+    {
+      "name": "Archive Of Changed Versions",
+      "score": 30,
+      "verdict": "GO",
+      "reason": "Best match to the creator's plan: objects from eras become emotional receipts."
+    },
+    {
+      "name": "Life Edits Montage",
+      "score": 25,
+      "verdict": "REPAIR",
+      "reason": "Readable but could become generic moving-house growth content."
+    },
+    {
+      "name": "Future Echo Romance",
+      "score": 22,
+      "verdict": "STOP",
+      "reason": "Too close to the original reference if used throughout."
+    }
+  ],
+  "selected_visual_system": "Archive Of Changed Versions",
+  "why_it_wins": "It preserves the thought and novelty in the user's plan while keeping each slide stageable and visually different.",
+  "rejected_visual_patterns": [
+    "older couple on every slide",
+    "Q/A text format",
+    "gallery/beach/bookstore montage",
+    "direct reference redraws",
+    "same couple medium shot repeated",
+    "Zuv as default caretaker"
+  ],
+  "slide_visual_blueprint": [
+    {"slide": 1, "shot": "object-only/partial presence", "setting": "archive drawer/table", "proof": "objects from different eras show multiple versions"},
+    {"slide": 2, "shot": "close-up/detail", "setting": "early date table", "proof": "nervous hands and laughter make the first version easy"},
+    {"slide": 3, "shot": "wide/active motion", "setting": "moving room", "proof": "life changes them through boxes and crossed plans"},
+    {"slide": 4, "shot": "medium/action", "setting": "packing room", "proof": "an old dream is replaced without grief"},
+    {"slide": 5, "shot": "two-action medium", "setting": "home routine/update moment", "proof": "both partners learn the new version of the other"},
+    {"slide": 6, "shot": "wide/future echo", "setting": "archive room or doorway", "proof": "young and older gestures echo only at the earned ending"}
+  ],
+  "open_doubts": [
+    "Exact text must be checked manually because OCR may be unavailable.",
+    "Slide 6 older couple must remain subtle, not a repeated reference motif."
+  ]
+}

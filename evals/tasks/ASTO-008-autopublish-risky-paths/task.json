@@ -20,8 +20,28 @@
   "expected_files_changed": ["scripts/autopublish.py", "tests/test_autopublish.py"],
   "forbidden_changes": ["Do not remove secret scanning.", "Do not stage mixed worktrees silently.", "Do not auto-push from a hook."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_autopublish.py", "tests/test_codex_project_surfaces.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "autopublish_safety_fixture"],
   "rubric_checkers": [],
+  "fail_to_pass": ["seeded env, identity media, generated final, and synthetic live-looking token are blocked"],
+  "pass_to_pass": ["placeholder secrets and scoped source includes remain allowed while preserving closeout artifacts"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/fixtures/git-status.txt",
+      "target": "fixtures/git-status.txt"
+    },
+    {
+      "source": "fixtures/.env.local",
+      "target": ".env.local"
+    },
+    {
+      "source": "fixtures/identity_images/aachu-reference.png",
+      "target": "identity_images/aachu-reference.png"
+    },
+    {
+      "source": "fixtures/fixture-assets/generated-final-media.fixture",
+      "target": "output/carousels/fixtures/demo/final/slide-01.png"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should include renamed media, nested __pycache__, and live-looking token strings."]
 }

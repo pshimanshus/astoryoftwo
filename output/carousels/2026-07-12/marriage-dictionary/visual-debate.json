@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "status": "GO_REPAIRED",
+  "depends_on": "post-copy-visual-room.json",
+  "visual_evidence_planner": {
+    "recommendation": "Use everyday Indian/Hinglish phrase behavior as the proof trail, not a repeated decorative dictionary prop.",
+    "must_preserve": ["doorway delay", "bag migration", "drawer search", "water glass", "grocery-dessert list", "final home tableau"]
+  },
+  "romance_scene_planner": {
+    "recommendation": "Keep the relationship active through mutual comedy first, then silent care, then shared home payoff.",
+    "relationship_motion": "Both partners create the changed meanings; neither is the sole problem or the sole rescuer."
+  },
+  "visual_continuity_judge": {
+    "recommendation": "Pass with a strict shot ladder and no more than two similar home-medium shots.",
+    "rejected": ["same table setup on every slide", "quote-card definition pages", "generic couple smiling beside terms"]
+  },
+  "selected_visual_system": "Living Dictionary Entries",
+  "shot_ladder": [
+    "cover overhead/open book plus couple lean-in",
+    "doorway medium with mirror depth",
+    "bag/object close-up",
+    "low drawer/search scene",
+    "quiet side-table detail with separated bodies",
+    "overhead list and dessert with faces at edge",
+    "soft wide/overhead home tableau"
+  ],
+  "decision": "GO_REPAIRED"
+}

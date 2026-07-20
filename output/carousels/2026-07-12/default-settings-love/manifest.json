@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "status": "PROOF_READY_FOR_CREATOR_REVIEW",
+  "slug": "default-settings-love",
+  "title": "Default Settings Love",
+  "created_date": "2026-07-12",
+  "creator_instruction": "proceeed",
+  "source_context": [
+    "Creator supplied lifelong-romance reference screenshots and asked not to use the same copy, only the concept and vibe.",
+    "Creator rejected the earlier above direction and asked for novelty and thought in slide planning.",
+    "Proceed was treated as approval to move into a stronger proof-first visual route."
+  ],
+  "format_lock": {
+    "requested_surface": "Instagram carousel proof",
+    "post_final_size": "1080x1440",
+    "source_size_if_needed": "1440x1920",
+    "story_reel_outputs": "not generated in this proof pass"
+  },
+  "selected_route": "Default Settings Love",
+  "concept_thesis": "Forever is not only a grand promise; it is the quiet way one person becomes the default inside your adult life.",
+  "proof_strategy": "Use small adult systems as visual receipts: keys, phone contact muscle memory, bedside rhythm, blank forms, and entryway rituals. No copied reference copy, no older-couple echo on every slide, no Q/A format.",
+  "selected_identity_references": [
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/zuv/portrait-07.jpg"
+  ],
+  "selected_style_references": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+  ],
+  "generation_note": "Built-in image generation allowed at most five reference images, so the actual proof call used the four identity references plus the style contact sheet. The individual style slides remain package references but were not attached to the proof call.",
+  "artifact_map": {
+    "slides": "slides.json",
+    "storyboard": "storyboard.md",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "identity_review": "identity-consistency-review.json",
+    "prompt_pack": "prompt-pack.json",
+    "final_images": "final-images.json",
+    "visual_qa": "visual-qa.md"
+  }
+}

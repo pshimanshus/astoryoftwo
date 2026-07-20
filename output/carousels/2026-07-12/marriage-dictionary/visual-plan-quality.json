@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "status": "GO_REPAIRED",
+  "checks": {
+    "copy_visual_alignment": "PASS",
+    "stage_scene_storytelling": "PASS",
+    "relationship_motion": "PASS",
+    "visual_variety": "PASS",
+    "identity_continuity": "PASS_PENDING_GENERATION",
+    "typography_safety": "PASS_PENDING_PROOF",
+    "aspect_ratio_safety": "PASS",
+    "safety_taste": "PASS"
+  },
+  "per_slide": [
+    {"slide": 1, "status": "GO", "shot_type": "overhead plus partial two-shot", "risk": "random book text", "repair_instruction": "only exact approved text; scene must dominate"},
+    {"slide": 2, "status": "GO_PROOF_FIRST", "shot_type": "doorway medium with mirror", "risk": "text too large or could become nagging wife joke", "repair_instruction": "make text compact; let waiting posture, keys, phone, and mirror action communicate the joke"},
+    {"slide": 3, "status": "GO", "shot_type": "bag detail with reaction", "risk": "object clutter", "repair_instruction": "keep one hero migrated item"},
+    {"slide": 4, "status": "GO", "shot_type": "drawer/search low angle", "risk": "Zuv looking incompetent", "repair_instruction": "make it playful, not foolish"},
+    {"slide": 5, "status": "GO", "shot_type": "quiet table/bedside detail", "risk": "too sad or fight-heavy", "repair_instruction": "tiny fight only, care visible"},
+    {"slide": 6, "status": "GO", "shot_type": "overhead planning still life with couple edge reaction", "risk": "too much text", "repair_instruction": "strict line breaks"},
+    {"slide": 7, "status": "GO", "shot_type": "soft wide/overhead home tableau", "risk": "generic home sweetness", "repair_instruction": "show all prior definition receipts"}
+  ],
+  "proof_slide": 2,
+  "proof_reason": "Slide 2 tests the dictionary text, identity continuity, daily-comedy staging, doorway composition, and the risk of making Aachu the joke."
+}

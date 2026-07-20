@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "status": "GENERATED_WITH_BUILT_IN_IMAGEGEN",
+  "mode": "built_in_imagegen",
+  "reference_inputs_used_per_slide": {
+    "identity": [
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg"
+    ],
+    "style": [
+      "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+    ]
+  },
+  "reference_limit_note": "The image generation tool accepted at most five references, so each call used four identity references plus the style contact sheet.",
+  "negative_prompt_summary": "No Q/A format, no repeated older-couple motif, no gallery/beach/bookstore montage, no quote-card layout, no extra readable text, no random labels, no photorealism, no generic couple faces, no yellow/parchment paper.",
+  "generated_slides": [
+    {"slide": 1, "text": "LOVE IS NOT LOVING ONE VERSION.", "source": "source/slide-01-source-v1.png", "final": "final/slide-01.png"},
+    {"slide": 2, "text": "THE FIRST VERSION IS EASY.", "source": "source/slide-02-source-v1.png", "final": "final/slide-02.png"},
+    {"slide": 3, "text": "THEN LIFE STARTS EDITING YOU.", "source": "source/slide-03-source-v1.png", "final": "final/slide-03.png"},
+    {"slide": 4, "text": "SOME DREAMS GET REPLACED.", "source": "source/slide-04-source-v1.png", "final": "final/slide-04.png"},
+    {"slide": 5, "text": "THE RIGHT PERSON LEARNS THE UPDATE.", "source": "source/slide-05-source-v2.png", "final": "final/slide-05.png", "note": "v1 rejected because mutual-update action read too one-sided."},
+    {"slide": 6, "text": "STILL CHOOSING. STILL LEARNING.", "source": "source/slide-06-source-v1.png", "final": "final/slide-06.png"}
+  ]
+}

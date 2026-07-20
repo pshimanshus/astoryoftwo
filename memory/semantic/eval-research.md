@@ -29,6 +29,11 @@ pass-to-pass, hidden variant, anti-gaming, and severity notes. A task prompt
 alone is not enough; shallow task labels encourage benchmark gaming and do not
 teach future checkers what behavior matters.
 
+Smoke and high-risk tasks should also include fixture overlays. The first
+fixture layer materializes broken files with `evals/runner.py prepare`, so a
+checker can prove the starting state actually triggers package, prompt,
+autopublish, or instruction-surface gates before any agent attempts a fix.
+
 ## Current Starter Suites
 
 - `smoke`: fastest dangerous failures.

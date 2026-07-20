@@ -15,9 +15,11 @@ sys.path.insert(0, str(ROOT))
 from pipeline.agentic.context_loader import assemble_context_pack, render_context_pack  # noqa: E402
 from pipeline.agentic.carousel_state import derive_carousel_state  # noqa: E402
 from pipeline.agentic.learning_loop import (  # noqa: E402
+    apply_learning_proposal,
     capture_hypothesis,
     capture_learning_event,
     create_learning_proposal,
+    evaluate_learning_proposal_review,
     learning_debt_records,
     list_hypotheses,
     resolve_hypothesis,
@@ -106,6 +108,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     evaluate = sub.add_parser("evaluate-learning")
     evaluate.add_argument("proposal_path", type=Path)
+    apply_learning = sub.add_parser("apply-learning")
+    apply_learning.add_argument("proposal_path", type=Path)
+    apply_learning.add_argument("--approved-by", required=True)
     learning_debt = sub.add_parser("learning-debt")
     learning_debt.add_argument("--limit", type=int, default=8)
 
@@ -203,7 +208,19 @@ def main(argv: list[str] | None = None) -> int:
             }
         )
     elif args.command == "evaluate-learning":
-        print_json(evaluate_learning_proposal(root, args.proposal_path))
+        print_json(evaluate_learning_proposal_review(root, args.proposal_path))
+    elif args.command == "apply-learning":
+        try:
+            print_json(
+                apply_learning_proposal(
+                    root,
+                    args.proposal_path,
+                    approved_by=args.approved_by,
+                )
+            )
+        except ValueError as exc:
+            print(str(exc), file=sys.stderr)
+            return 2
     elif args.command == "learning-debt":
         records = learning_debt_records(root, limit=args.limit)
         print_json(
@@ -225,11 +242,20 @@ def main(argv: list[str] | None = None) -> int:
         pack = assemble_context_pack(root)
         systems = load_skill_systems(root)
         records = discover_skill_records(root)
+        open_hypotheses = list_hypotheses(root, status="open", limit=1000)
+        learning_debt = learning_debt_records(root, limit=1000)
+        learning_debt_by_kind: dict[str, int] = {}
+        for record in learning_debt:
+            kind = str(record.get("kind", "unknown"))
+            learning_debt_by_kind[kind] = learning_debt_by_kind.get(kind, 0) + 1
         print_json(
             {
                 "context_sections": len(pack.sections),
                 "skill_systems": sorted(systems.get("systems", {}).keys()),
                 "skill_records": len(records),
+                "open_hypotheses": len(open_hypotheses),
+                "learning_debt_count": len(learning_debt),
+                "learning_debt_by_kind": learning_debt_by_kind,
             }
         )
     return 0

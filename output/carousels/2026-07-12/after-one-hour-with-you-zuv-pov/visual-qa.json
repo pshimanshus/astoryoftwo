@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "PROOF_PASS_FINAL_BLOCKED",
+  "publishable": false,
+  "reviewed_outputs": {
+    "instagram_post_proof_contact_sheet": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/contact-sheet-instagram-post.png",
+    "instagram_post_proofs": [
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-01.png",
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-02.png",
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-03.png",
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-04.png",
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-05.png",
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-06.png",
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-07.png"
+    ],
+    "reels_stories_proofs": [
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/reels-stories/slide-01.png"
+    ]
+  },
+  "selected_identity_references": [
+    "config/references/identity/together/together-20.jpg",
+    "config/references/identity/aachu/face-05.png",
+    "config/references/identity/zuv/portrait-07.jpg"
+  ],
+  "proof_checks": {
+    "exact_text_visible": "PASS_AT_PROOF_LEVEL",
+    "brandmark_visible": "PASS_AT_PROOF_LEVEL",
+    "zuv_stressed_guy_pov": "PASS_AT_PROOF_LEVEL",
+    "aachu_cheering_behavior": "PASS_AT_PROOF_LEVEL",
+    "relationship_motion": "PASS_AT_PROOF_LEVEL",
+    "shot_ladder_variety": "PASS_AFTER_REPAIRS_TO_SLIDES_3_4_6",
+    "house_style": "PASS_AT_PROOF_LEVEL",
+    "identity_likeness": "IDENTITY_REFERENCE_ATTACHED_AND_VISUALLY_PLAUSIBLE_BUT_NOT_BIOMETRICALLY_VERIFIED"
+  },
+  "final_blockers": [
+    "Instagram post proofs are 1086x1448, not exact 1080x1440 final files.",
+    "Only one Reels/Stories proof exists; it is 941x1672, not exact 1080x1920.",
+    "Publishable final/ and final-reels-stories/ folders are still missing exact native final PNGs."
+  ],
+  "verdict": "Use this as the approved proof direction; do not publish until exact native final exports and final audit pass."
+}

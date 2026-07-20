@@ -17,6 +17,23 @@ IDENTITY REFERENCES — `config/references/identity/`
 - If the current generation path cannot accept actual identity reference images, the correct status is `BLOCKED_FOR_IDENTITY_STYLE_REFERENCES`, not "final" and not "proof passed."
 - The 2026-05-30 phone-prank rejection proved this: with only text identity, the model produced generic illustrated characters that the creator rejected on first proof.
 
+IDENTITY EVAL STOP GATE
+- No identity eval, no next slide. After any proof slide or creator identity
+  correction, stop before generating the rest of the batch until identity is
+  explicitly reviewed.
+- A pass requires a structured `identity-consistency-review.json` or
+  `visual-qa.json` with Aachu/Zuv reference IDs and specific likeness notes.
+  Casual visual taste notes, dimensions checks, or "looks good" commentary do
+  not count as identity pass.
+- If the current tools cannot run a real face/likeness comparison, record
+  `BLOCKED_FOR_IDENTITY_EVAL` or `IDENTITY_UNVERIFIED` and tell the creator.
+  Do not keep moving forward, do not call the images final, and do not batch
+  remaining slides from a pretty-but-unverified proof.
+- Back-facing, tiny, hidden, or partial faces can support a shot ladder, but
+  they cannot prove identity. At least one early proof must show clear enough
+  Aachu/Zuv face, hair, body proportion, wardrobe, and posture evidence for a
+  meaningful identity review.
+
 AACHU (woman)
 - Aachu is 5'6".
 - Warm medium-brown South Asian skin.
@@ -91,3 +108,8 @@ ANTI-DRIFT NOTES (lessons from real rejections)
 - 2026-05-31 Private Captions early proofs rejected for face drift and wrong heights. The creator's note: Aachu looks tiny, Zuv looks oversized/generic — reject and regenerate one corrected proof from actual identity references before batching the rest.
 - 2026-05-30 phone-prank Slide 03 rejected because Zuv was already wearing pants while copy said "YOUR SOCKS ON BEFORE YOUR PANTS." Scene logic and ON-IMAGE TEXT must match the visible action — identity preservation does not excuse copy-visual contradictions.
 - 2026-05-30 phone-prank Slide 08 rejected for crouched/cramped pose. Identity match was acceptable but pose anatomy failed.
+- 2026-07-12 The Almosts Were Practicing correction: draft images were allowed
+  to continue after no structured face identity eval existed. This is a STOP
+  failure. The correct behavior is to stop, mark identity unverified or
+  blocked, and repair the identity/eval gate before generating or presenting
+  more "final" images.

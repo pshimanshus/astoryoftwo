@@ -101,6 +101,11 @@ fresh. Avoid defaulting to repeated surfaces such as generic chaos, home,
 high-maintenance, overthinking/reassurance, or chai unless the creator's actual
 moment requires them.
 
+Use the "How This Ledger Learns" method in
+`memory/semantic/carousel-idea-preferences.md`: match new feedback to existing
+memory first, then update, merge, downgrade, delete, or append only if the lane
+is genuinely new.
+
 Creator-facing carousel suggestions must be 28/30 or higher after Story-Selling,
 Golden Theme, Stage-Scene, and taste-gate caps. Discard every below-28 route as
 internal rejected evidence; do not show it as a suggestion, shortlist item,
@@ -180,6 +185,16 @@ captions after hiding the text, return REPAIR before generation.
 Before image generation, attach selected actual Aachu/Zuv identity images and
 style references. Text-only "same couple" prompts are blocked, and wardrobe
 comes from attached identity/current-request photos first.
+
+Identity eval stop gate: no identity eval, no next slide. After any proof slide
+or creator correction about likeness, stop before generating the rest of the
+batch until identity is explicitly reviewed. A pass requires a structured
+`identity-consistency-review.json` or `visual-qa.json` with Aachu/Zuv reference
+IDs and specific likeness notes. If the available tools cannot run a real
+face/likeness comparison, record `BLOCKED_FOR_IDENTITY_EVAL` or
+`IDENTITY_UNVERIFIED`, tell the creator, and do not call the images final.
+Back-facing, tiny, hidden, or partial faces cannot prove identity by
+themselves.
 
 Do not call the carousel done until separate native 3:4 finals, separate native
 9:16 finals, visual QA, and final audit exist.

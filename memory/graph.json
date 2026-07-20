@@ -826,6 +826,26 @@
       "slide_count": 7,
       "package": "output/carousels/2026-07-03/still-learning-love-2",
       "content_lane": "Soft Love Notes"
+    },
+    "carousel:after-one-hour-with-you": {
+      "id": "carousel:after-one-hour-with-you",
+      "type": "illustrated_carousel",
+      "title": "After One Hour With You",
+      "date": "2026-07-12",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-07-12/after-one-hour-with-you",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:after-one-hour-with-you-zuv-pov": {
+      "id": "carousel:after-one-hour-with-you-zuv-pov",
+      "type": "illustrated_carousel",
+      "title": "After One Hour With You - Zuv POV",
+      "date": "2026-07-12",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov",
+      "content_lane": "Soft Love Notes"
     }
   },
   "relationships": [
@@ -1338,6 +1358,18 @@
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:after-one-hour-with-you",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:after-one-hour-with-you-zuv-pov",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1366,5 +1398,5 @@
       "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-07-03"
+  "last_updated": "2026-07-12"
 }

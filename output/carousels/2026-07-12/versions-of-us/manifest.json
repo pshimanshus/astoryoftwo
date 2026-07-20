@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "status": "MESSAGE_REPAIR_V2_PROPOSED",
+  "slug": "versions-of-us",
+  "title": "Versions Of Us",
+  "created_date": "2026-07-12",
+  "creator_instruction": "continue wiht this",
+  "format_lock": {
+    "requested_surface": "Instagram carousel illustrations",
+    "post_final_size": "1080x1440",
+    "story_reel_outputs": "not generated in this pass"
+  },
+  "copy_lock": [
+    "LOVE IS NOT LOVING ONE VERSION.",
+    "THE FIRST VERSION IS EASY.",
+    "THEN LIFE STARTS EDITING YOU.",
+    "SOME DREAMS GET REPLACED.",
+    "THE RIGHT PERSON LEARNS THE UPDATE.",
+    "STILL CHOOSING. STILL LEARNING."
+  ],
+  "visual_rule": "No repeated older couple on every slide. No Q/A format. No gallery/beach/bookstore montage unless the object is doing story work. This should feel like an archive of changed versions, not a Pinterest romance answer deck.",
+  "selected_identity_references": [
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/together/together-21.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/zuv/portrait-07.jpg"
+  ],
+  "selected_style_references": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+  ],
+  "reference_limit_note": "Built-in image generation allows at most five reference images, so each generation call uses four identity references plus the style contact sheet.",
+  "artifact_map": {
+    "slides": "slides.json",
+    "storyboard": "storyboard.md",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "identity_review": "identity-consistency-review.json",
+    "prompt_pack": "prompt-pack.json",
+    "final_images": "final-images.json",
+    "visual_qa": "visual-qa.md"
+  }
+}

@@ -72,6 +72,12 @@ machine-readable workflow record.
   Identity references must guide the whole illustrated person, not just a face
   patch. Wardrobe and couple styling must be chosen from attached
   identity/current-request photos first.
+- After any proof slide or creator correction about likeness, no identity eval
+  means no next slide. Stop before batching until a structured
+  `identity-consistency-review.json` or `visual-qa.json` records the selected
+  Aachu/Zuv reference IDs and specific likeness notes. If real likeness
+  comparison is unavailable, record `BLOCKED_FOR_IDENTITY_EVAL` or
+  `IDENTITY_UNVERIFIED`, tell the creator, and do not call the images final.
 - Do not call the carousel final unless native 1080 x 1440 post finals,
   separate native 1080 x 1920 story/reel finals, tiny `@a.storyof.two`
   brandmark, visual QA, and final audit exist.

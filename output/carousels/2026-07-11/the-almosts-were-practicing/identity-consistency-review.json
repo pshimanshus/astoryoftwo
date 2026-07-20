@@ -1,0 +1,27 @@
+{
+  "status": "IDENTITY_UNVERIFIED",
+  "verdict": "STOP",
+  "can_continue_batch": false,
+  "reason": "A real face/likeness comparison tool was not available in this session. Manual visual inspection is not enough to pass the identity eval stop gate.",
+  "proof_image": "proof/slide-06-before-us-proof.png",
+  "selected_reference_ids": {
+    "aachu": [
+      "config/references/identity/aachu/face-06.png"
+    ],
+    "zuv": [
+      "config/references/identity/zuv/portrait-07.jpg"
+    ],
+    "together": [
+      "config/references/identity/together/together-21.jpg"
+    ],
+    "style_only": [
+      "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+    ]
+  },
+  "likeness_notes": {
+    "aachu": "The generated proof keeps long dark wavy hair, soft oval face, warm skin, and casual white-over-denim styling, but her face is angled downward and small in frame, so it cannot prove identity by itself.",
+    "zuv": "The generated proof keeps curly dark hair, stubble, strong brows, warm skin, and grounded posture, but the face is partly angled/downward and not a formal likeness match.",
+    "couple_scale": "The scene keeps a plausible height/body proportion relationship, but the proof does not include a standing two-shot close enough for exact height verification."
+  },
+  "required_next_step": "Regenerate or evaluate a clear proof frame with actual identity-reference comparison before generating any remaining slides."
+}

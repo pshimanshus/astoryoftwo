@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "status": "PROOF_GENERATED",
+  "mode": "built_in_imagegen",
+  "proof_slide": 6,
+  "shared_reference_inputs": {
+    "identity": [
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg"
+    ],
+    "style": [
+      "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+    ]
+  },
+  "reference_limit_note": "The built-in image generation tool capped references at five. The actual proof generation used four identity references plus the style contact sheet.",
+  "negative_prompt": "No photorealism, no yellow/parchment paper, no UI screenshot, no quote card, no extra words, no readable form labels, no speech bubbles, no random marks that look like text, no copied reference frames, no generic couple faces, no hospital emergency drama, no caretaker/rescuer pose, no large watermark.",
+  "slides": [
+    {
+      "slide": 6,
+      "on_image_text": "THE PERSON LIFE CALLS FIRST.",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-06.prompt.txt"
+    }
+  ]
+}

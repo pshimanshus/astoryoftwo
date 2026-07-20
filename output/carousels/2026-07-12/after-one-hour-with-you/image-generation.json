@@ -1,0 +1,348 @@
+{
+  "status": "handoff_ready",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 7,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": true,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "some people change the weather inside you.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-01.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-01.md",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-01.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-01.prompt.txt",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-01.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-01.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-01.png",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/final-reels-stories/slide-01.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-12/after-one-hour-with-you/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "before them, everything feels too loud.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-02.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-02.md",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-02.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-02.prompt.txt",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-02.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-02.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-02.png",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/final-reels-stories/slide-02.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-12/after-one-hour-with-you/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 3,
+      "copy": "the same thoughts. the same worries. the same life.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-03.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-03.md",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-03.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-03.prompt.txt",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-03.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-03.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-03.png",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/final-reels-stories/slide-03.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-12/after-one-hour-with-you/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 4,
+      "copy": "then they sit next to you, and somehow...",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-04.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-04.md",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-04.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-04.prompt.txt",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-04.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-04.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-04.png",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/final-reels-stories/slide-04.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-12/after-one-hour-with-you/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 5,
+      "copy": "your chest stops arguing with the world.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-05.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-05.md",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-05.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-05.prompt.txt",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-05.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-05.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-05.png",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/final-reels-stories/slide-05.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-12/after-one-hour-with-you/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 6,
+      "copy": "nothing is fixed.\nbut everything feels softer.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-06.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-06.md",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-06.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-06.prompt.txt",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-06.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-06.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-06.png",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/final-reels-stories/slide-06.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-12/after-one-hour-with-you/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 7,
+      "copy": "maybe love is just this.\none person making life feel bearable again.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-07.md",
+      "prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-07.md",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-07.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts/reels-stories/slide-07.prompt.txt"
+      },
+      "expected_file": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-07.png",
+      "expected_files": {
+        "instagram_post": "output/carousels/2026-07-12/after-one-hour-with-you/final/slide-07.png",
+        "reels_stories": "output/carousels/2026-07-12/after-one-hour-with-you/final-reels-stories/slide-07.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-12/after-one-hour-with-you/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/aachu/face-05.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    }
+  ],
+  "reason": "Prompt files are ready; final PNGs still require Codex built-in image generation.",
+  "proof_gate": null,
+  "requested_proof_slide": null,
+  "requested_formats": [
+    "instagram_post",
+    "reels_stories"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post",
+      "reels_stories"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "reels_stories_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Each slide must have separate generated sources per surface: one Instagram post source generated at 1440x1920 for deterministic export to 1080x1440, and one Reels/Stories image generated exactly at 1080x1920. Reels/Stories output must never be derived from the Instagram post image."
+  },
+  "generation_capability": {
+    "schema_version": "1.0",
+    "workspace_root": "output/carousels/2026-07-12/after-one-hour-with-you",
+    "capability_source": "environment",
+    "can_attach_identity_refs": false,
+    "package_terminal_state": "HANDOFF_READY_FOR_CODEX_WITH_IDENTITY",
+    "reason": "The current session has no declared ability to attach actual identity reference images to generation calls.",
+    "required_identity_inputs": [
+      "identity-face-contact-sheet.jpg",
+      "selected Aachu identity references",
+      "selected Zuv identity references",
+      "selected together reference when available"
+    ],
+    "next_action": "handoff_to_identity_reference_capable_generation_environment"
+  },
+  "prompt_dir": "output/carousels/2026-07-12/after-one-hour-with-you/codex-image-prompts",
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure."
+}

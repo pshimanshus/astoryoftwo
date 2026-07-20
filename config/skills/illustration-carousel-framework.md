@@ -286,6 +286,20 @@ Hard face-consistency rule:
   identity photos first. Repeat outfits only for same-time continuity,
   creator-requested continuity, or a deliberate signature anchor.
 
+Identity eval stop gate:
+
+- No identity eval, no next slide. After any proof slide or creator correction
+  about likeness, stop before generating the rest of the batch until identity is
+  explicitly reviewed.
+- A pass requires a structured `identity-consistency-review.json` or
+  `visual-qa.json` with selected Aachu/Zuv reference IDs and specific likeness
+  notes. Casual taste approval, dimension checks, or "the images look good" do
+  not count as identity pass.
+- If the available tools cannot run real likeness comparison, record
+  `BLOCKED_FOR_IDENTITY_EVAL` or `IDENTITY_UNVERIFIED`, tell the creator, and
+  keep the work in draft/blocked status instead of calling it final or
+  continuing the batch.
+
 Default bundle roles:
 
 - face anchor

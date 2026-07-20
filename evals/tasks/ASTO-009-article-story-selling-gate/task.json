@@ -22,6 +22,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_substack_article_package.py", "-q"]],
   "deterministic_checkers": ["diff_guard"],
   "rubric_checkers": [],
+  "fail_to_pass": ["article packages cannot omit Layer E Story-Selling gate artifacts"],
+  "pass_to_pass": ["source-integrity and editorial approval gates remain intact for valid article packages"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should inspect generated article package artifacts, not only source code strings."]
 }
