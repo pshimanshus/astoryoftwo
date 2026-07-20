@@ -2,7 +2,7 @@
 # Karpathy LLM Wiki pattern: this file is the catalog of all compiled knowledge pages.
 # Updated by: `wiki compile` operation.
 
-last_updated: 2026-07-12
+last_updated: 2026-07-20
 total_pages: 85
 confidence_floor: 0.4
 
