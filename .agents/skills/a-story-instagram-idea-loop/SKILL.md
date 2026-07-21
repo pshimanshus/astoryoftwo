@@ -58,7 +58,7 @@ is tight. Do not let a subagent spawn another subagent.
      specificity, visual comedy-to-tenderness, chosen family, witness,
      dignity, shared adulthood, repair language, or private mythology;
    - keep the free creative pass alive before scoring;
-   - cap the combined pool at the run's `candidate_budget`.
+   - cap each iteration's combined pool at the run's `candidate_budget`.
 3. Exclude:
    - remove exact or semantic repeats, recent packages, rejected/cooled lanes,
      private-context-only ideas, generic quote-card romance, and copied source
@@ -68,7 +68,8 @@ is tight. Do not let a subagent spawn another subagent.
    - remove maker identity, self-scores, and persuasive commentary from critic
      cards;
    - bind each review to the exact candidate SHA-256 produced by
-     `scripts/instagram_idea_loop.py fingerprint`;
+     `scripts/instagram_idea_loop.py fingerprint` and the author-hidden SHA-256
+     produced by the same command with `--blind`;
    - run two independent verifier tasks: audience/retention/distribution and
      stage-scene/taste/brand/safety.
 5. Repair:
@@ -91,6 +92,7 @@ Every candidate must contain:
 
 - stable candidate ID, iteration, and maker task ID;
 - `maker_agent: "asot_idea_maker"`;
+- for iteration > 1, a new ID plus `parent_candidate_id` and `repair_task_id`;
 - concrete couple moment and universal relationship truth;
 - audience mirror, scroll stop, and emotional contradiction;
 - visible scene proof and relationship motion;
@@ -121,9 +123,20 @@ two distinct blind verifier passes and a fresh selector pass with:
 - no hard failure;
 - creator approval still `PENDING`.
 
-Use at most the state's `max_iterations`. Stop earlier as `STAGNATED` when the
-same normalized failure signature repeats twice. Other honest terminal states
-are `NO_GO`, `BUDGET_EXHAUSTED`, `STALE_EVIDENCE`, and `HUMAN_REQUIRED`.
+Use at most the state's `max_iterations`. Compute each failed round's normalized
+signature with `scripts/instagram_idea_loop.py issue-signature`. Stop earlier as
+`STAGNATED` when the same signature repeats twice. Choose other terminal states
+consistently:
+
+- `NO_GO`: sufficient evidence exists, but every remaining route has a
+  non-repairable exclusion, safety, taste, or genericity failure;
+- `BUDGET_EXHAUSTED`: failure signatures were still changing when the maximum
+  iteration budget ended;
+- `STALE_EVIDENCE`: the missing/stale source itself prevents a responsible
+  current recommendation;
+- `HUMAN_REQUIRED`: a factual creator choice or missing lived context cannot be
+  inferred safely.
+
 Never lower a gate to force convergence.
 
 ## Durable Artifacts
@@ -174,6 +187,9 @@ identity references, generation, QA, and final packaging.
 ```bash
 make idea-loop
 make idea-loop SEED="optional real couple moment"
+venv/bin/python scripts/instagram_idea_loop.py fingerprint \
+  output/idea-loops/YYYY-MM-DD/<run-id>/concept-routes.json \
+  --candidate-id <id> --blind
 venv/bin/python scripts/instagram_idea_loop.py resume \
   output/idea-loops/YYYY-MM-DD/<run-id>
 venv/bin/python scripts/instagram_idea_loop.py status \

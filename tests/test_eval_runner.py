@@ -215,7 +215,10 @@ def test_anchored_rubric_review_completes_creative_judgment(tmp_path: Path) -> N
     assert judgment.status == "PASS"
     assert "total=11/12" in judgment.evidence
 
-    brief.write_text(brief.read_text(encoding="utf-8") + "\nChanged after review.\n", encoding="utf-8")
+    brief.write_text(
+        brief.read_text(encoding="utf-8") + "\nChanged after review.\n",
+        encoding="utf-8",
+    )
     stale_results = run_rubric_checkers(
         task,
         tmp_path,

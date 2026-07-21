@@ -15,8 +15,10 @@ sys.path.insert(0, str(ROOT))
 from pipeline.agentic.instagram_idea_loop import (  # noqa: E402
     IdeaLoopConfig,
     artifact_schema,
+    blind_candidate_fingerprint,
     candidate_fingerprint,
     execute_loop,
+    failure_signature,
     find_candidate,
     load_state,
     prepare_run,
@@ -106,12 +108,23 @@ def _status(args: argparse.Namespace) -> int:
 
 def _fingerprint(args: argparse.Namespace) -> int:
     candidate = find_candidate(args.candidate_file, args.candidate_id)
-    print(candidate_fingerprint(candidate))
+    fingerprint = (
+        blind_candidate_fingerprint(candidate) if args.blind else candidate_fingerprint(candidate)
+    )
+    print(fingerprint)
     return 0
 
 
 def _schema(_args: argparse.Namespace) -> int:
     print(json.dumps(artifact_schema(), indent=2, ensure_ascii=False))
+    return 0
+
+
+def _issue_signature(args: argparse.Namespace) -> int:
+    payload = json.loads(args.verification_file.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError("verification file must contain a JSON object")
+    print(failure_signature(payload))
     return 0
 
 
@@ -149,10 +162,22 @@ def build_parser() -> argparse.ArgumentParser:
     )
     fingerprint.add_argument("candidate_file", type=Path)
     fingerprint.add_argument("--candidate-id", required=True)
+    fingerprint.add_argument(
+        "--blind",
+        action="store_true",
+        help="Hash the exact author-hidden critic card instead of the full candidate.",
+    )
     fingerprint.set_defaults(handler=_fingerprint)
 
     schema = subparsers.add_parser("schema", help="Print exact agent-written JSON schemas.")
     schema.set_defaults(handler=_schema)
+
+    issue_signature = subparsers.add_parser(
+        "issue-signature",
+        help="Hash stable verifier failure categories for stagnation detection.",
+    )
+    issue_signature.add_argument("verification_file", type=Path)
+    issue_signature.set_defaults(handler=_issue_signature)
     return parser
 
 

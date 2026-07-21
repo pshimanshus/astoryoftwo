@@ -132,6 +132,53 @@ def blind_candidate_fingerprint(candidate: dict[str, Any]) -> str:
     return candidate_fingerprint(blind_candidate_card(candidate))
 
 
+def failure_signature(payload: dict[str, Any]) -> str:
+    """Hash stable failure categories while ignoring candidate/task churn."""
+
+    normalized_reviews: list[dict[str, Any]] = []
+    for raw_review in payload.get("reviews", []):
+        if not isinstance(raw_review, dict):
+            continue
+        scores = raw_review.get("scores", {}) if isinstance(raw_review.get("scores"), dict) else {}
+        director = (
+            scores.get("story_director", {})
+            if isinstance(scores.get("story_director"), dict)
+            else {}
+        )
+        threshold_failures: list[str] = []
+        for key, threshold in (
+            ("story_selling", 28),
+            ("golden_theme", 28),
+            ("distribution", 26),
+            ("visual_generativity", 27),
+        ):
+            value = scores.get(key)
+            if not isinstance(value, int) or value < threshold:
+                threshold_failures.append(key)
+        director_failures = sorted(
+            key
+            for key in ("hook", "story", "bridge", "relationship_motion", "ending", "dm_send")
+            if not isinstance(director.get(key), int) or director[key] < 8
+        )
+        normalized_reviews.append(
+            {
+                "threshold_failures": sorted(threshold_failures),
+                "director_failures": director_failures,
+                "stage_scene_gate": raw_review.get("stage_scene_gate"),
+                "taste_gate": raw_review.get("taste_gate"),
+                "safety_gate": raw_review.get("safety_gate"),
+                "exclusion_hits": sorted(
+                    str(item).strip().lower() for item in raw_review.get("exclusion_hits", [])
+                ),
+                "hard_failures": sorted(
+                    str(item).strip().lower() for item in raw_review.get("hard_failures", [])
+                ),
+            }
+        )
+    normalized_reviews.sort(key=lambda item: json.dumps(item, sort_keys=True))
+    return candidate_fingerprint({"failures": normalized_reviews})
+
+
 def _evidence_record(repo_root: Path, path: Path) -> dict[str, Any]:
     record: dict[str, Any] = {
         "path": _relative(repo_root, path),
@@ -240,6 +287,8 @@ class IdeaCandidate(BaseModel):
     iteration: int = Field(ge=1)
     maker_agent: Literal["asot_idea_maker"]
     maker_task_id: str = Field(min_length=1)
+    parent_candidate_id: str | None = None
+    repair_task_id: str | None = None
     title: str = Field(min_length=1)
     concrete_moment: str = Field(min_length=1)
     universal_truth: str = Field(min_length=1)
@@ -256,6 +305,12 @@ class IdeaCandidate(BaseModel):
     evidence_paths: list[str] = Field(min_length=1)
     novelty_fingerprint: str = Field(min_length=1)
     risks: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def repaired_routes_keep_lineage(self) -> "IdeaCandidate":
+        if self.iteration > 1 and not (self.parent_candidate_id and self.repair_task_id):
+            raise ValueError("iteration > 1 requires parent_candidate_id and repair_task_id")
+        return self
 
 
 class CandidatePool(BaseModel):
@@ -617,7 +672,11 @@ def validate_run(run_dir: Path) -> ValidationReport:
                 if not record.get("exists")
             ]
             if unavailable_core:
-                errors.append(f"required evidence files are unavailable: {unavailable_core}")
+                message = f"required evidence files are unavailable: {unavailable_core}"
+                if state.status == "STALE_EVIDENCE":
+                    warnings.append(message)
+                else:
+                    errors.append(message)
             if evidence.get("freshness", {}).get("external_snapshot_status") != "CURRENT":
                 warnings.append("external Instagram/competitor evidence is missing or stale")
         except (OSError, json.JSONDecodeError, AttributeError) as exc:
@@ -631,6 +690,9 @@ def validate_run(run_dir: Path) -> ValidationReport:
         for relative in REQUIRED_STOP_ARTIFACTS:
             if not (run_dir / relative).is_file():
                 errors.append(f"honest stop is missing {relative}")
+        for relative in ("source-memory-brief.json", "concept-routes.json", "verification.json"):
+            if (run_dir / relative).is_file():
+                _artifact_has_run_id(run_dir / relative, state.run_id, errors)
         return ValidationReport(
             run_dir=str(run_dir),
             status=state.status,
