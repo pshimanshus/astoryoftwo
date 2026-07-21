@@ -321,6 +321,72 @@ class CandidatePool(BaseModel):
     candidates: list[IdeaCandidate] = Field(min_length=1)
 
 
+class SourceMemoryBrief(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    run_id: str = Field(min_length=1)
+    scout_agent: Literal["asot_idea_scout"]
+    scout_task_id: str = Field(min_length=1)
+    evidence_paths: list[str] = Field(min_length=1)
+    excluded_lanes: list[str] = Field(default_factory=list)
+    opportunity_signals: list[str] = Field(min_length=1)
+    uncertainties: list[str] = Field(default_factory=list)
+
+
+class BlindDebateRecord(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    candidate_id: str = Field(min_length=1)
+    blind_input_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    critic_task_ids: list[str] = Field(min_length=2)
+    objections: list[str] = Field(default_factory=list)
+
+
+class ConceptDebate(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    run_id: str = Field(min_length=1)
+    blind_reviews: list[BlindDebateRecord] = Field(min_length=1)
+
+
+class ConceptRepairRecord(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    candidate_id: str = Field(min_length=1)
+    parent_candidate_id: str = Field(min_length=1)
+    repair_task_id: str = Field(min_length=1)
+    feedback_task_ids: list[str] = Field(min_length=1)
+    changes: list[str] = Field(min_length=1)
+
+
+class ConceptRepairs(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    run_id: str = Field(min_length=1)
+    repairs: list[ConceptRepairRecord] = Field(default_factory=list)
+
+
+class TasteGateRecord(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    candidate_id: str = Field(min_length=1)
+    verifier_task_ids: list[str] = Field(min_length=2)
+    verdict: Literal["PASS_NO_CAP", "REPAIR", "STOP"]
+    reasons: list[str] = Field(min_length=1)
+
+
+class TasteGateBundle(BaseModel):
+    model_config = ConfigDict(extra="allow")
+
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    run_id: str = Field(min_length=1)
+    records: list[TasteGateRecord] = Field(min_length=1)
+    selected_candidate_id: str | None = None
+
+
 class StoryDirectorScores(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -436,7 +502,11 @@ def artifact_schema() -> dict[str, Any]:
     return {
         "schema_version": SCHEMA_VERSION,
         "loop_state": LoopState.model_json_schema(),
+        "source_memory_brief": SourceMemoryBrief.model_json_schema(),
         "concept_routes": CandidatePool.model_json_schema(),
+        "concept_debate": ConceptDebate.model_json_schema(),
+        "concept_repairs": ConceptRepairs.model_json_schema(),
+        "taste_gate": TasteGateBundle.model_json_schema(),
         "verification": VerificationBundle.model_json_schema(),
         "concept_selection": ConceptSelection.model_json_schema(),
     }
@@ -732,6 +802,10 @@ def validate_run(run_dir: Path) -> ValidationReport:
 
     pool_path = run_dir / "concept-routes.json"
     pool_model = _parse_model(pool_path, CandidatePool, errors)
+    source_model = _parse_model(run_dir / "source-memory-brief.json", SourceMemoryBrief, errors)
+    debate_model = _parse_model(run_dir / "concept-debate.json", ConceptDebate, errors)
+    repairs_model = _parse_model(run_dir / "concept-repairs.json", ConceptRepairs, errors)
+    taste_model = _parse_model(run_dir / "taste-gate.json", TasteGateBundle, errors)
     verification_path = run_dir / "verification.json"
     verification_model = _parse_model(verification_path, VerificationBundle, errors)
     selection_path = run_dir / "concept-selection.json"
@@ -739,6 +813,10 @@ def validate_run(run_dir: Path) -> ValidationReport:
     if not all(
         (
             isinstance(pool_model, CandidatePool),
+            isinstance(source_model, SourceMemoryBrief),
+            isinstance(debate_model, ConceptDebate),
+            isinstance(repairs_model, ConceptRepairs),
+            isinstance(taste_model, TasteGateBundle),
             isinstance(verification_model, VerificationBundle),
             isinstance(selection_model, ConceptSelection),
         )
@@ -752,6 +830,10 @@ def validate_run(run_dir: Path) -> ValidationReport:
         )
 
     pool = pool_model
+    source = source_model
+    debate = debate_model
+    repairs = repairs_model
+    taste = taste_model
     verification = verification_model
     selection = selection_model
     per_iteration_counts: dict[int, int] = {}
@@ -770,19 +852,15 @@ def validate_run(run_dir: Path) -> ValidationReport:
         errors.append(f"candidate budget exceeded by iteration: {over_budget}")
     for artifact_name, artifact_run_id in (
         ("concept-routes.json", pool.run_id),
+        ("source-memory-brief.json", source.run_id),
+        ("concept-debate.json", debate.run_id),
+        ("concept-repairs.json", repairs.run_id),
+        ("taste-gate.json", taste.run_id),
         ("verification.json", verification.run_id),
         ("concept-selection.json", selection.run_id),
     ):
         if artifact_run_id != state.run_id:
             errors.append(f"{artifact_name}: run_id must match loop state")
-    for relative in (
-        "source-memory-brief.json",
-        "concept-debate.json",
-        "concept-repairs.json",
-        "taste-gate.json",
-    ):
-        _artifact_has_run_id(run_dir / relative, state.run_id, errors)
-
     selected_id = state.final_candidate_id
     if selection.status != SUCCESS_STATUS:
         errors.append("concept-selection.json: status must be READY_FOR_CONCEPT_LOCK")
@@ -794,6 +872,8 @@ def validate_run(run_dir: Path) -> ValidationReport:
         errors.append("verification.json: selected candidate must match loop state")
     if selection.selector_task_id != verification.selector.selector_task_id:
         errors.append("selector task ID must match across selection and verification")
+    if taste.selected_candidate_id != selected_id:
+        errors.append("taste-gate.json: selected candidate must match loop state")
 
     raw_pool = _load_json(pool_path)
     raw_candidates = {
@@ -842,6 +922,40 @@ def validate_run(run_dir: Path) -> ValidationReport:
             errors.append("fresh selector task must be distinct from blind verifier tasks")
         if set(verification.selector.critic_task_ids) != verifier_tasks:
             errors.append("selector critic_task_ids must match the selected route's verifier tasks")
+        debate_record = next(
+            (record for record in debate.blind_reviews if record.candidate_id == selected_id),
+            None,
+        )
+        if debate_record is None:
+            errors.append("concept-debate.json omits the selected candidate")
+        else:
+            if debate_record.blind_input_sha256 != expected_blind_hash:
+                errors.append("concept-debate.json has a stale blind input fingerprint")
+            if set(debate_record.critic_task_ids) != verifier_tasks:
+                errors.append("concept-debate.json critic tasks do not match verification")
+        taste_record = next(
+            (record for record in taste.records if record.candidate_id == selected_id),
+            None,
+        )
+        if taste_record is None:
+            errors.append("taste-gate.json omits the selected candidate")
+        else:
+            if taste_record.verdict != "PASS_NO_CAP":
+                errors.append("taste-gate.json selected candidate is capped or failed")
+            if set(taste_record.verifier_task_ids) != verifier_tasks:
+                errors.append("taste-gate.json verifier tasks do not match verification")
+        if selected_model.iteration > 1:
+            repair_record = next(
+                (record for record in repairs.repairs if record.candidate_id == selected_id),
+                None,
+            )
+            if repair_record is None:
+                errors.append("concept-repairs.json omits selected repaired candidate lineage")
+            elif (
+                repair_record.parent_candidate_id != selected_model.parent_candidate_id
+                or repair_record.repair_task_id != selected_model.repair_task_id
+            ):
+                errors.append("concept-repairs.json lineage does not match selected candidate")
 
     creator_brief = (run_dir / "creator-brief.md").read_text(encoding="utf-8")
     if selected_id and selected_id not in creator_brief:

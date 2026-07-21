@@ -10,6 +10,7 @@ from pipeline.agentic.instagram_idea_loop import (
     IdeaLoopConfig,
     blind_candidate_fingerprint,
     candidate_fingerprint,
+    failure_signature,
     prepare_run,
     resume_run,
     validate_run,
@@ -148,13 +149,54 @@ def _successful_run(tmp_path: Path) -> tuple[Path, dict[str, object], dict[str, 
             "uncertainties": ["Performance remains a hypothesis until published."],
         },
     )
-    for name in (
-        "source-memory-brief.json",
-        "concept-debate.json",
-        "concept-repairs.json",
-        "taste-gate.json",
-    ):
-        _write_json(run_dir / name, {"schema_version": "1.0", "run_id": state["run_id"]})
+    _write_json(
+        run_dir / "source-memory-brief.json",
+        {
+            "schema_version": "1.0",
+            "run_id": state["run_id"],
+            "scout_agent": "asot_idea_scout",
+            "scout_task_id": "scout-task-a",
+            "evidence_paths": ["memory/semantic/carousel-idea-preferences.md"],
+            "excluded_lanes": ["recent generic chai route"],
+            "opportunity_signals": ["chosen family revealed through ordinary paperwork"],
+            "uncertainties": ["Performance remains unproven until posting."],
+        },
+    )
+    _write_json(
+        run_dir / "concept-debate.json",
+        {
+            "schema_version": "1.0",
+            "run_id": state["run_id"],
+            "blind_reviews": [
+                {
+                    "candidate_id": "idea-01",
+                    "blind_input_sha256": blind_candidate_fingerprint(selected),
+                    "critic_task_ids": ["critic-task-a", "critic-task-b"],
+                    "objections": [],
+                }
+            ],
+        },
+    )
+    _write_json(
+        run_dir / "concept-repairs.json",
+        {"schema_version": "1.0", "run_id": state["run_id"], "repairs": []},
+    )
+    _write_json(
+        run_dir / "taste-gate.json",
+        {
+            "schema_version": "1.0",
+            "run_id": state["run_id"],
+            "records": [
+                {
+                    "candidate_id": "idea-01",
+                    "verifier_task_ids": ["critic-task-a", "critic-task-b"],
+                    "verdict": "PASS_NO_CAP",
+                    "reasons": ["The paperwork turn is specific, stageable, and ownable."],
+                }
+            ],
+            "selected_candidate_id": "idea-01",
+        },
+    )
     (run_dir / "creator-brief.md").write_text(
         "# The Emergency Contact Upgrade\n\nselected candidate: idea-01\n\n"
         "A current best bet for concept approval, not a performance guarantee.\n",
@@ -269,6 +311,26 @@ def test_nonterminal_run_can_resume_without_losing_history(tmp_path: Path) -> No
 
     assert state.status == "RUNNING"
     assert state.history[-1]["event"] == "run_resumed"
+
+
+def test_failure_signature_ignores_task_churn_but_tracks_gate_changes() -> None:
+    candidate = _candidate("idea-a", "maker-a")
+    review_a = _review(candidate, "critic-a")
+    review_a["scores"]["story_selling"] = 20
+    review_a["verdict"] = "REPAIR"
+    review_b = json.loads(json.dumps(review_a))
+    review_b["candidate_id"] = "idea-b"
+    review_b["verifier_task_id"] = "critic-b"
+    review_b["candidate_sha256"] = "f" * 64
+
+    assert failure_signature({"reviews": [review_a]}) == failure_signature(
+        {"reviews": [review_b]}
+    )
+
+    review_b["taste_gate"] = "STOP"
+    assert failure_signature({"reviews": [review_a]}) != failure_signature(
+        {"reviews": [review_b]}
+    )
 
 
 def test_honest_no_go_is_valid_but_never_promotes_a_candidate(tmp_path: Path) -> None:
