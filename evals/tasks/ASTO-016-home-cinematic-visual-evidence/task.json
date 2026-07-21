@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-016-home-cinematic-visual-evidence",
+  "title": "Turn home visuals into lived-in story evidence",
+  "category": "creative_contract",
+  "difficulty": "hard",
+  "suites": ["creative", "carousel", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
+  "starting_state": [
+    "A home/interior carousel visual plan repeatedly says cozy home, warm room, plants, and couple moment.",
+    "It lacks motivated light, camera position, blocking, object continuity, tactile surfaces, and home-as-story evidence."
+  ],
+  "done_when": [
+    "Home/interior visual planning requires a home-cinematic pass.",
+    "Each relevant slide names camera position, motivated light, blocking, object constellation, active movement, texture, negative space, and continuity callback.",
+    "Generic cozy-home filler blocks visual approval."
+  ],
+  "allowed_paths": ["config/rules/**", "config/skills/**", "config/references/**", "pipeline/**", "tests/**", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/references/home-cinematic-visual-storytelling.md", "config/rules/visual-variety.md", "config/skills/illustration-carousel-framework.md", "tests/test_creator_workflow_contract.py"],
+  "forbidden_changes": ["Do not treat random plants, chai, books, or beige rooms as story proof.", "Do not weaken the existing visual-variety shot ladder.", "Do not make the aesthetic a generic Pinterest/interior-design checklist."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_illustration_carousel.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "home_cinematic_fixture"],
+  "rubric_checkers": ["visual_variety"],
+  "fail_to_pass": ["generic cozy-home visual plans are rejected unless they provide cinematic story evidence fields"],
+  "pass_to_pass": ["non-home carousels still use the normal shot ladder without being forced into domestic props"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/evals/ASTO-016/home-visual-plan.json",
+      "target": "output/evals/ASTO-016/home-visual-plan.json"
+    }
+  ],
+  "anti_gaming_notes": ["Hidden checker should replace 'home' with apartment, kitchen, vanity, doorway, or living room and require concrete fields, not the exact phrase home-cinematic."]
+}

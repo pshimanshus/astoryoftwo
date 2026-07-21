@@ -12,11 +12,15 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from pipeline.stages.carousel_format_contract import (
+    expected_output_path,
+    format_spec,
+    locked_formats,
+)
+
 BACKEND = "local_dry_run"
 GENERATION_MODE = "local_dry_run_not_publishable"
 STATUS = "dry_run_generated"
-INSTAGRAM_POST_SIZE = (1080, 1440)
-REELS_STORIES_SIZE = (1080, 1920)
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -112,8 +116,10 @@ def write_visual_qa_json(carousel_dir: Path, prompt_pack: dict[str, Any], record
     final_file_evidence = [
         {
             "slide": record["slide"],
-            "instagram_post": record["file"],
-            "reels_stories": record["reels_stories_file"],
+            "native_outputs": {
+                output_format: output["file"]
+                for output_format, output in record["native_outputs"].items()
+            },
         }
         for record in records
     ]
@@ -166,7 +172,7 @@ def write_visual_qa_json(carousel_dir: Path, prompt_pack: dict[str, Any], record
                 "final_files": {
                     "pass": False,
                     "evidence": final_file_evidence,
-                    "notes": "Files exist in both native sizes, but are non-publishable dry-run placeholders.",
+                    "notes": "Files exist for the request-locked native formats, but are non-publishable dry-run placeholders.",
                 },
             },
         },
@@ -235,6 +241,7 @@ def refresh_quality_artifacts(carousel_dir: Path, prompt_pack: dict[str, Any], r
 
 def generate_local_dry_run_images(carousel_dir: Path) -> dict[str, Any]:
     carousel_dir = carousel_dir.expanduser()
+    requested_formats = locked_formats(carousel_dir)
     prompt_pack_path = carousel_dir / "prompt-pack.json"
     prompt_pack = load_json(prompt_pack_path)
     slides = prompt_pack.get("slides") or []
@@ -246,28 +253,28 @@ def generate_local_dry_run_images(carousel_dir: Path) -> dict[str, Any]:
         number = int(slide.get("slide") or fallback_number)
         copy = slide_copy(slide)
         prompt = slide_prompt(slide)
-        instagram_path = carousel_dir / "final" / f"slide-{number:02d}.png"
-        reels_path = carousel_dir / "final-reels-stories" / f"slide-{number:02d}.png"
-
-        write_png(
-            instagram_path,
-            size=INSTAGRAM_POST_SIZE,
-            slide_number=number,
-            copy=copy,
-            format_label="instagram_post 3:4",
-        )
-        write_png(
-            reels_path,
-            size=REELS_STORIES_SIZE,
-            slide_number=number,
-            copy=copy,
-            format_label="reels_stories 9:16",
-        )
+        native_outputs: dict[str, dict[str, Any]] = {}
+        for output_format in requested_formats:
+            spec = format_spec(output_format)
+            output_path = expected_output_path(carousel_dir, output_format, number)
+            width, height = spec["target_size"]
+            write_png(
+                output_path,
+                size=(width, height),
+                slide_number=number,
+                copy=copy,
+                format_label=f"{output_format} {spec['aspect_ratio']}",
+            )
+            native_outputs[output_format] = {
+                "file": str(output_path),
+                "size": f"{width}x{height}",
+                "publishable": False,
+            }
+        primary_output = native_outputs[requested_formats[0]]["file"]
         records.append(
             {
                 "slide": number,
-                "file": str(instagram_path),
-                "reels_stories_file": str(reels_path),
+                "file": primary_output,
                 "copy": copy,
                 "prompt": prompt,
                 "status": STATUS,
@@ -283,18 +290,7 @@ def generate_local_dry_run_images(carousel_dir: Path) -> dict[str, Any]:
                     "source": str(prompt_pack_path),
                     "note": "Deterministic local dry-run placeholder; not publishable final art.",
                 },
-                "native_outputs": {
-                    "instagram_post": {
-                        "file": str(instagram_path),
-                        "size": f"{INSTAGRAM_POST_SIZE[0]}x{INSTAGRAM_POST_SIZE[1]}",
-                        "publishable": False,
-                    },
-                    "reels_stories": {
-                        "file": str(reels_path),
-                        "size": f"{REELS_STORIES_SIZE[0]}x{REELS_STORIES_SIZE[1]}",
-                        "publishable": False,
-                    },
-                },
+                "native_outputs": native_outputs,
             }
         )
 
@@ -311,9 +307,14 @@ def generate_local_dry_run_images(carousel_dir: Path) -> dict[str, Any]:
             "they are not publish-ready final art."
         ),
         "native_output_contract": {
-            "formats": ["instagram_post", "reels_stories"],
-            "instagram_post": f"{INSTAGRAM_POST_SIZE[0]}x{INSTAGRAM_POST_SIZE[1]}",
-            "reels_stories": f"{REELS_STORIES_SIZE[0]}x{REELS_STORIES_SIZE[1]}",
+            "formats": list(requested_formats),
+            **{
+                output_format: (
+                    f"{format_spec(output_format)['target_size'][0]}x"
+                    f"{format_spec(output_format)['target_size'][1]}"
+                )
+                for output_format in requested_formats
+            },
         },
         "source_prompt_pack": str(prompt_pack_path),
         "provenance": {

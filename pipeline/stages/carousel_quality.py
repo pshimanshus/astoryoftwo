@@ -7,16 +7,40 @@ what was produced, what reviewers checked, and what the wiki should remember.
 
 from __future__ import annotations
 
+import hashlib
 import json
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 from typing import Any
 
+from PIL import Image
+
+from pipeline.stages.carousel_format_contract import (
+    expected_frame_bindings,
+    expected_output_path,
+    expected_output_relative_path,
+    format_spec,
+    locked_format_contract_fingerprint,
+    locked_formats,
+)
 from pipeline.stages.carousel_style_consistency import prompt_style_drift_issues
 from pipeline.stages.successful_carousel_standard import (
     SUCCESSFUL_CAROUSEL_STANDARD_PATH,
     evaluate_successful_carousel_standard,
+)
+from pipeline.stages.carousel_visual_storytelling import (
+    VISUAL_STORY_READABILITY_KEY,
+    current_creator_correction_fingerprint,
+    current_generation_payload_fingerprint,
+    director_author_id,
+    director_creator_correction_fingerprint,
+    director_event_fingerprint,
+    director_generation_payload_fingerprint,
+    director_review_provenance,
+    director_reviewer_id,
+    validate_director_storyboard,
+    validate_frame_readability,
 )
 
 
@@ -28,8 +52,16 @@ QUALITY_ARTIFACTS = {
     "visual_qa": "visual-qa.md",
 }
 
+
+def _current_generation_fingerprint_or_none(package_dir: Path) -> str | None:
+    try:
+        return current_generation_payload_fingerprint(package_dir)
+    except ValueError:
+        return None
+
 BASE_ARTIFACTS = {
     "manifest": "manifest.json",
+    "format_contract": "format-contract.json",
     "concept": "concept.json",
     "post_copy_visual_room": "post-copy-visual-room.json",
     "visual_debate": "visual-debate.json",
@@ -50,7 +82,7 @@ BASE_ARTIFACTS = {
 }
 
 MIN_STORY_SLIDES = 4
-MAX_STORY_SLIDES = 10
+MAX_STORY_SLIDES = 11
 
 FORBIDDEN_FINAL_SOURCE_PARTS = {
     "source-generated-local",
@@ -69,15 +101,465 @@ REQUIRED_VISUAL_QA_CHECKS = {
     "dress_continuity",
     "style",
     "scene_logic",
-    "pose_anatomy",
+    "scene_entity_integrity",
+    VISUAL_STORY_READABILITY_KEY,
+    "anatomy_inventory",
+    "spatial_topology",
+    "visual_richness",
     "integrated_final_text",
     "final_files",
+}
+
+VISUAL_QA_SCHEMA_MINIMUM = (2, 1)
+REQUIRED_POST_GENERATION_REVIEWERS = {
+    "anatomy_entity_spatial_identity",
+    "storytelling_richness_text_style",
+}
+QA_PASSED_PROOF_STATES = {
+    "QA_PASS_CANDIDATE",
+    "CREATOR_APPROVED_PROOF",
+    "BATCH_ALLOWED",
 }
 
 FACE_VISUAL_QA_CHECKS = {
     "aachu_face": "Aachu/Anchal",
     "zuv_face": "Himanshu/Zuv",
 }
+
+
+def _schema_version_tuple(value: Any) -> tuple[int, int] | None:
+    parts = str(value or "").strip().split(".")
+    if len(parts) < 2:
+        return None
+    try:
+        return int(parts[0]), int(parts[1])
+    except ValueError:
+        return None
+
+
+def _per_slide_records(
+    check: Any,
+    *,
+    check_id: str,
+    slide_count: int,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    if not isinstance(check, dict):
+        return [], [f"{check_id} must be a structured object, not a boolean."]
+    slides = check.get("slides")
+    if not isinstance(slides, list):
+        return [], [f"{check_id} must include a per-slide slides list."]
+
+    issues: list[str] = []
+    records = [record for record in slides if isinstance(record, dict)]
+    if len(records) != len(slides):
+        issues.append(f"{check_id} slide records must all be objects.")
+    if len(slides) != slide_count:
+        issues.append(f"{check_id} has {len(slides)} slide records, expected {slide_count}.")
+    seen = {record.get("slide") for record in records if isinstance(record.get("slide"), int)}
+    missing = sorted(set(range(1, slide_count + 1)) - seen)
+    if missing:
+        issues.append(f"{check_id} is missing slide records: " + ", ".join(map(str, missing)))
+    if len(seen) != len(records):
+        issues.append(f"{check_id} has invalid or duplicate slide numbers.")
+    return records, issues
+
+
+def validate_anatomy_inventory_check(check: Any, *, slide_count: int) -> list[str]:
+    """Require an attributable, attached inventory for every visible limb."""
+
+    records, issues = _per_slide_records(
+        check,
+        check_id="anatomy_inventory",
+        slide_count=slide_count,
+    )
+    for index, record in enumerate(records, start=1):
+        number = record.get("slide", index)
+        for limb in ("arms", "hands"):
+            expected = record.get(f"expected_{limb}")
+            observed = record.get(f"observed_{limb}")
+            if not isinstance(expected, int) or expected < 0:
+                issues.append(f"anatomy_inventory slide {number} has invalid expected_{limb}.")
+            if not isinstance(observed, int) or observed < 0:
+                issues.append(f"anatomy_inventory slide {number} has invalid observed_{limb}.")
+            if isinstance(expected, int) and isinstance(observed, int) and expected != observed:
+                issues.append(
+                    f"anatomy_inventory slide {number} expected {expected} {limb} but observed {observed}."
+                )
+
+        visible_hands = record.get("visible_hands")
+        if not isinstance(visible_hands, list):
+            issues.append(f"anatomy_inventory slide {number} must list every visible hand.")
+            visible_hands = []
+        observed_hands = record.get("observed_hands")
+        if isinstance(observed_hands, int) and observed_hands != len(visible_hands):
+            issues.append(
+                f"anatomy_inventory slide {number} records {observed_hands} observed hands "
+                f"but inventories {len(visible_hands)}."
+            )
+        for hand_index, hand in enumerate(visible_hands, start=1):
+            label = f"anatomy_inventory slide {number} hand {hand_index}"
+            if not isinstance(hand, dict):
+                issues.append(f"{label} must be an object with owner, side, action, and attachment evidence.")
+                continue
+            if not str(hand.get("owner") or "").strip():
+                issues.append(f"{label} has no owner.")
+            if hand.get("side") not in {"left", "right"}:
+                issues.append(f"{label} must identify left or right side.")
+            if not str(hand.get("action") or "").strip():
+                issues.append(f"{label} has no action.")
+            if hand.get("story_required") is not True:
+                issues.append(f"{label} is not required by the locked scene.")
+            if hand.get("attachment_visible") is not True:
+                issues.append(f"{label} is not visibly attached through a wrist/forearm.")
+            if len(str(hand.get("attachment_evidence") or "").strip()) < 12:
+                issues.append(f"{label} needs concrete wrist/forearm attachment evidence.")
+            if "contact_object" not in hand:
+                issues.append(f"{label} must record contact_object, including null.")
+            if hand.get("contact_geometry_pass") is not True:
+                issues.append(f"{label} fails hand-object contact geometry.")
+            if len(str(hand.get("occlusion_evidence") or "").strip()) < 12:
+                issues.append(f"{label} needs concrete contact/occlusion evidence.")
+            if hand.get("solid_object_intersection") is not False:
+                issues.append(f"{label} intersects or may intersect a solid object.")
+            if hand.get("edge_entry_unexplained") is not False:
+                issues.append(
+                    f"{label} has an unexplained edge entry from a frame or object without a visible owner."
+                )
+
+        for field in ("unexpected_limbs", "duplicated_limbs"):
+            value = record.get(field)
+            if not isinstance(value, list):
+                issues.append(f"anatomy_inventory slide {number} must include {field} as a list.")
+            elif value:
+                issues.append(
+                    f"anatomy_inventory slide {number} contains {field.replace('_', ' ')}: "
+                    + ", ".join(str(item) for item in value)
+                )
+        malformed = record.get("malformed_fingers")
+        if malformed not in (False, []):
+            issues.append(f"anatomy_inventory slide {number} has malformed fingers: {malformed!r}.")
+    return issues
+
+
+SPATIAL_RELATIONS = {
+    "in_front_of",
+    "behind",
+    "touching",
+    "separate_from",
+    "occluded_by",
+    "not_near_solid_object",
+}
+
+
+def validate_spatial_topology_check(check: Any, *, slide_count: int) -> list[str]:
+    """Fail closed when a person does not occupy a coherent environmental volume."""
+
+    records, issues = _per_slide_records(
+        check,
+        check_id="spatial_topology",
+        slide_count=slide_count,
+    )
+    for index, record in enumerate(records, start=1):
+        number = record.get("slide", index)
+        evidence_views = record.get("evidence_views")
+        if not isinstance(evidence_views, dict):
+            issues.append(f"spatial_topology slide {number} must include evidence_views.")
+        else:
+            for view in ("full_frame", "person_object_crop", "focal_detail"):
+                if len(str(evidence_views.get(view) or "").strip()) < 12:
+                    issues.append(f"spatial_topology slide {number} needs concrete {view} evidence.")
+
+        environment_planes = record.get("environment_planes")
+        if not isinstance(environment_planes, list):
+            issues.append(f"spatial_topology slide {number} must inventory environment_planes.")
+            environment_planes = []
+        for plane_index, plane in enumerate(environment_planes, start=1):
+            label = f"spatial_topology slide {number} environment plane {plane_index}"
+            if not isinstance(plane, dict):
+                issues.append(f"{label} must be structured.")
+                continue
+            if not str(plane.get("object") or "").strip():
+                issues.append(f"{label} has no object.")
+            if len(str(plane.get("depth_order") or "").strip()) < 8:
+                issues.append(f"{label} needs concrete depth_order evidence.")
+            if plane.get("boundary_continuous") is not True:
+                issues.append(f"{label} boundary is not continuous.")
+
+        people = record.get("people")
+        if not isinstance(people, list):
+            issues.append(f"spatial_topology slide {number} must include a people list.")
+            people = []
+        observed_people = record.get("observed_people")
+        if not isinstance(observed_people, int) or observed_people < 0:
+            issues.append(f"spatial_topology slide {number} has invalid observed_people.")
+        elif observed_people != len(people):
+            issues.append(
+                f"spatial_topology slide {number} records {observed_people} people but inventories {len(people)}."
+            )
+
+        for person_index, person in enumerate(people, start=1):
+            label = f"spatial_topology slide {number} person {person_index}"
+            if not isinstance(person, dict):
+                issues.append(f"{label} must be structured.")
+                continue
+            if not str(person.get("person") or "").strip():
+                issues.append(f"{label} has no identity.")
+            if person.get("silhouette_traceable") is not True:
+                issues.append(f"{label} silhouette is not fully traceable.")
+            ambiguous_regions = person.get("ambiguous_regions")
+            if not isinstance(ambiguous_regions, list):
+                issues.append(f"{label} must include ambiguous_regions as a list.")
+            elif ambiguous_regions:
+                issues.append(f"{label} has ambiguous regions: " + ", ".join(map(str, ambiguous_regions)))
+            body_regions = person.get("body_regions")
+            if not isinstance(body_regions, list) or not body_regions:
+                issues.append(f"{label} must inventory visible body_regions.")
+                body_regions = []
+            for region_index, region in enumerate(body_regions, start=1):
+                region_label = f"{label} body region {region_index}"
+                if not isinstance(region, dict):
+                    issues.append(f"{region_label} must be structured.")
+                    continue
+                for field in ("region", "near_object"):
+                    if not str(region.get(field) or "").strip():
+                        issues.append(f"{region_label} has no {field}.")
+                expected = region.get("expected_relation")
+                observed = region.get("observed_relation")
+                if expected not in SPATIAL_RELATIONS:
+                    issues.append(f"{region_label} has invalid expected_relation {expected!r}.")
+                if observed not in SPATIAL_RELATIONS:
+                    issues.append(f"{region_label} has invalid observed_relation {observed!r}.")
+                if expected in SPATIAL_RELATIONS and observed in SPATIAL_RELATIONS and expected != observed:
+                    issues.append(
+                        f"{region_label} expected {expected} but observed {observed}."
+                    )
+                if region.get("boundary_continuous") is not True:
+                    issues.append(f"{region_label} boundary is not continuous.")
+                if region.get("occlusion_order_clear") is not True:
+                    issues.append(f"{region_label} has ambiguous occlusion order.")
+                if region.get("solid_object_intersection") is not False:
+                    issues.append(f"{region_label} intersects or may intersect a solid object.")
+                if region.get("morph_or_merge") is not False:
+                    issues.append(f"{region_label} morphs or merges into the environment.")
+                if len(str(region.get("evidence") or "").strip()) < 20:
+                    issues.append(f"{region_label} needs concrete boundary/depth evidence.")
+
+        for field in ("ambiguous_regions", "unresolved_intersections"):
+            value = record.get(field)
+            if not isinstance(value, list):
+                issues.append(f"spatial_topology slide {number} must include {field} as a list.")
+            elif value:
+                issues.append(
+                    f"spatial_topology slide {number} contains {field.replace('_', ' ')}: "
+                    + ", ".join(str(item) for item in value)
+                )
+    return issues
+
+
+def validate_visual_richness_check(check: Any, *, slide_count: int) -> list[str]:
+    records, issues = _per_slide_records(
+        check,
+        check_id="visual_richness",
+        slide_count=slide_count,
+    )
+    for index, record in enumerate(records, start=1):
+        number = record.get("slide", index)
+        for field in ("foreground", "midground", "background", "focal_action", "cause_effect"):
+            if len(str(record.get(field) or "").strip()) < 8:
+                issues.append(f"visual_richness slide {number} needs concrete {field} evidence.")
+        details = record.get("story_details")
+        if not isinstance(details, list) or not 2 <= len(details) <= 4:
+            issues.append(f"visual_richness slide {number} must include 2-4 story_details.")
+        elif any(len(str(detail).strip()) < 3 for detail in details):
+            issues.append(f"visual_richness slide {number} has an empty or non-specific story detail.")
+        if record.get("posed_portrait") is not False:
+            issues.append(f"visual_richness slide {number} must set posed_portrait to false.")
+        if record.get("decorative_clutter") is not False:
+            issues.append(f"visual_richness slide {number} must set decorative_clutter to false.")
+    return issues
+
+
+def validate_source_assets(
+    anatomy_inventory: Any,
+    *,
+    package_dir: Path,
+    slide_count: int,
+) -> list[str]:
+    """Bind QA claims to the current bytes and dimensions of every source image."""
+
+    if not isinstance(anatomy_inventory, dict):
+        return ["anatomy_inventory must carry a source_asset for every slide."]
+    source_records = anatomy_inventory.get("slides")
+    if not isinstance(source_records, list):
+        return ["anatomy_inventory must carry a source_asset for every slide."]
+    issues: list[str] = []
+    if len(source_records) != slide_count:
+        issues.append(
+            f"anatomy_inventory source assets have {len(source_records)} records, expected {slide_count}."
+        )
+    seen: set[int] = set()
+    for index, slide_record in enumerate(source_records, start=1):
+        record = slide_record.get("source_asset") if isinstance(slide_record, dict) else None
+        if not isinstance(record, dict):
+            issues.append(f"anatomy_inventory slide {index} source_asset must be an object.")
+            continue
+        number = slide_record.get("slide")
+        if not isinstance(number, int) or number < 1 or number in seen:
+            issues.append(f"source_asset record {index} has an invalid or duplicate slide number.")
+        else:
+            seen.add(number)
+        raw_path = str(record.get("path") or "").strip()
+        if not raw_path:
+            issues.append(f"source_asset slide {number or index} has no file path.")
+            continue
+        path = Path(raw_path)
+        if not path.is_absolute():
+            path = package_dir / path
+        if not path.is_file():
+            issues.append(f"source_asset slide {number or index} file does not exist: {path}.")
+            continue
+        actual_sha256 = hashlib.sha256(path.read_bytes()).hexdigest()
+        if record.get("sha256") != actual_sha256:
+            issues.append(f"source_asset slide {number or index} SHA-256 is missing or stale.")
+        try:
+            with Image.open(path) as image:
+                actual_width, actual_height = image.size
+        except (OSError, ValueError):
+            issues.append(f"source_asset slide {number or index} is not a readable image: {path}.")
+            continue
+        if record.get("width") != actual_width or record.get("height") != actual_height:
+            issues.append(
+                f"source_asset slide {number or index} dimensions are missing or stale; "
+                f"actual is {actual_width}x{actual_height}."
+            )
+    missing = sorted(set(range(1, slide_count + 1)) - seen)
+    if missing:
+        issues.append("source_asset bindings are missing slide records: " + ", ".join(map(str, missing)))
+    return issues
+
+
+def validate_independent_reviewers(reviews: Any) -> list[str]:
+    if not isinstance(reviews, dict):
+        return ["reviews must contain two independent post-generation reviewer records."]
+    issues: list[str] = []
+    reviewer_ids: list[str] = []
+    for review_type in sorted(REQUIRED_POST_GENERATION_REVIEWERS):
+        record = reviews.get(review_type)
+        if not isinstance(record, dict):
+            issues.append(f"reviews.{review_type} is missing or not structured.")
+            continue
+        reviewer_id = str(record.get("reviewer_id") or "").strip()
+        if not reviewer_id:
+            issues.append(f"reviews.{review_type} has no reviewer_id.")
+        else:
+            reviewer_ids.append(reviewer_id)
+        if record.get("pass") is not True:
+            issues.append(f"reviews.{review_type} must pass.")
+        if len(str(record.get("evidence") or "").strip()) < 24:
+            issues.append(f"reviews.{review_type} needs concrete review evidence.")
+    if len(reviewer_ids) == 2 and len(set(reviewer_ids)) != 2:
+        issues.append("Post-generation reviewers must be independent and use different reviewer_id values.")
+    return issues
+
+
+def validate_scene_entity_integrity_check(
+    check: Any,
+    *,
+    slide_count: int,
+) -> list[str]:
+    """Return blocking issues for per-slide people/entity inventory evidence."""
+
+    if not isinstance(check, dict):
+        return ["scene_entity_integrity must be a structured object."]
+
+    issues: list[str] = []
+    slides = check.get("slides")
+    if not isinstance(slides, list):
+        return ["scene_entity_integrity must include a per-slide slides list."]
+    if len(slides) != slide_count:
+        issues.append(
+            f"scene_entity_integrity has {len(slides)} slide records, expected {slide_count}."
+        )
+
+    seen_slides: set[int] = set()
+    for index, record in enumerate(slides, start=1):
+        if not isinstance(record, dict):
+            issues.append(f"scene_entity_integrity slide record {index} must be an object.")
+            continue
+        number = record.get("slide")
+        if not isinstance(number, int) or number < 1:
+            issues.append(f"scene_entity_integrity slide record {index} has no valid slide number.")
+        elif number in seen_slides:
+            issues.append(f"scene_entity_integrity repeats slide {number}.")
+        else:
+            seen_slides.add(number)
+
+        expected_people = record.get("expected_people")
+        observed_people = record.get("observed_people")
+        if not isinstance(expected_people, int) or expected_people < 0:
+            issues.append(f"scene_entity_integrity slide {number or index} has invalid expected_people.")
+        if not isinstance(observed_people, int) or observed_people < 0:
+            issues.append(f"scene_entity_integrity slide {number or index} has invalid observed_people.")
+        if (
+            isinstance(expected_people, int)
+            and isinstance(observed_people, int)
+            and expected_people != observed_people
+        ):
+            issues.append(
+                f"scene_entity_integrity slide {number or index} expected {expected_people} people "
+                f"but observed {observed_people}."
+            )
+
+        for limb in ("arms", "hands"):
+            expected = record.get(f"expected_{limb}")
+            observed = record.get(f"observed_{limb}")
+            if not isinstance(expected, int) or expected < 0:
+                issues.append(
+                    f"scene_entity_integrity slide {number or index} has invalid expected_{limb}."
+                )
+            if not isinstance(observed, int) or observed < 0:
+                issues.append(
+                    f"scene_entity_integrity slide {number or index} has invalid observed_{limb}."
+                )
+            if isinstance(expected, int) and isinstance(observed, int) and expected != observed:
+                issues.append(
+                    f"scene_entity_integrity slide {number or index} expected {expected} {limb} "
+                    f"but observed {observed}."
+                )
+
+        for field in ("unexpected_limbs", "duplicated_limbs"):
+            value = record.get(field)
+            if not isinstance(value, list):
+                issues.append(
+                    f"scene_entity_integrity slide {number or index} must include {field} as a list."
+                )
+            elif value:
+                issues.append(
+                    f"scene_entity_integrity slide {number or index} contains {field.replace('_', ' ')}: "
+                    + ", ".join(str(item) for item in value)
+                )
+
+        unexpected = record.get("unexpected_entities")
+        if not isinstance(unexpected, list):
+            issues.append(
+                f"scene_entity_integrity slide {number or index} must include unexpected_entities as a list."
+            )
+        elif unexpected:
+            issues.append(
+                f"scene_entity_integrity slide {number or index} contains unexpected entities: "
+                + ", ".join(str(item) for item in unexpected)
+            )
+
+        evidence = str(record.get("evidence") or "").strip()
+        if len(evidence) < 20:
+            issues.append(
+                f"scene_entity_integrity slide {number or index} needs concrete visual evidence."
+            )
+
+    if set(range(1, slide_count + 1)) - seen_slides:
+        missing = sorted(set(range(1, slide_count + 1)) - seen_slides)
+        issues.append("scene_entity_integrity is missing slide records: " + ", ".join(map(str, missing)))
+    return issues
 
 PUBLISHABLE_FINAL_GENERATION_MODES = {
     "model_native_publishable",
@@ -98,6 +580,25 @@ class QualityContext:
     manifest: dict[str, Any]
     render_result: dict[str, Any]
     workspace_root: Path
+    asset_root: Path | None = None
+
+
+def quality_asset_root(context: QualityContext) -> Path:
+    """Physical root for audited images; may be an internal promotion stage."""
+
+    return context.asset_root or context.out_dir
+
+
+def quality_asset_path(context: QualityContext, folder: str, filename: str) -> Path:
+    return quality_asset_root(context) / folder / filename
+
+
+def required_final_files(context: QualityContext) -> list[Path]:
+    return [
+        quality_asset_root(context) / expected_output_relative_path(output_format, number)
+        for number in range(1, context.slide_count + 1)
+        for output_format in locked_formats(context.out_dir)
+    ]
 
 
 def write_json(path: Path, data: Any) -> None:
@@ -191,14 +692,14 @@ def build_requirements(context: QualityContext) -> list[dict[str, Any]]:
         },
         {
             "id": "REQ-FINAL-IMAGES-001",
-            "label": "Final generated carousel images are packaged as separate native 3:4 and 9:16 outputs, not local placeholders",
+            "label": "Final generated carousel images are packaged independently for every request-locked native format, not local placeholders",
             "source": "user final-output requirement",
             "expected": context.slide_count,
             "critical": True,
         },
         {
             "id": "REQ-INTEGRATED-FINAL-TEXT-001",
-            "label": "Default final slides include exact integrated copy and brandmark inside both final/ and final-reels-stories/",
+            "label": "Final slides include exact integrated copy and brandmark in every current-request format locked by format-contract.json",
             "source": "user publishable composition requirement",
             "expected": context.slide_count,
             "critical": True,
@@ -342,7 +843,7 @@ def final_image_gate(context: QualityContext, final_files: list[Path]) -> dict[s
     final_manifest_path = context.out_dir / BASE_ARTIFACTS["final_images"]
     issues: list[str] = []
     manifest: dict[str, Any] = {}
-    required_formats = ["instagram_post", "reels_stories"]
+    required_formats = list(locked_formats(context.out_dir))
     if final_manifest_path.exists():
         manifest = json.loads(final_manifest_path.read_text(encoding="utf-8"))
     else:
@@ -353,12 +854,15 @@ def final_image_gate(context: QualityContext, final_files: list[Path]) -> dict[s
         issues.append("Missing final images: " + ", ".join(missing))
 
     if manifest:
-        if manifest.get("status") not in {"packaged", "generated"}:
-            issues.append(f"final-images.json status is {manifest.get('status')!r}, expected 'packaged' or 'generated'.")
+        if manifest.get("status") not in {"packaged", "generated", "BATCH_ALLOWED"}:
+            issues.append(
+                f"final-images.json status is {manifest.get('status')!r}, expected "
+                "'packaged', 'generated', or internal pre-promotion 'BATCH_ALLOWED'."
+            )
         contract_formats = manifest.get("native_output_contract", {}).get("formats", [])
         if contract_formats != required_formats:
             issues.append(
-                "final-images.json native output contract must require exactly: "
+                "final-images.json native output contract must match the current-request lock exactly: "
                 + ", ".join(required_formats)
             )
         records = manifest.get("slides", [])
@@ -366,19 +870,6 @@ def final_image_gate(context: QualityContext, final_files: list[Path]) -> dict[s
             issues.append(f"final-images.json has {len(records)} slide records, expected {context.slide_count}.")
         for record in records:
             number = int(record.get("slide", 0) or 0)
-            expected_file = context.out_dir / "final" / f"slide-{number:02d}.png"
-            expected_reels_file = context.out_dir / "final-reels-stories" / f"slide-{number:02d}.png"
-            actual_file = Path(record.get("file", ""))
-            if actual_file and actual_file != expected_file:
-                issues.append(f"Slide {number} final path is {actual_file}, expected {expected_file}.")
-            actual_reels_file = Path(record.get("reels_stories_file", ""))
-            if actual_reels_file and actual_reels_file != expected_reels_file:
-                issues.append(
-                    f"Slide {number} Reels/Stories final path is {actual_reels_file}, expected {expected_reels_file}."
-                )
-            if not expected_reels_file.exists():
-                issues.append(f"Missing Reels/Stories final image: {expected_reels_file}.")
-
             native_outputs = record.get("native_outputs", {})
             if not isinstance(native_outputs, dict):
                 native_outputs = {}
@@ -389,21 +880,22 @@ def final_image_gate(context: QualityContext, final_files: list[Path]) -> dict[s
                     + ", ".join(missing_formats)
                 )
                 continue
-
-            instagram_output = native_outputs["instagram_post"]
-            reels_output = native_outputs["reels_stories"]
-            instagram_source = str(instagram_output.get("source", ""))
-            reels_source = str(reels_output.get("source", ""))
-            if not instagram_source:
-                issues.append(f"Slide {number} instagram_post native source provenance is missing.")
-            if not reels_source:
-                issues.append(f"Slide {number} reels_stories native source provenance is missing.")
-            if instagram_source and reels_source and instagram_source == reels_source:
-                issues.append(f"Slide {number} Instagram and Reels/Stories outputs use the same source image.")
-            for format_name, source_text in [
-                ("instagram_post", instagram_source),
-                ("reels_stories", reels_source),
-            ]:
+            unexpected_formats = sorted(set(native_outputs) - set(required_formats))
+            if unexpected_formats:
+                issues.append(
+                    f"Slide {number} native_outputs contains unrequested format(s): "
+                    + ", ".join(unexpected_formats)
+                )
+            source_values: list[str] = []
+            for format_name in required_formats:
+                output = native_outputs[format_name]
+                source_text = str(output.get("source", ""))
+                if not source_text:
+                    issues.append(
+                        f"Slide {number} {format_name} native source provenance is missing."
+                    )
+                else:
+                    source_values.append(source_text)
                 source_parts = set(Path(source_text).parts)
                 forbidden = sorted(source_parts & FORBIDDEN_FINAL_SOURCE_PARTS)
                 if forbidden:
@@ -411,23 +903,26 @@ def final_image_gate(context: QualityContext, final_files: list[Path]) -> dict[s
                         f"Slide {number} {format_name} source uses forbidden local placeholder/preview path part(s): "
                         + ", ".join(forbidden)
                     )
-            if Path(instagram_output.get("file", "")) != expected_file:
-                issues.append(f"Slide {number} instagram_post native output file must be {expected_file}.")
-            if Path(reels_output.get("file", "")) != expected_reels_file:
-                issues.append(f"Slide {number} reels_stories native output file must be {expected_reels_file}.")
+                expected_file = expected_output_path(context.out_dir, format_name, number)
+                if Path(output.get("file", "")) != expected_file:
+                    issues.append(
+                        f"Slide {number} {format_name} native output file must be {expected_file}."
+                    )
+                relative_path = expected_output_relative_path(format_name, number)
+                physical_file = quality_asset_root(context) / relative_path
+                if not physical_file.exists():
+                    issues.append(f"Missing {format_name} final image: {expected_file}.")
+            if len(source_values) != len(set(source_values)):
+                issues.append(
+                    f"Slide {number} requested native outputs must use distinct source images."
+                )
 
     return {
         "pass": not issues,
         "evidence": {
             "files": [
                 str(path)
-                for path in [
-                    *final_files,
-                    *[
-                        context.out_dir / "final-reels-stories" / f"slide-{number:02d}.png"
-                        for number in range(1, context.slide_count + 1)
-                    ],
-                ]
+                for path in final_files
                 if path.exists()
             ],
             "manifest": str(final_manifest_path) if final_manifest_path.exists() else None,
@@ -444,7 +939,21 @@ def structured_visual_qa_gate(context: QualityContext) -> dict[str, Any]:
     if not qa_path.exists():
         failed.append("visual-qa.json is missing; visual-qa.md is only a review worksheet.")
     else:
-        qa = json.loads(qa_path.read_text(encoding="utf-8"))
+        try:
+            qa = json.loads(qa_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as exc:
+            return {
+                "pass": False,
+                "path": str(qa_path),
+                "failed": [f"visual-qa.json could not be read as JSON: {exc}"],
+            }
+        schema_version = _schema_version_tuple(qa.get("schema_version"))
+        if schema_version is None or schema_version < VISUAL_QA_SCHEMA_MINIMUM:
+            failed.append("visual-qa.json schema_version must be at least 2.1.")
+        if qa.get("proof_state") not in QA_PASSED_PROOF_STATES:
+            failed.append(
+                "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state."
+            )
         if qa.get("status") != "PASS":
             failed.append("visual-qa.json status must be PASS.")
         raw_checks = qa.get("checks", {})
@@ -465,6 +974,83 @@ def structured_visual_qa_gate(context: QualityContext) -> dict[str, Any]:
             passed = check.get("pass") if isinstance(check, dict) else check is True
             if passed is not True:
                 failed.append(f"visual-qa.json check failed: {check_id}")
+        if isinstance(checks.get("pose_anatomy"), bool) and "anatomy_inventory" not in checks:
+            failed.append(
+                "visual-qa.json boolean-only pose_anatomy is invalid; per-slide anatomy_inventory is required."
+            )
+        anatomy_issues = validate_anatomy_inventory_check(
+            checks.get("anatomy_inventory"),
+            slide_count=context.slide_count,
+        )
+        failed.extend(f"visual-qa.json {issue}" for issue in anatomy_issues)
+        topology_issues = validate_spatial_topology_check(
+            checks.get("spatial_topology"),
+            slide_count=context.slide_count,
+        )
+        failed.extend(f"visual-qa.json {issue}" for issue in topology_issues)
+        richness_issues = validate_visual_richness_check(
+            checks.get("visual_richness"),
+            slide_count=context.slide_count,
+        )
+        failed.extend(f"visual-qa.json {issue}" for issue in richness_issues)
+        asset_issues = validate_source_assets(
+            checks.get("anatomy_inventory"),
+            package_dir=context.out_dir,
+            slide_count=context.slide_count,
+        )
+        failed.extend(f"visual-qa.json {issue}" for issue in asset_issues)
+        reviewer_issues = validate_independent_reviewers(qa.get("reviews"))
+        failed.extend(f"visual-qa.json {issue}" for issue in reviewer_issues)
+        scene_entity_issues = validate_scene_entity_integrity_check(
+            checks.get("scene_entity_integrity"),
+            slide_count=context.slide_count,
+        )
+        failed.extend(
+            f"visual-qa.json {issue}"
+            for issue in scene_entity_issues
+        )
+        visual_plan_path = context.out_dir / "visual-plan-quality.json"
+        visual_plan = {}
+        if visual_plan_path.exists():
+            try:
+                loaded_visual_plan = json.loads(visual_plan_path.read_text(encoding="utf-8"))
+                if isinstance(loaded_visual_plan, dict):
+                    visual_plan = loaded_visual_plan
+            except (json.JSONDecodeError, OSError):
+                visual_plan = {}
+        readability_issues = validate_frame_readability(
+            checks.get(VISUAL_STORY_READABILITY_KEY),
+            slide_count=context.slide_count,
+            required_formats=locked_formats(context.out_dir),
+            expected_director_event_fingerprint=director_event_fingerprint(visual_plan),
+            event_a_review_provenance=director_review_provenance(visual_plan),
+            event_a_creator_correction_fingerprint=(
+                director_creator_correction_fingerprint(visual_plan)
+            ),
+            expected_creator_correction_fingerprint=(
+                current_creator_correction_fingerprint(context.out_dir)
+            ),
+            event_a_generation_payload_fingerprint=(
+                director_generation_payload_fingerprint(visual_plan)
+            ),
+            expected_generation_payload_fingerprint=(
+                _current_generation_fingerprint_or_none(context.out_dir)
+            ),
+            director_author_id=director_author_id(visual_plan),
+            director_reviewer_id=director_reviewer_id(visual_plan),
+            expected_frame_bindings=expected_frame_bindings(
+                context.out_dir,
+                context.slide_count,
+                locked_formats(context.out_dir),
+            ),
+            package_dir=quality_asset_root(context),
+            provenance_package_dir=context.out_dir,
+            require_files=True,
+        )
+        failed.extend(
+            f"visual-qa.json {issue}"
+            for issue in readability_issues
+        )
         for check_id, person in FACE_VISUAL_QA_CHECKS.items():
             check = checks.get(check_id)
             if not isinstance(check, dict):
@@ -497,10 +1083,7 @@ def build_stage_reviews(context: QualityContext, ledger: dict[str, Any]) -> dict
         slide_count=context.slide_count,
     )
     render_status = context.render_result.get("status", "unknown")
-    final_files = [
-        context.out_dir / "final" / f"slide-{number:02d}.png"
-        for number in range(1, context.slide_count + 1)
-    ]
+    final_files = required_final_files(context)
 
     intake_issues = []
     if not context.story.strip():
@@ -550,6 +1133,24 @@ def build_stage_reviews(context: QualityContext, ledger: dict[str, Any]) -> dict
             visual_issues.append(
                 f"visual-plan-quality.json has {len(visual_quality.get('slide_reviews', []))} slide records, expected {context.slide_count}."
             )
+        visual_issues.extend(
+            validate_director_storyboard(
+                visual_quality,
+                slide_count=context.slide_count,
+                expected_slides=package_slides,
+                expected_formats=locked_formats(context.out_dir),
+                expected_format_contract_fingerprint=locked_format_contract_fingerprint(
+                    context.out_dir
+                ),
+                expected_creator_correction_fingerprint=(
+                    current_creator_correction_fingerprint(context.out_dir)
+                ),
+                expected_generation_payload_fingerprint=(
+                    _current_generation_fingerprint_or_none(context.out_dir)
+                ),
+                provenance_package_dir=context.out_dir,
+            )
+        )
 
     identity_issues = []
     dossier_path = context.out_dir / "identity-dossier.json"
@@ -897,10 +1498,7 @@ def evaluate_requirements(context: QualityContext) -> dict[str, dict[str, Any]]:
         "pass": success_gate["pass"],
         "evidence": success_gate,
     }
-    final_files = [
-        context.out_dir / "final" / f"slide-{number:02d}.png"
-        for number in range(1, context.slide_count + 1)
-    ]
+    final_files = required_final_files(context)
     results["REQ-FINAL-IMAGES-001"] = final_image_gate(context, final_files)
     model_native_manifest_path = context.out_dir / BASE_ARTIFACTS["final_images"]
     model_native_issues: list[str] = []
@@ -1049,7 +1647,7 @@ def build_final_audit(
 
     visual_qa_path = context.out_dir / QUALITY_ARTIFACTS["visual_qa"]
     final_images_exist = all(
-        (context.out_dir / "final" / f"slide-{number:02d}.png").exists()
+        quality_asset_path(context, "final", f"slide-{number:02d}.png").exists()
         for number in range(1, context.slide_count + 1)
     )
     if visual_qa_path.exists():
@@ -1377,7 +1975,7 @@ def build_visual_qa(context: QualityContext) -> str:
             f"- [{mark}] Pose/anatomy is natural and flattering for both Aachu and Zuv; no crouched, cramped, broken, or awkward body language.",
             f"- [{mark}] Successful carousel standard is visible: scene-first behavior proves the relationship truth before mood or decoration.",
             f"- [{mark}] Rendered text and brandmark are visible, accurate, and part of the artwork.",
-            f"- [{mark}] Final publishable files exist in `final/` and `final-reels-stories/`.",
+            f"- [{mark}] Final publishable files exist for every canvas locked in `format-contract.json`.",
             "",
         ]
     )

@@ -12,12 +12,17 @@ learning.
 
 ## Starting Fixture
 
-The fixture should put long durable guidance into `memory/working.md`, such as
-new rules about eval research, carousel preferences, or closeout behavior. The
-same learning should be missing from `memory/semantic/`. The fail-to-pass check
-should flag oversized working memory, missing semantic confidence, or absent
-sources. The pass-to-pass check should ensure existing episodic records,
-graph memory, recall search, and wiki-health behavior still work.
+Fixture direction: **solution**. A single-pass `evals/runner.py review` must
+observe the materialized starter as `unresolved`. The task becomes resolved
+only after the agent repairs the fixture-backed repository state and the named
+checker passes.
+
+The visible fixture writes durable correction guidance directly into
+`memory/working.md` and leaves the semantic memory file without the matching
+learning. The fail-to-pass check flags durable policy in working memory,
+missing semantic preservation, missing confidence, or absent sources. The
+pass-to-pass check preserves episodic records, graph memory, recall search, and
+wiki-health behavior.
 
 ## Failure Modes
 
@@ -29,8 +34,8 @@ graph memory, recall search, and wiki-health behavior still work.
 
 ## Checker Design
 
-The checker should inspect `memory/working.md` shape, semantic memory metadata,
-and recall behavior. A fail-to-pass case flips when durable learning is moved
+The checker inspects `memory/working.md` shape, semantic memory metadata, and
+recall behavior. A fail-to-pass case flips when durable learning is moved
 into a semantic file with `confidence:` and `sources:`. Pass-to-pass coverage
 should include `tests/test_agentic_memory_recall.py`, wiki-health checks, and a
 health run. A hidden variant should place the durable learning in a different

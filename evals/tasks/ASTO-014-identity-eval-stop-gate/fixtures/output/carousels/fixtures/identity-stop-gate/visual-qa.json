@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checks": {
+    "style": {
+      "pass": true,
+      "notes": "Looks close to house style."
+    },
+    "text": {
+      "pass": true,
+      "notes": "On-image text and brandmark appear present."
+    },
+    "identity": {
+      "pass": false,
+      "notes": "Manual taste note only; no structured face/likeness comparison."
+    }
+  }
+}

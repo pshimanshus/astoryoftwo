@@ -116,12 +116,13 @@ or old `prompt-pack-draft.json` is not enough. Handoff gates must pass
 confidence: 0.99
 
 fact: Do not call carousel proof images, old generated sources, or handoff
-state "final images." A carousel is final only after separate Instagram
-post/carousel finals and separate native 9:16 images exist for every slide,
-packaged under `final/` and `final-reels-stories/`, with visual QA and final
-audit written. Current Instagram post/carousel finals must be exact
-`1080x1440` exports from `1440x1920` 3:4 source art unless the creator
-explicitly changes the canvas again.
+state "final images." For a normal post/carousel request, a carousel is final
+after exact `1080x1440` post finals exist for every slide under `final/`, with
+visual QA and final audit written. Native `1080x1920` Story/Reel images under
+`final-reels-stories/` are required only when the creator explicitly requested
+Story or Reel. Current post/carousel finals must be exact `1080x1440` exports
+from `1440x1920` 3:4 source art unless the creator explicitly changes the
+canvas again. Never create an automatic companion format.
 confidence: 1.0
 
 fact: Prefer crisp engineering with the smallest durable surface area: fewer

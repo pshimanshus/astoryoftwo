@@ -26,6 +26,13 @@ from typing import Any
 
 import anthropic
 
+from pipeline.stages.carousel_format_contract import (
+    build_format_contract,
+    format_spec,
+    normalize_requested_formats,
+    write_format_contract,
+)
+
 
 BASE_DIR = Path(__file__).parent.parent.parent
 SKILLS_DIR = BASE_DIR / "config" / "skills"
@@ -34,7 +41,7 @@ OUTPUT_ROOT = BASE_DIR / "output" / "carousels"
 VOICE_FILE = BASE_DIR / "config" / "rules" / "voice.md"
 WORKING_MEMORY = BASE_DIR / "memory" / "working.md"
 MIN_STORY_SLIDES = 4
-MAX_STORY_SLIDES = 10
+MAX_STORY_SLIDES = 11
 DEFAULT_SLIDE_COUNT = 5
 STORY_SELLING_MIN_SCORE = 28
 
@@ -350,12 +357,24 @@ def build_brief_text(
     image_paths: list[Path],
     identity_image_paths: list[Path] | None = None,
     prior_outputs: dict[str, str] | None = None,
+    requested_formats: list[str] | tuple[str, ...] | None = None,
 ) -> str:
+    locked_formats = normalize_requested_formats(requested_formats)
+    format_lines = [
+        (
+            f"- {output_format}: {format_spec(output_format)['aspect_ratio']}, "
+            f"{'x'.join(str(value) for value in format_spec(output_format)['target_size'])}"
+        )
+        for output_format in locked_formats
+    ]
     lines = [
         f"Title: {title or '[choose the strongest title]'}",
         f"Story: {story}",
         f"Slide count: {slide_count}",
         f"Style brief: {style_brief or '[use the channel illustration framework]'}",
+        "Current-request native output lock (do not add or infer formats):",
+        *format_lines,
+        "Generate each locked canvas independently; never derive one aspect ratio from another.",
         "Reference images:",
     ]
     lines.extend(f"- {path}" for path in image_paths)
@@ -382,6 +401,7 @@ def build_user_content(
     image_paths: list[Path],
     identity_image_paths: list[Path] | None = None,
     prior_outputs: dict[str, str] | None = None,
+    requested_formats: list[str] | tuple[str, ...] | None = None,
 ) -> list[dict[str, Any]]:
     content: list[dict[str, Any]] = []
     for path in identity_image_paths or []:
@@ -403,6 +423,7 @@ def build_user_content(
                 image_paths=image_paths,
                 identity_image_paths=identity_image_paths,
                 prior_outputs=prior_outputs,
+                requested_formats=requested_formats,
             ),
         }
     )
@@ -421,6 +442,7 @@ def run_agent(
     image_paths: list[Path],
     identity_image_paths: list[Path] | None = None,
     prior_outputs: dict[str, str] | None = None,
+    requested_formats: list[str] | tuple[str, ...] | None = None,
     model: str = "claude-sonnet-4-6",
     max_tokens: int = 2500,
 ) -> str:
@@ -433,6 +455,7 @@ def run_agent(
         image_paths=image_paths,
         identity_image_paths=identity_image_paths,
         prior_outputs=prior_outputs,
+        requested_formats=requested_formats,
     )
 
     message = client.messages.create(
@@ -452,8 +475,14 @@ def build_manifest(
     image_paths: list[Path],
     identity_image_paths: list[Path] | None = None,
     today: date | None = None,
+    requested_formats: list[str] | tuple[str, ...] | None = None,
 ) -> dict[str, Any]:
     today = today or date.today()
+    format_contract = build_format_contract(
+        requested_formats,
+        source=("creator_request" if requested_formats is not None else "instagram_post_default"),
+    )
+    locked = normalize_requested_formats(format_contract["requested_formats"])
     return {
         "date": str(today),
         "slug": slug,
@@ -462,22 +491,22 @@ def build_manifest(
         "pipeline": "C-layer illustrated carousel",
         "status": "draft_for_human_review",
         "source_story": story,
+        "requested_formats": list(locked),
+        "format_contract": format_contract,
         "format": {
             "platform": "instagram",
             "type": "carousel",
             "native_outputs": {
-                "instagram_post": {
-                    "aspect_ratio": "3:4",
-                    "size": "1080x1440",
-                    "directory": "final/",
-                },
-                "reels_stories": {
-                    "aspect_ratio": "9:16",
-                    "size": "1080x1920",
-                    "directory": "final-reels-stories/",
-                },
+                output_format: {
+                    "aspect_ratio": format_spec(output_format)["aspect_ratio"],
+                    "size": "x".join(
+                        str(value) for value in format_spec(output_format)["target_size"]
+                    ),
+                    "directory": f"{format_spec(output_format)['folder']}/",
+                }
+                for output_format in locked
             },
-            "native_output_rule": "Generate both formats separately. Never resize, crop, pad, or extend one output into the other.",
+            "native_output_rule": format_contract["rule"],
         },
         "reference_images": [
             {"path": str(path), "role": "user supplied story reference"}
@@ -620,8 +649,8 @@ def write_approval_checklist(out_dir: Path, package: dict[str, Any]) -> None:
         "- [ ] `post-copy-visual-room.json` is GO after copy confirmation.",
         "- [ ] The prompts preserve the supplied photos and story.",
         "- [ ] The package does not feel like generic couple content.",
-        "- [ ] Text is short enough for both 1080x1440 post slides and 1080x1920 Reels/Stories slides.",
-        "- [ ] Final generation will create separate native 3:4 and 9:16 outputs, not a resized duplicate.",
+        "- [ ] Text is short enough for every format locked in format-contract.json.",
+        "- [ ] Final generation will create every request-locked native output independently, not as a resized duplicate.",
         "- [ ] Brandmark is tiny and low contrast.",
         "",
         "## Required Changes",
@@ -651,6 +680,18 @@ def write_package(
     agent_outputs: dict[str, str],
 ) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
+    manifest_contract = manifest.get("format_contract", {})
+    formats_to_write = (
+        None
+        if isinstance(manifest_contract, dict) and manifest_contract.get("default_applied") is True
+        else manifest.get("requested_formats")
+    )
+    write_format_contract(
+        out_dir,
+        formats_to_write,
+        source=str(manifest_contract.get("source") or "package_manifest"),
+        replace=True,
+    )
     write_json(out_dir / "manifest.json", manifest)
     write_json(
         out_dir / "creative-baseline.json",
@@ -685,6 +726,7 @@ def create_illustration_carousel(
     slide_count: int = DEFAULT_SLIDE_COUNT,
     style_brief: str | None = None,
     output_root: Path = OUTPUT_ROOT,
+    requested_formats: list[str] | None = None,
 ) -> Path:
     if not story.strip():
         raise ValueError("Story is required.")
@@ -692,6 +734,7 @@ def create_illustration_carousel(
 
     normalized_images = normalize_image_paths(image_paths)
     normalized_identity_images = normalize_image_paths(identity_image_paths or [])
+    current_request_formats = normalize_requested_formats(requested_formats)
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     print("Running C-layer illustrated carousel agents...")
@@ -709,6 +752,7 @@ def create_illustration_carousel(
             image_paths=normalized_images,
             identity_image_paths=normalized_identity_images,
             prior_outputs=agent_outputs,
+            requested_formats=current_request_formats,
         )
 
     print("  -> illustration-carousel-orchestrator...")
@@ -723,6 +767,7 @@ def create_illustration_carousel(
         image_paths=normalized_images,
         identity_image_paths=normalized_identity_images,
         prior_outputs=agent_outputs,
+        requested_formats=current_request_formats,
         model="claude-opus-4-6",
         max_tokens=5000,
     )
@@ -747,6 +792,7 @@ def create_illustration_carousel(
         story=story,
         image_paths=normalized_images,
         identity_image_paths=normalized_identity_images,
+        requested_formats=requested_formats,
     )
     write_package(
         out_dir=out_dir,

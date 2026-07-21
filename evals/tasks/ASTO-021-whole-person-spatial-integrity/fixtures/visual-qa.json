@@ -1,0 +1,74 @@
+{
+  "schema_version": "2.1",
+  "status": "PASS",
+  "slide_count": 1,
+  "checks": {
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "The doorway scene looks like two people are present.",
+            "person_object_crop": "Zuv's shirt edge disappears into the door plane.",
+            "focal_detail": "The door edge and torso share an unresolved boundary."
+          },
+          "environment_planes": [
+            {
+              "object": "door and doorframe",
+              "depth_order": "should be behind Zuv but visually cuts into his torso",
+              "boundary_continuous": false
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "ambiguous_regions": [],
+              "body_regions": [
+                {
+                  "region": "head neck shoulders and torso",
+                  "near_object": "interior wall",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Her hair, shoulder, sleeve, and torso remain distinct from the wall wash."
+                }
+              ]
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": false,
+              "ambiguous_regions": [
+                "right shoulder/back/torso against door"
+              ],
+              "body_regions": [
+                {
+                  "region": "head neck right shoulder back and torso",
+                  "near_object": "door and doorframe",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "touching",
+                  "boundary_continuous": false,
+                  "occlusion_order_clear": false,
+                  "solid_object_intersection": true,
+                  "morph_or_merge": true,
+                  "evidence": "The door plane absorbs Zuv's shoulder, back, torso, and shirt edge."
+                }
+              ]
+            }
+          ],
+          "ambiguous_regions": [
+            "Zuv and door share an unresolved boundary"
+          ],
+          "unresolved_intersections": [
+            "door edge enters Zuv's torso"
+          ]
+        }
+      ]
+    }
+  }
+}

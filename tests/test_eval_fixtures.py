@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 import pytest
 
@@ -166,3 +167,229 @@ def test_autopublish_fixture_named_checker_blocks_risky_paths_without_tracked_se
     results = run_named_checkers(task, tmp_path, ["autopublish_safety_fixture"])
 
     assert [result.status for result in results] == ["PASS", "PASS"]
+
+
+def test_stale_artifact_fixture_triggers_named_checker(tmp_path: Path) -> None:
+    task = _task("ASTO-013-stale-artifact-after-correction")
+    materialize_task_fixture(task, tmp_path)
+
+    results = run_named_checkers(task, tmp_path, ["stale_artifact_fixture"])
+
+    assert [result.status for result in results] == ["PASS"]
+    assert "seeti count" in "\n".join(results[0].evidence)
+
+
+def test_identity_stop_gate_fixture_triggers_named_checker(tmp_path: Path) -> None:
+    task = _task("ASTO-014-identity-eval-stop-gate")
+    materialize_task_fixture(task, tmp_path)
+
+    results = run_named_checkers(task, tmp_path, ["identity_stop_gate_fixture"])
+
+    assert [result.status for result in results] == ["PASS"]
+    assert any("identity_eval" in item for item in results[0].evidence)
+
+
+def test_score_rejection_fixture_fails_until_rejected_scores_are_stopped(tmp_path: Path) -> None:
+    task = _task("ASTO-015-score-inflation-after-rejection")
+    materialize_task_fixture(task, tmp_path)
+
+    results = run_named_checkers(task, tmp_path, ["score_rejection_fixture"])
+
+    assert [result.status for result in results] == ["FAIL"]
+    assert "Seeti Count Marriage" in "\n".join(results[0].evidence)
+
+
+def test_score_rejection_fixture_passes_when_rejected_scores_are_invalidated(tmp_path: Path) -> None:
+    task = _task("ASTO-015-score-inflation-after-rejection")
+    materialize_task_fixture(task, tmp_path)
+    selection_path = (
+        tmp_path
+        / "output"
+        / "concepts"
+        / "fixtures"
+        / "score-inflation-after-rejection"
+        / "concept-selection.json"
+    )
+    payload = json.loads(selection_path.read_text(encoding="utf-8"))
+    rejected = payload["concepts"][0]
+    rejected["recommendation"] = "STOP"
+    rejected["calibration_use"] = "score_invalidated_do_not_represent"
+    rejected["repair_route"] = "rebuild from fresh creator-specific incident"
+    selection_path.write_text(json.dumps(payload), encoding="utf-8")
+
+    results = run_named_checkers(task, tmp_path, ["score_rejection_fixture"])
+
+    assert [result.status for result in results] == ["PASS"]
+
+
+def test_home_cinematic_fixture_triggers_named_checker(tmp_path: Path) -> None:
+    task = _task("ASTO-016-home-cinematic-visual-evidence")
+    materialize_task_fixture(task, tmp_path)
+
+    results = run_named_checkers(task, tmp_path, ["home_cinematic_fixture"])
+
+    assert [result.status for result in results] == ["PASS"]
+    evidence = " ".join(results[0].evidence)
+    assert "camera_position" in evidence
+    assert "motivated_light" in evidence
+    assert "story_evidence" in evidence
+    assert "fingerprint" not in evidence
+    assert "review_provenance" not in evidence
+
+
+def test_public_name_boundary_fixture_fails_until_public_names_are_removed(tmp_path: Path) -> None:
+    task = _task("ASTO-017-public-name-leakage")
+    materialize_task_fixture(task, tmp_path)
+
+    results = run_named_checkers(task, tmp_path, ["public_name_boundary_fixture"])
+
+    assert [result.status for result in results] == ["FAIL"]
+    assert any("Aachu" in item for item in results[0].evidence)
+
+
+def test_public_name_boundary_fixture_passes_when_public_names_are_removed(tmp_path: Path) -> None:
+    task = _task("ASTO-017-public-name-leakage")
+    materialize_task_fixture(task, tmp_path)
+    copy_path = tmp_path / "output" / "evals" / "ASTO-017" / "public-copy.json"
+    payload = json.loads(copy_path.read_text(encoding="utf-8"))
+    payload["public_slide_copy"] = [
+        "She kept saying the charger was hers.",
+        "He kept pretending he had never seen it.",
+        "Somehow they both knew where it belonged.",
+    ]
+    copy_path.write_text(json.dumps(payload), encoding="utf-8")
+    brief_path = tmp_path / "output" / "evals" / "ASTO-017" / "creator-brief.md"
+    brief_path.write_text(
+        "Public copy uses she/he/they language while internal prompts keep identity anchors.",
+        encoding="utf-8",
+    )
+
+    results = run_named_checkers(task, tmp_path, ["public_name_boundary_fixture"])
+
+    assert [result.status for result in results] == ["PASS"]
+
+
+def test_small_brief_seed_fixture_fails_until_creator_brief_is_alive(tmp_path: Path) -> None:
+    task = _task("ASTO-011-small-brief-no-framework-dump")
+    materialize_task_fixture(task, tmp_path)
+
+    results = run_named_checkers(
+        task,
+        tmp_path,
+        ["creator_visible_copy", "small_brief_seed_fixture"],
+    )
+
+    assert [result.status for result in results] == ["FAIL", "FAIL"]
+    assert "Story-Selling" in "\n".join(results[0].evidence)
+    assert "exact seed phrase" in "\n".join(results[1].evidence)
+
+
+def test_small_brief_seed_fixture_passes_after_seed_and_scene_repair(tmp_path: Path) -> None:
+    task = _task("ASTO-011-small-brief-no-framework-dump")
+    materialize_task_fixture(task, tmp_path)
+    brief_path = tmp_path / "output" / "evals" / "ASTO-011" / "creator-brief.md"
+    brief_path.write_text(
+        "\n".join(
+            [
+                "# Creator Brief",
+                "",
+                "Seed to preserve: she says \"main kar lungi,\" but the love is that he knows when not to believe her.",
+                "",
+                "Strongest format: carousel, because the joke needs repeated small refusals before the final turn.",
+                "",
+                "Scene: she reaches for the high kitchen jar and says she can do it; he stays quiet, slides the stool near her, and keeps holding the cup she forgot.",
+                "",
+                "Reaction: he does not announce help, he just already knows the moment when her independence is mostly theatre.",
+                "",
+                "Payoff: the final slide reveals she was smiling before she asked, because both of them knew the ritual.",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    results = run_named_checkers(
+        task,
+        tmp_path,
+        ["creator_visible_copy", "small_brief_seed_fixture"],
+    )
+
+    assert [result.status for result in results] == ["PASS", "PASS"]
+
+
+def test_copy_visual_logic_fixture_triggers_named_checker(tmp_path: Path) -> None:
+    task = _task("ASTO-018-copy-visual-logic-contradiction")
+    materialize_task_fixture(task, tmp_path)
+
+    results = run_named_checkers(task, tmp_path, ["copy_visual_logic_fixture"])
+
+    assert [result.status for result in results] == ["PASS"]
+    evidence = " ".join(results[0].evidence)
+    assert "copy_visual_contradictions" in evidence
+    assert "fingerprint" not in evidence
+    assert "review_provenance" not in evidence
+
+
+@pytest.mark.parametrize(
+    ("task_id", "checker", "fixture_path"),
+    [
+        (
+            "ASTO-012-visual-variety-shot-ladder",
+            "visual_variety_shot_ladder_fixture",
+            "output/evals/ASTO-012/visual-plan-quality.json",
+        ),
+        (
+            "ASTO-016-home-cinematic-visual-evidence",
+            "home_cinematic_fixture",
+            "output/evals/ASTO-016/home-visual-plan.json",
+        ),
+        (
+            "ASTO-018-copy-visual-logic-contradiction",
+            "copy_visual_logic_fixture",
+            "output/evals/ASTO-018/visual-qa.json",
+        ),
+    ],
+)
+def test_visual_story_eval_does_not_pass_on_valid_lifecycle_envelope_alone(
+    tmp_path: Path,
+    task_id: str,
+    checker: str,
+    fixture_path: str,
+) -> None:
+    task = _task(task_id)
+    materialize_task_fixture(task, tmp_path)
+    path = tmp_path / fixture_path
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload.pop("defect")
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+    results = run_named_checkers(task, tmp_path, [checker])
+
+    assert [result.status for result in results] == ["FAIL"]
+
+
+def test_older_eval_fixtures_have_named_checker_coverage(tmp_path: Path) -> None:
+    expectations = {
+        "ASTO-002-format-snapback": ("format_snapback_fixture", "FAIL"),
+        "ASTO-005-working-memory-pointer": ("working_memory_pointer_fixture", "FAIL"),
+        "ASTO-006-creator-skill-routing": ("creator_skill_routing_fixture", "FAIL"),
+        "ASTO-007-context-rule-truncation": ("context_rule_truncation_fixture", "PASS"),
+        "ASTO-009-article-story-selling-gate": ("article_story_selling_fixture", "FAIL"),
+        "ASTO-010-prepost-layer-e": ("prepost_layer_e_fixture", "FAIL"),
+        "ASTO-011-small-brief-no-framework-dump": ("small_brief_seed_fixture", "FAIL"),
+        "ASTO-012-visual-variety-shot-ladder": ("visual_variety_shot_ladder_fixture", "PASS"),
+    }
+
+    for index, (task_id, (checker, status)) in enumerate(expectations.items(), start=1):
+        workspace = tmp_path / str(index)
+        task = _task(task_id)
+        materialize_task_fixture(task, workspace)
+
+        results = run_named_checkers(task, workspace, [checker])
+
+        assert [result.status for result in results] == [status], task_id
+        if task_id == "ASTO-012-visual-variety-shot-ladder":
+            evidence = " ".join(results[0].evidence)
+            assert "repeats one narrative job" in evidence
+            assert "repeats one shot size" in evidence
+            assert "fingerprint" not in evidence
+            assert "review_provenance" not in evidence

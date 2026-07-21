@@ -961,3 +961,17 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: NEEDS_FIXES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov
+
+## C-layer carousel run: Not Married Yet, Already Us
+- date: 2026-07-20
+- slug: not-married-yet-already-us
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-20/not-married-yet-already-us
+
+## C-layer carousel run: The Date That Missed Its Reservation
+- date: 2026-07-20
+- slug: the-date-that-missed-its-reservation-4
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-20/the-date-that-missed-its-reservation-4

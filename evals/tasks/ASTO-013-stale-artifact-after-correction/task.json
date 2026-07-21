@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-013-stale-artifact-after-correction",
+  "title": "Rebuild generation-facing artifacts after a creator correction",
+  "category": "carousel_package",
+  "difficulty": "hard",
+  "suites": ["contract", "carousel", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
+  "starting_state": [
+    "A creator corrected the carousel story and rejected the old route.",
+    "Downstream package artifacts still contain old copy, old visual direction, stale prompt-pack language, and a non-blocked image-generation state."
+  ],
+  "done_when": [
+    "All generation-facing artifacts are rebuilt from the corrected source of truth.",
+    "A stale-string audit records zero old-route phrases before generation can continue.",
+    "The package is blocked until copy, visual plan, identity review, and prompt pack all agree."
+  ],
+  "allowed_paths": ["pipeline/agentic/**", "pipeline/stages/**", "scripts/**", "tests/**", "output/carousels/**", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/agentic/workflow_doctor.py", "pipeline/agentic/carousel_state.py", "tests/test_carousel_workflow_doctor.py", "tests/test_carousel_state_contract.py"],
+  "forbidden_changes": ["Do not delete the creator correction evidence.", "Do not mark the package publishable while stale strings remain.", "Do not edit AGENTS.md to weaken correction precedence."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_carousel_workflow_doctor.py", "tests/test_carousel_state_contract.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "stale_artifact_fixture"],
+  "rubric_checkers": [],
+  "fail_to_pass": ["old rejected route strings in slides, copy, visual-debate, visual-plan-quality, prompt-pack, review, manifest, and image-generation state block generation"],
+  "pass_to_pass": ["valid packages with no stale phrases and consistent copy/visual/prompt artifacts can still proceed to proof or handoff"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/creator-correction.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/creator-correction.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/rejection-note.md",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/rejection-note.md"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/slides.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/slides.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/copy.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/copy.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/post-copy-visual-room.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/post-copy-visual-room.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/visual-debate.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/visual-debate.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/visual-plan-quality.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/visual-plan-quality.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/prompt-pack.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/prompt-pack.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/review.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/review.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/manifest.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/manifest.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/stale-artifact-carryover/image-generation.json",
+      "target": "output/carousels/fixtures/stale-artifact-carryover/image-generation.json"
+    }
+  ],
+  "anti_gaming_notes": ["Hidden checker should seed old phrases in multiple artifact types and require an rg-style stale-string audit, not just one file edit."]
+}

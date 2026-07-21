@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "proof_slide": 4,
+  "candidate": {
+    "path": "proof-candidates/slide-04-agent-c-new-candidate.png",
+    "sha256": "b160e0103c70b1ab990db6716119ada87c1003031ecfc937c5459a2668a080c1",
+    "dimensions": [1080, 1440],
+    "quarantined": true,
+    "generation_note": "Built-in image generation returned 1086x1448; the quarantined workspace candidate was proportionally normalized to the locked exact 1080x1440 before review."
+  },
+  "selected_references": [
+    {
+      "id": "together-21",
+      "path": "config/references/identity/together/together-21.jpg",
+      "role": "wardrobe and whole-person body anchor"
+    },
+    {
+      "id": "together-18",
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "couple face and chemistry anchor"
+    },
+    {
+      "id": "aachu-face-04",
+      "path": "config/references/identity/aachu/face-04.png",
+      "role": "Aachu face and hair anchor"
+    },
+    {
+      "id": "zuv-portrait-07",
+      "path": "config/references/identity/zuv/portrait-07.jpg",
+      "role": "Zuv face, hair and stubble anchor"
+    }
+  ],
+  "likeness_review": {
+    "aachu": {
+      "verdict": "PASS",
+      "evidence": "The reviewable three-quarter face retains the reference oval/soft structure, strong brows, dark eyes, defined nose, warm skin and expressive energy. Long thick dark hair, grey floral kurta and bangles remain anchored to the selected references."
+    },
+    "zuv": {
+      "verdict": "PASS",
+      "evidence": "The unobstructed half-turn retains thick dark curly hair, strong brows, defined nose, warm skin, short stubble and grounded expression. Black rolled-sleeve shirt and tan trousers remain anchored to together-21."
+    },
+    "body_and_wardrobe": {
+      "verdict": "PASS",
+      "evidence": "Both retain plausible real-person proportions and the locked continuous wardrobe; neither reads tiny, oversized, lanky or over-beautified. Perspective prevents direct measurement of the two-inch height difference."
+    }
+  },
+  "review_provenance": {
+    "creator_task": "/root/universal_image_orchestrator/slide4_creator",
+    "auditor_task": "/root/universal_image_orchestrator/slide4_auditor",
+    "auditor_mode": "image-first pixel inspection against all four selected identity references"
+  },
+  "batch_continuation": "PROOF_GATE_PASSED",
+  "blocking_reasons": []
+}

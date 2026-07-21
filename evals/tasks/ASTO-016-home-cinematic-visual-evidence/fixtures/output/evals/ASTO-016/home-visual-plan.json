@@ -1,0 +1,35 @@
+{
+  "schema_version": "visual-story-eval/v1",
+  "formats": ["instagram_post"],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "The house learned us.",
+      "role": "establisher",
+      "visual": "A shared domestic routine begins beside the apartment doorway.",
+      "emotion": "familiar friction",
+      "continuity_lock": "same apartment, couple, charger, and late-afternoon routine"
+    },
+    {
+      "slide": 2,
+      "copy": "At first, everything had a side.",
+      "role": "payoff",
+      "visual": "The shared object changes sides and both partners visibly respond.",
+      "emotion": "recognition",
+      "continuity_lock": "same apartment, couple, charger, and late-afternoon routine"
+    }
+  ],
+  "defect": {
+    "slide": 1,
+    "silent_read": "cozy home",
+    "camera_position": "appropriate composition",
+    "motivated_light": "nice lighting",
+    "story_evidence": [
+      {
+        "carrier": "some props",
+        "observable_state": "warm scene",
+        "narrative_job": "couple moment"
+      }
+    ]
+  }
+}

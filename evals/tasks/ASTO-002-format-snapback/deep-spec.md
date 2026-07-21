@@ -11,14 +11,19 @@ is to preserve strong defaults while honoring the latest explicit correction.
 
 ## Starting Fixture
 
-The fixture should model a request history: first a normal carousel request,
-then a correction like "no, only one square proof for slide 3." A workflow
-function, prompt compiler, or package writer still emits `instagram_post` and
-`reels_stories` jobs. The fail-to-pass check should assert that corrected
-single-format requests do not produce unrequested native post/story outputs.
-The pass-to-pass check should assert that ordinary carousel requests still
-require separate native `1080x1440` and `1080x1920` outputs and exact dimension
-gates.
+Fixture direction: **solution**. A single-pass `evals/runner.py review` must
+observe the materialized starter as `unresolved`. The task becomes resolved
+only after the agent repairs the fixture-backed repository state and the named
+checker passes.
+
+The visible fixture at `fixtures/output/evals/ASTO-002/request-state.json`
+models a request history: first a normal carousel request, then a correction to
+one square proof. The seeded state still emits `instagram_post` and
+`reels_stories` jobs marked as not requested by the latest creator message. The
+fail-to-pass check asserts that corrected single-format requests do not produce
+unrequested native post/story outputs. The pass-to-pass check preserves ordinary
+carousel requests that still require separate native `1080x1440` and
+`1080x1920` outputs and exact dimension gates.
 
 ## Failure Modes
 
@@ -30,10 +35,10 @@ gates.
 
 ## Checker Design
 
-The deterministic checker should use a small synthetic request object or CLI
-fixture and inspect planned output jobs, not generated media. The fail-to-pass
-case flips when the planner respects the latest correction. The pass-to-pass
-case keeps existing `tests/test_creator_workflow_contract.py`,
+The deterministic checker uses the small synthetic request object and inspects
+planned output jobs, not generated media. The fail-to-pass case flips when the
+planner respects the latest correction. The pass-to-pass case keeps existing
+`tests/test_creator_workflow_contract.py`,
 `tests/test_carousel_prompt_compiler.py`, and image-size tests green. A hidden variant
 should use a different correction order, such as "actually make this a
 Story only," to prove the logic is precedence-based rather than square-specific.

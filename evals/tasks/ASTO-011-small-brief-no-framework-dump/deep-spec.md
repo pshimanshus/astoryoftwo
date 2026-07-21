@@ -11,11 +11,19 @@ rubric machinery.
 
 ## Starting Fixture
 
+Fixture direction: **solution**. A single-pass `evals/runner.py review` must
+observe the materialized starter as `unresolved`. The task becomes resolved
+only after the agent repairs the fixture-backed repository state and the named
+checker passes.
+
 The fixture prompt is the seed: she says "main kar lungi" but the real love is
-that he knows when not to believe her. A prior bad artifact can include visible
-terms like Story-Selling, Golden Theme, 28/30, selector verdict, and no scene.
-The fail-to-pass check should reject creator-visible framework leakage and lack
-of format choice. The pass-to-pass check should allow a separate private notes
+that he knows when not to believe her. The fixture includes a prior bad
+creator-facing artifact at `output/evals/ASTO-011/creator-brief.md` with visible
+terms like Story-Selling, Golden Theme, 28/30, selector verdict, a request for
+the creator to bring the finished concept, and no scene. The fail-to-pass check
+rejects creator-visible framework leakage, missing exact seed preservation,
+missing format choice, missing visible object/reaction/payoff evidence, and
+creator-solving handoff. The pass-to-pass check allows a separate private notes
 artifact to contain rubric terms if it is clearly not creator-facing.
 
 ## Failure Modes

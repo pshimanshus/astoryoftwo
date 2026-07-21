@@ -68,7 +68,10 @@ removes, rejects, or corrects a format/aspect/size decision, that correction
 overrides repo defaults for the current task. Do not silently snap back to
 `3:4`, `9:16`, feed, Story, Reel, square, or multi-format output from workflow
 defaults. If the canvas is unclear after a correction, stop and ask for the
-exact canvas instead of generating.
+exact canvas instead of generating. Persist this request-derived lock through
+`carousel_format_contract`: `instagram_post` is the no-canvas default;
+`reels_stories` and `square` are explicit-only. Never infer intent from final
+folders or older generated assets.
 
 Before writing hooks, slide copy, captions, visual directions, prompt text, or
 image handoff, define:
@@ -79,8 +82,9 @@ image handoff, define:
   active reaction, emotional turn, and earned payoff;
 - brand success: the idea feels like warm, desi, specific @a.storyof.two IP,
   not generic couple content;
-- production success: the route can become native 3:4 and separate native 9:16
-  finals with visual QA and final audit;
+- production success: the route can become every request-locked native output
+  (3:4 by default; 9:16 and/or 1:1 only when explicitly requested) with visual
+  QA and final audit;
 - relationship-motion success: the post creates a public relationship mirror
   through enough behavior, receipts, contradiction, rhythm, or situation to
   feel real; the mover can be Aachu, Zuv, both, a generic couple pattern, or no
@@ -178,9 +182,43 @@ After copy approval, run the Post-Copy Visual Creative Room and Visual Debate
 Gate before image generation. Compare three or more visual systems, record
 rejected motifs, repair the winner, and return GO / REPAIR / STOP.
 
+After concept lock, invoke `$a-story-direct-visual-story`. Direct the route as
+physical events and causal evidence before prompt language: action, reaction,
+object state, hands, gaze, feet, body distance, motivated camera, lived setting,
+and frame-to-frame change. Richness is evidence, not extra décor.
+
+The first checker event is a fresh copy-hidden storyboard read stored under
+`director_storyboard` in `visual-plan-quality.json`. A provisional pre-copy or
+pre-canvas board is advisory: Event A cannot pass until exact copy (or its
+documented exception) and the request-derived format set are locked. Persist
+orchestration-backed `review_provenance`, raw pre-reveal critic evidence, and
+the complete `director_event_fingerprint` before image handoff.
+
+The second event is a new image-first rendered-frame run, stored as
+`checks.visual_story_readability` in `visual-qa.json`. Its task/run provenance
+must be pairwise distinct from the author and Event A run; arbitrary names are
+not proof of independence. Bind it to `source_director_event_fingerprint` and
+the exact package-local asset returned by `expected_frame_bindings` for every
+locked post, Reel/Story, and/or square slide. Inspect decoded current pixels;
+never pass from a prompt, filename, folder, or generator claim. Deterministic
+code validates evidence and freshness but does not replace either semantic
+judgment.
+
 The final visual-plan-quality pass must include a shot ladder and repeated
 setting/prop audit. If the images would feel like the same scene with new
 captions after hiding the text, return REPAIR before generation.
+
+Apply `config/rules/scene-entity-integrity.md` before and after generation.
+Lock the intended people/entity inventory for every slide, then record expected
+and observed people counts plus any unexpected entities in `visual-qa.json`.
+An extra background person, duplicate couple, reflection, silhouette, or
+second narrative action is a hard fail, not a harmless style detail.
+
+Whole-person spatial integrity runs before local anatomy: trace head, neck,
+shoulders, back, torso, clothing and visible limbs against every nearby solid
+plane. A person morphed into a door/wall/furniture mass, crossed by an object
+boundary, or left with ambiguous depth/occlusion is an immediate rejection even
+when people counts and hands pass.
 
 Before image generation, attach selected actual Aachu/Zuv identity images and
 style references. Text-only "same couple" prompts are blocked, and wardrobe
@@ -196,5 +234,12 @@ face/likeness comparison, record `BLOCKED_FOR_IDENTITY_EVAL` or
 Back-facing, tiny, hidden, or partial faces cannot prove identity by
 themselves.
 
-Do not call the carousel done until separate native 3:4 finals, separate native
-9:16 finals, visual QA, and final audit exist.
+Do not call the carousel done until every format locked in
+`format-contract.json` has its own native finals, visual QA, and final audit.
+The no-canvas default is 3:4 only; 9:16 and 1:1 remain explicit-only.
+
+When the creator requests continuous review until fixed, route through
+`config/skills/carousel-review-loop.md` and `make review-loop CAROUSEL=...`.
+The loop rechecks after every repair and completes only at genuine publishable
+state. Human approval, identity evidence, critic provenance, and generated
+pixels remain fail-closed stop conditions, never auto-filled fields.

@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["smoke", "carousel", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
   "starting_state": [
     "A carousel package contains an active prompt file that asks for source art with blank space and text added later.",
     "The package also has approved slide copy in prompt-pack.json."

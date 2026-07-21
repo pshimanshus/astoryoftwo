@@ -1,0 +1,26 @@
+{
+  "workflow": "prepost_reel",
+  "agents": [
+    {
+      "name": "hook",
+      "checks": [
+        "first three seconds",
+        "scroll stop"
+      ]
+    },
+    {
+      "name": "caption",
+      "checks": [
+        "caption clarity",
+        "comment bait risk"
+      ]
+    },
+    {
+      "name": "edit",
+      "checks": [
+        "retention",
+        "cut rhythm"
+      ]
+    }
+  ]
+}

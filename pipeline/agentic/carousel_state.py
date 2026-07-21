@@ -9,6 +9,7 @@ from typing import Any
 
 from pipeline.agentic.checks.final_assets import validate_publishable_final_assets
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
+from pipeline.stages.carousel_format_contract import format_spec, locked_formats
 
 
 @dataclass(frozen=True)
@@ -60,7 +61,10 @@ def _handoff_ready(payload: dict[str, Any]) -> bool:
 def _has_final_slide_png(package_dir: Path) -> bool:
     return any(
         path.is_file()
-        for name in ("final", "final-reels-stories")
+        for name in (
+            str(format_spec(output_format)["folder"])
+            for output_format in locked_formats(package_dir)
+        )
         for path in (package_dir / name).glob("slide-*.png")
     )
 

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-017-public-name-leakage",
+  "title": "Keep Aachu and Zuv names internal unless explicitly requested",
+  "category": "creative_contract",
+  "difficulty": "medium",
+  "suites": ["creative", "contract", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
+  "starting_state": [
+    "A carousel package uses Aachu and Zuv correctly in identity prompts and QA.",
+    "The same internal names leak into public-facing slide copy even though the creator did not request names."
+  ],
+  "done_when": [
+    "Public slide copy uses pronouns, relational language, or universal phrasing unless the creator explicitly asks for names.",
+    "Internal identity prompts, visual direction, and QA can still use Aachu/Zuv.",
+    "Name-boundary tests and creator-visible copy checks pass."
+  ],
+  "allowed_paths": ["config/rules/**", "config/skills/**", "pipeline/**", "scripts/**", "tests/**", "output/evals/**", "output/carousels/**/copy.json", "output/carousels/**/slides.json", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/rules/voice.md", "memory/semantic/carousel-idea-preferences.md", "tests/test_creator_workflow_contract.py", "output/evals/ASTO-017/creator-brief.md"],
+  "forbidden_changes": ["Do not ban Aachu/Zuv from internal identity prompts.", "Do not expose internal names in public copy unless prompt explicitly asks.", "Do not weaken identity-reference language."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "creator_visible_copy", "public_name_boundary_fixture"],
+  "rubric_checkers": ["creative_contract"],
+  "fail_to_pass": ["creator-facing copy and on-slide public text no longer leak Aachu/Zuv when the task did not request names"],
+  "pass_to_pass": ["internal prompts, QA, and identity-review artifacts may still use Aachu/Zuv to preserve likeness and project specificity"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/evals/ASTO-017/public-copy.json",
+      "target": "output/evals/ASTO-017/public-copy.json"
+    },
+    {
+      "source": "fixtures/output/evals/ASTO-017/creator-brief.md",
+      "target": "output/evals/ASTO-017/creator-brief.md"
+    }
+  ],
+  "anti_gaming_notes": ["Hidden checker should place names in slide text, caption, and public creator brief while allowing names in identity prompt fields."]
+}

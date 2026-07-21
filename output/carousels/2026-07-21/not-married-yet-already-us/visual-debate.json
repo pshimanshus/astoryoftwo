@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Shared Adulthood / Chosen Family",
+  "winner": "Wordless Habit Relay + Broken-Key Continuity",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "visual_front",
+      "task_id": "/root/visual_front",
+      "run_id": "visual-front-2026-07-21-01",
+      "verdict": "GO",
+      "recommendation": "Use automatic habit receipts on slides 1-3 and a physically coherent broken-key incident on slides 4-6."
+    },
+    {
+      "agent": "visual_back",
+      "task_id": "/root/visual_back",
+      "run_id": "visual-back-2026-07-21-01",
+      "verdict": "GO",
+      "recommendation": "Preserve anger on slide 8, make concern physical on slide 9, show separate trajectories on slide 10, and pay off the repaired routine on slide 11."
+    },
+    {
+      "agent": "root_orchestrator",
+      "task_id": "/root",
+      "run_id": "visual-orchestrator-2026-07-21-01",
+      "verdict": "GO",
+      "recommendation": "Use post-only 3:4, actual identity/style references, slide 9 proof-first, and fresh Event A before handoff."
+    }
+  ],
+  "options": [
+    {
+      "name": "Wordless Habit Relay + Broken-Key Continuity",
+      "score": 29,
+      "case_for": "Rich causal evidence and an earned circular payoff.",
+      "risk": "Hand ownership and door/body topology require strict proof QA."
+    },
+    {
+      "name": "Domestic Evidence Montage",
+      "score": 26,
+      "case_for": "High instant recognition.",
+      "risk": "Generic list energy and no causal middle."
+    },
+    {
+      "name": "Threshold Distance Ladder",
+      "score": 28,
+      "case_for": "Strong anger/care blocking.",
+      "risk": "Repetitive if used without the habit setup and repaired-key payoff."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Domestic Evidence Montage",
+    "standalone Threshold Distance Ladder",
+    "wedding-symbol payoff",
+    "repeated medium couple portrait"
+  ],
+  "selector_verdict": "GO: the winner creates eleven distinct visual sentences, protects the locked text, and makes care survive conflict without a generic reconciliation pose.",
+  "hard_fails_checked": [
+    "post-only format lock",
+    "exact 11-slide copy",
+    "no repeated generic couple shots",
+    "mutual relationship motion",
+    "no prop-first decoration",
+    "no background people or duplicate entities",
+    "owned traceable hands",
+    "whole-person spatial integrity",
+    "no wedding-symbol shortcut"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "We’re not married yet.\nBut try telling that to our habits.",
+      "visual": "Medium-wide three-quarter doorway view from inside: both are already moving toward the exit. Aachu slips Zuv's wallet and keyring into his open near-side jacket pocket while Zuv lowers her capped water bottle into her open tote. Neither looks at the other; their anticipated pocket and tote positions make the practiced relay legible. Feet point outward, action zones sit at different heights, faces remain identity-readable, and the scene occupies the lower half under generous clean text space."
+    },
+    {
+      "slide": 2,
+      "copy": "Every plan starts with:\n“Ek minute, usse poochna padega.”",
+      "visual": "Over-Aachu-shoulder view from just outside the threshold: Aachu is half outside with a phone at her ear, screen hidden, and gives the unseen caller a brief hold palm while turning back. Several feet inside, Zuv holds both helmets by their straps and answers with a low open information-sharing gesture, never an approval signal. Their eye-line crosses the doorway and her forward step visibly pauses."
+    },
+    {
+      "slide": 3,
+      "copy": "Every small decision becomes\na two-person meeting.",
+      "visual": "Wide profile from an adjacent doorway: Zuv holds a small blank frame flush against the hallway wall while Aachu stands four feet back, squinting with mock seriousness and pinching two fingers to signal a tiny lateral adjustment. Their eye-lines converge on the fractionally tilted frame, and one strip of painter's tape shows the previous position so the decision is visibly in progress."
+    },
+    {
+      "slide": 4,
+      "copy": "Problem ek ki hoti hai.",
+      "visual": "Low lock-level close profile: Zuv freezes at the apartment lock holding the bow half of a freshly snapped key three to five centimetres from the lock while the metal shaft remains unmistakably embedded. The stopped turning motion, dropped eyebrows, parted mouth, and raised shoulder tension show the mishap landing on him alone."
+    },
+    {
+      "slide": 5,
+      "copy": "Stress dono lete hain.",
+      "visual": "High three-quarter landing view: Aachu has arrived and searches her open tote for something useful while Zuv aims his phone torch, screen turned inward, at the embedded key. Her bag-search and his lock inspection are different subtasks converging on the same obstacle; their shoulders nearly meet and both bodies tighten around the lock without either rescuing the other."
+    },
+    {
+      "slide": 6,
+      "copy": "Fight bhi proper hoti hai.",
+      "visual": "Low-medium two-shot from ledge height: Aachu has found small closed pliers while Zuv holds his phone face-in, ready to call for help. They argue over incompatible but plausible solutions. The shoulder-to-shoulder geometry of slide 5 has opened into a two-to-three-foot gap; the detached key bow lies on the ledge and the shaft remains embedded between them."
+    },
+    {
+      "slide": 7,
+      "copy": "Then five minutes later:\n“Ghar pahunch ke text karna.”",
+      "visual": "Wide view from just inside the now-open apartment toward the landing: Zuv crosses the threshold with his helmet, leading foot committed toward the stairs. Aachu stays inside, posture still stiff, and half-raises one hand after calling to him. His feet keep their departure direction, but his head and shoulders turn back immediately and their eye-lines reconnect across the distance."
+    },
+    {
+      "slide": 8,
+      "copy": "Kyunki gussa apni jagah.",
+      "visual": "Low side-medium view at catchall height: after pausing, Zuv places the snapped-key half flat into the shallow catchall just inside the doorway rather than handing it directly to Aachu. She watches the clipped return without reaching. His stair-facing foot still points away, her weight stays rearward inside, and three to four feet remain between them, so the disagreement has ended operationally but not emotionally."
+    },
+    {
+      "slide": 9,
+      "copy": "“Tum theek ho?” apni jagah.",
+      "visual": "Tight side-profile chest-and-hands view at the threshold: Aachu notices the tiny nick on Zuv's thumb, steps one foot across the threshold, and offers one folded tissue. Zuv opens the injured hand to accept it. Their hands nearly meet, both faces stay mildly annoyed, and both gaze at the nick rather than at each other; practical concern gets access before emotional reconciliation."
+    },
+    {
+      "slide": 10,
+      "copy": "Officially?\nNo vows yet.",
+      "visual": "High ceiling-corner extreme wide: after the tissue transfer, Aachu steps back inside while Zuv continues down the first stair turn. They travel in opposite directions. The snapped-key half remains in her catchall; the tissue now wraps his thumb; Aachu holds her face-down phone ready at her side. The architecture shows separate homes and trajectories while reciprocal residue keeps them connected."
+    },
+    {
+      "slide": 11,
+      "copy": "Shaadi abhi baaki hai.\nPar “hum” toh kab ke ban chuke hain.",
+      "visual": "Next morning, a deliberate match cut to slide 1's wide three-quarter doorway view in new reference-anchored clothes. Aachu tucks Zuv's wallet into his jacket pocket while Zuv lowers her filled water bottle into the open tote; neither needs to look and both are already moving through the doorway in sync. The previously jammed lock now has a clean replacement cylinder and one fresh working key on the ordinary hook."
+    }
+  ],
+  "orchestration_provenance": {
+    "schema_version": "carousel-visual-debate-provenance/v1",
+    "selector_task_id": "/root",
+    "selector_run_id": "visual-orchestrator-2026-07-21-01",
+    "specialist_task_ids": [
+      "/root/visual_front",
+      "/root/visual_back"
+    ],
+    "specialist_run_ids": [
+      "visual-front-2026-07-21-01",
+      "visual-back-2026-07-21-01"
+    ]
+  }
+}

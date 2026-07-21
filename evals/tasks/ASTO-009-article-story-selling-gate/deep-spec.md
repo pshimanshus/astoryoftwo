@@ -10,12 +10,17 @@ article pipeline into vague writing advice.
 
 ## Starting Fixture
 
-The fixture should remove Gate 8 or Layer E references from
-`scripts/create_substack_article_package.py` or the article framework, then
-generate a package from a small carousel fixture. The fail-to-pass behavior is
-that `source-manifest.json`, `editorial-gates.md`, or `article-brief.md` lacks
-Story-Selling contract evidence. The pass-to-pass behavior is that slugging,
-image discovery, source manifest shape, and final approval gates remain stable.
+Fixture direction: **solution**. A single-pass `evals/runner.py review` must
+observe the materialized starter as `unresolved`. The task becomes resolved
+only after the agent repairs the fixture-backed repository state and the named
+checker passes.
+
+The visible fixture is a generated article package whose `source-manifest.json`
+and `editorial-gates.md` omit Layer E and Story-Selling contract evidence. The
+fail-to-pass behavior is that generated package artifacts can lack the story
+gate while still looking draft-ready. The pass-to-pass behavior is that
+slugging, image discovery, source manifest shape, and final approval gates
+remain stable.
 
 ## Failure Modes
 

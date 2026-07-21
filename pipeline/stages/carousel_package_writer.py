@@ -9,6 +9,14 @@ from typing import Any
 
 from pipeline.stages.c1_illustration_carousel import ARTIFACT_CONTRACT
 from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
+from pipeline.stages.carousel_format_contract import (
+    build_format_contract,
+    expected_output_relative_path,
+    format_spec,
+    native_output_contract,
+    normalize_requested_formats,
+    write_format_contract,
+)
 from pipeline.stages.carousel_lanes import CAROUSEL_STORY_DIRECTOR_CONTRACT
 from pipeline.stages.carousel_quality import QUALITY_ARTIFACTS
 from pipeline.stages.successful_carousel_standard import (
@@ -78,9 +86,8 @@ def write_approval(out_dir: Path, package: dict[str, Any]) -> None:
         "- [ ] Story-Selling gate is PASS and the selected process card is visible in `concept.json`.",
         "- [ ] Story Director gate is PASS: hook, story, bridge, Zuv role, ending, and send/save reason are visible.",
         "- [ ] Successful carousel standard is PASS: agents aligned to the real goals, not a keyword checklist.",
-        "- [ ] Model-native 3:4 Instagram post images exist in `final/slide-XX.png`.",
-        "- [ ] Model-native 9:16 Reels/Stories images exist in `final-reels-stories/slide-XX.png`.",
-        "- [ ] The 9:16 outputs were generated natively, not resized/cropped/padded from the 3:4 outputs.",
+        "- [ ] Every output locked in `format-contract.json` exists at its canonical path.",
+        "- [ ] Each requested aspect ratio was generated natively, not resized/cropped/padded from another ratio.",
         "- [ ] Exact slide copy and brandmark are rendered inside the artwork.",
         "- [ ] Text is readable at Instagram size and has no spelling errors.",
         "- [ ] `visual-qa.md` has no failed checks.",
@@ -185,7 +192,13 @@ def build_manifest(
     identity_dossier: dict[str, Any],
     slide_count: int,
     today: date,
+    requested_formats: list[str] | tuple[str, ...] | None = None,
 ) -> dict[str, Any]:
+    format_contract = build_format_contract(
+        requested_formats,
+        source=("creator_request" if requested_formats is not None else "instagram_post_default"),
+    )
+    locked = normalize_requested_formats(format_contract["requested_formats"])
     return {
         "date": str(today),
         "slug": slug,
@@ -195,23 +208,21 @@ def build_manifest(
         "runtime": "codex_native_local",
         "status": "draft_for_human_review",
         "source_story": story,
+        "requested_formats": list(locked),
+        "format_contract": format_contract,
         "format": {
             "platform": "instagram",
             "type": "carousel",
             "slide_count": slide_count,
             "native_outputs": {
-                "instagram_post": {
-                    "aspect_ratio": "3:4",
-                    "size": "1080x1440",
-                    "directory": "final/",
-                },
-                "reels_stories": {
-                    "aspect_ratio": "9:16",
-                    "size": "1080x1920",
-                    "directory": "final-reels-stories/",
-                },
+                output_format: {
+                    "aspect_ratio": format_spec(output_format)["aspect_ratio"],
+                    "size": "x".join(str(value) for value in format_spec(output_format)["target_size"]),
+                    "directory": f"{format_spec(output_format)['folder']}/",
+                }
+                for output_format in locked
             },
-            "native_output_rule": "Generate both formats separately. Never resize, crop, pad, or extend one output into the other.",
+            "native_output_rule": format_contract["rule"],
         },
         "reference_images": [
             {"path": str(path), "role": "user supplied story reference"}
@@ -268,6 +279,19 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
         slide_count=len(package["slides"]),
     )
     out_dir.mkdir(parents=True, exist_ok=True)
+    manifest_contract = manifest.get("format_contract", {})
+    formats_to_write = (
+        None
+        if isinstance(manifest_contract, dict) and manifest_contract.get("default_applied") is True
+        else manifest.get("requested_formats")
+    )
+    format_contract = write_format_contract(
+        out_dir,
+        formats_to_write,
+        source=str(manifest_contract.get("source") or "package_manifest"),
+        replace=True,
+    )
+    locked = normalize_requested_formats(format_contract["requested_formats"])
     write_json(out_dir / "manifest.json", manifest)
     write_json(out_dir / "creative-baseline.json", package["creative_baseline"])
     write_json(out_dir / "concept.json", package["concept"])
@@ -296,13 +320,17 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
                 "slide": slide["slide"],
                 "copy": slide["copy"],
                 "expected_files": {
-                    "instagram_post": f"final/slide-{slide['slide']:02d}.png",
-                    "reels_stories": f"final-reels-stories/slide-{slide['slide']:02d}.png",
+                    output_format: expected_output_relative_path(output_format, slide["slide"])
+                    for output_format in locked
                 },
                 "source_prompt_slide": slide["slide"],
             }
             for slide in package["slides"]
         ],
+        extra={
+            "requested_formats": list(locked),
+            "native_output_contract": native_output_contract(locked),
+        },
     )
 
 

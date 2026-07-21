@@ -4,33 +4,30 @@ import json
 from pathlib import Path
 from typing import Any
 
+from pipeline.stages.carousel_format_contract import (
+    FORMAT_SPECS,
+    INSTAGRAM_POST_FORMAT,
+    REELS_STORIES_FORMAT,
+    SQUARE_FORMAT,
+    native_output_contract,
+)
+
 
 DEFAULT_MODEL = "disabled-legacy-api-model"
 DEFAULT_SIZE = "1440x1920"
 REELS_STORIES_REQUEST_SIZE = "1080x1920"
+SQUARE_REQUEST_SIZE = "1080x1080"
 INSTAGRAM_POST_SOURCE_SIZE = (1440, 1920)
 FINAL_UPLOAD_SIZE = (1080, 1440)
 REELS_STORIES_SIZE = (1080, 1920)
+SQUARE_SIZE = (1080, 1080)
 MAX_REFERENCE_IMAGES = 16
 MAX_IDENTITY_REFERENCES_WITH_STYLE = 4
 MAX_STYLE_REFERENCES_WITH_IDENTITY = 2
-INSTAGRAM_POST_FORMAT = "instagram_post"
-REELS_STORIES_FORMAT = "reels_stories"
-NATIVE_OUTPUT_FORMAT_ORDER = [INSTAGRAM_POST_FORMAT, REELS_STORIES_FORMAT]
-NATIVE_OUTPUT_CONTRACT = {
-    "formats": NATIVE_OUTPUT_FORMAT_ORDER,
-    "workers": [
-        "instagram_post_output",
-        "reels_stories_output",
-        "identity_visual_qa",
-    ],
-    "rule": (
-        "Each slide must have separate generated sources per surface: one Instagram post "
-        "source generated at 1440x1920 for deterministic export to 1080x1440, and one "
-        "Reels/Stories image generated exactly at 1080x1920. Reels/Stories output must "
-        "never be derived from the Instagram post image."
-    ),
-}
+NATIVE_OUTPUT_FORMAT_ORDER = [INSTAGRAM_POST_FORMAT, REELS_STORIES_FORMAT, SQUARE_FORMAT]
+# Compatibility export only. Runtime code must build a contract from the package's
+# locked current-request formats instead of treating this post-only default as global.
+NATIVE_OUTPUT_CONTRACT = native_output_contract()
 LEGACY_API_IMAGE_GENERATION_DISABLED_REASON = (
     "Legacy API carousel image generation is disabled for @a.storyof.two. "
     "Use the Codex built-in identity-reference handoff instead: "
@@ -54,6 +51,15 @@ NATIVE_OUTPUT_FORMATS = {
         "source_size_label": f"{REELS_STORIES_SIZE[0]}x{REELS_STORIES_SIZE[1]}",
         "target_size": REELS_STORIES_SIZE,
         "request_size": REELS_STORIES_REQUEST_SIZE,
+    },
+    SQUARE_FORMAT: {
+        "label": FORMAT_SPECS[SQUARE_FORMAT]["label"],
+        "aspect_ratio": FORMAT_SPECS[SQUARE_FORMAT]["aspect_ratio"],
+        "upload_size": f"{SQUARE_SIZE[0]}x{SQUARE_SIZE[1]}",
+        "source_size": SQUARE_SIZE,
+        "source_size_label": f"{SQUARE_SIZE[0]}x{SQUARE_SIZE[1]}",
+        "target_size": SQUARE_SIZE,
+        "request_size": SQUARE_REQUEST_SIZE,
     },
 }
 
@@ -116,6 +122,14 @@ def prompt_for_native_format(prompt: str, format_key: str) -> str:
             "Reframe the scene for the taller canvas; do not stretch, crop, or pad the Instagram post artwork.\n\n"
             f"{prompt}"
         )
+    if format_key == SQUARE_FORMAT:
+        return (
+            "Native output format: Square. Generate a complete 1:1 publishable social "
+            "slide at 1080x1080 with all text and the tiny @a.storyof.two brandmark inside "
+            "the image. Compose natively for the square canvas; do not crop, stretch, or pad "
+            "artwork made for another aspect ratio.\n\n"
+            f"{prompt}"
+        )
     raise ValueError(f"Unsupported native output format: {format_key}")
 
 
@@ -124,6 +138,8 @@ def request_size_for_native_format(format_key: str, instagram_post_request_size:
         return instagram_post_request_size
     if format_key == REELS_STORIES_FORMAT:
         return REELS_STORIES_REQUEST_SIZE
+    if format_key == SQUARE_FORMAT:
+        return SQUARE_REQUEST_SIZE
     raise ValueError(f"Unsupported native output format: {format_key}")
 
 

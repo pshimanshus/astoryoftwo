@@ -79,7 +79,7 @@ def test_agents_md_protects_identity_wardrobe_dimensions_and_brandmark():
         "clothing and couple styling come from those images first",
         "1080x1440",
         "1080x1920",
-        "square only when requested",
+        "square `1080x1080` only when",
         "tiny `@a.storyof.two`",
     ):
         assert fragment in agents
@@ -111,6 +111,111 @@ def test_identity_eval_stop_gate_blocks_batching_without_structured_review():
         assert "BLOCKED_FOR_IDENTITY_EVAL" in text, name
         assert "IDENTITY_UNVERIFIED" in text, name
         assert "do not call" in lowered or "instead of calling it final" in lowered, name
+
+
+def test_scene_entity_integrity_is_a_loaded_hard_gate():
+    manifest = json.loads((WORKSPACE / "config/agentic_context_manifest.json").read_text(encoding="utf-8"))
+    sections = manifest["profiles"][manifest["default_profile"]]["sections"]
+    paths = {section["path"] for section in sections}
+
+    assert "config/rules/scene-entity-integrity.md" in paths
+    rule = _flat("config/rules/scene-entity-integrity.md").lower()
+    assert "expected_people" in rule
+    assert "observed_people" in rule
+    assert "unexpected_entities" in rule
+    assert "unintended second aachu/zuv pair" in rule
+
+
+def test_directed_visual_story_runs_two_independent_lifecycle_events():
+    surfaces = {
+        "carousel skill": _flat(".agents/skills/a-story-carousel-jam/SKILL.md"),
+        "runtime context": _flat("config/skills/carousel-jam-runtime-context.md"),
+        "autopilot": _flat("config/skills/carousel-jam-autopilot.md"),
+        "illustration framework": _flat("config/skills/illustration-carousel-framework.md"),
+    }
+
+    for name, text in surfaces.items():
+        assert "$a-story-direct-visual-story" in text, name
+        assert "director_storyboard" in text, name
+        assert "visual_story_readability" in text, name
+        assert "visual-plan-quality.json" in text, name
+        assert "visual-qa.json" in text, name
+
+    makefile = _read("Makefile")
+    assert "visual-check:" in makefile
+    assert "check_visual_story.py" in makefile
+
+
+def test_directed_visual_story_requires_provenance_and_exact_asset_binding():
+    surfaces = {
+        "carousel skill": _flat(".agents/skills/a-story-carousel-jam/SKILL.md"),
+        "runtime context": _flat("config/skills/carousel-jam-runtime-context.md"),
+        "autopilot": _flat("config/skills/carousel-jam-autopilot.md"),
+        "illustration framework": _flat("config/skills/illustration-carousel-framework.md"),
+    }
+
+    for name, text in surfaces.items():
+        lowered = text.lower()
+        assert "Event A cannot pass" in text, name
+        assert "review_provenance" in text, name
+        assert "director_event_fingerprint" in text, name
+        assert "source_director_event_fingerprint" in text, name
+        assert "expected_frame_bindings" in text, name
+        assert "square" in lowered, name
+        for untrusted_source in ("prompt", "filename", "generator"):
+            assert untrusted_source in lowered, (name, untrusted_source)
+
+    contract = _flat(
+        ".agents/skills/a-story-direct-visual-story/references/checker-contract.md"
+    )
+    for field in (
+        "visual-review-provenance/v2",
+        "author_task_id",
+        "author_run_id",
+        "reviewer_task_id",
+        "reviewer_run_id",
+        "raw_response_fingerprint",
+        "director-event/v2",
+        "format_contract_fingerprint",
+        "creator_correction_fingerprint",
+        "generation_payload_fingerprint",
+        "raw_response_artifact",
+        "compiled-prompt-handoff/v1",
+    ):
+        assert field in contract
+    assert "not cryptographic proof" in contract
+    assert "Dimensions are decoded from the current pixels" in contract
+
+
+def test_visual_story_legacy_packages_cannot_inherit_pass():
+    skill = _read(".agents/skills/a-story-direct-visual-story/SKILL.md")
+    contract = _read(
+        ".agents/skills/a-story-direct-visual-story/references/checker-contract.md"
+    )
+    migration_path = (
+        ".agents/skills/a-story-direct-visual-story/references/"
+        "legacy-package-migration.md"
+    )
+    migration = _flat(migration_path)
+
+    assert "references/legacy-package-migration.md" in skill
+    assert "legacy-package-migration.md" in contract
+    assert "may not be promoted" in migration
+    assert "Never synthesize PASS" in migration
+    assert "Do not fabricate" in migration
+    assert "LEGACY_UNVERIFIED" in migration
+    assert "rerun the event" in migration
+
+
+def test_long_visual_story_references_have_compact_navigation():
+    reference_dir = (
+        WORKSPACE / ".agents" / "skills" / "a-story-direct-visual-story" / "references"
+    )
+
+    for path in reference_dir.glob("*.md"):
+        lines = path.read_text(encoding="utf-8").splitlines()
+        if len(lines) > 100:
+            assert "## Contents" in lines[:30], path.name
 
 
 def test_agents_md_requires_one_command_currentness_and_learning_updates():
@@ -151,12 +256,27 @@ def test_agents_md_preserves_project_specific_sources_and_commands():
 
 
 def test_agents_md_uses_native_output_dimensions_not_square_default():
-    agents = _read("AGENTS.md")
+    agents = _flat("AGENTS.md")
 
-    assert "native 1080x1440 post" in agents
-    assert "1080x1920 story/reel" in agents
-    assert "square only for explicit experiments" in agents
+    assert "default post/carousel deliverable is only `1080x1440`" in agents
+    assert "Reel/story `1080x1920`" in agents
+    assert "only when the creator explicitly requests" in agents
+    assert "Never add an automatic multi-format derivative" in agents
+    assert "native 1080x1920 story/reel finals;" not in agents
     assert "1080x1080 proof/concept/single-slide generation gate" not in agents
+
+
+def test_root_and_runtime_default_to_post_only_and_keep_reels_explicit():
+    agents = _flat("AGENTS.md")
+    dimensions = _flat("config/rules/image-dimensions.md")
+    runtime = _flat("config/skills/carousel-jam-runtime-context.md")
+    format_contract = _read("pipeline/stages/carousel_format_contract.py")
+
+    assert "post/carousel deliverable is only `1080x1440`" in agents
+    assert "story/reel finals only when the creator explicitly requested" in agents
+    assert "If the creator explicitly asks for Story, Stories, Reel, or Reels, use `1080x1920`" in dimensions
+    assert "The no-canvas default is 3:4 only; 9:16 and 1:1 remain explicit-only" in runtime
+    assert 'DEFAULT_NATIVE_FORMATS = (INSTAGRAM_POST_FORMAT,)' in format_contract
 
 
 def test_format_inference_preflight_blocks_repo_default_snapback():

@@ -2,8 +2,8 @@
 # Karpathy LLM Wiki pattern: this file is the catalog of all compiled knowledge pages.
 # Updated by: `wiki compile` operation.
 
-last_updated: 2026-07-20
-total_pages: 85
+last_updated: 2026-07-21
+total_pages: 90
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,11 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-4.md) | 2026-07-20 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-3.md) | 2026-07-20 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-2.md) | 2026-07-20 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation.md) | 2026-07-20 | 7 | C-layer | 0.7 |
+| [Not Married Yet, Already Us](carousels/not-married-yet-already-us.md) | 2026-07-20 | 10 | C-layer | 0.7 |
 | [After One Hour With You - Zuv POV](carousels/after-one-hour-with-you-zuv-pov.md) | 2026-07-12 | 7 | C-layer | 0.7 |
 | [After One Hour With You](carousels/after-one-hour-with-you.md) | 2026-07-12 | 7 | C-layer | 0.7 |
 | [Still Learning Love](carousels/still-learning-love-2.md) | 2026-07-03 | 7 | C-layer | 0.7 |

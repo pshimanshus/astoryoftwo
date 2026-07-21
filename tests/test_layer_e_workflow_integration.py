@@ -4,6 +4,7 @@ from pathlib import Path
 
 from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel
+from tests.helpers.visual_story import write_passing_director_storyboard
 
 
 def write_identity(path: Path) -> None:
@@ -54,10 +55,6 @@ def test_codex_native_carousel_writes_layer_e_room_artifact(tmp_path: Path):
 def test_image_handoff_blocks_missing_layer_e_artifact(tmp_path: Path):
     carousel = tmp_path / "carousel"
     carousel.mkdir()
-    (carousel / "visual-plan-quality.json").write_text(
-        json.dumps({"status": "PASS", "can_generate": True, "issues": []}),
-        encoding="utf-8",
-    )
     (carousel / "identity-consistency-review.json").write_text(
         json.dumps({"status": "PASS"}),
         encoding="utf-8",
@@ -79,6 +76,7 @@ def test_image_handoff_blocks_missing_layer_e_artifact(tmp_path: Path):
         ),
         encoding="utf-8",
     )
+    write_passing_director_storyboard(carousel)
 
     result = prepare_codex_builtin_image_generation(carousel)
 

@@ -59,8 +59,9 @@ For carousel work, use this order:
    parallel agents, creator checkpoints, proof generation, full final images,
    packaging, and QA.
 
-The persona persists until the carousel has final native 3:4 and 9:16 image
-sets, `visual-qa.md`, and final approval artifacts.
+The persona persists until the carousel has native image sets for every format
+locked in `format-contract.json`, `visual-qa.md`, and final approval artifacts.
+The no-canvas default is 3:4; 9:16 and 1:1 are explicit-only.
 
 ## Persona
 

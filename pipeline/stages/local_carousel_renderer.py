@@ -11,26 +11,23 @@ import cv2
 import numpy as np
 
 from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
+from pipeline.stages.carousel_format_contract import (
+    INSTAGRAM_POST_FORMAT,
+    REELS_STORIES_FORMAT,
+    SQUARE_FORMAT,
+    expected_output_path,
+    format_spec,
+    locked_formats,
+    native_output_contract,
+)
 from pipeline.stages.carousel_quality import QualityContext, write_quality_artifacts
 from pipeline.stages.codex_builtin_image_generation import (
     identity_consistency_gate_reason,
     visual_plan_quality_gate_reason,
 )
-from pipeline.stages.model_native_image_generation import (
-    FINAL_UPLOAD_SIZE,
-    INSTAGRAM_POST_FORMAT,
-    NATIVE_OUTPUT_CONTRACT,
-    NATIVE_OUTPUT_FORMATS,
-    REELS_STORIES_FORMAT,
-    REELS_STORIES_SIZE,
-)
-
-
 BACKEND = "legacy_local_renderer"
 GENERATION_MODE = "legacy_local_preview_not_publishable"
 STATUS = "legacy_preview_generated"
-INSTAGRAM_SIZE = FINAL_UPLOAD_SIZE
-REELS_SIZE = REELS_STORIES_SIZE
 
 PAPER = (232, 239, 245)
 INK = (42, 39, 36)
@@ -669,7 +666,7 @@ def draw_scene(image: np.ndarray, slide: dict[str, Any], output_format: str) -> 
 
 
 def render_slide(slide: dict[str, Any], output_format: str) -> np.ndarray:
-    width, height = INSTAGRAM_SIZE if output_format == INSTAGRAM_POST_FORMAT else REELS_SIZE
+    width, height = format_spec(output_format)["target_size"]
     number = int(slide.get("slide", 0) or 0)
     image = np.empty((height, width, 3), dtype=np.uint8)
     image[:, :] = PAPER
@@ -752,7 +749,7 @@ def recover_post_copy_visual_room(carousel_dir: Path, slides: list[dict[str, Any
                 "slide": int(slide.get("slide", 0) or 0),
                 "copy": slide.get("copy", ""),
                 "visual": slide.get("visual", ""),
-                "format_note": "Render separately for 3:4 and 9:16 without deriving one format from the other.",
+                "format_note": "Render every request-locked native format independently; never derive one output from another.",
             }
             for slide in slides
         ],
@@ -825,8 +822,10 @@ def write_visual_qa_json(carousel_dir: Path, slides: list[dict[str, Any]], promp
             "evidence": [
                 {
                     "slide": record["slide"],
-                    "instagram_post": record["file"],
-                    "reels_stories": record["reels_stories_file"],
+                    **{
+                        output_format: output["file"]
+                        for output_format, output in record["native_outputs"].items()
+                    },
                 }
                 for record in records
             ],
@@ -896,23 +895,52 @@ def render_local_carousel(carousel_dir: Path, *, refresh_quality: bool = True, w
     prompt_slides = prompt_pack.get("slides", [])
     prompt_by_slide = {int(item.get("slide", 0) or 0): item for item in prompt_slides if isinstance(item, dict)}
 
+    output_formats = locked_formats(carousel_dir)
     final_dir = carousel_dir / "final"
-    reels_dir = carousel_dir / "final-reels-stories"
     source_dir = final_dir / "local-deterministic-source"
     records: list[dict[str, Any]] = []
     for slide in slides:
         number = int(slide.get("slide", 0) or 0)
-        instagram_source = source_dir / f"instagram-post-slide-{number:02d}.png"
-        reels_source = source_dir / f"reels-stories-slide-{number:02d}.png"
-        instagram_file = final_dir / f"slide-{number:02d}.png"
-        reels_file = reels_dir / f"slide-{number:02d}.png"
-        instagram_image = render_slide(slide, INSTAGRAM_POST_FORMAT)
-        reels_image = render_slide(slide, REELS_STORIES_FORMAT)
-        imwrite(instagram_source, instagram_image)
-        imwrite(reels_source, reels_image)
-        shutil.copyfile(instagram_source, instagram_file)
-        reels_file.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(reels_source, reels_file)
+        native_outputs: dict[str, Any] = {}
+        compatibility_fields: dict[str, Any] = {}
+        for output_format in output_formats:
+            spec = format_spec(output_format)
+            source = source_dir / f"{spec['source_prefix']}-slide-{number:02d}.png"
+            output_file = expected_output_path(carousel_dir, output_format, number)
+            image = render_slide(slide, output_format)
+            imwrite(source, image)
+            output_file.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, output_file)
+            width, height = spec["target_size"]
+            native_outputs[output_format] = {
+                "label": spec["label"],
+                "aspect_ratio": spec["aspect_ratio"],
+                "source": str(source),
+                "local_generated_source": str(source),
+                "file": str(output_file),
+                "upload_size": f"{width}x{height}",
+                "publishable": False,
+            }
+            if output_format == INSTAGRAM_POST_FORMAT:
+                compatibility_fields.update(
+                    source=str(source),
+                    local_generated_source=str(source),
+                    file=str(output_file),
+                )
+            elif output_format == REELS_STORIES_FORMAT:
+                compatibility_fields.update(
+                    reels_stories_source=str(source),
+                    reels_stories_file=str(output_file),
+                )
+            elif output_format == SQUARE_FORMAT:
+                compatibility_fields.update(
+                    square_source=str(source),
+                    square_file=str(output_file),
+                )
+        first_output = native_outputs[output_formats[0]]
+        compatibility_fields.setdefault("source", first_output["source"])
+        compatibility_fields.setdefault("local_generated_source", first_output["source"])
+        compatibility_fields.setdefault("file", first_output["file"])
         slide_prompt = prompt_by_slide.get(number, {})
         reference_images = [
             *prompt_pack.get("identity_dossier_reference_images", []),
@@ -930,31 +958,8 @@ def render_local_carousel(carousel_dir: Path, *, refresh_quality: bool = True, w
                 "can_satisfy_final_gate": False,
                 "prompt": slide_prompt.get("prompt", slide.get("visual", "")),
                 "reference_images": reference_images,
-                "source": str(instagram_source),
-                "local_generated_source": str(instagram_source),
-                "file": str(instagram_file),
-                "reels_stories_source": str(reels_source),
-                "reels_stories_file": str(reels_file),
-                "native_outputs": {
-                    INSTAGRAM_POST_FORMAT: {
-                        "label": NATIVE_OUTPUT_FORMATS[INSTAGRAM_POST_FORMAT]["label"],
-                        "aspect_ratio": NATIVE_OUTPUT_FORMATS[INSTAGRAM_POST_FORMAT]["aspect_ratio"],
-                        "source": str(instagram_source),
-                        "local_generated_source": str(instagram_source),
-                        "file": str(instagram_file),
-                        "upload_size": f"{INSTAGRAM_SIZE[0]}x{INSTAGRAM_SIZE[1]}",
-                        "publishable": False,
-                    },
-                    REELS_STORIES_FORMAT: {
-                        "label": NATIVE_OUTPUT_FORMATS[REELS_STORIES_FORMAT]["label"],
-                        "aspect_ratio": NATIVE_OUTPUT_FORMATS[REELS_STORIES_FORMAT]["aspect_ratio"],
-                        "source": str(reels_source),
-                        "local_generated_source": str(reels_source),
-                        "file": str(reels_file),
-                        "upload_size": f"{REELS_SIZE[0]}x{REELS_SIZE[1]}",
-                        "publishable": False,
-                    },
-                },
+                **compatibility_fields,
+                "native_outputs": native_outputs,
             }
         )
 
@@ -967,13 +972,12 @@ def render_local_carousel(carousel_dir: Path, *, refresh_quality: bool = True, w
         slides=records,
         reason="Legacy local renderer output is preview-only and cannot satisfy publishable final gates.",
         extra={
-            "native_output_contract": NATIVE_OUTPUT_CONTRACT,
-            "instagram_upload_size": f"{INSTAGRAM_SIZE[0]}x{INSTAGRAM_SIZE[1]}",
-            "reels_stories_size": f"{REELS_SIZE[0]}x{REELS_SIZE[1]}",
+            "requested_formats": list(output_formats),
+            "native_output_contract": native_output_contract(output_formats),
             "can_satisfy_final_gate": False,
             "normalization": (
-                "Each surface is locally rendered as its own native canvas; Reels/Stories is not "
-                "derived by resizing, cropping, padding, or extending the Instagram post output."
+                "Each requested surface is locally rendered as its own native canvas and is not "
+                "derived by resizing, cropping, padding, or extending another output."
             ),
         },
     )

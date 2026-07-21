@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-021-whole-person-spatial-integrity",
+  "title": "Block whole-person body and environment spatial merges",
+  "category": "carousel_package",
+  "difficulty": "hard",
+  "suites": ["smoke", "creative", "carousel", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
+  "starting_state": [
+    "A doorway proof has correct text, people count, hand count, and style, but Zuv's shoulder/back/torso visually merges into the door plane.",
+    "The visual QA artifact claims PASS because broad anatomy and identity checks passed while whole-person spatial topology is broken."
+  ],
+  "done_when": [
+    "Every person has a traceable silhouette and explicit front/back relationship to nearby solid objects.",
+    "A body region that morphs into a door, wall, chair, bed, sofa, frame, or table blocks proof approval.",
+    "Valid single-point contact or clear occlusion still passes when the body continues visibly and depth order is explained."
+  ],
+  "allowed_paths": ["config/rules/**", "config/skills/**", ".agents/skills/**", "pipeline/stages/**", "pipeline/agentic/**", "tests/**", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/stages/carousel_quality.py", "pipeline/stages/carousel_visual_integrity.py", "tests/test_fail_closed_visual_qa.py"],
+  "forbidden_changes": [
+    "Do not treat correct people, arms, hands, or fingers as sufficient spatial QA.",
+    "Do not allow a body to merge into a solid object because the watercolor edge looks soft.",
+    "Do not ban valid occlusion or leaning contact when depth order and body continuation are explicit."
+  ],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_fail_closed_visual_qa.py", "tests/test_eval_runner.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "whole_person_spatial_integrity_fixture"],
+  "rubric_checkers": [],
+  "fail_to_pass": ["the Zuv-inside-door spatial-topology fixture is rejected even when people and hand counts are correct"],
+  "pass_to_pass": ["a continuous person silhouette with valid single-point contact or clear occlusion passes spatial topology"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/visual-qa.json",
+      "target": "output/carousels/fixtures/whole-person-spatial-integrity/visual-qa.json",
+      "mode": "text"
+    }
+  ],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden variants should change the person, body region, object, camera angle, and valid occlusion control so the checker cannot key only on Zuv or door."]
+}

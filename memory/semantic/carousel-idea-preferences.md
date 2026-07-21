@@ -741,11 +741,13 @@ fact: For future carousel jams, the creator wants automatic jam-to-final
 execution. When they start jamming on one idea, run the parallel agent room
 without asking whether to spawn agents, discuss the selected direction with the
 creator, lock copy after approval, then continue through post-copy visual room,
-visual debate, prompt pack, proof image when needed, full native 4:5 and
-separate native 9:16 image generation, packaging, visual QA, and final audit.
-Do not stop at prompt handoff or `READY_FOR_CODEX_BUILTIN_GENERATION` if image
-generation is available; if blocked, write the concrete blocker and call it
-blocked/handoff-ready, not final images.
+visual debate, prompt pack, proof image when needed, native 3:4 `1080x1440`
+post generation, packaging, visual QA, and final audit. Generate a separate
+native 9:16 `1080x1920` Story/Reel set only when the creator explicitly asks for
+Story or Reel; never add it automatically. Do not stop at prompt handoff or
+`READY_FOR_CODEX_BUILTIN_GENERATION` if image generation is available; if
+blocked, write the concrete blocker and call it blocked/handoff-ready, not final
+images.
 confidence: 0.99
 
 fact: Visual generation must pass the 2026-05-24 Carousel Performance Autopsy,

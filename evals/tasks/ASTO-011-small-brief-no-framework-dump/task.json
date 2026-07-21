@@ -6,6 +6,7 @@
   "difficulty": "hard",
   "suites": ["creative", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
   "starting_state": [
     "The creator gives a tiny seed: she says 'main kar lungi' but secretly wants help.",
     "A prior agent answered with rubric names, score tables, and no human draft."
@@ -16,13 +17,19 @@
     "It avoids visible internal framework language.",
     "It includes a human-feeling draft or concept lock summary."
   ],
-  "allowed_paths": ["output/evals/**", "output/carousels/**", "tests/**", "evals/**"],
+  "allowed_paths": ["output/evals/**", "output/carousels/**", "tests/**"],
   "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
   "expected_files_changed": ["output/evals/ASTO-011/creator-brief.md"],
   "forbidden_changes": ["Do not expose Story-Selling, Golden Theme, 28/30, or gate names in creator-facing copy.", "Do not demand that the creator bring a finished concept."],
   "required_commands": [],
-  "deterministic_checkers": ["diff_guard", "creator_visible_copy"],
+  "deterministic_checkers": ["diff_guard", "creator_visible_copy", "small_brief_seed_fixture"],
   "rubric_checkers": ["creative_contract"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/evals/ASTO-011/creator-brief.md",
+      "target": "output/evals/ASTO-011/creator-brief.md"
+    }
+  ],
   "fail_to_pass": ["creator-facing brief contains no visible framework terms and preserves the exact seed"],
   "pass_to_pass": ["private analysis artifacts may use rubric language when separated from creator-facing copy"],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},

@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "event": "verification",
+  "iteration": 1,
+  "recorded_at": "2026-07-21T14:08:01.071238+00:00",
+  "signature": "15e1aa8686c7207eb5bc7cd5339773aaddc5795e334c4281bed3d7418dcd2a46",
+  "state": {
+    "name": "blocked",
+    "publishable": false,
+    "blocked": true,
+    "next_action": "repair_blockers",
+    "issue_codes": [
+      "image_generation_blocked"
+    ],
+    "package_dir": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us"
+  },
+  "doctor": {
+    "package_dir": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us",
+    "highest_severity": "blocker",
+    "blocked": true,
+    "issues": [
+      {
+        "code": "image_generation_blocked",
+        "severity": "blocker",
+        "message": "visual-plan-quality.json director story check did not pass: visual-plan-quality.json missing structured director_storyboard evidence.",
+        "evidence": [
+          "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us/image-generation.json",
+          "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us/final-images.json"
+        ],
+        "next_action": "repair_blockers"
+      }
+    ]
+  },
+  "verifications": [],
+  "effective_issues": [
+    {
+      "code": "image_generation_blocked",
+      "severity": "blocker",
+      "message": "visual-plan-quality.json director story check did not pass: visual-plan-quality.json missing structured director_storyboard evidence.",
+      "evidence": [
+        "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us/image-generation.json",
+        "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us/final-images.json"
+      ],
+      "next_action": "repair_blockers"
+    },
+    {
+      "code": "state_not_publishable",
+      "severity": "blocker",
+      "message": "Derived package state is blocked, not publishable.",
+      "evidence": [],
+      "next_action": "repair_blockers"
+    }
+  ]
+}

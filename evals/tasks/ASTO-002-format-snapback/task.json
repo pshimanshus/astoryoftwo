@@ -6,6 +6,7 @@
   "difficulty": "hard",
   "suites": ["contract", "carousel", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
   "starting_state": [
     "A creator first asks for a carousel, then corrects the request to one square proof only.",
     "A workflow component still generates native 3:4 and 9:16 outputs from defaults."
@@ -15,15 +16,21 @@
     "The system asks for the exact canvas when the correction is ambiguous.",
     "No unrequested Story/Reel or carousel outputs are generated."
   ],
-  "allowed_paths": ["config/rules/**", "config/skills/**", "config/references/**", "pipeline/**", "scripts/**", "tests/**", "memory/semantic/**"],
+  "allowed_paths": ["config/rules/**", "config/skills/**", "config/references/**", "pipeline/**", "scripts/**", "tests/**", "memory/semantic/**", "output/evals/ASTO-002/request-state.json"],
   "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
-  "expected_files_changed": ["config/rules/image-dimensions.md", "pipeline/stages/carousel_prompt_compiler.py", "tests/test_carousel_prompt_compiler.py"],
+  "expected_files_changed": ["config/rules/image-dimensions.md", "pipeline/stages/carousel_prompt_compiler.py", "tests/test_carousel_prompt_compiler.py", "output/evals/ASTO-002/request-state.json"],
   "forbidden_changes": ["Do not remove native 1080x1440 or 1080x1920 final requirements.", "Do not make square the default format."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_carousel_prompt_compiler.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "format_snapback_fixture"],
   "rubric_checkers": [],
   "fail_to_pass": ["latest creator correction to one square proof wins over carousel/story defaults"],
   "pass_to_pass": ["native 1080x1440 post and 1080x1920 story/reel requirements remain defaults when explicitly requested"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/evals/ASTO-002/request-state.json",
+      "target": "output/evals/ASTO-002/request-state.json"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should assert the latest prompt correction wins over repo defaults."]
 }

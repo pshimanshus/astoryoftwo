@@ -67,6 +67,13 @@ NATIVE_FORMAT_SPECS: dict[str, dict[str, str]] = {
         "canvas": "exact 9:16 canvas for Reels/Stories, native 1080x1920 px",
         "avoid": "not a 3:4 carousel canvas",
     },
+    "square": {
+        "label": "Square Output",
+        "ratio": "1:1",
+        "size": "1080x1080",
+        "canvas": "exact 1:1 square canvas, native 1080x1080 px",
+        "avoid": "not a 3:4 carousel or 9:16 story canvas",
+    },
 }
 
 
@@ -121,6 +128,12 @@ def master_prompt_contract() -> dict[str, Any]:
                 "aspect_ratio": "9:16",
                 "size": "1080x1920",
                 "directory": "final-reels-stories/",
+            },
+            "square": {
+                "aspect_ratio": "1:1",
+                "size": "1080x1080",
+                "source_size": "1080x1080",
+                "directory": "final-square/",
             },
         },
         "text_rule": (

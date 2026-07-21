@@ -19,9 +19,9 @@ single idea into a finished @a.storyof.two carousel.
 The goal is not a plan, prompt pack, or handoff. The goal is final packaged
 images:
 
-- `final/slide-XX.png` for native `3:4` Instagram carousel;
-- `final-reels-stories/slide-XX.png` for separate native `9:16` companion
-  slides;
+- `final/slide-XX.png` for locked native `instagram_post`;
+- `final-reels-stories/slide-XX.png` only for locked native `reels_stories`;
+- `final-square/slide-XX.png` only for locked native `square`;
 - `final-images.json`, `visual-qa.md`, and `final-audit.json` updated after
   packaging.
 
@@ -109,6 +109,16 @@ The creator stays in the loop at four points:
    is in scope, no identity eval means no next slide: stop until a structured
    `identity-consistency-review.json` or `visual-qa.json` records the selected
    Aachu/Zuv reference IDs and specific likeness notes.
+   The generated file first enters `GENERATED_QUARANTINED`. It must not be
+   surfaced as approved or used to continue the batch until hash-bound schema-v2.1
+   QA passes anatomy/entity/spatial/identity and storytelling/richness/text/style,
+   then the creator explicitly approves it. Trace every person's complete
+   silhouette before inspecting hands: head, neck, shoulders, back, torso,
+   clothing, and visible limbs must remain a coherent volume with explicit
+   front/behind/contact relations to nearby solid planes. Failed candidates
+   stay internal; a body/environment merge enters
+   `REJECTED_SPATIAL_INTEGRITY`; retry twice, then stop as
+   `BLOCKED_VISUAL_QA`.
 4. Final approval: after all images are packaged and visual QA is written, the
    creator gets the final folder and any failed checks.
 
@@ -118,7 +128,9 @@ moving unless they change public copy, visual meaning, identity, or safety.
 ## Required Parallel Agents
 
 Use actual parallel/sub-agent tools when available. If tools are unavailable,
-simulate the room as separate named reviewers and record the limitation.
+simulate creative-room perspectives and record the limitation. Named simulated
+roles do not satisfy Event A/Event B reviewer provenance; leave those lifecycle
+events blocked until actual orchestrated critic runs can be recorded.
 
 Each serious route needs a discussion room, not one isolated agent per role.
 For the top routes, run at least two creative-editor voices and two writer
@@ -131,7 +143,7 @@ Minimum room:
 - Storyline Architect: obstacle, proof, reversal, payoff, 5-10 routes.
 - Contrarian Critic: why it fails, safety/taste risks, private-context risk.
 - Retention Analyst: hook, swipe ladder, middle re-engagement, send/save.
-- Visual Director: scenes, identity, typography, 3:4 and 9:16 feasibility.
+- Visual Director: scenes, identity, typography, and locked-canvas feasibility.
 - Copy Chief: slide copy, caption, no-name public wording, exact text.
 - Algorithm / Brand Strategist: shareability, comment/tag behavior, brand IP.
 - World-Class Taste Judge: novelty, creator-world specificity, non-obvious
@@ -179,7 +191,8 @@ Write or update:
    - creative success: staged story sequence, behavior receipts, active partner
      response, emotional turn, and earned thesis;
    - brand success: ownable warm desi relationship IP;
-   - production success: native 3:4 and separate native 9:16 finals with QA.
+   - production success: every request-locked post, Story/Reel, and/or square
+     format has a separate native final with QA; no unrequested derivative.
    - story/theme success: the specific story, viral theme, or golden-theme
      machine the carousel must prove before any copy is drafted.
 4. Run Layer E:
@@ -213,42 +226,99 @@ Write or update:
 9. Load Story Director:
    - `config/skills/carousel-story-director-persona.md`
 10. Present the creator one selected concept direction for concept lock, with
-   debate summary and staged beats but without a finished slide-copy list.
-11. After creator approval, write and lock copy.
-12. Run Post-Copy Visual Creative Room:
-   - `post-copy-visual-room.json`
-13. Run Visual Debate Gate:
-   - `visual-debate.json`
-   - `visual-plan-quality.json`
-14. Build package:
+    debate summary and staged beats but without a finished slide-copy list.
+11. After creator approval, invoke `$a-story-direct-visual-story` and direct the
+    visual spine before image prompts: physical event, point of view, staged
+    action/reaction/consequence, evidence carriers, blocking, camera reason,
+    production-design traces, sequence change, and setup/payoff.
+12. Write and lock copy, resolve the request-derived canvas set through
+    `carousel_format_contract`, then reconcile both locks with the visual
+    spine. The image must add evidence or subtext; do not let locked copy become
+    the only story carrier. Event A cannot pass before both locks exist.
+13. Run Post-Copy Visual Creative Room:
+    - `post-copy-visual-room.json`
+14. Run Visual Debate Gate:
+    - `visual-debate.json`
+    - `visual-plan-quality.json`
+15. Run the first `$a-story-direct-visual-story` checker event. A fresh
+    orchestrated critic receives only the observable `blind_cards`, with exact
+    copy, intent, caption, theme, labels, and scores hidden. Preserve its raw
+    pre-reveal response and auditable `review_provenance`; arbitrary reviewer
+    names do not prove independence. Record inference, evidence, alternate
+    readings, request formats, and format-lock fingerprint under
+    `director_storyboard`, then compute the complete
+    `director_event_fingerprint`. Require
+    `make visual-check CAROUSEL=... PHASE=pre` to pass. A provisional pre-copy
+    or pre-canvas read is advisory; missing, ambiguous, stale, self-certified,
+    or synthetic evidence blocks handoff.
+16. Build package:
     - `slides.json`
     - `copy.json`
     - `prompt-pack.json`
     - `identity-consistency-review.json`
     - `review.json`
-15. Prepare image handoff:
-    - `codex-image-prompts/instagram-post/`
-    - `codex-image-prompts/reels-stories/`
+17. Prepare image handoff:
+    - `codex-image-prompts/instagram-post/` for the default post/carousel request
+    - `codex-image-prompts/reels-stories/` only when Story/Reel is explicitly requested
+    - `codex-image-prompts/square/` only when square is explicitly requested
     - load `config/references/style-lock/observational-intimacy-premium/` as
       the default style reference bundle, with selected actual Aachu/Zuv
       identity images attached as face, body, and wardrobe anchors. Wardrobe
       comes from selected identity/current-request photos first, not a static
       menu.
-16. Generate one proof slide when risk is high. If the proof includes Aachu or
+18. Generate one proof slide when risk is high. If the proof includes Aachu or
     Zuv, immediately run the identity eval stop gate before any next slide:
     write or update `identity-consistency-review.json` or `visual-qa.json` with
     Aachu/Zuv reference IDs, face/hair/body/wardrobe notes, and PASS/REPAIR/
     STOP. If tools cannot perform real likeness comparison, record
     `BLOCKED_FOR_IDENTITY_EVAL` or `IDENTITY_UNVERIFIED`, tell the creator, and
     stop instead of batching.
-17. If proof passes structured identity, style, story, text, aspect, and safety
-    QA, generate all remaining native `3:4` and native `9:16` slides.
-18. Package generated sources:
+19. Run a provisional image-first story audit on every locked proof format.
+    Use a fresh orchestrated reviewer whose task/run provenance is pairwise
+    distinct from the route author and Event A critic. Inspect decoded current
+    pixels from the exact expected asset—not a prompt, filename, folder, or
+    generator claim—and preserve the raw pre-reveal response. Compare observed
+    action/relationship meaning to the director card and exact copy. This proof
+    audit may unblock batching but cannot claim full Event B PASS. A semantic
+    failure repairs intent, evidence, staging, sequence, or generation at the
+    correct layer before continuing.
+20. If proof passes structured identity, style, story, text, aspect, and safety
+    QA, generate all remaining slides in exactly the creator-locked formats:
+    native `3:4` only for `instagram_post`, native `9:16` for explicit
+    `reels_stories`, native `1:1` for explicit `square`, and separate native
+    sources for every multi-format lock.
+    Structured QA includes a per-slide scene-entity inventory. Expected and
+    observed people counts must match and `unexpected_entities` must be empty;
+    otherwise stop and repair the image before continuing.
+    It also includes `checks.spatial_topology` with three evidence views
+    (full frame, person-object crop, focal detail), a continuous silhouette for
+    every person, continuous solid-object boundaries, explicit observed versus
+    expected depth relations for every nearby body region, and empty
+    `ambiguous_regions` and `unresolved_intersections`. A door or frame line
+    entering Zuv's shoulder, back, shirt, torso, hair, or limb is a hard failure,
+    even when the hands and faces look plausible. There is no PASS_WITH_NOTES
+    for ambiguous body/object topology.
+21. Package generated sources:
     - `scripts/package_generated_carousel.py`
-19. Run final QA:
+22. Run full Event B across every slide and every locked native format. Bind it
+    to `source_director_event_fingerprint` and each package-local path,
+    dimension, and current image hash from `expected_frame_bindings`; never
+    infer assets from folders. Record pairwise-distinct `review_provenance`, the
+    exact image-first input fingerprint, and raw critic evidence under
+    `checks.visual_story_readability` in `visual-qa.json`, then require
+    `make visual-check CAROUSEL=... PHASE=post` to pass.
+23. Run final QA:
     - `visual-qa.md`
     - `final-audit.json`
     - wiki health if the session is substantial.
+24. When continuous review is requested, run
+    `make review-loop CAROUSEL=output/carousels/YYYY-MM-DD/slug`. Each cycle
+    must re-derive package state and rerun the workflow doctor after repairs.
+    Completion means publishable state with no blocker/warning and all optional
+    deterministic verifier commands passing. Repeated identical failures,
+    bounded-attempt exhaustion, unavailable generation, identity uncertainty,
+    creator approval, and retry-exhausted visual QA stop explicitly; the loop
+    must never weaken a grader or synthesize evidence to turn red into green.
 
 ## Stage-Scene Gate
 
@@ -304,9 +374,13 @@ creator, and do not call the proof final or generate the remaining slides.
 
 Do not say the carousel is done until all are true:
 
-- `final/slide-XX.png` exists for every slide;
-- `final-reels-stories/slide-XX.png` exists for every slide;
-- both formats came from separate native generated sources;
+- every slide exists in every creator-requested final folder;
+- `final/slide-XX.png` is the default post/carousel output;
+- `final-reels-stories/slide-XX.png` exists only when Story/Reel is requested;
+- `final-square/slide-XX.png` exists only when square is requested;
+- every multi-format result came from separate native generated sources;
+- Event A and Event B have current orchestration provenance, complete
+  director-event binding, and exact expected-asset binding;
 - exact copy and brandmark are inside the images;
 - identity, style, text, and safety QA pass;
 - `identity-consistency-review.json` or `visual-qa.json` contains selected

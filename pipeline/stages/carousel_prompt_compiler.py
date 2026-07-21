@@ -1,15 +1,26 @@
 from __future__ import annotations
 
 import re
+from typing import Any
 
 from pipeline.stages.carousel_master_prompt import build_generation_master_prompt
+from pipeline.stages.carousel_visual_integrity import (
+    build_hand_ownership_map,
+    build_spatial_topology_contract,
+    build_visual_richness_contract,
+    hand_ownership_prompt,
+    spatial_topology_prompt,
+    visual_richness_prompt,
+)
 
 # Upper bound on a single compiled image prompt. The canonical master prompt body
 # alone is ~17k chars; this leaves comfortable headroom for the per-slide contract
 # (size, pose, wardrobe, props, background, emotion, style lock, negative prompt)
 # while still catching runaway inputs. The Codex built-in image path accepts long
 # prompts, so the cap is a guardrail against accidental bloat, not a model limit.
-MAX_PROMPT_CHARS = 24000
+# Whole-person topology and hand-ownership contracts are deliberately explicit;
+# keep enough room for both instead of trimming safety-critical clauses.
+MAX_PROMPT_CHARS = 32000
 
 FORMAT_COPY = {
     "instagram_post": (
@@ -19,6 +30,10 @@ FORMAT_COPY = {
     "reels_stories": (
         "Create an exact 9:16 canvas for Reels/Stories at exactly 1080x1920 px, "
         "not a 3:4 carousel canvas."
+    ),
+    "square": (
+        "Create an exact 1:1 square canvas at exactly 1080x1080 px, composed natively "
+        "for square rather than cropped, padded, or stretched from another canvas."
     ),
 }
 
@@ -82,24 +97,41 @@ def compile_image_prompt(
     props: str | None = None,
     background: str | None = None,
     emotion: str | None = None,
+    hand_map: dict[str, Any] | None = None,
+    spatial_topology: dict[str, Any] | None = None,
+    visual_richness: dict[str, Any] | None = None,
 ) -> str:
     if format_key not in FORMAT_COPY:
         raise ValueError(f"Unsupported format_key: {format_key}")
 
     scene = clean_text(visual)
+    hand_contract = hand_map or build_hand_ownership_map(scene)
+    topology_contract = spatial_topology or build_spatial_topology_contract(scene)
+    richness_contract = visual_richness or build_visual_richness_contract(scene)
+    pose_text = clean_text(
+        pose
+        or (
+            "Use scene-specific lived-in couple body language: soft eye contact, a small "
+            "care gesture, warm teasing posture, or leaning toward each other without "
+            "feeling staged."
+        )
+    )
+    pose_text += "\n\n" + hand_ownership_prompt(hand_contract)
+    pose_text += "\n\n" + spatial_topology_prompt(topology_contract)
+    background_text = clean_text(
+        background
+        or (
+            "Soft minimal environment implied by the scene, with faded watercolor edges and "
+            "lower detail than the characters."
+        )
+    )
+    background_text += "\n\n" + visual_richness_prompt(richness_contract)
     prompt = build_generation_master_prompt(
         slide_number=slide_number,
         slide_count=slide_count,
         slide_copy=clean_slide_copy(slide_copy),
         scene_description=scene,
-        pose_description=clean_text(
-            pose
-            or (
-                "Use scene-specific lived-in couple body language: soft eye contact, a small "
-                "care gesture, warm teasing posture, or leaning toward each other without "
-                "feeling staged."
-            )
-        ),
+        pose_description=pose_text,
         wardrobe_description=clean_text(
             wardrobe
             or (
@@ -114,13 +146,7 @@ def compile_image_prompt(
                 "them secondary to the couple's emotional behavior."
             )
         ),
-        background_description=clean_text(
-            background
-            or (
-                "Soft minimal environment implied by the scene, with faded watercolor edges and "
-                "lower detail than the characters."
-            )
-        ),
+        background_description=background_text,
         emotion_description=clean_text(
             emotion
             or "Quietly in love, comfortable, playful, emotionally safe, and specific to the slide beat."

@@ -1,0 +1,41 @@
+{
+  "schema_version": "carousel-agent-room/v1",
+  "status": "GO",
+  "stage": "post_copy_visual_direction",
+  "orchestrator": {
+    "task_id": "/root",
+    "run_id": "visual-orchestrator-2026-07-21-01",
+    "responsibility": "Preserve the creator-locked 11-slide copy, enforce the post-only format lock, merge complementary visual routes, and route fresh blind and pixel reviews."
+  },
+  "parallel_agents": [
+    {
+      "task_id": "/root/package_forensics",
+      "run_id": "package-forensics-2026-07-21-01",
+      "scope": "Read-only audit of the old package and review-loop health.",
+      "verdict": "GO_NEW_PACKAGE",
+      "key_evidence": "The loop engine passed 145 targeted tests locally; the old 10-slide package is stale, has no current Event A or Event B, and must remain untouched."
+    },
+    {
+      "task_id": "/root/visual_front",
+      "run_id": "visual-front-2026-07-21-01",
+      "scope": "Slides 1-6, setup/payoff objects, hand ownership, shot ladder, and entity/spatial risks.",
+      "verdict": "GO",
+      "key_evidence": "Automatic wallet/water-bottle relay plus the first half of one broken-key incident creates observable habits, coordination, shared stress, and equal friction."
+    },
+    {
+      "task_id": "/root/visual_back",
+      "run_id": "visual-back-2026-07-21-01",
+      "scope": "Slides 7-11, anger-to-care threshold blocking, separate-life image, payoff, and proof selection.",
+      "verdict": "GO",
+      "key_evidence": "The key return preserves anger, the tissue transfer makes concern physical, and the repaired-lock relay earns the final us without wedding clichés."
+    }
+  ],
+  "selected_visual_system": "Wordless Habit Relay + Broken-Key Continuity",
+  "proof_slide": 9,
+  "proof_reason": "Slide 9 combines identity-readable faces, exactly two owned hands, gaze, a tiny object-state change, the central anger/care contradiction, exact integrated text, paper tone, and brandmark.",
+  "format_lock": [
+    "instagram_post"
+  ],
+  "unresolved_objections": [],
+  "next_event": "Fresh copy-hidden Event A critic, then atomic slide-9 proof handoff."
+}

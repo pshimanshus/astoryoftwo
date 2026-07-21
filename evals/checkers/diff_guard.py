@@ -8,6 +8,9 @@ from typing import Iterable
 from evals.schemas import CheckResult, EvalTask
 
 
+PROTECTED_EVAL_HARNESS_PATHS = ("evals/**",)
+
+
 def normalize_path(path: str) -> str:
     return path.strip().strip('"').replace("\\", "/")
 
@@ -46,6 +49,29 @@ def _matches(path: str, patterns: Iterable[str]) -> bool:
 
 def check_changed_paths(task: EvalTask, paths: list[str]) -> list[CheckResult]:
     results: list[CheckResult] = []
+    harness_hits = [
+        path for path in paths if _matches(path, PROTECTED_EVAL_HARNESS_PATHS)
+    ]
+    if harness_hits:
+        results.append(
+            CheckResult(
+                code="eval_harness_protected",
+                status="FAIL",
+                severity="critical",
+                message="Solver changes may not modify the eval harness, task metadata, or fixtures.",
+                evidence=harness_hits,
+            )
+        )
+    else:
+        results.append(
+            CheckResult(
+                code="eval_harness_protected",
+                status="PASS",
+                severity="info",
+                message="No protected eval harness paths were changed.",
+            )
+        )
+
     forbidden_hits = [
         path for path in paths if _matches(path, task.forbidden_paths)
     ]
@@ -75,6 +101,7 @@ def check_changed_paths(task: EvalTask, paths: list[str]) -> list[CheckResult]:
             for path in paths
             if not _matches(path, task.allowed_paths)
             and not _matches(path, task.forbidden_paths)
+            and not _matches(path, PROTECTED_EVAL_HARNESS_PATHS)
         ]
     else:
         outside = []

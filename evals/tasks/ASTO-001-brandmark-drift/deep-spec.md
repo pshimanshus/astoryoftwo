@@ -14,6 +14,11 @@ brandmark away from the top-right corner.
 
 ## Starting Fixture
 
+Fixture direction: **solution**. A single-pass `evals/runner.py review` must
+observe the materialized starter as `unresolved`. The task becomes resolved
+only after the agent repairs the fixture-backed repository state and the named
+checker passes.
+
 The fixture should inject one or more bottom-right brandmark instructions into
 dependent files such as `config/rules/brandmark.md`,
 `config/references/a-story-illustration-master-prompt.md`, or

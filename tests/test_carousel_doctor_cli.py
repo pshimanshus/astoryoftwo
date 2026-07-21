@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from tests.helpers.visual_story import write_passing_director_storyboard
+
 
 def write_json(path: Path, data: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -17,6 +19,7 @@ def test_carousel_doctor_cli_outputs_json(tmp_path: Path) -> None:
     write_json(package / "prompt-pack.json", {"slides": [{"slide": 1}]})
     write_json(package / "image-generation.json", {"status": "handoff_ready"})
     write_json(package / "final-images.json", {"status": "handoff_ready", "publishable": False})
+    write_passing_director_storyboard(package)
 
     result = subprocess.run(
         [sys.executable, "scripts/carousel_doctor.py", str(package), "--json"],

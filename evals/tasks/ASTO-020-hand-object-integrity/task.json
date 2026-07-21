@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-020-hand-object-integrity",
+  "title": "Block anonymous hands and hand-object intersections",
+  "category": "carousel_package",
+  "difficulty": "hard",
+  "suites": ["smoke", "creative", "carousel", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
+  "starting_state": [
+    "A doorway slide contains an extra hand entering from the door edge with no owner or story purpose.",
+    "A moving-box slide has the correct number of people and hands, but a forearm passes through the solid box wall."
+  ],
+  "done_when": [
+    "Every visible hand has an owner, side, story purpose, wrist/forearm attachment, and concrete contact/occlusion evidence.",
+    "An unexplained edge-entry hand blocks approval even when the people count is correct.",
+    "A hand or forearm intersecting a solid object blocks approval even when hand count and finger count are correct."
+  ],
+  "allowed_paths": ["config/rules/**", "config/skills/**", ".agents/skills/**", "pipeline/stages/**", "tests/**", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["pipeline/stages/carousel_visual_integrity.py", "pipeline/stages/carousel_quality.py", "tests/test_fail_closed_visual_qa.py"],
+  "forbidden_changes": [
+    "Do not treat correct finger count as sufficient anatomy QA.",
+    "Do not allow an unattributed hand because it looks aesthetically plausible.",
+    "Do not accept a grip or support pose without checking solid-object boundaries and overlap order."
+  ],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_fail_closed_visual_qa.py", "tests/test_eval_runner.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "hand_object_integrity_fixture"],
+  "rubric_checkers": [],
+  "fail_to_pass": ["the anonymous door-edge hand and the forearm-through-box fixture are both rejected"],
+  "pass_to_pass": ["a narratively required, owned hand with continuous anatomy and believable object contact passes"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/visual-qa.json",
+      "target": "output/carousels/fixtures/hand-object-integrity/visual-qa.json",
+      "mode": "text"
+    }
+  ],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden variants should use an arm through a container rim, an anonymous hand at a frame edge, a hand emerging from clothing, an impossible load-bearing grip, and a valid partially occluded hand control case."]
+}

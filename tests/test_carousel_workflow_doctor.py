@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
+from pipeline.stages.carousel_format_contract import write_format_contract
+from tests.helpers.visual_story import write_passing_director_storyboard
 
 
 def write_json(path: Path, data: dict) -> None:
@@ -148,7 +150,172 @@ def test_flags_missing_required_c_layer_artifacts_for_fresh_generation(tmp_path:
     assert report.highest_severity == "blocker"
 
 
-def test_clean_handoff_package_reports_actionable_non_publishable_state(tmp_path: Path) -> None:
+def test_flags_stale_generation_artifacts_after_creator_correction(tmp_path: Path) -> None:
+    package = tmp_path / "stale-correction"
+    package.mkdir()
+    write_json(
+        package / "creator-correction.json",
+        {
+            "status": "CORRECTED_BY_CREATOR",
+            "rejected_route_phrases": ["pressure-cooker route", "seeti count"],
+            "active_artifact_paths": ["prompt-pack.json", "visual-plan-quality.json"],
+            "archival_artifact_paths": ["rejection-note.md"],
+        },
+    )
+    (package / "rejection-note.md").write_text(
+        "Archival evidence: the pressure-cooker route and seeti count route were rejected.",
+        encoding="utf-8",
+    )
+    write_json(
+        package / "prompt-pack.json",
+        {
+            "slides": [
+                {
+                    "slide": 1,
+                    "text": "The house learned us.",
+                    "prompt": "Keep the old seeti count gag alive in the new house-object scene.",
+                }
+            ]
+        },
+    )
+    write_json(package / "visual-plan-quality.json", {"status": "PASS", "can_generate": True})
+
+    report = inspect_carousel_package(package)
+
+    assert "stale_artifact_carryover" in issue_codes(report)
+    assert report.highest_severity == "blocker"
+
+
+def test_allows_archival_rejected_phrases_when_active_artifacts_are_clean(tmp_path: Path) -> None:
+    package = tmp_path / "clean-correction"
+    package.mkdir()
+    write_json(
+        package / "creator-correction.json",
+        {
+            "status": "CORRECTED_BY_CREATOR",
+            "rejected_route_phrases": ["pressure-cooker route", "seeti count"],
+            "active_artifact_paths": ["prompt-pack.json", "visual-plan-quality.json"],
+            "archival_artifact_paths": ["rejection-note.md"],
+        },
+    )
+    (package / "rejection-note.md").write_text(
+        "Archival evidence: the pressure-cooker route and seeti count route were rejected.",
+        encoding="utf-8",
+    )
+    write_json(
+        package / "prompt-pack.json",
+        {
+            "slides": [
+                {
+                    "slide": 1,
+                    "text": "The house learned us.",
+                    "prompt": "Morning table-level scene with mugs, charger, watch, and house-object continuity.",
+                }
+            ]
+        },
+    )
+    write_json(package / "visual-plan-quality.json", {"status": "PASS", "can_generate": True})
+
+    report = inspect_carousel_package(package)
+
+    assert "stale_artifact_carryover" not in issue_codes(report)
+
+
+def test_new_creator_correction_revision_invalidates_director_without_phrase_list(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "correction-revision-only"
+    package.mkdir()
+    write_json(package / "image-generation.json", {"status": "handoff_ready"})
+    write_passing_director_storyboard(package)
+    write_json(
+        package / "creator-correction.json",
+        {"status": "REVISE", "revision": 2},
+    )
+
+    report = inspect_carousel_package(package)
+
+    assert "stale_artifact_carryover" not in issue_codes(report)
+    assert "director_storyboard_failed" in issue_codes(report)
+    director_issue = next(
+        issue for issue in report.issues if issue.code == "director_storyboard_failed"
+    )
+    assert any("creator_correction_fingerprint is stale" in str(item) for item in director_issue.evidence)
+
+
+def test_flags_batch_continuation_without_identity_eval(tmp_path: Path) -> None:
+    package = tmp_path / "identity-missing"
+    package.mkdir()
+    write_json(
+        package / "image-generation.json",
+        {
+            "status": "proof_passed",
+            "can_continue_batch": True,
+            "next_action": "Generate remaining slides.",
+        },
+    )
+    write_json(package / "final-images.json", {"status": "proof_passed", "publishable": False})
+
+    report = inspect_carousel_package(package)
+
+    assert "identity_eval_missing_stop_gate" in issue_codes(report)
+    assert report.highest_severity == "blocker"
+
+
+def test_flags_identity_pass_without_reference_ids_and_likeness_notes(tmp_path: Path) -> None:
+    package = tmp_path / "identity-incomplete"
+    package.mkdir()
+    write_json(
+        package / "image-generation.json",
+        {
+            "status": "proof_passed",
+            "can_continue_batch": True,
+            "next_action": "Generate remaining slides.",
+        },
+    )
+    write_json(package / "identity-consistency-review.json", {"status": "PASS", "notes": "Looks good."})
+
+    report = inspect_carousel_package(package)
+
+    assert "identity_eval_incomplete_stop_gate" in issue_codes(report)
+    assert report.highest_severity == "blocker"
+
+
+def test_allows_batch_continuation_after_structured_identity_pass(tmp_path: Path) -> None:
+    package = tmp_path / "identity-pass"
+    package.mkdir()
+    write_json(
+        package / "image-generation.json",
+        {
+            "status": "proof_passed",
+            "can_continue_batch": True,
+            "next_action": "Generate remaining slides.",
+        },
+    )
+    write_json(
+        package / "identity-consistency-review.json",
+        {
+            "status": "PASS",
+            "selected_reference_ids": {
+                "aachu": ["ID-AACHU-06"],
+                "zuv": ["ID-ZUV-07"],
+            },
+            "likeness_notes": {
+                "aachu": "Long dark hair, oval face, warm skin, and expressive eye shape match the selected reference.",
+                "zuv": "Curly dark hair, beard shape, brow weight, and grounded posture match the selected reference.",
+            },
+        },
+    )
+
+    report = inspect_carousel_package(package)
+
+    codes = issue_codes(report)
+    assert "identity_eval_missing_stop_gate" not in codes
+    assert "identity_eval_incomplete_stop_gate" not in codes
+    assert "identity_eval_unverified_stop_gate" not in codes
+
+
+def test_handoff_package_requires_copy_hidden_director_storyboard(tmp_path: Path) -> None:
     package = tmp_path / "i-have-no-car-i-ll-walk"
     package.mkdir()
     write_json(package / "manifest.json", {"status": "READY_FOR_CODEX_BUILTIN_GENERATION"})
@@ -161,8 +328,8 @@ def test_clean_handoff_package_reports_actionable_non_publishable_state(tmp_path
 
     report = inspect_carousel_package(package)
 
-    assert report.highest_severity == "warning"
-    assert "handoff_ready_not_publishable" in issue_codes(report)
+    assert report.highest_severity == "blocker"
+    assert "director_storyboard_failed" in issue_codes(report)
     assert "missing_prompt_pack" not in issue_codes(report)
 
 
@@ -183,11 +350,12 @@ def test_flags_publishable_claim_without_visual_qa(tmp_path: Path) -> None:
 def test_flags_missing_reels_stories_when_instagram_finals_exist(tmp_path: Path) -> None:
     package = tmp_path / "partial-native-final"
     package.mkdir()
+    write_format_contract(package, ["instagram_post", "reels_stories"], source="test")
     (package / "final").mkdir()
     (package / "final" / "slide-01.png").write_bytes(b"not a real png")
     write_json(package / "final-images.json", {"status": "generated", "done": True, "publishable": False})
 
     report = inspect_carousel_package(package)
 
-    assert "missing_reels_stories_final_folder" in issue_codes(report)
+    assert "missing_reels_stories_final" in issue_codes(report)
     assert report.highest_severity == "blocker"

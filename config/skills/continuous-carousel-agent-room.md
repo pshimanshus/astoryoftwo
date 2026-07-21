@@ -275,9 +275,11 @@ If the session has image-generation capability, continue automatically:
 1. Generate the riskiest proof slide first when identity, taste, or safety risk
    is high.
 2. Ask the creator to approve or reject the proof image.
-3. If approved, generate every remaining native `3:4` slide and separate native
-   `9:16` slide.
-4. Package the outputs into `final/` and `final-reels-stories/`.
+3. If approved, generate every remaining slide independently in each format
+   locked by `format-contract.json`.
+4. Package only those locked outputs: `final/` for `instagram_post`,
+   `final-reels-stories/` for explicit `reels_stories`, and `final-square/` for
+   explicit `square`.
 5. Run visual QA and final audit.
 
 If generation cannot run, write the exact blocker in the carousel package and

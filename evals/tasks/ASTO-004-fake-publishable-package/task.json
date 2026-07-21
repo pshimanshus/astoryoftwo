@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["smoke", "carousel", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
   "starting_state": [
     "final-images.json claims generated and publishable output.",
     "Native PNGs are missing, invalid, or missing the separate Reels/Stories folder.",

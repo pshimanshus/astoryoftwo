@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["contract", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
   "starting_state": [
     "The pre-post Reel analysis agents can score hooks and algorithm risk without loading the romance story-selling spine.",
     "The resulting brief lacks Layer E room decision artifacts."
@@ -15,15 +16,21 @@
     "The orchestrator brief includes Layer E Story-Selling and artifact names.",
     "Prepost tests pass."
   ],
-  "allowed_paths": ["pipeline/stages/**", "scripts/analyze_prepost.py", "config/skills/**", "agents/**", "tests/**"],
+  "allowed_paths": ["pipeline/stages/**", "scripts/analyze_prepost.py", "config/skills/**", "agents/**", "tests/**", "output/evals/ASTO-010/prepost-config.json"],
   "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
-  "expected_files_changed": ["pipeline/stages/b1_prepost.py", "scripts/analyze_prepost.py", "tests/test_prepost_story_selling.py"],
+  "expected_files_changed": ["pipeline/stages/b1_prepost.py", "scripts/analyze_prepost.py", "tests/test_prepost_story_selling.py", "output/evals/ASTO-010/prepost-config.json"],
   "forbidden_changes": ["Do not make hook score the only gate.", "Do not remove cultural or caption review agents."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_prepost_story_selling.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "prepost_layer_e_fixture"],
   "rubric_checkers": [],
   "fail_to_pass": ["pre-post Reel analysis loads the romance story-selling spine and emits Layer E room artifacts"],
   "pass_to_pass": ["hook, cultural, caption, and edit-agent analysis remain active"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/evals/ASTO-010/prepost-config.json",
+      "target": "output/evals/ASTO-010/prepost-config.json"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should inspect ORCHESTRATOR_SKILLS and all PREPOST_AGENT_CONFIGS."]
 }

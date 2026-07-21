@@ -33,9 +33,11 @@ handoffs, audits, and publishing closeout.
 - Keep face, hair, body proportions, height, expression, posture, and clothing
   style consistent across the work. When current/couple photos are provided,
   clothing and couple styling come from those images first.
-- Native formats and brandmark are production gates, not polish: post/carousel
-  `1080x1440`, Reel/story `1080x1920`, square only when requested, and tiny
-  `@a.storyof.two`.
+- Native formats and brandmark are production gates, not polish. The default
+  post/carousel deliverable is only `1080x1440`. Generate Reel/story
+  `1080x1920` or square `1080x1080` only when the creator explicitly requests
+  that format. Never add an automatic multi-format derivative. Keep the tiny
+  `@a.storyof.two` brandmark on every requested output.
 - Prefer one-command workflows. If one command cannot create the brief/package,
   run checks, and produce the relevant post/Reel/carousel outputs, name the
   missing automation link and plan it instead of doing scattered manual work.
@@ -104,7 +106,7 @@ old package disagrees with `config/rules/`, the rule file wins.
 | identity | `config/rules/identity.md` | Aachu/Zuv identity, face preservation, height, wardrobe, pose |
 | on-image-text | `config/rules/on-image-text.md` | exact slide text, typography, anti-invention |
 | brandmark | `config/rules/brandmark.md` | tiny `@a.storyof.two` top-right signature |
-| image-dimensions | `config/rules/image-dimensions.md` | native 1080x1440 post and 1080x1920 story/reel outputs; square only for explicit experiments |
+| image-dimensions | `config/rules/image-dimensions.md` | default post/carousel output is only 1080x1440; 1080x1920 story/reel and 1080x1080 square are explicit-request-only |
 | visual-variety | `config/rules/visual-variety.md` | shot ladder, setting/action variety, repeated-scene hard fails |
 | relationship-motion | `config/rules/relationship-motion.md` | relationship proof without defaulting to Zuv-handler care |
 | brand-zone | `config/rules/brand-zone.md` | sponsored brand/product legibility workflow |
@@ -227,8 +229,11 @@ current-request photos before any static menu.
 
 Do not call a carousel done until it has:
 
-- native 1080x1440 post finals;
-- native 1080x1920 story/reel finals;
+- native 1080x1440 post finals by default;
+- native 1080x1920 story/reel finals only when the creator explicitly requested
+  Story or Reel;
+- native 1080x1080 square finals only when the creator explicitly requested
+  square;
 - exact on-image text or a documented text exception;
 - identity/style-reference review;
 - tiny `@a.storyof.two` brandmark;

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "slide_count": 1,
+  "checks": {
+    "storyboard": {"pass": true},
+    "scene_logic": {"pass": true},
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "expected_people": 2,
+          "observed_people": 4,
+          "unexpected_entities": ["unintended background couple walking away through the corridor"],
+          "evidence": "The foreground couple is correct, but a second man and woman appear beneath the archway."
+        }
+      ]
+    }
+  }
+}

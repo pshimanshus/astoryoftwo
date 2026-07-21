@@ -1,0 +1,227 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "We’re not married yet.\nBut try telling that to our habits.",
+      "role": "Cover"
+    },
+    {
+      "slide": 2,
+      "copy": "Every plan starts with:\n“Ek minute, usse poochna padega.”",
+      "role": "Cold Open"
+    },
+    {
+      "slide": 3,
+      "copy": "Every small decision becomes\na two-person meeting.",
+      "role": "Mirror"
+    },
+    {
+      "slide": 4,
+      "copy": "Problem ek ki hoti hai.",
+      "role": "Mirror"
+    },
+    {
+      "slide": 5,
+      "copy": "Stress dono lete hain.",
+      "role": "Spine"
+    },
+    {
+      "slide": 6,
+      "copy": "Fight bhi proper hoti hai.",
+      "role": "Rhythm"
+    },
+    {
+      "slide": 7,
+      "copy": "Then five minutes later:\n“Ghar pahunch ke text karna.”",
+      "role": "Rhythm"
+    },
+    {
+      "slide": 8,
+      "copy": "Kyunki gussa apni jagah.\n“Tum theek ho?” apni jagah.",
+      "role": "Turn"
+    },
+    {
+      "slide": 9,
+      "copy": "Officially?\nNo vows yet.",
+      "role": "Turn"
+    },
+    {
+      "slide": 10,
+      "copy": "Shaadi abhi baaki hai.\nPar “hum” toh kab ke ban chuke hain.",
+      "role": "Payoff"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement for separate native 3:4 and 9:16 outputs."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Wordless Habit Relay + Broken-Key Continuity",
+      "score": 29,
+      "case_for": "Automatic crossed-hand exchanges make the unofficial-marriage hook visible, while one concrete broken-key incident carries shared stress, friction, persistent care, and the payoff.",
+      "risk": "Slides 4-9 must preserve one incident and wardrobe without turning the landing into six same-angle frames."
+    },
+    {
+      "name": "Domestic Evidence Montage",
+      "score": 26,
+      "case_for": "Different household objects can quickly communicate already-married habits.",
+      "risk": "It becomes list-like, generic, and too dependent on props rather than one earned story turn."
+    },
+    {
+      "name": "Threshold Distance Ladder",
+      "score": 28,
+      "case_for": "Changing physical distance across the landing makes irritation and continuing care legible without dialogue bubbles.",
+      "risk": "Used alone, it can feel too cinematic and visually repetitive; it works best nested inside the object-relay story."
+    }
+  ],
+  "cross_debate": [
+    "The slide-group directors independently selected automatic habit exchanges as the strongest cover mechanic.",
+    "The middle room rejected unrelated married-couple montage scenes and chose one snapped-key incident so the shared stress, fight, and care beats have consequence.",
+    "The payoff selector rejected a shared grocery-bag ending because it repeats the older heavier-half lane; the repaired-key doorway relay now closes the visual loop."
+  ],
+  "selected_visual_system": "Wordless Habit Relay + Broken-Key Continuity",
+  "why_it_wins": "It gives every line a visible behavior receipt, keeps both partners active, creates a real action-reaction-consequence sequence through the middle, varies distance and camera angle, and returns to the cover action for an earned visual payoff.",
+  "rejected_visual_patterns": [
+    "Domestic Evidence Montage without a continuous incident",
+    "Shared grocery-bag payoff adjacent to the older heavier-half lane",
+    "Wedding rings, vows, mandap, generic embrace, split-screen phone UI, and repeated seated conversations"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "We’re not married yet.\nBut try telling that to our habits.",
+      "visual_job": "Cover",
+      "scene": "Wide three-quarter apartment doorway scene: Aachu slips Zuv's wallet and keys into his waiting jacket pocket while Zuv simultaneously lowers her filled water bottle into her open tote. Neither looks at the other; their crossed forearms and automatic timing prove muscle memory. Couple in lower half, clean ivory negative space above-left, brandmark clear top-right.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "Every plan starts with:\n“Ek minute, usse poochna padega.”",
+      "visual_job": "Cold Open",
+      "scene": "Over-shoulder threshold view from outside: Aachu is halfway through the exit, one palm raised to the unseen outside world in a natural one-second gesture, while turning back toward Zuv. Zuv stands several feet inside holding two helmets and gives a familiar nod. The check-in reads as alignment, never permission.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "Every small decision becomes\na two-person meeting.",
+      "visual_job": "Mirror",
+      "scene": "Wide profile hallway scene: Zuv holds a small blank framed print against the wall while Aachu stands several feet back, squinting with mock seriousness and pinching two fingers to signal two centimetres left. Their eye-lines converge on the frame; subtle painter's-tape alternatives show mutual over-investment without clutter.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "Problem ek ki hoti hai.",
+      "visual_job": "Mirror",
+      "scene": "Tight over-Zuv-shoulder landing shot at lock level: he remains upright, frozen at the apartment lock, holding half of a snapped key while the other half is unmistakably stuck. Aachu is not yet visible. The solitary reaction establishes one person's problem before it spreads.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "Stress dono lete hain.",
+      "visual_job": "Spine",
+      "scene": "High three-quarter landing view: the broken key remains in the lock. Both stay upright. Aachu searches her tote for a spare or maintenance number while Zuv lights the lock with his phone torch and examines it without forcing it. Their shoulders nearly touch and both eye-lines fix on the same obstacle; neither rescues the other.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "Fight bhi proper hoti hai.",
+      "visual_job": "Rhythm",
+      "scene": "Low-medium two-shot along the same landing: Aachu holds out a blank maintenance card while Zuv holds the snapped key and argues for another solution. They stand two to three feet apart with direct eye-line, equal irritation, open palms, and no finger-pointing. The failed lock sits between their competing solutions.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "Then five minutes later:\n“Ghar pahunch ke text karna.”",
+      "visual_job": "Rhythm",
+      "scene": "Wide view from inside the now-open doorway toward the stairwell: Zuv is already two steps down, body facing away with helmet in hand. Aachu remains in the doorway, posture still stiff, but instinctively calls after him. He stops mid-step and turns back immediately; their eye-lines reconnect across the distance.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 8,
+      "copy": "Kyunki gussa apni jagah.\n“Tum theek ho?” apni jagah.",
+      "visual_job": "Turn",
+      "scene": "Intimate waist-up profile at the threshold: both still look mildly annoyed and avoid a romantic gaze. Aachu notices a tiny nick on Zuv's thumb from the broken key and offers a tissue while Zuv keeps his other arm completely outside the frame; no hand touches or braces the door. Zuv stands fully in front of the door and doorframe; a continuous visible contour separates his hair, shoulder, back, shirt, and torso from both solid surfaces. No door or frame line touches, crosses, replaces, or absorbs any part of his body. Their simultaneous gestures show anger and concern occupying the same frame; their hands nearly meet without an embrace.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 9,
+      "copy": "Officially?\nNo vows yet.",
+      "visual_job": "Turn",
+      "scene": "Very wide architectural landing shot: Aachu stands inside her doorway and Zuv pauses several steps away near the stairs, still connected by eye-line and each holding one of the other's everyday belongings. The physical space honestly shows two separate lives; the exchanged objects show the unofficial unit already operating.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 10,
+      "copy": "Shaadi abhi baaki hai.\nPar “hum” toh kab ke ban chuke hain.",
+      "visual_job": "Payoff",
+      "scene": "Circular visual echo of slide 1 on another morning and in different clothes: at the same doorway, Aachu passes Zuv his wallet while Zuv passes her water bottle in the same automatic crossed-hand relay. This time a repaired key hangs quietly beside the door and both share the smallest knowing smile. The visual closes the story through repeated behavior, not a wedding symbol or generic embrace.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

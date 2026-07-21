@@ -12,8 +12,10 @@ sys.path.insert(0, str(ROOT))
 from evals.checkers.deterministic import check_prompt_exists, run_required_commands  # noqa: E402
 from evals.checkers.diff_guard import changed_paths, check_changed_paths  # noqa: E402
 from evals.checkers.report import EvalReport, score_checks  # noqa: E402
+from evals.checkers.rubric import load_rubric_reviews, run_rubric_checkers  # noqa: E402
 from evals.checkers.task_specific import run_named_checkers  # noqa: E402
 from evals.fixtures import UnsafeFixturePathError, materialize_task_fixture  # noqa: E402
+from evals.review import review_suite_once  # noqa: E402
 from evals.schemas import EvalTask, discover_tasks, validate_task_suite  # noqa: E402
 
 
@@ -36,12 +38,21 @@ def run_task_checks(
     *,
     skip_commands: bool = False,
     explicit_changed_paths: list[str] | None = None,
+    rubric_reviews: dict[tuple[str, str], dict] | None = None,
 ) -> EvalReport:
     checks = [check_prompt_exists(task)]
     paths = explicit_changed_paths if explicit_changed_paths is not None else changed_paths(root)
     if "diff_guard" in task.deterministic_checkers:
         checks.extend(check_changed_paths(task, paths))
     checks.extend(run_named_checkers(task, root, task.deterministic_checkers))
+    checks.extend(
+        run_rubric_checkers(
+            task,
+            root,
+            task.rubric_checkers,
+            reviews=rubric_reviews,
+        )
+    )
     if not skip_commands:
         checks.extend(run_required_commands(task, root))
     return score_checks(task, checks)
@@ -65,11 +76,22 @@ def build_parser() -> argparse.ArgumentParser:
     list_parser = sub.add_parser("list")
     list_parser.add_argument("--suite")
 
+    review = sub.add_parser(
+        "review",
+        help="Review each selected task fixture once in registry order.",
+    )
+    review.add_argument("--suite")
+
     check = sub.add_parser("check")
     check.add_argument("task_id", nargs="?")
     check.add_argument("--suite")
     check.add_argument("--skip-commands", action="store_true")
     check.add_argument("--changed-path", action="append", default=[])
+    check.add_argument(
+        "--rubric-results",
+        type=Path,
+        help="JSON file containing anchored human/judge rubric reviews.",
+    )
 
     prepare = sub.add_parser("prepare")
     prepare.add_argument("task_id")
@@ -89,13 +111,46 @@ def main(argv: Sequence[str] | None = None) -> int:
     tasks = discover_tasks(root)
     if args.command == "list":
         selected = select_tasks(tasks, suite=args.suite)
-        print(json.dumps([{"id": task.id, "title": task.title, "suites": task.suites} for task in selected], indent=2))
+        print(
+            json.dumps(
+                [
+                    {
+                        "id": task.id,
+                        "title": task.title,
+                        "suites": task.suites,
+                        "fixture_mode": task.fixture_contract.mode,
+                        "fixture_expected_outcome": task.fixture_contract.expected_outcome,
+                        "benchmark_setup": task.fixture_contract.benchmark_setup,
+                    }
+                    for task in selected
+                ],
+                indent=2,
+            )
+        )
         return 0
+
+    if args.command == "review":
+        selected = select_tasks(tasks, suite=args.suite)
+        if not selected:
+            print("No eval tasks matched.", file=sys.stderr)
+            return 2
+        report = review_suite_once(selected)
+        print(json.dumps(report, indent=2))
+        return 0 if report["status"] == "PASS" else 1
 
     if args.command == "check":
         selected = select_tasks(tasks, suite=args.suite, task_id=args.task_id)
         if not selected:
             print("No eval tasks matched.", file=sys.stderr)
+            return 2
+        try:
+            rubric_reviews = (
+                load_rubric_reviews(args.rubric_results)
+                if args.rubric_results is not None
+                else {}
+            )
+        except (FileNotFoundError, json.JSONDecodeError, OSError, ValueError) as exc:
+            print(f"Invalid rubric results: {exc}", file=sys.stderr)
             return 2
         reports = [
             run_task_checks(
@@ -103,6 +158,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 root,
                 skip_commands=args.skip_commands,
                 explicit_changed_paths=args.changed_path or None,
+                rubric_reviews=rubric_reviews,
             ).to_dict()
             for task in selected
         ]

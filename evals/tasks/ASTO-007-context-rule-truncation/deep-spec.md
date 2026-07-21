@@ -10,13 +10,18 @@ mutilate required rule-included content.
 
 ## Starting Fixture
 
-The fixture should build a temporary manifest with a small token budget and a
-required section containing `{{rule:palette}}` or another canonical rule include
-near the budget boundary. The fail-to-pass behavior is a silent truncated
-section, or a rendered context pack that contains a partial rule without an
-error. The pass-to-pass behavior is that ordinary context packs still render
-with provenance and optional non-rule sections can be truncated with a visible
-marker.
+Fixture direction: **regression**. The protected current implementation is
+expected to reject the seeded failure, so a single-pass `evals/runner.py review`
+records this fixture as `guarded`. That guard result alone cannot award agent
+solve credit: an isolated benchmark run must first apply a hidden code mutation
+or pre-fix revision that makes the guard fail, then evaluate the agent patch.
+
+The visible fixture builds a temporary manifest with a one-token budget and a
+required section containing `{{rule:palette}}` near the budget boundary. The
+fail-to-pass behavior is a silent truncated section, or a rendered context pack
+that contains a partial rule without an error. The pass-to-pass behavior is
+that ordinary context packs still render with provenance and optional non-rule
+sections can be truncated with a visible marker.
 
 ## Failure Modes
 

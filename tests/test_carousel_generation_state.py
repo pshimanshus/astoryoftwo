@@ -137,3 +137,60 @@ def test_audit_failed_state_is_non_publishable(tmp_path):
     assert state["status"] == "generated_audit_failed"
     assert state["done"] is False
     assert state["publishable"] is False
+
+
+def test_proof_state_machine_rejects_skipping_qa_and_creator_approval(tmp_path):
+    slides = [{"slide": 1, "file": ".internal/visual-quarantine/attempt-01/slide-01.png"}]
+    write_generation_state(
+        tmp_path,
+        status=GenerationStatus.GENERATED_QUARANTINED,
+        backend="codex_builtin",
+        generation_mode="model_native_publishable",
+        slide_count=1,
+        slides=slides,
+    )
+
+    with pytest.raises(ValueError, match="Invalid proof-state transition"):
+        write_generation_state(
+            tmp_path,
+            status=GenerationStatus.BATCH_ALLOWED,
+            backend="codex_builtin",
+            generation_mode="model_native_publishable",
+            slide_count=1,
+            slides=slides,
+        )
+
+
+@pytest.mark.parametrize(
+    "initial_status",
+    [None, GenerationStatus.DRAFT, GenerationStatus.HANDOFF_READY],
+)
+@pytest.mark.parametrize(
+    "skipped_status",
+    [
+        GenerationStatus.QA_PASS_CANDIDATE,
+        GenerationStatus.CREATOR_APPROVED_PROOF,
+        GenerationStatus.BATCH_ALLOWED,
+    ],
+)
+def test_proof_state_machine_rejects_entering_after_quarantine(
+    tmp_path, initial_status, skipped_status
+):
+    if initial_status is not None:
+        write_generation_state(
+            tmp_path,
+            status=initial_status,
+            backend="test",
+            generation_mode="test",
+            slide_count=1,
+        )
+
+    with pytest.raises(ValueError, match="first state must be GENERATED_QUARANTINED"):
+        write_generation_state(
+            tmp_path,
+            status=skipped_status,
+            backend="test",
+            generation_mode="test",
+            slide_count=1,
+            slides=[{"slide": 1}],
+        )

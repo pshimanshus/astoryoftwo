@@ -1,0 +1,34 @@
+{
+  "request_history": [
+    {
+      "turn": 1,
+      "creator_message": "plan the next carousel",
+      "requested_output": "carousel_package"
+    },
+    {
+      "turn": 2,
+      "creator_message": "not the full carousel, make one square proof only",
+      "requested_output": "square_proof"
+    }
+  ],
+  "latest_creator_request": {
+    "turn": 2,
+    "requested_output": "square_proof",
+    "canvas": "1080x1080",
+    "ambiguity": "none"
+  },
+  "generated_outputs": [
+    {
+      "format": "instagram_post",
+      "canvas": "1080x1440",
+      "path": "output/carousels/fixtures/snapback/final/slide-01.png",
+      "requested_by_latest_creator_message": false
+    },
+    {
+      "format": "reels_stories",
+      "canvas": "1080x1920",
+      "path": "output/carousels/fixtures/snapback/final-reels-stories/slide-01.png",
+      "requested_by_latest_creator_message": false
+    }
+  ]
+}

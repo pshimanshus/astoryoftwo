@@ -6,6 +6,7 @@
   "difficulty": "hard",
   "suites": ["creative", "carousel", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
   "starting_state": [
     "A seven-slide carousel plan uses the same medium two-shot in the same room for every slide.",
     "The copy is warm, but hiding the text makes the visuals interchangeable."
@@ -20,10 +21,16 @@
   "expected_files_changed": ["pipeline/stages/carousel_visual_rooms.py", "tests/test_story_scene_first_contract.py", "tests/test_illustration_carousel.py"],
   "forbidden_changes": ["Do not allow quote-card visuals with characters added later.", "Do not approve repeated full-couple medium shots by changing the threshold."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_story_scene_first_contract.py", "tests/test_illustration_carousel.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "visual_variety_shot_ladder_fixture"],
   "rubric_checkers": ["visual_variety"],
   "fail_to_pass": ["repeated-scene visual plan is blocked until a shot ladder varies camera, action, setting, and subject visibility"],
   "pass_to_pass": ["warm relationship copy remains allowed when visual plan quality is GO/PASS"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/evals/ASTO-012/visual-plan-quality.json",
+      "target": "output/evals/ASTO-012/visual-plan-quality.json"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
   "anti_gaming_notes": ["Hidden checker should hide slide text and compare visual fields for repeated setting/action/shot patterns."]
 }

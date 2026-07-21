@@ -1,0 +1,72 @@
+{
+  "schema_version": "creator-correction/v1",
+  "recorded_date": "2026-07-21",
+  "source": "current_creator_message",
+  "status": "LOCKED",
+  "correction": "Replace and lock the carousel copy as the creator's revised 11-slide story.",
+  "format_instruction": "No canvas was explicitly named; retain the existing default instagram_post lock only.",
+  "exact_copy": [
+    {
+      "slide": 1,
+      "role": "Cover",
+      "text": "We’re not married yet.\nBut try telling that to our habits."
+    },
+    {
+      "slide": 2,
+      "role": "Cold Open",
+      "text": "Every plan starts with:\n“Ek minute, usse poochna padega.”"
+    },
+    {
+      "slide": 3,
+      "role": "Mirror",
+      "text": "Every small decision becomes\na two-person meeting."
+    },
+    {
+      "slide": 4,
+      "role": "Mirror",
+      "text": "Problem ek ki hoti hai."
+    },
+    {
+      "slide": 5,
+      "role": "Spine",
+      "text": "Stress dono lete hain."
+    },
+    {
+      "slide": 6,
+      "role": "Rhythm",
+      "text": "Fight bhi proper hoti hai."
+    },
+    {
+      "slide": 7,
+      "role": "Rhythm",
+      "text": "Then five minutes later:\n“Ghar pahunch ke text karna.”"
+    },
+    {
+      "slide": 8,
+      "role": "Turn",
+      "text": "Kyunki gussa apni jagah."
+    },
+    {
+      "slide": 9,
+      "role": "Turn",
+      "text": "“Tum theek ho?” apni jagah."
+    },
+    {
+      "slide": 10,
+      "role": "Turn",
+      "text": "Officially?\nNo vows yet."
+    },
+    {
+      "slide": 11,
+      "role": "Payoff",
+      "text": "Shaadi abhi baaki hai.\nPar “hum” toh kab ke ban chuke hain."
+    }
+  ],
+  "story_arc_lock": "unofficial -> shared decisions -> shared stress -> real friction -> care surviving friction -> no vows yet -> already an us",
+  "invalidates": [
+    "prior Event A storyboard review",
+    "prior Event B rendered-frame review",
+    "prior compiled prompt handoff",
+    "prior generated proofs and finals"
+  ]
+}

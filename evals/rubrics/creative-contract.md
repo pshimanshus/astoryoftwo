@@ -1,7 +1,7 @@
 # Creative Contract Rubric
 
-last_updated: 2026-07-04
-confidence: 0.78
+last_updated: 2026-07-21
+confidence: 0.84
 sources:
 - AGENTS.md
 - config/skills/carousel-jam-runtime-context.md
@@ -15,6 +15,11 @@ sources:
 Use this rubric only after mechanical gates pass. It is for creator-facing
 artifacts where deterministic checks cannot fully judge whether the output is
 alive, specific, and useful.
+
+Every dimension score must cite at least one concrete artifact anchor: exact
+seed language, a scene action, visible object, reaction, payoff, format reason,
+or creator-facing line. Generic statements such as "feels strong" or "looks
+good" are invalid evidence.
 
 ## Anchored Dimensions
 
@@ -51,3 +56,8 @@ Relationship motion, 0-2:
 - 2: the relationship dynamic is visible, specific, and non-generic.
 
 Pass requires at least 9/12, with no zero in seed preservation or scene proof.
+A deterministic hard-gate failure always blocks the task regardless of rubric
+total. Record the reviewer ID and reviewed artifact. Without an evidence-bearing
+human or judge review, the rubric status is `PENDING`, not an automatic pass.
+The review must name a different author and reviewer and bind to the exact
+artifact SHA-256 so a score cannot be reused after the artifact changes.

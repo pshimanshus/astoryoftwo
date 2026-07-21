@@ -11,13 +11,18 @@ runtime context, manifest, and command path.
 
 ## Starting Fixture
 
-The fixture should remove `config/skills/creator-skill-stack.md` from one or
-more surfaces, such as `config/skill-systems.json`,
-`config/agentic_context_manifest.json`, `config/skills/carousel-jam-runtime-context.md`,
-or `scripts/jam_today.py`. The fail-to-pass case is that creator workflow tests
-or an explicit route scan fails. The pass-to-pass case is that existing repo
-skills still resolve, closeout/wiki-health skills remain explicit-only, and the
-compact runtime policy still avoids loading every long source by default.
+Fixture direction: **solution**. A single-pass `evals/runner.py review` must
+observe the materialized starter as `unresolved`. The task becomes resolved
+only after the agent repairs the fixture-backed repository state and the named
+checker passes.
+
+The visible fixture removes `config/skills/creator-skill-stack.md` from the
+skill registry, context manifest, runtime context, autopilot doc, and repo
+carousel skill surface. The fail-to-pass case is that creator workflow tests or
+the explicit route scan fail until all active surfaces load the hook again. The
+pass-to-pass case is that existing repo skills still resolve, closeout/wiki-
+health skills remain explicit-only, and the compact runtime policy still avoids
+loading every long source by default.
 
 ## Failure Modes
 

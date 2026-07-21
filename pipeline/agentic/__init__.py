@@ -10,6 +10,7 @@ __all__ = [
     "memory_index",
     "recall",
     "audit_log",
+    "carousel_review_loop",
     "learning_loop",
     "skill_eval",
     "workflow_state",

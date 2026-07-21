@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["contract", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
   "starting_state": [
     "Article packages can be created without Layer E Story-Selling references or Gate 8.",
     "The source carousel still has concept/story artifacts."
@@ -17,13 +18,23 @@
   ],
   "allowed_paths": ["scripts/create_substack_article_package.py", "config/skills/**", "pipeline/**", "tests/**", "output/articles/**"],
   "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
-  "expected_files_changed": ["scripts/create_substack_article_package.py", "config/skills/couple-substack-article-framework.md", "tests/test_substack_article_package.py"],
+  "expected_files_changed": ["scripts/create_substack_article_package.py", "config/skills/couple-substack-article-framework.md", "tests/test_substack_article_package.py", "output/articles/fixtures/missing-story-selling/source-manifest.json", "output/articles/fixtures/missing-story-selling/editorial-gates.md"],
   "forbidden_changes": ["Do not replace source-integrity gates with generic writing advice.", "Do not remove Story-Selling threshold references."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_substack_article_package.py", "-q"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "article_story_selling_fixture"],
   "rubric_checkers": [],
   "fail_to_pass": ["article packages cannot omit Layer E Story-Selling gate artifacts"],
   "pass_to_pass": ["source-integrity and editorial approval gates remain intact for valid article packages"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/articles/fixtures/missing-story-selling/source-manifest.json",
+      "target": "output/articles/fixtures/missing-story-selling/source-manifest.json"
+    },
+    {
+      "source": "fixtures/output/articles/fixtures/missing-story-selling/editorial-gates.md",
+      "target": "output/articles/fixtures/missing-story-selling/editorial-gates.md"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should inspect generated article package artifacts, not only source code strings."]
 }

@@ -2,7 +2,7 @@
 # This file loads every session. It is the visual brain.
 # When you make any illustration decision, check here first.
 
-last_updated: 2026-06-30
+last_updated: 2026-07-20
 confidence: 1.0
 sources:
 - direct creator instruction 2026-05-31
@@ -12,6 +12,15 @@ sources:
 - direct creator correction 2026-06-30: on-image text must be present from the
   first proof onward; blank-scene/deferred-lettering workflows are blocked,
   not valid intermediates
+- direct creator instruction 2026-07-20: illustrations must communicate as
+  richly as a writer, filmmaker, comics author, or storyboard director; the
+  "I'm leaving" / juttis frame is the calibration because visible action,
+  object ownership, blocking, and reaction carry more story than copy alone
+- .agents/skills/a-story-direct-visual-story/SKILL.md
+- Bruce Block, The Visual Story (Routledge)
+- Scott McCloud, Making Comics (author source)
+- Pixar in a Box, The Art of Storytelling (Pixar / Khan Academy)
+- Neil Cohn, Visual Narrative Structure (Cognitive Science)
 - memory/semantic/premium-illustration-style-lock.md
 - config/references/a-story-illustration-master-prompt.md
 - config/references/identity/README.md
@@ -63,9 +72,15 @@ the story needs to prove at that exact slide. Ask: "what is the one thing this s
 must make the viewer feel without reading the text?" That answer determines everything
 below. Never pick a visual because it looks nice. Pick it because it proves the beat.
 
+Richness means causal evidence, not decorative density. A directed frame has a
+specific subject, visible action, target/object, and reaction, consequence, or
+changed state. The location, light, wardrobe, props, hands, gaze, feet, body
+distance, and camera should reveal character or event history rather than fill
+the scene.
+
 ---
 
-## Brand Identity Objects — Always Present, Always Recognizable
+## Recurring Identity Objects — Available, Never Mandatory
 
 These are Aachu and Zuv's recurring personal objects. They are identity markers and
 emotional proof tools. Use them when the story beat calls for hands, accessories,
@@ -80,9 +95,11 @@ or personal details. Do not add them decoratively — add them when the story ne
 | Heart motif | Both | As a drawn graphic element in the illustration, not a literal sticker |
 | Reaction annotation | In-scene | Handwritten word/feeling floating near a character, like a living caption |
 
-**Rule:** In every carousel, at least one slide should feature one brand object as
-a meaningful scene element. This is what makes illustrations feel like @a.storyof.two
-and not generic couple art.
+**Rule:** There is no per-carousel object quota. Use a recurring object only when
+its state, ownership, movement, residue, or payoff performs a story job. If
+blocking, spatial change, or a human gesture carries the beat better, omit the
+object. Do not force the evil eye, heart, locket, shoes, chai, or any other motif
+into an unrelated scene to make it look branded.
 
 ---
 
@@ -172,7 +189,8 @@ A single well-framed detail often hits harder than a full-figure scene.
 
 ## Visual Storytelling Sequence Across Slides
 
-Think of the carousel as a short film. Apply shot variety like a director:
+Think of the carousel as a short film. This is an example ladder, not a fixed
+recipe:
 ```
 Slide 1: WIDE or DETAIL (hook — create curiosity, don't give everything)
 Slide 2: MEDIUM (establish the dynamic)
@@ -181,8 +199,12 @@ Slide 4: REACTION or SINGLE (the emotional turn — one person's face or moment)
 Slide 5: CLOSE OBJECT or ANNOTATION (the quiet evidence before payoff)
 Slide 6+: MEDIUM or CLOSE (the earned ending — together or apart, both work)
 ```
-Never repeat the same shot type twice in a row. Never use full-couple medium
-shots for 4 of 5 slides.
+Avoid unmotivated repetition. Consecutive shot sizes may repeat when the
+continuous action or designed comparison needs them, but camera position,
+blocking, focal evidence, or story information must change and the repetition
+must have an explicit reason. Do not use full-couple medium shots for 4 of 5
+slides unless the repetition itself is the authored device and a fresh reader
+can identify the changing story.
 
 ## Pattern-Breaking Rule
 
@@ -203,6 +225,39 @@ keeps returning to the same bed, books, chai, mugs, garden table, balcony
 plants, or generic soft-couple setup without story need. If the story needs one
 continuous location, vary distance, angle, hand/object focus, and perspective
 so the carousel still feels like a sequence rather than repeated captions.
+
+## Two-Event Readability Loop
+
+After concept lock, use `.agents/skills/a-story-direct-visual-story/SKILL.md`.
+
+1. A pre-copy or pre-canvas board may guide drafting, but it is advisory. Only
+   after exact copy (or its documented exception) and the request-derived
+   `carousel_format_contract` are locked, give a fresh orchestrated critic
+   fingerprinted observable `blind_cards`: visible people, setting, action,
+   hands/contact, gaze, blocking, object state, camera view, and continuity.
+   Hide copy, caption, theme, narrative/POV labels, story reasons, scores, and
+   intended interpretation. Persist the raw pre-reveal response and
+   `review_provenance`, record inferred story/evidence/ambiguity under
+   `director_storyboard`, then compute the complete
+   `director_event_fingerprint`.
+2. After generation, use another orchestrated critic whose task/run provenance
+   is pairwise distinct from both author and first critic. Inspect every exact
+   package-local expected asset image-first, then compare observed meaning to
+   the director card and exact copy. Record `checks.visual_story_readability`
+   in `visual-qa.json`, bound to `source_director_event_fingerprint`, canonical
+   slide/format path, dimensions, and current bytes. The format set is exactly
+   the request lock: post by default only when unspecified, Story/Reel or square
+   only when explicit. Never infer intent from folders or create 9:16 by
+   default.
+
+Task/run provenance makes the review execution auditable; arbitrary names do
+not prove reviewer independence or human identity. Prompts, filenames, and
+generator claims are not pixel evidence. Deterministic checks validate
+completeness, current fingerprints, exact expected assets, formats, and
+declared contradictions. They cannot judge whether the story genuinely reads;
+the semantic events remain mandatory. Legacy packages may be inspected, but
+cannot be promoted by translating an old PASS or synthesizing missing evidence;
+rerun both events against current locks and assets.
 
 ---
 
@@ -257,7 +312,7 @@ hands, backs, objects, or single-character shots rather than risk a generic face
 ## What Makes a Visual Choice @a.storyof.two
 
 The visual feels like @a.storyof.two when:
-- The brand objects appear naturally as part of the scene
+- Any object that appears has a natural story job; an object motif is optional
 - The shot type is serving the story, not filling space
 - The couple feels specific — not like any two people, but like THESE two people
 - The warmth is in the details (her anklet, his hand, the evil eye locket, the
@@ -273,7 +328,7 @@ The visual feels like @a.storyof.two when:
 ## What Makes a Visual Choice NOT @a.storyof.two
 
 - Both people shown symmetrically centered in every slide
-- No brand objects anywhere
+- Objects are decorative shorthand rather than causal relationship evidence
 - Generic poses: standing together looking at camera, sitting at a table, walking hand-in-hand
 - Face forward, smiling, clearly posed — feels like a stock photo not a moment
 - Dense cinematic landscape takes over the frame (the couple becomes tiny)

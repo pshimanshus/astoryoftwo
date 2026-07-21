@@ -63,6 +63,7 @@ before image generation.
 Every run must create:
 
 - `manifest.json`: run metadata, source images, status, artifact map
+- `format-contract.json`: request-derived locked output formats and canonical native dimensions; never inferred from generated folders
 - `agent-room.json`: continuous agent room status, active agents, unresolved objections, and stage verdict
 - `source-memory-brief.json`: source facts, image evidence, creator memory exclusions, and unknowns
 - `concept-routes.json`: 5-10 distinct route candidates before selection
@@ -73,7 +74,7 @@ Every run must create:
 - `concept.json`: title, human truth, emotional arc, slide summaries
 - `post-copy-visual-room.json`: mandatory visual creative-room record after creator-approved copy, before final visual debate, prompt pack, or image generation
 - `visual-debate.json`: Visual Debate Gate record from three visual agents before visual plan finalization, carousel packaging, or image generation
-- `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, stage-scene storytelling, copy-visual alignment, scene logic, pose/anatomy, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags
+- `visual-plan-quality.json`: per-slide GO / REPAIR / STOP screen before image generation, covering golden-theme proof, stage-scene storytelling, copy-visual alignment, scene logic, pose/anatomy, visual evidence, identity continuity, composition, typography, aspect-ratio safety, and doubt flags; it must also contain the `$a-story-direct-visual-story` copy-hidden critic event under `director_storyboard`
 - `slides.json`: ordered slide copy, role, visual description, emotion, CTA intent
 - `prompt-pack.json`: shared style prompt, negative prompt, slide prompts
 - `identity-consistency-review.json`: C3.5 pre-generation review that verifies face structure, facial expression, clothing/body-language cues, and cross-slide identity continuity are locked from selected actual identity image inputs
@@ -88,10 +89,48 @@ Every run must create:
 - `final-images.json`: final generated image manifest and source mapping
 - `visual-qa.md`: human/agent checklist for storyboard, identity, style, and typography
 
+When continuous review is requested, `.internal/review-loop/trace.jsonl`,
+`feedback.json`, and `summary.json` record each verification and repair cycle.
+These traces are evidence, not a replacement for the required QA artifacts.
+
+`visual-qa.json` must also contain `scene_entity_integrity` with one record per
+slide: intended people count, observed people count, unexpected entities, and
+concrete inspection evidence. This gate counts faint background people,
+reflections, silhouettes, portraits that read as live actors, and duplicate
+couples. Any mismatch blocks final approval.
+
+`visual-qa.json` must also contain `visual_story_readability`. A fresh reviewer
+uses a new orchestrated task/run, pairwise distinct from the route author and
+copy-hidden critic, to inspect generated images image-first before comparing
+observed meaning against the director card and exact copy. Persist raw
+pre-reveal evidence and `review_provenance`; names alone do not prove
+independence. Bind the result to the complete Event A
+`source_director_event_fingerprint` and require one current record for every
+slide/format pair in the request-derived lock. Each file path, dimension, and
+hash must equal `expected_frame_bindings`. Any unreadable action, weak
+relationship turn, copy-visual contradiction, unexpected secondary story,
+stale record, external/substitute file, or folder-inferred format blocks final
+approval. A prompt, filename, or generator claim is never inspection evidence.
+
+`visual-qa.json` schema v2.1 is a post-generation artifact, not a planning
+worksheet. It binds every inspected slide to its exact path, SHA-256, and
+dimensions; replaces boolean-only `pose_anatomy` with structured per-slide
+`anatomy_inventory`; requires whole-person `spatial_topology`; includes
+structured `visual_richness`; and records two distinct reviewer passes for
+anatomy/entity/spatial/identity and
+storytelling/richness/text/style. A generated proof remains quarantined until
+these pass and the creator separately approves it.
+Each locked native format carries its own anatomy, entity, and richness record
+bound to that format's exact pixels. Retry order is derived from the persisted
+attempt ledger and stops after the initial attempt plus two targeted repairs.
+Creator-approved pixels are audited in internal promotion staging; public
+final folders are populated only after that audit passes.
+
 Final generated images must be copied into:
 
-- `final/slide-XX.png`: exact `1080x1440` native 3:4 Instagram post export in the creator-approved illustration style, with exact ON-IMAGE TEXT integrated into the final image raster
-- `final-reels-stories/slide-XX.png`: native 9:16 Reels/Stories artwork generated separately for the taller frame, with exact ON-IMAGE TEXT integrated into the final image raster
+- `final/slide-XX.png`: exact `1080x1440` native 3:4 Instagram post export, only when `instagram_post` is locked, with exact ON-IMAGE TEXT integrated into the final image raster
+- `final-reels-stories/slide-XX.png`: exact `1080x1920` native 9:16 Reels/Stories artwork, only when `reels_stories` is locked, with exact ON-IMAGE TEXT integrated into the final image raster
+- `final-square/slide-XX.png`: exact `1080x1080` native 1:1 artwork, only when `square` is locked, with exact ON-IMAGE TEXT integrated into the final image raster
 - `final-with-text/slide-XX.png`: optional compatibility duplicate/intermediate only; the publishable text-bearing asset belongs in `final/`
 
 ## Default Format
@@ -103,6 +142,9 @@ Final generated images must be copied into:
   infer `3:4`, `9:16`, feed, Story, Reel, square, or multi-format output from
   repo defaults after the creator removes or rejects that format. If the canvas
   is unclear after a correction, ask for the exact canvas before generating.
+  Persist the resolved set through `carousel_format_contract`; never infer
+  intent from output folders. `instagram_post` is the default only when no
+  canvas was specified; `reels_stories` and `square` are explicit-only.
 - Per `config/rules/image-dimensions.md`, the creator hard rule for proof
   illustrations, concept illustrations, single-slide outputs, and default
   Instagram post/carousel slides is exact final export `1080x1440 px` (3:4).
@@ -126,7 +168,11 @@ Final generated images must be copied into:
   explicitly asks for a shorter deck or a production constraint requires
   compression.
 
-Never stretch artwork to fit a target format. Never create the Reels/Stories output by resizing, cropping, padding, or extending the Instagram post output. The final illustration flow uses three output workers: one native 3:4 Instagram Post Output worker, one native 9:16 Reels/Stories Output worker, and one Identity/Visual QA worker that checks both outputs before packaging.
+Never stretch artwork to fit a target format. Never create one requested format
+by resizing, cropping, padding, or extending another. Create one native output
+worker for each format in the current lock—post, Story/Reel, and/or square—plus
+visual QA that checks exactly those outputs before packaging. Do not start an
+unrequested worker.
 
 ## Visual Direction
 
@@ -256,10 +302,22 @@ visual/story reviewer, a romance-scene reviewer, a continuity judge, and a
 screen-quality judge. A slide passes only when it proves the exact copy through
 visible Aachu/Zuv behavior, preserves the golden-theme machine, keeps identity
 and outfit continuity plausible, avoids rejected/losing visual options, and is
-safe for both 3:4 and 9:16 composition. Any doubt about likeness, story proof,
+safe for every canvas locked by the current creator request. Any doubt about likeness, story proof,
 visual repetition, shot-ladder variety, text placement, aspect-specific framing, or place/metaphor
 drift must return REPAIR or STOP. Do not generate that slide, or the carousel,
 until the doubt is repaired and re-reviewed.
+
+Invoke `$a-story-direct-visual-story` for the authorial pass, then give a fresh
+orchestrated critic only the staged visual cards with copy, caption, theme, and
+intended interpretation hidden. Event A cannot pass until exact copy (or its
+documented exception) and the request-derived canvas set are locked. Record the
+critic's raw pre-reveal response, auditable `review_provenance`, inferred story,
+cited evidence, ambiguities, sequence read, source/format fingerprints,
+setup/payoff ledger, and per-slide director evidence under
+`director_storyboard`; then compute the complete `director_event_fingerprint`.
+Arbitrary reviewer labels, a bare PASS/GO, or a boolean checklist are not
+enough. Run
+`make visual-check CAROUSEL=... PHASE=pre`; failure blocks C4 and generation.
 
 ## Identity Reference Flow
 
@@ -329,15 +387,16 @@ Typography rule:
 
 - Default final slide copy must appear inside the final illustration image, not in a separate caption, mockup, or quote-card layer.
 - When the image model can render the exact text cleanly, image-model text is acceptable. When exact text is long or fragile, retry with a stronger text-bearing generation prompt or keep the package blocked. Do not create, keep, or use a textless generated image as the workaround.
-- Image-generation prompts must reserve generous clean paper space and ask for no random text beyond the approved slide copy and tiny brandmark. Final export workers must then produce two complete native publishable outputs per slide when required: 3:4 Instagram post and 9:16 Reels/Stories, each with exact ON-IMAGE TEXT inside the final image.
+- Image-generation prompts must reserve generous clean paper space and ask for no random text beyond the approved slide copy and tiny brandmark. Final export workers produce exactly the request-locked native outputs per slide: 3:4 Instagram post, 9:16 Reels/Stories, and/or 1:1 square, each with exact ON-IMAGE TEXT inside the final image.
 - Brand-integration prompts may include product labels, but brand/product name legibility is a hard QA gate at phone-screen size. If tiny packaging text is misspelled or blurred by generation, render the product body in the illustration first, then use `scripts/render_brand_product_labels.swift` for exact readable label text.
 - Local typography repair is valid only on an already text-bearing raster and only when it is treated as part of the final illustration composition: same warm paper, same visual rhythm, no flat platform typography, no poster/quote-card feel, no separate text-only deliverable. A visible digital overlay fails.
-- Do not claim final images are ready until `final/`, `final-reels-stories/`, and visual QA exist.
+- Do not claim final images are ready until every folder required by the current
+  format contract and its visual QA exist; an unrequested folder is not a gate.
 - Do not stop at `READY_FOR_CODEX_BUILTIN_GENERATION` when an image-generation
-  path is available. Generate, package, and QA the native `3:4` and separate
-  native `9:16` outputs. If generation is unavailable, write the concrete
-  blocker inside the package and call the state `handoff ready` or `blocked`,
-  not `final images ready`.
+  path is available. Generate, package, and QA each request-locked native
+  output. If generation is unavailable, write the concrete blocker inside the
+  package and call the state `handoff ready` or `blocked`, not `final images
+  ready`.
 
 ## Story Arc Pattern
 
@@ -442,16 +501,27 @@ Every Codex-native run must include the review spine:
 
 1. C0.5-Jarvis creates `run-ledger.json` and tracks requirements.
 2. Stage reviewers compare expected vs actual output after each stage.
-3. Before C4 prompt finalization or image generation, write `visual-plan-quality.json` with per-slide GO / REPAIR / STOP checks from multiple reviewers.
-4. Any slide with REPAIR, STOP, or unresolved doubt blocks generation for the whole carousel until repaired and re-reviewed.
+3. After exact copy and the request-derived canvas set are locked, but before C4
+   prompt finalization or image generation, write `visual-plan-quality.json`
+   with per-slide GO / REPAIR / STOP checks and a passing, provenance-backed,
+   copy-hidden `director_storyboard` event.
+4. Any slide with REPAIR, STOP, unresolved doubt, stale fingerprint, or failed copy-hidden read blocks generation for the whole carousel until repaired and re-reviewed.
 5. C7-Final Contract Auditor writes `final-audit.json`.
 6. C3.5-IdentityConsistency writes `identity-consistency-review.json` after slide descriptions are generated and before image generation. It must pass before generating final art.
-7. Final generated images are packaged into `final/slide-XX.png` and `final-reels-stories/slide-XX.png` from separate native generated sources.
+7. Final generated images are packaged only in the creator-locked formats:
+   `final/slide-XX.png` for post/carousel and, only when Story/Reel is requested,
+   `final-reels-stories/slide-XX.png`, and, only when square is requested,
+   `final-square/slide-XX.png`; every multi-format result uses separate native
+   generated sources.
 8. If `final-with-text/slide-XX.png` exists, it is only a compatibility copy or intermediate; `final/slide-XX.png` is the publishable text-bearing image.
 9. `visual-qa.md` and `visual-qa.json` check storyboard match, face
    consistency, dress continuity, style, scene logic, pose/anatomy, exact
    integrated final text, brand/product label visibility when relevant, and final
-   output existence.
+   output existence. `visual-qa.json` also records the provenance-backed,
+   image-first `visual_story_readability` event for every exact expected asset
+   in the current format lock. It binds Event B to
+   `source_director_event_fingerprint`, package-local path, dimensions, and
+   current image bytes; prompts, filenames, and generator claims cannot pass.
 10. The run writes a carousel wiki page, updates `wiki/index.md`, appends
    `memory/working.md`, and updates `memory/graph.json`.
 

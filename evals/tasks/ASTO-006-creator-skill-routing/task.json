@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["contract", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
   "starting_state": [
     "config/skills/creator-skill-stack.md exists, but one or more routing surfaces stopped loading it.",
     "Fresh jams can now skip scroll-stop, recognition, scene-proof, payoff, and DM-send thinking."
@@ -20,10 +21,32 @@
   "expected_files_changed": ["config/skill-systems.json", "config/agentic_context_manifest.json", "scripts/jam_today.py", "tests/test_creator_workflow_contract.py"],
   "forbidden_changes": ["Do not make wiki-health or closeout skills implicitly invoked.", "Do not remove compact runtime context loading."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_agentic_skill_registry.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "health"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "creator_skill_routing_fixture"],
   "rubric_checkers": [],
   "fail_to_pass": ["carousel_jam routing surfaces load config/skills/creator-skill-stack.md again"],
   "pass_to_pass": ["compact carousel runtime context and explicit workflow routing continue to work"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/config/skill-systems.json",
+      "target": "config/skill-systems.json"
+    },
+    {
+      "source": "fixtures/config/agentic_context_manifest.json",
+      "target": "config/agentic_context_manifest.json"
+    },
+    {
+      "source": "fixtures/config/skills/carousel-jam-runtime-context.md",
+      "target": "config/skills/carousel-jam-runtime-context.md"
+    },
+    {
+      "source": "fixtures/config/skills/carousel-jam-autopilot.md",
+      "target": "config/skills/carousel-jam-autopilot.md"
+    },
+    {
+      "source": "fixtures/.agents/skills/a-story-carousel-jam/SKILL.md",
+      "target": ".agents/skills/a-story-carousel-jam/SKILL.md"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should inspect every carousel_jam component surface for the creator skill stack path."]
 }

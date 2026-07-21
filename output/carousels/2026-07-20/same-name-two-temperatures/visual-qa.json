@@ -1,0 +1,87 @@
+{
+  "schema_version": "2.0",
+  "status": "PASS",
+  "scope": "slide_04_proof_only",
+  "proof": {
+    "slide": 4,
+    "path": "proof-candidates/slide-04-agent-c-new-candidate.png",
+    "sha256": "b160e0103c70b1ab990db6716119ada87c1003031ecfc937c5459a2668a080c1",
+    "dimensions": [1080, 1440],
+    "expected_dimensions": [1080, 1440],
+    "quarantined": true,
+    "generation_note": "Built-in image generation returned 1086x1448; the quarantined workspace candidate was proportionally normalized to exact 1080x1440 before the hash-bound audit."
+  },
+  "checks": {
+    "dimensions": {
+      "verdict": "PASS",
+      "evidence": "Decoded current PNG pixels are exactly 1080x1440."
+    },
+    "text": {
+      "verdict": "PASS",
+      "expected": "When she says it like THAT...",
+      "observed": "When she says it like THAT...",
+      "evidence": "The copy appears exactly once with correct capitalization and three periods; no quote marks, speech bubble or extra public copy."
+    },
+    "brandmark": {
+      "verdict": "PASS",
+      "observed": "@a.storyof.two",
+      "evidence": "Exactly one small low-contrast handwritten brandmark appears top-right."
+    },
+    "personal_name_leakage": {
+      "verdict": "PASS",
+      "observed": [],
+      "evidence": "No public personal name appears anywhere in the rendered frame."
+    },
+    "scene_entity_integrity": {
+      "verdict": "PASS",
+      "expected_people": 2,
+      "observed_people": 2,
+      "unexpected_entities": [],
+      "evidence": "Only Aachu foreground-right and Zuv midground-left are visible; no relatives, photographer, reflections, silhouettes, portraits, duplicates or extra narrative actor. The tripod is operator-free."
+    },
+    "whole_person_spatial_integrity": {
+      "verdict": "PASS",
+      "evidence": "Aachu remains separate from the floral arch and backdrop; Zuv remains separate from the wall, plants, tripod and floor. Occlusion order is clear and no body region merges into architecture or penetrates a solid plane."
+    },
+    "anatomy_inventory": {
+      "verdict": "PASS",
+      "hands": [
+        "Aachu right: attached shoulder, forearm and wrist lead to a natural cupped calling hand.",
+        "Aachu left: attached sleeve, forearm and wrist lead to an open palm presenting the saved floor space.",
+        "Zuv right and left: both attached arms terminate continuously at the interrupted cuff-adjustment contact."
+      ],
+      "unexpected_limbs": [],
+      "evidence": "No anonymous, duplicated, detached, edge-entering or object-penetrating hand; visible contact ownership is readable."
+    },
+    "identity": {
+      "verdict": "PASS",
+      "selected_reference_ids": ["together-21", "together-18", "aachu-face-04", "zuv-portrait-07"],
+      "evidence": "Aachu and Zuv retain the selected references' face, hair, skin, body and continuous wardrobe anchors; both faces are sufficiently unobstructed for comparison."
+    },
+    "style": {
+      "verdict": "PASS",
+      "evidence": "Ivory paper grain, fine ink/pencil contours, transparent watercolor texture, tactile fabric/hair detail and muted charcoal/grey/tan/green/floral accents match OIP. Deterministic palette read: brightest-15% median RGB (250,240,225), median saturation 0.1004, B/G 0.9336, yellow-band fraction 0.03972 below the 0.05 maximum."
+    },
+    "visual_story_readability": {
+      "verdict": "PASS",
+      "observed_action": "Aachu projects an urgent call with one hand while presenting an adult-width saved floor/photo position with the other; distant Zuv turns toward her and interrupts his cuff action.",
+      "relationship_turn": "The familiar call has acquired urgency, but Aachu reads open rather than angry and Zuv alert rather than frightened.",
+      "evidence": "Floral backdrop, empty chairs, floor X and unattended tripod establish a family-photo setup ready to happen; the beat reads without copy."
+    },
+    "visual_richness": {
+      "verdict": "PASS",
+      "foreground": "Aachu, floral arch edge and open presenting hand.",
+      "midground": "Zuv turning during an interrupted cuff action, floor X and unattended tripod.",
+      "background": "Empty photo chairs, restrained marigold strings, fairy lights and courtyard plants.",
+      "posed_portrait": false,
+      "decorative_clutter": false
+    }
+  },
+  "review_provenance": {
+    "creator_task": "/root/universal_image_orchestrator/slide4_creator",
+    "auditor_task": "/root/universal_image_orchestrator/slide4_auditor",
+    "auditor_mode": "image-first inspection of current decoded pixels before prompt reconciliation"
+  },
+  "batch_continuation": "PROOF_GATE_PASSED",
+  "required_next_action": "Keep this candidate quarantined until the creator or parent orchestration explicitly starts the remaining slide workflow; full-carousel Event B and final audit are not yet complete."
+}

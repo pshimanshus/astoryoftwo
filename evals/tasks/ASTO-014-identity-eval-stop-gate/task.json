@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-014-identity-eval-stop-gate",
+  "title": "Stop batch generation when identity evaluation is missing",
+  "category": "carousel_package",
+  "difficulty": "hard",
+  "suites": ["smoke", "contract", "carousel", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
+  "starting_state": [
+    "A proof image looks stylish and has text, but no structured face identity evaluation was run.",
+    "The package is about to continue generating remaining slides or claim proof pass."
+  ],
+  "done_when": [
+    "No identity eval means no next slide.",
+    "The package records IDENTITY_UNVERIFIED or BLOCKED_FOR_IDENTITY_EVAL with selected reference IDs and likeness notes.",
+    "Batch generation and final claims remain blocked until structured identity evidence exists."
+  ],
+  "allowed_paths": ["config/rules/**", "config/skills/**", ".agents/skills/**", "pipeline/agentic/**", "pipeline/stages/**", "scripts/**", "tests/**", "output/carousels/**/identity-consistency-review.json", "output/carousels/**/visual-qa.json", "output/carousels/**/visual-qa.md", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/rules/identity.md", "pipeline/agentic/workflow_doctor.py", "tests/test_creator_workflow_contract.py", "tests/test_carousel_workflow_doctor.py"],
+  "forbidden_changes": ["Do not call manual visual taste notes an identity pass.", "Do not continue batch generation from tiny, hidden, back-facing, or unverified faces.", "Do not weaken identity reference requirements."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_carousel_workflow_doctor.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "identity_stop_gate_fixture"],
+  "rubric_checkers": [],
+  "fail_to_pass": ["proof packages without structured identity reference IDs and likeness notes are blocked with IDENTITY_UNVERIFIED or BLOCKED_FOR_IDENTITY_EVAL"],
+  "pass_to_pass": ["object-only or back-facing slides can be part of a shot ladder, but cannot satisfy the identity pass required before batching face-visible finals"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/carousels/fixtures/identity-stop-gate/manifest.json",
+      "target": "output/carousels/fixtures/identity-stop-gate/manifest.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/identity-stop-gate/prompt-pack.json",
+      "target": "output/carousels/fixtures/identity-stop-gate/prompt-pack.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/identity-stop-gate/image-generation.json",
+      "target": "output/carousels/fixtures/identity-stop-gate/image-generation.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/identity-stop-gate/final-images.json",
+      "target": "output/carousels/fixtures/identity-stop-gate/final-images.json"
+    },
+    {
+      "source": "fixtures/output/carousels/fixtures/identity-stop-gate/visual-qa.json",
+      "target": "output/carousels/fixtures/identity-stop-gate/visual-qa.json"
+    }
+  ],
+  "anti_gaming_notes": ["Hidden checker should include a pretty proof with exact text and brandmark but only tiny faces, then assert can_continue_batch is false."]
+}

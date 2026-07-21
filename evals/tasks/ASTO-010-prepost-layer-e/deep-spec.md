@@ -10,12 +10,17 @@ workflow and every agent sees the authorial spine.
 
 ## Starting Fixture
 
-The fixture should remove `romance-story-selling-engine` from one prepost agent
-config or from orchestrator skills. The generated Agentic OS brief then lacks
-`layer-e-story-selling.json`, selected story lens, or room decision fields. The
-fail-to-pass check should fail on missing skill references and missing brief
-sections. The pass-to-pass check keeps hook, edit, algorithm, caption, and
-cultural-resonance agents available.
+Fixture direction: **solution**. A single-pass `evals/runner.py review` must
+observe the materialized starter as `unresolved`. The task becomes resolved
+only after the agent repairs the fixture-backed repository state and the named
+checker passes.
+
+The visible fixture at `fixtures/output/evals/ASTO-010/prepost-config.json`
+lists hook, caption, and edit agents without Layer E or
+`romance-story-selling-engine` grounding. The fail-to-pass check fails on
+missing story-spine references and missing brief sections. The pass-to-pass
+check keeps hook, edit, algorithm, caption, and cultural-resonance agents
+available.
 
 ## Failure Modes
 

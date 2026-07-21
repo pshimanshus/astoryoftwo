@@ -7,8 +7,10 @@
         "config/skills/creator-skill-stack.md",
         "config/skills/carousel-jam-runtime-context.md",
         "config/skills/carousel-jam-autopilot.md",
+        "config/skills/carousel-review-loop.md",
         "config/skills/continuous-carousel-agent-room.md",
         "config/skills/carousel-story-director-persona.md",
+        ".agents/skills/a-story-direct-visual-story/SKILL.md",
         "config/skills/illustration-carousel-framework.md",
         "config/skills/indian-creator-intelligence.md"
       ],
@@ -33,7 +35,10 @@
         "post_copy_visual_room_go",
         "visual_debate_go",
         "visual_plan_quality_go",
-        "identity_consistency_pass"
+        "director_storyboard_go",
+        "visual_story_readability_pass",
+        "identity_consistency_pass",
+        "review_loop_converged"
       ],
       "artifacts": [
         "layer-e-story-selling.json",
@@ -43,7 +48,48 @@
         "taste-gate.json",
         "post-copy-visual-room.json",
         "visual-debate.json",
-        "visual-plan-quality.json"
+        "visual-plan-quality.json",
+        ".internal/review-loop/summary.json"
+      ]
+    },
+    "instagram_idea_loop": {
+      "description": "Bounded evidence -> maker -> independent verifier loop that selects one Instagram concept for creator lock.",
+      "components": [
+        ".agents/skills/a-story-instagram-idea-loop/SKILL.md",
+        "config/skills/creator-skill-stack.md",
+        "config/skills/carousel-jam-runtime-context.md",
+        "memory/semantic/carousel-idea-preferences.md",
+        "pipeline/agentic/instagram_idea_loop.py",
+        "scripts/instagram_idea_loop.py"
+      ],
+      "agents": [
+        ".codex/agents/asot_idea_scout.toml",
+        ".codex/agents/asot_idea_maker.toml",
+        ".codex/agents/asot_idea_verifier.toml"
+      ],
+      "gates": [
+        "evidence_freshness_recorded",
+        "rejected_lane_exclusion",
+        "two_blind_verifier_passes",
+        "fresh_selector_pass",
+        "story_selling_28",
+        "golden_theme_28",
+        "distribution_26",
+        "visual_generativity_27",
+        "world_class_taste_no_cap",
+        "creator_concept_lock_required"
+      ],
+      "artifacts": [
+        ".internal/loop-state.json",
+        ".internal/evidence-manifest.json",
+        "source-memory-brief.json",
+        "concept-routes.json",
+        "concept-debate.json",
+        "concept-repairs.json",
+        "taste-gate.json",
+        "verification.json",
+        "concept-selection.json",
+        "creator-brief.md"
       ]
     },
     "story_article": {

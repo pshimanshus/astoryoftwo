@@ -10,6 +10,12 @@ contract rather than optimistic status strings.
 
 ## Starting Fixture
 
+Fixture direction: **regression**. The protected current implementation is
+expected to reject the seeded failure, so a single-pass `evals/runner.py review`
+records this fixture as `guarded`. That guard result alone cannot award agent
+solve credit: an isolated benchmark run must first apply a hidden code mutation
+or pre-fix revision that makes the guard fail, then evaluate the agent patch.
+
 The fixture should create a small carousel package where `final-images.json`
 claims `publishable: true` and `done: true`, but at least one hard artifact is
 missing or invalid: corrupt PNG bytes, absent `final-reels-stories`, missing

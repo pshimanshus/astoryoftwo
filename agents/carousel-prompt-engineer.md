@@ -44,8 +44,9 @@ Each slide prompt must include:
 
 - the project master prompt structure from
   `pipeline/stages/carousel_master_prompt.py`
-- asset type: paired native Instagram carousel outputs
-- sizes: 1080x1350 Instagram post and 1080x1920 Reels/Stories
+- asset type: only the native outputs named by the current-request format lock
+- sizes: 1080x1440 for `instagram_post`, 1080x1920 for explicit
+  `reels_stories`, and 1080x1080 for explicit `square`
 - reference image roles: identity refs control faces; previous illustrations
   control style only
 - slide number and total slide count; total must be 4 or 5
@@ -60,7 +61,9 @@ Each slide prompt must include:
 - composition/framing
 - brandmark: `@a.storyof.two`
 - constraints and negative cues
-- explicit instruction that the 9:16 Reels/Stories output is generated natively, not resized, cropped, padded, or extended from the 4:5 Instagram post output
+- explicit instruction that every locked output is generated natively and is
+  never resized, cropped, padded, or extended from another format; never add a
+  format that is absent from the current-request lock
 
 ---
 

@@ -10,6 +10,12 @@ whether an agent blocks the workaround rather than making the wording prettier.
 
 ## Starting Fixture
 
+Fixture direction: **regression**. The protected current implementation is
+expected to reject the seeded failure, so a single-pass `evals/runner.py review`
+records this fixture as `guarded`. That guard result alone cannot award agent
+solve credit: an isolated benchmark run must first apply a hidden code mutation
+or pre-fix revision that makes the guard fail, then evaluate the agent patch.
+
 The fixture should include a `prompt-pack.json` with approved slide text and an
 active prompt under `codex-image-prompts/` that asks for clean blank space,
 source art, or text placement afterward. A realistic fixture should avoid only

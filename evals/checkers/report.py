@@ -37,6 +37,7 @@ def score_checks(task: EvalTask, checks: list[CheckResult]) -> EvalReport:
     critical = sum(check.severity == "critical" for check in failures)
     major = sum(check.severity == "major" for check in failures)
     minor = sum(check.severity == "minor" for check in failures)
+    pending = sum(check.status == "PENDING" for check in checks)
     penalty = sum(SEVERITY_WEIGHTS.get(check.severity, 0.0) for check in failures)
     total = max(1, len(checks))
     score = max(0.0, round(1.0 - (penalty / total), 4))
@@ -46,6 +47,7 @@ def score_checks(task: EvalTask, checks: list[CheckResult]) -> EvalReport:
         and major <= criteria.major_failures_allowed
         and minor <= criteria.minor_failures_allowed
         and score >= criteria.minimum_score
+        and pending == 0
     )
     return EvalReport(
         task_id=task.id,
@@ -57,6 +59,7 @@ def score_checks(task: EvalTask, checks: list[CheckResult]) -> EvalReport:
             "critical_failures": critical,
             "major_failures": major,
             "minor_failures": minor,
+            "pending_reviews": pending,
         },
         checks=checks,
     )

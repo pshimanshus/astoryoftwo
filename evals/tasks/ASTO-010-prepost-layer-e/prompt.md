@@ -10,6 +10,7 @@ analysis tactical but not authorial.
 
 Repair the prepost workflow so every relevant agent and the orchestrator load
 the Layer E Story-Selling engine and produce artifact-aware story diagnosis.
+Update the seeded prepost config artifact to reflect the repaired route.
 
 ## Acceptance Criteria
 

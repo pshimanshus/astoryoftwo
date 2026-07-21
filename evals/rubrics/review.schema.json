@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a.storyof.two.local/evals/rubric-review.schema.json",
+  "title": "A Story of Two rubric review results",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "reviews"],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "task_id",
+          "rubric",
+          "author_id",
+          "reviewer_id",
+          "artifact",
+          "artifact_sha256",
+          "scores",
+          "evidence"
+        ],
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^ASTO-[0-9]{3}-"
+          },
+          "rubric": {
+            "enum": ["creative_contract", "visual_variety"]
+          },
+          "reviewer_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "author_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "scores": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            }
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

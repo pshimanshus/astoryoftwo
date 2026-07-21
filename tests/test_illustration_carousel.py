@@ -15,6 +15,7 @@ from pipeline.stages.c1_illustration_carousel import (
     MIN_STORY_SLIDES,
     ORCHESTRATOR_SKILLS,
     SPECIALIST_AGENTS,
+    build_brief_text,
     build_manifest,
     extract_json_object,
     load_skill,
@@ -58,6 +59,54 @@ class IllustrationCarouselTests(unittest.TestCase):
         height, width = image.shape[:2]
         return width, height
 
+    def prepare_codex_handoff(self, out_dir: Path) -> dict:
+        from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
+
+        result = prepare_codex_builtin_image_generation(out_dir)
+        self.assertEqual(result["status"], "handoff_ready", result.get("reason"))
+        return result
+
+    def write_test_compiled_prompt_handoff(
+        self,
+        out_dir: Path,
+        *,
+        slide_numbers: list[int],
+        formats: list[str],
+    ) -> None:
+        from pipeline.agentic.checks.prompt_constraints import REQUIRED_FRAGMENTS
+        from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
+        from pipeline.stages.codex_builtin_image_generation import (
+            build_compiled_prompt_handoff,
+            prompt_handoff_relative_path,
+        )
+
+        for number in slide_numbers:
+            for output_format in formats:
+                for kind in ("generator_prompt", "handoff_markdown"):
+                    path = out_dir / prompt_handoff_relative_path(output_format, number, kind)
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    content = f"test {kind} for Slide {number} {output_format}"
+                    if kind == "generator_prompt":
+                        content += "\n" + "\n".join(REQUIRED_FRAGMENTS)
+                    path.write_text(content, encoding="utf-8")
+        compiled_handoff = build_compiled_prompt_handoff(
+            out_dir,
+            slide_numbers=slide_numbers,
+            output_formats=formats,
+        )
+        write_generation_state(
+            out_dir,
+            status=GenerationStatus.HANDOFF_READY,
+            backend="codex_builtin",
+            generation_mode="model_native_publishable",
+            slide_count=len(slide_numbers),
+            slides=[{"slide": number, "status": "awaiting_codex_builtin_image"} for number in slide_numbers],
+            extra={
+                "requested_formats": formats,
+                "compiled_prompt_handoff": compiled_handoff,
+            },
+        )
+
     def write_passing_visual_qa(self, out_dir: Path, slide_count: int = 5) -> None:
         (out_dir / "visual-qa.json").write_text(
             json.dumps(
@@ -79,6 +128,19 @@ class IllustrationCarouselTests(unittest.TestCase):
                         "dress_continuity": {"pass": True, "evidence": "Outfits and continuity cues were checked."},
                         "style": {"pass": True, "evidence": "Warm hand-drawn storybook style was checked."},
                         "scene_logic": {"pass": True, "evidence": "Copy, clothing, props, and action were checked for contradictions."},
+                        "scene_entity_integrity": {
+                            "pass": True,
+                            "slides": [
+                                {
+                                    "slide": number,
+                                    "expected_people": 2,
+                                    "observed_people": 2,
+                                    "unexpected_entities": [],
+                                    "evidence": "Only the intended foreground Aachu and Zuv figures are visible.",
+                                }
+                                for number in range(1, slide_count + 1)
+                            ],
+                        },
                         "pose_anatomy": {"pass": True, "evidence": "Aachu/Zuv posture and body anatomy were checked as natural and flattering."},
                         "integrated_final_text": {"pass": True, "evidence": "Copy and brandmark were checked."},
                         "final_files": {"pass": True, "evidence": "All final files were checked."},
@@ -100,6 +162,154 @@ class IllustrationCarouselTests(unittest.TestCase):
             ]
         )
         (out_dir / "visual-qa.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    def write_passing_director_storyboard(self, out_dir: Path) -> None:
+        """Install explicit test-only semantic-review evidence for downstream gate tests."""
+
+        from tests.helpers.visual_story import write_passing_director_storyboard
+
+        write_passing_director_storyboard(out_dir)
+        return
+
+        from pipeline.stages.carousel_visual_storytelling import (
+            blind_cards_fingerprint,
+            storyboard_source_fingerprint,
+        )
+
+        slides = json.loads((out_dir / "slides.json").read_text(encoding="utf-8"))
+        records = slides if isinstance(slides, list) else slides["slides"]
+        plan_path = out_dir / "visual-plan-quality.json"
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+        slide_count = len(records)
+        director_slides = []
+        for index, slide in enumerate(records, start=1):
+            visual = str(slide.get("visual") or slide.get("scene") or "test staged action")
+            director_slides.append(
+                {
+                    "slide": index,
+                    "status": "PASS",
+                    "inference_match": True,
+                    "narrative_job": f"directed test beat {index}",
+                    "silent_read": f"A fresh test critic inferred this visible event: {visual}",
+                    "change_from_previous": (
+                        "Establishes the first visible relationship state for this test."
+                        if index == 1
+                        else "Changes action, focal evidence, and relationship pressure from the prior test frame."
+                    ),
+                    "critic_evidence": "The test critic cited visible action, reaction, hands, gaze, and object state.",
+                    "staged_action": {
+                        "subject": "the intended partner",
+                        "action": "performs the locked visible action",
+                        "target_or_object": "the intended partner or story object",
+                        "reaction_or_consequence": "the next relationship state becomes visible",
+                    },
+                    "pov": {
+                        "owner": "the intended emotional point of view",
+                        "audience_knows": "the concrete relationship event changed",
+                        "audience_feels": "specific recognition and earned tenderness",
+                    },
+                    "shot": {
+                        "size": ["wide story shot", "medium relationship shot", "close evidence shot"][(index - 1) % 3],
+                        "angle": "motivated eye-level test angle",
+                        "camera_position": "placed to keep the staged action and reaction visible",
+                        "focal_subject": "the acting bodies and changed story evidence",
+                        "story_reason": "This view makes the test action and consequence readable together.",
+                    },
+                    "blocking": {
+                        "hands": "Both intended hand actions remain visible and attributable.",
+                        "gaze": "The intended eye-line reaches the correct person or object.",
+                        "body_distance": "The planned distance expresses the current relationship state.",
+                        "posture_or_feet": "Feet and torso direction support the visible action.",
+                    },
+                    "setting": {
+                        "sub_location": "the locked story sub-location",
+                        "time": "the locked story time",
+                        "motivated_light": "light motivated by the authored environment",
+                        "story_trace": "one visible trace proves what happened immediately before",
+                    },
+                    "story_evidence": [
+                        {
+                            "carrier": "the locked action or object state",
+                            "observable_state": "its current owner, position, and consequence are visible",
+                            "narrative_job": "prove the relationship beat without relying on copy",
+                        }
+                    ],
+                    "text_image_relationship": "interdependent",
+                    "continuity": {
+                        "incoming_state": "the prior locked relationship and object state",
+                        "outgoing_state": "the changed state that motivates the next frame",
+                    },
+                    "entity_contract": {
+                        "expected_people": 2,
+                        "background_people": [],
+                        "reflections": [],
+                        "forbidden_entities": ["duplicate couple"],
+                    },
+                    "unresolved_ambiguities": [],
+                    "resolved_ambiguities": [],
+                }
+            )
+        blind_cards = [
+            {
+                "slide": index,
+                "visible_people": ["the intended partner", "the reacting partner"],
+                "visible_setting": "The locked test sub-location and motivated light remain visibly specific.",
+                "observable_action": "One partner performs the locked physical action and changes the visible state.",
+                "hands_and_contact": "Visible hands have named owners and readable contact with the intended object.",
+                "gaze": "Eye-lines visibly connect the acting person, reaction, and object state.",
+                "body_blocking": "Distance, posture, feet, and torso direction expose the relationship state.",
+                "object_state": "The story evidence has a visible owner, location, and consequence.",
+                "camera_view": "The motivated test camera keeps action and reaction readable together.",
+                "visible_continuity": "People, setting, evidence, and changed state remain traceable between frames.",
+            }
+            for index, _slide in enumerate(records, start=1)
+        ]
+        plan["status"] = "PASS"
+        plan["can_generate"] = True
+        plan["issues"] = []
+        plan["director_storyboard"] = {
+            "status": "PASS",
+            "event": "copy_hidden_storyboard_read",
+            "copy_locked": True,
+            "copy_hidden": True,
+            "intent_hidden": True,
+            "copy_lock_evidence": "The current slide source or documented text exception was locked before this test review.",
+            "author_id": "test-route-author",
+            "reviewer_id": "test-blind-director",
+            "reviewer_evidence": "This test fixture explicitly supplies a separate copy-hidden semantic review.",
+            "blind_cards": blind_cards,
+            "blind_input_fingerprint": blind_cards_fingerprint(blind_cards),
+            "source_fingerprint": storyboard_source_fingerprint(slides),
+            "sequence_mode": "single_image" if slide_count == 1 else "causal_sequence",
+            "physical_event": "The test sequence moves through a concrete visible relationship event.",
+            "emotional_arc": "Visible pressure changes into a legible relationship response and payoff.",
+            "relationship_change": "The partners move from the initial state into a materially changed final state.",
+            "sequence_read": "Each test frame contributes new action, evidence, reaction, or consequence.",
+            "visual_variables": ["body distance", "object ownership"],
+            "hero_receipt_slide": min(2, slide_count),
+            "setup_payoff_ledger": (
+                []
+                if slide_count == 1
+                else [
+                    {
+                        "setup": "The first frame establishes one incomplete visible action.",
+                        "payoff": "The final frame reveals its relationship consequence.",
+                        "changed_meaning": "The repeated evidence gains emotional meaning through the sequence.",
+                    }
+                ]
+            ),
+            "object_motif_ledger": [
+                {
+                    "object": "the test story evidence",
+                    "initial_state": "introduced with one owner or position",
+                    "later_state": "changed through visible action or consequence",
+                    "story_job": "prove causality and relationship change",
+                }
+            ],
+            "slides": director_slides,
+            "issues": [],
+        }
+        plan_path.write_text(json.dumps(plan), encoding="utf-8")
 
     def test_slugify_title_keeps_carousel_paths_stable(self):
         self.assertEqual(slugify_title("Anchal Under the Stars!!"), "anchal-under-the-stars")
@@ -132,7 +342,46 @@ class IllustrationCarouselTests(unittest.TestCase):
             manifest["reference_images"],
             [{"path": str(image), "role": "user supplied story reference"}],
         )
+        self.assertEqual(manifest["requested_formats"], ["instagram_post"])
+        self.assertTrue(manifest["format_contract"]["default_applied"])
+        self.assertEqual(set(manifest["format"]["native_outputs"]), {"instagram_post"})
         self.assertEqual(manifest["artifacts"], ARTIFACT_CONTRACT)
+
+    def test_anthropic_manifest_honors_explicit_square_format_lock(self):
+        manifest = build_manifest(
+            title="Square Story",
+            slug="square-story",
+            story="A square-only current request.",
+            image_paths=[],
+            requested_formats=["square"],
+            today=date(2026, 5, 9),
+        )
+
+        self.assertEqual(manifest["requested_formats"], ["square"])
+        self.assertFalse(manifest["format_contract"]["default_applied"])
+        self.assertEqual(
+            manifest["format"]["native_outputs"]["square"],
+            {
+                "aspect_ratio": "1:1",
+                "size": "1080x1080",
+                "directory": "final-square/",
+            },
+        )
+
+    def test_anthropic_agent_brief_carries_only_request_locked_formats(self):
+        brief = build_brief_text(
+            story="A square-only story.",
+            title="Square Story",
+            slide_count=5,
+            style_brief=None,
+            image_paths=[],
+            requested_formats=["square"],
+        )
+
+        self.assertIn("square: 1:1, 1080x1080", brief)
+        self.assertNotIn("instagram_post:", brief)
+        self.assertNotIn("reels_stories:", brief)
+        self.assertIn("do not add or infer formats", brief)
 
     def test_anthropic_manifest_can_record_identity_references(self):
         from pipeline.stages.c1_illustration_carousel import build_manifest
@@ -165,16 +414,16 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(parsed["title"], "Anchal Under the Stars")
         self.assertEqual(parsed["story"], "I proposed under the sky.")
         self.assertEqual(parsed["slide_count"], DEFAULT_SLIDE_COUNT)
-        self.assertEqual((MIN_STORY_SLIDES, MAX_STORY_SLIDES), (4, 10))
+        self.assertEqual((MIN_STORY_SLIDES, MAX_STORY_SLIDES), (4, 11))
 
     def test_slide_count_allows_longer_story_arcs_for_story_command(self):
         self.assertEqual(validate_slide_count(4), 4)
         self.assertEqual(validate_slide_count(5), 5)
         self.assertEqual(validate_slide_count(6), 6)
-        self.assertEqual(validate_slide_count(10), 10)
+        self.assertEqual(validate_slide_count(11), 11)
 
         with self.assertRaises(ValueError):
-            validate_slide_count(11)
+            validate_slide_count(12)
 
     def test_codex_native_builder_creates_package_without_anthropic_key(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -344,7 +593,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             self.assertLessEqual(len(slide["prompt"]), 9500)
             self.assertIn("reference images are only mood/composition", slide["prompt"])
 
-    def test_local_dry_run_backend_creates_both_native_formats(self):
+    def test_local_dry_run_backend_creates_only_default_locked_post_format(self):
         from pipeline.stages.local_dry_run_image_backend import generate_local_dry_run_images
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -369,7 +618,6 @@ class IllustrationCarouselTests(unittest.TestCase):
             instagram_path = out_dir / "final" / "slide-01.png"
             reels_path = out_dir / "final-reels-stories" / "slide-01.png"
             first_instagram_bytes = instagram_path.read_bytes()
-            first_reels_bytes = reels_path.read_bytes()
             second_result = generate_local_dry_run_images(out_dir)
 
             self.assertEqual(result["status"], "dry_run_generated")
@@ -379,18 +627,16 @@ class IllustrationCarouselTests(unittest.TestCase):
             self.assertEqual(manifest["status"], "dry_run_generated")
             self.assertFalse(manifest["publishable"])
             self.assertTrue(instagram_path.exists())
-            self.assertTrue(reels_path.exists())
+            self.assertFalse(reels_path.exists())
             self.assertEqual(self.png_size(instagram_path), (1080, 1440))
-            self.assertEqual(self.png_size(reels_path), (1080, 1920))
             self.assertEqual(instagram_path.read_bytes(), first_instagram_bytes)
-            self.assertEqual(reels_path.read_bytes(), first_reels_bytes)
             self.assertEqual(second_result["status"], "dry_run_generated")
+            self.assertEqual(result["native_output_contract"]["formats"], ["instagram_post"])
 
             slide_record = result["slides"][0]
             self.assertEqual(slide_record["file"], str(instagram_path))
-            self.assertEqual(slide_record["reels_stories_file"], str(reels_path))
             self.assertIn("instagram_post", slide_record["native_outputs"])
-            self.assertIn("reels_stories", slide_record["native_outputs"])
+            self.assertNotIn("reels_stories", slide_record["native_outputs"])
             self.assertTrue(slide_record["prompt"])
             self.assertTrue(slide_record["copy"])
             self.assertEqual(slide_record["backend"], "local_dry_run")
@@ -399,6 +645,36 @@ class IllustrationCarouselTests(unittest.TestCase):
             self.assertEqual(slide_record["source_backend"], "prompt-pack.json")
             self.assertIn("source_prompt_pack", slide_record)
             self.assertIn("provenance", slide_record)
+
+    def test_local_dry_run_backend_honors_explicit_square_lock(self):
+        from pipeline.stages.local_dry_run_image_backend import generate_local_dry_run_images
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            identity_image = Path(tmpdir) / "aachu-zuv.png"
+            identity_image.write_bytes(self.image_bytes())
+            out_dir = create_codex_native_carousel(
+                story="A tiny request-locked square preview.",
+                image_paths=[],
+                identity_image_paths=[identity_image],
+                title="Square Dry Run",
+                output_root=Path(tmpdir) / "out",
+                render_assets=False,
+                requested_formats=["square"],
+                today=date(2026, 5, 24),
+            )
+
+            result = generate_local_dry_run_images(out_dir)
+            square_path = out_dir / "final-square" / "slide-01.png"
+
+            self.assertEqual(result["native_output_contract"]["formats"], ["square"])
+            self.assertTrue(square_path.exists())
+            self.assertEqual(self.png_size(square_path), (1080, 1080))
+            self.assertFalse((out_dir / "final" / "slide-01.png").exists())
+            self.assertFalse((out_dir / "final-reels-stories" / "slide-01.png").exists())
+            self.assertEqual(
+                set(result["slides"][0]["native_outputs"]),
+                {"square"},
+            )
 
     def test_local_dry_run_legacy_renderer_writes_preview_only_manifest(self):
         from scripts.legacy.render_illustrated_carousel_draft import render_carousel
@@ -463,6 +739,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 render_assets=False,
                 today=date(2026, 5, 24),
             )
+            self.write_passing_director_storyboard(out_dir)
 
             result = render_local_carousel(out_dir, refresh_quality=False, workspace_root=workspace)
             manifest = json.loads((out_dir / "final-images.json").read_text(encoding="utf-8"))
@@ -911,6 +1188,10 @@ class IllustrationCarouselTests(unittest.TestCase):
         repo_root = Path(__file__).resolve().parent.parent
         allowed = {
             "carousel_doctor.py",
+            # Orchestration-only: reviews an existing package through the
+            # Workflow Doctor and derived publish state; it does not generate
+            # or promote image assets.
+            "carousel_review_loop.py",
             "create_illustration_carousel.py",
             "package_generated_carousel.py",
             "render_carousel_text_overlays.py",
@@ -1890,6 +2171,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
+            self.write_passing_director_storyboard(carousel_dir)
 
             result = prepare_codex_builtin_image_generation(carousel_dir)
 
@@ -1919,6 +2201,7 @@ class IllustrationCarouselTests(unittest.TestCase):
 
     def test_package_generated_carousel_packages_two_native_formats(self):
         from scripts.package_generated_carousel import package_generated_images
+        from pipeline.stages.carousel_format_contract import write_format_contract
 
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
@@ -1926,6 +2209,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             source_dir = workspace / "generated"
             out_dir.mkdir(parents=True)
             source_dir.mkdir()
+            write_format_contract(out_dir, ["instagram_post", "reels_stories"])
             slides = [{"slide": number, "copy": f"Slide {number}"} for number in range(1, 6)]
             (out_dir / "slides.json").write_text(json.dumps(slides), encoding="utf-8")
             prompt_pack = {
@@ -1947,6 +2231,12 @@ class IllustrationCarouselTests(unittest.TestCase):
                 json.dumps({"status": "PASS", "can_generate": True, "issues": []}),
                 encoding="utf-8",
             )
+            self.write_passing_director_storyboard(out_dir)
+            self.write_test_compiled_prompt_handoff(
+                out_dir,
+                slide_numbers=list(range(1, 6)),
+                formats=["instagram_post", "reels_stories"],
+            )
             for number in range(1, 6):
                 (source_dir / f"instagram-{number}.png").write_bytes(self.png_bytes(1080, 1440, value=240))
                 (source_dir / f"reels-stories-{number}.png").write_bytes(self.png_bytes(1080, 1920, value=230))
@@ -1961,13 +2251,13 @@ class IllustrationCarouselTests(unittest.TestCase):
             reels_slide_01_exists = (out_dir / "final-reels-stories" / "slide-01.png").exists()
             reels_slide_05_exists = (out_dir / "final-reels-stories" / "slide-05.png").exists()
 
-        self.assertEqual(manifest["status"], "generated")
+        self.assertEqual(manifest["status"], "GENERATED_QUARANTINED")
         self.assertEqual(len(manifest["slides"]), 5)
-        self.assertIn("native_output_contract", manifest)
-        self.assertTrue(slide_01_exists)
-        self.assertTrue(slide_05_exists)
-        self.assertTrue(reels_slide_01_exists)
-        self.assertTrue(reels_slide_05_exists)
+        self.assertFalse(slide_01_exists)
+        self.assertFalse(slide_05_exists)
+        self.assertFalse(reels_slide_01_exists)
+        self.assertFalse(reels_slide_05_exists)
+        self.assertEqual(manifest["proof_state"], "GENERATED_QUARANTINED")
         self.assertIn("native_outputs", manifest["slides"][0])
 
     def test_package_generated_carousel_refuses_doctor_blocked_package(self):
@@ -2024,6 +2314,7 @@ class IllustrationCarouselTests(unittest.TestCase):
 
     def test_package_generated_carousel_rejects_local_native_renderer_sources(self):
         from scripts.package_generated_carousel import package_generated_images
+        from pipeline.stages.carousel_format_contract import write_format_contract
 
         with tempfile.TemporaryDirectory() as tmpdir:
             workspace = Path(tmpdir)
@@ -2031,6 +2322,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             source_dir = out_dir / "tmp-generated" / "local-native"
             out_dir.mkdir(parents=True)
             source_dir.mkdir(parents=True)
+            write_format_contract(out_dir, ["instagram_post", "reels_stories"])
             (out_dir / "slides.json").write_text(
                 json.dumps([{"slide": number, "copy": f"Slide {number}"} for number in range(1, 6)]),
                 encoding="utf-8",
@@ -2475,6 +2767,46 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("local-dry-run cannot be combined", result.stderr)
 
+    def test_cli_local_dry_run_honors_explicit_square_format_lock(self):
+        repo_root = Path(__file__).resolve().parent.parent
+        with tempfile.TemporaryDirectory() as tmpdir:
+            identity = Path(tmpdir) / "identity.jpg"
+            identity.write_bytes(self.image_bytes())
+            output_root = Path(tmpdir) / "out"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(repo_root / "scripts" / "create_illustration_carousel.py"),
+                    "--story",
+                    "A square-only dry-run scene.",
+                    "--title",
+                    "CLI Square Dry Run",
+                    "--identity-image",
+                    str(identity),
+                    "--output-root",
+                    str(output_root),
+                    "--image-backend",
+                    "local-dry-run",
+                    "--proof-format",
+                    "square",
+                    "--no-render",
+                ],
+                cwd=repo_root,
+                text=True,
+                capture_output=True,
+                check=False,
+                timeout=30,
+            )
+            out_dir = self.package_dir_for_slug(output_root, "cli-square-dry-run")
+            contract = json.loads((out_dir / "format-contract.json").read_text(encoding="utf-8"))
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(contract["requested_formats"], ["square"])
+            self.assertTrue((out_dir / "final-square" / "slide-01.png").exists())
+            self.assertFalse((out_dir / "final" / "slide-01.png").exists())
+            self.assertFalse((out_dir / "final-reels-stories" / "slide-01.png").exists())
+
     def test_model_native_generation_marks_api_error_blocked(self):
         from pipeline.stages.model_native_image_generation import generate_model_native_images
 
@@ -2581,8 +2913,10 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Codex Builtin Handoff",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 18),
             )
+            self.write_passing_director_storyboard(out_dir)
             prompt_pack = json.loads((out_dir / "prompt-pack.json").read_text(encoding="utf-8"))
             for slide_prompt in prompt_pack["slides"]:
                 slide_prompt["prompt"] = (
@@ -2597,6 +2931,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 )
             prompt_pack["proof_gate"] = "Generate Slide 1 Instagram post proof first."
             (out_dir / "prompt-pack.json").write_text(json.dumps(prompt_pack), encoding="utf-8")
+            self.write_passing_director_storyboard(out_dir)
 
             result = prepare_codex_builtin_image_generation(out_dir)
             manifest = json.loads((out_dir / "final-images.json").read_text(encoding="utf-8"))
@@ -2622,17 +2957,26 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(
             manifest["slides"][0]["prompt_files"],
             {
-                "instagram_post": str(instagram_prompt_path),
-                "reels_stories": str(reels_stories_prompt_path),
+                "instagram_post": "codex-image-prompts/instagram-post/slide-01.md",
+                "reels_stories": "codex-image-prompts/reels-stories/slide-01.md",
             },
         )
         self.assertEqual(
             manifest["slides"][0]["generator_prompt_files"],
             {
-                "instagram_post": str(instagram_generator_prompt_path),
-                "reels_stories": str(reels_stories_generator_prompt_path),
+                "instagram_post": "codex-image-prompts/instagram-post/slide-01.prompt.txt",
+                "reels_stories": "codex-image-prompts/reels-stories/slide-01.prompt.txt",
             },
         )
+        compiled_handoff = manifest["compiled_prompt_handoff"]
+        self.assertEqual(compiled_handoff["schema_version"], "compiled-prompt-handoff/v1")
+        self.assertEqual(compiled_handoff["requested_formats"], ["instagram_post", "reels_stories"])
+        self.assertEqual(len(compiled_handoff["files"]), DEFAULT_SLIDE_COUNT * 2 * 2)
+        self.assertTrue(compiled_handoff["handoff_set_fingerprint"].startswith("sha256:"))
+        self.assertTrue(
+            all(not Path(binding["relative_path"]).is_absolute() for binding in compiled_handoff["files"])
+        )
+        self.assertTrue(all(binding["sha256"].startswith("sha256:") for binding in compiled_handoff["files"]))
         self.assertIn("Native output format: Instagram post", instagram_prompt_text)
         self.assertIn("Native output format: Reels/Stories", reels_stories_prompt_text)
         self.assertIn(str(instagram_generator_prompt_path), instagram_prompt_text)
@@ -2664,7 +3008,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("She was not high-maintenance.", instagram_prompt_text)
         self.assertIn("No final PNGs were generated", blocker_text)
         self.assertIn("slide 01", blocker_text)
-        self.assertIn(str(instagram_generator_prompt_path), blocker_text)
+        self.assertIn("codex-image-prompts/instagram-post/slide-01.prompt.txt", blocker_text)
 
     def test_codex_builtin_handoff_compiles_fresh_package_prompt_files(self):
         from pipeline.stages.carousel_prompt_compiler import MAX_PROMPT_CHARS
@@ -2687,13 +3031,14 @@ class IllustrationCarouselTests(unittest.TestCase):
                 render_assets=False,
                 today=date(2026, 5, 24),
             )
+            self.write_passing_director_storyboard(out_dir)
 
             result = prepare_codex_builtin_image_generation(out_dir)
             prompt_files = sorted((out_dir / "codex-image-prompts").glob("*/*.prompt.txt"))
             prompt_texts = [path.read_text(encoding="utf-8") for path in prompt_files]
 
         self.assertEqual(result["status"], "handoff_ready")
-        self.assertEqual(len(prompt_files), DEFAULT_SLIDE_COUNT * 2)
+        self.assertEqual(len(prompt_files), DEFAULT_SLIDE_COUNT)
         self.assertTrue(prompt_texts)
         self.assertTrue(all(len(text) <= MAX_PROMPT_CHARS for text in prompt_texts))
 
@@ -2717,6 +3062,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 render_assets=False,
                 today=date(2026, 5, 24),
             )
+            self.write_passing_director_storyboard(out_dir)
 
             prepare_codex_builtin_image_generation(out_dir)
             result = prepare_codex_builtin_image_generation(
@@ -2750,7 +3096,7 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertNotIn("Reels/Stories prompts:", blocker_text)
         self.assertNotIn("codex-image-prompts/reels-stories", blocker_text)
         self.assertIn("final/slide-01.png` through `slide-05.png", blocker_text)
-        self.assertIn("final-reels-stories/slide-01.png` through `slide-05.png", blocker_text)
+        self.assertNotIn("final-reels-stories/slide-01.png` through `slide-05.png", blocker_text)
         self.assertIn("slide 04", blocker_text)
         self.assertIn("instagram-post/slide-04.prompt.txt", blocker_text)
 
@@ -2772,8 +3118,10 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Reels Proof Prompt",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["reels_stories"],
                 today=date(2026, 5, 24),
             )
+            self.write_passing_director_storyboard(out_dir)
 
             result = prepare_codex_builtin_image_generation(
                 out_dir,
@@ -2809,18 +3157,121 @@ class IllustrationCarouselTests(unittest.TestCase):
                 render_assets=False,
                 today=date(2026, 5, 24),
             )
+            self.write_passing_director_storyboard(out_dir)
 
             prepare_codex_builtin_image_generation(out_dir)
             initial_prompt_files = sorted((out_dir / "codex-image-prompts").glob("**/*.prompt.txt"))
             (out_dir / "visual-plan-quality.json").unlink()
             result = prepare_codex_builtin_image_generation(out_dir)
-            stale_prompt_files = sorted((out_dir / "codex-image-prompts").glob("**/*"))
+            remaining_prompt_files = sorted((out_dir / "codex-image-prompts").glob("**/*.prompt.txt"))
 
         self.assertTrue(initial_prompt_files)
         self.assertIn(result["status"], {"BLOCKED", "blocked"})
         self.assertFalse(result["done"])
         self.assertFalse(result["publishable"])
-        self.assertEqual(stale_prompt_files, [])
+        self.assertEqual(remaining_prompt_files, [])
+        self.assertFalse((out_dir / "codex-image-prompts").exists())
+
+    def test_prepare_codex_handoff_partial_compile_never_exposes_prompt_set(self):
+        from pipeline.agentic.checks.prompt_constraints import (
+            check_prompt_constraints as real_check_prompt_constraints,
+        )
+        from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            identity = workspace / "aachu-zuv.png"
+            identity.write_bytes(self.image_bytes())
+            out_dir = create_codex_native_carousel(
+                story=(
+                    "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
+                    "Aachu is in a green dress, barefoot, and Zuv notices before she asks."
+                ),
+                image_paths=[],
+                identity_image_paths=[identity],
+                title="Partial Prompt Compile",
+                output_root=workspace / "out",
+                render_assets=False,
+                today=date(2026, 5, 24),
+            )
+            self.write_passing_director_storyboard(out_dir)
+            prepare_codex_builtin_image_generation(out_dir)
+            calls = 0
+
+            def fail_second_prompt(path, *, expected_text=None):
+                nonlocal calls
+                calls += 1
+                if calls == 2:
+                    return Mock(status="FAIL", reason="simulated partial compiler failure")
+                return real_check_prompt_constraints(path, expected_text=expected_text)
+
+            with patch(
+                "pipeline.stages.codex_builtin_image_generation.check_prompt_constraints",
+                side_effect=fail_second_prompt,
+            ):
+                result = prepare_codex_builtin_image_generation(out_dir)
+
+            active_exists = (out_dir / "codex-image-prompts").exists()
+            staging_exists = (out_dir / ".internal" / "codex-image-prompts-staging").exists()
+
+        self.assertEqual(result["status"], "blocked")
+        self.assertIn("simulated partial compiler failure", result["reason"])
+        self.assertFalse(active_exists)
+        self.assertFalse(staging_exists)
+
+    def test_package_codex_builtin_outputs_rejects_mutated_compiled_prompt_before_quarantine(self):
+        from pipeline.stages.codex_builtin_image_generation import (
+            package_codex_builtin_outputs,
+            prepare_codex_builtin_image_generation,
+        )
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            identity = workspace / "aachu-zuv.png"
+            identity.write_bytes(self.image_bytes())
+            out_dir = create_codex_native_carousel(
+                story=(
+                    "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
+                    "Aachu is in a green dress, barefoot, and Zuv notices before she asks."
+                ),
+                image_paths=[],
+                identity_image_paths=[identity],
+                title="Mutated Compiled Prompt",
+                output_root=workspace / "out",
+                render_assets=False,
+                today=date(2026, 5, 24),
+            )
+            self.write_passing_director_storyboard(out_dir)
+            prepare_codex_builtin_image_generation(out_dir)
+            compiled_prompt = (
+                out_dir / "codex-image-prompts" / "instagram-post" / "slide-01.prompt.txt"
+            )
+            compiled_prompt.write_text(
+                compiled_prompt.read_text(encoding="utf-8") + "\nmanual mutation\n",
+                encoding="utf-8",
+            )
+            generated_dir = workspace / "generated"
+            generated_paths = []
+            for number in range(1, DEFAULT_SLIDE_COUNT + 1):
+                path = generated_dir / f"slide-{number:02d}.png"
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(self.png_bytes(1080, 1440, 240))
+                generated_paths.append(path)
+
+            result = package_codex_builtin_outputs(
+                out_dir,
+                generated_paths_by_format={"instagram_post": generated_paths},
+            )
+
+            attempt_ledger_exists = (out_dir / ".internal" / "visual-qa-attempts.json").exists()
+            active_exists = (out_dir / "codex-image-prompts").exists()
+            quarantine_files = list((out_dir / ".internal" / "visual-quarantine").glob("**/*.png"))
+
+        self.assertEqual(result["status"], "blocked")
+        self.assertIn("changed after compilation", result["reason"])
+        self.assertFalse(attempt_ledger_exists)
+        self.assertFalse(active_exists)
+        self.assertEqual(quarantine_files, [])
 
     def test_codex_builtin_handoff_blocks_missing_visual_plan_quality_gate(self):
         from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
@@ -2910,9 +3361,10 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Codex built-in image handoff only", result.stdout)
         self.assertIn("No final PNGs were generated", result.stdout)
-        self.assertEqual(manifest["status"], "handoff_ready")
+        self.assertEqual(manifest["status"], "blocked")
         self.assertEqual(manifest["backend"], "codex_builtin")
-        self.assertTrue(blocker_exists)
+        self.assertFalse(blocker_exists)
+        self.assertIn("director story check", manifest["reason"])
         legacy_key = "OPEN" + "AI" + "_API_KEY"
         self.assertNotIn(legacy_key, json.dumps(manifest))
 
@@ -2965,21 +3417,14 @@ class IllustrationCarouselTests(unittest.TestCase):
                 for path in (out_dir / "codex-image-prompts").glob("**/*")
                 if path.is_file()
             )
-            blocker_text = (out_dir / "image-generation-blocker.md").read_text(encoding="utf-8")
+            blocker_exists = (out_dir / "image-generation-blocker.md").exists()
 
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("Codex built-in image handoff only", result.stdout)
-        self.assertEqual(manifest["status"], "handoff_ready")
-        self.assertEqual(manifest["requested_proof_slide"], 4)
-        self.assertEqual(manifest["requested_formats"], ["instagram_post"])
-        self.assertEqual(
-            prompt_files,
-            [
-                "instagram-post/slide-04.md",
-                "instagram-post/slide-04.prompt.txt",
-            ],
-        )
-        self.assertIn("slide 04", blocker_text)
+        self.assertEqual(manifest["status"], "blocked")
+        self.assertFalse(blocker_exists)
+        self.assertEqual(prompt_files, [])
+        self.assertIn("director story check", manifest["reason"])
 
     def test_package_codex_builtin_outputs_writes_model_native_manifest(self):
         import cv2
@@ -3003,8 +3448,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Codex Builtin Packaged",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 18),
             )
+            self.write_passing_director_storyboard(out_dir)
+            self.prepare_codex_handoff(out_dir)
             generated_dir = workspace / "generated"
             generated_dir.mkdir()
             instagram_paths = []
@@ -3032,33 +3480,25 @@ class IllustrationCarouselTests(unittest.TestCase):
             slide_01_exists = (out_dir / "final" / "slide-01.png").exists()
             reels_slide_01_exists = (out_dir / "final-reels-stories" / "slide-01.png").exists()
             slide_01_native_outputs = manifest["slides"][0]["native_outputs"]
-            instagram_size = self.png_size(out_dir / "final" / "slide-01.png")
-            reels_stories_size = self.png_size(out_dir / "final-reels-stories" / "slide-01.png")
 
-        self.assertEqual(result["status"], "generated")
-        self.assertTrue(result["done"])
+        self.assertEqual(result["status"], "GENERATED_QUARANTINED")
+        self.assertFalse(result["done"])
         self.assertFalse(result["publishable"])
-        self.assertTrue(manifest["done"])
+        self.assertFalse(manifest["done"])
         self.assertFalse(manifest["publishable"])
         self.assertEqual(manifest["backend"], "codex_builtin")
         self.assertEqual(manifest["generation_mode"], "model_native_publishable")
-        self.assertEqual(manifest["native_output_contract"]["formats"], ["instagram_post", "reels_stories"])
-        self.assertTrue(slide_01_exists)
-        self.assertTrue(reels_slide_01_exists)
-        self.assertEqual(instagram_size, (1080, 1440))
-        self.assertEqual(reels_stories_size, (1080, 1920))
+        self.assertFalse(slide_01_exists)
+        self.assertFalse(reels_slide_01_exists)
         self.assertIn("instagram_post", slide_01_native_outputs)
         self.assertIn("reels_stories", slide_01_native_outputs)
-        self.assertEqual(slide_01_native_outputs["instagram_post"]["source_dimensions"]["width"], 1440)
-        self.assertEqual(slide_01_native_outputs["instagram_post"]["source_dimensions"]["height"], 1920)
-        self.assertIn("proportional export", slide_01_native_outputs["instagram_post"]["normalization"])
+        self.assertEqual(slide_01_native_outputs["instagram_post"]["width"], 1440)
+        self.assertEqual(slide_01_native_outputs["instagram_post"]["height"], 1920)
         self.assertNotEqual(
-            slide_01_native_outputs["instagram_post"]["source"],
-            slide_01_native_outputs["reels_stories"]["source"],
+            slide_01_native_outputs["instagram_post"]["path"],
+            slide_01_native_outputs["reels_stories"]["path"],
         )
-        self.assertNotIn("hd_file", manifest["slides"][0])
-        self.assertIn(str(identity), manifest["slides"][0]["reference_images"])
-        self.assertIn(str(story_image), manifest["slides"][0]["reference_images"])
+        self.assertIn(".internal/visual-quarantine", slide_01_native_outputs["instagram_post"]["path"])
 
     def test_package_generated_outputs_removes_stale_extra_final_slide_files(self):
         from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
@@ -3079,8 +3519,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Codex Builtin Stale Cleanup",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 18),
             )
+            self.write_passing_director_storyboard(out_dir)
+            self.prepare_codex_handoff(out_dir)
             (out_dir / "final").mkdir(exist_ok=True)
             (out_dir / "final-reels-stories").mkdir(exist_ok=True)
             (out_dir / "final" / "slide-99.png").write_bytes(b"stale-post")
@@ -3107,8 +3550,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             final_files = sorted(path.name for path in (out_dir / "final").glob("slide-*.png"))
             reels_files = sorted(path.name for path in (out_dir / "final-reels-stories").glob("slide-*.png"))
 
-        self.assertEqual(final_files, [f"slide-{number:02d}.png" for number in range(1, 6)])
-        self.assertEqual(reels_files, [f"slide-{number:02d}.png" for number in range(1, 6)])
+        self.assertEqual(final_files, [])
+        self.assertEqual(reels_files, [])
 
     def test_package_codex_builtin_outputs_rejects_wrong_native_source_dimensions(self):
         from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
@@ -3129,8 +3572,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Codex Builtin Aspect Gate",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 18),
             )
+            self.write_passing_director_storyboard(out_dir)
+            self.prepare_codex_handoff(out_dir)
             generated_dir = workspace / "generated"
             generated_dir.mkdir()
             instagram_paths = []
@@ -3172,8 +3618,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Codex Builtin Exact Size Gate",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 18),
             )
+            self.write_passing_director_storyboard(out_dir)
+            self.prepare_codex_handoff(out_dir)
             generated_dir = workspace / "generated"
             generated_dir.mkdir()
             instagram_paths = []
@@ -3215,8 +3664,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Codex Builtin Audit Refresh",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 18),
             )
+            self.write_passing_director_storyboard(out_dir)
+            self.prepare_codex_handoff(out_dir)
             self.write_passing_visual_qa(out_dir)
             visual_qa_markdown = (out_dir / "visual-qa.md").read_text(encoding="utf-8")
             generated_dir = workspace / "external-generated"
@@ -3245,8 +3697,8 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace_wiki_exists = (workspace / "wiki").exists()
             workspace_memory_exists = (workspace / "memory").exists()
 
-        self.assertEqual(result["status"], "publish_ready")
-        self.assertIn(final_audit["status"], {"PASS", "PASS_WITH_NOTES"})
+        self.assertEqual(result["status"], "REJECTED_SPATIAL_INTEGRITY")
+        self.assertEqual(final_audit["status"], "NEEDS_FIXES")
         self.assertEqual(refreshed_visual_qa_markdown, visual_qa_markdown)
         self.assertTrue(workspace_wiki_exists)
         self.assertTrue(workspace_memory_exists)
@@ -3270,8 +3722,11 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Codex Builtin Audit Failed",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 18),
             )
+            self.write_passing_director_storyboard(out_dir)
+            self.prepare_codex_handoff(out_dir)
             generated_dir = workspace / "external-generated"
             generated_dir.mkdir()
             instagram_paths = []
@@ -3298,15 +3753,14 @@ class IllustrationCarouselTests(unittest.TestCase):
 
         self.assertEqual(final_audit["status"], "NEEDS_FIXES")
         self.assertFalse(final_audit["pass"])
-        self.assertEqual(result["status"], "generated_audit_failed")
+        self.assertEqual(result["status"], "GENERATED_QUARANTINED")
         self.assertFalse(result["done"])
         self.assertFalse(result["publishable"])
-        self.assertEqual(result["final_audit_status"], "NEEDS_FIXES")
-        self.assertFalse(result["final_audit_pass"])
-        self.assertEqual(manifest["status"], "generated_audit_failed")
+        self.assertNotIn("final_audit_status", result)
+        self.assertEqual(manifest["status"], "GENERATED_QUARANTINED")
         self.assertFalse(manifest["done"])
         self.assertFalse(manifest["publishable"])
-        self.assertEqual(manifest["final_audit_status"], "NEEDS_FIXES")
+        self.assertNotIn("final_audit_status", manifest)
 
     def test_workspace_root_fallback_uses_package_parent_for_external_dirs(self):
         from pipeline.stages.codex_builtin_image_generation import infer_workspace_root_from_carousel_dir
@@ -3386,6 +3840,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Placeholder Gate",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 16),
             )
             source_dir = out_dir / "source-generated-local"
@@ -3597,6 +4052,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 render_assets=False,
                 today=date(2026, 5, 16),
             )
+            self.write_passing_director_storyboard(out_dir)
             source_dir = out_dir / "final" / "model-native-source"
             reels_stories_dir = out_dir / "final-reels-stories"
             source_dir.mkdir(parents=True)
@@ -3665,6 +4121,19 @@ class IllustrationCarouselTests(unittest.TestCase):
                             "dress_continuity": {"pass": True},
                             "style": {"pass": True},
                             "scene_logic": {"pass": True},
+                            "scene_entity_integrity": {
+                                "pass": True,
+                                "slides": [
+                                    {
+                                        "slide": number,
+                                        "expected_people": 2,
+                                        "observed_people": 2,
+                                        "unexpected_entities": [],
+                                        "evidence": "Only the two intended foreground partners are visible.",
+                                    }
+                                    for number in range(1, 6)
+                                ],
+                            },
                             "pose_anatomy": {"pass": True},
                             "integrated_final_text": {"pass": True},
                             "final_files": {"pass": True},
@@ -3719,7 +4188,8 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertTrue(audit["requirements"]["REQ-PHOTO-001"]["pass"])
         self.assertNotEqual(stage_reviews["reviews"]["intake_reviewer"]["status"], "NEEDS_FIXES")
         self.assertNotEqual(stage_reviews["reviews"]["visual_reviewer"]["status"], "NEEDS_FIXES")
-        self.assertEqual(audit["status"], "PASS_WITH_NOTES")
+        self.assertEqual(audit["status"], "NEEDS_FIXES")
+        self.assertIn("schema_version", " ".join(audit["requirements"]["REQ-VISUAL-QA-001"]["evidence"]["failed"]))
 
     def test_final_audit_rejects_checkbox_only_visual_qa(self):
         from pipeline.stages.carousel_quality import (
@@ -3739,6 +4209,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 title="Checkbox QA Gate",
                 output_root=workspace / "out",
                 render_assets=False,
+                requested_formats=["instagram_post", "reels_stories"],
                 today=date(2026, 5, 16),
             )
             generated_dir = workspace / "generated"
@@ -3859,6 +4330,19 @@ class IllustrationCarouselTests(unittest.TestCase):
                             "dress_continuity": {"pass": True},
                             "style": {"pass": True},
                             "scene_logic": {"pass": True},
+                            "scene_entity_integrity": {
+                                "pass": True,
+                                "slides": [
+                                    {
+                                        "slide": number,
+                                        "expected_people": 2,
+                                        "observed_people": 2,
+                                        "unexpected_entities": [],
+                                        "evidence": "Only the two intended foreground partners are visible.",
+                                    }
+                                    for number in range(1, 6)
+                                ],
+                            },
                             "pose_anatomy": {"pass": True},
                             "integrated_final_text": {"pass": True},
                             "final_files": {"pass": True},
@@ -3910,6 +4394,19 @@ class IllustrationCarouselTests(unittest.TestCase):
                             "dress_continuity": {"pass": True},
                             "style": {"pass": True},
                             "scene_logic": {"pass": True},
+                            "scene_entity_integrity": {
+                                "pass": True,
+                                "slides": [
+                                    {
+                                        "slide": number,
+                                        "expected_people": 2,
+                                        "observed_people": 2,
+                                        "unexpected_entities": [],
+                                        "evidence": "Only the two intended foreground partners are visible.",
+                                    }
+                                    for number in range(1, 6)
+                                ],
+                            },
                             "pose_anatomy": {"pass": True},
                             "integrated_final_text": {"pass": True},
                             "final_files": {"pass": True},
@@ -3936,6 +4433,56 @@ class IllustrationCarouselTests(unittest.TestCase):
 
         self.assertFalse(result["pass"])
         self.assertIn("visual-qa.json status must be PASS", " ".join(result["failed"]))
+
+    def test_scene_entity_integrity_rejects_duplicate_background_couple(self):
+        from pipeline.stages.carousel_quality import validate_scene_entity_integrity_check
+
+        issues = validate_scene_entity_integrity_check(
+            {
+                "pass": True,
+                "slides": [
+                    {
+                        "slide": 1,
+                        "expected_people": 2,
+                        "observed_people": 4,
+                        "unexpected_entities": ["background couple walking through the archway"],
+                        "evidence": "Two intended foreground partners plus two unintended distant people.",
+                    }
+                ],
+            },
+            slide_count=1,
+        )
+
+        joined = " ".join(issues).lower()
+        self.assertIn("expected 2 people but observed 4", joined)
+        self.assertIn("background couple", joined)
+
+    def test_scene_entity_integrity_accepts_exact_authorized_inventory(self):
+        from pipeline.stages.carousel_quality import validate_scene_entity_integrity_check
+
+        issues = validate_scene_entity_integrity_check(
+            {
+                "pass": True,
+                "slides": [
+                    {
+                        "slide": 1,
+                        "expected_people": 2,
+                        "observed_people": 2,
+                        "expected_arms": 4,
+                        "observed_arms": 4,
+                        "expected_hands": 4,
+                        "observed_hands": 4,
+                        "unexpected_entities": [],
+                        "unexpected_limbs": [],
+                        "duplicated_limbs": [],
+                        "evidence": "Only the intended foreground woman and man are visible.",
+                    }
+                ],
+            },
+            slide_count=1,
+        )
+
+        self.assertEqual(issues, [])
 
     def test_wiki_update_records_audit_issues_and_notes(self):
         from pipeline.stages.carousel_quality import QualityContext, build_wiki_update

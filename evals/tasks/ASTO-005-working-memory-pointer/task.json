@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["contract", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
   "starting_state": [
     "A session wrote long durable creator preferences directly into memory/working.md.",
     "The same learning should live in semantic memory with confidence and sources."
@@ -20,10 +21,20 @@
   "expected_files_changed": ["memory/working.md", "memory/semantic/engineering-workflow-preferences.md", "tests/test_wiki_health.py"],
   "forbidden_changes": ["Do not delete episodic memory.", "Do not remove semantic confidence requirements."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_wiki_health.py", "tests/test_agentic_memory_recall.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "health"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "working_memory_pointer_fixture"],
   "rubric_checkers": [],
   "fail_to_pass": ["long durable learning is removed from memory/working.md and moved to semantic memory"],
   "pass_to_pass": ["memory/working.md remains a pointer surface and episodic memory is preserved"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/memory/working.md",
+      "target": "memory/working.md"
+    },
+    {
+      "source": "fixtures/memory/semantic/engineering-workflow-preferences.md",
+      "target": "memory/semantic/engineering-workflow-preferences.md"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should fail if memory/working.md becomes a second source of truth."]
 }

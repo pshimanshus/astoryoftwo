@@ -551,7 +551,7 @@ def build_post_copy_visual_room(
             {
                 "agent": "Typography And Aspect Director",
                 "verdict": "GO",
-                "prompt_summary": "Plan readable text and brandmark placement for separate native 3:4 and 9:16 outputs.",
+                "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output.",
             },
             {
                 "agent": "Generation Prompt Director",

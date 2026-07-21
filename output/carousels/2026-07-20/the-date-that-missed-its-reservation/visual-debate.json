@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Tiny Rituals",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual": "Rain-damp evening at a tiny roadside chai stall. Exactly Aachu and Zuv sit on two plastic stools pulled close, dressed for a proper date but slightly rumpled, sharing a private laugh over two small glasses of chai. Their scooter is parked safely on the quieter opposite shoulder to avoid traffic. Across the divided road, through a stream of cars, the intended restaurant on the next road is visibly close but inconvenient to reach. The frame feels like the warm aftermath of a story, not a posed portrait. No chai vendor or background people visible."
+    },
+    {
+      "slide": 2,
+      "copy": "The date began with one missing key\nand two suspects.",
+      "visual": "Inside their entryway before leaving, Aachu holds both scooter helmets and points a playful accusing finger while Zuv checks his jacket pockets and looks theatrically innocent. The scooter key is visibly caught in the tote strap between them. Exactly two people; the physical evidence makes the joke readable without text."
+    },
+    {
+      "slide": 3,
+      "copy": "By the third wrong turn,\nnobody was cute anymore.",
+      "visual": "They stand beside their parked scooter on the quieter side of a rain-slick divided road. A phone map in Zuv's hand reroutes while the intended restaurant is frustratingly visible across the traffic on the next road. Aachu holds both helmets and looks away, tired and irritated; Zuv studies the route with restrained frustration. Exactly two visible people and no reflections."
+    },
+    {
+      "slide": 4,
+      "copy": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+      "visual": "At a safe recessed roadside edge near the parked scooter, Aachu faces slightly away with arms folded. Zuv stays beside the scooter several feet behind her, body open and grounded, not reaching or crowding. His helmet rests securely against his hip; her helmet hangs from one relaxed hand. The empty space between them communicates a respected pause while his remaining nearby communicates care. Exactly two people."
+    },
+    {
+      "slide": 5,
+      "copy": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+      "visual": "Across the road outside the intended restaurant, the frontage is closed or inaccessible after the long detour. Aachu's irritation has fallen into quiet disappointment as she looks at the dark entrance. Zuv notices her expression rather than the shutter, holding the phone down at his side. Their body distance has narrowed but they do not yet touch. Exactly two people, no background diners or staff."
+    },
+    {
+      "slide": 6,
+      "copy": "The plan failed.\nThe date didn’t.",
+      "visual": "At the tiny roadside chai stall beside their safely parked scooter, Aachu steals a sip from Zuv's chai after finishing hers. Zuv gives her a mock-offended look while protecting the biscuit packet against his chest. Two stools are now pulled close. The unreachable restaurant glows softly across the divided road behind traffic. Exactly two people, vendor out of frame."
+    },
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "visual": "Back home after the date, Zuv has stepped away from the locked door but glances back. Aachu rolls her eyes, returns to the handle, and tests it herself; he catches her doing it and smiles. Their helmets and damp outer layers sit nearby as proof of the evening. Exactly two people and one clear door handle action."
+    }
+  ]
+}

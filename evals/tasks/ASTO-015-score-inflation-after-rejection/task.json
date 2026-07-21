@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-015-score-inflation-after-rejection",
+  "title": "Downgrade inflated concept scores after creator rejection",
+  "category": "creative_contract",
+  "difficulty": "hard",
+  "suites": ["creative", "contract", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
+  "starting_state": [
+    "A concept-selection artifact gives 28-29/30 scores and PASS_NO_CAP to a route the creator rejected as unsendable.",
+    "The workflow still treats the route as calibrated evidence for future jams."
+  ],
+  "done_when": [
+    "Creator rejection overrides inflated score artifacts.",
+    "Rejected lanes are marked STOP / do not polish / do not re-present unless explicitly reopened.",
+    "Taste gate caps prevent common relatable tropes from scoring above the threshold without novelty and creator-world specificity."
+  ],
+  "allowed_paths": ["config/skills/**", "memory/semantic/**", "pipeline/**", "scripts/**", "tests/**", "output/concepts/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/skills/golden-viral-carousel-theme.md", "config/skills/carousel-jam-runtime-context.md", "memory/semantic/carousel-idea-preferences.md", "tests/test_creator_workflow_contract.py"],
+  "forbidden_changes": ["Do not hide creator rejection evidence.", "Do not lower the 28/30 bar globally.", "Do not keep rejected routes as positive calibration examples."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_creator_workflow_contract.py", "tests/test_ai_command_center.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "score_rejection_fixture"],
+  "rubric_checkers": ["creative_contract"],
+  "fail_to_pass": ["creator-rejected routes with inflated scores become STOP/rebuild evidence and cannot remain 28+ calibrated winners"],
+  "pass_to_pass": ["valid high-scoring concepts can still pass when novelty, creator-world specificity, staged proof, and sendability evidence are present"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/concepts/fixtures/score-inflation-after-rejection/concept-selection.json",
+      "target": "output/concepts/fixtures/score-inflation-after-rejection/concept-selection.json"
+    },
+    {
+      "source": "fixtures/output/concepts/fixtures/score-inflation-after-rejection/rejection-note.md",
+      "target": "output/concepts/fixtures/score-inflation-after-rejection/rejection-note.md"
+    }
+  ],
+  "anti_gaming_notes": ["Hidden checker should seed a different rejected concept with high scores and require the rejection note to cap or invalidate the score."]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Fixture Article",
+  "status": "draft_gated",
+  "source_carousel": "output/carousels/fixtures/article-source",
+  "required_source_artifacts": [
+    "concept.json",
+    "storyboard.md",
+    "slides.json",
+    "copy.json"
+  ],
+  "artifacts": [
+    "article-brief.md",
+    "outline.md",
+    "editorial-gates.md"
+  ]
+}

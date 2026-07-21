@@ -1,0 +1,6 @@
+interface:
+  display_name: "Direct Visual Story"
+  short_description: "Direct image-led stories before generation"
+  default_prompt: "Use $a-story-direct-visual-story to direct this locked concept visually and run both visual-story checks."
+policy:
+  allow_implicit_invocation: true

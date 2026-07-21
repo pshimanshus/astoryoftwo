@@ -42,6 +42,12 @@
           "required": true
         },
         {
+          "id": "rule_scene_entity_integrity",
+          "path": "config/rules/scene-entity-integrity.md",
+          "kind": "canonical_rule",
+          "required": true
+        },
+        {
           "id": "rule_relationship_motion",
           "path": "config/rules/relationship-motion.md",
           "kind": "canonical_rule",

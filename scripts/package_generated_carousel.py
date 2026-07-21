@@ -9,55 +9,128 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
-from pipeline.stages.codex_builtin_image_generation import package_codex_builtin_outputs
+from pipeline.stages.carousel_format_contract import (
+    INSTAGRAM_POST_FORMAT,
+    REELS_STORIES_FORMAT,
+    SQUARE_FORMAT,
+    locked_formats,
+)
+from pipeline.stages.codex_builtin_image_generation import (
+    package_codex_builtin_outputs,
+    promote_quarantined_codex_builtin_outputs,
+)
+
+
+RETRYABLE_LIFECYCLE_BLOCKERS = {
+    "generated_proof_without_structured_qa_v2",
+    "quarantined_proof_claims_continuation",
+    "qa_pass_without_creator_approval",
+    "batch_allowed_without_correct_state",
+}
 
 
 def package_generated_images(
     carousel_dir: Path,
     *,
-    instagram_post_paths: list[Path],
-    reels_stories_paths: list[Path],
+    instagram_post_paths: list[Path] | None = None,
+    reels_stories_paths: list[Path] | None = None,
+    square_paths: list[Path] | None = None,
     refresh_quality: bool = False,
+    visual_qa_path: Path | None = None,
+    creator_approval_path: Path | None = None,
 ) -> dict[str, Any]:
-    """Package paired native outputs; never derive one social format from another."""
+    """Package exactly the native outputs locked by the current request."""
 
     doctor_report = inspect_carousel_package(carousel_dir)
-    if doctor_report.blocked:
-        issue_codes = ", ".join(issue.code for issue in doctor_report.issues)
+    hard_blockers = [
+        issue
+        for issue in doctor_report.issues
+        if issue.severity == "blocker"
+        and issue.code not in RETRYABLE_LIFECYCLE_BLOCKERS
+    ]
+    if hard_blockers:
+        issue_codes = ", ".join(issue.code for issue in hard_blockers)
         raise ValueError(f"Cannot package generated images for blocked carousel package: {issue_codes}")
 
+    supplied = {
+        key: paths
+        for key, paths in {
+            INSTAGRAM_POST_FORMAT: instagram_post_paths,
+            REELS_STORIES_FORMAT: reels_stories_paths,
+            SQUARE_FORMAT: square_paths,
+        }.items()
+        if paths
+    }
     return package_codex_builtin_outputs(
         carousel_dir,
-        generated_paths_by_format={
-            "instagram_post": instagram_post_paths,
-            "reels_stories": reels_stories_paths,
-        },
+        generated_paths_by_format=supplied,
         refresh_quality=refresh_quality,
+        visual_qa_path=visual_qa_path,
+        creator_approval_path=creator_approval_path,
     )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Package native generated carousel images into final/ and final-reels-stories/. "
-            "Provide one Instagram post image and one Reels/Stories image per slide."
+            "Package native generated carousel images for exactly the package's locked "
+            "current-request formats."
         )
     )
     parser.add_argument("carousel_dir", type=Path)
-    parser.add_argument("--instagram-post", dest="instagram_post_paths", action="append", required=True, type=Path)
-    parser.add_argument("--reels-stories", dest="reels_stories_paths", action="append", required=True, type=Path)
+    parser.add_argument("--instagram-post", dest="instagram_post_paths", action="append", type=Path)
+    parser.add_argument("--reels-stories", dest="reels_stories_paths", action="append", type=Path)
+    parser.add_argument("--square", dest="square_paths", action="append", type=Path)
+    parser.add_argument(
+        "--promote-quarantine",
+        action="store_true",
+        help="Revalidate and promote the existing quarantined image set after QA and creator approval.",
+    )
+    parser.add_argument("--visual-qa", dest="visual_qa_path", type=Path)
+    parser.add_argument("--creator-approval", dest="creator_approval_path", type=Path)
     parser.add_argument(
         "--no-quality-refresh",
         action="store_true",
-        help="Skip refreshing visual-qa/run-ledger/stage-reviews/final-audit after packaging.",
+        help=(
+            "Do not run final audit. Creator-approved pixels remain internal and are not "
+            "written to publishable final folders."
+        ),
     )
     args = parser.parse_args()
-    manifest = package_generated_images(
-        args.carousel_dir,
-        instagram_post_paths=args.instagram_post_paths,
-        reels_stories_paths=args.reels_stories_paths,
-        refresh_quality=not args.no_quality_refresh,
-    )
+    if args.promote_quarantine:
+        if args.instagram_post_paths or args.reels_stories_paths or args.square_paths:
+            parser.error("--promote-quarantine cannot be combined with new generated image paths.")
+        manifest = promote_quarantined_codex_builtin_outputs(
+            args.carousel_dir,
+            refresh_quality=not args.no_quality_refresh,
+            visual_qa_path=args.visual_qa_path,
+            creator_approval_path=args.creator_approval_path,
+        )
+    else:
+        supplied_formats = {
+            key
+            for key, paths in {
+                INSTAGRAM_POST_FORMAT: args.instagram_post_paths,
+                REELS_STORIES_FORMAT: args.reels_stories_paths,
+                SQUARE_FORMAT: args.square_paths,
+            }.items()
+            if paths
+        }
+        required_formats = set(locked_formats(args.carousel_dir))
+        if supplied_formats != required_formats:
+            parser.error(
+                "new generated images must match the locked format contract exactly; required: "
+                + ", ".join(sorted(required_formats))
+            )
+        manifest = package_generated_images(
+            args.carousel_dir,
+            instagram_post_paths=args.instagram_post_paths,
+            reels_stories_paths=args.reels_stories_paths,
+            square_paths=args.square_paths,
+            refresh_quality=not args.no_quality_refresh,
+            visual_qa_path=args.visual_qa_path,
+            creator_approval_path=args.creator_approval_path,
+        )
     print(json.dumps(manifest, indent=2))
 
 

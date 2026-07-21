@@ -100,6 +100,10 @@ from pipeline.stages.carousel_visual_rooms import (
     build_visual_debate,
     build_visual_plan_quality,
 )
+from pipeline.stages.carousel_visual_integrity import (
+    build_hand_ownership_map,
+    build_visual_richness_contract,
+)
 
 
 CREATIVE_BASELINE_RULE = (
@@ -1117,6 +1121,9 @@ def build_package(
             "text": slide["copy"],
             "scene": slide["visual"],
             "visual": slide["visual"],
+            "hand_map": slide.get("hand_map") or build_hand_ownership_map(slide["visual"]),
+            "visual_richness_contract": slide.get("visual_richness_contract")
+            or build_visual_richness_contract(slide["visual"]),
             "pose": slide.get("pose") or (
                 "Use the slide scene as a lived-in romantic gesture: the couple should lean into "
                 "the beat through eye contact, a small care action, hand placement, posture, or "
@@ -1144,9 +1151,9 @@ def build_package(
             "identity_reference_images": identity_paths,
             "prompt": (
                 f"Use case: illustration-story. Asset type: complete publishable carousel slide "
-                f"{slide['slide']} of {slide_count}, prepared as two native outputs: "
-                f"1080x1440 vertical 3:4 Instagram post and 1080x1920 vertical 9:16 Reels/Stories. "
-                f"Never resize, crop, pad, or extend one output into the other. Story context: {story}. "
+                f"{slide['slide']} of {slide_count}, prepared only for the current-request "
+                f"canvases locked in format-contract.json. Never resize, crop, pad, or extend "
+                f"one output into another aspect ratio. Story context: {story}. "
                 f"Master prompt version: {MASTER_PROMPT_VERSION}. Use the project master prompt sections for "
                 "identity, style, composition, scene logic, typography, brandmark, and final rendering. "
                 f"North Star: {contract['north_star']} Content lane: {lane}. "
@@ -1340,7 +1347,7 @@ def build_package(
                 "strategy": contract["typography"]["strategy"],
                 "composition_role": "publishable_final_illustration_with_text",
                 "font_direction": (
-                    "handwritten storybook type, dark charcoal, readable at 1080x1440 and 1080x1920; "
+                    "handwritten storybook type, dark charcoal, readable at every canvas locked in format-contract.json; "
                     "exact slide copy must be integrated into the generated final image raster; "
                     "if the model cannot render exact copy, block or retry with a text-bearing prompt"
                 ),
@@ -1433,7 +1440,7 @@ def build_package(
                     else []
                 ),
                 *(
-                    ["Carousel-first route: no Reel script or Reel signal gate; generate native 3:4 and separate native 9:16 slide sets from the same idea."]
+                    ["Carousel-first route: no Reel script or Reel signal gate; generate only the native canvas set locked by the current request."]
                     if is_wallet_audit
                     else []
                 ),
@@ -1602,6 +1609,7 @@ def create_codex_native_carousel(
     render_assets: bool = True,
     today: date | None = None,
     creative_baseline_path: str | Path | None = None,
+    requested_formats: list[str] | None = None,
 ) -> Path:
     if not story.strip():
         raise ValueError("Story is required.")
@@ -1680,6 +1688,7 @@ def create_codex_native_carousel(
         identity_dossier=identity_dossier,
         slide_count=slide_count,
         today=today,
+        requested_formats=requested_formats,
     )
     write_package(out_dir, manifest, package)
     write_layer_e_artifacts(out_dir, layer_e_decision)

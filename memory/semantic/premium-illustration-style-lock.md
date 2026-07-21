@@ -29,9 +29,10 @@ illustration-story generation in this folder.
   chargers, scarves, and denim;
 - identity-first Aachu/Zuv faces with expressive eyes, real-person warmth,
   preserved hair silhouettes, and no over-beautified generic model drift;
-- native 4:5 `1080x1350` for proofs, concepts, single-slide outputs, and
+- native 3:4 `1080x1440` finals for proofs, concepts, single-slide outputs, and
   Instagram posts/carousel slides by default; separate native 9:16 `1080x1920`
-  for Reels/Stories; square only on explicit request;
+  only when Reel/Story is explicitly requested; square only on explicit
+  request;
 - clean upper-middle negative space for exact readable hand-drawn text;
 - tiny low-contrast handwritten `@a.storyof.two` brandmark at top-right;
 - premium hand-drawn storybook typography like the approved set: neat,

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-018-copy-visual-logic-contradiction",
+  "title": "Block visuals that contradict the approved copy",
+  "category": "creative_contract",
+  "difficulty": "hard",
+  "suites": ["creative", "carousel", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
+  "starting_state": [
+    "A slide image or visual plan is stylish and identity-consistent.",
+    "The visible clothing, gaze, object state, or action contradicts the exact approved slide text."
+  ],
+  "done_when": [
+    "Visual QA blocks copy-visual contradictions before proof or final approval.",
+    "Each slide plan records the copy claim and the visible evidence that proves it.",
+    "Attractive style or identity match cannot override broken scene logic."
+  ],
+  "allowed_paths": ["config/rules/**", "config/skills/**", "pipeline/**", "scripts/**", "tests/**", "output/carousels/**/visual-qa.md", "output/carousels/**/visual-qa.json", "output/carousels/**/visual-plan-quality.json", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/rules/identity.md", "config/skills/illustration-carousel-framework.md", "pipeline/stages/carousel_visual_rooms.py", "tests/test_illustration_carousel.py"],
+  "forbidden_changes": ["Do not treat style, identity, or dimensions as enough when scene logic fails.", "Do not edit approved copy to fit a wrong image unless the creator reopens copy.", "Do not accept vague 'matches vibe' QA."],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_illustration_carousel.py", "tests/test_story_scene_first_contract.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "copy_visual_logic_fixture"],
+  "rubric_checkers": ["visual_variety"],
+  "fail_to_pass": ["visual plans and QA fail when visible action/object/clothing/gaze contradicts exact slide copy"],
+  "pass_to_pass": ["style-correct and identity-correct images still pass when visible scene evidence proves the copy"],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 0.9},
+  "fixture_overlay": [
+    {
+      "source": "fixtures/output/evals/ASTO-018/visual-qa.json",
+      "target": "output/evals/ASTO-018/visual-qa.json"
+    }
+  ],
+  "anti_gaming_notes": ["Hidden checker should use a different contradiction such as looking at the wrong person, already-worn clothing, missing object movement, or cause/effect reversal."]
+}

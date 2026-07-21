@@ -10,6 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 EXPECTED_SKILLS = {
+    "a-story-instagram-idea-loop": [
+        "config/skill-systems.json",
+        "instagram_idea_loop",
+        "asot_idea_scout",
+        "READY_FOR_CONCEPT_LOCK",
+        "scripts/instagram_idea_loop.py",
+    ],
     "a-story-carousel-jam": [
         "config/skill-systems.json",
         "carousel_jam",
@@ -34,6 +41,16 @@ EXPECTED_SKILLS = {
         "scripts/autopublish.py",
         "make publish",
         "--include",
+    ],
+    "a-story-direct-visual-story": [
+        "config/skills/illustration-carousel-framework.md",
+        "config/rules/scene-entity-integrity.md",
+        "references/legacy-package-migration.md",
+        "review_provenance",
+        "director_event_fingerprint",
+        "source_director_event_fingerprint",
+        "expected_frame_bindings",
+        "visual-qa.json",
     ],
 }
 
@@ -90,6 +107,7 @@ def test_repo_codex_skills_are_registered_with_invocation_policy():
     assert set(repo_records) == set(EXPECTED_SKILLS)
     assert repo_records["a-story-closeout"].implicit_invocation is False
     assert repo_records["a-story-wiki-health"].implicit_invocation is False
+    assert repo_records["a-story-instagram-idea-loop"].implicit_invocation is True
     assert repo_records["a-story-carousel-jam"].implicit_invocation is True
     assert "carousel-jam-runtime-context" in repo_records["a-story-carousel-jam"].dependencies
 
@@ -132,6 +150,8 @@ def test_project_codex_config_hooks_and_rules_are_present_and_safe():
     assert config["project_doc_max_bytes"] == 65536
     assert config["features"]["goals"] is True
     assert config["features"]["hooks"] is True
+    assert config["agents"]["max_threads"] == 4
+    assert config["agents"]["max_depth"] == 1
 
     stop_hooks = hooks["hooks"]["Stop"][0]["hooks"]
     assert stop_hooks[0]["type"] == "command"

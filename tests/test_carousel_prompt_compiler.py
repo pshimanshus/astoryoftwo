@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pytest
 
+from pipeline.stages.carousel_master_prompt import master_prompt_contract
 from pipeline.stages.carousel_prompt_compiler import MAX_PROMPT_CHARS, compile_image_prompt, extract_scene_summary
 from pipeline.stages.codex_builtin_image_generation import generator_prompt_text
 
@@ -94,6 +95,34 @@ def test_compile_image_prompt_uses_creator_text_rule_without_no_text_conflict():
     assert "Do not add extra words" in prompt
     assert "BRAND INTEGRATION VISIBILITY RULE" in prompt
     assert "no text baked into image" not in prompt.lower()
+
+
+def test_compile_image_prompt_always_includes_hand_ownership_and_visual_richness_contracts():
+    prompt = compile_image_prompt(
+        slide_number=8,
+        slide_count=10,
+        slide_copy='Kyunki gussa apni jagah.\n“Tum theek ho?” apni jagah.',
+        visual="Aachu offers Zuv a tissue at the apartment doorway.",
+        format_key="instagram_post",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+    )
+
+    assert "HAND OWNERSHIP MAP (HARD GATE):" in prompt
+    assert "Aachu left hand" in prompt
+    assert "Aachu right hand" in prompt
+    assert "Zuv left hand" in prompt
+    assert "Zuv right hand" in prompt
+    assert "anonymous hand entering from the door" in prompt
+    assert "WHOLE-PERSON SPATIAL TOPOLOGY (HARD GATE):" in prompt
+    assert "person absorbed by or morphed into a door" in prompt
+    assert "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb" in prompt
+    assert "Aachu: visible regions=head, neck, shoulders, torso" in prompt
+    assert "Zuv: visible regions=head, neck, shoulders, torso" in prompt
+    assert "VISUAL RICHNESS CONTRACT (HARD GATE):" in prompt
+    assert "foreground, midground, and background" in prompt
+    assert "2-4 story-relevant environmental details" in prompt
+    assert "sparse two-person pose beside text" in prompt
 
 
 def test_compile_image_prompt_preserves_canonical_master_prompt_fragments():
@@ -190,17 +219,28 @@ def test_generator_prompt_text_compacts_legacy_prompt_without_visual_or_scene():
     assert "exact 3:4 canvas" in prompt
 
 
-def test_compile_image_prompt_rejects_unsupported_format():
-    with pytest.raises(ValueError, match="Unsupported format_key"):
-        compile_image_prompt(
-            slide_number=1,
-            slide_count=5,
-            slide_copy="Copy",
-            visual="Visual",
-            format_key="square",
-            style="Style",
-            negative="Negative",
-        )
+def test_compile_image_prompt_uses_square_native_format_lock():
+    prompt = compile_image_prompt(
+        slide_number=1,
+        slide_count=5,
+        slide_copy="Copy",
+        visual="Aachu and Zuv share chai at the kitchen counter.",
+        format_key="square",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+    )
+
+    assert "Square Output" in prompt
+    assert "exact 1:1 square canvas, native 1080x1080 px" in prompt
+    assert "Required output size: exactly 1080x1080 px, native 1:1" in prompt
+    assert "not a 3:4 carousel or 9:16 story canvas" in prompt
+    assert "do not resize from another format" in prompt.lower()
+    assert master_prompt_contract()["native_outputs"]["square"] == {
+        "aspect_ratio": "1:1",
+        "size": "1080x1080",
+        "source_size": "1080x1080",
+        "directory": "final-square/",
+    }
 
 
 def test_compile_image_prompt_rejects_over_budget_prompt():

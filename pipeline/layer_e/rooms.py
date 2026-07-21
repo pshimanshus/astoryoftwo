@@ -78,7 +78,9 @@ def success_definition_from_memory(memory: LayerESourceMemory) -> dict[str, str]
         ),
         "production_success": (
             "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, "
-            "identity, native 3:4, native 9:16, QA, and audit gates must also pass."
+            "identity, request-locked native-format, QA, and audit gates must also pass. "
+            "Default post/carousel delivery is 1080x1440 only; 1080x1920 Reel/Story "
+            "is required only when explicitly requested."
         ),
         "source": "wiki/insights/successful-carousel-standard.md",
         "memory_excerpt": memory.success_standard_excerpt[:500],

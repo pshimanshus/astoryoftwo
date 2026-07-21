@@ -1,0 +1,16 @@
+{
+  "default_profile": "eval_tiny",
+  "profiles": {
+    "eval_tiny": {
+      "budget_tokens": 1,
+      "sections": [
+        {
+          "id": "palette_rule_include",
+          "kind": "rule",
+          "path": "config/rules/palette.md",
+          "required": true
+        }
+      ]
+    }
+  }
+}

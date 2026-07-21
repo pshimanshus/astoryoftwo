@@ -1,0 +1,10 @@
+{
+  "systems": {
+    "carousel_jam": {
+      "entrypoint": "make jam",
+      "required_context": [
+        "config/skills/carousel-jam-runtime-context.md"
+      ]
+    }
+  }
+}

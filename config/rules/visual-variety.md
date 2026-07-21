@@ -51,6 +51,19 @@ HARD FAIL — regenerate or repair before generation
 - wardrobe changes but shot grammar and staging remain the same;
 - the visual plan says "different scenes" but the generated images still feel
   like the same room/table/pose re-skinned.
+- sparse posed portraits where two people stand beside the copy without
+  foreground, midground, background, or a visible cause-and-effect receipt;
+- decorative clutter that creates detail without advancing the same scene.
+
+VISUAL RICHNESS GATE
+- Every generated proof/final must record a structured `visual_richness`
+  review with foreground, midground, and background layers; one instantly
+  readable focal relationship action; two to four story-relevant environmental
+  details; visible incident/reaction/aftermath; `posed_portrait: false`; and
+  `decorative_clutter: false`.
+- Richness means layered evidence, not more objects. A clean composition can
+  pass when its few details all advance the beat; an ornate static portrait
+  fails.
 
 EXCEPTIONS
 - A single continuous-scene story may intentionally keep the same wardrobe and

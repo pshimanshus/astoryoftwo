@@ -11,11 +11,13 @@ single-format work.
 
 Repair format inference so the latest explicit creator instruction wins over
 default workflow assumptions. Keep native post/story final requirements for
-normal carousel packages.
+normal carousel packages. Update the seeded `request-state.json` plan to show
+the corrected output set after the repair.
 
 ## Acceptance Criteria
 
 - A corrected single-format request does not generate unrequested formats.
+- The seeded request-state artifact records only the latest requested output.
 - Ambiguous corrections ask for exact canvas instead of guessing.
 - Normal carousel runs still require separate native 1080x1440 and 1080x1920
   finals.

@@ -10,13 +10,19 @@ poster scenes and requires a shot ladder before generation.
 
 ## Starting Fixture
 
-The fixture should include a seven-slide storyboard where every visual field is
-a warm couple medium shot in the same room. Copy may be emotionally good so the
-agent cannot reject it on writing alone. The fail-to-pass check should make
+Fixture direction: **regression**. The protected current implementation is
+expected to reject the seeded failure, so a single-pass `evals/runner.py review`
+records this fixture as `guarded`. That guard result alone cannot award agent
+solve credit: an isolated benchmark run must first apply a hidden code mutation
+or pre-fix revision that makes the guard fail, then evaluate the agent patch.
+
+The visible fixture at `fixtures/output/evals/ASTO-012/visual-plan-quality.json`
+uses emotionally plausible copy while every visual field stays a medium
+two-shot at the same table in the same room. The fail-to-pass check makes
 `visual-plan-quality.json` return REPAIR or BLOCK_GENERATION until the shot
 ladder varies camera distance, angle, action, setting lane, props, and who is
-visible. The pass-to-pass case should allow a continuous same-location scene
-when camera and action materially change.
+visible. The pass-to-pass case allows a continuous same-location scene when
+camera and action materially change.
 
 ## Failure Modes
 

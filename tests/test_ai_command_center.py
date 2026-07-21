@@ -13,6 +13,7 @@ def test_ai_command_center_files_exist():
         "docs/ai-ops-playbook.md",
         "docs/superpowers/specs/2026-05-28-ai-command-center-design.md",
         "scripts/daily_creator_brief.py",
+        "scripts/instagram_idea_loop.py",
         "scripts/jam_today.py",
         "scripts/run_content_health.py",
     ):
@@ -24,6 +25,7 @@ def test_makefile_exposes_primary_targets():
     for target in (
         "brief:",
         "health wiki-health:",
+        "idea-loop:",
         "jam:",
         "prepost:",
         "carousel:",
@@ -56,7 +58,12 @@ def test_make_carousel_runs_existing_preflight_before_generation():
 
 
 def test_command_center_scripts_have_help():
-    for script in ("daily_creator_brief.py", "jam_today.py", "run_content_health.py"):
+    for script in (
+        "daily_creator_brief.py",
+        "instagram_idea_loop.py",
+        "jam_today.py",
+        "run_content_health.py",
+    ):
         result = subprocess.run(
             [sys.executable, str(WORKSPACE / "scripts" / script), "--help"],
             cwd=WORKSPACE,

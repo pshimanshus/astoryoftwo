@@ -1,0 +1,40 @@
+{
+  "schema_version": "2.0",
+  "status": "PASS",
+  "slide_count": 2,
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "expected_arms": 4,
+          "observed_arms": 4,
+          "expected_hands": 2,
+          "observed_hands": 3,
+          "visible_hands": [
+            {"owner": "Aachu", "side": "right", "action": "offers tissue", "story_required": true, "attachment_visible": true, "attachment_evidence": "forearm continues into sleeve", "contact_object": "tissue", "contact_geometry_pass": true, "occlusion_evidence": "fingers overlap tissue edge", "solid_object_intersection": false, "edge_entry_unexplained": false},
+            {"owner": "Zuv", "side": "left", "action": "shows nicked thumb", "story_required": true, "attachment_visible": true, "attachment_evidence": "wrist continues into cuff", "contact_object": "tissue", "contact_geometry_pass": true, "occlusion_evidence": "thumb meets tissue surface", "solid_object_intersection": false, "edge_entry_unexplained": false},
+            {"owner": "", "side": "right", "action": "touches door edge", "story_required": false, "attachment_visible": false, "attachment_evidence": "", "contact_object": "door", "contact_geometry_pass": false, "occlusion_evidence": "", "solid_object_intersection": true, "edge_entry_unexplained": true}
+          ],
+          "unexpected_limbs": ["anonymous hand on door edge"],
+          "duplicated_limbs": [],
+          "malformed_fingers": false
+        },
+        {
+          "slide": 2,
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 1,
+          "observed_hands": 1,
+          "visible_hands": [
+            {"owner": "Zuv", "side": "right", "action": "supports moving box", "story_required": true, "attachment_visible": true, "attachment_evidence": "forearm descends from rolled sleeve", "contact_object": "moving box", "contact_geometry_pass": false, "occlusion_evidence": "forearm disappears through the solid upper box wall", "solid_object_intersection": true, "edge_entry_unexplained": false}
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false
+        }
+      ]
+    }
+  }
+}

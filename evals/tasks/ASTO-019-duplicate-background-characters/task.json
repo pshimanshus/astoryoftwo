@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-019-duplicate-background-characters",
+  "title": "Block accidental duplicate characters and background actors",
+  "category": "carousel_package",
+  "difficulty": "hard",
+  "suites": ["smoke", "creative", "carousel", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
+  "starting_state": [
+    "A locked intimate scene authorizes exactly one foreground couple and no background people.",
+    "The generated image contains a second couple walking away in the corridor, but visual QA still claims PASS because text, style, and anatomy look good."
+  ],
+  "done_when": [
+    "Every proof and final slide records expected and observed people counts plus unexpected entities.",
+    "A count mismatch, duplicate couple, reflection, silhouette, or extra background actor blocks proof approval and final audit.",
+    "Valid scenes with explicitly authorized background people still pass."
+  ],
+  "allowed_paths": ["config/rules/**", "config/skills/**", ".agents/skills/**", "pipeline/stages/**", "tests/**", "memory/semantic/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["config/rules/scene-entity-integrity.md", "pipeline/stages/carousel_quality.py", "tests/test_illustration_carousel.py"],
+  "forbidden_changes": [
+    "Do not treat distant, faint, reflected, or symbolic people as exempt from the entity inventory.",
+    "Do not block explicitly storyboarded background people when their count and roles are authorized.",
+    "Do not replace instance-level checks with a single holistic beauty or prompt-alignment score."
+  ],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_illustration_carousel.py", "tests/test_eval_runner.py", "-q"]],
+  "deterministic_checkers": ["diff_guard", "scene_entity_integrity_fixture"],
+  "rubric_checkers": [],
+  "fail_to_pass": ["a PASS visual QA with expected_people=2, observed_people=4, and an unintended background couple is rejected"],
+  "pass_to_pass": ["a two-person scene with exactly two observed people passes, and a crowd scene passes when its background roles and count policy are explicitly authorized"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/visual-qa.json",
+      "target": "output/carousels/fixtures/duplicate-background-couple/visual-qa.json",
+      "mode": "text"
+    }
+  ],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": ["Hidden variants should use a mirror duplicate, doorway silhouette, tiny third person, framed figure that reads as a live actor, and an explicitly authorized wedding crowd control case."]
+}

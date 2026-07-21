@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "REVIEW_FAILED",
+  "complete": false,
+  "iterations": 1,
+  "package_dir": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us",
+  "state": {
+    "name": "blocked",
+    "publishable": false,
+    "blocked": true,
+    "next_action": "repair_blockers",
+    "issue_codes": [
+      "image_generation_blocked"
+    ],
+    "package_dir": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us"
+  },
+  "issue_codes": [
+    "image_generation_blocked",
+    "state_not_publishable"
+  ],
+  "reason": "Review-only mode found unresolved issues.",
+  "trace_dir": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-20/not-married-yet-already-us/.internal/review-loop"
+}

@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["smoke", "contract", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
   "starting_state": [
     "The worktree contains a legitimate code change plus risky local files.",
     "A closeout command would stage everything unless the safety gate blocks it or scopes includes."

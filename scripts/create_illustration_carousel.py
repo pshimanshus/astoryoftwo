@@ -68,7 +68,7 @@ Examples:
         "--slide-count",
         type=int,
         default=DEFAULT_SLIDE_COUNT,
-        help="Slide count, usually 4-10",
+        help="Slide count, usually 4-11",
     )
     parser.add_argument("--style-brief", help="Optional illustration/style direction")
     parser.add_argument(
@@ -120,9 +120,12 @@ Examples:
     )
     parser.add_argument(
         "--proof-format",
-        choices=["instagram_post", "reels_stories"],
+        choices=["instagram_post", "reels_stories", "square"],
         action="append",
-        help="Limit handoff prompts to one native format. Repeat to include both formats.",
+        help=(
+            "Lock the current-request output format. Repeat only when the creator explicitly "
+            "requested a multi-format package."
+        ),
     )
     parser.add_argument(
         "--image-backend",
@@ -136,11 +139,12 @@ Examples:
     args = parser.parse_args()
 
     if args.image_backend == "local-dry-run" and (
-        args.prepare_image_handoff or args.generate_images or args.proof_slide is not None or args.proof_format
+        args.prepare_image_handoff or args.generate_images or args.proof_slide is not None
     ):
         parser.error(
             "local-dry-run cannot be combined with --prepare-image-handoff, "
-            "--generate-images, --proof-slide, or --proof-format."
+            "--generate-images, or --proof-slide. --proof-format remains the "
+            "current-request output lock for either backend."
         )
 
     story = Path(args.story_file).expanduser().read_text(encoding="utf-8") if args.story_file else args.story
@@ -162,6 +166,7 @@ Examples:
         out_dir = create_illustration_carousel(
             **options,
             output_root=args.output_root,
+            requested_formats=args.proof_format,
         )
     else:
         out_dir = create_codex_native_carousel(
@@ -169,6 +174,7 @@ Examples:
             output_root=args.output_root,
             render_assets=args.render_assets and not args.no_render,
             creative_baseline_path=args.creative_brief_file,
+            requested_formats=args.proof_format,
         )
         if args.generate_images:
             print(

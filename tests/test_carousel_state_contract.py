@@ -10,6 +10,10 @@ from pipeline.agentic.checks.palette import check_palette
 from pipeline.agentic.checks.prompt_constraints import check_prompt_constraints
 from pipeline.agentic.carousel_state import derive_carousel_state
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
+from tests.helpers.visual_story import (
+    write_passing_director_storyboard,
+    write_passing_story_readability,
+)
 
 
 def write_json(path: Path, data: dict) -> None:
@@ -50,6 +54,7 @@ def test_handoff_package_derives_handoff_ready_state(tmp_path: Path) -> None:
     write_json(package / "prompt-pack.json", {"slides": [{"slide": 1}]})
     write_json(package / "image-generation.json", {"status": "handoff_ready"})
     write_json(package / "final-images.json", {"status": "handoff_ready", "publishable": False})
+    write_passing_director_storyboard(package)
 
     state = derive_carousel_state(package)
 
@@ -105,6 +110,7 @@ def test_publishable_requires_final_audit_and_no_doctor_blockers(tmp_path: Path)
     (package / "visual-qa.md").write_text("- [x] PASS final files\n", encoding="utf-8")
     write_png(package / "final" / "slide-01.png", (1080, 1440))
     write_png(package / "final-reels-stories" / "slide-01.png", (1080, 1920))
+    write_passing_story_readability(package)
 
     state = derive_carousel_state(package)
 
@@ -132,6 +138,7 @@ def test_publishable_claim_with_fake_pngs_derives_blocked_state(tmp_path: Path) 
     (package / "final" / "slide-01.png").write_bytes(b"not a real png")
     (package / "final-reels-stories").mkdir()
     (package / "final-reels-stories" / "slide-01.png").write_bytes(b"not a real png")
+    write_passing_story_readability(package)
 
     state = derive_carousel_state(package)
 
@@ -184,6 +191,7 @@ def test_compact_publish_ready_package_passes_combined_gates(
     story = package / "final-reels-stories" / "slide-01.png"
     write_png(post, (1080, 1440))
     write_png(story, (1080, 1920))
+    write_passing_story_readability(package)
     prompt = package / "codex-image-prompts" / "instagram-post" / "slide-01.prompt.txt"
     prompt.parent.mkdir(parents=True)
     prompt.write_text(valid_prompt_text(slide_text), encoding="utf-8")
@@ -210,6 +218,7 @@ def test_generated_files_without_publishable_audit_derives_partial_final(tmp_pat
     package = tmp_path / "partial"
     package.mkdir()
     write_json(package / "final-images.json", {"status": "generated", "done": False, "publishable": False})
+    write_passing_director_storyboard(package)
 
     state = derive_carousel_state(package)
 
@@ -224,6 +233,7 @@ def test_empty_final_directories_do_not_count_as_generated_output(tmp_path: Path
     write_json(package / "final-images.json", {"status": "handoff_ready", "done": False, "publishable": False})
     (package / "final").mkdir()
     (package / "final-reels-stories").mkdir()
+    write_passing_director_storyboard(package)
 
     state = derive_carousel_state(package)
 

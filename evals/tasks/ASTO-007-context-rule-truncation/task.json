@@ -6,6 +6,7 @@
   "difficulty": "hard",
   "suites": ["contract", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
   "starting_state": [
     "A required context section expands rule includes near the end of the token budget.",
     "The context loader silently truncates it, dropping a hard-fail rule fragment."
@@ -20,10 +21,20 @@
   "expected_files_changed": ["pipeline/agentic/context_loader.py", "tests/test_context_loader_truncation.py", "tests/test_agentic_context_loader.py"],
   "forbidden_changes": ["Do not increase the budget just to hide truncation.", "Do not make required rule sections optional."],
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_agentic_context_loader.py", "tests/test_context_loader_truncation.py", "-q"], ["venv/bin/python", "scripts/agentic_os.py", "context", "--render"]],
-  "deterministic_checkers": ["diff_guard"],
+  "deterministic_checkers": ["diff_guard", "context_rule_truncation_fixture"],
   "rubric_checkers": [],
   "fail_to_pass": ["required rule includes near the budget boundary fail loudly instead of truncating silently"],
   "pass_to_pass": ["default Agentic OS context rendering still succeeds within budget"],
+  "fixture_overlay": [
+    {
+      "source": "fixtures/config/agentic_context_manifest.json",
+      "target": "config/agentic_context_manifest.json"
+    },
+    {
+      "source": "fixtures/config/rules/palette.md",
+      "target": "config/rules/palette.md"
+    }
+  ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
   "anti_gaming_notes": ["Hidden checker should use a synthetic manifest with {{rule:palette}} near the budget boundary."]
 }

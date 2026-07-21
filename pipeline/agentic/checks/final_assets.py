@@ -7,18 +7,22 @@ from typing import Any
 
 from PIL import Image
 
+from pipeline.stages.carousel_format_contract import (
+    SUPPORTED_NATIVE_FORMATS,
+    expected_output_relative_path,
+    format_spec,
+    locked_formats,
+)
 
 EXPECTED_FINAL_ASSETS = {
-    "instagram_post": {
-        "default_path": "final/slide-{slide:02d}.png",
-        "size": (1080, 1440),
-        "label": "Instagram post",
-    },
-    "reels_stories": {
-        "default_path": "final-reels-stories/slide-{slide:02d}.png",
-        "size": (1080, 1920),
-        "label": "Reels/Stories",
-    },
+    output_format: {
+        "default_path": (
+            f"{format_spec(output_format)['folder']}/slide-{{slide:02d}}.png"
+        ),
+        "size": format_spec(output_format)["target_size"],
+        "label": format_spec(output_format)["label"],
+    }
+    for output_format in SUPPORTED_NATIVE_FORMATS
 }
 
 
@@ -58,23 +62,8 @@ def _expected_path_for_slide(
     slide: int,
     asset_key: str,
 ) -> str:
-    expected_files = record.get("expected_files") or {}
-
-    if asset_key == "instagram_post":
-        return (
-            record.get("file")
-            or expected_files.get("instagram_post")
-            or EXPECTED_FINAL_ASSETS[asset_key]["default_path"].format(slide=slide)
-        )
-
-    if asset_key == "reels_stories":
-        return (
-            record.get("reels_stories_file")
-            or expected_files.get("reels_stories")
-            or EXPECTED_FINAL_ASSETS[asset_key]["default_path"].format(slide=slide)
-        )
-
-    raise ValueError(f"Unsupported asset key: {asset_key}")
+    del record
+    return expected_output_relative_path(asset_key, slide)
 
 
 def _manifest_slide_records(package_dir: Path) -> list[dict[str, Any]]:
@@ -88,9 +77,11 @@ def _manifest_slide_records(package_dir: Path) -> list[dict[str, Any]]:
     if isinstance(slide_count, int) and slide_count > 0:
         return [{"slide": index} for index in range(1, slide_count + 1)]
 
-    # Last-resort inference from files already present.
+    # Last-resort slide-number inference uses only folders selected by the
+    # current-request contract; folder presence never selects a format.
     detected_numbers: set[int] = set()
-    for folder in ("final", "final-reels-stories"):
+    for output_format in locked_formats(package_dir):
+        folder = str(format_spec(output_format)["folder"])
         for path in sorted((package_dir / folder).glob("slide-*.png")):
             try:
                 detected_numbers.add(int(path.stem.replace("slide-", "")))
@@ -164,9 +155,7 @@ def validate_publishable_final_assets(package_dir: Path) -> FinalAssetReport:
     Validates the final generated assets required before a carousel package
     can be considered publishable.
 
-    Required per slide:
-    - final/slide-XX.png => 1080x1440
-    - final-reels-stories/slide-XX.png => 1080x1920
+    Required per slide: exactly the formats locked in format-contract.json.
 
     This intentionally checks real image readability, not just file existence.
     """
@@ -194,7 +183,8 @@ def validate_publishable_final_assets(package_dir: Path) -> FinalAssetReport:
     for fallback_index, record in enumerate(slide_records, start=1):
         slide = _slide_number(record, fallback_index)
 
-        for asset_key, contract in EXPECTED_FINAL_ASSETS.items():
+        for asset_key in locked_formats(package_dir):
+            contract = EXPECTED_FINAL_ASSETS[asset_key]
             relative_path = _expected_path_for_slide(record, slide, asset_key)
             issues.extend(
                 _validate_one_image(

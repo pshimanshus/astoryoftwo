@@ -216,6 +216,7 @@ def build_brief() -> int:
         print("- no unresolved learning debt")
 
     print_section("Next Commands")
+    print("make idea-loop  # discover and verify one fresh Instagram concept")
     print("make jam MOMENT=\"specific couple moment\"")
     print("make prepost CONCEPT=\"planned Reel concept\"")
     print("make carousel STORY=\"source story\" TITLE=\"working title\"")

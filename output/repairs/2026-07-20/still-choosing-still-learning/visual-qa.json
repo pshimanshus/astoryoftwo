@@ -1,0 +1,46 @@
+{
+  "schema_version": "2.0",
+  "status": "PASS_WITH_NOTES",
+  "scene_repair_pass": true,
+  "publishable": false,
+  "publish_blocker": "IDENTITY_UNVERIFIED: the edit was not compared with the selected Aachu/Zuv identity bundle.",
+  "source": "source/original-rejected-1086x1448.png",
+  "edited_source": "source/still-choosing-hand-box-fixed-source.png",
+  "feed_export": "final/still-choosing-hand-box-fixed-1080x1440.png",
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 1,
+          "observed_hands": 1,
+          "visible_hands": [
+            {
+              "owner": "foreground man",
+              "side": "right",
+              "action": "supports the moving box from below",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "forearm runs continuously from rolled sleeve to wrist and hand",
+              "contact_object": "moving box",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "hand remains outside the box and overlaps its lower exterior edge",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false
+        }
+      ]
+    },
+    "exact_text": {"pass": true, "expected": "STILL CHOOSING.\nSTILL LEARNING."},
+    "brandmark": {"pass": true, "expected": "@a.storyof.two"},
+    "dimensions": {"pass": true, "feed_export": [1080, 1440]},
+    "identity": {"pass": false, "status": "IDENTITY_UNVERIFIED"}
+  }
+}

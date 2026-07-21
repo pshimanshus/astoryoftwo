@@ -1,0 +1,23 @@
+{
+  "schema_version": "visual-story-eval/v1",
+  "formats": ["instagram_post"],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "Your socks on before your pants.",
+      "role": "comic proof",
+      "visual": "Zuv reaches for socks before putting on his pants.",
+      "emotion": "private recognition",
+      "continuity_lock": "same bedroom, clothing state, couple, and morning"
+    }
+  ],
+  "defect": {
+    "slide": 1,
+    "format": "instagram_post",
+    "expected_silent_read": "Zuv puts his socks on before putting on pants.",
+    "observed_image_first_read": "Zuv is already wearing pants while holding the unworn socks.",
+    "copy_visual_contradictions": [
+      "The visible clothing state disproves the locked socks-before-pants copy."
+    ]
+  }
+}

@@ -10,7 +10,8 @@ That risks turning a carousel or love story into a generic essay.
 
 Restore the article package contract so generated artifacts include the
 Story-Selling angle, source manifest references, editorial gates, and final
-approval requirements.
+approval requirements. Repair the seeded generated package as evidence of the
+new contract.
 
 ## Acceptance Criteria
 

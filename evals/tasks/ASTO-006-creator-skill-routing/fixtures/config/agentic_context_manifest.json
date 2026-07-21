@@ -1,0 +1,16 @@
+{
+  "default_profile": "carousel",
+  "profiles": {
+    "carousel": {
+      "budget_tokens": 2000,
+      "sections": [
+        {
+          "id": "carousel_runtime",
+          "kind": "skill",
+          "path": "config/skills/carousel-jam-runtime-context.md",
+          "required": true
+        }
+      ]
+    }
+  }
+}

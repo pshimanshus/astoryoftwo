@@ -6,6 +6,7 @@
   "difficulty": "medium",
   "suites": ["smoke", "contract", "full"],
   "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
   "starting_state": [
     "A dependent prompt or rule surface says the @a.storyof.two brandmark belongs bottom-right.",
     "AGENTS.md still declares the source-truth placement as a tiny top-right signature."

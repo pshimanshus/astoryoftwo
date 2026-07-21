@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_checked": "2026-07-04",
+  "last_checked": "2026-07-21",
   "sources": [
     {
       "name": "SWE-bench",
@@ -31,6 +31,13 @@
       "confidence": 0.9
     },
     {
+      "name": "OpenAI coding-eval data quality audit",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "claim": "OpenAI's 2026 coding-eval audit identifies misleading prompts, overly strict tests, underspecified prompts, and low-coverage tests as distinct benchmark failure classes.",
+      "use_in_this_repo": "Every task review must compare prompt requirements with checker coverage, reject hidden implementation requirements, and prove the checker cannot pass an incomplete or no-op solution.",
+      "confidence": 0.96
+    },
+    {
       "name": "SWE-bench-Live",
       "url": "https://arxiv.org/html/2505.23419v2",
       "claim": "Continuously updated benchmarks reduce contamination and better reflect live software development.",
@@ -40,9 +47,16 @@
     {
       "name": "OpenAI evaluation best practices",
       "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
-      "claim": "Evals help test AI systems despite variability; current OpenAI docs also note the Evals platform deprecation timeline.",
-      "use_in_this_repo": "Keep the durable harness repo-local and portable; do not build around a deprecated hosted eval product.",
+      "claim": "OpenAI's current eval guidance emphasizes repeatable tasks, clear graders, and measuring behavior rather than relying on vibes.",
+      "use_in_this_repo": "Keep A Story evals fixture-backed, grader-backed, and separated between mechanical contract checks and creative rubric judgment.",
       "confidence": 0.92
+    },
+    {
+      "name": "OpenAI Evals guide",
+      "url": "https://developers.openai.com/api/docs/guides/evals",
+      "claim": "OpenAI's eval documentation centers datasets, graders, runs, and reports as the core loop for evaluating AI behavior.",
+      "use_in_this_repo": "Map those ideas to the local harness: task fixtures are datasets, deterministic checkers are graders, runner output is the report, and repeated runs protect against instruction drift.",
+      "confidence": 0.9
     },
     {
       "name": "UTBoost SWE-bench analysis",
@@ -50,6 +64,34 @@
       "claim": "Coding-agent patch evaluation commonly combines fail-to-pass and pass-to-pass tests.",
       "use_in_this_repo": "Each task deep spec must state both the failing behavior that should flip and the regression surface that should remain stable.",
       "confidence": 0.82
+    },
+    {
+      "name": "GenEval",
+      "url": "https://github.com/djghosh13/geneval",
+      "claim": "Holistic image metrics can miss fine-grained compositional failures; object detection can evaluate co-occurrence, count, position, and attributes at instance level.",
+      "use_in_this_repo": "Visual QA must compare expected and observed people/entities per slide instead of allowing overall style or prompt alignment to average away a duplicate character.",
+      "confidence": 0.94
+    },
+    {
+      "name": "VIEScore",
+      "url": "https://github.com/TIGER-AI-Lab/VIEScore",
+      "claim": "Explainable conditional-image evaluation separates semantic consistency, perceptual quality, and overall score while returning rationale.",
+      "use_in_this_repo": "Keep semantic scene compliance separate from aesthetic quality and preserve concrete failure reasons in structured visual QA.",
+      "confidence": 0.9
+    },
+    {
+      "name": "GEdit-Bench evaluation",
+      "url": "https://github.com/stepfun-ai/Step1X-Edit/blob/main/GEdit-Bench/EVAL.md",
+      "claim": "Instruction-guided image editing is evaluated across semantic consistency and perceptual quality, and VLM judge scores have measurable run-to-run volatility.",
+      "use_in_this_repo": "Pair any VLM review with deterministic structured invariants such as exact people counts, unexpected-entity lists, text, brandmark, and dimensions.",
+      "confidence": 0.91
+    },
+    {
+      "name": "NVIDIA agent skills catalog",
+      "url": "https://github.com/NVIDIA/skills",
+      "claim": "Published skills are paired with task-specific evaluation datasets and benchmark reports rather than relying on instructions alone.",
+      "use_in_this_repo": "The carousel skill change ships with ASTO-019, a materialized failure fixture, a deterministic checker, pass-to-pass coverage, and focused tests.",
+      "confidence": 0.88
     }
   ]
 }
