@@ -56,6 +56,7 @@ def test_starter_tasks_are_issue_like_and_cover_project_contract() -> None:
         "ASTO-019-duplicate-background-characters",
         "ASTO-020-hand-object-integrity",
         "ASTO-021-whole-person-spatial-integrity",
+        "ASTO-022-hil-stage-checkpoints",
     ):
         assert expected in task_ids
 

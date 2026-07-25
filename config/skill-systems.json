@@ -8,6 +8,8 @@
         "config/skills/carousel-jam-runtime-context.md",
         "config/skills/carousel-jam-autopilot.md",
         "config/skills/carousel-review-loop.md",
+        "pipeline/agentic/carousel_hil_checkpoints.py",
+        "scripts/carousel_review_loop.py",
         "config/skills/continuous-carousel-agent-room.md",
         "config/skills/carousel-story-director-persona.md",
         ".agents/skills/a-story-direct-visual-story/SKILL.md",
@@ -38,7 +40,11 @@
         "director_storyboard_go",
         "visual_story_readability_pass",
         "identity_consistency_pass",
-        "review_loop_converged"
+        "review_loop_converged",
+        "concept_creator_approval",
+        "copy_creator_approval",
+        "images_creator_approval",
+        "publish_creator_approval"
       ],
       "artifacts": [
         "layer-e-story-selling.json",

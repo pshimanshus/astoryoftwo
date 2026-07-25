@@ -17,11 +17,26 @@ from pipeline.agentic.carousel_review_loop import (  # noqa: E402
     parse_command,
     run_review_loop,
 )
+from pipeline.agentic.carousel_hil_checkpoints import (  # noqa: E402
+    STAGES,
+    next_unapproved_stage,
+    record_creator_decision,
+    run_hil_stage_loop,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("package_dir", type=Path, help="Carousel package to review and repair.")
+    parser.add_argument(
+        "--stage",
+        choices=["auto", *STAGES, "package"],
+        default="auto",
+        help="HIL stage to run. auto selects the earliest stage without current approval.",
+    )
+    parser.add_argument("--decision", choices=["APPROVE", "REVISE", "REJECT"])
+    parser.add_argument("--decided-by", default="creator")
+    parser.add_argument("--feedback", default="")
     parser.add_argument("--max-iterations", type=int, default=12)
     parser.add_argument("--stagnation-limit", type=int, default=3)
     parser.add_argument("--command-timeout", type=int, default=1800, help="Per-command timeout in seconds.")
@@ -44,6 +59,20 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    package_dir = args.package_dir.expanduser().resolve()
+    if args.decision:
+        if args.stage not in STAGES:
+            raise SystemExit("--decision requires an explicit --stage concept|copy|images|publish")
+        decision = record_creator_decision(
+            package_dir,
+            args.stage,
+            args.decision,
+            decided_by=args.decided_by,
+            feedback=args.feedback,
+        )
+        print(json.dumps(decision.to_dict(), indent=2, ensure_ascii=False))
+        return 0
+
     config = ReviewLoopConfig(
         max_iterations=args.max_iterations,
         stagnation_limit=args.stagnation_limit,
@@ -52,11 +81,24 @@ def main(argv: list[str] | None = None) -> int:
         review_only=args.review_only,
         command_timeout_seconds=args.command_timeout,
     )
-    result = run_review_loop(args.package_dir, repo_root=ROOT, config=config)
-    print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
-    if result.status == "COMPLETE":
+    stage = next_unapproved_stage(package_dir) if args.stage == "auto" else args.stage
+    if stage is None:
+        payload = {
+            "status": "APPROVED_TO_PUBLISH",
+            "complete": True,
+            "reason": "All four hash-bound creator approvals are current. Publishing still requires an explicit external publish action.",
+        }
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
         return 0
-    if result.status == "HUMAN_REQUIRED":
+    if stage == "package":
+        result = run_review_loop(package_dir, repo_root=ROOT, config=config)
+        payload = result.to_dict()
+    else:
+        payload = run_hil_stage_loop(package_dir, stage, repo_root=ROOT, config=config)
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    if payload["status"] in {"COMPLETE", "APPROVED_TO_PUBLISH"}:
+        return 0
+    if payload["status"] in {"HUMAN_REQUIRED", "AWAITING_CREATOR_APPROVAL"}:
         return 3
     return 2
 

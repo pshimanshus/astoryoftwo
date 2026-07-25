@@ -324,3 +324,27 @@ def test_whole_person_spatial_integrity_fixture_is_blocked(tmp_path: Path) -> No
     assert "silhouette is not fully traceable" in evidence
     assert "morphs or merges into the environment" in evidence
     assert "door edge enters zuv's torso" in evidence
+
+
+def test_hil_stage_checkpoint_fixture_rejects_stale_approval(tmp_path: Path) -> None:
+    task = next(
+        task
+        for task in discover_tasks(ROOT)
+        if task.id == "ASTO-022-hil-stage-checkpoints"
+    )
+    prepare_task_fixture_by_id(ROOT, task.id, tmp_path)
+
+    report = run_task_checks(
+        task,
+        tmp_path,
+        skip_commands=True,
+        explicit_changed_paths=["pipeline/agentic/carousel_hil_checkpoints.py"],
+    )
+
+    checks = {check.code: check for check in report.checks}
+    assert report.resolved is True
+    assert checks["hil_stage_checkpoint_fixture"].status == "PASS"
+    evidence = " ".join(checks["hil_stage_checkpoint_fixture"].evidence).lower()
+    assert "approval_valid(concept)=false" in evidence
+    assert "next_unapproved_stage=concept" in evidence
+    assert "creator_concept_approval_required" in evidence

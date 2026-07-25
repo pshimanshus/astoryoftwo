@@ -340,7 +340,11 @@ def _human_required(issues: Sequence[dict[str, Any]]) -> list[str]:
     for issue in issues:
         code = str(issue.get("code") or "")
         message = str(issue.get("message") or "").lower()
-        if code in HUMAN_REQUIRED_CODES or any(fragment in message for fragment in HUMAN_REQUIRED_MESSAGE_FRAGMENTS):
+        if (
+            code in HUMAN_REQUIRED_CODES
+            or code.startswith("creator_") and code.endswith("_approval_required")
+            or any(fragment in message for fragment in HUMAN_REQUIRED_MESSAGE_FRAGMENTS)
+        ):
             blockers.append(code)
     return blockers
 

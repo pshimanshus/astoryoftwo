@@ -36,6 +36,11 @@ from pipeline.stages.carousel_visual_storytelling import (
     validate_frame_readability,
 )
 from pipeline.agentic.carousel_state import derive_carousel_state
+from pipeline.agentic.carousel_hil_checkpoints import (
+    approval_valid,
+    inspect_stage,
+    next_unapproved_stage,
+)
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
 from scripts.autopublish import find_risky_paths, parse_changed_paths, scan_secret_text
 
@@ -1528,6 +1533,47 @@ def check_creator_visible_copy_artifact(task: EvalTask, root: Path) -> list[Chec
     return check_creator_visible_copy(_creator_visible_artifact(task, root))
 
 
+def check_hil_stage_checkpoint_fixture(task: EvalTask, root: Path) -> list[CheckResult]:
+    package = _carousel_package_from_fixture(task, root)
+    if package is None or not package.exists():
+        return [
+            _fail(
+                "hil_stage_checkpoint_fixture",
+                "Task has no materialized HIL checkpoint carousel fixture package.",
+            )
+        ]
+
+    copy_report = inspect_stage(package, "copy")
+    issue_codes = sorted({issue.code for issue in copy_report.issues})
+    stale_concept_rejected = not approval_valid(package, "concept")
+    routed_to_concept = next_unapproved_stage(package) == "concept"
+    copy_is_locked = "creator_concept_approval_required" in issue_codes
+
+    if stale_concept_rejected and routed_to_concept and copy_is_locked:
+        return [
+            _pass(
+                "hil_stage_checkpoint_fixture",
+                "A stale concept hash cannot unlock copy; routing returns to the concept HIL checkpoint.",
+                evidence=[
+                    "approval_valid(concept)=False",
+                    "next_unapproved_stage=concept",
+                    *issue_codes,
+                ],
+            )
+        ]
+    return [
+        _fail(
+            "hil_stage_checkpoint_fixture",
+            "The stale creator approval bypassed or failed to route back to the concept checkpoint.",
+            evidence=[
+                f"approval_valid(concept)={not stale_concept_rejected}",
+                f"next_unapproved_stage={next_unapproved_stage(package)}",
+                *issue_codes,
+            ],
+        )
+    ]
+
+
 TASK_SPECIFIC_CHECKERS: dict[str, Checker] = {
     "brandmark_top_right_rule": check_brandmark_top_right_rule,
     "carousel_doctor_fixture": check_carousel_doctor_fixture,
@@ -1542,6 +1588,7 @@ TASK_SPECIFIC_CHECKERS: dict[str, Checker] = {
     "scene_entity_integrity_fixture": check_scene_entity_integrity_fixture,
     "hand_object_integrity_fixture": check_hand_object_integrity_fixture,
     "whole_person_spatial_integrity_fixture": check_whole_person_spatial_integrity_fixture,
+    "hil_stage_checkpoint_fixture": check_hil_stage_checkpoint_fixture,
     "format_snapback_fixture": check_format_snapback_fixture,
     "working_memory_pointer_fixture": check_working_memory_pointer_fixture,
     "creator_skill_routing_fixture": check_creator_skill_routing_fixture,

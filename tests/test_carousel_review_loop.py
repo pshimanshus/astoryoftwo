@@ -10,6 +10,14 @@ from pipeline.agentic.carousel_review_loop import (
     ReviewLoopConfig,
     run_review_loop,
 )
+from pipeline.agentic.carousel_hil_checkpoints import (
+    approval_valid,
+    inspect_stage,
+    next_unapproved_stage,
+    record_creator_decision,
+    run_hil_stage_loop,
+    write_stage_candidate,
+)
 from pipeline.agentic.carousel_state import CarouselState
 from pipeline.agentic.workflow_doctor import WorkflowDoctorReport, WorkflowIssue
 
@@ -32,6 +40,61 @@ def _issue(code: str, message: str = "Repair this package.") -> WorkflowIssue:
         message=message,
         evidence=["artifact.json"],
         next_action="repair_blockers",
+    )
+
+
+def _write_json(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def _valid_concept(package: Path) -> None:
+    for name in (
+        "source-memory-brief.json",
+        "concept-routes.json",
+        "concept-debate.json",
+        "concept-repairs.json",
+        "taste-gate.json",
+    ):
+        _write_json(package / name, {"status": "PASS", "evidence": "concrete concept evidence"})
+    _write_json(
+        package / "verification.json",
+        {
+            "reviews": [
+                {"critic_task_id": "critic-a", "verdict": "PASS"},
+                {"critic_task_id": "critic-b", "verdict": "PASS"},
+            ],
+            "selector": {"verdict": "PASS"},
+        },
+    )
+    _write_json(
+        package / "concept-selection.json",
+        {"status": "READY_FOR_CONCEPT_LOCK", "creator_approval": "PENDING", "selected_candidate_id": "idea-1"},
+    )
+
+
+def _valid_copy(package: Path) -> None:
+    _write_json(package / "story-director-lock.json", {"status": "PASS"})
+    _write_json(package / "slides.json", [{"slide": 1, "copy": "Exact copy"}])
+    _write_json(package / "copy.json", {"slides": ["Exact copy"]})
+    _write_json(package / "format-contract.json", {"requested_formats": ["instagram_post"]})
+    _write_json(
+        package / "copy-verification.json",
+        {
+            "status": "PASS",
+            "maker_run_id": "copy-maker-a",
+            "verifier_run_id": "copy-verifier-b",
+            "checks": {
+                name: {"pass": True, "evidence": f"Concrete independent evidence for {name}."}
+                for name in (
+                    "exact_text",
+                    "hook_and_retention",
+                    "copy_scene_alignment",
+                    "voice_and_public_name_boundary",
+                    "ending_and_send_reason",
+                )
+            },
+        },
     )
 
 
@@ -173,7 +236,8 @@ def test_cli_review_only_writes_machine_readable_trace(tmp_path: Path) -> None:
     payload = json.loads(completed.stdout)
     assert completed.returncode == 2
     assert payload["status"] == "REVIEW_FAILED"
-    assert payload["state"]["name"] == "draft"
+    assert payload["stage"] == "concept"
+    assert payload["state"]["name"] == "concept_repair"
     assert (package / ".internal/review-loop/feedback.json").exists()
 
 
@@ -187,3 +251,101 @@ def test_loop_is_routed_through_make_and_carousel_skill_system() -> None:
     assert "scripts/carousel_review_loop.py" in makefile
     assert "config/skills/carousel-review-loop.md" in components
     assert "review_loop_converged" in gates
+
+
+def test_concept_loop_stops_only_after_clean_candidate_for_creator(tmp_path: Path) -> None:
+    package = tmp_path / "concept-hil"
+    package.mkdir()
+    _valid_concept(package)
+
+    payload = run_hil_stage_loop(
+        package,
+        "concept",
+        repo_root=tmp_path,
+        config=ReviewLoopConfig(review_only=True),
+        repair_fn=lambda *_: (_ for _ in ()).throw(AssertionError("repair should not run")),
+    )
+
+    assert payload["status"] == "AWAITING_CREATOR_APPROVAL"
+    assert payload["complete"] is False
+    assert payload["allowed_decisions"] == ["APPROVE", "REVISE", "REJECT"]
+    assert not approval_valid(package, "concept")
+
+
+def test_copy_loop_cannot_start_before_current_concept_approval(tmp_path: Path) -> None:
+    package = tmp_path / "copy-hil"
+    package.mkdir()
+    _valid_concept(package)
+    _valid_copy(package)
+    repair_calls: list[int] = []
+
+    payload = run_hil_stage_loop(
+        package,
+        "copy",
+        repo_root=tmp_path,
+        config=ReviewLoopConfig(max_iterations=3),
+        repair_fn=lambda _package, _feedback, iteration: (
+            repair_calls.append(iteration) or RepairResult(["repair"], 0)
+        ),
+    )
+
+    assert payload["status"] == "HUMAN_REQUIRED"
+    assert "creator_concept_approval_required" in payload["issue_codes"]
+    assert repair_calls == []
+
+
+def test_upstream_change_makes_approval_stale_and_reapproval_invalidates_downstream(tmp_path: Path) -> None:
+    package = tmp_path / "stale-hil"
+    package.mkdir()
+    _valid_concept(package)
+    _valid_copy(package)
+
+    write_stage_candidate(package, "concept")
+    record_creator_decision(package, "concept", "APPROVE", decided_by="creator")
+    write_stage_candidate(package, "copy")
+    record_creator_decision(package, "copy", "APPROVE", decided_by="creator")
+    assert approval_valid(package, "concept")
+    assert approval_valid(package, "copy")
+
+    selection = json.loads((package / "concept-selection.json").read_text())
+    selection["selected_candidate_id"] = "idea-2"
+    _write_json(package / "concept-selection.json", selection)
+
+    assert not approval_valid(package, "concept")
+    assert next_unapproved_stage(package) == "concept"
+    write_stage_candidate(package, "concept")
+    decision = record_creator_decision(package, "concept", "APPROVE", decided_by="creator")
+
+    assert "copy" in decision.invalidated_stages
+    assert not approval_valid(package, "copy")
+    assert next_unapproved_stage(package) == "copy"
+
+
+def test_revise_reopens_stage_instead_of_advancing(tmp_path: Path) -> None:
+    package = tmp_path / "revise-hil"
+    package.mkdir()
+    _valid_concept(package)
+    write_stage_candidate(package, "concept")
+
+    decision = record_creator_decision(
+        package,
+        "concept",
+        "REVISE",
+        decided_by="creator",
+        feedback="The emotional turn is still generic.",
+    )
+
+    assert decision.status == "REOPENED_FOR_REPAIR"
+    assert not approval_valid(package, "concept")
+    assert next_unapproved_stage(package) == "concept"
+
+
+def test_images_and_publish_require_prior_creator_locks(tmp_path: Path) -> None:
+    package = tmp_path / "later-hil"
+    package.mkdir()
+
+    image_codes = {issue.code for issue in inspect_stage(package, "images").issues}
+    publish_codes = {issue.code for issue in inspect_stage(package, "publish").issues}
+
+    assert "creator_copy_approval_required" in image_codes
+    assert "creator_images_approval_required" in publish_codes

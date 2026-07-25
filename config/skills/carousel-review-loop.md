@@ -12,6 +12,28 @@ This is the executable verification loop around the existing carousel agent
 workflow. It does not replace the workflow doctor, visual-story checks,
 identity gate, creator approval, or final audit.
 
+## Where the loop runs
+
+The loop is invoked after the creator has a candidate package and is used at
+four explicit checkpoints, in order: `concept`, `copy`, `images`, and
+`publish`. `--stage auto` selects the earliest checkpoint without a current
+creator approval. Each checkpoint runs the same maker -> verifier cycle, then
+stops and presents a hash-bound candidate for a human decision. A verifier PASS
+never advances the package by itself.
+
+```text
+concept loop -> HIL APPROVE/REVISE/REJECT
+       -> copy loop -> HIL APPROVE/REVISE/REJECT
+       -> images loop -> HIL APPROVE/REVISE/REJECT
+       -> publish-readiness loop -> HIL APPROVE/REVISE/REJECT
+       -> APPROVED_TO_PUBLISH (a permission record, not a publish call)
+```
+
+Every approval is bound to the exact stage artifact fingerprint. If any
+upstream artifact changes, that approval and every downstream approval become
+invalid and `auto` routes back to the earliest affected checkpoint. The final
+checkpoint only authorizes a separate, explicit publish command.
+
 ## Four Nested Loops
 
 The implementation adapts the four-loop stack described by LangChain:
