@@ -18,18 +18,21 @@ or pre-fix revision that makes the guard fail, then evaluate the agent patch.
 
 The fixture should create a small carousel package where `final-images.json`
 claims `publishable: true` and `done: true`, but at least one hard artifact is
-missing or invalid: corrupt PNG bytes, absent `final-reels-stories`, missing
-`visual-qa.md`, missing `final-audit.json`, or slide-count mismatch. The
+missing or invalid: corrupt PNG bytes in a locked format, missing
+`visual-qa.md`, missing `final-audit.json`, or slide-count mismatch. An
+unrequested format folder may exist as a distractor, but folder presence must
+never add a requested format. The
 fail-to-pass checker should derive a blocked state and report exact issue codes.
 The pass-to-pass checker should use a compact valid package with PIL-readable
-`1080x1440` and `1080x1920` slides, visual QA evidence, and a passing final
-audit.
+files for exactly the formats locked in `format-contract.json`, visual QA
+evidence, and a passing final audit.
 
 ## Failure Modes
 
 - Agent changes the state machine to trust `publishable: true`.
 - Agent creates fake PNG placeholders to satisfy paths.
-- Agent removes 9:16 native final requirements.
+- Agent removes a native final requirement for an explicitly locked format.
+- Agent requires unrequested 9:16 or square derivatives for a post-only lock.
 - Agent treats visual QA or final audit as optional.
 - Agent ignores stale blocker files that contradict final metadata.
 
@@ -38,9 +41,9 @@ audit.
 Use `derive_carousel_state`, `inspect_carousel_package`, and image-size checks.
 The fail-to-pass case should flip only when contradictory packages become
 blocked or partial-final. The pass-to-pass case should prove a real minimal
-valid package still becomes publishable. A hidden variant should corrupt one
-PNG and omit only one slide from the 9:16 folder so the checker catches both
-validity and completeness.
+valid package still becomes publishable. A hidden variant should lock an
+explicit 9:16 request, corrupt one PNG, and omit only one requested slide so the
+checker catches both validity and completeness.
 
 ## Anti-Gaming
 
@@ -51,6 +54,7 @@ should inspect binary image validity, not just file names.
 
 ## Severity Model
 
-Critical: fake package passes, invalid PNG accepted, native folder requirement
-removed, or audit/QA bypassed. Major: blocked result lacks a precise issue code.
-Minor: non-actionable wording in next-action hints.
+Critical: fake package passes, invalid PNG is accepted, a locked native format
+is ignored, an unrequested format is required, or audit/QA is bypassed. Major:
+blocked result lacks a precise issue code. Minor: non-actionable wording in
+next-action hints.

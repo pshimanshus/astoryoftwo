@@ -8,10 +8,11 @@
   "prompt": "prompt.md",
   "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
   "starting_state": [
-    "A creator approved a concept, but the concept artifact changed afterward while the approval ledger retained the old fingerprint.",
-    "The workflow is attempting to enter the copy stage without reconfirming the changed concept with the creator."
+    "The lifecycle fixture builds a valid governed concept set and records an explicit creator approval with its current production fingerprint.",
+    "A governed concept artifact then changes while the ledger retains the previously current fingerprint, and the workflow attempts to enter copy."
   ],
   "done_when": [
+    "The current explicit creator approval passes before mutation.",
     "A stale or non-creator approval never unlocks the next stage.",
     "The workflow returns to the earliest unapproved stage and copy reports creator_concept_approval_required.",
     "Each clean maker-verifier stage stops for an explicit creator APPROVE, REVISE, or REJECT decision, and publish approval does not itself publish."
@@ -27,8 +28,8 @@
   "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_carousel_review_loop.py", "tests/test_eval_runner.py", "-q"]],
   "deterministic_checkers": ["diff_guard", "hil_stage_checkpoint_fixture"],
   "rubric_checkers": [],
-  "fail_to_pass": ["the stale concept approval is rejected, copy remains locked, and routing returns to the concept checkpoint"],
-  "pass_to_pass": ["a current explicit creator approval remains valid only while its exact stage artifact fingerprint is unchanged"],
+  "fail_to_pass": ["after a real governed concept artifact mutation, the previously current approval is rejected, copy remains locked, and routing returns to the concept checkpoint"],
+  "pass_to_pass": ["before mutation, a current explicit creator approval with the exact computed stage artifact fingerprint is valid and routes to copy"],
   "fixture_overlay": [
     {
       "source": "fixtures/approvals.json",

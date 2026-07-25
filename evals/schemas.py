@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
+from fnmatch import fnmatch
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -330,6 +331,22 @@ def validate_task_suite(root: Path) -> dict[str, Any]:
             issues.append(f"{task.id}: solver allowlist may not include eval harness paths")
         if any(path.startswith("evals/") for path in task.expected_files_changed):
             issues.append(f"{task.id}: expected solution files may not include eval harness paths")
+        if task.expected_files_changed and not any(
+            any(fnmatch(path, pattern) for pattern in task.allowed_paths)
+            for path in task.expected_files_changed
+        ):
+            issues.append(
+                f"{task.id}: expected_files_changed must include at least one "
+                "solver-allowed path"
+            )
+        if contract.mode == "regression" and not any(
+            not path.startswith(("tests/", "output/", "docs/"))
+            for path in task.expected_files_changed
+        ):
+            issues.append(
+                f"{task.id}: regression task needs an expected production file "
+                "for the hidden mutation and repair"
+            )
         if not 0.0 <= task.pass_criteria.minimum_score <= 1.0:
             issues.append(f"{task.id}: pass_criteria.minimum_score must be between 0 and 1")
         if any(

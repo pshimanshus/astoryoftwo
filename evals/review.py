@@ -17,6 +17,7 @@ class FixtureReview:
     expected_outcome: str
     observed_outcome: str
     benchmark_setup: str
+    certification_status: str
     aligned: bool
     checks: list[CheckResult]
 
@@ -27,6 +28,7 @@ class FixtureReview:
             "expected_outcome": self.expected_outcome,
             "observed_outcome": self.observed_outcome,
             "benchmark_setup": self.benchmark_setup,
+            "certification_status": self.certification_status,
             "aligned": self.aligned,
             "checks": [check.to_dict() for check in self.checks],
         }
@@ -57,6 +59,11 @@ def review_task_fixture_once(task: EvalTask) -> FixtureReview:
         expected_outcome=expected,
         observed_outcome=observed,
         benchmark_setup=task.fixture_contract.benchmark_setup,
+        certification_status=(
+            "BASELINE_AND_GRADE_REQUIRED"
+            if task.fixture_contract.mode == "solution"
+            else "NOT_READY_WITHOUT_HIDDEN_MUTATION"
+        ),
         aligned=observed == expected,
         checks=checks,
     )
@@ -72,10 +79,16 @@ def review_suite_once(tasks: Iterable[EvalTask]) -> dict[str, Any]:
         for review in reviews
         if not review.aligned
     ]
+    hidden_setup_required = sum(
+        review.certification_status == "NOT_READY_WITHOUT_HIDDEN_MUTATION"
+        for review in reviews
+    )
     return {
         "status": "FAIL" if issues else "PASS",
         "review_protocol": "single_pass_registry_order",
         "reviewed_task_count": len(reviews),
+        "visible_solution_fixture_count": len(reviews) - hidden_setup_required,
+        "hidden_mutation_required_count": hidden_setup_required,
         "issues": issues,
         "tasks": [review.to_dict() for review in reviews],
     }

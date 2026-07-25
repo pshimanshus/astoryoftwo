@@ -10,20 +10,23 @@ single-format work.
 ## Task
 
 Repair format inference so the latest explicit creator instruction wins over
-default workflow assumptions. Keep native post/story final requirements for
-normal carousel packages. Update the seeded `request-state.json` plan to show
-the corrected output set after the repair.
+default workflow assumptions. Keep the post-only default and the native gates
+for any Story/Reel or square format the creator explicitly requests. Update the
+seeded `request-state.json` plan to show the corrected output set after the
+repair.
 
 ## Acceptance Criteria
 
 - A corrected single-format request does not generate unrequested formats.
 - The seeded request-state artifact records only the latest requested output.
 - Ambiguous corrections ask for exact canvas instead of guessing.
-- Normal carousel runs still require separate native 1080x1440 and 1080x1920
-  finals.
+- Normal post/carousel runs default to only native 1080x1440.
+- Native 1080x1920 or 1080x1080 outputs are generated only when explicitly
+  requested.
 - Focused prompt compiler and workflow contract tests pass.
 
 ## Constraints
 
-Do not edit `AGENTS.md`. Do not make square the global default. Do not remove
-native final gates for real carousel work.
+Do not edit `AGENTS.md`. Do not make square the global default. Do not restore
+automatic multi-format derivatives. Do not remove native final gates for
+formats that the creator actually requested.

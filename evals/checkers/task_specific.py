@@ -40,6 +40,7 @@ from pipeline.agentic.carousel_hil_checkpoints import (
     approval_valid,
     inspect_stage,
     next_unapproved_stage,
+    stage_fingerprint,
 )
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
 from scripts.autopublish import find_risky_paths, parse_changed_paths, scan_secret_text
@@ -1534,8 +1535,8 @@ def check_creator_visible_copy_artifact(task: EvalTask, root: Path) -> list[Chec
 
 
 def check_hil_stage_checkpoint_fixture(task: EvalTask, root: Path) -> list[CheckResult]:
-    package = _carousel_package_from_fixture(task, root)
-    if package is None or not package.exists():
+    fixture_package = _carousel_package_from_fixture(task, root)
+    if fixture_package is None or not fixture_package.exists():
         return [
             _fail(
                 "hil_stage_checkpoint_fixture",
@@ -1543,20 +1544,128 @@ def check_hil_stage_checkpoint_fixture(task: EvalTask, root: Path) -> list[Check
             )
         ]
 
-    copy_report = inspect_stage(package, "copy")
-    issue_codes = sorted({issue.code for issue in copy_report.issues})
-    stale_concept_rejected = not approval_valid(package, "concept")
-    routed_to_concept = next_unapproved_stage(package) == "concept"
-    copy_is_locked = "creator_concept_approval_required" in issue_codes
+    fixture_ledger_path = (
+        fixture_package / ".internal" / "hil" / "approvals.json"
+    )
+    fixture_ledger = _read_json(fixture_ledger_path)
+    if not fixture_ledger:
+        return [
+            _fail(
+                "hil_stage_checkpoint_fixture",
+                "HIL checkpoint fixture must provide a valid bootstrap ledger.",
+                evidence=[str(fixture_ledger_path)],
+            )
+        ]
 
-    if stale_concept_rejected and routed_to_concept and copy_is_locked:
+    concept_artifacts: dict[str, dict[str, Any]] = {
+        "source-memory-brief.json": {
+            "schema_version": "1.0",
+            "status": "ready",
+            "seed": "A concrete couple moment grounded in lived visual evidence.",
+        },
+        "concept-routes.json": {
+            "schema_version": "1.0",
+            "status": "ready",
+            "routes": [{"id": "route-a", "scene": "One partner silently helps the other."}],
+        },
+        "concept-debate.json": {
+            "schema_version": "1.0",
+            "status": "pass",
+            "arguments": [{"route_id": "route-a", "verdict": "keep"}],
+        },
+        "concept-repairs.json": {
+            "schema_version": "1.0",
+            "status": "pass",
+            "repairs": [],
+        },
+        "taste-gate.json": {
+            "schema_version": "1.0",
+            "status": "pass",
+            "verdict": "pass",
+        },
+        "verification.json": {
+            "schema_version": "1.0",
+            "status": "pass",
+            "reviews": [
+                {"critic_task_id": "critic-a", "verdict": "pass"},
+                {"critic_task_id": "critic-b", "verdict": "pass"},
+            ],
+            "selector": {"selector_task_id": "selector-a", "verdict": "pass"},
+        },
+        "concept-selection.json": {
+            "schema_version": "1.0",
+            "status": "ready_for_concept_lock",
+            "creator_approval": "pending",
+            "selected_route_id": "route-a",
+        },
+    }
+
+    with tempfile.TemporaryDirectory(prefix="asto-022-hil-") as temp_dir:
+        package = Path(temp_dir) / "hil-stage-checkpoints"
+        for filename, payload in concept_artifacts.items():
+            path = package / filename
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(
+                json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+
+        ledger = dict(fixture_ledger)
+        ledger["stages"] = {
+            "concept": {
+                "decision": "APPROVE",
+                "source": "explicit_creator_input",
+                "artifact_fingerprint": stage_fingerprint(package, "concept"),
+                "decided_by": "creator",
+                "decided_at": "2026-07-21T00:00:00+00:00",
+            }
+        }
+        ledger.setdefault("decisions", [])
+        probe_ledger_path = package / ".internal" / "hil" / "approvals.json"
+        probe_ledger_path.parent.mkdir(parents=True, exist_ok=True)
+        probe_ledger_path.write_text(
+            json.dumps(ledger, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+
+        concept_report = inspect_stage(package, "concept")
+        approval_was_current = approval_valid(package, "concept")
+        routed_to_copy_before_mutation = next_unapproved_stage(package) == "copy"
+
+        mutation_path = package / "concept-selection.json"
+        mutated_selection = _read_json(mutation_path)
+        mutated_selection["mutation_probe"] = (
+            "governed artifact changed after explicit creator approval"
+        )
+        mutation_path.write_text(
+            json.dumps(mutated_selection, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+
+        copy_report = inspect_stage(package, "copy")
+        issue_codes = sorted({issue.code for issue in copy_report.issues})
+        stale_concept_rejected = not approval_valid(package, "concept")
+        routed_to_concept = next_unapproved_stage(package) == "concept"
+        copy_is_locked = "creator_concept_approval_required" in issue_codes
+
+    if (
+        not concept_report.issues
+        and approval_was_current
+        and routed_to_copy_before_mutation
+        and stale_concept_rejected
+        and routed_to_concept
+        and copy_is_locked
+    ):
         return [
             _pass(
                 "hil_stage_checkpoint_fixture",
-                "A stale concept hash cannot unlock copy; routing returns to the concept HIL checkpoint.",
+                "A current explicit approval passes, then a governed artifact mutation makes it stale and relocks copy.",
                 evidence=[
-                    "approval_valid(concept)=False",
-                    "next_unapproved_stage=concept",
+                    "approval_valid(concept) before mutation=True",
+                    "next_unapproved_stage before mutation=copy",
+                    "mutation=concept-selection.json",
+                    "approval_valid(concept) after mutation=False",
+                    "next_unapproved_stage after mutation=concept",
                     *issue_codes,
                 ],
             )
@@ -1564,10 +1673,13 @@ def check_hil_stage_checkpoint_fixture(task: EvalTask, root: Path) -> list[Check
     return [
         _fail(
             "hil_stage_checkpoint_fixture",
-            "The stale creator approval bypassed or failed to route back to the concept checkpoint.",
+            "The HIL lifecycle did not preserve a current approval and invalidate it after governed artifact mutation.",
             evidence=[
-                f"approval_valid(concept)={not stale_concept_rejected}",
-                f"next_unapproved_stage={next_unapproved_stage(package)}",
+                f"concept_issue_codes={sorted(issue.code for issue in concept_report.issues)}",
+                f"approval_valid(concept) before mutation={approval_was_current}",
+                f"next_unapproved_stage before mutation={'copy' if routed_to_copy_before_mutation else 'not-copy'}",
+                f"approval_valid(concept) after mutation={not stale_concept_rejected}",
+                f"next_unapproved_stage after mutation={'concept' if routed_to_concept else 'not-concept'}",
                 *issue_codes,
             ],
         )

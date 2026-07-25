@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a-story-of-two.local/evals/baseline-record.schema.json",
+  "title": "A Story of Two Eval Baseline Record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "task_id",
+    "fixture_mode",
+    "benchmark_setup",
+    "eval_contract_sha256",
+    "baseline",
+    "workspace",
+    "issues",
+    "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "status": {
+      "const": "READY"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fixture_mode": {
+      "enum": [
+        "solution",
+        "regression"
+      ]
+    },
+    "benchmark_setup": {
+      "enum": [
+        "fixture_overlay",
+        "hidden_code_mutation_required"
+      ]
+    },
+    "eval_contract_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "baseline": {
+      "type": "object",
+      "required": [
+        "resolved",
+        "failing_check_codes",
+        "checks"
+      ],
+      "properties": {
+        "resolved": {
+          "const": false
+        },
+        "failing_check_codes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 1
+        }
+      }
+    },
+    "mutation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "workspace": {
+      "type": "object",
+      "required": [
+        "files"
+      ],
+      "properties": {
+        "files": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "record_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

@@ -20,6 +20,8 @@ between verification and approval.
 ## Acceptance Criteria
 
 - A stale concept approval cannot unlock copy.
+- A current explicit approval is accepted before mutation and rejected after
+  any governed artifact changes.
 - Agent-authored or provenance-free approvals are invalid.
 - Revising an upstream stage invalidates every downstream approval.
 - Every stage stops and presents only a clean candidate to the creator.

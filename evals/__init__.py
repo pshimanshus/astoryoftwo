@@ -1,1 +1,1 @@
-"""Repo-local SWE-bench-style eval harness for A Story of Two."""
+"""Trusted local evaluation harness for A Story of Two."""

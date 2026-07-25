@@ -1,11 +1,30 @@
 import hashlib
+import json
+import subprocess
+import sys
+from dataclasses import replace
 from pathlib import Path
 
+import pytest
+
+from evals.attempts import (
+    AttemptContractError,
+    create_baseline_record,
+    load_baseline_record,
+    write_baseline_record,
+)
 from evals.checkers.diff_guard import check_changed_paths
 from evals.checkers.report import score_checks
 from evals.checkers.rubric import run_rubric_checkers
 from evals.review import review_suite_once
-from evals.runner import main, prepare_task_fixture_by_id, run_task_checks, select_tasks
+from evals.runner import (
+    create_task_baseline,
+    grade_task_attempt,
+    main,
+    prepare_task_fixture_by_id,
+    run_task_checks,
+    select_tasks,
+)
 from evals.schemas import CheckResult, EvalTask, PassCriteria, discover_tasks
 
 
@@ -243,6 +262,251 @@ def test_single_pass_review_covers_registry_order_once() -> None:
     assert report["review_protocol"] == "single_pass_registry_order"
     assert report["reviewed_task_count"] == len(tasks)
     assert [item["task_id"] for item in report["tasks"]] == [task.id for task in tasks]
+    assert (
+        report["visible_solution_fixture_count"]
+        + report["hidden_mutation_required_count"]
+        == len(tasks)
+    )
+    assert report["hidden_mutation_required_count"] == sum(
+        task.fixture_contract.mode == "regression" for task in tasks
+    )
+
+
+def _solution_attempt(
+    tmp_path: Path,
+) -> tuple[EvalTask, Path, dict]:
+    task = next(
+        task
+        for task in discover_tasks(ROOT)
+        if task.id == "ASTO-001-brandmark-drift"
+    )
+    task = replace(task, required_commands=[])
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+    prepare_task_fixture_by_id(ROOT, task.id, workspace)
+    baseline = create_task_baseline(task, workspace)
+    assert baseline["status"] == "READY", baseline["issues"]
+    return task, workspace, baseline
+
+
+def test_noop_agent_cannot_certify_a_solution_task(tmp_path: Path) -> None:
+    task, workspace, baseline = _solution_attempt(tmp_path)
+
+    report, changed_paths = grade_task_attempt(task, workspace, baseline)
+
+    checks = {check.code: check for check in report.checks}
+    assert report.resolved is False
+    assert changed_paths == []
+    assert checks["patch_required"].status == "FAIL"
+    assert checks["expected_solution_file_changed"].status == "FAIL"
+    assert checks["fail_to_pass_transition"].status == "FAIL"
+
+
+def test_repair_is_certified_after_expected_file_changes_and_failure_flips(
+    tmp_path: Path,
+) -> None:
+    task, workspace, baseline = _solution_attempt(tmp_path)
+    target = workspace / "config" / "rules" / "brandmark.md"
+    target.write_text(
+        (ROOT / "config" / "rules" / "brandmark.md").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+
+    report, changed_paths = grade_task_attempt(task, workspace, baseline)
+
+    checks = {check.code: check for check in report.checks}
+    assert report.resolved is True
+    assert changed_paths == ["config/rules/brandmark.md"]
+    assert checks["brandmark_top_right_rule"].status == "PASS"
+    assert checks["patch_required"].status == "PASS"
+    assert checks["expected_solution_file_changed"].status == "PASS"
+    assert checks["fail_to_pass_transition"].status == "PASS"
+
+
+def test_fix_without_declared_solution_update_is_not_certified(
+    tmp_path: Path,
+) -> None:
+    task, workspace, baseline = _solution_attempt(tmp_path)
+    task = replace(
+        task,
+        expected_files_changed=["tests/test_instruction_surface_contract.py"],
+    )
+    target = workspace / "config" / "rules" / "brandmark.md"
+    target.write_text(
+        (ROOT / "config" / "rules" / "brandmark.md").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+
+    report, _ = grade_task_attempt(task, workspace, baseline)
+
+    checks = {check.code: check for check in report.checks}
+    assert checks["brandmark_top_right_rule"].status == "PASS"
+    assert checks["fail_to_pass_transition"].status == "PASS"
+    assert checks["expected_solution_file_changed"].status == "FAIL"
+    assert report.resolved is False
+
+
+def test_deleting_expected_solution_file_does_not_count_as_an_update(
+    tmp_path: Path,
+) -> None:
+    task, workspace, baseline = _solution_attempt(tmp_path)
+    (workspace / "config" / "rules" / "brandmark.md").unlink()
+
+    report, changed_paths = grade_task_attempt(task, workspace, baseline)
+
+    checks = {check.code: check for check in report.checks}
+    assert changed_paths == ["config/rules/brandmark.md"]
+    assert checks["expected_solution_file_changed"].status == "FAIL"
+    assert report.resolved is False
+
+
+def test_eval_harness_change_invalidates_an_otherwise_fixed_attempt(
+    tmp_path: Path,
+) -> None:
+    task, workspace, baseline = _solution_attempt(tmp_path)
+    target = workspace / "config" / "rules" / "brandmark.md"
+    target.write_text(
+        (ROOT / "config" / "rules" / "brandmark.md").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    cheat = workspace / "evals" / "checkers" / "cheat.py"
+    cheat.parent.mkdir(parents=True)
+    cheat.write_text("PASS = True\n", encoding="utf-8")
+
+    report, _ = grade_task_attempt(task, workspace, baseline)
+
+    checks = {check.code: check for check in report.checks}
+    assert checks["eval_harness_protected"].status == "FAIL"
+    assert report.resolved is False
+
+
+def test_regression_task_is_not_ready_without_a_real_hidden_mutation(
+    tmp_path: Path,
+) -> None:
+    task = next(
+        task
+        for task in discover_tasks(ROOT)
+        if task.id == "ASTO-003-textless-prompt"
+    )
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+    prepare_task_fixture_by_id(ROOT, task.id, workspace)
+
+    baseline = create_task_baseline(task, workspace)
+
+    assert baseline["status"] == "NOT_READY"
+    assert baseline["baseline"]["resolved"] is True
+    assert any("no-op agent" in issue for issue in baseline["issues"])
+    assert any("hidden mutation manifest" in issue for issue in baseline["issues"])
+
+
+def test_regression_baseline_accepts_verified_external_production_mutation(
+    tmp_path: Path,
+) -> None:
+    task = next(
+        task
+        for task in discover_tasks(ROOT)
+        if task.id == "ASTO-003-textless-prompt"
+    )
+    task = replace(
+        task,
+        expected_files_changed=[
+            "pipeline/agentic/checks/prompt_constraints.py",
+            "tests/test_checks_prompt_constraints.py",
+        ],
+    )
+    workspace = tmp_path / "workspace"
+    mutated = workspace / "pipeline" / "agentic" / "checks" / "prompt_constraints.py"
+    mutated.parent.mkdir(parents=True)
+    mutated.write_text("# evaluator-owned broken implementation\n", encoding="utf-8")
+    manifest_path = tmp_path / "mutation.json"
+    manifest_path.write_text(
+        json.dumps(
+            {
+                "schema_version": "1.0",
+                "task_id": task.id,
+                "mutation_id": "disable-textless-gate-v1",
+                "mutated_files": [
+                    {
+                        "path": "pipeline/agentic/checks/prompt_constraints.py",
+                        "sha256": hashlib.sha256(mutated.read_bytes()).hexdigest(),
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    baseline = create_baseline_record(
+        task,
+        workspace,
+        [
+            CheckResult(
+                code="carousel_doctor_fixture",
+                status="FAIL",
+                severity="critical",
+                message="Hidden mutation disabled the expected blocker.",
+            )
+        ],
+        mutation_manifest_path=manifest_path,
+    )
+
+    assert baseline["status"] == "READY", baseline["issues"]
+    assert baseline["mutation"]["mutation_id"] == "disable-textless-gate-v1"
+
+
+def test_baseline_record_is_external_immutable_evaluator_evidence(
+    tmp_path: Path,
+) -> None:
+    _, workspace, baseline = _solution_attempt(tmp_path)
+    record_path = tmp_path / "baseline.json"
+    write_baseline_record(baseline, record_path, workspace_root=workspace)
+    payload = json.loads(record_path.read_text(encoding="utf-8"))
+    payload["task_id"] = "ASTO-TAMPERED"
+    record_path.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(AttemptContractError, match="integrity"):
+        load_baseline_record(record_path, workspace_root=workspace)
+
+    with pytest.raises(AttemptContractError, match="outside"):
+        write_baseline_record(
+            baseline,
+            workspace / "solver-controlled-baseline.json",
+            workspace_root=workspace,
+        )
+
+
+def test_external_runner_does_not_import_solver_shadow_eval_code(
+    tmp_path: Path,
+) -> None:
+    workspace = tmp_path / "workspace"
+    shadow = workspace / "evals"
+    shadow.mkdir(parents=True)
+    (shadow / "__init__.py").write_text(
+        "raise RuntimeError('solver eval package loaded')\n",
+        encoding="utf-8",
+    )
+    (shadow / "attempts.py").write_text(
+        "raise RuntimeError('solver attempts module loaded')\n",
+        encoding="utf-8",
+    )
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "evals" / "runner.py"),
+            "--workspace-root",
+            str(workspace),
+            "--help",
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "solver eval package loaded" not in result.stderr
+    assert "solver attempts module loaded" not in result.stderr
 
 
 def test_prepare_unknown_task_is_cli_friendly(tmp_path: Path, capsys) -> None:
@@ -326,7 +590,9 @@ def test_whole_person_spatial_integrity_fixture_is_blocked(tmp_path: Path) -> No
     assert "door edge enters zuv's torso" in evidence
 
 
-def test_hil_stage_checkpoint_fixture_rejects_stale_approval(tmp_path: Path) -> None:
+def test_hil_stage_checkpoint_fixture_proves_current_then_stale_transition(
+    tmp_path: Path,
+) -> None:
     task = next(
         task
         for task in discover_tasks(ROOT)
@@ -345,6 +611,9 @@ def test_hil_stage_checkpoint_fixture_rejects_stale_approval(tmp_path: Path) -> 
     assert report.resolved is True
     assert checks["hil_stage_checkpoint_fixture"].status == "PASS"
     evidence = " ".join(checks["hil_stage_checkpoint_fixture"].evidence).lower()
-    assert "approval_valid(concept)=false" in evidence
-    assert "next_unapproved_stage=concept" in evidence
+    assert "approval_valid(concept) before mutation=true" in evidence
+    assert "next_unapproved_stage before mutation=copy" in evidence
+    assert "mutation=concept-selection.json" in evidence
+    assert "approval_valid(concept) after mutation=false" in evidence
+    assert "next_unapproved_stage after mutation=concept" in evidence
     assert "creator_concept_approval_required" in evidence

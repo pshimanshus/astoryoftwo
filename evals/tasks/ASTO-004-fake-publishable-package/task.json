@@ -9,7 +9,7 @@
   "fixture_contract": {"mode": "regression", "expected_outcome": "guarded", "benchmark_setup": "hidden_code_mutation_required"},
   "starting_state": [
     "final-images.json claims generated and publishable output.",
-    "Native PNGs are missing, invalid, or missing the separate Reels/Stories folder.",
+    "One or more PNGs required by the current-request format lock are missing or invalid.",
     "Visual QA or final audit evidence is missing."
   ],
   "done_when": [
@@ -25,7 +25,7 @@
   "deterministic_checkers": ["diff_guard", "carousel_doctor_fixture"],
   "rubric_checkers": [],
   "fail_to_pass": ["seeded fake-publishable package derives blocked non-publishable state"],
-  "pass_to_pass": ["minimal valid package with real native finals, visual QA, and passing audit can still become publishable"],
+  "pass_to_pass": ["minimal valid package with real native finals for exactly the locked formats, visual QA, and passing audit can still become publishable"],
   "fixture_overlay": [
     {
       "source": "fixtures/output/carousels/fixtures/fake-publishable/final-images.json",

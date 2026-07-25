@@ -25,6 +25,9 @@ venv/bin/python evals/runner.py review
 venv/bin/python evals/runner.py review --suite smoke
 ```
 
+`review` audits suite construction. It does not certify that an agent fixed a
+task.
+
 List tasks:
 
 ```bash
@@ -32,11 +35,75 @@ venv/bin/python evals/runner.py list
 venv/bin/python evals/runner.py list --suite smoke
 ```
 
-Check one task after an agent has attempted it:
+Inspect one task while developing its checker:
 
 ```bash
 venv/bin/python evals/runner.py check ASTO-003-textless-prompt
 ```
+
+`check` is diagnostic and can report that a current regression guard works. It
+does not prove that the submitted patch changed a broken baseline. Only
+`baseline` followed by `grade` can award agent repair credit.
+
+## Certified Agent Attempt
+
+Every certified attempt is a two-phase evaluator-owned transaction:
+
+1. Apply the visible fixture overlay to an isolated checkout.
+2. For a regression task, apply an evaluator-owned hidden mutation and write
+   its manifest outside the solver workspace.
+3. Run `baseline`. It refuses to start unless at least one task-specific
+   checker actually fails.
+4. Give the issue prompt and prepared checkout to the agent.
+5. Run `grade` against the immutable baseline record.
+
+Example for a solution fixture:
+
+```bash
+record=/trusted-eval-state/ASTO-001-baseline.json
+venv/bin/python evals/runner.py baseline ASTO-001-brandmark-drift \
+  --record "$record"
+
+# The agent works on the isolated checkout here.
+
+venv/bin/python evals/runner.py grade ASTO-001-brandmark-drift \
+  --baseline "$record"
+```
+
+For a regression fixture, the evaluator must also supply:
+
+```bash
+venv/bin/python evals/runner.py baseline ASTO-003-textless-prompt \
+  --record /trusted-eval-state/ASTO-003-baseline.json \
+  --mutation-manifest /trusted-eval-state/ASTO-003-mutation.json
+```
+
+The mutation manifest follows `evals/mutation-manifest.schema.json`. The
+baseline record follows `evals/baseline-record.schema.json`. Both files must
+live outside the solver workspace. In a real benchmark, the grader and these
+records must be mounted read-only or held by the evaluator process; a checksum
+detects accidental tampering but is not a substitute for evaluator isolation.
+Invoke `runner.py` from that trusted harness copy with `--workspace-root`
+pointing at the isolated solver checkout. The runner binds `evals` imports to
+the trusted copy while project modules and required commands resolve against
+the solver checkout.
+
+`grade` certifies a repair only when all of these are true:
+
+- the evaluator froze a baseline with at least one failing task checker;
+- regression tasks have a verified hidden mutation touching a declared
+  solution file;
+- the post-agent workspace differs from the baseline;
+- at least one `expected_files_changed` path was actually updated and remains
+  present;
+- every baseline failing checker flipped to `PASS`;
+- no forbidden, out-of-scope, or `evals/**` path changed;
+- all final deterministic and pass-to-pass commands pass;
+- every required anchored rubric review is complete and bound to the final
+  artifact hash.
+
+Changing files without fixing the checker fails. Fixing an output while
+skipping the declared durable solution files fails. A no-op submission fails.
 
 Tasks with rubric hooks remain unresolved until an anchored review result is
 supplied:
@@ -65,7 +132,7 @@ explained in the task's `deep-spec.md`:
   use a pre-fix revision; otherwise a no-op agent could receive false credit.
 
 The `review` command validates this direction. It does not execute an agent,
-retry failed tasks, or recursively review its own output.
+certify a patch, retry failed tasks, or recursively review its own output.
 
 Materialize a task's broken starting fixture into a scratch directory:
 
@@ -116,6 +183,11 @@ Each task must declare:
   validation instead of becoming decorative labels.
 - `rubric_checkers`: executable rubric-hook names. Unknown names fail
   validation, and the runner records rubric prechecks in the task report.
+
+The harness applies one universal certification contract to every task:
+baseline failure required, real patch required, at least one declared solution
+path updated, fail-to-pass transition required, and final regression checks
+required. Tasks cannot opt out of these gates in their own metadata.
 
 ## Scoring
 
@@ -202,6 +274,8 @@ Current rubric hooks are:
 8. Add a hidden variant when the visible task could be gamed by string matching.
 9. Run `venv/bin/python evals/runner.py validate` and
    `venv/bin/python evals/runner.py review`.
+10. Exercise `baseline` and `grade`; a fixture-direction review alone is not
+    evidence that the task measures repair.
 
 Keep creative-quality judging separate from mechanical contract checks.
 

@@ -3,11 +3,12 @@
 ## Why This Task Exists
 
 The project has repeatedly failed by letting repo defaults override the
-creator's current instruction. Native 3:4 and 9:16 finals are production gates
-when a full carousel is requested, but they become wrong when the creator
-corrects the canvas to a square proof or a single format. This task evaluates
-whether an agent understands precedence, not just dimensions. The desired skill
-is to preserve strong defaults while honoring the latest explicit correction.
+creator's current instruction. Native dimensions are production gates, but the
+current-request format lock decides which gates apply: post/carousel defaults
+to 3:4 only, while 9:16 and square are explicit-request-only. This task
+evaluates whether an agent understands precedence, not just dimensions. The
+desired skill is to preserve exact native gates without creating unrequested
+derivatives.
 
 ## Starting Fixture
 
@@ -21,14 +22,15 @@ models a request history: first a normal carousel request, then a correction to
 one square proof. The seeded state still emits `instagram_post` and
 `reels_stories` jobs marked as not requested by the latest creator message. The
 fail-to-pass check asserts that corrected single-format requests do not produce
-unrequested native post/story outputs. The pass-to-pass check preserves ordinary
-carousel requests that still require separate native `1080x1440` and
-`1080x1920` outputs and exact dimension gates.
+unrequested native post/story outputs. The pass-to-pass check preserves the
+post-only `1080x1440` default and exact `1080x1920` or `1080x1080` gates when
+those formats are explicitly requested.
 
 ## Failure Modes
 
 - Agent makes square the global default.
-- Agent removes native final requirements for real carousel work.
+- Agent removes native final requirements for a requested format.
+- Agent restores automatic post plus Story/Reel output for ordinary carousels.
 - Agent silently generates extra Story/Reel outputs after the correction.
 - Agent accepts ambiguous format language instead of asking for exact canvas.
 - Agent changes docs only while generation code still snaps back.
@@ -45,8 +47,8 @@ Story only," to prove the logic is precedence-based rather than square-specific.
 
 ## Anti-Gaming
 
-Forbid edits that weaken dimension rules, remove multi-format finals from
-normal carousel packages, or special-case the exact visible fixture text.
+Forbid edits that weaken dimension rules, restore automatic multi-format
+finals, or special-case the exact visible fixture text.
 Require evidence that the current creator instruction, attached references, and
 immediate corrections are read before output formats are locked.
 

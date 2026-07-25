@@ -15,11 +15,15 @@ able to become publishable.
 ## Acceptance Criteria
 
 - Corrupt or missing native final PNGs block publishable status.
-- Missing 9:16 finals, visual QA, or final audit block publishable status.
-- Minimal valid packages with both native formats still pass.
+- A missing or corrupt file in any current-request format blocks publishable
+  status.
+- Missing visual QA or final audit blocks publishable status.
+- A minimal post-only package passes with only 1080x1440 when that is the
+  locked request; explicit Story/Reel or square requests require their own
+  native files.
 - Carousel state and workflow doctor tests pass.
 
 ## Constraints
 
-Do not edit `AGENTS.md`. Do not create fake final media. Do not remove native
-1080x1440 or 1080x1920 requirements.
+Do not edit `AGENTS.md`. Do not create fake final media. Do not infer requested
+formats from folders. Do not weaken the native dimensions of any locked format.

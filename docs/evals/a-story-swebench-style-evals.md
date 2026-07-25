@@ -1,7 +1,7 @@
 # A Story of Two SWE-Bench-Style Evals
 
-last_updated: 2026-07-21
-confidence: 0.93
+last_updated: 2026-07-25
+confidence: 0.96
 sources:
 - AGENTS.md
 - config/rules/
@@ -46,6 +46,9 @@ Use these principles when adding or reviewing tasks:
   failure examples while preserving the same contract.
 - No-op resistance: a task cannot count as an agent benchmark merely because a
   current regression guard already passes on its bad fixture.
+- Before/after proof: certified repair requires an evaluator-owned unresolved
+  baseline, a changed workspace, an update to at least one declared solution
+  file, and every baseline failure flipping to `PASS`.
 - Prompt-checker alignment: review misleading prompts, overly strict tests,
   underspecified prompts, and low-coverage tests as separate failure classes.
 - Observable reports: every failure should return a code, severity, message,
@@ -80,8 +83,9 @@ High-value failure modes:
 - `config/rules/` losing canonical authority.
 - carousel work skipping small brief, format choice, human draft, concept lock,
   copy lock, proof lock, visual QA, or final audit;
-- image packages claiming final without native `1080x1440` and `1080x1920`
-  outputs;
+- image packages claiming final without every format locked by the current
+  request: default post/carousel `1080x1440`, explicit Story/Reel
+  `1080x1920`, or explicit square `1080x1080`;
 - textless source-art prompts that add narrative text later;
 - missing actual identity references for final art;
 - generated output churn treated as source truth;
@@ -109,6 +113,8 @@ High-value failure modes:
   that survive broad visual QA.
 - whole-person spatial topology failures where a body merges into a solid
   object despite correct people and hand counts.
+- stale or agent-inferred human approvals that unlock copy, image, or publish
+  stages after the approved artifact hash changes.
 
 ## Starter Suites
 
@@ -138,7 +144,10 @@ enough.
 The initial harness lives in `evals/`:
 
 - `evals/schemas.py` loads and validates task metadata.
-- `evals/runner.py` lists, validates, and checks tasks.
+- `evals/runner.py` lists, validates, inspects, freezes baselines, and grades
+  attempts.
+- `evals/attempts.py` snapshots the prepared workspace, verifies hidden
+  mutation evidence, and enforces fail-to-pass transitions.
 - `evals/review.py` performs one registry-ordered fixture-direction pass with
   no retry or recursive self-review.
 - `evals/checkers/diff_guard.py` blocks forbidden and out-of-scope paths.
@@ -163,10 +172,9 @@ The initial harness lives in `evals/`:
 
 Future iterations should add:
 
-- setup patches or fixture builders;
+- hidden mutation packs or pinned pre-fix revisions for every regression task;
 - hidden task variants;
 - JSONL run logs with model/agent metadata;
-- patch-apply checks;
 - per-task timeout and resource limits;
 - calibrated human/judge rubric files.
 
@@ -192,6 +200,40 @@ The command snapshots the selected registry entries, reviews each exactly once
 in registry order, reports direction mismatches, and exits. A new review run is
 needed only when the task inventory or reviewed files change.
 
+## Certified Repair Lifecycle
+
+`review` and `check` are suite-development tools. Neither can award agent solve
+credit. Certified repair uses an evaluator-owned baseline record:
+
+```bash
+venv/bin/python evals/runner.py baseline ASTO-001-brandmark-drift \
+  --record /trusted-eval-state/ASTO-001-baseline.json
+
+# Run the agent once against the prepared isolated checkout.
+
+venv/bin/python evals/runner.py grade ASTO-001-brandmark-drift \
+  --baseline /trusted-eval-state/ASTO-001-baseline.json
+```
+
+The baseline command runs task-specific deterministic checkers before the
+agent. It writes a record only when the starting state is actually unresolved.
+For regression fixtures it also requires a hidden mutation manifest whose file
+digests match the mutated workspace and whose paths include a declared
+production solution file.
+
+The grade command compares the final workspace to the frozen hash snapshot. A
+certified pass requires a non-empty patch, at least one changed
+`expected_files_changed` path that remains present, all baseline failures
+flipped to `PASS`, all final deterministic checks and commands passing, no
+protected harness changes, and completed artifact-bound rubric review where
+declared. The evaluator owns the baseline and mutation records outside the
+solver workspace.
+
+For adversarial runs, execute `runner.py` from a read-only trusted harness copy
+and pass `--workspace-root` for the isolated solver checkout. The runner binds
+the `evals` package to the trusted location before adding the solver checkout
+to the production-module import path.
+
 ## Task Quality Bar
 
 A task is not accepted merely because it has a prompt and a test command. It
@@ -211,6 +253,8 @@ must identify:
 - a clear statement of whether the task is a runnable solution fixture or a
   regression guard that still needs an isolated broken-code baseline;
 - no solver write access to `evals/**`.
+- a demonstrated `baseline -> agent patch -> grade` transition before the task
+  is reported as benchmark-ready.
 
 This bar exists because shallow evals teach agents to satisfy labels. The goal
 is to test whether an agent can preserve the repo's contract under realistic
@@ -246,6 +290,10 @@ venv/bin/python evals/runner.py review
 venv/bin/python evals/runner.py list --suite smoke
 venv/bin/python scripts/agentic_os.py health
 ```
+
+When a merge claims to fix a represented failure, also run `grade` for that
+task against an evaluator-owned failing baseline. Passing `review` is not
+evidence that the change fixed anything.
 
 For tasks that modify rules, memory, context, skills, or workflow docs, also run
 wiki health and the safe closeout flow described in `AGENTS.md`.

@@ -14,12 +14,14 @@ confused with an instruction to execute publishing.
 
 Fixture direction: **regression**
 
-The regression fixture contains an approval ledger claiming that the creator
-approved the concept. Its artifact fingerprint is deliberately stale. The
-package can therefore resemble a previously approved workflow while the current
-concept files, including missing or changed files, produce a different
-fingerprint. The checker asks the production HIL router whether concept approval
-is valid, which stage should run next, and whether copy remains locked behind
+The regression fixture contains only a bootstrap approval ledger; it does not
+hard-code a bogus hash. The checker programmatically builds the complete
+governed concept artifact set, verifies that the concept itself is clean, and
+records an explicit creator approval using the current production fingerprint.
+It first proves this approval is valid and routes the workflow to copy. It then
+changes one governed concept artifact without changing its semantic validity.
+The checker asks the production HIL router whether the once-current approval is
+now stale, whether routing returns to concept, and whether copy is locked behind
 `creator_concept_approval_required`.
 
 ## Failure Modes
@@ -36,22 +38,26 @@ presents unresolved work as clean.
 ## Checker Design
 
 The deterministic checker imports the production checkpoint functions rather
-than duplicating their logic. It materializes the fixture, evaluates
-`approval_valid` for concept, evaluates `next_unapproved_stage`, and runs the
-copy-stage verifier. Passing requires all three observations: the stale approval
-is false, the earliest stage is concept, and copy contains the explicit prior
-approval blocker. Unit tests separately cover a clean stage stopping for HIL,
-REVISE reopening the stage, hash mutation invalidating approval, and upstream
-reapproval deleting downstream locks.
+than duplicating their logic. It materializes the bootstrap fixture, writes
+semantically valid concept artifacts, and obtains the approval hash from
+`stage_fingerprint`. Passing first requires a clean concept report,
+`approval_valid(concept)=True`, and copy as the next unapproved stage. The
+checker then mutates `concept-selection.json`, a real member of the governed
+artifact set. Passing after mutation requires `approval_valid(concept)=False`,
+concept as the earliest unapproved stage, and the copy verifier to contain the
+explicit prior-approval blocker. Unit tests separately cover a clean stage
+stopping for HIL, REVISE reopening the stage, hash mutation invalidating
+approval, and upstream reapproval deleting downstream locks.
 
 ## Anti-Gaming
 
-The checker must not search for one literal fingerprint or special-case
-ASTO-022. Hidden variants alter which stage is stale, which required artifact
-changes, whether the provenance field is missing, and whether mutation happens
-before or after candidate presentation. Other hidden variants use valid current
-approvals as pass-to-pass controls. A robust implementation computes hashes from
-the governed artifact set, validates explicit creator provenance, rechecks at
+The checker must not search for one literal fingerprint, accept a prewritten
+bogus hash as sufficient evidence, or special-case ASTO-022. Hidden variants
+alter which stage is stale, which required artifact changes, whether the
+provenance field is missing, and whether mutation happens before or after
+candidate presentation. Other hidden variants use valid current approvals as
+pass-to-pass controls. A robust implementation computes hashes from the
+governed artifact set, validates explicit creator provenance, rechecks at
 decision time, and walks stages in order.
 
 ## Severity Model

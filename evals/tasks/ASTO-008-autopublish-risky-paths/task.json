@@ -31,11 +31,11 @@
       "target": "fixtures/git-status.txt"
     },
     {
-      "source": "fixtures/.env.local",
+      "source": "fixtures/fixture-assets/env-local.fixture",
       "target": ".env.local"
     },
     {
-      "source": "fixtures/identity_images/aachu-reference.png",
+      "source": "fixtures/fixture-assets/identity-reference.fixture",
       "target": "identity_images/aachu-reference.png"
     },
     {

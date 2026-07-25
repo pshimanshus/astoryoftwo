@@ -1,7 +1,7 @@
 # Eval Research Memory
 
-last_updated: 2026-07-21
-confidence: 0.91
+last_updated: 2026-07-25
+confidence: 0.95
 sources:
 - docs/evals/a-story-swebench-style-evals.md
 - evals/README.md
@@ -51,6 +51,14 @@ of rubric score.
 Use `venv/bin/python evals/runner.py review` for a bounded alignment pass. It
 freezes registry order, inspects each selected fixture once, reports direction
 mismatches, and stops; it does not retry or recursively review its own report.
+
+Do not count `review` or the diagnostic `check` command as an agent solve.
+Certified repair requires an evaluator-owned `baseline` record followed by
+`grade`. The baseline must contain a real failing task checker. The final
+workspace must change at least one declared solution file, every baseline
+failure must flip to `PASS`, all pass-to-pass commands must stay green, and the
+eval harness must remain unchanged. Regression fixtures are `NOT_READY`
+without a verified external hidden mutation manifest.
 
 Before adding or expanding eval tasks, inspect the repo's actual failure trail:
 semantic memory, episodic/session health, Agentic OS learning events,

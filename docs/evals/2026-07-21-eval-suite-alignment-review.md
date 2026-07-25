@@ -1,12 +1,12 @@
 # Eval Suite Alignment Review
 
-review_date: 2026-07-21
-scope: registry snapshot of 21 tasks plus all shared eval documentation and harness surfaces
+review_date: 2026-07-25
+scope: registry snapshot of 22 tasks plus all shared eval documentation and harness surfaces
 protocol: single pass, registry order, no retries, no recursive review of this report
 
 ## Stop Rule
 
-This review freezes the registry at 21 tasks, reviews every task's `task.json`,
+This review freezes the registry at 22 tasks, reviews every task's `task.json`,
 `prompt.md`, `deep-spec.md`, and fixture direction once, applies confirmed
 cross-cutting repairs once, runs one final validation pass, and stops. A new
 review is justified only by a changed task inventory, changed checker contract,
@@ -18,6 +18,8 @@ Alignment means:
 - the visible fixture's initial outcome is declared and observed;
 - regression guards cannot be reported as agent solves without a hidden broken
   code baseline;
+- certified repair requires an evaluator-owned failing baseline, a real patch
+  to a declared solution file, and a final fail-to-pass transition;
 - solver changes cannot touch `evals/**`;
 - deterministic gates and subjective rubric judgment remain separate;
 - rubric tasks cannot resolve while subjective review is missing;
@@ -63,6 +65,7 @@ deep spec, fixture mapping, named deterministic checker, and rubric declaration.
 | [ASTO-019](../../evals/tasks/ASTO-019-duplicate-background-characters/) | regression / guarded | Structured entity QA blocks unexpected background people. | PASS; hidden code mutation required for agent solve credit |
 | [ASTO-020](../../evals/tasks/ASTO-020-hand-object-integrity/) | regression / guarded | Anatomy QA blocks ownerless limbs, unexplained edge entry, and solid-object intersection. | PASS; hidden code mutation required for agent solve credit |
 | [ASTO-021](../../evals/tasks/ASTO-021-whole-person-spatial-integrity/) | regression / guarded | Spatial QA blocks body/environment morphs while valid occlusion remains possible. | PASS; hidden code mutation required for agent solve credit |
+| [ASTO-022](../../evals/tasks/ASTO-022-hil-stage-checkpoints/) | regression / guarded | Stale creator approval hashes cannot unlock a downstream stage or trigger publishing. | PASS; hidden code mutation required for agent solve credit |
 
 ## Resolved Findings
 
@@ -82,11 +85,19 @@ deep spec, fixture mapping, named deterministic checker, and rubric declaration.
    their checker inputs.
 7. Research guidance missed the latest official coding-eval data-quality
    taxonomy. The source ledger and system principles now include it.
+8. Final-state checking did not prove that an agent changed or repaired
+   anything. Certified attempts now require an external failing baseline,
+   changed declared solution files, checker fail-to-pass transitions, complete
+   pass-to-pass checks, and an unchanged eval harness.
+9. Dimension wording still implied automatic post plus Story/Reel output.
+   ASTO-002, ASTO-004, the system spec, and the failure taxonomy now follow the
+   current-request lock: post-only by default, other canvases only when
+   explicitly requested.
 
 ## Deliberate Boundary
 
 This repository now has a coherent contract-regression suite and a finite
-alignment review. It does not yet claim that all 21 tasks are benchmark-ready
-agent challenges. The 12 regression fixtures intentionally require hidden code
+alignment review. It does not yet claim that all 22 tasks are benchmark-ready
+agent challenges. The 13 regression fixtures intentionally require hidden code
 mutations or pinned pre-fix revisions before an agent run; counting their
 already-guarded state as a solve would be invalid.

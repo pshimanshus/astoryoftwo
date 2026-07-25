@@ -1,6 +1,6 @@
 # Project Failure Taxonomy
 
-last_updated: 2026-07-21
+last_updated: 2026-07-25
 confidence: 0.93
 sources:
 - AGENTS.md
@@ -90,15 +90,16 @@ Eval coverage:
 ### E04 False Finality And Publishable Package Theater
 
 Pattern: the repo produces a strong-looking package, review, or proof set and
-then calls it done despite missing native finals, structured QA, final audit,
-source provenance, or story/reel companion outputs.
+then calls it done despite missing native finals for the current-request format
+lock, structured QA, final audit, source provenance, or an explicitly requested
+Story/Reel or square output.
 
 Evidence:
 - `docs/audits/2026-05-16-carousel-pipeline-structure-audit.md` records stale
   `PASS_WITH_NOTES` packages that predated final-image and identity gates.
 - Multiple `output/carousels/*/final-audit.json` files report missing
-  `final/slide-XX.png`, missing `final-reels-stories/`, and missing structured
-  `visual-qa.json`.
+  `final/slide-XX.png`, requested `final-reels-stories/` assets, and missing
+  structured `visual-qa.json`.
 - `output/carousels/2026-07-11/the-almosts-were-practicing/visual-qa.md`
   explicitly says the folder is a post-format draft illustration set, not a
   full publish closeout package.
@@ -381,7 +382,33 @@ Eval-system coverage:
   order;
 - regression fixtures require a hidden code mutation or pre-fix revision
   before they can award agent solve credit;
+- `evals/runner.py baseline` refuses already-resolved starters and writes its
+  hash snapshot outside the solver workspace;
+- `evals/runner.py grade` requires a real changed path, a declared solution
+  file update, and every baseline failure to flip to `PASS`;
 - `evals/**` is protected from solver changes.
+
+### E20 Stale Or Agent-Inferred Human Approval
+
+Pattern: an automated verifier result, old creator decision, or agent-authored
+ledger entry is treated as permission to enter copy, image, or publish work
+after the approved artifact changed. The creator saw one candidate, while
+downstream production acts on another.
+
+Evidence:
+- `memory/episodic/2026-07-25-session-health.md` records the implementation of
+  hash-bound concept, copy, image, and publish checkpoints.
+- `config/skills/carousel-review-loop.md` states that verifier `PASS` is not
+  creator approval and that every candidate must stop at a hash-bound human
+  decision.
+- `tests/test_carousel_review_loop.py` covers stale artifact hashes,
+  downstream-lock invalidation, and explicit
+  `creator_concept_approval_required` blockers.
+- `ASTO-022-hil-stage-checkpoints` proves a current explicit approval is valid
+  before mutation and invalid immediately after its governed concept changes.
+
+Eval coverage:
+- `ASTO-022-hil-stage-checkpoints`
 
 ## Mechanical Contract Failures
 
@@ -463,3 +490,4 @@ shot grammar, object continuity, or copy-visual causality.
 | E17 hand ownership and object-contact AI slop | `ASTO-020` |
 | E18 whole-person spatial topology failure | `ASTO-021` |
 | E19 eval direction/no-op credit | finite suite review + fixture contracts |
+| E20 stale or agent-inferred human approval | `ASTO-022` |
