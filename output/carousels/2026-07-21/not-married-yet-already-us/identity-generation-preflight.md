@@ -8,31 +8,37 @@ Do not generate or accept a slide if Aachu or Zuv look like generic illustrated 
 
 ## Required Visual Inputs
 
-- /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg
-- config/references/identity/aachu/face-05.png
+- output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg
+- config/references/identity/aachu/face-04.png
+- config/references/identity/aachu/reel-jaldi.jpg
 - config/references/identity/together/together-18.jpg
-- config/references/identity/together/together-21.jpg
 - config/references/identity/zuv/portrait-07.jpg
 
 ## Face Identity Contract
 
 ### Himanshu/Zuv
-- dark wavy hair with visible volume
-- thick dark brows
-- warm brown skin tone
-- rounded/oval smiling face structure
-- trimmed full beard and mustache
-- calm grounded expression, not a generic model face
-- medium-tall broader build relative to Aachu
+- warm medium-brown South Asian skin
+- thick dark curly hair with a visible curl silhouette
+- strong dark brows, dark almond eyes, and a defined nose
+- relaxed masculine face structure
+- short natural stubble, never clean-shaven and never a full beard
+- natural body proportions
+- exactly about two inches taller than Aachu
 
 ### Aachu/Anchal
-- long dark hair
-- expressive eyes and brows
-- warm fair-medium skin tone
-- soft oval/round face structure
-- fuller lips and expressive smile
-- playful dramatic energy under the softness
-- slightly smaller/petite presence relative to Himanshu
+- warm medium-brown South Asian skin
+- large expressive dark eyes and softly arched brows
+- delicate nose, natural lips, youthful oval face, and soft cheeks
+- long thick dark wavy hair
+- playful real-person expression, never a generic model face
+- natural body proportions
+- exactly about two inches shorter than Zuv
+
+## Reference Exclusions
+
+- Do not copy wedding or engagement cues from any reference: no rings, bangles, ceremonial clothing, kiss pose, or staged couple-portrait pose.
+- Do not copy carousel dots, UI, background vehicles, old reference text, or old reference brandmarks.
+- Treat the contact sheet as an identity catalog only; never copy its grid, labels, layout, poses, or background.
 
 ## Generation Procedure
 

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "e0f8c1c942f4204871afeed04431a5d4e387ef0082ddf83c978302d450c010be",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "Slide 9 shows three visible hands instead of the locked two-hand inventory.",
+        "Zuv's non-focal pocket hand is visible despite the out-of-frame lock.",
+        "Aachu's tissue-offering hand does not read unambiguously as her right hand at phone size.",
+        "The tissue and thumb-nick care action is not uniquely readable at phone size.",
+        "Aachu's face shape, nose, lips, and hair texture drift from the selected identity references.",
+        "Zuv's face is narrower and longer, with curl mass shifted forward from the selected references.",
+        "The rendered height gap is substantially larger than the locked two-inch difference."
+      ],
+      "targeted_repair_instructions": [
+        "Use a tighter shoulder-to-waist crop that excludes Zuv's pocket hand and every non-focal hand.",
+        "Stage Aachu's right forearm and right hand continuously across her body so hand ownership is unmistakable.",
+        "Render one thin folded rectangular tissue and a clearly visible but non-graphic nick on Zuv's right thumb.",
+        "Bring both eye lines close together so Zuv reads only about two inches taller than Aachu.",
+        "Match Aachu's softer oval face, fuller cheeks, shorter delicate nose, fuller lips, and soft-wave hair.",
+        "Match Zuv's broader relaxed face, natural short stubble, and reference curl placement.",
+        "Keep the open doorway secondary and remove background props that compete with the care action."
+      ]
+    }
+  ]
+}

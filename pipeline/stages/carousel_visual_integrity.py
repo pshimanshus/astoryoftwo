@@ -224,6 +224,165 @@ def spatial_topology_prompt(contract: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def build_action_topology_contract(scene: str, slide_copy: str = "") -> dict[str, Any]:
+    """Lock chronology, camera side, and shared action for door/lock beats.
+
+    A coherent person silhouette is not enough when a scene can be staged on
+    the wrong side of a door or at the wrong point in the story.  The contract
+    is activated only for copy that explicitly describes checking/locking and
+    returning or doing the action together.
+    """
+
+    scene_text = " ".join(str(scene).strip().split())
+    copy_text = " ".join(str(slide_copy).strip().split())
+    scene_lower = scene_text.lower()
+    copy_lower = copy_text.lower()
+    requires_check = any(
+        token in copy_lower for token in ("check the lock", "checked the lock", "checked it")
+    )
+    requires_return = any(
+        token in copy_lower for token in ("went back", "came back", "returned")
+    )
+    requires_shared_action = any(
+        token in copy_lower for token in ("with him", "with her", "together")
+    )
+    applies = requires_check and (requires_return or requires_shared_action)
+    if not applies:
+        return {
+            "applies": False,
+            "scene_action_binding": scene_text,
+            "copy_action_binding": copy_text,
+            "issues": [],
+        }
+
+    camera_side = (
+        "outside"
+        if any(
+            token in scene_lower
+            for token in ("from outside", "viewed entirely from outside", "corridor", "landing")
+        )
+        else "inside"
+        if any(
+            token in scene_lower
+            for token in ("from inside", "viewed entirely from inside", "interior")
+        )
+        else ""
+    )
+    temporal_phase = (
+        "before_departure"
+        if any(
+            token in scene_lower
+            for token in ("before leaving", "before departure", "moment they left", "left for the date")
+        )
+        else "after_return"
+        if any(
+            token in scene_lower
+            for token in ("back home after", "after the date", "after returning")
+        )
+        else ""
+    )
+    door_state = (
+        "fully_closed"
+        if any(
+            token in scene_lower
+            for token in ("fully closed", "closed exterior door", "door has closed")
+        )
+        else "open"
+        if "open door" in scene_lower
+        else ""
+    )
+    return_path_visible = any(
+        token in scene_lower
+        for token in (
+            "came back",
+            "comes back",
+            "returned",
+            "returns",
+            "turns back",
+            "turned and came back",
+            "returning body direction",
+        )
+    )
+    shared_action_visible = any(
+        token in scene_lower
+        for token in (
+            "both participate",
+            "both check",
+            "check together",
+            "checks with him",
+            "checks with her",
+            "joins him",
+            "joins her",
+            "tests the same closed handle",
+        )
+    )
+    solo_action_contradiction = (
+        any(token in scene_lower for token in ("herself", "himself"))
+        and any(
+            token in scene_lower
+            for token in ("watches", "watching", "catches her", "catches him", "glances back")
+        )
+        and not shared_action_visible
+    )
+
+    issues: list[str] = []
+    if not camera_side:
+        issues.append("camera side of the door is not explicit")
+    if not temporal_phase:
+        issues.append("temporal phase is not explicit")
+    if not door_state:
+        issues.append("door state is not explicit")
+    if requires_return and not return_path_visible:
+        issues.append("copy says someone went back, but the return path is not visibly staged")
+    if requires_shared_action and not shared_action_visible:
+        issues.append("copy says the check is shared, but both people do not visibly participate")
+    if solo_action_contradiction:
+        issues.append("scene turns the shared check into one person acting while the other watches")
+
+    return {
+        "applies": True,
+        "scene_action_binding": scene_text,
+        "copy_action_binding": copy_text,
+        "camera_side": camera_side,
+        "temporal_phase": temporal_phase,
+        "door_state": door_state,
+        "return_path_visible": return_path_visible,
+        "shared_action_visible": shared_action_visible,
+        "forbidden": [
+            "camera on an unstated or contradictory side of the door",
+            "post-date arrival substituted for a before-departure callback",
+            "inside-house staging substituted for an outside-corridor action",
+            "one partner checks alone while the other merely watches",
+            "copy says someone went back but no prior direction or return path is visible",
+        ],
+        "issues": issues,
+    }
+
+
+def action_topology_prompt(contract: dict[str, Any]) -> str:
+    if contract.get("applies") is not True:
+        return ""
+    lines = [
+        "ACTION CHRONOLOGY AND DOOR-SIDE CONTRACT (HARD GATE):",
+        f"Copy action binding: {contract.get('copy_action_binding', '')}",
+        f"Scene action binding: {contract.get('scene_action_binding', '')}",
+        f"Camera side: {contract.get('camera_side', '')}.",
+        f"Temporal phase: {contract.get('temporal_phase', '')}.",
+        f"Door state: {contract.get('door_state', '')}.",
+        f"Return path visibly staged: {bool(contract.get('return_path_visible'))}.",
+        f"Shared checking action visibly staged: {bool(contract.get('shared_action_visible'))}.",
+        (
+            "The frame must show the verbs and chronology in the copy, not merely the same "
+            "people and door. Preserve who moved away, who returned, which side of the closed "
+            "door the camera occupies, and whether the final action is shared or solo."
+        ),
+        "Reject and regenerate for: "
+        + "; ".join(str(item) for item in contract.get("forbidden", []))
+        + ".",
+    ]
+    return "\n".join(lines)
+
+
 def build_visual_richness_contract(scene: str) -> dict[str, Any]:
     return {
         "scene_action_binding": scene.strip(),

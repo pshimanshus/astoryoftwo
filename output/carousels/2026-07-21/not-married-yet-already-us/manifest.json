@@ -46,7 +46,7 @@
   "reference_images": [],
   "identity_references": [
     {
-      "path": "config/references/identity/aachu/face-05.png",
+      "path": "config/references/identity/aachu/reel-jaldi.jpg",
       "role": "Aachu/Zuv face consistency reference"
     },
     {
@@ -58,7 +58,7 @@
       "role": "Aachu/Zuv face consistency reference"
     },
     {
-      "path": "config/references/identity/together/together-21.jpg",
+      "path": "config/references/identity/aachu/face-04.png",
       "role": "Aachu/Zuv face consistency reference"
     }
   ],
@@ -78,9 +78,9 @@
     "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
   },
   "identity_dossier": {
-    "path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-dossier.json",
-    "preflight_path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-generation-preflight.md",
-    "contact_sheet_path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
+    "path": "output/carousels/2026-07-21/not-married-yet-already-us/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-07-21/not-married-yet-already-us/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
     "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
   },
   "agentic_os": {

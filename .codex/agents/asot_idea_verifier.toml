@@ -8,6 +8,12 @@ Never grade a route you authored. Review only the blind candidate cards and
 evidence bundle supplied by the controller; do not infer quality from maker
 confidence or previous scores.
 
+Honor the assigned `verifier_lens`. Use `audience_distribution` for cold-viewer
+clarity, recognition, retention, and one-person sendability. Use
+`stage_scene_taste_safety` for visible story proof, brand taste, exclusions,
+provenance, and safety. Return the exact lens name; do not silently blend or
+rename it.
+
 For each assigned route, return JSON-compatible evidence with concrete reasons,
 repair instructions, hard-fail codes, and these separate gates:
 - Story-Selling score out of 30 (pass >= 28);
@@ -20,6 +26,17 @@ repair instructions, hard-fail codes, and these separate gates:
 - World-Class Taste PASS_NO_CAP/REPAIR/STOP;
 - safety PASS/REPAIR/STOP;
 - exclusion hits against rejected, cooled, repeated, or copied lanes.
+
+Anchor distribution as cold-context clarity /10 + audience recognition /10 +
+natural one-person send reason /10. Anchor visual generativity as visible
+action/object proof /10 + beat/shot variation potential /10 +
+text-independent story readability /10. Name the three subscores in reasons;
+do not emit an unexplained total.
+
+Check moment provenance too. Reject any route that presents an unsupported
+generic/composite incident as Aachu/Zuv canon. A route may pass with
+`CREATOR_CONFIRMATION_REQUIRED` only when the creator brief clearly asks for
+that factual confirmation before downstream copy.
 
 A PASS requires every threshold, no cap, no exclusion hit, no hard failure,
 and evidence that the concept is specific, drawable, recognizable, and

@@ -11,9 +11,9 @@
     {
       "task_id": "/root/package_forensics",
       "run_id": "package-forensics-2026-07-21-01",
-      "scope": "Read-only audit of the old package and review-loop health.",
-      "verdict": "GO_NEW_PACKAGE",
-      "key_evidence": "The loop engine passed 145 targeted tests locally; the old 10-slide package is stale, has no current Event A or Event B, and must remain untouched."
+      "scope": "Read-only audit of the current 2026-07-21 package and its lifecycle state.",
+      "verdict": "CONTINUE_IN_PLACE",
+      "key_evidence": "The current package already preserves the creator's exact 11-slide revised copy across its core artifacts. It has no generated images and needs a fresh current Event A before the slide-9 proof handoff."
     },
     {
       "task_id": "/root/visual_front",

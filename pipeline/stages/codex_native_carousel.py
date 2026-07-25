@@ -101,6 +101,7 @@ from pipeline.stages.carousel_visual_rooms import (
     build_visual_plan_quality,
 )
 from pipeline.stages.carousel_visual_integrity import (
+    build_action_topology_contract,
     build_hand_ownership_map,
     build_visual_richness_contract,
 )
@@ -148,7 +149,17 @@ def load_creative_baseline(path: str | Path | None) -> dict[str, Any] | None:
                 "emotion": item.get("emotion") or "warm, specific, lived-in couple energy",
                 **{
                     key: item[key]
-                    for key in ("pose", "wardrobe", "props", "background", "continuity_lock")
+                    for key in (
+                        "pose",
+                        "wardrobe",
+                        "props",
+                        "background",
+                        "continuity_lock",
+                        "cta_intent",
+                        "hand_map",
+                        "action_topology_contract",
+                        "visual_richness_contract",
+                    )
                     if key in item
                 },
             }
@@ -216,7 +227,17 @@ def slides_from_creative_baseline(
             "emotion": item.get("emotion") or "warm, specific, lived-in couple energy",
             "source_images": source_images,
         }
-        for key in ("pose", "wardrobe", "props", "background", "continuity_lock"):
+        for key in (
+            "pose",
+            "wardrobe",
+            "props",
+            "background",
+            "continuity_lock",
+            "cta_intent",
+            "hand_map",
+            "action_topology_contract",
+            "visual_richness_contract",
+        ):
             if item.get(key):
                 slide[key] = item[key]
         slides.append(slide)
@@ -327,7 +348,11 @@ def build_package(
     for slide in slides:
         slide["identity_continuity"] = build_identity_continuity_for_slide(slide, identity_paths)
     style_reference_limit = int(contract.get("style_reference_attachment_limit", 3))
-    style_reference_paths = contract.get("style_references", [])[:style_reference_limit]
+    style_reference_paths = [
+        str(path)
+        for item in contract.get("style_references", [])
+        if (path := Path(str(item))).is_file()
+    ][:style_reference_limit]
     brandmark = contract["brandmark"]
     golden_theme = contract.get("golden_theme_contract", {})
     golden_theme_rule = golden_theme.get(
@@ -1122,6 +1147,8 @@ def build_package(
             "scene": slide["visual"],
             "visual": slide["visual"],
             "hand_map": slide.get("hand_map") or build_hand_ownership_map(slide["visual"]),
+            "action_topology_contract": slide.get("action_topology_contract")
+            or build_action_topology_contract(slide["visual"], slide["copy"]),
             "visual_richness_contract": slide.get("visual_richness_contract")
             or build_visual_richness_contract(slide["visual"]),
             "pose": slide.get("pose") or (

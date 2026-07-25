@@ -103,6 +103,15 @@ venv/bin/python scripts/carousel_review_loop.py \
   output/carousels/YYYY-MM-DD/slug --review-only
 ```
 
+Recording a decision requires the creator's identity explicitly; there is no
+automation-safe default that can mint a human approval:
+
+```bash
+make review-loop \
+  CAROUSEL=output/carousels/YYYY-MM-DD/slug \
+  STAGE=concept DECISION=APPROVE DECIDED_BY='creator name'
+```
+
 The command parser does not invoke a shell. `{package}` and `{feedback}` are
 expanded as individual command arguments.
 

@@ -1,11 +1,11 @@
 # Final Approval Checklist
 
-Status: draft_review
+Status: proof_pending
 Score: 32 / 40
-Story-Selling: 17.0 / 30
-Story-Selling Gate: REPAIR
-Story Director Gate: REPAIR
-Pass: True
+Story-Selling: 29.0 / 30
+Story-Selling Gate: GO
+Story Director Gate: GO
+Pass: False
 
 ## Before Posting
 
@@ -27,4 +27,5 @@ Pass: True
 
 ## Required Changes
 
-- [ ] No required changes listed by reviewer.
+- [ ] Replace the quarantined proof and complete fail-closed visual QA before posting.
+- [ ] Final audit must pass before posting.

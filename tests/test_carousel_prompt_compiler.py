@@ -125,6 +125,57 @@ def test_compile_image_prompt_always_includes_hand_ownership_and_visual_richness
     assert "sparse two-person pose beside text" in prompt
 
 
+def test_compile_image_prompt_blocks_wrong_side_or_solo_lock_callback():
+    with pytest.raises(ValueError, match="Action chronology/topology is unresolved"):
+        compile_image_prompt(
+            slide_number=7,
+            slide_count=7,
+            slide_copy=(
+                "He still checked the lock twice.\n"
+                "She still rolled her eyes.\n\n"
+                "Then she went back\n"
+                "and checked it with him."
+            ),
+            visual=(
+                "Back home after the date, viewed entirely from inside the entryway. "
+                "Aachu tugs the interior handle herself while Zuv watches and smiles."
+            ),
+            format_key="instagram_post",
+            style="premium romantic watercolor-and-ink illustration",
+            negative="No photorealism.",
+        )
+
+
+def test_compile_image_prompt_embeds_explicit_lock_action_chronology():
+    prompt = compile_image_prompt(
+        slide_number=7,
+        slide_count=7,
+        slide_copy=(
+            "He still checked the lock twice.\n"
+            "She still rolled her eyes.\n\n"
+            "Then she went back\n"
+            "and checked it with him."
+        ),
+        visual=(
+            "Callback to the moment they left for the date, viewed entirely from outside "
+            "the apartment in the corridor after the fully closed door has closed. "
+            "Zuv tests the exterior handle. Aachu had taken two steps toward the lift, "
+            "turns back, joins him, and tests the same closed handle so both participate."
+        ),
+        format_key="instagram_post",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+    )
+
+    assert "ACTION CHRONOLOGY AND DOOR-SIDE CONTRACT (HARD GATE):" in prompt
+    assert "Camera side: outside." in prompt
+    assert "Temporal phase: before_departure." in prompt
+    assert "Door state: fully_closed." in prompt
+    assert "Return path visibly staged: True." in prompt
+    assert "Shared checking action visibly staged: True." in prompt
+    assert "one partner checks alone while the other merely watches" in prompt
+
+
 def test_compile_image_prompt_preserves_canonical_master_prompt_fragments():
     canonical = Path("config/references/a-story-illustration-master-prompt.md").read_text(encoding="utf-8")
     required_fragments = [

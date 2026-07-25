@@ -174,6 +174,26 @@ Compare its inference with the director card. Repair the plan until the core
 action and relationship turn are inferred from cited evidence. A pretty but
 generic couple pose fails.
 
+After the blind inference, run a copy-visual action reconciliation before PASS.
+For every slide, compare the inferred scene against the exact copy's subject,
+verb, object, temporal cue, movement path, shared-versus-solo action, and
+spatial side. This is not shown to the blind critic; it is the post-reveal logic
+check. A scene may be visually coherent and still fail the copy.
+
+For door, lock, threshold, arrival, departure, or "went back" beats, explicitly
+lock:
+
+- whether the moment is before departure, during return, or after arrival;
+- whether the camera and both people are inside, outside, or crossing;
+- whether the door is open, closing, fully closed, or already locked;
+- where each person was, what direction they moved, and what "went back" means;
+- whether the final action is shared or solo.
+
+If copy says "checked it with him," a frame where she checks alone while he
+watches is a contradiction. If the creator says the couple closed the door and
+is outside, an interior entryway image is a hard fail even when the anatomy and
+mood are attractive.
+
 Store the exact observable-only payload as `blind_cards`, fingerprint it, and
 record the raw pre-reveal result under `director_storyboard` inside the existing
 `visual-plan-quality.json`; do not create a competing gate artifact. Use the
@@ -209,6 +229,11 @@ reject and remove a missing, changed, extra, external, traversing, or symlinked
 handoff. Already-quarantined promotion is governed by exact pixel bindings and
 does not depend on keeping old prompt files active.
 
+Immediately before the actual image-generation tool call, rerun this precheck
+and the workflow doctor. Use only the active compiled `.prompt.txt` whose hash
+is recorded in the handoff. A creator correction invalidates the prior
+director event and prompt set even when the requested change appears small.
+
 ### 8. Prove the riskiest frame first
 
 Choose the hero receipt or highest-risk frame: the one most likely to fail in
@@ -222,6 +247,11 @@ another. Preserve exact integrated text and tiny top-right `@a.storyof.two`.
 Inspect the actual pixels. Do not award success from a prompt, filename, or
 generator report. If the idea itself does not read, repair the director card,
 evidence, staging, or sequence before changing prompt adjectives.
+
+Keep the returned proof internal until it is package-quarantined and has passed
+native dimensions, exact text, anatomy/entity/spatial integrity, identity, and
+provisional image-first story review. Do not render an unchecked candidate
+inline as though it were an approved slide.
 
 ### 9. Run Checker Event B — image-first rendered-frame audit
 

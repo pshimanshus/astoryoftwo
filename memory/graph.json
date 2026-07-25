@@ -851,30 +851,30 @@
       "id": "carousel:not-married-yet-already-us",
       "type": "illustrated_carousel",
       "title": "Not Married Yet, Already Us",
-      "date": "2026-07-20",
+      "date": "2026-07-21",
       "status": "NEEDS_FIXES",
-      "slide_count": 10,
-      "package": "output/carousels/2026-07-20/not-married-yet-already-us",
-      "content_lane": "Wedding Origin Story"
+      "slide_count": 11,
+      "package": "output/carousels/2026-07-21/not-married-yet-already-us",
+      "content_lane": "Shared Adulthood"
     },
     "carousel:the-date-that-missed-its-reservation": {
       "id": "carousel:the-date-that-missed-its-reservation",
       "type": "illustrated_carousel",
       "title": "The Date That Missed Its Reservation",
-      "date": "2026-07-20",
+      "date": "2026-07-25",
       "status": "NEEDS_FIXES",
       "slide_count": 7,
-      "package": "output/carousels/2026-07-20/the-date-that-missed-its-reservation",
-      "content_lane": "Tiny Rituals"
+      "package": "output/carousels/2026-07-25/the-date-that-missed-its-reservation",
+      "content_lane": "Golden Long Distance Ordinary Time"
     },
     "carousel:the-date-that-missed-its-reservation-2": {
       "id": "carousel:the-date-that-missed-its-reservation-2",
       "type": "illustrated_carousel",
       "title": "The Date That Missed Its Reservation",
-      "date": "2026-07-20",
+      "date": "2026-07-25",
       "status": "NEEDS_FIXES",
       "slide_count": 7,
-      "package": "output/carousels/2026-07-20/the-date-that-missed-its-reservation-2",
+      "package": "output/carousels/2026-07-25/the-date-that-missed-its-reservation-2",
       "content_lane": "Tiny Rituals"
     },
     "carousel:the-date-that-missed-its-reservation-3": {
@@ -896,6 +896,16 @@
       "slide_count": 7,
       "package": "output/carousels/2026-07-20/the-date-that-missed-its-reservation-4",
       "content_lane": "Tiny Rituals"
+    },
+    "carousel:marriage-pvt-ltd": {
+      "id": "carousel:marriage-pvt-ltd",
+      "type": "illustrated_carousel",
+      "title": "Marriage Pvt. Ltd.",
+      "date": "2026-07-25",
+      "status": "NEEDS_FIXES",
+      "slide_count": 9,
+      "package": "output/carousels/2026-07-25/marriage-pvt-ltd",
+      "content_lane": "Wedding Origin Story"
     }
   },
   "relationships": [
@@ -1450,6 +1460,12 @@
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:marriage-pvt-ltd",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1478,5 +1494,5 @@
       "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-07-20"
+  "last_updated": "2026-07-25"
 }

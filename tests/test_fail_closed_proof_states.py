@@ -10,10 +10,12 @@ from PIL import Image
 
 from pipeline.stages.codex_builtin_image_generation import (
     build_compiled_prompt_handoff,
+    image_set_sha256,
     load_attempt_ledger,
     package_codex_builtin_outputs,
     promote_quarantined_codex_builtin_outputs,
     run_fail_closed_visual_worker,
+    validate_exact_image_visual_qa,
     validate_quarantine_integrity,
 )
 from pipeline.stages.carousel_format_contract import write_format_contract
@@ -96,6 +98,283 @@ def _package(tmp_path: Path) -> tuple[Path, dict[str, list[Path]]]:
     _png(instagram, (1080, 1440))
     _png(story, (1080, 1920))
     return package, {"instagram_post": [instagram], "reels_stories": [story]}
+
+
+def _proof_package(tmp_path: Path) -> tuple[Path, Path]:
+    package = tmp_path / "proof-package"
+    package.mkdir()
+    write_format_contract(package, ["instagram_post"], source="test")
+    prompt_slides = [
+        {
+            "slide": number,
+            "text": f"Slide {number}",
+            "prompt": f"Prompt for slide {number}",
+        }
+        for number in range(1, 12)
+    ]
+    (package / "prompt-pack.json").write_text(
+        json.dumps({"slides": prompt_slides}),
+        encoding="utf-8",
+    )
+    (package / "slides.json").write_text(
+        json.dumps(
+            [
+                {
+                    "slide": number,
+                    "copy": f"Slide {number}",
+                    "visual": f"Visual for slide {number}",
+                }
+                for number in range(1, 12)
+            ]
+        ),
+        encoding="utf-8",
+    )
+    (package / "visual-plan-quality.json").write_text("{}", encoding="utf-8")
+    prompt_dir = package / "codex-image-prompts" / "instagram-post"
+    prompt_dir.mkdir(parents=True)
+    (prompt_dir / "slide-09.prompt.txt").write_text(
+        "compiled proof prompt",
+        encoding="utf-8",
+    )
+    (prompt_dir / "slide-09.md").write_text(
+        "proof handoff",
+        encoding="utf-8",
+    )
+    compiled_handoff = build_compiled_prompt_handoff(
+        package,
+        slide_numbers=[9],
+        output_formats=["instagram_post"],
+    )
+    write_generation_state(
+        package,
+        status=GenerationStatus.HANDOFF_READY,
+        backend="codex_builtin",
+        generation_mode="model_native_publishable",
+        # Legacy proof handoffs recorded the full deck count despite exposing
+        # one compiled slide. Packaging must migrate this to truthful scope.
+        slide_count=11,
+        slides=[{"slide": 9, "status": "awaiting_codex_builtin_image"}],
+        extra={
+            "requested_formats": ["instagram_post"],
+            "compiled_prompt_handoff": compiled_handoff,
+            "requested_proof_slide": 9,
+        },
+    )
+    generated = tmp_path / "generated" / "proof-slide-09.png"
+    _png(generated, (1086, 1448))
+    return package, generated
+
+
+def test_proof_only_packaging_quarantines_canonical_frame_and_preserves_source(
+    tmp_path: Path,
+) -> None:
+    from scripts.package_generated_carousel import package_generated_images
+
+    package, generated = _proof_package(tmp_path)
+    sentinel = package / "final" / "slide-01.png"
+    sentinel.parent.mkdir(parents=True)
+    sentinel.write_bytes(b"existing-final-must-not-be-touched")
+
+    with (
+        patch(
+            "scripts.package_generated_carousel.inspect_carousel_package",
+            return_value=type("Report", (), {"issues": []})(),
+        ),
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.visual_plan_quality_gate_reason",
+            return_value=None,
+        ),
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.identity_consistency_gate_reason",
+            return_value=None,
+        ),
+    ):
+        state = package_generated_images(
+            package,
+            instagram_post_paths=[generated],
+            proof_slide=9,
+        )
+
+    output = state["slides"][0]["native_outputs"]["instagram_post"]
+    canonical_frame = package / output["path"]
+    source_binding = output["model_native_source"]
+    preserved_source = package / source_binding["path"]
+    ledger = load_attempt_ledger(package)
+
+    assert state["status"] == "GENERATED_QUARANTINED"
+    assert state["proof_only"] is True
+    assert state["requested_proof_slide"] == 9
+    assert state["slide_count"] == 1
+    assert state["total_slide_count"] == 11
+    assert [record["slide"] for record in state["slides"]] == [9]
+    assert (output["width"], output["height"]) == (1080, 1440)
+    assert canonical_frame.parent.name == "final"
+    assert canonical_frame.name == "slide-09.png"
+    assert output["path"].startswith(".internal/visual-quarantine/")
+    assert source_binding["path"].startswith(
+        ".internal/visual-quarantine/"
+    )
+    assert hashlib.sha256(canonical_frame.read_bytes()).hexdigest() == output["sha256"]
+    assert (source_binding["width"], source_binding["height"]) == (1086, 1448)
+    assert output["normalization"] == (
+        "proportional export from 1086x1448 to exact 1080x1440"
+    )
+    assert preserved_source.read_bytes() == generated.read_bytes()
+    assert (
+        hashlib.sha256(preserved_source.read_bytes()).hexdigest()
+        == source_binding["sha256"]
+    )
+    assert state["image_set_sha256"] == image_set_sha256(state["slides"])
+    assert ledger["attempts"][0]["image_set_sha256"] == state["image_set_sha256"]
+    assert ledger["attempts"][0]["status"] == "QUARANTINED"
+    assert not state.get("creator_approval_path")
+    assert sentinel.read_bytes() == b"existing-final-must-not-be-touched"
+
+
+def test_relative_package_input_records_package_relative_quarantine_paths(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    package, generated = _proof_package(tmp_path)
+    monkeypatch.chdir(tmp_path)
+    relative_package = package.relative_to(tmp_path)
+
+    with (
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.visual_plan_quality_gate_reason",
+            return_value=None,
+        ),
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.identity_consistency_gate_reason",
+            return_value=None,
+        ),
+    ):
+        state = package_codex_builtin_outputs(
+            relative_package,
+            generated_paths_by_format={"instagram_post": [generated]},
+            proof_slide=9,
+        )
+
+    output = state["slides"][0]["native_outputs"]["instagram_post"]
+    source = output["model_native_source"]
+
+    assert output["path"] == (
+        ".internal/visual-quarantine/attempt-01/final/slide-09.png"
+    )
+    assert source["path"] == (
+        ".internal/visual-quarantine/attempt-01/model-native-source/"
+        "instagram-post-slide-09.png"
+    )
+    assert state["quarantine_dir"] == (
+        ".internal/visual-quarantine/attempt-01"
+    )
+    assert (package / output["path"]).is_file()
+    assert (package / source["path"]).is_file()
+    assert (
+        validate_quarantine_integrity(
+            state["slides"],
+            ("instagram_post",),
+            carousel_dir=relative_package,
+        )
+        == []
+    )
+
+
+@pytest.mark.parametrize("source_size", [(1086, 1447), (810, 1080)])
+def test_proof_only_packaging_rejects_off_ratio_or_undersized_source(
+    tmp_path: Path,
+    source_size: tuple[int, int],
+) -> None:
+    package, generated = _proof_package(tmp_path)
+    _png(generated, source_size)
+
+    with (
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.visual_plan_quality_gate_reason",
+            return_value=None,
+        ),
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.identity_consistency_gate_reason",
+            return_value=None,
+        ),
+        pytest.raises(ValueError, match="native source dimensions"),
+    ):
+        package_codex_builtin_outputs(
+            package,
+            generated_paths_by_format={"instagram_post": [generated]},
+            proof_slide=9,
+        )
+
+    assert not (package / ".internal" / "visual-qa-attempts.json").exists()
+    assert not list(
+        (package / ".internal" / "visual-quarantine").glob("**/*.png")
+    )
+
+
+def test_proof_only_handoff_requires_explicit_proof_packaging_mode(
+    tmp_path: Path,
+) -> None:
+    package, generated = _proof_package(tmp_path)
+
+    with pytest.raises(ValueError, match="--proof-slide"):
+        package_codex_builtin_outputs(
+            package,
+            generated_paths_by_format={"instagram_post": [generated]},
+        )
+
+
+def test_proof_event_b_binds_canonical_sparse_slide_frame(tmp_path: Path) -> None:
+    package, generated = _proof_package(tmp_path)
+    with (
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.visual_plan_quality_gate_reason",
+            return_value=None,
+        ),
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.identity_consistency_gate_reason",
+            return_value=None,
+        ),
+    ):
+        state = package_codex_builtin_outputs(
+            package,
+            generated_paths_by_format={"instagram_post": [generated]},
+            proof_slide=9,
+        )
+
+    proof_qa = {
+        "schema_version": "2.1",
+        "checks": {
+            "spatial_topology": {"slides": [{"slide": 9}]},
+            "visual_story_readability": {
+                "frames": [{"slide": 9, "format": "instagram_post"}]
+            },
+        },
+    }
+    with (
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.validate_spatial_topology_check",
+            return_value=[],
+        ),
+        patch(
+            "pipeline.stages.codex_builtin_image_generation.validate_frame_readability",
+            return_value=[],
+        ) as readability,
+    ):
+        validate_exact_image_visual_qa(
+            proof_qa,
+            state["slides"],
+            visual_plan={},
+            carousel_dir=package,
+        )
+
+    adapted_check = readability.call_args.args[0]
+    call_kwargs = readability.call_args.kwargs
+    binding = call_kwargs["expected_frame_bindings"][(1, "instagram_post")]
+
+    assert adapted_check["frames"][0]["slide"] == 1
+    assert binding["relative_path"] == "final/slide-09.png"
+    assert binding["dimensions"] == (1080, 1440)
+    assert call_kwargs["package_dir"] == (package / state["quarantine_dir"]).resolve()
 
 
 def test_quarantine_integrity_rejects_external_absolute_asset_root(
@@ -344,7 +623,10 @@ def test_changed_quarantined_pixels_invalidate_qa_and_block_promotion(tmp_path: 
         state = package_codex_builtin_outputs(package, generated_paths_by_format=paths)
     qa = _passing_qa(state)
     (package / "visual-qa.json").write_text(json.dumps(qa), encoding="utf-8")
-    quarantined = Path(state["slides"][0]["native_outputs"]["instagram_post"]["path"])
+    quarantined = (
+        package
+        / state["slides"][0]["native_outputs"]["instagram_post"]["path"]
+    )
     _png(quarantined, (1080, 1440))
     quarantined.write_bytes(quarantined.read_bytes() + b"changed")
 

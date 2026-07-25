@@ -166,3 +166,34 @@ def test_layer_e_blocks_pretty_moment_without_obstacle_or_zuv_role():
     assert "no emotional obstacle" in decision.hard_fails
     assert "zuv has no active emotional role" in decision.hard_fails
     assert decision.story_selling_score.total < 28
+
+
+def test_failed_date_mature_repair_is_scored_as_sendable_story_not_generic_moment():
+    decision = run_layer_e(
+        ROOT,
+        {
+            "task_type": "carousel_idea",
+            "story_or_moment": (
+                "Aachu and Zuv leave for a date in their car. A missing car key, "
+                "rain, traffic, and three wrong turns make the reservation fail. "
+                "Zuv gives her a minute without creating distance. They turn the "
+                "failed plan into roadside chai, then the final callback shows both "
+                "of them outside checking the closed apartment door before departure."
+            ),
+            "constraints": [
+                "car only, never scooter",
+                "mature mutual repair",
+                "partner-send payoff",
+            ],
+            "requested_tone": "funny, familiar, and emotionally mature",
+            "reference_images": ["identity_images/aachu_zuv.png"],
+        },
+    )
+
+    assert decision.status == "GO"
+    assert decision.selected_story_lens.startswith("Mature love does not remove")
+    assert decision.story_selling_score.total >= 28
+    assert decision.golden_theme_score.total >= 28
+    assert decision.hard_fails == []
+    assert decision.stage_scene_gate["status"] == "GO"
+    assert "send this to the partner" in decision.distribution_reason.lower()

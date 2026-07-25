@@ -1,8 +1,8 @@
 # Layer E Story-Selling Decision
 
-Status: STOP
+Status: GO
 Selected story lens: The story should begin with the behavior that proves love, not the romantic summary.
-Score: 17.0/30
+Score: 29.0/30
 
 ## Emotional Machine
 
@@ -13,9 +13,9 @@ The idea risks becoming pretty but emotionally flat. -> Before marriage, shared 
 - `source_memory_room`: GO - Source memory loaded before concept selection, including the successful-carousel standard and creator preference ledger.
 - `story_meaning_room`: GO - Generated 5 story routes and selected Proof Before Poetry as the strongest raw meaning.
 - `audience_algorithm_room`: GO - Audience pass checked reader mirror, send/save logic, and taste.
-- `contrarian_repair_room`: REPAIR - Top routes were attacked and repair needs were recorded.
-- `stage_scene_room`: REPAIR - Winner was checked as a short staged scene before copy, caption, or prompt work.
-- `final_synthesis_room`: REPAIR - Final selector synthesized the route into Layer E handoff fields.
+- `contrarian_repair_room`: GO - The locked broken-key route repaired the genericness, visible-action, and mutual-agency objections.
+- `stage_scene_room`: GO - The selected route now plays as a complete visible action-reaction sequence before copy.
+- `final_synthesis_room`: GO - The repaired route passes the story-selling, Golden Theme, and drawable stage-scene gates at 29/30.
 
 ## Process Influences
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -17,32 +18,53 @@ from pipeline.agentic.instagram_idea_loop import (  # noqa: E402
     artifact_schema,
     blind_candidate_fingerprint,
     candidate_fingerprint,
+    controller_finalization_valid,
     execute_loop,
+    execution_location_error,
     failure_signature,
     find_candidate,
     load_state,
     prepare_run,
-    resume_run,
     validate_run,
 )
 
 
 def _config_from_args(args: argparse.Namespace) -> IdeaLoopConfig:
+    max_iterations = args.max_iterations
+    if max_iterations is None:
+        max_iterations = int(os.environ.get("ASOT_IDEA_LOOP_MAX_ITERATIONS", "3"))
+    candidate_budget = args.candidate_budget
+    if candidate_budget is None:
+        candidate_budget = int(os.environ.get("ASOT_IDEA_LOOP_CANDIDATES", "6"))
     return IdeaLoopConfig(
-        max_iterations=args.max_iterations,
-        candidate_budget=args.candidate_budget,
+        max_iterations=max_iterations,
+        candidate_budget=candidate_budget,
         command_timeout_seconds=args.command_timeout,
-        live_search=args.live_search,
+        live_search=False,
     )
 
 
 def _run(args: argparse.Namespace) -> int:
     config = _config_from_args(args)
+    seed = args.seed
+    if seed is None:
+        seed = os.environ.get("ASOT_IDEA_LOOP_SEED") or None
+    run_dir = args.run_dir
+    if run_dir is None and os.environ.get("ASOT_IDEA_LOOP_RUN_DIR"):
+        run_dir = Path(os.environ["ASOT_IDEA_LOOP_RUN_DIR"])
+    if args.dry_run and run_dir is not None:
+        location_error = execution_location_error(ROOT, run_dir)
+        if location_error:
+            raise ValueError(location_error)
+    if run_dir is not None and not args.dry_run:
+        location_error = execution_location_error(ROOT, run_dir)
+        if location_error:
+            raise ValueError(location_error)
     run_dir = prepare_run(
         ROOT,
         config=config,
-        seed=args.seed,
-        run_dir=args.run_dir,
+        seed=seed,
+        run_dir=run_dir,
     )
     if args.dry_run:
         state_path = run_dir / ".internal" / "loop-state.json"
@@ -77,32 +99,53 @@ def _run(args: argparse.Namespace) -> int:
 
 def _validate(args: argparse.Namespace) -> int:
     report = validate_run(args.run_dir)
-    validation_path = args.run_dir.expanduser().resolve() / ".internal" / "validation.json"
-    validation_path.parent.mkdir(parents=True, exist_ok=True)
-    validation_path.write_text(
-        json.dumps(report.to_dict(), indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
     print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
     return 0 if report.valid else 2
 
 
 def _resume(args: argparse.Namespace) -> int:
-    state = resume_run(args.run_dir)
+    location_error = execution_location_error(ROOT, args.run_dir)
+    if location_error:
+        raise ValueError(location_error)
+    state = load_state(args.run_dir)
     config = IdeaLoopConfig(
         max_iterations=state.max_iterations,
         candidate_budget=state.candidate_budget,
         command_timeout_seconds=args.command_timeout,
-        live_search=args.live_search,
+        live_search=False,
     )
-    returncode, report = execute_loop(ROOT, args.run_dir, config=config)
+    returncode, report = execute_loop(
+        ROOT,
+        args.run_dir,
+        config=config,
+        resume=True,
+    )
     print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
     return returncode
 
 
 def _status(args: argparse.Namespace) -> int:
     state = load_state(args.run_dir)
-    print(json.dumps(state.model_dump(mode="json"), indent=2, ensure_ascii=False))
+    payload = state.model_dump(mode="json")
+    finalized = controller_finalization_valid(args.run_dir, state)
+    payload["controller_finalized"] = finalized
+    payload["effective_status"] = (
+        state.status
+        if finalized
+        or (
+            state.status != "READY_FOR_CONCEPT_LOCK"
+            and state.status
+            not in {
+                "NO_GO",
+                "STAGNATED",
+                "BUDGET_EXHAUSTED",
+                "STALE_EVIDENCE",
+                "HUMAN_REQUIRED",
+            }
+        )
+        else "UNFINALIZED_TERMINAL"
+    )
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
     return 0
 
 
@@ -134,18 +177,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     run = subparsers.add_parser("run", help="Prepare the durable state and execute the Codex loop.")
     run.add_argument("--seed", help="Optional real couple moment or constraint; discovery works without one.")
-    run.add_argument("--max-iterations", type=int, default=3)
-    run.add_argument("--candidate-budget", type=int, default=6)
+    run.add_argument("--max-iterations", type=int)
+    run.add_argument("--candidate-budget", type=int)
     run.add_argument("--command-timeout", type=int, default=1800, help="Codex timeout in seconds.")
     run.add_argument("--run-dir", type=Path, help="Optional exact output directory.")
-    run.add_argument("--live-search", action="store_true", help="Allow current web search in the controller run.")
     run.add_argument("--dry-run", action="store_true", help="Prepare evidence and prompt without invoking Codex.")
     run.set_defaults(handler=_run)
 
     resume = subparsers.add_parser("resume", help="Resume a non-terminal durable loop run.")
     resume.add_argument("run_dir", type=Path)
     resume.add_argument("--command-timeout", type=int, default=1800, help="Codex timeout in seconds.")
-    resume.add_argument("--live-search", action="store_true")
     resume.set_defaults(handler=_resume)
 
     validate = subparsers.add_parser("validate", help="Validate one completed loop against the stop contract.")

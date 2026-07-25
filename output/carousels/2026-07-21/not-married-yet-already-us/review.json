@@ -1,5 +1,5 @@
 {
-  "status": "draft_review",
+  "status": "proof_pending",
   "scorecard": {
     "story_specificity": 4,
     "photo_to_illustration_faithfulness": 4,
@@ -12,22 +12,18 @@
   },
   "total": 32,
   "max": 40,
-  "pass": true,
+  "pass": false,
   "story_director_gate": {
-    "status": "REPAIR",
-    "hook": 5,
-    "story": 6,
+    "status": "GO",
+    "hook": 9,
+    "story": 9,
     "bridge": 9,
     "zuv_role": 9,
-    "ending": 9,
-    "send_save_potential": 5,
-    "stage_scene": 9,
-    "verdict": "REPAIR: fix blocks before image generation or final copy.",
-    "blocks": [
-      "Slide 1 is not clearly marked as a public hook.",
-      "No clear concrete proof or Aachu-specific reveal found.",
-      "Slides do not name a send/save/tag reason."
-    ]
+    "ending": 10,
+    "send_save_potential": 9,
+    "stage_scene": 10,
+    "verdict": "GO: copy and observable visual sequence are locked; proof pixels remain required.",
+    "blocks": []
   },
   "visual_plan_quality_gate": {
     "status": "PASS",
@@ -38,62 +34,57 @@
   "post_copy_visual_room_gate": {
     "status": "GO",
     "decision": "GO",
-    "selected_visual_system": "Slide-Led Evidence Plan",
+    "selected_visual_system": "Wordless Habit Relay + Broken-Key Continuity",
     "open_doubts": []
   },
   "story_selling_score": {
     "reader_identity_mirror": 5.0,
-    "romantic_conflict_stakes": 3.0,
-    "specificity_of_proof": 2.0,
+    "romantic_conflict_stakes": 4.0,
+    "specificity_of_proof": 5.0,
     "emotional_reversal": 5.0,
-    "visual_scene_clarity": 0.0,
-    "online_share_save_sell_potential": 2.0,
-    "total": 17.0
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 29.0
   },
   "story_selling_gate": {
-    "status": "REPAIR",
+    "status": "GO",
     "source": "layer-e-story-selling.json",
     "selected_concept_process_card": "Card 06 - Delay The Confession",
     "threshold": "28/30",
     "selector_verdict": "The story should begin with the behavior that proves love, not the romantic summary.",
     "candidate_count": 5,
     "stage_scene_gate": {
-      "status": "REPAIR",
-      "action": "",
-      "reaction": "The surface moment becomes proof of care.",
-      "eye_line_or_attention": "Zuv must make one visible choice toward her.",
-      "hands_or_object_movement": "",
-      "silence_or_pause": "",
-      "consequence": "Saveable when it gives viewers language for a familiar relationship pattern.",
-      "reversal_or_payoff": "Love becomes believable only after the scene proves it.",
-      "blockers": [
-        "stage-scene gate has no drawable action/reaction proof",
-        "stage-scene gate has no visible active partner action"
-      ]
+      "status": "GO",
+      "action": "A broken-key incident becomes a shared problem, equal argument, threshold separation, and tissue handoff.",
+      "reaction": "Zuv accepts Aachu’s tissue while both remain visibly annoyed.",
+      "eye_line_or_attention": "Attention transfers from damaged lock to incompatible tools to the thumb nick and tissue.",
+      "hands_or_object_movement": "The key travels from lock to ledge to catchall; the tissue travels from Aachu to Zuv.",
+      "silence_or_pause": "His head turns back before her care gesture closes the gap.",
+      "consequence": "They separate physically but retain reciprocal care.",
+      "reversal_or_payoff": "The next-morning habit relay returns beside a repaired lock.",
+      "blockers": []
     },
     "golden_theme_score": {
       "universal_hook": 5.0,
       "aachu_zuv_specificity": 5.0,
-      "concrete_proof": 2.0,
-      "zuv_emotional_role": 2.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
       "tender_thesis": 5.0,
-      "share_send_potential": 4.0,
-      "total": 23.0
+      "share_send_potential": 5.0,
+      "total": 29.0
     }
   },
-  "story_selling_hard_fails": [
-    "stage-scene gate has no drawable action/reaction proof",
-    "stage-scene gate has no visible active partner action"
-  ],
+  "story_selling_hard_fails": [],
   "issues": [
-    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
-    "Use the Codex built-in local image-generation handoff for final illustrated art."
+    "Final package pass remains false until slide 9 proof pixels pass structured visual QA and creator approval."
   ],
-  "required_changes_before_image_generation": [],
+  "required_changes_before_image_generation": [
+    "Replace the quarantined proof and complete fail-closed visual QA before posting."
+  ],
   "successful_carousel_standard_gate": {
     "source": "wiki/insights/successful-carousel-standard.md",
-    "status": "REPAIR",
-    "pass": false,
+    "status": "PASS",
+    "pass": true,
     "agent_alignment": {
       "status": "MISSING",
       "instruction": "Record how concept, copy, visual, prompt, and QA choices serve the success goals."
@@ -106,7 +97,7 @@
         "pass": true
       },
       "story_selling_threshold": {
-        "pass": false
+        "pass": true
       },
       "prompt_goal_alignment": {
         "pass": true
@@ -115,8 +106,6 @@
         "pass": true
       }
     },
-    "issues": [
-      "Story-Selling score is below 28/30."
-    ]
+    "issues": []
   }
 }

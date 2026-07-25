@@ -116,6 +116,24 @@ machine-readable workflow record.
   anatomy/entity/identity and storytelling/richness/text/style passes, then
   creator approval, before batch continuation. Keep failed candidates internal,
   retry at most twice, and stop as `BLOCKED_VISUAL_QA` after that.
+- Immediately before every carousel `image_gen` call, rerun the current
+  pre-generation visual-story check and workflow doctor against the package.
+  Zero blockers are required. Never rely on a PASS recorded before the latest
+  creator correction, prompt mutation, or format change.
+- Generate only from the active hash-bound `.prompt.txt` in the compiled prompt
+  handoff. Ad-hoc prompts written in chat are not an executable carousel
+  handoff. If a prompt needs repair, update the creative baseline, slides,
+  prompt pack, director event, and compiled handoff first.
+- Do not surface a model output as a creator-ready inline image before it has
+  been copied into package quarantine, checked for exact native dimensions,
+  exact text, scene logic, anatomy/entities, identity, and story readability.
+  A candidate that has not passed those checks must be reported as blocked,
+  not silently displayed as the next carousel slide.
+- Any `REPAIR`, `NEEDS_FIXES`, `BLOCKED`, sub-threshold score, or contradictory
+  status in `review.json`, `stage-reviews.json`, Layer E, Event A, handoff
+  integrity, or the workflow doctor blocks image generation and must be
+  surfaced to the creator. One manually repaired GO artifact never overrides a
+  failing sibling artifact.
 - When the creator asks to keep reviewing until everything is fixed, use the
   bounded fail-closed loop in `config/skills/carousel-review-loop.md`. A loop
   iteration is review -> concrete feedback -> scoped repair -> fresh review.

@@ -18,7 +18,6 @@ from pipeline.stages.carousel_format_contract import (
     INSTAGRAM_POST_FORMAT,
     REELS_STORIES_FORMAT,
     SQUARE_FORMAT,
-    expected_frame_bindings,
     expected_output_relative_path,
     expected_output_path,
     expected_source_path,
@@ -262,7 +261,14 @@ def compiled_prompt_handoff_integrity_issues(
         issues.append("generation-state formats are stale for the current lock")
     if handoff.get("slide_numbers") != canonical_slides:
         issues.append("compiled-prompt handoff slides are stale for prompt-pack.json")
-    if state.get("slide_count") != len(canonical_slides):
+    state_slide_count = state.get("slide_count")
+    legacy_proof_count = (
+        len(canonical_slides) == 1
+        and state.get("requested_proof_slide") == canonical_slides[0]
+        and isinstance(state_slide_count, int)
+        and state_slide_count > len(canonical_slides)
+    )
+    if state_slide_count != len(canonical_slides) and not legacy_proof_count:
         issues.append("generation-state slide count is stale for prompt-pack.json")
     try:
         state_slide_numbers = sorted(
@@ -376,8 +382,83 @@ def image_set_sha256(slides: list[dict[str, Any]]) -> str:
     return sha256_bytes("\n".join(bindings).encode("utf-8"))
 
 
+def _selected_slide_numbers(slides: list[dict[str, Any]]) -> list[int]:
+    return [int(slide["slide"]) for slide in slides]
+
+
+def _canonical_quarantine_frame_bindings(
+    slides: list[dict[str, Any]],
+    output_formats: tuple[str, ...],
+) -> dict[tuple[int, str], dict[str, Any]]:
+    """Bind Event B to canonical upload frames for the selected slide set."""
+
+    bindings: dict[tuple[int, str], dict[str, Any]] = {}
+    for slide_number in _selected_slide_numbers(slides):
+        for output_format in output_formats:
+            width, height = target_size_for_format(output_format)
+            bindings[(slide_number, output_format)] = {
+                "relative_path": expected_output_relative_path(output_format, slide_number),
+                "dimensions": (width, height),
+                "width": width,
+                "height": height,
+            }
+    return bindings
+
+
+def _dense_slide_adapter(
+    check: Any,
+    *,
+    selected_slide_numbers: list[int],
+    records_key: str,
+) -> tuple[Any, list[str], dict[int, int]]:
+    """Adapt sparse proof slide IDs to validators whose legacy API is count-based."""
+
+    dense_map = {
+        number: index
+        for index, number in enumerate(selected_slide_numbers, start=1)
+    }
+    if selected_slide_numbers == list(range(1, len(selected_slide_numbers) + 1)):
+        return check, [], dense_map
+    if not isinstance(check, dict):
+        return check, [], dense_map
+    raw_records = check.get(records_key)
+    if not isinstance(raw_records, list):
+        return check, [], dense_map
+
+    issues: list[str] = []
+    seen: list[int] = []
+    adapted = json.loads(json.dumps(check))
+    for record in adapted[records_key]:
+        if not isinstance(record, dict):
+            continue
+        try:
+            number = int(record.get("slide"))
+        except (TypeError, ValueError):
+            issues.append(f"{records_key} contains an invalid proof slide number")
+            continue
+        seen.append(number)
+        if number in dense_map:
+            record["slide"] = dense_map[number]
+    if set(seen) != set(selected_slide_numbers):
+        issues.append(
+            f"{records_key} must cover exactly the selected proof slides: "
+            + ", ".join(str(number) for number in selected_slide_numbers)
+        )
+    return adapted, issues, dense_map
+
+
 def quarantine_dir(carousel_dir: Path, retry_count: int) -> Path:
     return carousel_dir / QUARANTINE_FOLDER / f"attempt-{retry_count + 1:02d}"
+
+
+def package_relative_path(carousel_dir: Path, path: Path) -> str:
+    """Return one canonical POSIX path relative to the carousel package root."""
+
+    package_root = Path(carousel_dir).expanduser().resolve()
+    try:
+        return path.expanduser().resolve().relative_to(package_root).as_posix()
+    except ValueError as exc:
+        raise ValueError(f"Quarantine asset escapes the carousel package: {path}") from exc
 
 
 def attempt_ledger_path(carousel_dir: Path) -> Path:
@@ -783,10 +864,17 @@ def validate_exact_image_visual_qa(
     if include_story_checks:
         checks = visual_qa.get("checks")
         topology = checks.get("spatial_topology") if isinstance(checks, dict) else None
+        selected_slide_numbers = _selected_slide_numbers(quarantine_slides)
+        adapted_topology, topology_adapter_issues, _ = _dense_slide_adapter(
+            topology,
+            selected_slide_numbers=selected_slide_numbers,
+            records_key="slides",
+        )
+        issues.extend(topology_adapter_issues)
         issues.extend(
             f"visual-qa.json {issue}"
             for issue in validate_spatial_topology_check(
-                topology,
+                adapted_topology,
                 slide_count=len(quarantine_slides),
             )
         )
@@ -802,9 +890,28 @@ def validate_exact_image_visual_qa(
             )
         else:
             review_formats = locked_formats(carousel_dir)
+            adapted_readability, readability_adapter_issues, dense_map = (
+                _dense_slide_adapter(
+                    readability,
+                    selected_slide_numbers=selected_slide_numbers,
+                    records_key="frames",
+                )
+            )
+            issues.extend(readability_adapter_issues)
+            frame_bindings = _canonical_quarantine_frame_bindings(
+                quarantine_slides,
+                review_formats,
+            )
+            if selected_slide_numbers != list(
+                range(1, len(selected_slide_numbers) + 1)
+            ):
+                frame_bindings = {
+                    (dense_map[slide_number], output_format): binding
+                    for (slide_number, output_format), binding in frame_bindings.items()
+                }
             issues.extend(
                 validate_frame_readability(
-                    readability,
+                    adapted_readability,
                     slide_count=len(quarantine_slides),
                     required_formats=review_formats,
                     expected_director_event_fingerprint=director_event_fingerprint(visual_plan),
@@ -823,11 +930,7 @@ def validate_exact_image_visual_qa(
                     ),
                     director_author_id=director_author_id(visual_plan),
                     director_reviewer_id=director_reviewer_id(visual_plan),
-                    expected_frame_bindings=expected_frame_bindings(
-                        carousel_dir,
-                        len(quarantine_slides),
-                        review_formats,
-                    ),
+                    expected_frame_bindings=frame_bindings,
                     package_dir=_quarantine_review_root(
                         carousel_dir,
                         quarantine_slides,
@@ -941,6 +1044,80 @@ def validate_quarantine_integrity(
                 continue
             if dimensions["width"] != item.get("width") or dimensions["height"] != item.get("height"):
                 issues.append(f"quarantined slide {number} {output_format} dimensions are stale")
+            source = item.get("model_native_source")
+            if source is None:
+                continue
+            if not isinstance(source, dict):
+                issues.append(
+                    f"quarantined slide {number} {output_format} model-native source binding is malformed"
+                )
+                continue
+            source_raw_path = Path(str(source.get("path") or "")).expanduser()
+            source_path = (
+                source_raw_path
+                if source_raw_path.is_absolute()
+                else package_root / source_raw_path
+            )
+            source_canonical = True
+            if not str(source.get("path") or "").strip() or ".." in source_raw_path.parts:
+                source_canonical = False
+            try:
+                source_relative = source_path.resolve().relative_to(quarantine_root)
+            except (OSError, ValueError):
+                source_canonical = False
+                source_relative = None
+            if source_relative is not None:
+                expected_source_relative = Path(
+                    source_relative.parts[0] if source_relative.parts else "",
+                    "model-native-source",
+                    f"{format_spec(output_format)['source_prefix']}-slide-{slide_number:02d}.png",
+                )
+                if (
+                    len(source_relative.parts) != 3
+                    or not re.fullmatch(r"attempt-\d{2,}", source_relative.parts[0])
+                    or source_relative != expected_source_relative
+                ):
+                    source_canonical = False
+            try:
+                source_lexical_relative = source_path.absolute().relative_to(package_root)
+            except ValueError:
+                source_lexical_relative = None
+            if source_lexical_relative is not None:
+                cursor = package_root
+                for part in source_lexical_relative.parts:
+                    cursor = cursor / part
+                    if cursor.is_symlink():
+                        source_canonical = False
+                        break
+            if not source_canonical:
+                issues.append(
+                    f"quarantined slide {number} {output_format} model-native source path must be package-contained"
+                )
+                continue
+            if not source_path.is_file():
+                issues.append(
+                    f"quarantined slide {number} {output_format} model-native source is missing"
+                )
+                continue
+            source_bytes = source_path.read_bytes()
+            if sha256_bytes(source_bytes) != source.get("sha256"):
+                issues.append(
+                    f"quarantined slide {number} {output_format} model-native source hash is stale"
+                )
+            try:
+                source_dimensions = image_dimensions(source_bytes)
+            except (RuntimeError, ValueError):
+                issues.append(
+                    f"quarantined slide {number} {output_format} model-native source is not readable"
+                )
+                continue
+            if (
+                source_dimensions["width"] != source.get("width")
+                or source_dimensions["height"] != source.get("height")
+            ):
+                issues.append(
+                    f"quarantined slide {number} {output_format} model-native source dimensions are stale"
+                )
     return issues
 
 
@@ -952,6 +1129,166 @@ def identity_consistency_gate_reason(carousel_dir: Path) -> str | None:
     if review.get("status") != "PASS":
         issues = review.get("issues") or ["identity consistency review did not pass"]
         return "identity-consistency-review.json did not pass: " + "; ".join(str(issue) for issue in issues)
+    return None
+
+
+def pre_generation_review_gate_reason(carousel_dir: Path) -> str | None:
+    """Block handoff when package-level creative reviews disagree or remain open.
+
+    Layer E, the story review, the successful-carousel standard, and the
+    stage-review summary are separate views of the same pre-generation
+    decision.  A single manually repaired ``GO`` artifact must never overrule a
+    stale ``REPAIR`` elsewhere in the package.
+    """
+
+    allowed = {"PASS", "PASS_WITH_NOTES", "GO"}
+    issues: list[str] = []
+
+    review_path = carousel_dir / "review.json"
+    if not review_path.exists():
+        return "review.json is required before Codex built-in image generation."
+    review = load_json(review_path)
+
+    score = review.get("story_selling_score")
+    total = score.get("total") if isinstance(score, dict) else None
+    try:
+        review_total = float(total)
+    except (TypeError, ValueError):
+        review_total = -1.0
+        issues.append("review.json story_selling_score.total is missing or invalid")
+    else:
+        if review_total < 28:
+            issues.append(
+                f"review.json Story-Selling score is {review_total:g}/30, below 28/30"
+            )
+
+    story_gate = review.get("story_selling_gate")
+    if not isinstance(story_gate, dict) or str(story_gate.get("status") or "").upper() not in allowed:
+        issues.append("review.json story_selling_gate is not PASS/GO")
+    hard_fails = review.get("story_selling_hard_fails")
+    if not isinstance(hard_fails, list):
+        issues.append("review.json story_selling_hard_fails must be a list")
+    elif hard_fails:
+        issues.append(
+            "review.json still declares Story-Selling hard fails: "
+            + "; ".join(str(item) for item in hard_fails)
+        )
+
+    director_gate = review.get("story_director_gate")
+    if not isinstance(director_gate, dict) or str(director_gate.get("status") or "").upper() not in allowed:
+        issues.append("review.json story_director_gate is not PASS/GO")
+
+    success_gate = review.get("successful_carousel_standard_gate")
+    success_status = (
+        str(success_gate.get("status") or "").upper()
+        if isinstance(success_gate, dict)
+        else ""
+    )
+    if (
+        not isinstance(success_gate, dict)
+        or success_status not in allowed
+        or success_gate.get("pass") is False
+    ):
+        issues.append("review.json successful_carousel_standard_gate is not PASS/GO")
+
+    layer_e_path = carousel_dir / "layer-e-story-selling.json"
+    if layer_e_path.exists():
+        layer_e = load_json(layer_e_path)
+        layer_e_score = layer_e.get("story_selling_score")
+        layer_e_total = (
+            layer_e_score.get("total") if isinstance(layer_e_score, dict) else None
+        )
+        layer_e_total_number: float | None = None
+        try:
+            layer_e_total_number = float(layer_e_total)
+        except (TypeError, ValueError):
+            issues.append(
+                "layer-e-story-selling.json story_selling_score.total is missing or invalid"
+            )
+        else:
+            if review_total >= 0 and layer_e_total_number != review_total:
+                issues.append(
+                    "Layer E and review.json Story-Selling scores disagree "
+                    f"({layer_e_total_number:g}/30 vs {review_total:g}/30)"
+                )
+
+        concept_path = carousel_dir / "concept.json"
+        if concept_path.exists():
+            concept = load_json(concept_path)
+            decision = concept.get("story_selling_decision")
+            if isinstance(decision, dict):
+                concept_score = decision.get("score")
+                concept_total = (
+                    concept_score.get("total")
+                    if isinstance(concept_score, dict)
+                    else None
+                )
+                try:
+                    concept_total_number = float(concept_total)
+                except (TypeError, ValueError):
+                    issues.append(
+                        "concept.json story_selling_decision.score.total is missing or invalid"
+                    )
+                else:
+                    if (
+                        layer_e_total_number is not None
+                        and concept_total_number != layer_e_total_number
+                    ):
+                        issues.append(
+                            "Layer E and concept.json Story-Selling scores disagree "
+                            f"({layer_e_total_number:g}/30 vs {concept_total_number:g}/30)"
+                        )
+                if str(decision.get("decision") or "").upper() != str(
+                    layer_e.get("status") or ""
+                ).upper():
+                    issues.append(
+                        "Layer E and concept.json Story-Selling decisions disagree"
+                    )
+
+        prompt_pack_path = carousel_dir / "prompt-pack.json"
+        if prompt_pack_path.exists():
+            prompt_pack = load_json(prompt_pack_path)
+            prompt_layer_e = prompt_pack.get("layer_e_story_selling")
+            if isinstance(prompt_layer_e, dict):
+                if str(prompt_layer_e.get("status") or "").upper() != str(
+                    layer_e.get("status") or ""
+                ).upper():
+                    issues.append(
+                        "Layer E and prompt-pack.json Story-Selling decisions disagree"
+                    )
+
+    stage_reviews_path = carousel_dir / "stage-reviews.json"
+    if stage_reviews_path.exists():
+        stage_payload = load_json(stage_reviews_path)
+        stage_reviews = stage_payload.get("reviews")
+        required_pre_generation_stages = {
+            "story_reviewer",
+            "arc_reviewer",
+            "visual_reviewer",
+            "identity_consistency_reviewer",
+            "prompt_reviewer",
+            "success_standard_reviewer",
+        }
+        if isinstance(stage_reviews, dict):
+            for name in sorted(required_pre_generation_stages):
+                record = stage_reviews.get(name)
+                if not isinstance(record, dict):
+                    issues.append(f"stage-reviews.json is missing {name}")
+                    continue
+                status = str(record.get("status") or "").upper()
+                if status not in allowed:
+                    details = record.get("issues")
+                    suffix = (
+                        ": " + "; ".join(str(item) for item in details)
+                        if isinstance(details, list) and details
+                        else ""
+                    )
+                    issues.append(
+                        f"stage-reviews.json {name} is {status or 'MISSING'}{suffix}"
+                    )
+
+    if issues:
+        return "Pre-generation package review did not pass: " + "; ".join(issues)
     return None
 
 
@@ -1036,6 +1373,7 @@ def generator_prompt_text(slide_prompt: dict[str, Any], output_format: str) -> s
         background=str(slide_prompt.get("background") or ""),
         emotion=str(slide_prompt.get("emotion") or ""),
         hand_map=slide_prompt.get("hand_map"),
+        action_topology=slide_prompt.get("action_topology_contract"),
         spatial_topology=slide_prompt.get("spatial_topology_contract"),
         visual_richness=slide_prompt.get("visual_richness_contract"),
     )
@@ -1118,7 +1456,9 @@ def write_handoff_blocker(carousel_dir: Path, result: dict[str, Any], proof_gate
     slides = result.get("slides", [])
     requested_formats = result.get("requested_formats") or list(locked_formats(carousel_dir))
     proof_slide = result.get("requested_proof_slide") or proof_slide_from_gate(proof_gate, slides)
-    slide_count = int(result.get("slide_count") or len(slides))
+    slide_count = int(
+        result.get("total_slide_count") or result.get("slide_count") or len(slides)
+    )
     proof_copy = ""
     proof_generator_prompt = ""
     for slide in slides:
@@ -1235,21 +1575,42 @@ def quarantine_generated_sources(
             if not source_path.exists():
                 raise FileNotFoundError(f"Missing Codex generated image: {source_path}")
             image_bytes = source_path.read_bytes()
-            dimensions = require_native_source_dimensions(
+            source_dimensions = require_native_source_dimensions(
                 image_bytes=image_bytes,
                 output_format=output_format,
                 slide_number=number,
                 path=source_path,
             )
+            source_dir = attempt_dir / "model-native-source"
+            source_dir.mkdir(parents=True, exist_ok=True)
+            source_target = (
+                source_dir
+                / f"{format_spec(output_format)['source_prefix']}-slide-{number:02d}.png"
+            )
+            source_target.write_bytes(image_bytes)
+            target_width, target_height = target_size_for_format(output_format)
+            frame_bytes, _, normalization, warning = normalize_for_upload(
+                image_bytes,
+                target_width,
+                target_height,
+            )
             format_dir = attempt_dir / str(format_spec(output_format)["folder"])
             format_dir.mkdir(parents=True, exist_ok=True)
             target = format_dir / f"slide-{number:02d}.png"
-            target.write_bytes(image_bytes)
+            target.write_bytes(frame_bytes)
             native_outputs[output_format] = {
-                "path": str(target),
-                "sha256": sha256_bytes(image_bytes),
-                "width": dimensions["width"],
-                "height": dimensions["height"],
+                "path": package_relative_path(carousel_dir, target),
+                "sha256": sha256_bytes(frame_bytes),
+                "width": target_width,
+                "height": target_height,
+                "normalization": normalization,
+                "normalization_warning": warning,
+                "model_native_source": {
+                    "path": package_relative_path(carousel_dir, source_target),
+                    "sha256": sha256_bytes(image_bytes),
+                    "width": source_dimensions["width"],
+                    "height": source_dimensions["height"],
+                },
             }
         records.append(
             {
@@ -1303,12 +1664,26 @@ def require_native_source_dimensions(
     dimensions = image_dimensions(image_bytes)
     actual_size = (dimensions["width"], dimensions["height"])
     expected_sizes = allowed_source_sizes_for_format(output_format)
-    if actual_size not in expected_sizes:
+    target_width, target_height = target_size_for_format(output_format)
+    exact_target_aspect = (
+        dimensions["width"] * target_height
+        == dimensions["height"] * target_width
+    )
+    meets_target_minimum = (
+        dimensions["width"] >= target_width
+        and dimensions["height"] >= target_height
+    )
+    if (
+        actual_size not in expected_sizes
+        and not (exact_target_aspect and meets_target_minimum)
+    ):
         label = NATIVE_OUTPUT_FORMATS[output_format]["label"]
         expected = " or ".join(f"{width}x{height}" for width, height in expected_sizes)
         raise ValueError(
             f"Slide {slide_number} {label} native source dimensions are "
-            f"{dimensions['width']}x{dimensions['height']}; expected {expected}. "
+            f"{dimensions['width']}x{dimensions['height']}; expected {expected}, or an "
+            f"exact {target_width}:{target_height} aspect source at least "
+            f"{target_width}x{target_height}. "
             f"Regenerate {path} at an approved source size instead of cropping, padding, "
             "stretching, or containing a wrong-size source."
         )
@@ -1559,6 +1934,10 @@ def prepare_codex_builtin_image_generation(
     if layer_e_reason:
         return write_blocked_status(carousel_dir, layer_e_reason)
 
+    package_review_reason = pre_generation_review_gate_reason(carousel_dir)
+    if package_review_reason:
+        return write_blocked_status(carousel_dir, package_review_reason)
+
     dossier_paths = existing_paths(prompt_pack.get("identity_dossier_reference_images", []))
     identity_paths = existing_paths(prompt_pack.get("identity_reference_images", []))
     if not dossier_paths:
@@ -1685,12 +2064,14 @@ def prepare_codex_builtin_image_generation(
             status=GenerationStatus.HANDOFF_READY,
             backend=BACKEND,
             generation_mode=GENERATION_MODE,
-            slide_count=total_prompt_pack_slide_count,
+            slide_count=len(slides),
             reason="Prompt files are ready; final PNGs still require Codex built-in image generation.",
             slides=records,
             extra={
                 "proof_gate": prompt_pack.get("proof_gate"),
                 "requested_proof_slide": proof_slide,
+                "proof_only": proof_slide is not None,
+                "total_slide_count": total_prompt_pack_slide_count,
                 "requested_formats": output_formats,
                 "native_output_contract": native_output_contract(output_formats),
                 "generation_capability": generation_capability,
@@ -1720,12 +2101,14 @@ def package_codex_builtin_outputs(
     visual_qa_path: str | Path | None = None,
     creator_approval_path: str | Path | None = None,
     promote_existing_quarantine: bool = False,
+    proof_slide: int | None = None,
 ) -> dict[str, Any]:
     carousel_dir = carousel_dir.expanduser()
     output_formats = locked_formats(carousel_dir)
     output_contract = native_output_contract(output_formats)
     prompt_pack = load_json(carousel_dir / "prompt-pack.json")
-    slides = prompt_pack.get("slides", [])
+    all_slides = prompt_pack.get("slides", [])
+    slides = all_slides
     if generated_paths is not None:
         raise ValueError(
             "Codex built-in packaging requires generated_paths_by_format keyed by the "
@@ -1733,6 +2116,47 @@ def package_codex_builtin_outputs(
         )
     if not generated_paths_by_format and not promote_existing_quarantine:
         raise ValueError("generated_paths_by_format is required.")
+    state_path = carousel_dir / "image-generation.json"
+    try:
+        lifecycle_state = load_json(state_path)
+    except (OSError, json.JSONDecodeError):
+        lifecycle_state = None
+    if promote_existing_quarantine:
+        if not isinstance(lifecycle_state, dict):
+            raise ValueError("No quarantined generation state exists to promote.")
+        recorded_proof_slide = lifecycle_state.get("requested_proof_slide")
+        if lifecycle_state.get("proof_only") is True:
+            try:
+                proof_slide = int(recorded_proof_slide)
+            except (TypeError, ValueError) as exc:
+                raise ValueError("Proof-only quarantine is missing its selected proof slide.") from exc
+    elif proof_slide is not None:
+        recorded_proof_slide = (
+            lifecycle_state.get("requested_proof_slide")
+            if isinstance(lifecycle_state, dict)
+            else None
+        )
+        if recorded_proof_slide != proof_slide:
+            raise ValueError(
+                f"proof_slide {proof_slide} does not match the compiled proof handoff "
+                f"({recorded_proof_slide!r})."
+            )
+    elif isinstance(lifecycle_state, dict) and lifecycle_state.get(
+        "requested_proof_slide"
+    ) is not None:
+        raise ValueError(
+            "The active handoff is proof-only; pass proof_slide (CLI: --proof-slide) "
+            "with the selected generated proof."
+        )
+    if proof_slide is not None:
+        slides = [
+            slide
+            for slide in all_slides
+            if int(slide.get("slide", 0) or 0) == proof_slide
+        ]
+        if len(slides) != 1:
+            raise ValueError(f"proof_slide {proof_slide} is not present exactly once.")
+    proof_only = proof_slide is not None
     expected_formats = set(output_formats)
     compiled_handoff: dict[str, Any] | None = None
     if not promote_existing_quarantine:
@@ -1746,11 +2170,7 @@ def package_codex_builtin_outputs(
             if len(paths) != len(slides):
                 raise ValueError(f"Expected {len(slides)} {format_key} image paths, got {len(paths)}.")
         reject_non_codex_builtin_sources(carousel_dir, generated_paths_by_format or {})
-        state_path = carousel_dir / "image-generation.json"
-        try:
-            handoff_state = load_json(state_path)
-        except (OSError, json.JSONDecodeError):
-            handoff_state = None
+        handoff_state = lifecycle_state
         handoff_issues = compiled_prompt_handoff_integrity_issues(
             carousel_dir,
             state=handoff_state,
@@ -1779,12 +2199,16 @@ def package_codex_builtin_outputs(
         return write_blocked_status(carousel_dir, identity_reason)
 
     slide_numbers = [int(slide.get("slide", 0) or 0) for slide in slides]
+    scope_extra = {
+        "proof_only": proof_only,
+        "requested_proof_slide": proof_slide,
+        "total_slide_count": len(all_slides),
+    }
     current_proof_status: GenerationStatus | None = None
     if promote_existing_quarantine:
-        state_path = carousel_dir / "image-generation.json"
-        if not state_path.exists():
+        current_state = lifecycle_state
+        if not isinstance(current_state, dict):
             raise ValueError("No quarantined generation state exists to promote.")
-        current_state = load_json(state_path)
         existing_compiled_handoff = current_state.get("compiled_prompt_handoff")
         if isinstance(existing_compiled_handoff, dict):
             compiled_handoff = existing_compiled_handoff
@@ -1832,10 +2256,14 @@ def package_codex_builtin_outputs(
         "retry_count": retry_count,
         "max_visual_qa_retries": MAX_VISUAL_QA_RETRIES,
         "retries_remaining": MAX_VISUAL_QA_RETRIES - retry_count,
-        "quarantine_dir": str(quarantine_dir(carousel_dir, retry_count)),
+        "quarantine_dir": package_relative_path(
+            carousel_dir,
+            quarantine_dir(carousel_dir, retry_count),
+        ),
         "image_set_sha256": image_set_sha256(quarantine_records),
         "requested_formats": list(output_formats),
         "native_output_contract": output_contract,
+        **scope_extra,
     }
     if compiled_handoff is not None:
         quarantine_extra["compiled_prompt_handoff"] = compiled_handoff
@@ -1860,7 +2288,8 @@ def package_codex_builtin_outputs(
         carousel_dir, visual_qa_path, "visual-qa.json"
     )
     if not resolved_visual_qa_path.exists():
-        clean_packaged_output_files(carousel_dir, slide_numbers)
+        if not proof_only:
+            clean_packaged_output_files(carousel_dir, slide_numbers)
         return write_generation_state(
             carousel_dir,
             status=GenerationStatus.GENERATED_QUARANTINED,
@@ -1886,10 +2315,14 @@ def package_codex_builtin_outputs(
             status="QA_FAILED",
             qa_issues=visual_qa_issues,
         )
-        clean_packaged_output_files(carousel_dir, slide_numbers)
+        if not proof_only:
+            clean_packaged_output_files(carousel_dir, slide_numbers)
         failed_extra = {
             **quarantine_extra,
-            "visual_qa_path": str(resolved_visual_qa_path),
+            "visual_qa_path": package_relative_path(
+                carousel_dir,
+                resolved_visual_qa_path,
+            ),
             "visual_qa_issues": visual_qa_issues,
         }
         spatial_failure = any("spatial_topology" in issue for issue in visual_qa_issues)
@@ -1929,7 +2362,10 @@ def package_codex_builtin_outputs(
     candidate_extra = {
         **quarantine_extra,
         "proof_state": GenerationStatus.QA_PASS_CANDIDATE.value,
-        "visual_qa_path": str(resolved_visual_qa_path),
+        "visual_qa_path": package_relative_path(
+            carousel_dir,
+            resolved_visual_qa_path,
+        ),
     }
     update_current_attempt(carousel_dir, status="QA_PASSED")
     if current_proof_status != GenerationStatus.CREATOR_APPROVED_PROOF:
@@ -1948,7 +2384,8 @@ def package_codex_builtin_outputs(
         carousel_dir, creator_approval_path, "creator-proof-approval.json"
     )
     if not resolved_approval_path.exists():
-        clean_packaged_output_files(carousel_dir, slide_numbers)
+        if not proof_only:
+            clean_packaged_output_files(carousel_dir, slide_numbers)
         return write_generation_state(
             carousel_dir,
             status=GenerationStatus.QA_PASS_CANDIDATE,
@@ -1964,7 +2401,8 @@ def package_codex_builtin_outputs(
         approval, expected_image_set_sha256=quarantine_extra["image_set_sha256"]
     )
     if approval_issues:
-        clean_packaged_output_files(carousel_dir, slide_numbers)
+        if not proof_only:
+            clean_packaged_output_files(carousel_dir, slide_numbers)
         return write_generation_state(
             carousel_dir,
             status=GenerationStatus.QA_PASS_CANDIDATE,
@@ -1994,6 +2432,22 @@ def package_codex_builtin_outputs(
             extra=approved_extra,
         )
 
+    if proof_only:
+        update_current_attempt(carousel_dir, status="BATCH_ALLOWED")
+        return write_generation_state(
+            carousel_dir,
+            status=GenerationStatus.BATCH_ALLOWED,
+            backend=BACKEND,
+            generation_mode=GENERATION_MODE,
+            slide_count=len(slides),
+            reason=(
+                "The selected proof has exact-image QA and explicit creator approval; "
+                "full-batch generation is allowed, but no proof was published as a final."
+            ),
+            slides=quarantine_records,
+            extra=approved_extra,
+        )
+
     if not refresh_quality:
         clean_packaged_output_files(carousel_dir, slide_numbers)
         return write_generation_state(
@@ -2009,7 +2463,19 @@ def package_codex_builtin_outputs(
 
     generated_paths_by_format = {
         output_format: [
-            record["native_outputs"][output_format]["path"] for record in quarantine_records
+            str(
+                resolve_package_artifact_path(
+                    carousel_dir,
+                    (
+                        record["native_outputs"][output_format]
+                        .get("model_native_source", {})
+                        .get("path")
+                        or record["native_outputs"][output_format]["path"]
+                    ),
+                    "",
+                )
+            )
+            for record in quarantine_records
         ]
         for output_format in output_formats
     }
@@ -2147,6 +2613,9 @@ def package_codex_builtin_outputs(
         "prompt_pack": prompt_pack,
         "copy": load_json(carousel_dir / "copy.json"),
     }
+    review_path = carousel_dir / "review.json"
+    if review_path.is_file():
+        package["review"] = load_json(review_path)
     final_audit = write_quality_artifacts(
         QualityContext(
             story=manifest["source_story"],

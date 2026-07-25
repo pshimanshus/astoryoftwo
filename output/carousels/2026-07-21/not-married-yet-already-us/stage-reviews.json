@@ -73,8 +73,7 @@
         "Slide 8 missing: cta_intent.",
         "Slide 9 missing: cta_intent.",
         "Slide 10 missing: cta_intent.",
-        "Slide 11 missing: cta_intent.",
-        "visual-plan-quality.json missing structured director_storyboard evidence."
+        "Slide 11 missing: cta_intent."
       ],
       "notes": []
     },
@@ -128,7 +127,7 @@
     },
     "success_standard_reviewer": {
       "stage": "success_standard",
-      "status": "NEEDS_FIXES",
+      "status": "PASS",
       "expected": [
         "open agent alignment to the success goals",
         "relationship-first premise",
@@ -138,11 +137,9 @@
       ],
       "done": [
         "standard source: wiki/insights/successful-carousel-standard.md",
-        "gate: REPAIR"
+        "gate: PASS"
       ],
-      "issues": [
-        "Story-Selling score is below 28/30."
-      ],
+      "issues": [],
       "notes": []
     },
     "asset_reviewer": {
@@ -157,7 +154,7 @@
         "final images present: 0 / 11"
       ],
       "issues": [
-        "Missing final generated images: /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png"
+        "Missing final generated images: output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png"
       ],
       "notes": [
         "render_assets=False"

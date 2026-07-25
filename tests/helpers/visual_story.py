@@ -238,6 +238,41 @@ def write_passing_director_storyboard(package: Path) -> dict[str, Any]:
     )
     director["director_event_fingerprint"] = director_event_fingerprint(director)
     plan_path.write_text(json.dumps(plan), encoding="utf-8")
+
+    stage_reviews_path = package / "stage-reviews.json"
+    if stage_reviews_path.exists():
+        stage_payload = json.loads(stage_reviews_path.read_text(encoding="utf-8"))
+        reviews = stage_payload.get("reviews") if isinstance(stage_payload, dict) else None
+        visual_review = reviews.get("visual_reviewer") if isinstance(reviews, dict) else None
+        if isinstance(visual_review, dict):
+            stale_director_issue = (
+                "visual-plan-quality.json missing structured director_storyboard evidence."
+            )
+            prior_issues = visual_review.get("issues")
+            remaining_issues = (
+                [
+                    issue
+                    for issue in prior_issues
+                    if str(issue).strip() != stale_director_issue
+                ]
+                if isinstance(prior_issues, list)
+                else []
+            )
+            visual_review["issues"] = remaining_issues
+            if not remaining_issues:
+                visual_review["status"] = "PASS"
+                ledger_path = package / "run-ledger.json"
+                if ledger_path.exists():
+                    ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+                    stage_statuses = (
+                        ledger.get("stage_statuses")
+                        if isinstance(ledger, dict)
+                        else None
+                    )
+                    if isinstance(stage_statuses, dict):
+                        stage_statuses["visual"] = "PASS"
+                        ledger_path.write_text(json.dumps(ledger), encoding="utf-8")
+            stage_reviews_path.write_text(json.dumps(stage_payload), encoding="utf-8")
     return plan
 
 

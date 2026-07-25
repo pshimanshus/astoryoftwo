@@ -480,6 +480,16 @@ class IllustrationCarouselTests(unittest.TestCase):
                                 "copy": "Our romance is very simple.",
                                 "visual": "Cozy room, both present, calm before the trap.",
                                 "emotion": "warm setup",
+                                "cta_intent": "Send this to the person who shares your daily nonsense.",
+                                "hand_map": {
+                                    "scene_action_binding": "Both people sit without a focal hand action.",
+                                    "people": ["Aachu", "Zuv"],
+                                    "expected_anatomical_hands": 4,
+                                    "expected_visible_hands": 0,
+                                    "default_max_visible_hands": 0,
+                                    "hands": [],
+                                    "forbidden": ["extra hand"],
+                                },
                             },
                             {
                                 "slide": 2,
@@ -555,6 +565,11 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(concept["creative_baseline"]["status"], "supplied")
         self.assertEqual([slide["copy"] for slide in slides], expected_copy)
         self.assertEqual([slide["visual"] for slide in slides], expected_visuals)
+        self.assertEqual(
+            slides[0]["cta_intent"],
+            "Send this to the person who shares your daily nonsense.",
+        )
+        self.assertEqual(slides[0]["hand_map"]["expected_visible_hands"], 0)
         self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertIn("Creative baseline source of truth", prompt_pack["slides"][0]["prompt"])
         self.assertEqual(copy["caption_recommended"], "Couple life is 10% romance, 90% getting caught.")
@@ -3042,6 +3057,86 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertTrue(prompt_texts)
         self.assertTrue(all(len(text) <= MAX_PROMPT_CHARS for text in prompt_texts))
 
+    def test_codex_builtin_handoff_blocks_cross_artifact_repair_drift(self):
+        from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            workspace = Path(tmpdir)
+            identity = workspace / "aachu-zuv.png"
+            identity.write_bytes(self.image_bytes())
+
+            out_dir = create_codex_native_carousel(
+                story=(
+                    "Selected concept from the Golden Theme tournament: She Was Not High-Maintenance. "
+                    "Aachu is in a green dress, barefoot, and Zuv notices before she asks."
+                ),
+                image_paths=[],
+                identity_image_paths=[identity],
+                title="Contradictory Review Drift",
+                output_root=workspace / "out",
+                render_assets=False,
+                today=date(2026, 5, 24),
+            )
+            self.write_passing_director_storyboard(out_dir)
+
+            review_path = out_dir / "review.json"
+            review = json.loads(review_path.read_text(encoding="utf-8"))
+            review["story_selling_score"]["total"] = 18
+            review["story_selling_gate"]["status"] = "REPAIR"
+            review["story_selling_hard_fails"] = [
+                "stage-scene gate has no drawable action/reaction proof"
+            ]
+            review["story_director_gate"]["status"] = "REPAIR"
+            review["successful_carousel_standard_gate"]["status"] = "REPAIR"
+            review["successful_carousel_standard_gate"]["pass"] = False
+            review_path.write_text(json.dumps(review), encoding="utf-8")
+
+            result = prepare_codex_builtin_image_generation(out_dir)
+
+        self.assertEqual(result["status"], "blocked")
+        self.assertIn("Pre-generation package review did not pass", result["reason"])
+        self.assertIn("18/30", result["reason"])
+        self.assertIn("scores disagree", result["reason"])
+        self.assertFalse((out_dir / "codex-image-prompts").exists())
+
+    def test_package_review_never_claims_pass_when_required_gates_need_repair(self):
+        from pipeline.stages import carousel_package_writer
+
+        review = {
+            "status": "draft_review",
+            "pass": True,
+            "story_selling_gate": {"status": "REPAIR"},
+            "story_selling_hard_fails": ["missing drawable proof"],
+            "story_director_gate": {"status": "REPAIR"},
+            "required_changes_before_image_generation": [],
+        }
+        package = {
+            "slides": [{"slide": 1}],
+            "review": review,
+        }
+        success_gate = {"status": "REPAIR", "pass": False}
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            with patch.object(
+                carousel_package_writer,
+                "evaluate_successful_carousel_standard",
+                return_value=success_gate,
+            ), patch.object(
+                carousel_package_writer,
+                "write_format_contract",
+                side_effect=RuntimeError("stop after review reconciliation"),
+            ):
+                with self.assertRaisesRegex(RuntimeError, "stop after review reconciliation"):
+                    carousel_package_writer.write_package(
+                        Path(tmpdir) / "review-reconciliation",
+                        {"format_contract": {}, "requested_formats": ["instagram_post"]},
+                        package,
+                    )
+
+        self.assertFalse(review["pass"])
+        self.assertEqual(review["status"], "repair_required")
+        self.assertEqual(len(review["required_changes_before_image_generation"]), 3)
+
     def test_prepare_codex_handoff_can_write_single_proof_prompt(self):
         from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
 
@@ -3492,8 +3587,16 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertFalse(reels_slide_01_exists)
         self.assertIn("instagram_post", slide_01_native_outputs)
         self.assertIn("reels_stories", slide_01_native_outputs)
-        self.assertEqual(slide_01_native_outputs["instagram_post"]["width"], 1440)
-        self.assertEqual(slide_01_native_outputs["instagram_post"]["height"], 1920)
+        self.assertEqual(slide_01_native_outputs["instagram_post"]["width"], 1080)
+        self.assertEqual(slide_01_native_outputs["instagram_post"]["height"], 1440)
+        self.assertEqual(
+            slide_01_native_outputs["instagram_post"]["model_native_source"]["width"],
+            1440,
+        )
+        self.assertEqual(
+            slide_01_native_outputs["instagram_post"]["model_native_source"]["height"],
+            1920,
+        )
         self.assertNotEqual(
             slide_01_native_outputs["instagram_post"]["path"],
             slide_01_native_outputs["reels_stories"]["path"],
@@ -3698,6 +3801,7 @@ class IllustrationCarouselTests(unittest.TestCase):
             workspace_memory_exists = (workspace / "memory").exists()
 
         self.assertEqual(result["status"], "REJECTED_SPATIAL_INTEGRITY")
+        self.assertEqual(result["visual_qa_path"], "visual-qa.json")
         self.assertEqual(final_audit["status"], "NEEDS_FIXES")
         self.assertEqual(refreshed_visual_qa_markdown, visual_qa_markdown)
         self.assertTrue(workspace_wiki_exists)
@@ -4578,7 +4682,11 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertIn("object", " ".join(result["issues"]).lower())
 
     def test_codex_native_carousel_split_modules_expose_public_routes(self):
-        from pipeline.stages.carousel_lanes import build_slides, classify_content_lane
+        from pipeline.stages.carousel_lanes import (
+            build_slides,
+            classify_content_lane,
+            is_long_distance_ordinary_story,
+        )
         from pipeline.stages.carousel_package_writer import build_manifest, try_render_assets, write_package
         from pipeline.stages.carousel_visual_rooms import (
             build_post_copy_visual_room,
@@ -4594,6 +4702,16 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertTrue(callable(build_manifest))
         self.assertTrue(callable(try_render_assets))
         self.assertTrue(callable(write_package))
+        self.assertFalse(
+            is_long_distance_ordinary_story(
+                "The wrong turns only revealed that they had missed ordinary time together."
+            )
+        )
+        self.assertTrue(
+            is_long_distance_ordinary_story(
+                "They live in different cities and miss wasting ordinary time together."
+            )
+        )
 
     def test_codex_native_package_embeds_successful_carousel_standard_contract(self):
         with tempfile.TemporaryDirectory() as tmpdir:

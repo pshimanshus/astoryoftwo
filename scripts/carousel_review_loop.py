@@ -35,7 +35,10 @@ def build_parser() -> argparse.ArgumentParser:
         help="HIL stage to run. auto selects the earliest stage without current approval.",
     )
     parser.add_argument("--decision", choices=["APPROVE", "REVISE", "REJECT"])
-    parser.add_argument("--decided-by", default="creator")
+    parser.add_argument(
+        "--decided-by",
+        help="Identity of the human creator making an explicit checkpoint decision.",
+    )
     parser.add_argument("--feedback", default="")
     parser.add_argument("--max-iterations", type=int, default=12)
     parser.add_argument("--stagnation-limit", type=int, default=3)
@@ -58,16 +61,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    args = parser.parse_args(argv)
     package_dir = args.package_dir.expanduser().resolve()
     if args.decision:
         if args.stage not in STAGES:
             raise SystemExit("--decision requires an explicit --stage concept|copy|images|publish")
+        if not (args.decided_by or "").strip():
+            parser.error("--decision requires a non-empty --decided-by human identity")
         decision = record_creator_decision(
             package_dir,
             args.stage,
             args.decision,
-            decided_by=args.decided_by,
+            decided_by=args.decided_by or "",
             feedback=args.feedback,
         )
         print(json.dumps(decision.to_dict(), indent=2, ensure_ascii=False))

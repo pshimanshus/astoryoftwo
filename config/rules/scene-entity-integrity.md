@@ -36,6 +36,21 @@ each potentially visible hand. Secondary prose such as "brace the door" is not
 enough: the plan must say whose hand, which side, where the wrist/forearm comes
 from, and what the other hand is doing or whether it is fully out of frame.
 
+Scenes involving doors, locks, thresholds, departure, arrival, or returning
+must also carry an action-chronology topology contract. It states:
+
+- the exact temporal phase, such as before departure or after return;
+- the camera side and each person's side of the threshold;
+- whether the door is open, closing, fully closed, or already locked;
+- each person's prior position, direction of travel, and return path;
+- whether the focal action is shared or solo.
+
+The contract must reconcile the verbs in the exact copy. "Went back" requires a
+visible prior direction and return. "Checked it with him" requires both people
+to participate in the same check; one person acting while the other watches is
+not equivalent. A creator correction that specifies outside versus inside
+overrides any earlier scene description.
+
 If the scene is an intimate two-person moment, default to exactly two visible
 people and no background figures unless the storyboard explicitly requires
 them.
@@ -117,6 +132,14 @@ collapse into one unresolved mass.
   from full-frame, person-object-crop and focal-detail inspection;
 - QA whose recorded file hash or dimensions do not match the inspected asset;
 - a quarantined or creator-unapproved proof used for batch continuation.
+- a door/lock scene on the wrong side of the threshold or at the wrong temporal
+  phase;
+- copy says a person returned, but the frame contains no readable movement path
+  or prior direction;
+- copy describes a shared action, but only one person performs it while the
+  other watches;
+- an unresolved action-chronology topology contract passed into prompt
+  compilation.
 
 ## Repair Rule
 

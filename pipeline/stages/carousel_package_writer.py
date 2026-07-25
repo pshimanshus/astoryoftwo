@@ -274,10 +274,38 @@ def build_manifest(
 
 
 def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, Any]) -> None:
-    package["review"]["successful_carousel_standard_gate"] = evaluate_successful_carousel_standard(
+    review = package["review"]
+    success_gate = evaluate_successful_carousel_standard(
         package,
         slide_count=len(package["slides"]),
     )
+    review["successful_carousel_standard_gate"] = success_gate
+    required_changes = list(review.get("required_changes_before_image_generation") or [])
+    gate_failures = (
+        (
+            str(review.get("story_selling_gate", {}).get("status") or "").upper()
+            not in {"PASS", "GO"}
+            or bool(review.get("story_selling_hard_fails"))
+        ),
+        str(review.get("story_director_gate", {}).get("status") or "").upper()
+        not in {"PASS", "GO"},
+        success_gate.get("pass") is not True,
+    )
+    for failed, message in zip(
+        gate_failures,
+        (
+            "Repair Story-Selling gate before image generation.",
+            "Repair Story Director gate before image generation.",
+            "Repair Successful Carousel Standard gate before image generation.",
+        ),
+        strict=True,
+    ):
+        if failed and message not in required_changes:
+            required_changes.append(message)
+    review["required_changes_before_image_generation"] = required_changes
+    review["pass"] = bool(review.get("pass")) and not any(gate_failures)
+    if not review["pass"]:
+        review["status"] = "repair_required"
     out_dir.mkdir(parents=True, exist_ok=True)
     manifest_contract = manifest.get("format_contract", {})
     formats_to_write = (

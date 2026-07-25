@@ -136,6 +136,21 @@ def test_suitcase_relocation_uses_real_mutual_overpacking_receipts():
     assert any("both" in slide["visual"].lower() and "suitcase" in slide["visual"].lower() for slide in slides)
 
 
+def test_long_distance_lane_requires_distance_context_for_ordinary_proof():
+    assert classify_content_lane(
+        "Different cities, one video call, and all we miss is an ordinary Tuesday cooking together."
+    ) == "Golden Long Distance Ordinary Time"
+    assert classify_content_lane(
+        "We played board games and ruined dinner on an ordinary Tuesday."
+    ) != "Golden Long Distance Ordinary Time"
+
+
+def test_explicit_long_distance_phrase_still_selects_the_lane():
+    assert classify_content_lane(
+        "Long-distance love is the part of our story we are trying to name."
+    ) == "Golden Long Distance Ordinary Time"
+
+
 def test_suitcase_relocation_uses_two_act_visual_continuity_not_one_room():
     story = (
         "Suitcase Relocation. Some couples don't pack. They relocate the house. "

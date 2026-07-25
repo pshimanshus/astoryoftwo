@@ -1,9 +1,11 @@
 {
   "schema_version": "1.0",
-  "status": "CREATOR_APPROVED",
+  "status": "INVALIDATED",
   "proof_slide": 1,
   "approved_correction": "The couple travelled by car, not scooter.",
   "creator_response": "good",
+  "creator_response_scope": "The response acknowledged the corrected car cover. It did not approve the remaining carousel images, post-generation QA, or a structured likeness review.",
+  "invalidated_reason": "This artifact incorrectly converted a brief creator response into batch and identity approval. The later creator rejection confirms the proof could not authorize continuation.",
   "identity_references": [
     "config/references/identity/together/together-18.jpg",
     "config/references/identity/together/together-21.jpg",
@@ -15,5 +17,5 @@
     "zuv": "Curly dark hair, beard, jaw shape and grounded expression remain consistent with the selected references.",
     "couple": "Relative height, familiar eye contact, understated date-night wardrobe and shared physical ease are approved as the continuity anchor for slides 2-7."
   },
-  "continuity_lock": "Use the creator-approved car cover as the primary rendered reference for character, wardrobe, palette and medium continuity. No scooter or helmets may appear in the remaining set."
+  "continuity_lock": "No batch continuation is authorized. Re-run proof QA and obtain explicit creator approval only after the corrected storyboard, prompt handoff, dimensions, identity, and image-first story checks pass."
 }

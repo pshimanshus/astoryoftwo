@@ -3,11 +3,26 @@
   "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
   "status": "PASS",
   "identity_references": [
-    "config/references/identity/aachu/face-05.png",
-    "config/references/identity/zuv/portrait-07.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/aachu/reel-jaldi.jpg",
     "config/references/identity/together/together-18.jpg",
-    "config/references/identity/together/together-21.jpg"
+    "config/references/identity/zuv/portrait-07.jpg"
   ],
+  "selected_reference_ids": [
+    "ID01_AACHU_FACE_04",
+    "ID02_AACHU_REEL_JALDI",
+    "ID03_TOGETHER_18",
+    "ID04_ZUV_PORTRAIT_07"
+  ],
+  "selected_reference_map": {
+    "ID01_AACHU_FACE_04": "config/references/identity/aachu/face-04.png",
+    "ID02_AACHU_REEL_JALDI": "config/references/identity/aachu/reel-jaldi.jpg",
+    "ID03_TOGETHER_18": "config/references/identity/together/together-18.jpg",
+    "ID04_ZUV_PORTRAIT_07": "config/references/identity/zuv/portrait-07.jpg"
+  },
+  "proof_slide": 9,
+  "proof_identity_status": "PENDING_PIXEL_REVIEW",
+  "batch_generation_allowed": false,
   "slides": [
     {
       "slide": 1,
@@ -22,10 +37,10 @@
       "identity_continuity": {
         "slide": 1,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (instinctive, playful intimacy) while preserving the same underlying face structure across all slides.",
@@ -46,10 +61,10 @@
       "identity_continuity": {
         "slide": 2,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (recognition and easy coordination) while preserving the same underlying face structure across all slides.",
@@ -70,10 +85,10 @@
       "identity_continuity": {
         "slide": 3,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (deadpan domestic comedy) while preserving the same underlying face structure across all slides.",
@@ -94,10 +109,10 @@
       "identity_continuity": {
         "slide": 4,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (small sudden panic) while preserving the same underlying face structure across all slides.",
@@ -118,10 +133,10 @@
       "identity_continuity": {
         "slide": 5,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (shared practical stress) while preserving the same underlying face structure across all slides.",
@@ -142,10 +157,10 @@
       "identity_continuity": {
         "slide": 6,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (equal, ordinary friction) while preserving the same underlying face structure across all slides.",
@@ -166,10 +181,10 @@
       "identity_continuity": {
         "slide": 7,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (care interrupting irritation) while preserving the same underlying face structure across all slides.",
@@ -190,10 +205,10 @@
       "identity_continuity": {
         "slide": 8,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (anger remains controlled and real) while preserving the same underlying face structure across all slides.",
@@ -214,10 +229,10 @@
       "identity_continuity": {
         "slide": 9,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (concern surviving anger) while preserving the same underlying face structure across all slides.",
@@ -238,10 +253,10 @@
       "identity_continuity": {
         "slide": 10,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (distance with unmistakable belonging) while preserving the same underlying face structure across all slides.",
@@ -262,10 +277,10 @@
       "identity_continuity": {
         "slide": 11,
         "identity_references": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ],
         "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
         "facial_expression": "Keep the facial expression specific to this beat (earned, lived-in us) while preserving the same underlying face structure across all slides.",

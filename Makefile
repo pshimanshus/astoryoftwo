@@ -5,9 +5,13 @@ PHASE ?= all
 MAX_ITERATIONS ?= 12
 STAGNATION_LIMIT ?= 3
 STAGE ?= auto
-DECIDED_BY ?= creator
+DECIDED_BY ?=
 IDEA_MAX_ITERATIONS ?= 3
 IDEA_CANDIDATES ?= 6
+export ASOT_IDEA_LOOP_SEED := $(value SEED)
+export ASOT_IDEA_LOOP_RUN_DIR := $(value RUN_DIR)
+export ASOT_IDEA_LOOP_MAX_ITERATIONS := $(value IDEA_MAX_ITERATIONS)
+export ASOT_IDEA_LOOP_CANDIDATES := $(value IDEA_CANDIDATES)
 
 .PHONY: help brief health wiki-health idea-loop jam prepost carousel visual-check review-loop article publish publish-dry-run test
 
@@ -33,7 +37,7 @@ health wiki-health:
 	$(PY) scripts/run_content_health.py --session-note "$(NOTE)"
 
 idea-loop:
-	$(PY) scripts/instagram_idea_loop.py run $(if $(SEED),--seed "$(SEED)") --max-iterations "$(IDEA_MAX_ITERATIONS)" --candidate-budget "$(IDEA_CANDIDATES)" $(if $(RUN_DIR),--run-dir "$(RUN_DIR)") $(if $(DRY_RUN),--dry-run) $(if $(LIVE_SEARCH),--live-search)
+	$(PY) scripts/instagram_idea_loop.py run $(if $(DRY_RUN),--dry-run)
 
 jam:
 	$(PY) scripts/jam_today.py $(if $(MOMENT),--moment "$(MOMENT)") --slides "$(SLIDES)"

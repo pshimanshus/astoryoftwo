@@ -3,6 +3,13 @@
 # AGENTS.md is now a lean router, but keep this higher limit while the repo
 # still carries dense nested instructions and generated context docs.
 project_doc_max_bytes = 65536
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+writable_roots = []
+network_access = false
+exclude_tmpdir_env_var = true
+exclude_slash_tmp = true
 
 [features]
 goals = true

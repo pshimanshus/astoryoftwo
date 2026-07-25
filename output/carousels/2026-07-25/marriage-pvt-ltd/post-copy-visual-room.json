@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "Every marriage is a two-person company\nwith too many departments.",
+      "role": "Cover"
+    },
+    {
+      "slide": 2,
+      "copy": "FINANCE\nOne says, “Budget.”\nThe other says, “Sale mein tha.”\nBoth have receipts.",
+      "role": "Cold Open"
+    },
+    {
+      "slide": 3,
+      "copy": "LOST & FOUND\n“Kahan hai?”\nOne points.\nFive minutes later, roles reverse.",
+      "role": "Mirror"
+    },
+    {
+      "slide": 4,
+      "copy": "TRAVEL\nOne packed the charger.\nThe other remembered the passport.",
+      "role": "Spine"
+    },
+    {
+      "slide": 5,
+      "copy": "LEGAL\nBoth have screenshots.\nNeither has the full context.",
+      "role": "Rhythm"
+    },
+    {
+      "slide": 6,
+      "copy": "IT SUPPORT\nWi-Fi nahi chal raha?\nOne checks the router.\nThe other finds the loose plug.",
+      "role": "Rhythm"
+    },
+    {
+      "slide": 7,
+      "copy": "EMERGENCY\nMidnight hunger.\nNo departments.\nFull team activation.",
+      "role": "Turn"
+    },
+    {
+      "slide": 8,
+      "copy": "HEAD OFFICE\nNobody is in charge.\nBoth think they are.",
+      "role": "Turn"
+    },
+    {
+      "slide": 9,
+      "copy": "No fixed roles.\nJust two people covering\neach other’s shift.",
+      "role": "Payoff"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Slide-Led Evidence Plan",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "Every marriage is a two-person company\nwith too many departments.",
+      "visual_job": "Cover",
+      "scene": "Wide doorway view inside a lived home. Aachu and Zuv cross in opposite directions while already handling multiple household tasks: Aachu carries a small shopping bag and keys; Zuv holds a plain budget notebook while looking for something. They exchange one familiar knowing glance. The home is the office; no literal corporate props.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "FINANCE\nOne says, “Budget.”\nThe other says, “Sale mein tha.”\nBoth have receipts.",
+      "visual_job": "Cold Open",
+      "scene": "Over-the-shoulder dining-table view. Zuv points to one number line in a blank budget notebook. Aachu calmly slides a sale receipt beside it, then taps his own unnecessary expense on a second receipt. His raised eyebrow drops while she suppresses a smile.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "LOST & FOUND\n“Kahan hai?”\nOne points.\nFive minutes later, roles reverse.",
+      "visual_job": "Mirror",
+      "scene": "Deep-focus living-room scene. Aachu searches beside a console for her keys while Zuv silently points to them in plain sight. In the background his phone rests on the sofa arm he has just checked, and Aachu has already noticed it. The visual promises the immediate role reversal.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "TRAVEL\nOne packed the charger.\nThe other remembered the passport.",
+      "visual_job": "Spine",
+      "scene": "Low wide view over an open suitcase. Aachu holds up a neatly coiled charger triumphantly. At the doorway Zuv raises the passport she forgot. Their eyes meet across the suitcase with equal sheepish satisfaction.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "LEGAL\nBoth have screenshots.\nNeither has the full context.",
+      "visual_job": "Rhythm",
+      "scene": "Tight overhead and over-shoulder hybrid view at the table. Two phones enter from opposite sides, each held by its owner and angled toward the other. Their free index fingers meet near the center as both present harmless contradictory evidence. Faces remain partially visible with amused, stubborn expressions. Phone screens show only soft abstract message shapes, never readable UI or invented text.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "IT SUPPORT\nWi-Fi nahi chal raha?\nOne checks the router.\nThe other finds the loose plug.",
+      "visual_job": "Rhythm",
+      "scene": "Low close view near the media console. Zuv crouches beside the router checking its buttons while Aachu follows the cable and reconnects the loose wall plug. Router lights switch on; he looks up and she gives a tiny satisfied shrug.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "EMERGENCY\nMidnight hunger.\nNo departments.\nFull team activation.",
+      "visual_job": "Turn",
+      "scene": "High-angle midnight kitchen climax. Aachu opens the cupboard and passes ingredients while Zuv sets a pan on the stove and reaches for plates. Their eye-lines are task-focused, their body distance has contracted, and all objects move through a clear shared workflow.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 8,
+      "copy": "HEAD OFFICE\nNobody is in charge.\nBoth think they are.",
+      "visual_job": "Turn",
+      "scene": "Symmetrical medium view during post-cooking cleanup. Aachu wipes the counter while simultaneously pointing Zuv toward the plates; Zuv carries the plates while simultaneously pointing her toward the loose cupboard door. They notice their mirrored instructions and begin laughing.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 9,
+      "copy": "No fixed roles.\nJust two people covering\neach other’s shift.",
+      "visual_job": "Payoff",
+      "scene": "Quiet floor-level release in the kitchen. Aachu and Zuv sit shoulder-to-shoulder sharing the midnight food from the two plates. The earlier keys, charger and two face-down phones appear naturally at the periphery as subtle callbacks. Their posture is relaxed and familiar; the departments have disappeared.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

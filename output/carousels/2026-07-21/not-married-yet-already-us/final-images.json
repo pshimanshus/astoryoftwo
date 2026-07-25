@@ -1,102 +1,41 @@
 {
-  "status": "draft",
-  "backend": "none",
-  "generation_mode": "not_generated",
-  "slide_count": 11,
+  "status": "GENERATED_QUARANTINED",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
   "done": false,
   "publishable": false,
   "requires_human_generation": false,
   "slides": [
     {
-      "slide": 1,
-      "copy": "We’re not married yet.\nBut try telling that to our habits.",
-      "expected_files": {
-        "instagram_post": "final/slide-01.png"
-      },
-      "source_prompt_slide": 1
-    },
-    {
-      "slide": 2,
-      "copy": "Every plan starts with:\n“Ek minute, usse poochna padega.”",
-      "expected_files": {
-        "instagram_post": "final/slide-02.png"
-      },
-      "source_prompt_slide": 2
-    },
-    {
-      "slide": 3,
-      "copy": "Every small decision becomes\na two-person meeting.",
-      "expected_files": {
-        "instagram_post": "final/slide-03.png"
-      },
-      "source_prompt_slide": 3
-    },
-    {
-      "slide": 4,
-      "copy": "Problem ek ki hoti hai.",
-      "expected_files": {
-        "instagram_post": "final/slide-04.png"
-      },
-      "source_prompt_slide": 4
-    },
-    {
-      "slide": 5,
-      "copy": "Stress dono lete hain.",
-      "expected_files": {
-        "instagram_post": "final/slide-05.png"
-      },
-      "source_prompt_slide": 5
-    },
-    {
-      "slide": 6,
-      "copy": "Fight bhi proper hoti hai.",
-      "expected_files": {
-        "instagram_post": "final/slide-06.png"
-      },
-      "source_prompt_slide": 6
-    },
-    {
-      "slide": 7,
-      "copy": "Then five minutes later:\n“Ghar pahunch ke text karna.”",
-      "expected_files": {
-        "instagram_post": "final/slide-07.png"
-      },
-      "source_prompt_slide": 7
-    },
-    {
-      "slide": 8,
-      "copy": "Kyunki gussa apni jagah.",
-      "expected_files": {
-        "instagram_post": "final/slide-08.png"
-      },
-      "source_prompt_slide": 8
-    },
-    {
       "slide": 9,
       "copy": "“Tum theek ho?” apni jagah.",
-      "expected_files": {
-        "instagram_post": "final/slide-09.png"
-      },
-      "source_prompt_slide": 9
-    },
-    {
-      "slide": 10,
-      "copy": "Officially?\nNo vows yet.",
-      "expected_files": {
-        "instagram_post": "final/slide-10.png"
-      },
-      "source_prompt_slide": 10
-    },
-    {
-      "slide": 11,
-      "copy": "Shaadi abhi baaki hai.\nPar “hum” toh kab ke ban chuke hain.",
-      "expected_files": {
-        "instagram_post": "final/slide-11.png"
-      },
-      "source_prompt_slide": 11
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-09.png",
+          "sha256": "e4c441664c93a2a285704afd460c254428d3dcce5f38bcc93d6083f08dd21dca",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-01/model-native-source/instagram-post-slide-09.png",
+            "sha256": "880868395a6fb39f4eb8c21b8d44440c9fad45cf6ef0c419c43549102a0b392f",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
     }
   ],
-  "reason": "Carousel package exists, but image handoff has not been prepared.",
+  "reason": "Visual QA failed; regenerate with targeted repairs before packaging.",
+  "proof_state": "GENERATED_QUARANTINED",
+  "retry_count": 0,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 2,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-01",
+  "image_set_sha256": "e0f8c1c942f4204871afeed04431a5d4e387ef0082ddf83c978302d450c010be",
   "requested_formats": [
     "instagram_post"
   ],
@@ -109,5 +48,55 @@
       "identity_visual_qa"
     ],
     "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
-  }
+  },
+  "proof_only": true,
+  "requested_proof_slide": 9,
+  "total_slide_count": 11,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      9
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:65b1cbb61f5255b735f6ba6dab36a5ce7900ff3e07f3197bac33637b28f9d1e2"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:5d2350f92681119d808dad745223acd02e3ab793554b614023ee9b839a8ec1ff"
+      }
+    },
+    "files": [
+      {
+        "slide": 9,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-09.prompt.txt",
+        "sha256": "sha256:bc99bbb962041f2a69203f3d6836d442b2492de43ea743e2427238da2312b1ed"
+      },
+      {
+        "slide": 9,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-09.md",
+        "sha256": "sha256:df4e61d90dbe16e46183bffd482d29836d4cd1e1da776d8f0618fa50a3d54957"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:0a3e70dd5462e3946fda7a906c1ada312ad0ba575501385f5d5f9dc13c3ac647"
+  },
+  "visual_qa_path": "visual-qa.json",
+  "visual_qa_issues": [
+    "Slide 9 shows three visible hands instead of the locked two-hand inventory.",
+    "Zuv's non-focal pocket hand is visible despite the out-of-frame lock.",
+    "Aachu's tissue-offering hand does not read unambiguously as her right hand at phone size.",
+    "The tissue and thumb-nick care action is not uniquely readable at phone size.",
+    "Aachu's face shape, nose, lips, and hair texture drift from the selected identity references.",
+    "Zuv's face is narrower and longer, with curl mass shifted forward from the selected references.",
+    "The rendered height gap is substantially larger than the locked two-inch difference."
+  ]
 }

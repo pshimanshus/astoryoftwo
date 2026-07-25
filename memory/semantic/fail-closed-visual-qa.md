@@ -45,3 +45,20 @@ region, unresolved intersection, or painterly body/object merge is a hard
 Visual richness means layered story evidence: foreground, midground,
 background, one focal action, two to four relevant details, and visible cause
 and effect. It does not mean decorative clutter.
+
+The 2026-07-25 failed "date missed its reservation" batch added a second
+non-negotiable lesson: a visually coherent scene can still contradict the copy
+and creator correction. The final line described her going back and checking
+the lock with him, but the approved description moved the beat inside the home
+after the date and made her check alone while he watched. The model then
+faithfully rendered the wrong scene. Door/lock/threshold beats now require
+explicit temporal phase, inside/outside camera side, door state, movement path,
+and shared-versus-solo action before prompt compilation.
+
+This batch also proved that reporting a failure in an artifact is useless if
+the agent bypasses it. `review.json`, `stage-reviews.json`, and
+`final-audit.json` already contained REPAIR/NEEDS_FIXES, while a manually
+altered Layer-E artifact said GO. The generated candidates were then displayed
+from ad-hoc chat prompts without a fresh precheck, compiled-handoff binding,
+native-dimension validation, quarantine, or Event B. Every current artifact
+must agree before generation, and unchecked model outputs must stay internal.

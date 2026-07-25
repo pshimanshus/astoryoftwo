@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Golden Long Distance Ordinary Time",
+  "winner": "Chat Bubbles Become Shared Rooms",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Let each chat bubble open into a small imagined shared room: kitchen mess, board-game table, rain/cab wait, and final ordinary evening."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Stage the tension as distance versus the desire for useless normal time; the message jokes should expose the hidden need to share ordinary life."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block copied text-message frames, all-phone slides, generic long-distance sadness, and any scene where Zuv only receives instead of joining the tiny plan."
+    }
+  ],
+  "options": [
+    {
+      "name": "Chat Bubbles Become Shared Rooms",
+      "score": 29.5,
+      "case_for": "Preserves the reference mechanic while making every message open into a concrete ordinary-life scene.",
+      "risk": "Must not become a copied text-message reel; the imagined scenes need original Aachu/Zuv behavior."
+    },
+    {
+      "name": "One Phone, Five Ordinary Plans",
+      "score": 28,
+      "case_for": "Very legible for long-distance couples and keeps the phone as a portal rather than the whole frame.",
+      "risk": "Can feel static if every slide is only a phone screen."
+    },
+    {
+      "name": "Pure Chat Screenshot",
+      "score": 24,
+      "case_for": "Fast and familiar.",
+      "risk": "Rejected because it copies the surface format and loses the @a.storyof.two illustrated relationship proof."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Pure Chat Screenshot"
+  ],
+  "selector_verdict": "Chat Bubbles Become Shared Rooms wins because it keeps the viral text-message familiarity, but every bubble becomes an original imagined ordinary-life scene where Aachu and Zuv both want the same boring time.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "no copied chat screenshot or exact reference text",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual": "Rain-damp evening beside a tiny roadside chai stall. Exactly Aachu and Zuv stand under one umbrella beside their modest dark car, safely parked on the quieter service lane away from traffic, dressed for a proper date. Across the divided road, through moving cars, the intended restaurant on the next road is visibly close but inconvenient to reach. The chai stall glows immediately beside them. Aachu points toward the chai stall with her right hand while her left hand stays relaxed and visible. Zuv holds the umbrella in his right hand and lowers the phone map in his left; they exchange a small conspiratorial 'shall we?' look. This is the decision before the accidental date, not the seated payoff. No chai vendor or background people visible."
+    },
+    {
+      "slide": 2,
+      "copy": "The date began with one missing key\nand two suspects.",
+      "visual": "Inside their entryway before leaving, Aachu holds a soft tote by its strap and points a playful accusing finger while Zuv checks his jacket pockets and looks theatrically innocent. The missing car key is visibly caught in the tote strap between them. Exactly two people; the physical evidence makes the joke readable without text."
+    },
+    {
+      "slide": 3,
+      "copy": "By the third wrong turn,\nnobody was cute anymore.",
+      "visual": "They stand beside their modest dark car, safely parked on the quieter service lane of a rain-slick divided road. A phone map in Zuv's hand reroutes while the intended restaurant is frustratingly visible across the traffic on the next road. Aachu holds the closed umbrella downward and looks away toward the restaurant, tired and irritated; Zuv studies the route with restrained frustration. Exactly two visible people and no human reflections."
+    },
+    {
+      "slide": 4,
+      "copy": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+      "visual": "At a safe recessed roadside edge near their parked dark car, Aachu faces slightly away with arms folded. Zuv stays beside the car several feet behind her, body open and grounded, not reaching or crowding. His phone hangs lowered at his side; the closed umbrella leans securely against the car. The empty space between them communicates a respected pause while his remaining nearby communicates care. Exactly two people."
+    },
+    {
+      "slide": 5,
+      "copy": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+      "visual": "Across the road outside the intended restaurant, the frontage is closed or inaccessible after the long detour. Aachu's irritation has fallen into quiet disappointment as she looks at the dark entrance. Zuv notices her expression rather than the shutter, holding the phone down at his side. Their body distance has narrowed but they do not yet touch. Exactly two people, no background diners or staff."
+    },
+    {
+      "slide": 6,
+      "copy": "The plan failed.\nThe date didn’t.",
+      "visual": "At the tiny roadside chai stall beside their safely parked dark car, Aachu steals a sip from Zuv's chai after finishing hers. The glass is visibly at her own lips, not being offered to him. Zuv gives her a mock-offended look while protecting the biscuit packet against his chest. Two stools are now pulled close. The unreachable restaurant glows softly across the divided road behind traffic. Exactly two people, vendor out of frame."
+    },
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "visual": "Callback to the moment they left for the date, viewed entirely from OUTSIDE the apartment in the corridor after the front door has closed. Zuv stands at the fully closed exterior door and tests the exterior handle with his right hand while holding the car key in his left. Aachu had already taken two steps toward the lift, rolled her eyes, then visibly turned and came back; her returning body direction and trailing foot make the turn-back path readable. She now joins him and tests the same closed handle with her right hand while her left holds the closed umbrella. Their shared amused look says she has the same habit she teases him for. Exactly two people. This is before departure, outside the closed door, and both participate in the lock check; never show them inside the house, after returning from the date, or with only Aachu checking while Zuv watches."
+    }
+  ]
+}

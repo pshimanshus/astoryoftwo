@@ -38,6 +38,7 @@ def package_generated_images(
     refresh_quality: bool = False,
     visual_qa_path: Path | None = None,
     creator_approval_path: Path | None = None,
+    proof_slide: int | None = None,
 ) -> dict[str, Any]:
     """Package exactly the native outputs locked by the current request."""
 
@@ -67,6 +68,7 @@ def package_generated_images(
         refresh_quality=refresh_quality,
         visual_qa_path=visual_qa_path,
         creator_approval_path=creator_approval_path,
+        proof_slide=proof_slide,
     )
 
 
@@ -89,6 +91,14 @@ def main() -> None:
     parser.add_argument("--visual-qa", dest="visual_qa_path", type=Path)
     parser.add_argument("--creator-approval", dest="creator_approval_path", type=Path)
     parser.add_argument(
+        "--proof-slide",
+        type=int,
+        help=(
+            "Quarantine exactly this generated proof slide from a matching proof-only "
+            "compiled handoff. No final folders are populated."
+        ),
+    )
+    parser.add_argument(
         "--no-quality-refresh",
         action="store_true",
         help=(
@@ -100,6 +110,11 @@ def main() -> None:
     if args.promote_quarantine:
         if args.instagram_post_paths or args.reels_stories_paths or args.square_paths:
             parser.error("--promote-quarantine cannot be combined with new generated image paths.")
+        if args.proof_slide is not None:
+            parser.error(
+                "--proof-slide is only for a new proof candidate; quarantine promotion "
+                "uses the recorded proof scope."
+            )
         manifest = promote_quarantined_codex_builtin_outputs(
             args.carousel_dir,
             refresh_quality=not args.no_quality_refresh,
@@ -130,6 +145,7 @@ def main() -> None:
             refresh_quality=not args.no_quality_refresh,
             visual_qa_path=args.visual_qa_path,
             creator_approval_path=args.creator_approval_path,
+            proof_slide=args.proof_slide,
         )
     print(json.dumps(manifest, indent=2))
 

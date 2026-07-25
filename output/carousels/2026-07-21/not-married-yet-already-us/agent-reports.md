@@ -34,8 +34,8 @@ Gate: REPAIR
 ## C5.5 - Post-Copy Visual Creative Room
 
 Status: GO
-Selected visual system: Slide-Led Evidence Plan
-Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.
+Selected visual system: Wordless Habit Relay + Broken-Key Continuity
+Wordless Habit Relay + Broken-Key Continuity wins because it keeps the visual system accountable to the selected story arc.
 
 ## C3/C4 - Visual And Prompt Direction
 
@@ -43,9 +43,9 @@ Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram
 
 ## C3A-C3C - Visual Debate Gate
 
-Winner: Slide-Led Evidence Plan
+Winner: Wordless Habit Relay + Broken-Key Continuity
 
-Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.
+Wordless Habit Relay + Broken-Key Continuity wins because it keeps the visual system accountable to the selected story arc.
 
 ## C3D - Pre-Generation Visual Screen
 

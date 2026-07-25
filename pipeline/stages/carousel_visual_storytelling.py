@@ -1375,7 +1375,9 @@ def validate_frame_readability(
         actual_image_fingerprint: str | None = None
         if require_files and path is not None:
             if not path.exists():
-                issues.append(f"{prefix}.file does not exist: {path}.")
+                issues.append(
+                    f"{prefix}.file does not exist: {relative_file}."
+                )
             elif path.is_symlink():
                 issues.append(f"{prefix}.file must be a regular package asset, not a symlink.")
             elif not path.is_file():

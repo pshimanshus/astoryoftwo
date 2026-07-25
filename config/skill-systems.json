@@ -68,6 +68,9 @@
         "pipeline/agentic/instagram_idea_loop.py",
         "scripts/instagram_idea_loop.py"
       ],
+      "source_references": [
+        "https://addyosmani.com/blog/loop-engineering/"
+      ],
       "agents": [
         ".codex/agents/asot_idea_scout.toml",
         ".codex/agents/asot_idea_maker.toml",
@@ -82,12 +85,21 @@
         "golden_theme_28",
         "distribution_26",
         "visual_generativity_27",
+        "story_director_dimensions_8",
+        "stage_scene_pass",
         "world_class_taste_no_cap",
+        "safety_pass",
+        "moment_provenance_bound",
+        "iteration_history_attested",
+        "run_directory_confined",
         "creator_concept_lock_required"
       ],
       "artifacts": [
         ".internal/loop-state.json",
         ".internal/evidence-manifest.json",
+        ".internal/iterations/<NN>/concept-routes.json",
+        ".internal/iterations/<NN>/verification.json",
+        ".internal/critic-inputs/<verifier-task-id>/<candidate-id>.json",
         "source-memory-brief.json",
         "concept-routes.json",
         "concept-debate.json",
@@ -95,6 +107,7 @@
         "taste-gate.json",
         "verification.json",
         "concept-selection.json",
+        "stop-evidence.json",
         "creator-brief.md"
       ]
     },

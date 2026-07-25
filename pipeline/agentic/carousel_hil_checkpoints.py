@@ -12,6 +12,7 @@ from typing import Any, Literal
 from pipeline.agentic.checks.final_assets import validate_publishable_final_assets
 from pipeline.agentic.carousel_state import CarouselState, derive_carousel_state
 from pipeline.agentic.workflow_doctor import WorkflowDoctorReport, WorkflowIssue, inspect_carousel_package
+from pipeline.stages.carousel_format_contract import validate_format_contract
 
 
 Stage = Literal["concept", "copy", "images", "publish"]
@@ -151,21 +152,21 @@ def _status(value: Any) -> str:
     return str(value or "").strip().lower()
 
 
-def _require_prior_approval(package_dir: Path, stage: Stage) -> list[WorkflowIssue]:
+def _require_all_prior_approvals(package_dir: Path, stage: Stage) -> list[WorkflowIssue]:
     index = STAGES.index(stage)
-    if index == 0:
-        return []
-    prior = STAGES[index - 1]
-    if approval_valid(package_dir, prior):
-        return []
-    return [
-        _issue(
-            f"creator_{prior}_approval_required",
-            f"The {stage} loop cannot start until the creator approves the current {prior} artifacts.",
-            evidence=[str(package_dir / HIL_DIR / APPROVALS_FILE)],
-            next_action=f"present_clean_{prior}_candidate_to_creator",
+    issues: list[WorkflowIssue] = []
+    for prior in STAGES[:index]:
+        if approval_valid(package_dir, prior):
+            continue
+        issues.append(
+            _issue(
+                f"creator_{prior}_approval_required",
+                f"The {stage} loop cannot start until the creator approves the current {prior} artifacts.",
+                evidence=[str(package_dir / HIL_DIR / APPROVALS_FILE)],
+                next_action=f"present_clean_{prior}_candidate_to_creator",
+            )
         )
-    ]
+    return issues
 
 
 def _required_file_issues(package_dir: Path, stage: Stage) -> list[WorkflowIssue]:
@@ -181,6 +182,21 @@ def _required_file_issues(package_dir: Path, stage: Stage) -> list[WorkflowIssue
                     next_action=f"maker_create_or_repair_{stage}_artifacts",
                 )
             )
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            payload = None
+        expected_types = (dict, list) if name == "slides.json" else (dict,)
+        if not isinstance(payload, expected_types) or not payload:
+            issues.append(
+                _issue(
+                    f"{stage}_artifact_invalid",
+                    f"{name} must contain valid, non-empty structured JSON before the {stage} checkpoint.",
+                    evidence=[str(path)],
+                    next_action=f"maker_create_or_repair_{stage}_artifacts",
+                )
+            )
     return issues
 
 
@@ -188,34 +204,33 @@ def _concept_issues(package_dir: Path) -> list[WorkflowIssue]:
     issues = _required_file_issues(package_dir, "concept")
     selection = _read_json(package_dir / "concept-selection.json")
     verification = _read_json(package_dir / "verification.json")
-    if selection and _status(selection.get("status")) not in {"ready_for_concept_lock", "go", "pass"}:
+    if _status(selection.get("status")) not in {"ready_for_concept_lock", "go", "pass"}:
         issues.append(_issue("concept_not_verified", "Concept selection is not ready for creator lock."))
-    if selection and _status(selection.get("creator_approval")) not in {"pending", ""}:
+    if _status(selection.get("creator_approval")) not in {"pending", ""}:
         issues.append(
             _issue(
                 "concept_embeds_creator_approval",
                 "Concept artifacts may not self-assert creator approval; approval belongs in the HIL ledger.",
             )
         )
-    if verification:
-        reviews = verification.get("reviews")
-        selector = verification.get("selector")
-        if not isinstance(reviews, list) or len(reviews) < 2:
-            issues.append(_issue("concept_independent_reviews_missing", "Concept requires two independent verifier reviews."))
-        task_ids = {
-            str(review.get("critic_task_id") or review.get("reviewer_task_id") or "")
-            for review in reviews or []
-            if isinstance(review, dict)
-        }
-        if "" in task_ids or len(task_ids) < 2:
-            issues.append(_issue("concept_review_independence_failed", "Concept verifier task IDs must be present and distinct."))
-        if not isinstance(selector, dict) or _status(selector.get("verdict")) != "pass":
-            issues.append(_issue("concept_selector_not_passed", "Fresh concept selector must return PASS."))
+    reviews = verification.get("reviews")
+    selector = verification.get("selector")
+    if not isinstance(reviews, list) or len(reviews) < 2:
+        issues.append(_issue("concept_independent_reviews_missing", "Concept requires two independent verifier reviews."))
+    task_ids = {
+        str(review.get("critic_task_id") or review.get("reviewer_task_id") or "")
+        for review in reviews or []
+        if isinstance(review, dict)
+    }
+    if "" in task_ids or len(task_ids) < 2:
+        issues.append(_issue("concept_review_independence_failed", "Concept verifier task IDs must be present and distinct."))
+    if not isinstance(selector, dict) or _status(selector.get("verdict")) != "pass":
+        issues.append(_issue("concept_selector_not_passed", "Fresh concept selector must return PASS."))
     return issues
 
 
 def _copy_issues(package_dir: Path) -> list[WorkflowIssue]:
-    issues = _require_prior_approval(package_dir, "copy") + _required_file_issues(package_dir, "copy")
+    issues = _require_all_prior_approvals(package_dir, "copy") + _required_file_issues(package_dir, "copy")
     slides_path = package_dir / "slides.json"
     if slides_path.exists():
         try:
@@ -223,49 +238,64 @@ def _copy_issues(package_dir: Path) -> list[WorkflowIssue]:
         except (json.JSONDecodeError, OSError):
             payload = []
         slides = payload if isinstance(payload, list) else payload.get("slides", []) if isinstance(payload, dict) else []
-        if not slides or any(not str(item.get("copy") or item.get("text") or "").strip() for item in slides if isinstance(item, dict)):
+        if not slides or any(
+            not isinstance(item, dict) or not str(item.get("copy") or item.get("text") or "").strip()
+            for item in slides
+        ):
             issues.append(_issue("copy_slides_incomplete", "Every slide must contain locked non-empty copy."))
     review = _read_json(package_dir / "copy-verification.json")
-    if review:
-        if _status(review.get("status")) != "pass":
-            issues.append(_issue("copy_verifier_not_passed", "Copy verifier must return PASS."))
-        maker_id = str(review.get("maker_run_id") or "").strip()
-        verifier_id = str(review.get("verifier_run_id") or "").strip()
-        if not maker_id or not verifier_id or maker_id == verifier_id:
-            issues.append(_issue("copy_review_independence_failed", "Copy maker and verifier run IDs must be present and distinct."))
-        checks = review.get("checks") if isinstance(review.get("checks"), dict) else {}
-        for check in COPY_CHECKS:
-            item = checks.get(check)
-            if not isinstance(item, dict) or item.get("pass") is not True or len(str(item.get("evidence") or "")) < 20:
-                issues.append(_issue(f"copy_check_{check}_failed", f"Copy verification requires concrete PASS evidence for {check}."))
+    if _status(review.get("status")) != "pass":
+        issues.append(_issue("copy_verifier_not_passed", "Copy verifier must return PASS."))
+    maker_id = str(review.get("maker_run_id") or "").strip()
+    verifier_id = str(review.get("verifier_run_id") or "").strip()
+    if not maker_id or not verifier_id or maker_id == verifier_id:
+        issues.append(_issue("copy_review_independence_failed", "Copy maker and verifier run IDs must be present and distinct."))
+    checks = review.get("checks") if isinstance(review.get("checks"), dict) else {}
+    for check in COPY_CHECKS:
+        item = checks.get(check)
+        if not isinstance(item, dict) or item.get("pass") is not True or len(str(item.get("evidence") or "")) < 20:
+            issues.append(_issue(f"copy_check_{check}_failed", f"Copy verification requires concrete PASS evidence for {check}."))
+    try:
+        validate_format_contract(_read_json(package_dir / "format-contract.json"))
+    except ValueError as exc:
+        issues.append(_issue("copy_format_contract_invalid", str(exc)))
     return issues
 
 
 def _images_issues(package_dir: Path) -> list[WorkflowIssue]:
-    issues = _require_prior_approval(package_dir, "images") + _required_file_issues(package_dir, "images")
-    assets = validate_publishable_final_assets(package_dir)
-    for item in assets.issues:
-        issues.append(_issue(item.code, item.reason, evidence=[str(package_dir / item.path)]))
+    issues = _require_all_prior_approvals(package_dir, "images") + _required_file_issues(package_dir, "images")
+    try:
+        assets = validate_publishable_final_assets(package_dir)
+    except (OSError, TypeError, ValueError) as exc:
+        issues.append(
+            _issue(
+                "image_asset_validation_failed",
+                f"Final asset validation could not run safely: {exc}",
+                evidence=[str(package_dir / "format-contract.json")],
+            )
+        )
+    else:
+        for item in assets.issues:
+            issues.append(_issue(item.code, item.reason, evidence=[str(package_dir / item.path)]))
     identity = _read_json(package_dir / "identity-consistency-review.json")
-    if identity and _status(identity.get("status") or identity.get("verdict")) != "pass":
+    if _status(identity.get("status") or identity.get("verdict")) != "pass":
         issues.append(_issue("image_identity_not_passed", "Image checkpoint requires passing structured identity review."))
     qa = _read_json(package_dir / "visual-qa.json")
-    if qa:
-        if _status(qa.get("status") or qa.get("verdict")) != "pass":
-            issues.append(_issue("image_visual_qa_not_passed", "Every final image must pass structured visual QA."))
-        try:
-            schema = tuple(int(part) for part in str(qa.get("schema_version") or "0.0").split(".")[:2])
-        except ValueError:
-            schema = (0, 0)
-        if schema < (2, 1):
-            issues.append(_issue("image_visual_qa_schema_stale", "Image checkpoint requires visual-qa schema 2.1 or newer."))
+    if _status(qa.get("status") or qa.get("verdict")) != "pass":
+        issues.append(_issue("image_visual_qa_not_passed", "Every final image must pass structured visual QA."))
+    try:
+        schema = tuple(int(part) for part in str(qa.get("schema_version") or "0.0").split(".")[:2])
+    except ValueError:
+        schema = (0, 0)
+    if schema < (2, 1):
+        issues.append(_issue("image_visual_qa_schema_stale", "Image checkpoint requires visual-qa schema 2.1 or newer."))
     return issues
 
 
 def _publish_issues(package_dir: Path) -> list[WorkflowIssue]:
-    issues = _require_prior_approval(package_dir, "publish") + _required_file_issues(package_dir, "publish")
+    issues = _require_all_prior_approvals(package_dir, "publish") + _required_file_issues(package_dir, "publish")
     audit = _read_json(package_dir / "final-audit.json")
-    if audit and audit.get("pass") is not True and _status(audit.get("status")) not in {"pass", "pass_with_notes"}:
+    if audit.get("pass") is not True and _status(audit.get("status")) not in {"pass", "pass_with_notes"}:
         issues.append(_issue("final_audit_not_passed", "Publish checkpoint requires a passing final audit."))
     report = inspect_carousel_package(package_dir)
     issues.extend(issue for issue in report.issues if issue.severity in {"warning", "blocker"})
@@ -359,6 +389,13 @@ def record_creator_decision(
         raise ValueError(f"No verified {stage} candidate is awaiting creator approval.")
     if candidate.get("artifact_fingerprint") != fingerprint:
         raise ValueError(f"The {stage} candidate changed after verification; rerun its loop before deciding.")
+    if decision == "APPROVE":
+        expected_stage = next_unapproved_stage(package_dir)
+        if expected_stage != stage:
+            expected = expected_stage or "no stage"
+            raise ValueError(
+                f"The {stage} checkpoint cannot be approved while the current checkpoint is {expected}."
+            )
     report = inspect_stage(package_dir, stage)
     if report.issues:
         codes = ", ".join(sorted({issue.code for issue in report.issues}))

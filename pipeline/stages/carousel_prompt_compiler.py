@@ -5,6 +5,8 @@ from typing import Any
 
 from pipeline.stages.carousel_master_prompt import build_generation_master_prompt
 from pipeline.stages.carousel_visual_integrity import (
+    action_topology_prompt,
+    build_action_topology_contract,
     build_hand_ownership_map,
     build_spatial_topology_contract,
     build_visual_richness_contract,
@@ -98,6 +100,7 @@ def compile_image_prompt(
     background: str | None = None,
     emotion: str | None = None,
     hand_map: dict[str, Any] | None = None,
+    action_topology: dict[str, Any] | None = None,
     spatial_topology: dict[str, Any] | None = None,
     visual_richness: dict[str, Any] | None = None,
 ) -> str:
@@ -106,6 +109,15 @@ def compile_image_prompt(
 
     scene = clean_text(visual)
     hand_contract = hand_map or build_hand_ownership_map(scene)
+    action_contract = action_topology or build_action_topology_contract(
+        scene, clean_slide_copy(slide_copy)
+    )
+    action_issues = action_contract.get("issues") if isinstance(action_contract, dict) else []
+    if action_issues:
+        raise ValueError(
+            "Action chronology/topology is unresolved: "
+            + "; ".join(str(item) for item in action_issues)
+        )
     topology_contract = spatial_topology or build_spatial_topology_contract(scene)
     richness_contract = visual_richness or build_visual_richness_contract(scene)
     pose_text = clean_text(
@@ -117,6 +129,9 @@ def compile_image_prompt(
         )
     )
     pose_text += "\n\n" + hand_ownership_prompt(hand_contract)
+    action_prompt = action_topology_prompt(action_contract)
+    if action_prompt:
+        pose_text += "\n\n" + action_prompt
     pose_text += "\n\n" + spatial_topology_prompt(topology_contract)
     background_text = clean_text(
         background

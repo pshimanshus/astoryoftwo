@@ -140,6 +140,10 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
     )
     is_subtitle_language = "subtitles" in text or ("kuch nahi" in text and "translation" in text)
     is_first_date_trip = "first date" in text and "ladakh" in text
+    is_failed_plan_mature_repair = (
+        any(token in text for token in ["wrong turn", "reservation", "roadside chai", "roadside tea"])
+        and any(token in text for token in ["minute without", "without creating distance", "give her a minute"])
+    )
     relationship_terms = [
         "aachu",
         "zuv",
@@ -157,7 +161,123 @@ def generate_exploration_routes(story: str, influences: list[ProcessInfluence]) 
         not any(term in text for term in relationship_terms)
         and any(term in text for term in aesthetic_terms)
     )
-    if is_enough_love:
+    if is_failed_plan_mature_repair:
+        routes = [
+            StoryRoute(
+                name="Give Me A Minute, Not Distance",
+                story_lens=(
+                    "Mature love does not remove childish irritation; it notices the need beneath it, "
+                    "respects the pause, and still finds a small way back to play."
+                ),
+                reader_mirror=(
+                    "Couples who have turned one tiny plan failure into a whole fight will recognize "
+                    "themselves and think: this is us."
+                ),
+                emotional_obstacle=(
+                    "Traffic, wrong turns, and accumulated missed time create pressure: either the "
+                    "irritation becomes distance, or one partner stays near without crowding."
+                ),
+                aachu_specific_spark=(
+                    "Aachu moves from playful key accusation to honest irritation, then turns a failed "
+                    "restaurant plan into a roadside chai date and returns to share the lock-check habit."
+                ),
+                zuv_active_role=(
+                    "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, "
+                    "and lets the roadside chai pivot become mutual rather than managerial."
+                ),
+                proof_engine=(
+                    "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause "
+                    "without distance -> shared chai -> both return a hand to the closed-door lock"
+                ),
+                emotional_reversal=(
+                    "The failed plan stops looking like a ruined date once the pause, shared chai, and "
+                    "returned hand reveal that ordinary time together was what both people wanted."
+                ),
+                payoff=(
+                    "He still checked the lock twice; she still rolled her eyes; then she went back "
+                    "and checked it with him."
+                ),
+                distribution_reason=(
+                    "Send this to the partner who will say this is us: the plan can fail, the mood can "
+                    "dip, and we can still find our way back to each other."
+                ),
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The Date Did Not Fail",
+                story_lens=(
+                    "A reservation is logistics; the date survives when both people choose the same "
+                    "small improvised moment."
+                ),
+                reader_mirror=(
+                    "Partners who remember the accidental chai more fondly than the planned dinner "
+                    "have an immediate this-is-us doorway."
+                ),
+                emotional_obstacle=(
+                    "The pressure of a missed plan can turn disappointment into blame unless the "
+                    "couple sees the missed ordinary time beneath it."
+                ),
+                aachu_specific_spark=(
+                    "Aachu points toward the chai stall, steals his glass, and lets play return without "
+                    "pretending the irritation never happened."
+                ),
+                zuv_active_role=(
+                    "Zuv stays during the pause, lowers the map, follows the chai pivot, and protects "
+                    "the biscuit packet with mock seriousness."
+                ),
+                proof_engine=(
+                    "restaurant visible across traffic -> phone map lowered -> two stools pulled close "
+                    "-> Aachu takes his chai -> Zuv clutches the biscuit packet"
+                ),
+                emotional_reversal=(
+                    "What looked like a ruined evening becomes the date they needed because neither "
+                    "person insists that love must follow the original plan."
+                ),
+                payoff="The plan failed. The date did not.",
+                distribution_reason=(
+                    "Send this to your partner when your best dates are the ones the two of you "
+                    "accidentally rescued together."
+                ),
+                process_influence_ids=[item.id for item in influences],
+            ),
+            StoryRoute(
+                name="The Habit She Teased",
+                story_lens=(
+                    "Affection appears in the tiny habit one partner teases and quietly shares."
+                ),
+                reader_mirror=(
+                    "Couples with one repeated leaving-the-house ritual will recognize the eye-roll "
+                    "and the secret participation."
+                ),
+                emotional_obstacle=(
+                    "The callback risks reading like a generic domestic joke unless the earlier key, "
+                    "car, umbrella, and departure path make the shared habit specific."
+                ),
+                aachu_specific_spark=(
+                    "Aachu rolls her eyes, visibly turns back from the lift, and adds her hand to the "
+                    "same closed-door check."
+                ),
+                zuv_active_role=(
+                    "Zuv checks the exterior handle, keeps the car key in his other hand, and receives "
+                    "her return with amused recognition."
+                ),
+                proof_engine=(
+                    "closed exterior door -> Zuv tests handle -> car key stays in free hand -> "
+                    "Aachu turns back from lift -> both hands meet at the lock"
+                ),
+                emotional_reversal=(
+                    "The annoying habit becomes a love receipt when the person teasing it returns and "
+                    "does the same thing beside their partner."
+                ),
+                payoff="She went back and checked it with him.",
+                distribution_reason=(
+                    "Send this to the partner whose habit you tease, share, and would miss if it "
+                    "disappeared."
+                ),
+                process_influence_ids=[item.id for item in influences],
+            ),
+        ]
+    elif is_enough_love:
         routes = [
             StoryRoute(
                 name="I Have No Car, I'll Walk",

@@ -1,11 +1,11 @@
 # Final Approval Checklist
 
-Status: draft_review
+Status: repair_required
 Score: 32 / 40
 Story-Selling: 18.0 / 30
 Story-Selling Gate: REPAIR
 Story Director Gate: REPAIR
-Pass: True
+Pass: False
 
 ## Before Posting
 
@@ -27,4 +27,6 @@ Pass: True
 
 ## Required Changes
 
-- [ ] No required changes listed by reviewer.
+- [ ] Story-Selling gate must pass at 28/30 or higher with no hard fails.
+- [ ] Story Director gate must pass before image generation.
+- [ ] Successful carousel standard must pass before image generation.

@@ -21,7 +21,7 @@
       "evidence": {
         "manifest": [
           {
-            "path": "config/references/identity/aachu/face-05.png",
+            "path": "config/references/identity/aachu/reel-jaldi.jpg",
             "role": "Aachu/Zuv face consistency reference"
           },
           {
@@ -33,29 +33,29 @@
             "role": "Aachu/Zuv face consistency reference"
           },
           {
-            "path": "config/references/identity/together/together-21.jpg",
+            "path": "config/references/identity/aachu/face-04.png",
             "role": "Aachu/Zuv face consistency reference"
           }
         ],
         "prompt_pack": [
-          "config/references/identity/aachu/face-05.png",
-          "config/references/identity/zuv/portrait-07.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg"
+          "config/references/identity/zuv/portrait-07.jpg"
         ]
       }
     },
     "REQ-IDENTITY-DOSSIER-001": {
       "pass": true,
       "evidence": {
-        "dossier": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-dossier.json",
-        "preflight": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-generation-preflight.md",
-        "contact_sheet": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
+        "dossier": "output/carousels/2026-07-21/not-married-yet-already-us/identity-dossier.json",
+        "preflight": "output/carousels/2026-07-21/not-married-yet-already-us/identity-generation-preflight.md",
+        "contact_sheet": "output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
         "prompt_refs": [
-          "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
-          "config/references/identity/aachu/face-05.png",
+          "output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg",
           "config/references/identity/zuv/portrait-07.jpg"
         ]
       }
@@ -63,7 +63,7 @@
     "REQ-IDENTITY-CONSISTENCY-001": {
       "pass": true,
       "evidence": {
-        "identity_review": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-consistency-review.json",
+        "identity_review": "output/carousels/2026-07-21/not-married-yet-already-us/identity-consistency-review.json",
         "status": "PASS",
         "issues": []
       }
@@ -71,17 +71,17 @@
     "REQ-POST-COPY-VISUAL-ROOM-001": {
       "pass": true,
       "evidence": {
-        "path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/post-copy-visual-room.json",
+        "path": "output/carousels/2026-07-21/not-married-yet-already-us/post-copy-visual-room.json",
         "status": "GO",
         "decision": "GO",
-        "selected_visual_system": "Slide-Led Evidence Plan",
+        "selected_visual_system": "Wordless Habit Relay + Broken-Key Continuity",
         "issues": []
       }
     },
     "REQ-VISUAL-PLAN-QUALITY-001": {
       "pass": true,
       "evidence": {
-        "path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/visual-plan-quality.json",
+        "path": "output/carousels/2026-07-21/not-married-yet-already-us/visual-plan-quality.json",
         "status": "PASS",
         "decision": "GO",
         "issues": []
@@ -92,11 +92,11 @@
       "evidence": "requested=11, slides=11, prompts=11"
     },
     "REQ-SUCCESS-STANDARD-001": {
-      "pass": false,
+      "pass": true,
       "evidence": {
         "source": "wiki/insights/successful-carousel-standard.md",
-        "status": "REPAIR",
-        "pass": false,
+        "status": "PASS",
+        "pass": true,
         "agent_alignment": {
           "status": "MISSING",
           "instruction": "Record how concept, copy, visual, prompt, and QA choices serve the success goals."
@@ -109,7 +109,7 @@
             "pass": true
           },
           "story_selling_threshold": {
-            "pass": false
+            "pass": true
           },
           "prompt_goal_alignment": {
             "pass": true
@@ -118,31 +118,22 @@
             "pass": true
           }
         },
-        "issues": [
-          "Story-Selling score is below 28/30."
-        ]
+        "issues": []
       }
     },
     "REQ-FINAL-IMAGES-001": {
       "pass": false,
       "evidence": {
         "files": [],
-        "manifest": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final-images.json",
-        "status": "draft",
+        "manifest": "output/carousels/2026-07-21/not-married-yet-already-us/final-images.json",
+        "status": "GENERATED_QUARANTINED",
         "issues": [
-          "Missing final images: /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png",
-          "final-images.json status is 'draft', expected 'packaged', 'generated', or internal pre-promotion 'BATCH_ALLOWED'.",
-          "Slide 1 native_outputs missing required format(s): instagram_post",
-          "Slide 2 native_outputs missing required format(s): instagram_post",
-          "Slide 3 native_outputs missing required format(s): instagram_post",
-          "Slide 4 native_outputs missing required format(s): instagram_post",
-          "Slide 5 native_outputs missing required format(s): instagram_post",
-          "Slide 6 native_outputs missing required format(s): instagram_post",
-          "Slide 7 native_outputs missing required format(s): instagram_post",
-          "Slide 8 native_outputs missing required format(s): instagram_post",
-          "Slide 9 native_outputs missing required format(s): instagram_post",
-          "Slide 10 native_outputs missing required format(s): instagram_post",
-          "Slide 11 native_outputs missing required format(s): instagram_post"
+          "Missing final images: output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png",
+          "final-images.json status is 'GENERATED_QUARANTINED', expected 'packaged', 'generated', or internal pre-promotion 'BATCH_ALLOWED'.",
+          "final-images.json has 1 slide records, expected 11.",
+          "Slide 9 instagram_post native source provenance is missing.",
+          "Slide 9 instagram_post native output file must be output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png.",
+          "Missing instagram_post final image: output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png."
         ]
       }
     },
@@ -150,55 +141,84 @@
       "pass": false,
       "evidence": {
         "files": [],
-        "manifest": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final-images.json",
-        "generation_mode": "not_generated",
+        "manifest": "output/carousels/2026-07-21/not-married-yet-already-us/final-images.json",
+        "generation_mode": "model_native_publishable",
         "issues": [
-          "Missing publishable final slides: /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png",
-          "final-images.json backend must be codex_builtin or model_art_local_text for Instagram-grade final art.",
-          "final-images.json generation_mode must be one of: model_art_local_text_publishable, model_native_publishable",
-          "Slide 1 backend is not an approved final-art backend.",
-          "Slide 1 is not marked as a publishable final generation mode.",
-          "Slide 1 is missing source prompt provenance.",
-          "Slide 2 backend is not an approved final-art backend.",
-          "Slide 2 is not marked as a publishable final generation mode.",
-          "Slide 2 is missing source prompt provenance.",
-          "Slide 3 backend is not an approved final-art backend.",
-          "Slide 3 is not marked as a publishable final generation mode.",
-          "Slide 3 is missing source prompt provenance.",
-          "Slide 4 backend is not an approved final-art backend.",
-          "Slide 4 is not marked as a publishable final generation mode.",
-          "Slide 4 is missing source prompt provenance.",
-          "Slide 5 backend is not an approved final-art backend.",
-          "Slide 5 is not marked as a publishable final generation mode.",
-          "Slide 5 is missing source prompt provenance.",
-          "Slide 6 backend is not an approved final-art backend.",
-          "Slide 6 is not marked as a publishable final generation mode.",
-          "Slide 6 is missing source prompt provenance.",
-          "Slide 7 backend is not an approved final-art backend.",
-          "Slide 7 is not marked as a publishable final generation mode.",
-          "Slide 7 is missing source prompt provenance.",
-          "Slide 8 backend is not an approved final-art backend.",
-          "Slide 8 is not marked as a publishable final generation mode.",
-          "Slide 8 is missing source prompt provenance.",
+          "Missing publishable final slides: output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png",
+          "final-images.json has 1 slide records, expected 11.",
           "Slide 9 backend is not an approved final-art backend.",
           "Slide 9 is not marked as a publishable final generation mode.",
-          "Slide 9 is missing source prompt provenance.",
-          "Slide 10 backend is not an approved final-art backend.",
-          "Slide 10 is not marked as a publishable final generation mode.",
-          "Slide 10 is missing source prompt provenance.",
-          "Slide 11 backend is not an approved final-art backend.",
-          "Slide 11 is not marked as a publishable final generation mode.",
-          "Slide 11 is missing source prompt provenance."
+          "Slide 9 is missing source prompt provenance."
         ]
       }
     },
     "REQ-VISUAL-QA-001": {
       "pass": false,
       "evidence": {
-        "visual_qa": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/visual-qa.md",
-        "structured_visual_qa": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/visual-qa.json",
+        "visual_qa": "output/carousels/2026-07-21/not-married-yet-already-us/visual-qa.md",
+        "structured_visual_qa": "output/carousels/2026-07-21/not-married-yet-already-us/visual-qa.json",
         "failed": [
-          "visual-qa.json is missing; visual-qa.md is only a review worksheet."
+          "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state.",
+          "visual-qa.json status must be PASS.",
+          "visual-qa.json missing required checks: dress_continuity, final_files, scene_logic, storyboard",
+          "visual-qa.json check failed: anatomy_inventory",
+          "visual-qa.json check failed: scene_entity_integrity",
+          "visual-qa.json check failed: visual_richness",
+          "visual-qa.json check failed: aachu_face",
+          "visual-qa.json check failed: zuv_face",
+          "visual-qa.json check failed: visual_story_readability",
+          "visual-qa.json anatomy_inventory has 1 slide records, expected 11.",
+          "visual-qa.json anatomy_inventory is missing slide records: 1, 2, 3, 4, 5, 6, 7, 8, 10, 11",
+          "visual-qa.json anatomy_inventory slide 9 has invalid expected_arms.",
+          "visual-qa.json anatomy_inventory slide 9 has invalid observed_arms.",
+          "visual-qa.json anatomy_inventory slide 9 has invalid expected_hands.",
+          "visual-qa.json anatomy_inventory slide 9 has invalid observed_hands.",
+          "visual-qa.json anatomy_inventory slide 9 must list every visible hand.",
+          "visual-qa.json anatomy_inventory slide 9 must include unexpected_limbs as a list.",
+          "visual-qa.json anatomy_inventory slide 9 must include duplicated_limbs as a list.",
+          "visual-qa.json anatomy_inventory slide 9 has malformed fingers: None.",
+          "visual-qa.json spatial_topology has 1 slide records, expected 11.",
+          "visual-qa.json spatial_topology is missing slide records: 1, 2, 3, 4, 5, 6, 7, 8, 10, 11",
+          "visual-qa.json visual_richness has 1 slide records, expected 11.",
+          "visual-qa.json visual_richness is missing slide records: 1, 2, 3, 4, 5, 6, 7, 8, 10, 11",
+          "visual-qa.json visual_richness slide 9 needs concrete foreground evidence.",
+          "visual-qa.json visual_richness slide 9 needs concrete midground evidence.",
+          "visual-qa.json visual_richness slide 9 needs concrete background evidence.",
+          "visual-qa.json visual_richness slide 9 needs concrete focal_action evidence.",
+          "visual-qa.json visual_richness slide 9 needs concrete cause_effect evidence.",
+          "visual-qa.json visual_richness slide 9 must include 2-4 story_details.",
+          "visual-qa.json visual_richness slide 9 must set posed_portrait to false.",
+          "visual-qa.json visual_richness slide 9 must set decorative_clutter to false.",
+          "visual-qa.json anatomy_inventory source assets have 1 records, expected 11.",
+          "visual-qa.json anatomy_inventory slide 1 source_asset must be an object.",
+          "visual-qa.json source_asset bindings are missing slide records: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11",
+          "visual-qa.json reviews.anatomy_entity_spatial_identity must pass.",
+          "visual-qa.json reviews.storytelling_richness_text_style must pass.",
+          "visual-qa.json scene_entity_integrity has 1 slide records, expected 11.",
+          "visual-qa.json scene_entity_integrity slide 9 has invalid expected_people.",
+          "visual-qa.json scene_entity_integrity slide 9 has invalid observed_people.",
+          "visual-qa.json scene_entity_integrity slide 9 has invalid expected_arms.",
+          "visual-qa.json scene_entity_integrity slide 9 has invalid observed_arms.",
+          "visual-qa.json scene_entity_integrity slide 9 has invalid expected_hands.",
+          "visual-qa.json scene_entity_integrity slide 9 has invalid observed_hands.",
+          "visual-qa.json scene_entity_integrity slide 9 must include unexpected_limbs as a list.",
+          "visual-qa.json scene_entity_integrity slide 9 must include duplicated_limbs as a list.",
+          "visual-qa.json scene_entity_integrity slide 9 must include unexpected_entities as a list.",
+          "visual-qa.json scene_entity_integrity slide 9 needs concrete visual evidence.",
+          "visual-qa.json scene_entity_integrity is missing slide records: 1, 2, 3, 4, 5, 6, 7, 8, 10, 11",
+          "visual-qa.json visual_story_readability must be PASS with pass true.",
+          "visual-qa.json visual_story_readability.frames[9:instagram_post].status must be PASS.",
+          "visual-qa.json visual_story_readability.frames[9:instagram_post].core_action_legible must be true.",
+          "visual-qa.json visual_story_readability.frames[9:instagram_post].relationship_turn_legible must be true.",
+          "visual-qa.json visual_story_readability.frames[9:instagram_post].hands_gaze_prop_legible must be true.",
+          "visual-qa.json visual_story_readability.frames[9:instagram_post].storyboard_match must be true.",
+          "visual-qa.json visual_story_readability.frames[9:instagram_post].unexpected_story must be empty before PASS.",
+        "visual-qa.json visual_story_readability.frames[9:instagram_post].file does not exist: final/slide-09.png.",
+          "visual-qa.json visual_story_readability.frames missing required records: 1:instagram_post, 2:instagram_post, 3:instagram_post, 4:instagram_post, 5:instagram_post, 6:instagram_post, 7:instagram_post, 8:instagram_post, 10:instagram_post, 11:instagram_post.",
+          "visual-qa.json visual_story_readability.frames has 1 records, expected 11.",
+          "visual-qa.json visual_story_readability declares unresolved issues while claiming PASS.",
+          "visual-qa.json visual_story_readability.review_provenance.input_fingerprint is stale for the exact review input.",
+          "visual-qa.json visual_story_readability.review_provenance.output_fingerprint is stale for the structured review/reconciliation output."
         ],
         "unchecked_face_or_storyboard_items": [
           "- [ ] Slide 1 final image matches slide 1 storyboard: We’re not married yet.",
@@ -242,7 +262,7 @@
     },
     "REQ-NEGATIVE-001": {
       "pass": true,
-      "evidence": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels."
+      "evidence": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels. No wedding or engagement imagery, no rings, no bangles, no ceremonial clothing, no kiss pose, no staged couple portrait, no copied carousel dots or UI, no copied background vehicles, no copied style-reference text, and no copied style-reference brandmark."
     },
     "REQ-OUTPUT-001": {
       "pass": true,
@@ -307,13 +327,11 @@
     "visual_qa": "visual-qa.md"
   },
   "issues": [
-    "REQ-SUCCESS-STANDARD-001: Successful carousel standard is carried as open agent alignment and passes before final approval",
     "REQ-FINAL-IMAGES-001: Final generated carousel images are packaged independently for every request-locked native format, not local placeholders",
     "REQ-INTEGRATED-FINAL-TEXT-001: Final slides include exact integrated copy and brandmark in every current-request format locked by format-contract.json",
     "REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence",
-    "visual_reviewer: Slide 1 missing: cta_intent.; Slide 2 missing: cta_intent.; Slide 3 missing: cta_intent.; Slide 4 missing: cta_intent.; Slide 5 missing: cta_intent.; Slide 6 missing: cta_intent.; Slide 7 missing: cta_intent.; Slide 8 missing: cta_intent.; Slide 9 missing: cta_intent.; Slide 10 missing: cta_intent.; Slide 11 missing: cta_intent.; visual-plan-quality.json missing structured director_storyboard evidence.",
-    "success_standard_reviewer: Story-Selling score is below 28/30.",
-    "asset_reviewer: Missing final generated images: /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, /tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png"
+    "visual_reviewer: Slide 1 missing: cta_intent.; Slide 2 missing: cta_intent.; Slide 3 missing: cta_intent.; Slide 4 missing: cta_intent.; Slide 5 missing: cta_intent.; Slide 6 missing: cta_intent.; Slide 7 missing: cta_intent.; Slide 8 missing: cta_intent.; Slide 9 missing: cta_intent.; Slide 10 missing: cta_intent.; Slide 11 missing: cta_intent.",
+    "asset_reviewer: Missing final generated images: output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png"
   ],
   "notes": [
     "No story photos supplied; identity references and the creative brief are the source of truth.",

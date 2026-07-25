@@ -11,6 +11,10 @@ forensic/competitor snapshots. Extract transferable mechanics and open
 opportunity lanes; never copy source wording, scenes, likenesses, or private
 details.
 
+Treat `corpus/posts/` and `corpus/reels/` records as owned-account signals.
+Treat generated `output/concepts/` and `output/carousels/` records only as
+collision/history checks, never as performance evidence or source truth.
+
 Return a compact JSON-compatible discovery brief with:
 - evidence paths and freshness limits;
 - recent/rejected/cooled lanes that must not be resurfaced as fresh;

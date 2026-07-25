@@ -1,17 +1,17 @@
-# Codex Built-In Image Prompt - Slide 01 - Instagram post
+# Codex Built-In Image Prompt - Slide 09 - Instagram post
 
 Use the Codex built-in image generator. Do not use external API keys or external image API clients.
 
 ## How To Use This File
 
 - This markdown file is the Codex handoff/checklist, not the exact text to paste into the image model.
-- Paste the full prompt from `slide-01.prompt.txt` into the image generator.
-- Prompt file path: `output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/codex-image-prompts/instagram-post/slide-01.prompt.txt`.
+- Paste the full prompt from `slide-09.prompt.txt` into the image generator.
+- Prompt file path: `output/carousels/2026-07-21/not-married-yet-already-us/codex-image-prompts/instagram-post/slide-09.prompt.txt`.
 - After generation, package the returned image with `scripts/package_generated_carousel.py` or the proof-specific workflow.
 
 ## Prompt Source
 
-Paste the full prompt from `slide-01.prompt.txt`. This markdown file intentionally does not duplicate the prompt body, so `.prompt.txt` remains the only generation prompt source.
+Paste the full prompt from `slide-09.prompt.txt`. This markdown file intentionally does not duplicate the prompt body, so `.prompt.txt` remains the only generation prompt source.
 
 ## Native Output Contract
 
@@ -19,7 +19,7 @@ Paste the full prompt from `slide-01.prompt.txt`. This markdown file intentional
 - Required generated source size: 1440x1920 px (mandatory; generate this source size, not just this ratio)
 - Required final upload/export size: 1080x1440 px
 - Required aspect ratio: 3:4
-- Required final file: `output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/final/slide-01.png`
+- Required final file: `output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png`
 - Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another.
 - Generate this format as its own artwork. Do not create it by resizing another social format.
 
@@ -35,35 +35,29 @@ Paste the full prompt from `slide-01.prompt.txt`. This markdown file intentional
 
 ## Identity Dossier
 
-- Dossier: output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/identity-dossier.json
-- Preflight: output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/identity-generation-preflight.md
+- Dossier: output/carousels/2026-07-21/not-married-yet-already-us/identity-dossier.json
+- Preflight: output/carousels/2026-07-21/not-married-yet-already-us/identity-generation-preflight.md
 
 ## Actual Image Inputs
 
-- output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/identity-face-contact-sheet.jpg
+- output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg
 - config/references/identity/aachu/face-04.png
+- config/references/identity/aachu/reel-jaldi.jpg
 - config/references/identity/together/together-18.jpg
-- config/references/identity/together/together-21.jpg
 - config/references/identity/zuv/portrait-07.jpg
-- config/references/identity/together/together-18.jpg
-- config/references/identity/together/together-21.jpg
 - config/references/identity/aachu/face-04.png
+- config/references/identity/aachu/reel-jaldi.jpg
+- config/references/identity/together/together-18.jpg
 - config/references/identity/zuv/portrait-07.jpg
-- config/references/style-lock/observational-intimacy-premium/slide-01.png
 - config/references/style-lock/observational-intimacy-premium/slide-03.png
-- config/references/style-lock/observational-intimacy-premium/slide-08.png
-- config/references/style-lock/observational-intimacy-premium/slide-02.png
 - config/references/style-lock/observational-intimacy-premium/slide-04.png
-- config/references/style-lock/observational-intimacy-premium/slide-05.png
-- config/references/style-lock/observational-intimacy-premium/slide-06.png
-- config/references/style-lock/observational-intimacy-premium/slide-07.png
+- config/references/style-lock/observational-intimacy-premium/slide-08.png
 
 ## Exact Slide Copy
 
-This is the kind of love
-I want us to grow into.
+“Tum theek ho?” apni jagah.
 
 ## Expected Output
 
-- Save packaged final to `output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/final/slide-01.png`.
-- Source provenance should point to the Codex generated image copied into `output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/final/model-native-source/instagram-post-slide-01.png`.
+- Save packaged final to `output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png`.
+- Source provenance should point to the Codex generated image copied into `output/carousels/2026-07-21/not-married-yet-already-us/final/model-native-source/instagram-post-slide-09.png`.

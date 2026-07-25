@@ -1,6 +1,6 @@
 ---
 name: a-story-instagram-idea-loop
-description: Discover, generate, independently verify, repair, and select one fresh evidence-backed Instagram idea for @a.storyof.two. Use for "find today's idea", "come up with an Instagram idea", autonomous or repeated idea discovery, idea-agent loops, daily ideation, or requests based on loop engineering; stop at creator concept lock and hand accepted routes to a-story-carousel-jam.
+description: Run an opt-in, evidence-heavy, multi-agent loop to discover, challenge, repair, and select one fresh Instagram concept for @a.storyof.two. Use when the creator explicitly asks for an idea-agent loop, loop engineering, autonomous/repeated ideation, a deep independently verified search, or the strongest evidence-backed bet; ordinary lightweight idea requests stay with a-story-carousel-jam.
 ---
 
 # A Story Instagram Idea Loop
@@ -11,6 +11,8 @@ Run a bounded maker/checker loop upstream of carousel production. Return one
 strongest current Instagram bet for creator concept lock, or stop honestly when
 no route clears the bar. Never promise performance, auto-approve the concept,
 write public copy, generate images, publish, or silently change durable memory.
+This is the slower deep-search path, not the default response to a small creative
+ask.
 
 This workflow adapts Addy Osmani's Loop Engineering pattern:
 https://addyosmani.com/blog/loop-engineering/
@@ -29,6 +31,9 @@ https://addyosmani.com/blog/loop-engineering/
 
 Use the live `memory/semantic/carousel-idea-preferences.md` ledger directly for
 rejected and cooled lanes; do not rely on a truncated summary.
+Native live web search is disabled until the controller can persist and verify
+a URL/date/source ledger. Use the captured repo evidence manifest; never smuggle
+ephemeral search claims into a passing route.
 
 ## Roles
 
@@ -57,6 +62,9 @@ is tight. Do not let a subagent spawn another subagent.
    - assign different lanes such as lived private recognition, desi/cultural
      specificity, visual comedy-to-tenderness, chosen family, witness,
      dignity, shared adulthood, repair language, or private mythology;
+   - ask each maker for a short plain-language alive premise first, then map
+     that premise into the candidate contract without rewriting it into a
+     rubric-shaped template;
    - keep the free creative pass alive before scoring;
    - cap each iteration's combined pool at the run's `candidate_budget`.
 3. Exclude:
@@ -72,6 +80,11 @@ is tight. Do not let a subagent spawn another subagent.
      produced by the same command with `--blind`;
    - run two independent verifier tasks: audience/retention/distribution and
      stage-scene/taste/brand/safety.
+   - persist the exact allowlisted critic card before dispatch under
+     `.internal/critic-inputs/<verifier-task-id>/<candidate-id>.json`;
+   - record `verifier_lens` as `audience_distribution` or
+     `stage_scene_taste_safety`; both lenses must review a route before it can
+     pass.
 5. Repair:
    - repair only the best two or three routes using concrete verifier feedback;
    - preserve parent/repair lineage and assign a new fingerprint;
@@ -83,6 +96,8 @@ is tight. Do not let a subagent spawn another subagent.
 7. Remember:
    - append iteration, failure signature, task provenance, decision, and next
      action to run-local state;
+   - record each failed round in `history` as
+     `{"event":"verification_failed","failure_signature":"<sha256>"}`;
    - do not edit semantic memory until the creator accepts or rejects the idea;
    - later outcome learning must remain a draft proposal until human review.
 
@@ -93,6 +108,12 @@ Every candidate must contain:
 - stable candidate ID, iteration, and maker task ID;
 - `maker_agent: "asot_idea_maker"`;
 - for iteration > 1, a new ID plus `parent_candidate_id` and `repair_task_id`;
+- `moment_origin`: `creator_seed`, `documented_repo_story`, or
+  `generic_relationship_hypothesis`;
+- `moment_origin_detail`, an exact seed/source binding or a clear statement that
+  no Aachu/Zuv lived fact is being claimed;
+- `lived_fact_status`: `CONFIRMED`, `NOT_CLAIMED`, or
+  `CREATOR_CONFIRMATION_REQUIRED`;
 - concrete couple moment and universal relationship truth;
 - audience mirror, scroll stop, and emotional contradiction;
 - visible scene proof and relationship motion;
@@ -103,7 +124,11 @@ Every candidate must contain:
 - repo-relative evidence paths, risks, and novelty fingerprint.
 
 Keep this at concept-lock level. Do not produce slide copy, captions, prompts,
-or images.
+or images. Never turn a generic or composite hypothesis into Aachu/Zuv canon.
+If a route needs an unverified lived detail to work, mark
+`CREATOR_CONFIRMATION_REQUIRED` and surface that uncertainty at concept lock,
+or stop `HUMAN_REQUIRED` when it cannot be evaluated responsibly without the
+answer.
 
 ## Completion Predicate
 
@@ -123,13 +148,24 @@ two distinct blind verifier passes and a fresh selector pass with:
 - no hard failure;
 - creator approval still `PENDING`.
 
+Use anchored scoring rather than vibes:
+
+- distribution /30 = cold-context clarity /10 + audience recognition /10 +
+  natural one-person send reason /10;
+- visual generativity /30 = visible action/object proof /10 + beat/shot
+  variation potential /10 + text-independent story readability /10.
+
+Story-Selling and Golden Theme use their canonical repo rubrics. Numeric scores
+are evidence summaries, not substitutes for the free creative premise or a
+reason to polish a dead route.
+
 Use at most the state's `max_iterations`. Compute each failed round's normalized
 signature with `scripts/instagram_idea_loop.py issue-signature`. Stop earlier as
 `STAGNATED` when the same signature repeats twice. Choose other terminal states
 consistently:
 
 - `NO_GO`: sufficient evidence exists, but every remaining route has a
-  non-repairable exclusion, safety, taste, or genericity failure;
+  documented non-repairable exclusion, safety, taste, or genericity failure;
 - `BUDGET_EXHAUSTED`: failure signatures were still changing when the maximum
   iteration budget ended;
 - `STALE_EVIDENCE`: the missing/stale source itself prevents a responsible
@@ -145,7 +181,8 @@ Write only inside `output/idea-loops/YYYY-MM-DD/<run-id>/`:
 
 - `.internal/loop-state.json`
 - `.internal/evidence-manifest.json`
-- `.internal/iterations/<NN>/...` for attempt history
+- `.internal/iterations/<NN>/concept-routes.json`
+- `.internal/iterations/<NN>/verification.json`
 - `source-memory-brief.json`
 - `concept-routes.json`
 - `concept-debate.json`
@@ -153,9 +190,16 @@ Write only inside `output/idea-loops/YYYY-MM-DD/<run-id>/`:
 - `taste-gate.json`
 - `verification.json`
 - `concept-selection.json`
+- `stop-evidence.json` only for an iteration-zero `STALE_EVIDENCE` or
+  `HUMAN_REQUIRED` stop
 - `creator-brief.md`
 
 Include `schema_version: "1.0"` and the same `run_id` in every JSON artifact.
+Each evaluated iteration must contain at least one candidate whose `iteration`
+equals `<NN>`, respect the per-iteration candidate budget, and use fresh critic
+and selector task IDs. Copy the final iteration's route and verification
+snapshots to the top-level files. Never duplicate an old snapshot to fabricate
+progress.
 Bind critic reviews to candidate fingerprints and record distinct maker,
 verifier, and selector task IDs. Bind each blind critic to the author-hidden
 input fingerprint as well as the full candidate fingerprint. Run the
@@ -165,6 +209,11 @@ deterministic validator before finishing:
 venv/bin/python scripts/instagram_idea_loop.py validate \
   output/idea-loops/YYYY-MM-DD/<run-id>
 ```
+
+The runtime instructs Codex to use separate configured subagents, and the
+validator proves declared task-ID separation plus exact artifact bindings. It
+does not currently have a signed Codex execution-event record, so never
+describe that local check as cryptographic proof of subagent identity.
 
 ## Creator Handoff
 

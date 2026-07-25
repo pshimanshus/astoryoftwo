@@ -5,21 +5,26 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from pipeline.agentic.carousel_review_loop import (
     RepairResult,
     ReviewLoopConfig,
     run_review_loop,
 )
 from pipeline.agentic.carousel_hil_checkpoints import (
+    STAGE_ARTIFACTS,
     approval_valid,
     inspect_stage,
     next_unapproved_stage,
     record_creator_decision,
     run_hil_stage_loop,
+    stage_fingerprint,
     write_stage_candidate,
 )
 from pipeline.agentic.carousel_state import CarouselState
 from pipeline.agentic.workflow_doctor import WorkflowDoctorReport, WorkflowIssue
+from pipeline.stages.carousel_format_contract import build_format_contract
 
 
 def _state(package: Path, *, publishable: bool, blocked: bool = False) -> CarouselState:
@@ -77,7 +82,10 @@ def _valid_copy(package: Path) -> None:
     _write_json(package / "story-director-lock.json", {"status": "PASS"})
     _write_json(package / "slides.json", [{"slide": 1, "copy": "Exact copy"}])
     _write_json(package / "copy.json", {"slides": ["Exact copy"]})
-    _write_json(package / "format-contract.json", {"requested_formats": ["instagram_post"]})
+    _write_json(
+        package / "format-contract.json",
+        build_format_contract(["instagram_post"], source="test_request"),
+    )
     _write_json(
         package / "copy-verification.json",
         {
@@ -294,6 +302,59 @@ def test_copy_loop_cannot_start_before_current_concept_approval(tmp_path: Path) 
     assert repair_calls == []
 
 
+@pytest.mark.parametrize("artifact_name", STAGE_ARTIFACTS["concept"])
+@pytest.mark.parametrize("invalid_payload", ["{}", "{not-json", "[1]"])
+def test_concept_required_json_fails_closed(
+    tmp_path: Path,
+    artifact_name: str,
+    invalid_payload: str,
+) -> None:
+    package = tmp_path / "invalid-concept"
+    package.mkdir()
+    _valid_concept(package)
+    (package / artifact_name).write_text(invalid_payload, encoding="utf-8")
+
+    codes = {issue.code for issue in inspect_stage(package, "concept").issues}
+
+    assert "concept_artifact_invalid" in codes
+    with pytest.raises(ValueError, match="Cannot present concept"):
+        write_stage_candidate(package, "concept")
+
+
+@pytest.mark.parametrize("invalid_payload", ["{}", "{not-json", "[1]"])
+def test_copy_verification_json_fails_closed(tmp_path: Path, invalid_payload: str) -> None:
+    package = tmp_path / "invalid-copy-review"
+    package.mkdir()
+    _valid_concept(package)
+    _valid_copy(package)
+    write_stage_candidate(package, "concept")
+    record_creator_decision(package, "concept", "APPROVE", decided_by="creator")
+    (package / "copy-verification.json").write_text(invalid_payload, encoding="utf-8")
+
+    codes = {issue.code for issue in inspect_stage(package, "copy").issues}
+
+    assert "copy_artifact_invalid" in codes
+    assert "copy_verifier_not_passed" in codes
+    with pytest.raises(ValueError, match="Cannot present copy"):
+        write_stage_candidate(package, "copy")
+
+
+def test_non_object_slide_entries_fail_closed(tmp_path: Path) -> None:
+    package = tmp_path / "invalid-slides"
+    package.mkdir()
+    _valid_concept(package)
+    _valid_copy(package)
+    write_stage_candidate(package, "concept")
+    record_creator_decision(package, "concept", "APPROVE", decided_by="creator")
+    _write_json(package / "slides.json", [1])
+
+    codes = {issue.code for issue in inspect_stage(package, "copy").issues}
+
+    assert "copy_slides_incomplete" in codes
+    with pytest.raises(ValueError, match="Cannot present copy"):
+        write_stage_candidate(package, "copy")
+
+
 def test_upstream_change_makes_approval_stale_and_reapproval_invalidates_downstream(tmp_path: Path) -> None:
     package = tmp_path / "stale-hil"
     package.mkdir()
@@ -319,6 +380,38 @@ def test_upstream_change_makes_approval_stale_and_reapproval_invalidates_downstr
     assert "copy" in decision.invalidated_stages
     assert not approval_valid(package, "copy")
     assert next_unapproved_stage(package) == "copy"
+
+
+def test_stale_concept_blocks_every_later_stage_and_reapproval_bypass(tmp_path: Path) -> None:
+    package = tmp_path / "stale-upstream-hil"
+    package.mkdir()
+    _valid_concept(package)
+    _valid_copy(package)
+    write_stage_candidate(package, "concept")
+    record_creator_decision(package, "concept", "APPROVE", decided_by="creator")
+    write_stage_candidate(package, "copy")
+    record_creator_decision(package, "copy", "APPROVE", decided_by="creator")
+
+    selection = json.loads((package / "concept-selection.json").read_text(encoding="utf-8"))
+    selection["selected_candidate_id"] = "mutated-after-approval"
+    _write_json(package / "concept-selection.json", selection)
+
+    image_codes = {issue.code for issue in inspect_stage(package, "images").issues}
+    publish_codes = {issue.code for issue in inspect_stage(package, "publish").issues}
+    assert "creator_concept_approval_required" in image_codes
+    assert "creator_concept_approval_required" in publish_codes
+    with pytest.raises(ValueError, match="Cannot present images"):
+        write_stage_candidate(package, "images")
+
+    _write_json(
+        package / ".internal/hil/copy-candidate.json",
+        {
+            "status": "AWAITING_CREATOR_APPROVAL",
+            "artifact_fingerprint": stage_fingerprint(package, "copy"),
+        },
+    )
+    with pytest.raises(ValueError, match="current checkpoint is concept"):
+        record_creator_decision(package, "copy", "APPROVE", decided_by="creator")
 
 
 def test_revise_reopens_stage_instead_of_advancing(tmp_path: Path) -> None:
@@ -347,5 +440,35 @@ def test_images_and_publish_require_prior_creator_locks(tmp_path: Path) -> None:
     image_codes = {issue.code for issue in inspect_stage(package, "images").issues}
     publish_codes = {issue.code for issue in inspect_stage(package, "publish").issues}
 
-    assert "creator_copy_approval_required" in image_codes
-    assert "creator_images_approval_required" in publish_codes
+    assert {"creator_concept_approval_required", "creator_copy_approval_required"} <= image_codes
+    assert {
+        "creator_concept_approval_required",
+        "creator_copy_approval_required",
+        "creator_images_approval_required",
+    } <= publish_codes
+
+
+def test_cli_decision_requires_explicit_decider_identity(tmp_path: Path) -> None:
+    package = tmp_path / "cli-decision"
+    package.mkdir()
+    _valid_concept(package)
+    write_stage_candidate(package, "concept")
+
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "scripts/carousel_review_loop.py",
+            str(package),
+            "--stage",
+            "concept",
+            "--decision",
+            "APPROVE",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert completed.returncode == 2
+    assert "--decision requires a non-empty --decided-by" in completed.stderr

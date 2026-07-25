@@ -207,6 +207,7 @@ IMPERFECT_REPAIR_TOKENS = [
 ]
 LONG_DISTANCE_ORDINARY_TOKENS = [
     "long distance",
+    "long-distance",
     "ordinary tuesday",
     "boring things",
     "normal tuesday",
@@ -220,6 +221,20 @@ LONG_DISTANCE_ORDINARY_TOKENS = [
     "miss wasting time",
     "ordinary time",
     "same person",
+]
+LONG_DISTANCE_EXPLICIT_TOKENS = [
+    "long distance",
+    "long-distance",
+    "living apart",
+    "miles apart",
+    "different cities",
+    "across a phone",
+    "video call",
+]
+LONG_DISTANCE_ORDINARY_PROOF_TOKENS = [
+    token
+    for token in LONG_DISTANCE_ORDINARY_TOKENS
+    if token not in {"long distance", "long-distance", "same person"}
 ]
 COMMITMENT_STILL_LOVE_TOKENS = [
     "we disagree, i still love you",
@@ -3220,7 +3235,13 @@ def build_long_distance_ordinary_concept_selection() -> dict[str, Any]:
 
 def is_long_distance_ordinary_story(story: str) -> bool:
     lower = story.lower()
-    return any(token in lower for token in LONG_DISTANCE_ORDINARY_TOKENS)
+    if any(token in lower for token in ("long distance", "long-distance")):
+        return True
+    has_distance = any(token in lower for token in LONG_DISTANCE_EXPLICIT_TOKENS)
+    has_ordinary_proof = any(
+        token in lower for token in LONG_DISTANCE_ORDINARY_PROOF_TOKENS
+    )
+    return has_distance and has_ordinary_proof
 
 
 def is_suitcase_relocation_story(story: str) -> bool:

@@ -1,6 +1,6 @@
 {
   "title": "Not Married Yet, Already Us",
-  "content_lane": "Wedding Origin Story",
+  "content_lane": "Shared Adulthood",
   "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
   "golden_theme_contract": {
     "required": true,
@@ -373,8 +373,8 @@
         "summary": "Source memory loaded before concept selection, including the successful-carousel standard and creator preference ledger.",
         "inputs_used": [
           "config/references/story-selling-canon/source-register.json",
-          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
-          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+          "output/story-canon/2026-05-18/concept-process-bank.json",
+          "output/story-canon/2026-05-18/pattern-map.json",
           "wiki/insights/successful-carousel-standard.md",
           "memory/semantic/carousel-idea-preferences.md"
         ],
@@ -432,10 +432,10 @@
         "summary": "Generated 5 story routes and selected Proof Before Poetry as the strongest raw meaning.",
         "inputs_used": [
           "Before marriage, shared habits, decisions, stress, friction, and concern already move as one relationship.",
-          "config/references/identity/aachu/face-05.png",
+          "config/references/identity/aachu/reel-jaldi.jpg",
           "config/references/identity/zuv/portrait-07.jpg",
           "config/references/identity/together/together-18.jpg",
-          "config/references/identity/together/together-21.jpg",
+          "config/references/identity/aachu/face-04.png",
           "C-layer carousel package",
           "golden theme remains mandatory",
           "use process cards as influences, not the answer"
@@ -968,9 +968,9 @@
     "source_story": "Before marriage, shared habits, decisions, stress, friction, and concern already move as one relationship."
   },
   "identity_dossier": {
-    "path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-dossier.json",
-    "preflight_path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-generation-preflight.md",
-    "contact_sheet_path": "/tmp/astory-carousel-20260721-qbhKCU/output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
+    "path": "output/carousels/2026-07-21/not-married-yet-already-us/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-07-21/not-married-yet-already-us/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-07-21/not-married-yet-already-us/identity-face-contact-sheet.jpg",
     "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
   },
   "creative_baseline": {

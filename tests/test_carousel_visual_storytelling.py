@@ -867,6 +867,21 @@ def test_hardlinked_frame_cannot_satisfy_two_expected_assets(tmp_path: Path) -> 
     assert any("same hardlinked asset" in issue for issue in issues)
 
 
+def test_missing_frame_error_keeps_package_path_portable(tmp_path: Path) -> None:
+    plan = _passing_plan()
+    check = _passing_readability(tmp_path, plan)
+    missing_relative_path = check["frames"][0]["file"]
+    (tmp_path / missing_relative_path).unlink()
+
+    issues = _validate_passing_readability(tmp_path, plan, check)
+    missing_issue = next(
+        issue for issue in issues if ".file does not exist:" in issue
+    )
+
+    assert missing_relative_path in missing_issue
+    assert str(tmp_path) not in missing_issue
+
+
 def test_copied_duplicate_pixels_cannot_satisfy_two_expected_assets(
     tmp_path: Path,
 ) -> None:

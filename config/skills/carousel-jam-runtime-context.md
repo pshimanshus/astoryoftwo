@@ -194,6 +194,13 @@ documented exception) and the request-derived format set are locked. Persist
 orchestration-backed `review_provenance`, raw pre-reveal critic evidence, and
 the complete `director_event_fingerprint` before image handoff.
 
+After the blind read, reconcile the inferred scene against the exact copy's
+verbs, chronology, movement path, spatial side, and shared-versus-solo action.
+Door/lock/threshold beats must explicitly say inside versus outside, before
+departure versus after return, door state, where each person moved from, and
+who participates in the final action. A coherent but wrong-side scene remains
+a hard failure.
+
 The second event is a new image-first rendered-frame run, stored as
 `checks.visual_story_readability` in `visual-qa.json`. Its task/run provenance
 must be pairwise distinct from the author and Event A run; arbitrary names are
@@ -223,6 +230,13 @@ when people counts and hands pass.
 Before image generation, attach selected actual Aachu/Zuv identity images and
 style references. Text-only "same couple" prompts are blocked, and wardrobe
 comes from attached identity/current-request photos first.
+
+Immediately before every carousel image-generation call, rerun the current
+visual-story precheck and workflow doctor. Generate only from the active
+hash-bound compiled prompt handoff. Any creator correction, prompt edit,
+REPAIR/NEEDS_FIXES artifact, or score contradiction invalidates the handoff.
+Unchecked model outputs stay in package quarantine and are not shown as
+creator-ready images.
 
 Identity eval stop gate: no identity eval, no next slide. After any proof slide
 or creator correction about likeness, stop before generating the rest of the

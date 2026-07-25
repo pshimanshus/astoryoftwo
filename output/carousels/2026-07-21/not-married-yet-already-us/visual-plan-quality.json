@@ -3,18 +3,26 @@
   "status": "PASS",
   "decision": "GO",
   "can_generate": true,
-  "lane": "Wedding Origin Story",
-  "winner": "Slide-Led Evidence Plan",
+  "lane": "Shared Adulthood",
+  "winner": "Wordless Habit Relay + Broken-Key Continuity",
   "rejected_visual_patterns": [
-    "Photo-First Continuity",
-    "Minimal Symbol Plan"
+    "Separate Habit Snapshots Without An Incident Spine",
+    "Abstract Marriage Symbols And Quote-Card Staging"
   ],
-  "continuity_locks": {},
+  "continuity_locks": {
+    "slides_1_to_3": "Three separate everyday habit receipts in distinct reference-anchored outfits and settings.",
+    "slides_4_to_10": "One continuous evening broken-key incident with the same already-ajar door, warm light wedge, damaged lock, wardrobe, helmet, tote, key pieces, and object ownership.",
+    "slide_11": "A later-morning match cut to slide 1 with changed clothes, a replaced lock cylinder, and a fresh working key.",
+    "visual_variables": [
+      "body distance",
+      "object ownership"
+    ]
+  },
   "agents": [
-    "C3A-VisualEvidencePlanner",
-    "C3B-RomanceScenePlanner",
-    "C3C-ContinuityJudge",
-    "C3D-ScreenQualityJudge"
+    "/root/visual_front",
+    "/root/visual_back",
+    "/root/package_forensics",
+    "/root"
   ],
   "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
   "slide_reviews": [
@@ -261,5 +269,1039 @@
       "issues": []
     }
   ],
-  "issues": []
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The creator’s current 11-slide revised copy is recorded byte-for-byte in creator-correction.json, slides.json, and prompt-pack.json before this review.",
+    "author_id": "/root",
+    "reviewer_id": "/root/event_a_critic",
+    "reviewer_evidence": "A separate critic received only the observable storyboard cards and returned the exact frame-by-frame response stored in the package artifact.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:25b7a20142aaf671a128ae1aa0c88d445159242e7c2b18b90bab30cc6068e72c",
+    "generation_payload_fingerprint": "sha256:3007b4ab50c1a9c8c2f5bfe9c642ea041451facf6e5c25a3c94cfb8bcbf262dd",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "An apartment doorway with a slim exit console, one empty key hook, and two pairs of shoes angled toward the open door.",
+        "observable_action": "The woman moves a wallet and keyring into the man's already-open jacket pocket while the man lowers a capped water bottle into the woman's already-open tote as both step toward the exit.",
+        "hands_and_contact": "The woman's right hand holds the wallet at the pocket opening and her left holds the tote strap; the man's left hand holds the bottle above the tote opening and his right touches the exterior door handle. All four wrists and forearms are visible and separate.",
+        "gaze": "Both look toward the exit or their next movement rather than at each other.",
+        "body_blocking": "The woman stands left/front and the slightly taller man stands right/behind; both sets of feet point through the doorway and the two arm actions occur at different heights.",
+        "object_state": "Wallet and keyring are entering the man's pocket; water bottle is entering the woman's tote; the key hook is empty.",
+        "camera_view": "Medium-wide three-quarter view from inside at waist height, with both faces and both exchanges visible.",
+        "visible_continuity": "The wallet, keyring, bottle, tote, doorway, lock, and empty key hook are all simultaneously visible in this frame."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The same kind of apartment or building threshold, viewed from just outside; a helmet hook is visible inside.",
+        "observable_action": "The woman has one foot outside, holds a phone at her ear with its screen hidden, raises her other palm toward someone outside the frame, and turns back toward the man. The man stands several feet inside holding two helmets and makes a low open-hand gesture.",
+        "hands_and_contact": "The woman's left hand owns the phone and her right makes the pause gesture; the man's right holds both helmet straps and his left remains open at waist level. No one touches the other.",
+        "gaze": "The woman and man look at each other across the doorway.",
+        "body_blocking": "Her forward step has paused at the threshold; he stands relaxed inside and does not block the exit.",
+        "object_state": "Phone screen faces inward; both helmets are together in the man's hand.",
+        "camera_view": "Over the woman's shoulder from outside, with the doorway creating foreground-to-midground depth.",
+        "visible_continuity": "The doorway, paired helmets, outward step, and hidden phone screen keep the action inside one clearly readable exit-and-transport context."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "A hallway wall seen from an adjacent doorway, with one small painter's-tape mark.",
+        "observable_action": "The man holds a small blank frame flush to the wall while the woman stands about four feet back, squints at it, and pinches two fingers to indicate a tiny sideways adjustment.",
+        "hands_and_contact": "Both of the man's hands grip the exterior side rails of the frame; the woman's right hand makes the pinch gesture and her left rests at her hip.",
+        "gaze": "Both look at the slightly tilted blank frame.",
+        "body_blocking": "The man is in profile close to the wall; the woman is in opposing profile at a judging distance.",
+        "object_state": "The frame is blank, slightly tilted, and aligned near an earlier tape mark.",
+        "camera_view": "Wide profile view that shows the full distance between both people and the frame.",
+        "visible_continuity": "Daylight, different clothes, the hallway wall, blank frame, and painter's-tape mark make this a self-contained domestic setup."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "one man"
+        ],
+        "visible_setting": "An apartment landing with a matte door already slightly ajar, a narrow wedge of warm interior light, a lock, shallow ledge, and two helmets resting together.",
+        "observable_action": "The man freezes at the lock holding the bow half of a freshly snapped key a few centimetres from the lock while the metal shaft remains embedded.",
+        "hands_and_contact": "Only his right hand is visible holding the detached key bow; his left arm is outside the crop.",
+        "gaze": "He looks directly at the embedded key shaft.",
+        "body_blocking": "He remains upright in profile with one shoulder raised; his body contour stays visibly separate from the door and frame.",
+        "object_state": "The key is visibly in two separated pieces; the shaft remains embedded in the lock, the door is already slightly ajar, and both helmets sit on the ledge.",
+        "camera_view": "Low lock-level close profile with the lock sharp in the foreground and his face readable behind it.",
+        "visible_continuity": "The already-ajar door, narrow light wedge, lock, ledge, helmets, broken-key pieces, evening light, and his clothes establish one traceable incident state."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The same apartment landing, already-ajar door with warm light wedge, lock, ledge, helmets, and evening light.",
+        "observable_action": "The woman holds an open tote and searches inside while the man aims a phone torch with its screen turned inward at the key shaft still embedded in the lock.",
+        "hands_and_contact": "The woman's left hand holds the tote mouth and her right forearm enters the open bag with its wrist visible; the man's right owns the phone and his left displays the detached key bow in an open palm.",
+        "gaze": "The woman looks into the tote while the man looks at the lock.",
+        "body_blocking": "Both stay upright on opposite sides of the lock and lean slightly toward it; their shoulders nearly meet.",
+        "object_state": "The shaft remains embedded, the detached bow is in the man's palm, the tote is open, and the phone torch lights the lock.",
+        "camera_view": "High three-quarter view showing the two subtasks, narrowed body distance, bag, light beam, and lock.",
+        "visible_continuity": "The same clothes, already-ajar door, light wedge, landing, embedded shaft, detached bow, helmets, and tote remain visible."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The same apartment landing and already-ajar door with the damaged lock, viewed from ledge height.",
+        "observable_action": "The woman holds small closed pliers downward while the man holds a phone face-in at chest level; both speak toward each other with open free hands.",
+        "hands_and_contact": "The woman's right owns the closed pliers and her left is open at waist height; the man's left owns the phone and his right is open at waist height. No hand points at or touches the other person.",
+        "gaze": "They make direct eye contact with equally tense expressions.",
+        "body_blocking": "A two-to-three-foot gap has opened between them; their feet angle slightly away while their torsos remain turned toward the exchange.",
+        "object_state": "The detached key bow now rests on the ledge; the shaft remains embedded; pliers and phone present two different tools.",
+        "camera_view": "Low-medium two-shot that keeps both faces, all four hands, the ledge, and the lock visible.",
+        "visible_continuity": "The same evening clothes, already-ajar door, warm light wedge, damaged lock, key pieces, ledge, helmets, pliers, and phone remain traceable."
+      },
+      {
+        "slide": 7,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The same apartment doorway remains visibly ajar toward the landing and stairwell, with the same warm light wedge and damaged lock.",
+        "observable_action": "The man crosses the threshold toward the stairs with a helmet while the woman stays inside and half-raises a hand; his leading foot continues outward but his head and shoulders turn back toward her.",
+        "hands_and_contact": "The woman's right hand is half-raised and her left is outside the frame; the man's left owns the helmet strap and his right holds the snapped-key bow at thigh level.",
+        "gaze": "Their eyes reconnect across the doorway.",
+        "body_blocking": "Both of the woman's feet remain inside; the man is one pace outside with his lower body pointed away and upper body turning back. They do not approach or touch.",
+        "object_state": "Door is open; helmet and key fragment travel with the man; tote remains inside.",
+        "camera_view": "Wide view from inside toward the landing, using the doorway and stairs for depth.",
+        "visible_continuity": "The unchanged clothes, already-ajar door, damaged lock, helmet, key fragment, tote, landing, and evening light keep the incident physically continuous."
+      },
+      {
+        "slide": 8,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The same open doorway with a shallow catchall just inside and the stairs beyond.",
+        "observable_action": "The man places the snapped-key bow flat into the catchall rather than handing it to the woman; she watches without reaching.",
+        "hands_and_contact": "The man's right hand places the fragment and his left continues holding the helmet; the woman's right holds her tote strap and her left is outside the frame. No hands touch.",
+        "gaze": "The woman looks down at his key hand; the man looks at the catchall.",
+        "body_blocking": "His stair-facing foot still points away, her weight stays rearward inside, and three to four feet remain between them.",
+        "object_state": "The key fragment moves from the man's hand to a fixed place inside; the helmet stays with him.",
+        "camera_view": "Low side-medium view at catchall height with the key placement in the foreground and both profiles behind it.",
+        "visible_continuity": "The unchanged clothes, doorway, catchall, key fragment, helmet, tense body distance, and her lowered gaze keep the object and relationship state traceable."
+      },
+      {
+        "slide": 9,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The same open threshold sits softly behind the pair without dividing them; one snapped-key fragment rests on a shallow entry ledge at the far background edge.",
+        "observable_action": "The woman uses her visibly traceable right forearm and right hand to dab one thin single-fold tissue directly onto a small nick on the man's open right thumb.",
+        "hands_and_contact": "Exactly two hands are visible: the woman's right hand holds the tissue against the nick, and the man's open right hand presents the thumb. Both right wrists and forearms are continuously traceable; both left arms and all pockets remain completely outside the crop.",
+        "gaze": "Both look at the nick and tissue rather than at each other.",
+        "body_blocking": "They stand about twelve inches apart with separate torsos and almost level eye lines; the man reads only about two inches taller, with no hug, lean, caress, or smile.",
+        "object_state": "One thin white rectangular tissue with a single visible fold touches the tiny non-graphic thumb nick; the snapped-key fragment stays on the far background ledge.",
+        "camera_view": "Tight three-quarter upper-body view from both heads to just below the ribs, cropped above pockets, with both faces, the two right wrists, tissue, and thumb clearly visible.",
+        "visible_continuity": "The same evening clothes, open threshold, snapped-key fragment, and reduced body distance remain visible while the tissue first contacts the nick."
+      },
+      {
+        "slide": 10,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The apartment doorway and first stair turn viewed from a high ceiling corner.",
+        "observable_action": "The woman steps back inside while the man continues down the stairs in the opposite direction.",
+        "hands_and_contact": "The woman's right hand holds a face-down phone and her left is out of view; the man's left hand owns the helmet and his right thumb carries the tissue.",
+        "gaze": "At most one small head-turn connects them; neither faces the camera or holds a posed gaze.",
+        "body_blocking": "Their bodies travel along different paths separated by the doorway and stair geometry without a graphic divider.",
+        "object_state": "The key fragment stays in the catchall inside; the tissue travels on the man's thumb; the phone screen stays hidden.",
+        "camera_view": "High extreme-wide view showing both trajectories, doorway, catchall, and stair turn.",
+        "visible_continuity": "The evening clothes and light remain unchanged while the key fragment stays inside and the helmet and accepted tissue travel downstairs with the man."
+      },
+      {
+        "slide": 11,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The apartment doorway the next morning, matched to the first card, with the same console and key hook.",
+        "observable_action": "In new clothes, the woman moves the man's wallet into his open jacket pocket while the man lowers her filled water bottle into the open tote as both walk toward the doorway.",
+        "hands_and_contact": "Only the two active hands are visible: her right hand owns the wallet and his left owns the bottle; both wrists and forearms remain traceable with one clear front/behind order.",
+        "gaze": "Neither needs to look at the other or at the exchanged objects.",
+        "body_blocking": "Their shoulders and feet move in the same direction with a small natural height difference and no embrace or posed stop.",
+        "object_state": "Wallet and bottle repeat the first exchange; the lock cylinder is clean and replaced, and one fresh working key hangs on the ordinary hook.",
+        "camera_view": "Wide three-quarter doorway framing that deliberately matches the first card.",
+        "visible_continuity": "The reciprocal wallet-and-bottle exchange is visibly repeated in different clothes beside a clean replacement lock and fresh working key; no wedding objects or extra people appear."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:ac9a61dfccfb037de3358b7a1c5489622902f13bdb03d4ba473e8dae21a6e282",
+    "source_fingerprint": "sha256:81d9d1eb1115ae5936c877a45f952dda66fd3f49a4fdcf8dda6ce36de399330f",
+    "sequence_mode": "montage_with_arc",
+    "physical_event": "Three recognition beats give way to a snapped key, a joint repair attempt, an argument, departure, indirect key placement, a tissue dabbed onto a thumb nick, and a next-morning repaired-lock exit.",
+    "emotional_arc": "Unspoken teamwork becomes shared stress, equal friction, reluctant distance, care that survives anger, and restored everyday rhythm.",
+    "relationship_change": "The couple does not acquire a new bond; the incident proves that an existing ‘us’ persists through anger and resumes after repair.",
+    "sequence_read": "The copy-hidden critic inferred the broken-key event, cooperation-to-friction-to-care turn, and final return from separation into shared rhythm from observable cards alone.",
+    "visual_variables": [
+      "body distance",
+      "object ownership"
+    ],
+    "hero_receipt_slide": 9,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Slide one establishes the reciprocal wallet-and-bottle exit ritual.",
+        "payoff": "Slide eleven repeats the exchange in new clothes beside a repaired lock.",
+        "changed_meaning": "An effortless habit now carries proof that their shared rhythm survived real friction."
+      },
+      {
+        "setup": "Slide four breaks the key and leaves the shaft embedded in the lock.",
+        "payoff": "Slides eight and eleven move the fragment inside, then reveal a clean replacement lock and working key.",
+        "changed_meaning": "A practical failure becomes a visible relationship test that is later repaired without sentimental shortcut."
+      },
+      {
+        "setup": "Slide five divides the repair into tote search and phone-torch inspection.",
+        "payoff": "Slide six reveals pliers and phone as competing methods.",
+        "changed_meaning": "Complementary teamwork becomes the precise source of equal friction."
+      },
+      {
+        "setup": "Slide nine shows Aachu dabbing one folded tissue onto Zuv’s nick while both remain annoyed.",
+        "payoff": "Slide ten shows the tissue retained on his thumb as they separate.",
+        "changed_meaning": "Concern survives the argument and travels with him before full emotional repair."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "wallet and water bottle",
+        "initial_state": "exchanged reciprocally during the opening exit routine",
+        "later_state": "exchanged again the next morning in a matched doorway composition",
+        "story_job": "bookend the sequence with their effortless shared habits"
+      },
+      {
+        "object": "broken key and lock",
+        "initial_state": "the bow separates from a shaft embedded in the lock",
+        "later_state": "the fragment moves into the catchall and the final lock is clean with a fresh working key",
+        "story_job": "carry the practical problem, argument, and visible repair through the sequence"
+      },
+      {
+        "object": "folded tissue",
+        "initial_state": "pressed by Aachu directly onto Zuv’s nicked thumb",
+        "later_state": "retained on his thumb as he continues downstairs",
+        "story_job": "make care surviving anger physically visible"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Establish their reciprocal, wordless exit ritual before any problem exists.",
+        "silent_read": "They instinctively complete each other’s leaving-the-house routine without needing eye contact.",
+        "change_from_previous": "The first frame establishes synchronized care, the doorway, and the wallet-key-bottle motif.",
+        "critic_evidence": "The blind critic read practised reciprocal care from the mirrored wallet-and-bottle exchange and shared exit direction.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "The woman moves a wallet and keyring into the man's already-open jacket pocket while the man lowers a capped water bottle into the woman's already-open tote as both step toward the exit.",
+          "target_or_object": "wallet, keyring, jacket pocket, bottle, and tote",
+          "reaction_or_consequence": "Their reciprocal habit reads before either person looks at the other."
+        },
+        "pov": {
+          "owner": "the couple’s shared muscle memory",
+          "audience_knows": "They instinctively complete each other’s leaving-the-house routine without needing eye contact.",
+          "audience_feels": "recognition of a couple habit that already behaves like an ‘us’"
+        },
+        "shot": {
+          "size": "medium-wide relationship shot",
+          "angle": "eye-level three-quarter angle",
+          "camera_position": "inside the apartment at waist height facing the open doorway",
+          "focal_subject": "wallet, keyring, jacket pocket, bottle, and tote",
+          "story_reason": "The view makes this evidence readable: Wallet and keyring are entering the man's pocket; water bottle is entering the woman's tote; the key hook is empty."
+        },
+        "blocking": {
+          "hands": "The woman's right hand holds the wallet at the pocket opening and her left holds the tote strap; the man's left hand holds the bottle above the tote opening and his right touches the exterior door handle. All four wrists and forearms are visible and separate.",
+          "gaze": "Both look toward the exit or their next movement rather than at each other.",
+          "body_distance": "The woman stands left/front and the slightly taller man stands right/behind; both sets of feet point through the doorway and the two arm actions occur at different heights.",
+          "posture_or_feet": "The woman stands left/front and the slightly taller man stands right/behind; both sets of feet point through the doorway and the two arm actions occur at different heights."
+        },
+        "setting": {
+          "sub_location": "An apartment doorway with a slim exit console, one empty key hook, and two pairs of shoes angled toward the open door.",
+          "time": "daytime exit montage",
+          "motivated_light": "soft daylight motivated by the open apartment doorway",
+          "story_trace": "The wallet, keyring, bottle, tote, doorway, lock, and empty key hook are all simultaneously visible in this frame."
+        },
+        "story_evidence": [
+          {
+            "carrier": "wallet, keyring, jacket pocket, bottle, and tote",
+            "observable_state": "Wallet and keyring are entering the man's pocket; water bottle is entering the woman's tote; the key hook is empty.",
+            "narrative_job": "Their reciprocal habit reads before either person looks at the other."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "No prior story state; ordinary leaving-the-house preparation begins.",
+          "outgoing_state": "Both move through the doorway after exchanging the wallet, keyring, and bottle."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The reciprocal routine could belong to close roommates or siblings rather than a romantic couple.",
+            "repair": "Keep this frame about observable shared habit; later friction, intimate thumb care, and matched recovery build the relationship, while the exact copy supplies unmarried romantic status.",
+            "recheck_evidence": "The sequence repeats private reciprocal habits, shared stress, argument, reluctant separation, accepted care, and next-morning restoration without adding wedding imagery."
+          }
+        ]
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Show that a shared plan pauses for consultation and both partners wait inside the same decision.",
+        "silent_read": "Her outward step pauses for a call and his paired helmets wait with her, making the plan visibly shared.",
+        "change_from_previous": "The camera crosses outside and the routine pauses; direct eye contact replaces automatic forward motion.",
+        "critic_evidence": "The blind critic read a shared plan interrupted by consultation from the paused step, exchanged gaze, and paired helmets.",
+        "staged_action": {
+          "subject": "Aachu, with Zuv waiting",
+          "action": "The woman has one foot outside, holds a phone at her ear with its screen hidden, raises her other palm toward someone outside the frame, and turns back toward the man. The man stands several feet inside holding two helmets and makes a low open-hand gesture.",
+          "target_or_object": "the paused exit plan, hidden phone call, and paired helmets",
+          "reaction_or_consequence": "Both bodies pause inside one shared logistics problem instead of leaving independently."
+        },
+        "pov": {
+          "owner": "Aachu’s pause and Zuv’s patient wait",
+          "audience_knows": "Her outward step pauses for a call and his paired helmets wait with her, making the plan visibly shared.",
+          "audience_feels": "the comic truth that one person’s plan already needs the other person’s input"
+        },
+        "shot": {
+          "size": "over-shoulder medium-wide shot",
+          "angle": "eye-level over-the-shoulder angle",
+          "camera_position": "just outside behind Aachu’s shoulder looking inward",
+          "focal_subject": "the paused exit plan, hidden phone call, and paired helmets",
+          "story_reason": "The view makes this evidence readable: Phone screen faces inward; both helmets are together in the man's hand."
+        },
+        "blocking": {
+          "hands": "The woman's left hand owns the phone and her right makes the pause gesture; the man's right holds both helmet straps and his left remains open at waist level. No one touches the other.",
+          "gaze": "The woman and man look at each other across the doorway.",
+          "body_distance": "Her forward step has paused at the threshold; he stands relaxed inside and does not block the exit.",
+          "posture_or_feet": "Her forward step has paused at the threshold; he stands relaxed inside and does not block the exit."
+        },
+        "setting": {
+          "sub_location": "The same kind of apartment or building threshold, viewed from just outside; a helmet hook is visible inside.",
+          "time": "daytime exit montage",
+          "motivated_light": "soft exterior daylight entering through the threshold",
+          "story_trace": "The doorway, paired helmets, outward step, and hidden phone screen keep the action inside one clearly readable exit-and-transport context."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the paused exit plan, hidden phone call, and paired helmets",
+            "observable_state": "Phone screen faces inward; both helmets are together in the man's hand.",
+            "narrative_job": "Both bodies pause inside one shared logistics problem instead of leaving independently."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "A reciprocal exit routine has established that plans and objects are shared.",
+          "outgoing_state": "The exit remains paused until the consultation resolves."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "Aachu’s raised palm could address Zuv, the caller, or someone outside.",
+            "repair": "Direct her gaze back to Zuv, keep the phone screen hidden, pause her leading foot, and keep both helmets visibly owned by him.",
+            "recheck_evidence": "The held helmets, paused threshold step, and direct exchanged eye-line read as one shared plan waiting on her consultation."
+          }
+        ]
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Recognize tiny domestic choices as genuinely shared authorship.",
+        "silent_read": "A wall-frame placement becomes a two-person decision measured in a tiny sideways gesture.",
+        "change_from_previous": "The location and clothes change for a self-contained recognition montage beat about shared micro-decisions.",
+        "critic_evidence": "The blind critic read cooperative domestic authorship from the tape mark, tilted frame, pinch gesture, and shared gaze.",
+        "staged_action": {
+          "subject": "Zuv, directed by Aachu",
+          "action": "The man holds a small blank frame flush to the wall while the woman stands about four feet back, squints at it, and pinches two fingers to indicate a tiny sideways adjustment.",
+          "target_or_object": "the blank wall frame and painter’s-tape mark",
+          "reaction_or_consequence": "The tiny adjustment becomes visible evidence that even small choices are jointly owned."
+        },
+        "pov": {
+          "owner": "Aachu’s exacting shared-decision gaze",
+          "audience_knows": "A wall-frame placement becomes a two-person decision measured in a tiny sideways gesture.",
+          "audience_feels": "recognition that tiny home choices become joint meetings"
+        },
+        "shot": {
+          "size": "wide profile domestic shot",
+          "angle": "eye-level opposing profile angle",
+          "camera_position": "inside the adjacent doorway spanning the wall and both profiles",
+          "focal_subject": "the blank wall frame and painter’s-tape mark",
+          "story_reason": "The view makes this evidence readable: The frame is blank, slightly tilted, and aligned near an earlier tape mark."
+        },
+        "blocking": {
+          "hands": "Both of the man's hands grip the exterior side rails of the frame; the woman's right hand makes the pinch gesture and her left rests at her hip.",
+          "gaze": "Both look at the slightly tilted blank frame.",
+          "body_distance": "The man is in profile close to the wall; the woman is in opposing profile at a judging distance.",
+          "posture_or_feet": "The man is in profile close to the wall; the woman is in opposing profile at a judging distance."
+        },
+        "setting": {
+          "sub_location": "A hallway wall seen from an adjacent doorway, with one small painter's-tape mark.",
+          "time": "daylight domestic montage",
+          "motivated_light": "gentle hallway daylight from the adjacent opening",
+          "story_trace": "Daylight, different clothes, the hallway wall, blank frame, and painter's-tape mark make this a self-contained domestic setup."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the blank wall frame and painter’s-tape mark",
+            "observable_state": "The frame is blank, slightly tilted, and aligned near an earlier tape mark.",
+            "narrative_job": "The tiny adjustment becomes visible evidence that even small choices are jointly owned."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The shared-plan pause has established two-person involvement in everyday choices.",
+          "outgoing_state": "The frame is ready for the tiny jointly chosen adjustment."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The frame placement could be generic cooperation and has no physical bridge into the key incident.",
+            "repair": "Treat it explicitly as the final recognition-montage beat, then use a strong location, time, and object cut to begin the causal incident on slide four.",
+            "recheck_evidence": "The blank frame, tape mark, pinch direction, and both gazes prove a shared micro-decision; no false causal link to the key is claimed."
+          }
+        ]
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Break the montage with one concrete problem: a key snaps in Zuv’s hand.",
+        "silent_read": "A routine key turn becomes a fresh, visible break that Zuv must face alone for one beat.",
+        "change_from_previous": "The story shifts from montage to one causal evening incident, isolates Zuv, and introduces the broken key.",
+        "critic_evidence": "The blind critic identified an abrupt practical failure from the separated bow and shaft at the lock.",
+        "staged_action": {
+          "subject": "Zuv",
+          "action": "The man freezes at the lock holding the bow half of a freshly snapped key a few centimetres from the lock while the metal shaft remains embedded.",
+          "target_or_object": "the key, lock, and detached bow",
+          "reaction_or_consequence": "The intact routine becomes a problem with a precise visible object state."
+        },
+        "pov": {
+          "owner": "Zuv’s sudden practical failure",
+          "audience_knows": "A routine key turn becomes a fresh, visible break that Zuv must face alone for one beat.",
+          "audience_feels": "a clean jolt as ordinary routine becomes a real shared problem"
+        },
+        "shot": {
+          "size": "lock-level close evidence shot",
+          "angle": "low close profile at lock height",
+          "camera_position": "beside the lock with the hardware in foreground and Zuv behind",
+          "focal_subject": "the key, lock, and detached bow",
+          "story_reason": "The view makes this evidence readable: The key is visibly in two separated pieces; the shaft remains embedded in the lock, the door is already slightly ajar, and both helmets sit on the ledge."
+        },
+        "blocking": {
+          "hands": "Only his right hand is visible holding the detached key bow; his left arm is outside the crop.",
+          "gaze": "He looks directly at the embedded key shaft.",
+          "body_distance": "He remains upright in profile with one shoulder raised; his body contour stays visibly separate from the door and frame.",
+          "posture_or_feet": "He remains upright in profile with one shoulder raised; his body contour stays visibly separate from the door and frame."
+        },
+        "setting": {
+          "sub_location": "An apartment landing with a matte door already slightly ajar, a narrow wedge of warm interior light, a lock, shallow ledge, and two helmets resting together.",
+          "time": "evening incident",
+          "motivated_light": "warm interior wedge plus cool landing ambient light",
+          "story_trace": "The already-ajar door, narrow light wedge, lock, ledge, helmets, broken-key pieces, evening light, and his clothes establish one traceable incident state."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the key, lock, and detached bow",
+            "observable_state": "The key is visibly in two separated pieces; the shaft remains embedded in the lock, the door is already slightly ajar, and both helmets sit on the ledge.",
+            "narrative_job": "The intact routine becomes a problem with a precise visible object state."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The recognition montage is complete; the causal evening incident begins.",
+          "outgoing_state": "The snapped key creates a problem that will draw Aachu into the landing."
+        },
+        "entity_contract": {
+          "expected_people": 1,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The timing of arrival or departure around the broken key is not explicit.",
+            "repair": "The incident only needs the present failure state: fresh separated key pieces, an embedded shaft, and Zuv’s frozen reaction.",
+            "recheck_evidence": "The clean separation and direct lock gaze make the practical problem unmistakable regardless of travel direction."
+          }
+        ]
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Turn one person’s mishap into aligned two-person problem-solving.",
+        "silent_read": "Aachu joins immediately and their bodies converge around separate parts of the same repair task.",
+        "change_from_previous": "Aachu enters the incident; isolation becomes shoulder-to-shoulder problem-solving with divided tasks.",
+        "critic_evidence": "The blind critic read aligned problem-solving from nearly touching shoulders, simultaneous subtasks, phone torch, and open tote.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "The woman holds an open tote and searches inside while the man aims a phone torch with its screen turned inward at the key shaft still embedded in the lock.",
+          "target_or_object": "the embedded key shaft, tote, phone torch, and detached bow",
+          "reaction_or_consequence": "The problem acquires two owners and two complementary actions."
+        },
+        "pov": {
+          "owner": "their shared problem-solving instinct",
+          "audience_knows": "Aachu joins immediately and their bodies converge around separate parts of the same repair task.",
+          "audience_feels": "the familiar reflex of both people taking on one person’s stress"
+        },
+        "shot": {
+          "size": "high three-quarter medium shot",
+          "angle": "high three-quarter angle",
+          "camera_position": "above and beside the lock to hold both simultaneous subtasks",
+          "focal_subject": "the embedded key shaft, tote, phone torch, and detached bow",
+          "story_reason": "The view makes this evidence readable: The shaft remains embedded, the detached bow is in the man's palm, the tote is open, and the phone torch lights the lock."
+        },
+        "blocking": {
+          "hands": "The woman's left hand holds the tote mouth and her right forearm enters the open bag with its wrist visible; the man's right owns the phone and his left displays the detached key bow in an open palm.",
+          "gaze": "The woman looks into the tote while the man looks at the lock.",
+          "body_distance": "Both stay upright on opposite sides of the lock and lean slightly toward it; their shoulders nearly meet.",
+          "posture_or_feet": "Both stay upright on opposite sides of the lock and lean slightly toward it; their shoulders nearly meet."
+        },
+        "setting": {
+          "sub_location": "The same apartment landing, already-ajar door with warm light wedge, lock, ledge, helmets, and evening light.",
+          "time": "same evening incident",
+          "motivated_light": "warm interior wedge and the phone’s focused torch beam",
+          "story_trace": "The same clothes, already-ajar door, light wedge, landing, embedded shaft, detached bow, helmets, and tote remain visible."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the embedded key shaft, tote, phone torch, and detached bow",
+            "observable_state": "The shaft remains embedded, the detached bow is in the man's palm, the tote is open, and the phone torch lights the lock.",
+            "narrative_job": "The problem acquires two owners and two complementary actions."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Zuv holds a detached bow while the shaft remains embedded in the lock.",
+          "outgoing_state": "Pliers and phone become competing solutions around the same damaged lock."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The exact item Aachu seeks in the tote is not yet visible.",
+            "repair": "Make her search visibly complementary to Zuv’s phone-torch inspection; reveal the pliers in the immediately following frame.",
+            "recheck_evidence": "The open tote leads directly to Aachu owning pliers on slide six while the embedded shaft and phone remain continuous."
+          }
+        ]
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Convert competing repair methods into equal, visible relationship friction.",
+        "silent_read": "Different tools and a widened gap turn collaboration into an argument with equal agency.",
+        "change_from_previous": "The shoulders separate, two tools compete, and direct tense eye contact replaces object-focused cooperation.",
+        "critic_evidence": "The blind critic read interpersonal friction from the widened gap, tense eye contact, opposing tools, and symmetric open hands.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "The woman holds small closed pliers downward while the man holds a phone face-in at chest level; both speak toward each other with open free hands.",
+          "target_or_object": "the damaged lock, pliers, phone, and competing repair methods",
+          "reaction_or_consequence": "Cooperation becomes equal friction and opens physical distance."
+        },
+        "pov": {
+          "owner": "both partners’ equally held frustration",
+          "audience_knows": "Different tools and a widened gap turn collaboration into an argument with equal agency.",
+          "audience_feels": "the escalation from practical stress into a proper equal fight"
+        },
+        "shot": {
+          "size": "low-medium two-shot",
+          "angle": "low-medium eye-level angle",
+          "camera_position": "at ledge height across the two separated bodies",
+          "focal_subject": "the damaged lock, pliers, phone, and competing repair methods",
+          "story_reason": "The view makes this evidence readable: The detached key bow now rests on the ledge; the shaft remains embedded; pliers and phone present two different tools."
+        },
+        "blocking": {
+          "hands": "The woman's right owns the closed pliers and her left is open at waist height; the man's left owns the phone and his right is open at waist height. No hand points at or touches the other person.",
+          "gaze": "They make direct eye contact with equally tense expressions.",
+          "body_distance": "A two-to-three-foot gap has opened between them; their feet angle slightly away while their torsos remain turned toward the exchange.",
+          "posture_or_feet": "A two-to-three-foot gap has opened between them; their feet angle slightly away while their torsos remain turned toward the exchange."
+        },
+        "setting": {
+          "sub_location": "The same apartment landing and already-ajar door with the damaged lock, viewed from ledge height.",
+          "time": "same evening incident",
+          "motivated_light": "the same warm doorway wedge with even landing fill",
+          "story_trace": "The same evening clothes, already-ajar door, warm light wedge, damaged lock, key pieces, ledge, helmets, pliers, and phone remain traceable."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the damaged lock, pliers, phone, and competing repair methods",
+            "observable_state": "The detached key bow now rests on the ledge; the shaft remains embedded; pliers and phone present two different tools.",
+            "narrative_job": "Cooperation becomes equal friction and opens physical distance."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "They have converged around the lock with separate repair subtasks.",
+          "outgoing_state": "Friction motivates Zuv’s outward movement while the lock remains unresolved."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The exchange could be urgent technical debate rather than a relationship argument.",
+            "repair": "Widen the gap, angle both feet away, hold equally tense eye contact, and follow with Zuv’s departure instead of another repair action.",
+            "recheck_evidence": "The visual progression from close parallel subtasks to opposing tools, open palms, direct tension, and outward movement confirms friction."
+          }
+        ]
+      },
+      {
+        "slide": 7,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Let the argument create physical distance while their attention still reconnects.",
+        "silent_read": "Zuv moves toward the stairs, yet both turn back across the threshold before fully breaking contact.",
+        "change_from_previous": "The disagreement becomes movement away: Zuv crosses outside while Aachu stays inside.",
+        "critic_evidence": "The blind critic read temporary rupture with reluctance from the outward stride, backward turn, stationary feet, and reconnected gaze.",
+        "staged_action": {
+          "subject": "Zuv, with Aachu holding inside",
+          "action": "The man crosses the threshold toward the stairs with a helmet while the woman stays inside and half-raises a hand; his leading foot continues outward but his head and shoulders turn back toward her.",
+          "target_or_object": "the doorway, stairs, helmet, and broken-key bow",
+          "reaction_or_consequence": "The argument produces departure, but the backward turn keeps care possible."
+        },
+        "pov": {
+          "owner": "the distance between leaving and looking back",
+          "audience_knows": "Zuv moves toward the stairs, yet both turn back across the threshold before fully breaking contact.",
+          "audience_feels": "the ache of anger creating distance without cancelling attachment"
+        },
+        "shot": {
+          "size": "wide doorway departure shot",
+          "angle": "eye-level interior-to-landing angle",
+          "camera_position": "inside the apartment looking through the doorway toward stairs",
+          "focal_subject": "the doorway, stairs, helmet, and broken-key bow",
+          "story_reason": "The view makes this evidence readable: Door is open; helmet and key fragment travel with the man; tote remains inside."
+        },
+        "blocking": {
+          "hands": "The woman's right hand is half-raised and her left is outside the frame; the man's left owns the helmet strap and his right holds the snapped-key bow at thigh level.",
+          "gaze": "Their eyes reconnect across the doorway.",
+          "body_distance": "Both of the woman's feet remain inside; the man is one pace outside with his lower body pointed away and upper body turning back. They do not approach or touch.",
+          "posture_or_feet": "Both of the woman's feet remain inside; the man is one pace outside with his lower body pointed away and upper body turning back. They do not approach or touch."
+        },
+        "setting": {
+          "sub_location": "The same apartment doorway remains visibly ajar toward the landing and stairwell, with the same warm light wedge and damaged lock.",
+          "time": "same evening incident",
+          "motivated_light": "warm interior light receding toward the cooler stairwell",
+          "story_trace": "The unchanged clothes, already-ajar door, damaged lock, helmet, key fragment, tote, landing, and evening light keep the incident physically continuous."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the doorway, stairs, helmet, and broken-key bow",
+            "observable_state": "Door is open; helmet and key fragment travel with the man; tote remains inside.",
+            "narrative_job": "The argument produces departure, but the backward turn keeps care possible."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The repair attempt has become an equal argument with a widened gap.",
+          "outgoing_state": "Their backward look motivates one last object exchange before separation."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "Zuv might be leaving only on a repair errand, and Aachu’s gesture could mean stop, wait, or goodbye.",
+            "repair": "Preserve the ambiguity of his practical destination but make the emotional rupture visible through opposed paths, no approach, and the reluctant backward turn.",
+            "recheck_evidence": "The following indirect key placement and care offer show that emotional distance and practical movement coexist."
+          }
+        ]
+      },
+      {
+        "slide": 8,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Keep anger intact through indirect object placement instead of premature reconciliation.",
+        "silent_read": "He puts the broken key inside rather than handing it over; both remain separate and restrained.",
+        "change_from_previous": "Departure pauses for a deliberate key-fragment placement; gaze drops from each other to the object.",
+        "critic_evidence": "The blind critic read restrained indirect communication from the no-touch placement, stair-facing foot, rearward weight, and shared object gaze.",
+        "staged_action": {
+          "subject": "Zuv, watched by Aachu",
+          "action": "The man places the snapped-key bow flat into the catchall rather than handing it to the woman; she watches without reaching.",
+          "target_or_object": "the key fragment and inside catchall",
+          "reaction_or_consequence": "The key changes ownership and position while emotional distance remains unresolved."
+        },
+        "pov": {
+          "owner": "their restrained attention to the broken object",
+          "audience_knows": "He puts the broken key inside rather than handing it over; both remain separate and restrained.",
+          "audience_feels": "anger staying present through controlled, indirect communication"
+        },
+        "shot": {
+          "size": "low side-medium object shot",
+          "angle": "low side angle at catchall height",
+          "camera_position": "beside the catchall with the key placement in foreground",
+          "focal_subject": "the key fragment and inside catchall",
+          "story_reason": "The view makes this evidence readable: The key fragment moves from the man's hand to a fixed place inside; the helmet stays with him."
+        },
+        "blocking": {
+          "hands": "The man's right hand places the fragment and his left continues holding the helmet; the woman's right holds her tote strap and her left is outside the frame. No hands touch.",
+          "gaze": "The woman looks down at his key hand; the man looks at the catchall.",
+          "body_distance": "His stair-facing foot still points away, her weight stays rearward inside, and three to four feet remain between them.",
+          "posture_or_feet": "His stair-facing foot still points away, her weight stays rearward inside, and three to four feet remain between them."
+        },
+        "setting": {
+          "sub_location": "The same open doorway with a shallow catchall just inside and the stairs beyond.",
+          "time": "same evening incident",
+          "motivated_light": "warm inside light isolating the catchall against cooler stairs",
+          "story_trace": "The unchanged clothes, doorway, catchall, key fragment, helmet, tense body distance, and her lowered gaze keep the object and relationship state traceable."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the key fragment and inside catchall",
+            "observable_state": "The key fragment moves from the man's hand to a fixed place inside; the helmet stays with him.",
+            "narrative_job": "The key changes ownership and position while emotional distance remains unresolved."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Zuv has started leaving but turned back across the doorway.",
+          "outgoing_state": "Aachu’s lowered attention can notice Zuv’s injured thumb near the placed fragment."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "Putting the key fragment in the catchall could be ordinary tidiness without emotional meaning.",
+            "repair": "Keep a three-to-four-foot gap, no touch, his stair-facing foot, her rearward weight, and both gazes fixed on the fragment rather than each other.",
+            "recheck_evidence": "The object changes hands and location while their bodies stay opposed; slide nine then uses her lowered attention to motivate noticing his thumb."
+          }
+        ]
+      },
+      {
+        "slide": 9,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Deliver the hero receipt: practical care crosses the threshold while annoyance remains.",
+      "silent_read": "Still annoyed, Aachu dabs one tissue directly onto the nick on Zuv’s open right thumb.",
+      "change_from_previous": "The distance contracts and Aachu’s tissue makes direct contact with the nick without erasing either tense expression.",
+      "critic_evidence": "The blind critic reads the tissue-to-thumb contact, exact two-hand ownership, contracted distance, and unsmiling faces as practical care before reconciliation.",
+        "staged_action": {
+          "subject": "Aachu, accepted by Zuv",
+        "action": "The woman uses her visibly traceable right forearm and right hand to dab one thin single-fold tissue directly onto a small nick on the man's open right thumb.",
+          "target_or_object": "the folded tissue and Zuv’s nicked right thumb",
+        "reaction_or_consequence": "Care becomes direct tissue-to-thumb contact without a smile, hug, or instant emotional repair."
+        },
+        "pov": {
+          "owner": "Aachu’s practical concern and Zuv’s acceptance",
+        "audience_knows": "Still annoyed, Aachu dabs one tissue directly onto the nick on Zuv’s open right thumb.",
+          "audience_feels": "tender recognition that concern survives even while both remain annoyed"
+        },
+        "shot": {
+        "size": "tight three-quarter upper-body evidence shot",
+        "angle": "eye-level three-quarter opposing profiles",
+        "camera_position": "framed from both heads to just below the ribs beside the threshold",
+          "focal_subject": "the folded tissue and Zuv’s nicked right thumb",
+        "story_reason": "The above-pocket crop makes one thin tissue visibly touch the non-graphic right-thumb nick while excluding every non-focal hand."
+        },
+        "blocking": {
+        "hands": "Exactly two hands are visible: Aachu’s traceable right hand presses one tissue to Zuv’s open right thumb; both left arms and all pockets stay outside the crop.",
+          "gaze": "Both look at the nick and tissue rather than at each other.",
+        "body_distance": "They stand about twelve inches apart with separate torsos and nearly level eye lines; Zuv reads only about two inches taller.",
+        "posture_or_feet": "The rib-level crop shows separate upright torsos, no lean or caress, and the doorframe behind rather than between them."
+        },
+        "setting": {
+        "sub_location": "The same open threshold sits softly behind the pair, with the snapped-key fragment on a shallow ledge at the far edge.",
+          "time": "same evening incident",
+          "motivated_light": "warm threshold light keeping both faces, tissue, and thumb readable",
+        "story_trace": "The same evening clothes, open threshold, snapped-key fragment, and reduced body distance remain visible while tissue first contacts the nick."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the folded tissue and Zuv’s nicked right thumb",
+          "observable_state": "One thin white rectangular tissue with a single visible fold touches the tiny non-graphic right-thumb nick; the key fragment remains behind.",
+          "narrative_job": "Care becomes direct tissue-to-thumb contact without a smile, hug, or instant emotional repair."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The key fragment is now inside the catchall while both remain annoyed.",
+          "outgoing_state": "The tissue is accepted while emotional reconciliation remains incomplete."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The tissue could read as generic courtesy, or the tiny nick could disappear at phone size.",
+          "repair": "Use a head-to-ribs crop above all pockets, only two visible owned right hands, direct tissue-to-thumb contact, near-level eye lines, and still-annoyed expressions.",
+          "recheck_evidence": "Aachu’s traceable right forearm crosses her torso so one thin tissue touches Zuv’s open injured right thumb; both left arms are cropped out and neither smiles, hugs, or poses."
+          }
+        ]
+      },
+      {
+        "slide": 10,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Show separation continuing, with the tissue carrying care into the departing path.",
+        "silent_read": "They move in opposite directions, but her tissue stays on his thumb while the broken key stays inside.",
+        "change_from_previous": "The tissue transfer is complete, then the extreme-wide frame separates their paths again.",
+        "critic_evidence": "The blind critic read softened but unresolved separation from divergent paths, tissue retained, and key fragment left inside.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "The woman steps back inside while the man continues down the stairs in the opposite direction.",
+          "target_or_object": "the doorway, stairs, retained tissue, and inside key fragment",
+          "reaction_or_consequence": "They still separate, but her action remains physically present on him."
+        },
+        "pov": {
+          "owner": "the care object moving with Zuv",
+          "audience_knows": "They move in opposite directions, but her tissue stays on his thumb while the broken key stays inside.",
+          "audience_feels": "unresolved friction softened by care that literally travels with him"
+        },
+        "shot": {
+          "size": "high extreme-wide separation shot",
+          "angle": "high ceiling-corner angle",
+          "camera_position": "at the ceiling corner above doorway and first stair turn",
+          "focal_subject": "the doorway, stairs, retained tissue, and inside key fragment",
+          "story_reason": "The view makes this evidence readable: The key fragment stays in the catchall inside; the tissue travels on the man's thumb; the phone screen stays hidden."
+        },
+        "blocking": {
+          "hands": "The woman's right hand holds a face-down phone and her left is out of view; the man's left hand owns the helmet and his right thumb carries the tissue.",
+          "gaze": "At most one small head-turn connects them; neither faces the camera or holds a posed gaze.",
+          "body_distance": "Their bodies travel along different paths separated by the doorway and stair geometry without a graphic divider.",
+          "posture_or_feet": "Their bodies travel along different paths separated by the doorway and stair geometry without a graphic divider."
+        },
+        "setting": {
+          "sub_location": "The apartment doorway and first stair turn viewed from a high ceiling corner.",
+          "time": "same evening incident",
+          "motivated_light": "warm doorway light fading into the cooler stair path",
+          "story_trace": "The evening clothes and light remain unchanged while the key fragment stays inside and the helmet and accepted tissue travel downstairs with the man."
+        },
+        "story_evidence": [
+          {
+            "carrier": "the doorway, stairs, retained tissue, and inside key fragment",
+            "observable_state": "The key fragment stays in the catchall inside; the tissue travels on the man's thumb; the phone screen stays hidden.",
+            "narrative_job": "They still separate, but her action remains physically present on him."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Aachu has dabbed the tissue onto Zuv’s open nicked thumb.",
+          "outgoing_state": "Their paths separate for the night with care and broken-key evidence divided between them."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The separation could be practical, emotional, or both, and the tissue may become too small in the extreme-wide frame.",
+            "repair": "Let the divergent paths carry the mixed meaning while keeping the white tissue readable on Zuv’s right thumb and the dark key fragment visible inside.",
+            "recheck_evidence": "The two object residues visibly divide across their paths: care travels with him and the broken problem remains inside."
+          }
+        ]
+      },
+      {
+        "slide": 11,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Pay off the opening ritual after repair: different morning, same effortless us.",
+        "silent_read": "The opening wallet-and-bottle exchange returns beside a repaired lock, proving restored shared rhythm.",
+        "change_from_previous": "Evening separation becomes next-morning parallel movement; the clean lock and repeated exchange close the loop.",
+        "critic_evidence": "The blind critic read restored alignment from the matched composition, repeated exchange, new clothes, clean lock, and working key.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "In new clothes, the woman moves the man's wallet into his open jacket pocket while the man lowers her filled water bottle into the open tote as both walk toward the doorway.",
+          "target_or_object": "wallet, bottle, repaired lock, and fresh working key",
+          "reaction_or_consequence": "Their shared rhythm returns after the practical repair, earning the final ‘us’."
+        },
+        "pov": {
+          "owner": "their restored shared rhythm",
+          "audience_knows": "The opening wallet-and-bottle exchange returns beside a repaired lock, proving restored shared rhythm.",
+          "audience_feels": "the warm payoff that repair restores a pre-existing ‘us’ rather than inventing one"
+        },
+        "shot": {
+          "size": "wide matched-payoff shot",
+          "angle": "eye-level three-quarter angle matching slide one",
+          "camera_position": "inside the apartment in the same axis as slide one",
+          "focal_subject": "wallet, bottle, repaired lock, and fresh working key",
+          "story_reason": "The view makes this evidence readable: Wallet and bottle repeat the first exchange; the lock cylinder is clean and replaced, and one fresh working key hangs on the ordinary hook."
+        },
+        "blocking": {
+          "hands": "Only the two active hands are visible: her right hand owns the wallet and his left owns the bottle; both wrists and forearms remain traceable with one clear front/behind order.",
+          "gaze": "Neither needs to look at the other or at the exchanged objects.",
+          "body_distance": "Their shoulders and feet move in the same direction with a small natural height difference and no embrace or posed stop.",
+          "posture_or_feet": "Their shoulders and feet move in the same direction with a small natural height difference and no embrace or posed stop."
+        },
+        "setting": {
+          "sub_location": "The apartment doorway the next morning, matched to the first card, with the same console and key hook.",
+          "time": "next morning",
+          "motivated_light": "fresh neutral morning daylight through the open doorway",
+          "story_trace": "The reciprocal wallet-and-bottle exchange is visibly repeated in different clothes beside a clean replacement lock and fresh working key; no wedding objects or extra people appear."
+        },
+        "story_evidence": [
+          {
+            "carrier": "wallet, bottle, repaired lock, and fresh working key",
+            "observable_state": "Wallet and bottle repeat the first exchange; the lock cylinder is clean and replaced, and one fresh working key hangs on the ordinary hook.",
+            "narrative_job": "Their shared rhythm returns after the practical repair, earning the final ‘us’."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The key fragment stayed inside and the tissue traveled downstairs with Zuv.",
+          "outgoing_state": "A clean lock and repeated exchange close both practical and emotional continuity."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "unowned hand",
+            "background person",
+            "mirror person",
+            "wedding or engagement cue"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "No apology or explicit repair conversation is shown, so the ending reads as restoration rather than deepening.",
+            "repair": "Make restoration and resilience the intended payoff: match slide one’s exchange and axis, change the clothes and morning light, and show a clean replacement lock and working key.",
+            "recheck_evidence": "The repeated reciprocal habit now carries the meaning of surviving the incident; no unsupported apology scene is invented."
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "/root:carousel-2026-07-21-01",
+      "reviewer_task_id": "/root/event_a_critic",
+      "reviewer_run_id": "/root/event_a_critic:turn-1",
+      "input_fingerprint": "sha256:ac9a61dfccfb037de3358b7a1c5489622902f13bdb03d4ba473e8dae21a6e282",
+      "raw_response_artifact": ".internal/event-a-raw-response.md",
+      "raw_response_fingerprint": "sha256:b8a80e6768a4638d67fd61631064b1146ad67957530ba3b732bf242968f37fb6",
+      "output_fingerprint": "sha256:9000827e58dcd8c1d2a393fe6a46f495b4d43266625ad14e6b8734aa161198c3"
+    },
+    "director_event_fingerprint": "sha256:6d386aaecbc0a43158431d938155ad4405dbe741c0f3dbbd8ad265e5b0950bb5"
+  }
 }
