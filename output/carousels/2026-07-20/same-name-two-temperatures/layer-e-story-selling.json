@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "story_repair",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "visual_story_room": {
+      "name": "Visual story room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "codex-root-home-director-20260728",
+          "role": "raw-scene and visual-story director",
+          "claim": "The controller state and matched room views make the two calls physically different.",
+          "objection": "The final arrival can collapse into generic confusion.",
+          "recommendation": "Lock Zuv's sincere innocent face and Aachu's dry knowing reaction in the same kitchen doorway frame.",
+          "score": 29.0
+        }
+      ],
+      "summary": "One continuous apartment incident replaces the rejected wedding/photo-stage route.",
+      "inputs_used": [
+        "raw-scene-row.md",
+        "creative-baseline.json",
+        "slides.json",
+        "prompt-pack.json"
+      ],
+      "debate_records": [
+        "The rejected route used two unrelated wedding episodes and needed copy to explain temperature.",
+        "The repaired route changes controller state and body movement inside one continuous incident."
+      ],
+      "scores": {
+        "story_selling": 29.0,
+        "golden_theme": 29.0
+      },
+      "selected_outputs": {
+        "route": "The first suno never counts"
+      },
+      "objections": [
+        "Slide 7 must read as committed innocence, not ordinary confusion."
+      ],
+      "repairs": [
+        "Use her knowing look and his just-arrived breathless posture as the visual contradiction."
+      ],
+      "repaired_route_names": [
+        "The first suno never counts"
+      ]
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "The first suno never counts",
+      "story_lens": "Couples often treat the first polite call as information and the second tone as the actual request.",
+      "reader_mirror": "Partners who recognize that one familiar tone changes response speed instantly.",
+      "emotional_obstacle": "He answers but the game still owns his attention and body.",
+      "aachu_specific_spark": "Her normal kitchen request becomes one sharper familiar call without becoming anger.",
+      "zuv_active_role": "He answers, fails to move, then visibly abandons the game and commits to innocent arrival.",
+      "proof_engine": "Controller state changes from active after the first request to abandoned after the second.",
+      "emotional_reversal": "Automatic non-movement becomes immediate physical compliance.",
+      "payoff": "He arrives asking what happened as though the first request never existed.",
+      "distribution_reason": "Viewers can send it instantly with “this is you” or “we do this.”",
+      "process_influence_ids": [],
+      "score_total": 29.0,
+      "golden_theme_score_total": 29.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "She calls from the kitchen while he is playing; the first request does not interrupt him, while the second does.",
+        "reaction": "His attention stays on the game after the first reply and his whole body launches after the second call.",
+        "eye_line_or_attention": "The doorway keeps each request spatially connected to his gaming attention and later turn.",
+        "hands_or_object_movement": "The controller stays active in both hands, then is abandoned visibly on the sofa.",
+        "silence_or_pause": "The *still playing* beat holds the comic proof before the second call.",
+        "consequence": "The second tone produces immediate physical movement through the same doorway.",
+        "reversal_or_payoff": "He reaches the kitchen and asks what happened as though he was only just called.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [],
+  "rejected_routes": [],
+  "selected_story_lens": "The first polite call is information; the second familiar tone is the real notification.",
+  "emotional_machine": "normal kitchen call → automatic answer → continued game → sharper call → abandoned controller → innocent arrival",
+  "proof_engine": "Controller state and body movement change inside one continuous apartment geography.",
+  "reader_mirror": "Couples who know the exact tone that converts “aa raha hoon” into actual movement.",
+  "distribution_reason": "Highly sendable recognition comedy with an immediate “this is you” use.",
+  "human_story_setup": {
+    "emotional_obstacle": "He answers but the game still owns his attention and body.",
+    "active_partner_role": "He chooses non-movement first, then instant movement, and performs innocence on arrival.",
+    "specific_proof": "The controller remains active after the first request and is abandoned after the second.",
+    "reversal": "The same answer changes from verbal only to full-body action.",
+    "payoff": "He asks what happened as though the first call never occurred."
+  },
+  "success_definition": {
+    "audience_success": "A viewer recognizes the exact couple pattern and sends it to their partner.",
+    "story_success": "The ignored first call and obeyed second call read with copy hidden.",
+    "production_success": "Seven native 1080x1440 frames pass identity, exact-text, brandmark, anatomy/entity and image-first story QA."
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "She calls from the kitchen while he is playing; the first request does not interrupt him, while the second does.",
+    "reaction": "His attention stays on the game after the first reply and his whole body launches after the second call.",
+    "eye_line_or_attention": "The doorway keeps each request spatially connected to his gaming attention and later turn.",
+    "hands_or_object_movement": "The controller stays active in both hands, then is abandoned visibly on the sofa.",
+    "silence_or_pause": "The *still playing* beat holds the comic proof before the second call.",
+    "consequence": "The second tone produces immediate physical movement through the same doorway.",
+    "reversal_or_payoff": "He reaches the kitchen and asks what happened as though he was only just called.",
+    "blockers": []
+  },
+  "process_influences": [],
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 4,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 5,
+    "total": 29
+  },
+  "golden_theme_score": {
+    "universal_hook": 5,
+    "aachu_zuv_specificity": 5,
+    "concrete_proof": 5,
+    "zuv_emotional_role": 4,
+    "tender_thesis": 5,
+    "share_send_potential": 5,
+    "total": 29
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "c_layer": {
+      "must_preserve": [
+        "one continuous home incident",
+        "controller active after first request and abandoned after second",
+        "exact locked copy",
+        "no public personal names",
+        "innocent final arrival"
+      ],
+      "golden_theme_gate": "required_for_carousel"
+    }
+  },
+  "metadata": {
+    "source": "creator-approved raw PlayStation-to-kitchen incident and locked copy",
+    "constraints": [
+      "No public personal names",
+      "Instagram post 1080x1440 only",
+      "Exact copy and tiny @a.storyof.two brandmark"
+    ],
+    "requested_tone": "observational human couple comedy"
+  }
+}

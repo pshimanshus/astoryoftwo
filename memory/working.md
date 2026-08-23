@@ -961,3 +961,99 @@ Next steps: compile wiki/themes pages, build Himanshu character series concept, 
 - final_audit: NEEDS_FIXES
 - learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
 - package: output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov
+## C-layer carousel run: More Unofficial Rules of Marriage
+- date: 2026-07-30
+- slug: more-unofficial-rules-of-marriage
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-30/more-unofficial-rules-of-marriage
+
+## C-layer carousel run: Not Married Yet, Already Us
+- date: 2026-07-30
+- slug: not-married-yet-already-us
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-30/not-married-yet-already-us
+
+## C-layer carousel run: The Person Missing From My Memories
+- date: 2026-07-28
+- slug: the-person-missing-from-my-memories
+- final_audit: BLOCKED
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: /Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-28/the-person-missing-from-my-memories
+
+## C-layer carousel run: The Museum of Almost
+- date: 2026-07-30
+- slug: the-museum-of-almost
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-30/the-museum-of-almost
+
+## C-layer carousel run: The Date That Missed Its Reservation
+- date: 2026-07-30
+- slug: the-date-that-missed-its-reservation-17
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-30/the-date-that-missed-its-reservation-17
+
+## C-layer carousel run: The First “Suno” Never Counts
+- date: 2026-07-20
+- slug: same-name-two-temperatures
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-07-20/same-name-two-temperatures
+
+## C-layer carousel run: The Love We Grow Into
+- date: 2026-08-10
+- slug: the-love-we-grow-into-4
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-10/the-love-we-grow-into-4
+
+## C-layer carousel run: Certain of You, Lost in Us
+- date: 2026-08-14
+- slug: certain-of-you-lost-in-us
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-14/certain-of-you-lost-in-us
+## C-layer carousel run: A Bad Day Was Never the Whole Truth
+- date: 2026-08-14
+- slug: a-bad-day-was-never-the-whole-truth
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-14/a-bad-day-was-never-the-whole-truth
+
+## C-layer carousel run: More Than the Hurt
+- date: 2026-08-14
+- slug: more-than-the-hurt
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-14/more-than-the-hurt
+
+## C-layer carousel run: Certain of You, Lost in Us — No Script
+- date: 2026-08-14
+- slug: certain-of-you-lost-in-us-no-script
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script
+
+## C-layer carousel run: The Love We Grow Into Rebuild
+- date: 2026-08-21
+- slug: the-love-we-grow-into-rebuild-2
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-21/the-love-we-grow-into-rebuild-2
+
+## C-layer carousel run: Certain of You, Lost in Us — Moonwater
+- date: 2026-08-23
+- slug: certain-of-you-lost-in-us-moonwater
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater
+
+## C-layer carousel run: Certain of You, Lost in Us — Moonwater Final
+- date: 2026-08-23
+- slug: certain-of-you-lost-in-us-moonwater-final
+- final_audit: NEEDS_FIXES
+- learning: romantic watercolor-and-ink / identity-rooted style remains the default for story carousels.
+- package: output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final

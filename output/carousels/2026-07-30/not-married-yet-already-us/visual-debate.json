@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Wedding Origin Story",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "We’re not married yet.\nBut try telling that to our habits.",
+      "visual": "Morning outside a contemporary office lobby cafe. Aachu casually straightens Zuv's slightly twisted office ID lanyard with her right hand while Zuv simultaneously passes her the takeaway coffee he already ordered with his left. Both keep walking rather than posing; their free arms, wrists, hands, coffee, and lanyard remain fully owned and separate. The reciprocal actions occupy the lower two-thirds beneath generous clean text space."
+    },
+    {
+      "slide": 2,
+      "copy": "Every plan starts with:\n“Ek minute, usse poochna padega.”",
+      "visual": "Inside Zuv's office break area, exactly two friends or colleagues face him while proposing a plan. One sits forward and one stands beside the table, both visibly waiting mid-conversation. Zuv gives them a natural one-minute palm with his free hand, turns slightly aside, and lifts his phone to his ear to call Aachu before agreeing."
+    },
+    {
+      "slide": 3,
+      "copy": "Every small decision becomes\na two-person meeting.",
+      "visual": "That evening, Aachu and Zuv sit opposite each other at a dining table converted into an absurdly serious meeting. Papers, two notebooks, an open laptop with no visible UI, pens, a small blank calendar, and two mugs surround just two tiny curtain-fabric swatches at the centre. Both lean in and point at the swatches with concentrated boardroom seriousness."
+    },
+    {
+      "slide": 4,
+      "copy": "Problem ek ki hoti hai.",
+      "visual": "Later in the same home, Zuv sits alone in the dominant foreground at the coffee table, reading one troubling work document beside the same laptop. One hand presses his forehead while the other owns the single document. Aachu has just entered at the far edge of the room and stops when she notices his face; she does not touch the problem or begin solving it yet."
+    },
+    {
+      "slide": 5,
+      "copy": "Stress dono lete hain.",
+      "visual": "The same work document and laptop now sit centred on the coffee table. Aachu and Zuv occupy opposite ends of the sofa in mirrored thinking postures, both leaning forward with one elbow on a knee and one hand near the forehead, staring at the same single problem. Their matching tension shows that his worry has entered both heads."
+    },
+    {
+      "slide": 6,
+      "copy": "Fight bhi proper hoti hai.",
+      "visual": "The shared stress has erupted into a real cushion fight across the same living room. Aachu stands screen-left just after releasing one cushion from her right hand; that cushion is clearly airborne between them while her left hand grips a second cushion at her side. Zuv stands screen-right with both hands visibly gripping a third cushion, torso twisted and ready to throw it back. Both have tight brows, tense shoulders, planted feet, and open mouths mid-argument with no smile, laugh, playful bounce, or romantic energy. The work document has shifted on the coffee table but remains intact and owned by no hand."
+    },
+    {
+      "slide": 7,
+      "copy": "Then five minutes later:\n“Ghar pahunch ke text karna.”",
+      "visual": "Five minutes later in the same messy living room, the three cushions remain scattered and the work document still sits askew. Zuv is at the open front door putting on one shoe and lifting his office bag to leave. Aachu remains beside the sofa with stiff shoulders and averted gaze, calling the line after him without approaching. Zuv pauses at the threshold to hear her but keeps his torso and leading foot oriented outward."
+    },
+    {
+      "slide": 8,
+      "copy": "Kyunki gussa apni jagah.",
+      "visual": "From the corridor behind Zuv, he continues walking away with tight shoulders, office bag at his side, and an unsmiling three-quarter profile. Through the open doorway behind him, Aachu sharply picks up one fallen cushion and turns her torso away. The corridor ahead, both of Zuv's feet, and his hips all point away from the apartment; neither person approaches the other."
+    },
+    {
+      "slide": 9,
+      "copy": "“Tum theek ho?” apni jagah.",
+      "visual": "Later, Aachu sits alone on the same sofa with the room only partly reset. Two cushions have been returned but one remains on the floor, and the work document is still askew. Her brows remain tight and her posture stays guarded, yet she presses her phone to her ear after placing a live call to check whether Zuv is okay. She does not smile."
+    },
+    {
+      "slide": 10,
+      "copy": "Officially?\nNo vows yet.",
+      "visual": "Zuv has reached his own separate front door at night and answers the same call with his phone pressed to one ear while his other hand unlocks his door. He stands alone with his office bag, expression softened only slightly, making the separate-home reality visible without wedding symbols or a staged ring close-up."
+    },
+    {
+      "slide": 11,
+      "copy": "Shaadi abhi baaki hai.\nPar “hum” toh kab ke ban chuke hain.",
+      "visual": "The next morning returns to the office-lobby cafe geography from slide 1 in new reference-anchored clothes. Without discussion, Aachu brings Zuv's forgotten office ID card in her right hand while Zuv slides her already-ordered coffee toward her with his left; they meet mid-step and exchange both things at once. Their expressions carry only a small lived-in recognition, not a romantic pose or full reconciliation scene."
+    }
+  ]
+}

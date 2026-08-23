@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "ceb56898220b95fdfd1c434666be6a0c6aea5392153f316007dd557d169ca534",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 7 instagram_post anatomy_inventory must inventory every observed hand",
+        "slides must cover exactly the selected proof slides: 7",
+        "visual-qa.json spatial_topology has 0 slide records, expected 1.",
+        "visual-qa.json spatial_topology is missing slide records: 1",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+        "visual_story_readability declares unresolved issues while claiming PASS.",
+        "visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+        "visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post anatomy_inventory must inventory every observed hand",
+        "Repair this exact QA failure without weakening any other locked constraint: slides must cover exactly the selected proof slides: 7",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology has 0 slide records, expected 1.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology is missing slide records: 1",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+      ]
+    }
+  ]
+}

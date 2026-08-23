@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from pipeline.agentic.context_loader import assemble_context_pack
+
 
 WORKSPACE = Path(__file__).resolve().parents[1]
 
@@ -111,6 +113,30 @@ def test_identity_eval_stop_gate_blocks_batching_without_structured_review():
         assert "BLOCKED_FOR_IDENTITY_EVAL" in text, name
         assert "IDENTITY_UNVERIFIED" in text, name
         assert "do not call" in lowered or "instead of calling it final" in lowered, name
+
+
+def test_signature_evil_eye_accessories_are_durable_identity_locks():
+    identity = _flat("config/rules/identity.md")
+    master_prompt = _flat("config/references/a-story-illustration-master-prompt.md")
+    director_memory = _flat("memory/semantic/visual-director-intelligence.md")
+    style_contract = json.loads(_read("config/carousel_style_contract.json"))
+
+    for name, text in {
+        "identity rule": identity,
+        "master prompt": master_prompt,
+        "visual director memory": director_memory,
+    }.items():
+        lowered = text.lower()
+        assert "evil-eye locket" in lowered, name
+        assert "silver chain" in lowered, name
+        assert "evil-eye bracelet" in lowered, name
+        assert "right wrist" in lowered, name
+        assert "always worn" in lowered, name
+
+    assert "evil-eye bracelet" in style_contract["characters"]["aachu"]["signature_accessory"].lower()
+    assert "right wrist" in style_contract["characters"]["aachu"]["signature_accessory"].lower()
+    assert "evil-eye locket" in style_contract["characters"]["zuv"]["signature_accessory"].lower()
+    assert "silver chain" in style_contract["characters"]["zuv"]["signature_accessory"].lower()
 
 
 def test_scene_entity_integrity_is_a_loaded_hard_gate():
@@ -331,12 +357,14 @@ def test_creator_skill_stack_hook_loads_on_session_start_and_jam():
     jam_today = _read("scripts/jam_today.py")
     runtime = _read("config/skills/carousel-jam-runtime-context.md")
     autopilot = _read("config/skills/carousel-jam-autopilot.md")
+    carousel_skill = _read(".agents/skills/a-story-carousel-jam/SKILL.md")
 
     for fragment in (
         "Session Start Hook",
         "Jam Hook",
         "Scroll-Stop Skill",
         "Recognition Skill",
+        "Story Change Skill",
         "Emotional Contradiction Skill",
         "Scene-Proof Skill",
         "Retention Ladder Skill",
@@ -346,11 +374,183 @@ def test_creator_skill_stack_hook_loads_on_session_start_and_jam():
         "Volume Skill",
         "Taste Gate Skill",
         "DM Send Test",
+        "Mandatory Storytelling Change Hook",
     ):
         assert fragment in skill_stack
 
+    assert "Do not copy the story engine into this file" in _flat(
+        "config/skills/creator-skill-stack.md"
+    )
+
     for surface in (skill_systems, context_manifest, jam_today, runtime, autopilot):
         assert "config/skills/creator-skill-stack.md" in surface
+
+    for surface in (skill_systems, context_manifest, jam_today, runtime, carousel_skill):
+        assert ".agents/skills/a-story-storytelling-hook/SKILL.md" in surface
+
+
+def test_storytelling_change_hook_is_loaded_untruncated_before_heavy_rules():
+    pack = assemble_context_pack(WORKSPACE, profile="a-story-of-two")
+    sections = {section.id: section for section in pack.sections}
+    order = [section.id for section in pack.sections]
+
+    assert order.index("creator_skill_stack") < order.index("rule_palette")
+    assert order.index("storytelling_change_hook") < order.index("rule_palette")
+
+    for section_id in ("creator_skill_stack", "storytelling_change_hook"):
+        assert not sections[section_id].truncated
+
+    assert "That skill owns the Story" in sections["creator_skill_stack"].content
+    assert "Story State Card" in sections["storytelling_change_hook"].content
+    assert "before -> pressure/choice -> after" in sections["storytelling_change_hook"].content
+    assert "ERCRT" in sections["storytelling_change_hook"].content
+    assert "WHW" in sections["storytelling_change_hook"].content
+
+
+def test_storytelling_hook_bundles_learning_and_exact_source_reference():
+    skill = _read(".agents/skills/a-story-storytelling-hook/SKILL.md")
+    engine = _read(".agents/skills/a-story-storytelling-hook/references/story-engine.md")
+    transcript = _read(
+        ".agents/skills/a-story-storytelling-hook/references/source-transcript.txt"
+    )
+
+    for fragment in (
+        "Story State Card",
+        "before -> pressure/choice -> after",
+        "Emotion cycle",
+        "Climax hint",
+        "Reason to continue",
+        "Twisting patterns",
+        "Why",
+        "How",
+        "What",
+    ):
+        assert fragment in skill or fragment in engine
+
+    assert "Ownership And Conflict Rules" in engine
+    assert "Current creator instruction and correction" in engine
+    assert not (
+        WORKSPACE
+        / ".agents/skills/a-story-storytelling-hook/references/repo-storytelling-source-map.md"
+    ).exists()
+    assert "Everything is incomplete" in transcript
+    assert "ERCRT" in transcript
+    assert "WHW" in transcript
+    assert "PARADOLIA" in transcript
+
+
+def test_storytelling_surfaces_point_to_one_canonical_engine_without_repeating_it():
+    skill = _read(".agents/skills/a-story-storytelling-hook/SKILL.md")
+    engine = _read(".agents/skills/a-story-storytelling-hook/references/story-engine.md")
+    creator_stack = _read("config/skills/creator-skill-stack.md")
+    runtime = _read("config/skills/carousel-jam-runtime-context.md")
+    memory = _read("memory/semantic/storytelling-change-engine.md")
+
+    assert engine.count("## ERCRT Translation") == 1
+    assert engine.count("## WHW Translation") == 1
+    assert "Emotion cycle: vary emotional intensity with cause" not in skill
+    assert "Do not copy the story engine into this file" in " ".join(creator_stack.split())
+    assert "Do not duplicate the story engine here" in " ".join(runtime.split())
+    assert "canonical_method: `.agents/skills/a-story-storytelling-hook/references/story-engine.md`" in memory
+
+
+def test_reflective_six_beat_storytelling_architecture_is_named_and_protected():
+    skill = _flat(".agents/skills/a-story-storytelling-hook/SKILL.md")
+    engine = _read(".agents/skills/a-story-storytelling-hook/references/story-engine.md")
+    carousel_skill = _flat(".agents/skills/a-story-carousel-jam/SKILL.md")
+    runtime = _flat("config/skills/carousel-jam-runtime-context.md")
+    director = _flat("config/skills/carousel-story-director-persona.md")
+    framework = _flat("config/skills/illustration-carousel-framework.md")
+    memory = _flat("memory/semantic/storytelling-change-engine.md")
+    six_beat = "Cover -> Cold Open -> Deepening -> Conflict -> Turn -> Payoff"
+
+    for surface in (skill, carousel_skill, director, memory):
+        assert six_beat in surface
+
+    for surface in (runtime, framework):
+        for role in ("Cover", "Cold Open", "Deepening", "Conflict", "Turn", "Payoff"):
+            assert role in surface
+        assert "first-class" in surface or "creator-approved" in surface
+
+    for exact_line in (
+        "Cover: I was never unsure of you. I was lost inside our life.",
+        "Cold open: Choosing each other had answered the easiest question.",
+        "Deepening: Then life began asking harder ones.",
+        "Conflict: Some days, love did not tell us what to do.",
+        "Turn: Being lost together did not mean I had chosen wrong.",
+        "Payoff: Commitment answered who. We are still learning how.",
+    ):
+        assert exact_line in engine
+
+    assert "default seven-beat" in skill
+    assert "Do not treat the six-beat route as a compressed or inferior seven-beat deck" in engine
+    assert "do not pad or relabel" in carousel_skill.lower()
+
+
+def test_reflective_story_phases_can_expand_across_multiple_slides():
+    skill = _flat(".agents/skills/a-story-storytelling-hook/SKILL.md")
+    engine = _flat(".agents/skills/a-story-storytelling-hook/references/story-engine.md")
+    carousel_skill = _flat(".agents/skills/a-story-carousel-jam/SKILL.md")
+    runtime = _flat("config/skills/carousel-jam-runtime-context.md")
+    director = _flat("config/skills/carousel-story-director-persona.md")
+    framework = _flat("config/skills/illustration-carousel-framework.md")
+    memory = _flat("memory/semantic/storytelling-change-engine.md")
+
+    for surface in (skill, engine, carousel_skill, runtime, director, framework, memory):
+        assert "Deepening, Conflict, and Turn may each span multiple slides" in surface
+
+    assert "These names describe causal story phases, not a six-slide limit" in engine
+    assert "Question, Conflict, Character, And Answer Engine" in engine
+    assert "at least two active story characters" in engine
+    assert "Each slide must repay the previous swipe promise" in engine
+    assert "generic \"swipe for more\" bait" in engine
+    assert "a cold viewer must be able to explain" in engine
+    assert "without relying on the caption or private creator context" in engine
+    assert "one clean deepening beat and one clean conflict beat" not in engine
+
+
+def test_storytelling_hook_is_always_on_for_ideation_discussion_and_rejection():
+    manifest = json.loads(_read("config/agentic_context_manifest.json"))
+    systems = json.loads(_read("config/skill-systems.json"))["systems"]
+    skill = _flat(".agents/skills/a-story-storytelling-hook/SKILL.md")
+    engine = _flat(".agents/skills/a-story-storytelling-hook/references/story-engine.md")
+    metadata = _flat(".agents/skills/a-story-storytelling-hook/agents/openai.yaml")
+    creator_stack = _flat("config/skills/creator-skill-stack.md")
+    runtime = _flat("config/skills/carousel-jam-runtime-context.md")
+    memory = _flat("memory/semantic/storytelling-change-engine.md")
+
+    sections = manifest["profiles"]["a-story-of-two"]["sections"]
+    first_two = sections[:2]
+    assert [section["id"] for section in first_two] == [
+        "creator_skill_stack",
+        "storytelling_change_hook",
+    ]
+    assert all(section["required"] is True for section in first_two)
+
+    hook_path = ".agents/skills/a-story-storytelling-hook/SKILL.md"
+    assert hook_path in systems["carousel_jam"]["components"]
+    assert hook_path in systems["instagram_idea_loop"]["components"]
+    assert "allow_implicit_invocation: true" in metadata
+
+    for trigger in (
+        "brainstorms",
+        "generates",
+        "compares",
+        "discusses",
+        "rejects",
+        "revises",
+        "continues",
+    ):
+        assert trigger in skill
+
+    assert "Rejection And Discussion Protocol" in engine
+    assert "rejection_reasons:" in engine
+    assert "reopen_conditions:" in engine
+    assert "Do not return the same premise with cosmetic wording" in engine
+    assert "At the start of future ideation, query Agentic OS recall/search" in engine
+    assert "This is mandatory during brainstorming" in creator_stack
+    assert "keep it active across brainstorming" in runtime
+    assert "Never polish or rename a closed route as fresh" in memory
 
 
 def test_hot_path_makes_model_first_creative_authority_durable():

@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "scorecard": {
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 5,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 5
+  },
+  "total": 40,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "PASS",
+    "hook": 9,
+    "story": 9,
+    "bridge": 9,
+    "zuv_role": 9,
+    "ending": 9,
+    "send_save_potential": 9,
+    "stage_scene": 9,
+    "verdict": "GO: the six-slide story is visually causal, reciprocal and earned.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 5.0,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 4.0,
+    "total": 29.0
+  },
+  "story_selling_gate": {
+    "status": "GO",
+    "source": "layer-e-story-selling.json",
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "threshold": "28/30",
+    "selector_verdict": "GO: the theatre route uses missed cues and resynchronization—not map substitution—to make certainty, visible failure and equal continuation readable before copy.",
+    "candidate_count": 5,
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+      "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+      "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+      "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+      "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+      "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+      "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [],
+  "required_changes_before_image_generation": [],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "pass": true,
+    "agent_alignment": {
+      "status": "PASS",
+      "instruction": "Concept, copy, visual direction, prompts and QA all serve the cold-viewer recognition and partner-send goal."
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  }
+}

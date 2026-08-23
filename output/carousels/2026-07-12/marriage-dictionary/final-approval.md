@@ -1,18 +1,17 @@
 # Final Approval Checklist
 
-Status: seven-slide proof series generated, final images not ready.
+Status: standard-format rebuilt copy and visual story pending creator approval.
 
-- [x] Visual-storytelling proof slide 2 generated and repaired through v4.
-- [x] Proof candidates generated for slides 1-7.
-- [x] Aachu and Zuv identity are close enough for proof direction review.
-- [x] Exact active proof text appears inside the artwork for all seven slides.
-- [x] Text is compact; the main keyword shines without becoming the whole slide.
-- [x] The scenes carry the meanings through visible objects and body language.
-- [x] Paper is neutral warm ivory, not yellow or parchment.
-- [x] The tone reads as affectionate shaadi chaos, not blame.
-- [ ] Repair exact brandmark rendering to `@a.storyof.two` with no spacing drift.
-- [ ] Recreate/export final post slides at exact `1080x1440`.
-- [ ] Generate all seven native 3:4 final slides.
-- [ ] Generate separate native 9:16 slides, not crops.
-- [ ] Package final images into `final/` and `final-reels-stories/`.
+- [x] Previous proof series marked rejected.
+- [x] Rebuilt copy converted into standard one-copy-line carousel format.
+- [x] Rebuilt visual story changes from repeated couple posters to a one-day
+  cause/reaction/object-state trail.
+- [x] Format lock corrected to default `instagram_post` only.
+- [ ] Creator approves rebuilt copy.
+- [ ] Run fresh copy-hidden visual-story Event A after approval.
+- [ ] Compile new post-only prompt handoff.
+- [ ] Generate slide 6 proof at native post format.
+- [ ] Run proof QA for text, identity, anatomy/entity/spatial integrity,
+  brandmark, and image-first story readability.
+- [ ] Generate exact `1080x1440` final post slides.
 - [ ] Run final visual QA and final audit.

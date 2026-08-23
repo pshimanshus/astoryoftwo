@@ -1,7 +1,7 @@
 # Creator Skill Stack
 
-last_updated: 2026-07-04
-confidence: 0.86
+last_updated: 2026-08-23
+confidence: 0.94
 status: session-start and jam hook
 
 ## Purpose
@@ -14,6 +14,21 @@ creative pass.
 This file is an execution switch, not public copy. Do not expose the skill
 names to the audience.
 
+## Mandatory Storytelling Change Hook
+
+At the start of every @a.storyof.two creative chat, and before every continuing
+creative response, invoke
+`.agents/skills/a-story-storytelling-hook/SKILL.md`. That skill owns the Story
+State Card, change logic, ERCRT/WHW diagnostics, and continuous-chat
+corrections. This stack adds only channel-level scroll-stop, recognition,
+scene-proof, retention, payoff, format, taste, and DM-send checks. Do not copy
+the story engine into this file.
+
+This is mandatory during brainstorming, concept or idea generation, thinking
+aloud, comparison, discussion, rejection, revision, critique, copy work,
+visual work, and packaging. A creator message does not need to say "story" or
+"carousel" again when the active conversation is already creative.
+
 ## Session Start Hook
 
 At the start of any @a.storyof.two creative session, define the active creator
@@ -22,6 +37,8 @@ skills before suggesting ideas:
 - Scroll-Stop Skill: what makes the first frame or first line impossible to
   ignore in under two seconds.
 - Recognition Skill: who thinks "this is me", "this is her", or "this is us".
+- Story Change Skill: what is different between the before-state and the
+  after-state, and what choice or pressure causes it.
 - Emotional Contradiction Skill: what tension makes the love feel alive instead
   of decorative.
 - Scene-Proof Skill: what visible behavior, object, place, body language, or
@@ -45,13 +62,22 @@ Before showing creator-facing concept suggestions, every jam must pass this
 sequence:
 
 1. Define the audience mirror.
-2. Write the scroll-stop claim or first visible contradiction.
-3. Name the emotional contradiction.
-4. Stage one concrete scene receipt.
-5. Pick the strongest format shell.
-6. Check the middle beat for retention, not just sweetness.
-7. Check the ending with the DM Send Test.
-8. Reject lanes that are generic, stale, unstageable, or only pretty.
+2. Write the scroll-stop claim or first visible contradiction. Treat it as the
+   actual cover/slide one, not an extra title card: the strongest public hook,
+   close human emotion or unmistakable action, and one instantly legible visual
+   contradiction must create a swipe question in under one second. Reject calm
+   portraits, evidence flat-lays, decorative prop spreads, disembodied-hands
+   layouts, and any cover that repeats the same hook on the next swipe.
+3. Lock the change row: before-state, pressure or choice, and after-state.
+4. Name the emotional contradiction.
+5. State the honest climax hint and reason to continue without spoiling the
+   payoff.
+6. Stage one concrete scene receipt.
+7. Pick the strongest format shell.
+8. Check the middle beat for a caused emotional shift, not just sweetness.
+9. Check the ending with the DM Send Test.
+10. Reject lanes that are generic, stale, unstageable, unchanged, or only
+    pretty.
 
 ## DM Send Test
 

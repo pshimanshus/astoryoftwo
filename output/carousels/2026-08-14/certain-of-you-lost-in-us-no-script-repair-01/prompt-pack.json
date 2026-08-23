@@ -1,0 +1,2103 @@
+{
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition by default: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork at 1080x1920 only when the creator explicitly requests Reel or Story; never add it as an automatic companion output. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
+  "shared_negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "No Script, Same Scene Partner",
+    "why_it_wins": "It translates the copy into a distinct causal theatre world: light, blank pages, a failed cue and equal chair movement prove the relationship turn without architecture, maps or generic portraits."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "decision": "GO",
+    "winner": "No Script, Same Scene Partner",
+    "selector_verdict": "GO: theatre-world continuity survives while shot, light, action and object state change on every swipe."
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "winner": "No Script, Same Scene Partner",
+    "can_generate": true
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "rule": "Build a public identity mirror through mutual relationship motion, concrete visible receipts, an emotional reversal and a partner-send thesis; text completes the scene rather than carrying it."
+  },
+  "creative_baseline": {
+    "artifact": "creative-baseline.json",
+    "status": "supplied",
+    "creative_authority": "model_first",
+    "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+    "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance."
+  },
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+    "source_path": "config/references/a-story-illustration-master-prompt.md",
+    "required": true,
+    "rule": "Every final Codex/image-generation prompt for @a.storyof.two carousel slides must load the creator-locked watercolor-and-ink master prompt from disk, then fill the slide-specific on-image text, scene, pose, wardrobe, props, background, emotion, native format, and negative prompt.",
+    "required_sections": [
+      "USE CASE",
+      "ASSET TYPE",
+      "REFERENCE IMAGE ROLES",
+      "IDENTITY IMAGE INPUT CONTRACT",
+      "PRIMARY REQUEST",
+      "SCENE",
+      "CHARACTER IDENTITY LOCK",
+      "FACE PRESERVATION RULES",
+      "ILLUSTRATION STYLE",
+      "COLOR PALETTE",
+      "COMPOSITION AND FORMAT",
+      "EMOTIONAL DIRECTION",
+      "WARDROBE CONTINUITY",
+      "RECURRING PROPS AND MOTIFS",
+      "BACKGROUND STYLE",
+      "LINE AND TEXTURE DETAILS",
+      "ANATOMY AND QUALITY RULES",
+      "SCENE LOGIC AND POSE RULES",
+      "TEXT RULE",
+      "STYLE ACCEPTANCE RULE",
+      "BRANDMARK RULE",
+      "FINAL IDENTITY REINFORCEMENT",
+      "FINAL STYLE REINFORCEMENT",
+      "REFERENCE ESSENCE RULE",
+      "BRAND INTEGRATION VISIBILITY RULE",
+      "BRAND LABEL WORKFLOW"
+    ],
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "3:4",
+        "size": "1080x1440",
+        "source_size": "1440x1920",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      },
+      "square": {
+        "aspect_ratio": "1:1",
+        "size": "1080x1080",
+        "source_size": "1080x1080",
+        "directory": "final-square/"
+      }
+    },
+    "text_rule": "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally into the illustration as polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. Do not invent any other text."
+  },
+  "layer_e_story_selling": {
+    "schema_version": "1.0",
+    "status": "GO",
+    "task_type": "carousel_idea",
+    "adaptation_target": "C-layer",
+    "rooms": {
+      "source_memory_room": {
+        "name": "Context And Source Memory",
+        "status": "GO",
+        "agents": [],
+        "summary": "The new route rejects blueprint, map and domestic-maze grammar while preserving the exact relationship contradiction.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can choose the scene partner without handing a couple a finished script.",
+          "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "No Script, Same Scene Partner"
+        ]
+      },
+      "story_meaning_room": {
+        "name": "Story Meaning Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The winning route separates certainty in the scene partner from certainty about the next line.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {
+          "No Script, Same Scene Partner": 29.0,
+          "The Dress Rehearsal Life": 27.0,
+          "Two Spotlights, One Cue": 26.0,
+          "The Blank Book": 23.0,
+          "Constellations Without Coordinates": 21.0
+        },
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can choose the scene partner without handing a couple a finished script.",
+          "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "No Script, Same Scene Partner"
+        ]
+      },
+      "audience_algorithm_room": {
+        "name": "Audience And Algorithm Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The blank-script recognition and final equal chair movement create a clear partner-send reason.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can choose the scene partner without handing a couple a finished script.",
+          "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "No Script, Same Scene Partner"
+        ]
+      },
+      "contrarian_repair_room": {
+        "name": "Contrarian Repair Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "Generic stars, red thread, book pages and passive portraits were rejected; only visible cue failure and equal continuation survived.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can choose the scene partner without handing a couple a finished script.",
+          "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "No Script, Same Scene Partner"
+        ]
+      },
+      "stage_scene_room": {
+        "name": "Stage Scene Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "Every beat changes light, object state, gaze, body relationship or scenery before copy is read.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can choose the scene partner without handing a couple a finished script.",
+          "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "No Script, Same Scene Partner"
+        ]
+      },
+      "final_synthesis_room": {
+        "name": "Final Synthesis Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "No Script, Same Scene Partner is selected at 29/30 with the blind-reader causal repairs incorporated.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can choose the scene partner without handing a couple a finished script.",
+          "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "No Script, Same Scene Partner"
+        ]
+      }
+    },
+    "exploration_routes": [
+      {
+        "name": "No Script, Same Scene Partner",
+        "story_lens": "A dream-theatre makes mutual choice, missing instructions, visible failure and equal continuation physical.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      },
+      {
+        "name": "The Dress Rehearsal Life",
+        "story_lens": "Clear rehearsal metaphor but risks making the relationship feel temporary or preparatory.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 27.0,
+        "golden_theme_score_total": 27.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "Two Spotlights, One Cue",
+        "story_lens": "Strong first image but too little object progression for six slides.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 26.0,
+        "golden_theme_score_total": 26.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "The Blank Book",
+        "story_lens": "A book-first route becomes stationery symbolism and weakens embodied action.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 23.0,
+        "golden_theme_score_total": 23.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "Constellations Without Coordinates",
+        "story_lens": "Dreamy but generic and too close to familiar romantic symbolism.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 21.0,
+        "golden_theme_score_total": 21.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "repaired_routes": [
+      {
+        "name": "No Script, Same Scene Partner",
+        "story_lens": "A dream-theatre makes mutual choice, missing instructions, visible failure and equal continuation physical.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      }
+    ],
+    "rejected_routes": [
+      {
+        "name": "The Blank Book",
+        "story_lens": "A book-first route becomes stationery symbolism and weakens embodied action.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 23.0,
+        "golden_theme_score_total": 23.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "Constellations Without Coordinates",
+        "story_lens": "Dreamy but generic and too close to familiar romantic symbolism.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 21.0,
+        "golden_theme_score_total": 21.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "selected_story_lens": "Commitment can choose the scene partner without handing a couple a finished script.",
+    "selected_route_name": "No Script, Same Scene Partner",
+    "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+    "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+    "emotional_machine": "aligned inside shifting space -> separate arrival -> shared light -> divided handled demands -> blank instructions -> shared laugh at failure -> equal movement into the next cue",
+    "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+    "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+    "human_story_setup": {
+      "cold_reader_doorway": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+      "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+      "visible_human_proof": "They keep walking together while the stage shifts, enter one shared light, each handle one practical pressure, find one blank script in blackout, laugh at a visible failed curtain cue, and each pull one chair into the next light.",
+      "active_partner_role": "Neither partner rescues the other. Both stay present, both recognize the failed cue, and both move one chair.",
+      "emotional_turn": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+      "shareable_setup": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+      "earned_payoff": "Commitment answered who; the next scene is still being learned through equal action."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer recognizes their own certainty-without-instructions and sends the deck to their partner.",
+      "creative_success": "The sequence reads silently through moving scenery, handled pressure, one blank-page blackout, a visibly failed cue, gaze and equal chair movement.",
+      "brand_success": "The route feels tender, specific and dream-real rather than like a generic theatre poster or quote card.",
+      "production_success": "Exact copy, actual Aachu/Zuv identity, one brandmark, 1080x1440 finals, structured visual QA and final audit all pass."
+    },
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "process_influence_summary": "Card 20 supplies the saveable lesson; Card 07 keeps the ending inside imperfect real love.",
+    "process_influences": [
+      {
+        "id": "successful-carousel-standard",
+        "title": "Successful Carousel Standard",
+        "influence_type": "living_standard"
+      },
+      {
+        "id": "card-20",
+        "title": "Saveable Lesson From One Scene",
+        "influence_type": "concept_process_card"
+      },
+      {
+        "id": "card-07",
+        "title": "Anti-Ideal To Real Love",
+        "influence_type": "concept_process_card"
+      }
+    ],
+    "candidate_table": [
+      {
+        "name": "No Script, Same Scene Partner",
+        "story_lens": "A dream-theatre makes mutual choice, missing instructions, visible failure and equal continuation physical.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      },
+      {
+        "name": "The Dress Rehearsal Life",
+        "story_lens": "Clear rehearsal metaphor but risks making the relationship feel temporary or preparatory.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 27.0,
+        "golden_theme_score_total": 27.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "Two Spotlights, One Cue",
+        "story_lens": "Strong first image but too little object progression for six slides.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 26.0,
+        "golden_theme_score_total": 26.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "The Blank Book",
+        "story_lens": "A book-first route becomes stationery symbolism and weakens embodied action.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 23.0,
+        "golden_theme_score_total": 23.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "Constellations Without Coordinates",
+        "story_lens": "Dreamy but generic and too close to familiar romantic symbolism.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+        "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal agency without becoming a handler or rescuer.",
+        "proof_engine": "aligned walk through shifting scenery -> separate wings -> shared light -> one handled pressure each -> sole blank-script blackout -> visible failed cue -> active chair convergence",
+        "emotional_reversal": "The failed scene becomes evidence of an unfinished process, not a wrong choice of partner.",
+        "payoff": "Commitment answered who; the next scene is still being learned through equal action.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 21.0,
+        "golden_theme_score_total": 21.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+          "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+          "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+          "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+          "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+          "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+          "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "They enter separate spotlights, absorb incoming adult-life scenery, search the same blank script, laugh together as the scene change visibly fails, then each drags one chair into the same next pool of light.",
+      "reaction": "Their gazes meet, divide under pressure, converge on blank pages, reconnect at the mishap, and finally align toward one next cue.",
+      "eye_line_or_attention": "Attention travels from mutual recognition to split demands, shared uncertainty, reciprocal recognition, and one shared forward focus.",
+      "hands_or_object_movement": "Hands remain self-owned and simple: separate arrival, self-contained pressure gestures, no hands at the blank-page conflict, one resting hand each at the turn, and one clearly owned chair pull each at payoff.",
+      "silence_or_pause": "The blackout and completely blank script hold the quiet pause in which love is present but not instructional.",
+      "consequence": "The script is closed and left behind; the chairs move from opposite wings toward one shared cue.",
+      "reversal_or_payoff": "A failed scene stops reading as a wrong scene partner; they actively take their separate seats into the next light.",
+      "blockers": []
+    },
+    "story_selling_score": {
+      "reader_identity_mirror": 5.0,
+      "romantic_conflict_stakes": 5.0,
+      "specificity_of_proof": 5.0,
+      "emotional_reversal": 5.0,
+      "visual_scene_clarity": 5.0,
+      "online_share_save_sell_potential": 4.0,
+      "total": 29.0
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    },
+    "golden_theme_gate": "required_for_carousel",
+    "threshold": "28/30",
+    "hard_fails": [],
+    "required_repairs": [],
+    "selector_verdict": "GO: the theatre route uses missed cues and resynchronization—not map substitution—to make certainty, visible failure and equal continuation readable before copy.",
+    "downstream_contract": {
+      "C_layer": "Preserve the six exact creator-supplied lines and the certainty-to-improvisation arc.",
+      "D_layer": "Keep the continuous theatre world, active shifting-stage cover, sole blank-script conflict and equal chair movement.",
+      "B_layer": "Generate one native 3:4 proof with all identity and style references attached before the remaining slides."
+    }
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "I was never unsure of you.\nI was lost inside our life.",
+      "reader_identity_mirror": "The private recognition of being certain about a partner while the shared life still feels unwritten.",
+      "emotional_obstacle": "Commitment names the scene partner but cannot supply every next line, cue or position.",
+      "aachu_proof": "She enters from her own wing, stays engaged through the blank-page blackout, shares the laugh at the failed cue and pulls her own chair into the next light.",
+      "zuv_active_role": "He enters from his own wing, stays engaged through the blank-page blackout, shares the laugh at the failed cue and pulls his own chair into the next light.",
+      "bridge": "aligned inside shifting space -> separate arrival -> shared light -> divided handled demands -> blank instructions -> shared laugh at failure -> equal movement into the next cue",
+      "earned_ending": "Commitment answered who.\nWe are still learning how.",
+      "send_save_reason": "Sendable to the person you remain sure about while both of you are still improvising the life around that certainty."
+    },
+    "hook_bank": [
+      {
+        "hook": "I was never unsure of you.\nI was lost inside our life.",
+        "score": 5,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "Commitment can choose the person without handing a couple a finished script for the life t",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with soft love notes.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "I was never unsure of you.\nI was lost inside our life.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "I was never unsure of you.\nI was lost inside our life."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "Commitment can choose the person without handing a couple a finished script for the life that follows."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "two people choose the same scene -> the stage fills with demands -> the script offers no instructions -> a missed cue stops feeling like a wrong choice -> they move into the next light together"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "Commitment answered who.\nWe are still learning how."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9,
+      "stage_scene": 9
+    },
+    "verdict": "GO: the six-slide story is visually causal, reciprocal and earned.",
+    "blocks": [],
+    "concept_selection_used": true,
+    "source_story": "Commitment answers who we choose; shared life still asks how. Preserve the creator's exact six-slide copy and stage it as a dream-theatre where the same scene partner remains certain even when the script is blank."
+  },
+  "style_reference_images": [
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/observational-intimacy-style-crop-clean.png"
+  ],
+  "identity_reference_images": [
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/identity-generation-preflight.md",
+  "identity_selected_options": [
+    "CROP-AACHU-01",
+    "CROP-COUPLE-01",
+    "CROP-ZUV-01"
+  ],
+  "face_identity_contract": {
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "warm medium-brown skin",
+        "soft oval face",
+        "expressive dark eyes and brows",
+        "long dark naturally wavy hair",
+        "adult 5'6 body scale"
+      ],
+      "wardrobe": [
+        "black open overshirt",
+        "black top",
+        "blue jeans"
+      ]
+    },
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "warm medium-brown skin",
+        "dark almond eyes",
+        "thick textured dark hair",
+        "short natural beard",
+        "adult 5'8 body scale"
+      ],
+      "wardrobe": [
+        "white zip jacket",
+        "dark charcoal trousers"
+      ]
+    },
+    "relative_scale": "Only a subtle two-inch standing difference at the same depth; never petite versus oversized."
+  },
+  "identity_reference_strategy": "Three cropped actual-photo anchors: one Aachu face/body/wardrobe crop, one close couple-face crop, one Zuv face/body/wardrobe crop.",
+  "identity_reference_usage": "Attach only the three cropped actual identity anchors. Ignore every reference background, prop, pose, sign and source text. Do not attach the pregnancy photo or the identity contact sheet.",
+  "character_bible": "Aachu and Zuv are the same two real South Asian adults across the deck. Aachu is expressive and grounded; Zuv is warm and grounded. Neither is the problem or caretaker. Preserve actual faces, scale and cropped-reference wardrobe.",
+  "integrated_text_plan": {
+    "strategy": "integrated_final_text",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at every canvas locked in format-contract.json; exact slide copy must be integrated into the generated final image raster; if the model cannot render exact copy, block or retry with a text-bearing prompt",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "I was never unsure of you.\nI was lost inside our life.",
+      "Choosing each other had answered\nthe easiest question.",
+      "Then life began asking\nharder ones.",
+      "Some days, love did not tell us\nwhat to do.",
+      "Being lost together did not mean\nI had chosen wrong.",
+      "Commitment answered who.\nWe are still learning how."
+    ]
+  },
+  "text_overlay_plan": {
+    "deprecated_alias_of": "integrated_text_plan",
+    "strategy": "integrated_final_text",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "Deprecated compatibility field. Use integrated_text_plan.",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "I was never unsure of you.\nI was lost inside our life.",
+      "Choosing each other had answered\nthe easiest question.",
+      "Then life began asking\nharder ones.",
+      "Some days, love did not tell us\nwhat to do.",
+      "Being lost together did not mean\nI had chosen wrong.",
+      "Commitment answered who.\nWe are still learning how."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 6,
+      "text": "I was never unsure of you.\nI was lost inside our life.",
+      "scene": "MEDIUM-WIDE FIRST-ROW COVER AS AN ACTIVE EVENT, both faces large and readable. Exactly Aachu and Zuv walk downstage shoulder-to-shoulder in the same direction while the theatre space shifts around them: one tall indigo scenery flat on visible caster wheels slides left behind Aachu and one dusty-rose flat on visible caster wheels slides right behind Zuv. Their inside shoulders stay in firm contact and both bodies lean subtly toward each other for balance. They look toward the same changing floor ahead, certain of their alignment even as the stage reconfigures. Exactly two hands are visible: Aachu's outer left hand and Zuv's outer right hand hang naturally at their own outer thighs; both inside hands remain fully hidden behind their own adjacent torsos. The stage is otherwise empty; one low strip of empty upholstered seat backs appears at the bottom as objects only. Preserve clean neutral-ivory upper-middle paper for copy. No script, doorway, house set, map, blueprint, audience, crew, silhouette, reflection, portrait, extra person, heart-shaped light, signage, or random text.",
+      "visual": "MEDIUM-WIDE FIRST-ROW COVER AS AN ACTIVE EVENT, both faces large and readable. Exactly Aachu and Zuv walk downstage shoulder-to-shoulder in the same direction while the theatre space shifts around them: one tall indigo scenery flat on visible caster wheels slides left behind Aachu and one dusty-rose flat on visible caster wheels slides right behind Zuv. Their inside shoulders stay in firm contact and both bodies lean subtly toward each other for balance. They look toward the same changing floor ahead, certain of their alignment even as the stage reconfigures. Exactly two hands are visible: Aachu's outer left hand and Zuv's outer right hand hang naturally at their own outer thighs; both inside hands remain fully hidden behind their own adjacent torsos. The stage is otherwise empty; one low strip of empty upholstered seat backs appears at the bottom as objects only. Preserve clean neutral-ivory upper-middle paper for copy. No script, doorway, house set, map, blueprint, audience, crew, silhouette, reflection, portrait, extra person, heart-shaped light, signage, or random text.",
+      "hand_map": {
+        "scene_action_binding": "MEDIUM-WIDE FIRST-ROW COVER AS AN ACTIVE EVENT, both faces large and readable. Exactly Aachu and Zuv walk downstage shoulder-to-shoulder in the same direction while the theatre space shifts around them: one tall indigo scenery flat on visible caster wheels slides left behind Aachu and one dusty-rose flat on visible caster wheels slides right behind Zuv. Their inside shoulders stay in firm contact and both bodies lean subtly toward each other for balance. They look toward the same changing floor ahead, certain of their alignment even as the stage reconfigures. Exactly two hands are visible: Aachu's outer left hand and Zuv's outer right hand hang naturally at their own outer thighs; both inside hands remain fully hidden behind their own adjacent torsos. The stage is otherwise empty; one low strip of empty upholstered seat backs appears at the bottom as objects only. Preserve clean neutral-ivory upper-middle paper for copy. No script, doorway, house set, map, blueprint, audience, crew, silhouette, reflection, portrait, extra person, heart-shaped light, signage, or random text.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "visible",
+            "action": "Hang naturally at Aachu's own outer thigh",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Stay fully hidden behind Aachu's adjacent torso",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Stay fully hidden behind Zuv's adjacent torso",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "visible",
+            "action": "Hang naturally at Zuv's own outer thigh",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "unowned, extra, duplicated or detached hand or arm",
+          "hand without a traceable wrist and forearm",
+          "hand penetrating clothing, chair, table, floor or curtain",
+          "one hand performing two actions",
+          "anonymous hand entering from the frame, scenery or another body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "MEDIUM-WIDE FIRST-ROW COVER AS AN ACTIVE EVENT, both faces large and readable. Exactly Aachu and Zuv walk downstage shoulder-to-shoulder in the same direction while the theatre space shifts around them: one tall indigo scenery flat on visible caster wheels slides left behind Aachu and one dusty-rose flat on visible caster wheels slides right behind Zuv. Their inside shoulders stay in firm contact and both bodies lean subtly toward each other for balance. They look toward the same changing floor ahead, certain of their alignment even as the stage reconfigures. Exactly two hands are visible: Aachu's outer left hand and Zuv's outer right hand hang naturally at their own outer thighs; both inside hands remain fully hidden behind their own adjacent torsos. The stage is otherwise empty; one low strip of empty upholstered seat backs appears at the bottom as objects only. Preserve clean neutral-ivory upper-middle paper for copy. No script, doorway, house set, map, blueprint, audience, crew, silhouette, reflection, portrait, extra person, heart-shaped light, signage, or random text.",
+        "copy_action_binding": "I was never unsure of you. I was lost inside our life.",
+        "issues": []
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "MEDIUM-WIDE FIRST-ROW COVER AS AN ACTIVE EVENT, both faces large and readable. Exactly Aachu and Zuv walk downstage shoulder-to-shoulder in the same direction while the theatre space shifts around them: one tall indigo scenery flat on visible caster wheels slides left behind Aachu and one dusty-rose flat on visible caster wheels slides right behind Zuv. Their inside shoulders stay in firm contact and both bodies lean subtly toward each other for balance. They look toward the same changing floor ahead, certain of their alignment even as the stage reconfigures. Exactly two hands are visible: Aachu's outer left hand and Zuv's outer right hand hang naturally at their own outer thighs; both inside hands remain fully hidden behind their own adjacent torsos. The stage is otherwise empty; one low strip of empty upholstered seat backs appears at the bottom as objects only. Preserve clean neutral-ivory upper-middle paper for copy. No script, doorway, house set, map, blueprint, audience, crew, silhouette, reflection, portrait, extra person, heart-shaped light, signage, or random text.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "left scenery flat",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "right scenery flat",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "empty seat backs",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "left scenery flat",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "right scenery flat",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "empty seat backs",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          }
+        ],
+        "solid_objects": [
+          "stage floor",
+          "left scenery flat",
+          "right scenery flat",
+          "empty seat backs"
+        ],
+        "review_order": [
+          "whole-frame silhouette",
+          "solid boundaries",
+          "front/behind/contact order",
+          "occlusion continuation",
+          "local hands and limbs"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into scenery, furniture, curtain, table or floor",
+          "object edge running through a head, shoulder, back, torso, clothing or limb",
+          "untraceable body volume hidden by painterly texture",
+          "unresolved depth relationship"
+        ]
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "MEDIUM-WIDE FIRST-ROW COVER AS AN ACTIVE EVENT, both faces large and readable. Exactly Aachu and Zuv walk downstage shoulder-to-shoulder in the same direction while the theatre space shifts around them: one tall indigo scenery flat on visible caster wheels slides left behind Aachu and one dusty-rose flat on visible caster wheels slides right behind Zuv. Their inside shoulders stay in firm contact and both bodies lean subtly toward each other for balance. They look toward the same changing floor ahead, certain of their alignment even as the stage reconfigures. Exactly two hands are visible: Aachu's outer left hand and Zuv's outer right hand hang naturally at their own outer thighs; both inside hands remain fully hidden behind their own adjacent torsos. The stage is otherwise empty; one low strip of empty upholstered seat backs appears at the bottom as objects only. Preserve clean neutral-ivory upper-middle paper for copy. No script, doorway, house set, map, blueprint, audience, crew, silhouette, reflection, portrait, extra person, heart-shaped light, signage, or random text.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "Two certain bodies against an unfinished shared world create the one-second contradiction.",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "The cover is a flash-forward thesis made as an active event: shared alignment survives a shifting stage. Slide 2 begins the chronological sequence: separate wings -> shared light -> handled demands -> blank-script blackout -> visible failed cue -> active chair convergence.",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Same-depth moving two-shot from the knees up, faces three-quarter and readable, shoulders firmly touching, bodies leaning gently toward each other, exactly two visible outer hands at their own thighs and both inner hands completely hidden.",
+      "wardrobe": "Aachu: black open overshirt, black top, blue jeans. Zuv: white zip jacket, charcoal trousers. Clean continuous rehearsal-night state.",
+      "props": "two tall theatrical scenery flats moving in opposite directions on visible caster bases; one low strip of empty seat backs",
+      "background": "Two wheeled scenery flats travel in opposite directions behind the aligned pair; one low strip of empty auditorium seat backs stays object-like in foreground.",
+      "emotion": "certainty in the person, vertigo inside the shared life",
+      "style": "Observational Intimacy Premium watercolor-and-ink from the attached text-free crop: neutral warm ivory/off-white paper with visible grain, fine graphite and ink contours, transparent indigo, dusty-rose and pale-peach watercolor blooms, tactile clothing, restrained contrast and soft unfinished edges. Identity-photo faces and wardrobe override every person in the style crop.",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, anime, flat vector, quote card, poster, theatre playbill, yellow/mustard/sepia/parchment paper, harsh black stage void, spotlight shaped like a heart or portal, extra people, audience heads, crew, reflections, portraits, silhouettes, mannequins, ghosts, duplicated couple, random writing, prop labels, signs, UI, extra brandmark, bottom-right brandmark, malformed hands, extra limbs, body-scenery merges, clothing-object intersections, generic stock faces, pregnancy cues, wrong wardrobe, petite Aachu, oversized Zuv, map, blueprint, red thread, long floor paths or decorative symbols.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/observational-intimacy-style-crop-clean.png"
+      ],
+      "identity_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: publishable 3:4 Instagram carousel slide 1 of 6. Scene: MEDIUM-WIDE FIRST-ROW COVER AS AN ACTIVE EVENT, both faces large and readable. Exactly Aachu and Zuv walk downstage shoulder-to-shoulder in the same direction while the theatre space shifts around them: one tall indigo scenery flat on visible caster wheels slides left behind Aachu and one dusty-rose flat on visible caster wheels slides right behind Zuv. Their inside shoulders stay in firm contact and both bodies lean subtly toward each other for balance. They look toward the same changing floor ahead, certain of their alignment even as the stage reconfigures. Exactly two hands are visible: Aachu's outer left hand and Zuv's outer right hand hang naturally at their own outer thighs; both inside hands remain fully hidden behind their own adjacent torsos. The stage is otherwise empty; one low strip of empty upholstered seat backs appears at the bottom as objects only. Preserve clean neutral-ivory upper-middle paper for copy. No script, doorway, house set, map, blueprint, audience, crew, silhouette, reflection, portrait, extra person, heart-shaped light, signage, or random text. Mood: certainty in the person, vertigo inside the shared life. Wardrobe: Aachu: black open overshirt, black top, blue jeans. Zuv: white zip jacket, charcoal trousers. Clean continuous rehearsal-night state. Props: two tall theatrical scenery flats moving in opposite directions on visible caster bases; one low strip of empty seat backs. Use the three attached cropped actual Aachu/Zuv identity photos only for faces, hair, skin tone, adult body proportions and exact wardrobe. Ignore every identity-reference background, prop, sign, pose and source text. Use the single text-free Observational Intimacy Premium crop only for neutral ivory paper grain, graphite/ink linework, transparent watercolor texture and restrained indigo/peach palette; ignore its people and scenery. Render only this exact on-image text: 'I was never unsure of you.\\nI was lost inside our life.'. Render exactly one tiny handwritten @a.storyof.two at the top-right. No other words anywhere on props or scenery."
+    },
+    {
+      "slide": 2,
+      "slide_count": 6,
+      "text": "Choosing each other had answered\nthe easiest question.",
+      "scene": "STAGE-LEVEL LATERAL WIDE SHOT across the bare floor. Exactly Aachu enters from the left wing and Zuv from the right wing, each taking one clean step toward the other. Two narrow spotlights cross-fade into one irregular soft-edged shared pool at center—never a heart, almond, portal, circle or path. Their profile eye-lines meet as their leading feet enter the same light. Their arms hang naturally at their own sides, hands open and separate, with no touch. One plain rehearsal chair remains in each wing, clearly separated and empty. No script appears yet. The upper paper dissolves cleanly for copy. No audience, crew, extra person, reflection, silhouette, wedding shorthand, label, sign, arrow, or random text.",
+      "visual": "STAGE-LEVEL LATERAL WIDE SHOT across the bare floor. Exactly Aachu enters from the left wing and Zuv from the right wing, each taking one clean step toward the other. Two narrow spotlights cross-fade into one irregular soft-edged shared pool at center—never a heart, almond, portal, circle or path. Their profile eye-lines meet as their leading feet enter the same light. Their arms hang naturally at their own sides, hands open and separate, with no touch. One plain rehearsal chair remains in each wing, clearly separated and empty. No script appears yet. The upper paper dissolves cleanly for copy. No audience, crew, extra person, reflection, silhouette, wedding shorthand, label, sign, arrow, or random text.",
+      "hand_map": {
+        "scene_action_binding": "STAGE-LEVEL LATERAL WIDE SHOT across the bare floor. Exactly Aachu enters from the left wing and Zuv from the right wing, each taking one clean step toward the other. Two narrow spotlights cross-fade into one irregular soft-edged shared pool at center—never a heart, almond, portal, circle or path. Their profile eye-lines meet as their leading feet enter the same light. Their arms hang naturally at their own sides, hands open and separate, with no touch. One plain rehearsal chair remains in each wing, clearly separated and empty. No script appears yet. The upper paper dissolves cleanly for copy. No audience, crew, extra person, reflection, silhouette, wedding shorthand, label, sign, arrow, or random text.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 4,
+        "default_max_visible_hands": 4,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "visible",
+            "action": "Hang naturally at Aachu's own side",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "visible",
+            "action": "Hang naturally at Aachu's own side",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "visible",
+            "action": "Hang naturally at Zuv's own side",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "visible",
+            "action": "Hang naturally at Zuv's own side",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "unowned, extra, duplicated or detached hand or arm",
+          "hand without a traceable wrist and forearm",
+          "hand penetrating clothing, chair, table, floor or curtain",
+          "one hand performing two actions",
+          "anonymous hand entering from the frame, scenery or another body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "STAGE-LEVEL LATERAL WIDE SHOT across the bare floor. Exactly Aachu enters from the left wing and Zuv from the right wing, each taking one clean step toward the other. Two narrow spotlights cross-fade into one irregular soft-edged shared pool at center—never a heart, almond, portal, circle or path. Their profile eye-lines meet as their leading feet enter the same light. Their arms hang naturally at their own sides, hands open and separate, with no touch. One plain rehearsal chair remains in each wing, clearly separated and empty. No script appears yet. The upper paper dissolves cleanly for copy. No audience, crew, extra person, reflection, silhouette, wedding shorthand, label, sign, arrow, or random text.",
+        "copy_action_binding": "Choosing each other had answered the easiest question.",
+        "issues": []
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "STAGE-LEVEL LATERAL WIDE SHOT across the bare floor. Exactly Aachu enters from the left wing and Zuv from the right wing, each taking one clean step toward the other. Two narrow spotlights cross-fade into one irregular soft-edged shared pool at center—never a heart, almond, portal, circle or path. Their profile eye-lines meet as their leading feet enter the same light. Their arms hang naturally at their own sides, hands open and separate, with no touch. One plain rehearsal chair remains in each wing, clearly separated and empty. No script appears yet. The upper paper dissolves cleanly for copy. No audience, crew, extra person, reflection, silhouette, wedding shorthand, label, sign, arrow, or random text.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "two chairs",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "two chairs",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          }
+        ],
+        "solid_objects": [
+          "stage floor",
+          "two chairs"
+        ],
+        "review_order": [
+          "whole-frame silhouette",
+          "solid boundaries",
+          "front/behind/contact order",
+          "occlusion continuation",
+          "local hands and limbs"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into scenery, furniture, curtain, table or floor",
+          "object edge running through a head, shoulder, back, torso, clothing or limb",
+          "untraceable body volume hidden by painterly texture",
+          "unresolved depth relationship"
+        ]
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "STAGE-LEVEL LATERAL WIDE SHOT across the bare floor. Exactly Aachu enters from the left wing and Zuv from the right wing, each taking one clean step toward the other. Two narrow spotlights cross-fade into one irregular soft-edged shared pool at center—never a heart, almond, portal, circle or path. Their profile eye-lines meet as their leading feet enter the same light. Their arms hang naturally at their own sides, hands open and separate, with no touch. One plain rehearsal chair remains in each wing, clearly separated and empty. No script appears yet. The upper paper dissolves cleanly for copy. No audience, crew, extra person, reflection, silhouette, wedding shorthand, label, sign, arrow, or random text.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "Mutual movement into one light makes choosing visible without wedding symbols.",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "The chairs begin in opposite wings; two separate light cues first become one shared pool here.",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Stage-level lateral moving two-shot, both mid-step from opposite wings at equal distance from center, hands separate at own sides, profile gazes meeting; standing scale reads only a subtle two-inch difference.",
+      "wardrobe": "Same continuous rehearsal-night wardrobe, clean state.",
+      "props": "two separate plain rehearsal chairs and two irregular cross-fading solo spotlights",
+      "background": "Bare charcoal stage floor and two dark wings with one plain chair in each; no audience or crew.",
+      "emotion": "an uncomplicated yes before the difficult scenes",
+      "style": "Observational Intimacy Premium watercolor-and-ink from the attached text-free crop: neutral warm ivory/off-white paper with visible grain, fine graphite and ink contours, transparent indigo, dusty-rose and pale-peach watercolor blooms, tactile clothing, restrained contrast and soft unfinished edges. Identity-photo faces and wardrobe override every person in the style crop.",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, anime, flat vector, quote card, poster, theatre playbill, yellow/mustard/sepia/parchment paper, harsh black stage void, spotlight shaped like a heart or portal, extra people, audience heads, crew, reflections, portraits, silhouettes, mannequins, ghosts, duplicated couple, random writing, prop labels, signs, UI, extra brandmark, bottom-right brandmark, malformed hands, extra limbs, body-scenery merges, clothing-object intersections, generic stock faces, pregnancy cues, wrong wardrobe, petite Aachu, oversized Zuv, map, blueprint, red thread, long floor paths or decorative symbols.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/observational-intimacy-style-crop-clean.png"
+      ],
+      "identity_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: publishable 3:4 Instagram carousel slide 2 of 6. Scene: STAGE-LEVEL LATERAL WIDE SHOT across the bare floor. Exactly Aachu enters from the left wing and Zuv from the right wing, each taking one clean step toward the other. Two narrow spotlights cross-fade into one irregular soft-edged shared pool at center—never a heart, almond, portal, circle or path. Their profile eye-lines meet as their leading feet enter the same light. Their arms hang naturally at their own sides, hands open and separate, with no touch. One plain rehearsal chair remains in each wing, clearly separated and empty. No script appears yet. The upper paper dissolves cleanly for copy. No audience, crew, extra person, reflection, silhouette, wedding shorthand, label, sign, arrow, or random text. Mood: an uncomplicated yes before the difficult scenes. Wardrobe: Same continuous rehearsal-night wardrobe, clean state. Props: two separate plain rehearsal chairs and two irregular cross-fading solo spotlights. Use the three attached cropped actual Aachu/Zuv identity photos only for faces, hair, skin tone, adult body proportions and exact wardrobe. Ignore every identity-reference background, prop, sign, pose and source text. Use the single text-free Observational Intimacy Premium crop only for neutral ivory paper grain, graphite/ink linework, transparent watercolor texture and restrained indigo/peach palette; ignore its people and scenery. Render only this exact on-image text: 'Choosing each other had answered\\nthe easiest question.'. Render exactly one tiny handwritten @a.storyof.two at the top-right. No other words anywhere on props or scenery."
+    },
+    {
+      "slide": 3,
+      "slide_count": 6,
+      "text": "Then life began asking\nharder ones.",
+      "scene": "HIGH FLY-LOFT CRANE VIEW, diagonally across the stage. Exactly Aachu and Zuv stand back-to-back inside the once-simple shared spotlight, shoulders in light contact, and each actively arrests one separate incoming demand. Aachu uses only her right hand to stop the front edge of one work desk rolling in from stage left; exactly two taped moving cartons sit securely on the desk. Zuv uses only his left hand to turn one freestanding doorway flat rolling in from stage right; its rear brace and caster base make it unmistakably theatrical. Their free hands stay fully outside the crop. Each gaze follows the object they are handling, while their backs remain connected. No script appears. Every prop remains outside both body silhouettes except the declared palm-to-object contact. Clean ivory above for copy; no labels, clocks, signs, audience, crew, reflections, silhouettes, duplicate people, wires crossing bodies, or writing.",
+      "visual": "HIGH FLY-LOFT CRANE VIEW, diagonally across the stage. Exactly Aachu and Zuv stand back-to-back inside the once-simple shared spotlight, shoulders in light contact, and each actively arrests one separate incoming demand. Aachu uses only her right hand to stop the front edge of one work desk rolling in from stage left; exactly two taped moving cartons sit securely on the desk. Zuv uses only his left hand to turn one freestanding doorway flat rolling in from stage right; its rear brace and caster base make it unmistakably theatrical. Their free hands stay fully outside the crop. Each gaze follows the object they are handling, while their backs remain connected. No script appears. Every prop remains outside both body silhouettes except the declared palm-to-object contact. Clean ivory above for copy; no labels, clocks, signs, audience, crew, reflections, silhouettes, duplicate people, wires crossing bodies, or writing.",
+      "hand_map": {
+        "scene_action_binding": "HIGH FLY-LOFT CRANE VIEW, diagonally across the stage. Exactly Aachu and Zuv stand back-to-back inside the once-simple shared spotlight, shoulders in light contact, and each actively arrests one separate incoming demand. Aachu uses only her right hand to stop the front edge of one work desk rolling in from stage left; exactly two taped moving cartons sit securely on the desk. Zuv uses only his left hand to turn one freestanding doorway flat rolling in from stage right; its rear brace and caster base make it unmistakably theatrical. Their free hands stay fully outside the crop. Each gaze follows the object they are handling, while their backs remain connected. No script appears. Every prop remains outside both body silhouettes except the declared palm-to-object contact. Clean ivory above for copy; no labels, clocks, signs, audience, crew, reflections, silhouettes, duplicate people, wires crossing bodies, or writing.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Stay completely outside the crop",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Place Aachu's palm only on the front edge of her rolling desk",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Place Zuv's palm only on the side edge of his rolling doorway flat",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Stay completely outside the crop",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "unowned, extra, duplicated or detached hand or arm",
+          "hand without a traceable wrist and forearm",
+          "hand penetrating clothing, chair, table, floor or curtain",
+          "one hand performing two actions",
+          "anonymous hand entering from the frame, scenery or another body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "HIGH FLY-LOFT CRANE VIEW, diagonally across the stage. Exactly Aachu and Zuv stand back-to-back inside the once-simple shared spotlight, shoulders in light contact, and each actively arrests one separate incoming demand. Aachu uses only her right hand to stop the front edge of one work desk rolling in from stage left; exactly two taped moving cartons sit securely on the desk. Zuv uses only his left hand to turn one freestanding doorway flat rolling in from stage right; its rear brace and caster base make it unmistakably theatrical. Their free hands stay fully outside the crop. Each gaze follows the object they are handling, while their backs remain connected. No script appears. Every prop remains outside both body silhouettes except the declared palm-to-object contact. Clean ivory above for copy; no labels, clocks, signs, audience, crew, reflections, silhouettes, duplicate people, wires crossing bodies, or writing.",
+        "copy_action_binding": "Then life began asking harder ones.",
+        "issues": []
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "HIGH FLY-LOFT CRANE VIEW, diagonally across the stage. Exactly Aachu and Zuv stand back-to-back inside the once-simple shared spotlight, shoulders in light contact, and each actively arrests one separate incoming demand. Aachu uses only her right hand to stop the front edge of one work desk rolling in from stage left; exactly two taped moving cartons sit securely on the desk. Zuv uses only his left hand to turn one freestanding doorway flat rolling in from stage right; its rear brace and caster base make it unmistakably theatrical. Their free hands stay fully outside the crop. Each gaze follows the object they are handling, while their backs remain connected. No script appears. Every prop remains outside both body silhouettes except the declared palm-to-object contact. Clean ivory above for copy; no labels, clocks, signs, audience, crew, reflections, silhouettes, duplicate people, wires crossing bodies, or writing.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "rolling desk",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "two cartons",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "rolling doorway flat",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "rolling desk",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "two cartons",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "rolling doorway flat",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          }
+        ],
+        "solid_objects": [
+          "stage floor",
+          "rolling desk",
+          "two cartons",
+          "rolling doorway flat"
+        ],
+        "review_order": [
+          "whole-frame silhouette",
+          "solid boundaries",
+          "front/behind/contact order",
+          "occlusion continuation",
+          "local hands and limbs"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into scenery, furniture, curtain, table or floor",
+          "object edge running through a head, shoulder, back, torso, clothing or limb",
+          "untraceable body volume hidden by painterly texture",
+          "unresolved depth relationship"
+        ]
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "HIGH FLY-LOFT CRANE VIEW, diagonally across the stage. Exactly Aachu and Zuv stand back-to-back inside the once-simple shared spotlight, shoulders in light contact, and each actively arrests one separate incoming demand. Aachu uses only her right hand to stop the front edge of one work desk rolling in from stage left; exactly two taped moving cartons sit securely on the desk. Zuv uses only his left hand to turn one freestanding doorway flat rolling in from stage right; its rear brace and caster base make it unmistakably theatrical. Their free hands stay fully outside the crop. Each gaze follows the object they are handling, while their backs remain connected. No script appears. Every prop remains outside both body silhouettes except the declared palm-to-object contact. Clean ivory above for copy; no labels, clocks, signs, audience, crew, reflections, silhouettes, duplicate people, wires crossing bodies, or writing.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "The stage itself asks the questions before either partner can answer.",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "The shared pool fills with practical demands; both partners visibly handle one pressure without rescuing or managing the other.",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "High-angle back-to-back action two-shot, shoulders touch, gazes divide, exactly two visible focal hands: Aachu's right palm on her own desk edge and Zuv's left palm on his own doorway-flat edge; free hands fully outside the crop.",
+      "wardrobe": "Same wardrobe, faint stage dust at hems only.",
+      "props": "one rolling work desk carrying exactly two taped cartons; one rolling freestanding doorway flat with visible rear brace and caster base",
+      "background": "Fly-loft view with one rolling desk and one rolling doorway flat, open negative space between every object and body, and no suspension wires.",
+      "emotion": "shared attention pulled in several adult directions",
+      "style": "Observational Intimacy Premium watercolor-and-ink from the attached text-free crop: neutral warm ivory/off-white paper with visible grain, fine graphite and ink contours, transparent indigo, dusty-rose and pale-peach watercolor blooms, tactile clothing, restrained contrast and soft unfinished edges. Identity-photo faces and wardrobe override every person in the style crop.",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, anime, flat vector, quote card, poster, theatre playbill, yellow/mustard/sepia/parchment paper, harsh black stage void, spotlight shaped like a heart or portal, extra people, audience heads, crew, reflections, portraits, silhouettes, mannequins, ghosts, duplicated couple, random writing, prop labels, signs, UI, extra brandmark, bottom-right brandmark, malformed hands, extra limbs, body-scenery merges, clothing-object intersections, generic stock faces, pregnancy cues, wrong wardrobe, petite Aachu, oversized Zuv, map, blueprint, red thread, long floor paths or decorative symbols.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/observational-intimacy-style-crop-clean.png"
+      ],
+      "identity_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: publishable 3:4 Instagram carousel slide 3 of 6. Scene: HIGH FLY-LOFT CRANE VIEW, diagonally across the stage. Exactly Aachu and Zuv stand back-to-back inside the once-simple shared spotlight, shoulders in light contact, and each actively arrests one separate incoming demand. Aachu uses only her right hand to stop the front edge of one work desk rolling in from stage left; exactly two taped moving cartons sit securely on the desk. Zuv uses only his left hand to turn one freestanding doorway flat rolling in from stage right; its rear brace and caster base make it unmistakably theatrical. Their free hands stay fully outside the crop. Each gaze follows the object they are handling, while their backs remain connected. No script appears. Every prop remains outside both body silhouettes except the declared palm-to-object contact. Clean ivory above for copy; no labels, clocks, signs, audience, crew, reflections, silhouettes, duplicate people, wires crossing bodies, or writing. Mood: shared attention pulled in several adult directions. Wardrobe: Same wardrobe, faint stage dust at hems only. Props: one rolling work desk carrying exactly two taped cartons; one rolling freestanding doorway flat with visible rear brace and caster base. Use the three attached cropped actual Aachu/Zuv identity photos only for faces, hair, skin tone, adult body proportions and exact wardrobe. Ignore every identity-reference background, prop, sign, pose and source text. Use the single text-free Observational Intimacy Premium crop only for neutral ivory paper grain, graphite/ink linework, transparent watercolor texture and restrained indigo/peach palette; ignore its people and scenery. Render only this exact on-image text: 'Then life began asking\\nharder ones.'. Render exactly one tiny handwritten @a.storyof.two at the top-right. No other words anywhere on props or scenery."
+    },
+    {
+      "slide": 4,
+      "slide_count": 6,
+      "text": "Some days, love did not tell us\nwhat to do.",
+      "scene": "OBJECT-DOMINANT HIGH OVER-TABLE CLOSE INSERT during rehearsal blackout, widened only enough to establish the next cue. Exactly Aachu and Zuv are present, but the open blank rehearsal script is the hero object in the lower-middle frame. Aachu appears as a clean partial shoulder, hair edge and soft profile at viewer-left; Zuv's full three-quarter face is readable beyond the pages at viewer-right. Aachu uses exactly one visible right hand to lift and turn the completely blank right ivory page while Zuv uses exactly one visible left index finger and palm to press the completely blank left page corner flat—two clearly separate hands from two clearly separate owners on opposite sides of the central spread. No letters, lines, title, symbols, staff marks or print appear anywhere on either page. Along the far wall, one single straight taut indigo theatre fly-line runs vertically flush into a clearly visible metal wall cleat; it has no free-hanging section, loop, knot, curve, coil, rope end or noose-like silhouette. A narrow strip of the still-hanging indigo curtain is visible at the far edge. One distant ghost light glows between them, while hands, pages, table edge, wall line, curtain, hair and torsos remain spatially separate. Reserve generous clean upper paper for exact copy. No other person, extra chair, audience, crew, reflection, silhouette, clock, speech bubble, heart, label, sign, or random text.",
+      "visual": "OBJECT-DOMINANT HIGH OVER-TABLE CLOSE INSERT during rehearsal blackout, widened only enough to establish the next cue. Exactly Aachu and Zuv are present, but the open blank rehearsal script is the hero object in the lower-middle frame. Aachu appears as a clean partial shoulder, hair edge and soft profile at viewer-left; Zuv's full three-quarter face is readable beyond the pages at viewer-right. Aachu uses exactly one visible right hand to lift and turn the completely blank right ivory page while Zuv uses exactly one visible left index finger and palm to press the completely blank left page corner flat—two clearly separate hands from two clearly separate owners on opposite sides of the central spread. No letters, lines, title, symbols, staff marks or print appear anywhere on either page. Along the far wall, one single straight taut indigo theatre fly-line runs vertically flush into a clearly visible metal wall cleat; it has no free-hanging section, loop, knot, curve, coil, rope end or noose-like silhouette. A narrow strip of the still-hanging indigo curtain is visible at the far edge. One distant ghost light glows between them, while hands, pages, table edge, wall line, curtain, hair and torsos remain spatially separate. Reserve generous clean upper paper for exact copy. No other person, extra chair, audience, crew, reflection, silhouette, clock, speech bubble, heart, label, sign, or random text.",
+      "hand_map": {
+        "scene_action_binding": "OBJECT-DOMINANT OVER-AACHU-SHOULDER CLOSE INSERT during rehearsal blackout, widened only enough to establish the next cue. Exactly Aachu and Zuv are present, but the open blank rehearsal script is the hero object in the lower-middle frame. Aachu appears only as a clean partial shoulder, hair edge and soft profile at viewer-left; Zuv's full three-quarter face is readable beyond the pages at viewer-right. Both begin by looking down at the same two completely blank ivory pages—no letters, lines, title, symbols, staff marks or print—while Aachu's eye-line has just started lifting toward one loose indigo curtain pull line hanging beside the table. A narrow strip of the still-hanging indigo curtain is visible at the far edge; the cord is clearly a theatre cue, not a rope path or decorative symbol. Their hands remain fully below the small table and outside the frame. One distant ghost light glows between them, while table edge, pages, cord, hair and torsos remain spatially separate. Reserve generous clean upper paper for exact copy so it cannot be mistaken for writing on the prop. No other person, extra chair, audience, crew, reflection, silhouette, clock, speech bubble, heart, label, sign, or random text.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 0,
+        "default_max_visible_hands": 0,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Stay fully below the tabletop and outside the frame",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Stay fully below the tabletop and outside the frame",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Stay fully below the tabletop and outside the frame",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Stay fully below the tabletop and outside the frame",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "unowned, extra, duplicated or detached hand or arm",
+          "hand without a traceable wrist and forearm",
+          "hand penetrating clothing, chair, table, floor or curtain",
+          "one hand performing two actions",
+          "anonymous hand entering from the frame, scenery or another body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "OBJECT-DOMINANT OVER-AACHU-SHOULDER CLOSE INSERT during rehearsal blackout, widened only enough to establish the next cue. Exactly Aachu and Zuv are present, but the open blank rehearsal script is the hero object in the lower-middle frame. Aachu appears only as a clean partial shoulder, hair edge and soft profile at viewer-left; Zuv's full three-quarter face is readable beyond the pages at viewer-right. Both begin by looking down at the same two completely blank ivory pages—no letters, lines, title, symbols, staff marks or print—while Aachu's eye-line has just started lifting toward one loose indigo curtain pull line hanging beside the table. A narrow strip of the still-hanging indigo curtain is visible at the far edge; the cord is clearly a theatre cue, not a rope path or decorative symbol. Their hands remain fully below the small table and outside the frame. One distant ghost light glows between them, while table edge, pages, cord, hair and torsos remain spatially separate. Reserve generous clean upper paper for exact copy so it cannot be mistaken for writing on the prop. No other person, extra chair, audience, crew, reflection, silhouette, clock, speech bubble, heart, label, sign, or random text.",
+        "copy_action_binding": "Some days, love did not tell us what to do.",
+        "issues": []
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "OBJECT-DOMINANT OVER-AACHU-SHOULDER CLOSE INSERT during rehearsal blackout, widened only enough to establish the next cue. Exactly Aachu and Zuv are present, but the open blank rehearsal script is the hero object in the lower-middle frame. Aachu appears only as a clean partial shoulder, hair edge and soft profile at viewer-left; Zuv's full three-quarter face is readable beyond the pages at viewer-right. Both begin by looking down at the same two completely blank ivory pages—no letters, lines, title, symbols, staff marks or print—while Aachu's eye-line has just started lifting toward one loose indigo curtain pull line hanging beside the table. A narrow strip of the still-hanging indigo curtain is visible at the far edge; the cord is clearly a theatre cue, not a rope path or decorative symbol. Their hands remain fully below the small table and outside the frame. One distant ghost light glows between them, while table edge, pages, cord, hair and torsos remain spatially separate. Reserve generous clean upper paper for exact copy so it cannot be mistaken for writing on the prop. No other person, extra chair, audience, crew, reflection, silhouette, clock, speech bubble, heart, label, sign, or random text.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "rehearsal table",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "open blank script",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "rehearsal table",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "open blank script",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          }
+        ],
+        "solid_objects": [
+          "rehearsal table",
+          "open blank script",
+          "stage floor"
+        ],
+        "review_order": [
+          "whole-frame silhouette",
+          "solid boundaries",
+          "front/behind/contact order",
+          "occlusion continuation",
+          "local hands and limbs"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into scenery, furniture, curtain, table or floor",
+          "object edge running through a head, shoulder, back, torso, clothing or limb",
+          "untraceable body volume hidden by painterly texture",
+          "unresolved depth relationship"
+        ]
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "OBJECT-DOMINANT OVER-AACHU-SHOULDER CLOSE INSERT during rehearsal blackout, widened only enough to establish the next cue. Exactly Aachu and Zuv are present, but the open blank rehearsal script is the hero object in the lower-middle frame. Aachu appears only as a clean partial shoulder, hair edge and soft profile at viewer-left; Zuv's full three-quarter face is readable beyond the pages at viewer-right. Both begin by looking down at the same two completely blank ivory pages—no letters, lines, title, symbols, staff marks or print—while Aachu's eye-line has just started lifting toward one loose indigo curtain pull line hanging beside the table. A narrow strip of the still-hanging indigo curtain is visible at the far edge; the cord is clearly a theatre cue, not a rope path or decorative symbol. Their hands remain fully below the small table and outside the frame. One distant ghost light glows between them, while table edge, pages, cord, hair and torsos remain spatially separate. Reserve generous clean upper paper for exact copy so it cannot be mistaken for writing on the prop. No other person, extra chair, audience, crew, reflection, silhouette, clock, speech bubble, heart, label, sign, or random text.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "Love is present in both faces, but no instruction appears on the page.",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "The sole blank-script hero frame also reveals the unhelpful next cue: blank pages and a loose curtain line coexist before the visible failure.",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Asymmetric over-Aachu-shoulder insert: Aachu partial at left, Zuv readable beyond the blank pages at right, all hands fully out of frame; shared gaze begins on the pages and Aachu's gaze starts shifting toward the loose cue line.",
+      "wardrobe": "Same continuous wardrobe, lightly stage-dusty.",
+      "props": "one small rehearsal table, one open completely blank script, one loose indigo curtain cue line, one narrow still-hanging curtain edge, one distant ghost light",
+      "background": "Blackout theatre with one distant ghost light and indigo curtains dissolving into neutral ivory paper.",
+      "emotion": "shared helplessness without blame",
+      "style": "Observational Intimacy Premium watercolor-and-ink from the attached text-free crop: neutral warm ivory/off-white paper with visible grain, fine graphite and ink contours, transparent indigo, dusty-rose and pale-peach watercolor blooms, tactile clothing, restrained contrast and soft unfinished edges. Identity-photo faces and wardrobe override every person in the style crop.",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, anime, flat vector, quote card, poster, theatre playbill, yellow/mustard/sepia/parchment paper, harsh black stage void, spotlight shaped like a heart or portal, extra people, audience heads, crew, reflections, portraits, silhouettes, mannequins, ghosts, duplicated couple, random writing, prop labels, signs, UI, extra brandmark, bottom-right brandmark, malformed hands, extra limbs, body-scenery merges, clothing-object intersections, generic stock faces, pregnancy cues, wrong wardrobe, petite Aachu, oversized Zuv, map, blueprint, red thread, long floor paths or decorative symbols.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/observational-intimacy-style-crop-clean.png"
+      ],
+      "identity_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: publishable 3:4 Instagram carousel slide 4 of 6. Scene: OBJECT-DOMINANT OVER-AACHU-SHOULDER CLOSE INSERT during rehearsal blackout, widened only enough to establish the next cue. Exactly Aachu and Zuv are present, but the open blank rehearsal script is the hero object in the lower-middle frame. Aachu appears only as a clean partial shoulder, hair edge and soft profile at viewer-left; Zuv's full three-quarter face is readable beyond the pages at viewer-right. Both begin by looking down at the same two completely blank ivory pages—no letters, lines, title, symbols, staff marks or print—while Aachu's eye-line has just started lifting toward one loose indigo curtain pull line hanging beside the table. A narrow strip of the still-hanging indigo curtain is visible at the far edge; the cord is clearly a theatre cue, not a rope path or decorative symbol. Their hands remain fully below the small table and outside the frame. One distant ghost light glows between them, while table edge, pages, cord, hair and torsos remain spatially separate. Reserve generous clean upper paper for exact copy so it cannot be mistaken for writing on the prop. No other person, extra chair, audience, crew, reflection, silhouette, clock, speech bubble, heart, label, sign, or random text. Mood: shared helplessness without blame. Wardrobe: Same continuous wardrobe, lightly stage-dusty. Props: one small rehearsal table, one open completely blank script, one loose indigo curtain cue line, one narrow still-hanging curtain edge, one distant ghost light. Use the three attached cropped actual Aachu/Zuv identity photos only for faces, hair, skin tone, adult body proportions and exact wardrobe. Ignore every identity-reference background, prop, sign, pose and source text. Use the single text-free Observational Intimacy Premium crop only for neutral ivory paper grain, graphite/ink linework, transparent watercolor texture and restrained indigo/peach palette; ignore its people and scenery. Render only this exact on-image text: 'Some days, love did not tell us\\nwhat to do.'. Render exactly one tiny handwritten @a.storyof.two at the top-right. No other words anywhere on props or scenery."
+    },
+    {
+      "slide": 5,
+      "slide_count": 6,
+      "text": "Being lost together did not mean\nI had chosen wrong.",
+      "scene": "LOW SIDE-STAGE MEDIUM-WIDE RECOVERY ACTION immediately after a scene change fails. Exactly Aachu and Zuv kneel at the same depth on opposite sides of the same fallen indigo curtain, which lies safely on the bare stage floor and never wraps around either body. Aachu uses exactly one visible inside hand to lift the left curtain corner; Zuv uses exactly one visible inside hand to lift the right curtain corner. They actively fold the two separately owned corners toward the same center, creating one shallow fabric ridge and two short fresh dust marks beneath the moving cloth. The fold lands slightly crooked, and at that exact active moment both turn their heads toward each other and begin the same small exhausted laugh. Their outside hands remain fully outside the crop. The same closed script rests on the separate rehearsal table in the middle background as a featureless dark-indigo book with a completely blank cover—no title, label, symbol, marks or letters. No loose line, loop, rope, coil or hanging cord appears anywhere. Pale ghost-light rims keep Aachu's black hair and overshirt and Zuv's white jacket separate from curtain and floor. Clean upper paper for copy. No chair, embrace, rescue gesture, audience, extra person, reflection, silhouette, duplicate limb, halo, heart, label, sign, or random text.",
+      "visual": "LOW SIDE-STAGE MEDIUM-WIDE RECOVERY ACTION immediately after a scene change fails. Exactly Aachu and Zuv kneel at the same depth on opposite sides of the same fallen indigo curtain, which lies safely on the bare stage floor and never wraps around either body. Aachu uses exactly one visible inside hand to lift the left curtain corner; Zuv uses exactly one visible inside hand to lift the right curtain corner. They actively fold the two separately owned corners toward the same center, creating one shallow fabric ridge and two short fresh dust marks beneath the moving cloth. The fold lands slightly crooked, and at that exact active moment both turn their heads toward each other and begin the same small exhausted laugh. Their outside hands remain fully outside the crop. The same closed script rests on the separate rehearsal table in the middle background as a featureless dark-indigo book with a completely blank cover—no title, label, symbol, marks or letters. No loose line, loop, rope, coil or hanging cord appears anywhere. Pale ghost-light rims keep Aachu's black hair and overshirt and Zuv's white jacket separate from curtain and floor. Clean upper paper for copy. No chair, embrace, rescue gesture, audience, extra person, reflection, silhouette, duplicate limb, halo, heart, label, sign, or random text.",
+      "hand_map": {
+        "scene_action_binding": "SIDE-STAGE MEDIUM REACTION SHOT at the exact instant a scene change fails. Exactly Aachu and Zuv sit shoulder-to-shoulder on the bare stage floor as the same indigo curtain finishes collapsing safely behind them, never over or around either body. Its loose pull line and lower edge remain visible in a separate background plane with two restrained motion folds. Both people turn their heads toward each other and begin the same small exhausted laugh at the visible mishap. The same script from the blackout is now closed and sharp in the middle ground beside the loose curtain line, with no writing visible. Aachu's near hand rests flat on her own thigh; Zuv's near hand rests flat on his own knee; all other hands remain outside the crop. A clean ivory-and-pale-peach rim of ghost light separates Aachu's black hair and overshirt from the indigo curtain and charcoal floor; the same light cleanly separates Zuv's white jacket without letting it dominate. Clean upper paper for copy. No chair, embrace, rescue gesture, audience, extra person, reflection, silhouette, duplicate limb, halo, heart, label, sign, or random text.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Stay completely outside the crop",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "visible",
+            "action": "Rest flat on Aachu's own thigh",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "visible",
+            "action": "Rest flat on Zuv's own knee",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Stay completely outside the crop",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "unowned, extra, duplicated or detached hand or arm",
+          "hand without a traceable wrist and forearm",
+          "hand penetrating clothing, chair, table, floor or curtain",
+          "one hand performing two actions",
+          "anonymous hand entering from the frame, scenery or another body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "SIDE-STAGE MEDIUM REACTION SHOT at the exact instant a scene change fails. Exactly Aachu and Zuv sit shoulder-to-shoulder on the bare stage floor as the same indigo curtain finishes collapsing safely behind them, never over or around either body. Its loose pull line and lower edge remain visible in a separate background plane with two restrained motion folds. Both people turn their heads toward each other and begin the same small exhausted laugh at the visible mishap. The same script from the blackout is now closed and sharp in the middle ground beside the loose curtain line, with no writing visible. Aachu's near hand rests flat on her own thigh; Zuv's near hand rests flat on his own knee; all other hands remain outside the crop. A clean ivory-and-pale-peach rim of ghost light separates Aachu's black hair and overshirt from the indigo curtain and charcoal floor; the same light cleanly separates Zuv's white jacket without letting it dominate. Clean upper paper for copy. No chair, embrace, rescue gesture, audience, extra person, reflection, silhouette, duplicate limb, halo, heart, label, sign, or random text.",
+        "copy_action_binding": "Being lost together did not mean I had chosen wrong.",
+        "issues": []
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "SIDE-STAGE MEDIUM REACTION SHOT at the exact instant a scene change fails. Exactly Aachu and Zuv sit shoulder-to-shoulder on the bare stage floor as the same indigo curtain finishes collapsing safely behind them, never over or around either body. Its loose pull line and lower edge remain visible in a separate background plane with two restrained motion folds. Both people turn their heads toward each other and begin the same small exhausted laugh at the visible mishap. The same script from the blackout is now closed and sharp in the middle ground beside the loose curtain line, with no writing visible. Aachu's near hand rests flat on her own thigh; Zuv's near hand rests flat on his own knee; all other hands remain outside the crop. A clean ivory-and-pale-peach rim of ghost light separates Aachu's black hair and overshirt from the indigo curtain and charcoal floor; the same light cleanly separates Zuv's white jacket without letting it dominate. Clean upper paper for copy. No chair, embrace, rescue gesture, audience, extra person, reflection, silhouette, duplicate limb, halo, heart, label, sign, or random text.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "fallen curtain",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "closed blank script",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "tipped chair",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "fallen curtain",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "closed blank script",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "tipped chair",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          }
+        ],
+        "solid_objects": [
+          "stage floor",
+          "fallen curtain",
+          "closed blank script",
+          "tipped chair"
+        ],
+        "review_order": [
+          "whole-frame silhouette",
+          "solid boundaries",
+          "front/behind/contact order",
+          "occlusion continuation",
+          "local hands and limbs"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into scenery, furniture, curtain, table or floor",
+          "object edge running through a head, shoulder, back, torso, clothing or limb",
+          "untraceable body volume hidden by painterly texture",
+          "unresolved depth relationship"
+        ]
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "SIDE-STAGE MEDIUM REACTION SHOT at the exact instant a scene change fails. Exactly Aachu and Zuv sit shoulder-to-shoulder on the bare stage floor as the same indigo curtain finishes collapsing safely behind them, never over or around either body. Its loose pull line and lower edge remain visible in a separate background plane with two restrained motion folds. Both people turn their heads toward each other and begin the same small exhausted laugh at the visible mishap. The same script from the blackout is now closed and sharp in the middle ground beside the loose curtain line, with no writing visible. Aachu's near hand rests flat on her own thigh; Zuv's near hand rests flat on his own knee; all other hands remain outside the crop. A clean ivory-and-pale-peach rim of ghost light separates Aachu's black hair and overshirt from the indigo curtain and charcoal floor; the same light cleanly separates Zuv's white jacket without letting it dominate. Clean upper paper for copy. No chair, embrace, rescue gesture, audience, extra person, reflection, silhouette, duplicate limb, halo, heart, label, sign, or random text.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "Their first shared laugh changes the meaning without pretending the stage is fixed.",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "The blackout becomes a visible failed scene change; their reciprocal laugh happens at the same instant rather than after an unseen event.",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Same-depth seated medium two-shot, shoulders touching, direct eye contact beginning in shared laughter, one visible self-owned hand each on its owner's leg, two other hands out of frame.",
+      "wardrobe": "Same wardrobe, faint dust and one soft curtain crease, no color change.",
+      "props": "the same fallen indigo curtain and loose cue line; the same closed script sharp in middle ground beside the line",
+      "background": "Side-stage floor with settling curtain safely behind the pair and one tipped chair far back, all separated from bodies.",
+      "emotion": "exhausted recognition becoming warmth",
+      "style": "Observational Intimacy Premium watercolor-and-ink from the attached text-free crop: neutral warm ivory/off-white paper with visible grain, fine graphite and ink contours, transparent indigo, dusty-rose and pale-peach watercolor blooms, tactile clothing, restrained contrast and soft unfinished edges. Identity-photo faces and wardrobe override every person in the style crop.",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, anime, flat vector, quote card, poster, theatre playbill, yellow/mustard/sepia/parchment paper, harsh black stage void, spotlight shaped like a heart or portal, extra people, audience heads, crew, reflections, portraits, silhouettes, mannequins, ghosts, duplicated couple, random writing, prop labels, signs, UI, extra brandmark, bottom-right brandmark, malformed hands, extra limbs, body-scenery merges, clothing-object intersections, generic stock faces, pregnancy cues, wrong wardrobe, petite Aachu, oversized Zuv, map, blueprint, red thread, long floor paths or decorative symbols.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/observational-intimacy-style-crop-clean.png"
+      ],
+      "identity_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: publishable 3:4 Instagram carousel slide 5 of 6. Scene: SIDE-STAGE MEDIUM REACTION SHOT at the exact instant a scene change fails. Exactly Aachu and Zuv sit shoulder-to-shoulder on the bare stage floor as the same indigo curtain finishes collapsing safely behind them, never over or around either body. Its loose pull line and lower edge remain visible in a separate background plane with two restrained motion folds. Both people turn their heads toward each other and begin the same small exhausted laugh at the visible mishap. The same script from the blackout is now closed and sharp in the middle ground beside the loose curtain line, with no writing visible. Aachu's near hand rests flat on her own thigh; Zuv's near hand rests flat on his own knee; all other hands remain outside the crop. A clean ivory-and-pale-peach rim of ghost light separates Aachu's black hair and overshirt from the indigo curtain and charcoal floor; the same light cleanly separates Zuv's white jacket without letting it dominate. Clean upper paper for copy. No chair, embrace, rescue gesture, audience, extra person, reflection, silhouette, duplicate limb, halo, heart, label, sign, or random text. Mood: exhausted recognition becoming warmth. Wardrobe: Same wardrobe, faint dust and one soft curtain crease, no color change. Props: the same fallen indigo curtain and loose cue line; the same closed script sharp in middle ground beside the line. Use the three attached cropped actual Aachu/Zuv identity photos only for faces, hair, skin tone, adult body proportions and exact wardrobe. Ignore every identity-reference background, prop, sign, pose and source text. Use the single text-free Observational Intimacy Premium crop only for neutral ivory paper grain, graphite/ink linework, transparent watercolor texture and restrained indigo/peach palette; ignore its people and scenery. Render only this exact on-image text: 'Being lost together did not mean\\nI had chosen wrong.'. Render exactly one tiny handwritten @a.storyof.two at the top-right. No other words anywhere on props or scenery."
+    },
+    {
+      "slide": 6,
+      "slide_count": 6,
+      "text": "Commitment answered who.\nWe are still learning how.",
+      "scene": "ACTIVE PAYOFF AND COVER ECHO, HIGH REAR THREE-QUARTER MEDIUM-WIDE from just above the stage lip. Exactly Aachu and Zuv stand at the same depth behind the two plain rehearsal chairs that began in opposite wings. Each person uses exactly one inside hand to pull their own chair by its backrest toward the same new pale-peach pool of light; Aachu owns the left chair with her right hand and Zuv owns the right chair with his left hand. Their outside hands remain fully outside the crop. The chairs angle slightly inward and are visibly still moving; one short fresh skid of chalky dust sits immediately behind each chair leg, with no long trail, rope, map line or path. Their shoulders and forward direction echo the cover, and the same indigo and dusty-rose scenery flats again slide apart in the far background, now leaving one shared open center. The fallen indigo curtain remains pooled safely behind them beside the separate rehearsal table. On that table, the same closed script appears only as a small featureless dark-indigo book with a completely blank cover—no title, label, icon, mark, line, symbol, letter or suggestive pseudo-text of any kind. Both look toward the same newly illuminated footlight and unfinished center, with a readable small side glance beginning between them. Keep every chair, book, table and scenery boundary separate from legs, hands and clothing. Keep the upper-middle ivory paper clean for copy. Exactly two people; no audience, silhouettes, reflections, crew, finished home, destination, applause, heart-shaped light, map, blueprint, arrow, sign, labels, or random text.",
+      "visual": "ACTIVE PAYOFF AND COVER ECHO, HIGH REAR THREE-QUARTER MEDIUM-WIDE from just above the stage lip. Exactly Aachu and Zuv stand at the same depth behind the two plain rehearsal chairs that began in opposite wings. Each person uses exactly one inside hand to pull their own chair by its backrest toward the same new pale-peach pool of light; Aachu owns the left chair with her right hand and Zuv owns the right chair with his left hand. Their outside hands remain fully outside the crop. The chairs angle slightly inward and are visibly still moving; one short fresh skid of chalky dust sits immediately behind each chair leg, with no long trail, rope, map line or path. Their shoulders and forward direction echo the cover, and the same indigo and dusty-rose scenery flats again slide apart in the far background, now leaving one shared open center. The fallen indigo curtain remains pooled safely behind them beside the separate rehearsal table. On that table, the same closed script appears only as a small featureless dark-indigo book with a completely blank cover—no title, label, icon, mark, line, symbol, letter or suggestive pseudo-text of any kind. Both look toward the same newly illuminated footlight and unfinished center, with a readable small side glance beginning between them. Keep every chair, book, table and scenery boundary separate from legs, hands and clothing. Keep the upper-middle ivory paper clean for copy. Exactly two people; no audience, silhouettes, reflections, crew, finished home, destination, applause, heart-shaped light, map, blueprint, arrow, sign, labels, or random text.",
+      "hand_map": {
+        "scene_action_binding": "ACTIVE PAYOFF AND COVER ECHO, HIGH REAR THREE-QUARTER MEDIUM-WIDE from just above the stage lip. Exactly Aachu and Zuv stand at the same depth behind the two plain rehearsal chairs that began in opposite wings. Each person uses exactly one inside hand to pull their own chair by its backrest toward the same new pale-peach pool of light; Aachu owns the left chair with her right hand and Zuv owns the right chair with his left hand. Their outside hands remain fully outside the crop. The chairs angle slightly inward toward one another and are visibly still moving; one short fresh skid of chalky dust sits immediately behind each chair leg, with no long trail, rope, map line or path. Their shoulders and forward direction echo the cover, and the same indigo and dusty-rose scenery flats again slide apart in the far background, now leaving one shared open center. The fallen indigo curtain remains pooled safely behind them beside the rehearsal table, and the same closed script is visibly left on that table. Both look toward the same newly illuminated footlight and unfinished center, with a fully readable small side glance beginning between them. Keep every chair and scenery boundary separate from legs, hands and clothing. Keep the upper-middle ivory paper clean for copy. Exactly two people; no audience, silhouettes, reflections, crew, finished home, destination, applause, heart-shaped light, map, blueprint, arrow, sign, labels, or random text.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Stay completely outside the crop",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Grip only Aachu's own left chair backrest and pull it toward center",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Grip only Zuv's own right chair backrest and pull it toward center",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Stay completely outside the crop",
+            "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "unowned, extra, duplicated or detached hand or arm",
+          "hand without a traceable wrist and forearm",
+          "hand penetrating clothing, chair, table, floor or curtain",
+          "one hand performing two actions",
+          "anonymous hand entering from the frame, scenery or another body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "ACTIVE PAYOFF AND COVER ECHO, HIGH REAR THREE-QUARTER MEDIUM-WIDE from just above the stage lip. Exactly Aachu and Zuv stand at the same depth behind the two plain rehearsal chairs that began in opposite wings. Each person uses exactly one inside hand to pull their own chair by its backrest toward the same new pale-peach pool of light; Aachu owns the left chair with her right hand and Zuv owns the right chair with his left hand. Their outside hands remain fully outside the crop. The chairs angle slightly inward toward one another and are visibly still moving; one short fresh skid of chalky dust sits immediately behind each chair leg, with no long trail, rope, map line or path. Their shoulders and forward direction echo the cover, and the same indigo and dusty-rose scenery flats again slide apart in the far background, now leaving one shared open center. The fallen indigo curtain remains pooled safely behind them beside the rehearsal table, and the same closed script is visibly left on that table. Both look toward the same newly illuminated footlight and unfinished center, with a fully readable small side glance beginning between them. Keep every chair and scenery boundary separate from legs, hands and clothing. Keep the upper-middle ivory paper clean for copy. Exactly two people; no audience, silhouettes, reflections, crew, finished home, destination, applause, heart-shaped light, map, blueprint, arrow, sign, labels, or random text.",
+        "copy_action_binding": "Commitment answered who. We are still learning how.",
+        "issues": []
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "ACTIVE PAYOFF AND COVER ECHO, HIGH REAR THREE-QUARTER MEDIUM-WIDE from just above the stage lip. Exactly Aachu and Zuv stand at the same depth behind the two plain rehearsal chairs that began in opposite wings. Each person uses exactly one inside hand to pull their own chair by its backrest toward the same new pale-peach pool of light; Aachu owns the left chair with her right hand and Zuv owns the right chair with his left hand. Their outside hands remain fully outside the crop. The chairs angle slightly inward toward one another and are visibly still moving; one short fresh skid of chalky dust sits immediately behind each chair leg, with no long trail, rope, map line or path. Their shoulders and forward direction echo the cover, and the same indigo and dusty-rose scenery flats again slide apart in the far background, now leaving one shared open center. The fallen indigo curtain remains pooled safely behind them beside the rehearsal table, and the same closed script is visibly left on that table. Both look toward the same newly illuminated footlight and unfinished center, with a fully readable small side glance beginning between them. Keep every chair and scenery boundary separate from legs, hands and clothing. Keep the upper-middle ivory paper clean for copy. Exactly two people; no audience, silhouettes, reflections, crew, finished home, destination, applause, heart-shaped light, map, blueprint, arrow, sign, labels, or random text.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "Aachu's chair",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "Zuv's chair",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "arms",
+              "visible hands",
+              "legs or seated lower body as framed"
+            ],
+            "environment_planes": [
+              {
+                "object": "stage floor",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "Aachu's chair",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "Zuv's chair",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "own chair backrest on slide 6 only",
+              "stage seat/floor at declared seated contact points"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, clothing or visible limb",
+              "body, clothing, hair or silhouette merging into scenery, furniture, curtain or floor",
+              "ambiguous front/behind/contact relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from every nearby solid object except the declared contact point."
+          }
+        ],
+        "solid_objects": [
+          "stage floor",
+          "Aachu's chair",
+          "Zuv's chair"
+        ],
+        "review_order": [
+          "whole-frame silhouette",
+          "solid boundaries",
+          "front/behind/contact order",
+          "occlusion continuation",
+          "local hands and limbs"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into scenery, furniture, curtain, table or floor",
+          "object edge running through a head, shoulder, back, torso, clothing or limb",
+          "untraceable body volume hidden by painterly texture",
+          "unresolved depth relationship"
+        ]
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "ACTIVE PAYOFF AND COVER ECHO, HIGH REAR THREE-QUARTER MEDIUM-WIDE from just above the stage lip. Exactly Aachu and Zuv stand at the same depth behind the two plain rehearsal chairs that began in opposite wings. Each person uses exactly one inside hand to pull their own chair by its backrest toward the same new pale-peach pool of light; Aachu owns the left chair with her right hand and Zuv owns the right chair with his left hand. Their outside hands remain fully outside the crop. The chairs angle slightly inward toward one another and are visibly still moving; one short fresh skid of chalky dust sits immediately behind each chair leg, with no long trail, rope, map line or path. Their shoulders and forward direction echo the cover, and the same indigo and dusty-rose scenery flats again slide apart in the far background, now leaving one shared open center. The fallen indigo curtain remains pooled safely behind them beside the rehearsal table, and the same closed script is visibly left on that table. Both look toward the same newly illuminated footlight and unfinished center, with a fully readable small side glance beginning between them. Keep every chair and scenery boundary separate from legs, hands and clothing. Keep the upper-middle ivory paper clean for copy. Exactly two people; no audience, silhouettes, reflections, crew, finished home, destination, applause, heart-shaped light, map, blueprint, arrow, sign, labels, or random text.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "The future is not solved; the visible equal action is choosing the same next scene while still learning its position.",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "Separate chairs -> shared light -> handled demands -> blank script plus loose cue -> visible curtain failure -> both actively move one chair into the next light as the cover's opposing scenery movement returns.",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Same-depth standing rear three-quarter two-shot with a strict subtle two-inch height difference. Aachu's right inside hand grips only her own left chair back; Zuv's left inside hand grips only his own right chair back; outside hands stay completely outside the crop, exactly two visible hands total.",
+      "wardrobe": "Same continuous wardrobe with faint stage dust, colors unchanged.",
+      "props": "the same two rehearsal chairs actively converging, one short local skid behind each chair, one next footlight, the same opposing scenery flats, pooled fallen curtain, rehearsal table and closed script left behind",
+      "background": "Unfinished stage flats ahead, new pale-peach pool and one footlight on; only short local skid dust behind the two actively moving chairs.",
+      "emotion": "grounded hope without false completion",
+      "style": "Observational Intimacy Premium watercolor-and-ink from the attached text-free crop: neutral warm ivory/off-white paper with visible grain, fine graphite and ink contours, transparent indigo, dusty-rose and pale-peach watercolor blooms, tactile clothing, restrained contrast and soft unfinished edges. Identity-photo faces and wardrobe override every person in the style crop.",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, anime, flat vector, quote card, poster, theatre playbill, yellow/mustard/sepia/parchment paper, harsh black stage void, spotlight shaped like a heart or portal, extra people, audience heads, crew, reflections, portraits, silhouettes, mannequins, ghosts, duplicated couple, random writing, prop labels, signs, UI, extra brandmark, bottom-right brandmark, malformed hands, extra limbs, body-scenery merges, clothing-object intersections, generic stock faces, pregnancy cues, wrong wardrobe, petite Aachu, oversized Zuv, map, blueprint, red thread, long floor paths or decorative symbols.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/observational-intimacy-style-crop-clean.png"
+      ],
+      "identity_reference_images": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: publishable 3:4 Instagram carousel slide 6 of 6. Scene: ACTIVE PAYOFF AND COVER ECHO, HIGH REAR THREE-QUARTER MEDIUM-WIDE from just above the stage lip. Exactly Aachu and Zuv stand at the same depth behind the two plain rehearsal chairs that began in opposite wings. Each person uses exactly one inside hand to pull their own chair by its backrest toward the same new pale-peach pool of light; Aachu owns the left chair with her right hand and Zuv owns the right chair with his left hand. Their outside hands remain fully outside the crop. The chairs angle slightly inward toward one another and are visibly still moving; one short fresh skid of chalky dust sits immediately behind each chair leg, with no long trail, rope, map line or path. Their shoulders and forward direction echo the cover, and the same indigo and dusty-rose scenery flats again slide apart in the far background, now leaving one shared open center. The fallen indigo curtain remains pooled safely behind them beside the rehearsal table, and the same closed script is visibly left on that table. Both look toward the same newly illuminated footlight and unfinished center, with a fully readable small side glance beginning between them. Keep every chair and scenery boundary separate from legs, hands and clothing. Keep the upper-middle ivory paper clean for copy. Exactly two people; no audience, silhouettes, reflections, crew, finished home, destination, applause, heart-shaped light, map, blueprint, arrow, sign, labels, or random text. Mood: grounded hope without false completion. Wardrobe: Same continuous wardrobe with faint stage dust, colors unchanged. Props: the same two rehearsal chairs actively converging, one short local skid behind each chair, one next footlight, the same opposing scenery flats, pooled fallen curtain, rehearsal table and closed script left behind. Use the three attached cropped actual Aachu/Zuv identity photos only for faces, hair, skin tone, adult body proportions and exact wardrobe. Ignore every identity-reference background, prop, sign, pose and source text. Use the single text-free Observational Intimacy Premium crop only for neutral ivory paper grain, graphite/ink linework, transparent watercolor texture and restrained indigo/peach palette; ignore its people and scenery. Render only this exact on-image text: 'Commitment answered who.\\nWe are still learning how.'. Render exactly one tiny handwritten @a.storyof.two at the top-right. No other words anywhere on props or scenery."
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "d0dfb222405066f64aa7d2d74df77354db214ee46cce8473488e8de412557785",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/slide7_identity_anatomy_qa",
+      "pass": false,
+      "evidence": "The exact proof has only three verifiable arms and hands, Aachu’s focal hand merges into Zuv’s back instead of reaching the door, and both faces drift from the attached identity references."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/slide7_event_b_pixels",
+      "pass": false,
+      "evidence": "The exact proof preserves the dry exterior corridor, closed door, readable copy, and house style, but it shows Zuv checking alone while Aachu affectionately holds his torso."
+    }
+  },
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "f967869d01b4779b6df142feed53d2b2110d49d0c7926b9ac9d18bedc859a974",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "f967869d01b4779b6df142feed53d2b2110d49d0c7926b9ac9d18bedc859a974",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 3,
+              "expected_hands": 4,
+              "observed_hands": 3,
+              "visible_hands": [
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "braces one palm against the closed door panel",
+                  "story_required": false,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The wrist and forearm continue visibly into Zuv’s rolled sleeve.",
+                  "contact_object": "closed door panel",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The open palm sits flat in front of the brown door surface.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "grips and tests the lower exterior door handle",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The foreground wrist and forearm continue into Zuv’s nearer sleeve.",
+                  "contact_object": "lower exterior door handle",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "His fingers visibly wrap around the handle without crossing its metal plane.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "rests against Zuv’s lower back instead of joining the door check",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her sleeve and forearm travel from her shoulder toward his lower back.",
+                  "contact_object": "Zuv’s torso",
+                  "contact_geometry_pass": false,
+                  "occlusion_evidence": "The hand disappears into the dark shirt area without enough finger separation to verify contact.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "f967869d01b4779b6df142feed53d2b2110d49d0c7926b9ac9d18bedc859a974",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 3,
+              "expected_hands": 4,
+              "observed_hands": 3,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu and Zuv appear, but Aachu’s far arm and hand are fully occluded and her visible focal hand does not perform the locked door action."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Both full-body silhouettes are coherent and remain outside the closed apartment door.",
+            "person_object_crop": "Zuv’s torso and both visible forearms stay separate from the door and frame.",
+            "focal_detail": "The two Zuv hands have readable contact order, while Aachu’s torso-contact hand is anatomically ambiguous but does not penetrate a solid object."
+          },
+          "environment_planes": [
+            {
+              "object": "closed door and corridor wall",
+              "depth_order": "The closed door and wall sit behind both exterior-corridor figures.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, shoulders, torso, legs, and raised trailing foot form one traceable figure.",
+              "body_regions": [
+                {
+                  "region": "head through torso and visible reaching arm",
+                  "near_object": "Zuv’s torso and corridor wall",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Her white sleeve remains visible until the hand reaches the dark shirt, with no wall penetration."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, shoulders, torso, both forearms, hands, trousers, and shoes form one traceable figure.",
+              "body_regions": [
+                {
+                  "region": "head through both door-facing arms",
+                  "near_object": "closed door and handle",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Both forearms end in visible hands in front of the door and handle without crossing the wood or metal planes."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "f967869d01b4779b6df142feed53d2b2110d49d0c7926b9ac9d18bedc859a974",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "Their overlapping bodies and the active handle check create the foreground.",
+              "midground": "The fully closed door, latch, number plate, tote, and rolled umbrella hold the action.",
+              "background": "The dry apartment corridor, railing, lights, and plants establish exterior geography.",
+              "focal_action": "Zuv checks the handle while Aachu returns close enough to touch him, but she does not visibly join the lock check.",
+              "story_details": [
+                "tightly rolled dry umbrella",
+                "raised trailing foot from the corridor path",
+                "car-key fob dangling ambiguously at the lock"
+              ],
+              "cause_effect": "The door check draws Aachu back toward Zuv, but her torso touch replaces the required shared checking action.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg",
+        "reel-jaldi.jpg"
+      ],
+      "likeness_notes": "The illustrated face is narrower and more pointed, with enlarged eyes, more arched brows, a smaller upturned nose, altered mouth and cheek structure, and much wavier hair than the attached references."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg"
+      ],
+      "likeness_notes": "The profile is too lean and generic; jaw, nose, brow, cheek volume, smile structure, and tightly curled hair do not preserve Zuv’s attached-reference identity."
+    },
+    "dress_continuity": {
+      "pass": false,
+      "evidence": "Aachu partly preserves the white-top, blue-jeans, and red-shoes cue, while Zuv shifts from the attached light-blue shirt and wide grey trousers to a navy shirt and tan trousers."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Neutral warm-ivory paper, visible grain, fine ink contours, transparent watercolor, tactile clothing, and faded corridor edges match the selected house language."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "The frame is correctly outside a fully closed dry door, but the pixels show one-person lock checking plus an affectionate torso hold instead of the copy-required shared check."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The image visibly preserves every word and punctuation mark in the locked slide copy and includes one subtle @a.storyof.two at top-right."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof is an exact 1080x1440 Instagram-post asset bound to its current bytes."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/slide7_event_b_pixels",
+      "reviewer_evidence": "A fresh critic inspected only the exact quarantined pixels before seeing slide intent and found affectionate accompaniment rather than a shared lock-check action.",
+      "source_director_event_fingerprint": "sha256:36fb4d8a028b870bef97f91b4da1d5cfe17860a22c2ea29daa6c570a2b46fdab",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The proof reads as Zuv checking a closed apartment door while Aachu playfully returns to hold him from behind.",
+      "relationship_turn": "Her return and affection are visible, but the payoff that she adopts the same checking ritual she teases him for is absent.",
+      "setup_payoff_evidence": "The dry umbrella, fresh clothes, corridor, closed door, and raised foot preserve the pre-outing callback, while her hand placement breaks the intended payoff.",
+      "weakest_frame": "The only proof frame is blocked by a solo check, reversed key/handle ownership, weak face likeness, and ambiguous Aachu hand anatomy.",
+      "repair_decision": "Regenerate with Aachu’s visible right palm flat beside the latch, Zuv pulling the handle, the car key clearly in his other hand, stronger turn-back blocking, mutual amused recognition, and tighter reference identity.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": "final/slide-07.png",
+          "status": "REPAIR",
+          "expected_silent_read": "Before departure, outside a fully closed door, Aachu returns from the lift path and joins Zuv in testing the lock.",
+          "observed_image_first_read": "Zuv braces the door and tests its handle while Aachu leans in from behind and holds his waist or back.",
+          "core_action_legible": false,
+          "relationship_turn_legible": false,
+          "focal_hierarchy": "Large upper copy first, Aachu’s viewer-facing expression second, Zuv’s two door hands third, and tote, umbrella, key fob, and corridor details after.",
+          "hands_gaze_prop_legible": false,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [
+            "The copy says she checked it with him, but her visible contact is with his torso rather than the door or lock.",
+            "The key fob dangles at the lock instead of being clearly held in Zuv’s other hand.",
+            "Aachu looks at the viewer while Zuv looks at the handle, so mutual recognition is absent."
+          ],
+          "unexpected_story": [
+            "Aachu has returned to hug or playfully cling to Zuv while he alone checks the lock."
+          ],
+          "match_rationale": "Dry outside geography, closed-door state, tote, umbrella, and turn-back foot survive, but Aachu never reaches the door and therefore does not visibly share the action.",
+          "evidence": "At 1080x1440 Zuv has one palm on the brown door and one hand on the lower handle; Aachu’s only visible hand disappears against his dark shirt, and the key fob hangs beside the lock.",
+          "image_fingerprint": "sha256:f967869d01b4779b6df142feed53d2b2110d49d0c7926b9ac9d18bedc859a974"
+        }
+      ],
+      "issues": [
+        "Aachu does not visibly participate in the lock check.",
+        "Car-key and handle ownership do not match the locked scene.",
+        "Aachu and Zuv face likeness is below production level.",
+        "Aachu’s focal hand anatomy is not fully readable."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/slide7_event_b_pixels",
+        "reviewer_run_id": "/root/slide7_event_b_pixels:turn-1",
+        "input_fingerprint": "sha256:2fe7b1c48855cbbf1fd7457ee047041752e842abb599854c6806def0d817e352",
+        "raw_response_artifact": ".internal/event-b-attempt-01-raw-response.json",
+        "raw_response_fingerprint": "sha256:46694e8b18fc431cf0491534a22bd02d0b6ed3d722476ddc06d7e724c3618a79",
+        "output_fingerprint": "sha256:663e894ab72be499f1bf770ce62870d536a79c53b8136a575529d7ea82c30ea5"
+      }
+    }
+  }
+}

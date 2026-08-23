@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper &amp; Edges Kit — A Story of Two</title>
+
+  <!-- tokens + base first, then the kit -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../assets/illustrations/paper.css">
+
+  <style>
+    /* demo-only scaffolding — NOT part of the kit */
+    body { margin: 0; }
+
+    .demo-head {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: clamp(40px, 7vw, 80px) var(--gutter) 8px;
+    }
+    .demo-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin: 0 0 10px;
+    }
+    .demo-head h1 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      line-height: 1.05;
+      margin: 0;
+      color: var(--ink);
+    }
+    .demo-note {
+      font-family: var(--sans);
+      color: var(--ink-soft);
+      max-width: 56ch;
+      margin: 14px 0 0;
+    }
+
+    /* the two stacked sections that meet at a torn seam */
+    .band {
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
+    }
+    .band > .inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-block: clamp(48px, 8vw, 96px);
+    }
+    .band--one { background: var(--paper); }
+    .band--two { background: var(--paper-3); }
+
+    .band h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      line-height: 1.1;
+      margin: 0 0 0.5em;
+      color: var(--ink);
+    }
+    .band p {
+      font-family: var(--sans);
+      color: var(--ink-soft);
+      max-width: 54ch;
+      margin: 0;
+    }
+
+    /* the headline-with-wash demo */
+    .wash-demo { text-align: center; padding-block: clamp(40px, 7vw, 80px); }
+    .wash-demo h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.8rem, 5.5vw, 3.2rem);
+      line-height: 1.05;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    /* the pinned box demo */
+    .pin-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(20px, 5vw, 48px);
+      align-items: flex-start;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: clamp(40px, 7vw, 80px) var(--gutter);
+    }
+    .pin-card {
+      position: relative;
+      flex: 1 1 240px;
+      min-width: min(100%, 240px);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 34px 26px 26px;
+      box-shadow: 0 10px 30px rgba(43, 38, 32, 0.08);
+    }
+    /* float the tape so it straddles the top edge of the card */
+    .pin-card .ill-tape {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+    }
+    .pin-card h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .pin-card p { font-family: var(--sans); color: var(--ink-soft); margin: 0; font-size: 0.95rem; }
+
+    /* the grain panel demo */
+    .grain-panel {
+      max-width: 360px;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 30px 28px;
+      box-shadow: 0 12px 34px rgba(43, 38, 32, 0.10);
+    }
+    .grain-panel h3 { font-family: var(--serif); font-weight: 500; margin: 0 0 8px; color: var(--ink); }
+    .grain-panel p { font-family: var(--sans); color: var(--ink-soft); margin: 0; font-size: 0.95rem; }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin: 0 0 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="demo-head">
+    <p class="demo-eyebrow">A Story of Two · code-only kit</p>
+    <h1>Paper &amp; Edges</h1>
+    <p class="demo-note">
+      Four pure CSS + inline-SVG utilities — torn seams, watercolour blooms,
+      washi tape, and paper grain. No image files, no AI art. Resize the window
+      down to 320px; everything stays put and nothing captures your clicks.
+    </p>
+  </header>
+
+  <!-- 1 · TORN SEAM — two stacked sections that meet at a hand-torn edge.
+       band--one carries a bottom tear that blends into band--two's paper. -->
+  <section class="band band--one ill-tear-bottom ill-tear--paper-3">
+    <div class="inner">
+      <p class="section-label">.ill-tear-bottom</p>
+      <h2>The page tears, it doesn't cut.</h2>
+      <p>
+        This light band ends in a ragged deckle that lifts off the darker
+        paper below. Scroll to the seam — the edge is irregular and casts a
+        faint shadow, the way real torn paper does.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band--two">
+    <div class="inner">
+      <p class="section-label" style="color: var(--denim)">a new section begins</p>
+      <h2>Below the seam.</h2>
+      <p>
+        Same warm ivory family, one tone deeper. The two sections meet
+        without a single flat horizontal rule.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2 · WATERCOLOUR WASH — a headline sitting on a coral bloom. -->
+  <div class="wash-demo">
+    <p class="section-label">.ill-wash--coral</p>
+    <h2 class="ill-wash ill-wash--coral">held, lightly</h2>
+  </div>
+
+  <!-- 3 · WASHI TAPE — small boxes "pinned" with a torn-ended tape strip. -->
+  <div class="pin-demo">
+    <div class="pin-card">
+      <span class="ill-tape">keep</span>
+      <h3>Pinned with tape</h3>
+      <p>The <code>.ill-tape</code> strip has hand-torn fibrous ends and a
+         slight lean, straddling the top edge of this card.</p>
+    </div>
+    <div class="pin-card">
+      <span class="ill-tape ill-tape--right">save</span>
+      <h3>Other lean</h3>
+      <p>The <code>--right</code> modifier tilts the tape the other way for a
+         second pinned item.</p>
+    </div>
+  </div>
+
+  <!-- 4 · GRAIN — a panel with the reusable paper-grain overlay dropped in. -->
+  <div class="pin-demo" style="padding-top: 0;">
+    <div class="grain-panel ill-grain">
+      <p class="section-label">.ill-grain</p>
+      <h3>Tooth you can feel</h3>
+      <p>A multiply-blended fractalNoise overlay sits on this panel, settling
+         into the paper's tooth. It's <code>pointer-events:none</code>, so the
+         panel behaves normally.</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,87 +1,244 @@
 {
-  "schema_version": "2.0",
-  "status": "PASS",
-  "scope": "slide_04_proof_only",
-  "proof": {
-    "slide": 4,
-    "path": "proof-candidates/slide-04-agent-c-new-candidate.png",
-    "sha256": "b160e0103c70b1ab990db6716119ada87c1003031ecfc937c5459a2668a080c1",
-    "dimensions": [1080, 1440],
-    "expected_dimensions": [1080, 1440],
-    "quarantined": true,
-    "generation_note": "Built-in image generation returned 1086x1448; the quarantined workspace candidate was proportionally normalized to exact 1080x1440 before the hash-bound audit."
-  },
-  "checks": {
-    "dimensions": {
-      "verdict": "PASS",
-      "evidence": "Decoded current PNG pixels are exactly 1080x1440."
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "image_set_sha256": "49ac6a4206b7ecc02cc8d5b3290bfdbd0bed57f93bfd7b804a1fdb175f596c34",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/proof03_identity_spatial",
+      "pass": false,
+      "evidence": "Exactly two people appear and anatomy, fingers, spoon contact, depth, occlusion, and intersections pass. Identity does not: Aachu's proof face has a sharper projecting nose, narrow midface, and recessed chin; Zuv has tighter ringlets, a narrower jaw, and leaner build than the selected references."
     },
-    "text": {
-      "verdict": "PASS",
-      "expected": "When she says it like THAT...",
-      "observed": "When she says it like THAT...",
-      "evidence": "The copy appears exactly once with correct capitalization and three periods; no quote marks, speech bubble or extra public copy."
-    },
-    "brandmark": {
-      "verdict": "PASS",
-      "observed": "@a.storyof.two",
-      "evidence": "Exactly one small low-contrast handwritten brandmark appears top-right."
-    },
-    "personal_name_leakage": {
-      "verdict": "PASS",
-      "observed": [],
-      "evidence": "No public personal name appears anywhere in the rendered frame."
-    },
-    "scene_entity_integrity": {
-      "verdict": "PASS",
-      "expected_people": 2,
-      "observed_people": 2,
-      "unexpected_entities": [],
-      "evidence": "Only Aachu foreground-right and Zuv midground-left are visible; no relatives, photographer, reflections, silhouettes, portraits, duplicates or extra narrative actor. The tripod is operator-free."
-    },
-    "whole_person_spatial_integrity": {
-      "verdict": "PASS",
-      "evidence": "Aachu remains separate from the floral arch and backdrop; Zuv remains separate from the wall, plants, tripod and floor. Occlusion order is clear and no body region merges into architecture or penetrates a solid plane."
-    },
-    "anatomy_inventory": {
-      "verdict": "PASS",
-      "hands": [
-        "Aachu right: attached shoulder, forearm and wrist lead to a natural cupped calling hand.",
-        "Aachu left: attached sleeve, forearm and wrist lead to an open palm presenting the saved floor space.",
-        "Zuv right and left: both attached arms terminate continuously at the interrupted cuff-adjustment contact."
-      ],
-      "unexpected_limbs": [],
-      "evidence": "No anonymous, duplicated, detached, edge-entering or object-penetrating hand; visible contact ownership is readable."
-    },
-    "identity": {
-      "verdict": "PASS",
-      "selected_reference_ids": ["together-21", "together-18", "aachu-face-04", "zuv-portrait-07"],
-      "evidence": "Aachu and Zuv retain the selected references' face, hair, skin, body and continuous wardrobe anchors; both faces are sufficiently unobstructed for comparison."
-    },
-    "style": {
-      "verdict": "PASS",
-      "evidence": "Ivory paper grain, fine ink/pencil contours, transparent watercolor texture, tactile fabric/hair detail and muted charcoal/grey/tan/green/floral accents match OIP. Deterministic palette read: brightest-15% median RGB (250,240,225), median saturation 0.1004, B/G 0.9336, yellow-band fraction 0.03972 below the 0.05 maximum."
-    },
-    "visual_story_readability": {
-      "verdict": "PASS",
-      "observed_action": "Aachu projects an urgent call with one hand while presenting an adult-width saved floor/photo position with the other; distant Zuv turns toward her and interrupts his cuff action.",
-      "relationship_turn": "The familiar call has acquired urgency, but Aachu reads open rather than angry and Zuv alert rather than frightened.",
-      "evidence": "Floral backdrop, empty chairs, floor X and unattended tripod establish a family-photo setup ready to happen; the beat reads without copy."
-    },
-    "visual_richness": {
-      "verdict": "PASS",
-      "foreground": "Aachu, floral arch edge and open presenting hand.",
-      "midground": "Zuv turning during an interrupted cuff action, floor X and unattended tripod.",
-      "background": "Empty photo chairs, restrained marigold strings, fairy lights and courtyard plants.",
-      "posed_portrait": false,
-      "decorative_clutter": false
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/proof03_story_text_style",
+      "pass": true,
+      "evidence": "The final beat reads image-first: Aachu keeps stirring with contained side-eye while Zuv leans in with raised brows and an open guileless palm. Exact quoted copy, brandmark, hierarchy, restrained scene detail, 1080x1440 raster, and warm-ivory watercolor-and-ink style all pass."
     }
   },
-  "review_provenance": {
-    "creator_task": "/root/universal_image_orchestrator/slide4_creator",
-    "auditor_task": "/root/universal_image_orchestrator/slide4_auditor",
-    "auditor_mode": "image-first inspection of current decoded pixels before prompt reconciliation"
-  },
-  "batch_continuation": "PROOF_GATE_PASSED",
-  "required_next_action": "Keep this candidate quarantined until the creator or parent orchestration explicitly starts the remaining slide workflow; full-carousel Event B and final audit are not yet complete."
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-07.png",
+          "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "holds a wooden spoon near the foreground counter",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her sleeve, wrist, and spoon hand connect continuously.",
+                  "occlusion_evidence": "The counter hides only the lower body.",
+                  "contact_object": "wooden spoon",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "rests open at his side after abandoning the controller",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The hand joins his forearm and rolled sleeve cleanly.",
+                  "occlusion_evidence": "No important joint is hidden.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv appear; the refrigerator is plain and no portrait-like magnets or additional human entities remain."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Aachu anchors the near kitchen foreground while Zuv stands fully visible in the doorway.",
+            "person_object_crop": "Aachu's spoon hand clears the counter edge and Zuv's silhouette remains separate from the doorway.",
+            "focal_detail": "Aachu's knowing look and Zuv's guileless face oppose each other across clear depth."
+          },
+          "environment_planes": [
+            "foreground counter and Aachu",
+            "midground kitchen fixtures",
+            "background doorway and Zuv"
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Hair, shoulder, sleeve, forearm, wrist, and spoon hand remain continuous.",
+              "body_regions": [],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, neck, torso, arms, and trousers read as one continuous standing figure.",
+              "body_regions": [],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "Aachu's shoulder, profile edge, spoon, and counter establish the questioner's point of view.",
+              "midground": "A restrained kitchen and plain domestic objects locate the action.",
+              "background": "Zuv's full doorway arrival carries the comic payoff.",
+              "focal_action": "Zuv arrives with sincere innocence while Aachu turns to assess him.",
+              "story_details": [
+                "wooden spoon",
+                "abandoned-game urgency in Zuv's posture",
+                "doorway distance"
+              ],
+              "cause_effect": "The second call has pulled Zuv away from the game and into the kitchen.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID_AACHU_FACE_04",
+        "ID_TOGETHER_21"
+      ],
+      "likeness_notes": "Hair, kurta, bangles, and eye line are recognizable, but the face remains too generic: sharper projecting nose, narrow/flat midface, and recessed chin versus the broader rounded face, fuller cheek and jaw, and softer nose–chin profile in the references."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID_ZUV_PORTRAIT_07",
+        "ID_TOGETHER_21"
+      ],
+      "likeness_notes": "Beard, brows, black shirt, and expression point toward Zuv, but the tight ringlets, narrower face and jaw, and leaner build diverge from his looser swept hair, broader squared jaw, and stockier reference frame."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm-ivory paper grain, fine organic linework, restrained watercolor washes, faded architecture, and generous negative space pass the selected house style. The black shirt and hair are denser but remain within the locked look."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "Observed on-image copy is exactly “Kya hua?” with both curly quotation marks. The tiny @a.storyof.two brandmark is also correct."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/proof03_story_text_style",
+      "reviewer_evidence": "A fresh image-first reviewer found Aachu's continued stirring and contained side-eye legible against Zuv's freshly arrived, raised-brow, open-palmed innocence. Copy, brandmark, hierarchy, scene restraint, raster, and style all passed.",
+      "source_director_event_fingerprint": "sha256:7330b6bb9cb8d51605affd7a1c669bed453a35f54c70f05b626cabbee232d968",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "After being called, Zuv has finally appeared in the kitchen and acts as though this is the first request.",
+      "relationship_turn": "Aachu's knowing look meets Zuv's practiced innocence.",
+      "setup_payoff_evidence": "His doorway arrival and empty hands visually complete the move away from the unseen controller.",
+      "weakest_frame": "The image-first story, text, style, anatomy, and scene integrity pass, but both identities remain below the production likeness gate.",
+      "repair_decision": "Do not batch from this proof. Restart identity anchoring only after explicit creator direction because the configured initial generation plus two visual-QA retries are exhausted.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": ".internal/visual-quarantine/attempt-03/final/slide-07.png",
+          "status": "PASS",
+          "expected_silent_read": "He reaches the kitchen after the second call and innocently asks what happened.",
+          "observed_image_first_read": "Aachu keeps stirring with a contained side-eye while Zuv leans into the doorway with raised brows and an open, guileless questioning palm.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy first, Zuv's face second, Aachu's turn and spoon third, kitchen last.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The final-frame performance now lands without repeating the controller already established in earlier slides.",
+          "evidence": "Aachu's spoon remains in the pan as she gives a flat side-eye; Zuv is visibly newly attentive with a forward lean, raised brows, parted mouth, and open palm.",
+          "image_fingerprint": "sha256:da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca"
+        }
+      ],
+      "issues": []
+    }
+  }
 }

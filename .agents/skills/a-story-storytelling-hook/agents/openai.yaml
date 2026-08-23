@@ -1,0 +1,7 @@
+interface:
+  display_name: "A Story Storytelling Hook"
+  short_description: "Keep carousel story thinking continuous"
+  default_prompt: "Use $a-story-storytelling-hook to develop or continue this carousel idea with persistent story and rejection context."
+
+policy:
+  allow_implicit_invocation: true

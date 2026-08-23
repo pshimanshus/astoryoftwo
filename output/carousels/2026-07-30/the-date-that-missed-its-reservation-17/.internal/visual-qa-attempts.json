@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "c7ed3b4192b442754ff3ebb1c8fdac9a2d079221dcab91876cab9fd7f7e3c380",
+      "status": "CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 7 instagram_post anatomy_inventory must inventory every observed hand",
+        "slide 7 instagram_post requires format-specific visual_richness evidence",
+        "visual-qa.json spatial_topology slide 1 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 1 must include a people list.",
+        "visual-qa.json spatial_topology slide 1 has invalid observed_people.",
+        "visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+        "visual_story_readability declares unresolved issues while claiming PASS.",
+        "visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+        "visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post anatomy_inventory must inventory every observed hand",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 has invalid observed_people.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+      ],
+      "qa_status": "QA_FAILED",
+      "visual_qa_issues_fingerprint": "sha256:4a34b961af0ae37a205e5d43a353e8c83373427efa12a944ff5170e69ed2e174",
+      "creator_override": {
+        "schema_version": "creator-failed-proof-approval/v1",
+        "source_status": "REJECTED_SPATIAL_INTEGRITY",
+        "proof_slide": 7,
+        "attempt": 1,
+        "retry_count": 0,
+        "image_set_sha256": "c7ed3b4192b442754ff3ebb1c8fdac9a2d079221dcab91876cab9fd7f7e3c380",
+        "approved_by": "creator",
+        "evidence": "Creator instructed 'Now create rest of the images' after being told slide 7 remained quarantined at the door-geometry gate. This authorizes batch generation only and does not approve slide 7 for publication.",
+        "accepts_known_qa_exceptions": true,
+        "acknowledged_visual_qa_issues": [
+          "visual-qa.json status must be PASS",
+          "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+          "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+          "slide 7 instagram_post anatomy_inventory must inventory every observed hand",
+          "slide 7 instagram_post requires format-specific visual_richness evidence",
+          "visual-qa.json spatial_topology slide 1 must include evidence_views.",
+          "visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+          "visual-qa.json spatial_topology slide 1 must include a people list.",
+          "visual-qa.json spatial_topology slide 1 has invalid observed_people.",
+          "visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+          "visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+          "visual_story_readability must be PASS with pass true.",
+          "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+          "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+          "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+          "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+          "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+          "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+          "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+          "visual_story_readability declares unresolved issues while claiming PASS.",
+          "visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+          "visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+          "visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+          "visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+        ],
+        "acknowledged_visual_qa_issues_fingerprint": "sha256:4a34b961af0ae37a205e5d43a353e8c83373427efa12a944ff5170e69ed2e174",
+        "approval_binding": {
+          "relative_path": ".internal/creator-failed-proof-approval.json",
+          "sha256": "sha256:f904d7c1fd4b17f4a24b26dcadf4dc7c23cc583e9ebf6782e710cb55ea9978a3"
+        },
+        "visual_qa_binding": {
+          "relative_path": "visual-qa.json",
+          "sha256": "sha256:170cb5552257fcde7a04ee9953cc10dcd92cb97367a0b7c6c631bf7f827e6669"
+        },
+        "record_fingerprint": "sha256:a6c71cc8e240babf781502b0cd28dc299e29d880f915373f5fef41106c30750c"
+      },
+      "batch_generation_allowed": true,
+      "publishable": false,
+      "status_history": [
+        {
+          "status": "QA_FAILED",
+          "image_set_sha256": "c7ed3b4192b442754ff3ebb1c8fdac9a2d079221dcab91876cab9fd7f7e3c380",
+          "visual_qa_issues_fingerprint": "sha256:4a34b961af0ae37a205e5d43a353e8c83373427efa12a944ff5170e69ed2e174",
+          "visual_qa_binding": {
+            "relative_path": "visual-qa.json",
+            "sha256": "sha256:170cb5552257fcde7a04ee9953cc10dcd92cb97367a0b7c6c631bf7f827e6669"
+          }
+        },
+        {
+          "status": "CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS",
+          "approval_binding": {
+            "relative_path": ".internal/creator-failed-proof-approval.json",
+            "sha256": "sha256:f904d7c1fd4b17f4a24b26dcadf4dc7c23cc583e9ebf6782e710cb55ea9978a3"
+          },
+          "creator_override_record_fingerprint": "sha256:a6c71cc8e240babf781502b0cd28dc299e29d880f915373f5fef41106c30750c"
+        }
+      ]
+    }
+  ]
+}

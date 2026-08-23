@@ -1,0 +1,46 @@
+{
+  "overall_status": "FAIL",
+  "counts": {
+    "people": 2,
+    "arms": 4,
+    "hands": 4,
+    "feet": 4,
+    "cushions": 3,
+    "airborne_cushions": 1
+  },
+  "full_body_topology_status": {
+    "status": "FAIL",
+    "reason": "All four feet are visible, but the foreground table crosses and occludes Zuv's inner lower leg/shin instead of remaining entirely behind both silhouettes."
+  },
+  "Aachu_identity_status": {
+    "status": "FAIL",
+    "reason": "Hair, wardrobe, and skin tone align, but her face is too narrow and pointed through the cheeks, jaw, chin, and nose versus the fuller, soft oval-round reference identity."
+  },
+  "Zuv_identity_status": {
+    "status": "PASS",
+    "reason": "Thick dark hair, strong brows, nose, beard/stubble, skin tone, white top, and necklace provide a recognizable match to portrait-07.jpg."
+  },
+  "couple_scale_status": {
+    "status": "FAIL",
+    "reason": "Zuv is visibly around 12–13% taller and substantially broader than Aachu despite comparable floor depth; the prompt permits only about 3% height difference with comparable head and shoulder scale."
+  },
+  "mutual_anger_status": {
+    "status": "PASS",
+    "reason": "Both confront each other with open mouths, tightened brows and eyes, tense postures, and planted feet; neither reads as smiling, playful, or bouncy."
+  },
+  "evidence": [
+    "Exactly two people with traceable anatomy: four arms, four hands, and four visible feet.",
+    "Aachu's outer hand grips one cushion and her center-facing hand is open; Zuv grips one cushion with both hands.",
+    "Exactly three cushions are present: two held and one airborne, with none left on the sofa.",
+    "No visible swooshes or curved motion lines accompany the airborne cushion.",
+    "The table visibly passes in front of Zuv's inner lower leg.",
+    "Zuv's head, shoulders, and total body extent are substantially larger than Aachu's.",
+    "Aachu's facial silhouette lacks the reference images' fuller cheeks and rounded jaw-chin structure."
+  ],
+  "required_repairs": [
+    "Move or recompose the table entirely behind both figures, visible only through the clear gap and overlapping no body part.",
+    "Regenerate Aachu's face with fuller cheek width, a soft wider oval-round shape, compact natural nose, soft jaw, and rounded chin; express anger through brows and eyes.",
+    "Reduce Zuv's overall body, head, and shoulder scale so he is only about 3% taller than Aachu on the same floor plane.",
+    "Preserve the currently correct people, limb, foot, cushion, grip, airborne-cushion, and mutual-anger states."
+  ]
+}

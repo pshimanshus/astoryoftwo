@@ -1,0 +1,18 @@
+:root {
+  /* Paper + ink palette */
+  --paper: #f6f1e7;
+  --paper-shadow: #e7dfcf;
+  --ink: #2b2622;
+  --ink-soft: #6b6258;
+  --accent: #c2462f;        /* warm red used sparingly */
+  --hairline: #d8cfbd;
+
+  /* Type */
+  --font-hand: 'Caveat', 'Bradley Hand', cursive;   /* hand-drawn captions */
+  --font-body: 'Georgia', 'Times New Roman', serif;  /* warm serif body */
+
+  /* Spacing + motion */
+  --space: 16px;
+  --radius: 20px;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}

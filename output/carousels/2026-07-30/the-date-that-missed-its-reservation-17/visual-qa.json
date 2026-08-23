@@ -1,0 +1,225 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "REJECTED_SPATIAL_INTEGRITY",
+  "image_set_sha256": "c7ed3b4192b442754ff3ebb1c8fdac9a2d079221dcab91876cab9fd7f7e3c380",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/slide7_identity_edge2",
+      "pass": true,
+      "evidence": "The exact pixels preserve recognizable Aachu and Zuv, exactly two people, exactly two owned and attached visible hands, coherent clothing and body scale, no reflections or duplicate anatomy, and no extra text."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/slide7_event_b_edge2",
+      "pass": false,
+      "evidence": "The lever spindle is 109 pixels, or 24.8 percent of the visible slab width, from the true right edge. The floor marks form parallel lift-side columns and a broad lower loop rather than two three-print legs joined only by a tight lift-side U."
+    }
+  },
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "presses uninterrupted exterior door wood",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her right shoulder, sleeve, forearm, wrist, palm, and five fingers are continuously traceable.",
+                  "contact_object": "closed apartment door",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Wood grain remains visible around all fingers.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "grips the exterior lever",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His door-side sleeve, forearm, wrist, and lever hand form one attached chain.",
+                  "contact_object": "door lever",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The hand overlaps and wraps the lever without penetrating the door.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu and Zuv appear, with clear air between their bodies and no reflection, duplicate, silhouette, or person-to-person touch."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0",
+                "width": 1080,
+                "height": 1440
+              },
+              "pass": false,
+              "evidence": "The spindle at x=760 is 109 pixels from the true slab-to-jamb seam at x=869, or 24.8 percent of the 440-pixel visible slab. The route does not form two distinct three-print legs joined only by a tight lift-side U."
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID01",
+        "ID02",
+        "ID03"
+      ],
+      "likeness_notes": "Aachu remains recognizable in profile through her oval face, expressive eye and brow, delicate nose, fuller lips, long dark hair, and white-shirt/jeans/red-flat anchors."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID02",
+        "ID03"
+      ],
+      "likeness_notes": "Zuv remains recognizable through his dense dark hair, strong brow, nose, rounded facial structure, moustache, short beard, broader build, and pale-blue/grey/red-black wardrobe anchors."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "The selected couple-reference wardrobe and body-scale relationship are preserved without visible shirt lettering."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory watercolor-and-ink house style, integrated copy, and observational detail remain coherent."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "Both people are outside one closed door and the lift gap reads, but the inboard lever is mechanically implausible and the movement trail permits a decorative-curve or arrival reading."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The locked copy, punctuation, line breaks, and exactly one top-right @a.storyof.two brandmark are exact; no extra visible words appear."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The reviewed proof is hash-bound at 1080x1440."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/slide7_event_b_edge2",
+      "reviewer_evidence": "The exact-pixel reviewer measured a 109-pixel / 24.8-percent lever backset and could not isolate the required outbound leg, lift-side U, and return leg.",
+      "source_director_event_fingerprint": "sha256:6612a3150e20795aaf945f518403ed3b253b8b525f8e6dc8c0349ebe36f35dbb",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The same-door shared check is readable, but real latch mechanics and exclusive return chronology are not.",
+      "relationship_turn": "Aachu joins Zuv's check without touching him.",
+      "setup_payoff_evidence": "The lift gap, two owned hands, same-door contacts, and body separation pass; hardware and route topology fail.",
+      "weakest_frame": "Slide 7 remains blocked by the inboard lever and ambiguous floor route.",
+      "repair_decision": "Keep the exact QA failure as a creator-acknowledged batch-only exception; do not publish or relabel slide 7 as PASS.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "status": "REPAIR",
+          "expected_silent_read": "A real right-edge latch lever and two separate three-print travel legs joined only by a tight U beside the closing lift.",
+          "observed_image_first_read": "A lever sitting one-quarter of the slab width inside the edge, plus parallel lift-side prints and a broad lower-floor loop.",
+          "core_action_legible": false,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy, couple, closed apartment door, lift gap, and floor marks.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [
+            "The visible lockset does not plausibly connect to the true right latch edge.",
+            "The floor marks do not uniquely prove that Aachu first went toward the lift and then returned."
+          ],
+          "unexpected_story": [
+            "A decorative central lever",
+            "A broad arrival-from-lift footprint trail"
+          ],
+          "match_rationale": "Identity, anatomy, exact text, and shared participation pass; the two critical physical carriers do not.",
+          "evidence": "Spindle x=760; true slab seam x=869; backset 109 pixels / 24.8 percent. More than six marks form two lift-side columns plus a broad lower curve.",
+          "image_fingerprint": "sha256:1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0"
+        }
+      ],
+      "issues": [
+        "Lever remains 109 pixels / 24.8 percent of slab width from the latch edge.",
+        "Footprints do not form two exclusive three-print legs joined only by a tight U beside the lift."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/slide7_event_b_edge2",
+        "reviewer_run_id": "slide7-event-b-edge2-20260730-01",
+        "raw_response_artifact": ".internal/event-b-attempt-01-raw-response.json"
+      }
+    }
+  }
+}

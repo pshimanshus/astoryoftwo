@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-202052",
+  "iteration": 1,
+  "verifier_task_id": "verifier_audience_202052",
+  "verifier_lens": "audience_distribution",
+  "candidate_id": "run-202052-i1-b-who-started-us",
+  "blind_input_sha256": "5dc7dd96dfefab4f7901e95b05d9c29da31d35f53b9eb88555dd18dc97a702c0",
+  "card": {
+    "candidate_id": "run-202052-i1-b-who-started-us",
+    "alive_premise": "A couple plays a game about who started one ritual, but both sincerely give the other person the credit.",
+    "moment_origin": "generic_relationship_hypothesis",
+    "moment_origin_detail": "No Aachu/Zuv lived fact is claimed. The goodbye ritual is illustrative and requires a real equivalent before personalization.",
+    "moment_origin_path": null,
+    "lived_fact_status": "NOT_CLAIMED",
+    "title": "Who Started Us?",
+    "concrete_moment": "A couple sits back-to-back for one question: who began waiting and waving until the departing partner turns the corner? Both reveal that they believe the other started it. Alternating recollections show each occupying both roles on different days. A present-day goodbye ends with the ritual happening again.",
+    "universal_truth": "The most intimate rituals can become so mutually kept that authorship disappears and both people remember receiving the love first.",
+    "audience_mirror": "Couples with a repeated goodbye, arrival, greeting or private ritual that neither can remember inventing.",
+    "scroll_stop": "Viewers guess which partner began a visible ritual before two hidden answers are revealed.",
+    "emotional_contradiction": "A game designed to identify one originator ends with two incompatible memories that are both emotionally true.",
+    "scene_proof": [
+      "The ritual is shown from a restricted viewpoint, withholding who began it.",
+      "Two hidden answer boards create a participation hold.",
+      "Both partners reveal the other's identity at the same instant.",
+      "Alternating memories place each partner at the window and each walking away.",
+      "The present-day ritual proves mutual continuation matters more than authorship."
+    ],
+    "relationship_motion": "The couple moves from playful disagreement to recognizing that each has alternated between giving and receiving the same gesture.",
+    "retention_ladder": [
+      "Show the ritual without its origin.",
+      "Offer a binary guess.",
+      "Let each partner privately commit.",
+      "Reveal the contradiction.",
+      "Replay reversed roles.",
+      "Resolve in the present through mutual continuation."
+    ],
+    "payoff": "Both kept choosing the ritual long enough for it to become theirs.",
+    "dm_send_reason": "Send it to the person who shares an authorless ritual with you: I genuinely remember the love starting with you.",
+    "format_recommendation": "Short Reel with participation-first guess, simultaneous reveal, alternating POV memories and a present-day repeat.",
+    "asot_turn": "The familiar game shell opens into a tender dispute between two valid POVs, resolved through role reversal and mutual authorship.",
+    "evidence_paths": [
+      "config/skills/creator-skill-stack.md",
+      "config/skills/carousel-jam-runtime-context.md",
+      "memory/semantic/carousel-idea-preferences.md",
+      "wiki/insights/successful-carousel-standard.md",
+      "corpus/forensic-instagram/2026-07-20/accounts/lock_and_key_couple.json"
+    ],
+    "collision_paths": [
+      "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/concept.json",
+      "output/carousels/2026-06-28/small-bids/concept.json",
+      "output/carousels/2026-07-21/not-married-yet-already-us/concept.json"
+    ],
+    "novelty_fingerprint": "binary guess + contradictory reveal + alternating POV memory + reversible ritual + mutual continuation",
+    "risks": [
+      "Without the conflicting reveal it becomes a generic couple quiz.",
+      "The goodbye action could drift into quiet-presence territory.",
+      "The ritual is not couple canon."
+    ]
+  }
+}

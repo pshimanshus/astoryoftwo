@@ -1,0 +1,353 @@
+{
+  "status": "handoff_ready",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 5,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": true,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "She was throwing away her almosts.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-01.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-01.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-01.prompt.txt"
+      },
+      "expected_file": "final/slide-01.png",
+      "expected_files": {
+        "instagram_post": "final/slide-01.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-30/the-museum-of-almost/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "The drafts that went nowhere.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-02.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-02.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-02.prompt.txt"
+      },
+      "expected_file": "final/slide-02.png",
+      "expected_files": {
+        "instagram_post": "final/slide-02.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-30/the-museum-of-almost/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 3,
+      "copy": "He lined them up, oldest to newest.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-03.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-03.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-03.prompt.txt"
+      },
+      "expected_file": "final/slide-03.png",
+      "expected_files": {
+        "instagram_post": "final/slide-03.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-30/the-museum-of-almost/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 4,
+      "copy": "She saw failures. He saw her becoming.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-04.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-04.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-04.prompt.txt"
+      },
+      "expected_file": "final/slide-04.png",
+      "expected_files": {
+        "instagram_post": "final/slide-04.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-30/the-museum-of-almost/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 5,
+      "copy": "So she added today's unfinished page.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-05.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-05.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-05.prompt.txt"
+      },
+      "expected_file": "final/slide-05.png",
+      "expected_files": {
+        "instagram_post": "final/slide-05.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-30/the-museum-of-almost/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    }
+  ],
+  "reason": "Prompt files are ready; final PNGs still require Codex built-in image generation.",
+  "proof_gate": null,
+  "requested_proof_slide": null,
+  "proof_only": false,
+  "total_slide_count": 5,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "generation_capability": {
+    "schema_version": "1.0",
+    "workspace_root": "output/carousels/2026-07-30/the-museum-of-almost",
+    "capability_source": "environment",
+    "can_attach_identity_refs": false,
+    "package_terminal_state": "HANDOFF_READY_FOR_CODEX_WITH_IDENTITY",
+    "reason": "The current session has no declared ability to attach actual identity reference images to generation calls.",
+    "required_identity_inputs": [
+      "identity-face-contact-sheet.jpg",
+      "selected Aachu identity references",
+      "selected Zuv identity references",
+      "selected together reference when available"
+    ],
+    "next_action": "handoff_to_identity_reference_capable_generation_environment"
+  },
+  "prompt_dir": "codex-image-prompts",
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:2f76a6e0e6efa76a143930c3b3be4d7a856908076da2ab24d5e9d45301ed6176"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:545bc0bb75262b1f17e5be67394f64a8df7800faa4c4be2b0265156197f43ca7"
+      }
+    },
+    "files": [
+      {
+        "slide": 1,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-01.prompt.txt",
+        "sha256": "sha256:708925ca2a6841437f3dca0b36ffbe02135b14b333880a3480683be7258e32f1"
+      },
+      {
+        "slide": 1,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-01.md",
+        "sha256": "sha256:b5facd0d8b89fd30fe6c06ca3b63e1c139ea30cd474fb8fd50742691aadaf13f"
+      },
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.prompt.txt",
+        "sha256": "sha256:0d40caaeee7e4a6aca3ccf5471d0c3a40b9fa7eecc882e30729b70023b1d06f5"
+      },
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.md",
+        "sha256": "sha256:78e9d4e5fd198ecd3b2412d21d1bf2e3ece85870e0f7f3114691b1630f8ff54d"
+      },
+      {
+        "slide": 3,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-03.prompt.txt",
+        "sha256": "sha256:c867535142f56c4b3dcc7dd230fb5c8680448786a19413ad5c6bfc9e4e562ea6"
+      },
+      {
+        "slide": 3,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-03.md",
+        "sha256": "sha256:9586cd4c74c500df60050f626fb82beaecfb73161367cf891def59b6ac61045d"
+      },
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.prompt.txt",
+        "sha256": "sha256:fbeeae38897ee1d2203bb89145f10c4694bf53972a91fff916995e2458df3870"
+      },
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.md",
+        "sha256": "sha256:e41b8958f54e8044e9c0b68c216201e01c6cad844c7c37195cace72baf676bef"
+      },
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.prompt.txt",
+        "sha256": "sha256:70b53977462fe7db3efd8ba8f6f0b6eb10d9561b53173e2267e478bb9d9c2a44"
+      },
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.md",
+        "sha256": "sha256:742b18fe0ee530002eff3b6aa3d5ed3e4e42081d1b38b7dc553f924a3b69251d"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:6fd7d3726b3cf7674237f1d2947f490cf5118b620b89b3470185ec4e83d84e83"
+  },
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure."
+}

@@ -1,59 +1,107 @@
-{
-  "title": "Same Name, Two Temperatures",
-  "format": {
-    "type": "instagram_carousel_post",
-    "source_px": [1080, 1440],
-    "final_px": [1080, 1440]
+[
+  {
+    "slide": 1,
+    "role": "Cover",
+    "copy": "The first “suno” never counts.",
+    "visual": "Wide apartment geography from the living-room side: Zuv is sunk into the sofa playing PlayStation, both hands on the controller and eyes on the television; Aachu is visible through the open kitchen doorway in the background, turning from the stove to call him. The doorway creates one continuous path between them. This is a lived scene, not a posed couple portrait.",
+    "emotion": "Instant couple recognition",
+    "continuity_lock": "One continuous late-afternoon home incident; Aachu wears the grey floral kurta from together-21 and Zuv the black rolled-sleeve shirt with tan trousers; exactly two people; controller active in his hands; kitchen and sofa geography stay stable.",
+    "source_images": [
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+    ]
   },
-  "identity_references": [
-    "config/references/identity/together/together-21.jpg",
-    "config/references/identity/together/together-18.jpg",
-    "config/references/identity/aachu/face-04.png",
-    "config/references/identity/zuv/portrait-07.jpg"
-  ],
-  "style_reference": "config/references/style-lock/observational-intimacy-premium/slide-01.png",
-  "slides": [
-    {
-      "slide": 1,
-      "on_image_text": "Same name. Two temperatures.",
-      "scene": "Wide family-function courtyard. Anchal stands in the group-photo area with a visibly open place beside her; Zuv is across the courtyard and pauses mid-step, unsure whether the call is soft or urgent. The frame establishes distance and the need to call without showing two versions or splitting the composition.",
-      "shot": "wide courtyard establishing view"
-    },
-    {
-      "slide": 2,
-      "on_image_text": "When she says it softly...",
-      "scene": "Earlier, close profile of Anchal calling softly through a doorway. Relaxed shoulders, gentle smile, warm eye-line, one open hand inviting him closer.",
-      "shot": "close three-quarter single"
-    },
-    {
-      "slide": 3,
-      "on_image_text": "“Haan, aa raha hoon.”",
-      "scene": "Long view through the doorway. Zuv hears her, looks up with an easy smile, finishes one cuff, and walks toward her slowly while replying.",
-      "shot": "long profile through doorway"
-    },
-    {
-      "slide": 4,
-      "on_image_text": "When she says it like THAT...",
-      "scene": "Later, wide group-photo staging in the courtyard. Anchal is already beside the empty saved place and calls urgently across the courtyard because the family-photo setup is ready. Her torso and open hand indicate the visibly empty place beside her; she is urgent, never angry. Zuv is distant enough to hear but not yet understand why.",
-      "shot": "wide ensemble with clear empty place"
-    },
-    {
-      "slide": 5,
-      "on_image_text": "He replays his entire day.",
-      "scene": "Tight reaction on Zuv near the courtyard edge. He freezes mid-motion with raised brows and makes one minimal pocket or key check, puzzled and amused rather than afraid. His eye-line snaps toward Anchal. No flashbacks, icons, or thought bubble.",
-      "shot": "tight reaction portrait"
-    },
-    {
-      "slide": 6,
-      "on_image_text": "Same answer. Different speed.",
-      "scene": "Low diagonal action shot. Zuv crosses the open courtyard briskly toward the saved place, forward lean and arm swing proving the new speed. Anchal remains active in the background, keeping the place open beside her.",
-      "shot": "low diagonal movement shot"
-    },
-    {
-      "slide": 7,
-      "on_image_text": "“Haan, aa raha hoon!”",
-      "scene": "Low wide group-photo payoff. Zuv arrives slightly breathless into the saved space. Anchal hooks his elbow as their formal pose breaks into shared laughter. Neither apologizes or rescues the other.",
-      "shot": "low wide shared payoff"
-    }
-  ]
-}
+  {
+    "slide": 2,
+    "role": "Cold Open",
+    "copy": "“Suno, kitchen mein aana zara.”",
+    "visual": "Kitchen medium view from the doorway side: Aachu is still working at a gently steaming pan and casually calls over her shoulder toward the already-established living room. Her mouth is naturally open mid-request, wooden spoon safely in her lowered right hand and left palm making one small come-here gesture. Zuv is offscreen, but her eye-line and the doorway aim directly toward his sofa.",
+    "emotion": "Completely normal request",
+    "continuity_lock": "Matched kitchen camera, lens and geometry for Slide 5; exactly one visible person; her task continues and her expression and wrist stay relaxed; no anger, shouting or generic doorway pose.",
+    "source_images": [
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+    ]
+  },
+  {
+    "slide": 3,
+    "role": "Mirror",
+    "copy": "“Haan, aa raha hoon.”",
+    "visual": "Television-side living-room medium-wide: Zuv answers toward the offscreen kitchen without looking away from the abstract television glow. Both hands remain on one controller, one thumb visibly pressing a control; his torso and both feet stay planted and his weight remains settled deep in the sofa.",
+    "emotion": "Automatic answer, zero movement",
+    "continuity_lock": "Matched living-room camera, lens and sofa geometry for Slide 6; exactly one visible person; controller remains active; Zuv does not rise, lean forward to stand or pause the game; no visible game characters, UI or text.",
+    "source_images": [
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+    ]
+  },
+  {
+    "slide": 4,
+    "role": "Spine",
+    "copy": "*still playing*",
+    "visual": "Tight continuation detail on Zuv's controller, attached hands and absorbed lower face a little later: the same controller remains active, both thumbs still working, his gaze fixed above frame in the abstract television glow. The frame proves continued play through uninterrupted hand action rather than a clock or timeline graphic.",
+    "emotion": "The familiar delay",
+    "continuity_lock": "Same room, wardrobe, hands and controller state; exactly one partially framed person; time passes without changing his attention; no clock, tea receipt, timeline, labels, game UI, avatars, icons, thought bubbles or extra clutter.",
+    "source_images": [
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+    ]
+  },
+  {
+    "slide": 5,
+    "role": "Rhythm",
+    "copy": "“SUNO.”",
+    "visual": "Return to the exact kitchen camera, lens and doorway geometry from Slide 2. Aachu's cooking task has visibly stopped: she has turned fully toward the offscreen living room, mouth clearly open in a sharper projected call, spoon held safely down and free hand lightly cupped beside her mouth. She is firm and familiar, not furious.",
+    "emotion": "That tone",
+    "continuity_lock": "Exact visual rhyme with Slide 2; exactly one visible person; the changed variables are stopped task, full turn and vocal projection; no scolding finger, rage or frightened-husband grammar.",
+    "source_images": [
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+    ]
+  },
+  {
+    "slide": 6,
+    "role": "Turn",
+    "copy": "“Haan haan, aa raha hoon!”",
+    "visual": "Return to the exact television-side living-room camera, lens and sofa geometry from Slide 3 at the instant of consequence: Zuv launches empty-handed off the sofa toward the already-established kitchen in one strong diagonal, one foot driving across the rug. The single controller has been abandoned visibly in the exact sofa-cushion area where he was sitting. His mouth is open mid-reply.",
+    "emotion": "Immediate comic compliance",
+    "continuity_lock": "Matched camera with Slide 3; exactly one visible person; controller changes from active in both hands to abandoned on the sofa and both of his hands are empty; no motion trail, duplicate body, extra limb, falling television or panic-face caricature.",
+    "source_images": [
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+    ]
+  },
+  {
+    "slide": 7,
+    "role": "Payoff",
+    "copy": "“Kya hua?”",
+    "visual": "Camera from inside the kitchen over Aachu's partial shoulder toward Zuv in the doorway. His face is large, clear, guileless and calm as if this is the first call; both empty hands are naturally open and fully attached, with only a slight post-rush breath and displaced shirt fold revealing his sprint. Aachu's profile, spoon hand and dry knowing eye-line remain readable in the near foreground.",
+    "emotion": "Innocence so committed it becomes funny",
+    "continuity_lock": "Same home, wardrobe and two-inch height relationship; exactly two people; Aachu is knowing, not angry; Zuv is innocent rather than frightened, sheepish or apologetic; direct eye-line; no controller in his hands, explanatory moral or generic shared laughter.",
+    "source_images": [
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/face-04.png",
+      "config/references/identity/zuv/portrait-07.jpg",
+      "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+    ]
+  }
+]

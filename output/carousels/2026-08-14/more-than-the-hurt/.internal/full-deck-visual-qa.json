@@ -1,0 +1,79 @@
+{
+  "schema_version": "2.1",
+  "status": "FAIL",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "e640e0f9e67f24f13e07275a1504bb855489f926b5e800cb903811f76d2529f7",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/identity_attempt3_qa",
+      "pass": false,
+      "status": "REPAIR",
+      "evidence": "The final independent audit verified all dimensions, copy words, brandmarks, style, wardrobe, and people counts, but found unresolved face drift, laterality failures on slides 2, 5, and 6, tattoo and footwear discontinuity, and the slide-5 line-layout and foliage violations."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/event_b_attempt3_critic",
+      "pass": false,
+      "status": "REPAIR",
+      "evidence": "The final image-first audit passed the full causal sequence and restrained ending, but withheld strict PASS because slide 5 uses the wrong acting hand and adds literal foliage outside the locked sparse setting."
+    }
+  },
+  "slides": [
+    {"slide": 1, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-03/final/slide-01.png", "sha256": "248fd731d99a25189dc33c3f451348b73717a74f4d12cdcdfc9cb171e8879e83", "width": 1080, "height": 1440}}},
+    {"slide": 2, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-03/final/slide-02.png", "sha256": "0f83a744d75f67fe78d065f7512a662c7b2fe98d25d0b31d86a8f619a89e438f", "width": 1080, "height": 1440}}},
+    {"slide": 3, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-03/final/slide-03.png", "sha256": "f20bcf015480c4d029078c3883df5a1774a79dbbec8406862e7da0531e65d078", "width": 1080, "height": 1440}}},
+    {"slide": 4, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-03/final/slide-04.png", "sha256": "e2adcb38e1fcb73c01d55935f29e983dcdfcdd24f8622b1a98855312bfcc036e", "width": 1080, "height": 1440}}},
+    {"slide": 5, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-03/final/slide-05.png", "sha256": "ff03ef34f48d804883a62910e1dcf4d6cf92a8800fd3efd255ede67a6c4df1b9", "width": 1080, "height": 1440}}},
+    {"slide": 6, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-03/final/slide-06.png", "sha256": "191cdb644b1d5850fe94ba578e8d8834944bd68d3d6a9df9a0466b3ae3c4f6b4", "width": 1080, "height": 1440}}}
+  ],
+  "checks": {
+    "storyboard": {"pass": false, "evidence": "The sequence and ending pass, but slide 5 retains hand-laterality and foliage deviations."},
+    "aachu_face": {"pass": false, "reference_option_ids": ["ID01", "ID02", "ID03"], "likeness_notes": "The generated face remains longer and narrower than the selected reference, with reduced cheek fullness and a sharper nose."},
+    "zuv_face": {"pass": false, "reference_option_ids": ["ID02", "ID03"], "likeness_notes": "The swept hair is improved, but the face remains narrower and more oval than the broad square reference structure."},
+    "dress_continuity": {"pass": false, "evidence": "Core garments pass, but slide 4 introduces unexplained barefoot and tattoo continuity drift."},
+    "style": {"pass": true},
+    "scene_logic": {"pass": false},
+    "integrated_final_text": {"pass": false, "evidence": "All words and brandmarks are exact, but slide 5 wraps a locked one-line sentence onto two lines."},
+    "final_files": {"pass": true},
+    "spatial_topology": {"pass": false, "slides": []},
+    "anatomy_inventory": {"pass": false, "slides": []},
+    "scene_entity_integrity": {"pass": false, "slides": []},
+    "visual_richness": {"pass": false, "slides": []},
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "reviewer_id": "/root/event_b_attempt3_critic",
+      "reviewer_evidence": "The independent critic inspected all six exact attempt-03 PNGs image-first, then reconciled the visible story with the current director board.",
+      "source_director_event_fingerprint": "sha256:c00a9bbb1ee12cadf5a39c123752ae0d0579af40c69cb5b2cfe88cd836b14d1c",
+      "reviewed_native_formats": ["instagram_post"],
+      "sequence_read": "The deck now reads as missed dinner, obstructed first bid, memory withdrawal, accountable waiting, one measured reopening, and sober conversation with hurt evidence retained.",
+      "relationship_turn": "The relationship changes from absence to guarded presence without touch, smile, romantic lean, or magical restoration; the emotional ending is earned.",
+      "setup_payoff_evidence": "The empty chair becomes occupied and then stops dividing them; three frames turn down, one rises partway, and the ending preserves one upright with two still down; phone, keys, plate, and candle remain causal traces.",
+      "weakest_frame": "Slide 5 now carries the correct low unsupported lift, but strict compliance still fails on Aachu's acting-hand laterality and the forbidden leafy window detail.",
+      "repair_decision": "No generation retries remain. Keep the full deck quarantined with the story-level pass and exact remaining production exceptions recorded.",
+      "frames": [
+        {"slide": 1, "format": "instagram_post", "file": "final/slide-01.png", "status": "PASS", "expected_silent_read": "A missed dinner makes Zuv's absence the dominant object between them.", "observed_image_first_read": "Aachu waits beside the set dinner while Zuv halts in the rainy doorway behind the empty chair.", "core_action_legible": true, "relationship_turn_legible": true, "focal_hierarchy": "The eye reaches Aachu, the dominant empty chair, and then Zuv at the doorway.", "hands_gaze_prop_legible": true, "storyboard_match": true, "native_format_readability": true, "copy_visual_contradictions": [], "unexpected_story": [], "match_rationale": "Chair, meal, candle, phone, keys, and eye-lines establish the broken promise.", "evidence": "Two place settings and one dominant empty chair separate Aachu from the late doorway figure.", "image_fingerprint": "sha256:248fd731d99a25189dc33c3f451348b73717a74f4d12cdcdfc9cb171e8879e83"},
+        {"slide": 2, "format": "instagram_post", "file": "final/slide-02.png", "status": "PASS", "expected_silent_read": "Zuv puts outside activity aside while the empty chair still blocks access.", "observed_image_first_read": "He places the phone screen-down by the keys and looks through the enlarged chair toward Aachu.", "core_action_legible": true, "relationship_turn_legible": true, "focal_hierarchy": "The chair barrier dominates before the phone action and crossing gaze.", "hands_gaze_prop_legible": true, "storyboard_match": true, "native_format_readability": true, "copy_visual_contradictions": [], "unexpected_story": [], "match_rationale": "The clean plate, smoking candle, blank clothes, chair, phone, and gaze preserve the intended first bid.", "evidence": "Zuv stays beyond the chair with one hand on the face-down phone and the other open.", "image_fingerprint": "sha256:0f83a744d75f67fe78d065f7512a662c7b2fe98d25d0b31d86a8f619a89e438f"},
+        {"slide": 3, "format": "instagram_post", "file": "final/slide-03.png", "status": "PASS", "expected_silent_read": "Aachu turns the last of exactly three memories face-down.", "observed_image_first_read": "Two frames lie flat while Aachu visibly rotates the third toward the console.", "core_action_legible": true, "relationship_turn_legible": true, "focal_hierarchy": "Her attached hand and the moving third frame dominate above the two flat backs.", "hands_gaze_prop_legible": true, "storyboard_match": true, "native_format_readability": true, "copy_visual_contradictions": [], "unexpected_story": [], "match_rationale": "Exactly three non-figurative frames and one controlled downward action externalize memory withdrawal.", "evidence": "Two plain backs are horizontal and the final abstract-front frame is visibly in motion under her gaze.", "image_fingerprint": "sha256:f20bcf015480c4d029078c3883df5a1774a79dbbec8406862e7da0531e65d078"},
+        {"slide": 4, "format": "instagram_post", "file": "final/slide-04.png", "status": "PASS", "expected_silent_read": "Zuv waits in the once-empty chair while Aachu retains the doorway choice.", "observed_image_first_read": "Zuv sits soberly with two open hands while Aachu remains at the threshold and the hurt evidence stays on the table.", "core_action_legible": true, "relationship_turn_legible": true, "focal_hierarchy": "The threshold distance and Zuv's open seated posture lead before the plate and candle.", "hands_gaze_prop_legible": true, "storyboard_match": true, "native_format_readability": true, "copy_visual_contradictions": [], "unexpected_story": [], "match_rationale": "The rectangular room, charged chair, sober face, open hands, phone, keys, plate, and candle match the accountability beat.", "evidence": "Open floor remains between Aachu and Zuv; he neither reaches nor smiles.", "image_fingerprint": "sha256:e2adcb38e1fcb73c01d55935f29e983dcdfcdd24f8622b1a98855312bfcc036e"},
+        {"slide": 5, "format": "instagram_post", "file": "final/slide-05.png", "status": "REPAIR", "expected_silent_read": "Aachu chooses one unfinished frame lift and looks directly at Zuv across guarded space.", "observed_image_first_read": "A low unsupported blank-backed frame rises about 35–45 degrees as the couple hold sober eye contact across the table.", "core_action_legible": true, "relationship_turn_legible": true, "focal_hierarchy": "The low frame and mutual gaze dominate before the thin plate rim and side window.", "hands_gaze_prop_legible": false, "storyboard_match": false, "native_format_readability": true, "copy_visual_contradictions": ["The acting limb appears to be Aachu's left rather than right hand", "Literal leafy foliage replaces the locked abstract window-light wash", "The locked one-line sentence wraps onto two lines"], "unexpected_story": [], "match_rationale": "The active partial reopening now reads, but laterality and background/text-layout locks remain unresolved.", "evidence": "The frame is low, planted, unsupported, and visibly held; the left-side window contains leaves and the acting arm reads as Aachu's left.", "image_fingerprint": "sha256:ff03ef34f48d804883a62910e1dcf4d6cf92a8800fd3efd255ede67a6c4df1b9"},
+        {"slide": 6, "format": "instagram_post", "file": "final/slide-06.png", "status": "PASS", "expected_silent_read": "The chair clears their sightline while one memory returns and the hurt remains.", "observed_image_first_read": "They sit in sober conversation with one frame up, two down, phone and keys on the far ledge, and the cold plate and dead candle still visible.", "core_action_legible": true, "relationship_turn_legible": true, "focal_hierarchy": "Their guarded faces lead before the upright frame, cold plate, candle, and distant downturned pair.", "hands_gaze_prop_legible": true, "storyboard_match": true, "native_format_readability": true, "copy_visual_contradictions": [], "unexpected_story": [], "match_rationale": "The final frame preserves no touch, no smile, exact frame states, inactive phone and keys, and visible hurt evidence.", "evidence": "Exactly two chairs and three frame states remain readable while the former barrier no longer divides their gaze.", "image_fingerprint": "sha256:191cdb644b1d5850fe94ba578e8d8834944bd68d3d6a9df9a0466b3ae3c4f6b4"}
+      ],
+      "issues": [
+        "Slide 5 hand ownership does not match the locked anatomical side.",
+        "Slide 5 adds forbidden literal foliage and window structure.",
+        "Slide 5 wraps the locked one-line copy onto two lines."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/event_b_attempt3_critic",
+        "reviewer_run_id": "event-b-full-deck-attempt-03-final-run-2026-08-14",
+        "input_fingerprint": "sha256:39e163cd53b7d950e77e1c148c3c0df5c6e28bd4296017dd1b53b88dc9764776",
+        "raw_response_artifact": ".internal/event-b-full-deck-attempt-03-raw-response.md",
+        "raw_response_fingerprint": "sha256:93c7219dbc066ae50134975bebda7936e6bb51c91aa62566e1bab7a6937ac7eb",
+        "output_fingerprint": "sha256:1f7cae25721acb6273628b4f09e8c6769142171907da2c4325a145bc0ab1d0df"
+      }
+    }
+  }
+}

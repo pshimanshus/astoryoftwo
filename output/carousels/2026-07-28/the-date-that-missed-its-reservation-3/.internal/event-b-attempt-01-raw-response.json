@@ -1,0 +1,53 @@
+{
+  "reviewer_task_id": "/root/slide7_event_b_attempt2",
+  "reviewer_run_id": "2026-07-28_carousel-3_attempt-01_slide-07_event-b",
+  "blind_read": {
+    "people_entities": "Exactly two people: one woman and one man. Other visible entities are a closed apartment door, an elevator entrance, exterior door hardware, elevator controls, a tote, and a rolled umbrella.",
+    "who_is_where": "The woman stands left of the apartment door, between it and the elevator. The man stands right of the door, separated from her by roughly the door's width.",
+    "arms_hands_contact": {
+      "woman": "Her door-side arm, apparently the right, is fully extended with an open palm pressed flat against the door panel above the handle. Her other arm and hand are largely occluded by her torso and tote; it is unclear whether that hidden hand grips the umbrella.",
+      "man": "His right arm crosses his torso, with its hand resting around his left forearm near the elbow. His left arm descends toward his trouser pocket, with the hand concealed in or beside the pocket. Neither hand touches the door, handle, latch, or woman.",
+      "between_people": "No bodily or hand contact."
+    },
+    "gaze": "They look at each other and smile. Neither visibly looks at the lock or handle.",
+    "body_distance": "Clearly separated, approximately one to one-and-a-half metres apart.",
+    "door_state": "The apartment door is fully closed. Its exterior handle is visible and untouched. The woman presses the door panel rather than the handle.",
+    "elevator_state": "An elevator entrance is visible at frame left with an amber control light illuminated. It appears open or partially open, although the reflective/cropped doorway makes the exact door position slightly uncertain.",
+    "umbrella_state": "A burgundy umbrella is tightly rolled and appears dry, tucked into the tote or held closely against the woman's side.",
+    "tote_state": "A light tote hangs from the woman's shoulder against her hip.",
+    "likely_before": "The woman was moving toward the elevator and has pivoted back toward the apartment door; her lifted trailing foot and motion marks support that reading.",
+    "likely_after": "She will remove her palm from the door and move toward the elevator, possibly with the man following.",
+    "unexpected_story": "The woman alone checks or pats the door while the man stands aside with folded/pocketed arms, smiling at her. He reads as an amused observer rather than a participant.",
+    "uncertainties": [
+      "The woman's extended-arm laterality is visually probable but partly obscured by her turned torso and hair.",
+      "Her palm pressure may represent testing the closed door, but it could also read as a playful pat because neither person attends visually to the hardware.",
+      "The elevator appears available, but its exact open/closed state is ambiguous."
+    ]
+  },
+  "semantic_verdict": "FAIL",
+  "intent_match": {
+    "before_departure": "Plausible and supported by the dry corridor, tote, rolled umbrella, and elevator staging.",
+    "both_started_toward_waiting_elevator": "PARTIAL. The woman's pivot-back path is legible; the man's position and posture provide no evidence that he started toward or returned from the elevator.",
+    "zuv_turns_back_and_pulls_handle": "FAIL. He is away from the door with both hands inactive; the exterior handle is untouched.",
+    "aachu_pivots_back_and_tests_door": "PASS with minor ambiguity. Her raised trailing foot and flat palm on the closed door communicate a return and physical test, though her gaze remains on him.",
+    "remain_separated_without_touching": "PASS.",
+    "copy_read": "The image supports her going back to check and an affectionate shared reaction, but it does not visually prove that he checked the lock twice or that she checked it with him. Her expression is amused rather than an unmistakable eye-roll."
+  },
+  "contradictions": [
+    "The required shared test is absent: only Aachu physically acts on the closed door.",
+    "Zuv does not pull or touch the exterior handle; his arms are folded/pocketed.",
+    "Zuv's placement on the side of the door opposite the elevator weakens the claimed turn-back path.",
+    "Their mutual gaze prioritizes flirtation over observing the lock-check action.",
+    "The untouched handle directly contradicts the intended physical action and leaves the copy dependent on text."
+  ],
+  "repair_decision": {
+    "decision": "REGENERATE",
+    "required_changes": [
+      "Move Zuv to the closed door and show one hand unmistakably pulling the exterior handle.",
+      "Give Zuv a visible pivot-back body line from the elevator direction; remove the folded/pocketed-arm pose.",
+      "Keep Aachu physically separate, with her own palm clearly pressing the door beside the latch.",
+      "Preserve the waiting elevator, Aachu's trailing pivot foot, dry tote, and rolled umbrella.",
+      "Keep both partners from touching each other and direct enough attention toward the door hardware that two separate simultaneous tests read without copy."
+    ]
+  }
+}

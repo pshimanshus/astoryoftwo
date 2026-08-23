@@ -1,105 +1,86 @@
 {
   "schema_version": "1.0",
-  "status": "GO_REPAIRED",
-  "trigger_phrase_or_event": "Creator asked to make entries less generic, more chaotic/Indian, and improve text hierarchy.",
-  "copy_lock": {
-    "approved_by": "creator",
-    "slides": [
-      {"slide": 1, "text": ["SHAADI", "DICTIONARY"]},
-      {"slide": 2, "text": ["BAS 5 MIN", "= 40 min + last look"]},
-      {"slide": 3, "text": ["MERA CHARGER", "= tumhare bag mein"]},
-      {"slide": 4, "text": ["MIL NAHI RAHA", "= ek drawer checked"]},
-      {"slide": 5, "text": ["THEEK HAI", "= paani rakh diya"]},
-      {"slide": 6, "text": ["CHALO", "= bills + dessert bhi"]},
-      {"slide": 7, "text": ["GHAR", "= same words, new meanings"]}
-    ]
+  "status": "REBUILT_PENDING_CREATOR_APPROVAL",
+  "trigger_phrase_or_event": "Creator rejected the previous copy and visual storytelling.",
+  "previous_visual_system": {
+    "name": "Living Dictionary Entries",
+    "status": "REJECTED_BY_CREATOR",
+    "failure": "It still produced repeated warm couple scenes with definition labels rather than a causally readable story."
   },
+  "copy_status": "candidate_rebuild_pending_creator_approval",
   "agents": [
     {
       "lane": "Visual Format Anthropologist",
-      "finding": "The recognizable mechanic is Hinglish dictionary entry plus lived proof. Preserve the definition format, but make every slide a real scene with a visible object movement.",
+      "finding": "Keep the dictionary frame, but make it 'ghar ki boli' rather than a literal book or definition-card carousel.",
       "rules": [
-        "The key phrase is clear but not oversized; the scene is the main storytelling engine.",
-        "Definition is one small translation line beneath the phrase.",
-        "Scene proof lives in lower or middle-lower frame.",
-        "Each word must be understandable as a relationship behavior if text is hidden.",
-        "Avoid textbook pages, app UI, flat quote cards, and random dictionary filler text."
+        "Each word must be a spoken Indian household phrase.",
+        "The meaning line stays small.",
+        "A visible event must carry the meaning before the copy explains it."
       ]
     },
     {
       "lane": "Scene Evidence Director",
-      "finding": "The strongest plan uses a different domestic receipt per word: waiting, migrated objects, search, silent water, budget-dessert, final mixed home evidence.",
+      "finding": "The stronger plan is a one-day trail: leaving late, one more task, cupboard map, food absence, covered plate, wordless night care.",
       "blockers": []
     },
     {
       "lane": "Romance Blocking Director",
-      "finding": "Both partners must be implicated. Aachu cannot be the only chaos source, and Zuv cannot become a patient saint; the definitions should show mutual ridiculousness and mutual care."
+      "finding": "The first joke must implicate both partners. The tender turn must be care-through-action, not Zuv rescuing Aachu."
     },
     {
       "lane": "Typography And Aspect Director",
-      "finding": "The approved copy is short enough for native integrated text. Use upper-middle negative space, never covering faces or hands; 9:16 needs slightly higher text and more vertical breathing room."
+      "finding": "Use compact top labels. Current format lock is post-only 1080x1440; do not plan unrequested 9:16 derivatives."
     },
     {
       "lane": "Generation Prompt Director",
-      "finding": "Prompt every slide as illustration-story, not infographic. Include exact text only, tiny top-right brandmark, ivory paper, identity bundle, and hard negative prompt against quote-card design."
+      "finding": "Block the stale slide 2 prompt. The next proof should be slide 6 because it tests whether the emotion reads without the copy."
     },
     {
       "lane": "Harsh Visual Selector",
-      "finding": "Selected system can pass because it is format-clear, scene-first, visually varied, and partner-sendable.",
-      "verdict": "GO"
+      "finding": "The new system is stronger because it can be blind-read as events rather than as cozy scenes.",
+      "verdict": "REPAIR_PENDING_CREATOR_APPROVAL"
     }
   ],
   "visual_system_candidates": [
     {
-      "name": "Living Dictionary Entries",
-      "summary": "Each slide is a warm illustrated dictionary entry with the definition integrated above a lived scene.",
-      "verdict": "GO"
+      "name": "One-Day Married-Language Trail",
+      "summary": "Follow one day of household language where every phrase changes meaning through a visible action.",
+      "verdict": "SELECTED"
     },
     {
       "name": "Object Migration Trail",
-      "summary": "Objects move across the deck like evidence from one definition to another.",
-      "verdict": "REPAIR",
-      "why_cut": "Good continuity, but too object-first if used alone."
+      "summary": "Track one object moving through the marriage dictionary.",
+      "verdict": "REJECTED",
+      "why_cut": "Too prop-first; risks losing spoken Indian phrases."
     },
     {
-      "name": "Full Dictionary Book World",
-      "summary": "A literal open dictionary appears on every slide as the main canvas.",
-      "verdict": "REPAIR",
-      "why_cut": "Risks becoming a prop gimmick and repeating one layout."
+      "name": "Literal Dictionary Book",
+      "summary": "Make an illustrated dictionary page for every phrase.",
+      "verdict": "REJECTED",
+      "why_cut": "Already failed as repetitive definition-card energy."
     }
   ],
-  "selected_visual_system": "Living Dictionary Entries",
-  "why_it_wins": "It keeps the format instantly clear while preserving @a.storyof.two's scene-first intimacy. Every word has a drawable couple receipt.",
+  "selected_visual_system": "One-Day Married-Language Trail",
+  "why_it_wins": "It preserves the carousel mechanic while giving every slide a visible before/after state and a stronger Indian household rhythm.",
   "rejected_visual_patterns": [
-    "Flat definition cards with tiny decorative couple art.",
+    "Couple smiling beside terms.",
     "One open book repeated on every slide.",
-    "Generic home couch/table scenes with new captions.",
-    "Aachu-as-chaos and Zuv-as-handler framing.",
-    "Random background dictionary text or fake UI."
+    "Props gathered decoratively around the couple.",
+    "Aachu-as-chaos and Zuv-as-patient-handler framing.",
+    "Automatic Story/Reel derivative planning."
   ],
   "slide_visual_blueprint": [
-    {"slide": 1, "scene": "dictionary opens on a lived home surface; both lean in", "proof": "the couple is co-authoring the meanings"},
-    {"slide": 2, "scene": "doorway waiting scene with mirror/getting-ready action", "proof": "soon has a visible delay"},
-    {"slide": 3, "scene": "bag detail with Zuv-owned item migrated into Aachu's bag", "proof": "mine became ours"},
-    {"slide": 4, "scene": "drawer/search scene with Aachu directing and Zuv finding the wrong thing", "proof": "yours still requires his search"},
-    {"slide": 5, "scene": "silent water glass after a small fight", "proof": "sorry arrives through care"},
-    {"slide": 6, "scene": "grocery/bill list plus dessert box", "proof": "plans include adulting and one random treat"},
-    {"slide": 7, "scene": "final home evidence tableau with couple close and amused", "proof": "their shared home changed the definitions"}
-  ],
-  "typography_and_aspect_plan": {
-    "post_4_5": "Compact upper label in dark charcoal. Keyword/phrase line is about 1.4-1.6x larger than the translation line. Scene occupies most of the frame and must communicate the joke without reading.",
-    "reels_stories_9_16": "Compact upper-third label with the scene carrying the story vertically. Faces and hands stay below text safe area.",
-    "risks": ["Roman Hinglish spelling must remain exact.", "Avoid random dictionary microtext."]
-  },
-  "generation_prompt_brief": "Generate premium watercolor-and-ink A Story illustrations, identity-first, text-bearing, one slide at a time. Exact on-image text only plus tiny brandmark.",
-  "open_doubts": [
-    "Need repaired proof slide to verify scene-first communication with smaller text.",
-    "The preflight-recommended together-19.jpg identity path is absent; together-20.jpg is substituted."
+    {"slide": 1, "scene": "hands and household objects start the ghar ki boli idea", "proof": "the language is co-authored"},
+    {"slide": 2, "scene": "both partners visibly not ready at the open door", "proof": "bas 5 min is mutual fiction"},
+    {"slide": 3, "scene": "key paused mid-lock by one more errand", "proof": "acha suno changes the exit plan"},
+    {"slide": 4, "scene": "wrong shelf versus exact third-shelf point", "proof": "house memory is a relationship map"},
+    {"slide": 5, "scene": "phone, kept food, empty chair", "proof": "kha liya is missing-you language"},
+    {"slide": 6, "scene": "covered plate after tiny fight", "proof": "theek hai still contains care"},
+    {"slide": 7, "scene": "quiet simultaneous useful actions", "proof": "ghar needs fewer words"}
   ],
   "downstream_requirements": [
-    "visual-debate.json must preserve Living Dictionary Entries.",
-    "visual-plan-quality.json must pass every slide with shot-ladder variety.",
-    "prompt-pack.json must attach selected identity references to every final generation call.",
-    "Generate slide 2 as proof first because it tests titleless definition text, identity, body language, and daily-comedy staging."
+    "Creator approval required before copy lock.",
+    "Fresh Event A required before prompt handoff.",
+    "Generate slide 6 proof first if approved."
   ]
 }

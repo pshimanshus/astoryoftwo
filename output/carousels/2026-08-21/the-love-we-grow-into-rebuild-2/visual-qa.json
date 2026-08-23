@@ -1,0 +1,340 @@
+{
+  "schema_version": "2.1",
+  "status": "PASS",
+  "proof_state": "QA_PASS_CANDIDATE",
+  "image_set_sha256": "8dda4c05fe7d642ae8ba89f9fc869186fcdfc071154ded89796eba51bf9e6a31",
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-07.png",
+          "sha256": "4aec3fe683e3bacd0084be13e2a8fd5b176d3a1ac9afc25ad98ee8fa5a8cf03a",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-07.png",
+            "sha256": "be5730e9f4508487fd5754760bc79a04c8c43ba31fed9332f588565824832a53",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "checks": {
+    "storyboard": {
+        "pass": true,
+        "evidence": "With copy hidden, Aachu clearly keeps the biscuit beside her shoulder while Zuv's palm-up request stops short; their eye-line and reach turn irritation into lived mutual play."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg"
+      ],
+      "likeness_notes": "Aachu keeps the recognizable oval face, expressive eyes, nose and lips, and long dark hair."
+    },
+    "zuv_face": {
+        "pass": true,
+      "reference_option_ids": [
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-01.jpg"
+      ],
+        "likeness_notes": "Zuv retains the broad facial structure, strong brows, defined nose, natural beard and controlled thick dark hair visible in the selected couple references."
+    },
+    "couple_scale": {
+      "pass": true,
+      "evidence": "The seated crop hides the exact two-inch height difference without making either partner unnaturally small or oversized."
+    },
+    "dress_continuity": {
+        "pass": true,
+        "evidence": "The render preserves the same-evening reference wardrobe: Aachu's white wrap blouse and blue jeans, Zuv's pale-blue shirt and grey trousers, with no invented visible tattoo coverage."
+    },
+    "style": {
+        "pass": true,
+        "evidence": "Warm ivory paper, muted palette, transparent watercolor washes, fine ink and faded outer edges match the observational-intimacy reference without a glossy or photoreal finish."
+    },
+    "scene_logic": {
+        "pass": true,
+        "evidence": "Aachu's biscuit stays tucked on her side, Zuv's palm-up reach stops short, both stools angle into the shared counter, and the mock irritation visibly carries the return."
+    },
+    "scene_entity_integrity": {
+        "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "4aec3fe683e3bacd0084be13e2a8fd5b176d3a1ac9afc25ad98ee8fa5a8cf03a",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv, four arms, four owned hands, two chai glasses, one plain biscuit, one blank sleeve, two stools, one car and one closed umbrella appear; there are no extra people, limbs, objects or unauthorized writing."
+            }
+          }
+        }
+      ]
+    },
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "4aec3fe683e3bacd0084be13e2a8fd5b176d3a1ac9afc25ad98ee8fa5a8cf03a",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "holds her own cutting-chai glass",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her shoulder, sleeve, forearm, wrist and glass-holding hand are continuously traceable.",
+                  "contact_object": "Aachu's chai glass",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Her fingers wrap the outside of the glass below its rim without merging into it.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "holds the single last biscuit above the counter",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her upper arm, elbow, forearm, wrist and pinching hand remain one visible chain.",
+                  "contact_object": "single biscuit",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Thumb and index finger meet the biscuit edge while the remaining fingers stay clear.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "holds his own cutting-chai glass",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His shoulder, forearm, wrist and glass-holding hand remain continuously traceable.",
+                  "contact_object": "Zuv's chai glass",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "His fingers wrap the outside of the second glass below its rim with clear separation from the counter.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "makes an open-palm reach that stops short of the biscuit",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His shoulder, sleeve, elbow, forearm, wrist and open palm form one continuous chain.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The open palm remains visibly separated from Aachu's biscuit and every solid object.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "occluded_hands": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Both seated figures occupy coherent, distinct volumes on two visible stools behind the counter, with car and umbrella behind them.",
+            "person_object_crop": "Each hand owns one action and the two glasses, biscuit and blank sleeve remain separate.",
+            "focal_detail": "Zuv's palm-up horizontal request remains visibly below and short of the biscuit tucked beside Aachu's shoulder."
+          },
+          "environment_planes": [
+            {
+              "object": "wooden chai counter",
+              "depth_order": "in front of both seated torsos and beneath the two glasses and sleeve",
+              "boundary_continuous": true
+            },
+            {
+              "object": "parked charcoal car and closed umbrella",
+              "depth_order": "behind both figures and separate from their silhouettes",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, shoulders, torso, seated hips and both arm-to-hand chains remain distinct from counter, stool, car and Zuv.",
+              "body_regions": [
+                {
+                  "region": "upper body and both arm-to-hand chains",
+                  "near_object": "counter, chai glass, biscuit and Zuv",
+                  "expected_relation": "behind",
+                  "observed_relation": "behind",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "The counter occludes part of the lower body while the stool seat and legs, both arms and owned objects stay readable."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, shoulders, torso, seated hips and both arm-to-hand chains remain distinct from counter, stool, car and Aachu.",
+              "body_regions": [
+                {
+                  "region": "upper body and both arm-to-hand chains",
+                  "near_object": "counter, chai glass, biscuit and Aachu",
+                  "expected_relation": "behind",
+                  "observed_relation": "behind",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "His palm-up requesting hand remains in front of his torso and clear of the biscuit while his glass hand rests above the counter."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+        "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "4aec3fe683e3bacd0084be13e2a8fd5b176d3a1ac9afc25ad98ee8fa5a8cf03a",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "Two chai glasses and the visibly empty blank sleeve sit on the weathered wooden counter.",
+              "midground": "Aachu keeps the last biscuit beside her shoulder while Zuv's palm-up request reaches horizontally toward it and stops short.",
+              "background": "The rainy parked car, closed umbrella and softly glowing unlabelled stall establish the same evening without competing with the couple.",
+              "focal_action": "The biscuit held back on Aachu's side and Zuv's stopped palm-up request are immediately readable as affectionate irritation.",
+              "story_details": [
+                "two chai glasses",
+                "single last biscuit",
+                "empty paper sleeve",
+                "parked car and closed umbrella"
+              ],
+              "cause_effect": "The couple has returned to the two stools for shared chai, and the last-biscuit contest shows their irritation has become safe mutual play.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "integrated_final_text": {
+        "pass": true,
+        "evidence": "The exact three-line narrative copy and exactly one top-right @a.storyof.two brandmark are integrated; no other legible writing, logo or signage appears."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof decodes as PNG and was proportionally exported to the locked exact 1080x1440 output."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/proof07_story_style_audit",
+      "reviewer_evidence": "A fresh copy-hidden critic read Aachu keeping the single biscuit beside her shoulder while Zuv's palm-up request stops short; their eye-line and reaching hand bridge the stools, making the return lived and behavioral.",
+      "source_director_event_fingerprint": "sha256:abd2c4f0a9228d8210db77687d30c74b9dd7678296b6ba2eb3c15e89ee084655",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "At a rainy roadside stop, Aachu keeps the last biscuit while Zuv asks for it with a palm-up reach; their shared chai turns remaining irritation into familiar teasing.",
+      "relationship_turn": "The physical return is visible through the occupied stools, inward eye-line and requesting hand bridging the gap, while their expressions retain affectionate irritation.",
+      "setup_payoff_evidence": "Two occupied stools, two chai glasses, one biscuit, one empty sleeve, the parked car and closed umbrella clearly connect the frame to the roadside return.",
+      "weakest_frame": "The selected closing proof now carries the intended return through a readable last-biscuit contest, with no unresolved visual blocker.",
+      "repair_decision": "No repair required; preserve this exact closing-frame geometry and visual language when batching the remaining slides.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": "final/slide-07.png",
+          "status": "PASS",
+          "expected_silent_read": "After returning to each other, Aachu and Zuv are still capable of mild irritation, now safely expressed as a last-biscuit tease over chai.",
+          "observed_image_first_read": "A rainy roadside-chai truce where Aachu keeps the last biscuit by her shoulder and Zuv mock-asks for it with a palm-up reach that stops short.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "The exact copy leads, followed by their eye-line, the biscuit and the opposing hand; the faded stall remains secondary.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The withheld biscuit, stopped palm-up request, bridged eye-line, shared chai and occupied stools make the intended return from irritation to safe play visible without relying on copy.",
+          "evidence": "Exactly two occupied stools, two glasses, one biscuit, one blank sleeve, the parked car and closed umbrella are visible; identity, wardrobe, style, anatomy, copy and one brandmark pass.",
+          "image_fingerprint": "sha256:4aec3fe683e3bacd0084be13e2a8fd5b176d3a1ac9afc25ad98ee8fa5a8cf03a"
+        }
+      ],
+      "issues": [],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/proof07_story_style_audit",
+        "reviewer_run_id": "proof07-story-style-attempt-03",
+        "input_fingerprint": "sha256:ed139261e86e83c2951cceaf8e6bba84580f8d550359a3cd40a3c887f0cc2845",
+        "raw_response_artifact": ".internal/proof07-story-style-attempt-03.md",
+        "raw_response_fingerprint": "sha256:fe80f80987bab54d04ce6072634b4a9bbada42d294d476af0b7c8a3ca8e2419b",
+        "output_fingerprint": "sha256:5b5de495cbc240a47c3dcbe3ac79bff8028a84c00fb5475da433ad87918c6c1a"
+      }
+    }
+  },
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/proof07_anatomy_identity_audit",
+      "pass": true,
+      "evidence": "A fresh exact-pixel review passed the two-person/four-hand inventory, ownership, solid-object separation, Aachu and Zuv likeness, same-evening wardrobe, plausible scale and two occupied stools against the selected identity references."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/proof07_story_style_audit",
+      "pass": true,
+      "evidence": "A separate fresh copy-hidden review passed the withheld-biscuit and palm-up request story, affectionate irritation, exact text, one brandmark, complete inventory, stool payoff, car/umbrella continuity and watercolor style."
+    }
+  },
+  "issues": []
+}

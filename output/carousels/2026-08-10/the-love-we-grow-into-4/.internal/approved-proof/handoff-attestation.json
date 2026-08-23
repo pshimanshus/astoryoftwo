@@ -1,0 +1,25 @@
+{
+  "schema_version": "approved-proof-batch-handoff/v1",
+  "proof_slide": 1,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "image_set_sha256": "e046ef2d93555d403970443605cf6f5eebab8d32bdeaac89f05f72d5fe27ecdb",
+  "source_handoff_set_fingerprint": null,
+  "recovered_after_state_loss": true,
+  "visual_qa_binding": {
+    "relative_path": ".internal/approved-proof/visual-qa.json",
+    "sha256": "sha256:d0e78b50b75ba169990abf9a79bdb09663ea5a6bcd9a54e9bb3652f1e810e3f3"
+  },
+  "creator_approval_binding": {
+    "relative_path": ".internal/approved-proof/creator-approval.json",
+    "sha256": "sha256:d9d77cb6cd65820db2625bfa64b7038312b48c14e2440dfbcd28f119b8354378"
+  },
+  "quarantine_bindings": [
+    {
+      "relative_path": ".internal/visual-quarantine/attempt-01/final/slide-01.png",
+      "sha256": "sha256:1c8b8bb8d1ebc89f2a1560dde89704f4576a59d634f07ab9ab7abb441ec11e1c"
+    }
+  ],
+  "attestation_fingerprint": "sha256:f03ecd3d327e5d2720ac5a9d205c886a49a390f1da4176bfc11ed5e834e53493"
+}

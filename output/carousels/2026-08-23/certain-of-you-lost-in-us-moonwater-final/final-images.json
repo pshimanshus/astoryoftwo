@@ -1,0 +1,204 @@
+{
+  "status": "BLOCKED_VISUAL_QA",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-04.png",
+          "sha256": "80d99bfb307a9e516756dd92b9b464d653c8078cd7af0bceac3294144642a0c8",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-04.png",
+            "sha256": "ac3d72d8fabf65abc36da87369337c62395da4045a53fb1b1d524675ba04fcc6",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Visual QA failed after the initial generation and two repair retries; batching is blocked.",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "retry_count": 2,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 0,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-03",
+  "image_set_sha256": "a5b3caed67742d2ccba33940127d20d49b147e6757d6614d0c1f30c4ed0a80f1",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 4,
+  "total_slide_count": 6,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      4
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:791403db094bf50a3f3dd008a5d8d1718d2fc496e7709298bd7c146c3fd7f90a"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:9411adec56db370d6e2eadcec2e168dbeb7b87a08aa9be9792a8b60299139e17"
+      }
+    },
+    "files": [
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.prompt.txt",
+        "sha256": "sha256:ab46620a289cccb144dca3e5437ab252bbe43536c3fa3d7d72b68d755a5ca1f2"
+      },
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.md",
+        "sha256": "sha256:62dcb05cc82beca59f321233d59a48eb73236000f4aaa6f5a32f1294b94faa5f"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:6d4ea582c5ce888f1c824d538ced26cee559cf87f2dabdd8ef85d603d74eabed"
+  },
+  "retry_prompt_handoff_attestation": {
+    "schema_version": "retry-prompt-handoff/v1",
+    "source_status": "REJECTED_SPATIAL_INTEGRITY",
+    "proof_slide": 4,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "failed_image_set_sha256": "a044d6b7da2151b5d86d0464543204235d189e234258a00c1d7371966d34101b",
+    "failed_attempt": {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "a044d6b7da2151b5d86d0464543204235d189e234258a00c1d7371966d34101b",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 4 instagram_post requires format-specific visual_richness evidence",
+        "visual-qa.json spatial_topology slide 1 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 1 must include a people list.",
+        "visual-qa.json spatial_topology slide 1 has invalid observed_people.",
+        "visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+        "visual_story_readability must be a structured object."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 has invalid observed_people.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be a structured object."
+      ]
+    },
+    "visual_qa_binding": {
+      "relative_path": ".internal/pending-proof-qa-attempt-02.json",
+      "sha256": "sha256:0ec85efd163196cebc77dde27eb98f610916fe2cae90a5027f6d87010b970b3b"
+    },
+    "attempt_ledger_binding": {
+      "relative_path": ".internal/visual-qa-attempts.json",
+      "sha256": "sha256:bb35688c5281cd28509286400b2fe86c1779545a3ca4429e2ffd5c05444ecd48"
+    },
+    "gate_input_bindings": [
+      {
+        "relative_path": "format-contract.json",
+        "sha256": "sha256:d8298ddd0fe2423018752adf00b509946e4e376c8a8e11560a9b8769aaf40fdf"
+      },
+      {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:791403db094bf50a3f3dd008a5d8d1718d2fc496e7709298bd7c146c3fd7f90a"
+      },
+      {
+        "relative_path": "slides.json",
+        "sha256": "sha256:9411adec56db370d6e2eadcec2e168dbeb7b87a08aa9be9792a8b60299139e17"
+      },
+      {
+        "relative_path": "visual-plan-quality.json",
+        "sha256": "sha256:6c9d396bbc3eed6ca4f7d2c7468cd450a44d6728f83448c9ae570c477a7f96e4"
+      },
+      {
+        "relative_path": "identity-consistency-review.json",
+        "sha256": "sha256:41f2f5b87ffca362d87b84be69e4114376dd69a82968eb07794969413d9532ec"
+      },
+      {
+        "relative_path": "review.json",
+        "sha256": "sha256:d0a68defb10acbfc8c7be2126037115d63e3b642400d7fa7a2f26717f3641681"
+      },
+      {
+        "relative_path": "layer-e-story-selling.json",
+        "sha256": "sha256:55800d3993909682fc754a6be21b5f5c34f6fffb6b85fb740e49cd2e33936113"
+      },
+      {
+        "relative_path": "stage-reviews.json",
+        "sha256": "sha256:727af0352120559dd521975723c17f0e2af32d5d3559320ef41a5833c4a876df"
+      }
+    ],
+    "previous_handoff_set_fingerprint": "sha256:9cb6768e8b630247d6a55f1ea834f171d703d87e6ba171fddce4aa4f3c9c8d26",
+    "replacement_handoff_set_fingerprint": "sha256:6d4ea582c5ce888f1c824d538ced26cee559cf87f2dabdd8ef85d603d74eabed",
+    "previous_prompt_backup_dir": ".internal/codex-image-prompts-previous/attempt-02",
+    "previous_prompt_files": [
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-04.md",
+        "sha256": "sha256:62dcb05cc82beca59f321233d59a48eb73236000f4aaa6f5a32f1294b94faa5f"
+      },
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-04.prompt.txt",
+        "sha256": "sha256:b7bb0d990a20daa00a6eb77d5141cba57d58f400eca25d03981265617915a427"
+      }
+    ],
+    "next_retry_count": 2,
+    "attestation_fingerprint": "sha256:77e0d4edf0022df56ec19245812a819fc1e4f5ae42dbf293e658496bbb9c6da5"
+  },
+  "visual_qa_path": ".internal/pending-proof-qa-attempt-03.json",
+  "visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+    "slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+    "slide 4 instagram_post requires format-specific visual_richness evidence",
+    "visual_story_readability must be a structured object."
+  ]
+}

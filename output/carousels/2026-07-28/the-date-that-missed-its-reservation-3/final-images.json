@@ -1,0 +1,111 @@
+{
+  "status": "GENERATED_QUARANTINED",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "fe21f84d8b7407c6c988186a164604937d8ca4f020e813ff1e432ca251a18a31",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-01/model-native-source/instagram-post-slide-07.png",
+            "sha256": "339fc438fda2aceb4c4bb221ed93f9a6e71e72d9a4fa6c2979a2362497361826",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Visual QA failed; regenerate with targeted repairs before packaging.",
+  "proof_state": "GENERATED_QUARANTINED",
+  "retry_count": 0,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 2,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-01",
+  "image_set_sha256": "8876a430085336713f7f8a8763c376bd0000b937ffb99e1bb60fa445e13f2a82",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 7,
+  "total_slide_count": 7,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      7
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:a625d5b4a805793349810085a53133c2618cc404e3980a39520c80541d9bb3ef"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:bd0d0f2d4562c7ddc88c3e13b812a2e89b0bee4c71c6a2693fa17d44ffb2b8e2"
+      }
+    },
+    "files": [
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:aeb2b009437a8cba2da2f02c63155b6dd0db1dfbe590592869a6df2210328666"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.md",
+        "sha256": "sha256:d6a88f4027a720b2e69e86749c68c161296a2eae488709c53d73b6c0b35718ff"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:1ea8e2f917d2b5d50fc0367c7da7b14c0387534f029d0761f1a797d7a00eb345"
+  },
+  "visual_qa_path": "visual-qa.json",
+  "visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 7 instagram_post observed hands do not match expected hands",
+    "slide 7 instagram_post scene_entity_integrity hands inventory does not match",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+    "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+    "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+    "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+    "visual_story_readability declares unresolved issues while claiming PASS.",
+    "visual_story_readability.review_provenance must be a structured object."
+  ]
+}

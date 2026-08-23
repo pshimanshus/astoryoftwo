@@ -1,0 +1,30 @@
+{
+  "reviewer_task_id": "/root/slide7_identity_attempt2",
+  "reviewer_run_id": "2026-07-28-slide-07-attempt-01-new-asset",
+  "pass": false,
+  "observed_people_arms_hands": {
+    "people": 2,
+    "people_match": "one Aachu and one Zuv",
+    "full_silhouettes": "Both full bodies and both feet are inside frame; no duplicate person or limb.",
+    "Aachu_arms": "One arm fully visible to the door; the other is occluded behind her body/tote.",
+    "Zuv_arms": "Two arms present in a crossed/resting configuration.",
+    "clearly_visible_hands": 1,
+    "partially_visible_or_occluded_hands": 3
+  },
+  "visible_hand_inventory": {
+    "Aachu": "One anatomically legible five-digit palm presses the door panel; the other hand is fully hidden. Laterality is not visually incontrovertible.",
+    "Zuv": "Right hand is tucked at the opposite elbow/forearm; left hand is largely hidden in the trouser pocket. Neither hand touches the exterior handle."
+  },
+  "topology": {
+    "silhouette_integrity": "Broadly clean; no extra limbs or fused bodies.",
+    "body_to_door": "Aachu has separate palm-to-panel contact. The exterior handle is untouched.",
+    "required_action": "HARD FAIL: Zuv's right hand does not own, pull, or test the handle; both arms are crossed/resting.",
+    "separation": "PASS: Aachu and Zuv have clear negative space and do not touch or overlap."
+  },
+  "aachu_face": "FAIL at strict production identity: recognizable direction, but the rendered face is narrower and more generic than the references, with altered eye/brow/nose-mouth relationships. Hair is substantially wavier and more uniformly voluminous than her predominantly straight reference hair. Body proportions remain plausible.",
+  "zuv_face": "FAIL: tight ringlets materially contradict Zuv's thick swept/wavy quiff. Face is a generic approximation with altered nose/jaw relationships; beard is reasonably full but not sufficiently reference-specific. Torso reads broader and more athletic than the reference body.",
+  "height": "FAIL: Zuv reads roughly half a head taller, overstating the near-equal/slightly-taller relationship in together-01.",
+  "wardrobe": "PARTIAL PASS: Aachu's white shirt, blue jeans and red flats are strongly supported by together-01. Zuv's dark shirt is supportable from together-18 and the red/black footwear echoes together-01, but beige trousers are not directly reference-matched.",
+  "verdict": "REJECT. The central required action is absent, and Zuv's hair/identity plus the exaggerated height gap remain production-level failures.",
+  "repair_decision": "REGENERATE the figure/action layer rather than patch. Place Zuv's clearly visible right hand wrapped around the exterior handle with visible pulling/testing tension; keep his other hand away. Keep Aachu's separately legible right palm on the door panel with clear air between both people and all hands. Restore Zuv's swept quiff, broader reference facial geometry and near-equal/slightly-taller height; straighten and de-volume Aachu's hair and re-anchor both faces to the supplied references."
+}

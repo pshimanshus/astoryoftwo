@@ -2,8 +2,8 @@
 # Karpathy LLM Wiki pattern: this file is the catalog of all compiled knowledge pages.
 # Updated by: `wiki compile` operation.
 
-last_updated: 2026-07-25
-total_pages: 91
+last_updated: 2026-08-23
+total_pages: 119
 confidence_floor: 0.4
 
 ---
@@ -41,6 +41,50 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [Certain of You, Lost in Us — Moonwater Final](carousels/certain-of-you-lost-in-us-moonwater-final.md) | 2026-08-23 | 6 | C-layer | 0.7 |
+| [Certain of You, Lost in Us — Moonwater](carousels/certain-of-you-lost-in-us-moonwater.md) | 2026-08-23 | 6 | C-layer | 0.7 |
+| [The Love We Grow Into Rebuild](carousels/the-love-we-grow-into-rebuild-2.md) | 2026-08-21 | 7 | C-layer | 0.7 |
+| [The Love We Grow Into Rebuild](carousels/the-love-we-grow-into-rebuild.md) | 2026-08-21 | 7 | C-layer | 0.7 |
+| [Certain of You, Lost in Us — No Script](carousels/certain-of-you-lost-in-us-no-script.md) | 2026-08-14 | 6 | C-layer | 0.7 |
+| [A Bad Day Was Never the Whole Truth](carousels/a-bad-day-was-never-the-whole-truth.md) | 2026-08-14 | 6 | C-layer | 0.7 |
+| [More Than the Hurt](carousels/more-than-the-hurt.md) | 2026-08-14 | 6 | C-layer | 0.7 |
+| [Certain of You, Lost in Us](carousels/certain-of-you-lost-in-us.md) | 2026-08-14 | 6 | C-layer | 0.7 |
+| [The Love We Grow Into](carousels/the-love-we-grow-into-4.md) | 2026-08-10 | 7 | C-layer | 0.7 |
+| [The Love We Grow Into](carousels/the-love-we-grow-into-3.md) | 2026-08-10 | 7 | C-layer | 0.7 |
+| [The Love We Grow Into](carousels/the-love-we-grow-into-2.md) | 2026-08-10 | 7 | C-layer | 0.7 |
+| [The Love We Grow Into](carousels/the-love-we-grow-into.md) | 2026-08-10 | 7 | C-layer | 0.7 |
+| [The First “Suno” Never Counts](carousels/same-name-two-temperatures.md) | 2026-07-20 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-17.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-16.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-15.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-14.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-13.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-12.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-11.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-10.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-9.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-8.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-7.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-6.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-5.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-4.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-3.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-2.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation.md) | 2026-07-30 | 7 | C-layer | 0.7 |
+| [The Museum of Almost](carousels/the-museum-of-almost.md) | 2026-07-30 | 5 | C-layer | 0.7 |
+| [Not Married Yet, Already Us](carousels/not-married-yet-already-us.md) | 2026-07-30 | 11 | C-layer | 0.7 |
+| [More Unofficial Rules of Marriage](carousels/more-unofficial-rules-of-marriage.md) | 2026-07-30 | 9 | C-layer | 0.7 |
+| [The Person Missing From My Memories](carousels/the-person-missing-from-my-memories.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-8.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-7.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-6.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-5.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-4.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-3.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-2.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation.md) | 2026-07-28 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-4.md) | 2026-07-25 | 7 | C-layer | 0.7 |
+| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-3.md) | 2026-07-25 | 7 | C-layer | 0.7 |
 | [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-2.md) | 2026-07-25 | 7 | C-layer | 0.7 |
 | [Not Married Yet, Already Us](carousels/not-married-yet-already-us.md) | 2026-07-21 | 11 | C-layer | 0.7 |
 | [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation.md) | 2026-07-25 | 7 | C-layer | 0.7 |

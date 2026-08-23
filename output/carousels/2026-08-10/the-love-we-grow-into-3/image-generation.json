@@ -1,0 +1,81 @@
+{
+  "status": "draft",
+  "backend": "none",
+  "generation_mode": "not_generated",
+  "slide_count": 7,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "expected_files": {
+        "instagram_post": "final/slide-01.png"
+      },
+      "source_prompt_slide": 1
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover keys, routes,\nand very small things.",
+      "expected_files": {
+        "instagram_post": "final/slide-02.png"
+      },
+      "source_prompt_slide": 2
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "expected_files": {
+        "instagram_post": "final/slide-03.png"
+      },
+      "source_prompt_slide": 3
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nthat sometimes it means:\n“Give me a minute.\nDon’t go far.”",
+      "expected_files": {
+        "instagram_post": "final/slide-04.png"
+      },
+      "source_prompt_slide": 4
+    },
+    {
+      "slide": 5,
+      "copy": "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "expected_files": {
+        "instagram_post": "final/slide-05.png"
+      },
+      "source_prompt_slide": 5
+    },
+    {
+      "slide": 6,
+      "copy": "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "expected_files": {
+        "instagram_post": "final/slide-06.png"
+      },
+      "source_prompt_slide": 6
+    },
+    {
+      "slide": 7,
+      "copy": "You still checked the lock twice.\nI still rolled my eyes.\n\nThen I went back\nand checked it with you.",
+      "expected_files": {
+        "instagram_post": "final/slide-07.png"
+      },
+      "source_prompt_slide": 7
+    }
+  ],
+  "reason": "Carousel package exists, but image handoff has not been prepared.",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  }
+}

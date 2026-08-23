@@ -276,16 +276,16 @@
     "copy_locked": true,
     "copy_hidden": true,
     "intent_hidden": true,
-    "copy_lock_evidence": "The creator’s current 11-slide revised copy is recorded byte-for-byte in creator-correction.json, slides.json, and prompt-pack.json before this review.",
+    "copy_lock_evidence": "The creator-locked eleven-slide copy and instagram_post canvas were fixed before this fresh copy-hidden review.",
     "author_id": "/root",
-    "reviewer_id": "/root/event_a_critic",
-    "reviewer_evidence": "A separate critic received only the observable storyboard cards and returned the exact frame-by-frame response stored in the package artifact.",
+    "reviewer_id": "/root/event_a_attempt_02",
+    "reviewer_evidence": "A fresh orchestrated critic read only .internal/event-a-blind-cards.json and returned the exact pre-reveal frame-by-frame response preserved in the attempt-02 raw artifact.",
     "requested_formats": [
       "instagram_post"
     ],
     "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
     "creator_correction_fingerprint": "sha256:25b7a20142aaf671a128ae1aa0c88d445159242e7c2b18b90bab30cc6068e72c",
-    "generation_payload_fingerprint": "sha256:3007b4ab50c1a9c8c2f5bfe9c642ea041451facf6e5c25a3c94cfb8bcbf262dd",
+    "generation_payload_fingerprint": "sha256:f7a38b965ebc14dd38b7df42fa8632b069f08e711a9732b692a0906224cee0aa",
     "blind_cards": [
       {
         "slide": 1,
@@ -398,13 +398,13 @@
           "one man"
         ],
         "visible_setting": "The same open doorway with a shallow catchall just inside and the stairs beyond.",
-        "observable_action": "The man places the snapped-key bow flat into the catchall rather than handing it to the woman; she watches without reaching.",
-        "hands_and_contact": "The man's right hand places the fragment and his left continues holding the helmet; the woman's right holds her tote strap and her left is outside the frame. No hands touch.",
+        "observable_action": "The man places the snapped-key bow flat into the catchall with his right hand rather than handing it to the woman; a small fresh nick is already visible on that right thumb while she watches without reaching.",
+        "hands_and_contact": "Only the man's two hands are visible: his right places the fragment with its nicked thumb clear beside the metal, and his left continues holding the helmet. Both of the woman's hands remain outside the crop. No hands touch.",
         "gaze": "The woman looks down at his key hand; the man looks at the catchall.",
         "body_blocking": "His stair-facing foot still points away, her weight stays rearward inside, and three to four feet remain between them.",
-        "object_state": "The key fragment moves from the man's hand to a fixed place inside; the helmet stays with him.",
+        "object_state": "The key fragment moves from the man's nicked right hand to a fixed place inside; the helmet stays in his left hand.",
         "camera_view": "Low side-medium view at catchall height with the key placement in the foreground and both profiles behind it.",
-        "visible_continuity": "The unchanged clothes, doorway, catchall, key fragment, helmet, tense body distance, and her lowered gaze keep the object and relationship state traceable."
+        "visible_continuity": "The unchanged clothes, doorway, catchall, key fragment, helmet, newly visible right-thumb nick, tense body distance, and her lowered gaze keep the object and relationship state traceable."
       },
       {
         "slide": 9,
@@ -412,14 +412,14 @@
           "one woman",
           "one man"
         ],
-        "visible_setting": "The same open threshold sits softly behind the pair without dividing them; one snapped-key fragment rests on a shallow entry ledge at the far background edge.",
-        "observable_action": "The woman uses her visibly traceable right forearm and right hand to dab one thin single-fold tissue directly onto a small nick on the man's open right thumb.",
-        "hands_and_contact": "Exactly two hands are visible: the woman's right hand holds the tissue against the nick, and the man's open right hand presents the thumb. Both right wrists and forearms are continuously traceable; both left arms and all pockets remain completely outside the crop.",
+        "visible_setting": "A neutral warm-ivory threshold with a soft evening doorway-light wash and one faint door edge at the far outer frame, fully separated from both silhouettes; no furniture or competing prop appears.",
+        "observable_action": "The woman uses her only visible right thumb and index finger to pinch one loose thin tissue by one corner and dab it against the already-seen 3-mm red nick just below the man's right thumbnail.",
+        "hands_and_contact": "Exactly two visible arms and hands fill the lower-center evidence zone: each right arm stays continuously traceable from shoulder through bent elbow and wrist to hand. The woman pinches one tissue corner; the man presents a half-open hand with thumb uppermost. Both left arms, waists, and pockets remain entirely outside the crop.",
         "gaze": "Both look at the nick and tissue rather than at each other.",
-        "body_blocking": "They stand about twelve inches apart with separate torsos and almost level eye lines; the man reads only about two inches taller, with no hug, lean, caress, or smile.",
-        "object_state": "One thin white rectangular tissue with a single visible fold touches the tiny non-graphic thumb nick; the snapped-key fragment stays on the far background ledge.",
-        "camera_view": "Tight three-quarter upper-body view from both heads to just below the ribs, cropped above pockets, with both faces, the two right wrists, tissue, and thumb clearly visible.",
-        "visible_continuity": "The same evening clothes, open threshold, snapped-key fragment, and reduced body distance remain visible while the tissue first contacts the nick."
+        "body_blocking": "They stand upright on the same plane and camera depth, 12–14 inches apart, with equal head scale and the man's crown only one-fifth of a head higher. Both keep closed lips and tightened brows while looking down, with no hug, lean, caress, hand-hold, or smile.",
+        "object_state": "Exactly one loose thin white facial tissue touches the right thumb; the non-graphic 3-mm red nick remains clearly visible just below the thumbnail. No key, catchall, helmet, phone, or second object appears.",
+        "camera_view": "Eye-level tight two-shot from both crowns to lower ribs, above every waist and pocket, with both bent right elbows inside frame; clear three-quarter faces remain visible while the tissue-thumb contact is the largest sharp lower-center detail.",
+        "visible_continuity": "The nick introduced on the man's right thumb in the prior card remains visible at the tissue contact; the same evening clothes, threshold light, equal camera depth, and unreconciled expressions carry through."
       },
       {
         "slide": 10,
@@ -452,13 +452,13 @@
         "visible_continuity": "The reciprocal wallet-and-bottle exchange is visibly repeated in different clothes beside a clean replacement lock and fresh working key; no wedding objects or extra people appear."
       }
     ],
-    "blind_input_fingerprint": "sha256:ac9a61dfccfb037de3358b7a1c5489622902f13bdb03d4ba473e8dae21a6e282",
-    "source_fingerprint": "sha256:81d9d1eb1115ae5936c877a45f952dda66fd3f49a4fdcf8dda6ce36de399330f",
+    "blind_input_fingerprint": "sha256:94dca3aec6d18cb35bee5239f02f55dfaca3566b9ed25fca5c96a06c6ed5188b",
+    "source_fingerprint": "sha256:5779f81b283b9b171a61bc34b5f41114e589a70e9f38e00b64c9e83794fbe1a6",
     "sequence_mode": "montage_with_arc",
-    "physical_event": "Three recognition beats give way to a snapped key, a joint repair attempt, an argument, departure, indirect key placement, a tissue dabbed onto a thumb nick, and a next-morning repaired-lock exit.",
-    "emotional_arc": "Unspoken teamwork becomes shared stress, equal friction, reluctant distance, care that survives anger, and restored everyday rhythm.",
-    "relationship_change": "The couple does not acquire a new bond; the incident proves that an existing ‘us’ persists through anger and resumes after repair.",
-    "sequence_read": "The copy-hidden critic inferred the broken-key event, cooperation-to-friction-to-care turn, and final return from separation into shared rhythm from observable cards alone.",
+    "physical_event": "Three shared-habit vignettes give way to a snapped key, joint troubleshooting, equal friction, departure, indirect key placement, a direct tissue dab on a thumb nick, physical separation, and a next-morning repaired-lock exit.",
+    "emotional_arc": "Unspoken coordination becomes shared stress, equal friction, reluctant distance, restrained care that survives anger, and restored everyday rhythm.",
+    "relationship_change": "The sequence does not invent a new bond; it visibly proves that an existing practical partnership remains active through conflict and resumes the next morning.",
+    "sequence_read": "A closely coordinated domestic pair move through ordinary shared routines, a snapped key turns teamwork into tension and separation, a small injury prompts restrained care without overt reconciliation, and the next morning their repaired doorway and repeated reciprocal ritual show that their practical bond has endured.",
     "visual_variables": [
       "body distance",
       "object ownership"
@@ -481,7 +481,7 @@
         "changed_meaning": "Complementary teamwork becomes the precise source of equal friction."
       },
       {
-        "setup": "Slide nine shows Aachu dabbing one folded tissue onto Zuv’s nick while both remain annoyed.",
+        "setup": "Slide nine shows Aachu dabbing one loose tissue onto Zuv’s nick while both remain annoyed.",
         "payoff": "Slide ten shows the tissue retained on his thumb as they separate.",
         "changed_meaning": "Concern survives the argument and travels with him before full emotional repair."
       }
@@ -500,8 +500,8 @@
         "story_job": "carry the practical problem, argument, and visible repair through the sequence"
       },
       {
-        "object": "folded tissue",
-        "initial_state": "pressed by Aachu directly onto Zuv’s nicked thumb",
+        "object": "loose tissue",
+        "initial_state": "dabbed by Aachu directly onto Zuv’s nicked thumb",
         "later_state": "retained on his thumb as he continues downstairs",
         "story_job": "make care surviving anger physically visible"
       }
@@ -514,7 +514,7 @@
         "narrative_job": "Establish their reciprocal, wordless exit ritual before any problem exists.",
         "silent_read": "They instinctively complete each other’s leaving-the-house routine without needing eye contact.",
         "change_from_previous": "The first frame establishes synchronized care, the doorway, and the wallet-key-bottle motif.",
-        "critic_evidence": "The blind critic read practised reciprocal care from the mirrored wallet-and-bottle exchange and shared exit direction.",
+        "critic_evidence": "The fresh critic inferred a rehearsed mutual-care routine from the reciprocal wallet-and-bottle exchange, already-open pocket and tote, shared exit direction, and lack of checking.",
         "staged_action": {
           "subject": "Aachu and Zuv",
           "action": "The woman moves a wallet and keyring into the man's already-open jacket pocket while the man lowers a capped water bottle into the woman's already-open tote as both step toward the exit.",
@@ -585,7 +585,7 @@
         "narrative_job": "Show that a shared plan pauses for consultation and both partners wait inside the same decision.",
         "silent_read": "Her outward step pauses for a call and his paired helmets wait with her, making the plan visibly shared.",
         "change_from_previous": "The camera crosses outside and the routine pauses; direct eye contact replaces automatic forward motion.",
-        "critic_evidence": "The blind critic read a shared plan interrupted by consultation from the paused step, exchanged gaze, and paired helmets.",
+        "critic_evidence": "The fresh critic inferred a shared departure interrupted by consultation from the paired helmets, paused outward step, exchanged threshold gaze, and non-blocking open palm.",
         "staged_action": {
           "subject": "Aachu, with Zuv waiting",
           "action": "The woman has one foot outside, holds a phone at her ear with its screen hidden, raises her other palm toward someone outside the frame, and turns back toward the man. The man stands several feet inside holding two helmets and makes a low open-hand gesture.",
@@ -656,7 +656,7 @@
         "narrative_job": "Recognize tiny domestic choices as genuinely shared authorship.",
         "silent_read": "A wall-frame placement becomes a two-person decision measured in a tiny sideways gesture.",
         "change_from_previous": "The location and clothes change for a self-contained recognition montage beat about shared micro-decisions.",
-        "critic_evidence": "The blind critic read cooperative domestic authorship from the tape mark, tilted frame, pinch gesture, and shared gaze.",
+        "critic_evidence": "The fresh critic inferred comfortable collaborative domestic authorship from the painter’s-tape mark, held frame, precise adjustment gesture, and shared gaze.",
         "staged_action": {
           "subject": "Zuv, directed by Aachu",
           "action": "The man holds a small blank frame flush to the wall while the woman stands about four feet back, squints at it, and pinches two fingers to indicate a tiny sideways adjustment.",
@@ -727,7 +727,7 @@
         "narrative_job": "Break the montage with one concrete problem: a key snaps in Zuv’s hand.",
         "silent_read": "A routine key turn becomes a fresh, visible break that Zuv must face alone for one beat.",
         "change_from_previous": "The story shifts from montage to one causal evening incident, isolates Zuv, and introduces the broken key.",
-        "critic_evidence": "The blind critic identified an abrupt practical failure from the separated bow and shaft at the lock.",
+        "critic_evidence": "The fresh critic immediately read a snapped-key mishap from the embedded shaft, detached bow, frozen posture, direct lock gaze, and nearby paired helmets.",
         "staged_action": {
           "subject": "Zuv",
           "action": "The man freezes at the lock holding the bow half of a freshly snapped key a few centimetres from the lock while the metal shaft remains embedded.",
@@ -798,7 +798,7 @@
         "narrative_job": "Turn one person’s mishap into aligned two-person problem-solving.",
         "silent_read": "Aachu joins immediately and their bodies converge around separate parts of the same repair task.",
         "change_from_previous": "Aachu enters the incident; isolation becomes shoulder-to-shoulder problem-solving with divided tasks.",
-        "critic_evidence": "The blind critic read aligned problem-solving from nearly touching shoulders, simultaneous subtasks, phone torch, and open tote.",
+        "critic_evidence": "The fresh critic read practical teamwork under stress from the open tote search, directed phone light, displayed broken bow, unchanged lock, and close parallel blocking.",
         "staged_action": {
           "subject": "Aachu and Zuv",
           "action": "The woman holds an open tote and searches inside while the man aims a phone torch with its screen turned inward at the key shaft still embedded in the lock.",
@@ -869,7 +869,7 @@
         "narrative_job": "Convert competing repair methods into equal, visible relationship friction.",
         "silent_read": "Different tools and a widened gap turn collaboration into an argument with equal agency.",
         "change_from_previous": "The shoulders separate, two tools compete, and direct tense eye contact replaces object-focused cooperation.",
-        "critic_evidence": "The blind critic read interpersonal friction from the widened gap, tense eye contact, opposing tools, and symmetric open hands.",
+        "critic_evidence": "The fresh critic read equal disagreement from the widened gap, tense eye contact, different tools, open free hands, and feet beginning to angle away.",
         "staged_action": {
           "subject": "Aachu and Zuv",
           "action": "The woman holds small closed pliers downward while the man holds a phone face-in at chest level; both speak toward each other with open free hands.",
@@ -940,7 +940,7 @@
         "narrative_job": "Let the argument create physical distance while their attention still reconnects.",
         "silent_read": "Zuv moves toward the stairs, yet both turn back across the threshold before fully breaking contact.",
         "change_from_previous": "The disagreement becomes movement away: Zuv crosses outside while Aachu stays inside.",
-        "critic_evidence": "The blind critic read temporary rupture with reluctance from the outward stride, backward turn, stationary feet, and reconnected gaze.",
+        "critic_evidence": "The fresh critic read an emotionally unfinished separation from opposed movement, her half-raised hand, his backward turn, and reconnected gaze.",
         "staged_action": {
           "subject": "Zuv, with Aachu holding inside",
           "action": "The man crosses the threshold toward the stairs with a helmet while the woman stays inside and half-raises a hand; his leading foot continues outward but his head and shoulders turn back toward her.",
@@ -1009,14 +1009,14 @@
         "status": "PASS",
         "inference_match": true,
         "narrative_job": "Keep anger intact through indirect object placement instead of premature reconciliation.",
-        "silent_read": "He puts the broken key inside rather than handing it over; both remain separate and restrained.",
+        "silent_read": "He puts the broken key inside while keeping his departure posture; she watches his nicked hand without reaching.",
         "change_from_previous": "Departure pauses for a deliberate key-fragment placement; gaze drops from each other to the object.",
-        "critic_evidence": "The blind critic read restrained indirect communication from the no-touch placement, stair-facing foot, rearward weight, and shared object gaze.",
+        "critic_evidence": "The fresh critic read tense but orderly responsibility and her attention shifting toward his injury from the indirect catchall placement, stair-facing foot, maintained distance, visible nick, and lowered gaze.",
         "staged_action": {
           "subject": "Zuv, watched by Aachu",
-          "action": "The man places the snapped-key bow flat into the catchall rather than handing it to the woman; she watches without reaching.",
-          "target_or_object": "the key fragment and inside catchall",
-          "reaction_or_consequence": "The key changes ownership and position while emotional distance remains unresolved."
+          "action": "Zuv uses his right hand to place the snapped-key bow in the catchall while his left hand alone holds the helmet; Aachu watches without either hand entering frame.",
+          "target_or_object": "the key fragment, inside catchall, and fresh nick on Zuv’s right thumb",
+          "reaction_or_consequence": "The fragment is secured inside, her gaze shifts toward the injured thumb, and their emotional distance remains unresolved."
         },
         "pov": {
           "owner": "their restrained attention to the broken object",
@@ -1031,7 +1031,7 @@
           "story_reason": "The view makes this evidence readable: The key fragment moves from the man's hand to a fixed place inside; the helmet stays with him."
         },
         "blocking": {
-          "hands": "The man's right hand places the fragment and his left continues holding the helmet; the woman's right holds her tote strap and her left is outside the frame. No hands touch.",
+          "hands": "Exactly two hands are visible, both Zuv’s: his right places the fragment with the fresh thumb nick readable, and his left holds the helmet strap. Both Aachu hands stay outside the crop; no hands touch.",
           "gaze": "The woman looks down at his key hand; the man looks at the catchall.",
           "body_distance": "His stair-facing foot still points away, her weight stays rearward inside, and three to four feet remain between them.",
           "posture_or_feet": "His stair-facing foot still points away, her weight stays rearward inside, and three to four feet remain between them."
@@ -1040,12 +1040,12 @@
           "sub_location": "The same open doorway with a shallow catchall just inside and the stairs beyond.",
           "time": "same evening incident",
           "motivated_light": "warm inside light isolating the catchall against cooler stairs",
-          "story_trace": "The unchanged clothes, doorway, catchall, key fragment, helmet, tense body distance, and her lowered gaze keep the object and relationship state traceable."
+          "story_trace": "The unchanged clothes, doorway, catchall, key fragment, helmet, three-to-four-foot distance, visible thumb nick, and Aachu’s lowered gaze keep the object and relationship state traceable."
         },
         "story_evidence": [
           {
             "carrier": "the key fragment and inside catchall",
-            "observable_state": "The key fragment moves from the man's hand to a fixed place inside; the helmet stays with him.",
+            "observable_state": "Zuv’s right hand moves the key fragment into the catchall with the fresh thumb nick visible; his left retains the helmet while Aachu does not reach.",
             "narrative_job": "The key changes ownership and position while emotional distance remains unresolved."
           }
         ],
@@ -1069,9 +1069,9 @@
         "unresolved_ambiguities": [],
         "resolved_ambiguities": [
           {
-            "competing_read": "Putting the key fragment in the catchall could be ordinary tidiness without emotional meaning.",
-            "repair": "Keep a three-to-four-foot gap, no touch, his stair-facing foot, her rearward weight, and both gazes fixed on the fragment rather than each other.",
-            "recheck_evidence": "The object changes hands and location while their bodies stay opposed; slide nine then uses her lowered attention to motivate noticing his thumb."
+            "competing_read": "The catchall placement may be ordinary tidiness, and Aachu could be watching the key rather than the nick.",
+            "repair": "Keep the three-to-four-foot gap, no touch, his stair-facing foot, the fresh nick beside the fragment, both Aachu hands outside frame, and her gaze landing on the injured key hand.",
+            "recheck_evidence": "The fresh critic saw orderly responsibility plus attention shifting from dispute to injury, which motivates the direct tissue dab on the next card without implying reconciliation."
           }
         ]
       },
@@ -1080,50 +1080,50 @@
         "status": "PASS",
         "inference_match": true,
         "narrative_job": "Deliver the hero receipt: practical care crosses the threshold while annoyance remains.",
-      "silent_read": "Still annoyed, Aachu dabs one tissue directly onto the nick on Zuv’s open right thumb.",
-      "change_from_previous": "The distance contracts and Aachu’s tissue makes direct contact with the nick without erasing either tense expression.",
-      "critic_evidence": "The blind critic reads the tissue-to-thumb contact, exact two-hand ownership, contracted distance, and unsmiling faces as practical care before reconciliation.",
+        "silent_read": "Still annoyed, Aachu uses one loose tissue to dab the nick below Zuv’s right thumbnail while he holds that hand steady.",
+        "change_from_previous": "The distance contracts and Aachu’s tissue makes direct contact with the nick without erasing either tense expression.",
+        "critic_evidence": "The fresh critic read restrained practical care before reconciliation from the direct tissue-to-nick contact, two owned right hands, reduced distance, shared downward gaze, closed lips, and tightened brows.",
         "staged_action": {
           "subject": "Aachu, accepted by Zuv",
-        "action": "The woman uses her visibly traceable right forearm and right hand to dab one thin single-fold tissue directly onto a small nick on the man's open right thumb.",
-          "target_or_object": "the folded tissue and Zuv’s nicked right thumb",
-        "reaction_or_consequence": "Care becomes direct tissue-to-thumb contact without a smile, hug, or instant emotional repair."
+          "action": "Aachu’s only visible right hand pinches one corner of one loose thin tissue and dabs the clear 3-mm nick below Zuv’s right thumbnail; Zuv presents only his half-open right hand.",
+          "target_or_object": "one loose tissue and Zuv’s nicked right thumb",
+          "reaction_or_consequence": "He accepts the practical care while both remain visibly irritated and emotionally unreconciled."
         },
         "pov": {
           "owner": "Aachu’s practical concern and Zuv’s acceptance",
-        "audience_knows": "Still annoyed, Aachu dabs one tissue directly onto the nick on Zuv’s open right thumb.",
+          "audience_knows": "Still annoyed, Aachu uses one loose tissue to dab the nick below Zuv’s right thumbnail while he holds that hand steady.",
           "audience_feels": "tender recognition that concern survives even while both remain annoyed"
         },
         "shot": {
-        "size": "tight three-quarter upper-body evidence shot",
-        "angle": "eye-level three-quarter opposing profiles",
-        "camera_position": "framed from both heads to just below the ribs beside the threshold",
-          "focal_subject": "the folded tissue and Zuv’s nicked right thumb",
-        "story_reason": "The above-pocket crop makes one thin tissue visibly touch the non-graphic right-thumb nick while excluding every non-focal hand."
+          "size": "tight crown-to-lower-ribs evidence shot",
+          "angle": "eye-level clear three-quarter two-shot",
+          "camera_position": "both upright on one plane at equal depth, framed above every waist and pocket with both bent right elbows inside frame",
+          "focal_subject": "the loose tissue touching the clear nick below Zuv’s right thumbnail",
+          "story_reason": "The above-pocket crop preserves both faces and two continuous right-arm chains while excluding every non-focal hand and prop."
         },
         "blocking": {
-        "hands": "Exactly two hands are visible: Aachu’s traceable right hand presses one tissue to Zuv’s open right thumb; both left arms and all pockets stay outside the crop.",
-          "gaze": "Both look at the nick and tissue rather than at each other.",
-        "body_distance": "They stand about twelve inches apart with separate torsos and nearly level eye lines; Zuv reads only about two inches taller.",
-        "posture_or_feet": "The rib-level crop shows separate upright torsos, no lean or caress, and the doorframe behind rather than between them."
+          "hands": "Exactly two hands are visible: Aachu’s right pinches one loose tissue corner and dabs Zuv’s right-thumb nick; Zuv’s right stays half-open and steady. Both left arms and stray skin-toned edges stay outside the crop.",
+          "gaze": "Both look at the tissue-thumb contact rather than at each other.",
+          "body_distance": "They remain 12–14 inches apart at equal camera depth and equal head scale; Zuv’s crown is only one-fifth of a head higher.",
+          "posture_or_feet": "Both stay upright with separate torsos, closed lips, tightened brows, no lean, caress, smile, or reconciliation pose."
         },
         "setting": {
-        "sub_location": "The same open threshold sits softly behind the pair, with the snapped-key fragment on a shallow ledge at the far edge.",
+          "sub_location": "A minimal apartment threshold suggested only by a soft evening wash and one faint far-edge door line.",
           "time": "same evening incident",
-          "motivated_light": "warm threshold light keeping both faces, tissue, and thumb readable",
-        "story_trace": "The same evening clothes, open threshold, snapped-key fragment, and reduced body distance remain visible while tissue first contacts the nick."
+          "motivated_light": "soft threshold light keeping both faces and the lower-center contact readable on neutral ivory paper",
+          "story_trace": "The same evening clothes, repeated thumb nick, equal depth, and tense expressions carry continuity; no key, ledge, furniture, or competing prop enters the close proof."
         },
         "story_evidence": [
           {
-            "carrier": "the folded tissue and Zuv’s nicked right thumb",
-          "observable_state": "One thin white rectangular tissue with a single visible fold touches the tiny non-graphic right-thumb nick; the key fragment remains behind.",
-          "narrative_job": "Care becomes direct tissue-to-thumb contact without a smile, hug, or instant emotional repair."
+            "carrier": "one loose tissue touching Zuv’s nicked right thumb",
+            "observable_state": "A single thin white tissue visibly contacts the clear non-graphic 3-mm nick while both shared gazes land on that point.",
+            "narrative_job": "Make practical concern survive the argument without a smile, handoff, embrace, or instant reconciliation."
           }
         ],
         "text_image_relationship": "interdependent",
         "continuity": {
-          "incoming_state": "The key fragment is now inside the catchall while both remain annoyed.",
-          "outgoing_state": "The tissue is accepted while emotional reconciliation remains incomplete."
+          "incoming_state": "Aachu noticed the nick while Zuv placed the key fragment inside and remained oriented toward leaving.",
+          "outgoing_state": "The tissue stays with Zuv’s injured thumb as they continue in opposite directions."
         },
         "entity_contract": {
           "expected_people": 2,
@@ -1140,9 +1140,9 @@
         "unresolved_ambiguities": [],
         "resolved_ambiguities": [
           {
-            "competing_read": "The tissue could read as generic courtesy, or the tiny nick could disappear at phone size.",
-          "repair": "Use a head-to-ribs crop above all pockets, only two visible owned right hands, direct tissue-to-thumb contact, near-level eye lines, and still-annoyed expressions.",
-          "recheck_evidence": "Aachu’s traceable right forearm crosses her torso so one thin tissue touches Zuv’s open injured right thumb; both left arms are cropped out and neither smiles, hugs, or poses."
+            "competing_read": "The dab could be generic courtesy or the nick could disappear at phone size; the tight frame omits the key incident.",
+            "repair": "Use a crown-to-lower-ribs crop, exactly two traceable right-hand chains, one loose tissue in direct contact with a clear 3-mm nick, repeated evening wardrobe, equal depth, and still-annoyed expressions.",
+            "recheck_evidence": "The fresh critic specifically inferred accepted care without reconciliation from the tissue-to-nick contact, presented hand, shared downward gaze, reduced distance, closed lips, and tightened brows."
           }
         ]
       },
@@ -1153,7 +1153,7 @@
         "narrative_job": "Show separation continuing, with the tissue carrying care into the departing path.",
         "silent_read": "They move in opposite directions, but her tissue stays on his thumb while the broken key stays inside.",
         "change_from_previous": "The tissue transfer is complete, then the extreme-wide frame separates their paths again.",
-        "critic_evidence": "The blind critic read softened but unresolved separation from divergent paths, tissue retained, and key fragment left inside.",
+        "critic_evidence": "The fresh critic read physical separation after care from their opposed trajectories, tissue retained on his thumb, and the broken key left inside.",
         "staged_action": {
           "subject": "Aachu and Zuv",
           "action": "The woman steps back inside while the man continues down the stairs in the opposite direction.",
@@ -1224,7 +1224,7 @@
         "narrative_job": "Pay off the opening ritual after repair: different morning, same effortless us.",
         "silent_read": "The opening wallet-and-bottle exchange returns beside a repaired lock, proving restored shared rhythm.",
         "change_from_previous": "Evening separation becomes next-morning parallel movement; the clean lock and repeated exchange close the loop.",
-        "critic_evidence": "The blind critic read restored alignment from the matched composition, repeated exchange, new clothes, clean lock, and working key.",
+        "critic_evidence": "The fresh critic read durable partnership and restored rhythm from the matched opening composition, repeated reciprocal exchange, new clothes, repaired lock, and fresh key.",
         "staged_action": {
           "subject": "Aachu and Zuv",
           "action": "In new clothes, the woman moves the man's wallet into his open jacket pocket while the man lowers her filled water bottle into the open tote as both walk toward the doorway.",
@@ -1295,13 +1295,13 @@
       "schema_version": "visual-review-provenance/v2",
       "author_task_id": "/root",
       "author_run_id": "/root:carousel-2026-07-21-01",
-      "reviewer_task_id": "/root/event_a_critic",
-      "reviewer_run_id": "/root/event_a_critic:turn-1",
-      "input_fingerprint": "sha256:ac9a61dfccfb037de3358b7a1c5489622902f13bdb03d4ba473e8dae21a6e282",
-      "raw_response_artifact": ".internal/event-a-raw-response.md",
-      "raw_response_fingerprint": "sha256:b8a80e6768a4638d67fd61631064b1146ad67957530ba3b732bf242968f37fb6",
-      "output_fingerprint": "sha256:9000827e58dcd8c1d2a393fe6a46f495b4d43266625ad14e6b8734aa161198c3"
+      "reviewer_task_id": "/root/event_a_attempt_02",
+      "reviewer_run_id": "07DEBFBD-C181-4332-9B90-555B96D8304D",
+      "input_fingerprint": "sha256:94dca3aec6d18cb35bee5239f02f55dfaca3566b9ed25fca5c96a06c6ed5188b",
+      "raw_response_artifact": ".internal/event-a-attempt-02-raw-response.md",
+      "raw_response_fingerprint": "sha256:8eb76777bb70aab29c69cf2eb3021e97e355a222c5199d549dff8b57ac6b1367",
+      "output_fingerprint": "sha256:3b8ad80b1866df679aabf350c6f85539bb2a8b2a034f7c672895e61089dbcdcc"
     },
-    "director_event_fingerprint": "sha256:6d386aaecbc0a43158431d938155ad4405dbe741c0f3dbbd8ad265e5b0950bb5"
+    "director_event_fingerprint": "sha256:8f9f348c8d863dbd2e0b664576c18f8a667fa669e94b7f9398ea870852a50cd5"
   }
 }

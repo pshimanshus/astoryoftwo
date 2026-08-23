@@ -1,0 +1,208 @@
+{
+  "status": "BLOCKED_VISUAL_QA",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 6,
+      "copy": "Fight bhi proper hoti hai.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-06.png",
+          "sha256": "24b634b52262eee81a080037aeb69ce07414ba27ba829a5c4acd92f9b0d99eac",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-06.png",
+            "sha256": "435226b909cf982b447c0bedd6bfe24b8365a39dd7cdf7afa7cc97e64ec1886e",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Visual QA failed after the initial generation and two repair retries; batching is blocked.",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "retry_count": 2,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 0,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-03",
+  "image_set_sha256": "5b602a246f58398f1075090bedb85eb32d198731f6ef567e543c04ce2c070c41",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 6,
+  "total_slide_count": 11,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      6
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:b2e6dab0a1c04ea97fae734ff5bb8848b1040e52b9405675affa3d099eda1230"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:005a6d37520d6dc0b8dfe8cb33b5b9c2b3e9ca689b49b2b0938bb88998e16bc9"
+      }
+    },
+    "files": [
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.prompt.txt",
+        "sha256": "sha256:b79a30e03a35e225f29d243df72780c231506a256bcd7e894700e73b1fdf6206"
+      },
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.md",
+        "sha256": "sha256:048fb7f326c4c76d048af95906af9c7d95a2769a9329dcd700156bde2b90c2af"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:77462803108487c0bd9c6ab58246b7a38bb8948e85f81ad0ec30780516d10855"
+  },
+  "retry_prompt_handoff_attestation": {
+    "schema_version": "retry-prompt-handoff/v1",
+    "source_status": "REJECTED_SPATIAL_INTEGRITY",
+    "proof_slide": 6,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "failed_image_set_sha256": "7d46c19c1809f21d52a72960ec1386f90fd4b2b4fa46d12480acb81695f0a712",
+    "failed_attempt": {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "7d46c19c1809f21d52a72960ec1386f90fd4b2b4fa46d12480acb81695f0a712",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json image_set_sha256 is missing or stale",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 6 instagram_post QA hash is stale",
+        "slide 6 instagram_post anatomy_inventory source_asset hash is stale",
+        "slide 6 instagram_post scene_entity_integrity source_asset hash is stale",
+        "slide 6 instagram_post visual_richness source_asset hash is stale",
+        "visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+        "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 expected separate_from but observed occluded_by.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 boundary is not continuous.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 has ambiguous occlusion order.",
+        "visual-qa.json spatial_topology slide 1 contains ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "visual_story_readability is stale for the complete current director Event A payload.",
+        "visual_story_readability.frames[1:instagram_post].image_fingerprint is stale for the rendered file."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json image_set_sha256 is missing or stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post QA hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post anatomy_inventory source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post scene_entity_integrity source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post visual_richness source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 expected separate_from but observed occluded_by.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 boundary is not continuous.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 has ambiguous occlusion order.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 contains ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability is stale for the complete current director Event A payload.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].image_fingerprint is stale for the rendered file."
+      ]
+    },
+    "visual_qa_binding": {
+      "relative_path": "visual-qa.json",
+      "sha256": "sha256:dd0f26d8e77b4f2580f9f94d679d4e508fd3504e3a76fbe7adc86834153d83b0"
+    },
+    "attempt_ledger_binding": {
+      "relative_path": ".internal/visual-qa-attempts.json",
+      "sha256": "sha256:8b6b81f5173bf7c18f1f3e3c52daa000b82e5d87ce3b41df94312b646174346e"
+    },
+    "gate_input_bindings": [
+      {
+        "relative_path": "format-contract.json",
+        "sha256": "sha256:79c4368458f4ecad308ec16f4dd47249e798ffb51f00d5ccc903e9478342d860"
+      },
+      {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:b2e6dab0a1c04ea97fae734ff5bb8848b1040e52b9405675affa3d099eda1230"
+      },
+      {
+        "relative_path": "slides.json",
+        "sha256": "sha256:005a6d37520d6dc0b8dfe8cb33b5b9c2b3e9ca689b49b2b0938bb88998e16bc9"
+      },
+      {
+        "relative_path": "visual-plan-quality.json",
+        "sha256": "sha256:5470f7745b679fb16dbd4637ae0a41dc3bd22c2b0c69011fc5d25e2d5ee51224"
+      },
+      {
+        "relative_path": "identity-consistency-review.json",
+        "sha256": "sha256:c7b211dbf100101ffe2b650ba617e2779cdae1171c10a40b805ef94eac52f291"
+      },
+      {
+        "relative_path": "review.json",
+        "sha256": "sha256:6ae28b8df5533d2a20e3b47755b9706058a04a26e354614815cab73861a0fce3"
+      },
+      {
+        "relative_path": "layer-e-story-selling.json",
+        "sha256": "sha256:92a6e51ea8635001e295421458980d574091a3d8355588f87adbb0ad409aa74e"
+      },
+      {
+        "relative_path": "stage-reviews.json",
+        "sha256": "sha256:6ccd5b9971327bbe16502dcfd64dcccd20c2a148869477b160c525329d3adf02"
+      }
+    ],
+    "previous_handoff_set_fingerprint": "sha256:a7bbb77538dd76fcd1a8dd8c1706c0a2e90bc6674749dada642420f37d66d577",
+    "replacement_handoff_set_fingerprint": "sha256:77462803108487c0bd9c6ab58246b7a38bb8948e85f81ad0ec30780516d10855",
+    "previous_prompt_backup_dir": ".internal/codex-image-prompts-previous/attempt-02",
+    "previous_prompt_files": [
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-06.md",
+        "sha256": "sha256:048fb7f326c4c76d048af95906af9c7d95a2769a9329dcd700156bde2b90c2af"
+      },
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-06.prompt.txt",
+        "sha256": "sha256:0a0fece48b4f0a98cb9decddc0aa83904f22c2ab1cb4069025f46238a4ff5e02"
+      }
+    ],
+    "next_retry_count": 2,
+    "attestation_fingerprint": "sha256:56873aa0c0ecc9a435d6c50d8c01e48a106cb058accf16bfc2a2f7bd9fe46694"
+  },
+  "visual_qa_path": "visual-qa.json",
+  "visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS"
+  ]
+}

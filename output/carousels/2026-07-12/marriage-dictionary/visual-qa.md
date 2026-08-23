@@ -1,75 +1,69 @@
 # Visual QA
 
-Status: `PASS_WITH_NOTES_FOR_PROOF_SERIES`
+Status: `PREVIOUS_PROOFS_REJECTED_STANDARD_FORMAT_REBUILD_PENDING`
 
-This package has a complete seven-slide proof direction, but it is not final or
-publishable yet.
+## Creator Correction
 
-## Active Proof Set
+The creator rejected the previous copy and visual storytelling. The proof set
+is preserved as historical evidence only and must not be treated as approved,
+direction-locked, or publishable.
 
-- Contact sheet: `proofs/contact-sheet-active-proof-set.png`
-- Slide 1: `proofs/slide-01-proof-v1.png`
-- Slide 2: `proofs/slide-02-proof-v4.png`
-- Slide 3: `proofs/slide-03-proof-v1.png`
-- Slide 4: `proofs/slide-04-proof-v1.png`
-- Slide 5: `proofs/slide-05-proof-v1.png`
-- Slide 6: `proofs/slide-06-proof-v1.png`
-- Slide 7: `proofs/slide-07-proof-v2.png`
+## What Failed
 
-## Direction Pass
+- The scenes looked like warm couple illustrations with labels, not a visual
+  story.
+- Too many frames repeated the same couple-poster grammar.
+- Props were present, but did not always create action, reaction, consequence,
+  or changed object state.
+- The copy still felt like a neat dictionary exercise instead of spoken Indian
+  married shorthand.
+- The package incorrectly kept automatic Story/Reel requirements even though
+  the current request did not ask for them.
 
-- The repaired visual system works: compact dictionary label on top, lived
-  couple scene below.
-- The main keyword is larger than the meaning line without swallowing the
-  illustration.
-- The deck now communicates through objects and body language: keys, mirror,
-  migrated charger, drawer search, water glass, bills, dessert, open notebook,
-  and close home-body language.
-- The Hinglish/desi entries feel more ownable than the earlier generic words.
-- Aachu and Zuv remain recognizable enough for proof direction, using the
-  selected identity bundle recorded in `identity-consistency-review.json`.
+## Rebuilt Direction
 
-## Slide Notes
+The repair changes the concept into a standard-format carousel with one `copy`
+line per slide. The dictionary idea remains the public surface, but the package
+no longer uses `WORD = meaning` slide objects.
 
-1. `SHAADI / DICTIONARY` - PASS_WITH_NOTES. Clear cover promise and warm home
-   book setup. Final generation must suppress extra readable book/prop text.
-2. `BAS 5 MIN / = 40 min + last look` - PASS_WITH_NOTES. Best proof of the
-   scene-first direction: door, keys, waiting posture, mirror, and compact text
-   all work.
-3. `MERA CHARGER / = tumhare bag mein` - PASS_WITH_NOTES. The charger-in-bag
-   gag reads quickly and Zuv's reaction keeps it affectionate.
-4. `MIL NAHI RAHA / = ek drawer checked` - PASS_WITH_NOTES. Drawer-search
-   staging is funny and visual-first.
-5. `THEEK HAI / = paani rakh diya` - PASS_WITH_NOTES. The water glass carries
-   the care beat; final should make the mood slightly lighter so it does not
-   feel too heavy beside the comedy slides.
-6. `CHALO / = bills + dessert bhi` - PASS_WITH_NOTES. Strong adulting-plus-
-   dessert turn; final should reduce receipt scribbles and any extra readable
-   prop text.
-7. `GHAR / = same words, new meanings` - PASS_WITH_NOTES. v1 was rejected for a
-   9:16-like canvas. v2 returns to the active 3:4-ish proof size and lands the
-   private-language payoff through the shared home tableau.
+Active candidate copy:
 
-## Superseded Proofs
+1. `Some words change after marriage.`
+2. `"Bas 5 minute" means both of you are lying.`
+3. `"Acha suno" means the house found one more kaam.`
+4. `"Mil gaya?" means third shelf. Like always.`
+5. `"Kha liya?" is missing you in disguise.`
+6. `"Theek hai" means the plate is covered.`
+7. `Maybe home is this. Same words. More meaning.`
 
-- Slide 2 v1 and v2 used the older generic English entry.
-- Slide 2 v3 repaired the Hinglish phrase and hierarchy, but the text became
-  too large and dominated the slide.
-- Slide 7 v1 had the right emotional tableau but came out at `941x1672`, too
-  close to a 9:16 frame for the carousel proof set.
+## Visual Story Rule
 
-Do not use superseded proofs for final generation.
+Every rebuilt slide needs a visible event:
 
-## Final Blockers
+- an action;
+- a reaction or consequence;
+- a changed object state;
+- a readable body-distance or gaze relationship;
+- a clear reason this frame is different from the previous frame.
 
-- All active proof images are `1086x1448`, not exact `1080x1440` finals or
-  approved `1440x1920` sources.
-- The tiny brandmark repeatedly drifts toward `@ a.storyof.two`; final assets
-  must enforce exact `@a.storyof.two`.
-- Some object surfaces create extra readable or semi-readable prop text. Final
-  prompts must ask for blank/non-readable pages, receipts, books, and boxes.
-- Separate native `1080x1920` Reels/Stories outputs do not exist yet.
-- `final/`, `final-reels-stories/`, and final audit are still missing.
+The next proof should be slide 6 because it must communicate the emotional turn
+with the text hidden: after a tiny fight, the bodies are apart, but the plate is
+covered.
 
-Decision: proof series is approved for visual-direction review. It is not a
-publishable final image package.
+## Format Lock
+
+Current requested format: `instagram_post` only.
+
+- Required final size: `1080x1440`
+- Story/Reel: unrequested
+- Square: unrequested
+
+## Blockers
+
+- Creator has not approved the rebuilt copy yet.
+- Fresh Event A copy-hidden visual-story check has not run.
+- Prompt handoff is stale.
+- No rebuilt proof exists.
+- No final `1080x1440` post slides exist.
+
+Decision: rebuild is ready for creator review, not image generation.

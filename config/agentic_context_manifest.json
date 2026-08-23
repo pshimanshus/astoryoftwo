@@ -3,8 +3,20 @@
   "default_profile": "a-story-of-two",
   "profiles": {
     "a-story-of-two": {
-      "budget_tokens": 1800,
+      "budget_tokens": 2800,
       "sections": [
+        {
+          "id": "creator_skill_stack",
+          "path": "config/skills/creator-skill-stack.md",
+          "kind": "creative_session_hook",
+          "required": true
+        },
+        {
+          "id": "storytelling_change_hook",
+          "path": ".agents/skills/a-story-storytelling-hook/SKILL.md",
+          "kind": "creative_session_hook",
+          "required": true
+        },
         {
           "id": "rule_palette",
           "path": "config/rules/palette.md",
@@ -87,12 +99,6 @@
           "id": "working_memory",
           "path": "memory/working.md",
           "kind": "working_memory",
-          "required": true
-        },
-        {
-          "id": "creator_skill_stack",
-          "path": "config/skills/creator-skill-stack.md",
-          "kind": "creative_session_hook",
           "required": true
         },
         {

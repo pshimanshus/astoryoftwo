@@ -1,0 +1,787 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Golden Softness Under Fire",
+  "winner": "Cinematic Obstruction-to-Clearing Sequence",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {
+    "people": "Exactly Aachu and Zuv; slide 3 contains Aachu alone; no background figures or live-looking reflections.",
+    "wardrobe": "One continuous white-wrap-shirt/blue-jeans and pale-blue-shirt/charcoal-trousers wardrobe across night and morning.",
+    "geography": "Same table, doorway, side ledge, hallway console, and exactly two dining chairs.",
+    "chair": "Zuv's chair is empty and central on slides 1-2, occupied on slide 4, then pulled to the adjacent side while he remains seated on slide 6.",
+    "hurt_evidence": "Cold plate and burned-out candle persist through slide 6; exactly three memory frames go down, only one comes back up.",
+    "attention": "Aachu looks at the empty chair, then through it, then at the moving memory frame, then directly at Zuv on slides 5-6.",
+    "formats": "Instagram post only, native 1080x1440."
+  },
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "You disappointed me.\nFor a while,\nthat was all I saw.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Hurt can make\none moment look like\na whole person.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "I began judging\nevery memory\nthrough that moment.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "But pain knows\nwhat happened,\nnot everything about you.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "So I looked at you again.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "You had disappointed me.\nYou were not\na disappointment.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The creator's six exact slide lines were locked before observable-only cards were compiled; the reviewer received only those cards.",
+    "author_id": "/root",
+    "reviewer_id": "/root/event_a_attempt4_critic",
+    "reviewer_evidence": "A fresh independent agent was instructed to read only .internal/event-a-blind-cards.json and returned a six-card image-first sequence read with a PASS verdict.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:408dc04ed730327de4ddf616402a0f52023f69d7414d602b161b75a4a8da3afd",
+    "generation_payload_fingerprint": "sha256:2453cd8c44ee5a6a6f0afd67eac601061c58d048a13e3f50b5d40ae78f43e069",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "A modest dining room at night with a table set for two, a doorway, and a rain-muted window.",
+        "observable_action": "Aachu sits beside an untouched dinner while Zuv stops just inside the doorway holding his phone and keys.",
+        "hands_and_contact": "Aachu's hands rest separately near her plate; Zuv holds his own phone and keys; they do not touch.",
+        "gaze": "Aachu looks at the empty chair; Zuv looks toward Aachu and the table.",
+        "body_blocking": "The empty chair dominates the center foreground and separates the seated woman from the man in the doorway.",
+        "object_state": "Two places are set; the second plate is untouched, the candle is burned low, and the central chair is empty.",
+        "camera_view": "Medium-wide diagonal geography view from Aachu's side of the table.",
+        "visible_continuity": "The table, doorway, empty chair, cold meal, phone, keys, and night wardrobe establish the sequence."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "The same dining room moments later, seen low across the table.",
+        "observable_action": "Zuv places his phone face-down beside keys already resting on the side ledge and remains beyond the empty chair.",
+        "hands_and_contact": "Zuv uses one right hand for the phone while his left hand hangs open; no one touches the chair or each other.",
+        "gaze": "Aachu watches him through the chair slats; Zuv looks toward her.",
+        "body_blocking": "The chair back fills the middle plane and partially occludes Zuv's torso without intersecting him.",
+        "object_state": "Phone and keys are now inactive together; the cold plate and low candle remain visible; the chair stays empty.",
+        "camera_view": "Low table-level over-Aachu-shoulder view with compressed depth.",
+        "visible_continuity": "Same room, clothing, cold dinner, chair, ledge, phone, keys, and night light as slide 1."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "Aachu"
+        ],
+        "visible_setting": "A dim home hallway later that night with a narrow console.",
+        "observable_action": "Aachu turns the last upright small frame face-down beside two already face-down frames.",
+        "hands_and_contact": "Her attached right hand rotates one frame; her left hand hangs empty; no other person is present.",
+        "gaze": "She looks at the frame she is turning.",
+        "body_blocking": "A single unobstructed standing figure is separated from the absent dining room.",
+        "object_state": "Exactly three small frames end face-down; none is broken, packed away, or removed.",
+        "camera_view": "Wide single-person hallway view in cool night spill.",
+        "visible_continuity": "The night wardrobe and cool light continue; the three frames become the new trace carried into morning."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "The same dining room the following morning, viewed from the doorway.",
+        "observable_action": "Zuv sits in the formerly empty chair and waits while Aachu pauses at the threshold.",
+        "hands_and_contact": "Zuv keeps both open hands separate on his thighs; Aachu makes no contact or comforting gesture.",
+        "gaze": "Zuv looks up toward Aachu; she looks across the room toward him.",
+        "body_blocking": "Aachu remains at the threshold while Zuv is fully visible in the chair, with open space between them.",
+        "object_state": "The chair is occupied; the cold plate and burned-out candle remain; phone and keys stay face-down on the ledge.",
+        "camera_view": "Over-Aachu-shoulder accountability view from the doorway.",
+        "visible_continuity": "Same room, table, two chairs, clothing, cold meal, phone, keys, and doorway under morning light."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "A sparse morning dining room reduced to opposite sides of a small table, a thin cold-plate rim, and a soft non-figurative window-light wash.",
+        "observable_action": "Aachu lifts one palm-sized frame halfway from face-down toward upright while her gaze has already shifted to Zuv.",
+        "hands_and_contact": "Her attached right hand supports the frame at forty-five degrees; her left hand and both of Zuv's hands are fully visible, open, separate, and resting on their own thighs; no touch.",
+        "gaze": "Aachu and Zuv make direct unobstructed eye contact for the first time.",
+        "body_blocking": "The couple sit opposite with a visible tabletop gap, upright separate torsos, and no inward romantic lean; the small moving frame remains low below their sightline.",
+        "object_state": "One of three frames is visibly changing from face-down toward upright with its bottom edge still on the table and plain back toward the viewer; the cold plate edge remains.",
+        "camera_view": "Medium table-height seated two-shot framed from both heads through both laps.",
+        "visible_continuity": "Same morning room, two chairs, clothing, table, cold dinner trace, and one frame carried from the hallway; no background frame or extra human depiction."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "The same dining room and hallway axis in clear morning light.",
+        "observable_action": "Aachu and Zuv begin a restrained conversation while seated at adjacent sides of the table.",
+        "hands_and_contact": "Aachu rests one open hand on the table; Zuv keeps both hands visible and separate; they do not touch.",
+        "gaze": "Their faces and sightline remain clear and directed toward one another.",
+        "body_blocking": "Zuv remains in the same once-empty chair, now pulled to the adjacent side so its back no longer divides them.",
+        "object_state": "Exactly two chairs remain; one frame is upright with its plain back visible, two remain face-down, and the cold plate, dead candle, phone, and keys persist.",
+        "camera_view": "Matched wide release on the same axis as slide 1.",
+        "visible_continuity": "The room and every causal object remain traceable while obstruction and body distance change."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:8bf2aa5991b1a5d62457c381ca4fe1e43c14e28f1136e90c1670fba3e6047b74",
+    "source_fingerprint": "sha256:4da1e20a1c2e54862c051df160b255238f4b1afdbe1a76173aca6f63de9084b4",
+    "sequence_mode": "causal_sequence",
+    "physical_event": "A missed dinner becomes an overnight withdrawal from shared memories, followed by accountable waiting, one restored frame, and a cautious conversation.",
+    "emotional_arc": "hurt dominates perception -> memory darkens -> accountability waits without pressure -> Aachu chooses one direct look -> engagement begins without erasure",
+    "relationship_change": "Aachu and Zuv move from absence and physical obstruction to clear eye contact and chosen conversation while the evidence of hurt remains.",
+    "sequence_read": "The empty chair establishes absence, becomes the visual filter of hurt, is occupied as accountability, and finally rotates out of their sightline as only one memory frame reopens.",
+    "visual_variables": [
+      "obstruction clarity",
+      "body distance"
+    ],
+    "hero_receipt_slide": 5,
+    "setup_payoff_ledger": [
+      {
+        "setup": "The empty chair dominates slide 1 and hides part of Zuv on slide 2.",
+        "payoff": "Zuv occupies it on slide 4 and remains in it after pulling it out of their sightline on slide 6.",
+        "changed_meaning": "The chair changes from proof of absence to an accountable presence that no longer defines the whole person."
+      },
+      {
+        "setup": "Aachu turns all three framed memories face-down on slide 3.",
+        "payoff": "She restores exactly one on slide 5 while two remain down on slide 6.",
+        "changed_meaning": "The archive changes from total withdrawal to a measured willingness to look again, not full reset."
+      },
+      {
+        "setup": "The dinner is cold and the candle burned low before Zuv arrives.",
+        "payoff": "Both remain visible after direct gaze and conversation begin.",
+        "changed_meaning": "The ending distinguishes recognition from forgetting or excusing the hurt."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "Zuv's dining chair",
+        "initial_state": "empty and central, then visually obstructing",
+        "later_state": "occupied and finally rotated to the adjacent side while Zuv remains seated",
+        "story_job": "make absence, hurt-filtered perception, accountability, and cleared sightline spatially legible"
+      },
+      {
+        "object": "three small memory frames",
+        "initial_state": "all deliberately turned face-down",
+        "later_state": "one upright with plain back visible and two still down",
+        "story_job": "show pain rewriting the archive and a partial choice to reopen it"
+      },
+      {
+        "object": "cold dinner and burned-out candle",
+        "initial_state": "evidence of the missed shared plan",
+        "later_state": "still present during the final conversation",
+        "story_job": "keep repair from becoming emotional erasure"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "establish the broken-promise geography",
+        "silent_read": "Aachu has waited through a missed dinner, and Zuv arrives only after his empty place has become the dominant fact in the room.",
+        "change_from_previous": "The opening establishes night, the waiting meal, the absent seat, and the late doorway arrival.",
+        "critic_evidence": "The critic read hurt separation from the untouched meal, low candle, Aachu's gaze at the chair, and Zuv halted in the doorway.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "remains seated beside the untouched dinner",
+          "target_or_object": "the central empty chair intended for Zuv",
+          "reaction_or_consequence": "Zuv stops in the doorway and confronts the visible evidence of waiting"
+        },
+        "pov": {
+          "owner": "Aachu's hurt point of view",
+          "audience_knows": "someone expected at this dinner arrived only after a long wait",
+          "audience_feels": "the absence is emotionally larger than the returning person"
+        },
+        "shot": {
+          "size": "medium-wide geography shot",
+          "angle": "eye-level diagonal angle",
+          "camera_position": "from Aachu's side of the table toward the doorway",
+          "focal_subject": "the empty chair between Aachu and Zuv",
+          "story_reason": "The full room geometry lets the viewer compare the waiting partner, absent seat, cold dinner, and late arrival at once."
+        },
+        "blocking": {
+          "hands": "Aachu's hands rest separately near her plate while Zuv holds his own phone and keys.",
+          "gaze": "Aachu looks at the empty chair; Zuv looks toward Aachu and the table.",
+          "body_distance": "The table and central chair create a large depth separation.",
+          "posture_or_feet": "Aachu stays upright and grounded; Zuv is halted mid-step inside the doorway."
+        },
+        "setting": {
+          "sub_location": "modest home dining room with doorway and rain-muted window",
+          "time": "late night after a prolonged wait",
+          "motivated_light": "one low dining pendant plus cool window edge light",
+          "story_trace": "cold second plate, settled serving bowl, and burned-low candle show elapsed time"
+        },
+        "story_evidence": [
+          {
+            "carrier": "empty dining chair",
+            "observable_state": "unoccupied and dominant at the center",
+            "narrative_job": "make Zuv's absence physically divide the couple"
+          },
+          {
+            "carrier": "untouched dinner and candle",
+            "observable_state": "food has gone cold and the candle has burned low",
+            "narrative_job": "prove Aachu waited before Zuv arrived"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The sequence begins with an intact room but a failed shared plan.",
+          "outgoing_state": "Phone and keys will leave Zuv's hands while the chair stays empty and central."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "third person",
+            "portrait figure",
+            "server",
+            "duplicate couple"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The exact offense is unknown.",
+            "repair": "Keep the visuals specific to prolonged waiting without inventing a readable clock or explanatory note.",
+            "recheck_evidence": "The critic still identified a missed dinner and late arrival from the meal, candle, chair, and doorway alone."
+          }
+        ]
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "turn absence into a perceptual obstruction",
+        "silent_read": "Zuv makes a restrained bid for attention by setting the phone aside, but Aachu still sees him through the chair that represents his absence.",
+        "change_from_previous": "The phone and keys become inactive while the camera drops low and enlarges the chair barrier.",
+        "critic_evidence": "The critic read a first restrained bid rather than repair, citing the deliberate one-hand phone action, open empty left hand, and chair still between them.",
+        "staged_action": {
+          "subject": "Zuv",
+          "action": "places his phone face-down with one hand and stays beyond the chair",
+          "target_or_object": "the ledge beside keys already at rest",
+          "reaction_or_consequence": "Aachu watches cautiously through the chair slats rather than accepting the bid"
+        },
+        "pov": {
+          "owner": "Aachu's visually obstructed point of view",
+          "audience_knows": "Zuv has stopped the arrival routine but has not crossed the divide",
+          "audience_feels": "one painful absence is flattening his visible personhood"
+        },
+        "shot": {
+          "size": "low medium two-person shot",
+          "angle": "table-level compressed angle",
+          "camera_position": "just behind Aachu's right shoulder looking through the chair",
+          "focal_subject": "chair slats enlarging between Aachu and Zuv",
+          "story_reason": "Compression makes the representation of absence appear larger than Zuv without using fantasy effects."
+        },
+        "blocking": {
+          "hands": "Zuv's right hand places the phone down while his left hand hangs open and empty.",
+          "gaze": "Aachu and Zuv look toward one another through the chair slats.",
+          "body_distance": "Zuv remains beyond the central empty chair and does not approach.",
+          "posture_or_feet": "Aachu stays seated; Zuv stands still with lowered shoulders."
+        },
+        "setting": {
+          "sub_location": "same dining room beside the side ledge",
+          "time": "seconds after the late arrival",
+          "motivated_light": "same low pendant and cool rain-window spill",
+          "story_trace": "the cold plate and low candle remain visible at opposite lower corners"
+        },
+        "story_evidence": [
+          {
+            "carrier": "phone and keys",
+            "observable_state": "keys already rest while the phone turns face-down beside them",
+            "narrative_job": "show outside activity becoming inactive without overclaiming an apology"
+          },
+          {
+            "carrier": "chair back",
+            "observable_state": "empty and partially occluding Zuv's torso",
+            "narrative_job": "make hurt filter Aachu's view of the person"
+          }
+        ],
+        "text_image_relationship": "counterpoint",
+        "continuity": {
+          "incoming_state": "Zuv entered holding phone and keys while the chair dominated the room.",
+          "outgoing_state": "The devices stay inactive, but the chair remains an unresolved barrier into the night."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "third person",
+            "duplicate limb",
+            "phone screen text",
+            "extra chair"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "A face-down phone could mean concealment or an ordinary arrival routine.",
+            "repair": "Simplify to one deliberate phone action beside already-resting keys and bind its meaning to later continued inactivity, not to instant remorse.",
+            "recheck_evidence": "The fresh critic read it as a first restrained bid for attention while explicitly withholding apology or repair."
+          }
+        ]
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "externalize hurt spreading backward through memory",
+        "silent_read": "Alone later that night, Aachu methodically turns the last of three framed memories face-down without destroying or removing them.",
+        "change_from_previous": "The sequence leaves the shared dining room for a solitary hallway action and all three memory frames end down.",
+        "critic_evidence": "The critic called the action controlled memory-darkening and, within the full sequence, temporary rather than irreversible because nothing is broken, removed, discarded, or packed.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "turns the third and final small frame face-down",
+          "target_or_object": "the row of three framed memories on the hallway console",
+          "reaction_or_consequence": "the entire small archive becomes unavailable to sight overnight"
+        },
+        "pov": {
+          "owner": "Aachu's inward and solitary point of view",
+          "audience_knows": "the unresolved dinner has begun to affect how she handles earlier memories",
+          "audience_feels": "hurt is spreading backward without becoming theatrical destruction"
+        },
+        "shot": {
+          "size": "wide single-person shot",
+          "angle": "eye-level three-quarter profile",
+          "camera_position": "across the hallway facing the narrow console",
+          "focal_subject": "Aachu's hand rotating the final upright frame",
+          "story_reason": "The wider solitary frame makes withdrawal and the three-object state change readable without a collage or flashback."
+        },
+        "blocking": {
+          "hands": "Her right hand rotates exactly one frame while her left hand hangs empty.",
+          "gaze": "Aachu watches the frame she is turning.",
+          "body_distance": "No second person shares the hallway frame.",
+          "posture_or_feet": "She stands in controlled three-quarter profile rather than collapsing or packing to leave."
+        },
+        "setting": {
+          "sub_location": "quiet home hallway with narrow console",
+          "time": "later the same night",
+          "motivated_light": "cool window spill plus one dim wall light",
+          "story_trace": "exactly two frames are already down as the final one rotates"
+        },
+        "story_evidence": [
+          {
+            "carrier": "three memory frames",
+            "observable_state": "all three finish face-down but remain intact and in place",
+            "narrative_job": "show hurt temporarily darkening the shared archive"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The dining-room impasse remains unresolved and the phone stays inactive.",
+          "outgoing_state": "All three frames are down for the night; exactly one will be restored in the morning."
+        },
+        "entity_contract": {
+          "expected_people": 1,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "Zuv",
+            "visible figure inside a frame",
+            "mirror figure",
+            "packed bag"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "Turning frames down could read as permanent rejection or a breakup.",
+            "repair": "Keep every frame intact and in place, show no bag or removed ring, then restore exactly one frame in the following sequence.",
+            "recheck_evidence": "The fresh critic explicitly read temporary memory-darkening within the whole sequence because one frame returns and Aachu stays to engage."
+          }
+        ]
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "turn absence into accountable presence without pressure",
+        "silent_read": "The following morning Zuv sits inside the once-empty place, leaves the hurt evidence untouched, and waits while Aachu controls the threshold.",
+        "change_from_previous": "Night becomes morning; Zuv occupies the chair, the chair no longer hides him, and Aachu becomes the person deciding whether to enter.",
+        "critic_evidence": "The critic read accountability becoming possible from Zuv's open hands, his seat inside the evidence, the retained cold meal, and Aachu's threshold control.",
+        "staged_action": {
+          "subject": "Zuv",
+          "action": "sits in the formerly empty chair and waits without reaching",
+          "target_or_object": "Aachu paused at the dining-room threshold",
+          "reaction_or_consequence": "Aachu can evaluate him across clear space before choosing to approach"
+        },
+        "pov": {
+          "owner": "Aachu's threshold decision point",
+          "audience_knows": "Zuv has stayed, entered the place of absence, and has not cleared away the consequence",
+          "audience_feels": "accountability is available but forgiveness is not demanded"
+        },
+        "shot": {
+          "size": "over-shoulder medium-wide shot",
+          "angle": "eye-level doorway angle",
+          "camera_position": "just behind Aachu's shoulder looking into the dining room",
+          "focal_subject": "Zuv fully visible in the once-empty chair",
+          "story_reason": "The doorway viewpoint gives Aachu agency and reveals Zuv without the previous chair occlusion."
+        },
+        "blocking": {
+          "hands": "Both of Zuv's hands stay open and separate on his thighs; Aachu makes no comforting gesture.",
+          "gaze": "Zuv looks up to Aachu; she looks toward him from the threshold.",
+          "body_distance": "Clear room space remains between threshold and table.",
+          "posture_or_feet": "Zuv's feet are grounded and he remains seated; Aachu has not crossed the threshold."
+        },
+        "setting": {
+          "sub_location": "same dining room viewed from the doorway",
+          "time": "the following morning",
+          "motivated_light": "soft neutral window light",
+          "story_trace": "cold plate, burned-out candle, face-down phone, and keys remain where the night left them"
+        },
+        "story_evidence": [
+          {
+            "carrier": "formerly empty chair",
+            "observable_state": "occupied by Zuv without concealing his body",
+            "narrative_job": "convert absence into accountable presence"
+          },
+          {
+            "carrier": "open hands and retained cold dinner",
+            "observable_state": "hands wait while the consequence stays visible",
+            "narrative_job": "keep the repair offer non-coercive and non-erasing"
+          }
+        ],
+        "text_image_relationship": "additive",
+        "continuity": {
+          "incoming_state": "The night ended with every memory frame down and no resolved contact.",
+          "outgoing_state": "Aachu may cross the threshold; Zuv remains seated and does not seize the next action."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "third person",
+            "gift",
+            "flowers",
+            "apology note",
+            "reaching hand"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "Seated waiting could signal remorse, exhaustion, or readiness for a goodbye.",
+            "repair": "Frame the beat only as available presence, not completed apology or forgiveness.",
+            "recheck_evidence": "The critic read accountability becoming possible while preserving uncertainty about the final outcome."
+          }
+        ]
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "make re-seeing a voluntary physical choice",
+        "silent_read": "Aachu actively raises one small frame halfway from face-down while choosing the first direct unobstructed look at Zuv, reopening one piece of shared space without granting full reconciliation.",
+        "change_from_previous": "Aachu crosses the threshold and sits opposite Zuv; one of three frames enters a clearly unfinished forty-five-degree rotation while indirect appraisal becomes mutual eye contact.",
+        "critic_evidence": "The critic found the low bottom-planted forty-five-degree frame rotation, attached supporting fingertips, opposite seating, visible separate hands, and simultaneous chosen eye contact mechanically legible as active voluntary change rather than a posed gaze.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "supports one small memory frame halfway from face-down toward upright at roughly forty-five degrees",
+          "target_or_object": "the low space between herself and Zuv on the table",
+          "reaction_or_consequence": "their eye-lines meet directly while the frame's bottom edge remains planted and two other frames remain down"
+        },
+        "pov": {
+          "owner": "Aachu's chosen act of looking again",
+          "audience_knows": "she has entered the room and reversed only one part of her withdrawal",
+          "audience_feels": "recognition is opening before comfort or forgiveness"
+        },
+        "shot": {
+          "size": "medium two-person head-through-lap shot",
+          "angle": "eye-level table-height angle",
+          "camera_position": "across the table axis with both three-quarter faces clear and a visible tabletop gap between torsos",
+          "focal_subject": "Aachu's direct gaze over the newly upright frame",
+          "story_reason": "The head-through-lap crop keeps the eye-line turn, unfinished frame action, and all four hands readable together."
+        },
+        "blocking": {
+          "hands": "Aachu's right hand visibly supports the moving frame, her left hand stays open on her own thigh, and both of Zuv's hands remain open and separate on his thighs.",
+          "gaze": "Aachu and Zuv meet each other's eyes without obstruction.",
+          "body_distance": "They sit on opposite sides of the small table with a visible tabletop gap and conversational space intact.",
+          "posture_or_feet": "Both stay seated and grounded without leaning, touching, or smiling."
+        },
+        "setting": {
+          "sub_location": "opposite sides of the same sparse morning dining table",
+          "time": "moments after Aachu crosses the threshold",
+          "motivated_light": "clean neutral morning window light",
+          "story_trace": "only a thin cold-plate rim remains while one palm-sized frame is visibly mid-rotation; the background stays an abstract window-light wash with no foliage, other frames, lettering, or figurative images"
+        },
+        "story_evidence": [
+          {
+            "carrier": "one memory frame",
+            "observable_state": "is held halfway up at roughly forty-five degrees with its plain back toward the viewer and bottom edge planted",
+            "narrative_job": "make partial reopening an active, unfinished choice without introducing extra figures"
+          },
+          {
+            "carrier": "mutual gaze",
+            "observable_state": "first direct unobstructed eye contact in the sequence",
+            "narrative_job": "turn looking again into the relationship action"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Zuv waits in the once-empty chair while all three frames had been down.",
+          "outgoing_state": "One frame stays upright and direct eye contact can continue into conversation."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "visible person inside frame",
+            "background portrait",
+            "background frame",
+            "third person",
+            "touch",
+            "hug",
+            "duplicate hand"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The frame could be evidence, a returned object, or a restored memory.",
+            "repair": "Hide its interior, keep it visibly bottom-planted and mid-rotation, preserve opposite seating, and let the state reversal plus direct eye contact carry only the narrower claim of reopening engagement.",
+            "recheck_evidence": "The critic read a voluntary measured reopening rather than full reconciliation and ruled out a mere posed-gaze reading."
+          }
+        ]
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "pay off whole-person recognition without erasing the act",
+        "silent_read": "In the same room, the same chair and hurt evidence remain, but the chair no longer divides Aachu and Zuv as they begin an unresolved conversation.",
+        "change_from_previous": "Zuv pulls the same chair to the adjacent side, body distance contracts, and the camera returns to the opening wide axis for comparison.",
+        "critic_evidence": "The critic read cautious mutual engagement, not complete repair, because the clear sightline and smaller distance coexist with the cold meal, two downturned frames, and no touch.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "begin a restrained face-to-face conversation",
+          "target_or_object": "one another across the now-clear table axis",
+          "reaction_or_consequence": "the relationship moves from obstruction to engagement while evidence of hurt remains"
+        },
+        "pov": {
+          "owner": "the couple's newly shared but sober point of view",
+          "audience_knows": "they are willing to engage without pretending the rupture vanished",
+          "audience_feels": "the person can become visible again before the hurt is fully repaired"
+        },
+        "shot": {
+          "size": "matched wide release shot",
+          "angle": "same eye-level diagonal axis as the opening",
+          "camera_position": "from Aachu's original side of the room toward the table and hallway",
+          "focal_subject": "the clear sightline between their faces",
+          "story_reason": "Matching the opening lets the viewer measure changed chair position and distance against unchanged hurt evidence."
+        },
+        "blocking": {
+          "hands": "Aachu's one open hand rests on the table while Zuv's hands remain visible and separate.",
+          "gaze": "Their attention stays directly on one another.",
+          "body_distance": "They sit at adjacent sides with less distance but no physical contact.",
+          "posture_or_feet": "Both remain grounded; Zuv stays in the same once-empty chair now pulled and rotated beside the table."
+        },
+        "setting": {
+          "sub_location": "same dining room with the hallway visible behind",
+          "time": "clear morning after the unresolved night",
+          "motivated_light": "neutral window light across warm ivory paper",
+          "story_trace": "cold plate, dead candle, inactive phone and keys, one upright frame, and two downturned frames remain visible"
+        },
+        "story_evidence": [
+          {
+            "carrier": "same once-empty chair",
+            "observable_state": "occupied by Zuv but rotated out of their sightline",
+            "narrative_job": "change absence from barrier into accountable presence"
+          },
+          {
+            "carrier": "retained hurt objects",
+            "observable_state": "cold meal and two frames remain down while one frame stands",
+            "narrative_job": "prevent conversation from reading as erasure or instant reset"
+          }
+        ],
+        "text_image_relationship": "additive",
+        "continuity": {
+          "incoming_state": "One frame is upright and the first direct gaze has begun.",
+          "outgoing_state": "Conversation continues with the evidence intact and the outcome deliberately unresolved."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "third chair",
+            "third person",
+            "touch",
+            "hug",
+            "cleaned table",
+            "gift"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The conversation could lead to repair, renewed conflict, or goodbye.",
+            "repair": "Claim only mutual engagement and whole-person recognition, not guaranteed reconciliation.",
+            "recheck_evidence": "The critic said renewed engagement reads more strongly than complete repair and judged the core relationship turn legible."
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "root-turn-2026-08-14-go-ahead",
+      "reviewer_task_id": "/root/event_a_attempt4_critic",
+      "reviewer_run_id": "event-a-attempt4-critic-run-2026-08-14-01",
+      "input_fingerprint": "sha256:8bf2aa5991b1a5d62457c381ca4fe1e43c14e28f1136e90c1670fba3e6047b74",
+      "raw_response_artifact": ".internal/event-a-attempt-04-raw-response.md",
+      "raw_response_fingerprint": "sha256:c54f02cd002146b6b5d159650571e4ff454e444e7d913a890c2653a52ccfeb2d",
+      "output_fingerprint": "sha256:9df6d20cb5da6680f34995d428b18f4acdb13b7303f0e92a5284335b0d77ca94"
+    },
+    "director_event_fingerprint": "sha256:c00a9bbb1ee12cadf5a39c123752ae0d0579af40c69cb5b2cfe88cd836b14d1c"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "1379f5fde9ac00503b6078a5a33749eec132aff784e350dbfe809d3f7eca7411",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 4 instagram_post requires format-specific visual_richness evidence",
+        "visual-qa.json spatial_topology must include a per-slide slides list.",
+        "visual_story_readability must be a structured object."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology must include a per-slide slides list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be a structured object."
+      ]
+    },
+    {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "16e533e175f9730d08fd5a167d8b66e2a9ef2289409ddb629b77072da7651c27",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json image_set_sha256 is missing or stale",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "slide 4 instagram_post QA hash is stale",
+        "slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 4 instagram_post requires format-specific visual_richness evidence",
+        "visual-qa.json spatial_topology must include a per-slide slides list.",
+        "visual_story_readability must be a structured object."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json image_set_sha256 is missing or stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post QA hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology must include a per-slide slides list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be a structured object."
+      ]
+    }
+  ]
+}

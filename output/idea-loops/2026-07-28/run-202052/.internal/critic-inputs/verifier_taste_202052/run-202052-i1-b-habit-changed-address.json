@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-202052",
+  "iteration": 1,
+  "verifier_task_id": "verifier_taste_202052",
+  "verifier_lens": "stage_scene_taste_safety",
+  "candidate_id": "run-202052-i1-b-habit-changed-address",
+  "blind_input_sha256": "7d2e1a40dc432946f08300af544949b4757d5b01851146ba137b789e637a10d3",
+  "card": {
+    "candidate_id": "run-202052-i1-b-habit-changed-address",
+    "alive_premise": "A tiny habit travels from one family into another person's hands, then quietly reaches the next generation.",
+    "moment_origin": "generic_relationship_hypothesis",
+    "moment_origin_detail": "No Aachu/Zuv lived fact is claimed. The illustrative gesture must be replaced by a real inherited habit before personalization.",
+    "moment_origin_path": null,
+    "lived_fact_status": "NOT_CLAIMED",
+    "title": "The Habit That Changed Address",
+    "concrete_moment": "At a family meal, one partner folds a cloth around a hot steel serving bowl in the same distinctive two-corner grip once used by the other partner's parent. The spouse notices before the performer does. A younger relative watches and later copies the same fold while passing the bowl onward.",
+    "universal_truth": "Long relationships carry family history through unconscious gestures; love can inherit a habit without erasing where it came from.",
+    "audience_mirror": "Anyone who has caught a partner's family phrase, hand movement, hosting ritual or practical habit appearing naturally in their own body.",
+    "scroll_stop": "A fast visual match repeats one unmistakable hand-fold across an older parent, a partner and a younger relative.",
+    "emotional_contradiction": "The gesture feels automatic and personal, yet it belongs to another home and may continue beyond both people.",
+    "scene_proof": [
+      "An older family member establishes the distinctive fold and safe grip.",
+      "At a later meal, the partner repeats the exact hand choreography without noticing.",
+      "The spouse recognizes it across the table through a precise eye-line and reaction.",
+      "A younger relative copies the fold and passes the bowl onward."
+    ],
+    "relationship_motion": "A family ritual crosses through the relationship, is recognized by the person whose home it came from, and becomes something the couple transmits.",
+    "retention_ladder": [
+      "Establish a visually specific gesture.",
+      "Invite recognition through a match cut in different hands.",
+      "Reveal the spouse's personal recognition.",
+      "Let a younger observer study the action.",
+      "The copied gesture makes time visible."
+    ],
+    "payoff": "One person's inherited definition of care changes homes and enters somebody else's future.",
+    "dm_send_reason": "Send it to the partner whose family habits now live in you: your home lives in my hands too.",
+    "format_recommendation": "Short Reel using match cuts and repeated hand choreography, with cross-table recognition as the hinge.",
+    "asot_turn": "One culturally grounded household gesture shows time; the couple becomes the bridge through which it changes address.",
+    "evidence_paths": [
+      "config/skills/creator-skill-stack.md",
+      "config/skills/carousel-jam-runtime-context.md",
+      "memory/semantic/carousel-idea-preferences.md",
+      "wiki/insights/successful-carousel-standard.md"
+    ],
+    "collision_paths": [
+      "output/carousels/2026-07-21/not-married-yet-already-us/concept.json",
+      "output/carousels/2026-07-25/marriage-pvt-ltd/concept.json",
+      "output/carousels/2026-07-03/still-learning-love-2/concept.json"
+    ],
+    "novelty_fingerprint": "inherited habit + exact desi hand choreography + three-generation match + cross-table recognition",
+    "risks": [
+      "The gesture must be distinctive enough to register without explanation.",
+      "It could drift into shared-adulthood or broad family-values sentiment.",
+      "The illustrative gesture is not couple canon."
+    ]
+  }
+}

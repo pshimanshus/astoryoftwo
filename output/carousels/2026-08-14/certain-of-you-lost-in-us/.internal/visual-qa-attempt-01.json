@@ -1,0 +1,77 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "5bdc8fc82b1465a1e14fcc46bb8f8f03e8b90d94d048543523564bf0a0df80ba",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/proof01_identity_scene_qa",
+      "pass": false,
+      "evidence": "Both faces are recognizably anchored to the selected references and the two focal hands are natural, but the same-depth height gap reads materially larger than the locked two inches."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/proof01_story_style_qa",
+      "pass": false,
+      "evidence": "Exact copy, one brandmark, watercolor craft, chalk action, and unfinished construction all read; however the setting is a literal dense construction site, not the airy impossible house grown from the blueprint, so the poetic visual system drifts."
+    }
+  },
+  "slides": [
+    {
+      "slide": 6,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-06.png",
+          "sha256": "db7ad744b6f1b125d511c62279ad3be2d0e4cf201edf69530ee4505f3eeaaf3c",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "identity": {
+      "pass": false,
+      "evidence": "Aachu's and Zuv's faces, hair, skin tone, beard, and wardrobe anchors are recognizable; the relative height is overstated."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The image reads exactly 'Commitment answered who. We are still learning how.' and includes one correctly spelled tiny @a.storyof.two brandmark at top-right."
+    },
+    "style": {
+      "pass": false,
+      "evidence": "Watercolor-and-ink execution is premium, but the literal rebar construction site replaces the locked dreamlike blueprint-house metaphor and adds excessive architectural density."
+    },
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": []
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": []
+    },
+    "spatial_topology": {
+      "pass": false,
+      "slides": []
+    },
+    "visual_richness": {
+      "pass": false,
+      "slides": []
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/proof01_story_style_qa",
+      "reviewer_evidence": "The equal chalk-line action reads, but the location breaks the selected dream-house continuity.",
+      "frames": []
+    }
+  },
+  "required_repairs": [
+    "Replace the literal construction site with an airy unfinished impossible house rising from the blueprint itself.",
+    "Preserve the exact two-inch height difference at the same depth.",
+    "Keep the exact text, single brandmark, recognizable faces, chalk dust, and equal endpoint ownership."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "8b6230770d8f7e5bcb5b4b7cc378bcd81faeb972ea1e9de8ba86ef86deab3eca",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/proof02_identity_qa",
+      "pass": false,
+      "evidence": "Exactly two people and clean limbs pass, but the same-depth height gap reads as several inches and the visible line/tool topology is ambiguous."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/proof02_event_b",
+      "pass": false,
+      "evidence": "Exact copy, single brandmark, house style, paper tone, and incomplete architecture pass; two reels, V-shaped cords, a separate stripe, and a dense floor plan fail equal next-step authorship."
+    }
+  },
+  "slides": [
+    {
+      "slide": 6,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-02/final/slide-06.png",
+          "sha256": "fe3e92f62acfc6ff885c2ff7208778224004c52d93ecdcd313cfa4e1bbeaade3",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "aachu_face": {"pass": true, "likeness_notes": "Recognizable but narrower and curlier-haired than the selected references."},
+    "zuv_face": {"pass": true, "likeness_notes": "Recognizable but slightly longer-faced and tighter-curled than the selected references."},
+    "couple_scale": {"pass": false, "evidence": "At the same foot depth the crown gap reads as several inches, not the locked two inches."},
+    "integrated_final_text": {"pass": true, "evidence": "Exact two-line copy and one correctly spelled top-right brandmark are visible."},
+    "style": {"pass": true, "evidence": "Neutral warm-ivory paper, indigo blueprint linework, transparent watercolor, and unfinished dream architecture pass."},
+    "anatomy_inventory": {"pass": true, "slides": []},
+    "scene_entity_integrity": {"pass": true, "slides": []},
+    "spatial_topology": {"pass": false, "slides": []},
+    "visual_richness": {"pass": false, "slides": []},
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/proof02_event_b",
+      "reviewer_evidence": "The home-building premise reads, but the equal chalk-line action does not.",
+      "source_director_event_fingerprint": "sha256:c3f223a37e5a3536b83daeb88d9f8f668070f133242dd44c34b8df4817c57346",
+      "reviewed_native_formats": ["instagram_post"],
+      "sequence_read": "A couple imagines or builds an unfinished shared home.",
+      "relationship_turn": "Affection is legible; equal next-step authorship is not yet legible.",
+      "setup_payoff_evidence": "The unfinished house preserves the setup, but the line mechanism weakens the payoff.",
+      "weakest_frame": "The only proof frame contains three competing line states.",
+      "repair_decision": "Simplify to one continuous cord, one new mark, one endpoint each, shared gaze, and a mostly blank reverse.",
+      "frames": [],
+      "issues": ["Ambiguous chalk-line mechanism."],
+      "review_provenance": {}
+    }
+  },
+  "required_repairs": [
+    "One continuous taut cord with one endpoint owned by each partner.",
+    "Both gazes converge on the same new line.",
+    "Mostly blank ivory reverse with residual rain marks, not a dense labeled floor plan.",
+    "Reduce the same-depth height gap to the locked two inches."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "workspace_root": "output/carousels/2026-08-14/more-than-the-hurt",
+  "capability_source": "environment",
+  "can_attach_identity_refs": true,
+  "package_terminal_state": "publishable_after_visual_qa",
+  "reason": "The current session declares that actual identity reference images can be attached to generation calls.",
+  "required_identity_inputs": [
+    "identity-face-contact-sheet.jpg",
+    "selected Aachu identity references",
+    "selected Zuv identity references",
+    "selected together reference when available"
+  ],
+  "next_action": "generate_proof_then_batch_native_outputs"
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "8984833011de1cc96295c898121119f1ffc9330dfb0d8c9f79958d0fcadb0e0f",
+      "status": "QA_PASSED",
+      "qa_issues": [],
+      "targeted_repair_instructions": []
+    }
+  ]
+}

@@ -2863,47 +2863,47 @@
   },
   "selected_generation_bundle_count": 4,
   "selected_generation_bundle": [
-    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/aachu/reel-jaldi.jpg",
+    "config/references/identity/zuv/portrait-07.jpg",
     "config/references/identity/together/together-18.jpg",
-    "config/references/identity/together/together-19.jpg",
-    "config/references/identity/together/together-21.jpg"
+    "config/references/identity/together/together-16.jpg"
   ],
   "selected_generation_options": [
     {
       "option_id": "AACHU-BEST",
-      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/aachu/portrait-02.jpg",
-      "filename": "portrait-02.jpg",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/aachu/reel-jaldi.jpg",
+      "filename": "reel-jaldi.jpg",
       "subject": "aachu",
-      "why": "Best solo Aachu \u2014 outdoor natural light, face 35% of frame, full smile, clean"
+      "why": "Current clean Aachu close-face anchor in natural daylight"
     },
     {
-      "option_id": "TOGETHER-BEST",
+      "option_id": "ZUV-BEST",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/zuv/portrait-07.jpg",
+      "filename": "portrait-07.jpg",
+      "subject": "zuv",
+      "why": "Current clear Zuv solo face-and-body anchor with curls and beard visible"
+    },
+    {
+      "option_id": "TOGETHER-FACE",
       "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/together/together-18.jpg",
       "filename": "together-18.jpg",
       "subject": "together",
-      "why": "Best overall \u2014 couch selfie, both faces large and clear, Zuv curls + beard visible"
+      "why": "Best close-face couple anchor for smiles, curls, beard, and facial scale"
     },
     {
-      "option_id": "TOGETHER-2",
-      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/together/together-19.jpg",
-      "filename": "together-19.jpg",
+      "option_id": "TOGETHER-BODY",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/together/together-16.jpg",
+      "filename": "together-16.jpg",
       "subject": "together",
-      "why": "Beach hut selfie, both close, different context, reinforces identity"
-    },
-    {
-      "option_id": "TOGETHER-3",
-      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/together/together-21.jpg",
-      "filename": "together-21.jpg",
-      "subject": "together",
-      "why": "Domestic hug \u2014 Aachu face very clear, Zuv present, intimate natural moment"
+      "why": "Standing full-body anchor for relative scale, body build, and wardrobe"
     }
   ],
   "reference_images_for_generation": [
     "config/references/identity/_dossier/identity-face-contact-sheet.jpg",
-    "config/references/identity/aachu/portrait-02.jpg",
+    "config/references/identity/aachu/reel-jaldi.jpg",
+    "config/references/identity/zuv/portrait-07.jpg",
     "config/references/identity/together/together-18.jpg",
-    "config/references/identity/together/together-19.jpg",
-    "config/references/identity/together/together-21.jpg"
+    "config/references/identity/together/together-16.jpg"
   ],
   "face_identity_contract": {
     "Himanshu/Zuv": {
@@ -2927,7 +2927,7 @@
         "dark shirt from close couch selfie when story-relevant",
         "grey trousers",
         "red-black shoes",
-        "simple chain/neck detail when visible"
+        "small round evil-eye locket centered on a slim silver chain is always worn and required whenever neck, open collar, or upper chest is visible"
       ]
     },
     "Aachu/Anchal": {
@@ -2952,7 +2952,8 @@
         "blue jeans",
         "red bag and red shoes as strong continuity props",
         "soft gold jewelry/necklace when visible",
-        "pink-tinted glasses only when supported by reference context"
+        "pink-tinted glasses only when supported by reference context",
+        "evil-eye bracelet is always worn on the right wrist and required whenever that wrist or forearm is visible"
       ]
     }
   },
@@ -2968,7 +2969,9 @@
     "Prompt only describes the faces in text but does not use actual identity images.",
     "Generated Himanshu/Zuv loses dark wavy hair, thick brows, beard/mustache, face structure, or build.",
     "Generated Aachu/Anchal loses long dark hair, expressive eyes/brows, face structure, or soft dramatic energy.",
-    "A slide is accepted because the scene is pretty even though the faces are wrong."
+    "A slide is accepted because the scene is pretty even though the faces are wrong.",
+    "Zuv's neck, open collar, or upper chest is visible without the same evil-eye locket and slim silver chain.",
+    "Aachu's right wrist or forearm is visible without the same evil-eye bracelet, or the bracelet changes sides or design."
   ],
   "human_review_required": true,
   "limitations": [
@@ -2976,10 +2979,10 @@
     "Final acceptance still requires visual QA against the identity references before packaging a slide as final."
   ],
   "known_limitations": [
-    "No close-up solo portrait of Zuv exists in this library. Best Zuv references are the together selfies (together-18, together-19).",
-    "Some aachu/face-*.png files are Instagram screenshots with UI overlays \u2014 use aachu/portrait-*.jpg instead for cleaner references.",
+    "The generated character charts are supplemental consistency references only; verified photographs remain the highest-priority identity source.",
+    "Some aachu/face-*.png files are Instagram screenshots with UI overlays; reel-jaldi.jpg is the clean current Aachu close-face anchor.",
+    "zuv/portrait-07.jpg is the current Zuv solo anchor; together-18.jpg remains the supplementary close-face couple anchor.",
     "zuv/face-01.png has sunglasses \u2014 eyes hidden, do not use as identity reference.",
-    "library.images catalog still references pre-rename filenames \u2014 the contact sheet option IDs (ID01-ID45) no longer map to current file paths. The selected_generation_bundle above is the authoritative operational reference.",
-    "ACTION NEEDED: Add 2-3 close-up portrait photos of Zuv alone (face filling 30%+ of frame, no sunglasses, natural light) to zuv/ folder."
+    "library.images catalog still references pre-rename filenames; contact-sheet option IDs (ID01-ID45) no longer map to current file paths. The selected_generation_bundle above is the authoritative operational reference."
   ]
 }

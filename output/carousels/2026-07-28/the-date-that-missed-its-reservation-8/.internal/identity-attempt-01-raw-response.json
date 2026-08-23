@@ -1,0 +1,78 @@
+{
+  "reviewer_task_id": "slide7_identity_pushpull",
+  "reviewer_run_id": "attempt-01-slide-07-identity-anatomy-qa-2026-07-30",
+  "pass": false,
+  "observed_people_arms_hands": {
+    "people_count": 2,
+    "entities": [
+      "Aachu",
+      "Zuv"
+    ],
+    "extra_people_or_body_parts": false,
+    "full_silhouettes": {
+      "Aachu": "Complete head-to-shoes silhouette; right arm fully readable; left arm present but its hand is naturally obscured by her torso, tote and umbrella.",
+      "Zuv": "Complete head-to-shoes silhouette; right arm fully readable at the lock; left arm routes behind his back and its hand is naturally hidden."
+    },
+    "arms_accounted_for": 4,
+    "visible_hands": 2,
+    "anatomy_quality": "No duplicated or detached limbs. Aachu's pushing hand has five readable digits and a plausible wrist. Zuv's operating wrist and grip are plausible, but the active limb is anatomically his right arm."
+  },
+  "visible_hand_inventory": [
+    {
+      "owner": "Aachu",
+      "anatomical_hand": "right",
+      "visibility": "fully visible",
+      "action": "Open palm planted separately against the wooden panel with a braced shoulder and clear push marks.",
+      "status": "pass"
+    },
+    {
+      "owner": "Aachu",
+      "anatomical_hand": "left",
+      "visibility": "hidden",
+      "action": "Spare hand obscured beside the torso, tote and umbrella.",
+      "status": "allowed"
+    },
+    {
+      "owner": "Zuv",
+      "anatomical_hand": "right",
+      "visibility": "visible",
+      "action": "Owns the exterior lever/lock area with a wrapped operating grip.",
+      "status": "fail_wrong_laterality"
+    },
+    {
+      "owner": "Zuv",
+      "anatomical_hand": "left",
+      "visibility": "hidden",
+      "action": "Spare arm is routed behind his back.",
+      "status": "fail_required_active_hand_hidden"
+    }
+  ],
+  "topology": {
+    "zuv_left_hand_operates_exterior_lever": false,
+    "aachu_right_palm_weighted_panel_push": true,
+    "actions_are_separate": true,
+    "person_to_person_touch": false,
+    "person_to_person_overlap": false,
+    "assessment": "The push-pull staging is readable and cleanly separated, but it reverses Zuv's required hand assignment: his anatomical right hand operates the lever while his left hand is hidden."
+  },
+  "aachu_face": {
+    "match": "partial",
+    "assessment": "Recognizable general Aachu lane through long dark hair, complexion and soft profile, but the rendered face is narrower and more pointed than the references, with a sharper nose and reduced eye and cheek specificity. Hair is substantially more wavy and tousled than the straighter, center-parted reference hair.",
+    "body": "Slim full-body silhouette is plausible, though slightly more elongated and narrow than the reference."
+  },
+  "zuv_face": {
+    "match": "partial",
+    "assessment": "Broad face, dark hair and beard read as Zuv-adjacent, but the face is narrower, the beard lighter and less full, and the hair is rendered as tight curls rather than the dense swept-up wavy texture in the references.",
+    "body": "Broad-shouldered, heavier silhouette is directionally consistent with the reference."
+  },
+  "height": {
+    "status": "pass",
+    "assessment": "Zuv reads visibly taller and broader than Aachu despite his downward lean; the relative scale is consistent with the couple reference."
+  },
+  "wardrobe": {
+    "status": "partial_pass",
+    "assessment": "Core together-01 wardrobe is preserved: Aachu wears a white shirt, blue jeans and red pointed shoes; Zuv wears a pale-blue embroidered shirt, voluminous gray trousers and red-black shoes. Aachu's reference red handbag is replaced by a beige heart tote, and Zuv's chest embroidery is only an approximate rendering."
+  },
+  "verdict": "FAIL: the required contact topology is not satisfied because Zuv's anatomical right hand, not his left, operates the exterior lever. Identity fidelity is also only partial for both faces and hair.",
+  "repair_decision": "REGENERATE_WITH_TARGETED_POSE_AND_IDENTITY_REPAIR: mirror only Zuv's arm assignment so his anatomical left hand visibly wraps and depresses the exterior lever while his right hand is naturally hidden; preserve Aachu's separate anatomical-right weighted palm push and the zero-touch gap. Strengthen Aachu's reference facial proportions and straighter center-parted hair, and restore Zuv's broader face, fuller beard and swept-up wavy hair."
+}

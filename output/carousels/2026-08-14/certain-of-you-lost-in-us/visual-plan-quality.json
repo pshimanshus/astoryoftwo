@@ -1,0 +1,703 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The creator supplied the exact six slide lines in the current chat; the package preserved them verbatim before this independent observable-card review.",
+    "author_id": "orchestrated-/root",
+    "reviewer_id": "orchestrated-/root/event_a",
+    "reviewer_evidence": "A fresh collaboration agent received only the six observable cards and reported who, where, action, relationship state, chronology, evidence, uncertainty and the sequence before any copy or intent reveal.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:c276a85858fd99d933f73148efb1d84813f7b7272e42284076911d7a0ad7d6cd",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "one South Asian woman",
+          "one South Asian man"
+        ],
+        "visible_setting": "A giant architectural blueprint on an ivory floor rises into airy domestic half-stairs, open doorframes and corridors around them.",
+        "observable_action": "They stand shoulder-to-shoulder on one central tile; their inside hands clasp at hip height while each studies a different corridor.",
+        "hands_and_contact": "Four visible hands total; the inner pair clasp once and the outer hands rest at their own thighs.",
+        "gaze": "Each person studies a different corridor while their heads remain close enough to read as one shared survey.",
+        "body_blocking": "Their torsos align, shoulders touch, and both bodies remain at the same depth on the same tile.",
+        "object_state": "The blueprint is open and physically becoming the surrounding house.",
+        "camera_view": "Extreme-wide three-quarter cutaway with both faces still readable.",
+        "visible_continuity": "Charcoal-and-ivory wardrobe, exactly two people, no reflections or background figures."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "One almost-empty shared room with two separate open doorways behind them.",
+        "observable_action": "Each steps away from a different doorway toward the other; their inside hands have just met at the room center.",
+        "hands_and_contact": "Four visible hands; the inside pair meet once and the outer hands stay relaxed.",
+        "gaze": "Their eye-lines lock on each other rather than the empty room or separate doors.",
+        "body_blocking": "Both walk toward the center at the same depth with equal agency.",
+        "object_state": "One plain suitcase sits outside each original doorway; one small folded blueprint lies unopened between their approaching feet.",
+        "camera_view": "Symmetrical medium full-body view.",
+        "visible_continuity": "The same clean charcoal-and-ivory wardrobe and the same pair only."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "A true overhead view of the room as the unfolded blueprint folds upward into full-size walls, stairs and branching rooms.",
+        "observable_action": "They kneel at opposite near edges of the paper, shoulders lightly touching; each uses one hand to hold a separate corner while body and gaze turn toward different branches.",
+        "hands_and_contact": "Exactly two visible hands, one per person, each attached through wrist and forearm to its own blueprint corner.",
+        "gaze": "Their gazes split toward different branches and different practical demands.",
+        "body_blocking": "They remain close enough for shoulder contact while their attention visibly divides.",
+        "object_state": "The folded plan is now opened and expanding; indigo plan lines split while cartons, one leaking tap and two work bags appear at different thresholds.",
+        "camera_view": "True overhead wide view.",
+        "visible_continuity": "The same lightly dusty wardrobe, exactly two people and the same blueprint."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "A low floor-level close view of the blueprint during restrained indoor rain; one unlit lamp and one wall-less doorway are soft behind.",
+        "observable_action": "They lean in from opposite sides, each holds one separate corner flat, and both stare down at the paper.",
+        "hands_and_contact": "Exactly two active hands, the woman's right and the man's left, with wrists and forearms visible; their other hands stay outside the crop.",
+        "gaze": "Both gazes converge on the same dissolving route rather than on each other.",
+        "body_blocking": "Faces occupy opposite sides while both bodies angle toward the same central object.",
+        "object_state": "Indigo ink visibly bleeds away until the route becomes unreadable.",
+        "camera_view": "Tight floor-level two-face three-quarter view.",
+        "visible_continuity": "The same rain-damp wardrobe with faint indigo stains, exactly two people and the same plan."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "A physical dead end in the same unfinished branching corridor.",
+        "observable_action": "They sit shoulder-to-shoulder on the floor; one hand each turns the ruined blueprint over to reveal a clean blank reverse; their eyes meet with a small exhausted smile.",
+        "hands_and_contact": "Exactly two visible hands, one per person, lift separate paper corners while their shoulders touch.",
+        "gaze": "Their eye-lines meet in the first direct reciprocal look after the plan fails.",
+        "body_blocking": "Both sit at the same depth and equal scale with natural shoulder contact.",
+        "object_state": "Blue-stained fingertips, damp clothes and scuffed shoes remain; the ruined side turns down and the blank side turns up.",
+        "camera_view": "Intimate eye-level reaction view.",
+        "visible_continuity": "The same pair, same damp wardrobe, same blueprint and unresolved corridor behind."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "A low floor-level dawn view of blank blueprint paper covering an unfinished floor; the incomplete impossible house remains behind.",
+        "observable_action": "They stand on the same side of one taut carpenter's chalk line; each holds one endpoint with an inside hand while outer hands rest at their own thighs; a fresh blue line has just been snapped across the paper.",
+        "hands_and_contact": "Four visible hands; the two inside hands separately own the line endpoints and the outer hands remain separate at their own thighs.",
+        "gaze": "Both look along the new line toward the same open unfinished space, then toward each other.",
+        "body_blocking": "Their shoulders align at the same depth on the same side of the new line.",
+        "object_state": "The blank reverse now carries one new blue line and a restrained chalk-dust bloom while the house remains incomplete.",
+        "camera_view": "Low medium-wide view with both faces large enough to read.",
+        "visible_continuity": "The same pair, same wardrobe with rain and chalk traces, same reversed blueprint and exactly two people."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:815df42cfd12a3e1075f1f9524391a389388f0adfd60a9f08b09bf265babe71d",
+    "source_fingerprint": "sha256:3f71e4799ed7df8ab7eb845de1ca17fb3febc7588d89aa5ba135a393166d47b2",
+    "sequence_mode": "causal_sequence",
+    "physical_event": "A folded blueprint becomes a shared house, grows beyond its instructions, loses its route in rain, reaches a dead end, turns over and receives one new line from both people.",
+    "emotional_arc": "Mutual certainty enters shared complexity, loses guidance without blame, reinterprets the failed route and becomes equal next-step authorship.",
+    "relationship_change": "Their connection moves from mutual approach through divided attention and shared helplessness into explicit equal construction of the next step.",
+    "sequence_read": "Two people converge around a shared plan, become pulled through its branching demands, lose the route, reach a dead end, then turn the damaged plan over and make their first new line together.",
+    "visual_variables": [
+      "domestic geometry complexity",
+      "body alignment and distance"
+    ],
+    "hero_receipt_slide": 6,
+    "setup_payoff_ledger": [
+      {
+        "setup": "The blueprint appears folded and unopened between two people leaving separate thresholds.",
+        "payoff": "After the opened plan outgrows and fails them, they turn it over and snap one new line together.",
+        "changed_meaning": "The plan changes from promised instructions into a blank surface for equal authorship."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "the single shared blueprint",
+        "initial_state": "folded and unopened between two converging lives",
+        "later_state": "opened, expanded, rain-erased, reversed and marked with one fresh line",
+        "story_job": "carry the difference between choosing a person and learning how to build a life with them"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "flash-forward thesis and spatial establisher",
+        "silent_read": "They remain physically certain of each other while the shared environment has become impossible to navigate.",
+        "change_from_previous": "The cold open rewinds visibly to separate thresholds and a still-folded plan.",
+        "critic_evidence": "The blind critic cited touching shoulders, aligned bodies, clasped hands, opposing gazes and branching corridors as evidence of connection inside uncertainty.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "clasp hands while surveying different corridors",
+          "target_or_object": "the house grown from their blueprint",
+          "reaction_or_consequence": "physical alignment survives spatial disorientation"
+        },
+        "pov": {
+          "owner": "the partnership as an equal shared point of view",
+          "audience_knows": "They remain physically certain of each other while the shared environment has become impossible to navigate.",
+          "audience_feels": "vertigo held by connection"
+        },
+        "shot": {
+          "size": "extreme-wide cutaway",
+          "angle": "high three-quarter angle",
+          "camera_position": "outside the open paper-house geometry looking inward",
+          "focal_subject": "the touching couple inside branching architecture",
+          "story_reason": "The camera keeps the current action, body relationship and blueprint state readable together before decorative architecture."
+        },
+        "blocking": {
+          "hands": "the inner hands clasp once and both outer hands remain separate",
+          "gaze": "their gazes survey different corridors",
+          "body_distance": "shoulders touch on one stable tile",
+          "posture_or_feet": "both stand grounded while the architecture branches"
+        },
+        "setting": {
+          "sub_location": "impossible open domestic paper house",
+          "time": "visual-thesis flash-forward",
+          "motivated_light": "cool diffuse ivory light with restrained indigo depth",
+          "story_trace": "the open blueprint has already grown into rooms around them"
+        },
+        "story_evidence": [
+          {
+            "carrier": "clasped hands inside branching rooms",
+            "observable_state": "aligned bodies stay on one tile while gazes split toward different corridors",
+            "narrative_job": "compress connection and disorientation into one cover contradiction"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The cover opens on the lived complexity after the plan has already expanded.",
+          "outgoing_state": "The cold open rewinds visibly to separate thresholds and a still-folded plan."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "background figure",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The already-open transformed plan could make the cover look chronologically later than the still-folded plan on slide two.",
+            "repair": "Lock the cover as a deliberate flash-forward visual thesis, then make slide two's two origin doorways, clean wardrobe and unopened folded plan a clear rewind into the causal beginning.",
+            "recheck_evidence": "The blind critic explicitly identified flash-forward or imagined-premise as the viable reading and still summarized the subsequent connection, divergence, failure and renewed action correctly."
+          }
+        ]
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "mutual convergence and initial choice",
+        "silent_read": "Two separate lives deliberately converge in one shared room before they open a common plan.",
+        "change_from_previous": "They finish converging and the plan becomes ready to open.",
+        "critic_evidence": "The blind critic cited separate originating doorways, separate suitcases, mutual movement to center and meeting hands as evidence of equal convergence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "step from separate thresholds and meet hands at center",
+          "target_or_object": "each other and the unopened shared plan",
+          "reaction_or_consequence": "two independent origins become one mutual starting point"
+        },
+        "pov": {
+          "owner": "the partnership as an equal shared point of view",
+          "audience_knows": "Two separate lives deliberately converge in one shared room before they open a common plan.",
+          "audience_feels": "calm mutual choice"
+        },
+        "shot": {
+          "size": "medium full-body",
+          "angle": "symmetrical eye-level angle",
+          "camera_position": "inside the empty shared room facing both original doorways",
+          "focal_subject": "the meeting hands above the folded plan",
+          "story_reason": "The camera keeps the current action, body relationship and blueprint state readable together before decorative architecture."
+        },
+        "blocking": {
+          "hands": "inside hands meet once and outside hands hang at their own sides",
+          "gaze": "their eye-lines lock on each other",
+          "body_distance": "equal approach from opposite thresholds",
+          "posture_or_feet": "both take one deliberate step toward the center"
+        },
+        "setting": {
+          "sub_location": "almost-empty shared room",
+          "time": "late afternoon beginning",
+          "motivated_light": "soft neutral window light",
+          "story_trace": "two suitcases remain outside separate thresholds and the blueprint is still folded"
+        },
+        "story_evidence": [
+          {
+            "carrier": "separate suitcases and the folded blueprint",
+            "observable_state": "each leaves one former threshold and moves toward the other before the shared plan opens",
+            "narrative_job": "show mutual choice through origin, movement and object state"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Two separate lives and one unopened plan await a mutual choice.",
+          "outgoing_state": "They finish converging and the plan becomes ready to open."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "background figure",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "pressure expands into divergent demands",
+        "silent_read": "The shared plan generates several simultaneous responsibilities and pulls their attention in different directions.",
+        "change_from_previous": "The paper grows into rooms and several responsibilities divide their attention.",
+        "critic_evidence": "The blind critic cited shoulder contact, equal paper ownership, opposing gazes, split plan lines, cartons, the leaking tap and two work bags as shared pressure with different priorities.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "hold separate corners while the plan grows into branches",
+          "target_or_object": "the expanding shared home",
+          "reaction_or_consequence": "their attention splits toward several practical demands"
+        },
+        "pov": {
+          "owner": "the partnership as an equal shared point of view",
+          "audience_knows": "The shared plan generates several simultaneous responsibilities and pulls their attention in different directions.",
+          "audience_feels": "shared overload"
+        },
+        "shot": {
+          "size": "overhead wide",
+          "angle": "true top-down angle",
+          "camera_position": "directly above the expanding blueprint",
+          "focal_subject": "the split demands around their touching shoulders",
+          "story_reason": "The camera keeps the current action, body relationship and blueprint state readable together before decorative architecture."
+        },
+        "blocking": {
+          "hands": "one owned hand per person holds one separate paper corner",
+          "gaze": "their gazes split toward different branches",
+          "body_distance": "shoulders still touch despite divided attention",
+          "posture_or_feet": "both kneel with stable separate silhouettes"
+        },
+        "setting": {
+          "sub_location": "blueprint becoming rooms",
+          "time": "dusk as demands multiply",
+          "motivated_light": "fading window light across the unfolded paper",
+          "story_trace": "cartons, one leak and work bags show several unfinished adult tasks"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the expanding blueprint and three lived demands",
+            "observable_state": "paper becomes rooms as route lines split toward cartons, a leak and work bags",
+            "narrative_job": "make harder shared-life questions visible without labels"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The same folded plan has been opened by both people.",
+          "outgoing_state": "The paper grows into rooms and several responsibilities divide their attention."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "background figure",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "peak loss of instructions",
+        "silent_read": "They face the same loss of direction together, but neither person can supply the missing answer.",
+        "change_from_previous": "Its route becomes unreadable while both remain engaged with the same problem.",
+        "critic_evidence": "The blind critic cited converging gazes, two hands holding separate corners, indoor rain, the unlit lamp and vanishing ink as a united confrontation with failed guidance.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "hold the same plan flat as its ink route dissolves",
+          "target_or_object": "the failed blueprint",
+          "reaction_or_consequence": "both lose guidance without assigning blame or rescue"
+        },
+        "pov": {
+          "owner": "the partnership as an equal shared point of view",
+          "audience_knows": "They face the same loss of direction together, but neither person can supply the missing answer.",
+          "audience_feels": "helplessness without blame"
+        },
+        "shot": {
+          "size": "tight two-face close view",
+          "angle": "low floor-level three-quarter angle",
+          "camera_position": "at blueprint height between the two leaning bodies",
+          "focal_subject": "the ink route bleeding away between their hands",
+          "story_reason": "The camera keeps the current action, body relationship and blueprint state readable together before decorative architecture."
+        },
+        "blocking": {
+          "hands": "exactly two owned hands hold separate plan corners",
+          "gaze": "both gazes converge on the dissolving route",
+          "body_distance": "faces remain on opposite sides of the same object",
+          "posture_or_feet": "both lean down without pointing, fighting or rescue gestures"
+        },
+        "setting": {
+          "sub_location": "unfinished floor around the failed plan",
+          "time": "storm-blue night",
+          "motivated_light": "cool rain light with the practical lamp deliberately unlit",
+          "story_trace": "wet clothes and bleeding ink show the instructions failing on screen"
+        },
+        "story_evidence": [
+          {
+            "carrier": "bleeding indigo route",
+            "observable_state": "rain erases the only readable path while both hands still hold the same sheet",
+            "narrative_job": "show that love remains present even when instructions do not"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The expanded plan still appears usable when the storm begins.",
+          "outgoing_state": "Its route becomes unreadable while both remain engaged with the same problem."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "background figure",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "turn through reciprocal recognition",
+        "silent_read": "The route failed without making the partnership fail, and the blank reverse gives them a new working surface.",
+        "change_from_previous": "They reveal a blank reverse without claiming that the corridor itself is solved.",
+        "critic_evidence": "The blind critic cited touching shoulders, one lifted corner each, direct eye contact, damp clothes, scuffed shoes, stained fingers and the blank reverse as mutual recognition after effort.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "turn the ruined plan over together",
+          "target_or_object": "the blank reverse",
+          "reaction_or_consequence": "an exhausted shared look changes failure into workable possibility"
+        },
+        "pov": {
+          "owner": "the partnership as an equal shared point of view",
+          "audience_knows": "The route failed without making the partnership fail, and the blank reverse gives them a new working surface.",
+          "audience_feels": "relief without solution"
+        },
+        "shot": {
+          "size": "intimate reaction two-shot",
+          "angle": "eye-level side angle",
+          "camera_position": "at the dead-end floor facing both seated profiles",
+          "focal_subject": "the shared page turn and exhausted reciprocal look",
+          "story_reason": "The camera keeps the current action, body relationship and blueprint state readable together before decorative architecture."
+        },
+        "blocking": {
+          "hands": "one hand each lifts a separate corner of the same page",
+          "gaze": "their eyes meet in a small exhausted smile",
+          "body_distance": "shoulders touch at equal seated scale",
+          "posture_or_feet": "scuffed shoes and relaxed posture show effort without defeat"
+        },
+        "setting": {
+          "sub_location": "dead end in the same corridor",
+          "time": "predawn after the storm",
+          "motivated_light": "soft cool ambient light from the open corridor",
+          "story_trace": "stained fingers, scuffed shoes and the blank reverse preserve the aftermath"
+        },
+        "story_evidence": [
+          {
+            "carrier": "blank reverse of the ruined blueprint",
+            "observable_state": "the failed surface turns over under two equal hands",
+            "narrative_job": "turn being lost from verdict into a new working condition"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The route has failed and effort has carried them to a dead end.",
+          "outgoing_state": "They reveal a blank reverse without claiming that the corridor itself is solved."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "background figure",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "release into equal authorship",
+        "silent_read": "They do not possess the whole solution; they make the first next line as equal co-authors.",
+        "change_from_previous": "They author one next line and leave the larger house visibly incomplete.",
+        "critic_evidence": "The blind critic cited equal endpoint ownership, same-side blocking, a single fresh line, chalk bloom, dawn light and the incomplete house as shared agency rather than completion.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "snap one fresh construction line together",
+          "target_or_object": "the blank working surface",
+          "reaction_or_consequence": "one coordinated next action replaces the fantasy of a complete answer"
+        },
+        "pov": {
+          "owner": "the partnership as an equal shared point of view",
+          "audience_knows": "They do not possess the whole solution; they make the first next line as equal co-authors.",
+          "audience_feels": "hope through equal agency"
+        },
+        "shot": {
+          "size": "medium-wide full-body",
+          "angle": "low floor-level dawn angle",
+          "camera_position": "on the blank paper looking past them into unfinished space",
+          "focal_subject": "the freshly snapped line owned equally by both",
+          "story_reason": "The camera keeps the current action, body relationship and blueprint state readable together before decorative architecture."
+        },
+        "blocking": {
+          "hands": "inside hands separately own the chalk-line endpoints and outer hands stay at their own thighs",
+          "gaze": "both follow the new line before sharing one look",
+          "body_distance": "aligned shoulders remain on the same side of the line",
+          "posture_or_feet": "both stand and apply equal tension to the single tool"
+        },
+        "setting": {
+          "sub_location": "blank blueprint over an unfinished floor",
+          "time": "clear neutral dawn",
+          "motivated_light": "soft ivory daylight without yellow cast",
+          "story_trace": "rain marks and blue chalk dust show that the next action follows the failure"
+        },
+        "story_evidence": [
+          {
+            "carrier": "fresh snapped chalk line",
+            "observable_state": "both hold one endpoint and create only one new mark while the house stays unfinished",
+            "narrative_job": "pay off commitment as equal next-step authorship rather than total certainty"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The blank reverse becomes available after their shared page turn.",
+          "outgoing_state": "They author one next line and leave the larger house visibly incomplete."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "background figure",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "orchestrated-/root",
+      "author_run_id": "orchestrated-root-run-20260814-01",
+      "reviewer_task_id": "orchestrated-/root/event_a",
+      "reviewer_run_id": "orchestrated-event-a-run-20260814-01",
+      "input_fingerprint": "sha256:815df42cfd12a3e1075f1f9524391a389388f0adfd60a9f08b09bf265babe71d",
+      "raw_response_artifact": ".internal/event-a-raw-response.md",
+      "raw_response_fingerprint": "sha256:00da06c2bc5ea80fdc2f69d4c506866403d72b89f57d292bbfdb0a22032ea32b",
+      "output_fingerprint": "sha256:89b32abcbc75d322faf2c675c711a5d8378ecb1b982b46ee34fdcf37b4457f56"
+    },
+    "director_event_fingerprint": "sha256:ee42287b6a327c2def007b096ec76444fe25822c2d35abcf31484e4fcbce4d08"
+  }
+}

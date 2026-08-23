@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "title": "The First Suno Never Counts",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/together/together-21.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/zuv/portrait-07.jpg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-07-20/same-name-two-temperatures/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-07-20/same-name-two-temperatures/identity-generation-preflight.md",
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-07-20/same-name-two-temperatures/identity-face-contact-sheet.jpg"
+  ],
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png"
+  ],
+  "master_style_prompt": "Use case: illustration-story. Premium @a.storyof.two Instagram carousel on an exact 1080x1440 portrait canvas. One continuous late-afternoon home-comedy incident in a modest lived apartment: fabric sofa in the living room, a television just outside or at the edge of frame, a direct open doorway to a compact working kitchen, and soft natural window light. Actual identity images control the whole recurring couple: face, hair, skin tone, age, body proportions, posture, chemistry and wardrobe. Aachu wears the grey kurta with small white floral print and restrained bangles from together-21. Zuv wears the black rolled-sleeve shirt and tan trousers from together-21. Preserve their real two-inch height difference. Style references control only the creator-approved Observational Intimacy Premium rendering: warm neutral ivory paper with visible grain, fine expressive ink and pencil linework, transparent muted watercolor blooms, restrained crosshatching, imperfect organic edges, tactile fabric and expressive but recognizable faces. The controller is the continuity receipt: active in both of Zuv's hands after the first request, still active later, then visibly abandoned on the sofa after the second call. Reserve clean upper-middle paper space for the exact integrated handwritten slide copy. Render the exact copy once and only once. Add the tiny low-contrast handwritten brandmark @a.storyof.two once at top-right. The story must read through mouth, gaze, hands, posture, feet, doorway distance, controller state and visible consequence when copy is hidden. No personal name may appear.",
+  "negative_prompt": "No photorealism, 3D, glossy AI render, generic Indian stock couple, split screen, divider, comic panel, game logo, game UI, HUD, visible game avatar or figure, speech bubble, thought bubble, flashback, extra person, silhouette, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused body and furniture, crowded decor, yellow or sepia cast, random letters, packaging labels, personal names, logos, watermark, quote-card layout, anger caricature, frightened-husband stereotype, or text other than the exact slide copy and @a.storyof.two.",
+  "proof_gate": "REQUIRED — prove Slide 7 first because the innocent kitchen arrival must land without explanatory copy.",
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 7,
+      "text": "The first “suno” never counts.",
+      "visual": "Wide apartment geography from the living-room side: Zuv is sunk into the sofa playing PlayStation, both hands on the controller and eyes on the television; Aachu is visible through the open kitchen doorway in the background, turning from the stove to call him. The doorway creates one continuous path between them. This is a lived scene, not a posed couple portrait.",
+      "prompt": "Stage this exact home-comedy beat so it reads with the copy hidden. One continuous late-afternoon home incident; Aachu wears the grey floral kurta from together-21 and Zuv the black rolled-sleeve shirt with tan trousers; exactly two people; controller active in his hands; kitchen and sofa geography stay stable.",
+      "style": "Premium hand-drawn observational romantic watercolor-and-ink illustration on warm neutral ivory paper with visible grain, fine pencil/ink linework, transparent muted watercolor blooms and expressive but recognizably real faces.",
+      "wardrobe": "Aachu: grey short-sleeve kurta with small white floral print, long dark hair and restrained bangles from together-21. Zuv: black rolled-sleeve shirt, tan trousers, dark hair and short stubble from together-21 and portrait-07.",
+      "background": "One modest lived Indian apartment with a warm ivory living room, fabric sofa, television outside frame or minimally visible, a direct doorway to a compact working kitchen, and soft late-afternoon window light.",
+      "emotion": "Instant couple recognition",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, generic stock couple, split screen, comic panels, speech bubbles, thought bubbles, game logo, game UI, HUD, visible avatar or figure on the television, random text, packaging label, personal names, extra people, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused person and furniture, crowded decor, yellow or sepia cast, quote-card layout, anger caricature, frightened-husband stereotype, text other than the exact slide copy and @a.storyof.two."
+    },
+    {
+      "slide": 2,
+      "slide_count": 7,
+      "text": "“Suno, kitchen mein aana zara.”",
+      "visual": "Kitchen medium view from the doorway side: Aachu is still working at a gently steaming pan and casually calls over her shoulder toward the already-established living room. Her mouth is naturally open mid-request, wooden spoon safely in her lowered right hand and left palm making one small come-here gesture. Zuv is offscreen, but her eye-line and the doorway aim directly toward his sofa.",
+      "prompt": "Stage this exact home-comedy beat so it reads with the copy hidden. Matched kitchen camera, lens and geometry for Slide 5; exactly one visible person; her task continues and her expression and wrist stay relaxed; no anger, shouting or generic doorway pose.",
+      "style": "Premium hand-drawn observational romantic watercolor-and-ink illustration on warm neutral ivory paper with visible grain, fine pencil/ink linework, transparent muted watercolor blooms and expressive but recognizably real faces.",
+      "wardrobe": "Aachu: grey short-sleeve kurta with small white floral print, long dark hair and restrained bangles from together-21. Zuv: black rolled-sleeve shirt, tan trousers, dark hair and short stubble from together-21 and portrait-07.",
+      "background": "One modest lived Indian apartment with a warm ivory living room, fabric sofa, television outside frame or minimally visible, a direct doorway to a compact working kitchen, and soft late-afternoon window light.",
+      "emotion": "Completely normal request",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, generic stock couple, split screen, comic panels, speech bubbles, thought bubbles, game logo, game UI, HUD, visible avatar or figure on the television, random text, packaging label, personal names, extra people, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused person and furniture, crowded decor, yellow or sepia cast, quote-card layout, anger caricature, frightened-husband stereotype, text other than the exact slide copy and @a.storyof.two."
+    },
+    {
+      "slide": 3,
+      "slide_count": 7,
+      "text": "“Haan, aa raha hoon.”",
+      "visual": "Television-side living-room medium-wide: Zuv answers toward the offscreen kitchen without looking away from the abstract television glow. Both hands remain on one controller, one thumb visibly pressing a control; his torso and both feet stay planted and his weight remains settled deep in the sofa.",
+      "prompt": "Stage this exact home-comedy beat so it reads with the copy hidden. Matched living-room camera, lens and sofa geometry for Slide 6; exactly one visible person; controller remains active; Zuv does not rise, lean forward to stand or pause the game; no visible game characters, UI or text.",
+      "style": "Premium hand-drawn observational romantic watercolor-and-ink illustration on warm neutral ivory paper with visible grain, fine pencil/ink linework, transparent muted watercolor blooms and expressive but recognizably real faces.",
+      "wardrobe": "Aachu: grey short-sleeve kurta with small white floral print, long dark hair and restrained bangles from together-21. Zuv: black rolled-sleeve shirt, tan trousers, dark hair and short stubble from together-21 and portrait-07.",
+      "background": "One modest lived Indian apartment with a warm ivory living room, fabric sofa, television outside frame or minimally visible, a direct doorway to a compact working kitchen, and soft late-afternoon window light.",
+      "emotion": "Automatic answer, zero movement",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, generic stock couple, split screen, comic panels, speech bubbles, thought bubbles, game logo, game UI, HUD, visible avatar or figure on the television, random text, packaging label, personal names, extra people, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused person and furniture, crowded decor, yellow or sepia cast, quote-card layout, anger caricature, frightened-husband stereotype, text other than the exact slide copy and @a.storyof.two."
+    },
+    {
+      "slide": 4,
+      "slide_count": 7,
+      "text": "*still playing*",
+      "visual": "Tight continuation detail on Zuv's controller, attached hands and absorbed lower face a little later: the same controller remains active, both thumbs still working, his gaze fixed above frame in the abstract television glow. The frame proves continued play through uninterrupted hand action rather than a clock or timeline graphic.",
+      "prompt": "Stage this exact home-comedy beat so it reads with the copy hidden. Same room, wardrobe, hands and controller state; exactly one partially framed person; time passes without changing his attention; no clock, tea receipt, timeline, labels, game UI, avatars, icons, thought bubbles or extra clutter.",
+      "style": "Premium hand-drawn observational romantic watercolor-and-ink illustration on warm neutral ivory paper with visible grain, fine pencil/ink linework, transparent muted watercolor blooms and expressive but recognizably real faces.",
+      "wardrobe": "Aachu: grey short-sleeve kurta with small white floral print, long dark hair and restrained bangles from together-21. Zuv: black rolled-sleeve shirt, tan trousers, dark hair and short stubble from together-21 and portrait-07.",
+      "background": "One modest lived Indian apartment with a warm ivory living room, fabric sofa, television outside frame or minimally visible, a direct doorway to a compact working kitchen, and soft late-afternoon window light.",
+      "emotion": "The familiar delay",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, generic stock couple, split screen, comic panels, speech bubbles, thought bubbles, game logo, game UI, HUD, visible avatar or figure on the television, random text, packaging label, personal names, extra people, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused person and furniture, crowded decor, yellow or sepia cast, quote-card layout, anger caricature, frightened-husband stereotype, text other than the exact slide copy and @a.storyof.two."
+    },
+    {
+      "slide": 5,
+      "slide_count": 7,
+      "text": "“SUNO.”",
+      "visual": "Return to the exact kitchen camera, lens and doorway geometry from Slide 2. Aachu's cooking task has visibly stopped: she has turned fully toward the offscreen living room, mouth clearly open in a sharper projected call, spoon held safely down and free hand lightly cupped beside her mouth. She is firm and familiar, not furious.",
+      "prompt": "Stage this exact home-comedy beat so it reads with the copy hidden. Exact visual rhyme with Slide 2; exactly one visible person; the changed variables are stopped task, full turn and vocal projection; no scolding finger, rage or frightened-husband grammar.",
+      "style": "Premium hand-drawn observational romantic watercolor-and-ink illustration on warm neutral ivory paper with visible grain, fine pencil/ink linework, transparent muted watercolor blooms and expressive but recognizably real faces.",
+      "wardrobe": "Aachu: grey short-sleeve kurta with small white floral print, long dark hair and restrained bangles from together-21. Zuv: black rolled-sleeve shirt, tan trousers, dark hair and short stubble from together-21 and portrait-07.",
+      "background": "One modest lived Indian apartment with a warm ivory living room, fabric sofa, television outside frame or minimally visible, a direct doorway to a compact working kitchen, and soft late-afternoon window light.",
+      "emotion": "That tone",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, generic stock couple, split screen, comic panels, speech bubbles, thought bubbles, game logo, game UI, HUD, visible avatar or figure on the television, random text, packaging label, personal names, extra people, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused person and furniture, crowded decor, yellow or sepia cast, quote-card layout, anger caricature, frightened-husband stereotype, text other than the exact slide copy and @a.storyof.two."
+    },
+    {
+      "slide": 6,
+      "slide_count": 7,
+      "text": "“Haan haan, aa raha hoon!”",
+      "visual": "Return to the exact television-side living-room camera, lens and sofa geometry from Slide 3 at the instant of consequence: Zuv launches empty-handed off the sofa toward the already-established kitchen in one strong diagonal, one foot driving across the rug. The single controller has been abandoned visibly in the exact sofa-cushion area where he was sitting. His mouth is open mid-reply.",
+      "prompt": "Stage this exact home-comedy beat so it reads with the copy hidden. Matched camera with Slide 3; exactly one visible person; controller changes from active in both hands to abandoned on the sofa and both of his hands are empty; no motion trail, duplicate body, extra limb, falling television or panic-face caricature.",
+      "style": "Premium hand-drawn observational romantic watercolor-and-ink illustration on warm neutral ivory paper with visible grain, fine pencil/ink linework, transparent muted watercolor blooms and expressive but recognizably real faces.",
+      "wardrobe": "Aachu: grey short-sleeve kurta with small white floral print, long dark hair and restrained bangles from together-21. Zuv: black rolled-sleeve shirt, tan trousers, dark hair and short stubble from together-21 and portrait-07.",
+      "background": "One modest lived Indian apartment with a warm ivory living room, fabric sofa, television outside frame or minimally visible, a direct doorway to a compact working kitchen, and soft late-afternoon window light.",
+      "emotion": "Immediate comic compliance",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, generic stock couple, split screen, comic panels, speech bubbles, thought bubbles, game logo, game UI, HUD, visible avatar or figure on the television, random text, packaging label, personal names, extra people, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused person and furniture, crowded decor, yellow or sepia cast, quote-card layout, anger caricature, frightened-husband stereotype, text other than the exact slide copy and @a.storyof.two."
+    },
+    {
+      "slide": 7,
+      "slide_count": 7,
+      "text": "“Kya hua?”",
+      "visual": "Camera from inside the kitchen over Aachu's partial shoulder toward Zuv in the doorway. His face is large, clear, guileless and calm as if this is the first call; both empty hands are naturally open and fully attached, with only a slight post-rush breath and displaced shirt fold revealing his sprint. Aachu's profile, spoon hand and dry knowing eye-line remain readable in the near foreground.",
+      "prompt": "Stage this exact home-comedy beat so it reads with the copy hidden. Same home, wardrobe and two-inch height relationship; exactly two people; Aachu is knowing, not angry; Zuv is innocent rather than frightened, sheepish or apologetic; direct eye-line; no controller in his hands, explanatory moral or generic shared laughter.",
+      "style": "Premium hand-drawn observational romantic watercolor-and-ink illustration on warm neutral ivory paper with visible grain, fine pencil/ink linework, transparent muted watercolor blooms and expressive but recognizably real faces.",
+      "wardrobe": "Aachu: grey short-sleeve kurta with small white floral print, long dark hair and restrained bangles from together-21. Zuv: black rolled-sleeve shirt, tan trousers, dark hair and short stubble from together-21 and portrait-07.",
+      "background": "One modest lived Indian apartment with a warm ivory living room, fabric sofa, television outside frame or minimally visible, a direct doorway to a compact working kitchen, and soft late-afternoon window light.",
+      "emotion": "Innocence so committed it becomes funny",
+      "negative_prompt": "No photorealism, 3D, glossy AI finish, generic stock couple, split screen, comic panels, speech bubbles, thought bubbles, game logo, game UI, HUD, visible avatar or figure on the television, random text, packaging label, personal names, extra people, reflection, portrait, motion trail, duplicate body, extra limb, detached hand, malformed fingers, fused person and furniture, crowded decor, yellow or sepia cast, quote-card layout, anger caricature, frightened-husband stereotype, text other than the exact slide copy and @a.storyof.two."
+    }
+  ]
+}

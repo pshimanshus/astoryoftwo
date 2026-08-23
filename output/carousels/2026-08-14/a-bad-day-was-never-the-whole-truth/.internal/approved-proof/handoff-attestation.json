@@ -1,0 +1,24 @@
+{
+  "schema_version": "approved-proof-batch-handoff/v1",
+  "proof_slide": 4,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "image_set_sha256": "e785bb4d031dcacfabae01672239295cb7791d343ecab817e0ba922594f45d98",
+  "source_handoff_set_fingerprint": "sha256:79191b25684420672311ff8191af76d1f1186ff9eed6d2ccfbb235f802263d2d",
+  "visual_qa_binding": {
+    "relative_path": ".internal/approved-proof/visual-qa.json",
+    "sha256": "sha256:a2feaa5c6376087b75fa35ef4000d51375f6417e316ebe8ee72173ae9afe1493"
+  },
+  "creator_approval_binding": {
+    "relative_path": ".internal/approved-proof/creator-approval.json",
+    "sha256": "sha256:0076e82ff93628efcb468acca2b761459bf7f2dac5c25f098c2c822b34d440dd"
+  },
+  "quarantine_bindings": [
+    {
+      "relative_path": ".internal/visual-quarantine/attempt-03/final/slide-04.png",
+      "sha256": "sha256:289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750"
+    }
+  ],
+  "attestation_fingerprint": "sha256:c683ba0b0f24225204e94bd104abccec578070c70aedd1ef1db301479ab303e8"
+}

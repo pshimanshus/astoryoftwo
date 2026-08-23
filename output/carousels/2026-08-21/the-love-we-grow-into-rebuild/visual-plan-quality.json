@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Tiny Rituals",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover wrong turns\nand very small things.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nwhich part to hear.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Not “go away.”\nJust:\n“Give me a minute. Don’t go far.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "And when I’m ready,\nI’ll come back and ask:\n“Chai?”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "Not less irritated.\nJust better\nat coming back.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": []
+}

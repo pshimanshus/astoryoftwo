@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "visual": "COVER HERO, impossible overhead-oblique wide shot. Exactly Aachu and Zuv stand full length together on the one calm square of an ivory-paper apartment floor while the rooms around them fold upward into a vast architectural maze: doorframes, half-walls and stair landings curve into storm-blue watercolor distance. They face the maze but turn slightly toward each other, shoulders touching, and hold only one shared rolled floor plan low between them. A single terracotta route line begins straight beneath both pairs of feet, then tangles only after it enters the surrounding house. Their joined location is stable; the life around them is bewildering. Both faces remain readable and recognizably anchored. No embrace, no literal heart, no duplicated couple, no reflections, no extra people. Reserve the upper-left and upper-middle ivory sky for the exact two-line copy."
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "visual": "INTIMATE LOW FLOOR-LEVEL MEDIUM SHOT at the threshold of the impossible paper house. Exactly Aachu and Zuv step across the same threshold together in synchronized motion. Their nearest feet land on the same clean terracotta route line; behind their ankles a single closed apartment door sits simple and calm, while ahead the corridor branches out of focus. Each carries one end of the same rolled floor plan, lowered between them like a shared decision rather than a romantic pose. Their eyes are on each other, not the corridor, and both show a tiny relieved smile. The decisive information is the simultaneous step and shared object. No key, ring close-up, altar, heart icon, extra door label, background figure, reflection or extra hand. Clean upper-middle paper space for copy."
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "visual": "VERTICAL EXTREME-WIDE DOLLY-ZOOM FEEL down the house corridor. Exactly Aachu and Zuv are small but still recognizable at the lower center, standing side by side at a junction. The once-simple corridor now blooms upward into impossible staircases, suspended doorframes and domestic rooms folding like paper; each branch contains one restrained unfinished-life trace such as an unassembled shelf, an unlit dining lamp, a packed moving box, or a rain-dark window, never text. Aachu looks up left while Zuv looks up right, their backs still lightly touching. The terracotta line reaches the junction and splits into several thin possible routes for the first time. No arrows, signs, labels, clocks, duplicate figures, reflections or crowded prop list. Copy floats in clean ivory above the branching architecture."
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "visual": "MOST DRAMATIC FRAME, overhead three-quarter view of the living-room floor during an indigo watercolor storm. Exactly Aachu and Zuv kneel on opposite sides of the now-unrolled single floor plan, separated by the paper but still inside the same pool of lamplight. The plan is blank except for one visibly tangled terracotta route line; it contains no words, icons or symbols. Aachu holds only her lower-left corner with her right hand while her left palm rests flat on her own thigh. Zuv holds only his lower-right corner with his left hand while his right palm rests flat on his own thigh. They are not fighting: both gaze at the same knot in the line with tired, honest bewilderment, shoulders lowered. Around them, the room's walls dissolve into rain-blue maze washes, but every body edge stays separate from furniture and paper. One practical lamp between them gives warm light without tinting the ivory paper. No touching across the map, pointing, shouting, tears, extra arms, extra people, reflections, letters, compass, heart or solution arrow. Reserve clean upper-left paper for exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "visual": "CLOSE SIDE-PROFILE REACTION SHOT at the same map, after the storm. Exactly Aachu and Zuv now sit back-to-back on the floor at the center of the maze, each supporting the other's weight. The tangled plan lies open beside their hips, still visibly unsolved. Aachu exhales with eyes closed and a small relieved smile; Zuv tilts his head back just enough to rest against hers, also softened. Their separate outside hands each hold a simple charcoal pencil down by their own knee, ready but not yet drawing; their inside hands are fully hidden. The terracotta line stops at their backs and begins again on the other side as one calmer stroke, showing that closeness changed the meaning before it changed the problem. No embrace, no rescue pose, no literal heart, no magic glow around bodies, no duplicate hands or people. Clean ivory upper-middle space for copy."
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "visual": "DAWN RELEASE, low rear three-quarter wide shot from inside the unfinished paper house. Exactly Aachu and Zuv walk forward side by side through an open roofline into cool morning ivory. Each holds one end of a taut charcoal chalk line at hip height, using it together to mark the next straight segment of the terracotta route across the blank floor ahead. Their pace is synchronized but the path visibly stops before the horizon: no finished destination, only the next authored section. The old maze remains behind them in soft indigo wash; the rolled plan is tucked under Zuv's left arm and fully separate from his torso. Aachu looks ahead; Zuv looks briefly toward her with a small grounded smile. The dawn stays neutral ivory, not yellow. No heart-shaped shadow, house-shaped aura, finish flag, arrows, signage, extra people, reflections or fantasy portals. Exact copy sits in generous upper-middle negative space; tiny @a.storyof.two at top-right."
+    }
+  ]
+}

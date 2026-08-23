@@ -3,10 +3,19 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
 from PIL import Image
 
+from pipeline.agentic.checks.prompt_constraints import REQUIRED_FRAGMENTS
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
-from pipeline.stages.codex_builtin_image_generation import image_set_sha256
+from pipeline.stages.carousel_format_contract import write_format_contract
+from pipeline.stages.codex_builtin_image_generation import (
+    RETRY_GATE_INPUT_FILES,
+    RETRY_HANDOFF_SCHEMA_VERSION,
+    build_compiled_prompt_handoff,
+    image_set_sha256,
+    sha256_binding,
+)
 
 
 def write_json(path: Path, payload: dict) -> None:
@@ -15,6 +24,147 @@ def write_json(path: Path, payload: dict) -> None:
 
 def issue_codes(package: Path) -> set[str]:
     return {issue.code for issue in inspect_carousel_package(package).issues}
+
+
+def _canonical_fingerprint(payload: dict) -> str:
+    encoded = json.dumps(
+        payload,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return sha256_binding(encoded)
+
+
+def _file_binding(package: Path, relative_path: str) -> dict[str, str]:
+    return {
+        "relative_path": relative_path,
+        "sha256": sha256_binding((package / relative_path).read_bytes()),
+    }
+
+
+def write_retry_ready_failed_proof(
+    package: Path,
+    *,
+    attempt_count: int = 1,
+) -> dict:
+    package.mkdir()
+    write_format_contract(package, ["instagram_post"], source="test")
+    write_json(
+        package / "prompt-pack.json",
+        {"slides": [{"slide": 1, "text": "Proof", "prompt": "Repair prompt."}]},
+    )
+    write_json(
+        package / "slides.json",
+        {"slides": [{"slide": 1, "copy": "Proof", "visual": "Repair proof."}]},
+    )
+    for filename in RETRY_GATE_INPUT_FILES:
+        path = package / filename
+        if not path.exists():
+            write_json(path, {})
+
+    prompt_dir = package / "codex-image-prompts" / "instagram-post"
+    prompt_dir.mkdir(parents=True)
+    (prompt_dir / "slide-01.prompt.txt").write_text(
+        "\n".join((*REQUIRED_FRAGMENTS, "Proof")),
+        encoding="utf-8",
+    )
+    (prompt_dir / "slide-01.md").write_text("Proof handoff.", encoding="utf-8")
+    compiled_handoff = build_compiled_prompt_handoff(
+        package,
+        slide_numbers=[1],
+        output_formats=["instagram_post"],
+    )
+
+    backup_dir = (
+        package
+        / ".internal"
+        / "codex-image-prompts-previous"
+        / "attempt-01"
+        / "instagram-post"
+    )
+    backup_dir.mkdir(parents=True)
+    (backup_dir / "slide-01.prompt.txt").write_text(
+        "Prior proof prompt.",
+        encoding="utf-8",
+    )
+    (backup_dir / "slide-01.md").write_text("Prior proof handoff.", encoding="utf-8")
+    write_json(package / "visual-qa.json", {"schema_version": "1.0", "status": "FAIL"})
+
+    image_set_hash = "sha256:" + ("a" * 64)
+    attempts = [
+        {
+            "attempt": index + 1,
+            "retry_count": index,
+            "image_set_sha256": image_set_hash,
+            "status": "QA_FAILED",
+            "qa_issues": ["anatomy failure"],
+        }
+        for index in range(attempt_count)
+    ]
+    ledger_path = package / ".internal" / "visual-qa-attempts.json"
+    ledger_path.parent.mkdir(parents=True, exist_ok=True)
+    write_json(
+        ledger_path,
+        {
+            "schema_version": "1.0",
+            "max_retries": 2,
+            "attempts": attempts,
+        },
+    )
+
+    backup_root = ".internal/codex-image-prompts-previous/attempt-01"
+    attestation = {
+        "schema_version": RETRY_HANDOFF_SCHEMA_VERSION,
+        "source_status": "GENERATED_QUARANTINED",
+        "proof_slide": 1,
+        "requested_formats": ["instagram_post"],
+        "failed_image_set_sha256": image_set_hash,
+        "failed_attempt": attempts[-1],
+        "visual_qa_binding": _file_binding(package, "visual-qa.json"),
+        "attempt_ledger_binding": _file_binding(
+            package,
+            ".internal/visual-qa-attempts.json",
+        ),
+        "gate_input_bindings": [
+            _file_binding(package, relative_path)
+            for relative_path in RETRY_GATE_INPUT_FILES
+        ],
+        "previous_handoff_set_fingerprint": "sha256:" + ("b" * 64),
+        "replacement_handoff_set_fingerprint": compiled_handoff[
+            "handoff_set_fingerprint"
+        ],
+        "previous_prompt_backup_dir": backup_root,
+        "previous_prompt_files": [
+            _file_binding(
+                package,
+                f"{backup_root}/instagram-post/slide-01.prompt.txt",
+            ),
+            _file_binding(
+                package,
+                f"{backup_root}/instagram-post/slide-01.md",
+            ),
+        ],
+        "next_retry_count": attempt_count,
+    }
+    attestation["attestation_fingerprint"] = _canonical_fingerprint(attestation)
+    state = {
+        "status": "GENERATED_QUARANTINED",
+        "proof_state": "GENERATED_QUARANTINED",
+        "proof_only": True,
+        "requested_proof_slide": 1,
+        "requested_formats": ["instagram_post"],
+        "slide_count": 1,
+        "retry_count": attempt_count - 1,
+        "image_set_sha256": image_set_hash,
+        "visual_qa_issues": ["anatomy failure"],
+        "slides": [{"slide": 1}],
+        "compiled_prompt_handoff": compiled_handoff,
+        "retry_prompt_handoff_attestation": attestation,
+    }
+    write_json(package / "image-generation.json", state)
+    write_json(package / "final-images.json", state)
+    return state
 
 
 def write_v2_qa(
@@ -384,3 +534,56 @@ def test_blocked_visual_qa_cannot_claim_publishable(tmp_path: Path) -> None:
     write_json(package / "final-images.json", {"publishable": True})
 
     assert "blocked_visual_qa_claims_publishable" in issue_codes(package)
+
+
+def test_ordinary_failed_proof_without_retry_attestation_remains_blocked(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "ordinary-failed-proof"
+    state = write_retry_ready_failed_proof(package)
+    state.pop("retry_prompt_handoff_attestation")
+    write_json(package / "image-generation.json", state)
+    write_json(package / "final-images.json", state)
+
+    assert "generated_proof_without_structured_qa_v2" in issue_codes(package)
+
+
+def test_attested_retry_ready_failed_proof_clears_only_qa_v2_blocker(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "retry-ready-failed-proof"
+    write_retry_ready_failed_proof(package)
+
+    assert "generated_proof_without_structured_qa_v2" not in issue_codes(package)
+
+
+@pytest.mark.parametrize("tamper", ["attestation", "handoff"])
+def test_tampered_retry_ready_evidence_remains_blocked(
+    tmp_path: Path,
+    tamper: str,
+) -> None:
+    package = tmp_path / f"tampered-{tamper}"
+    state = write_retry_ready_failed_proof(package)
+    if tamper == "attestation":
+        state["retry_prompt_handoff_attestation"]["proof_slide"] = 2
+        write_json(package / "image-generation.json", state)
+        write_json(package / "final-images.json", state)
+    else:
+        prompt = (
+            package
+            / "codex-image-prompts"
+            / "instagram-post"
+            / "slide-01.prompt.txt"
+        )
+        prompt.write_text(prompt.read_text(encoding="utf-8") + "\ntampered", encoding="utf-8")
+
+    assert "generated_proof_without_structured_qa_v2" in issue_codes(package)
+
+
+def test_attested_failed_proof_with_exhausted_retries_remains_blocked(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "retry-exhausted-failed-proof"
+    write_retry_ready_failed_proof(package, attempt_count=3)
+
+    assert "generated_proof_without_structured_qa_v2" in issue_codes(package)

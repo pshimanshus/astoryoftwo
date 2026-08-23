@@ -14,10 +14,11 @@ It wraps the existing Agentic OS system instead of duplicating the long workflow
 
 1. `config/skill-systems.json` -> `carousel_jam`
 2. `config/skills/creator-skill-stack.md`
-3. `config/skills/carousel-jam-runtime-context.md`
-4. `config/skills/carousel-jam-autopilot.md`
-5. `config/skills/carousel-story-director-persona.md`
-6. `config/skills/illustration-carousel-framework.md`
+3. `.agents/skills/a-story-storytelling-hook/SKILL.md`
+4. `config/skills/carousel-jam-runtime-context.md`
+5. `config/skills/carousel-jam-autopilot.md`
+6. `config/skills/carousel-story-director-persona.md`
+7. `config/skills/illustration-carousel-framework.md`
 
 After concept lock, invoke `$a-story-direct-visual-story` for the image-led
 director pass and its two checker events. Do not load that deeper craft package
@@ -55,6 +56,24 @@ machine-readable workflow record.
   the scroll stop, recognition mirror, emotional contradiction, scene proof,
   retention ladder, payoff, format remix, audience mirror, volume path, taste
   gate, and DM Send Test from `config/skills/creator-skill-stack.md`.
+- Storytelling Change Hook: keep a private Story State Card active from the
+  first response through every idea-generation, comparison, discussion,
+  rejection, revision, and production continuation. Require a causal
+  `before -> pressure/choice -> after` change row; use ERCRT and WHW as private
+  diagnostics; preserve current creator corrections and approved locks.
+- Rejection Continuity: preserve the creator's exact feedback and rejected
+  scope, stop polishing or renaming that route, and continue only from the
+  surviving facts and locks. Record durable closed lanes or reusable repair
+  conditions in `memory/semantic/carousel-idea-preferences.md`; query relevant
+  rejected/cooled lanes before presenting fresh concepts in a future session.
+- Story Architecture Preservation: use the seven-beat structure by default,
+  but preserve `Cover -> Cold Open -> Deepening -> Conflict -> Turn -> Payoff`
+  as a first-class alternate whenever the creator supplies, approves, or asks
+  to continue that six-beat storytelling style. Do not pad or relabel it into
+  seven beats. These role names are ordered story phases, not a six-slide
+  ceiling: Deepening, Conflict, and Turn may each span multiple slides. Every
+  added scene must advance a real question, active character, conflict,
+  consequence, turn, or answer; never add filler or empty swipe bait.
 - Format First: choose whether the idea is strongest as a post, Reel, carousel,
   or multi-format package before building assets.
 - Free Creative Pass First: model owns concept, copy, and visual invention.

@@ -1,0 +1,70 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "a8f6fc4d578edbfe7683a3a8a86a7a9328da63db9976fbd4338010d966e7f7ac",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/proof03_identity_qa",
+      "pass": false,
+      "evidence": "Exactly two people, coherent limbs, one reel/hook/cord, and clean topology pass, but hand ownership, Aachu likeness, wardrobe, and the same-depth two-inch height lock fail."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/proof03_event_b",
+      "pass": false,
+      "evidence": "Exact copy, one brandmark, paper style, tool count, shared gaze, and unfinished house pass, but the sagging cord reads as measuring rather than one taut jointly snapped next line."
+    }
+  },
+  "slides": [
+    {
+      "slide": 6,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-06.png",
+          "sha256": "d720f0bd5a7cda90fcd3201b9643644f33be0eb114ce666ad456076e4d64fe08",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "aachu_face": {"pass": false, "likeness_notes": "Face is narrower/longer, hair curlier, and skin lighter/golden relative to the selected Aachu references."},
+    "zuv_face": {"pass": true, "likeness_notes": "Curly hair, brows, medium-brown skin, beard, and face silhouette remain recognizably Zuv."},
+    "couple_scale": {"pass": false, "evidence": "Same-depth height gap reads as approximately 5–7 inches rather than two inches."},
+    "dress_continuity": {"pass": false, "evidence": "The generated navy/beige and white/scarf outfits replace the locked reference-led charcoal/ivory wardrobe."},
+    "integrated_final_text": {"pass": true, "evidence": "Exact two-line copy and one correctly spelled top-right @a.storyof.two brandmark are visible."},
+    "style": {"pass": true, "evidence": "Neutral warm-ivory paper, indigo linework, transparent watercolor, and sparse unfinished architecture pass."},
+    "anatomy_inventory": {"pass": true, "slides": []},
+    "scene_entity_integrity": {"pass": true, "slides": []},
+    "spatial_topology": {"pass": false, "slides": []},
+    "visual_richness": {"pass": true, "slides": []},
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/proof03_event_b",
+      "reviewer_evidence": "The couple and one-line tool read clearly, but the cord sags and the blank blueprint reverse remains ambiguous.",
+      "source_director_event_fingerprint": "sha256:ee42287b6a327c2def007b096ec76444fe25822c2d35abcf31484e4fcbce4d08",
+      "reviewed_native_formats": ["instagram_post"],
+      "sequence_read": "The couple calmly measures one next line inside an unfinished shared house.",
+      "relationship_turn": "Equal participation is visible, but decisive joint authorship is softened by the slack line.",
+      "setup_payoff_evidence": "One reel, one hook, one cord, one blue mark, and incomplete architecture carry the intended payoff with a remaining mechanical ambiguity.",
+      "weakest_frame": "The sagging live cord turns a snap into a passive measurement.",
+      "repair_decision": "A further visual repair is needed, but the bounded proof retry limit is now exhausted.",
+      "frames": [],
+      "issues": ["Slack cord and unresolved identity locks."],
+      "review_provenance": {}
+    }
+  },
+  "required_repairs": [
+    "Make the cord taut and the paper reverse unmistakable.",
+    "Restore inside-hand tool ownership.",
+    "Reduce the same-depth height gap to two inches.",
+    "Restore stronger Aachu likeness and reference-led wardrobe continuity."
+  ]
+}

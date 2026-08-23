@@ -1,0 +1,272 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "7627e7fa8fae69d8176861839cc0b87a583f3857d1d08010d96c54017b37e32c",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/attempt03_identity_anatomy",
+      "pass": false,
+      "evidence": "The exact attempt-03 proof presents Zuv's left hand instead of his right, contains an unresolved lower-center partial limb, misses tissue-to-wound contact, uses unequal head scale and camera depth, crops through pockets, and drifts from both selected identities."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/attempt03_story_text",
+      "pass": false,
+      "evidence": "The story beat, hierarchy, and watercolor-and-ink style pass, but both curly quotes are missing and the brandmark visibly reads @ a.storyof.two instead of the exact @a.storyof.two."
+    }
+  },
+  "slides": [
+    {
+      "slide": 9,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-09.png",
+          "sha256": "01d526d840629fbd3dba1e6d8237dcbfc45b228426694b65d8bd83a335d6ca00",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "01d526d840629fbd3dba1e6d8237dcbfc45b228426694b65d8bd83a335d6ca00",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 2,
+              "observed_arms": 3,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "pinches the tissue near Zuv's thumb",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her black-sleeved forearm and wrist connect continuously to the tissue hand.",
+                  "occlusion_evidence": "Her fingers remain visible around the tissue edge, but the tissue does not reach the nick.",
+                  "contact_object": "white tissue",
+                  "contact_geometry_pass": false,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "holds the tissue beside the injured left thumb",
+                  "story_required": false,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The hand connects to the sleeve on Zuv's anatomical-left side.",
+                  "occlusion_evidence": "The tissue hides part of the finger junction and does not touch the visible red nick.",
+                  "contact_object": "white tissue",
+                  "contact_geometry_pass": false,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [
+                "A skin-toned lower-center sliver reads as an unresolved third partial limb."
+              ],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "01d526d840629fbd3dba1e6d8237dcbfc45b228426694b65d8bd83a335d6ca00",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 2,
+              "observed_arms": 3,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [
+                "The lower-center skin-toned sliver is an unresolved partial limb."
+              ],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu and Zuv appear, but the active Zuv hand is the wrong side and an additional partial limb remains visible."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Aachu and Zuv are distinct foreground people against a lightly rendered interior.",
+            "person_object_crop": "The two main arms attach, but a lower-center skin-toned sliver has unresolved ownership.",
+            "focal_detail": "The tissue edge does not meet the red nick and obscures the finger junction."
+          },
+          "environment_planes": [],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Her head, torso, right sleeve, forearm, wrist, and hand are continuously traceable.",
+              "body_regions": [
+                {
+                  "region": "right forearm through tissue hand",
+                  "near_object": "white tissue",
+                  "expected_relation": "holding",
+                  "observed_relation": "holding",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Her fingers close around the tissue edge without merging into it."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": false,
+              "silhouette_evidence": "His main left forearm and hand attach, but a separate lower-center skin-toned sliver has unresolved attachment.",
+              "body_regions": [
+                {
+                  "region": "left forearm through thumb",
+                  "near_object": "white tissue",
+                  "expected_relation": "presenting right thumb below tissue",
+                  "observed_relation": "holding tissue with left hand",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": false,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "The wrong-side hand is attached, while the tissue masks the intended contact geometry."
+                }
+              ],
+              "ambiguous_regions": [
+                "The lower-center skin-toned sliver has unresolved ownership and attachment."
+              ]
+            }
+          ],
+          "ambiguous_regions": [
+            "A lower-center skin-toned sliver reads as an extra partial limb."
+          ],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "01d526d840629fbd3dba1e6d8237dcbfc45b228426694b65d8bd83a335d6ca00",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The tissue, hands, and visible red nick create the foreground evidence.",
+              "midground": "Aachu and Zuv's tense faces and downward gaze carry the relationship beat.",
+              "background": "A restrained doorway and warm paper wash provide depth without another actor.",
+              "focal_action": "Aachu brings a tissue toward Zuv's injured thumb while both remain tense.",
+              "story_details": [
+                "small red thumb nick",
+                "single white tissue",
+                "shared downward gaze"
+              ],
+              "cause_effect": "The visible nick motivates the care gesture while closed lips and tight brows preserve unresolved anger.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID01_AACHU_FACE_04",
+        "ID02_AACHU_REEL_JALDI"
+      ],
+      "likeness_notes": "Hair, center part, skin tone, and black wardrobe anchor Aachu, but the proof makes her face too long and narrow, with slimmer cheeks, narrower eyes, a sharper chin, and a more pointed nose than both references."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID03_TOGETHER_18",
+        "ID04_ZUV_PORTRAIT_07"
+      ],
+      "likeness_notes": "Beard, brows, skin tone, white zip top, and necklace anchor Zuv, but the proof elongates his face, narrows the jaw, exaggerates the nose, and adds too much curl volume."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory paper, visible grain, fine ink contours, transparent watercolor, muted black and off-white clothing, and generous negative space match the house style."
+    },
+    "integrated_final_text": {
+      "pass": false,
+      "evidence": "The rendered copy omits both curly quotation marks, and the brandmark visibly reads @ a.storyof.two with an added space."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/attempt03_story_text",
+      "reviewer_evidence": "A fresh image-first reviewer found the guarded care beat readable while separately rejecting exact text and brandmark fidelity.",
+      "source_director_event_fingerprint": "sha256:8f9f348c8d863dbd2e0b664576c18f8a667fa669e94b7f9398ea870852a50cd5",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The frame reads as Aachu tending to a small thumb injury while both remain visibly tense.",
+      "relationship_turn": "Concern survives the disagreement through a practical care gesture, without a hug, smile, or reconciliation beat.",
+      "setup_payoff_evidence": "The visible red nick motivates the tissue gesture.",
+      "weakest_frame": "The story reads, but the proof is unusable because the wrong Zuv hand, unresolved limb, identity drift, crop, scale, and exact text fail.",
+      "repair_decision": "Preserve the tense care beat and style while rebuilding anatomy, identity, crop, scale, copy punctuation, and the exact brandmark in a separately authorized run.",
+      "frames": [
+        {
+          "slide": 9,
+          "format": "instagram_post",
+          "file": "final/slide-09.png",
+          "status": "PASS",
+          "expected_silent_read": "Still annoyed, Aachu dabs the small nick below Zuv's right thumbnail with one tissue while both watch.",
+          "observed_image_first_read": "A tense Aachu brings a tissue toward Zuv's injured thumb while both look down.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy first, tense faces second, tissue-and-thumb action third, restrained interior last.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The broad care-surviving-anger beat reads even though exact anatomical laterality and contact geometry fail the separate integrity review.",
+          "evidence": "Both people remain closed-lipped and downcast, the red nick is visible, and a white tissue is the only story prop.",
+          "image_fingerprint": "sha256:01d526d840629fbd3dba1e6d8237dcbfc45b228426694b65d8bd83a335d6ca00"
+        }
+      ],
+      "issues": []
+    }
+  }
+}

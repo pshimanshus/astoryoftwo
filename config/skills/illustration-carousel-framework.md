@@ -163,10 +163,15 @@ Final generated images must be copied into:
 - Upload size: 1080x1440 px (exact, mandatory)
 - Reels/Stories aspect ratio: 9:16
 - Reels/Stories size: 1080x1920 px (exact, mandatory)
-- Slide count: default 7-part carousel pattern: Cover, Cold Open, Mirror,
-  Spine, Rhythm, Turn, Payoff. Use fewer slides only when the creator
-  explicitly asks for a shorter deck or a production constraint requires
-  compression.
+- Story architecture: default seven-phase pattern: Cover, Cold Open, Mirror,
+  Spine, Rhythm, Turn, Payoff. Also preserve the creator-approved reflective
+  architecture—Cover, Cold Open, Deepening, Conflict, Turn, Payoff—when it is
+  supplied or selected; it is not a compressed failure state and must not be
+  padded or relabelled into seven roles. Phase count does not determine slide
+  count. Deepening, Conflict, and Turn may each span multiple slides when each
+  added scene advances a question, character action or reaction, complication,
+  consequence, or earned answer. Compress only when the creator asks or a
+  production constraint requires it; never expand with filler.
 
 Never stretch artwork to fit a target format. Never create one requested format
 by resizing, cropping, padding, or extending another. Create one native output
@@ -472,8 +477,14 @@ Use one of these structures:
 - Use Voice 1 for banter and couple chaos.
 - Use Voice 2 for proposals, anniversaries, grief, distance, or reflective love.
 - Default to the seven-part pattern: Cover, Cold Open, Mirror, Spine, Rhythm,
-  Turn, Payoff. If the creator explicitly asks for fewer slides, preserve the
-  order and story job of those beats while compressing.
+  Turn, Payoff when no structure is supplied. Preserve the six-part Cover,
+  Cold Open, Deepening, Conflict, Turn, Payoff architecture whenever the
+  creator supplies or approves it. Treat the labels as ordered story phases,
+  not one-slide boxes: Deepening, Conflict, and Turn may each span multiple
+  slides. Every slide must answer or complicate a meaningful question through
+  visible character action, reaction, pressure, consequence, or reframe. If
+  the creator explicitly asks for another shorter deck, preserve the order and
+  story job of its beats while compressing.
 - Final slide should be worth saving or sending.
 
 ## Review Rules

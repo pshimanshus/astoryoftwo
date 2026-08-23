@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "role": "Cover / public contradiction"
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "role": "Cold open / mutual choice"
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "role": "Deepening / multiplication of demands"
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "role": "Conflict / hero proof"
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "role": "Turn / failed method, right person"
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "role": "Payoff / equal authorship"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Slide-Led Evidence Plan",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "visual_job": "Cover / public contradiction",
+      "scene": "EXTREME-WIDE THREE-QUARTER CUTAWAY COVER. Exactly Aachu and Zuv stand shoulder-to-shoulder on the same central ivory floor tile while a dreamlike shared house rises around them from one giant blueprint in the lower two-thirds. Half-stairs, open doorframes and corridors fold in impossible but airy domestic directions. Their inside hands clasp naturally at hip height; each studies a different corridor, yet their torsos remain aligned and touching. Faces are readable and concentrated, never doubtful about each other. Four visible hands total: inner pair clasped with clean wrist-to-forearm attachment, outer hands relaxed beside their own thighs. Architecture dissolves before the clean upper-third paper text zone. No other people, reflections, portraits, silhouettes, ghost figures or literal heart.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "visual_job": "Cold open / mutual choice",
+      "scene": "SYMMETRICAL MEDIUM VIEW inside one almost-empty shared room. Exactly Aachu and Zuv step away from two separate open doorways behind them and toward one another at the room center. One suitcase remains just outside each original doorway, proving two separate lives without labels. Their eyes lock and their inside hands have just met; one small folded blueprint lies unopened on the floor between their approaching feet. Late-afternoon light and generous emptiness; no architectural complications yet. Four visible hands, each fully attached: the inside pair meet once while outer hands hang naturally at their own sides. No rings close-up, key, altar, heart icon, extra person or reflection.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "visual_job": "Deepening / multiplication of demands",
+      "scene": "TRUE OVERHEAD WIDE SHOT. Exactly Aachu and Zuv kneel on opposite near edges of the now-unfolded single blueprint, each holding one separate corner with one hand while the paper itself folds upward into full-size walls, stairs and branching rooms around them. Their bodies turn toward different visible demands but remain close enough for shoulders to touch. Use only three lived traces: stacked moving cartons, one leaking tap and two work bags at diverging thresholds; no labels or microtext. Indigo plan lines split into several routes and their faces show astonished cognitive overload, not fear. Each person has exactly one visible map hand; all other hands are fully hidden by the overhead crop. Architecture occupies the lower two-thirds and dissolves into clean paper above.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "visual_job": "Conflict / hero proof",
+      "scene": "LOW FLOOR-LEVEL CLOSE VIEW of the same blueprint during a surreal indoor rain. Exactly Aachu and Zuv lean in from opposite sides of the frame, each using one clearly owned hand to hold a separate corner flat. Indigo ink visibly bleeds away until the route is unreadable. Both gaze down at the failed plan; neither looks to the other for rescue. Their expressions are tired and honestly baffled, never angry. Exactly two active hands are visible, each connected through a clean wrist and forearm; all other hands remain fully outside the crop. One unlit lamp and one wall-less doorway stay soft behind them. Rain is restrained watercolor evidence, not disaster spectacle; face and clothing edges remain distinct from the floor and plan. No pointing, shouting, touching across the map, extra limbs, people, reflections, words, icons, compass, heart or solution arrow. Clean upper-left paper for copy.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "visual_job": "Turn / failed method, right person",
+      "scene": "INTIMATE EYE-LEVEL REACTION SHOT at a physical dead end in the same impossible corridor. Exactly Aachu and Zuv sit shoulder-to-shoulder on the floor, damp clothes, scuffed shoes and blue-stained fingertips carrying the previous struggle forward. Together, one hand each turns the ruined blueprint over, revealing a clean blank reverse. Their eyes meet in one small exhausted smile: recognition, not consolation or rescue. Each person's outside hand remains fully out of frame; exactly two visible inside hands lift separate paper corners with traceable wrists and forearms. The unresolved corridor remains behind them but the wall above is clean paper for copy. No embrace, halo, heart, extra people, reflections or duplicate hands.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "visual_job": "Payoff / equal authorship",
+      "scene": "DAWN RELEASE, LOW FLOOR-LEVEL MEDIUM-WIDE. Exactly Aachu and Zuv stand on the same side of the blank reverse of the blueprint, shoulders aligned toward open unfinished space. Each holds one endpoint of a taut indigo carpenter's chalk line with one clearly owned inside hand; their outer hands rest visibly at their own thighs. A fresh blue line has just been snapped across the blank paper and a restrained bloom of chalk dust hangs above it. Both faces are large enough for identity review. They first look along the new mark, then toward each other with a tiny grounded smile. The impossible house behind remains incomplete; only the next line is known. Both stay on the same side of the line so it reads as a shared guideline, never a barrier. Neutral warm ivory dawn, not yellow. No finished destination, embrace, heart-shaped shadow, portal, finish flag, arrow, sign, extra person or reflection.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

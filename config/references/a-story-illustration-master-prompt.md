@@ -200,7 +200,7 @@ Previous approved A Story illustrations may guide tactile rendering and continui
 
 RECURRING PROPS AND MOTIFS:
 Use subtle recurring story objects when relevant:
-cream tote bag, blue-red patterned scarf, coffee cup, sneakers, phone with small heart sticker, plants, warm lanterns, balcony lights, wooden bench, cafe table, tiny hand-drawn hearts or evil eye, anklet on Aachu's leg, bracelet on Aachu's hand, engagement ring on the couple's fingers, Jenga, Crocs, laptop. Zuv must keep the evil-eye pendant with silver chain whenever the neckline/framing makes it visible or the scene does not logically hide it.
+cream tote bag, blue-red patterned scarf, coffee cup, sneakers, phone with small heart sticker, plants, warm lanterns, balcony lights, wooden bench, cafe table, tiny hand-drawn hearts or evil eye, anklet on Aachu's leg, engagement ring on the couple's fingers, Jenga, Crocs, laptop. Two worn identity anchors are mandatory rather than optional props and are always worn: Zuv's small round evil-eye locket on its slim silver chain, centered and visible whenever his neck/open collar/upper chest is visible; Aachu's evil-eye bracelet on her right wrist, visible whenever that wrist or forearm is visible. Never omit, redesign, replace, or switch the side of either accessory. If clothing, crop, pose, or natural occlusion hides one, record that physical reason in the prompt and QA. Optional decorative evil-eye motifs remain story-dependent.
 
 Props should feel intentional and story-driven, not random decoration. Use them only when required by the scene or relationship continuity; do not stuff every motif into every slide.
 

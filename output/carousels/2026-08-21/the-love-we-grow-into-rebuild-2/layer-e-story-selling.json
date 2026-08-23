@@ -1,0 +1,304 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "story_repair",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "source_memory_room": {
+      "name": "Context And Source Memory",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Successful Carousel Standard Reader",
+          "role": "creative north star",
+          "claim": "The route opens as a public relationship mirror and earns its thesis through concrete couple behavior."
+        }
+      ],
+      "summary": "The creator's fixed cover line, mature handling request, car continuity, and sendability target are all preserved.",
+      "inputs_used": [
+        "wiki/insights/successful-carousel-standard.md",
+        "memory/semantic/carousel-idea-preferences.md",
+        "creator-approved seven-slide rebuild"
+      ],
+      "debate_records": [
+        "Keep the wrong turn as the incident, the respected pause as the proof, and chai as the light return."
+      ],
+      "selected_outputs": {
+        "what_success_looks_like": "A viewer recognizes the space-versus-leaving distinction and sends the deck to a partner.",
+        "memory_policy": "Do not restore the rejected lock-check coda or introduce a second story."
+      }
+    },
+    "story_meaning_room": {
+      "name": "Story Meaning Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Romance Scene Writer",
+          "role": "emotional arc",
+          "claim": "The story moves from petty irritation to a boundary, respectful restraint, voluntary return, and play."
+        }
+      ],
+      "summary": "One continuous rainy evening now proves the difference between giving space and going away.",
+      "inputs_used": [
+        "slides.json",
+        "visual-plan-quality.json"
+      ],
+      "debate_records": [
+        "Aachu must own the boundary and the return; Zuv's care must be visible as restraint, not management."
+      ],
+      "scores": {
+        "The Love We Grow Into": 30.0
+      },
+      "selected_outputs": {
+        "raw_winner": "The Love We Grow Into",
+        "emotional_obstacle": "A request for a minute can be misheard as rejection or turned into real distance."
+      }
+    },
+    "audience_algorithm_room": {
+      "name": "Audience And Algorithm Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Share-Save Strategist",
+          "role": "distribution",
+          "claim": "The line about a minute without distance gives couples useful, sendable language."
+        }
+      ],
+      "summary": "The deck has a clear partner-send reason and a light final beat that prevents the middle from feeling preachy.",
+      "inputs_used": [
+        "cover copy",
+        "slide 5 recognition line",
+        "slide 7 biscuit payoff"
+      ],
+      "debate_records": [
+        "Recognition peaks on slide 5; the last-biscuit joke makes the ending feel lived rather than therapeutic."
+      ],
+      "selected_outputs": {
+        "distribution_reason": "Send this to the partner who wants to learn the difference between giving space and going away.",
+        "what_success_looks_like": "A viewer thinks this is us before admiring the illustration."
+      }
+    },
+    "contrarian_repair_room": {
+      "name": "Contrarian Repair Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Fresh Copy-Hidden Critic",
+          "role": "route attack",
+          "claim": "The seven observable cards read as disagreement, boundary, respected space, woman-led return, and play without relying on copy."
+        }
+      ],
+      "summary": "The prior chronology, house/door, floating-lock, and disconnected-coda failures were removed.",
+      "inputs_used": [
+        ".internal/event-a-blind-cards.json",
+        ".internal/event-a-blind-critic-response.md"
+      ],
+      "debate_records": [
+        "The fresh critic identified slide 5 as the weakest isolated card, but confirmed that slide 6 resolves its backward glance into a voluntary return."
+      ],
+      "selected_outputs": {
+        "verdict": "PASS",
+        "relationship_change": "opposed and separated to boundary expressed, respected, reappraised, and repaired through play"
+      }
+    },
+    "stage_scene_room": {
+      "name": "Stage-Scene Gate",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Stage Director",
+          "role": "blocking",
+          "claim": "Hands, gaze, body distance, phone state, stools, cups, and biscuit all change causally across the sequence."
+        }
+      ],
+      "summary": "Every emotional turn is staged as visible action before text.",
+      "inputs_used": [
+        "seven locked director frames",
+        "copy-hidden storyboard read"
+      ],
+      "debate_records": [
+        "The phone moves from active to dark to absent; body distance opens and closes; the empty stools become occupied; the final biscuit restores harmless irritation."
+      ],
+      "selected_outputs": {
+        "action": "Aachu raises a stop palm; Zuv stops, lowers the phone, and waits.",
+        "hands_or_object_movement": "The phone disappears from the relationship while chai and one last biscuit enter the repair.",
+        "reversal_or_payoff": "Aachu returns by choice and the couple resumes playful irritation."
+      }
+    },
+    "final_synthesis_room": {
+      "name": "Final Synthesis Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Story Lens Selector",
+          "role": "selection",
+          "claim": "Select the space-without-leaving route as the only story spine."
+        }
+      ],
+      "summary": "The mature thesis and light chai payoff now belong to the same incident.",
+      "inputs_used": [
+        "story meaning room",
+        "audience room",
+        "copy-hidden visual review"
+      ],
+      "debate_records": [
+        "No second anecdote, home scene, or lock-check callback is needed."
+      ],
+      "selected_outputs": {
+        "selected_story_lens": "Mature love hears the need beneath the sentence and leaves room for a voluntary return.",
+        "human_story_setup": "A tiny wrong turn tests whether space will become distance.",
+        "what_success_looks_like": "The final line feels earned by the visible behavior."
+      }
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "Give Me A Minute, Don't Go Far",
+      "story_lens": "Mature love does not mean never getting irritated; it means hearing the need beneath the sentence, respecting the pause, and choosing a small way back.",
+      "reader_mirror": "Couples who have turned a wrong turn into a silent standoff will recognize the difference between give me a minute and leave me alone forever.",
+      "emotional_obstacle": "One stupid wrong turn pushes Aachu and Zuv into the familiar risk that a request for space will be heard as rejection or become actual distance.",
+      "aachu_specific_spark": "Aachu names the boundary with a stop palm, notices that Zuv stayed without crowding, and initiates the return by pointing to chai.",
+      "zuv_active_role": "Zuv lowers and pockets the route phone, stops following, sits several feet away with open hands, and keeps his gaze elsewhere so she gets privacy without abandonment.",
+      "proof_engine": "opposite directions in parked car -> hands drop around looped route -> Aachu closes passenger door and raises stop palm -> Zuv lowers phone and waits at far end -> Aachu glances back and sees him unchanged -> she returns and points to chai -> two cups and one last biscuit restore play",
+      "emotional_reversal": "What first looks like withdrawal becomes proof of trust: his restraint makes room for her voluntary return, and her chai invitation turns distance back into play.",
+      "payoff": "They are not less irritating to each other; they are better at coming back before irritation becomes distance.",
+      "distribution_reason": "Send this to the partner who will say this is us and wants to learn the difference between giving space and going away.",
+      "process_influence_ids": [
+        "successful-carousel-standard",
+        "card-08"
+      ],
+      "score_total": 30.0,
+      "golden_theme_score_total": 30.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "opposite directions in parked car -> hands drop around looped route -> Aachu closes passenger door and raises stop palm -> Zuv lowers phone and waits at far end -> Aachu glances back and sees him unchanged -> she returns and points to chai -> two cups and one last biscuit restore play",
+        "reaction": "His restraint makes room for her voluntary return, and her chai invitation turns distance back into play.",
+        "eye_line_or_attention": "Zuv looks away while waiting; Aachu looks back to verify the space was respected; both follow her gesture to the kettle.",
+        "hands_or_object_movement": "The pointing hands drop, Aachu's stop palm interrupts pursuit, Zuv lowers and pockets the phone, and four owned hands carry two cups and one biscuit in the payoff.",
+        "silence_or_pause": "Zuv waits quietly at the far end of the barrier without reaching, watching, or leaving.",
+        "consequence": "Aachu can return by choice, and the couple's irritation becomes play rather than rupture.",
+        "reversal_or_payoff": "Not less irritated; just better at coming back.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [],
+  "rejected_routes": [],
+  "selected_story_lens": "Mature love does not mean never getting irritated; it means hearing the need beneath the sentence, respecting the pause, and choosing a small way back.",
+  "emotional_machine": "one wrong turn becomes shared irritation -> Aachu asks for space -> Zuv stops and waits without leaving -> Aachu sees the boundary respected -> she returns with chai -> playful irritation resumes",
+  "proof_engine": "opposite directions in parked car -> hands drop around looped route -> Aachu closes passenger door and raises stop palm -> Zuv lowers phone and waits at far end -> Aachu glances back and sees him unchanged -> she returns and points to chai -> two cups and one last biscuit restore play",
+  "reader_mirror": "Couples who have turned a wrong turn into a silent standoff will recognize the difference between give me a minute and leave me alone forever.",
+  "distribution_reason": "Send this to the partner who will say this is us and wants to learn the difference between giving space and going away.",
+  "human_story_setup": {
+    "cold_reader_doorway": "A tiny wrong turn becomes the kind of disproportionate irritation couples instantly recognize.",
+    "emotional_obstacle": "A request for a minute can be misheard as rejection or turned into real distance.",
+    "visible_human_proof": "Aachu raises one stop palm; Zuv stops, pockets the phone, and waits at the far end without staring or leaving.",
+    "active_partner_role": "Zuv makes restraint visible by doing less: no pursuit, no speech, no departure.",
+    "emotional_turn": "Aachu looks back, sees the boundary respected, and returns by choice.",
+    "shareable_setup": "The deck gives partners simple language for space without abandonment.",
+    "earned_payoff": "Two cups and a fight over the last biscuit show that irritation can return safely as play."
+  },
+  "success_definition": {
+    "audience_success": "A cold viewer thinks this is us and sends the carousel to a partner because the relationship distinction is useful and familiar.",
+    "creative_success": "The deck reads silently as incident, boundary, restraint, voluntary return, and comic payoff.",
+    "brand_success": "The work feels mature, warm, observational, desi, and specific to Aachu and Zuv without turning either person into a lesson prop.",
+    "production_success": "Seven native 1080x1440 slides pass identity, anatomy, exact-text, brandmark, continuity, and image-first visual-story audits.",
+    "source": "wiki/insights/successful-carousel-standard.md"
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "opposite directions in parked car -> hands drop around looped route -> Aachu closes passenger door and raises stop palm -> Zuv lowers phone and waits at far end -> Aachu glances back and sees him unchanged -> she returns and points to chai -> two cups and one last biscuit restore play",
+    "reaction": "His restraint makes room for her voluntary return, and her chai invitation turns distance back into play.",
+    "eye_line_or_attention": "Zuv looks away while waiting; Aachu looks back to verify the space was respected; both follow her gesture to the kettle.",
+    "hands_or_object_movement": "The pointing hands drop, Aachu's stop palm interrupts pursuit, Zuv lowers and pockets the phone, and four owned hands carry two cups and one biscuit in the payoff.",
+    "silence_or_pause": "Zuv waits quietly at the far end of the barrier without reaching, watching, or leaving.",
+    "consequence": "Aachu can return by choice, and the couple's irritation becomes play rather than rupture.",
+    "reversal_or_payoff": "Not less irritated; just better at coming back.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "successful-carousel-standard",
+      "title": "Successful Carousel Standard",
+      "influence_type": "living_standard",
+      "source_patterns": [],
+      "confidence": 0.9,
+      "reason": "Keeps the route relationship-first, behavior-led, and sendable."
+    },
+    {
+      "id": "card-08",
+      "title": "Small Ritual, Large Promise",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "reedsy-romance-guide",
+        "copyblogger-story-that-sells"
+      ],
+      "confidence": 0.78,
+      "reason": "Chai becomes proof of voluntary repair rather than the premise."
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 5.0,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 30.0
+  },
+  "golden_theme_score": {
+    "universal_hook": 5.0,
+    "aachu_zuv_specificity": 5.0,
+    "concrete_proof": 5.0,
+    "zuv_emotional_role": 5.0,
+    "tender_thesis": 5.0,
+    "share_send_potential": 5.0,
+    "total": 30.0
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "c_layer": {
+      "must_preserve": [
+        "selected_story_lens",
+        "emotional_machine",
+        "proof_engine",
+        "reader_mirror",
+        "distribution_reason"
+      ],
+      "golden_theme_gate": "required_for_carousel"
+    },
+    "d_layer": {
+      "article_angle_source": "selected_story_lens"
+    },
+    "b_layer": {
+      "prepost_brief_source": "rooms"
+    }
+  },
+  "metadata": {
+    "source_register_path": "config/references/story-selling-canon/source-register.json",
+    "reference_paths": [
+      "wiki/insights/successful-carousel-standard.md",
+      "memory/semantic/carousel-idea-preferences.md"
+    ],
+    "constraints": [
+      "one continuous car-to-roadside-chai evening",
+      "car, not scooter",
+      "no lock-check coda",
+      "mature handling with a light ending"
+    ],
+    "requested_tone": "mature, light, observational",
+    "reference_images": [
+      "config/references/identity/together/together-01.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/aachu/reel-jaldi.jpg"
+    ],
+    "repair_evidence": [
+      ".internal/event-a-blind-cards.json",
+      ".internal/event-a-blind-critic-response.md"
+    ]
+  }
+}

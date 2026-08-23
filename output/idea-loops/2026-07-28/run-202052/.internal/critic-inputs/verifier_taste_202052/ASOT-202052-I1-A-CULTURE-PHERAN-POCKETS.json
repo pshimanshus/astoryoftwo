@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-202052",
+  "iteration": 1,
+  "verifier_task_id": "verifier_taste_202052",
+  "verifier_lens": "stage_scene_taste_safety",
+  "candidate_id": "ASOT-202052-I1-A-CULTURE-PHERAN-POCKETS",
+  "blind_input_sha256": "fb28f69b24c69d1ed5af3313e3bf58f8d21fc91aabcfe5076a9d983c3105a873",
+  "card": {
+    "candidate_id": "ASOT-202052-I1-A-CULTURE-PHERAN-POCKETS",
+    "alive_premise": "Two pherans hang side by side; before the couple appears, viewers guess whose is whose from the tiny lives collected in their pockets.",
+    "moment_origin": "generic_relationship_hypothesis",
+    "moment_origin_detail": "No Aachu/Zuv lived fact is claimed. Pheran use and pocket contents require creator and cultural confirmation.",
+    "moment_origin_path": null,
+    "lived_fact_status": "NOT_CLAIMED",
+    "title": "The Pheran Pocket Test",
+    "concrete_moment": "At a winter entryway, each partner grabs the other's hanging pheran. An unfamiliar object emerging from each pocket stops them. They inspect the inventories, recognize whose garment they hold, exchange them, and restore the displaced objects to the correct pockets.",
+    "universal_truth": "Intimacy is knowing a person through the ordinary traces they carry, not only through their face or words.",
+    "audience_mirror": "Couples who can identify each other's coat, bag or side of a room from its contents; Kashmiri viewers receive the pheran as lived winter context.",
+    "scroll_stop": "A face-hidden guessing game presents two pherans and two pocket inventories before revealing either owner.",
+    "emotional_contradiction": "A publicly recognizable garment hides private evidence of who each person is.",
+    "scene_proof": [
+      "Two worn pherans hang with distinct ordinary objects peeking from their pockets.",
+      "Two hands select the wrong garments and freeze on discovering unfamiliar objects.",
+      "The objects cross the doorway with the exchanged garments.",
+      "Both restore one displaced object for the other before wearing the correct pherans."
+    ],
+    "relationship_motion": "A mistaken grab becomes mutual recognition and a two-way exchange; both partners complete the correction.",
+    "retention_ladder": [
+      "Invite the viewer to match each pocket inventory to its unseen owner.",
+      "Reveal both confidently choosing the wrong garment.",
+      "Let an object expose each mistake.",
+      "Delay faces through the mirrored exchange.",
+      "Land on both restoring the other's belongings."
+    ],
+    "payoff": "Love has learned the shape of each person's ordinary, carried life.",
+    "dm_send_reason": "Send it to the person whose jacket, bag or pockets you could identify without seeing them.",
+    "format_recommendation": "Illustrated carousel as a visual match-and-reveal game.",
+    "asot_turn": "The pheran is an inhabited relationship object; pocket archaeology carries cultural specificity and tenderness through equal participation.",
+    "evidence_paths": [
+      "output/reports/2026-06-27-instagram-growth-playbook-application.md",
+      "corpus/posts/2026-06-06-posts.json",
+      "memory/semantic/carousel-idea-preferences.md",
+      "wiki/insights/successful-carousel-standard.md"
+    ],
+    "collision_paths": [
+      "output/carousels/2026-07-21/not-married-yet-already-us/concept.json",
+      "output/carousels/2026-07-03/still-learning-love-2/concept.json",
+      "output/carousels/2026-06-28/small-bids/concept.json"
+    ],
+    "novelty_fingerprint": "pheran + face-hidden pocket match + mutual wrong grab + two-way exchange + carried traces",
+    "risks": [
+      "Pheran construction and winter-use details require cultural review.",
+      "It can feel tokenizing if treated as costume.",
+      "Pocket inventories must not imply undocumented belongings."
+    ]
+  }
+}

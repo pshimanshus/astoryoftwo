@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "a4f69ebf7aeef5300013d7c4e3243a2687f8f6f10299f052648c91d3cb5ac172",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+        "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 expected separate_from but observed occluded_by.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 boundary is not continuous.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 has ambiguous occlusion order.",
+        "visual-qa.json spatial_topology slide 1 contains ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 expected separate_from but observed occluded_by.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 boundary is not continuous.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 has ambiguous occlusion order.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 contains ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table."
+      ]
+    },
+    {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "7d46c19c1809f21d52a72960ec1386f90fd4b2b4fa46d12480acb81695f0a712",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json image_set_sha256 is missing or stale",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 6 instagram_post QA hash is stale",
+        "slide 6 instagram_post anatomy_inventory source_asset hash is stale",
+        "slide 6 instagram_post scene_entity_integrity source_asset hash is stale",
+        "slide 6 instagram_post visual_richness source_asset hash is stale",
+        "visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+        "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 expected separate_from but observed occluded_by.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 boundary is not continuous.",
+        "visual-qa.json spatial_topology slide 1 person 2 body region 1 has ambiguous occlusion order.",
+        "visual-qa.json spatial_topology slide 1 contains ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "visual_story_readability is stale for the complete current director Event A payload.",
+        "visual_story_readability.frames[1:instagram_post].image_fingerprint is stale for the rendered file."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json image_set_sha256 is missing or stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post QA hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post anatomy_inventory source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post scene_entity_integrity source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post visual_richness source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 expected separate_from but observed occluded_by.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 boundary is not continuous.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 body region 1 has ambiguous occlusion order.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 contains ambiguous regions: Zuv's inner lower leg is crossed and partially occluded by the coffee table.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability is stale for the complete current director Event A payload.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].image_fingerprint is stale for the rendered file."
+      ]
+    },
+    {
+      "attempt": 3,
+      "retry_count": 2,
+      "image_set_sha256": "5b602a246f58398f1075090bedb85eb32d198731f6ef567e543c04ce2c070c41",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS"
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS"
+      ]
+    }
+  ]
+}

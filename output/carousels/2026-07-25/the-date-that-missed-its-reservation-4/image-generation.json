@@ -1,0 +1,225 @@
+{
+  "status": "GENERATED_QUARANTINED",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-02/final/slide-07.png",
+          "sha256": "9378a71a08fd79657f9393c8904a266f1e386b425fcd5148f22820106dbb51ba",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-02/model-native-source/instagram-post-slide-07.png",
+            "sha256": "311548a658faabf3e632c088cc84bb328ed45633c255797c3123d278ece95f62",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Visual QA failed; regenerate with targeted repairs before packaging.",
+  "proof_state": "GENERATED_QUARANTINED",
+  "retry_count": 1,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 1,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-02",
+  "image_set_sha256": "b6cc9cf38f0d6ebb2163e583bb80665ce23ada395f21795ae2713332e460b2e8",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 7,
+  "total_slide_count": 7,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      7
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:a8ec7b2aacf171d53a81a076e63bf91c39c81f9344e56562a919b2a88adc6551"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:164363219224f7655a8bfb8503bf82a77ef887d6948a7c8620c4aa8a7ea958b4"
+      }
+    },
+    "files": [
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:79b583b123b90c355409d94f5f8b5c8161846d17335c2cf37a988466c3b80e8b"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.md",
+        "sha256": "sha256:ea414e2a0cddb01d3ada6effa3722e56bd8c1809616690e5950ee5e52b8ebc44"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:8eb4369eeb4a8f7d948cfdc78aabf925de3d7e593f0e30edf7137010e30bd4bd"
+  },
+  "retry_prompt_handoff_attestation": {
+    "schema_version": "retry-prompt-handoff/v1",
+    "source_status": "GENERATED_QUARANTINED",
+    "proof_slide": 7,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "failed_image_set_sha256": "d0dfb222405066f64aa7d2d74df77354db214ee46cce8473488e8de412557785",
+    "failed_attempt": {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "d0dfb222405066f64aa7d2d74df77354db214ee46cce8473488e8de412557785",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 7 instagram_post observed arms do not match expected arms",
+        "slide 7 instagram_post observed hands do not match expected hands",
+        "slide 7 instagram_post hand 1 is not required by the locked scene",
+        "slide 7 instagram_post hand 3 fails hand-object contact geometry",
+        "slide 7 instagram_post scene_entity_integrity arms inventory does not match",
+        "slide 7 instagram_post scene_entity_integrity hands inventory does not match",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "visual_story_readability declares unresolved issues while claiming PASS."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post observed arms do not match expected arms",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post observed hands do not match expected hands",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post hand 1 is not required by the locked scene",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post hand 3 fails hand-object contact geometry",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post scene_entity_integrity arms inventory does not match",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post scene_entity_integrity hands inventory does not match",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS."
+      ]
+    },
+    "visual_qa_binding": {
+      "relative_path": "visual-qa.json",
+      "sha256": "sha256:c1e489137ef8232f7fbc9b4ec8e38c6bde159b75ac9490ce6f04087c1228481d"
+    },
+    "attempt_ledger_binding": {
+      "relative_path": ".internal/visual-qa-attempts.json",
+      "sha256": "sha256:7165a9b331903320759127d6c3734b76eb82bb6fa149b84e69b197dc5b6dd783"
+    },
+    "gate_input_bindings": [
+      {
+        "relative_path": "format-contract.json",
+        "sha256": "sha256:d8298ddd0fe2423018752adf00b509946e4e376c8a8e11560a9b8769aaf40fdf"
+      },
+      {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:a8ec7b2aacf171d53a81a076e63bf91c39c81f9344e56562a919b2a88adc6551"
+      },
+      {
+        "relative_path": "slides.json",
+        "sha256": "sha256:164363219224f7655a8bfb8503bf82a77ef887d6948a7c8620c4aa8a7ea958b4"
+      },
+      {
+        "relative_path": "visual-plan-quality.json",
+        "sha256": "sha256:454d396c59b5178a3a48f17832d771118a2940aaa90ee8b42a244c3f0a9e3e61"
+      },
+      {
+        "relative_path": "identity-consistency-review.json",
+        "sha256": "sha256:cd3a1f0f8d057b62f385a711fdb64e9bfd992ad9c2dca35f4acc0ad3898ff1ce"
+      },
+      {
+        "relative_path": "review.json",
+        "sha256": "sha256:e6ea1fef191161d27897645e33ed11b771eddc1f527502233f5702e5403fab1c"
+      },
+      {
+        "relative_path": "layer-e-story-selling.json",
+        "sha256": "sha256:6e460b65e523081b65ddb5cb9efa40826446ba524f7f56afb5dd0f350596a2e4"
+      },
+      {
+        "relative_path": "stage-reviews.json",
+        "sha256": "sha256:45e8396da118853b533783497fce8665c0c5057c8916c7db9714bf5b34342800"
+      }
+    ],
+    "previous_handoff_set_fingerprint": "sha256:8eb4369eeb4a8f7d948cfdc78aabf925de3d7e593f0e30edf7137010e30bd4bd",
+    "replacement_handoff_set_fingerprint": "sha256:8eb4369eeb4a8f7d948cfdc78aabf925de3d7e593f0e30edf7137010e30bd4bd",
+    "previous_prompt_backup_dir": ".internal/codex-image-prompts-previous/attempt-01",
+    "previous_prompt_files": [
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-01/instagram-post/slide-07.md",
+        "sha256": "sha256:ea414e2a0cddb01d3ada6effa3722e56bd8c1809616690e5950ee5e52b8ebc44"
+      },
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-01/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:79b583b123b90c355409d94f5f8b5c8161846d17335c2cf37a988466c3b80e8b"
+      }
+    ],
+    "next_retry_count": 1,
+    "attestation_fingerprint": "sha256:5e1b23056cfebcbd5038208a9afa6ec64215f9edef691170539cfd0435e8372e"
+  },
+  "visual_qa_path": ".internal/visual-qa-attempt-02.json",
+  "visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 7 instagram_post observed hands do not match expected hands",
+    "slide 7 instagram_post hand 1 is not required by the locked scene",
+    "slide 7 instagram_post scene_entity_integrity hands inventory does not match",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+    "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+    "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+    "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+    "visual_story_readability declares unresolved issues while claiming PASS."
+  ]
+}

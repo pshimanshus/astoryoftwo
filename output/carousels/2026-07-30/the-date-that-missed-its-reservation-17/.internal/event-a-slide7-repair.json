@@ -1,0 +1,95 @@
+{
+  "blind_card": {
+    "slide": 7,
+    "visible_people": [
+      "one woman",
+      "one man"
+    ],
+    "visible_setting": "A dry apartment corridor seen entirely from outside one dominant fully closed warm-brown wooden apartment door. Two hinges are visible on the left edge. One waist-height exterior lever sits only 7 to 10 centimetres from the opposite right latch edge. A small cropped elevator at far left is visibly mid-close: its metal leaves cover about 80 percent and leave a black vertical opening 15 to 20 percent of the lift width.",
+    "observable_action": "The man stands immediately right of the jamb in strict left-facing side profile, keeping one continuous anatomical left arm line to the right-edge lever. The woman has exactly two separate footprint lanes: an outbound lane of three prints from the apartment threshold toward the lift opening, a tight visible 180-degree U beside that opening, and a separate return lane of three prints ending at her raised heel as her right palm pushes the same door's center-left wood. Small direction ticks clarify outward travel and return travel.",
+    "hands_and_contact": "Exactly two hands are visible. The man's anatomical left hand depresses the latch-side lever. The woman's right palm presses uninterrupted brown wood with grain around every finger. Her left hand and his right hand are completely occluded. The rolled umbrella clips to her tote without a hand. No person touches the other.",
+    "gaze": "Each person looks at their own door contact, not at one another or the viewer.",
+    "body_blocking": "The man stays outside the right jamb in side profile while the woman stands before the center-left wood panel. Clear air separates their torsos and limbs.",
+    "object_state": "The apartment door is fully closed and physically coherent. The elevator is visibly mid-close rather than shut. The two footprint lanes do not overlap, cross, merge, or become one decorative curve anywhere except at their single tight U beside the lift. No key, fob, control plate, extra person, reflection, vehicle, or helmet appears.",
+    "camera_view": "A medium-wide straight-on full-body view shows the entire door slab, left hinges, true right latch edge, short-backset lever, both separate contacts, body gap, mid-closing far-left elevator, and the complete two-lane outward-U-return movement receipt.",
+    "visible_continuity": "Dry clothes, tote, hands-free rolled umbrella, visibly closing lift, and the distinct outward and return footprint lanes make this a before-departure callback rather than an arrival."
+  },
+  "director_slide": {
+    "slide": 7,
+    "status": "PASS",
+    "inference_match": true,
+    "narrative_job": "Affectionate callback and shared-habit payoff",
+    "silent_read": "Before departure, the man stays beside the real latch edge of a closed apartment door while the woman U-turns from a still-closing elevator to add her own palm check on the same wood.",
+    "change_from_previous": "The final frame makes the departure chronology and hand ownership explicit: a mid-closing lift, two separate footprint lanes joined by one tight U, and exactly two visible action hands.",
+    "critic_evidence": "Left hinges oppose a short-backset right-edge lever. A 15 to 20 percent lift opening remains visible. Three outbound prints and three separately placed return prints meet only at one tight U beside the lift, with direction ticks proving the reversal. The man's strict left profile attributes the lever to his anatomical left hand; both spare hands are fully occluded.",
+    "staged_action": {
+      "subject": "Zuv and Aachu",
+      "action": "Zuv tests the real right-edge lever with his left hand while Aachu returns along a separate footprint lane and pushes the same door's center-left wood with her right palm.",
+      "target_or_object": "One fully closed, physically coherent apartment door.",
+      "reaction_or_consequence": "Their separate actions become one shared security ritual."
+    },
+    "pov": {
+      "owner": "Aachu's U-turn",
+      "audience_knows": "She had walked toward the lift before turning back to join his check.",
+      "audience_feels": "The habit she teases is one she has quietly grown into."
+    },
+    "shot": {
+      "size": "Medium-wide full-body story shot",
+      "angle": "Straight-on exterior corridor angle",
+      "camera_position": "Entirely outside, showing the full door width and far-left lift.",
+      "focal_subject": "Two separate functional contacts plus two separate travel lanes joined by a visible U.",
+      "story_reason": "The whole geometry proves real hardware, return chronology, and hand ownership in one frame."
+    },
+    "blocking": {
+      "hands": "Only Aachu's right palm and Zuv's anatomical left lever hand are visible.",
+      "gaze": "Each looks at their own contact.",
+      "body_distance": "Clear air separates them.",
+      "posture_or_feet": "Zuv is strict left-facing profile; Aachu's raised heel terminates the return lane from the mid-closing lift."
+    },
+    "setting": {
+      "sub_location": "Dry exterior corridor with a closed brown door and a small mid-closing lift far left.",
+      "time": "Interrupted departure before the rainy outing.",
+      "motivated_light": "Clean warm corridor light.",
+      "story_trace": "Dry wardrobe, tote, hands-free umbrella, real lift gap, and a two-lane outward-U-return footprint map."
+    },
+    "story_evidence": [
+      {
+        "carrier": "Left hinges, true right-edge lever, mid-closing lift, two distinct footprint lanes with direction ticks, and exactly two visible action hands.",
+        "observable_state": "He remains at the latch edge while only she travels outward, reverses beside the lift, and returns to add her check.",
+        "narrative_job": "Prove the shared pre-departure ritual without impossible hardware, ambiguous travel, or stray hands."
+      }
+    ],
+    "text_image_relationship": "interdependent",
+    "continuity": {
+      "incoming_state": "The rainy outing has reached playful repair.",
+      "outgoing_state": "A dry nonlinear bookend reveals their shared departure ritual."
+    },
+    "entity_contract": {
+      "expected_people": 2,
+      "background_people": [],
+      "reflections": [],
+      "forbidden_entities": [
+        "neighbor",
+        "delivery person",
+        "duplicate couple",
+        "human reflection",
+        "scooter",
+        "motorbike",
+        "helmet"
+      ]
+    },
+    "unresolved_ambiguities": [],
+    "resolved_ambiguities": [
+      {
+        "competing_read": "The lever previously floated too far inside the wooden slab.",
+        "repair": "Reconstruct the full-height right latch edge and jamb only 35 to 45 pixels to the right of the existing lever spindle, converting the former door strip beyond that jamb into pale corridor trim.",
+        "recheck_evidence": "A fresh critic must identify the lever as short-backset latch hardware at the true door edge."
+      },
+      {
+        "competing_read": "The return path could collapse into one ambiguous decorative curve.",
+        "repair": "Use three outbound prints and three separate return prints, joined only by one tight visible 180-degree U beside the lift; the lanes never overlap, cross, or merge elsewhere, and direction ticks make each lane's travel leg clear.",
+        "recheck_evidence": "A fresh critic must independently identify the outbound leg, lift-side U, and separate return leg ending at Aachu's raised heel."
+      }
+    ]
+  }
+}

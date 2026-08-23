@@ -1,0 +1,447 @@
+{
+  "status": "supplied",
+  "source": "Creator-approved chat route with car and across-road destination correction on 2026-07-20, repaired after the creator explicitly rejected scooter continuity",
+  "source_file": "output/concepts/2026-07-20/the-date-that-missed-its-reservation-creative-baseline.json",
+  "creative_authority": "model_first",
+  "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+  "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance.",
+  "concept": {
+    "title": "The Date That Missed Its Reservation",
+    "human_truth": "Mature love does not remove childish irritation; it learns the feeling beneath it and still finds a way back to play.",
+    "emotional_arc": "playful departure -> small irritation -> respectful pause -> disappointment understood -> accidental roadside date -> affectionate callback"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual": "Rain-damp evening beside a tiny roadside chai stall. Exactly Aachu and Zuv stand under one umbrella beside their modest dark car, safely parked on the quieter service lane away from traffic, dressed for a proper date. Across the divided road, through moving cars, the intended restaurant on the next road is visibly close but inconvenient to reach. The chai stall glows immediately beside them. Aachu points toward the chai stall with her right hand while her left hand stays relaxed at her side. Zuv holds the umbrella in his right hand and lowers the phone map in his left; they exchange a small conspiratorial 'shall we?' look. This is the decision before the accidental date, not the seated payoff. No chai vendor or background people visible.",
+      "role": "Cover / public hook / emotional destination",
+      "emotion": "rainy frustration turning into a shared mischievous decision",
+      "props": "one umbrella, one modest dark parked car, lowered phone map, glowing chai stall, distant restaurant frontage across divided road",
+      "continuity_lock": "Same date-night wardrobe, same modest dark car, same umbrella, and same rainy evening continue through slides 2-7. Exactly two visible people in every frame. No scooter or helmets.",
+      "cta_intent": "Send this as: this is the kind of love I want us to grow into.",
+      "hand_map": {
+        "scene_action_binding": "Aachu points to the chai stall; Zuv holds the umbrella and lowers the phone map.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 4,
+        "default_max_visible_hands": 4,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "visible_relaxed",
+            "action": "Rest naturally at her own side; touch nothing.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Point only toward the glowing chai stall.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one lowered phone map at his own side.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Hold the single umbrella handle above both people.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "swapped prop ownership",
+          "anonymous hand",
+          "shared arm",
+          "umbrella in Aachu's hand",
+          "phone in Aachu's hand"
+        ]
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "The date began with one missing key\nand two suspects.",
+      "visual": "Inside their entryway before leaving, Aachu holds a soft tote by its strap with her left hand and points a playful accusing finger with her right while Zuv checks one jacket pocket with his right hand and looks theatrically innocent. His left hand stays relaxed and visible. The missing car key is visibly caught in the tote strap between them. Exactly two people; the physical evidence makes the joke readable without text.",
+      "role": "Cold open / playful proof",
+      "emotion": "playful accusation",
+      "props": "car key, tote bag, closed umbrella near the door",
+      "continuity_lock": "Same date-night wardrobe, car key, tote, and umbrella used throughout the outing. No scooter or helmets.",
+      "cta_intent": "Recognize our silly pre-date fights over one tiny thing.",
+      "hand_map": {
+        "scene_action_binding": "Aachu holds the tote and accuses; Zuv searches one jacket pocket.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 4,
+        "default_max_visible_hands": 4,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold only the soft tote strap with the caught key visible.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Point one playful accusing finger toward Zuv.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "visible_relaxed",
+            "action": "Rest open at his own side; touch nothing.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Search only one jacket pocket.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "key in Zuv's pocket",
+          "key in a hand",
+          "two hands inside one pocket",
+          "anonymous hand"
+        ]
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "By the third wrong turn,\nnobody was cute anymore.",
+      "visual": "They stand beside their modest dark car, safely parked on the quieter service lane of a rain-slick divided road. A phone map in Zuv's hand reroutes while the intended restaurant is frustratingly visible across the traffic on the next road. Aachu holds the closed umbrella downward and looks away toward the restaurant, tired and irritated; Zuv studies the route with restrained frustration. Exactly two visible people and no human reflections.",
+      "role": "Mirror / irritation",
+      "emotion": "comic frustration tipping into real irritation",
+      "props": "parked dark car, closed umbrella, phone map without legible UI text, traffic divider, distant restaurant frontage",
+      "continuity_lock": "Same car, route, wardrobe, umbrella, weather, and evening. The parked car must remain separate from moving traffic.",
+      "cta_intent": "Send this as: us when one simple route becomes the whole fight.",
+      "hand_map": {
+        "scene_action_binding": "Aachu holds the closed umbrella downward; Zuv holds the rerouting phone map.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Hold the single closed umbrella pointing down.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold and study one phone map.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "open umbrella",
+          "phone in Aachu's hand",
+          "umbrella in Zuv's hand",
+          "anonymous hand"
+        ]
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+      "visual": "At a safe recessed roadside edge near their parked dark car, Aachu faces slightly away with arms folded. Zuv stays beside the car several feet behind her, body open and grounded, not reaching or crowding. His phone hangs lowered at his side; the closed umbrella leans securely against the car. The empty space between them communicates a respected pause while his remaining nearby communicates care. Exactly two people.",
+      "role": "Spine / mature pause",
+      "emotion": "hurt, restraint, emotionally available space",
+      "props": "parked dark car, lowered phone, closed umbrella",
+      "continuity_lock": "Same road, weather, wardrobe, car, phone, and umbrella.",
+      "cta_intent": "Save or send this as: give me a minute, not distance.",
+      "hand_map": {
+        "scene_action_binding": "Aachu folds her arms without reaching; Zuv stays nearby with one lowered phone.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "naturally_occluded",
+            "action": "Stay tucked against her opposite upper arm within the folded-arm posture.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "naturally_occluded",
+            "action": "Stay tucked against her opposite upper arm within the folded-arm posture.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone lowered at his own side.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "touching Aachu",
+          "reaching toward Aachu",
+          "extra hand",
+          "phone in Aachu's hand",
+          "anonymous hand"
+        ]
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+      "visual": "Across the road outside the intended restaurant, the frontage is closed or inaccessible after the long detour. Aachu's irritation has fallen into quiet disappointment as she looks at the dark entrance. Zuv notices her expression rather than the shutter, holding the phone down at his side. Their body distance has narrowed but they do not yet touch. Exactly two people, no background diners or staff.",
+      "role": "Rhythm / what was underneath",
+      "emotion": "disappointment becoming understanding",
+      "props": "restaurant frontage across the divided road, phone held down, partial parked car, rain traces",
+      "continuity_lock": "Same evening, wardrobe, car route, and date.",
+      "cta_intent": "Recognize the small fight that is really two people missing ordinary time.",
+      "hand_map": {
+        "scene_action_binding": "Zuv holds the phone down while noticing Aachu's disappointment.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone down at his own side.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "raised phone",
+          "phone in Aachu's hand",
+          "touching before the payoff",
+          "anonymous hand"
+        ]
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "The plan failed.\nThe date didn’t.",
+      "visual": "At the tiny roadside chai stall beside their safely parked dark car, Aachu steals a sip from Zuv's chai after finishing hers. The glass is visibly at her own lips, not being offered to him. Zuv gives her a mock-offended look while protecting the biscuit packet against his chest. Two stools are now pulled close. The unreachable restaurant glows softly across the divided road behind traffic. Exactly two people, vendor out of frame.",
+      "role": "Turn / accidental date",
+      "emotion": "comic release and renewed closeness",
+      "props": "two chai glasses, biscuit packet, two close stools, parked dark car, distant restaurant",
+      "continuity_lock": "Exact return to the cover location and same wardrobe.",
+      "cta_intent": "Send this as: the plan failed, but we still had the date.",
+      "hand_map": {
+        "scene_action_binding": "Aachu drinks from the chai glass at her own lips; Zuv protects the biscuit packet.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Hold one chai glass at Aachu's own lips for her sip.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain naturally outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Clutch the biscuit packet against his own chest.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "Zuv offering the glass",
+          "glass at Zuv's lips",
+          "glass held by Zuv",
+          "extra hand",
+          "anonymous hand"
+        ]
+      }
+    },
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "visual": "Dry exterior corridor before departure. Straight-on medium-wide full-body view. One fully closed brown wooden door fills center-left to right. Show its whole slab: two hinges on the LEFT edge; one exterior lever on the opposite RIGHT latch edge at 95 centimetres, spindle only 7 to 10 centimetres from that edge, narrow wood strip before jamb. No central hardware. Far left, a small cropped elevator is visibly MID-CLOSE: metal leaves cover about 80 percent, leaving one black vertical opening 15 to 20 percent of the lift width plus two closing ticks; no controls or cabin detail. Exactly Aachu and Zuv outside with clear air. Zuv stands right of the jamb in strict LEFT-FACING SIDE PROFILE. His anatomical LEFT shoulder, elbow, forearm, wrist, and hand form one visible line making a short reach to the lever. His RIGHT arm and hand are completely hidden behind his torso: zero visible wrist, hand, or fingers. Only Aachu returns. On the floor, two faint outward footprints run from the apartment door toward the lift, make a tight U-turn beside its opening, then three return ticks lead to her raised right heel pointing back at the door. Her anatomical RIGHT palm lands one handspan inside center-left wood, grain around every finger; locked elbow, shoulder weight, and two compression strokes make a forceful push. Her LEFT arm and hand are completely hidden behind torso and tote. The rolled dry umbrella clips to the tote strap hands-free. Only two hands visible total: Aachu's right palm and Zuv's left lever hand. Each looks at their own contact. Preserve attached-reference faces, hair, and height. Aachu: white shirt, blue jeans, red flats. Zuv: plain pale-blue striped shirt, grey trousers, red-black shoes; no embroidery, logo, brand, letters, or words. Text follows locked breaks: first sentence one line, second sentence one line, blank line, final two lines. Only visible words are locked copy and one tiny top-right @a.storyof.two. No center handle, casual palm, key, interior, fully closed lift, wetness, extra hands, couple touch, scooter, motorbike, or helmets.",
+      "role": "Payoff / affectionate callback",
+      "emotion": "affectionate recognition without a moral",
+      "props": "closed brown door with left hinges and right-edge waist-height lever, Zuv's left lever hand, Aachu's right wood-panel palm, far-left lift visibly 80 percent closed with a 20 percent black opening, U-turn footprint path, hands-free tote-clipped umbrella; no center handle, wall fixture, key, or fob",
+      "continuity_lock": "Before rain, outside one closed door. Hinges left; lever 7 to 10 centimetres from opposite right edge. Far-left lift visibly mid-close with a 15 to 20 percent opening. A floor path goes door to lift, U-turns, then returns to Aachu's heel. Zuv is strict left-facing profile with only his left lever hand visible. Aachu has only her right wood-panel palm visible. Exactly two visible hands, separated bodies, reference identity and wardrobe, plain unlettered Zuv shirt. No central handle, extra text, wall touch, key, interior, wetness, overlap, or arrival reading.",
+      "cta_intent": "Send this to the partner whose habit you tease and secretly share.",
+      "hand_map": {
+        "scene_action_binding": "Before departure outside the closed apartment door, only Aachu U-turns from a visibly mid-closing elevator. Exactly her right palm and Zuv's anatomical left lever hand are visible. Hinges are left and the lever is 7 to 10 centimetres from the opposite right edge.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_occluded",
+            "action": "Remain completely hidden behind her torso and tote: show zero wrist, hand, or fingers. Clip the dry rolled umbrella to the tote strap so no hand holds it.",
+            "attachment": "continuous but fully occluded left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Stand directly in front of the warm-brown apartment door and lock the elbow straight, leaning shoulder and torso weight through the fully visible palm at least one handspan inside its wooden center-left panel; show uninterrupted wood grain around every finger and two compression strokes directly on that wood. Never touch any wall fixture.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Show Zuv in strict left-facing side profile. His visible anatomical LEFT shoulder, elbow, forearm, wrist, and five fingers make one short line to the lever 7 to 10 centimetres from the right edge.",
+            "attachment": "continuous visible left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_occluded",
+            "action": "Remain completely hidden behind his torso: show zero wrist, hand, or fingers. Do not let this arm protrude behind his back or touch the lever.",
+            "attachment": "continuous but fully occluded right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "visible Aachu left umbrella hand",
+          "visible Zuv right hand behind back",
+          "Zuv right hand on lever",
+          "fully closed elevator",
+          "straight arrival path from elevator",
+          "any visible key or key fob",
+          "handle or lockset floating in the middle of the door",
+          "handle mounted inside a central recessed panel",
+          "handle far from the latch-side edge",
+          "hinges and handle on the same side",
+          "elevator call button or wall plate near Aachu's palm",
+          "Aachu touching a lift button, switch, intercom, hallway wall, metal plate, or doorframe",
+          "only one partner checking",
+          "casual Aachu palm without visible pushing force",
+          "untouched exterior handle",
+          "both hands crowded onto one small handle",
+          "Aachu touching or embracing Zuv",
+          "overlapping torsos",
+          "viewer-facing gaze",
+          "mutual gaze instead of looking at door contacts",
+          "interior-side handle",
+          "hand through door",
+          "wet umbrella",
+          "rain marks",
+          "post-date arrival",
+          "anonymous hand"
+        ]
+      }
+    }
+  ],
+  "copy": {
+    "caption_recommended": "May we grow into the kind of love that gives each other a minute, not a distance—and still knows when the proper date can become two glasses of roadside chai.",
+    "caption_alt": "The plan failed. The date didn’t.",
+    "hashtags": [
+      "#AStoryOfTwo",
+      "#CoupleStories",
+      "#LoveInTheSmallThings"
+    ]
+  },
+  "visual_setup": "Observational Intimacy Premium watercolor-and-ink sequence: closeness, irritation gap, respectful pause, renewed closeness. Slide 7 rewinds before departure outside one closed brown door: left hinges, right-edge lever, far-left lift visibly mid-close with a 15 to 20 percent black opening, and a floor path that goes from door to lift, U-turns, then returns to Aachu's heel. Zuv is strict left-facing profile with only his anatomical left lever hand visible. Aachu has only her right wood-panel palm visible; umbrella clips hands-free to tote. Exactly two hands, separated bodies, own-contact gazes, reference identity and wardrobe. No central handle, wall touch, couple touch, fully closed lift, scooter, helmet, interior, extra person, reflection, or yellow cast."
+}

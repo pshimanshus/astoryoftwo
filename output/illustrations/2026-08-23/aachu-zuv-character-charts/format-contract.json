@@ -1,0 +1,23 @@
+{
+  "schema_version": "character-reference-format/v1",
+  "locked_formats": [
+    "instagram_post"
+  ],
+  "instagram_post": {
+    "aspect_ratio": "3:4",
+    "source_rule": "Any native exact 3:4 raster at or above 1080x1440 is acceptable.",
+    "observed_joint_source_dimensions": [
+      1086,
+      1448
+    ],
+    "final_dimensions": [
+      1080,
+      1440
+    ]
+  },
+  "unrequested_formats": [
+    "reels_stories",
+    "square"
+  ],
+  "resize_policy": "Only proportional downsampling from a native exact 3:4 source to 1080x1440 is allowed. No crop, padding, stretch, extension, or upscaling."
+}

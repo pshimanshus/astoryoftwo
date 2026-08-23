@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-continue-001",
+  "status": "RUNNING",
+  "stage": "GENERATE",
+  "iteration": 0,
+  "max_iterations": 3,
+  "candidate_budget": 8,
+  "seed": "Find one genuinely fresh, broadly relatable couple concept for @a.storyof.two. Exclude every previously rejected, cooled, packaged, or semantically adjacent lane, including the earlier shortlist from this chat. Prefer a concrete everyday moment with visible mutual behavior, a sharp public contradiction, and a natural this-is-us DM send reason. No public copy yet.",
+  "final_candidate_id": null,
+  "stop_reason": "",
+  "creator_approval": "PENDING",
+  "history": [
+    {
+      "at": "2026-07-25T08:45:20+00:00",
+      "stage": "DISCOVER",
+      "event": "run_prepared"
+    },
+    {
+      "at": "2026-07-25T08:47:55+00:00",
+      "stage": "DISCOVER",
+      "event": "source_memory_brief_recorded",
+      "scout_task_id": "idea_loop_scout_continue_001"
+    }
+  ]
+}

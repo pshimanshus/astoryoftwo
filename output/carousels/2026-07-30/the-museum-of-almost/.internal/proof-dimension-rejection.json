@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "proof_slide": 5,
+  "required_source_dimensions": [
+    "1440x1920",
+    "1080x1440"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "path": ".internal/proof-candidates/slide-05-attempt-01.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "bbaecb10ba8f37b94c55e220d8023089a1d0207040ff9d040e0518eef273d21a",
+      "accepted": false,
+      "reason": "The generated source is 3:4 but is not an approved native source size."
+    },
+    {
+      "attempt": 2,
+      "path": ".internal/proof-candidates/slide-05-attempt-02.png",
+      "width": 1086,
+      "height": 1448,
+      "sha256": "358f14ed91fb2f99edf4523c862df2d46d9f791ff6694a392d39b3100519cf0b",
+      "accepted": false,
+      "reason": "The exact-canvas retry returned the same unsupported size."
+    }
+  ],
+  "next_action": "Resume only with an image-generation path that can return native 1440x1920 or exact 1080x1440 output. Do not crop, pad, stretch, or arbitrarily resize either rejected proof."
+}

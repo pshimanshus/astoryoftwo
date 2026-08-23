@@ -80,26 +80,28 @@ the scene.
 
 ---
 
-## Recurring Identity Objects — Available, Never Mandatory
+## Recurring Identity Objects — Worn Anchors Mandatory, Scene Motifs Optional
 
-These are Aachu and Zuv's recurring personal objects. They are identity markers and
-emotional proof tools. Use them when the story beat calls for hands, accessories,
-or personal details. Do not add them decoratively — add them when the story needs them.
+These are Aachu and Zuv's recurring personal objects. The creator correction on
+2026-08-23 makes two worn accessories permanent identity anchors: Zuv's
+evil-eye locket and Aachu's right-wrist evil-eye bracelet. They are always worn
+and must be rendered whenever the corresponding neckline/chest or right wrist
+is visible. Other objects and scene motifs remain optional proof tools.
 
 | Object | Who | When to Use |
 |--------|-----|-------------|
-| Evil eye locket | Shared / his | Close-up when protection, love, or a keepsake is the beat |
-| Her bracelet | Aachu | Hand shots, gesture slides, care moments |
+| Evil-eye locket on slim silver chain | Zuv | Always worn; visible whenever neck, open collar, or upper chest is visible |
+| Evil-eye bracelet on right wrist | Aachu | Always worn; visible whenever her right wrist or forearm is visible |
 | Her anklet | Aachu | Foot/ground shots, travel, movement, arrival/departure |
 | Evil eye motif | Both / scene | Appears on objects, clothing, background details — visual continuity |
 | Heart motif | Both | As a drawn graphic element in the illustration, not a literal sticker |
 | Reaction annotation | In-scene | Handwritten word/feeling floating near a character, like a living caption |
 
-**Rule:** There is no per-carousel object quota. Use a recurring object only when
-its state, ownership, movement, residue, or payoff performs a story job. If
-blocking, spatial change, or a human gesture carries the beat better, omit the
-object. Do not force the evil eye, heart, locket, shoes, chai, or any other motif
-into an unrelated scene to make it look branded.
+**Rule:** There is no per-carousel quota for optional props or decorative
+motifs. Do not force a background evil eye, heart, shoes, chai, or another motif
+into an unrelated scene. This optionality does not apply to the two signature
+worn accessories: keep Zuv's locket and Aachu's right-wrist bracelet on their
+bodies, showing them whenever the framing makes their placement visible.
 
 ---
 

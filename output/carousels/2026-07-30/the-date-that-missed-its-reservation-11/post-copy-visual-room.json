@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "role": "Cover / public hook / emotional destination"
+    },
+    {
+      "slide": 2,
+      "copy": "The date began with one missing key\nand two suspects.",
+      "role": "Cold open / playful proof"
+    },
+    {
+      "slide": 3,
+      "copy": "By the third wrong turn,\nnobody was cute anymore.",
+      "role": "Mirror / irritation"
+    },
+    {
+      "slide": 4,
+      "copy": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+      "role": "Spine / mature pause"
+    },
+    {
+      "slide": 5,
+      "copy": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+      "role": "Rhythm / what was underneath"
+    },
+    {
+      "slide": 6,
+      "copy": "The plan failed.\nThe date didn’t.",
+      "role": "Turn / accidental date"
+    },
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "role": "Payoff / affectionate callback"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Slide-Led Evidence Plan",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual_job": "Cover / public hook / emotional destination",
+      "scene": "Rain-damp evening beside a tiny roadside chai stall. Exactly Aachu and Zuv stand under one umbrella beside their modest dark car, safely parked on the quieter service lane away from traffic, dressed for a proper date. Across the divided road, through moving cars, the intended restaurant on the next road is visibly close but inconvenient to reach. The chai stall glows immediately beside them. Aachu points toward the chai stall with her right hand while her left hand stays relaxed at her side. Zuv holds the umbrella in his right hand and lowers the phone map in his left; they exchange a small conspiratorial 'shall we?' look. This is the decision before the accidental date, not the seated payoff. No chai vendor or background people visible.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "The date began with one missing key\nand two suspects.",
+      "visual_job": "Cold open / playful proof",
+      "scene": "Inside their entryway before leaving, Aachu holds a soft tote by its strap with her left hand and points a playful accusing finger with her right while Zuv checks one jacket pocket with his right hand and looks theatrically innocent. His left hand stays relaxed and visible. The missing car key is visibly caught in the tote strap between them. Exactly two people; the physical evidence makes the joke readable without text.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "By the third wrong turn,\nnobody was cute anymore.",
+      "visual_job": "Mirror / irritation",
+      "scene": "They stand beside their modest dark car, safely parked on the quieter service lane of a rain-slick divided road. A phone map in Zuv's hand reroutes while the intended restaurant is frustratingly visible across the traffic on the next road. Aachu holds the closed umbrella downward and looks away toward the restaurant, tired and irritated; Zuv studies the route with restrained frustration. Exactly two visible people and no human reflections.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+      "visual_job": "Spine / mature pause",
+      "scene": "At a safe recessed roadside edge near their parked dark car, Aachu faces slightly away with arms folded. Zuv stays beside the car several feet behind her, body open and grounded, not reaching or crowding. His phone hangs lowered at his side; the closed umbrella leans securely against the car. The empty space between them communicates a respected pause while his remaining nearby communicates care. Exactly two people.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+      "visual_job": "Rhythm / what was underneath",
+      "scene": "Across the road outside the intended restaurant, the frontage is closed or inaccessible after the long detour. Aachu's irritation has fallen into quiet disappointment as she looks at the dark entrance. Zuv notices her expression rather than the shutter, holding the phone down at his side. Their body distance has narrowed but they do not yet touch. Exactly two people, no background diners or staff.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "The plan failed.\nThe date didn’t.",
+      "visual_job": "Turn / accidental date",
+      "scene": "At the tiny roadside chai stall beside their safely parked dark car, Aachu steals a sip from Zuv's chai after finishing hers. The glass is visibly at her own lips, not being offered to him. Zuv gives her a mock-offended look while protecting the biscuit packet against his chest. Two stools are now pulled close. The unreachable restaurant glows softly across the divided road behind traffic. Exactly two people, vendor out of frame.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "visual_job": "Payoff / affectionate callback",
+      "scene": "Dry corridor before departure, entirely OUTSIDE the apartment. Medium-wide straight-on full-body view. A fully closed warm-brown wooden door fills center-left to frame right. Build a real door: two hinges on the LEFT stile; latch and single exterior lever on the opposite RIGHT stile at waist height, about 95 centimetres above the floor. The lever spindle sits only 7 to 10 centimetres from the right door edge, leaving a narrow wood strip before the jamb. Never put hardware in the center or inside a recessed center panel. Far left: small cropped elevator, 80 percent closed, no cabin or controls. Exactly two people with clear air between them. Zuv stands outside the right jamb. His nearest anatomical LEFT hand makes a short natural reach to depress the edge-mounted lever; his RIGHT arm hides behind his back. Only Aachu turns back. Her left foot points toward the elevator, lifted right heel steps toward the door, and three faint ticks trace the return. She stands directly before the wooden center-left panel. Her anatomical RIGHT palm lands one handspan inside the door outline, with brown grain around every finger. Locked elbow, shoulder weight, and two short strokes on the wood make a forceful push. Her palm never touches a control, wall, jamb, or frame. Her left hand hides behind the tote and rolled dry umbrella. They never touch or overlap and each looks at their own door contact. Preserve the attached-reference faces, hair, and relative height. Aachu wears a white shirt, blue jeans, and red flats. Zuv wears a plain pale-blue striped shirt, grey trousers, and red-black shoes. His shirt has no readable embroidery, logo, brand, letters, or words. Text layout follows the locked breaks: first sentence on one line, second sentence on one line, blank line, then the final two lines. The only visible words anywhere are the locked slide copy and one tiny top-right @a.storyof.two. Both participate in one door check: he tests the physically correct latch-side lever while she has gone back and pushes the wood. No center handle, casual palm, key, interior, open door, open lift, wetness, folded arms, solo checker, couple touch, scooter, motorbike, or helmets.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

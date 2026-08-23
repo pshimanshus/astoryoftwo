@@ -5,6 +5,7 @@
       "description": "Creator jam to final illustrated carousel workflow.",
       "components": [
         "config/skills/creator-skill-stack.md",
+        ".agents/skills/a-story-storytelling-hook/SKILL.md",
         "config/skills/carousel-jam-runtime-context.md",
         "config/skills/carousel-jam-autopilot.md",
         "config/skills/carousel-review-loop.md",
@@ -63,6 +64,7 @@
       "components": [
         ".agents/skills/a-story-instagram-idea-loop/SKILL.md",
         "config/skills/creator-skill-stack.md",
+        ".agents/skills/a-story-storytelling-hook/SKILL.md",
         "config/skills/carousel-jam-runtime-context.md",
         "memory/semantic/carousel-idea-preferences.md",
         "pipeline/agentic/instagram_idea_loop.py",

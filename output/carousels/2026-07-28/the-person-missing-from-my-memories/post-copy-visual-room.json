@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "You’re missing from so many of my memories.",
+      "role": "Cover"
+    },
+    {
+      "slide": 2,
+      "copy": "Not because you weren’t there.",
+      "role": "Cold Open"
+    },
+    {
+      "slide": 3,
+      "copy": "You were there when I chose courage.",
+      "role": "Mirror"
+    },
+    {
+      "slide": 4,
+      "copy": "You made me visible from places no one could see.",
+      "role": "Spine"
+    },
+    {
+      "slide": 5,
+      "copy": "You held the world outside for a minute.",
+      "role": "Rhythm"
+    },
+    {
+      "slide": 6,
+      "copy": "You never made love the reason I stayed behind.",
+      "role": "Turn"
+    },
+    {
+      "slide": 7,
+      "copy": "Sometimes the person missing from your memories is the person who made them possible.",
+      "role": "Payoff"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Storybook Gallery Portal",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Storybook Gallery Portal",
+  "why_it_wins": "Storybook Gallery Portal wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "You’re missing from so many of my memories.",
+      "visual_job": "Cover",
+      "scene": "High true top-angle storybook view of Aachu and Zuv sitting shoulder-to-shoulder on a simple floor rug in their present-day shared space, naturally browsing years of photos on one phone held between them. The phone remains a small physical object inside the illustration, never an enlarged interface. Aachu has stopped scrolling after noticing that many tiny gallery thumbnails show her but rarely Zuv. Her finger pauses above the screen and her head turns slightly toward him; he is still looking at the phone and has not yet understood. Keep both full upper bodies, owned hands, real two-inch height relationship even while seated, and generous clean upper-middle paper for exact text.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "Not because you weren’t there.",
+      "visual_job": "Cold Open",
+      "scene": "Closer three-quarter overhead view in the same present-day space. Aachu taps one gallery image on the small phone. The selected photo shows only Aachu beside moving cartons, but its rectangular edges begin dissolving organically into warm watercolor memory around the couple: a carton corner, unfamiliar apartment doorway, and two suitcases extend beyond the phone into the surrounding paper. Zuv remains physically beside her in the present, while the emerging memory begins to reveal that his absence belonged only to the crop. The transition must feel like a storybook page coming alive, not a split screen, collage, portal effect, or app mockup.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "You were there when I chose courage.",
+      "visual_job": "Mirror",
+      "scene": "Full wide cinematic memory at the threshold of a modest unfamiliar apartment in a new city. Aachu stands just inside with new keys in her palm, excited and visibly uncertain. Half-open cartons and her suitcase locate the move. Behind her, Zuv enters carrying his own suitcase, not carrying hers: her courageous decision has changed both their lives and he has come along rather than merely helping her settle. She looks back to him; he gives a small grounded go-on expression; her key hand moves toward the lock. The door opening is the visible consequence.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "You made me visible from places no one could see.",
+      "visual_job": "Spine",
+      "scene": "A specific creative-work scene in a small improvised studio. Aachu occupies the lit performance or creation area, speaking to camera beside her worktable with an unfinished illustrated page and notes. Zuv is fully visible deeper behind the apparatus, adjusting one soft light and watching her framing from the camera side; his labour explains why he will not appear in the finished public image. Aachu looks toward him rather than directly into the lens as he gives a restrained try-once-more gesture. The final illuminated frame belongs to her, but the full storybook scene visibly belongs to both.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "You held the world outside for a minute.",
+      "visual_job": "Rhythm",
+      "scene": "Late-night ordinary city pause after a difficult day. Their parked car sits safely at the edge of a quiet broad roadside under warm streetlights, with the active city receding in the background. Aachu stands beside the car laughing mid-reaction at something ridiculous Zuv has just done; she is unposed and slightly folded with real laughter. Zuv stands several feet away taking one spontaneous photograph, but his other hand and animated expression reveal he caused the laugh rather than merely documented it. Her face is turned fully toward him. Her phone and closed work tote remain visible inside the car, physically outside this small breathable moment.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "You never made love the reason I stayed behind.",
+      "visual_job": "Turn",
+      "scene": "Departure threshold outside their building at early morning, with a waiting cab safely pulled to the curb. Aachu faces the open rear door with one travel suitcase and backpack, leaving alone for an opportunity. Zuv stands behind and slightly to the side after tightening one loose backpack strap; his hand has already released it. Their hands separate in the lower centre while her feet and suitcase remain decisively oriented toward the cab. She looks back at him; he holds the sadness without blocking her path. The visible consequence is that the way forward stays open.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "Sometimes the person missing from your memories is the person who made them possible.",
+      "visual_job": "Payoff",
+      "scene": "Return to slide 1's true top-angle present-day composition, now slightly wider and warmer. The phone rests upright against the low cushion with its timer active but no readable UI. Aachu has moved back beside Zuv and pulls him gently into the new photograph. The shutter catches them before posing: she looks at him with recognition while he looks back, surprised and warm. The gallery envelope lies open nearby with a few small prints echoing the move, creative work, roadside laugh, and departure, but the prints remain secondary and do not become a scrapbook collage. For the first time, the person who helped create the memories is intentionally inside one.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

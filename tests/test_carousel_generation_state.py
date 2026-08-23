@@ -194,3 +194,88 @@ def test_proof_state_machine_rejects_entering_after_quarantine(
             slide_count=1,
             slides=[{"slide": 1}],
         )
+
+
+def test_batch_allowed_to_handoff_requires_validated_creator_override(tmp_path):
+    batch_state = {
+        "status": GenerationStatus.BATCH_ALLOWED.value,
+        "slides": [{"slide": 1}],
+    }
+    for filename in ("image-generation.json", "final-images.json"):
+        (tmp_path / filename).write_text(
+            json.dumps(batch_state),
+            encoding="utf-8",
+        )
+
+    with pytest.raises(
+        ValueError,
+        match="Invalid exit from fail-closed proof state",
+    ):
+        write_generation_state(
+            tmp_path,
+            status=GenerationStatus.HANDOFF_READY,
+            backend="codex_builtin",
+            generation_mode="model_native_publishable",
+            slide_count=2,
+            slides=[{"slide": 1}, {"slide": 2}],
+        )
+
+    handoff = write_generation_state(
+        tmp_path,
+        status=GenerationStatus.HANDOFF_READY,
+        backend="codex_builtin",
+        generation_mode="model_native_publishable",
+        slide_count=2,
+        slides=[{"slide": 1}, {"slide": 2}],
+        creator_override_handoff_validated=True,
+    )
+
+    assert handoff["status"] == GenerationStatus.HANDOFF_READY.value
+    assert handoff["publishable"] is False
+
+
+@pytest.mark.parametrize(
+    "failed_status",
+    [
+        GenerationStatus.GENERATED_QUARANTINED,
+        GenerationStatus.REJECTED_SPATIAL_INTEGRITY,
+    ],
+)
+def test_qa_failed_full_deck_retry_to_handoff_requires_validation(
+    tmp_path, failed_status
+):
+    failed_state = {
+        "status": failed_status.value,
+        "slides": [{"slide": 1}, {"slide": 2}],
+    }
+    for filename in ("image-generation.json", "final-images.json"):
+        (tmp_path / filename).write_text(
+            json.dumps(failed_state),
+            encoding="utf-8",
+        )
+
+    with pytest.raises(
+        ValueError,
+        match="Invalid exit from fail-closed proof state",
+    ):
+        write_generation_state(
+            tmp_path,
+            status=GenerationStatus.HANDOFF_READY,
+            backend="codex_builtin",
+            generation_mode="model_native_publishable",
+            slide_count=2,
+            slides=[{"slide": 1}, {"slide": 2}],
+        )
+
+    handoff = write_generation_state(
+        tmp_path,
+        status=GenerationStatus.HANDOFF_READY,
+        backend="codex_builtin",
+        generation_mode="model_native_publishable",
+        slide_count=2,
+        slides=[{"slide": 1}, {"slide": 2}],
+        qa_failed_full_deck_retry_handoff_validated=True,
+    )
+
+    assert handoff["status"] == GenerationStatus.HANDOFF_READY.value
+    assert handoff["publishable"] is False

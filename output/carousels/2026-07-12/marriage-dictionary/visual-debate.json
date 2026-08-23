@@ -1,28 +1,33 @@
 {
   "schema_version": "1.0",
-  "status": "GO_REPAIRED",
+  "status": "REBUILT_PENDING_CREATOR_APPROVAL",
   "depends_on": "post-copy-visual-room.json",
+  "previous_decision": {
+    "status": "REJECTED_BY_CREATOR",
+    "reason": "The previous scene-first proof set still did not tell the right visual story."
+  },
   "visual_evidence_planner": {
-    "recommendation": "Use everyday Indian/Hinglish phrase behavior as the proof trail, not a repeated decorative dictionary prop.",
-    "must_preserve": ["doorway delay", "bag migration", "drawer search", "water glass", "grocery-dessert list", "final home tableau"]
+    "recommendation": "Use household actions that change state: key paused, shelf found, food kept, plate covered, phone plugged.",
+    "must_preserve": ["mutual lateness", "one more kaam", "third shelf", "food as missing-you", "covered plate", "wordless night care"]
   },
   "romance_scene_planner": {
-    "recommendation": "Keep the relationship active through mutual comedy first, then silent care, then shared home payoff.",
-    "relationship_motion": "Both partners create the changed meanings; neither is the sole problem or the sole rescuer."
+    "recommendation": "The emotional bridge should not arrive as a quote. It arrives when a sulking partner still covers the other's plate.",
+    "relationship_motion": "Both partners create the changed meanings. The strongest care beat is action without speech."
   },
   "visual_continuity_judge": {
-    "recommendation": "Pass with a strict shot ladder and no more than two similar home-medium shots.",
-    "rejected": ["same table setup on every slide", "quote-card definition pages", "generic couple smiling beside terms"]
+    "recommendation": "Pass provisionally with a strict shot ladder, but block generation until a fresh Event A blind read confirms the sequence is legible without text.",
+    "rejected": ["same couch/table couple shot", "literal dictionary book in every frame", "generic home tableau payoff"]
   },
-  "selected_visual_system": "Living Dictionary Entries",
+  "selected_visual_system": "One-Day Married-Language Trail",
   "shot_ladder": [
-    "cover overhead/open book plus couple lean-in",
-    "doorway medium with mirror depth",
-    "bag/object close-up",
-    "low drawer/search scene",
-    "quiet side-table detail with separated bodies",
-    "overhead list and dessert with faces at edge",
-    "soft wide/overhead home tableau"
+    "overhead hands/object setup",
+    "doorway medium-wide mutual readiness chaos",
+    "threshold key-and-extra-task close/medium",
+    "cupboard depth search scene",
+    "quiet table absence/food-care insert",
+    "covered-plate repair medium-wide",
+    "night home wide/overhead simultaneous care"
   ],
-  "decision": "GO_REPAIRED"
+  "proof_slide": 6,
+  "decision": "REPAIR_PENDING_CREATOR_APPROVAL"
 }

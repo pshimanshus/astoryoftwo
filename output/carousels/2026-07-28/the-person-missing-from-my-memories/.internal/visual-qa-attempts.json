@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "c03b2386eae0822297327d459667abe12a6c11ad951036086ec19e623f8b8bdf",
+      "status": "QUARANTINED",
+      "qa_issues": [],
+      "targeted_repair_instructions": []
+    }
+  ]
+}

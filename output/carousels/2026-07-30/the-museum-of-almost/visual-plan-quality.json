@@ -1,0 +1,652 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "The Folder Changes Hands",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "She was throwing away her almosts.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "The drafts that went nowhere.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "He lined them up, oldest to newest.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "She saw failures. He saw her becoming.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "So she added today's unfinished page.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The exact five slide lines in slides.json were locked before the blind cards were sent to the critic.",
+    "author_id": "/root/museum_postcopy_room",
+    "reviewer_id": "/root/museum_event_a_critic",
+    "reviewer_evidence": "A fresh orchestrated critic received only the observable cards file and reported its inferences before any copy, theme, intent, labels, or scores were revealed.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "woman beside an open desk drawer",
+          "man bending beside a discard carton"
+        ],
+        "visible_setting": "A lived-in home study corner during a clear-out, with an open wooden desk drawer and a plain discard carton.",
+        "observable_action": "A worn unlabelled folder has just landed in the carton. The woman's right hand has withdrawn from it while the man retrieves the folder edge.",
+        "hands_and_contact": "The woman's left hand is supported on the drawer edge. The man's right hand meets the folder edge through a visible wrist and forearm; his left hand rests on his own thigh.",
+        "gaze": "The woman looks toward the open drawer and the man looks only at the folder.",
+        "body_blocking": "Their bodies remain separated across the frame; she faces the drawer while his torso angles toward the carton.",
+        "object_state": "The folder is leaving the discard carton in the man's right hand.",
+        "camera_view": "Low box-level wide view from a slight three-quarter angle.",
+        "visible_continuity": "The folder begins discarded and ends rescued."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "the same woman, shown through lower torso, knee and connected left forearm",
+          "the same man, shown through lower torso, knee and connected left forearm"
+        ],
+        "visible_setting": "Floor-level space beside the same desk and carton.",
+        "observable_action": "The rescued folder lies open between them. Several dog-eared unfinished paper forms fan out while the woman begins to draw the cover shut.",
+        "hands_and_contact": "The woman's left hand rests on the folder cover. The man's left hand remains attached to the folder spine without tugging. All other hands are outside frame.",
+        "gaze": "Faces are outside frame.",
+        "body_blocking": "Their knees sit on opposite sides of the open folder with clear space around the papers.",
+        "object_state": "The folder is open but becoming half-closed; its contents show erased marks, blank-line layouts, rough boxes and folded sheets with no readable words.",
+        "camera_view": "Tactile close insert at floor level.",
+        "visible_continuity": "The rescued folder has been opened and its contents exposed."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "the same man seated on one side of the paper line",
+          "the same woman seated opposite"
+        ],
+        "visible_setting": "The same floor or low table, viewed directly from above.",
+        "observable_action": "The man lays four or five visually distinct, non-readable sheets into a clean left-to-right progression while the woman watches.",
+        "hands_and_contact": "Both of the man's hands are visible and attached, each arranging one sheet. The woman's left hand rests on her own knee; her right hand is outside frame.",
+        "gaze": "Both direct their attention toward the developing line of papers.",
+        "body_blocking": "They occupy opposite sides of the chronology, which spans the space between them.",
+        "object_state": "Loose papers with subtly different wear are now arranged from more worn to fresher.",
+        "camera_view": "True overhead chronology view.",
+        "visible_continuity": "The loose contents have become one ordered line."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "the same woman in clear focus",
+          "the same man's shoulder and partial profile in the foreground"
+        ],
+        "visible_setting": "The same study corner with the ordered papers between them.",
+        "observable_action": "The woman's hand has released the folder cover and opened it flat beside the chronology. Her guarded posture softens into a quiet half-smile.",
+        "hands_and_contact": "Only the woman's right hand is visible, open and resting beside the papers. The man's hands remain outside frame.",
+        "gaze": "The woman's gaze rests on the ordered papers; the man's partial profile is oriented toward her and the papers.",
+        "body_blocking": "The paper line leads from the man's foreground shoulder toward the woman's face. They do not touch.",
+        "object_state": "The folder is now fully open and the paper line remains intact.",
+        "camera_view": "Over-the-man's-shoulder medium reaction view.",
+        "visible_continuity": "The woman is no longer closing the folder."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "the same woman leaning into the foreground action",
+          "the same man beside her, watching"
+        ],
+        "visible_setting": "The same low table or floor plane with the open folder and ordered row.",
+        "observable_action": "The woman slides a fresh, visibly unfinished but wordless page into the open final gap while the man watches without directing her.",
+        "hands_and_contact": "The woman's right hand pushes the new page and her left hand steadies the folder edge, both attached through visible wrists and forearms. The man's hands are outside frame.",
+        "gaze": "Both gazes converge on the newly added page.",
+        "body_blocking": "The woman owns the foreground action; the man stays close beside her without touching the page.",
+        "object_state": "The open folder sits behind the ordered line, which now ends with the fresh page.",
+        "camera_view": "Low table-level close two-shot with hand action in the foreground.",
+        "visible_continuity": "A new current page extends the previously ordered archive."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:1aa3db9297cdd94ae7b3613e882ce6b6ab56913639a44acd898bbce65a7422ca",
+    "source_fingerprint": "sha256:876e8270d8919a9301cf4715d73c9cf03351bb0f759c4419d4ffe41351a4f1b2",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:c136ae9e1055a013128f86f4a976201627433f721e5368aedf59b2ee5fb9b448",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root/museum_postcopy_room",
+      "author_run_id": "museum-postcopy-20260730-1",
+      "reviewer_task_id": "/root/museum_event_a_critic",
+      "reviewer_run_id": "museum-event-a-20260730-1",
+      "input_fingerprint": "sha256:1aa3db9297cdd94ae7b3613e882ce6b6ab56913639a44acd898bbce65a7422ca",
+      "raw_response": "A domestic clear-out becomes a quiet relational turn: he rescues what she was ready to discard, patiently makes its history visible, and she moves from closing it away to adding the next unfinished piece herself. The five frames read as one coherent causal story without copy, though the exact meaning of the papers remains deliberately open.",
+      "raw_response_fingerprint": "sha256:6d88757e66ac130cffd997619905e14e4b361ef37d1826796a4d9bebf06ccea8",
+      "output_fingerprint": "sha256:e13c28c5d8ab39746539546e76952c28d65459688be4292cf1407a79620e8405"
+    },
+    "sequence_mode": "causal_sequence",
+    "physical_event": "A worn folder moves from discard to rescue to exposure to chronology to a new current addition.",
+    "emotional_arc": "dismissal -> embarrassment -> attention -> dignity -> agency",
+    "relationship_change": "Zuv's quiet ordering lets Aachu re-see the archive, and she moves from trying to close it to extending it herself.",
+    "sequence_read": "During a home clear-out, Zuv rescues the folder Aachu discarded, orders its unfinished contents, and Aachu responds by adding today's unfinished page.",
+    "visual_variables": [
+      "folder and paper ownership",
+      "Aachu's posture and participation"
+    ],
+    "hero_receipt_slide": 5,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Aachu releases the worn folder into the discard carton.",
+        "payoff": "Aachu places a fresh unfinished page at the end of the rescued chronology.",
+        "changed_meaning": "The folder changes from rejected failure pile to a living record she voluntarily continues."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "worn unlabelled folder and wordless unfinished papers",
+        "initial_state": "discarded and closed",
+        "later_state": "rescued, opened, ordered, and extended with a fresh page",
+        "story_job": "compresses disagreement, embarrassment, witnessing, time, and agency into one causal object-state arc"
+      }
+    ],
+    "critic_inference": {
+      "whole_sequence_one_sentence": "During a home clear-out, a man rescues a folder the woman was discarding, they examine and order its unfinished contents, her guardedness softens, and she chooses to extend the sequence with a fresh page.",
+      "reads_as_one_causal_relationship_story_without_copy": true,
+      "causal_read_note": "Rescue causes inspection, inspection becomes ordering, ordering changes her response, and that response leads to her active addition."
+    },
+    "copy_visual_reconciliation": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "evidence": "Copy subject she, verb throwing away, and object almosts align with Aachu's released folder and immediate discard-carton state."
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "evidence": "The visible erased, folded, unfinished wordless sheets align with drafts that went nowhere without inventing document facts."
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "evidence": "Zuv performs the ordering and paper wear progresses left-to-right from oldest-looking to newest-looking."
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "evidence": "Aachu's closing motion reverses into an open hand and open folder while Zuv remains oriented toward her and the chronology."
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "evidence": "Aachu alone inserts the fresh unfinished page into the final open gap; Zuv watches with hands withdrawn."
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "initial pressure and rescue",
+        "silent_read": "She discards an unremarkable folder and he immediately treats it as consequential.",
+        "change_from_previous": "The archive enters the story through a visible discard decision.",
+        "critic_evidence": "The critic identified the open drawer and carton, her withdrawn hand, his lifting hand, and their split attention.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "releases",
+          "target_or_object": "a worn unlabelled folder into the discard carton",
+          "reaction_or_consequence": "Zuv bends and retrieves it before the clear-out continues"
+        },
+        "pov": {
+          "owner": "Aachu's dismissal interrupted by Zuv's recognition",
+          "audience_knows": "the folder matters differently to each person",
+          "audience_feels": "curiosity about why he rescued the least impressive item"
+        },
+        "shot": {
+          "size": "wide",
+          "angle": "low three-quarter",
+          "camera_position": "at discard-carton level looking across the study corner",
+          "focal_subject": "the folder changing hands",
+          "story_reason": "the low wide view proves discard, rescue, and different body directions at once"
+        },
+        "blocking": {
+          "hands": "Aachu's right hand withdraws; left rests on drawer; Zuv's right hand lifts the folder; left rests on thigh",
+          "gaze": "Aachu toward drawer, Zuv toward folder",
+          "body_distance": "separated across drawer and carton",
+          "posture_or_feet": "Aachu continues sorting while Zuv bends from a coherent standing silhouette"
+        },
+        "setting": {
+          "sub_location": "home study desk and discard carton",
+          "time": "quiet daytime clear-out",
+          "motivated_light": "soft window light from the side",
+          "story_trace": "open drawer, plain carton, and released folder show an active declutter"
+        },
+        "story_evidence": [
+          {
+            "carrier": "folder ownership",
+            "observable_state": "released by Aachu and caught at the edge by Zuv",
+            "narrative_job": "creates the first disagreement without dialogue"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "folder inside the drawer and marked for discard",
+          "outgoing_state": "folder rescued from the carton in Zuv's right hand"
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate couple",
+            "portrait face",
+            "silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "the folder may have fallen accidentally",
+            "repair": "stage a clear released hand, folder fully inside the discard carton, and Aachu already moving to the next item",
+            "recheck_evidence": "the critic still read the primary action as deliberate discard followed by rescue"
+          }
+        ]
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "exposure and resistance",
+        "silent_read": "The folder contains unfinished work and she is reluctant to keep examining it.",
+        "change_from_previous": "The rescued object opens and reveals why she wanted it gone.",
+        "critic_evidence": "The critic cited the half-closing cover, worn erased papers, and his non-tugging hand at the spine.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "begins closing",
+          "target_or_object": "the opened folder of unfinished wordless drafts",
+          "reaction_or_consequence": "Zuv leaves his stabilizing hand at the spine without forcing it open"
+        },
+        "pov": {
+          "owner": "Aachu's embarrassment",
+          "audience_knows": "the contents are attempts rather than achievements",
+          "audience_feels": "recognition of wanting old failed work hidden"
+        },
+        "shot": {
+          "size": "close insert",
+          "angle": "floor-level tactile side view",
+          "camera_position": "beside the folder between their knees",
+          "focal_subject": "the half-closing cover and unfinished sheets",
+          "story_reason": "the insert makes paper state and non-coercive hand choreography legible"
+        },
+        "blocking": {
+          "hands": "Aachu's left hand closes the cover; Zuv's left hand stabilizes the spine; other hands remain outside frame",
+          "gaze": "faces remain outside frame so the hands and folder carry the hesitation",
+          "body_distance": "knees occupy opposite sides of the folder with open space around it",
+          "posture_or_feet": "both settle naturally at floor level without cramped or crouched anatomy"
+        },
+        "setting": {
+          "sub_location": "floor beside the same desk and carton",
+          "time": "continuous daytime clear-out",
+          "motivated_light": "same soft side window light",
+          "story_trace": "carton edge and desk leg preserve the clear-out continuity"
+        },
+        "story_evidence": [
+          {
+            "carrier": "folder cover",
+            "observable_state": "moving from open toward half-closed under Aachu's hand",
+            "narrative_job": "makes embarrassment visible as an interrupted action"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "folder rescued and opened",
+          "outgoing_state": "unfinished contents exposed while the cover remains half-closed"
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate hands",
+            "readable document text",
+            "ghost figure"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "her hand may only be adjusting the cover",
+            "repair": "show a decisive cover-closing path while her torso angles away and Zuv does not tug",
+            "recheck_evidence": "the critic's primary reading remained guarded reluctance and possible closing"
+          }
+        ]
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "chronology and reframing",
+        "silent_read": "He turns loose discarded attempts into a continuous record while she watches.",
+        "change_from_previous": "The same loose pages gain order and visible time.",
+        "critic_evidence": "The critic identified both of his hands arranging worn-to-fresh sheets and the chronology bridging the space between them.",
+        "staged_action": {
+          "subject": "Zuv",
+          "action": "orders",
+          "target_or_object": "four or five wordless unfinished sheets from oldest-looking to freshest",
+          "reaction_or_consequence": "Aachu stops closing the folder and watches the line take shape"
+        },
+        "pov": {
+          "owner": "shared observation with Zuv performing the reframing",
+          "audience_knows": "the attempts belong to one long process rather than separate failures",
+          "audience_feels": "the quiet care of making time visible"
+        },
+        "shot": {
+          "size": "overhead detail",
+          "angle": "true top-down",
+          "camera_position": "directly above the paper line",
+          "focal_subject": "the worn-to-fresh chronology between them",
+          "story_reason": "only an overhead view can prove order, progression, and both positions cleanly"
+        },
+        "blocking": {
+          "hands": "both of Zuv's hands arrange separate sheets; Aachu's left hand stays on her own knee",
+          "gaze": "both direct attention toward the line",
+          "body_distance": "opposite sides of the chronology",
+          "posture_or_feet": "seated naturally beyond the paper edges with no folded-limb ambiguity"
+        },
+        "setting": {
+          "sub_location": "same floor or low table",
+          "time": "continuous daytime clear-out",
+          "motivated_light": "diffuse window light with soft paper shadows",
+          "story_trace": "folder remains behind the line as the source of the loose sheets"
+        },
+        "story_evidence": [
+          {
+            "carrier": "paper wear progression",
+            "observable_state": "sheets change subtly from more worn to fresher left-to-right",
+            "narrative_job": "makes chronology visible without invented dates or labels"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "loose papers exposed in a half-closed folder",
+          "outgoing_state": "papers arranged as a single left-to-right life-line"
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra hands",
+            "readable dates",
+            "labels",
+            "certificates"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "the order could read as tidying rather than chronology",
+            "repair": "differentiate wear and construction from oldest-looking at left to freshest at right and preserve the exact copy",
+            "recheck_evidence": "the critic still inferred stages or age from the visible progression before seeing copy"
+          }
+        ]
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "reaction and emotional turn",
+        "silent_read": "The ordered papers change Aachu from guarded withdrawal to receptive recognition.",
+        "change_from_previous": "The reframing lands visibly in her posture and open hand.",
+        "critic_evidence": "The critic cited the fully open folder, relaxed hand, softened posture, half-smile, and Zuv watching without pressing.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "releases and opens",
+          "target_or_object": "the folder beside the ordered papers",
+          "reaction_or_consequence": "her guarded posture softens while Zuv remains quiet in the foreground"
+        },
+        "pov": {
+          "owner": "Aachu's changed perception",
+          "audience_knows": "the same papers no longer mean only discard",
+          "audience_feels": "dignity replacing embarrassment without a speech or hug"
+        },
+        "shot": {
+          "size": "medium reaction",
+          "angle": "over-shoulder",
+          "camera_position": "behind Zuv's shoulder looking across the paper line",
+          "focal_subject": "Aachu's open hand, softened posture, and face",
+          "story_reason": "the reaction view makes her re-seeing the event rather than his kindness the emotional center"
+        },
+        "blocking": {
+          "hands": "Aachu's right hand rests open beside the papers; Zuv's hands stay outside frame",
+          "gaze": "Aachu looks at the chronology; Zuv's partial profile angles toward her and the papers",
+          "body_distance": "close enough to share the view but not touching",
+          "posture_or_feet": "Aachu opens from guarded shoulders into a relaxed seated posture"
+        },
+        "setting": {
+          "sub_location": "same study corner beyond the ordered papers",
+          "time": "continuous daytime clear-out",
+          "motivated_light": "soft side light lifts Aachu's face without spotlight drama",
+          "story_trace": "open folder and paper line keep the prior actions present in frame"
+        },
+        "story_evidence": [
+          {
+            "carrier": "open hand and open folder",
+            "observable_state": "both have changed from closing to resting open",
+            "narrative_job": "shows internal acceptance through physical state"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Aachu watches Zuv order the papers",
+          "outgoing_state": "Aachu stops trying to close or erase the archive"
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "comfort hug",
+            "ghost memory",
+            "portrait face"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "the half-smile could mean nostalgia rather than recognition",
+            "repair": "bind the expression to the changed open-hand and open-folder state plus the prior chronology",
+            "recheck_evidence": "the critic's primary reading remained new receptivity and shared recognition"
+          }
+        ]
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "release and voluntary continuation",
+        "silent_read": "Aachu chooses to extend the archive with the current unfinished self while Zuv gives her space to lead.",
+        "change_from_previous": "Recognition becomes a new self-directed action rather than a passive feeling.",
+        "critic_evidence": "The critic identified her two-handed page insertion, his withdrawn hands, their converging gazes, and the fresh page filling the final gap.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "adds",
+          "target_or_object": "a fresh unfinished wordless page to the end of the ordered line",
+          "reaction_or_consequence": "the archive becomes a living record while Zuv watches without directing"
+        },
+        "pov": {
+          "owner": "Aachu's agency",
+          "audience_knows": "being witnessed has changed what she does with today's unfinished work",
+          "audience_feels": "tenderness earned through voluntary continuation"
+        },
+        "shot": {
+          "size": "close two-shot",
+          "angle": "low table-level",
+          "camera_position": "beside the new page looking across both faces and the open folder",
+          "focal_subject": "Aachu's page insertion and both converging gazes",
+          "story_reason": "the low close view proves hand ownership, identity, emotional agency, and the final object change together"
+        },
+        "blocking": {
+          "hands": "Aachu's right hand pushes the new page and left steadies the folder; Zuv's hands stay outside frame",
+          "gaze": "both look at the new page",
+          "body_distance": "side-by-side and close, with Aachu leaning farther into the action",
+          "posture_or_feet": "Aachu leads from a natural seated lean; Zuv remains grounded beside her"
+        },
+        "setting": {
+          "sub_location": "same low table or floor plane",
+          "time": "continuous daytime clear-out",
+          "motivated_light": "soft window light across the fresh page and their faces",
+          "story_trace": "open folder and ordered row make the addition legible as continuation"
+        },
+        "story_evidence": [
+          {
+            "carrier": "fresh page entering the final gap",
+            "observable_state": "wordless unfinished sheet is physically added by Aachu",
+            "narrative_job": "converts being witnessed into changed behavior"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "archive remains open and re-seen",
+          "outgoing_state": "current unfinished page extends the archive"
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate couple",
+            "readable page text",
+            "museum label"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "the addition could look like simple completion of sorting",
+            "repair": "show the fresh unfinished page entering the final open gap under Aachu's hands while the folder remains open behind the older line",
+            "recheck_evidence": "the critic inferred voluntary participation and extension of the sequence"
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "director_event_fingerprint": "sha256:2b8e0dec86337fe7b1326d797967fc7886076df9efee57bb87ed1cbe21f78702"
+  }
+}

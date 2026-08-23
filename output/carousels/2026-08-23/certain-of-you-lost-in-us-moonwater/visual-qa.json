@@ -1,0 +1,78 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "image_set_sha256": "1379f5fde9ac00503b6078a5a33749eec132aff784e350dbfe809d3f7eca7411",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/moonwater-proof-qa-01",
+      "pass": false,
+      "evidence": "Exactly two adults, four traceable hands, two separately owned oars, circular wake, integrated copy and brandmark pass; the rendered wardrobe contradicts the locked continuous identity wardrobe."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/moonwater-proof-story-01",
+      "pass": true,
+      "evidence": "The top-down circular whirl, equal effort, opposite body orientation, centered lamp, exact text and premium watercolor treatment make the conflict readable without decorative symbolism."
+    }
+  },
+  "slides": [
+    {
+      "slide": 4,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-04.png",
+          "sha256": "802108fed90b3e6dda2f617ac43144078a101252be1f3195a3bcc5888d24a6fe",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "evidence": "Exactly four visible hands, four arms and two complete oars; every wrist and grip is traceable."
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "evidence": "Exactly Aachu and Zuv, one table-raft, two oars, one lamp and no extra figures."
+    },
+    "spatial_topology": {
+      "pass": true,
+      "evidence": "Bodies, knees, table, lamp, oars and water boundaries remain distinct; oar ownership does not cross."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": ["face-04.png", "together-18.jpg"],
+      "likeness_notes": "Aachu's long dark hair, warm skin, face geometry and expressive profile remain recognizable in the watercolor style."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": ["portrait-07.jpg", "together-18.jpg"],
+      "likeness_notes": "Zuv's hair volume, brows, beard, warm skin and face geometry remain recognizable in the watercolor style."
+    },
+    "dress_continuity": {
+      "pass": false,
+      "evidence": "Aachu was rendered in a white shirt and Zuv in a navy T-shirt; the locked continuous scene requires Aachu's black open overshirt over black top with blue jeans and Zuv's white zip jacket with charcoal trousers."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Neutral ivory paper, graphite-ink contours, transparent indigo watercolor, expressive faces and tactile wood match the premium house style."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "Equal but opposed oar effort produces a legible circular whirl with no forward exit wake."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "Exact copy and punctuation are integrated in two readable lines with one exact tiny top-right @a.storyof.two brandmark and no extra words."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof is hash-bound and proportionally normalized to exact 1080x1440."
+    }
+  },
+  "issues": [
+    "Wardrobe continuity failed because the style-reference outfits replaced the locked current-sequence wardrobe."
+  ]
+}

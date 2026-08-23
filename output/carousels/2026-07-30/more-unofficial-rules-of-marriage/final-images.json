@@ -1,0 +1,125 @@
+{
+  "status": "handoff_ready",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": true,
+  "slides": [
+    {
+      "slide": 5,
+      "copy": "Rule no. 4\nThe person who did not pack\nwill always ask,\n“Charger rakh liya?”\nUsually when you’re already in the cab.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-05.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-05.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-05.prompt.txt"
+      },
+      "expected_file": "final/slide-05.png",
+      "expected_files": {
+        "instagram_post": "final/slide-05.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-21.jpg",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/portrait-07.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-21.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    }
+  ],
+  "reason": "Prompt files are ready; final PNGs still require Codex built-in image generation.",
+  "proof_gate": null,
+  "requested_proof_slide": 5,
+  "proof_only": true,
+  "total_slide_count": 9,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "generation_capability": {
+    "schema_version": "1.0",
+    "workspace_root": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage",
+    "capability_source": "environment",
+    "can_attach_identity_refs": false,
+    "package_terminal_state": "HANDOFF_READY_FOR_CODEX_WITH_IDENTITY",
+    "reason": "The current session has no declared ability to attach actual identity reference images to generation calls.",
+    "required_identity_inputs": [
+      "identity-face-contact-sheet.jpg",
+      "selected Aachu identity references",
+      "selected Zuv identity references",
+      "selected together reference when available"
+    ],
+    "next_action": "handoff_to_identity_reference_capable_generation_environment"
+  },
+  "prompt_dir": "codex-image-prompts",
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      5
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:1bf5198a1e00234fb05ff0073dff11c1a6a14aa25d1e259fee63903d74c73dda"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:ac96ab0c11a970ec4e5e5ff2e15290d52f4364d0f156a30ad38cd70355ba48f5"
+      }
+    },
+    "files": [
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.prompt.txt",
+        "sha256": "sha256:199902a681bd730777429e20377ea823f4d8d6630d5450fc27507c172439d346"
+      },
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.md",
+        "sha256": "sha256:ec9e45849d3fbb5ab5d0c256efc779beb555a24e0bad4ac8ad822feeeb7d31ac"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:41b5776eab4e8a4529e2a3e064348b8417a3221bfbc4765fb646054229940be9"
+  },
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure."
+}

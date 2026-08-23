@@ -1,0 +1,24 @@
+{
+  "schema_version": "approved-proof-batch-handoff/v1",
+  "proof_slide": 1,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "image_set_sha256": "99c2019c2091195c6d27f6224df3888f9885335e582c38681605f2a77825d0bd",
+  "source_handoff_set_fingerprint": "sha256:5b6290006def9a625654ad25f741e82c14aed411efd953ac2ec2692964dfb82c",
+  "visual_qa_binding": {
+    "relative_path": ".internal/approved-proof/visual-qa.json",
+    "sha256": "sha256:353c52dbc8a7f19977ab79095ef9875be1683c23fa4ccabfdf4ed4195c8f9eb8"
+  },
+  "creator_approval_binding": {
+    "relative_path": ".internal/approved-proof/creator-approval.json",
+    "sha256": "sha256:8a9808d902a938d681c714270bd484856a396550330680723a95caec057e5306"
+  },
+  "quarantine_bindings": [
+    {
+      "relative_path": ".internal/visual-quarantine/attempt-02/final/slide-01.png",
+      "sha256": "sha256:2c78eb500ee3f4f4590fdf5a5b246e1c21392496b8f0993bfedd743cb74d3ce9"
+    }
+  ],
+  "attestation_fingerprint": "sha256:32d5574dcee1fe060635ee099adfea334ea3122e615425af8e314586a8fb06a9"
+}

@@ -1,0 +1,110 @@
+{
+  "status": "approved_for_image_generation",
+  "scorecard": {
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 5,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 5
+  },
+  "total": 40,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "PASS",
+    "hook": 9,
+    "story": 9,
+    "bridge": 9,
+    "zuv_role": 9,
+    "ending": 9,
+    "send_save_potential": 9,
+    "stage_scene": 9,
+    "verdict": "PASS: the locked sequence contains a public hook, incident, boundary, active restraint, voluntary return, and earned comic payoff.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 5.0,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 30.0
+  },
+  "story_selling_gate": {
+    "status": "PASS",
+    "source": "layer-e-story-selling.json",
+    "selected_concept_process_card": "Card 08 - Small Ritual, Large Promise",
+    "threshold": "28/30",
+    "selector_verdict": "Mature love hears the need beneath the sentence, respects the pause, and leaves room for a voluntary return.",
+    "candidate_count": 1,
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "opposite directions in parked car -> stop palm -> Zuv waits at far end -> Aachu returns -> chai and biscuit play",
+      "reaction": "His restraint makes room for her voluntary return, and her chai invitation turns distance back into play.",
+      "eye_line_or_attention": "Zuv looks away while waiting; Aachu looks back to verify the space was respected.",
+      "hands_or_object_movement": "The pointing hands drop, the stop palm interrupts pursuit, the phone is pocketed, and four owned hands carry two cups and one biscuit in the payoff.",
+      "silence_or_pause": "Zuv waits quietly at the far end without reaching, watching, or leaving.",
+      "consequence": "Aachu can return by choice, and the couple's irritation becomes play rather than rupture.",
+      "reversal_or_payoff": "Not less irritated; just better at coming back.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 30.0
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [
+    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
+    "Use the Codex built-in local image-generation handoff for final illustrated art."
+  ],
+  "required_changes_before_image_generation": [],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "pass": true,
+    "agent_alignment": {
+      "status": "PASS",
+      "evidence": "concept.json successful_carousel_standard_alignment and fresh copy-hidden Event A review"
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  }
+}

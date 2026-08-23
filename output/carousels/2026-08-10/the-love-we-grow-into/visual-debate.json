@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Tiny Rituals",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual": "FLASH-FORWARD COVER, one continuous physical scene. Rain-damp evening on a quieter service lane. Exactly Aachu and Zuv stand beside their single modest dark car, safely parked away from moving traffic. Across the divided road, a warmly lit restaurant entrance is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, a tiny roadside chai stall glows softly, also with no vendor and no signage. Aachu turns her gaze and chin toward the chai stall with a small conspiratorial half-smile. Zuv has just lowered the map phone and looks at her, understanding the pivot. Their bodies have begun angling toward the stall. The image must read without copy as: the original plan failed, but both are choosing a smaller date together. One umbrella is closed and leaning against the car; nobody holds it. No chai has been served yet. No scooter, motorbike, helmet, road sign, random lettering, or extra person."
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover keys, routes,\nand very small things.",
+      "visual": "One premium storybook page with TWO SMALL UNFRAMED VIGNETTES in the lower half, separated by open ivory paper rather than a hard graphic divider. Left vignette, outside the apartment door before departure: exactly Aachu and Zuv in the locked date wardrobe. Zuv searches one trouser pocket while Aachu holds her red handbag; the car key is visibly caught in the handbag's strap, making both of their annoyed suspicion funny. Right vignette, later inside the same single modest dark parked car: only their upper bodies are visible, Aachu looking out her side window while Zuv glances at a rerouting map phone held safely below eye level; the route is shown only by a simple curved line and location dot with no readable words or UI labels. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure, no reflection people. No scooter, helmet, road signs, menu text, or decorative micro-text."
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "visual": "Same rainy service lane and same single dark car, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car. Aachu stands several feet left of Zuv, torso and gaze turned away toward the unreachable restaurant across the divided road. Zuv remains near the car with one phone map lowered, gaze still on the route for one last beat. Their attention visibly splits: she wants silence, he is still trying to solve logistics. The closed umbrella remains propped against the car. No touching, no dramatic shouting, no background people, no person-shaped reflections in windows, no restaurant/shop lettering, no scooter or helmet."
+    },
+    {
+      "slide": 4,
+      "copy": "I hope you learn\nwhen it means:\n“Give me a minute.\nDon’t go far.”",
+      "visual": "Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing. Zuv has placed the phone FACE-DOWN on the parked car roof, well away from the edge, and waits several feet behind her beside the rear quarter of the car. He does not approach, touch, point, speak, or continue solving the route. His torso remains softly oriented toward her while his feet stay planted. The distance is enough to give her a minute but small enough to show he did not leave. The restaurant and chai stall are only faint geographic anchors. Exactly two people, no vendor, diners, passers-by, silhouettes, reflections, signs, lettering, scooter, or helmet."
+    },
+    {
+      "slide": 5,
+      "copy": "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "visual": "Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, the back edge of Zuv's pale blue shoulder is visible but does not block or merge into Aachu. Aachu is in clear three-quarter profile looking across the divided road at the unreachable warm restaurant entrance, her irritation softened into disappointment. The face-down phone remains visibly on the dark car roof in the lower foreground. Zuv's head and gaze have turned away from the map and toward Aachu's face. He does not touch her or the phone. This exact attention change is the action: he stops solving the route and notices that she had wanted ordinary time together. Exactly two people, no background person or live-looking reflection, no restaurant lettering, no CLOSED sign, no traffic sign, no scooter, helmet, or white substitute car."
+    },
+    {
+      "slide": 6,
+      "copy": "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "visual": "Same rainy evening and same parked dark car, now viewed from a low three-quarter angle beside the tiny unlabelled roadside chai stall. Exactly Aachu and Zuv sit on two simple stools angled toward each other, body distance noticeably smaller than slide 4. The unreachable restaurant remains a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Zuv tears open one plain unbranded biscuit packet with both hands and offers the first biscuit toward the shared space between them; exactly one second cutting-chai glass rests on the stall ledge beside him. The phone remains face-down on the car roof in the background and the closed umbrella remains against the car. No chai vendor, diners, pedestrians, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second biscuit packet, white car, scooter, helmet, or invented sign."
+    },
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "visual": "EARLIER CALLBACK TO BEFORE THE DATE, OUTSIDE THE APARTMENT ONLY. One premium storybook page with TWO SMALL UNFRAMED CHRONOLOGICAL VIGNETTES in the lower half, separated by open ivory paper and no hard divider. Both vignettes show the same apartment corridor from the OUTSIDE, the same fully closed wooden door, and the same couple in the exact date wardrobe. Door geometry is physically real and identical in both vignettes: hinges along the LEFT slab edge; a true RIGHT latch edge and jamb clearly visible; the lever spindle and lock hardware placed only a hand-width inboard from that RIGHT latch edge, never in the middle of the slab. Left vignette, first time beat: Zuv stands completely outside and tests the fully closed door by gently pulling the edge-mounted lever with his LEFT hand. Aachu has already walked three steps toward the visible lift, her feet and torso pointing away while her head rolls back with amused exasperation; she does not touch the door. Right vignette, second time beat: Aachu has visibly RETURNED and now stands beside Zuv at the same fully closed door. Zuv's LEFT hand still pulls the edge-mounted lever while Aachu's RIGHT palm presses the same door slab near the latch edge, so both participate in one shared push-pull check. Their small knowing smiles make the habit affectionate. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure. No footprints, arrows, indoor room, open door, middle-of-door lock, floating hardware, extra hands, door line through any body, corridor signage, apartment number, background person, scooter, or helmet."
+    }
+  ]
+}

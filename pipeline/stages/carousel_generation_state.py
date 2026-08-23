@@ -85,6 +85,9 @@ def _existing_generation_status(carousel_dir: Path) -> GenerationStatus | None:
 def validate_proof_transition(
     current: GenerationStatus | None,
     requested: GenerationStatus,
+    *,
+    creator_override_handoff_validated: bool = False,
+    qa_failed_full_deck_retry_handoff_validated: bool = False,
 ) -> None:
     """Block lifecycle skips once a proof has entered the fail-closed state machine."""
 
@@ -98,6 +101,22 @@ def validate_proof_transition(
             )
         return
     if current in PROOF_PIPELINE_STATUSES and requested not in PROOF_PIPELINE_STATUSES:
+        if (
+            current == GenerationStatus.BATCH_ALLOWED
+            and requested == GenerationStatus.HANDOFF_READY
+            and creator_override_handoff_validated
+        ):
+            return
+        if (
+            current
+            in {
+                GenerationStatus.GENERATED_QUARANTINED,
+                GenerationStatus.REJECTED_SPATIAL_INTEGRITY,
+            }
+            and requested == GenerationStatus.HANDOFF_READY
+            and qa_failed_full_deck_retry_handoff_validated
+        ):
+            return
         if current == GenerationStatus.BATCH_ALLOWED and requested in {
             GenerationStatus.PUBLISH_READY,
             GenerationStatus.GENERATED_AUDIT_FAILED,
@@ -127,8 +146,17 @@ def write_generation_state(
     reason: str | None = None,
     slides: list[dict[str, Any]] | None = None,
     extra: dict[str, Any] | None = None,
+    creator_override_handoff_validated: bool = False,
+    qa_failed_full_deck_retry_handoff_validated: bool = False,
 ) -> dict[str, Any]:
-    validate_proof_transition(_existing_generation_status(carousel_dir), status)
+    validate_proof_transition(
+        _existing_generation_status(carousel_dir),
+        status,
+        creator_override_handoff_validated=creator_override_handoff_validated,
+        qa_failed_full_deck_retry_handoff_validated=(
+            qa_failed_full_deck_retry_handoff_validated
+        ),
+    )
     if status in DONE_STATUSES.union(PROOF_PIPELINE_STATUSES) and not slides:
         raise ValueError(f"status {status.value!r} requires slides records")
 

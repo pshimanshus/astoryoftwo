@@ -1,0 +1,123 @@
+{
+  "status": "handoff_ready",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": true,
+  "slides": [
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-07.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-07.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-07.prompt.txt"
+      },
+      "expected_file": "final/slide-07.png",
+      "expected_files": {
+        "instagram_post": "final/slide-07.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-07-30/the-date-that-missed-its-reservation-9/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    }
+  ],
+  "reason": "Prompt files are ready; final PNGs still require Codex built-in image generation.",
+  "proof_gate": null,
+  "requested_proof_slide": 7,
+  "proof_only": true,
+  "total_slide_count": 7,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "generation_capability": {
+    "schema_version": "1.0",
+    "workspace_root": "output/carousels/2026-07-30/the-date-that-missed-its-reservation-9",
+    "capability_source": "environment",
+    "can_attach_identity_refs": false,
+    "package_terminal_state": "HANDOFF_READY_FOR_CODEX_WITH_IDENTITY",
+    "reason": "The current session has no declared ability to attach actual identity reference images to generation calls.",
+    "required_identity_inputs": [
+      "identity-face-contact-sheet.jpg",
+      "selected Aachu identity references",
+      "selected Zuv identity references",
+      "selected together reference when available"
+    ],
+    "next_action": "handoff_to_identity_reference_capable_generation_environment"
+  },
+  "prompt_dir": "codex-image-prompts",
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      7
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:3cacbeec778bc879b8381219af405cbdb5369b59aec5aab4a13ebb4c79b9ee52"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:7c9dbbe84944825611a17b203bad56090373a6c222fe306b43b1ca5dc043f775"
+      }
+    },
+    "files": [
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:04e77b00ea1c9750b1dcabf16c2b82c5ca8df04296b5fa52f159f7650e1556d6"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.md",
+        "sha256": "sha256:cbaa3845111c9ed938dd14b54f921f8f0cbbd81a9039423d11a34d84dd8123d0"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:ff5ab595f02ec72adc2cb64fe0085ad1d7728e47e88c88675f71c25a82d93206"
+  },
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure."
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "stage": "concept_and_visual_lock",
+  "author_task_id": "/root",
+  "room_runs": [
+    {
+      "task_id": "/root/retention_story",
+      "role": "story, retention and copy critic",
+      "verdict": "GO after specific visual-receipt repair"
+    },
+    {
+      "task_id": "/root/visual_cinematography",
+      "role": "visual director and cinematographer",
+      "verdict": "GO for Narrow Orbit"
+    },
+    {
+      "task_id": "/root/production_refs",
+      "role": "production designer and identity/style reference librarian",
+      "verdict": "GO for proof-first generation with the curated four-image identity bundle"
+    },
+    {
+      "task_id": "/root",
+      "role": "route author and final selector",
+      "verdict": "GO"
+    }
+  ],
+  "unresolved_objections": [],
+  "selected_route": "Narrow Orbit",
+  "decision": "GO"
+}

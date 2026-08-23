@@ -103,6 +103,7 @@ from pipeline.stages.carousel_visual_rooms import (
 from pipeline.stages.carousel_visual_integrity import (
     build_action_topology_contract,
     build_hand_ownership_map,
+    build_spatial_topology_contract,
     build_visual_richness_contract,
 )
 
@@ -158,6 +159,7 @@ def load_creative_baseline(path: str | Path | None) -> dict[str, Any] | None:
                         "cta_intent",
                         "hand_map",
                         "action_topology_contract",
+                        "spatial_topology_contract",
                         "visual_richness_contract",
                     )
                     if key in item
@@ -178,6 +180,7 @@ def load_creative_baseline(path: str | Path | None) -> dict[str, Any] | None:
         "slides": slides,
         "copy": copy_block,
         "visual_setup": data.get("visual_setup") or data.get("visual_direction") or "",
+        "identity_prompt_override": data.get("identity_prompt_override") or "",
     }
 
 
@@ -236,6 +239,7 @@ def slides_from_creative_baseline(
             "cta_intent",
             "hand_map",
             "action_topology_contract",
+            "spatial_topology_contract",
             "visual_richness_contract",
         ):
             if item.get(key):
@@ -1149,6 +1153,8 @@ def build_package(
             "hand_map": slide.get("hand_map") or build_hand_ownership_map(slide["visual"]),
             "action_topology_contract": slide.get("action_topology_contract")
             or build_action_topology_contract(slide["visual"], slide["copy"]),
+            "spatial_topology_contract": slide.get("spatial_topology_contract")
+            or build_spatial_topology_contract(slide["visual"]),
             "visual_richness_contract": slide.get("visual_richness_contract")
             or build_visual_richness_contract(slide["visual"]),
             "pose": slide.get("pose") or (
@@ -1218,13 +1224,18 @@ def build_package(
                 f"Identity reference strategy: {identity_reference_selection['rule']} "
                 f"Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. "
                 f"Character bible: {character_bible}. "
+                f"{creative_baseline_record.get('identity_prompt_override', '')} "
                 f"{'Carousel continuity lock: ' + slide['continuity_lock'] + ' ' if slide.get('continuity_lock') else ''}"
                 f"{build_identity_continuity_prompt(slide, identity_paths)} "
                 f"Scene: {slide['visual']} Mood: {slide['emotion']}. "
                 f"House style consistency: {HOUSE_STYLE_SCENE_RULE} "
-                "Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, "
-                "no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, "
-                "and leave generous warm paper negative space around the couple and the handwritten text; "
+                "Composition restraint: "
+                + (
+                    "follow the slide-specific COMPOSITION OVERRIDE exactly; keep one clear action inside each authorized vignette, preserve its explicit person inventory, and add no further panel, figure, or collage element. "
+                    if "COMPOSITION OVERRIDE" in slide["visual"]
+                    else "keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat. "
+                )
+                + "Leave generous warm paper negative space around the couple and the handwritten text; "
                 "the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. "
                 "minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. "
                 "Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, "

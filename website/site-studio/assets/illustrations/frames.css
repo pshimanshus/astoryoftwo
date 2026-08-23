@@ -1,0 +1,412 @@
+/* =============================================================================
+   A Story of Two — Illustrated Frames Kit
+   -----------------------------------------------------------------------------
+   Hand-drawn, watercolor-paper "containers" that WRAP a real <img>.
+   The illustration IS the frame; the photo inside is the real content.
+
+   Pure CSS + inline SVG only. No external art, no AI imagery, no baked text.
+   The only <img> is the real media placed inside each frame.
+
+   Depends on the design tokens defined on :root in ../../styles.css
+   (--paper, --paper-2, --paper-3, --ink, --ink-soft, --line, --coral,
+    --sage, --blush, --denim, --camel, --serif, --sans, --hand).
+
+   Components:
+     .ill-reel      — 9:16 hand-drawn film / phone frame for a reel cover
+     .ill-polaroid  — taped instant-photo frame with caption ledge (~4:5)
+     .ill-card      — torn-paper index-card frame for carousel covers (~4:5)
+
+   Markup contracts (see frames-demo.html):
+     <figure class="ill-reel">
+       <span class="ill-reel__media"><img src="…" alt="…"></span>
+     </figure>
+
+     <figure class="ill-polaroid">
+       <span class="ill-polaroid__media"><img src="…" alt="…"></span>
+       <figcaption class="ill-polaroid__cap">a handwritten line</figcaption>
+     </figure>
+
+     <figure class="ill-card">
+       <span class="ill-card__media"><img src="…" alt="…"></span>
+     </figure>
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   Shared fundamentals
+   --------------------------------------------------------------------------- */
+
+.ill-reel,
+.ill-polaroid,
+.ill-card {
+  /* local fallbacks so the kit degrades gracefully if loaded standalone */
+  --ill-paper:   var(--paper, #F3ECE0);
+  --ill-paper-2: var(--paper-2, #ECE2D2);
+  --ill-paper-3: var(--paper-3, #E4D8C4);
+  --ill-ink:     var(--ink, #2B2620);
+  --ill-line:    var(--line, rgba(43, 38, 32, 0.14));
+  --ill-coral:   var(--coral, #9E4A32);
+  --ill-denim:   var(--denim, #5E7A93);
+  --ill-sage:    var(--sage, #9AA98C);
+  --ill-blush:   var(--blush, #E3B3A0);
+  --ill-camel:   var(--camel, #C6A271);
+
+  /* ink stroke used by the SVG borders (urlencoded into data-URIs below) */
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Every real photo behaves the same way: fills its slot, never clips oddly. */
+.ill-reel__media img,
+.ill-polaroid__media img,
+.ill-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Faint watercolor wash laid OVER each photo so a real, possibly saturated
+   image still reads as part of this soft ivory world. Kept very subtle. */
+.ill-reel__media::after,
+.ill-polaroid__media::after,
+.ill-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background:
+    radial-gradient(120% 80% at 18% 8%, rgba(227, 179, 160, 0.16), transparent 55%),
+    radial-gradient(120% 90% at 88% 96%, rgba(94, 122, 147, 0.14), transparent 60%);
+}
+
+/* Keyboard focus: a warm dotted ring, in keeping with the hand-drawn feel.
+   The inner <img> keeps its own alt; we make wrappers focal where they link. */
+.ill-reel:focus-visible,
+.ill-polaroid:focus-visible,
+.ill-card:focus-visible,
+.ill-reel a:focus-visible,
+.ill-polaroid a:focus-visible,
+.ill-card a:focus-visible {
+  outline: 2px dashed var(--ill-coral);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ill-reel,
+  .ill-polaroid,
+  .ill-card,
+  .ill-reel *,
+  .ill-polaroid *,
+  .ill-card * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =============================================================================
+   1) .ill-reel  —  9:16 hand-drawn film / phone frame
+   -----------------------------------------------------------------------------
+   - sketchy ink DOUBLE border with slight irregularity (inline SVG, ::before)
+   - small corner registration ticks (::after on the media)
+   - soft paper drop-shadow on the whole frame
+   - a hand-drawn play triangle overlay (.ill-reel__play, SVG)
+   - a thin bottom "ledge" area (.ill-reel__ledge)
+   ============================================================================= */
+
+.ill-reel {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;          /* desktop default; demo overrides per context */
+  padding: clamp(10px, 3.5%, 16px);
+  padding-bottom: clamp(26px, 9%, 40px);   /* extra room for the ledge */
+  background:
+    linear-gradient(180deg, var(--ill-paper) 0%, var(--ill-paper-2) 100%);
+  border-radius: 14px;
+  /* soft, layered paper drop-shadow */
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 2px 6px rgba(43, 38, 32, 0.08),
+    0 14px 30px -12px rgba(43, 38, 32, 0.30);
+  transition: transform 0.4s var(--ease, ease), box-shadow 0.4s var(--ease, ease);
+}
+
+.ill-reel:hover {
+  transform: translateY(-3px) rotate(-0.3deg);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 4px 10px rgba(43, 38, 32, 0.10),
+    0 22px 42px -14px rgba(43, 38, 32, 0.36);
+}
+
+/* The sketchy ink DOUBLE border, drawn as one inline SVG sat over the frame.
+   Two slightly-offset wobbly rounded rectangles give the hand-drawn double-line.
+   stroke = #2B2620 (--ink). */
+.ill-reel::before {
+  content: "";
+  position: absolute;
+  inset: clamp(5px, 1.6%, 9px);
+  pointer-events: none;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 356' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%232B2620' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2.1' d='M12 7 C70 4 130 5 188 8 C191 70 192 150 191 270 C191 305 190 333 187 349 C130 352 70 351 13 349 C10 290 9 200 9 96 C9 60 10 28 12 7 Z'/%3E%3Cpath stroke-width='1' opacity='0.5' d='M17 13 C72 11 128 12 183 14 C186 74 187 150 186 268 C186 300 185 326 183 343 C128 345 72 345 18 343 C15 286 14 198 14 98 C14 62 15 34 17 13 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* The 9:16 media slot that the real reel cover fills. */
+.ill-reel__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--ill-paper-3);
+  box-shadow: 0 1px 2px rgba(43, 38, 32, 0.18) inset;
+}
+
+/* Small corner registration ticks — like film/contact-sheet crop marks.
+   Four little L-shapes, one inline SVG layered just inside the media. */
+.ill-reel__media::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 178' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23F3ECE0' stroke-width='1.6' stroke-linecap='round' opacity='0.92'%3E%3Cpath d='M4 12 V4 H12'/%3E%3Cpath d='M96 12 V4 H88'/%3E%3Cpath d='M4 166 V174 H12'/%3E%3Cpath d='M96 166 V174 H88'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Hand-drawn play triangle overlay — sits centered over the cover.
+   A wobbly ink-outline circle with a soft ivory triangle, faint coral wash. */
+.ill-reel__play {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  width: clamp(44px, 22%, 64px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px rgba(43, 38, 32, 0.35));
+  transition: transform 0.4s var(--ease, ease);
+}
+.ill-reel:hover .ill-reel__play { transform: translate(-50%, -50%) scale(1.06); }
+
+/* The actual glyph: inline SVG via background so no extra markup is required. */
+.ill-reel__play::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 C46 3 60 16 60 33 C60 49 47 61 31 61 C16 61 4 47 4 31 C4 16 17 5 32 4 Z' fill='%23F3ECE0' fill-opacity='0.92'/%3E%3Cpath d='M32 4 C46 3 60 16 60 33 C60 49 47 61 31 61 C16 61 4 47 4 31 C4 16 17 5 32 4 Z' fill='none' stroke='%239E4A32' stroke-width='2.2' stroke-linejoin='round'/%3E%3Cpath d='M26 22 C25 22 25 23 25 24 L25 41 C25 42 26 43 27 42 L43 33 C44 32 44 31 43 31 L27 22 C27 22 26 22 26 22 Z' fill='%232B2620'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Thin bottom "ledge" — a quiet strip under the media, like a phone chin or
+   a film frame's sprocket bar. Holds nothing by default; gives breathing room
+   and a place the page could drop a tiny hand label. */
+.ill-reel__ledge {
+  position: relative;
+  z-index: 2;
+  height: clamp(12px, 4%, 18px);
+  margin-top: clamp(8px, 3%, 12px);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, var(--ill-paper-2), var(--ill-paper-3));
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.45) inset;
+  overflow: hidden;
+}
+/* a couple of faint "sprocket" dashes drawn in ink, centered on the ledge */
+.ill-reel__ledge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 16' preserveAspectRatio='xMidYMid meet'%3E%3Cg stroke='%232B2620' stroke-width='2' stroke-linecap='round' opacity='0.28'%3E%3Cline x1='48' y1='8' x2='54' y2='8'/%3E%3Cline x1='59' y1='8' x2='61' y2='8'/%3E%3Cline x1='66' y1='8' x2='72' y2='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* =============================================================================
+   2) .ill-polaroid  —  taped instant-photo frame (~4:5)
+   -----------------------------------------------------------------------------
+   - white mat with a THICKER bottom strip for a --hand caption
+   - two washi-tape corners drawn in SVG (::before top-left, ::after top-right)
+   - a slight rotation + soft shadow
+   ============================================================================= */
+
+.ill-polaroid {
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  padding: clamp(11px, 5%, 16px);
+  padding-bottom: clamp(46px, 20%, 64px);   /* the thick caption strip */
+  background:
+    /* faint paper grain so the white mat isn't a flat rectangle */
+    radial-gradient(140% 120% at 12% 6%, #FFFFFF 0%, #FBF7EF 46%, #F6EFE2 100%);
+  border: 1px solid rgba(43, 38, 32, 0.06);
+  border-radius: 4px;
+  transform: rotate(-2.4deg);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 2px 4px rgba(43, 38, 32, 0.10),
+    0 16px 30px -14px rgba(43, 38, 32, 0.34);
+  transition: transform 0.45s var(--ease, ease), box-shadow 0.45s var(--ease, ease);
+}
+.ill-polaroid:hover {
+  transform: rotate(-0.6deg) translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 4px 8px rgba(43, 38, 32, 0.12),
+    0 24px 40px -16px rgba(43, 38, 32, 0.40);
+}
+
+.ill-polaroid__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  overflow: hidden;
+  background: var(--ill-paper-3);
+  /* the inked rim of an instant photo: a thin dark inner shadow */
+  box-shadow:
+    0 0 0 1px rgba(43, 38, 32, 0.12),
+    0 1px 3px rgba(43, 38, 32, 0.20) inset;
+}
+
+/* Washi tape — top-left corner. A translucent blush rectangle, rotated, with
+   torn ends and a faint ink edge. Drawn entirely in SVG. */
+.ill-polaroid::before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: -12px;
+  left: -14px;
+  width: clamp(58px, 30%, 82px);
+  height: 30px;
+  transform: rotate(-26deg);
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 30'%3E%3Cpath d='M3 6 L8 4 L13 6 L19 3 L25 6 L31 4 L37 6 L43 3 L49 6 L55 4 L61 6 L67 3 L73 6 L79 4 L85 6 L87 24 L81 26 L75 23 L69 26 L63 23 L57 26 L51 23 L45 26 L39 23 L33 26 L27 23 L21 26 L15 23 L9 26 L4 24 Z' fill='%23E3B3A0' fill-opacity='0.62'/%3E%3Cg stroke='%239E4A32' stroke-opacity='0.30' stroke-width='1'%3E%3Cline x1='20' y1='6' x2='17' y2='24'/%3E%3Cline x1='45' y1='5' x2='43' y2='25'/%3E%3Cline x1='70' y1='6' x2='68' y2='24'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 1px 1px rgba(43, 38, 32, 0.16));
+}
+
+/* Washi tape — top-right corner. A translucent denim strip, opposite tilt. */
+.ill-polaroid::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: -12px;
+  right: -14px;
+  width: clamp(58px, 30%, 82px);
+  height: 30px;
+  transform: rotate(24deg);
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 30'%3E%3Cpath d='M3 6 L8 4 L13 6 L19 3 L25 6 L31 4 L37 6 L43 3 L49 6 L55 4 L61 6 L67 3 L73 6 L79 4 L85 6 L87 24 L81 26 L75 23 L69 26 L63 23 L57 26 L51 23 L45 26 L39 23 L33 26 L27 23 L21 26 L15 23 L9 26 L4 24 Z' fill='%235E7A93' fill-opacity='0.45'/%3E%3Cg stroke='%232B2620' stroke-opacity='0.22' stroke-width='1'%3E%3Cline x1='20' y1='6' x2='17' y2='24'/%3E%3Cline x1='45' y1='5' x2='43' y2='25'/%3E%3Cline x1='70' y1='6' x2='68' y2='24'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 1px 1px rgba(43, 38, 32, 0.16));
+}
+
+/* The caption ledge: lives in the thick bottom strip. The PAGE supplies the
+   text; here we only style it as a centered handwritten line. */
+.ill-polaroid__cap {
+  position: absolute;
+  left: clamp(12px, 6%, 18px);
+  right: clamp(12px, 6%, 18px);
+  bottom: clamp(10px, 5%, 18px);
+  margin: 0;
+  text-align: center;
+  font-family: var(--hand, "Caveat", cursive);
+  font-size: clamp(1.05rem, 5vw, 1.35rem);
+  line-height: 1.12;
+  color: var(--ill-ink);
+  /* keep the slight counter-rotation so text sits level-ish to the eye */
+  transform: rotate(0.4deg);
+}
+
+/* =============================================================================
+   3) .ill-card  —  torn-paper index-card frame for carousel covers (~4:5)
+   -----------------------------------------------------------------------------
+   - irregular TORN edge via an SVG mask (clips the whole card)
+   - a soft layered shadow under the torn shape
+   - a faint ruled "index card" baseline + camel margin tick for character
+   ============================================================================= */
+
+/* The torn silhouette, shared by the card body and its drop-shadow layer.
+   A single wobbly path with nicked edges; used as a CSS mask so the real
+   photo + paper border are clipped to a hand-torn rectangle. */
+.ill-card {
+  --ill-torn:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 375' preserveAspectRatio='none'%3E%3Cpath d='M6 10 L20 7 L34 11 L50 6 L66 10 L82 7 L100 11 L118 6 L136 10 L154 7 L172 11 L190 6 L208 10 L226 8 L244 11 L262 7 L280 10 L293 8 L295 26 L292 46 L296 66 L291 88 L295 110 L290 132 L295 156 L291 180 L296 204 L291 230 L295 256 L290 282 L295 306 L291 330 L294 352 L292 368 L276 365 L258 369 L240 364 L222 369 L204 364 L186 369 L168 364 L150 369 L132 364 L114 369 L96 364 L78 369 L60 364 L42 369 L24 365 L8 368 L6 350 L9 330 L5 306 L9 282 L4 256 L9 230 L5 204 L9 180 L4 156 L9 132 L5 108 L9 84 L4 60 L8 36 L6 18 Z'/%3E%3C/svg%3E");
+
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  position: relative;
+  /* drop-shadow on the torn shape (box-shadow can't follow a mask, so the
+     shadow lives on this ::after layer that copies the same silhouette) */
+}
+
+/* shadow layer: same torn shape, blurred + nudged down behind the card */
+.ill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(43, 38, 32, 0.42);
+  -webkit-mask: var(--ill-torn) center / 100% 100% no-repeat;
+          mask: var(--ill-torn) center / 100% 100% no-repeat;
+  filter: blur(10px);
+  transform: translateY(10px) scale(0.985);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* the card body: warm paper border around the photo, torn to shape */
+.ill-card__media {
+  position: relative;
+  z-index: 1;
+  display: block;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(9px, 4%, 14px);
+  padding-bottom: clamp(20px, 9%, 30px);     /* a little index-card chin */
+  background:
+    linear-gradient(180deg, #FBF6EC 0%, var(--ill-paper-2) 100%);
+  -webkit-mask: var(--ill-torn) center / 100% 100% no-repeat;
+          mask: var(--ill-torn) center / 100% 100% no-repeat;
+  transition: transform 0.4s var(--ease, ease);
+}
+.ill-card:hover .ill-card__media { transform: rotate(0.4deg); }
+
+/* the photo itself sits in an inner window so the torn paper shows as a frame */
+.ill-card__media img {
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(43, 38, 32, 0.10);
+  /* the img is height:100% of the padded box; cap it so the chin shows */
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+/* faint ruled "index card" line + a camel margin tick, drawn over the chin */
+.ill-card__media::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: clamp(9px, 4%, 14px);
+  right: clamp(9px, 4%, 14px);
+  bottom: clamp(7px, 3.5%, 11px);
+  height: 14px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 14' preserveAspectRatio='none'%3E%3Cline x1='2' y1='9' x2='258' y2='9' stroke='%235E7A93' stroke-opacity='0.34' stroke-width='1.2'/%3E%3Cline x1='30' y1='0' x2='30' y2='14' stroke='%239E4A32' stroke-opacity='0.40' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}

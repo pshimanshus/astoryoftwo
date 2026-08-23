@@ -1,0 +1,802 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "No Script, Same Scene Partner",
+  "rejected_visual_patterns": [
+    "blueprints, maps, architecture mazes or construction tools",
+    "red thread, constellation, portal or heart-path symbolism",
+    "six passive couple portraits beside poetic copy",
+    "theatre poster, playbill, signage, labels or random script text"
+  ],
+  "continuity_locks": {
+    "world": "one continuous dream-theatre night",
+    "light": "shifting cover light -> separate spotlights -> shared pool -> divided action light -> blackout/ghost light -> renewed light -> next footlight",
+    "script": "appears as the blank hero object in slide 4, closes sharply beside the failed cue in slide 5, and remains visibly left on the rehearsal table in slide 6",
+    "chairs": "separate wings -> disrupted -> each actively pulled into the same next light",
+    "wardrobe": "Aachu black overshirt/top/jeans; Zuv white zip jacket/charcoal trousers",
+    "entities": "exactly Aachu and Zuv; no audience figures, reflections, silhouettes or doubles"
+  },
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "shot_ladder": [
+    {
+      "slide": 1,
+      "shot": "medium-wide readable-face moving cover",
+      "angle": "first-row three-quarter",
+      "sub_location": "downstage among shifting flats",
+      "action": "walk aligned while scenery moves apart",
+      "visible": "both"
+    },
+    {
+      "slide": 2,
+      "shot": "lateral wide",
+      "angle": "stage-level profile",
+      "sub_location": "opposite stage wings",
+      "action": "separate entrance into irregular shared light",
+      "visible": "both"
+    },
+    {
+      "slide": 3,
+      "shot": "high crane",
+      "angle": "fly-loft diagonal",
+      "sub_location": "full stage during scene load-in",
+      "action": "back-to-back divided attention",
+      "visible": "both"
+    },
+    {
+      "slide": 4,
+      "shot": "object-dominant over-shoulder close insert",
+      "angle": "low table-level",
+      "sub_location": "blackout rehearsal table",
+      "action": "shared gaze begins on blank pages as Aachu notices the loose curtain cue",
+      "visible": "partial Aachu and readable Zuv"
+    },
+    {
+      "slide": 5,
+      "shot": "medium reaction",
+      "angle": "side-stage eye level",
+      "sub_location": "failed scene-change aftermath",
+      "action": "same-time laugh at falling curtain",
+      "visible": "both"
+    },
+    {
+      "slide": 6,
+      "shot": "medium-wide active release",
+      "angle": "high rear three-quarter",
+      "sub_location": "stage lip facing next cue",
+      "action": "one chair pull each into shared light",
+      "visible": "both"
+    }
+  ],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The creator supplied six exact slide lines in the current task; slides.json preserved those lines verbatim before the independent observable-card review.",
+    "author_id": "/root",
+    "reviewer_id": "/root/theater_repair2_event_a",
+    "reviewer_evidence": "A fresh independent reviewer received only the six repaired observable cards and returned GO, explicitly passing the two owner-specific blank-page actions, straight cleated fly-line, equal curtain recovery and mark-free closed book.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:e97961c16a968974e225ee2d95fb28fdfa71de938fd7338c93041073bea2a33a",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "one South Asian woman",
+          "one South Asian man"
+        ],
+        "visible_setting": "A theatre stage viewed from the empty first row; two tall scenery flats move on visible caster bases in opposite directions behind them.",
+        "observable_action": "They walk downstage shoulder-to-shoulder in the same direction and lean subtly toward each other for balance while the space shifts apart around them.",
+        "hands_and_contact": "Exactly two outer hands are visible at their owners' thighs; both inside hands are hidden behind adjacent torsos; shoulders remain firmly touching.",
+        "gaze": "Both look toward the same changing floor ahead.",
+        "body_blocking": "They move at the same depth with aligned knees and touching shoulders, while the flats travel away from each other behind them.",
+        "object_state": "One indigo flat rolls left and one dusty-rose flat rolls right; a low strip of empty upholstered seat backs remains object-like in foreground.",
+        "camera_view": "Medium-wide first-row three-quarter view with both faces readable.",
+        "visible_continuity": "Exactly two people; black-and-denim wardrobe for the woman, white-and-charcoal wardrobe for the man; no script or domestic set."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "A bare theatre stage seen laterally at floor level, with one dark wing on either side.",
+        "observable_action": "Each takes one step from a different wing into the same irregular cross-fade of two spotlights.",
+        "hands_and_contact": "Four hands hang separately at their owners' sides; there is no touch.",
+        "gaze": "Their profile eye-lines meet across the shared pool.",
+        "body_blocking": "They approach center from opposite directions at equal distance and the same floor depth.",
+        "object_state": "One plain empty rehearsal chair remains in each separate wing; no other prop sits at center.",
+        "camera_view": "Stage-level lateral wide view.",
+        "visible_continuity": "The same clean wardrobe, two separated chairs, and the same pair only."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "The stage seen diagonally from the fly loft while two practical pieces roll in from opposite sides.",
+        "observable_action": "They stand back-to-back with shoulders touching; the woman stops one rolling work desk with her right palm while the man turns one rolling doorway flat with his left palm.",
+        "hands_and_contact": "Exactly two focal hands are visible, one per person on a separate object; free hands remain outside the crop.",
+        "gaze": "Each person looks toward the separate object they are handling.",
+        "body_blocking": "Their backs stay connected while their torsos and attention divide toward opposite incoming demands.",
+        "object_state": "Exactly two taped cartons sit on the desk; the doorway flat shows a rear brace and caster base; every object remains outside body silhouettes except the declared palm contact.",
+        "camera_view": "High diagonal crane view.",
+        "visible_continuity": "The same lightly dusty wardrobe, one shared spotlight, exactly two people and no script."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "a partial view of the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "A small rehearsal table during stage blackout, with one distant ghost light, one straight taut indigo fly-line fixed flush into a metal wall cleat, and a narrow edge of the still-hanging curtain.",
+        "observable_action": "The woman lifts and turns the completely blank right script page with her right hand while the man's separate left index finger and palm press the completely blank left page corner flat.",
+        "hands_and_contact": "Exactly two focal hands from two separate owners are visible on opposite sides of the spread, one turning a page and one pressing the other page flat; all other hands remain outside frame.",
+        "gaze": "Both gazes remain on the empty spread as their two active hands search for an instruction that is not there.",
+        "body_blocking": "One partial foreground presence and one readable background face sit on opposite sides of the central script; both separate hands, pages, table and bodies stay spatially distinct.",
+        "object_state": "The two ivory pages are completely blank. One single straight taut fly-line is fixed vertically and flush into a visible wall cleat, with no loose section, loop, knot, curve, coil or hanging end. A narrow curtain edge and one ghost light remain.",
+        "camera_view": "Object-dominant over-the-woman-shoulder close insert.",
+        "visible_continuity": "The same pair and dusty wardrobe; shared light has fallen to blackout, the technical line is visibly fixed, and the script supplies no answer."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "Bare side-stage floor immediately after an indigo curtain has collapsed safely, with a separate rehearsal table in the middle background.",
+        "observable_action": "They kneel on opposite sides of the fallen curtain and actively lift one separately owned corner each toward the same center; the fold lands crooked and both begin the same tired laugh.",
+        "hands_and_contact": "Exactly two inside hands are visible, one per person gripping only that person's curtain corner; all outside hands stay outside crop.",
+        "gaze": "Their eye-lines meet directly at the instant the crooked fold reveals the shared mishap.",
+        "body_blocking": "They kneel at the same depth with bodies separate; a shallow central fabric ridge and two short fresh dust marks prove the cloth is actively moving.",
+        "object_state": "The fallen curtain is being folded toward center. A small featureless dark-indigo closed script with a completely blank cover remains on the separate table. No rope, line, loop, coil or cord appears.",
+        "camera_view": "Low side-stage medium-wide recovery view.",
+        "visible_continuity": "The same pair and wardrobe, visible cue failure and equal shared recovery occupy one active moment."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "the same South Asian woman",
+          "the same South Asian man"
+        ],
+        "visible_setting": "The stage viewed from high behind as one pale-peach next light and one footlight switch on; the same indigo and dusty-rose scenery flats from the opening slide move apart in the far background, leaving one open center.",
+        "observable_action": "They stand at the same depth and each pull one separate rehearsal chair by its backrest toward the same pool of light.",
+        "hands_and_contact": "Exactly two inside hands are visible, one per person gripping only that person's chair; both outside hands remain outside the crop.",
+        "gaze": "Both look toward the same illuminated footlight and unfinished stage, with a fully readable small side glance beginning between them.",
+        "body_blocking": "Their bodies align side-by-side without overlap; both chairs angle slightly inward toward one another and remain fully separate from both bodies except each owner's declared hand contact.",
+        "object_state": "The two chairs are nearly adjacent but still moving; one short local skid of chalky dust sits behind each chair leg. The pooled curtain and separate rehearsal table remain behind them, holding one small featureless dark-indigo closed script whose cover is completely blank and contains no marks or text.",
+        "camera_view": "High rear three-quarter medium-wide view with profiles partly readable.",
+        "visible_continuity": "The two previously separated chairs actively converge; the recovered curtain and completely blank closed script are left behind; the opposing scenery-flat movement echoes the opening; exactly two people are present."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:95003ec177cbce2d4ac825415f324d88a4d5134ed7b65b4f45f237b502b2530a",
+    "source_fingerprint": "sha256:211ed3889ac6b2567e72e9922ad9c857092d35f29bc285a10668364752d7c4b2",
+    "sequence_mode": "montage_with_arc",
+    "physical_event": "A couple enters one theatre world, absorbs separate incoming demands, actively searches blank guidance, jointly recovers a failed curtain change and each moves one separate chair into the same next light.",
+    "emotional_arc": "Steadiness amid change becomes chosen connection, coordinated strain, shared uncertainty, humor through reciprocal recovery and renewed agency.",
+    "relationship_change": "They move from separate arrivals through divided attention and missing guidance into active shared repair and coordinated continuation.",
+    "sequence_read": "A cold-open shows aligned movement inside separating scenery; chronology begins with separate wings, adds different demands, loses the script, makes the cue failure physical, shows both repairing it, and ends with both building the next scene.",
+    "visual_variables": [
+      "body alignment and equal agency",
+      "stage cue and object state"
+    ],
+    "hero_receipt_slide": 6,
+    "setup_payoff_ledger": [
+      {
+        "setup": "One empty rehearsal chair remains isolated in each opposite wing when the couple first enters the shared light.",
+        "payoff": "Each person later pulls one of those chairs toward the same next light until both angle inward.",
+        "changed_meaning": "Separate origins become equal authorship of one next scene without collapsing either person's agency."
+      },
+      {
+        "setup": "They actively turn and test a completely blank script beside a straight fixed theatre fly-line and still-hanging curtain.",
+        "payoff": "The curtain fails, both people actively fold it together, and the featureless blank script remains behind when they move forward.",
+        "changed_meaning": "Missing instructions and visible failure become shared repair rather than a verdict on the partnership."
+      },
+      {
+        "setup": "Indigo and dusty-rose scenery flats move apart while the couple stays aligned in the opening cold-open.",
+        "payoff": "The same flats open the center again as both people converge their chairs around one new light.",
+        "changed_meaning": "The changing world becomes the unfinished stage on which they keep choosing one direction."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "the two rehearsal chairs",
+        "initial_state": "empty and isolated in opposite dark wings",
+        "later_state": "separately owned, actively moving and angled inward inside one next light",
+        "story_job": "carry the transition from separate origins to equal participation in a shared future"
+      },
+      {
+        "object": "the blank rehearsal script and curtain mechanism",
+        "initial_state": "blank pages actively searched beside a straight fixed wall-cleated fly-line and still-hanging curtain",
+        "later_state": "featureless and closed on a separate table while both people recover the fallen curtain, then visibly left behind",
+        "story_job": "make absent guidance, visible failure, equal recovery and the choice to continue physically legible"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "flash-forward thesis and closing-bookend setup",
+        "silent_read": "A couple keeps moving forward in physical alignment while the world behind them separates and changes.",
+        "change_from_previous": "The matching opposing flats will return after the chronological story, making this a visible bookend.",
+        "critic_evidence": "The blind reviewer read this as a couple moving forward together while their surroundings split apart, then explicitly recognized the repeated scenery movement on slide six as an intentional bookend.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "walk downstage shoulder-to-shoulder while leaning subtly toward each other",
+          "target_or_object": "the same changing floor ahead",
+          "reaction_or_consequence": "their alignment survives the opposing movement behind them"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents inside one shared stage world",
+          "audience_knows": "A couple keeps moving forward in physical alignment while the world behind them separates and changes.",
+          "audience_feels": "stability inside disorientation"
+        },
+        "shot": {
+          "size": "medium-wide moving two-shot",
+          "angle": "first-row three-quarter",
+          "camera_position": "from the empty first row facing downstage",
+          "focal_subject": "their aligned bodies against opposing scenery movement",
+          "story_reason": "The camera makes the current body relationship, action and changing object state readable before decorative theatre atmosphere."
+        },
+        "blocking": {
+          "hands": "exactly two outer hands rest at their owners' thighs; both inside hands stay hidden",
+          "gaze": "both look toward the same changing floor ahead",
+          "body_distance": "shoulders touch at the same depth",
+          "posture_or_feet": "both walk and lean subtly toward one another for balance"
+        },
+        "setting": {
+          "sub_location": "downstage among moving scenery flats",
+          "time": "flash-forward within the same theatre night",
+          "motivated_light": "cool indigo and dusty-rose stage spill on warm ivory paper",
+          "story_trace": "opposing flats establish the visual thesis later repeated at payoff"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the opposing indigo and dusty-rose scenery flats",
+            "observable_state": "they roll apart while the couple keeps one direction and touching shoulders",
+            "narrative_job": "establish the cold-open contradiction and later bookend"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The sequence opens on its future-facing visual thesis.",
+          "outgoing_state": "The matching opposing flats will return after the chronological story, making this a visible bookend."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "audience figure",
+            "crew member",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The active cover could initially look chronologically later than the separate arrival on slide two.",
+            "repair": "Repeat the same indigo and dusty-rose flats moving apart on slide six while changing camera and action, so slide one reads as a cold-open thesis and slide six as its earned echo.",
+            "recheck_evidence": "The fresh blind reviewer explicitly said the slide one/six bookend reads as intentional rather than an accidental continuity error."
+          }
+        ]
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "chronological beginning through mutual convergence",
+        "silent_read": "Two people enter from separate sides, notice each other and choose the same shared light.",
+        "change_from_previous": "Chronology begins with separate wings, separate chairs and one shared light.",
+        "critic_evidence": "The blind reviewer read two separate arrivals becoming one shared space and cited the isolated chairs and shared light as literal setup evidence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "take one step from opposite wings into one cross-faded pool",
+          "target_or_object": "each other and the shared light",
+          "reaction_or_consequence": "two separate arrivals become one mutual starting point"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents inside one shared stage world",
+          "audience_knows": "Two people enter from separate sides, notice each other and choose the same shared light.",
+          "audience_feels": "mutual recognition"
+        },
+        "shot": {
+          "size": "lateral wide",
+          "angle": "stage-level profile",
+          "camera_position": "from one side of the bare stage across both wings",
+          "focal_subject": "two entrances reaching one irregular shared light",
+          "story_reason": "The camera makes the current body relationship, action and changing object state readable before decorative theatre atmosphere."
+        },
+        "blocking": {
+          "hands": "four separate hands hang naturally at their owners' sides",
+          "gaze": "profile eye-lines meet across the shared pool",
+          "body_distance": "equal distance from center with no touch yet",
+          "posture_or_feet": "both take one clear leading step into the light"
+        },
+        "setting": {
+          "sub_location": "bare stage between two dark wings",
+          "time": "chronological beginning",
+          "motivated_light": "two narrow spotlights cross-fading into one irregular shared pool",
+          "story_trace": "one empty chair remains in each separate wing"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the two separate chairs and cross-faded light",
+            "observable_state": "each chair stays in its own wing while both people enter one shared pool",
+            "narrative_job": "make separate origins and mutual choice visible"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The first slide established the couple's eventual alignment inside changing space.",
+          "outgoing_state": "Chronology begins with separate wings, separate chairs and one shared light."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "audience figure",
+            "crew member",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "shared life introduces separately handled demands",
+        "silent_read": "Life sends different demands toward each person, but their connected backs keep the pressure relational rather than isolating.",
+        "change_from_previous": "Incoming stage objects divide their attention while their backs remain connected.",
+        "critic_evidence": "The blind reviewer read different life demands handled separately while bodily connection remained intact.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "stay back-to-back while each arrests one separate rolling object",
+          "target_or_object": "Aachu's desk and Zuv's doorway flat",
+          "reaction_or_consequence": "they handle different pressures without rescuing or abandoning the other"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents inside one shared stage world",
+          "audience_knows": "Life sends different demands toward each person, but their connected backs keep the pressure relational rather than isolating.",
+          "audience_feels": "pressure without abandonment"
+        },
+        "shot": {
+          "size": "high crane wide",
+          "angle": "fly-loft diagonal",
+          "camera_position": "above and diagonally across the stage",
+          "focal_subject": "their connected backs between two incoming demands",
+          "story_reason": "The camera makes the current body relationship, action and changing object state readable before decorative theatre atmosphere."
+        },
+        "blocking": {
+          "hands": "exactly one focal hand per person contacts only that person's object",
+          "gaze": "each gaze follows the separate object being handled",
+          "body_distance": "backs and shoulders stay connected",
+          "posture_or_feet": "torsos divide while their shared stance remains stable"
+        },
+        "setting": {
+          "sub_location": "full stage during practical load-in",
+          "time": "later in the same rehearsal",
+          "motivated_light": "the shared pool widened by cooler working light",
+          "story_trace": "one desk with two cartons and one braced doorway flat create separate incoming pressures"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the rolling desk and braced doorway flat",
+            "observable_state": "each person stops or turns one practical demand while their backs remain connected",
+            "narrative_job": "show shared-life pressure with equal self-owned agency"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The pair has entered one shared pool without merging their separate agency.",
+          "outgoing_state": "Incoming stage objects divide their attention while their backs remain connected."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "audience figure",
+            "crew member",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "absent instructions force an active shared search",
+        "silent_read": "A blackout leaves them actively searching a blank script while fixed theatre machinery offers no answer.",
+        "change_from_previous": "The practical load-in cuts to blackout, where they turn and test a blank script instead of receiving instructions.",
+        "critic_evidence": "The fresh blind reviewer read active searching, not a passive tableau, and explicitly found the straight flush-fixed line to be stage machinery rather than a noose.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "turn one blank page while pressing the opposite blank page corner flat",
+          "target_or_object": "the completely blank rehearsal script",
+          "reaction_or_consequence": "their complementary actions reveal that no instruction exists"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents inside one shared stage world",
+          "audience_knows": "They are actively looking for an answer and the pages contain none.",
+          "audience_feels": "helplessness without blame"
+        },
+        "shot": {
+          "size": "object-dominant close insert",
+          "angle": "over-Aachu-shoulder table level",
+          "camera_position": "beside the rehearsal table during blackout",
+          "focal_subject": "two separately owned hands acting on opposite blank pages and two searching faces",
+          "story_reason": "Active hands make the absence of guidance legible before the blackout atmosphere."
+        },
+        "blocking": {
+          "hands": "exactly Aachu's right hand turns the right page and Zuv's left index finger and palm press the left page corner flat; all other hands stay outside frame",
+          "gaze": "both remain on the blank spread",
+          "body_distance": "Aachu is partial foreground and Zuv is readable beyond the central object",
+          "posture_or_feet": "both lean into the search without touching each other or the fixed wall machinery"
+        },
+        "setting": {
+          "sub_location": "small rehearsal table in blackout",
+          "time": "after the demands interrupt the scene",
+          "motivated_light": "one distant ghost light with restrained blue-black stage depth",
+          "story_trace": "two separately owned hands search blank pages beside a straight taut wall-cleated fly-line and still-hanging curtain edge, with no hanging loop"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the actively turned blank page and separately pressed blank page corner",
+            "observable_state": "both people search, but the pages remain completely empty",
+            "narrative_job": "make absent guidance visible through behavior rather than a static prop"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "They have handled separate practical demands inside one shared stage world.",
+          "outgoing_state": "Their active search finds no instruction, while the fixed technical cue remains ready to fail."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "audience figure",
+            "crew member",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "A hanging cue line could resemble a noose or self-harm symbol.",
+            "repair": "Make the line single, straight, taut, vertical, flush to the wall and visibly fixed into a metal cleat, with no loose section, loop, knot, curve, coil or rope end.",
+            "recheck_evidence": "The fresh blind reviewer explicitly passed this geometry as theatre machinery rather than a noose."
+          }
+        ]
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "visible cue failure turns into equal shared recovery",
+        "silent_read": "The curtain has failed, and both people actively lift and fold it together until the crooked recovery triggers reciprocal laughter.",
+        "change_from_previous": "The fixed cue fails physically, then each person owns one curtain corner and moves it toward the same center.",
+        "critic_evidence": "The fresh blind reviewer cited the kneeling bodies, separately owned corners, lifted fabric ridge and dust marks as active recovery rather than a posed portrait.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "each lift one separately owned curtain corner into one crooked fold",
+          "target_or_object": "the fallen indigo curtain",
+          "reaction_or_consequence": "the shared mishap becomes tired mutual laughter instead of blame"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents inside one shared stage world",
+          "audience_knows": "The cue failed, but they are jointly handling its aftermath.",
+          "audience_feels": "relief through reciprocal recovery"
+        },
+        "shot": {
+          "size": "medium-wide active recovery two-shot",
+          "angle": "low side-stage eye level",
+          "camera_position": "from the wing across the newly fallen curtain",
+          "focal_subject": "two separately owned curtain corners moving into one crooked fold",
+          "story_reason": "The active fabric recovery must read before the shared laugh."
+        },
+        "blocking": {
+          "hands": "exactly one inside hand per person grips only that person's curtain corner; outside hands remain outside crop",
+          "gaze": "their eye-lines meet at the instant the fold lands crooked",
+          "body_distance": "they kneel at the same depth on opposite sides of the central fabric ridge",
+          "posture_or_feet": "both bodies lean into the same lifting effort"
+        },
+        "setting": {
+          "sub_location": "bare side-stage floor",
+          "time": "immediately after the cue failure",
+          "motivated_light": "pale ghost-light rim against the fallen indigo curtain",
+          "story_trace": "a shallow moving fabric ridge and two short fresh dust marks prove shared recovery; the featureless blank closed script remains on a separate table"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the lifted curtain corners, crooked center fold and dust marks",
+            "observable_state": "both people are physically recovering the same failed object with equal agency",
+            "narrative_job": "turn uncertainty into shared action and recognition"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Their active search found no instruction while the technical cue remained ready.",
+          "outgoing_state": "The cue has failed, but both people jointly recover its aftermath and reconnect through laughter."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "audience figure",
+            "crew member",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "A seated laughing couple could collapse into a generic backstage portrait at phone size.",
+            "repair": "Kneel them on opposite sides of the fallen curtain, give each one separately owned moving corner, and show a lifted ridge plus local dust marks before the laugh.",
+            "recheck_evidence": "The fresh blind reviewer explicitly passed the beat as active shared recovery rather than posing."
+          }
+        ]
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "equal self-directed movement into the next scene",
+        "silent_read": "They leave the failed mechanism behind and each move one formerly separate chair into the same next light.",
+        "change_from_previous": "They leave the failed curtain and script behind, converge the two chairs and re-enter the opening scenery motif around one shared center.",
+        "critic_evidence": "The fresh blind reviewer read equal chair movement into the next light and explicitly passed the featureless closed book as completely blank and secondary.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "each pull one separate chair toward the same new light",
+          "target_or_object": "the unfinished open center",
+          "reaction_or_consequence": "equal physical agency replaces the expectation of a finished script"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents inside one shared stage world",
+          "audience_knows": "They leave the failed mechanism behind and each move one formerly separate chair into the same next light.",
+          "audience_feels": "hope through equal action"
+        },
+        "shot": {
+          "size": "medium-wide active release",
+          "angle": "high rear three-quarter",
+          "camera_position": "above the stage lip facing the next footlight",
+          "focal_subject": "two separately owned chairs moving into one open center",
+          "story_reason": "The camera makes the current body relationship, action and changing object state readable before decorative theatre atmosphere."
+        },
+        "blocking": {
+          "hands": "exactly one inside hand per person grips only that person's chair; outside hands remain outside crop",
+          "gaze": "both face the next footlight while a readable side glance begins",
+          "body_distance": "bodies align and chairs angle inward without overlap",
+          "posture_or_feet": "both pull with the same forward effort"
+        },
+        "setting": {
+          "sub_location": "stage lip facing unfinished center",
+          "time": "the next cue after shared recovery",
+          "motivated_light": "one pale-peach footlight and shared open center",
+          "story_trace": "the pooled recovered curtain and featureless mark-free closed script remain behind while the opening scenery movement returns"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the converging chairs, next light and abandoned blank script",
+            "observable_state": "each person moves one chair forward while the recovered curtain and mark-free closed book remain behind",
+            "narrative_job": "pay off commitment as equal continuation rather than total certainty"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "They have actively recovered the failed curtain together without blame.",
+          "outgoing_state": "They leave the blank script behind, converge the two chairs and re-enter the opening scenery motif around one shared center."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "audience figure",
+            "crew member",
+            "reflection person",
+            "portrait that reads as a live actor",
+            "ghost silhouette"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "A labeled prop book would violate the exact-text lock.",
+            "repair": "Keep the small dark-indigo closed book completely featureless and blank, with no title, icon, marks, letters or pseudo-text.",
+            "recheck_evidence": "The fresh blind reviewer explicitly passed the observable specification as mark-free and unambiguous."
+          }
+        ]
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "theater-repair-author-20260814-01",
+      "reviewer_task_id": "/root/theater_repair2_event_a",
+      "reviewer_run_id": "event-a-830C9C10-1557-4AF6-95B3-95BDC71E7689",
+      "input_fingerprint": "sha256:95003ec177cbce2d4ac825415f324d88a4d5134ed7b65b4f45f237b502b2530a",
+      "raw_response_artifact": ".internal/event-a-repair2-raw-response.md",
+      "raw_response_fingerprint": "sha256:78a8921aac736249d55a02fa295c6fc7252657fa5b79093f66b40fc942782a79",
+      "output_fingerprint": "sha256:82a1163d61d2868f336fbbecd8f74eff82e286c0d006ab48f932b3da1b2761be"
+    },
+    "director_event_fingerprint": "sha256:0ff990bbe35a72bc4cbef5f831780d774dba8c64db7634f046c955123e8675ef"
+  }
+}

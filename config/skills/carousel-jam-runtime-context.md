@@ -1,7 +1,7 @@
 # Carousel Jam Runtime Context
 
-last_updated: 2026-06-27
-confidence: 0.9
+last_updated: 2026-08-23
+confidence: 0.94
 status: compact runtime contract
 
 ## Purpose
@@ -53,6 +53,14 @@ Use it to define Scroll-Stop, Recognition, Emotional Contradiction, Scene-Proof,
 Retention Ladder, Payoff, Format Remix, Audience Mirror, Volume, Taste Gate, and
 DM Send Test before creator-facing concept suggestions. Keep the skill names
 private unless the creator asks for operating analysis.
+
+storytelling change hook: invoke
+`.agents/skills/a-story-storytelling-hook/SKILL.md` at the first creative
+response and keep it active across brainstorming, idea generation, thinking,
+comparison, discussion, rejection, revision, and production follow-ups. That
+skill owns transformation, ERCRT/WHW, story state, and correction continuity;
+this runtime owns carousel workflow gates. Do not duplicate the story engine
+here.
 
 free creative pass before scoring: model owns concept, copy, and visual
 invention, and engineering is the guardrail layer for repeated ideas, identity
@@ -110,6 +118,14 @@ Use the "How This Ledger Learns" method in
 memory first, then update, merge, downgrade, delete, or append only if the lane
 is genuinely new.
 
+When the creator rejects or dumps a route, stop that route at the exact scope
+rejected; do not defend it, polish it, or return it under a new name. Keep the
+exact feedback and rejection reason in the current Story State Card. If it
+closes a lane or creates a reusable future preference, update the durable idea
+ledger during closeout. Before a future fresh-idea response, use Agentic OS
+recall/search against the new seed to detect relevant rejected or cooled lanes
+without loading the entire ledger by default.
+
 Creator-facing carousel suggestions must be 28/30 or higher after Story-Selling,
 Golden Theme, Stage-Scene, and taste-gate caps. Discard every below-28 route as
 internal rejected evidence; do not show it as a suggestion, shortlist item,
@@ -126,9 +142,16 @@ verdict, and GO / REPAIR / STOP.
 After concept lock, the default copy architecture is the creator's seven-part
 pattern in this exact order: `Cover`, `Cold Open`, `Mirror`, `Spine`, `Rhythm`,
 `Turn`, `Payoff`. Treat it as the baseline for fresh carousel jams and copy
-drafts, not an optional template. Compress only when the creator explicitly
-asks for a shorter deck or a production constraint requires it, and preserve
-the same narrative order.
+drafts when no structure has been supplied. The creator's reflective six-part
+architecture—`Cover`, `Cold Open`, `Deepening`, `Conflict`, `Turn`, `Payoff`—is
+also first-class. Preserve it whenever the creator supplies, approves, or asks
+to continue that style; do not treat it as an inferior compression, pad it to
+seven roles, or rename its phases. This is not a six-slide limit: Deepening,
+Conflict, and Turn may each span multiple slides so long as every added scene
+advances the question-and-answer chain, a causal character action or reaction,
+the conflict pressure, or the earned reframe. Otherwise compress only when the
+creator explicitly asks for a shorter deck or a production constraint requires
+it.
 
 ## Layer E
 

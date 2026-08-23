@@ -1,0 +1,326 @@
+{
+  "schema_version": "2.1",
+  "status": "PASS",
+  "proof_state": "QA_PASS_CANDIDATE",
+  "image_set_sha256": "e785bb4d031dcacfabae01672239295cb7791d343ecab817e0ba922594f45d98",
+  "slides": [
+    {
+      "slide": 4,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-04.png",
+          "sha256": "289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-04.png",
+            "sha256": "30f70d75b22ab51a1a8d601b7aa2a4f813a9929763d8f263d4b5583227b8b12f",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "The low table-level frame executes the locked shared-board action and visibly carries both consequence paths into the lamp and key bowl."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "likeness_notes": "Aachu retains the rounded youthful oval face, long dark hair silhouette, large expressive dark eyes, softly arched brows, softer nose and natural lip proportions from the selected references; the hurt frown changes expression without replacing her identity."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "config/references/identity/zuv/portrait-07.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "likeness_notes": "Zuv retains thick dark curly hair, strong brows, dark eyes, defined nose, full trimmed beard, broad jaw and adult build from the selected references."
+    },
+    "couple_scale": {
+      "pass": true,
+      "evidence": "The seated equal-depth two-shot keeps Aachu and Zuv near-equal in adult scale and does not contradict the locked two-inch height difference."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Aachu wears the charcoal-grey blazer over an ivory top with small jewelry; Zuv wears the charcoal shirt with chain and watch from the selected evening wardrobe anchor."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Neutral warm-ivory grain, fine ink and pencil contours, transparent watercolor, muted charcoal/camel/sage accents, tactile fabric and wood, faded edges and integrated handwriting preserve the Observational Intimacy Premium lock. Deterministic palette measurements pass: paper RGB (248,235,213), saturation 0.140, B/G 0.906 and yellow-band fraction 0.015."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "Aachu and Zuv grip opposite plastic ends of one board while two plugs remain inserted; their opposing pull skids the board, the connected black cord tips the intact lamp, and the board impact overturns the key bowl and spills the keys."
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 4,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv appear. Their two focal arm-to-hand chains are owned and coherent while both non-focal arms remain naturally out of the action crop; no background actor, reflection, duplicate couple, extra limb, broken lamp, fire or invented object appears."
+            }
+          }
+        }
+      ]
+    },
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 4,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "grips and pulls only the left plastic end of the shared extension board",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her blazer shoulder, sleeve, forearm, wrist, fist and fingers form one continuous visible load-bearing chain.",
+                  "contact_object": "left plastic end of the shared extension board",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Her fingers wrap around the board end with a plausible palm-to-edge contact and no cable or plug mistaken for the grip.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "grips and pulls only the right plastic end of the shared extension board",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His shirt shoulder, sleeve, forearm, wrist, palm and fingers form one continuous visible load-bearing chain.",
+                  "contact_object": "right plastic end of the shared extension board",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "His fingers close around the board end with a coherent wrist and no penetration through the board, lamp or tabletop.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "occluded_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "evidence": "Her non-focal right hand remains completely outside the table-level action crop."
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "evidence": "His non-focal left hand remains completely outside the table-level action crop."
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 4,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Two distinct seated upper-body volumes face each other across the table while one diagonal extension board bridges their opposing hands.",
+            "person_object_crop": "Both forearms clear the table plane and terminate in owned board-end grips; the two inserted plugs and their separate cables remain distinct from both hands.",
+            "focal_detail": "Hands, board, inserted adapters, black lamp cord, tipped lamp, overturned bowl, keys and partial meal retain separate readable contours."
+          },
+          "environment_planes": [
+            {
+              "object": "wood table",
+              "depth_order": "beneath both focal hands, the lifted extension board, tipped lamp, overturned bowl, keys and meal traces",
+              "boundary_continuous": true
+            },
+            {
+              "object": "rear room wall and furnishings",
+              "depth_order": "behind both people and the table-level focal action",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, neck, blazer shoulders, torso and the full left arm-to-hand chain remain readable against the room and table.",
+              "body_regions": [
+                {
+                  "region": "upper body and left arm-to-hand chain",
+                  "near_object": "table and extension board",
+                  "expected_relation": "behind",
+                  "observed_relation": "behind",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Her torso stays behind the table while her forearm and board-end grip remain visibly above it."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, neck, shirt shoulders, torso and the full right arm-to-hand chain remain readable against the room and lamp.",
+              "body_regions": [
+                {
+                  "region": "upper body and right arm-to-hand chain",
+                  "near_object": "table, board and tipped lamp",
+                  "expected_relation": "behind",
+                  "observed_relation": "behind",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "His torso stays behind the table and his arm clears the inserted plug, cord, board and lamp."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 4,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "A soft partial meal trace, overturned wood key bowl and spilling keys establish a lived domestic table interrupted mid-action.",
+              "midground": "Aachu and Zuv pull opposite plastic ends of one diagonal live board, with both owned grips and inserted plugs visible.",
+              "background": "Faded plants, shelf, wall art and neutral watercolor room marks create a compressed evening interior without competing with the incident.",
+              "focal_action": "Both partners pull the same shared board their own way as it skids between them and makes the room physically worse.",
+              "story_details": [
+                "two occupied board sockets",
+                "intact lamp caught mid-tip",
+                "overturned key bowl and spilling keys",
+                "restrained hurt side-eye"
+              ],
+              "cause_effect": "Opposing hand forces move the board; the connected black cord tips the lamp while the board's travel clips the bowl and spills the keys.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The frame renders exactly `We made each other’s hurt louder.` with the curly apostrophe and period, plus exactly one tiny top-right `@a.storyof.two` brandmark."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof decodes as PNG at the exact locked 1080x1440 Instagram-post dimensions and matches SHA-256 289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/visual_cinematography",
+      "reviewer_evidence": "A fresh image-first review of the exact current pixels read both partners pulling the same powered extension board in opposite directions, making it skid, tipping the connected lamp, striking the key bowl and spilling the keys without relying on the copy.",
+      "source_director_event_fingerprint": "sha256:f0287632a992ac78d3b62426b3918bc3f44e3fb1c150bdcb831520c596248752",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "Two hurt partners pull the same powered extension board in opposite directions; their combined force skids it across the table, tips the connected lamp, overturns the key bowl and spills the keys.",
+      "relationship_turn": "The frame makes mutual escalation visible without assigning one partner the sole aggressor or caretaker role.",
+      "setup_payoff_evidence": "Opposing body leans and owned board grips establish the argument; inserted plugs and separate cables transmit the combined force into the tipped lamp and overturned key bowl.",
+      "weakest_frame": "The action uses several linked props, but the low angle, diagonal board, clear grips, inserted plugs and motion vectors keep the consequence chain readable at phone size.",
+      "repair_decision": "No blocking repair is needed; preserve these exact identities, wardrobe, low table camera, shared-board topology, neutral ivory paper and restrained anger for the remaining frames.",
+      "frames": [
+        {
+          "slide": 4,
+          "format": "instagram_post",
+          "file": "final/slide-04.png",
+          "status": "PASS",
+          "expected_silent_read": "Both partners pull opposite ends of the same live board, and their combined force makes the room worse by tipping the lamp and spilling the keys.",
+          "observed_image_first_read": "Both partners angrily pull the same powered extension board in opposite directions; it skids across the table, topples the connected lamp, strikes the key bowl and spills the keys.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "The copy leads into both faces, the two opposing arms converge on the diagonal board, and the motion continues through the cords toward the lamp and outward through the bowl and keys.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "Each visible hand owns one plastic board end, two plugs remain inserted, the board lifts diagonally with motion strokes, the black cord reaches the tipped lamp, and the bowl and keys share the impact direction.",
+          "evidence": "Aachu's left arm and Zuv's right arm form opposing pull vectors; both sockets are occupied; the lamp base is lifted with the shade rotated toward the table; the bowl is overturned and the keys spill outward.",
+          "image_fingerprint": "sha256:289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750"
+        }
+      ],
+      "issues": [],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/visual_cinematography",
+        "reviewer_run_id": "visual-proof-audit-attempt-03-2026-08-14",
+        "input_fingerprint": "sha256:497f205cad585ad4e43ace9adf3d07bf63eb8a5aeeed0f18ec67d7140d560d18",
+        "raw_response_artifact": ".internal/event-b-proof-attempt-03-raw-response.md",
+        "raw_response_fingerprint": "sha256:158e4fc071099f189351b4d55807ab5e436cda66a54d4d0c940d9c43c5b6fd70",
+        "output_fingerprint": "sha256:b7279ee1784aa1b2853cdc1a8b6255a9d00525f28c804635fa41d6c11b11ea86"
+      }
+    }
+  },
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "status": "PASS",
+      "pass": true,
+      "reviewer_id": "/root/production_refs",
+      "evidence": "An independent exact-pixel review passed Aachu and Zuv likeness, charcoal evening wardrobe, exactly two attributable focal hands gripping opposite plastic board ends, both inserted plugs, coherent anatomy, clean entity count, readable causality, exact text, brandmark and neutral-ivory house style."
+    },
+    "storytelling_richness_text_style": {
+      "status": "PASS",
+      "pass": true,
+      "reviewer_id": "/root/visual_cinematography",
+      "evidence": "A separate image-first review passed the copy-hidden mutual-escalation read, hands-to-board-to-cord-to-lamp and board-to-bowl-to-keys causality, low table-level cinematography, phone-size hierarchy, restrained emotion, exact copy, brandmark, palette and watercolor-and-ink finish."
+    }
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "reviewer_task_id": "/root/full_deck_event_b_17",
+  "reviewer_run_id": "full-deck-event-b-17-20260730-01",
+  "event": "rendered_frame_story_audit",
+  "image_first": true,
+  "source_director_event_fingerprint": "sha256:6612a3150e20795aaf945f518403ed3b253b8b525f8e6dc8c0349ebe36f35dbb",
+  "image_set_sha256": "a6ca6c8585394b3a7d4823b2c30ece0eeaeaec8f082dd6c60cecfbbee6a569c6",
+  "reviewed_native_formats": [
+    "instagram_post"
+  ],
+  "inspection_order": "All seven current decoded 1080x1440 rasters were inspected in slide order before slides.json, the Event A director cards, or the locked copy source were opened. The visual action, relationship state, gaze, hands, object state, geography, readable environmental text, people, reflections, and sequence were recorded from the pixels first. Locked copy and director intent were revealed only after that complete image-first pass.",
+  "blind_read": {
+    "sequence_read_before_reveal": "A couple pivots toward a roadside chai stall in the rain; a dry apartment flashback shows a joking missing-key accusation; rainy route trouble then separates their attention; a roadside pause gives them space; they encounter a closed restaurant and begin looking back toward each other; chai and biscuits restore playful closeness; a final dry corridor scene shows both touching one closed apartment door while a footprint diagram implies, but does not clearly prove, a return from the lift.",
+    "relationship_turn_before_reveal": "Playful coordination becomes navigation frustration and physical distance, then softens through attention and roadside chai into a shared door-check ritual.",
+    "sequence_uncertainties_before_reveal": [
+      "The roadside sequence does not remain in one stable place: the divided urban road becomes a scenic hillside on slide 4, a different undivided storefront street on slide 5, and another divided road on slide 6.",
+      "The restaurant appears to change identity from THE COURTYARD KITCHEN to THE GARDEN TABLE to THE LITTLE POND.",
+      "The nearby chai stall does not retain one stable frontage or sign system between slides 1 and 6.",
+      "The dark car changes body type across the sequence and disappears in favor of a white car on slide 5.",
+      "The slide 7 footprint arrows permit an arrival-from-lift or decorative-loop reading rather than uniquely proving that the woman walked away and returned."
+    ],
+    "inspected_assets": [
+      {
+        "slide": 1,
+        "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-01.png",
+        "sha256": "f6c197e4e3f652fc31449ffdde5da2d4cba394a0e938e89e8eaabbd5aa46c606",
+        "format": "png",
+        "native_format": "instagram_post",
+        "dimensions": {
+          "width": 1080,
+          "height": 1440
+        }
+      },
+      {
+        "slide": 2,
+        "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-02.png",
+        "sha256": "decfd1bca5abd342cefbeb3462e8c9af9f9f5906341f8664ba51b8b1d19962e2",
+        "format": "png",
+        "native_format": "instagram_post",
+        "dimensions": {
+          "width": 1080,
+          "height": 1440
+        }
+      },
+      {
+        "slide": 3,
+        "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-03.png",
+        "sha256": "e548b6cd18006864715085ca13289a51ceefbd98470aed08869fbe8bfa34ceef",
+        "format": "png",
+        "native_format": "instagram_post",
+        "dimensions": {
+          "width": 1080,
+          "height": 1440
+        }
+      },
+      {
+        "slide": 4,
+        "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-04.png",
+        "sha256": "55c9764f919791a95527f998d684f5038c6a6bf38c89d7b64d3ccb7da1ca074c",
+        "format": "png",
+        "native_format": "instagram_post",
+        "dimensions": {
+          "width": 1080,
+          "height": 1440
+        }
+      },
+      {
+        "slide": 5,
+        "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-05.png",
+        "sha256": "89286691fc0b160093836e105dc6d989df9e791831711275f502f061cbfe2946",
+        "format": "png",
+        "native_format": "instagram_post",
+        "dimensions": {
+          "width": 1080,
+          "height": 1440
+        }
+      },
+      {
+        "slide": 6,
+        "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-06.png",
+        "sha256": "a7be2c071a38afaa7da6e04c9e77fd45861e480d54aa5e02b0542775dce20656",
+        "format": "png",
+        "native_format": "instagram_post",
+        "dimensions": {
+          "width": 1080,
+          "height": 1440
+        }
+      },
+      {
+        "slide": 7,
+        "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-07.png",
+        "sha256": "1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0",
+        "format": "png",
+        "native_format": "instagram_post",
+        "dimensions": {
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    ],
+    "frames": [
+      {
+        "slide": 1,
+        "status": "REPAIR",
+        "observed_image_first_read": "On a rain-slick divided urban road, the woman points left toward a lit chai stall while the man smiles at her, holds one umbrella over both of them, and lowers a phone map. A dark sedan is parked immediately beside them and a bright restaurant stands across traffic.",
+        "observed_action_and_relationship_turn": "The pointing hand, shared umbrella, lowered route phone, and mutual gaze clearly read as a joint pivot from route trouble toward a nearby improvised option.",
+        "focal_hierarchy": "PASS for story action. The couple's gaze and pointing hand lead, followed by the umbrella, phone, stall, car, divided road, and restaurant.",
+        "hands_gaze_object_state": "The woman's right hand points toward the stall; her other hand is relaxed. The man's right hand owns the umbrella and his left owns the lowered phone. Their gaze meets. The parked car, active rain, reachable stall, and restaurant beyond the divider are all legible.",
+        "expected_story_after_reveal": "Aachu and Zuv jointly notice the reachable chai stall while the intended restaurant remains inconveniently across moving traffic.",
+        "core_action_legible": true,
+        "relationship_turn_legible": true,
+        "storyboard_match": false,
+        "native_format_readability": true,
+        "exact_text": {
+          "expected": "This is the kind of love\nI want us to grow into.",
+          "observed": "This is the kind of love\nI want us to grow into.",
+          "match": true,
+          "deviations": []
+        },
+        "brandmark": {
+          "observed": "@a.storyof.two",
+          "count": 1,
+          "position": "top-right",
+          "match": true
+        },
+        "extra_readable_text": [
+          "CHAI",
+          "CHAI / KADAK CHAI / MASALA CHAI / GINGER CHAI / ELAICHI CHAI on the menu board",
+          "THE COURTYARD KITCHEN",
+          "KA on the cropped vehicle plate"
+        ],
+        "unexpected_people_or_reflections": [
+          "Multiple human-shaped diner silhouettes are readable through the restaurant glazing across the road; the locked entity contract allows no background people or human silhouettes."
+        ],
+        "copy_visual_contradictions": [],
+        "unexpected_story": [
+          "The restaurant signage and menu become competing textual story carriers.",
+          "Background diners make the apparently private two-person beat part of a populated restaurant scene."
+        ],
+        "continuity_evidence": [
+          "The rainy divided-road geography and THE COURTYARD KITCHEN frontage establish the main roadside location used again on slide 3.",
+          "The dark vehicle is a low sedan; later roadside frames show other body types.",
+          "The man's white crew-neck layer beneath a dark overshirt and the woman's long scarf do not remain stable across the nominally same-outing sequence."
+        ],
+        "match_rationale": "The core silent read is strong, but the frame cannot match a no-extra-text, exactly-two-people storyboard while readable commercial text and restaurant silhouettes remain."
+      },
+      {
+        "slide": 2,
+        "status": "REPAIR",
+        "observed_image_first_read": "In a dry apartment entryway, the woman points at the man while holding a tote whose strap visibly carries the car key. He searches a jacket pocket and returns her accusation with a playful sideways look.",
+        "observed_action_and_relationship_turn": "The object is visibly with the accuser while both treat it as missing, so the familiar couple joke reads without the copy.",
+        "focal_hierarchy": "PASS. Faces and pointing/searching hands lead directly to the key caught at the tote strap.",
+        "hands_gaze_object_state": "Her right index points, her left owns the tote, his right searches one pocket, and his left hand is not visibly performing a competing action. Both gaze at each other rather than at the exposed key.",
+        "expected_story_after_reveal": "A playful pre-departure missing-key accusation is undercut by the key being attached to Aachu's tote.",
+        "core_action_legible": true,
+        "relationship_turn_legible": true,
+        "storyboard_match": false,
+        "native_format_readability": true,
+        "exact_text": {
+          "expected": "The date began with one missing key\nand two suspects.",
+          "observed": "The date began with one missing key\nand two suspects.",
+          "match": true,
+          "deviations": []
+        },
+        "brandmark": {
+          "observed": "@a.storyof.two",
+          "count": 1,
+          "position": "top-right",
+          "match": true
+        },
+        "extra_readable_text": [],
+        "unexpected_people_or_reflections": [],
+        "copy_visual_contradictions": [],
+        "unexpected_story": [],
+        "continuity_evidence": [
+          "The tote, key, dry umbrella, white shirt, blue jeans, blue shirt, and dark outer layer support a pre-departure flashback.",
+          "The man's pale striped button-up under a navy jacket and the woman's no-scarf styling do not match slide 1's white T-shirt/dark overshirt and long scarf, even though the package locks one date-night wardrobe."
+        ],
+        "match_rationale": "The individual beat passes visually, but the frame is marked REPAIR because its wardrobe does not establish the same clothes carried through the locked outing and callback."
+      },
+      {
+        "slide": 3,
+        "status": "REPAIR",
+        "observed_image_first_read": "Beside a dark sedan on the same rainy divided road, the man studies a phone route while the woman holds a closed umbrella and looks sharply away from him. The restaurant is behind him across traffic.",
+        "observed_action_and_relationship_turn": "Misaligned attention and irritation are clear, but the woman looks screen-left away from both the man and the restaurant rather than toward the restaurant as staged.",
+        "focal_hierarchy": "PASS for frustration. Her averted face and his route phone dominate, followed by the car and restaurant.",
+        "hands_gaze_object_state": "He holds the live route phone; she holds the lowered umbrella. Their bodies and gaze separate. The car remains parked and the divided-road obstacle is visible.",
+        "expected_story_after_reveal": "Zuv remains route-fixated while Aachu looks toward the frustratingly close restaurant and begins feeling the plan's failure.",
+        "core_action_legible": true,
+        "relationship_turn_legible": true,
+        "storyboard_match": false,
+        "native_format_readability": true,
+        "exact_text": {
+          "expected": "By the third wrong turn,\nnobody was cute anymore.",
+          "observed": "By the third wrong turn,\nnobody was cute anymore.",
+          "match": true,
+          "deviations": []
+        },
+        "brandmark": {
+          "observed": "@a.storyof.two",
+          "count": 1,
+          "position": "top-right",
+          "match": true
+        },
+        "extra_readable_text": [
+          "THE COURTYARD KITCHEN",
+          "1.5D vehicle badge"
+        ],
+        "unexpected_people_or_reflections": [
+          "One clear background person stands inside the restaurant.",
+          "A dark human-head-shaped silhouette or reflection is visible in the car's rear window; it competes with a headrest reading and violates the no-human-reflection lock while unresolved."
+        ],
+        "copy_visual_contradictions": [
+          "The storyboard says Aachu looks toward the restaurant, but her eye-line points screen-left while the restaurant is screen-right behind Zuv."
+        ],
+        "unexpected_story": [
+          "The rear-window silhouette can read as another occupant waiting in the car.",
+          "A visible restaurant diner adds a secondary populated-scene story."
+        ],
+        "continuity_evidence": [
+          "Rain, a divided road, and THE COURTYARD KITCHEN match slide 1's broad geography.",
+          "The dark sedan is similar in class and color to slide 1, but the newly readable 1.5D badge and different rear detailing do not positively prove the same vehicle.",
+          "The man's outer layer and the woman's scarf from slide 1 are gone."
+        ],
+        "match_rationale": "Route frustration reads, but gaze target, extra commercial text, a clear background person, and an unresolved car-window figure prevent a match."
+      },
+      {
+        "slide": 4,
+        "status": "REPAIR",
+        "observed_image_first_read": "The woman stands foreground-left with folded arms and looks away. The man remains several feet behind beside a dark hatchback, watching gently with his phone lowered. A closed red umbrella leans against the car.",
+        "observed_action_and_relationship_turn": "The respected physical gap is immediately readable and the man remains present without advancing or touching.",
+        "focal_hierarchy": "PASS for the relationship beat. Her closed posture, the clean gap, and his stationary attention dominate.",
+        "hands_gaze_object_state": "Her arms are folded; his visible hand lowers the phone and the other remains pocketed. She looks away while he watches her. The umbrella is parked at the car.",
+        "expected_story_after_reveal": "Aachu asks for a minute and Zuv preserves nearby presence without crowding her.",
+        "core_action_legible": true,
+        "relationship_turn_legible": true,
+        "storyboard_match": false,
+        "native_format_readability": true,
+        "exact_text": {
+          "expected": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+          "observed": "Don’t talk to me.\n\nHe gave her the minute.\nNot the distance.",
+          "match": false,
+          "deviations": [
+            "Missing opening curly double quotation mark “ before Don’t.",
+            "Missing closing curly double quotation mark ” after the period in me."
+          ]
+        },
+        "brandmark": {
+          "observed": "@a.storyof.two",
+          "count": 1,
+          "position": "top-right",
+          "match": true
+        },
+        "extra_readable_text": [],
+        "unexpected_people_or_reflections": [],
+        "copy_visual_contradictions": [],
+        "unexpected_story": [
+          "The scenic mountain-and-lake overlook suggests a new destination or romantic drive rather than a recessed edge of the same urban divided road."
+        ],
+        "continuity_evidence": [
+          "The urban restaurant road, traffic divider, rain sheen, and storefront geography disappear and become a dry-looking hillside overlook above a lake or valley.",
+          "The car becomes a tall hatchback or compact SUV rather than the prior low sedan.",
+          "The umbrella and lowered phone continue, but they are insufficient to bridge the geographic and vehicle change."
+        ],
+        "match_rationale": "The relationship action works, but exact copy fails because both quotation marks are absent, and the setting/car drift breaks the locked continuous roadside sequence."
+      },
+      {
+        "slide": 5,
+        "status": "REPAIR",
+        "observed_image_first_read": "From behind, the couple stands on a wet street facing a visibly closed restaurant. The woman looks downward and slightly toward the man rather than clearly at the entrance; the man's head turns toward her. A separate white car sits at the far-left curb.",
+        "observed_action_and_relationship_turn": "The closed destination is legible mainly because of the large CLOSED sign. His attention to her is plausible, but her frontage gaze and the intended two-plane noticing beat are weak.",
+        "focal_hierarchy": "PARTIAL. The large restaurant and CLOSED signage lead more strongly than her disappointment or his noticing expression.",
+        "hands_gaze_object_state": "His lowered phone is visible. No touch occurs. Her gaze does not land clearly on the shutter or entrance; his head appears to turn toward her.",
+        "expected_story_after_reveal": "Aachu watches the inaccessible frontage while Zuv stops attending to the route and notices how the failure has landed for her.",
+        "core_action_legible": false,
+        "relationship_turn_legible": false,
+        "storyboard_match": false,
+        "native_format_readability": true,
+        "exact_text": {
+          "expected": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+          "observed": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+          "match": true,
+          "deviations": []
+        },
+        "brandmark": {
+          "observed": "@a.storyof.two",
+          "count": 1,
+          "position": "top-right",
+          "match": true
+        },
+        "extra_readable_text": [
+          "THE GARDEN TABLE",
+          "KITCHEN · BAKERY · COFFEE",
+          "CLOSED",
+          "See You Soon"
+        ],
+        "unexpected_people_or_reflections": [],
+        "copy_visual_contradictions": [
+          "The storyboard requires Aachu to watch the frontage, but her face and eyes turn down and inward.",
+          "The emotional turn relies on a literal CLOSED sign more than on visible expression and redirected attention."
+        ],
+        "unexpected_story": [
+          "The white car reads as an unrelated secondary vehicle and can imply that the couple arrived separately or that their dark car is elsewhere."
+        ],
+        "continuity_evidence": [
+          "The intended restaurant changes from THE COURTYARD KITCHEN to THE GARDEN TABLE.",
+          "The divided road and active traffic disappear; the restaurant is directly across a narrow undivided street.",
+          "The locked dark car is absent and a white car appears at far left.",
+          "The frame does not preserve the slide 4 hillside geography or the slides 1 and 3 urban divided-road geography."
+        ],
+        "match_rationale": "The destination's closure reads, but the intended attention shift does not read strongly without the sign, and restaurant, road, and vehicle continuity all fail."
+      },
+      {
+        "slide": 6,
+        "status": "REPAIR",
+        "observed_image_first_read": "The couple sits closely at a roadside chai setup. The woman drinks from one glass while the man gives her a mock-offended look, holds a PARLE-G packet to his chest, and simultaneously holds a second visibly nonempty chai glass. A dark hatchback or SUV is parked behind them and a crowded lit restaurant stands across a divided road.",
+        "observed_action_and_relationship_turn": "Playful closeness and comic possession are clear, so the failed plan has visibly turned into a date. The specific 'she finished hers and stole his' action is not clear because both people visibly hold live chai glasses.",
+        "focal_hierarchy": "PASS for playful repair. Her sip, his expression, the biscuit packet, and his second glass lead.",
+        "hands_gaze_object_state": "Her right hand owns the glass at her lips. His right hand owns the biscuit packet and his left hand, which the storyboard required outside the crop, holds a second glass containing chai. He watches her sip; she looks pleased.",
+        "expected_story_after_reveal": "Aachu steals a sip from Zuv's chai after finishing hers while Zuv protects the biscuits with mock offense; only her glass and his packet should carry the focal ownership.",
+        "core_action_legible": true,
+        "relationship_turn_legible": true,
+        "storyboard_match": false,
+        "native_format_readability": true,
+        "exact_text": {
+          "expected": "The plan failed.\nThe date didn’t.",
+          "observed": "The plan failed.\nThe date didn’t.",
+          "match": true,
+          "deviations": []
+        },
+        "brandmark": {
+          "observed": "@a.storyof.two",
+          "count": 1,
+          "position": "top-right",
+          "match": true
+        },
+        "extra_readable_text": [
+          "THE LITTLE POND",
+          "PARLE-G",
+          "GLUCO BISCUITS on the packet",
+          "CHAI 10/- on the stall panel"
+        ],
+        "unexpected_people_or_reflections": [
+          "Many distinct diner silhouettes are visible on both levels of the restaurant across the road; the locked frame allows no background people or human silhouettes."
+        ],
+        "copy_visual_contradictions": [
+          "A second visibly nonempty chai glass in Zuv's left hand makes the action read as each person drinking their own chai, not Aachu stealing his after finishing hers.",
+          "Zuv's left hand is visible and occupied even though the storyboard locks both non-focal hands outside the crop."
+        ],
+        "unexpected_story": [
+          "The populated restaurant becomes a conspicuous alternate social scene behind the private couple beat.",
+          "Two live chai glasses remove the comic scarcity and ownership transfer that were meant to prove the private joke."
+        ],
+        "continuity_evidence": [
+          "The divided-road rain setting returns, but the restaurant is now THE LITTLE POND rather than THE COURTYARD KITCHEN or THE GARDEN TABLE.",
+          "The parked dark vehicle is a hatchback or SUV rather than the low sedan established on slides 1 and 3.",
+          "The chai setup is a worn CHAI 10/- counter, with no stable frontage or menu connection to slide 1's wooden lantern-lit CHAI stall."
+        ],
+        "match_rationale": "The broad emotional payoff reads, but prop ownership, hand visibility, background entities, extra commercial text, car, restaurant, and stall continuity all fail the locked board."
+      },
+      {
+        "slide": 7,
+        "status": "REPAIR",
+        "observed_image_first_read": "In a dry common corridor outside a fully closed brown apartment door, the woman presses her right palm against the wood while the man holds the lever on the same door. A nearly closed lift remains at far left. Multiple footprints and arrows form a broad lower-floor loop between the lift area and the woman's raised heel.",
+        "observed_action_and_relationship_turn": "Both people visibly participate in one door check, which supports the shared ritual. The pixels do not uniquely prove that he checked twice, that she first left toward the lift, or that she then went back.",
+        "focal_hierarchy": "PASS for shared contact; FAIL for chronology. Her palm and his lever hand are clear, but the floor route is diffuse and topologically ambiguous.",
+        "hands_gaze_object_state": "Exactly two hands are visible: her anatomical right palm on uninterrupted wood and his single lever hand. Their bodies do not touch. He looks down toward the lever, but she looks toward him rather than at her door contact.",
+        "expected_story_after_reveal": "Before departure, Zuv remains at a plausible right-edge latch while Aachu walks toward the lift, makes one tight U-turn beside it, returns on a separate three-print lane, and adds her own check to the same closed door.",
+        "core_action_legible": false,
+        "relationship_turn_legible": true,
+        "storyboard_match": false,
+        "native_format_readability": true,
+        "exact_text": {
+          "expected": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+          "observed": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+          "match": true,
+          "deviations": []
+        },
+        "brandmark": {
+          "observed": "@a.storyof.two",
+          "count": 1,
+          "position": "top-right",
+          "match": true
+        },
+        "extra_readable_text": [],
+        "unexpected_people_or_reflections": [],
+        "copy_visual_contradictions": [
+          "The floor marks do not establish the copy's prior outward movement and return; they can read as arrival from the lift or as a decorative loop.",
+          "The image proves one shared check but cannot visibly prove that Zuv checked twice.",
+          "Aachu does not visibly roll her eyes, and in the focal action she looks toward Zuv rather than at her own contact."
+        ],
+        "unexpected_story": [
+          "The lift gap plus the route direction can read as the couple arriving home and approaching the apartment door.",
+          "The lever appears decorative or mechanically implausible because it sits deep within the slab rather than next to the true latch edge."
+        ],
+        "continuity_evidence": [
+          "The dry corridor, tote, and clipped umbrella can support a nonlinear pre-departure callback, but the footprint topology does not make that chronology exclusive.",
+          "The woman now wears red flats rather than the white sneakers seen on slide 1, further weakening same-outing continuity."
+        ],
+        "door_and_route_audit": {
+          "camera_side": "Common corridor outside the apartment.",
+          "people_side": "Both people are outside on the camera side of the fully closed door.",
+          "door_state": "Fully closed.",
+          "lift_gap": "A narrow dark vertical opening remains and reads as a nearly closed lift.",
+          "shared_action": "PASS: her palm and his lever hand act on the same closed door.",
+          "right_latch_edge_geometry": "FAIL: the lever spindle remains approximately 109 px, about one quarter of the visible slab width, from the true right slab-to-jamb seam instead of the locked 35-45 px short backset.",
+          "outbound_three_print_lane": "FAIL: no unique three-print lane from the door threshold toward the lift can be isolated.",
+          "tight_u_beside_lift": "FAIL: the turn is a broad curve across the lower floor rather than one tight 180-degree U beside the lift opening.",
+          "return_three_print_lane": "FAIL: no separate non-overlapping three-print return lane begins at a lift-side U and ends cleanly at Aachu's heel.",
+          "before_departure_exclusivity": "FAIL: arrival-from-lift remains a plausible competing reading."
+        },
+        "match_rationale": "The same-door shared check passes, but the latch mechanics and movement-path chronology remain hard failures, so the exact 'went back and checked it with him' silent read is not achieved."
+      }
+    ]
+  },
+  "intent_match": {
+    "expected_sequence": "A rainy roadside workaround opens the sequence, a dry pre-departure key mishap explains the couple's rhythm, same-place route frustration creates and then respectfully holds distance, attention shifts from map to partner, the same nearby chai stall repairs the same failed restaurant plan, and a dry before-departure door callback reveals that Aachu has joined Zuv's lock-check ritual.",
+    "observed_sequence_after_reveal": "The broad emotional arc is recognizable, but the roadside location, car, restaurant, stall, wardrobe, entities, and key action receipts do not remain continuous enough to support one causal outing. The final door image shows joint contact but does not uniquely show the required return chronology.",
+    "core_emotional_arc_match": true,
+    "same_dark_car_match": false,
+    "same_rainy_divided_road_match": false,
+    "same_restaurant_match": false,
+    "same_chai_stall_setup_payoff_match": false,
+    "exact_copy_all_slides_match": false,
+    "zero_unauthorized_readable_text_match": false,
+    "exactly_two_people_no_reflections_all_slides_match": false,
+    "slide_7_shared_check_match": true,
+    "slide_7_return_chronology_match": false,
+    "overall_match": false,
+    "continuity_findings": {
+      "car": "Slides 1 and 3 show dark sedans that are not positively identical; slides 4 and 6 show taller hatchback/SUV forms; slide 5 omits the dark car and introduces a white car.",
+      "road_and_weather": "Slides 1 and 3 use a wet urban divided road; slide 4 becomes a dry-looking scenic hillside overlook; slide 5 becomes a narrow undivided storefront street; slide 6 returns to a wet divided road.",
+      "restaurant": "The visible frontage changes from THE COURTYARD KITCHEN on slides 1 and 3 to THE GARDEN TABLE on slide 5 and THE LITTLE POND on slide 6.",
+      "chai_stall": "Slide 1's wooden lantern-lit CHAI stall with a multi-item chai menu is not visually bound to slide 6's worn CHAI 10/- counter.",
+      "wardrobe": "Core white/blue clothing recurs, but jackets, shirts, scarf, trouser color, and Aachu's footwear change inside the locked same-outing sequence."
+    }
+  },
+  "semantic_verdict": {
+    "status": "REPAIR",
+    "pass": false,
+    "summary": "The full deck has a readable high-level emotional arc and all seven assets are exact 1080x1440 Instagram-post rasters with one correct top-right brandmark each. It cannot pass Event B. Slide 4 drops the locked curly quotation marks. Slides 1, 3, 5, and 6 contain unauthorized readable signs, menus, labels, badges, packaging, or plate text. Slides 1, 3, and 6 contain unauthorized background people or human-shaped silhouettes, with slide 3 also carrying an unresolved car-window figure. The same car, divided-road setting, intended restaurant, and chai stall do not remain continuous. Slide 5 weakens the intended gaze-led attention turn. Slide 6 adds a second live chai glass and an extra focal hand, contradicting the drink-ownership action. Slide 7 preserves a joint same-door check but fails plausible latch-edge geometry and fails the outward-U-return route required to prove 'went back.'",
+    "weakest_frame": "Slide 7 is the primary scene-logic failure because the exact payoff depends on a visible return path and physically plausible latch interaction; slide 6 is the next strongest semantic contradiction because the second live chai glass cancels the intended steal/share action.",
+    "spatial_or_story_ambiguity_remaining": true
+  },
+  "contradictions": [
+    {
+      "severity": "HARD_FAIL",
+      "slide": 4,
+      "type": "exact_text",
+      "expected": "Curly double quotation marks around “Don’t talk to me.”",
+      "observed": "The opening and closing curly double quotation marks are absent.",
+      "effect": "The locked raster copy is not exact."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "slides": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "type": "unauthorized_readable_text",
+      "expected": "Only each slide's locked copy and one top-right @a.storyof.two brandmark.",
+      "observed": "Readable chai signs and menu, three restaurant names, vehicle plate/badge text, CLOSED/See You Soon, PARLE-G/GLUCO BISCUITS, and CHAI 10/- appear.",
+      "effect": "Environmental typography violates the exact-text gate and competes with the story copy."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "slides": [
+        1,
+        3,
+        6
+      ],
+      "type": "unexpected_people_or_reflections",
+      "expected": "Exactly two people and no background diners, pedestrians, silhouettes, or human reflections.",
+      "observed": "Restaurant silhouettes appear on slides 1 and 6; one clear restaurant person and one unresolved human-shaped rear-window figure appear on slide 3.",
+      "effect": "The frames create populated secondary stories and fail the entity contract."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "slides": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "type": "location_and_vehicle_continuity",
+      "expected": "The same dark car, the same rainy divided-road urban setting, the same intended restaurant frontage, and the same roadside chai stall.",
+      "observed": "Car body type changes, slide 5 introduces a white car, slide 4 becomes a hillside, slide 5 loses the divider, the restaurant has three names, and the chai stall lacks stable identifiers.",
+      "effect": "The causal outing reads as several unrelated locations rather than one missed-reservation sequence."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "slide": 5,
+      "type": "gaze_and_attention_turn",
+      "expected": "Aachu watches the failed frontage while Zuv watches her expression.",
+      "observed": "Aachu looks down and inward; Zuv's attention to her is plausible but the CLOSED sign carries the beat.",
+      "effect": "The intended shift from route-fixing to partner attention is not independently legible."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "slide": 6,
+      "type": "chai_ownership_and_hand_contract",
+      "expected": "Aachu steals from Zuv's one live chai after finishing hers; her right hand owns the focal glass and Zuv's right hand owns the biscuit packet while other hands remain outside the crop.",
+      "observed": "Zuv's visible left hand holds a second nonempty chai glass while Aachu drinks from another.",
+      "effect": "The pixels read as two separate drinks and cancel the intended steal/share receipt."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "slide": 7,
+      "type": "door_hardware_geometry",
+      "expected": "The lever spindle sits 35-45 px from the true right latch edge.",
+      "observed": "The spindle remains approximately 109 px, about one quarter of the slab width, from the right slab-to-jamb seam.",
+      "effect": "The lever reads as inboard decorative hardware rather than a plausible latch-edge mechanism."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "slide": 7,
+      "type": "outbound_u_turn_return_topology",
+      "expected": "Three outbound prints to the lift, one tight U beside it, and three separate return prints ending at Aachu's heel.",
+      "observed": "Extra parallel prints and arrows form a broad lower-floor loop with no exclusive outbound lane, lift-side U, or return lane.",
+      "effect": "Arrival-from-lift remains plausible and the frame does not prove 'went back.'"
+    }
+  ],
+  "repair_decision": {
+    "decision": "REJECT_ATTEMPT_DO_NOT_PROMOTE",
+    "promote": false,
+    "reason": "A full-deck PASS is forbidden while exact text, extra readable text, entity inventory, causal geography, prop ownership, and slide 7 door/route logic remain failed.",
+    "preserve": [
+      "All seven exact 1080x1440 native canvases.",
+      "One exact top-right @a.storyof.two brandmark on every slide.",
+      "Slide 1's pointing/shared-umbrella decision action.",
+      "Slide 2's caught-key accusation receipt.",
+      "Slide 3's route-fixation versus averted-attention contrast.",
+      "Slide 4's respected body gap and lowered phone.",
+      "Slide 6's close stools, playful expression, and biscuit-protection beat.",
+      "Slide 7's outside corridor, fully closed door, visible lift gap, exactly two hands, clear body separation, and both people contacting the same door."
+    ],
+    "required_repairs": [
+      "Remove every readable environmental word, logo, label, badge, packaging word, price, menu, and plate fragment while retaining only locked slide copy and the single top-right brandmark.",
+      "Restore slide 4's opening and closing curly double quotation marks exactly.",
+      "Remove all background people, restaurant silhouettes, and the slide 3 rear-window human-shaped figure; reconstruct the glazing and car window.",
+      "Lock one car body and rear/side detailing, one rainy divided-road geography, one unlettered restaurant frontage, and one visually stable unlettered chai stall across slides 1, 3, 4, 5, and 6.",
+      "Restage slide 5 so Aachu visibly watches the failed frontage and Zuv visibly watches her, without relying on a CLOSED sign.",
+      "Remove Zuv's second chai glass on slide 6 and keep only Aachu's focal live glass plus Zuv's biscuit packet, with non-focal hands out of frame.",
+      "On slide 7, move the true right slab edge and jamb to 35-45 px right of the existing spindle and repaint the obsolete door strip as corridor wall or trim.",
+      "On slide 7, replace the floor marks with exactly three outbound prints, one tight U beside the lift opening, and exactly three non-overlapping return prints ending at Aachu's heel; make before-departure return the only plausible reading.",
+      "Re-run a fresh full-deck image-first Event B audit on the changed pixels before any promotion."
+    ]
+  }
+}

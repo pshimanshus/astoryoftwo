@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <rect width="1080" height="1440" fill="#f5e4cf"/>
+  <text x="1030" y="55" text-anchor="end" font-family="Arial, sans-serif" font-size="22" fill="#746b63">@a.storyof.two</text>
+  <text x="540" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#2c2926">You still checked the lock twice.</text>
+  <text x="540" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#2c2926">I still rolled my eyes.</text>
+  <text x="540" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#2c2926">Then I went back</text>
+  <text x="540" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#2c2926">and checked it with you.</text>
+  <rect x="70" y="300" width="420" height="930" rx="8" fill="#eee2d3" stroke="#6e6258" stroke-width="8"/>
+  <rect x="590" y="300" width="420" height="930" rx="8" fill="#eee2d3" stroke="#6e6258" stroke-width="8"/>
+
+  <!-- LEFT / BEFORE: lift at far left, closed right-hinged door at right. -->
+  <rect x="80" y="500" width="80" height="500" fill="#b9c0c0" stroke="#596266" stroke-width="10"/>
+  <rect x="320" y="455" width="145" height="610" fill="#85563e" stroke="#3f3028" stroke-width="10"/>
+  <line x1="450" y1="490" x2="450" y2="1030" stroke="#d9c5a7" stroke-width="12" stroke-dasharray="50 55"/>
+  <line x1="334" y1="760" x2="354" y2="760" stroke="#25211e" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="334" cy="760" r="13" fill="#25211e"/>
+  <line x1="303" y1="455" x2="303" y2="1065" stroke="#5d4b3d" stroke-width="16"/>
+  <!-- Zuv stays entirely left of the latch edge; his short door-facing reach ends on the single slab-mounted lever. -->
+  <circle cx="260" cy="650" r="42" fill="#49677b"/>
+  <rect x="225" y="695" width="70" height="180" rx="30" fill="#7f9aab"/>
+  <line x1="290" y1="725" x2="334" y2="760" stroke="#7f9aab" stroke-width="24" stroke-linecap="round"/>
+  <line x1="243" y1="870" x2="228" y2="1015" stroke="#515965" stroke-width="30" stroke-linecap="round"/>
+  <line x1="285" y1="870" x2="301" y2="1015" stroke="#515965" stroke-width="30" stroke-linecap="round"/>
+  <!-- Aachu walking toward lift; no door contact. -->
+  <circle cx="155" cy="700" r="38" fill="#6b2c2c"/>
+  <rect x="120" y="740" width="70" height="170" rx="30" fill="#f0eadf"/>
+  <line x1="140" y1="900" x2="105" y2="1040" stroke="#356284" stroke-width="28" stroke-linecap="round"/>
+  <line x1="170" y1="900" x2="205" y2="1030" stroke="#356284" stroke-width="28" stroke-linecap="round"/>
+
+  <!-- RIGHT / AFTER: same closed right-hinged door; one lever beside the true left latch edge. -->
+  <rect x="680" y="455" width="260" height="610" fill="#85563e" stroke="#3f3028" stroke-width="10"/>
+  <line x1="925" y1="490" x2="925" y2="1030" stroke="#d9c5a7" stroke-width="12" stroke-dasharray="50 55"/>
+  <line x1="700" y1="760" x2="724" y2="760" stroke="#25211e" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="700" cy="760" r="13" fill="#25211e"/>
+  <line x1="663" y1="455" x2="663" y2="1065" stroke="#5d4b3d" stroke-width="16"/>
+  <!-- Zuv stays entirely left of the latch edge; his anatomical left/viewer-right hand makes a short reach to the lever. -->
+  <circle cx="615" cy="650" r="42" fill="#49677b"/>
+  <rect x="580" y="695" width="70" height="180" rx="30" fill="#7f9aab"/>
+  <line x1="645" y1="725" x2="700" y2="760" stroke="#7f9aab" stroke-width="24" stroke-linecap="round"/>
+  <line x1="595" y1="870" x2="580" y2="1015" stroke="#515965" stroke-width="30" stroke-linecap="round"/>
+  <line x1="637" y1="870" x2="653" y2="1015" stroke="#515965" stroke-width="30" stroke-linecap="round"/>
+  <!-- Aachu stands farther right; her separate anatomical right/viewer-left palm braces the slab away from the lever. -->
+  <circle cx="955" cy="650" r="38" fill="#6b2c2c"/>
+  <rect x="920" y="695" width="70" height="180" rx="30" fill="#f0eadf"/>
+  <line x1="925" y1="725" x2="875" y2="720" stroke="#f0eadf" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="875" cy="720" r="16" fill="#f0eadf" stroke="#6e6258" stroke-width="4"/>
+  <line x1="938" y1="870" x2="923" y2="1015" stroke="#356284" stroke-width="30" stroke-linecap="round"/>
+  <line x1="975" y1="870" x2="990" y2="1015" stroke="#356284" stroke-width="30" stroke-linecap="round"/>
+</svg>

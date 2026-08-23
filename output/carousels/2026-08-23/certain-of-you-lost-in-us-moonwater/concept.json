@@ -1,0 +1,837 @@
+{
+  "title": "Certain of You, Lost in Us — Moonwater",
+  "content_lane": "Soft Love Notes",
+  "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
+  "golden_theme_contract": {
+    "required": true,
+    "skill": "config/skills/golden-viral-carousel-theme.md",
+    "reference": "config/references/golden-viral-carousel-theme-reference.md",
+    "first_principles_sources": [
+      "wiki/themes/calm-enough-for-chaos.md",
+      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md"
+    ],
+    "first_principles_rule": "Before submitting or scoring any new carousel idea, use these source files as the first-principles explanation of why the gold carousel worked: universal anti-ideal -> concrete Aachu proof -> Zuv steady response -> tender acceptance thesis.",
+    "rule": "Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise.",
+    "hard_fail_if": [
+      "The concept is primarily about an object, outfit, location, or photo aesthetic.",
+      "A stranger could not send the carousel to a partner without knowing the private photo context.",
+      "Aachu's expressive role is missing or mocked.",
+      "Zuv's calm role is passive, absent, or treated as background.",
+      "The concept is mostly about taking photos, looking beautiful, glowing, or waiting for one more picture without a deeper relationship tension.",
+      "One partner's role is only looking good while the other waits or holds things.",
+      "The final thesis is generic romance without a concrete proof trail."
+    ],
+    "default_five_slide_map": [
+      "Universal hook: one swipe-stopping relationship truth.",
+      "Aachu-specific reveal: her version of the truth.",
+      "Concrete proof: a drawable behavior, object, or ritual from the reference material.",
+      "Zuv role: what his calm, patience, care, or choice does emotionally.",
+      "Save/share thesis: the tender truth underneath the joke."
+    ],
+    "caption_formula": [
+      "Open with the universal relationship truth.",
+      "Show the couple-specific behavior, care, posture, object, or rhythm in the middle; name Aachu/Zuv only when natural.",
+      "End with a soft send/save-worthy thesis."
+    ]
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, visible mutual relationship motion, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "visible mutual relationship motion",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "human_truth": "Choosing a person can be certain even while the life built around that choice keeps becoming unfamiliar.",
+  "emotional_arc": "a mutual arrival -> ordinary life begins to flood the plan -> both use the same love in conflicting ways -> they resynchronize without pretending to know the destination -> they invent only the next way forward",
+  "slide_count": 6,
+  "source_story_summary": "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.",
+  "visual_style": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition by default: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork at 1080x1920 only when the creator explicitly requests Reel or Story; never add it as an automatic companion output. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
+  "target_voice": "Aachu/Zuv archive voice: warm, specific, playful underneath the tenderness",
+  "story_selling_contract": {
+    "skill": "config/skills/romance-story-selling-engine.md",
+    "references": [
+      "config/skills/carousel-story-director-persona.md",
+      "config/references/story-selling-canon/source-policy.md",
+      "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+      "config/references/story-selling-canon/concept-process-cards.md",
+      "config/references/story-selling-canon/rubric.md",
+      "config/references/story-selling-canon/story-selling-online.md"
+    ],
+    "minimum_score": 28,
+    "rule": "Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions."
+  },
+  "story_selling_decision": {
+    "contract": {
+      "skill": "config/skills/romance-story-selling-engine.md",
+      "references": [
+        "config/skills/carousel-story-director-persona.md",
+        "config/references/story-selling-canon/source-policy.md",
+        "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+        "config/references/story-selling-canon/concept-process-cards.md",
+        "config/references/story-selling-canon/rubric.md",
+        "config/references/story-selling-canon/story-selling-online.md"
+      ],
+      "minimum_score": 28,
+      "rule": "Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions.",
+      "source": "layer-e-story-selling.json",
+      "mode": "multi_room_thinking_engine"
+    },
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "process_influence_summary": "card-20 - Saveable Lesson From One Scene, card-07 - Anti-Ideal To Real Love",
+    "score": {
+      "reader_identity_mirror": 5.0,
+      "romantic_conflict_stakes": 5.0,
+      "specificity_of_proof": 5.0,
+      "emotional_reversal": 5.0,
+      "visual_scene_clarity": 5.0,
+      "online_share_save_sell_potential": 4.0,
+      "total": 29.0
+    },
+    "threshold": "28/30",
+    "decision": "GO",
+    "hard_fails": [],
+    "selector_verdict": "The House Became an Ocean",
+    "authorial_flow": {
+      "relationship_obstacle": "The idea risks becoming pretty but emotionally flat.",
+      "human_story_setup": {
+        "cold_reader_doorway": "Readers enter through a concrete couple behavior they recognize.",
+        "emotional_obstacle": "The idea risks becoming pretty but emotionally flat.",
+        "visible_human_proof": "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.",
+        "active_partner_role": "Both partners must make one visible, self-owned choice toward the shared problem.",
+        "emotional_turn": "The surface moment becomes proof of care.",
+        "shareable_setup": "Saveable when it gives viewers language for a familiar relationship pattern.",
+        "earned_payoff": "Love becomes believable only after the scene proves it."
+      },
+      "success_definition": {
+        "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+        "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+        "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+        "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, request-locked native-format, QA, and audit gates must also pass. Default post/carousel delivery is 1080x1440 only; 1080x1920 Reel/Story is required only when explicitly requested.",
+        "source": "wiki/insights/successful-carousel-standard.md",
+        "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+      },
+      "stage_scene_gate": {
+        "status": "REPAIR",
+        "action": "",
+        "reaction": "The surface moment becomes proof of care.",
+        "eye_line_or_attention": "Both partners must make one visible, self-owned choice toward the shared problem.",
+        "hands_or_object_movement": "",
+        "silence_or_pause": "",
+        "consequence": "Saveable when it gives viewers language for a familiar relationship pattern.",
+        "reversal_or_payoff": "Love becomes believable only after the scene proves it.",
+        "blockers": [
+          "stage-scene gate has no drawable action/reaction proof",
+          "stage-scene gate has no visible active partner action"
+        ]
+      },
+      "golden_theme_score": {
+        "universal_hook": 5.0,
+        "aachu_zuv_specificity": 5.0,
+        "concrete_proof": 2.0,
+        "zuv_emotional_role": 2.0,
+        "tender_thesis": 5.0,
+        "share_send_potential": 4.0,
+        "total": 23.0
+      },
+      "proof_engine": "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.",
+      "writer_rule": "Layer E is the source of truth; process cards are influences, not the answer.",
+      "story_context": "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.",
+      "emotional_machine": "The idea risks becoming pretty but emotionally flat. -> I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how. -> The surface moment becomes proof of care. -> Love becomes believable only after the scene proves it.",
+      "distribution_reason": "Saveable when it gives viewers language for a familiar relationship pattern."
+    },
+    "candidate_table": [
+      {
+        "name": "The House Became an Ocean",
+        "story_lens": "One domestic object changes function through a causal moonwater sequence, making mutual choice, conflicting method and resynchronization physical.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unfamiliar.",
+        "emotional_obstacle": "Equal commitment does not automatically make two people's instincts, timing, or methods align.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal self-owned agency without becoming a handler or rescuer.",
+        "proof_engine": "dry shared table -> rising moonwater -> opposite strokes and circular wake -> reciprocal laugh plus oar realignment -> synchronized exit stroke",
+        "emotional_reversal": "The visible circle stops reading as a verdict on the relationship once both people recognize it and change their method together.",
+        "payoff": "The horizon stays unfinished; commitment is proven by equal experimentation with the same person.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still learning how to live the shared life.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "They carry one table into a dry home, stabilize it as moonwater rises, row with opposite strokes until the raft circles, rotate their oars toward alignment, then make synchronized strokes out through the old wake.",
+          "reaction": "Their attention moves from mutual certainty, to divided practical focus, to shared bafflement, to reciprocal laughter, to coordinated experimentation.",
+          "eye_line_or_attention": "Eye-lines meet over the table, split toward separate demands, converge on the circular wake, reconnect at the turn, and finally alternate between each other and the unfinished horizon.",
+          "hands_or_object_movement": "The table changes from shared furniture to stable work surface to raft; separately owned oars move from opposed strokes, through visible realignment, into synchronized backward strokes on opposite outer sides.",
+          "silence_or_pause": "The widening circular wake and resting moment before the oars realign create the quiet recognition beat.",
+          "consequence": "Opposed effort produces rotation; reciprocal recognition produces an observable change in method rather than a falsely solved destination.",
+          "reversal_or_payoff": "Being lost stops reading as evidence of a wrong partner and becomes the condition in which both people keep learning one next maneuver.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      },
+      {
+        "name": "Rooms Adrift",
+        "story_lens": "Dreamy room islands are arresting but risk becoming atmosphere without a tracked action engine.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unfamiliar.",
+        "emotional_obstacle": "Equal commitment does not automatically make two people's instincts, timing, or methods align.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal self-owned agency without becoming a handler or rescuer.",
+        "proof_engine": "dry shared table -> rising moonwater -> opposite strokes and circular wake -> reciprocal laugh plus oar realignment -> synchronized exit stroke",
+        "emotional_reversal": "The visible circle stops reading as a verdict on the relationship once both people recognize it and change their method together.",
+        "payoff": "The horizon stays unfinished; commitment is proven by equal experimentation with the same person.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still learning how to live the shared life.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 26.0,
+        "golden_theme_score_total": 26.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "They carry one table into a dry home, stabilize it as moonwater rises, row with opposite strokes until the raft circles, rotate their oars toward alignment, then make synchronized strokes out through the old wake.",
+          "reaction": "Their attention moves from mutual certainty, to divided practical focus, to shared bafflement, to reciprocal laughter, to coordinated experimentation.",
+          "eye_line_or_attention": "Eye-lines meet over the table, split toward separate demands, converge on the circular wake, reconnect at the turn, and finally alternate between each other and the unfinished horizon.",
+          "hands_or_object_movement": "The table changes from shared furniture to stable work surface to raft; separately owned oars move from opposed strokes, through visible realignment, into synchronized backward strokes on opposite outer sides.",
+          "silence_or_pause": "The widening circular wake and resting moment before the oars realign create the quiet recognition beat.",
+          "consequence": "Opposed effort produces rotation; reciprocal recognition produces an observable change in method rather than a falsely solved destination.",
+          "reversal_or_payoff": "Being lost stops reading as evidence of a wrong partner and becomes the condition in which both people keep learning one next maneuver.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "The Weather Inside Us",
+        "story_lens": "Indoor weather carries emotion but does not make equal partner action as legible.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unfamiliar.",
+        "emotional_obstacle": "Equal commitment does not automatically make two people's instincts, timing, or methods align.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal self-owned agency without becoming a handler or rescuer.",
+        "proof_engine": "dry shared table -> rising moonwater -> opposite strokes and circular wake -> reciprocal laugh plus oar realignment -> synchronized exit stroke",
+        "emotional_reversal": "The visible circle stops reading as a verdict on the relationship once both people recognize it and change their method together.",
+        "payoff": "The horizon stays unfinished; commitment is proven by equal experimentation with the same person.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still learning how to live the shared life.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 25.0,
+        "golden_theme_score_total": 25.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "They carry one table into a dry home, stabilize it as moonwater rises, row with opposite strokes until the raft circles, rotate their oars toward alignment, then make synchronized strokes out through the old wake.",
+          "reaction": "Their attention moves from mutual certainty, to divided practical focus, to shared bafflement, to reciprocal laughter, to coordinated experimentation.",
+          "eye_line_or_attention": "Eye-lines meet over the table, split toward separate demands, converge on the circular wake, reconnect at the turn, and finally alternate between each other and the unfinished horizon.",
+          "hands_or_object_movement": "The table changes from shared furniture to stable work surface to raft; separately owned oars move from opposed strokes, through visible realignment, into synchronized backward strokes on opposite outer sides.",
+          "silence_or_pause": "The widening circular wake and resting moment before the oars realign create the quiet recognition beat.",
+          "consequence": "Opposed effort produces rotation; reciprocal recognition produces an observable change in method rather than a falsely solved destination.",
+          "reversal_or_payoff": "Being lost stops reading as evidence of a wrong partner and becomes the condition in which both people keep learning one next maneuver.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "Two Lanterns",
+        "story_lens": "Paired lights are familiar romance symbolism and too easy to reduce to a poster.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unfamiliar.",
+        "emotional_obstacle": "Equal commitment does not automatically make two people's instincts, timing, or methods align.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal self-owned agency without becoming a handler or rescuer.",
+        "proof_engine": "dry shared table -> rising moonwater -> opposite strokes and circular wake -> reciprocal laugh plus oar realignment -> synchronized exit stroke",
+        "emotional_reversal": "The visible circle stops reading as a verdict on the relationship once both people recognize it and change their method together.",
+        "payoff": "The horizon stays unfinished; commitment is proven by equal experimentation with the same person.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still learning how to live the shared life.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 22.0,
+        "golden_theme_score_total": 22.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They carry one table into a dry home, stabilize it as moonwater rises, row with opposite strokes until the raft circles, rotate their oars toward alignment, then make synchronized strokes out through the old wake.",
+          "reaction": "Their attention moves from mutual certainty, to divided practical focus, to shared bafflement, to reciprocal laughter, to coordinated experimentation.",
+          "eye_line_or_attention": "Eye-lines meet over the table, split toward separate demands, converge on the circular wake, reconnect at the turn, and finally alternate between each other and the unfinished horizon.",
+          "hands_or_object_movement": "The table changes from shared furniture to stable work surface to raft; separately owned oars move from opposed strokes, through visible realignment, into synchronized backward strokes on opposite outer sides.",
+          "silence_or_pause": "The widening circular wake and resting moment before the oars realign create the quiet recognition beat.",
+          "consequence": "Opposed effort produces rotation; reciprocal recognition produces an observable change in method rather than a falsely solved destination.",
+          "reversal_or_payoff": "Being lost stops reading as evidence of a wrong partner and becomes the condition in which both people keep learning one next maneuver.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "The Red Thread",
+        "story_lens": "A fate-thread metaphor is generic, overused, and explicitly rejected for this route.",
+        "reader_mirror": "The private recognition of being certain about a partner while the shared life still feels unfamiliar.",
+        "emotional_obstacle": "Equal commitment does not automatically make two people's instincts, timing, or methods align.",
+        "aachu_specific_spark": "Aachu carries expressive equal agency without being framed as the problem.",
+        "zuv_active_role": "Zuv carries equal self-owned agency without becoming a handler or rescuer.",
+        "proof_engine": "dry shared table -> rising moonwater -> opposite strokes and circular wake -> reciprocal laugh plus oar realignment -> synchronized exit stroke",
+        "emotional_reversal": "The visible circle stops reading as a verdict on the relationship once both people recognize it and change their method together.",
+        "payoff": "The horizon stays unfinished; commitment is proven by equal experimentation with the same person.",
+        "distribution_reason": "Sendable to the person you remain sure about while both of you are still learning how to live the shared life.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 18.0,
+        "golden_theme_score_total": 18.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "They carry one table into a dry home, stabilize it as moonwater rises, row with opposite strokes until the raft circles, rotate their oars toward alignment, then make synchronized strokes out through the old wake.",
+          "reaction": "Their attention moves from mutual certainty, to divided practical focus, to shared bafflement, to reciprocal laughter, to coordinated experimentation.",
+          "eye_line_or_attention": "Eye-lines meet over the table, split toward separate demands, converge on the circular wake, reconnect at the turn, and finally alternate between each other and the unfinished horizon.",
+          "hands_or_object_movement": "The table changes from shared furniture to stable work surface to raft; separately owned oars move from opposed strokes, through visible realignment, into synchronized backward strokes on opposite outer sides.",
+          "silence_or_pause": "The widening circular wake and resting moment before the oars realign create the quiet recognition beat.",
+          "consequence": "Opposed effort produces rotation; reciprocal recognition produces an observable change in method rather than a falsely solved destination.",
+          "reversal_or_payoff": "Being lost stops reading as evidence of a wrong partner and becomes the condition in which both people keep learning one next maneuver.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "rooms": {
+      "source_memory_room": {
+        "name": "Context And Source Memory",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Source Curator",
+            "role": "legality",
+            "claim": "Use derived patterns and source IDs only.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Successful Carousel Standard Reader",
+            "role": "creative north star",
+            "claim": "Prioritize public identity mirror and concrete couple receipts.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Creator Preference Ledger Reader",
+            "role": "memory",
+            "claim": "Avoid repeating cooled-down lanes as fresh ideas.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Source memory loaded before concept selection, including the successful-carousel standard and creator preference ledger.",
+        "inputs_used": [
+          "config/references/story-selling-canon/source-register.json",
+          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+          "wiki/insights/successful-carousel-standard.md",
+          "memory/semantic/carousel-idea-preferences.md"
+        ],
+        "debate_records": [
+          "Source Curator: treat photos, objects, outfits, and canon cards as evidence, never as the premise.",
+          "Successful Carousel Standard Reader: define success before writing as cold-viewer recognition, not beautiful art.",
+          "Creator Preference Ledger Reader: avoid stale perfect-husband, aesthetic-first, and repeated chaos/home lanes."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+          "memory_policy": "fresh route must not recycle cooled-down lanes as fresh ideas"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "story_meaning_room": {
+        "name": "Story Meaning Room",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Romance Novelist",
+            "role": "emotional arc",
+            "claim": "The route needs obstacle, proof, reversal, and earned payoff.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Film Scene Director",
+            "role": "scene grammar",
+            "claim": "The meaning must be drawable through behavior.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Aachu/Zuv Dynamics Writer",
+            "role": "character truth",
+            "claim": "Aachu gets spark; Zuv gets active response.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Emotional Obstacle Miner",
+            "role": "friction",
+            "claim": "No obstacle means no story engine.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Generated 5 story routes and selected Proof Before Poetry as the strongest raw meaning.",
+        "inputs_used": [
+          "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/portrait-07.jpg",
+          "C-layer carousel package",
+          "golden theme remains mandatory",
+          "use process cards as influences, not the answer"
+        ],
+        "debate_records": [
+          "Route 'Proof Before Poetry' human story: obstacle='The idea risks becoming pretty but emotionally flat.', proof='I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.', payoff='Love becomes believable only after the scene proves it.', score=17.0/30.",
+          "Route 'Public Scene, Private Meaning' human story: obstacle='If the private meaning is absent, the scene stays decorative.', proof='I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.', payoff='The pretty part is only proof; the relationship is the subject.', score=17.0/30.",
+          "Route 'Anti-Ideal To Real Love' human story: obstacle='The route fails if no tension or role is visible.', proof='I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.', payoff='Real love is specific enough to be inconvenient.', score=17.0/30.",
+          "Human story check: the route must be about a relationship pressure becoming visible, not about a nice photo, outfit, place, or object.",
+          "Scene grammar check: Aachu must carry specific spark and Zuv must answer through visible behavior before copy or captions are written."
+        ],
+        "scores": {
+          "Proof Before Poetry": 17.0,
+          "Public Scene, Private Meaning": 17.0,
+          "Anti-Ideal To Real Love": 17.0,
+          "Reader As Third Witness": 16.0,
+          "Scene Before Summary": 17.0
+        },
+        "selected_outputs": {
+          "raw_winner": "Proof Before Poetry",
+          "human_story_setup": "Saveable when it gives viewers language for a familiar relationship pattern.",
+          "emotional_obstacle": "The idea risks becoming pretty but emotionally flat."
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "audience_algorithm_room": {
+        "name": "Audience And Algorithm Room",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Retention Analyst",
+            "role": "swipe ladder",
+            "claim": "The route must create curiosity and middle-slide re-engagement.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Algorithm / Share-Save Strategist",
+            "role": "distribution",
+            "claim": "The route needs a send/save/tag reason.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Copy Chief",
+            "role": "wording",
+            "claim": "Public copy should stay name-free and behavior-led.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Culture And Taste Reader",
+            "role": "taste",
+            "claim": "The humor should feel warm, desi, and non-shaming.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Audience pass checked reader mirror, send/save logic, and taste.",
+        "inputs_used": [
+          "wiki/insights/successful-carousel-standard.md#What Success Means",
+          "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md#Comment Behavior"
+        ],
+        "debate_records": [
+          "Reader mirror: Readers enter through a concrete couple behavior they recognize.",
+          "Send/save reason: Saveable when it gives viewers language for a familiar relationship pattern.",
+          "Success pressure: a strong route must earn partner tags, saves, or DMs because the viewer is saying 'this is us', not because the art is pretty.",
+          "Swipe pressure: the middle must carry receipt density and at least one visual proof beat that can be understood before reading a caption."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "distribution_reason": "Saveable when it gives viewers language for a familiar relationship pattern.",
+          "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "contrarian_repair_room": {
+        "name": "Contrarian Repair Room",
+        "status": "REPAIR",
+        "agents": [
+          {
+            "agent": "Harsh Critic",
+            "role": "route attack",
+            "claim": "The winner must survive genericness and private-context objections.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Genericness Detector",
+            "role": "specificity",
+            "claim": "Specific proof beats beat abstract romance.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Safety/Taste Guard",
+            "role": "safety",
+            "claim": "No shaming, privacy leak, or copied expression.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Visual Generativity Skeptic",
+            "role": "generation",
+            "claim": "The concept must become simple scenes.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Top routes were attacked and repair needs were recorded.",
+        "inputs_used": [
+          "Proof Before Poetry",
+          "Public Scene, Private Meaning",
+          "Anti-Ideal To Real Love"
+        ],
+        "debate_records": [
+          "Attack 'Proof Before Poetry': hard_fails=['stage-scene gate has no drawable action/reaction proof', 'stage-scene gate has no visible active partner action']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+          "Attack 'Public Scene, Private Meaning': hard_fails=['stage-scene gate has no drawable action/reaction proof']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+          "Attack 'Anti-Ideal To Real Love': hard_fails=['stage-scene gate has no drawable action/reaction proof', 'stage-scene gate has no visible active partner action']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+          "Genericness Detector: reject routes that would get 'beautiful' but not 'this is us'.",
+          "Visual Generativity Skeptic: block any route that can only be expressed as poster copy."
+        ],
+        "scores": {},
+        "selected_outputs": {},
+        "objections": [
+          "stage-scene gate has no drawable action/reaction proof",
+          "stage-scene gate has no visible active partner action"
+        ],
+        "repairs": [
+          "Repair top candidates against the success standard before downstream copy.",
+          "Keep the winner only if the share setup, human obstacle, and visible partner role survive the attack."
+        ],
+        "repaired_route_names": [
+          "Public Scene, Private Meaning",
+          "Anti-Ideal To Real Love"
+        ]
+      },
+      "stage_scene_room": {
+        "name": "Stage-Scene Gate",
+        "status": "REPAIR",
+        "agents": [
+          {
+            "agent": "Stage Director",
+            "role": "blocking",
+            "claim": "The idea must play as action before copy.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Body Language Reader",
+            "role": "proof",
+            "claim": "Hands, distance, and object movement must prove the turn.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Silent Panel Reviewer",
+            "role": "visual story",
+            "claim": "A viewer should understand the beat with text hidden.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Winner was checked as a short staged scene before copy, caption, or prompt work.",
+        "inputs_used": [
+          "Proof Before Poetry",
+          "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how."
+        ],
+        "debate_records": [
+          "Action: ",
+          "Reaction: The surface moment becomes proof of care.",
+          "Hands/object movement: ",
+          "Silence/pause: ",
+          "Consequence: Saveable when it gives viewers language for a familiar relationship pattern.",
+          "Gate rule: text completes the scene; text must not carry the scene."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "action": "",
+          "hands_or_object_movement": "",
+          "reversal_or_payoff": "Love becomes believable only after the scene proves it."
+        },
+        "objections": [
+          "stage-scene gate has no drawable action/reaction proof",
+          "stage-scene gate has no visible active partner action"
+        ],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "final_synthesis_room": {
+        "name": "Final Synthesis Room",
+        "status": "REPAIR",
+        "agents": [
+          {
+            "agent": "Story Lens Selector",
+            "role": "selection",
+            "claim": "Selected Proof Before Poetry.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Story-Selling Rubric Judge",
+            "role": "score",
+            "claim": "Apply 30-point Story-Selling threshold.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Downstream Contract Writer",
+            "role": "handoff",
+            "claim": "Write emotional machine into C/D/B contracts.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Final selector synthesized the route into Layer E handoff fields.",
+        "inputs_used": [
+          "story_meaning_room",
+          "audience_algorithm_room",
+          "contrarian_repair_room",
+          "stage_scene_room",
+          "story_selling_score"
+        ],
+        "debate_records": [
+          "Selector chose 'Proof Before Poetry' because it best connects human story, proof, reversal, and distribution.",
+          "Human setup: Saveable when it gives viewers language for a familiar relationship pattern.",
+          "What success looks like: A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "The story should begin with the behavior that proves love, not the romantic summary.",
+          "human_story_setup": "Saveable when it gives viewers language for a familiar relationship pattern.",
+          "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      }
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "They carry one table into a dry home, stabilize it as moonwater rises, row with opposite strokes until the raft circles, rotate their oars toward alignment, then make synchronized strokes out through the old wake.",
+      "reaction": "Their attention moves from mutual certainty, to divided practical focus, to shared bafflement, to reciprocal laughter, to coordinated experimentation.",
+      "eye_line_or_attention": "Eye-lines meet over the table, split toward separate demands, converge on the circular wake, reconnect at the turn, and finally alternate between each other and the unfinished horizon.",
+      "hands_or_object_movement": "The table changes from shared furniture to stable work surface to raft; separately owned oars move from opposed strokes, through visible realignment, into synchronized backward strokes on opposite outer sides.",
+      "silence_or_pause": "The widening circular wake and resting moment before the oars realign create the quiet recognition beat.",
+      "consequence": "Opposed effort produces rotation; reciprocal recognition produces an observable change in method rather than a falsely solved destination.",
+      "reversal_or_payoff": "Being lost stops reading as evidence of a wrong partner and becomes the condition in which both people keep learning one next maneuver.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    },
+    "process_influences": [
+      {
+        "id": "successful-carousel-standard",
+        "title": "Successful Carousel Standard",
+        "influence_type": "living_standard",
+        "source_patterns": [],
+        "confidence": 0.9,
+        "reason": "Defines public identity mirror, couple receipts, visible mutual relationship motion, reversal, and send/save thesis."
+      },
+      {
+        "id": "card-20",
+        "title": "Saveable Lesson From One Scene",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "storybrand-framework",
+          "copyblogger-story-that-sells",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.81,
+        "reason": "Useful influence for this story because: The lesson must feel discovered through Aachu/Zuv, not pasted onto them."
+      },
+      {
+        "id": "card-07",
+        "title": "Anti-Ideal To Real Love",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "golden-viral-carousel-theme",
+          "storybrand-framework",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.9,
+        "reason": "Useful influence for this story because: This is the default rescue card when an idea is too aesthetic-first."
+      }
+    ]
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "markdown_artifact": "layer-e-story-selling.md",
+    "status": "GO",
+    "selected_story_lens": "The House Became an Ocean",
+    "emotional_machine": "certainty in the person -> unfamiliar shared conditions -> equal but opposed effort -> visible circular failure -> reciprocal recognition -> one synchronized experiment",
+    "human_story_setup": {
+      "cold_reader_doorway": "The private recognition of being certain about a partner while the shared life still feels unfamiliar.",
+      "emotional_obstacle": "Equal commitment does not automatically make two people's instincts, timing, or methods align.",
+      "visible_human_proof": "They carry one table together, save different things around it, turn it into a raft, row with equal but opposed effort, laugh at the circle they made, realign their oars, and try one synchronized stroke.",
+      "active_partner_role": "Neither person rescues or manages the other. Each owns a task, an oar, the failed method, the repair, and the next experiment.",
+      "emotional_turn": "The visible circle stops reading as a verdict on the relationship once both people recognize it and change their method together.",
+      "shareable_setup": "Sendable to the person you remain sure about while both of you are still learning how to live the shared life.",
+      "earned_payoff": "The horizon stays unfinished; commitment is proven by equal experimentation with the same person."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+      "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+      "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+      "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, request-locked native-format, QA, and audit gates must also pass. Default post/carousel delivery is 1080x1440 only; 1080x1920 Reel/Story is required only when explicitly requested.",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "They carry one table into a dry home, stabilize it as moonwater rises, row with opposite strokes until the raft circles, rotate their oars toward alignment, then make synchronized strokes out through the old wake.",
+      "reaction": "Their attention moves from mutual certainty, to divided practical focus, to shared bafflement, to reciprocal laughter, to coordinated experimentation.",
+      "eye_line_or_attention": "Eye-lines meet over the table, split toward separate demands, converge on the circular wake, reconnect at the turn, and finally alternate between each other and the unfinished horizon.",
+      "hands_or_object_movement": "The table changes from shared furniture to stable work surface to raft; separately owned oars move from opposed strokes, through visible realignment, into synchronized backward strokes on opposite outer sides.",
+      "silence_or_pause": "The widening circular wake and resting moment before the oars realign create the quiet recognition beat.",
+      "consequence": "Opposed effort produces rotation; reciprocal recognition produces an observable change in method rather than a falsely solved destination.",
+      "reversal_or_payoff": "Being lost stops reading as evidence of a wrong partner and becomes the condition in which both people keep learning one next maneuver.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    },
+    "process_influences": [
+      {
+        "id": "successful-carousel-standard",
+        "title": "Successful Carousel Standard",
+        "influence_type": "living_standard",
+        "source_patterns": [],
+        "confidence": 0.9,
+        "reason": "Defines public identity mirror, couple receipts, visible mutual relationship motion, reversal, and send/save thesis."
+      },
+      {
+        "id": "card-20",
+        "title": "Saveable Lesson From One Scene",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "storybrand-framework",
+          "copyblogger-story-that-sells",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.81,
+        "reason": "Useful influence for this story because: The lesson must feel discovered through Aachu/Zuv, not pasted onto them."
+      },
+      {
+        "id": "card-07",
+        "title": "Anti-Ideal To Real Love",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "golden-viral-carousel-theme",
+          "storybrand-framework",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.9,
+        "reason": "Useful influence for this story because: This is the default rescue card when an idea is too aesthetic-first."
+      }
+    ]
+  },
+  "carousel_story_director_persona": {
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "I was never unsure of you.\nI was lost inside our life.",
+      "reader_identity_mirror": "The private recognition of being certain about a partner while the shared life still feels unfamiliar.",
+      "emotional_obstacle": "Equal commitment does not automatically make two people's instincts, timing, or methods align.",
+      "aachu_proof": "Aachu carries the near table end, catches the sliding lamp, owns the left-side failed stroke, resets her complete oar at the matched catch, then owns one synchronized exit stroke.",
+      "zuv_active_role": "Zuv carries the far table end, secures the paired wooden oars, owns the right-side failed stroke, resets his complete oar at the matched catch, then owns the matching exit stroke.",
+      "relationship_motion": "Neither person rescues or manages the other. Each owns a task, an oar, the failed method, the repair, and the next experiment.",
+      "bridge": "a mutual arrival -> ordinary life begins to flood the plan -> both use the same love in conflicting ways -> they resynchronize without pretending to know the destination -> they invent only the next way forward",
+      "earned_ending": "Commitment answered who.\nWe are still learning how.",
+      "send_save_reason": "Send this to the person you are still certain of when the shared life around you feels unfamiliar."
+    },
+    "selected_hook": "I was never unsure of you.\nI was lost inside our life.",
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 10,
+      "zuv_role": 9,
+      "ending": 10,
+      "send_save_potential": 9,
+      "stage_scene": 10
+    },
+    "verdict": "GO: the moonwater story is causal, reciprocal, visually ownable, and its destination remains honestly unfinished.",
+    "blocks": [],
+    "concept_selection_used": true
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "creative_baseline": {
+    "artifact": "creative-baseline.json",
+    "status": "supplied",
+    "creative_authority": "model_first",
+    "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance.",
+    "source": "Creator-supplied locked six-beat copy; fresh visual restart requested on 2026-08-23 after the theatre, maze, blueprint, script, chair, and moving-set routes were rejected"
+  }
+}

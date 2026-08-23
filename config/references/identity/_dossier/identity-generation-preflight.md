@@ -1,7 +1,7 @@
 # Identity Generation Preflight
 # @a.storyof.two — read this before every image generation run
 
-last_updated: 2026-05-31
+last_updated: 2026-08-23
 
 ---
 
@@ -17,17 +17,20 @@ or background. **No generation from text descriptions alone. Photos must be atta
 
 | File | Subject | Why |
 |------|---------|-----|
-| `config/references/identity/aachu/portrait-02.jpg` | Aachu solo | Best solo — natural daylight, face large and clear, full warm smile |
-| `config/references/identity/together/together-18.jpg` | Both | Best overall — couch selfie, both faces close, Zuv curls + beard clear |
-| `config/references/identity/together/together-19.jpg` | Both | Beach hut selfie, both close, different lighting context |
-| `config/references/identity/together/together-21.jpg` | Both | Domestic hug, Aachu very clear, intimate natural moment |
+| `config/references/identity/aachu/reel-jaldi.jpg` | Aachu solo | Current clean Aachu close-face anchor in natural daylight |
+| `config/references/identity/zuv/portrait-07.jpg` | Zuv solo | Current clear Zuv face-and-body anchor with curls and beard visible |
+| `config/references/identity/together/together-18.jpg` | Both | Best close-face couple anchor for smiles, curls, beard, and facial scale |
+| `config/references/identity/together/together-16.jpg` | Both | Standing full-body anchor for relative scale, body build, and wardrobe |
 
 Label them in the prompt as "identity reference for the woman (Aachu)" and
 "identity reference for the man (Zuv)".
 
-**Note on Zuv:** There is currently no close-up solo portrait of Zuv in this library.
-The together shots above are the best Zuv identity anchors. The couch selfie
-(together-18.jpg) is the single most important file to attach for Zuv's face.
+**Sheet-specific exception:** the four-file bundle above is the operational
+baseline. A character sheet or story may replace one or more bundle members
+with verified detail references, but every generation call must still attach
+2-4 actual photos that cover every visible person, face, body, scale, wardrobe,
+and accessory decision. Contact sheets and generated charts never replace the
+actual photos as identity authority.
 
 Contact sheet (to pick alternate options):
 `config/references/identity/_dossier/identity-face-contact-sheet.jpg`
@@ -52,12 +55,23 @@ Full character descriptions: `../README.md`.
 - Warm dark almond-shaped eyes with kind, patient gaze
 - Warm medium-brown skin, relaxed masculine structure
 
+## Signature Accessories (hard identity gate)
+
+- Aachu always wears her evil-eye bracelet on her right wrist, grounded in
+  `aachu/face-04.png`. If the right wrist or forearm is visible, the bracelet
+  must be visible in the same position and must not be moved or redesigned.
+- Zuv always wears his small round evil-eye locket on a slim silver chain,
+  grounded most clearly in `zuv/portrait-07.jpg`. If his neck, open collar, or
+  upper chest is visible, the locket and chain must be visible and unchanged.
+- When framing or clothing physically hides either accessory, record that
+  occlusion in the prompt and visual QA. Never silently omit the accessory.
+
 ---
 
 ## Generation Procedure
 
-1. Load `identity-face-contact-sheet.jpg` into image context
-2. Attach the 4 identity references above
+1. Attach the sheet-specific 2-4 verified identity photos, starting from the operational bundle above
+2. Load `identity-face-contact-sheet.jpg` only when it helps select or compare alternate face anchors
 3. Start the prompt with the face non-negotiables
 4. Generate one slide at a time — never batch all slides in one call
 5. Check each output against photos before proceeding to the next slide

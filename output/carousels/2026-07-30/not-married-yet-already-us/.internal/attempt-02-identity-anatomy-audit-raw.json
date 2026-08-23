@@ -1,0 +1,32 @@
+{
+  "overall_status": "FAIL",
+  "entity_anatomy_status": {
+    "status": "FAIL",
+    "summary": "Counts and hands pass, but the coffee table occludes Zuv's inner lower leg, violating the required uninterrupted full-body topology."
+  },
+  "identity_status": {
+    "status": "FAIL",
+    "Aachu": "FAIL — hair, wardrobe, skin tone, and broad feature family track the references, but her face remains too narrow and pointed through the cheek, jaw, and chin instead of the required soft wider oval-round structure.",
+    "Zuv": "PASS — hair silhouette, brows, nose, beard, skin tone, white shirt, and neck detail provide a recognizable moderate-strength match."
+  },
+  "couple_scale_status": {
+    "status": "FAIL",
+    "summary": "Zuv reads substantially taller and larger than Aachu on a comparable floor plane, far beyond the locked two-inch difference."
+  },
+  "evidence": [
+    "Exactly two people, four traceable arms/hands, three loose cushions, one airborne cushion, and four visible feet.",
+    "Aachu's frame-left hand grips one cushion; her center-facing hand is open after release; Zuv grips one cushion with both hands.",
+    "No extra figure, reflection, duplicate limb, detached hand, malformed grip, or fourth loose cushion is visible.",
+    "The tabletop and front edge pass in front of Zuv's inner lower leg, interrupting the required complete silhouette.",
+    "Curved motion lines remain beside the airborne cushion despite the prompt's explicit prohibition.",
+    "Zuv reads genuinely angry; Aachu reads upset and argumentative but lacks the requested narrowed eyes and tight brow.",
+    "The image is the required 1080x1440 canvas."
+  ],
+  "required_repairs": [
+    "Move the table fully behind or away from both bodies so neither leg nor foot is crossed or occluded.",
+    "Regenerate Aachu from face-04 and reel-jaldi with wider soft oval-round cheeks, a softer jaw, and no pointed chin.",
+    "Reduce Zuv's rendered height and overall scale until he reads only slightly taller than Aachu.",
+    "Remove the airborne-cushion motion lines.",
+    "Strengthen Aachu's mutual-anger expression with a tighter brow and narrowed eyes while preserving her identity."
+  ]
+}

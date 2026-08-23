@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-202052",
+  "created_at": "2026-07-28T14:50:52+00:00",
+  "repo_root": "/Users/himanshusharma/astoryoftwo-analysis",
+  "core": [
+    {
+      "path": "config/skills/creator-skill-stack.md",
+      "exists": true,
+      "sha256": "67b5a015315d8eb2b8e263c575e4abe236bc9c497eb8764d8341083f56c71cda",
+      "bytes": 3789,
+      "modified_at": "2026-07-20T14:07:45+00:00"
+    },
+    {
+      "path": "config/skills/carousel-jam-runtime-context.md",
+      "exists": true,
+      "sha256": "9fbbab1b54dd89a38c87c95ba348f349b7a5a408a5340d03dd9b72c6fc998d1c",
+      "bytes": 13180,
+      "modified_at": "2026-07-25T08:39:06+00:00"
+    },
+    {
+      "path": "memory/semantic/carousel-idea-preferences.md",
+      "exists": true,
+      "sha256": "9dad1962b729c7684eff4eb6bb0d318263f11059ec65e48b7beb108f722eeee3",
+      "bytes": 113651,
+      "modified_at": "2026-07-21T14:05:00+00:00"
+    },
+    {
+      "path": "wiki/insights/successful-carousel-standard.md",
+      "exists": true,
+      "sha256": "33b2795fd33e72cbe9d4d4a24a8a75091f4d25c1019c27ac755e0a2ad34f11af",
+      "bytes": 23687,
+      "modified_at": "2026-07-20T14:07:48+00:00"
+    }
+  ],
+  "dynamic": [
+    {
+      "path": "corpus/forensic-instagram/2026-07-20/manifest.json",
+      "exists": true,
+      "sha256": "5529cb665316a25200924a1878a642c8e76b2a4df6df84592c6192cb367daf21",
+      "bytes": 831,
+      "modified_at": "2026-07-20T14:31:34+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/forensic-instagram/2026-07-20/accounts/thegoofyones_.json",
+      "exists": true,
+      "sha256": "6a80ea266b3798098e201833695edace9ee5c881623da88b1a4363335e26bd9c",
+      "bytes": 2185553,
+      "modified_at": "2026-07-20T14:29:01+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/forensic-instagram/2026-07-20/accounts/lock_and_key_couple.json",
+      "exists": true,
+      "sha256": "d8d548906a508a3415090b8f032fb47d47568812183acf67ae1dc142beb15b44",
+      "bytes": 1642599,
+      "modified_at": "2026-07-20T14:31:00+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/forensic-instagram/2026-07-20/accounts/humhainvarsha.json",
+      "exists": true,
+      "sha256": "cfab442941fda1dcf536ff047c3599a8b97c3e738919c91439186067c0278f93",
+      "bytes": 2620832,
+      "modified_at": "2026-07-20T14:30:19+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/forensic-instagram/2026-07-20/accounts/blissful_ties.json",
+      "exists": true,
+      "sha256": "b64be887f8acde1564084f30dcb838cbec1e675124375f63f26bd5f94aae0941",
+      "bytes": 631323,
+      "modified_at": "2026-07-20T14:31:34+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/competitors/2026-07-20/thetarotales.json",
+      "exists": true,
+      "sha256": "b56728c086e75292301223b52a96423e97ec4db5ceeddd132f6bf515d0b9b862",
+      "bytes": 752067,
+      "modified_at": "2026-07-20T14:29:55+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/competitors/2026-07-20/thegoofyones_.json",
+      "exists": true,
+      "sha256": "c502ce51e89603b958d6d821af477a62f3a1693b904d341a5e08bcf15f878af5",
+      "bytes": 876191,
+      "modified_at": "2026-07-20T14:28:04+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/competitors/2026-07-20/manifest.json",
+      "exists": true,
+      "sha256": "be529382403500dd7c690914a48f67282dcfde5cc75c0d880ce720f825473858",
+      "bytes": 708,
+      "modified_at": "2026-07-20T14:32:10+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/competitors/2026-07-20/lock_and_key_couple.json",
+      "exists": true,
+      "sha256": "a45311c16ea5dd31ba21e4c6edae1525e7693dcdab645329b051242d9241fdb9",
+      "bytes": 655375,
+      "modified_at": "2026-07-20T14:32:10+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/competitors/2026-07-20/humhainvarsha.json",
+      "exists": true,
+      "sha256": "75983045ab822453cc3aba9c8eb88043146b0abc1fee51f4cd8e053341b157fc",
+      "bytes": 1041358,
+      "modified_at": "2026-07-20T14:28:51+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "output/carousels/2026-07-28/the-date-that-missed-its-reservation/concept.json",
+      "exists": true,
+      "sha256": "27efb3e1c959cbe00e5ebe0f0bb79c79b10e57971332e6b8260edf227fb26d89",
+      "bytes": 60012,
+      "modified_at": "2026-07-28T14:40:31+00:00",
+      "source_date": "2026-07-28",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-28/the-date-that-missed-its-reservation-3/concept.json",
+      "exists": true,
+      "sha256": "00c77669bcb2dde20348f8bd2e9c848f1dc887b6804a3aca171da8eac3ed70c9",
+      "bytes": 60038,
+      "modified_at": "2026-07-28T14:45:21+00:00",
+      "source_date": "2026-07-28",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-28/the-date-that-missed-its-reservation-2/concept.json",
+      "exists": true,
+      "sha256": "c6838056b6394fd0d8d657d2e574ddd8527dc7bad8b6d54fd08fa14a897a3b2c",
+      "bytes": 60018,
+      "modified_at": "2026-07-28T14:41:10+00:00",
+      "source_date": "2026-07-28",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-25/the-date-that-missed-its-reservation/concept.json",
+      "exists": true,
+      "sha256": "f61d2df63eb52a691ad6ae87fbc100254885c1dafe155e5a8178365c89c19abd",
+      "bytes": 89670,
+      "modified_at": "2026-07-25T08:39:06+00:00",
+      "source_date": "2026-07-25",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-25/the-date-that-missed-its-reservation/concept-selection.json",
+      "exists": true,
+      "sha256": "3b77c62a036fa94e727f8c22c6b5aff4c60724709612f921df5bec1d18279f38",
+      "bytes": 5627,
+      "modified_at": "2026-07-25T08:39:06+00:00",
+      "source_date": "2026-07-25",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-25/the-date-that-missed-its-reservation-4/concept.json",
+      "exists": true,
+      "sha256": "9567a79d1bbb1e9ae6522d844e0f6022d87d2f85a524fd18eda0094f3788ee68",
+      "bytes": 60006,
+      "modified_at": "2026-07-25T08:51:33+00:00",
+      "source_date": "2026-07-25",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-25/the-date-that-missed-its-reservation-3/concept.json",
+      "exists": true,
+      "sha256": "48d65fd96979485510beb075908518a369f15e11f74854e1e9ced13556e93711",
+      "bytes": 59470,
+      "modified_at": "2026-07-25T08:46:30+00:00",
+      "source_date": "2026-07-25",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/concept.json",
+      "exists": true,
+      "sha256": "036a17953b3dd8a875e5cadd3ef9bc047434e4c50864cbab11e1c52b8c730ccb",
+      "bytes": 83643,
+      "modified_at": "2026-07-25T08:39:06+00:00",
+      "source_date": "2026-07-25",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-25/marriage-pvt-ltd/concept.json",
+      "exists": true,
+      "sha256": "28a1376f5000f997d939a304609a893087a86ecbeb923ffaf9621f06b65f6c7d",
+      "bytes": 51395,
+      "modified_at": "2026-07-25T08:39:06+00:00",
+      "source_date": "2026-07-25",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-21/not-married-yet-already-us/concept.json",
+      "exists": true,
+      "sha256": "5d0efeb55d1decaa5304bf0b8b285e6209c1116504f779042c16363e2f969c8c",
+      "bytes": 52770,
+      "modified_at": "2026-07-28T13:54:29+00:00",
+      "source_date": "2026-07-21",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/reports/2026-06-27-instagram-growth-playbook-application.md",
+      "exists": true,
+      "sha256": "072da82aa09a7f10c8f2487310182385856e7c8b7719d04266b1925a8b6e2aab",
+      "bytes": 9433,
+      "modified_at": "2026-07-20T14:07:48+00:00",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/posts/2026-06-06-posts.json",
+      "exists": true,
+      "sha256": "af04a5cd59511176feb7d4f36b1215737412c51ce26100b42d6db457119bd99d",
+      "bytes": 33795,
+      "modified_at": "2026-07-20T14:07:45+00:00",
+      "purpose": "owned_account_signal"
+    },
+    {
+      "path": "output/carousels/2026-07-20/the-date-that-missed-its-reservation/concept.json",
+      "exists": true,
+      "sha256": "957a8f4ae169757e5eb36e0697853154505db8bea7a29e9c6fa0ab5caeaab149",
+      "bytes": 57771,
+      "modified_at": "2026-07-20T16:42:52+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-20/the-date-that-missed-its-reservation-4/concept.json",
+      "exists": true,
+      "sha256": "38a0152c6880e43fbd1a7e46296ee8160f23e9dc08944e2cd0908d1b904fa6a6",
+      "bytes": 57999,
+      "modified_at": "2026-07-20T16:50:16+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-20/the-date-that-missed-its-reservation-3/concept.json",
+      "exists": true,
+      "sha256": "da224f843dca3b10edc1956fa8a873e4e59fe101904ecedd100fa98cc0841f4b",
+      "bytes": 57854,
+      "modified_at": "2026-07-20T16:48:47+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-20/the-date-that-missed-its-reservation-2/concept.json",
+      "exists": true,
+      "sha256": "e2cf130f5abfcb9166d7e4dcbd14f7717f8f8f79ae198f368f7453e0eb31baf5",
+      "bytes": 57854,
+      "modified_at": "2026-07-20T16:46:19+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-20/not-married-yet-already-us/concept.json",
+      "exists": true,
+      "sha256": "7ecf6361b1e33a8d7ad77f9d303d45a035c77096f3acc7c60890245d72295dee",
+      "bytes": 50969,
+      "modified_at": "2026-07-20T15:15:08+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "corpus/competitors/2026-07-20/bruisedpassports.json",
+      "exists": true,
+      "sha256": "e75dc7e9ae088b3ea78f72c9b3c461bdab24c07f00d6a6720e04017f78752d24",
+      "bytes": 1722331,
+      "modified_at": "2026-07-20T14:30:31+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "corpus/competitors/2026-07-20/blissful_ties.json",
+      "exists": true,
+      "sha256": "7fe102869fe5353461f3d113a7011e6be330b4f556cecc0f6e719d0ec4f365d0",
+      "bytes": 272245,
+      "modified_at": "2026-07-20T14:31:05+00:00",
+      "source_date": "2026-07-20",
+      "purpose": "external_or_report_signal"
+    },
+    {
+      "path": "output/carousels/2026-07-12/after-one-hour-with-you/concept.json",
+      "exists": true,
+      "sha256": "022a0c034c960de08439f17360be32a19d6315ca6f49af73b698a99cb481bafe",
+      "bytes": 54482,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-07-12",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/concept.json",
+      "exists": true,
+      "sha256": "f1adb17c4be70e78e634a2691fc58e9c35850a01457f1de98c0e3965678ae42c",
+      "bytes": 70131,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-07-12",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-03/still-learning-love/concept.json",
+      "exists": true,
+      "sha256": "df8a44cddb9da12e367b635943ff96ad28ae93c3185a2e8811e18a617f90416d",
+      "bytes": 54973,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-07-03",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-03/still-learning-love-2/concept.json",
+      "exists": true,
+      "sha256": "599cf6b711d8d604d97c5e0273405dac1008a5249f454991e06b5db20dafb6c1",
+      "bytes": 79663,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-07-03",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-07-03/still-learning-love-2/concept-selection.json",
+      "exists": true,
+      "sha256": "c0b0bbe0084efc34073e000e8f9a7a2738bd6f814225c46f7c7910edf7d7a381",
+      "bytes": 10862,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-07-03",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-06-28/small-bids/concept.json",
+      "exists": true,
+      "sha256": "e453d8b8d61d5725411601dfb462a7256c3b27b9693a5687c5b318cae9743ed0",
+      "bytes": 98208,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-06-28",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/concepts/2026-06-27/bids-for-connection-jam/concept-selection.json",
+      "exists": true,
+      "sha256": "ef18c1a7c25a245343ba474fd218f84d4e517acd6182c96e38bb5313f0c489d6",
+      "bytes": 2355,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-06-27",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-06-27/road-hi-galat-hai/concept.json",
+      "exists": true,
+      "sha256": "ffa97490dba94fb121b684eb04f1793893a2200a93923a9d0706e0a5951d2ff6",
+      "bytes": 1273,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-06-27",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/carousels/2026-06-27/one-sec-phone-moment/concept-selection.json",
+      "exists": true,
+      "sha256": "76c0e561b3c89016afdff230d16b0da37e1d1272c0fb3d5377e11a8c55773dc4",
+      "bytes": 1254,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-06-27",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/concepts/2026-06-23/seeti-count-marriage-jam/concept-selection.json",
+      "exists": true,
+      "sha256": "9bd9526a8713cee339ed324193a8a4db9ad3b051c1aa247371d8a023b1400125",
+      "bytes": 2080,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-06-23",
+      "purpose": "collision_check_only"
+    },
+    {
+      "path": "output/concepts/2026-06-14/roti-bite-rights-jam/concept-selection.json",
+      "exists": true,
+      "sha256": "d3d13336a94d751e447b426f5f6df398fc95c529092d2bd53e57e847a79ff041",
+      "bytes": 4456,
+      "modified_at": "2026-07-20T14:07:46+00:00",
+      "source_date": "2026-06-14",
+      "purpose": "collision_check_only"
+    }
+  ],
+  "freshness": {
+    "external_snapshot_status": "CURRENT",
+    "newest_external_snapshot_age_days": 10,
+    "stale_after_days": 30,
+    "note": "Freshness is evidence context, not permission to invent missing signals."
+  }
+}

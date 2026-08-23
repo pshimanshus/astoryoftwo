@@ -1,24 +1,17 @@
 {
   "schema_version": "1.0",
   "status": "PASS",
-  "proof_slide": 4,
-  "candidate": {
-    "path": "proof-candidates/slide-04-agent-c-new-candidate.png",
-    "sha256": "b160e0103c70b1ab990db6716119ada87c1003031ecfc937c5459a2668a080c1",
-    "dimensions": [1080, 1440],
-    "quarantined": true,
-    "generation_note": "Built-in image generation returned 1086x1448; the quarantined workspace candidate was proportionally normalized to the locked exact 1080x1440 before review."
-  },
+  "review_stage": "creator_accepted_stylized_likeness_for_batch",
   "selected_references": [
     {
       "id": "together-21",
       "path": "config/references/identity/together/together-21.jpg",
-      "role": "wardrobe and whole-person body anchor"
+      "role": "whole-person wardrobe, hair, body proportion and home-couple anchor"
     },
     {
       "id": "together-18",
       "path": "config/references/identity/together/together-18.jpg",
-      "role": "couple face and chemistry anchor"
+      "role": "sofa posture, face and relaxed chemistry anchor"
     },
     {
       "id": "aachu-face-04",
@@ -31,25 +24,31 @@
       "role": "Zuv face, hair and stubble anchor"
     }
   ],
-  "likeness_review": {
-    "aachu": {
-      "verdict": "PASS",
-      "evidence": "The reviewable three-quarter face retains the reference oval/soft structure, strong brows, dark eyes, defined nose, warm skin and expressive energy. Long thick dark hair, grey floral kurta and bangles remain anchored to the selected references."
-    },
-    "zuv": {
-      "verdict": "PASS",
-      "evidence": "The unobstructed half-turn retains thick dark curly hair, strong brows, defined nose, warm skin, short stubble and grounded expression. Black rolled-sleeve shirt and tan trousers remain anchored to together-21."
-    },
-    "body_and_wardrobe": {
-      "verdict": "PASS",
-      "evidence": "Both retain plausible real-person proportions and the locked continuous wardrobe; neither reads tiny, oversized, lanky or over-beautified. Perspective prevents direct measurement of the two-inch height difference."
-    }
+  "likeness_lock": {
+    "aachu": "Preserve her softly oval face, strong brows, dark expressive eyes, defined nose, warm skin and long thick dark hair; do not over-beautify or change age.",
+    "zuv": "Preserve his thick dark textured hair, strong brows, defined nose, warm skin, short stubble and grounded face; do not make him lanky, tiny or generic.",
+    "body_and_wardrobe": "Use the exact grey floral kurta and black-shirt/tan-trouser home look from together-21 across the single continuous incident; preserve the real two-inch height relationship."
   },
-  "review_provenance": {
-    "creator_task": "/root/universal_image_orchestrator/slide4_creator",
-    "auditor_task": "/root/universal_image_orchestrator/slide4_auditor",
-    "auditor_mode": "image-first pixel inspection against all four selected identity references"
+  "continuity_checks": {
+    "same_time": true,
+    "same_wardrobe": true,
+    "whole_person_references_attached": true,
+    "face_references_attached": true,
+    "style_reference_separate_from_identity": true
   },
-  "batch_continuation": "PROOF_GATE_PASSED",
-  "blocking_reasons": []
+  "proof_evaluation": {
+    "image": ".internal/visual-quarantine/attempt-03/final/slide-07.png",
+    "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+    "aachu": "REPAIR — face remains too sharp and narrow versus the broader rounded reference face, fuller cheek and jaw, and softer nose–chin profile.",
+    "zuv": "REPAIR — hair is too tightly ringleted, face and jaw too narrow, and build too lean versus the broader, stockier references.",
+    "anatomy_and_spatial": "PASS — exactly two people, coherent hands and limbs, credible spoon contact, clean occlusion, and no impossible intersections."
+  },
+  "creator_exception": {
+    "accepted": true,
+    "evidence": "Creator replied “continue with other” after choosing to continue the remaining slides from the displayed stylized-likeness proof.",
+    "approval_path": ".internal/creator-failed-proof-approval.json",
+    "scope": "batch generation only; proof identity QA remains failed and publishability still requires final full-deck review"
+  },
+  "batch_continuation": "ALLOWED_BY_CREATOR_EXCEPTION",
+  "issues": []
 }

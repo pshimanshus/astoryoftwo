@@ -1,12 +1,12 @@
 # The Date That Missed Its Reservation
 
-last_updated: 2026-07-25
+last_updated: 2026-07-30
 confidence: 0.7
 sources:
-- output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/manifest.json
-- output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/slides.json
-- output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/prompt-pack.json
-- output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final-audit.json
+- output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/manifest.json
+- output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/slides.json
+- output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/prompt-pack.json
+- output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final-audit.json
 
 ## Summary
 
@@ -42,7 +42,7 @@ The date didn’t. - At the tiny roadside chai stall beside their safely parked 
 She still rolled her eyes.
 
 Then she went back
-and checked it with him. - Callback to the moment they left for the date, viewed entirely from OUTSIDE the apartment in the corridor after the front door has closed. Zuv stands at the fully closed exterior door and tests the exterior handle with his right hand while holding the car key in his left. Aachu had already taken two steps toward the lift, rolled her eyes, then visibly turned and came back; her returning torso direction and one trailing foot make the turn-back path readable. She now joins him and places her right hand alongside his on the same closed exterior handle. The closed umbrella is tucked securely under her left arm, keeping her left hand naturally hidden. Their shared amused look says she has the same habit she teases him for. Exactly two people. This is before departure, outside the closed door, and both participate in the lock check; never show them inside the house, after returning from the date, or with only Aachu checking while Zuv watches.
+and checked it with him. - Before-departure nonlinear callback, entirely OUTSIDE the apartment in a pristine dry corridor. Medium-wide, nearly straight-on full-body view. Center the fully closed front door, with its single exterior lever on the RIGHT edge beside Zuv. On frame left behind Aachu, the elevator doors are already 80 percent closed: only one narrow dark vertical seam, no open cabin or visible interior. Its call button glows. Exactly two people stand on one depth plane, Zuv slightly taller and broader, with one forearm of clear air between their torsos. Zuv has stayed at the door; his hips, shoes, and torso remain square to it. His visible anatomical RIGHT hand wraps and depresses the exterior lever under testing tension. His LEFT arm stays hidden behind his own back, never crossed or pocketed. Aachu is the only person who turns back from the elevator. Her left foot still points toward it, her lifted right heel steps back toward the apartment, and three fading graphite ticks trace that short return. Her visible anatomical RIGHT palm performs a forceful push-test on the separate center-left panel: elbow locked straight, shoulder and torso weight through the arm, sleeve compressed, and two tiny pressure ticks at contact. Her left hand stays hidden by her shoulder tote and tightly rolled bone-dry umbrella. They do not touch, lean, hug, or overlap. Each looks at their own door contact, not at the other or viewer, with a small private smile. Preserve attached-reference identity. Aachu: soft oval-round fuller-cheeked face, fuller lips, expressive dark eyes and brows, mostly straight center-parted dark hair, white shirt, blue jeans, red pointed flats; never a sharp narrow face or strongly tousled waves. Zuv: broad rounded-oval face, thick brows, fuller trimmed beard and moustache, dense dark hair brushed up into broad swept waves, pale blue embroidered shirt, loose grey trousers, red-black shoes; never tight curls or ringlets. Everything is pristine and dry. Both participate in one functional check through separate contacts: he tests the handle while she has gone back and adds a weighted panel push. No casual resting palm, key, fob, interior, open door, open elevator cabin, post-date return, wetness, folded or pocketed arms, solo checker, couple touch, arrows, ghost bodies, scooter, motorbike, or helmets.
 
 ## Final Audit
 
@@ -50,13 +50,11 @@ Status: NEEDS_FIXES
 
 ## Issues
 
-- REQ-SUCCESS-STANDARD-001: Successful carousel standard is carried as open agent alignment and passes before final approval
 - REQ-FINAL-IMAGES-001: Final generated carousel images are packaged independently for every request-locked native format, not local placeholders
 - REQ-INTEGRATED-FINAL-TEXT-001: Final slides include exact integrated copy and brandmark in every current-request format locked by format-contract.json
 - REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence
 - visual_reviewer: visual-plan-quality.json missing structured director_storyboard evidence.
-- success_standard_reviewer: Story-Selling score is below 28/30.
-- asset_reviewer: Missing final generated images: output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final/slide-01.png, output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final/slide-02.png, output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final/slide-03.png, output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final/slide-04.png, output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final/slide-05.png, output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final/slide-06.png, output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final/slide-07.png
+- asset_reviewer: Missing final generated images: output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final/slide-01.png, output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final/slide-02.png, output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final/slide-03.png, output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final/slide-04.png, output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final/slide-05.png, output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final/slide-06.png, output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final/slide-07.png
 
 ## Notes
 
@@ -66,6 +64,6 @@ Status: NEEDS_FIXES
 
 ## Artifact Links
 
-- [Run ledger](output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/run-ledger.json)
-- [Stage reviews](output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/stage-reviews.json)
-- [Final audit](output/carousels/2026-07-25/the-date-that-missed-its-reservation-2/final-audit.json)
+- [Run ledger](output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/run-ledger.json)
+- [Stage reviews](output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/stage-reviews.json)
+- [Final audit](output/carousels/2026-07-30/the-date-that-missed-its-reservation-2/final-audit.json)

@@ -1,0 +1,200 @@
+{
+  "schema_version": "identity-anatomy-proof-review/v1",
+  "reviewer_task_id": "/root/slide7_identity_uturn_pixels",
+  "reviewer_run_id": "slide7-identity-uturn-pixels-20260730-01",
+  "reviewed_asset": {
+    "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+    "sha256": "6fc88c17732b770d7da525fe82f57e611b28479df6e9a8538697843dc6060577",
+    "width": 1080,
+    "height": 1440
+  },
+  "pass": true,
+  "status": "PASS",
+  "reference_option_ids": [
+    "ID01",
+    "ID02",
+    "ID03"
+  ],
+  "reference_images": [
+    {
+      "option_id": "ID01",
+      "path": "config/references/identity/aachu/reel-jaldi.jpg",
+      "sha256": "dc0e1cff68cfb79ba1528d6bad37b0556c48f08f7ad5e7b9e77db34389c265c2",
+      "identity_use": "Aachu face, expressive eye and brow, oval cheek and jaw structure, lips, hair and natural hand proportions"
+    },
+    {
+      "option_id": "ID02",
+      "path": "config/references/identity/together/together-01.jpg",
+      "sha256": "1633655653c6a3bd1ca79894676037a5a4b61786c3813c363554346257007e64",
+      "identity_use": "Both faces, body scale, relative height and the white-blue-red date-night wardrobe anchors"
+    },
+    {
+      "option_id": "ID03",
+      "path": "config/references/identity/together/together-18.jpg",
+      "sha256": "cde5964aad5bbdb00399cbc9f651f3dc69bd104f87ef7ad242488fdb72c249a5",
+      "identity_use": "Zuv brows, nose, beard, hairline and rounded facial structure, plus Aachu brow, nose, lips and cheek structure"
+    }
+  ],
+  "per_person_likeness_notes": [
+    {
+      "person": "Aachu",
+      "likeness_pass": true,
+      "confidence": "medium-high",
+      "notes": [
+        "Her readable side profile preserves the selected references' soft oval facial structure, expressive dark eye and brow, delicate straight-to-softly-rounded nose, natural fuller lips and warm South Asian skin tone.",
+        "The long dark layered hair keeps Aachu's recognizable length, density, natural wave and face-framing behavior without changing age, ethnicity or body type.",
+        "The white shirt, blue jeans and red flats preserve the strongest ID02 wardrobe and color anchors; her cream tote and clipped red umbrella remain story props rather than a replacement identity.",
+        "Her adult build is proportional and flattering. The forward lean and raised heel lower her head in the frame, but her body scale remains close to Zuv's and does not read tiny or pixie-sized."
+      ]
+    },
+    {
+      "person": "Zuv",
+      "likeness_pass": true,
+      "confidence": "high",
+      "notes": [
+        "His downward left profile retains the dense dark hair silhouette, strong brow, defined nose, rounded-oval cheek and jaw, warm skin tone, moustache and short natural beard visible in ID02 and ID03.",
+        "His grounded, broad adult build and relaxed posture remain recognizably Zuv rather than a lanky, chiseled or generic model substitution.",
+        "The plain pale-blue striped shirt, loose grey trousers and red-black shoes preserve ID02's wardrobe anchors while correctly omitting the reference shirt lettering."
+      ]
+    }
+  ],
+  "height_and_body_scale": {
+    "pass": true,
+    "reference_relationship": "Zuv is about two inches taller than Aachu.",
+    "observed_relationship": "Zuv reads modestly taller and broader. Aachu's forward lean, bent return stance and raised heel account for most of the vertical head offset; neither body is miniaturized or enlarged.",
+    "notes": "Leg, torso, shoulder and head scales remain mutually plausible and close enough to the selected couple reference for this asymmetric full-body pose."
+  },
+  "anatomy_inventory": {
+    "pass": true,
+    "expected_visible_hands": 2,
+    "observed_visible_hands": 2,
+    "people": [
+      {
+        "person": "Aachu",
+        "body_read": "Head, neck, shoulders, torso, hips, both legs and both feet form one continuous, natural forward-leaning return stance.",
+        "hands": [
+          {
+            "side": "right",
+            "visibility": "visible",
+            "action": "Open palm presses the exterior brown wood of the closed apartment door.",
+            "attachment": "Continuous right shoulder to upper arm, elbow, forearm, wrist and palm.",
+            "finger_plausibility": "One thumb and four separated fingers are readable. The fingertips end cleanly against uninterrupted wood grain with no duplication, melting or penetration.",
+            "contract_match": true
+          },
+          {
+            "side": "left",
+            "visibility": "fully_occluded",
+            "action": "No hand holds the tote or umbrella.",
+            "attachment": "The left arm remains naturally hidden by the turned torso, shirt and tote.",
+            "finger_plausibility": "No stray wrist, finger or ownerless hand is visible.",
+            "contract_match": true
+          }
+        ],
+        "feet": "Both jean legs, ankles and red flats are proportional. The planted foot and lifted heel have believable floor contact and weight transfer."
+      },
+      {
+        "person": "Zuv",
+        "body_read": "Head, neck, shoulders, torso, hips, both legs and both feet form one continuous left-facing standing body with a mild forward lean.",
+        "hands": [
+          {
+            "side": "left",
+            "visibility": "visible",
+            "action": "The near-side left hand makes the short reach to and grips the exterior lever.",
+            "attachment": "In the left-facing profile, the visible near-side left shoulder continues through sleeve, bent elbow, forearm and wrist to the lever hand.",
+            "finger_plausibility": "The thumb and curled finger mass form one plausible lever grip; no extra digit, duplicate hand or broken wrist is visible.",
+            "side_attribution_confidence": "medium-high",
+            "contract_match": true
+          },
+          {
+            "side": "right",
+            "visibility": "fully_occluded_hand",
+            "action": "The non-action hand is inside the trouser pocket and contributes no second action.",
+            "attachment": "The opposite sleeve and forearm terminate naturally at the pocket opening; skin, wrist, hand and fingers remain hidden by clothing.",
+            "finger_plausibility": "No stray or duplicated finger is visible.",
+            "contract_match": true
+          }
+        ],
+        "feet": "Both trouser legs, ankles and red-black shoes are proportional, separated and planted naturally on the corridor floor."
+      }
+    ],
+    "unexpected_limbs": [],
+    "duplicated_limbs": [],
+    "malformed_fingers": [],
+    "ownerless_hands": [],
+    "summary": "The frame shows exactly the two authorized visible hands: Aachu's anatomical right door palm and Zuv's anatomical left lever hand. Both are continuously attached, physically plausible and assigned to one story action."
+  },
+  "scene_entity_integrity": {
+    "pass": true,
+    "expected_people": 2,
+    "observed_people": 2,
+    "people": [
+      "Aachu",
+      "Zuv"
+    ],
+    "unexpected_entities": [],
+    "reflections": [],
+    "duplicates": [],
+    "silhouettes": [],
+    "portraits_or_live_reading_figures": [],
+    "person_to_person_touch": false,
+    "evidence": "Only Aachu appears before the center-left door panel and Zuv appears outside the right jamb. Clear air separates their heads, torsos, arms and feet. The elevator opening contains no face, body, reflection or silhouette, and the plant, tote, umbrella and floor marks do not read as people."
+  },
+  "spatial_topology": {
+    "pass": true,
+    "door_state": "fully closed",
+    "people_side": "both people are visibly in the exterior corridor",
+    "clear_air_between_people": true,
+    "per_person": [
+      {
+        "person": "Aachu",
+        "head_neck_shoulders": "Head, hair, neck and shoulders remain entirely in front of the brown door plane with a traceable silhouette; no jamb, hinge or panel edge crosses them.",
+        "torso_clothing": "White shirt, jeans, tote and clipped umbrella stay in front of and separate from the door, elevator frame and floor.",
+        "arms_hands": "The right forearm remains in front of the door and the palm meets only the door's exterior wood surface. Wood grain surrounds every finger, so the hand does not enter or emerge from the door.",
+        "legs_feet": "Both legs and feet remain distinct from the door edge, elevator frame and floor; the lifted heel is physically supported by the planted stance."
+      },
+      {
+        "person": "Zuv",
+        "head_neck_shoulders": "Head, neck and shoulders remain outside the right jamb and in front of the corridor wall with clean, traceable edges.",
+        "torso_clothing": "The striped shirt and grey trousers remain separate from the door, jamb, wall and plant.",
+        "arms_hands": "The left arm passes in front of the door edge and ends in a grip around the exterior lever. The lever-hand overlap has the correct hand-in-front/contact order with no door penetration. The opposite hand is plausibly occluded inside the trouser pocket.",
+        "legs_feet": "Both legs and shoes remain separate from the door, wall, plant and floor boundaries."
+      }
+    ],
+    "solid_boundary_intersections": [],
+    "ambiguous_occlusions": []
+  },
+  "dress_continuity": {
+    "pass": true,
+    "Aachu": "White shirt, blue jeans and red flats preserve ID02's strongest clothing palette and silhouette anchors; the cream tote and clipped red umbrella are coherent scene accessories.",
+    "Zuv": "Plain pale-blue striped shirt, loose grey trousers and red-black shoes preserve ID02 while omitting all reference embroidery and lettering.",
+    "random_style_drift": false
+  },
+  "other_text": {
+    "pass": true,
+    "allowed_text": [
+      "He still checked the lock twice.",
+      "She still rolled her eyes.",
+      "Then she went back",
+      "and checked it with him.",
+      "@a.storyof.two"
+    ],
+    "observed_extra_text": [],
+    "clothing_lettering": [],
+    "notes": "The small red heart on the cream tote is a symbol, not lettering. No shoe, umbrella, elevator, plant or door label is visible."
+  },
+  "issues": [],
+  "decision": {
+    "verdict": "APPROVE_IDENTITY_ANATOMY_ENTITY_PROOF",
+    "identity_anatomy_entity_gate_passed": true,
+    "batch_continuation_allowed_by_this_review": true,
+    "overall_batch_continuation_requires_other_gates": true,
+    "identity_result": "PASS",
+    "anatomy_entity_result": "PASS",
+    "summary": "The current pixels preserve recognizable Aachu/Zuv identity and wardrobe, show plausible relative scale, contain exactly two people and exactly the two authorized visible hands, and contain no malformed anatomy, solid-boundary crossing, couple touch, reflection, duplicate actor or extra lettering."
+  },
+  "completion": {
+    "persisted_path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-30/the-date-that-missed-its-reservation-14/.internal/identity-anatomy-attempt-01-raw-response.json",
+    "jq_empty_passed": true,
+    "other_files_modified": false
+  }
+}

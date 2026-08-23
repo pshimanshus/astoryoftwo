@@ -1,0 +1,92 @@
+{
+  "status": "GENERATED_QUARANTINED",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "a9485ef5b3498c4060625a4d46c078057f9ebda1d574919e7b9382051dcf41a3",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-01/model-native-source/instagram-post-slide-07.png",
+            "sha256": "a915f553e7e67ae6154bc2a629a25064f3718c812420db5e7a1d1c4c07d50344",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Exact-image visual-qa.json is required before any proof can be promoted.",
+  "proof_state": "GENERATED_QUARANTINED",
+  "retry_count": 0,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 2,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-01",
+  "image_set_sha256": "dde328e6ba42e09029e29109dac4c85adcc24f087e6eab10943a182bc6529323",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 7,
+  "total_slide_count": 7,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      7
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:c778f1290d0843c65cfbf70f559634e39fced0bb7b05ebabab708baaaf1b0598"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:7007ca48d151532a762cee9fc6940a29ede2220e8d7509cc5d6bb74b72d513fb"
+      }
+    },
+    "files": [
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:94391a718b59230d98c94fa4eb7f21eee79b7eab9f9cdc8cc83ee0bd9531fcef"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.md",
+        "sha256": "sha256:4ffc7dbf9e7cffed8361629bb83e34610c1f925f067b753e8eb3a36a15fca740"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:1941df74fefb1c0d380612240dd7a7c4cb63a542d044fb894af646e2f73fad99"
+  }
+}

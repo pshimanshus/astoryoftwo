@@ -1,0 +1,331 @@
+{
+  "schema_version": "2.1",
+  "status": "PASS",
+  "proof_state": "QA_PASS_CANDIDATE",
+  "image_set_sha256": "99c2019c2091195c6d27f6224df3888f9885335e582c38681605f2a77825d0bd",
+  "slides": [
+    {
+      "slide": 1,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-02/final/slide-01.png",
+          "sha256": "2c78eb500ee3f4f4590fdf5a5b246e1c21392496b8f0993bfedd743cb74d3ce9",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-02/model-native-source/instagram-post-slide-01.png",
+            "sha256": "7434c9365a4f5f4755983a6a090846cadff95db568c71f992431fcda1276899c",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "checks": {
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg"
+      ],
+      "likeness_notes": "Aachu retains long dark hair, thick arched brows, almond eyes, anchor nose width, full lips and a soft oval-to-tapered face; the three-quarter downward pose narrows the face slightly without changing identity."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg",
+        "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg"
+      ],
+      "likeness_notes": "Zuv retains raised dark hair volume, heavy brows, broad nose, trimmed beard and a strong jaw; the curls are slightly tighter than the anchor but the hairline, volume and jaw-beard silhouette remain recognizable."
+    },
+    "couple_scale": {
+      "pass": true,
+      "evidence": "Zuv reads modestly taller at the same depth without an exaggerated gap."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Aachu wears black overshirt, black top and blue jeans; Zuv wears a white zip jacket and charcoal trousers."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Neutral off-white paper, transparent indigo and dusty-rose watercolor, fine ink and visible grain pass."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "Forward-stepping bodies, shoulder contact, opposed oblique flats, turned casters and short wheel-local motion strokes show two aligned people continuing while the theatre world actively separates around them."
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "2c78eb500ee3f4f4590fdf5a5b246e1c21392496b8f0993bfedd743cb74d3ce9",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv appear; four coherent arms resolve into two visible outer hands and two naturally occluded inside hands, with no audience, crew, reflections or duplicate people."
+            }
+          }
+        }
+      ]
+    },
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "2c78eb500ee3f4f4590fdf5a5b246e1c21392496b8f0993bfedd743cb74d3ce9",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "hangs at her own outer thigh",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her shoulder, sleeve, forearm, wrist and five-finger hand form one continuous chain.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The hand hangs free of scenery, clothing edges and Zuv with open stage-floor space around it.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "hangs at his own outer thigh",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His shoulder, sleeve, forearm, wrist and five-finger hand form one continuous chain.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The hand hangs free of the dusty-rose flat, trousers and Aachu with readable open space.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "occluded_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "evidence": "Her inside hand is fully hidden between the adjacent torsos."
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "evidence": "His inside hand is fully hidden behind the overlapping upper bodies."
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Two coherent bodies stand on one stage plane between two separate wheeled flats and in front of one separate row of seats.",
+            "person_object_crop": "Both body silhouettes remain fully inside the open space between the two flats with no scenery edge crossing either person.",
+            "focal_detail": "Each visible outer hand connects through a continuous wrist and forearm and remains free of solid props."
+          },
+          "environment_planes": [
+            {
+              "object": "wooden stage floor",
+              "depth_order": "beneath both people and both scenery-flat caster bases",
+              "boundary_continuous": true
+            },
+            {
+              "object": "indigo scenery flat",
+              "depth_order": "behind and left of Aachu with open space between",
+              "boundary_continuous": true
+            },
+            {
+              "object": "dusty-rose scenery flat",
+              "depth_order": "behind and right of Zuv with open space between",
+              "boundary_continuous": true
+            },
+            {
+              "object": "empty seat backs",
+              "depth_order": "foreground below and in front of the stage edge",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, neck, shoulders, torso, sleeves, visible left hand, jeans and lower body remain traceable against the off-white stage field.",
+              "body_regions": [
+                {
+                  "region": "full visible body and outer arm chain",
+                  "near_object": "indigo flat, stage floor, Zuv and foreground seats",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Her outline remains separate from the left flat and seats while Zuv naturally overlaps only at the shoulder and torso edge."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, neck, shoulders, jacket, visible right arm and hand, trousers and lower body remain traceable.",
+              "body_regions": [
+                {
+                  "region": "full visible body and outer arm chain",
+                  "near_object": "dusty-rose flat, stage floor, Aachu and foreground seats",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "His outline remains separate from the right flat and seats while the couple overlap reads as natural shoulder contact."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "2c78eb500ee3f4f4590fdf5a5b246e1c21392496b8f0993bfedd743cb74d3ce9",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "A low strip of empty dark upholstered first-row seat backs establishes the audience-side point of view.",
+              "midground": "Aachu and Zuv occupy the stage center in locked black-denim and white-charcoal wardrobe.",
+              "background": "One indigo and one dusty-rose scenery flat stand on visible caster wheels against watercolor stage spill.",
+              "focal_action": "Aachu and Zuv move forward shoulder-to-shoulder while two scenery flats visibly roll apart behind them.",
+              "story_details": [
+                "empty first-row seat backs",
+                "visible caster wheels",
+                "indigo scenery flat",
+                "dusty-rose scenery flat"
+              ],
+              "cause_effect": "Opposing flat angles, turned caster wheels and short local dust-and-watercolor motion strokes make the shifting theatre world press outward while the couple maintains one forward direction.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "Exact two-line copy and exactly one tiny top-right @a.storyof.two brandmark are visible."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof is a decodable 1080x1440 PNG bound to its recorded SHA-256."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/theater_proof2_event_b",
+      "reviewer_evidence": "A fresh exact-frame image-first reviewer returned GO and cited forward-stepping bodies, shoulder contact, asymmetrical gaze, opposing oblique flats, visible casters and wheel-local motion marks as an active changing-stage event rather than a posed quote card.",
+      "source_director_event_fingerprint": "sha256:f30ae46a750e0f7c5645ccf2fdc2407b1242d6d263084b0bc6d8dd41a1ecac5f",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "A couple walks forward in one physical line while the theatre environment visibly separates behind them, establishing the cold-open thesis for the later causal sequence.",
+      "relationship_turn": "The world is changing and Aachu carries inward heaviness, but the couple remains physically aligned and Zuv's steady presence keeps certainty in the partner visible.",
+      "setup_payoff_evidence": "The two opposing wheeled scenery flats, shoulder contact, shared forward movement and first-row viewpoint establish the visual motif that will return around active chair convergence in the payoff.",
+      "weakest_frame": "The cover intentionally uses restrained rather than chaotic motion, but the oblique flats, turned casters and concentrated wheel-local strokes keep the scene change legible at phone size.",
+      "repair_decision": "No blocking repair remains; preserve these exact identity, palette, wardrobe, copy, brandmark, motion-evidence and hand-ownership qualities for the batch.",
+      "frames": [
+        {
+          "slide": 1,
+          "format": "instagram_post",
+          "file": "final/slide-01.png",
+          "status": "PASS",
+          "expected_silent_read": "Two certain people keep one direction and physical alignment while their shared theatre world visibly shifts apart around them.",
+          "observed_image_first_read": "A young couple crosses the front of a theatre stage shoulder-to-shoulder while two large wheeled scenery flats separate behind them.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "The exact copy leads the clear upper field, the joined moving couple anchors center, and opposed oblique scenery plus wheel-local motion marks carry the changing-world contradiction.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "Forward-stepping bodies, shoulder pressure, asymmetrical pensive/steady gazes, visible casters and opposing wheel-local motion evidence make alignment inside change readable without requiring either person to operate the scenery.",
+          "evidence": "The navy and coral flats stand at opposing oblique angles with turned casters and pale streaks around the wheels; Aachu and Zuv remain joined at the shoulder, move forward at the same depth and retain two clearly owned outer hands.",
+          "image_fingerprint": "sha256:2c78eb500ee3f4f4590fdf5a5b246e1c21392496b8f0993bfedd743cb74d3ce9"
+        }
+      ],
+      "issues": [],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/theater_proof2_event_b",
+        "reviewer_run_id": "event-b-frame-02-9f6c1e7a",
+        "input_fingerprint": "sha256:547edc8ccaffb2ec4c05a92584638b89be7321d49f6019c69f3af9aa591b2d94",
+        "raw_response_artifact": ".internal/proof-attempt-02-event-b-raw-response.md",
+        "raw_response_fingerprint": "sha256:af419a89adab21087b856bc06ab1569b0f75c9fe68e08bce504bab87f7fa528e",
+        "output_fingerprint": "sha256:cd7e5bb355fd6399826a12eba79f27d2e96251fa5c82be7628ba1a00892eb0ff"
+      }
+    }
+  },
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/theater_proof2_identity_qa",
+      "pass": true,
+      "evidence": "A fresh exact-pixel comparison passed Aachu and Zuv identity within watercolor tolerance, exact two-person anatomy, two clearly owned visible hands, natural hidden inner arms, relative scale, wardrobe, topology, exact text, brandmark, paper tone and 1080x1440 readability."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/theater_proof2_event_b",
+      "pass": true,
+      "evidence": "A separate fresh image-first review passed the active stage event, emotional contradiction, opposing scenery motion, focal hierarchy, exact copy, single brandmark, phone readability and watercolor-and-ink palette."
+    }
+  },
+  "required_repairs": []
+}

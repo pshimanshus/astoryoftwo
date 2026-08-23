@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "observer": {
+    "agent": "C0.5-Jarvis",
+    "role": "Track requirements, stage completion, reviewer findings, and final gate status."
+  },
+  "reviews": {
+    "intake_reviewer": {
+      "stage": "intake",
+      "status": "PASS_WITH_NOTES",
+      "expected": [
+        "story captured",
+        "reference images exist",
+        "slide count accepted"
+      ],
+      "done": [
+        "identity-only concept-led run",
+        "6 requested slide(s)"
+      ],
+      "issues": [],
+      "notes": [
+        "No story photos supplied; identity references and the creative brief are the source of truth."
+      ]
+    },
+    "story_reviewer": {
+      "stage": "story",
+      "status": "PASS",
+      "expected": [
+        "human truth present",
+        "source story preserved"
+      ],
+      "done": [
+        "Commitment can settle who we choose without giving us a map for every life we will have to build together."
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "arc_reviewer": {
+      "stage": "arc",
+      "status": "PASS",
+      "expected": [
+        "slide plan count matches request",
+        "prompt count matches slide plan"
+      ],
+      "done": [
+        "6 planned slide(s)",
+        "6 prompt slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "visual_reviewer": {
+      "stage": "visual",
+      "status": "PASS",
+      "expected": [
+        "every slide has copy, role, visual, emotion, CTA intent, and source images",
+        "post-copy visual room runs after copy lock",
+        "pre-generation visual screen passes before image handoff"
+      ],
+      "done": [
+        "checked 6 slide(s)",
+        "post-copy visual room: GO",
+        "visual screen: PASS",
+        "fresh copy-hidden director_storyboard Event A: PASS",
+        "fresh copy-hidden director_storyboard Event A: PASS",
+        "fresh copy-hidden director_storyboard Event A: PASS",
+        "fresh copy-hidden director_storyboard Event A: PASS",
+        "fresh copy-hidden director_storyboard Event A: PASS",
+        "fresh copy-hidden director_storyboard Event A: PASS",
+        "fresh copy-hidden director_storyboard Event A: PASS"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "identity_consistency_reviewer": {
+      "stage": "identity_consistency",
+      "status": "PASS",
+      "expected": [
+        "selected identity bundle is present",
+        "each slide locks face structure",
+        "each slide locks facial expression",
+        "each slide locks clothing/body-language cues",
+        "each prompt includes Identity continuity lock before generation"
+      ],
+      "done": [
+        "4 identity reference(s)",
+        "6 reviewed slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "prompt_reviewer": {
+      "stage": "prompt",
+      "status": "PASS",
+      "expected": [
+        "shared style prompt",
+        "shared negative prompt",
+        "self-contained slide prompts"
+      ],
+      "done": [
+        "style prompt present",
+        "negative prompt present"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "copy_reviewer": {
+      "stage": "copy",
+      "status": "PASS",
+      "expected": [
+        "caption",
+        "alt text",
+        "posting notes"
+      ],
+      "done": [
+        "caption_recommended",
+        "alt_text",
+        "posting_notes"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "success_standard_reviewer": {
+      "stage": "success_standard",
+      "status": "PASS",
+      "expected": [
+        "open agent alignment to the success goals",
+        "relationship-first premise",
+        "Story-Selling / golden-theme / story-director support",
+        "visual-room and visual-plan support",
+        "prompt-level success-goal handoff"
+      ],
+      "done": [
+        "standard source: wiki/insights/successful-carousel-standard.md",
+        "gate: PASS",
+        "Story-Selling score: 29/30",
+        "Event A silent-read storyboard: PASS"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "asset_reviewer": {
+      "stage": "assets",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "local preview status recorded",
+        "final generated images packaged"
+      ],
+      "done": [
+        "render status: skipped",
+        "final images present: 0 / 6"
+      ],
+      "issues": [
+        "Missing final generated images: output/carousels/2026-08-14/certain-of-you-lost-in-us/final/slide-01.png, output/carousels/2026-08-14/certain-of-you-lost-in-us/final/slide-02.png, output/carousels/2026-08-14/certain-of-you-lost-in-us/final/slide-03.png, output/carousels/2026-08-14/certain-of-you-lost-in-us/final/slide-04.png, output/carousels/2026-08-14/certain-of-you-lost-in-us/final/slide-05.png, output/carousels/2026-08-14/certain-of-you-lost-in-us/final/slide-06.png"
+      ],
+      "notes": [
+        "render_assets=False"
+      ]
+    },
+    "wiki_learning_reviewer": {
+      "stage": "wiki_learning",
+      "status": "PASS_WITH_NOTES",
+      "expected": [
+        "wiki page",
+        "wiki index link",
+        "working memory entry",
+        "graph entity"
+      ],
+      "done": [
+        "scheduled wiki and memory updates"
+      ],
+      "issues": [],
+      "notes": [
+        "Wiki and memory files are updated after final audit generation."
+      ]
+    }
+  }
+}

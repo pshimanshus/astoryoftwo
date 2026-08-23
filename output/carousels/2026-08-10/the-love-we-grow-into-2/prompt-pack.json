@@ -1,0 +1,1172 @@
+{
+  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition by default: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork at 1080x1920 only when the creator explicitly requests Reel or Story; never add it as an automatic companion output. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
+  "shared_negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+  "house_style_scene_rule": "house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system.",
+  "generation_mode": "model_native_publishable",
+  "post_copy_visual_room": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc."
+  },
+  "visual_debate": {
+    "status": "PASS",
+    "winner": "Slide-Led Evidence Plan",
+    "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+    "hard_fails_checked": [
+      "no home-interior default",
+      "story evidence must prove slide copy",
+      "story evidence must prove slide copy",
+      "no repeated object motif across every slide",
+      "no prop-first premise",
+      "no passive Zuv",
+      "no generic couple-stock tableau"
+    ]
+  },
+  "visual_plan_quality": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "creative_baseline": {
+    "artifact": "creative-baseline.json",
+    "status": "supplied",
+    "creative_authority": "model_first",
+    "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+    "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance."
+  },
+  "model_native_master_prompt": {
+    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+    "source_path": "config/references/a-story-illustration-master-prompt.md",
+    "required": true,
+    "rule": "Every final Codex/image-generation prompt for @a.storyof.two carousel slides must load the creator-locked watercolor-and-ink master prompt from disk, then fill the slide-specific on-image text, scene, pose, wardrobe, props, background, emotion, native format, and negative prompt.",
+    "required_sections": [
+      "USE CASE",
+      "ASSET TYPE",
+      "REFERENCE IMAGE ROLES",
+      "IDENTITY IMAGE INPUT CONTRACT",
+      "PRIMARY REQUEST",
+      "SCENE",
+      "CHARACTER IDENTITY LOCK",
+      "FACE PRESERVATION RULES",
+      "ILLUSTRATION STYLE",
+      "COLOR PALETTE",
+      "COMPOSITION AND FORMAT",
+      "EMOTIONAL DIRECTION",
+      "WARDROBE CONTINUITY",
+      "RECURRING PROPS AND MOTIFS",
+      "BACKGROUND STYLE",
+      "LINE AND TEXTURE DETAILS",
+      "ANATOMY AND QUALITY RULES",
+      "SCENE LOGIC AND POSE RULES",
+      "TEXT RULE",
+      "STYLE ACCEPTANCE RULE",
+      "BRANDMARK RULE",
+      "FINAL IDENTITY REINFORCEMENT",
+      "FINAL STYLE REINFORCEMENT",
+      "REFERENCE ESSENCE RULE",
+      "BRAND INTEGRATION VISIBILITY RULE",
+      "BRAND LABEL WORKFLOW"
+    ],
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "3:4",
+        "size": "1080x1440",
+        "source_size": "1440x1920",
+        "directory": "final/"
+      },
+      "reels_stories": {
+        "aspect_ratio": "9:16",
+        "size": "1080x1920",
+        "directory": "final-reels-stories/"
+      },
+      "square": {
+        "aspect_ratio": "1:1",
+        "size": "1080x1080",
+        "source_size": "1080x1080",
+        "directory": "final-square/"
+      }
+    },
+    "text_rule": "When ON-IMAGE TEXT is supplied, bake that exact readable text naturally into the illustration as polished hand-drawn typography in clean warm negative space. Preserve spelling, punctuation, capitalization, and line breaks exactly. Do not invent any other text."
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "status": "GO",
+    "selected_story_lens": "Mature love does not remove childish irritation; it notices the need beneath it, respects the pause, and still finds a small way back to play.",
+    "emotional_machine": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding. -> missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock -> The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted. -> He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+    "human_story_setup": {
+      "cold_reader_doorway": "Couples who have turned one tiny plan failure into a whole fight will recognize themselves and think: this is us.",
+      "emotional_obstacle": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding.",
+      "visible_human_proof": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "active_partner_role": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+      "emotional_turn": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+      "shareable_setup": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+      "earned_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+      "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+      "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+      "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, request-locked native-format, QA, and audit gates must also pass. Default post/carousel delivery is 1080x1440 only; 1080x1920 Reel/Story is required only when explicitly requested.",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "reaction": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+      "eye_line_or_attention": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+      "hands_or_object_movement": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "silence_or_pause": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "consequence": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+      "reversal_or_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 30.0
+    },
+    "proof_engine": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+    "distribution_reason": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other."
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "This is the kind of love\nI want us to grow into.",
+      "reader_identity_mirror": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart.",
+      "emotional_obstacle": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart.",
+      "aachu_proof": "FLASH-FORWARD COVER, one continuous physical scene. Rain-damp evening on a quieter service lane. Exactly Aachu and Zuv stand beside their single modest dark car, safely parked away from moving traffic. Across the divided road, a warmly lit restaurant entrance is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, a tiny roadside chai stall glows softly, also with no vendor and no signage. Aachu turns her gaze and chin toward the chai stall with a small conspiratorial half-smile. Zuv has just lowered the map phone and looks at her, understanding the pivot. Their bodies have begun angling toward the stall. The image must read without copy as: the original plan failed, but both are choosing a smaller date together. One umbrella is closed and leaning against the car; nobody holds it. No chai has been served yet. No scooter, motorbike, helmet, road sign, random lettering, or extra person.",
+      "zuv_active_role": "One premium storybook page with TWO SMALL UNFRAMED VIGNETTES in the lower half, separated by open ivory paper rather than a hard graphic divider. Left vignette, outside the apartment door before departure: exactly Aachu and Zuv in the locked date wardrobe. Zuv searches one trouser pocket while Aachu holds her red handbag; the car key is visibly caught in the handbag's strap, making both of their annoyed suspicion funny. Right vignette, later inside the same single modest dark parked car: only their upper bodies are visible, Aachu looking out her side window while Zuv glances at a rerouting map phone held safely below eye level; the route is shown only by a simple curved line and location dot with no readable words or UI labels. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure, no reflection people. No scooter, helmet, road signs, menu text, or decorative micro-text.",
+      "bridge": "aspirational promise -> familiar small irritation -> requested space -> respectful nearness -> noticing the deeper need -> improvised roadside date -> funny shared-habit coda",
+      "earned_ending": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "send_save_reason": "A cold viewer should want to send the cover line to their partner."
+    },
+    "hook_bank": [
+      {
+        "hook": "This is the kind of love\nI want us to grow into.",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "Mature love does not mean becoming less irritating or less human. It means learning the ne",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with tiny rituals.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "This is the kind of love\nI want us to grow into.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "This is the kind of love\nI want us to grow into."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "aspirational promise -> familiar small irritation -> requested space -> respectful nearness -> noticing the deeper need -> improvised roadside date -> funny shared-habit coda"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9,
+      "stage_scene": 9
+    },
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": [],
+    "concept_selection_used": false,
+    "source_story": "Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet."
+  },
+  "style_reference_images": [
+    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+    "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+  ],
+  "identity_reference_images": [
+    "config/references/identity/together/together-01.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/reel-jaldi.jpg"
+  ],
+  "identity_dossier_reference_images": [
+    "output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/reel-jaldi.jpg",
+    "config/references/identity/together/together-01.jpg",
+    "config/references/identity/together/together-18.jpg"
+  ],
+  "identity_dossier_path": "output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json",
+  "identity_generation_preflight_path": "output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md",
+  "identity_selected_options": [
+    {
+      "option_id": "ID01",
+      "path": "config/references/identity/aachu/reel-jaldi.jpg",
+      "filename": "reel-jaldi.jpg",
+      "face_count": 3,
+      "width": 750,
+      "height": 1316
+    },
+    {
+      "option_id": "ID02",
+      "path": "config/references/identity/together/together-01.jpg",
+      "filename": "together-01.jpg",
+      "face_count": 33,
+      "width": 2848,
+      "height": 3798
+    },
+    {
+      "option_id": "ID03",
+      "path": "config/references/identity/together/together-18.jpg",
+      "filename": "together-18.jpg",
+      "face_count": 8,
+      "width": 3024,
+      "height": 4032
+    }
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_reference_strategy": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 3,
+    "selected_count": 3,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_reference_usage": "Use this small curated identity bundle for recurring Aachu/Zuv face identity, body-language continuity, and clothing/outfit references only when relevant to the story. Load the identity dossier contact sheet first, then the selected identity images as actual visual inputs. Do not dump unrelated identity candidates into the prompt.",
+  "character_bible": "Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.",
+  "integrated_text_plan": {
+    "strategy": "integrated_final_text",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "handwritten storybook type, dark charcoal, readable at every canvas locked in format-contract.json; exact slide copy must be integrated into the generated final image raster; if the model cannot render exact copy, block or retry with a text-bearing prompt",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "This is the kind of love\nI want us to grow into.",
+      "We will still get irritated\nover keys, routes,\nand very small things.",
+      "I will still say,\n“Don’t talk to me.”",
+      "I hope you learn\nwhen it means:\n“Give me a minute.\nDon’t go far.”",
+      "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him."
+    ]
+  },
+  "text_overlay_plan": {
+    "deprecated_alias_of": "integrated_text_plan",
+    "strategy": "integrated_final_text",
+    "composition_role": "publishable_final_illustration_with_text",
+    "font_direction": "Deprecated compatibility field. Use integrated_text_plan.",
+    "brandmark": "@a.storyof.two",
+    "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+    "slide_copy": [
+      "This is the kind of love\nI want us to grow into.",
+      "We will still get irritated\nover keys, routes,\nand very small things.",
+      "I will still say,\n“Don’t talk to me.”",
+      "I hope you learn\nwhen it means:\n“Give me a minute.\nDon’t go far.”",
+      "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him."
+    ]
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "slide_count": 7,
+      "text": "This is the kind of love\nI want us to grow into.",
+      "scene": "FLASH-FORWARD COVER, one continuous physical scene. Rain-damp evening on a quieter service lane. Exactly Aachu and Zuv stand beside their single modest dark car, safely parked away from moving traffic. Across the divided road, a warmly lit restaurant entrance is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, a tiny roadside chai stall glows softly, also with no vendor and no signage. Aachu turns her gaze and chin toward the chai stall with a small conspiratorial half-smile. Zuv has just lowered the map phone and looks at her, understanding the pivot. Their bodies have begun angling toward the stall. The image must read without copy as: the original plan failed, but both are choosing a smaller date together. One umbrella is closed and leaning against the car; nobody holds it. No chai has been served yet. No scooter, motorbike, helmet, road sign, random lettering, or extra person.",
+      "visual": "FLASH-FORWARD COVER, one continuous physical scene. Rain-damp evening on a quieter service lane. Exactly Aachu and Zuv stand beside their single modest dark car, safely parked away from moving traffic. Across the divided road, a warmly lit restaurant entrance is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, a tiny roadside chai stall glows softly, also with no vendor and no signage. Aachu turns her gaze and chin toward the chai stall with a small conspiratorial half-smile. Zuv has just lowered the map phone and looks at her, understanding the pivot. Their bodies have begun angling toward the stall. The image must read without copy as: the original plan failed, but both are choosing a smaller date together. One umbrella is closed and leaning against the car; nobody holds it. No chai has been served yet. No scooter, motorbike, helmet, road sign, random lettering, or extra person.",
+      "hand_map": {
+        "scene_action_binding": "Zuv lowers one phone; Aachu and Zuv turn toward the chai stall without touching.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "visible_relaxed",
+            "action": "Rest naturally beside her own red handbag; hold nothing.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone lowered beside his own thigh; screen turned inward with no readable UI.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "anonymous hand",
+          "phone in Aachu's hand",
+          "open umbrella",
+          "chai cup before the decision",
+          "shared or fused arm"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "FLASH-FORWARD COVER, one continuous physical scene. Rain-damp evening on a quieter service lane. Exactly Aachu and Zuv stand beside their single modest dark car, safely parked away from moving traffic. Across the divided road, a warmly lit restaurant entrance is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, a tiny roadside chai stall glows softly, also with no vendor and no signage. Aachu turns her gaze and chin toward the chai stall with a small conspiratorial half-smile. Zuv has just lowered the map phone and looks at her, understanding the pivot. Their bodies have begun angling toward the stall. The image must read without copy as: the original plan failed, but both are choosing a smaller date together. One umbrella is closed and leaning against the car; nobody holds it. No chai has been served yet. No scooter, motorbike, helmet, road sign, random lettering, or extra person.",
+        "copy_action_binding": "This is the kind of love I want us to grow into.",
+        "issues": []
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "FLASH-FORWARD COVER, one continuous physical scene. Rain-damp evening on a quieter service lane. Exactly Aachu and Zuv stand beside their single modest dark car, safely parked away from moving traffic. Across the divided road, a warmly lit restaurant entrance is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, a tiny roadside chai stall glows softly, also with no vendor and no signage. Aachu turns her gaze and chin toward the chai stall with a small conspiratorial half-smile. Zuv has just lowered the map phone and looks at her, understanding the pivot. Their bodies have begun angling toward the stall. The image must read without copy as: the original plan failed, but both are choosing a smaller date together. One umbrella is closed and leaning against the car; nobody holds it. No chai has been served yet. No scooter, motorbike, helmet, road sign, random lettering, or extra person.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "one instantly readable relationship action that proves the copy",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "show the incident, reaction, or aftermath that earns this beat",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: Cover / public hook.",
+      "wardrobe": "Exact date-night clothing anchors from together-01.jpg: Aachu white wrap shirt, blue jeans, red shoes, red handbag; Zuv pale blue shirt, charcoal trousers, black-red shoes.",
+      "props": "one modest dark car, one lowered phone, one closed umbrella, one tiny unlabelled chai stall, one unlabelled lit restaurant entrance across the divided road",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "the first quiet decision to rescue the evening together",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 1 of 7, prepared only for the current-request canvases locked in format-contract.json. Never resize, crop, pad, or extend one output into another aspect ratio. Story context: Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Tiny Rituals. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: This is the kind of love\nI want us to grow into.. Slide story-director job: Cover / public hook. Story-Selling process card: Card 08 - Small Ritual, Large Promise. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 30.0/30, decision GO. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Identity dossier path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json. Identity preflight path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/reel-jaldi.jpg', 'config/references/identity/together/together-01.jpg', 'config/references/identity/together/together-18.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Carousel continuity lock: This flash-forward previews the turn in slide 6. Same car, road geography, weather, wardrobe, phone, umbrella, restaurant entrance, and chai stall continue through slides 3-6. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (the first quiet decision to rescue the evening together) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: FLASH-FORWARD COVER, one continuous physical scene. Rain-damp evening on a quieter service lane. Exactly Aachu and Zuv stand beside their single modest dark car, safely parked away from moving traffic. Across the divided road, a warmly lit restaurant entrance is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, a tiny roadside chai stall glows softly, also with no vendor and no signage. Aachu turns her gaze and chin toward the chai stall with a small conspiratorial half-smile. Zuv has just lowered the map phone and looks at her, understanding the pivot. Their bodies have begun angling toward the stall. The image must read without copy as: the original plan failed, but both are choosing a smaller date together. One umbrella is closed and leaning against the car; nobody holds it. No chai has been served yet. No scooter, motorbike, helmet, road sign, random lettering, or extra person. Mood: the first quiet decision to rescue the evening together. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'This is the kind of love\nI want us to grow into.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 2,
+      "slide_count": 7,
+      "text": "We will still get irritated\nover keys, routes,\nand very small things.",
+      "scene": "One premium storybook page with TWO SMALL UNFRAMED VIGNETTES in the lower half, separated by open ivory paper rather than a hard graphic divider. Left vignette, outside the apartment door before departure: exactly Aachu and Zuv in the locked date wardrobe. Zuv searches one trouser pocket while Aachu holds her red handbag; the car key is visibly caught in the handbag's strap, making both of their annoyed suspicion funny. Right vignette, later inside the same single modest dark parked car: only their upper bodies are visible, Aachu looking out her side window while Zuv glances at a rerouting map phone held safely below eye level; the route is shown only by a simple curved line and location dot with no readable words or UI labels. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure, no reflection people. No scooter, helmet, road signs, menu text, or decorative micro-text.",
+      "visual": "One premium storybook page with TWO SMALL UNFRAMED VIGNETTES in the lower half, separated by open ivory paper rather than a hard graphic divider. Left vignette, outside the apartment door before departure: exactly Aachu and Zuv in the locked date wardrobe. Zuv searches one trouser pocket while Aachu holds her red handbag; the car key is visibly caught in the handbag's strap, making both of their annoyed suspicion funny. Right vignette, later inside the same single modest dark parked car: only their upper bodies are visible, Aachu looking out her side window while Zuv glances at a rerouting map phone held safely below eye level; the route is shown only by a simple curved line and location dot with no readable words or UI labels. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure, no reflection people. No scooter, helmet, road signs, menu text, or decorative micro-text.",
+      "hand_map": {
+        "scene_action_binding": "Left vignette: Aachu holds her red handbag while Zuv searches one pocket. Right vignette: Zuv alone holds the phone low; Aachu touches no object.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 8,
+        "expected_visible_hands": 4,
+        "default_max_visible_hands": 4,
+        "hands": [
+          {
+            "owner": "Aachu-left-vignette",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Hold only the red handbag strap with the caught car key clearly visible.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-left-vignette",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Search only his right trouser pocket.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-right-vignette",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone low with a minimal unreadable reroute graphic.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-right-vignette",
+            "side": "right",
+            "visibility": "visible_relaxed",
+            "action": "Rest on her own lap; hold nothing.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "car key held by a person",
+          "two phones",
+          "hard split-screen divider",
+          "extra figure",
+          "reflection person",
+          "steering while looking away",
+          "random UI text"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "One premium storybook page with TWO SMALL UNFRAMED VIGNETTES in the lower half, separated by open ivory paper rather than a hard graphic divider. Left vignette, outside the apartment door before departure: exactly Aachu and Zuv in the locked date wardrobe. Zuv searches one trouser pocket while Aachu holds her red handbag; the car key is visibly caught in the handbag's strap, making both of their annoyed suspicion funny. Right vignette, later inside the same single modest dark parked car: only their upper bodies are visible, Aachu looking out her side window while Zuv glances at a rerouting map phone held safely below eye level; the route is shown only by a simple curved line and location dot with no readable words or UI labels. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure, no reflection people. No scooter, helmet, road signs, menu text, or decorative micro-text.",
+        "copy_action_binding": "We will still get irritated over keys, routes, and very small things.",
+        "issues": []
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "One premium storybook page with TWO SMALL UNFRAMED VIGNETTES in the lower half, separated by open ivory paper rather than a hard graphic divider. Left vignette, outside the apartment door before departure: exactly Aachu and Zuv in the locked date wardrobe. Zuv searches one trouser pocket while Aachu holds her red handbag; the car key is visibly caught in the handbag's strap, making both of their annoyed suspicion funny. Right vignette, later inside the same single modest dark parked car: only their upper bodies are visible, Aachu looking out her side window while Zuv glances at a rerouting map phone held safely below eye level; the route is shown only by a simple curved line and location dot with no readable words or UI labels. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure, no reflection people. No scooter, helmet, road signs, menu text, or decorative micro-text.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "one instantly readable relationship action that proves the copy",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "show the incident, reaction, or aftermath that earns this beat",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: Cold Open / concrete Aachu-Zuv proof.",
+      "wardrobe": "Same exact date-night clothing from slide 1 and together-01.jpg in both vignettes.",
+      "props": "one red handbag and one caught car key in the left vignette; one phone and the same dark-car interior in the right vignette",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "comic proof that maturity does not erase petty irritation",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 2 of 7, prepared only for the current-request canvases locked in format-contract.json. Never resize, crop, pad, or extend one output into another aspect ratio. Story context: Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Tiny Rituals. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: This is the kind of love\nI want us to grow into.. Slide story-director job: Cold Open / concrete Aachu-Zuv proof. Story-Selling process card: Card 08 - Small Ritual, Large Promise. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 30.0/30, decision GO. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Identity dossier path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json. Identity preflight path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/reel-jaldi.jpg', 'config/references/identity/together/together-01.jpg', 'config/references/identity/together/together-18.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Carousel continuity lock: This is a permitted two-time storybook diptych, not two simultaneous couples. Door vignette occurs before the car vignette. The car key begins caught in the red handbag strap and is recovered before driving. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (comic proof that maturity does not erase petty irritation) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: One premium storybook page with TWO SMALL UNFRAMED VIGNETTES in the lower half, separated by open ivory paper rather than a hard graphic divider. Left vignette, outside the apartment door before departure: exactly Aachu and Zuv in the locked date wardrobe. Zuv searches one trouser pocket while Aachu holds her red handbag; the car key is visibly caught in the handbag's strap, making both of their annoyed suspicion funny. Right vignette, later inside the same single modest dark parked car: only their upper bodies are visible, Aachu looking out her side window while Zuv glances at a rerouting map phone held safely below eye level; the route is shown only by a simple curved line and location dot with no readable words or UI labels. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure, no reflection people. No scooter, helmet, road signs, menu text, or decorative micro-text. Mood: comic proof that maturity does not erase petty irritation. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'We will still get irritated\nover keys, routes,\nand very small things.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 3,
+      "slide_count": 7,
+      "text": "I will still say,\n“Don’t talk to me.”",
+      "scene": "Same rainy service lane and same single dark car, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car. Aachu stands several feet left of Zuv, torso and gaze turned away toward the unreachable restaurant across the divided road. Zuv remains near the car with one phone map lowered, gaze still on the route for one last beat. Their attention visibly splits: she wants silence, he is still trying to solve logistics. The closed umbrella remains propped against the car. No touching, no dramatic shouting, no background people, no person-shaped reflections in windows, no restaurant/shop lettering, no scooter or helmet.",
+      "visual": "Same rainy service lane and same single dark car, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car. Aachu stands several feet left of Zuv, torso and gaze turned away toward the unreachable restaurant across the divided road. Zuv remains near the car with one phone map lowered, gaze still on the route for one last beat. Their attention visibly splits: she wants silence, he is still trying to solve logistics. The closed umbrella remains propped against the car. No touching, no dramatic shouting, no background people, no person-shaped reflections in windows, no restaurant/shop lettering, no scooter or helmet.",
+      "hand_map": {
+        "scene_action_binding": "Aachu turns away with both hands out of frame; Zuv holds one phone lowered.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone lowered at his own side.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "touching Aachu",
+          "reaching toward Aachu",
+          "phone in Aachu's hand",
+          "extra hand",
+          "human reflection",
+          "shouting gesture"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "Same rainy service lane and same single dark car, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car. Aachu stands several feet left of Zuv, torso and gaze turned away toward the unreachable restaurant across the divided road. Zuv remains near the car with one phone map lowered, gaze still on the route for one last beat. Their attention visibly splits: she wants silence, he is still trying to solve logistics. The closed umbrella remains propped against the car. No touching, no dramatic shouting, no background people, no person-shaped reflections in windows, no restaurant/shop lettering, no scooter or helmet.",
+        "copy_action_binding": "I will still say, “Don’t talk to me.”",
+        "issues": []
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "Same rainy service lane and same single dark car, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car. Aachu stands several feet left of Zuv, torso and gaze turned away toward the unreachable restaurant across the divided road. Zuv remains near the car with one phone map lowered, gaze still on the route for one last beat. Their attention visibly splits: she wants silence, he is still trying to solve logistics. The closed umbrella remains propped against the car. No touching, no dramatic shouting, no background people, no person-shaped reflections in windows, no restaurant/shop lettering, no scooter or helmet.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "one instantly readable relationship action that proves the copy",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "show the incident, reaction, or aftermath that earns this beat",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: Mirror / reader recognition.",
+      "wardrobe": "Same exact date-night clothing from slide 1.",
+      "props": "one parked dark car, one lowered phone, one closed umbrella, unlabelled restaurant entrance across divided road",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "the familiar sharp sentence after a small thing becomes too much",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 3 of 7, prepared only for the current-request canvases locked in format-contract.json. Never resize, crop, pad, or extend one output into another aspect ratio. Story context: Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Tiny Rituals. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: This is the kind of love\nI want us to grow into.. Slide story-director job: Mirror / reader recognition. Story-Selling process card: Card 08 - Small Ritual, Large Promise. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 30.0/30, decision GO. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Identity dossier path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json. Identity preflight path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/reel-jaldi.jpg', 'config/references/identity/together/together-01.jpg', 'config/references/identity/together/together-18.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Carousel continuity lock: Begins the continuous roadside sequence after slide 2. Same car position and road geography continue through slide 6. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (the familiar sharp sentence after a small thing becomes too much) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Same rainy service lane and same single dark car, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car. Aachu stands several feet left of Zuv, torso and gaze turned away toward the unreachable restaurant across the divided road. Zuv remains near the car with one phone map lowered, gaze still on the route for one last beat. Their attention visibly splits: she wants silence, he is still trying to solve logistics. The closed umbrella remains propped against the car. No touching, no dramatic shouting, no background people, no person-shaped reflections in windows, no restaurant/shop lettering, no scooter or helmet. Mood: the familiar sharp sentence after a small thing becomes too much. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'I will still say,\n“Don’t talk to me.”'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 4,
+      "slide_count": 7,
+      "text": "I hope you learn\nwhen it means:\n“Give me a minute.\nDon’t go far.”",
+      "scene": "Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing. Zuv has placed the phone FACE-DOWN on the parked car roof, well away from the edge, and waits several feet behind her beside the rear quarter of the car. He does not approach, touch, point, speak, or continue solving the route. His torso remains softly oriented toward her while his feet stay planted. The distance is enough to give her a minute but small enough to show he did not leave. The restaurant and chai stall are only faint geographic anchors. Exactly two people, no vendor, diners, passers-by, silhouettes, reflections, signs, lettering, scooter, or helmet.",
+      "visual": "Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing. Zuv has placed the phone FACE-DOWN on the parked car roof, well away from the edge, and waits several feet behind her beside the rear quarter of the car. He does not approach, touch, point, speak, or continue solving the route. His torso remains softly oriented toward her while his feet stay planted. The distance is enough to give her a minute but small enough to show he did not leave. The restaurant and chai stall are only faint geographic anchors. Exactly two people, no vendor, diners, passers-by, silhouettes, reflections, signs, lettering, scooter, or helmet.",
+      "hand_map": {
+        "scene_action_binding": "Neither person uses a hand for the emotional action; the face-down phone and body distance carry it.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 0,
+        "default_max_visible_hands": 0,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "touching",
+          "reaching",
+          "phone in a hand",
+          "phone screen visible",
+          "extra hand",
+          "Zuv walking away",
+          "comforting embrace"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing. Zuv has placed the phone FACE-DOWN on the parked car roof, well away from the edge, and waits several feet behind her beside the rear quarter of the car. He does not approach, touch, point, speak, or continue solving the route. His torso remains softly oriented toward her while his feet stay planted. The distance is enough to give her a minute but small enough to show he did not leave. The restaurant and chai stall are only faint geographic anchors. Exactly two people, no vendor, diners, passers-by, silhouettes, reflections, signs, lettering, scooter, or helmet.",
+        "copy_action_binding": "I hope you learn when it means: “Give me a minute. Don’t go far.”",
+        "issues": []
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing. Zuv has placed the phone FACE-DOWN on the parked car roof, well away from the edge, and waits several feet behind her beside the rear quarter of the car. He does not approach, touch, point, speak, or continue solving the route. His torso remains softly oriented toward her while his feet stay planted. The distance is enough to give her a minute but small enough to show he did not leave. The restaurant and chai stall are only faint geographic anchors. Exactly two people, no vendor, diners, passers-by, silhouettes, reflections, signs, lettering, scooter, or helmet.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "one instantly readable relationship action that proves the copy",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "show the incident, reaction, or aftermath that earns this beat",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: Spine / mature pause.",
+      "wardrobe": "Same exact date-night clothing from slide 1.",
+      "props": "same parked dark car, one face-down phone on car roof, same closed umbrella against car",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "space without abandonment",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 4 of 7, prepared only for the current-request canvases locked in format-contract.json. Never resize, crop, pad, or extend one output into another aspect ratio. Story context: Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Tiny Rituals. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: This is the kind of love\nI want us to grow into.. Slide story-director job: Spine / mature pause. Story-Selling process card: Card 08 - Small Ritual, Large Promise. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 30.0/30, decision GO. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Identity dossier path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json. Identity preflight path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/reel-jaldi.jpg', 'config/references/identity/together/together-01.jpg', 'config/references/identity/together/together-18.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Carousel continuity lock: The phone changes from held in slide 3 to face-down on the car in slide 4. Body distance widens deliberately; nobody leaves the scene. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (space without abandonment) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing. Zuv has placed the phone FACE-DOWN on the parked car roof, well away from the edge, and waits several feet behind her beside the rear quarter of the car. He does not approach, touch, point, speak, or continue solving the route. His torso remains softly oriented toward her while his feet stay planted. The distance is enough to give her a minute but small enough to show he did not leave. The restaurant and chai stall are only faint geographic anchors. Exactly two people, no vendor, diners, passers-by, silhouettes, reflections, signs, lettering, scooter, or helmet. Mood: space without abandonment. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'I hope you learn\nwhen it means:\n“Give me a minute.\nDon’t go far.”'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 5,
+      "slide_count": 7,
+      "text": "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "scene": "Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, the back edge of Zuv's pale blue shoulder is visible but does not block or merge into Aachu. Aachu is in clear three-quarter profile looking across the divided road at the unreachable warm restaurant entrance, her irritation softened into disappointment. The face-down phone remains visibly on the dark car roof in the lower foreground. Zuv's head and gaze have turned away from the map and toward Aachu's face. He does not touch her or the phone. This exact attention change is the action: he stops solving the route and notices that she had wanted ordinary time together. Exactly two people, no background person or live-looking reflection, no restaurant lettering, no CLOSED sign, no traffic sign, no scooter, helmet, or white substitute car.",
+      "visual": "Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, the back edge of Zuv's pale blue shoulder is visible but does not block or merge into Aachu. Aachu is in clear three-quarter profile looking across the divided road at the unreachable warm restaurant entrance, her irritation softened into disappointment. The face-down phone remains visibly on the dark car roof in the lower foreground. Zuv's head and gaze have turned away from the map and toward Aachu's face. He does not touch her or the phone. This exact attention change is the action: he stops solving the route and notices that she had wanted ordinary time together. Exactly two people, no background person or live-looking reflection, no restaurant lettering, no CLOSED sign, no traffic sign, no scooter, helmet, or white substitute car.",
+      "hand_map": {
+        "scene_action_binding": "No visible hand action; gaze and the abandoned phone carry the beat.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 0,
+        "default_max_visible_hands": 0,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "touching Aachu",
+          "reaching",
+          "phone in a hand",
+          "phone screen visible",
+          "extra hand",
+          "wrong gaze target",
+          "person-shaped car-window reflection"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, the back edge of Zuv's pale blue shoulder is visible but does not block or merge into Aachu. Aachu is in clear three-quarter profile looking across the divided road at the unreachable warm restaurant entrance, her irritation softened into disappointment. The face-down phone remains visibly on the dark car roof in the lower foreground. Zuv's head and gaze have turned away from the map and toward Aachu's face. He does not touch her or the phone. This exact attention change is the action: he stops solving the route and notices that she had wanted ordinary time together. Exactly two people, no background person or live-looking reflection, no restaurant lettering, no CLOSED sign, no traffic sign, no scooter, helmet, or white substitute car.",
+        "copy_action_binding": "Not to fix it. Just to notice what it was really about.",
+        "issues": []
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, the back edge of Zuv's pale blue shoulder is visible but does not block or merge into Aachu. Aachu is in clear three-quarter profile looking across the divided road at the unreachable warm restaurant entrance, her irritation softened into disappointment. The face-down phone remains visibly on the dark car roof in the lower foreground. Zuv's head and gaze have turned away from the map and toward Aachu's face. He does not touch her or the phone. This exact attention change is the action: he stops solving the route and notices that she had wanted ordinary time together. Exactly two people, no background person or live-looking reflection, no restaurant lettering, no CLOSED sign, no traffic sign, no scooter, helmet, or white substitute car.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "one instantly readable relationship action that proves the copy",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "show the incident, reaction, or aftermath that earns this beat",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: Rhythm / deeper need.",
+      "wardrobe": "Same exact date-night clothing from slide 1.",
+      "props": "same dark car edge, same face-down phone, same unlabelled restaurant glow across road",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "attention shifts from the failed route to the person",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 5 of 7, prepared only for the current-request canvases locked in format-contract.json. Never resize, crop, pad, or extend one output into another aspect ratio. Story context: Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Tiny Rituals. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: This is the kind of love\nI want us to grow into.. Slide story-director job: Rhythm / deeper need. Story-Selling process card: Card 08 - Small Ritual, Large Promise. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 30.0/30, decision GO. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Identity dossier path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json. Identity preflight path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/reel-jaldi.jpg', 'config/references/identity/together/together-01.jpg', 'config/references/identity/together/together-18.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Carousel continuity lock: Same positions as slide 4, but the camera moves closer and Zuv's gaze changes from waiting generally to noticing Aachu specifically. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (attention shifts from the failed route to the person) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, the back edge of Zuv's pale blue shoulder is visible but does not block or merge into Aachu. Aachu is in clear three-quarter profile looking across the divided road at the unreachable warm restaurant entrance, her irritation softened into disappointment. The face-down phone remains visibly on the dark car roof in the lower foreground. Zuv's head and gaze have turned away from the map and toward Aachu's face. He does not touch her or the phone. This exact attention change is the action: he stops solving the route and notices that she had wanted ordinary time together. Exactly two people, no background person or live-looking reflection, no restaurant lettering, no CLOSED sign, no traffic sign, no scooter, helmet, or white substitute car. Mood: attention shifts from the failed route to the person. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'Not to fix it.\nJust to notice\nwhat it was really about.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 6,
+      "slide_count": 7,
+      "text": "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "scene": "Same rainy evening and same parked dark car, now viewed from a low three-quarter angle beside the tiny unlabelled roadside chai stall. Exactly Aachu and Zuv sit on two simple stools angled toward each other, body distance noticeably smaller than slide 4. The unreachable restaurant remains a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Zuv tears open one plain unbranded biscuit packet with both hands and offers the first biscuit toward the shared space between them; exactly one second cutting-chai glass rests on the stall ledge beside him. The phone remains face-down on the car roof in the background and the closed umbrella remains against the car. No chai vendor, diners, pedestrians, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second biscuit packet, white car, scooter, helmet, or invented sign.",
+      "visual": "Same rainy evening and same parked dark car, now viewed from a low three-quarter angle beside the tiny unlabelled roadside chai stall. Exactly Aachu and Zuv sit on two simple stools angled toward each other, body distance noticeably smaller than slide 4. The unreachable restaurant remains a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Zuv tears open one plain unbranded biscuit packet with both hands and offers the first biscuit toward the shared space between them; exactly one second cutting-chai glass rests on the stall ledge beside him. The phone remains face-down on the car roof in the background and the closed umbrella remains against the car. No chai vendor, diners, pedestrians, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second biscuit packet, white car, scooter, helmet, or invented sign.",
+      "hand_map": {
+        "scene_action_binding": "Aachu holds one chai glass with both hands; Zuv opens one plain biscuit packet with both hands.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 4,
+        "default_max_visible_hands": 4,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Support the left side of exactly one small chai glass.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Support the right side of the same single chai glass.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold the lower half of one plain biscuit packet.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Tear the top of the same packet and offer one biscuit into shared space.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "third chai glass",
+          "chai glass in Zuv's hand",
+          "branded packet",
+          "package text",
+          "vendor hand",
+          "anonymous hand",
+          "impossible grip"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": false,
+        "scene_action_binding": "Same rainy evening and same parked dark car, now viewed from a low three-quarter angle beside the tiny unlabelled roadside chai stall. Exactly Aachu and Zuv sit on two simple stools angled toward each other, body distance noticeably smaller than slide 4. The unreachable restaurant remains a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Zuv tears open one plain unbranded biscuit packet with both hands and offers the first biscuit toward the shared space between them; exactly one second cutting-chai glass rests on the stall ledge beside him. The phone remains face-down on the car roof in the background and the closed umbrella remains against the car. No chai vendor, diners, pedestrians, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second biscuit packet, white car, scooter, helmet, or invented sign.",
+        "copy_action_binding": "And when the plan fails, let’s still go on the date. Even if it’s roadside chai.",
+        "issues": []
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "Same rainy evening and same parked dark car, now viewed from a low three-quarter angle beside the tiny unlabelled roadside chai stall. Exactly Aachu and Zuv sit on two simple stools angled toward each other, body distance noticeably smaller than slide 4. The unreachable restaurant remains a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Zuv tears open one plain unbranded biscuit packet with both hands and offers the first biscuit toward the shared space between them; exactly one second cutting-chai glass rests on the stall ledge beside him. The phone remains face-down on the car roof in the background and the closed umbrella remains against the car. No chai vendor, diners, pedestrians, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second biscuit packet, white car, scooter, helmet, or invented sign.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "one instantly readable relationship action that proves the copy",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "show the incident, reaction, or aftermath that earns this beat",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: Turn / improvised date.",
+      "wardrobe": "Same exact date-night clothing from slide 1, slightly rain-damp but unchanged.",
+      "props": "same dark car, face-down phone, closed umbrella, two stools, exactly two cutting-chai glasses, one plain unbranded biscuit packet",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "lightness returns because the date was each other, not the reservation",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 6 of 7, prepared only for the current-request canvases locked in format-contract.json. Never resize, crop, pad, or extend one output into another aspect ratio. Story context: Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Tiny Rituals. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: This is the kind of love\nI want us to grow into.. Slide story-director job: Turn / improvised date. Story-Selling process card: Card 08 - Small Ritual, Large Promise. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 30.0/30, decision GO. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Identity dossier path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json. Identity preflight path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/reel-jaldi.jpg', 'config/references/identity/together/together-01.jpg', 'config/references/identity/together/together-18.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Carousel continuity lock: Pays off slide 1's flash-forward. The phone stays face-down; the road, car, restaurant, stall, weather, and outfits do not change. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (lightness returns because the date was each other, not the reservation) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: Same rainy evening and same parked dark car, now viewed from a low three-quarter angle beside the tiny unlabelled roadside chai stall. Exactly Aachu and Zuv sit on two simple stools angled toward each other, body distance noticeably smaller than slide 4. The unreachable restaurant remains a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Zuv tears open one plain unbranded biscuit packet with both hands and offers the first biscuit toward the shared space between them; exactly one second cutting-chai glass rests on the stall ledge beside him. The phone remains face-down on the car roof in the background and the closed umbrella remains against the car. No chai vendor, diners, pedestrians, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second biscuit packet, white car, scooter, helmet, or invented sign. Mood: lightness returns because the date was each other, not the reservation. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    },
+    {
+      "slide": 7,
+      "slide_count": 7,
+      "text": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "scene": "EARLIER CALLBACK TO BEFORE THE DATE, OUTSIDE THE APARTMENT ONLY. One premium storybook page with TWO SMALL UNFRAMED CHRONOLOGICAL VIGNETTES in the lower half, separated by open ivory paper and no hard divider. Both vignettes show the same apartment corridor from the OUTSIDE, the same fully closed wooden door, and the same couple in the exact date wardrobe. Door geometry is physically real and identical in both vignettes: hinges along the LEFT slab edge; a true RIGHT latch edge and jamb clearly visible; the lever spindle and lock hardware placed only a hand-width inboard from that RIGHT latch edge, never in the middle of the slab. Left vignette, first time beat: Zuv stands completely outside and tests the fully closed door by gently pulling the edge-mounted lever with his LEFT hand. Aachu has already walked three steps toward the visible lift, her feet and torso pointing away while her head rolls back with amused exasperation; she does not touch the door. Right vignette, second time beat: Aachu has visibly RETURNED and now stands beside Zuv at the same fully closed door. Zuv's LEFT hand still pulls the edge-mounted lever while Aachu's RIGHT palm presses the same door slab near the latch edge, so both participate in one shared push-pull check. Their small knowing smiles make the habit affectionate. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure. No footprints, arrows, indoor room, open door, middle-of-door lock, floating hardware, extra hands, door line through any body, corridor signage, apartment number, background person, scooter, or helmet.",
+      "visual": "EARLIER CALLBACK TO BEFORE THE DATE, OUTSIDE THE APARTMENT ONLY. One premium storybook page with TWO SMALL UNFRAMED CHRONOLOGICAL VIGNETTES in the lower half, separated by open ivory paper and no hard divider. Both vignettes show the same apartment corridor from the OUTSIDE, the same fully closed wooden door, and the same couple in the exact date wardrobe. Door geometry is physically real and identical in both vignettes: hinges along the LEFT slab edge; a true RIGHT latch edge and jamb clearly visible; the lever spindle and lock hardware placed only a hand-width inboard from that RIGHT latch edge, never in the middle of the slab. Left vignette, first time beat: Zuv stands completely outside and tests the fully closed door by gently pulling the edge-mounted lever with his LEFT hand. Aachu has already walked three steps toward the visible lift, her feet and torso pointing away while her head rolls back with amused exasperation; she does not touch the door. Right vignette, second time beat: Aachu has visibly RETURNED and now stands beside Zuv at the same fully closed door. Zuv's LEFT hand still pulls the edge-mounted lever while Aachu's RIGHT palm presses the same door slab near the latch edge, so both participate in one shared push-pull check. Their small knowing smiles make the habit affectionate. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure. No footprints, arrows, indoor room, open door, middle-of-door lock, floating hardware, extra hands, door line through any body, corridor signage, apartment number, background person, scooter, or helmet.",
+      "hand_map": {
+        "scene_action_binding": "Left vignette: Zuv alone pulls the closed-door lever with his left hand while Aachu walks away. Right vignette: Zuv's left hand pulls the same lever while Aachu's right palm presses the same closed door near the latch edge.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 8,
+        "expected_visible_hands": 3,
+        "default_max_visible_hands": 3,
+        "hands": [
+          {
+            "owner": "Zuv-left-vignette",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Grip and pull only the correctly edge-mounted door lever.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-left-vignette",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Do not touch the door; remain naturally outside the small crop while she walks toward the lift.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-right-vignette",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Grip and pull the same correctly edge-mounted lever.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-right-vignette",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Press one open palm flat against the same closed door slab beside the right latch edge while Zuv pulls the lever.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "middle-of-door lock",
+          "lock without adjacent latch edge",
+          "open door",
+          "camera inside apartment",
+          "Aachu checks alone",
+          "Zuv merely watches",
+          "footprints",
+          "arrows",
+          "floating hand",
+          "unowned hand",
+          "door boundary through a body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": true,
+        "scene_action_binding": "Before departure, viewed entirely from outside in the apartment corridor. The apartment door is fully closed in both chronological vignettes. In the first vignette Aachu has moved toward the lift while Zuv checks the lock. In the second vignette Aachu returns, joins him, and both check the same fully closed door together.",
+        "copy_action_binding": "He still checked the lock twice. She still rolled her eyes. Then she went back and checked it with him.",
+        "camera_side": "outside",
+        "temporal_phase": "before_departure",
+        "door_state": "fully_closed",
+        "return_path_visible": true,
+        "shared_action_visible": true,
+        "forbidden": [
+          "camera on the inside of the apartment",
+          "post-date arrival substituted for before-departure callback",
+          "one partner checking alone in the second vignette",
+          "copy saying Aachu went back without the first vignette showing her prior direction toward the lift",
+          "lock or lever floating in the middle of the door slab",
+          "door edge or jamb intersecting either person's head, shoulder, torso, hand, or clothing"
+        ],
+        "issues": []
+      },
+      "visual_richness_contract": {
+        "scene_action_binding": "EARLIER CALLBACK TO BEFORE THE DATE, OUTSIDE THE APARTMENT ONLY. One premium storybook page with TWO SMALL UNFRAMED CHRONOLOGICAL VIGNETTES in the lower half, separated by open ivory paper and no hard divider. Both vignettes show the same apartment corridor from the OUTSIDE, the same fully closed wooden door, and the same couple in the exact date wardrobe. Door geometry is physically real and identical in both vignettes: hinges along the LEFT slab edge; a true RIGHT latch edge and jamb clearly visible; the lever spindle and lock hardware placed only a hand-width inboard from that RIGHT latch edge, never in the middle of the slab. Left vignette, first time beat: Zuv stands completely outside and tests the fully closed door by gently pulling the edge-mounted lever with his LEFT hand. Aachu has already walked three steps toward the visible lift, her feet and torso pointing away while her head rolls back with amused exasperation; she does not touch the door. Right vignette, second time beat: Aachu has visibly RETURNED and now stands beside Zuv at the same fully closed door. Zuv's LEFT hand still pulls the edge-mounted lever while Aachu's RIGHT palm presses the same door slab near the latch edge, so both participate in one shared push-pull check. Their small knowing smiles make the habit affectionate. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure. No footprints, arrows, indoor room, open door, middle-of-door lock, floating hardware, extra hands, door line through any body, corridor signage, apartment number, background person, scooter, or helmet.",
+        "depth_layers": [
+          "foreground",
+          "midground",
+          "background"
+        ],
+        "focal_action": "one instantly readable relationship action that proves the copy",
+        "story_detail_count": {
+          "minimum": 2,
+          "maximum": 4
+        },
+        "cause_effect": "show the incident, reaction, or aftermath that earns this beat",
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      },
+      "pose": "Use the slide scene as a lived-in romantic gesture: the couple should lean into the beat through eye contact, a small care action, hand placement, posture, or playful distance that matches this role: Payoff / earned send-save thesis.",
+      "wardrobe": "Same exact date-night clothing from slide 1 because this is the immediately-before-departure callback.",
+      "props": "one fully closed apartment door repeated consistently across two time vignettes, one correctly edge-mounted lever/lock, one lift doorway, Aachu's red handbag",
+      "background": "Use a warm minimal setting implied by the slide visual, softly illustrated with faded watercolor edges and less detail than the couple.",
+      "emotion": "they do not become less themselves; they become more together",
+      "style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
+      "negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
+      "generation_mode": "model_native_publishable",
+      "master_prompt_version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: complete publishable carousel slide 7 of 7, prepared only for the current-request canvases locked in format-contract.json. Never resize, crop, pad, or extend one output into another aspect ratio. Story context: Aachu and Zuv leave for a date in their modest dark car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, stops solving the route, and notices the disappointment beneath the irritation. They keep the date at an unlabelled roadside chai stall. The closing callback happens before departure, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.. Master prompt version: a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock. Use the project master prompt sections for identity, style, composition, scene logic, typography, brandmark, and final rendering. North Star: A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals. Content lane: Tiny Rituals. Golden theme rule: Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise. Successful Carousel Standard source: wiki/insights/successful-carousel-standard.md. Successful Carousel Standard rule: Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords. Successful Carousel Standard image rule: Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it. Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance. Post-copy visual room winner: Slide-Led Evidence Plan. Post-copy visual room decision: GO / GO. Visual Debate Gate winner: Slide-Led Evidence Plan. Visual debate verdict: Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc. Pre-generation visual screen: PASS / GO. Carousel Story Director persona: Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason. Story Director gate: PASS. Selected first-slide hook: This is the kind of love\nI want us to grow into.. Slide story-director job: Payoff / earned send-save thesis. Story-Selling process card: Card 08 - Small Ritual, Large Promise. Story-Selling authorial rule: Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions. Story-Selling score gate: 30.0/30, decision GO. Style references: use every attached observational-intimacy-premium reference image as style only. Canonical reference-role lock: identity references control Aachu/Zuv faces, hair, skin tone, age, body language, and emotional presence. Previous successful illustrations control only watercolor-and-ink visual language, warm ivory paper texture, linework, spacing, wardrobe continuity, composition, and recurring props. Shared or non-A Story reference images are only mood/composition, story, text, gesture, and object references; they must not control visual style. Do not use style references as face identity references. Identity reference images: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Identity dossier path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-dossier.json. Identity preflight path: output/carousels/2026-08-10/the-love-we-grow-into-2/identity-generation-preflight.md. Identity dossier visual references that must be loaded before generation: ['output/carousels/2026-08-10/the-love-we-grow-into-2/identity-face-contact-sheet.jpg', 'config/references/identity/aachu/reel-jaldi.jpg', 'config/references/identity/together/together-01.jpg', 'config/references/identity/together/together-18.jpg']. Selected contact sheet option IDs: ['ID01', 'ID02', 'ID03']. Face identity contract: {'Himanshu/Zuv': {'non_negotiable': ['dark wavy hair with visible volume', 'thick dark brows', 'warm brown skin tone', 'rounded/oval smiling face structure', 'trimmed full beard and mustache', 'calm grounded expression, not a generic model face', 'medium-tall broader build relative to Aachu'], 'expression_range': ['tired but soft', 'small private smile', 'warm amused smile', 'steady attentive look'], 'clothing_and_detail_anchors': ['light blue or white shirt when story-relevant', 'dark shirt from close couch selfie when story-relevant', 'grey trousers', 'red-black shoes', 'simple chain/neck detail when visible']}, 'Aachu/Anchal': {'non_negotiable': ['long dark hair', 'expressive eyes and brows', 'warm fair-medium skin tone', 'soft oval/round face structure', 'fuller lips and expressive smile', 'playful dramatic energy under the softness', 'slightly smaller/petite presence relative to Himanshu'], 'expression_range': ['bright smile', 'dramatic waiting face', 'soft affectionate look', 'playful chaos, never mocked'], 'clothing_and_detail_anchors': ['white/light shirt', 'grey pinstripe jacket when story-relevant', 'blue jeans', 'red bag and red shoes as strong continuity props', 'soft gold jewelry/necklace when visible', 'pink-tinted glasses only when supported by reference context']}}. Identity reference strategy: Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run. Use this selected bundle only; do not infer missing outfits or attach the whole candidate library. Character bible: Aachu/Anchal: expressive warm smile, soft dramatic energy, playful body language, Kashmiri bridal details when story-relevant, pink/coral/orange/red lehenga energy when wedding-relevant, mehendi, jasmine, jewelry; she is the spark. Zuv/Himanshu: dark wavy hair, calm warm smile, grounded patient posture, taller presence, ivory sherwani with subtle pastel embroidery when wedding-relevant; he is the steady flame. Together: she is the spark, he is the steady flame; the humor must feel tender underneath.. Carousel continuity lock: Nonlinear coda: both vignettes occur before slide 2's car journey. Camera and both people remain outside the apartment. The door stays fully closed. Panel one proves prior outward travel toward the lift; panel two proves Aachu returned and checks the same closed door with Zuv. Identity continuity lock (non-negotiable): use the selected identity image bundle as actual visual reference input, not decoration. References: config/references/identity/together/together-01.jpg; config/references/identity/together/together-18.jpg; config/references/identity/aachu/reel-jaldi.jpg. Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces. Keep the facial expression specific to this beat (they do not become less themselves; they become more together) while preserving the same underlying face structure across all slides. Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes. The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy. Scene: EARLIER CALLBACK TO BEFORE THE DATE, OUTSIDE THE APARTMENT ONLY. One premium storybook page with TWO SMALL UNFRAMED CHRONOLOGICAL VIGNETTES in the lower half, separated by open ivory paper and no hard divider. Both vignettes show the same apartment corridor from the OUTSIDE, the same fully closed wooden door, and the same couple in the exact date wardrobe. Door geometry is physically real and identical in both vignettes: hinges along the LEFT slab edge; a true RIGHT latch edge and jamb clearly visible; the lever spindle and lock hardware placed only a hand-width inboard from that RIGHT latch edge, never in the middle of the slab. Left vignette, first time beat: Zuv stands completely outside and tests the fully closed door by gently pulling the edge-mounted lever with his LEFT hand. Aachu has already walked three steps toward the visible lift, her feet and torso pointing away while her head rolls back with amused exasperation; she does not touch the door. Right vignette, second time beat: Aachu has visibly RETURNED and now stands beside Zuv at the same fully closed door. Zuv's LEFT hand still pulls the edge-mounted lever while Aachu's RIGHT palm presses the same door slab near the latch edge, so both participate in one shared push-pull check. Their small knowing smiles make the habit affectionate. The same two people appear once in each intentional time vignette: four person depictions total, no fifth figure. No footprints, arrows, indoor room, open door, middle-of-door lock, floating hardware, extra hands, door line through any body, corridor signage, apartment number, background person, scooter, or helmet. Mood: they do not become less themselves; they become more together. House style consistency: house-style illustrated scene consistency: @a.storyof.two final image prompts must stay premium romantic watercolor-and-ink full scenes where Aachu/Zuv behavior carries the slide; paper artifacts, posters, receipts, labels, or stationery can only be tiny scene details, never the visual system. Composition restraint: keep one clear focal action, two characters maximum, sparse background lines, no crowded props, no busy room, no collage, no in-your-face close-up unless the slide explicitly asks for a close proof beat, and leave generous warm paper negative space around the couple and the handwritten text; the main image must be a lived Aachu/Zuv scene, not a paper object, receipt, museum label, poster, or stationery surface. minimalism must remove clutter, not redesign the couple's canonical illustrated identity or remove the innocent small reaction language. Keep a few tiny emotional micro-elements when useful: small hearts, blush marks, reaction ticks, tiny motion lines, soft thought bubbles, or one small care detail that makes the beat lovable. Style: use the slide's compact style field and the observational-intimacy-premium references as the canonical style prompt; final art must be romantic watercolor-and-ink, not flat vector, photorealistic, anime, 3D, quote-card design, or glossy AI. Generate the complete publishable social slide artwork as one integrated image for each native output. Render this exact handwritten-style text inside the artwork, spelled exactly: 'He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.'. Render the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right inside the artwork. Follow the faces, clothing, posture, and relationship energy from the identity references. Follow the attached style references for warm ivory paper texture, hand-drawn lettering, outfit detail, spacing, and composition. Do not create a separate quote-card panel; the text must feel naturally drawn into the illustrated scene. Scene logic and pose anatomy are hard gates: visible clothing, props, hands, and action must prove the copy without contradiction, and both characters must look natural, flattering, and physically believable."
+    }
+  ]
+}

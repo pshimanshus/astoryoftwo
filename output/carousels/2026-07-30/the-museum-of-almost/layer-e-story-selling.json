@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "source": "output/idea-loops/2026-07-28/run-202052/",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "source_memory_room": {
+      "name": "Context And Source Memory",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "idea-loop evidence ledger",
+          "role": "provenance and collision check",
+          "claim": "The route is a generic relationship hypothesis with no claimed Aachu/Zuv lived documents.",
+          "objection": "",
+          "recommendation": "Keep all paper content wordless and non-identifiable.",
+          "score": 29
+        }
+      ],
+      "summary": "Fresh witness/archive lane with explicit lived-fact safety.",
+      "inputs_used": [
+        "output/idea-loops/2026-07-28/run-202052/"
+      ],
+      "debate_records": [],
+      "scores": {
+        "story_selling": 29,
+        "golden_theme": 28
+      },
+      "selected_outputs": {
+        "candidate_id": "run-202052-i1-b-museum-of-almost"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "creative_room": {
+      "name": "Post-Copy Visual Creative Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "/root/museum_postcopy_room",
+          "role": "copy and visual-system selector",
+          "claim": "The Folder Changes Hands preserves the concept and gives every swipe a new physical state.",
+          "objection": "One room risks visual repetition.",
+          "recommendation": "Use five materially different camera jobs and keep Aachu's final action decisive.",
+          "score": 29
+        }
+      ],
+      "summary": "Five exact lines and a causal object-state sequence were selected.",
+      "inputs_used": [
+        "post-copy-visual-room.json",
+        "visual-debate.json"
+      ],
+      "debate_records": [
+        "Three visual systems compared; hands-only and literal museum morph rejected."
+      ],
+      "scores": {
+        "selected_visual_system": 29
+      },
+      "selected_outputs": {
+        "visual_system": "The Folder Changes Hands"
+      },
+      "objections": [],
+      "repairs": [
+        "Vary shot size, camera angle, focal actor, and hand choreography on every slide."
+      ],
+      "repaired_route_names": [
+        "The Folder Changes Hands"
+      ]
+    },
+    "selector_room": {
+      "name": "Independent Verification And Selection",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "selector_202052_final",
+          "role": "harsh final selector",
+          "claim": "The candidate cleared two blind verifier passes, Stage-Scene, taste, safety, and numeric thresholds.",
+          "objection": "",
+          "recommendation": "Proceed as a generic vignette without invented personal documents.",
+          "score": 29
+        }
+      ],
+      "summary": "PASS with no taste cap and no safety exclusion.",
+      "inputs_used": [
+        "output/idea-loops/2026-07-28/run-202052/verification.json"
+      ],
+      "debate_records": [],
+      "scores": {
+        "distribution": 27,
+        "visual_generativity": 28
+      },
+      "selected_outputs": {
+        "verdict": "PASS"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "The Museum of Almost",
+      "story_lens": "Witness love through the versions that did not become achievements.",
+      "reader_mirror": "People whose partner knew them through abandoned ambitions, changing identities, awkward beginnings, or seasons they dismiss as wasted.",
+      "emotional_obstacle": "The owner sees embarrassing evidence of things that went nowhere while the partner sees a record of becoming.",
+      "aachu_specific_spark": "Aachu physically rejects the folder, tries to close it, then visibly changes her mind and extends it.",
+      "zuv_active_role": "Zuv rescues and orders the folder without explaining, praising, hugging, or taking control of her final choice.",
+      "proof_engine": "discarded folder -> rescued unfinished attempts -> visible chronology -> changed posture -> current draft added",
+      "emotional_reversal": "The same papers change from a failure pile into a visible life-line.",
+      "payoff": "Aachu voluntarily adds today's unfinished page.",
+      "distribution_reason": "Send it to the person who remembered you before anything worked.",
+      "process_influence_ids": [
+        "card-20",
+        "witness-engine"
+      ],
+      "score_total": 29,
+      "golden_theme_score_total": 28,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu discards a worn folder; Zuv retrieves it, opens it without tugging, and orders the unfinished pages; Aachu later adds the current page.",
+        "reaction": "Aachu first tries to close the folder, then releases it and softens after seeing the chronology.",
+        "eye_line_or_attention": "Attention moves from the discard carton to the exposed pages, then to the ordered line and the new page.",
+        "hands_or_object_movement": "The folder moves from Aachu to the carton to Zuv, then opens; papers become a chronology; Aachu extends it.",
+        "silence_or_pause": "Zuv does not praise, explain, hug, or manage her; the ordering and her reaction carry the turn.",
+        "consequence": "The discarded attempts become a visible record rather than rubbish.",
+        "reversal_or_payoff": "Aachu voluntarily adds today's unfinished page and turns a rescued archive into a living one.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO"
+    }
+  ],
+  "repaired_routes": [],
+  "rejected_routes": [],
+  "selected_story_lens": "Witness love through the versions that did not become achievements.",
+  "emotional_machine": "embarrassed discard -> quiet rescue and chronology -> dignity -> voluntary continuation",
+  "proof_engine": "discarded folder -> rescued unfinished attempts -> visible chronology -> changed posture -> current draft added",
+  "reader_mirror": "People whose partner knew them through abandoned ambitions, changing identities, awkward beginnings, or seasons they dismiss as wasted.",
+  "distribution_reason": "Send it to the person who remembered you before anything worked.",
+  "human_story_setup": {
+    "cold_reader_doorway": "One person discards a worn folder and the other immediately rescues it.",
+    "emotional_obstacle": "The owner sees failed versions as embarrassing rubbish.",
+    "visible_human_proof": "The folder is rescued, opened, arranged oldest-to-newest, then extended by the owner.",
+    "active_partner_role": "Zuv quietly orders the papers and withdraws his hands before Aachu chooses the final action.",
+    "emotional_turn": "Aachu stops closing the folder and softens after seeing the chronology.",
+    "shareable_setup": "Many viewers know the shame of drafts and plans that did not become achievements.",
+    "earned_payoff": "Aachu adds today's unfinished page herself."
+  },
+  "success_definition": {
+    "audience_success": "A cold viewer recognizes the shame of failed versions and sends the post to the person who witnessed them.",
+    "creative_success": "Five silent scenes create discard, exposure, chronology, re-seeing, and voluntary continuation.",
+    "brand_success": "The route feels like a specific illustrated love archive rather than generic relationship advice.",
+    "production_success": "Five native 1080x1440 text-bearing slides pass identity, story, text, anatomy, entity, paper-tone, and final audits."
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Aachu discards a worn folder; Zuv retrieves it, opens it without tugging, and orders the unfinished pages; Aachu later adds the current page.",
+    "reaction": "Aachu first tries to close the folder, then releases it and softens after seeing the chronology.",
+    "eye_line_or_attention": "Attention moves from the discard carton to the exposed pages, then to the ordered line and the new page.",
+    "hands_or_object_movement": "The folder moves from Aachu to the carton to Zuv, then opens; papers become a chronology; Aachu extends it.",
+    "silence_or_pause": "Zuv does not praise, explain, hug, or manage her; the ordering and her reaction carry the turn.",
+    "consequence": "The discarded attempts become a visible record rather than rubbish.",
+    "reversal_or_payoff": "Aachu voluntarily adds today's unfinished page and turns a rescued archive into a living one.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "card-20",
+      "title": "Saveable Lesson From One Scene",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "visible relationship action",
+        "earned thesis"
+      ],
+      "confidence": 0.95,
+      "reason": "One physical object-state sequence discovers the meaning instead of explaining it."
+    }
+  ],
+  "moment_origin": "generic_relationship_hypothesis",
+  "lived_fact_status": "NOT_CLAIMED",
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 4,
+    "total": 29
+  },
+  "golden_theme_score": {
+    "universal_hook": 5,
+    "aachu_zuv_specificity": 4,
+    "concrete_proof": 5,
+    "zuv_emotional_role": 5,
+    "tender_thesis": 4,
+    "share_send_potential": 5,
+    "total": 28
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "c_layer": {
+      "must_preserve": [
+        "selected_story_lens",
+        "emotional_machine",
+        "proof_engine",
+        "reader_mirror",
+        "distribution_reason"
+      ],
+      "golden_theme_gate": "required_for_carousel"
+    }
+  },
+  "metadata": {
+    "source": "output/idea-loops/2026-07-28/run-202052/",
+    "selected_candidate_id": "run-202052-i1-b-museum-of-almost",
+    "audience_distribution_reviewer": "verifier_audience_202052",
+    "stage_scene_taste_safety_reviewer": "verifier_taste_202052",
+    "selector": "selector_202052_final",
+    "selector_verdict": "PASS",
+    "taste_gate": "PASS_NO_CAP",
+    "distribution_score": 27,
+    "visual_generativity_score": 28,
+    "story_director_scores": [
+      8,
+      9,
+      9,
+      9,
+      9,
+      9
+    ]
+  }
+}

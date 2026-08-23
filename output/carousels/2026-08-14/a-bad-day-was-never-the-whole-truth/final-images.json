@@ -1,0 +1,297 @@
+{
+  "status": "QA_PASS_CANDIDATE",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 6,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "I loved you.\nI just didn’t like your face that day.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-01.png",
+          "sha256": "4714461820b3129a2ecfb8e9485ba07bda4dbd33cb7f84adf3243e792ac6feae",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-01.png",
+            "sha256": "4b173631c0b8ad32248c90cda25ee8808582c0af8328aa3507be46ef4b997604",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "Mine wasn’t exactly helping.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-02.png",
+          "sha256": "d9d0a19fdcad9cd6e09afd113b6bae59d1d0e4f66f008e9b952b9dfe211c9fc4",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-02.png",
+            "sha256": "bf1f4b10530c073057bef61f7cf6c9b8cbf233986321cfe4e4016177c55e2b35",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "Two bad moods.\nOne very small room.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-03.png",
+          "sha256": "31fa394ddbd0448f580d228f5ccaeecb75f4346d69624a10a27c9f165134383d",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-03.png",
+            "sha256": "90dfe0d89da8c4063957d8b2c34a2d77e17591ea7b3044505fc4de64860e11b2",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "We made each other’s hurt louder.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-04.png",
+          "sha256": "289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-04.png",
+            "sha256": "30f70d75b22ab51a1a8d601b7aa2a4f813a9929763d8f263d4b5583227b8b12f",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "The anger was real.\nSo was the love.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-05.png",
+          "sha256": "15984b1507169ba2068d05424edde03e449854e7dbaee14b891a9fdad641cf7a",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-05.png",
+            "sha256": "c219fdc2d6044a73bbe5fedf2a8ebcc1ba0607eebc2ab9d8a97fd1310ea74bbd",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "A bad day was never\nthe whole truth about us.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-06.png",
+          "sha256": "7ff3bfcf5cbe1af7696f15619fb7d6ec97ece5c6af5dfb0336142469c1b4e240",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-06.png",
+            "sha256": "9ce7867ac0906f40ca692f0157459d204fcd4df9e175cd640e48cc56bbcbffd2",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "QA-passed proof is awaiting explicit creator approval; batching remains blocked.",
+  "proof_state": "QA_PASS_CANDIDATE",
+  "retry_count": 2,
+  "max_visual_qa_retries": 3,
+  "retries_remaining": 1,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-03",
+  "image_set_sha256": "80835e882f06e99fab729e42f462fcd8770a90d118ae16de04176f7e1604fb7d",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": false,
+  "requested_proof_slide": null,
+  "total_slide_count": 6,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:0b2533183f063b77b237b24ba5afeb763ee4f4cc898b32bf68b9fbbedad84d4a"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:f0d4e7d28771052963a00c92d384b0b838288307c9e1fdded59534efd6b962d5"
+      }
+    },
+    "files": [
+      {
+        "slide": 1,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-01.prompt.txt",
+        "sha256": "sha256:00eda5c53aff2ca69725419e8aff286272da6b6ea62cbded855d708943775328"
+      },
+      {
+        "slide": 1,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-01.md",
+        "sha256": "sha256:40f7016394bbaa2394e623ac6200e11837d0c3575b2e72d3481b41325a56efbe"
+      },
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.prompt.txt",
+        "sha256": "sha256:ea99416c667654bfefc536adc6401dd6c8eb421cf68e3e72bf942813c43a6070"
+      },
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.md",
+        "sha256": "sha256:8c712043dcaacc48091ffb1d3697cafb9dd1a62d9923752f9abff8b937d263d8"
+      },
+      {
+        "slide": 3,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-03.prompt.txt",
+        "sha256": "sha256:246955f9f0523343bbfacd9af345318b52736e09a050c1caad3cb5d329d02ea2"
+      },
+      {
+        "slide": 3,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-03.md",
+        "sha256": "sha256:e9a9408b8c9ab8cc186fb8b1fabefc5a9e8b9ca5d082ee104993f7331c65baca"
+      },
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.prompt.txt",
+        "sha256": "sha256:8eb0b2cfb6d510a6cf6f412fa46fd2dec944d94533f8b1efe5c69aaf17f41be4"
+      },
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.md",
+        "sha256": "sha256:350afe1f04df1014a82623ad813a05e0ee6a826ba22b94fc34211e0614532bfa"
+      },
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.prompt.txt",
+        "sha256": "sha256:d46bc62f0fb64b16e2064f883f5bd98d195fa3580fa9ffe915cbba10c7f0880e"
+      },
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.md",
+        "sha256": "sha256:677fbf15d0e0c1ba5b6125eac523be0b26858a940865b50c66109d8108b94641"
+      },
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.prompt.txt",
+        "sha256": "sha256:ee0a11f1db288d5f9e40176d4548155a295452d1a9475e4a182faccfe90eb245"
+      },
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.md",
+        "sha256": "sha256:5ac24241a427a07b0671f426e2e5d497a47f89709f461c30ba9f5b40f3d1a4ea"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:03b1dd6e97dcb5a3a80a4ef672278cff9f82a6afeab86047ce14ac8ca27b5778"
+  },
+  "approved_proof_batch_handoff_attestation": {
+    "schema_version": "approved-proof-batch-handoff/v1",
+    "proof_slide": 4,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "image_set_sha256": "e785bb4d031dcacfabae01672239295cb7791d343ecab817e0ba922594f45d98",
+    "source_handoff_set_fingerprint": "sha256:79191b25684420672311ff8191af76d1f1186ff9eed6d2ccfbb235f802263d2d",
+    "visual_qa_binding": {
+      "relative_path": ".internal/approved-proof/visual-qa.json",
+      "sha256": "sha256:a2feaa5c6376087b75fa35ef4000d51375f6417e316ebe8ee72173ae9afe1493"
+    },
+    "creator_approval_binding": {
+      "relative_path": ".internal/approved-proof/creator-approval.json",
+      "sha256": "sha256:0076e82ff93628efcb468acca2b761459bf7f2dac5c25f098c2c822b34d440dd"
+    },
+    "quarantine_bindings": [
+      {
+        "relative_path": ".internal/visual-quarantine/attempt-03/final/slide-04.png",
+        "sha256": "sha256:289d17df32749ab2314fc0508754ef8447b855c283783898650c219c09976750"
+      }
+    ],
+    "attestation_fingerprint": "sha256:c683ba0b0f24225204e94bd104abccec578070c70aedd1ef1db301479ab303e8"
+  },
+  "visual_qa_path": ".internal/pending-full-deck-visual-qa-final.json"
+}

@@ -1,0 +1,79 @@
+{
+  "director": {
+    "reviewer_id": "/root/event_a_final_retry",
+    "reviewer_evidence": "A fresh critic with no forked context received only the repaired six observable blind cards. Without seeing copy, title, theme, intent, prompts, prior review, or package artifacts, the critic passed the tense-to-repair sequence and explicitly traced the board skid, taut lamp cord, lamp tip and key spill as one causal chain.",
+    "generation_payload_fingerprint": "sha256:746c4293b4eef6a57319bdafe1b6121020bf3ead3fdb3895f93de75cf5ef6a56",
+    "blind_input_fingerprint": "sha256:6fa8e0c27061502dd1175469131547a0118784850f7fc0107b3f18cb39c41beb",
+    "physical_event": "Two rain-damp people move around one cramped room, collide through separate tasks, drag opposite ends of the same live extension board until its taut lamp cord tips the lamp and the moving board spills keys, then restore the light together and finish their meal side by side.",
+    "sequence_read": "The fresh independent critic read the repaired full sequence without copy: automatic care inside visible tension, private self-regulation, mutual spatial obstruction, two opposing pulls on one live board causing the lamp and key-bowl consequence, equal practical repair, and subdued reconnection.",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "root-author-2026-08-14-01",
+      "reviewer_task_id": "/root/event_a_final_retry",
+      "reviewer_run_id": "event-a-retry-2026-08-14-01",
+      "input_fingerprint": "sha256:6fa8e0c27061502dd1175469131547a0118784850f7fc0107b3f18cb39c41beb",
+      "raw_response_artifact": ".internal/event-a-final-retry-response.json",
+      "raw_response_fingerprint": "sha256:0521aedb20a19f586ed5a230e686704630453c66cd2c57491ad3e4831c77c3dc",
+      "output_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "director_event_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "slide4": {
+    "silent_read": "They both pull; the board moves; the taut cord tips the lamp; the collision spills the keys.",
+    "change_from_previous": "The static overhead obstruction becomes one low kinetic causal chain: both hands drag the same board in opposite directions, the board skids and rotates, the taut lamp cord lifts the lamp, and the board clips the key bowl.",
+    "critic_evidence": "The fresh critic cited two owned grips on opposite plastic ends of the same board, simultaneous opposing arms, diagonal skid and rotation, inserted lamp plug, taut black cord, lamp base lifting mid-tip, direct bowl impact, aligned spilling keys, and both faces recoiling toward the shared consequence.",
+    "staged_action": {
+      "subject": "Aachu and Zuv",
+      "action": "drag opposite plastic ends of the same live extension board",
+      "target_or_object": "one shared board with an inserted charger and inserted lamp plug",
+      "reaction_or_consequence": "the board skids, the taut lamp cord lifts the intact lamp mid-tip, and the board clips the key bowl"
+    },
+    "pov": {
+      "owner": "the shared physical consequence",
+      "audience_knows": "both incompatible pulls combine into one visible escalation",
+      "audience_feels": "a jolt without melodrama or assigned villain"
+    },
+    "blocking": {
+      "hands": "Aachu's left hand grips only the board's left plastic end and Zuv's right hand grips only its right plastic end; neither hand holds a plug",
+      "gaze": "both recoil toward the same board, lamp and key spill",
+      "body_distance": "opposite sides with no crossing or touch",
+      "posture_or_feet": "both shoulders and forearms pull outward along opposing vectors"
+    },
+    "story_evidence": [
+      {
+        "carrier": "board, two inserted plugs, two taut cables, intact lamp and key bowl",
+        "observable_state": "opposite board grips cause diagonal skid and rotation; the taut black cord lifts the lamp while the board edge strikes the bowl and spills two keys",
+        "narrative_job": "turn mutual hurt into one blame-balanced visible consequence"
+      }
+    ],
+    "continuity": {
+      "incoming_state": "The lamp is upright, both cables and the board are settled, and the meal is untouched after the aisle standoff.",
+      "outgoing_state": "The lamp is tipped intact and dark, the board displaced, and two keys spilled beside the struck bowl."
+    },
+    "entity_contract": {
+      "expected_people": 2,
+      "background_people": [],
+      "reflections": [],
+      "forbidden_entities": [
+        "extra person",
+        "human reflection",
+        "duplicate couple",
+        "extra arm",
+        "loose plug in a hand",
+        "third cable",
+        "broken lamp",
+        "fire",
+        "sparks"
+      ]
+    },
+    "unresolved_ambiguities": [],
+    "resolved_ambiguities": [
+      {
+        "competing_read": "The opposite white charger cable may briefly compete with the black lamp cord as the primary causal line, and a crowded still could blur the hand-board-cord-lamp-bowl chain.",
+        "repair": "Keep hands on plastic board ends only; give the black lamp cord the clearest taut diagonal and direct lamp connection; subordinate the white charger cable; reduce meal detail; maintain isolated contours for board, bowl and exactly two keys.",
+        "recheck_evidence": "The fresh critic returned overall PASS and explicitly traced both hands to the same board, the board to the taut lamp cord, the cord to the mid-tip lamp, and the board edge to the aligned key spill."
+      }
+    ]
+  }
+}

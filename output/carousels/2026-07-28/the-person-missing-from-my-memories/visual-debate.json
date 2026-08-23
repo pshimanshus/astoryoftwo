@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Soft Love Notes",
+  "winner": "Storybook Gallery Portal",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Storybook Gallery Portal",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Storybook Gallery Portal wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "You’re missing from so many of my memories.",
+      "visual": "High true top-angle storybook view of Aachu and Zuv sitting shoulder-to-shoulder on a simple floor rug in their present-day shared space, naturally browsing years of photos on one phone held between them. The phone remains a small physical object inside the illustration, never an enlarged interface. Aachu has stopped scrolling after noticing that many tiny gallery thumbnails show her but rarely Zuv. Her finger pauses above the screen and her head turns slightly toward him; he is still looking at the phone and has not yet understood. Keep both full upper bodies, owned hands, real two-inch height relationship even while seated, and generous clean upper-middle paper for exact text."
+    },
+    {
+      "slide": 2,
+      "copy": "Not because you weren’t there.",
+      "visual": "Closer three-quarter overhead view in the same present-day space. Aachu taps one gallery image on the small phone. The selected photo shows only Aachu beside moving cartons, but its rectangular edges begin dissolving organically into warm watercolor memory around the couple: a carton corner, unfamiliar apartment doorway, and two suitcases extend beyond the phone into the surrounding paper. Zuv remains physically beside her in the present, while the emerging memory begins to reveal that his absence belonged only to the crop. The transition must feel like a storybook page coming alive, not a split screen, collage, portal effect, or app mockup."
+    },
+    {
+      "slide": 3,
+      "copy": "You were there when I chose courage.",
+      "visual": "Full wide cinematic memory at the threshold of a modest unfamiliar apartment in a new city. Aachu stands just inside with new keys in her palm, excited and visibly uncertain. Half-open cartons and her suitcase locate the move. Behind her, Zuv enters carrying his own suitcase, not carrying hers: her courageous decision has changed both their lives and he has come along rather than merely helping her settle. She looks back to him; he gives a small grounded go-on expression; her key hand moves toward the lock. The door opening is the visible consequence."
+    },
+    {
+      "slide": 4,
+      "copy": "You made me visible from places no one could see.",
+      "visual": "A specific creative-work scene in a small improvised studio. Aachu occupies the lit performance or creation area, speaking to camera beside her worktable with an unfinished illustrated page and notes. Zuv is fully visible deeper behind the apparatus, adjusting one soft light and watching her framing from the camera side; his labour explains why he will not appear in the finished public image. Aachu looks toward him rather than directly into the lens as he gives a restrained try-once-more gesture. The final illuminated frame belongs to her, but the full storybook scene visibly belongs to both."
+    },
+    {
+      "slide": 5,
+      "copy": "You held the world outside for a minute.",
+      "visual": "Late-night ordinary city pause after a difficult day. Their parked car sits safely at the edge of a quiet broad roadside under warm streetlights, with the active city receding in the background. Aachu stands beside the car laughing mid-reaction at something ridiculous Zuv has just done; she is unposed and slightly folded with real laughter. Zuv stands several feet away taking one spontaneous photograph, but his other hand and animated expression reveal he caused the laugh rather than merely documented it. Her face is turned fully toward him. Her phone and closed work tote remain visible inside the car, physically outside this small breathable moment."
+    },
+    {
+      "slide": 6,
+      "copy": "You never made love the reason I stayed behind.",
+      "visual": "Departure threshold outside their building at early morning, with a waiting cab safely pulled to the curb. Aachu faces the open rear door with one travel suitcase and backpack, leaving alone for an opportunity. Zuv stands behind and slightly to the side after tightening one loose backpack strap; his hand has already released it. Their hands separate in the lower centre while her feet and suitcase remain decisively oriented toward the cab. She looks back at him; he holds the sadness without blocking her path. The visible consequence is that the way forward stays open."
+    },
+    {
+      "slide": 7,
+      "copy": "Sometimes the person missing from your memories is the person who made them possible.",
+      "visual": "Return to slide 1's true top-angle present-day composition, now slightly wider and warmer. The phone rests upright against the low cushion with its timer active but no readable UI. Aachu has moved back beside Zuv and pulls him gently into the new photograph. The shutter catches them before posing: she looks at him with recognition while he looks back, surprised and warm. The gallery envelope lies open nearby with a few small prints echoing the move, creative work, roadside laugh, and departure, but the prints remain secondary and do not become a scrapbook collage. For the first time, the person who helped create the memories is intentionally inside one."
+    }
+  ]
+}

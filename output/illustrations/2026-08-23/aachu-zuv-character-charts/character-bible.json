@@ -1,0 +1,138 @@
+{
+  "schema_version": "a-story-character-bible/v1",
+  "version": "2026-08-23-draft-2-accessory-lock",
+  "status": "AWAITING_CREATOR_JOINT_LIKENESS_AND_ACCESSORY_APPROVAL",
+  "authority": {
+    "identity": "verified_actual_photographs",
+    "illustration_style": "observational-intimacy-premium",
+    "generated_sheets": "supplemental_only"
+  },
+  "style_reference": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+  "characters": {
+    "aachu": {
+      "names": [
+        "Aachu",
+        "Anchal"
+      ],
+      "height": "5'6\"",
+      "verified_photo_references": [
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/together/together-16.jpg"
+      ],
+      "face_lock": [
+        "warm medium-brown South Asian skin",
+        "large expressive dark eyes",
+        "softly arched brows",
+        "delicate nose",
+        "natural lips",
+        "youthful soft oval face and cheek structure"
+      ],
+      "hair_lock": "Long, thick, dark, naturally wavy hair with a consistent face-framing silhouette; allowed variants are loose, half-tied, and a casual ponytail.",
+      "body_and_presence_lock": "Natural adult proportions, 5'6\" height, playful warmth, expressive posture, real-person charm; never tiny, childlike, doll-like, or model-generic.",
+      "expression_set": [
+        "bright warm smile",
+        "playfully amused",
+        "dramatic but affectionate exasperation",
+        "soft attentive tenderness"
+      ],
+      "wardrobe": {
+        "core": "Black top and black blazer with blue jeans, grounded in face-04.png.",
+        "alternate": "White wrap blouse, wide blue jeans, red shoes, and red bag, grounded in together-16.jpg."
+      },
+      "signature_accessory": {
+        "item": "evil-eye bracelet",
+        "placement": "right wrist",
+        "reference": "config/references/identity/aachu/face-04.png",
+        "visibility_rule": "Always worn. It must be present whenever the right wrist or forearm is visible; if physically hidden by crop, sleeve, pose, or natural occlusion, record the reason in the prompt and QA.",
+        "hard_fails": [
+          "missing from a visible right wrist or forearm",
+          "moved to the left wrist",
+          "replaced with a generic bangle, thread, watch, or invented bracelet",
+          "design or scale drifts across repeated views"
+        ]
+      },
+      "accessories": "The right-wrist evil-eye bracelet is mandatory. Use other photo-supported simple gold jewelry, ring, watch, or bracelet only when visible in the selected references; do not invent jewelry."
+    },
+    "zuv": {
+      "names": [
+        "Zuv",
+        "Himanshu"
+      ],
+      "height": "5'8\"",
+      "verified_photo_references": [
+        "config/references/identity/zuv/portrait-07.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-16.jpg"
+      ],
+      "face_lock": [
+        "warm medium-brown South Asian skin",
+        "thick dark brows",
+        "dark almond-shaped eyes",
+        "defined nose",
+        "short neatly trimmed beard and mustache",
+        "relaxed broad masculine facial structure"
+      ],
+      "hair_lock": "Thick dark curly hair with visible volume and a consistent silhouette; never straightened or reduced to a slight wave.",
+      "body_and_presence_lock": "Natural adult proportions, 5'8\" height, broader grounded build, warm steady presence; never oversized, lanky, chiseled, or generic.",
+      "expression_set": [
+        "steady attentive look",
+        "small private smile",
+        "warm amused grin",
+        "soft serious calm"
+      ],
+      "wardrobe": {
+        "core": "Powder-blue shirt, grey trousers, red-black shoes, and simple pendant/chain, grounded in together-16.jpg.",
+        "alternate": "White zip top and grey trousers, grounded in portrait-07.jpg."
+      },
+      "signature_accessory": {
+        "item": "small round evil-eye locket on a slim silver chain",
+        "placement": "centered at the upper chest",
+        "reference": "config/references/identity/zuv/portrait-07.jpg",
+        "visibility_rule": "Always worn. It must be present whenever the neck, open collar, or upper chest is visible; if physically hidden by crop, closed clothing, pose, or natural occlusion, record the reason in the prompt and QA.",
+        "hard_fails": [
+          "missing from a visible neck, open collar, or upper chest",
+          "replaced with a generic pendant or different symbol",
+          "chain changes material, thickness, or placement",
+          "design or scale drifts across repeated views"
+        ]
+      },
+      "accessories": "The evil-eye locket and slim silver chain are mandatory. Use other photo-supported watch and visible forearm tattoo placement only when supported; do not invent tattoo designs or jewelry."
+    }
+  },
+  "couple_scale_lock": {
+    "height_difference": "Exactly two inches: Zuv 5'8\", Aachu 5'6\".",
+    "standing_rule": "Place both on the same baseline in equivalent flat footwear for the scale view. Zuv reads only slightly taller; Aachu never reads tiny and Zuv never reads oversized.",
+    "relationship_blocking": "Show equal partnership across side-by-side, seated, and affectionate poses. Do not make Zuv the default handler or Aachu the problem.",
+    "joint_photo_references": [
+      "config/references/identity/together/together-16.jpg",
+      "config/references/identity/together/together-18.jpg",
+      "config/references/identity/together/together-21.jpg",
+      "config/references/identity/together/together-05.png"
+    ]
+  },
+  "approved_sheet_paths": {
+    "aachu": null,
+    "zuv": null,
+    "joint": null
+  },
+  "hard_fails": [
+    "Either person is not recognizably derived from the attached actual photographs.",
+    "Face geometry, age, ethnicity, skin tone, hair identity, beard, or body build drifts across vignettes.",
+    "Aachu appears tiny, childlike, or model-generic; Zuv appears oversized, lanky, chiseled, or generic.",
+    "The standing scale view does not preserve the exact two-inch height difference.",
+    "Wardrobe, jewelry, tattoos, or accessories are invented rather than reference-supported.",
+    "Zuv's visible neck, open collar, or upper chest omits or changes his evil-eye locket and slim silver chain.",
+    "Aachu's visible right wrist or forearm omits, relocates, or changes her evil-eye bracelet.",
+    "Paper reads yellow, mustard, sepia, beige, parchment, coffee-stained, or heavy cream.",
+    "Any anatomy, hands, duplicated body parts, or accidental extra people are malformed.",
+    "Visible text differs from the locked sheet text or contains any additional words or letters.",
+    "The top-right brandmark is missing, duplicated, misplaced, or misspelled."
+  ],
+  "human_approval": {
+    "joint_proof": "PENDING_CREATOR_APPROVAL_OF_REVISED_PROOF",
+    "complete_pack": "PENDING"
+  }
+}

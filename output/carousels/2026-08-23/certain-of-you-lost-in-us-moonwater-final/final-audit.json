@@ -1,0 +1,287 @@
+{
+  "schema_version": "1.0",
+  "auditor": "C7-Final Contract Auditor",
+  "status": "NEEDS_FIXES",
+  "pass": false,
+  "requirements": {
+    "REQ-STYLE-001": {
+      "pass": true,
+      "evidence": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition by default: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork at 1080x1920 only when the creator explicitly requests Reel or Story; never add it as an automatic companion output. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable."
+    },
+    "REQ-HOUSE-STYLE-SCENE-001": {
+      "pass": true,
+      "evidence": "No artifact/poster prompt drift detected."
+    },
+    "REQ-PHOTO-001": {
+      "pass": true,
+      "evidence": "identity-only concept-led run using identity references and creative brief"
+    },
+    "REQ-IDENTITY-001": {
+      "pass": true,
+      "evidence": {
+        "manifest": [
+          {
+            "path": "config/references/identity/together/together-18.jpg",
+            "role": "Aachu/Zuv face consistency reference"
+          },
+          {
+            "path": "config/references/identity/aachu/face-04.png",
+            "role": "Aachu/Zuv face consistency reference"
+          },
+          {
+            "path": "config/references/identity/zuv/portrait-07.jpg",
+            "role": "Aachu/Zuv face consistency reference"
+          }
+        ],
+        "prompt_pack": [
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/zuv/portrait-07.jpg"
+        ]
+      }
+    },
+    "REQ-IDENTITY-DOSSIER-001": {
+      "pass": true,
+      "evidence": {
+        "dossier": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/identity-dossier.json",
+        "preflight": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/identity-generation-preflight.md",
+        "contact_sheet": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/identity-face-contact-sheet.jpg",
+        "prompt_refs": [
+          "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/identity-face-contact-sheet.jpg",
+          "config/references/identity/aachu/face-04.png",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/zuv/portrait-07.jpg"
+        ]
+      }
+    },
+    "REQ-IDENTITY-CONSISTENCY-001": {
+      "pass": true,
+      "evidence": {
+        "identity_review": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/identity-consistency-review.json",
+        "status": "PASS",
+        "issues": []
+      }
+    },
+    "REQ-POST-COPY-VISUAL-ROOM-001": {
+      "pass": true,
+      "evidence": {
+        "path": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/post-copy-visual-room.json",
+        "status": "GO",
+        "decision": "GO",
+        "selected_visual_system": "Slide-Led Evidence Plan",
+        "issues": []
+      }
+    },
+    "REQ-VISUAL-PLAN-QUALITY-001": {
+      "pass": true,
+      "evidence": {
+        "path": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/visual-plan-quality.json",
+        "status": "PASS",
+        "decision": "GO",
+        "issues": []
+      }
+    },
+    "REQ-SLIDES-001": {
+      "pass": true,
+      "evidence": "requested=6, slides=6, prompts=6"
+    },
+    "REQ-SUCCESS-STANDARD-001": {
+      "pass": false,
+      "evidence": {
+        "source": "wiki/insights/successful-carousel-standard.md",
+        "status": "REPAIR",
+        "pass": false,
+        "agent_alignment": {
+          "status": "MISSING",
+          "instruction": "Record how concept, copy, visual, prompt, and QA choices serve the success goals."
+        },
+        "dimensions": {
+          "agent_goal_alignment": {
+            "pass": true
+          },
+          "relationship_first_premise": {
+            "pass": true
+          },
+          "story_selling_threshold": {
+            "pass": false
+          },
+          "prompt_goal_alignment": {
+            "pass": true
+          },
+          "stage_scene_storytelling": {
+            "pass": true
+          }
+        },
+        "issues": [
+          "Story-Selling score is below 28/30."
+        ]
+      }
+    },
+    "REQ-FINAL-IMAGES-001": {
+      "pass": false,
+      "evidence": {
+        "files": [],
+        "manifest": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final-images.json",
+        "status": "draft",
+        "issues": [
+          "Missing final images: output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-01.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-02.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-03.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-04.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-05.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-06.png",
+          "final-images.json status is 'draft', expected 'packaged', 'generated', or internal pre-promotion 'BATCH_ALLOWED'.",
+          "Slide 1 native_outputs missing required format(s): instagram_post",
+          "Slide 2 native_outputs missing required format(s): instagram_post",
+          "Slide 3 native_outputs missing required format(s): instagram_post",
+          "Slide 4 native_outputs missing required format(s): instagram_post",
+          "Slide 5 native_outputs missing required format(s): instagram_post",
+          "Slide 6 native_outputs missing required format(s): instagram_post"
+        ]
+      }
+    },
+    "REQ-INTEGRATED-FINAL-TEXT-001": {
+      "pass": false,
+      "evidence": {
+        "files": [],
+        "manifest": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final-images.json",
+        "generation_mode": "not_generated",
+        "issues": [
+          "Missing publishable final slides: output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-01.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-02.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-03.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-04.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-05.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-06.png",
+          "final-images.json backend must be codex_builtin or model_art_local_text for Instagram-grade final art.",
+          "final-images.json generation_mode must be one of: model_art_local_text_publishable, model_native_publishable",
+          "Slide 1 backend is not an approved final-art backend.",
+          "Slide 1 is not marked as a publishable final generation mode.",
+          "Slide 1 is missing source prompt provenance.",
+          "Slide 2 backend is not an approved final-art backend.",
+          "Slide 2 is not marked as a publishable final generation mode.",
+          "Slide 2 is missing source prompt provenance.",
+          "Slide 3 backend is not an approved final-art backend.",
+          "Slide 3 is not marked as a publishable final generation mode.",
+          "Slide 3 is missing source prompt provenance.",
+          "Slide 4 backend is not an approved final-art backend.",
+          "Slide 4 is not marked as a publishable final generation mode.",
+          "Slide 4 is missing source prompt provenance.",
+          "Slide 5 backend is not an approved final-art backend.",
+          "Slide 5 is not marked as a publishable final generation mode.",
+          "Slide 5 is missing source prompt provenance.",
+          "Slide 6 backend is not an approved final-art backend.",
+          "Slide 6 is not marked as a publishable final generation mode.",
+          "Slide 6 is missing source prompt provenance."
+        ]
+      }
+    },
+    "REQ-VISUAL-QA-001": {
+      "pass": false,
+      "evidence": {
+        "visual_qa": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/visual-qa.md",
+        "structured_visual_qa": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/visual-qa.json",
+        "failed": [
+          "visual-qa.json is missing; visual-qa.md is only a review worksheet."
+        ],
+        "unchecked_face_or_storyboard_items": [
+          "- [ ] Slide 1 final image matches slide 1 storyboard: I was never unsure of you.",
+          "- [ ] Slide 2 final image matches slide 2 storyboard: Choosing each other had answered",
+          "- [ ] Slide 3 final image matches slide 3 storyboard: Then life began asking",
+          "- [ ] Slide 4 final image matches slide 4 storyboard: Some days, love did not tell us",
+          "- [ ] Slide 5 final image matches slide 5 storyboard: Being lost together did not mean",
+          "- [ ] Slide 6 final image matches slide 6 storyboard: Commitment answered who.",
+          "- [ ] Aachu face is recognizably based on the identity reference.",
+          "- [ ] Zuv face is recognizably based on the identity reference."
+        ]
+      }
+    },
+    "REQ-BRAND-001": {
+      "pass": true,
+      "evidence": {
+        "strategy": "integrated_final_text",
+        "composition_role": "publishable_final_illustration_with_text",
+        "font_direction": "handwritten storybook type, dark charcoal, readable at every canvas locked in format-contract.json; exact slide copy must be integrated into the generated final image raster; if the model cannot render exact copy, block or retry with a text-bearing prompt",
+        "brandmark": "@a.storyof.two",
+        "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten",
+        "slide_copy": [
+          "I was never unsure of you.\nI was lost inside our life.",
+          "Choosing each other had answered\nthe easiest question.",
+          "Then life began asking\nharder ones.",
+          "Some days, love did not tell us\nwhat to do.",
+          "Being lost together did not mean\nI had chosen wrong.",
+          "Commitment answered who.\nWe are still learning how."
+        ]
+      }
+    },
+    "REQ-NEGATIVE-001": {
+      "pass": true,
+      "evidence": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels."
+    },
+    "REQ-OUTPUT-001": {
+      "pass": true,
+      "evidence": [
+        "manifest.json",
+        "format-contract.json",
+        "concept.json",
+        "post-copy-visual-room.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "slides.json",
+        "prompt-pack.json",
+        "identity-dossier.json",
+        "identity-generation-preflight.md",
+        "identity-face-contact-sheet.jpg",
+        "identity-consistency-review.json",
+        "copy.json",
+        "review.json",
+        "final-approval.md",
+        "storyboard.md",
+        "agent-reports.md",
+        "image-generation.json",
+        "final-images.json"
+      ]
+    },
+    "REQ-WIKI-001": {
+      "pass": true,
+      "evidence": {
+        "carousel_page": true,
+        "wiki_index": true,
+        "working_memory": true,
+        "graph_memory": true
+      }
+    }
+  },
+  "checked_artifacts": {
+    "manifest.json": true,
+    "format-contract.json": true,
+    "concept.json": true,
+    "post-copy-visual-room.json": true,
+    "visual-debate.json": true,
+    "visual-plan-quality.json": true,
+    "slides.json": true,
+    "prompt-pack.json": true,
+    "identity-dossier.json": true,
+    "identity-generation-preflight.md": true,
+    "identity-face-contact-sheet.jpg": true,
+    "identity-consistency-review.json": true,
+    "copy.json": true,
+    "review.json": true,
+    "final-approval.md": true,
+    "storyboard.md": true,
+    "agent-reports.md": true,
+    "image-generation.json": true,
+    "final-images.json": true
+  },
+  "quality_artifacts": {
+    "run_ledger": "run-ledger.json",
+    "stage_reviews": "stage-reviews.json",
+    "final_audit": "final-audit.json",
+    "wiki_update": "wiki-update.md",
+    "visual_qa": "visual-qa.md"
+  },
+  "issues": [
+    "REQ-SUCCESS-STANDARD-001: Successful carousel standard is carried as open agent alignment and passes before final approval",
+    "REQ-FINAL-IMAGES-001: Final generated carousel images are packaged independently for every request-locked native format, not local placeholders",
+    "REQ-INTEGRATED-FINAL-TEXT-001: Final slides include exact integrated copy and brandmark in every current-request format locked by format-contract.json",
+    "REQ-VISUAL-QA-001: Structured face and storyboard visual QA gate passes with evidence",
+    "visual_reviewer: visual-plan-quality.json missing structured director_storyboard evidence.",
+    "success_standard_reviewer: Story-Selling score is below 28/30.",
+    "asset_reviewer: Missing final generated images: output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-01.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-02.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-03.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-04.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-05.png, output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final/final/slide-06.png"
+  ],
+  "notes": [
+    "No story photos supplied; identity references and the creative brief are the source of truth.",
+    "Wiki and memory files are updated after final audit generation.",
+    "render_assets=False"
+  ]
+}

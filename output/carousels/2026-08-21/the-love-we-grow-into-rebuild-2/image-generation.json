@@ -1,0 +1,187 @@
+{
+  "status": "QA_PASS_CANDIDATE",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 7,
+      "copy": "Not less irritated.\nJust better\nat coming back.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-07.png",
+          "sha256": "4aec3fe683e3bacd0084be13e2a8fd5b176d3a1ac9afc25ad98ee8fa5a8cf03a",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-07.png",
+            "sha256": "be5730e9f4508487fd5754760bc79a04c8c43ba31fed9332f588565824832a53",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "QA-passed proof is awaiting explicit creator approval; batching remains blocked.",
+  "proof_state": "QA_PASS_CANDIDATE",
+  "retry_count": 2,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 0,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-03",
+  "image_set_sha256": "8dda4c05fe7d642ae8ba89f9fc869186fcdfc071154ded89796eba51bf9e6a31",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 7,
+  "total_slide_count": 7,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      7
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:ae05865722bb5d1101f5760c142c5284642bf103d5ac2a6db3df540d18640f6d"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:ab9b57380e607f25cc097b4b963ce3df74672aa98ac43b00c68edbbdac5631a6"
+      }
+    },
+    "files": [
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:4122ae90d67e8819951b9372f7057c63732c617a28e265e90a7e78fb14a6e497"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.md",
+        "sha256": "sha256:4b5794ade67fc5fce573d34192557f4209cc10723d7157bfb573c8ef79fafcd0"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:00e8e2b1aac9fdc1cca5ea8ce21e5ea5f9a6c23a3d8d8ab6787e4027053ef796"
+  },
+  "retry_prompt_handoff_attestation": {
+    "schema_version": "retry-prompt-handoff/v1",
+    "source_status": "GENERATED_QUARANTINED",
+    "proof_slide": 7,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "failed_image_set_sha256": "0bfebb773d3868acf4f311cee36ad097eaa850f094b4cd9f5bd6f16b9a6d29e2",
+    "failed_attempt": {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "0bfebb773d3868acf4f311cee36ad097eaa850f094b4cd9f5bd6f16b9a6d29e2",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "visual_story_readability declares unresolved issues while claiming PASS."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS."
+      ]
+    },
+    "visual_qa_binding": {
+      "relative_path": "visual-qa.json",
+      "sha256": "sha256:d85a10d9cc4632312f55397c769564bb2e58d9ebfe29efd3e34d67893f7bca19"
+    },
+    "attempt_ledger_binding": {
+      "relative_path": ".internal/visual-qa-attempts.json",
+      "sha256": "sha256:5482b8607b70859dcb479ca5672fc4af6910532e0a276795ee758bc883fed498"
+    },
+    "gate_input_bindings": [
+      {
+        "relative_path": "format-contract.json",
+        "sha256": "sha256:d8298ddd0fe2423018752adf00b509946e4e376c8a8e11560a9b8769aaf40fdf"
+      },
+      {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:ae05865722bb5d1101f5760c142c5284642bf103d5ac2a6db3df540d18640f6d"
+      },
+      {
+        "relative_path": "slides.json",
+        "sha256": "sha256:ab9b57380e607f25cc097b4b963ce3df74672aa98ac43b00c68edbbdac5631a6"
+      },
+      {
+        "relative_path": "visual-plan-quality.json",
+        "sha256": "sha256:5ed508346b1c7cca3f1f65eff6fbf437b535683445a20d7bcea395e188729745"
+      },
+      {
+        "relative_path": "identity-consistency-review.json",
+        "sha256": "sha256:3f54fe3f8438e06da4ce03e524ea64fbcbf3753d7a3842781e605b2b2cb3c4f6"
+      },
+      {
+        "relative_path": "review.json",
+        "sha256": "sha256:99d8cb27a067b77dcb29c79fe27017ea8134ad804e8eeb83d4a9127c64c2e47c"
+      },
+      {
+        "relative_path": "layer-e-story-selling.json",
+        "sha256": "sha256:b937b79a93383fe9ae16288acd3c435ff5a143813a8bf2651e013dee5b4a1f50"
+      },
+      {
+        "relative_path": "stage-reviews.json",
+        "sha256": "sha256:3eb26742e0b8ded2d1d18b6f7986d9056fe38bdff91dfe7f942bca3bba4d876f"
+      }
+    ],
+    "previous_handoff_set_fingerprint": "sha256:baa634bf3ad840141c2de27a3c559dae131199f7bb652978f05af9defb3035dc",
+    "replacement_handoff_set_fingerprint": "sha256:00e8e2b1aac9fdc1cca5ea8ce21e5ea5f9a6c23a3d8d8ab6787e4027053ef796",
+    "previous_prompt_backup_dir": ".internal/codex-image-prompts-previous/attempt-02",
+    "previous_prompt_files": [
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-07.md",
+        "sha256": "sha256:4b5794ade67fc5fce573d34192557f4209cc10723d7157bfb573c8ef79fafcd0"
+      },
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:4cf23bea10feff58b43f6dea351c8caea4abc0ecdfdf6dad2e37672578b0a114"
+      }
+    ],
+    "next_retry_count": 2,
+    "attestation_fingerprint": "sha256:58c9e4de1494ed11bacec4ee45bcf2ec8f0525817db587b00b8a3dae459faca9"
+  },
+  "visual_qa_path": "visual-qa.json"
+}

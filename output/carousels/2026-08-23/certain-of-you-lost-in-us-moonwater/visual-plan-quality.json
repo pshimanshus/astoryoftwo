@@ -1,0 +1,732 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The creator supplied six exact slide lines; slides.json preserved them verbatim before the independent observable-card review.",
+    "author_id": "/root",
+    "reviewer_id": "/root/moonwater_event_a_v3",
+    "reviewer_evidence": "A fresh collaboration agent received only the six copy-hidden observable frame cards after the v2 repairs and independently returned PASS with image-only causality, continuity and anatomy findings.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:834180667d21fc4d771d86fc85e2ae3e40cbe7c133addf2036dc2d6f57b149e7",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "A midnight apartment whose walls dissolve into mirror-dark open water.",
+        "observable_action": "They kneel shoulder-to-shoulder on a dining table floating inside the flooded home while a circular wake turns around them without forward movement; the centered lamp and two parallel resting oars are already secured on the raft.",
+        "hands_and_contact": "Her outer-left palm and his outer-right palm press on the tabletop; their inside hands are hidden and their inside shoulders touch.",
+        "gaze": "Both look toward the same impossible open water ahead.",
+        "body_blocking": "They share one depth and one direction at the center of the floating table.",
+        "object_state": "The table floats; the lamp is secured at center; two oars rest along the outer sides; the doorway frame, low shelf and pale rectangular rug drift far behind; the wake is circular.",
+        "camera_view": "Extreme-wide high-corner apartment cutaway.",
+        "visible_continuity": "The table, lamp, doorway and shelf are the recurring domestic objects used in later frames."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "The same apartment while completely dry and almost empty.",
+        "observable_action": "They carry the same table through one doorway on one travel axis: she walks backward into the room while he follows forward behind the far end.",
+        "hands_and_contact": "She uses both hands on the near short end; he uses both hands on the far short end; all grips and feet are visible without overlap.",
+        "gaze": "They exchange a small smile over the tabletop.",
+        "body_blocking": "They occupy opposite short ends of the table along one believable doorway-to-room axis.",
+        "object_state": "The lamp waits unplugged, two wooden oars lean against the low shelf, the pale rug lies flat, and a finger-high waterline touches the threshold.",
+        "camera_view": "Low doorway-level lateral wide shot.",
+        "visible_continuity": "The floating object and water from frame one are shown here in their ordinary earlier state."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "The same room as ankle-deep silver-blue water crosses the floor.",
+        "observable_action": "She catches the sliding lamp while he lifts the same two lightweight oars tied with an indigo strap, and each uses the other hand to keep the table level.",
+        "hands_and_contact": "Her right hand owns the lamp and left palm the table; his left hand owns the strapped oar pair and right palm the table.",
+        "gaze": "Their attention splits toward their separate practical tasks.",
+        "body_blocking": "They stand on opposite sides of one level table and brace it with their hips.",
+        "object_state": "The lamp is caught, the strapped oar pair is lifted, the pale rug rises from the floor, and water enters below the doorway.",
+        "camera_view": "True overhead wide shot.",
+        "visible_continuity": "The water rises, the same table stays central, and the same lamp changes from waiting object to rescued object."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Moonlit open water after the apartment has dissolved.",
+        "observable_action": "She rows the left oar backward while he rows the right oar forward, producing a circular whirl and no forward wake.",
+        "hands_and_contact": "She owns her left-side oar with both hands; he owns his right-side oar with both hands; both kneel on the table.",
+        "gaze": "Both look at the spinning water with tired bafflement.",
+        "body_blocking": "They kneel on opposite ends of the same table-raft and lean into equal effort.",
+        "object_state": "The table is now a raft, the two oars move in opposite longitudinal directions, and the lamp is secured at center.",
+        "camera_view": "Top-down medium-wide hero view.",
+        "visible_continuity": "The domestic table and lamp survive the flood while the opposed strokes visibly explain the earlier circular wake."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "The same open water moments later at the rear edge of the raft.",
+        "observable_action": "While sharing an exhausted laugh, they lift both dripping blades clear of the water and pause the complete oars at identical forward catch positions on opposite outer sides with shafts exactly parallel.",
+        "hands_and_contact": "All four hands and both complete oars are visible: she owns only the left-side oar with two hands and he owns only the right-side oar with two hands; their shoulders touch.",
+        "gaze": "Their eye-lines reconnect during the shared laugh.",
+        "body_blocking": "They kneel shoulder-to-shoulder at the same rear edge instead of opposite ends.",
+        "object_state": "The complete oars are fully out of the water at matched forward catch positions as the circular wake widens and softens; the centered lamp remains clear of both shafts.",
+        "camera_view": "Slightly wider water-level oblique two-shot.",
+        "visible_continuity": "The circular failure remains visible while the exact matched start pose for the next stroke is established."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Pale-peach dawn over open water with no visible shore.",
+        "observable_action": "They sweep two oars backward in the same phase on opposite outer sides, making two straight wakes that carry the raft through a break in the old circle.",
+        "hands_and_contact": "Each uses a complete two-handed grip on their own oar while both kneel on the table.",
+        "gaze": "They exchange a small side glance while continuing the synchronized stroke.",
+        "body_blocking": "They kneel side-by-side at the rear of the same raft facing one open horizon.",
+        "object_state": "Two straight parallel wakes exit the old circle; the centered lamp is dim at dawn and the same doorway frame, low shelf and pale rug fade far behind.",
+        "camera_view": "Rear three-quarter medium-wide just above water level.",
+        "visible_continuity": "The oar realignment from frame five visibly becomes coordinated thrust while the table and lamp remain unchanged."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:4f7a194b89f58574fb3f66d136e7828844592ad4cd49e3542c2d1a149cc57fea",
+    "source_fingerprint": "sha256:205a38b275a1b9fccf901da14ed67556aafc947efe28a8fe45bfc0d5dd79499a",
+    "sequence_mode": "causal_sequence",
+    "physical_event": "They carry one table into a dry home, secure a lamp and two oars as water rises, turn the table into a raft, spin through opposed strokes, reset both oars together and make one synchronized stroke through the old circle.",
+    "emotional_arc": "Shared certainty meets accumulating demands, equal but conflicting effort, reciprocal recognition, and one earned coordinated experiment.",
+    "relationship_change": "They move from mutual arrival through divided methods into an observable shared reset and equal continuation.",
+    "sequence_read": "A flash-forward previews the circle; chronology then introduces every recurring object, raises the water, explains the circle, shows the matched reset and pays it off with two straight wakes.",
+    "visual_variables": [
+      "water and room dissolution",
+      "oar alignment and wake geometry"
+    ],
+    "hero_receipt_slide": 4,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Two oars lean beside the shelf, are lifted together from the rising water, and later create one circular whirl through opposed strokes.",
+        "payoff": "Both complete oars pause at identical catch positions and then create two straight parallel wakes through the old circle.",
+        "changed_meaning": "The same effort changes from disorienting torque to coordinated experimentation without promising a known destination."
+      },
+      {
+        "setup": "The table, lamp, doorway, shelf and pale rug begin as ordinary parts of one dry room.",
+        "payoff": "The table becomes the raft, the lamp becomes its center, and the exact doorway, shelf and rug dissolve far behind at dawn.",
+        "changed_meaning": "A familiar shared home becomes unfamiliar life while the chosen partnership remains recognizable."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "the wooden dining table",
+        "initial_state": "carried through one doorway into a dry room",
+        "later_state": "floating as the stable raft beneath both people",
+        "story_job": "carry the shared-life world from ordinary choice into unfamiliar conditions"
+      },
+      {
+        "object": "the two wooden oars",
+        "initial_state": "resting beside the shelf and then secured from rising water",
+        "later_state": "opposed during the circular failure, matched at the reset, and synchronized at dawn",
+        "story_job": "make changing method and equal agency physically legible"
+      },
+      {
+        "object": "the ordinary lamp",
+        "initial_state": "unplugged on the dry floor",
+        "later_state": "caught, secured at raft center, and dim beside dawn",
+        "story_job": "preserve one recognizable domestic center through the impossible transformation"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "flash-forward contradiction and circular-wake thesis",
+        "silent_read": "Two people remain physically aligned on a familiar object while their shared home has become unfamiliar water.",
+        "change_from_previous": "Slide two rewinds to the same table, lamp, oars, doorway, shelf and rug in a dry room.",
+        "critic_evidence": "The fresh blind reviewer returned PASS and specifically found this frame legible inside the complete table-to-raft, circle-to-straight-wake sequence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "kneel shoulder-to-shoulder while the table turns without advancing",
+          "target_or_object": "the shared open water ahead",
+          "reaction_or_consequence": "their bodily alignment contrasts with the circular wake"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents",
+          "audience_knows": "Two people remain physically aligned on a familiar object while their shared home has become unfamiliar water.",
+          "audience_feels": "wonder"
+        },
+        "shot": {
+          "size": "extreme-wide",
+          "angle": "high-corner cutaway",
+          "camera_position": "above one apartment corner",
+          "focal_subject": "aligned couple, table-raft and circular wake",
+          "story_reason": "The camera makes body relationship, object ownership and current cause-and-effect readable before atmosphere."
+        },
+        "blocking": {
+          "hands": "two outer palms on the table; inside hands hidden",
+          "gaze": "both toward the same open water",
+          "body_distance": "inside shoulders touching",
+          "posture_or_feet": "same-depth kneeling with readable three-quarter faces"
+        },
+        "setting": {
+          "sub_location": "flooded apartment dissolving into open water",
+          "time": "midnight flash-forward",
+          "motivated_light": "indigo moonwater on warm ivory paper",
+          "story_trace": "centered lamp, parallel resting oars and three drifting room fragments establish the later object state"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the circular wake around the table",
+            "observable_state": "it turns around an aligned couple without a forward exit",
+            "narrative_job": "make certainty in each other coexist with disorientation inside the shared space"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The story opens on its future object state.",
+          "outgoing_state": "Slide two rewinds to the same table, lamp, oars, doorway, shelf and rug in a dry room."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "rescuer",
+            "child",
+            "background figure",
+            "reflection person",
+            "silhouette person",
+            "unassigned hand",
+            "unassigned oar"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "chronological shared arrival with the recurring object set",
+        "silent_read": "The same pair bring the central table and its surrounding domestic objects into one dry home together.",
+        "change_from_previous": "A finger-high waterline begins the transformation while the pair carry the table on one axis.",
+        "critic_evidence": "The fresh blind reviewer returned PASS and specifically found this frame legible inside the complete table-to-raft, circle-to-straight-wake sequence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "carry one table through one doorway, one backward and one forward",
+          "target_or_object": "the center of the dry room",
+          "reaction_or_consequence": "one shared object enters on a physically credible axis"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents",
+          "audience_knows": "The same pair bring the central table and its surrounding domestic objects into one dry home together.",
+          "audience_feels": "certainty"
+        },
+        "shot": {
+          "size": "lateral wide",
+          "angle": "doorway level",
+          "camera_position": "inside the room facing the single entrance",
+          "focal_subject": "one believable table-carrying axis",
+          "story_reason": "The camera makes body relationship, object ownership and current cause-and-effect readable before atmosphere."
+        },
+        "blocking": {
+          "hands": "four hands on opposite short table ends",
+          "gaze": "small smile over the tabletop",
+          "body_distance": "table-length separation on one doorway axis",
+          "posture_or_feet": "Aachu walks backward while Zuv follows forward"
+        },
+        "setting": {
+          "sub_location": "dry almost-empty apartment",
+          "time": "chronological beginning",
+          "motivated_light": "soft neutral daylight with a finger-high blue threshold line",
+          "story_trace": "table, lamp, oars, shelf and rug begin in ordinary positions"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the single doorway and shared table",
+            "observable_state": "one person walks backward while the other follows forward",
+            "narrative_job": "make the shared beginning physically credible and mutual"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The cover showed these ordinary objects transformed by water.",
+          "outgoing_state": "A finger-high waterline begins the transformation while the pair carry the table on one axis."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "rescuer",
+            "child",
+            "background figure",
+            "reflection person",
+            "silhouette person",
+            "unassigned hand",
+            "unassigned oar"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "rising domestic pressure and equal self-owned preparation",
+        "silent_read": "As water rises, each person secures one necessary object while both keep their shared table stable.",
+        "change_from_previous": "Rising water makes the lamp and oars require separate but simultaneous action.",
+        "critic_evidence": "The fresh blind reviewer returned PASS and specifically found this frame legible inside the complete table-to-raft, circle-to-straight-wake sequence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "secure the lamp and tied oars while each braces the table",
+          "target_or_object": "two separate recurring objects and one shared stable surface",
+          "reaction_or_consequence": "both necessary objects reach the table before the room disappears"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents",
+          "audience_knows": "As water rises, each person secures one necessary object while both keep their shared table stable.",
+          "audience_feels": "pressure"
+        },
+        "shot": {
+          "size": "wide",
+          "angle": "true overhead",
+          "camera_position": "directly above the flooding room",
+          "focal_subject": "four separately owned hands stabilizing and salvaging",
+          "story_reason": "The camera makes body relationship, object ownership and current cause-and-effect readable before atmosphere."
+        },
+        "blocking": {
+          "hands": "four hands visible: lamp, table, tied oars, table",
+          "gaze": "split toward separately owned tasks",
+          "body_distance": "opposite table sides",
+          "posture_or_feet": "hips brace the same level surface"
+        },
+        "setting": {
+          "sub_location": "same apartment in ankle-deep water",
+          "time": "later the same night",
+          "motivated_light": "silver-blue reflected light",
+          "story_trace": "the lamp and oars change from waiting objects to secured supplies"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the recurring lamp and tied oars",
+            "observable_state": "each person secures one while both stabilize the table",
+            "narrative_job": "introduce later raft tools through equal self-owned action"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The dry room established the lamp, oars, shelf and rug.",
+          "outgoing_state": "Rising water makes the lamp and oars require separate but simultaneous action."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "rescuer",
+            "child",
+            "background figure",
+            "reflection person",
+            "silhouette person",
+            "unassigned hand",
+            "unassigned oar"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "equal effort produces visible circular failure",
+        "silent_read": "They work equally but in opposite directions, visibly spinning their raft instead of moving it forward.",
+        "change_from_previous": "The room disappears and opposed use of the two oars creates the circular wake previewed on the cover.",
+        "critic_evidence": "The fresh blind reviewer returned PASS and specifically found this frame legible inside the complete table-to-raft, circle-to-straight-wake sequence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "apply equal strokes in opposite longitudinal directions",
+          "target_or_object": "their separately owned oars",
+          "reaction_or_consequence": "the raft produces torque, a circular whirl and no forward wake"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents",
+          "audience_knows": "They work equally but in opposite directions, visibly spinning their raft instead of moving it forward.",
+          "audience_feels": "bafflement"
+        },
+        "shot": {
+          "size": "medium-wide hero",
+          "angle": "top-down",
+          "camera_position": "above the open-water raft",
+          "focal_subject": "opposed oar strokes and circular whirl",
+          "story_reason": "The camera makes body relationship, object ownership and current cause-and-effect readable before atmosphere."
+        },
+        "blocking": {
+          "hands": "four hands in two separate complete oar grips",
+          "gaze": "both toward the spinning water",
+          "body_distance": "opposite raft ends",
+          "posture_or_feet": "equal lean in counter-rotating actions"
+        },
+        "setting": {
+          "sub_location": "moonlit open water",
+          "time": "after the room dissolves",
+          "motivated_light": "deep indigo water and the lamp's small warm pool",
+          "story_trace": "the table is now the raft and the oars visibly create the circle"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the opposed oars and circular whirl",
+            "observable_state": "one blade moves backward and the other forward",
+            "narrative_job": "make equal effort and conflicting method produce the visible problem"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Both recurring tools were secured on the shared table.",
+          "outgoing_state": "The room disappears and opposed use of the two oars creates the circular wake previewed on the cover."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "rescuer",
+            "child",
+            "background figure",
+            "reflection person",
+            "silhouette person",
+            "unassigned hand",
+            "unassigned oar"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "reciprocal recognition becomes a matched physical reset",
+        "silent_read": "They reconnect, lift both complete oars and pause them at matching positions on opposite outer sides.",
+        "change_from_previous": "They bring both complete oars to a matched catch pose while the old circle remains visible.",
+        "critic_evidence": "The fresh blind reviewer returned PASS and specifically found this frame legible inside the complete table-to-raft, circle-to-straight-wake sequence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "lift both blades and pause them at matching forward catch positions",
+          "target_or_object": "opposite outer sides of the same raft",
+          "reaction_or_consequence": "a shared laugh becomes an observable reciprocal reset"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents",
+          "audience_knows": "They reconnect, lift both complete oars and pause them at matching positions on opposite outer sides.",
+          "audience_feels": "recognition"
+        },
+        "shot": {
+          "size": "wider two-shot",
+          "angle": "water-level oblique",
+          "camera_position": "beside the rear raft edge",
+          "focal_subject": "four hands, two complete oars and matched catch positions",
+          "story_reason": "The camera makes body relationship, object ownership and current cause-and-effect readable before atmosphere."
+        },
+        "blocking": {
+          "hands": "four hands and both complete oars fully visible",
+          "gaze": "direct side glance during the laugh",
+          "body_distance": "shoulders touching",
+          "posture_or_feet": "both blades raised at identical outer-side catch positions"
+        },
+        "setting": {
+          "sub_location": "rear edge of the same raft",
+          "time": "moments after the failed strokes",
+          "motivated_light": "soft lamp light against widening moonwater",
+          "story_trace": "the complete oars change from opposition to identical catch positions"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the matched complete oars",
+            "observable_state": "both blades pause clear of water at identical forward catch positions",
+            "narrative_job": "make reciprocal recognition cause a new shared starting state"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The opposed strokes produced an unmistakable circle.",
+          "outgoing_state": "They bring both complete oars to a matched catch pose while the old circle remains visible."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "rescuer",
+            "child",
+            "background figure",
+            "reflection person",
+            "silhouette person",
+            "unassigned hand",
+            "unassigned oar"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "the matched reset produces one coordinated next stroke",
+        "silent_read": "They turn the matched start into synchronized thrust that breaks visibly through the old circular wake.",
+        "change_from_previous": "They sweep backward together and leave two straight wakes through the old circle toward an unfinished horizon.",
+        "critic_evidence": "The fresh blind reviewer returned PASS and specifically found this frame legible inside the complete table-to-raft, circle-to-straight-wake sequence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "sweep both blades backward in the same phase",
+          "target_or_object": "the open water beyond the old circle",
+          "reaction_or_consequence": "two straight wakes carry the raft through a visible break"
+        },
+        "pov": {
+          "owner": "the partnership as two equal agents",
+          "audience_knows": "They turn the matched start into synchronized thrust that breaks visibly through the old circular wake.",
+          "audience_feels": "earned hope"
+        },
+        "shot": {
+          "size": "medium-wide",
+          "angle": "rear three-quarter above water",
+          "camera_position": "behind the raft facing the open horizon",
+          "focal_subject": "parallel strokes breaking through the old circle",
+          "story_reason": "The camera makes body relationship, object ownership and current cause-and-effect readable before atmosphere."
+        },
+        "blocking": {
+          "hands": "four hands in two complete non-crossing grips",
+          "gaze": "brief side glance while stroking",
+          "body_distance": "side-by-side at the rear",
+          "posture_or_feet": "matching backward sweep from the prior catch pose"
+        },
+        "setting": {
+          "sub_location": "open water with no shore",
+          "time": "pale-peach dawn",
+          "motivated_light": "dawn warms the same restrained palette",
+          "story_trace": "straight wakes cut through the old circle as the exact room fragments fade behind"
+        },
+        "story_evidence": [
+          {
+            "carrier": "the two straight wakes crossing the old circle",
+            "observable_state": "both blades move backward at matching angles and timing",
+            "narrative_job": "make coordinated experimentation the visible payoff without showing a destination"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The prior frame established the exact matched start pose.",
+          "outgoing_state": "They sweep backward together and leave two straight wakes through the old circle toward an unfinished horizon."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "rescuer",
+            "child",
+            "background figure",
+            "reflection person",
+            "silhouette person",
+            "unassigned hand",
+            "unassigned oar"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "moonwater-author-run-20260823-03",
+      "reviewer_task_id": "/root/moonwater_event_a_v3",
+      "reviewer_run_id": "EA-MOONWATER-20260823-V3",
+      "input_fingerprint": "sha256:4f7a194b89f58574fb3f66d136e7828844592ad4cd49e3542c2d1a149cc57fea",
+      "raw_response_artifact": ".internal/event-a-v3-raw-response.md",
+      "raw_response_fingerprint": "sha256:8c44d64fac80f243b7f675425f4c53ebbf48c8ca1d97145c570074b2d5ef1002",
+      "output_fingerprint": "sha256:a99ac57f9a0e060c8942dd5236eeed15b6302847b1032484e727c8abdb13f8fe"
+    },
+    "director_event_fingerprint": "sha256:67e27b56e4e0c3e2a5dd0fe7fc171afb31e566625000b7d5778b7748e9f5730e"
+  }
+}

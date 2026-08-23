@@ -1,0 +1,1785 @@
+{
+  "schema_version": "2.1",
+  "status": "PASS",
+  "proof_state": "QA_PASS_CANDIDATE",
+  "image_set_sha256": "5bedca27e364ee33592f08a3325a962f0c83f3f396c663506bca583f9c98ebbb",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/final_integrity_after_repairs",
+      "pass": true,
+      "evidence": "All seven exact 1080x1440 files pass people and limb counts, hand attachment, controller and spoon ownership, beige-sofa and room continuity, exact text, brandmark, and identity consistency under the creator-approved stylized-likeness exception."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/final_story_style_after_repairs",
+      "pass": true,
+      "evidence": "The independent image-first read reconstructs the normal call, verbal non-response, continued game, louder repeat, abandoned-controller rush, and innocent arrival with coherent matched cameras, warmth, and house style."
+    }
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-01.png",
+          "sha256": "7b34592f3df139f1bfc83bdf41a084ab7448c56aca53e8ac4f7b80da43b2dacd",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    },
+    {
+      "slide": 2,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-02.png",
+          "sha256": "654ee27d5cee9e504ae2db9757dc58dc9b14d7e207b390b09f6ea1eb4bac0ed9",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    },
+    {
+      "slide": 3,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-03.png",
+          "sha256": "4597f5f429c54065c0af499eb97c9847cfbdac5717955994f24ae3562d726603",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    },
+    {
+      "slide": 4,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-04.png",
+          "sha256": "49a02ea5f03875fc8f9441ea02c84702106034ec429ae40ba1e8aed72c4ed4d0",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    },
+    {
+      "slide": 5,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-05.png",
+          "sha256": "5202ce93d3bd4f5312dfe678aa6bbd9b7900b9bff5a4ed718b8cde6fd85d1709",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    },
+    {
+      "slide": 6,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-06.png",
+          "sha256": "34e59f11a6cc30cde175a49996b7af1240e6f1f6396cd9d0eae913cad4eafc6b",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    },
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "storyboard": {
+      "pass": true,
+      "evidence": "All seven rendered frames implement the locked causal storyboard and preserve the matched-camera proof pairs."
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID_AACHU_FACE_04",
+        "ID_TOGETHER_21"
+      ],
+      "likeness_notes": "PASS_WITH_CREATOR_EXCEPTION: the creator explicitly accepted the proof's stylized likeness; the full deck preserves Aachu's long dark hair, rounded expressive face, grey floral kurta, bangles, and stable role without new drift."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "ID_ZUV_PORTRAIT_07",
+        "ID_TOGETHER_21"
+      ],
+      "likeness_notes": "PASS_WITH_CREATOR_EXCEPTION: the creator explicitly accepted the proof's stylized likeness; the full deck preserves Zuv's curly dark hair, beard, black shirt, tan trousers, pendant, build, and comic expression without new drift."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Aachu remains in the pale grey floral kurta and bangles; Zuv remains in the black shirt, tan trousers, and pendant throughout."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Every slide uses warm ivory paper grain, fine organic ink, transparent watercolor washes, restrained beige-grey-camel color, and generous negative space."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "The kitchen and living-room geography, call direction, controller state, spoon ownership, and movement toward the kitchen remain causal and contradiction-free."
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "expected_people": 2,
+          "observed_people": 2,
+          "expected_arms": 4,
+          "observed_arms": 4,
+          "expected_hands": 4,
+          "observed_hands": 4,
+          "unexpected_entities": [],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "evidence": "Only Aachu, Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates.",
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "7b34592f3df139f1bfc83bdf41a084ab7448c56aca53e8ac4f7b80da43b2dacd",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu, Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates."
+            }
+          }
+        },
+        {
+          "slide": 2,
+          "expected_people": 1,
+          "observed_people": 1,
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "unexpected_entities": [],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "evidence": "Only Aachu appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates.",
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "654ee27d5cee9e504ae2db9757dc58dc9b14d7e207b390b09f6ea1eb4bac0ed9",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 1,
+              "observed_people": 1,
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates."
+            }
+          }
+        },
+        {
+          "slide": 3,
+          "expected_people": 1,
+          "observed_people": 1,
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "unexpected_entities": [],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "evidence": "Only Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates.",
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "4597f5f429c54065c0af499eb97c9847cfbdac5717955994f24ae3562d726603",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 1,
+              "observed_people": 1,
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates."
+            }
+          }
+        },
+        {
+          "slide": 4,
+          "expected_people": 1,
+          "observed_people": 1,
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "unexpected_entities": [],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "evidence": "Only Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates.",
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "49a02ea5f03875fc8f9441ea02c84702106034ec429ae40ba1e8aed72c4ed4d0",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 1,
+              "observed_people": 1,
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates."
+            }
+          }
+        },
+        {
+          "slide": 5,
+          "expected_people": 1,
+          "observed_people": 1,
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "unexpected_entities": [],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "evidence": "Only Aachu appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates.",
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "5202ce93d3bd4f5312dfe678aa6bbd9b7900b9bff5a4ed718b8cde6fd85d1709",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 1,
+              "observed_people": 1,
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates."
+            }
+          }
+        },
+        {
+          "slide": 6,
+          "expected_people": 1,
+          "observed_people": 1,
+          "expected_arms": 1,
+          "observed_arms": 1,
+          "expected_hands": 1,
+          "observed_hands": 1,
+          "unexpected_entities": [],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "evidence": "Only Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates.",
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "34e59f11a6cc30cde175a49996b7af1240e6f1f6396cd9d0eae913cad4eafc6b",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 1,
+              "observed_people": 1,
+              "expected_arms": 1,
+              "observed_arms": 1,
+              "expected_hands": 1,
+              "observed_hands": 1,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates."
+            }
+          }
+        },
+        {
+          "slide": 7,
+          "expected_people": 2,
+          "observed_people": 2,
+          "expected_arms": 4,
+          "observed_arms": 4,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "unexpected_entities": [],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "evidence": "Only Aachu, Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates.",
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu, Zuv appear; every visible limb and story prop has one coherent owner, with no extra people, portraits, reflections, or duplicates."
+            }
+          }
+        }
+      ]
+    },
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "source_asset": {
+            "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-01.png",
+            "sha256": "7b34592f3df139f1bfc83bdf41a084ab7448c56aca53e8ac4f7b80da43b2dacd",
+            "width": 1080,
+            "height": 1440
+          },
+          "expected_arms": 4,
+          "observed_arms": 4,
+          "expected_hands": 4,
+          "observed_hands": 4,
+          "visible_hands": [
+            {
+              "owner": "Aachu",
+              "side": "right",
+              "action": "stirs the saucepan",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Sleeve, forearm, wrist, and spoon hand form one continuous limb.",
+              "contact_object": "wooden spoon",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Fingers wrap the spoon handle above the saucepan without merging.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Aachu",
+              "side": "left",
+              "action": "raises a relaxed first-call gesture",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Raised palm connects continuously through wrist and kurta sleeve.",
+              "contact_object": null,
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Open fingers remain separate from face, hair, and doorway.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Zuv",
+              "side": "left",
+              "action": "supports the controller",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Left forearm and wrist connect cleanly from the rolled black sleeve.",
+              "contact_object": "game controller",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Thumb and fingers sit around the controller shell with readable overlap.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Zuv",
+              "side": "right",
+              "action": "operates the controller",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Right forearm, wrist, and hand remain continuously visible.",
+              "contact_object": "game controller",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Fingers curl around the opposite controller grip without intersection.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "7b34592f3df139f1bfc83bdf41a084ab7448c56aca53e8ac4f7b80da43b2dacd",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "stirs the saucepan",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Sleeve, forearm, wrist, and spoon hand form one continuous limb.",
+                  "contact_object": "wooden spoon",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers wrap the spoon handle above the saucepan without merging.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "raises a relaxed first-call gesture",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Raised palm connects continuously through wrist and kurta sleeve.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Open fingers remain separate from face, hair, and doorway.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "supports the controller",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Left forearm and wrist connect cleanly from the rolled black sleeve.",
+                  "contact_object": "game controller",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Thumb and fingers sit around the controller shell with readable overlap.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "operates the controller",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Right forearm, wrist, and hand remain continuously visible.",
+                  "contact_object": "game controller",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers curl around the opposite controller grip without intersection.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        },
+        {
+          "slide": 2,
+          "source_asset": {
+            "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-02.png",
+            "sha256": "654ee27d5cee9e504ae2db9757dc58dc9b14d7e207b390b09f6ea1eb4bac0ed9",
+            "width": 1080,
+            "height": 1440
+          },
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "visible_hands": [
+            {
+              "owner": "Aachu",
+              "side": "right",
+              "action": "stirs the pan",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Her right sleeve leads continuously into wrist and spoon hand.",
+              "contact_object": "wooden spoon",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "The hand closes around the wooden handle above the food.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Aachu",
+              "side": "left",
+              "action": "beckons casually toward the living room",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Her raised hand is visibly attached through wrist and forearm.",
+              "contact_object": null,
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Open palm clears her face, hair, and the doorway edge.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "654ee27d5cee9e504ae2db9757dc58dc9b14d7e207b390b09f6ea1eb4bac0ed9",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "stirs the pan",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her right sleeve leads continuously into wrist and spoon hand.",
+                  "contact_object": "wooden spoon",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The hand closes around the wooden handle above the food.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "beckons casually toward the living room",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her raised hand is visibly attached through wrist and forearm.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Open palm clears her face, hair, and the doorway edge.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        },
+        {
+          "slide": 3,
+          "source_asset": {
+            "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-03.png",
+            "sha256": "4597f5f429c54065c0af499eb97c9847cfbdac5717955994f24ae3562d726603",
+            "width": 1080,
+            "height": 1440
+          },
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "visible_hands": [
+            {
+              "owner": "Zuv",
+              "side": "left",
+              "action": "supports the controller",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Rolled sleeve, forearm, wrist, and left hand remain continuous.",
+              "contact_object": "game controller",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Thumb and fingers visibly meet the left controller grip.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Zuv",
+              "side": "right",
+              "action": "continues playing",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Right forearm and wrist connect cleanly into the controller hand.",
+              "contact_object": "game controller",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Fingers visibly wrap the right grip without fused geometry.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "4597f5f429c54065c0af499eb97c9847cfbdac5717955994f24ae3562d726603",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "supports the controller",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Rolled sleeve, forearm, wrist, and left hand remain continuous.",
+                  "contact_object": "game controller",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Thumb and fingers visibly meet the left controller grip.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "continues playing",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Right forearm and wrist connect cleanly into the controller hand.",
+                  "contact_object": "game controller",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers visibly wrap the right grip without fused geometry.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        },
+        {
+          "slide": 4,
+          "source_asset": {
+            "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-04.png",
+            "sha256": "49a02ea5f03875fc8f9441ea02c84702106034ec429ae40ba1e8aed72c4ed4d0",
+            "width": 1080,
+            "height": 1440
+          },
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "visible_hands": [
+            {
+              "owner": "Zuv",
+              "side": "left",
+              "action": "holds the controller during the delay",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Left sleeve and forearm connect continuously into the visible wrist.",
+              "contact_object": "game controller",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Thumb and fingers overlap the controller controls naturally.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Zuv",
+              "side": "right",
+              "action": "keeps playing instead of moving",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Right wrist remains visibly attached to the forearm and hand.",
+              "contact_object": "game controller",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Fingers curl around the right grip with clear boundaries.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "49a02ea5f03875fc8f9441ea02c84702106034ec429ae40ba1e8aed72c4ed4d0",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "holds the controller during the delay",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Left sleeve and forearm connect continuously into the visible wrist.",
+                  "contact_object": "game controller",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Thumb and fingers overlap the controller controls naturally.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "keeps playing instead of moving",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Right wrist remains visibly attached to the forearm and hand.",
+                  "contact_object": "game controller",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers curl around the right grip with clear boundaries.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        },
+        {
+          "slide": 5,
+          "source_asset": {
+            "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-05.png",
+            "sha256": "5202ce93d3bd4f5312dfe678aa6bbd9b7900b9bff5a4ed718b8cde6fd85d1709",
+            "width": 1080,
+            "height": 1440
+          },
+          "expected_arms": 2,
+          "observed_arms": 2,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "visible_hands": [
+            {
+              "owner": "Aachu",
+              "side": "right",
+              "action": "keeps stirring the pan",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Right sleeve, forearm, wrist, and spoon hand are visibly continuous.",
+              "contact_object": "wooden spoon",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Fingers close around the spoon handle above the pan.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Aachu",
+              "side": "left",
+              "action": "cups her mouth for the louder call",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Raised forearm and wrist visibly connect to the cupped hand.",
+              "contact_object": null,
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Palm stays beside the mouth without merging into face or hair.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "5202ce93d3bd4f5312dfe678aa6bbd9b7900b9bff5a4ed718b8cde6fd85d1709",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "keeps stirring the pan",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Right sleeve, forearm, wrist, and spoon hand are visibly continuous.",
+                  "contact_object": "wooden spoon",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers close around the spoon handle above the pan.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "cups her mouth for the louder call",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Raised forearm and wrist visibly connect to the cupped hand.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Palm stays beside the mouth without merging into face or hair.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        },
+        {
+          "slide": 6,
+          "source_asset": {
+            "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-06.png",
+            "sha256": "34e59f11a6cc30cde175a49996b7af1240e6f1f6396cd9d0eae913cad4eafc6b",
+            "width": 1080,
+            "height": 1440
+          },
+          "expected_arms": 1,
+          "observed_arms": 1,
+          "expected_hands": 1,
+          "observed_hands": 1,
+          "visible_hands": [
+            {
+              "owner": "Zuv",
+              "side": "left",
+              "action": "swings behind him as he rises",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "The trailing hand connects visibly through wrist and rolled sleeve.",
+              "contact_object": null,
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Spread fingers clear the sofa back and do not touch another object.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "34e59f11a6cc30cde175a49996b7af1240e6f1f6396cd9d0eae913cad4eafc6b",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 1,
+              "observed_arms": 1,
+              "expected_hands": 1,
+              "observed_hands": 1,
+              "visible_hands": [
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "swings behind him as he rises",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The trailing hand connects visibly through wrist and rolled sleeve.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Spread fingers clear the sofa back and do not touch another object.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        },
+        {
+          "slide": 7,
+          "source_asset": {
+            "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-07.png",
+            "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+            "width": 1080,
+            "height": 1440
+          },
+          "expected_arms": 4,
+          "observed_arms": 4,
+          "expected_hands": 2,
+          "observed_hands": 2,
+          "visible_hands": [
+            {
+              "owner": "Aachu",
+              "side": "right",
+              "action": "continues holding the wooden spoon",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "Her kurta sleeve, forearm, wrist, and spoon hand remain continuous.",
+              "contact_object": "wooden spoon",
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "Fingers hold the spoon cleanly above the counter edge.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            },
+            {
+              "owner": "Zuv",
+              "side": "right",
+              "action": "opens in an innocent questioning gesture",
+              "story_required": true,
+              "attachment_visible": true,
+              "attachment_evidence": "His exposed forearm joins the open palm through a clear wrist.",
+              "contact_object": null,
+              "contact_geometry_pass": true,
+              "occlusion_evidence": "The open hand clears his shirt, trousers, doorway, and Aachu.",
+              "solid_object_intersection": false,
+              "edge_entry_unexplained": false
+            }
+          ],
+          "unexpected_limbs": [],
+          "duplicated_limbs": [],
+          "malformed_fingers": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "continues holding the wooden spoon",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her kurta sleeve, forearm, wrist, and spoon hand remain continuous.",
+                  "contact_object": "wooden spoon",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers hold the spoon cleanly above the counter edge.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "opens in an innocent questioning gesture",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His exposed forearm joins the open palm through a clear wrist.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The open hand clears his shirt, trousers, doorway, and Aachu.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "The complete Slide 1 frame shows the intended people and one coherent home geography.",
+            "person_object_crop": "Visible hands, clothing edges, and story props on Slide 1 have clear owners and overlap order.",
+            "focal_detail": "The focal action on Slide 1 remains separate from furniture, doorway edges, and other bodies."
+          },
+          "environment_planes": [
+            {
+              "object": "kitchen doorway and room surfaces",
+              "depth_order": "Continuous room surfaces sit behind the people and story action.",
+              "boundary_continuous": true
+            },
+            {
+              "object": "foreground story props",
+              "depth_order": "Controller, spoon, pan, or table evidence sits in front of its supporting surface.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Aachu's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "kitchen counter and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Aachu's silhouette remains cleanly in front of kitchen counter and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Zuv's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "beige sofa and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Zuv's silhouette remains cleanly in front of beige sofa and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        },
+        {
+          "slide": 2,
+          "observed_people": 1,
+          "evidence_views": {
+            "full_frame": "The complete Slide 2 frame shows the intended people and one coherent home geography.",
+            "person_object_crop": "Visible hands, clothing edges, and story props on Slide 2 have clear owners and overlap order.",
+            "focal_detail": "The focal action on Slide 2 remains separate from furniture, doorway edges, and other bodies."
+          },
+          "environment_planes": [
+            {
+              "object": "kitchen doorway and room surfaces",
+              "depth_order": "Continuous room surfaces sit behind the people and story action.",
+              "boundary_continuous": true
+            },
+            {
+              "object": "foreground story props",
+              "depth_order": "Controller, spoon, pan, or table evidence sits in front of its supporting surface.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Aachu's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "kitchen counter and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Aachu's silhouette remains cleanly in front of kitchen counter and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        },
+        {
+          "slide": 3,
+          "observed_people": 1,
+          "evidence_views": {
+            "full_frame": "The complete Slide 3 frame shows the intended people and one coherent home geography.",
+            "person_object_crop": "Visible hands, clothing edges, and story props on Slide 3 have clear owners and overlap order.",
+            "focal_detail": "The focal action on Slide 3 remains separate from furniture, doorway edges, and other bodies."
+          },
+          "environment_planes": [
+            {
+              "object": "beige sofa, floor, and kitchen doorway",
+              "depth_order": "Continuous room surfaces sit behind the people and story action.",
+              "boundary_continuous": true
+            },
+            {
+              "object": "foreground story props",
+              "depth_order": "Controller, spoon, pan, or table evidence sits in front of its supporting surface.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Zuv's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "beige sofa and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Zuv's silhouette remains cleanly in front of beige sofa and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        },
+        {
+          "slide": 4,
+          "observed_people": 1,
+          "evidence_views": {
+            "full_frame": "The complete Slide 4 frame shows the intended people and one coherent home geography.",
+            "person_object_crop": "Visible hands, clothing edges, and story props on Slide 4 have clear owners and overlap order.",
+            "focal_detail": "The focal action on Slide 4 remains separate from furniture, doorway edges, and other bodies."
+          },
+          "environment_planes": [
+            {
+              "object": "beige sofa, floor, and kitchen doorway",
+              "depth_order": "Continuous room surfaces sit behind the people and story action.",
+              "boundary_continuous": true
+            },
+            {
+              "object": "foreground story props",
+              "depth_order": "Controller, spoon, pan, or table evidence sits in front of its supporting surface.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Zuv's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "beige sofa and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Zuv's silhouette remains cleanly in front of beige sofa and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        },
+        {
+          "slide": 5,
+          "observed_people": 1,
+          "evidence_views": {
+            "full_frame": "The complete Slide 5 frame shows the intended people and one coherent home geography.",
+            "person_object_crop": "Visible hands, clothing edges, and story props on Slide 5 have clear owners and overlap order.",
+            "focal_detail": "The focal action on Slide 5 remains separate from furniture, doorway edges, and other bodies."
+          },
+          "environment_planes": [
+            {
+              "object": "kitchen doorway and room surfaces",
+              "depth_order": "Continuous room surfaces sit behind the people and story action.",
+              "boundary_continuous": true
+            },
+            {
+              "object": "foreground story props",
+              "depth_order": "Controller, spoon, pan, or table evidence sits in front of its supporting surface.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Aachu's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "kitchen counter and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Aachu's silhouette remains cleanly in front of kitchen counter and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        },
+        {
+          "slide": 6,
+          "observed_people": 1,
+          "evidence_views": {
+            "full_frame": "The complete Slide 6 frame shows the intended people and one coherent home geography.",
+            "person_object_crop": "Visible hands, clothing edges, and story props on Slide 6 have clear owners and overlap order.",
+            "focal_detail": "The focal action on Slide 6 remains separate from furniture, doorway edges, and other bodies."
+          },
+          "environment_planes": [
+            {
+              "object": "beige sofa, floor, and kitchen doorway",
+              "depth_order": "Continuous room surfaces sit behind the people and story action.",
+              "boundary_continuous": true
+            },
+            {
+              "object": "foreground story props",
+              "depth_order": "Controller, spoon, pan, or table evidence sits in front of its supporting surface.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Zuv's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "beige sofa and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Zuv's silhouette remains cleanly in front of beige sofa and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        },
+        {
+          "slide": 7,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "The complete Slide 7 frame shows the intended people and one coherent home geography.",
+            "person_object_crop": "Visible hands, clothing edges, and story props on Slide 7 have clear owners and overlap order.",
+            "focal_detail": "The focal action on Slide 7 remains separate from furniture, doorway edges, and other bodies."
+          },
+          "environment_planes": [
+            {
+              "object": "kitchen doorway and room surfaces",
+              "depth_order": "Continuous room surfaces sit behind the people and story action.",
+              "boundary_continuous": true
+            },
+            {
+              "object": "foreground story props",
+              "depth_order": "Controller, spoon, pan, or table evidence sits in front of its supporting surface.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Aachu's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "kitchen counter and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Aachu's silhouette remains cleanly in front of kitchen counter and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Zuv's head, torso, visible limbs, and clothing edges form one continuous figure.",
+              "body_regions": [
+                {
+                  "region": "visible head, torso, and limbs",
+                  "near_object": "beige sofa and doorway",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Zuv's silhouette remains cleanly in front of beige sofa and doorway with readable depth and no fused boundary."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "foreground": "Zuv, the controller, sofa, mug, and coffee table establish absorbed play.",
+          "midground": "The beige sofa and doorway connect the two partners in one continuous home.",
+          "background": "Aachu cooks at the stove while turning to make the first call.",
+          "focal_action": "Aachu calls while Zuv keeps both hands and attention on the controller.",
+          "story_details": [
+            "controller in both hands",
+            "spoon over saucepan",
+            "kitchen doorway"
+          ],
+          "cause_effect": "The divided geography establishes why her first call may not move him.",
+          "posed_portrait": false,
+          "decorative_clutter": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "7b34592f3df139f1bfc83bdf41a084ab7448c56aca53e8ac4f7b80da43b2dacd",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "Zuv, the controller, sofa, mug, and coffee table establish absorbed play.",
+              "midground": "The beige sofa and doorway connect the two partners in one continuous home.",
+              "background": "Aachu cooks at the stove while turning to make the first call.",
+              "focal_action": "Aachu calls while Zuv keeps both hands and attention on the controller.",
+              "story_details": [
+                "controller in both hands",
+                "spoon over saucepan",
+                "kitchen doorway"
+              ],
+              "cause_effect": "The divided geography establishes why her first call may not move him.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        },
+        {
+          "slide": 2,
+          "foreground": "Aachu, the pan, and spoon make her active cooking task immediate.",
+          "midground": "Her relaxed beckoning palm carries the normal first request.",
+          "background": "The open doorway reveals the beige living room she is calling toward.",
+          "focal_action": "She casually asks him to come to the kitchen without stopping the cooking.",
+          "story_details": [
+            "relaxed beckoning hand",
+            "simmering pan",
+            "open doorway"
+          ],
+          "cause_effect": "Her ordinary tone sets the baseline against which the later louder call changes meaning.",
+          "posed_portrait": false,
+          "decorative_clutter": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "654ee27d5cee9e504ae2db9757dc58dc9b14d7e207b390b09f6ea1eb4bac0ed9",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "Aachu, the pan, and spoon make her active cooking task immediate.",
+              "midground": "Her relaxed beckoning palm carries the normal first request.",
+              "background": "The open doorway reveals the beige living room she is calling toward.",
+              "focal_action": "She casually asks him to come to the kitchen without stopping the cooking.",
+              "story_details": [
+                "relaxed beckoning hand",
+                "simmering pan",
+                "open doorway"
+              ],
+              "cause_effect": "Her ordinary tone sets the baseline against which the later louder call changes meaning.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        },
+        {
+          "slide": 3,
+          "foreground": "The remote and coffee table anchor the unchanged gaming setup.",
+          "midground": "Zuv remains planted on the beige sofa with the controller in both hands.",
+          "background": "The open doorway keeps the kitchen destination visible behind him.",
+          "focal_action": "He answers verbally while his body and controller prove he has not moved.",
+          "story_details": [
+            "controller still held",
+            "bare feet planted",
+            "open kitchen doorway"
+          ],
+          "cause_effect": "His spoken acknowledgement without physical action creates the comic delay.",
+          "posed_portrait": false,
+          "decorative_clutter": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "4597f5f429c54065c0af499eb97c9847cfbdac5717955994f24ae3562d726603",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The remote and coffee table anchor the unchanged gaming setup.",
+              "midground": "Zuv remains planted on the beige sofa with the controller in both hands.",
+              "background": "The open doorway keeps the kitchen destination visible behind him.",
+              "focal_action": "He answers verbally while his body and controller prove he has not moved.",
+              "story_details": [
+                "controller still held",
+                "bare feet planted",
+                "open kitchen doorway"
+              ],
+              "cause_effect": "His spoken acknowledgement without physical action creates the comic delay.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        },
+        {
+          "slide": 4,
+          "foreground": "The controller and both working hands dominate the close evidence shot.",
+          "midground": "Zuv's fixed gaze and forward lean sustain the unchanged gaming state.",
+          "background": "The beige sofa and kitchen doorway preserve the same domestic geography.",
+          "focal_action": "He continues playing after claiming he is coming.",
+          "story_details": [
+            "controller close-up",
+            "fixed off-screen gaze",
+            "unchanged beige sofa"
+          ],
+          "cause_effect": "The continued game proves the first answer did not become action.",
+          "posed_portrait": false,
+          "decorative_clutter": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "49a02ea5f03875fc8f9441ea02c84702106034ec429ae40ba1e8aed72c4ed4d0",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The controller and both working hands dominate the close evidence shot.",
+              "midground": "Zuv's fixed gaze and forward lean sustain the unchanged gaming state.",
+              "background": "The beige sofa and kitchen doorway preserve the same domestic geography.",
+              "focal_action": "He continues playing after claiming he is coming.",
+              "story_details": [
+                "controller close-up",
+                "fixed off-screen gaze",
+                "unchanged beige sofa"
+              ],
+              "cause_effect": "The continued game proves the first answer did not become action.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        },
+        {
+          "slide": 5,
+          "foreground": "The pan and spoon show Aachu is still at the same cooking task.",
+          "midground": "Her cupped hand and wider mouth project a materially louder second call.",
+          "background": "The matched doorway and beige living room repeat the first-call geography.",
+          "focal_action": "Aachu calls again with enough force to break through the game.",
+          "story_details": [
+            "cupped calling hand",
+            "same simmering pan",
+            "matched doorway"
+          ],
+          "cause_effect": "His continued delay causes her tone and physical gesture to escalate.",
+          "posed_portrait": false,
+          "decorative_clutter": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "5202ce93d3bd4f5312dfe678aa6bbd9b7900b9bff5a4ed718b8cde6fd85d1709",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The pan and spoon show Aachu is still at the same cooking task.",
+              "midground": "Her cupped hand and wider mouth project a materially louder second call.",
+              "background": "The matched doorway and beige living room repeat the first-call geography.",
+              "focal_action": "Aachu calls again with enough force to break through the game.",
+              "story_details": [
+                "cupped calling hand",
+                "same simmering pan",
+                "matched doorway"
+              ],
+              "cause_effect": "His continued delay causes her tone and physical gesture to escalate.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        },
+        {
+          "slide": 6,
+          "foreground": "The coffee table and remote preserve the living-room anchor.",
+          "midground": "The controller lies abandoned on the beige sofa as Zuv rises into motion.",
+          "background": "The kitchen doorway gives his forward movement a clear destination.",
+          "focal_action": "He leaves the controller behind and rushes toward the kitchen empty-handed.",
+          "story_details": [
+            "abandoned controller",
+            "mid-stride body",
+            "matched kitchen doorway"
+          ],
+          "cause_effect": "The louder second call produces immediate physical compliance.",
+          "posed_portrait": false,
+          "decorative_clutter": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "34e59f11a6cc30cde175a49996b7af1240e6f1f6396cd9d0eae913cad4eafc6b",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The coffee table and remote preserve the living-room anchor.",
+              "midground": "The controller lies abandoned on the beige sofa as Zuv rises into motion.",
+              "background": "The kitchen doorway gives his forward movement a clear destination.",
+              "focal_action": "He leaves the controller behind and rushes toward the kitchen empty-handed.",
+              "story_details": [
+                "abandoned controller",
+                "mid-stride body",
+                "matched kitchen doorway"
+              ],
+              "cause_effect": "The louder second call produces immediate physical compliance.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        },
+        {
+          "slide": 7,
+          "foreground": "Aachu's profile, spoon, and cooking counter hold the domestic task in place.",
+          "midground": "The kitchen doorway separates her deadpan side-eye from Zuv's arrival.",
+          "background": "Zuv stands empty-handed with an open questioning palm and innocent expression.",
+          "focal_action": "He arrives as though the louder repeat were the first time she called.",
+          "story_details": [
+            "open innocent palm",
+            "Aachu's restrained side-eye",
+            "spoon still in hand"
+          ],
+          "cause_effect": "His sudden arrival pays off the temperature change while his innocence supplies the joke.",
+          "posed_portrait": false,
+          "decorative_clutter": false,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "Aachu's profile, spoon, and cooking counter hold the domestic task in place.",
+              "midground": "The kitchen doorway separates her deadpan side-eye from Zuv's arrival.",
+              "background": "Zuv stands empty-handed with an open questioning palm and innocent expression.",
+              "focal_action": "He arrives as though the louder repeat were the first time she called.",
+              "story_details": [
+                "open innocent palm",
+                "Aachu's restrained side-eye",
+                "spoon still in hand"
+              ],
+              "cause_effect": "His sudden arrival pays off the temperature change while his innocence supplies the joke.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "All seven locked copy lines, punctuation marks, curly quotes, asterisks, capitalization, and top-right @a.storyof.two brandmarks were read directly from the exact pixels."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "Seven distinct PNG assets are hash-bound at exactly 1080x1440 for the single locked instagram_post format."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "reviewer_id": "/root/final_story_style_after_repairs",
+      "reviewer_evidence": "An independent final reviewer inspected all seven exact packaged images before reconciling them with the intended beats, matched cameras, controller state, relationship warmth, text, and style.",
+      "source_director_event_fingerprint": "sha256:7330b6bb9cb8d51605affd7a1c669bed453a35f54c70f05b626cabbee232d968",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "A calm kitchen call receives a verbal answer but no movement; continued play triggers a louder repeat, immediate controller abandonment, and an innocent arrival.",
+      "relationship_turn": "Familiar domestic irritation becomes affectionate recognition when Zuv reacts instantly yet behaves as though the second call were the first.",
+      "setup_payoff_evidence": "Slides 2 and 5 repeat the kitchen camera while changing her vocal force; Slides 3 and 6 repeat the living-room camera while changing his body and controller ownership.",
+      "weakest_frame": "Slide 4 adds the least new action, but its tighter controller-led view creates the necessary comic hold before the louder call.",
+      "repair_decision": "No further visual-story repair is required after the beige-sofa continuity correction.",
+      "frames": [
+        {
+          "slide": 1,
+          "format": "instagram_post",
+          "file": "final/slide-01.png",
+          "status": "PASS",
+          "expected_silent_read": "She makes a small bid for the attention of her partner while he remains absorbed in a game.",
+          "observed_image_first_read": "Aachu calls from the kitchen while cooking as Zuv remains absorbed in a controller game on the sofa.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Headline first, controller-held Zuv second, calling Aachu and kitchen geography third.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The wide frame establishes both rooms, both partners, and the attention split required by the hook.",
+          "evidence": "Aachu calls while Zuv keeps both hands and attention on the controller. The divided geography establishes why her first call may not move him.",
+          "image_fingerprint": "sha256:7b34592f3df139f1bfc83bdf41a084ab7448c56aca53e8ac4f7b80da43b2dacd"
+        },
+        {
+          "slide": 2,
+          "format": "instagram_post",
+          "file": "final/slide-02.png",
+          "status": "PASS",
+          "expected_silent_read": "She casually calls from the kitchen and initially expects one call to be enough.",
+          "observed_image_first_read": "Aachu makes a calm, ordinary request toward the living room with a relaxed hand while continuing to stir.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Calm request text first, Aachu's face and beckoning hand second, pan and doorway third.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "Relaxed mouth, open palm, spoon, and doorway precisely express the normal first request.",
+          "evidence": "She casually asks him to come to the kitchen without stopping the cooking. Her ordinary tone sets the baseline against which the later louder call changes meaning.",
+          "image_fingerprint": "sha256:654ee27d5cee9e504ae2db9757dc58dc9b14d7e207b390b09f6ea1eb4bac0ed9"
+        },
+        {
+          "slide": 3,
+          "format": "instagram_post",
+          "file": "final/slide-03.png",
+          "status": "PASS",
+          "expected_silent_read": "He acknowledges the kitchen without looking away or moving from the game.",
+          "observed_image_first_read": "Zuv answers with his mouth but stays seated, eyes forward, and controller still held in both hands.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Answer text first, seated controller posture second, visible kitchen destination third.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "Speech is visible, but seated posture and two-hand controller ownership prove no movement.",
+          "evidence": "He answers verbally while his body and controller prove he has not moved. His spoken acknowledgement without physical action creates the comic delay.",
+          "image_fingerprint": "sha256:4597f5f429c54065c0af499eb97c9847cfbdac5717955994f24ae3562d726603"
+        },
+        {
+          "slide": 4,
+          "format": "instagram_post",
+          "file": "final/slide-04.png",
+          "status": "PASS",
+          "expected_silent_read": "His acknowledgment produces no action because both hands and attention remain on the controller.",
+          "observed_image_first_read": "A tighter view confirms that Zuv is still playing and has not acted on his answer.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Delay text first, controller and working hands second, fixed gaze and sofa third.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The closer evidence shot extends the delay without changing controller ownership or location.",
+          "evidence": "He continues playing after claiming he is coming. The continued game proves the first answer did not become action.",
+          "image_fingerprint": "sha256:49a02ea5f03875fc8f9441ea02c84702106034ec429ae40ba1e8aed72c4ed4d0"
+        },
+        {
+          "slide": 5,
+          "format": "instagram_post",
+          "file": "final/slide-05.png",
+          "status": "PASS",
+          "expected_silent_read": "She stops the same task and calls again more firmly from the same position.",
+          "observed_image_first_read": "From the same kitchen position, Aachu cups her hand and calls again with clearly greater volume.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Louder call text first, cupped hand and open mouth second, matched kitchen setting third.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The matched Slide 2 camera changes only vocal force and hand action, making escalation legible.",
+          "evidence": "Aachu calls again with enough force to break through the game. His continued delay causes her tone and physical gesture to escalate.",
+          "image_fingerprint": "sha256:5202ce93d3bd4f5312dfe678aa6bbd9b7900b9bff5a4ed718b8cde6fd85d1709"
+        },
+        {
+          "slide": 6,
+          "format": "instagram_post",
+          "file": "final/slide-06.png",
+          "status": "PASS",
+          "expected_silent_read": "The firmer repeat makes him abandon the controller and move immediately toward the kitchen.",
+          "observed_image_first_read": "Zuv instantly rises toward the kitchen empty-handed, leaving the controller behind on the sofa.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Answer text first, Zuv's forward motion second, abandoned controller receipt third.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The matched Slide 3 camera changes body state and controller ownership, proving immediate reaction.",
+          "evidence": "He leaves the controller behind and rushes toward the kitchen empty-handed. The louder second call produces immediate physical compliance.",
+          "image_fingerprint": "sha256:34e59f11a6cc30cde175a49996b7af1240e6f1f6396cd9d0eae913cad4eafc6b"
+        },
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": "final/slide-07.png",
+          "status": "PASS",
+          "expected_silent_read": "He arrives with conspicuous innocence while her knowing look remembers the delayed response.",
+          "observed_image_first_read": "Zuv reaches the kitchen with an innocent open palm while Aachu keeps stirring and gives him a knowing side-eye.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Question text first, Zuv's innocent face and palm second, Aachu's side-eye and spoon third.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "Empty hands, open palm, doorway arrival, and Aachu's deadpan look deliver the first-time innocence payoff.",
+          "evidence": "He arrives as though the louder repeat were the first time she called. His sudden arrival pays off the temperature change while his innocence supplies the joke.",
+          "image_fingerprint": "sha256:da7ff077e15ee2d21371f225c74f05064331069afd19749370ebf48bfe010aca"
+        }
+      ],
+      "issues": [],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/final_story_style_after_repairs",
+        "reviewer_run_id": "final-story-style-after-repairs-20260730-01",
+        "input_fingerprint": "sha256:c39ff852c82fc675437739d3b351c1bf338f501231147dd97f916204c11eb92f",
+        "raw_response_artifact": ".internal/full-deck-event-b-raw.md",
+        "raw_response_fingerprint": "sha256:a9926c242ac50d7adb10e3094781dbddfd9a33c54eb6655a80e3ab9fc3954767",
+        "output_fingerprint": "sha256:8f801106d5d355e7c7cc5bd23938e57d9106ce82605c20c1ea34759135ddf781"
+      }
+    }
+  }
+}

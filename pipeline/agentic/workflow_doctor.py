@@ -25,6 +25,13 @@ from pipeline.stages.carousel_format_contract import (
     locked_formats,
 )
 from pipeline.stages.codex_builtin_image_generation import (
+    approved_proof_batch_handoff_attestation_issues,
+    compiled_prompt_handoff_integrity_issues,
+    creator_override_batch_handoff_integrity_issues,
+    load_attempt_ledger,
+    next_retry_count,
+    retry_prompt_handoff_attestation_issues,
+    sha256_binding,
     validate_exact_image_visual_qa,
     validate_quarantine_integrity,
 )
@@ -487,10 +494,9 @@ def _structured_visual_qa_v2_issues(
                         resolved_outputs[output_format] = output
                         continue
                     resolved = dict(output)
-                    raw_path_text = str(resolved.get("path") or "").strip()
-                    raw_path = Path(raw_path_text) if raw_path_text else None
-                    if raw_path is not None and not raw_path.is_absolute():
-                        resolved["path"] = str(package_dir / raw_path)
+                    # Keep the canonical package-relative quarantine binding intact.
+                    # validate_quarantine_integrity resolves it against package_dir
+                    # and deliberately rejects absolute or non-canonical aliases.
                     resolved_outputs[output_format] = resolved
                 exact_records.append(
                     {"slide": record.get("slide"), "native_outputs": resolved_outputs}
@@ -662,6 +668,174 @@ def _retry_metadata(payloads: list[dict[str, Any]]) -> tuple[int | None, int | N
     return retry_count, retry_limit
 
 
+def _failed_proof_retry_is_ready(
+    package_dir: Path,
+    image_generation: dict[str, Any],
+    final_images: dict[str, Any],
+) -> bool:
+    """Recognize only a current, hash-bound failed-proof retry handoff."""
+
+    if image_generation != final_images:
+        return False
+    if image_generation.get("proof_only") is not True:
+        return False
+    if _status(image_generation.get("status")) not in {
+        "generated_quarantined",
+        "rejected_spatial_integrity",
+    }:
+        return False
+    if _status(image_generation.get("proof_state")) != _status(
+        image_generation.get("status")
+    ):
+        return False
+    qa_issues = image_generation.get("visual_qa_issues")
+    if not isinstance(qa_issues, list) or not qa_issues:
+        return False
+
+    try:
+        proof_slide = int(image_generation["requested_proof_slide"])
+        prompt_pack = _read_json(package_dir / "prompt-pack.json")
+        prompt_slides = prompt_pack.get("slides")
+        if not isinstance(prompt_slides, list):
+            return False
+        selected_slides = [
+            slide
+            for slide in prompt_slides
+            if isinstance(slide, dict)
+            and int(slide.get("slide", 0) or 0) == proof_slide
+        ]
+        if len(selected_slides) != 1:
+            return False
+        current_formats = list(locked_formats(package_dir))
+        if retry_prompt_handoff_attestation_issues(
+            package_dir,
+            state=image_generation,
+        ):
+            return False
+        if compiled_prompt_handoff_integrity_issues(
+            package_dir,
+            state=image_generation,
+            slides=selected_slides,
+            output_formats=current_formats,
+        ):
+            return False
+
+        ledger = load_attempt_ledger(package_dir)
+        attempts = ledger.get("attempts")
+        if not isinstance(attempts, list) or not attempts:
+            return False
+        latest = attempts[-1]
+        if not isinstance(latest, dict) or latest.get("status") != "QA_FAILED":
+            return False
+        attestation = image_generation.get("retry_prompt_handoff_attestation")
+        if not isinstance(attestation, dict):
+            return False
+        if attestation.get("failed_attempt") != latest:
+            return False
+        if attestation.get("next_retry_count") != len(attempts):
+            return False
+        if image_generation.get("retry_count") != latest.get("retry_count"):
+            return False
+        if next_retry_count(package_dir) != len(attempts):
+            return False
+    except (KeyError, TypeError, ValueError, OSError, json.JSONDecodeError):
+        return False
+    return True
+
+
+def _failed_full_deck_retry_is_ready(
+    package_dir: Path,
+    image_generation: dict[str, Any],
+    final_images: dict[str, Any],
+) -> bool:
+    """Recognize a hash-bound handoff that replaces one QA-failed full deck."""
+
+    if image_generation != final_images or not _is_handoff_state(image_generation):
+        return False
+    if image_generation.get("proof_only") is not False:
+        return False
+    attestation = image_generation.get(
+        "qa_failed_full_deck_retry_handoff_attestation"
+    )
+    if not isinstance(attestation, dict):
+        return False
+    try:
+        payload = {
+            key: value
+            for key, value in attestation.items()
+            if key != "attestation_fingerprint"
+        }
+        encoded = json.dumps(
+            payload,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        expected_fingerprint = "sha256:" + hashlib.sha256(encoded).hexdigest()
+        if attestation.get("attestation_fingerprint") != expected_fingerprint:
+            return False
+        if _status(attestation.get("source_status")) not in {
+            "generated_quarantined",
+            "rejected_spatial_integrity",
+        }:
+            return False
+        if not isinstance(attestation.get("visual_qa_binding"), dict):
+            return False
+        qa_binding = attestation["visual_qa_binding"]
+        qa_path = package_dir / str(qa_binding.get("relative_path") or "")
+        if (
+            not qa_path.is_file()
+            or qa_path.is_symlink()
+            or sha256_binding(qa_path.read_bytes()) != qa_binding.get("sha256")
+        ):
+            return False
+        failed_qa = _read_json(qa_path)
+        if (
+            _status(failed_qa.get("status")) != "fail"
+            or failed_qa.get("image_set_sha256")
+            != attestation.get("failed_image_set_sha256")
+        ):
+            return False
+
+        ledger = load_attempt_ledger(package_dir)
+        attempts = ledger.get("attempts")
+        if not isinstance(attempts, list) or not attempts:
+            return False
+        latest = attempts[-1]
+        if (
+            not isinstance(latest, dict)
+            or latest.get("status") != "QA_FAILED"
+            or attestation.get("failed_attempt") != latest
+            or attestation.get("next_retry_count") != len(attempts)
+            or next_retry_count(
+                package_dir,
+                allow_approved_proof_batch=True,
+            )
+            != len(attempts)
+        ):
+            return False
+        prompt_pack = _read_json(package_dir / "prompt-pack.json")
+        prompt_slides = prompt_pack.get("slides")
+        if not isinstance(prompt_slides, list) or len(prompt_slides) < 2:
+            return False
+        current_formats = list(locked_formats(package_dir))
+        if compiled_prompt_handoff_integrity_issues(
+            package_dir,
+            state=image_generation,
+            slides=prompt_slides,
+            output_formats=current_formats,
+        ):
+            return False
+        if approved_proof_batch_handoff_attestation_issues(
+            package_dir,
+            state=image_generation,
+        ):
+            return False
+    except (KeyError, TypeError, ValueError, OSError, json.JSONDecodeError):
+        return False
+    return True
+
+
 def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
     package_dir = package_dir.expanduser()
     issues: list[WorkflowIssue] = []
@@ -686,7 +860,25 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
     final_audit = _read_json(package_dir / "final-audit.json")
     identity_review = _read_json(package_dir / "identity-consistency-review.json")
     visual_qa = _read_json(package_dir / "visual-qa.json")
-    creator_approval = _read_json(package_dir / "creator-proof-approval.json")
+    approved_proof_handoff_claimed = isinstance(
+        image_generation.get("approved_proof_batch_handoff_attestation"),
+        dict,
+    )
+    approved_proof_handoff_issues = (
+        approved_proof_batch_handoff_attestation_issues(
+            package_dir,
+            state=image_generation,
+        )
+        if approved_proof_handoff_claimed
+        else []
+    )
+    if approved_proof_handoff_claimed and not approved_proof_handoff_issues:
+        approval_relative_path = image_generation[
+            "approved_proof_batch_handoff_attestation"
+        ]["creator_approval_binding"]["relative_path"]
+        creator_approval = _read_json(package_dir / approval_relative_path)
+    else:
+        creator_approval = _read_json(package_dir / "creator-proof-approval.json")
     text_generated_candidates = _read_json(package_dir / "text-generated-candidates.json")
     raw_scene = _read_text(package_dir / "raw-scene-row.md").lower()
     blocker_text = _read_text(package_dir / "image-generation-blocker.md").lower()
@@ -732,7 +924,58 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
         if has_generated_proof
         else []
     )
-    if has_generated_proof and qa_v2_issues:
+    retry_ready_failed_proof = _failed_proof_retry_is_ready(
+        package_dir,
+        image_generation,
+        final_images,
+    )
+    retry_ready_failed_full_deck = _failed_full_deck_retry_is_ready(
+        package_dir,
+        image_generation,
+        final_images,
+    )
+    creator_override_handoff_claimed = (
+        (_is_handoff_state(image_generation) or _is_handoff_state(final_images))
+        and any(
+            payload.get("creator_override") is True
+            or isinstance(payload.get("creator_override_proof_binding"), dict)
+            for payload in (image_generation, final_images)
+        )
+    )
+    creator_override_handoff_issues = (
+        creator_override_batch_handoff_integrity_issues(
+            package_dir,
+            state=image_generation,
+            final_state=final_images,
+        )
+        if creator_override_handoff_claimed
+        else []
+    )
+    creator_override_handoff_valid = (
+        creator_override_handoff_claimed
+        and not creator_override_handoff_issues
+    )
+    if creator_override_handoff_issues:
+        issues.append(
+            _issue(
+                "creator_override_handoff_integrity_invalid",
+                "blocker",
+                "Creator-override batch handoff evidence is missing, stale, or contradictory.",
+                evidence=[
+                    package_dir / "image-generation.json",
+                    package_dir / "final-images.json",
+                    *creator_override_handoff_issues[:12],
+                ],
+                next_action="restore_the_bound_creator_override_evidence_or_reaccept_the_current_failed_proof",
+            )
+        )
+    if (
+        has_generated_proof
+        and qa_v2_issues
+        and not retry_ready_failed_proof
+        and not retry_ready_failed_full_deck
+        and not creator_override_handoff_valid
+    ):
         issues.append(
             _issue(
                 "generated_proof_without_structured_qa_v2",
@@ -762,7 +1005,24 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
         creator_approval,
         expected_image_set_sha256=expected_image_set_sha256,
     )
-    if creator_approval and not creator_approved:
+    if approved_proof_handoff_issues:
+        issues.append(
+            _issue(
+                "approved_proof_handoff_integrity_invalid",
+                "blocker",
+                "The QA-passed proof handoff evidence is missing, stale, or contradictory.",
+                evidence=[
+                    package_dir / "image-generation.json",
+                    *approved_proof_handoff_issues[:12],
+                ],
+                next_action="restore_the_exact_approved_proof_evidence_before_generation",
+            )
+        )
+    if (
+        creator_approval
+        and not creator_approved
+        and not retry_ready_failed_full_deck
+    ):
         issues.append(
             _issue(
                 "creator_approval_asset_hash_mismatch",
@@ -812,7 +1072,7 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
                 next_action="promote_creator_approved_proof_to_batch_allowed_or_disable_batching",
             )
         )
-    if "batch_allowed" in lifecycle_states and (
+    if "batch_allowed" in lifecycle_states and not creator_override_handoff_valid and (
         not creator_approved or qa_v2_issues or not _qa_reviews_pass(visual_qa)
     ):
         issues.append(
@@ -825,7 +1085,7 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
             )
         )
 
-    if "blocked_visual_qa" in lifecycle_states:
+    if "blocked_visual_qa" in lifecycle_states and not creator_override_handoff_valid:
         retry_count, retry_limit = _retry_metadata(lifecycle_payloads)
         if retry_count != 2 or retry_limit != 2:
             issues.append(
@@ -989,7 +1249,7 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
                 missing_identity_fields.append("selected reference IDs for Aachu and Zuv")
             if not _has_specific_likeness_notes(identity_review):
                 missing_identity_fields.append("specific likeness notes for Aachu and Zuv")
-            if missing_identity_fields:
+            if missing_identity_fields and not creator_override_handoff_valid:
                 issues.append(
                     _issue(
                         "identity_eval_incomplete_stop_gate",

@@ -469,6 +469,7 @@ class IllustrationCarouselTests(unittest.TestCase):
                 json.dumps(
                     {
                         "source": "attached transcript model pass",
+                        "identity_prompt_override": "CURRENT STORY IDENTITY OVERRIDE: use only the attached original photos.",
                         "concept": {
                             "title": "Our Daily Romance",
                             "human_truth": "Daily couple energy is tiny nonsense becoming comfort.",
@@ -489,6 +490,13 @@ class IllustrationCarouselTests(unittest.TestCase):
                                     "default_max_visible_hands": 0,
                                     "hands": [],
                                     "forbidden": ["extra hand"],
+                                },
+                                "spatial_topology_contract": {
+                                    "scene_action_binding": "Both people remain separate from the sofa and wall.",
+                                    "people": [],
+                                    "solid_objects": ["sofa", "wall"],
+                                    "review_order": ["whole silhouettes", "solid boundaries"],
+                                    "forbidden": ["person merged into sofa or wall"],
                                 },
                             },
                             {
@@ -570,8 +578,13 @@ class IllustrationCarouselTests(unittest.TestCase):
             "Send this to the person who shares your daily nonsense.",
         )
         self.assertEqual(slides[0]["hand_map"]["expected_visible_hands"], 0)
+        self.assertEqual(
+            prompt_pack["slides"][0]["spatial_topology_contract"]["solid_objects"],
+            ["sofa", "wall"],
+        )
         self.assertEqual(prompt_pack["integrated_text_plan"]["slide_copy"], expected_copy)
         self.assertIn("Creative baseline source of truth", prompt_pack["slides"][0]["prompt"])
+        self.assertIn("CURRENT STORY IDENTITY OVERRIDE", prompt_pack["slides"][0]["prompt"])
         self.assertEqual(copy["caption_recommended"], "Couple life is 10% romance, 90% getting caught.")
         self.assertEqual(len(slides), 7)
 
@@ -1246,6 +1259,104 @@ class IllustrationCarouselTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("--instagram-post", result.stdout)
         self.assertIn("--reels-stories", result.stdout)
+        self.assertIn("--recompile-failed-proof-handoff", result.stdout)
+        self.assertIn("--accept-failed-proof-by-creator", result.stdout)
+
+    def test_accept_failed_proof_cli_requires_creator_approval(self):
+        repo_root = Path(__file__).resolve().parent.parent
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(repo_root / "scripts" / "package_generated_carousel.py"),
+                repo_root.as_posix(),
+                "--accept-failed-proof-by-creator",
+            ],
+            cwd=repo_root,
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=30,
+        )
+
+        self.assertEqual(result.returncode, 2)
+        self.assertIn(
+            "requires --creator-approval PATH",
+            result.stderr,
+        )
+
+    def test_accept_failed_proof_cli_rejects_generation_inputs(self):
+        repo_root = Path(__file__).resolve().parent.parent
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(repo_root / "scripts" / "package_generated_carousel.py"),
+                repo_root.as_posix(),
+                "--accept-failed-proof-by-creator",
+                "--creator-approval",
+                "approval.json",
+                "--instagram-post",
+                "generated.png",
+            ],
+            cwd=repo_root,
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=30,
+        )
+
+        self.assertEqual(result.returncode, 2)
+        self.assertIn(
+            "--accept-failed-proof-by-creator cannot be combined",
+            result.stderr,
+        )
+
+    def test_recompile_failed_proof_handoff_cli_rejects_packaging_arguments(self):
+        repo_root = Path(__file__).resolve().parent.parent
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(repo_root / "scripts" / "package_generated_carousel.py"),
+                repo_root.as_posix(),
+                "--recompile-failed-proof-handoff",
+                "--instagram-post",
+                "generated.png",
+            ],
+            cwd=repo_root,
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=30,
+        )
+
+        self.assertEqual(result.returncode, 2)
+        self.assertIn(
+            "--recompile-failed-proof-handoff cannot be combined",
+            result.stderr,
+        )
+
+    def test_recompile_failed_proof_handoff_cli_rejects_no_quality_refresh(self):
+        repo_root = Path(__file__).resolve().parent.parent
+
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(repo_root / "scripts" / "package_generated_carousel.py"),
+                repo_root.as_posix(),
+                "--recompile-failed-proof-handoff",
+                "--no-quality-refresh",
+            ],
+            cwd=repo_root,
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=30,
+        )
+
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("--no-quality-refresh", result.stderr)
 
     def test_codex_native_manifest_records_identity_reference(self):
         with tempfile.TemporaryDirectory() as tmpdir:

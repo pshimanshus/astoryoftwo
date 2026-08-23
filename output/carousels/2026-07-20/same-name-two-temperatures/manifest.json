@@ -1,0 +1,103 @@
+{
+  "date": "2026-07-20",
+  "slug": "same-name-two-temperatures",
+  "title": "The First “Suno” Never Counts",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_builtin_image_generation",
+  "status": "draft_for_human_review",
+  "source_story": "Aachu calls Zuv from the kitchen while he is absorbed in PlayStation. He answers that he is coming but never moves. She calls again with a firmer “SUNO.” He immediately abandons the controller, rushes to the kitchen, and innocently asks, “Kya hua?” as though this were the first call.",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "format_contract": {
+    "schema_version": "1.0",
+    "status": "LOCKED",
+    "source": "creator_current_request_2026-07-28",
+    "default_applied": false,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "formats": [
+      {
+        "format": "instagram_post",
+        "label": "Instagram post",
+        "aspect_ratio": "3:4",
+        "folder": "final",
+        "source_size": "1440x1920",
+        "target_size": "1080x1440"
+      }
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 7,
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "3:4",
+        "size": "1080x1440",
+        "directory": "final/"
+      }
+    },
+    "native_output_rule": "Generate only the locked 1080x1440 Instagram-post format from its own native source."
+  },
+  "reference_images": [],
+  "identity_references": [],
+  "identity_reference_selection": {
+    "mode": "explicit_generation_bundle",
+    "rule": "Use only the selected identity and style references attached for this generation run.",
+    "max_prompt_images": 4,
+    "candidate_count": 0,
+    "selected_count": 0,
+    "unselected_count": 0,
+    "selected_roles": [],
+    "guidance": "Final likeness is governed by the creator-approved stylized-likeness exception recorded in the exact-image QA."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-07-20/same-name-two-temperatures/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-07-20/same-name-two-temperatures/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-07-20/same-name-two-temperatures/identity-face-contact-sheet.jpg",
+    "status": "CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS"
+  },
+  "agentic_os": {
+    "context_manifest": "config/agentic_context_manifest.json",
+    "skill_systems": "config/skill-systems.json",
+    "skill_system": "carousel_jam"
+  },
+  "artifacts": {
+    "creative_baseline": "creative-baseline.json",
+    "concept": "concept.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "visual_reviewer",
+      "identity_consistency_reviewer",
+      "asset_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": ".internal/full-deck-visual-qa.json"
+    }
+  }
+}

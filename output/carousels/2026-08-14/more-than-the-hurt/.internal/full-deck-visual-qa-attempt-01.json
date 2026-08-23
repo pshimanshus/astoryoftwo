@@ -1,0 +1,80 @@
+{
+  "schema_version": "2.1",
+  "status": "FAIL",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "8803de829e3260acddfa9d3660d9dab433b182935768be9e49880c8d7c41e2f1",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/identity_attempt3_qa",
+      "pass": false,
+      "status": "REPAIR",
+      "evidence": "Independent inspection found cross-slide face and hair drift, wardrobe discontinuity, unauthorized shirt lettering on slides 2, 4, and 6, missing required hands, and inconsistent memory-frame mechanics."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/event_b_attempt3_critic",
+      "pass": false,
+      "status": "REPAIR",
+      "evidence": "Independent image-first inspection found a strong opening but a broken frame-state setup, changed table geography, a static kickstand frame on slide 5, and an overly reconciled ending."
+    }
+  },
+  "slides": [
+    {"slide": 1, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-01.png", "sha256": "248fd731d99a25189dc33c3f451348b73717a74f4d12cdcdfc9cb171e8879e83", "width": 1080, "height": 1440}}},
+    {"slide": 2, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-02.png", "sha256": "7ae6f07e13fe647085ea6b96d652f12c069c7ae52e80ffc38e9cdff16c59ce00", "width": 1080, "height": 1440}}},
+    {"slide": 3, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-03.png", "sha256": "21301d17f9f3a947477aa44cb8c0a689721481675614a346b97ac8b1a7fe42d2", "width": 1080, "height": 1440}}},
+    {"slide": 4, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-04.png", "sha256": "8b4d8650015945e71d208e1b0fe42652d7a0fac90e25f3b33e8a730a43e6d9ff", "width": 1080, "height": 1440}}},
+    {"slide": 5, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-05.png", "sha256": "ea53493f503d0ad4c2314c3413457ac702a7dddeecaf8fe150c5f676dc702e9e", "width": 1080, "height": 1440}}},
+    {"slide": 6, "native_outputs": {"instagram_post": {"path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-06.png", "sha256": "3bd7608216967d4c65ceb0f3873eef3501fc4a87637f8b93c4c16e1391b76e47", "width": 1080, "height": 1440}}}
+  ],
+  "checks": {
+    "storyboard": {"pass": false},
+    "aachu_face": {"pass": false, "reference_option_ids": ["ID01", "ID02", "ID03"], "likeness_notes": "Face length, cheek fullness, nose shape, and wardrobe do not remain stable across all six slides."},
+    "zuv_face": {"pass": false, "reference_option_ids": ["ID02", "ID03"], "likeness_notes": "The hair repeatedly becomes a compact ringlet cap and the face proportions drift from the selected references."},
+    "dress_continuity": {"pass": false},
+    "style": {"pass": true},
+    "scene_logic": {"pass": false},
+    "integrated_final_text": {"pass": false, "evidence": "Main copy and brandmarks are exact, but slides 2, 4, and 6 add unauthorized red lettering on Zuv's shirt."},
+    "final_files": {"pass": true},
+    "spatial_topology": {"pass": false, "slides": []},
+    "anatomy_inventory": {"pass": false, "slides": []},
+    "scene_entity_integrity": {"pass": false, "slides": []},
+    "visual_richness": {"pass": false, "slides": []},
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "reviewer_id": "/root/event_b_attempt3_critic",
+      "reviewer_evidence": "The independent critic inspected all six decoded native frames before reconciling the visible sequence against the locked director board.",
+      "source_director_event_fingerprint": "sha256:c00a9bbb1ee12cadf5a39c123752ae0d0579af40c69cb5b2cfe88cd836b14d1c",
+      "reviewed_native_formats": ["instagram_post"],
+      "sequence_read": "The pixels read as missed dinner, phone put away, Aachu arranging frames, and the couple reconciling; the intended memory-darkening and partial reopening do not survive.",
+      "relationship_turn": "The ending becomes a warm completed reconciliation because the couple lean inward and smile before the memory and chair mechanisms have earned the release.",
+      "setup_payoff_evidence": "The chair obstruction begins clearly, but slide 3 leaves all frames upright and slides 4 to 6 change table geometry, so the one-up two-down payoff lacks a stable setup.",
+      "weakest_frame": "Slide 3 reverses the required object state because all three frames remain upright; slide 5 is the second decisive failure because its frame is static on a kickstand.",
+      "repair_decision": "Regenerate with the exact three-frame state, rectangular-table geography, continuous wardrobe, blank clothing, readable hands, and a restrained no-touch ending.",
+      "frames": [
+        {"slide": 1, "format": "instagram_post", "file": "final/slide-01.png", "status": "PASS", "expected_silent_read": "A missed dinner makes Zuv's absence the dominant object between them.", "observed_image_first_read": "Aachu waits beside a cold dinner while Zuv stops in the rainy doorway behind the empty chair.", "core_action_legible": true, "relationship_turn_legible": true, "focal_hierarchy": "The eye reaches Aachu, the central empty chair, then the smaller doorway figure.", "hands_gaze_prop_legible": true, "storyboard_match": true, "native_format_readability": true, "copy_visual_contradictions": [], "unexpected_story": [], "match_rationale": "The empty chair, cold meal, candle, phone, and keys establish the missed promise without touch.", "evidence": "Two set places and the dominant empty chair visibly separate Aachu from Zuv at the threshold.", "image_fingerprint": "sha256:248fd731d99a25189dc33c3f451348b73717a74f4d12cdcdfc9cb171e8879e83"},
+        {"slide": 2, "format": "instagram_post", "file": "final/slide-02.png", "status": "REPAIR", "expected_silent_read": "Zuv puts distraction away but the empty chair still blocks access.", "observed_image_first_read": "Zuv places a phone beside keys while looking down through a large chair barrier.", "core_action_legible": true, "relationship_turn_legible": false, "focal_hierarchy": "The chair dominates before the phone placement and Aachu's observing profile.", "hands_gaze_prop_legible": false, "storyboard_match": false, "native_format_readability": true, "copy_visual_contradictions": ["Aachu's clothing changes seconds later", "The untouched plate becomes dirty and fork-marked", "Zuv's shirt gains unauthorized lettering"], "unexpected_story": ["Routine tidying after a meal"], "match_rationale": "Chair obstruction survives, but gaze, wardrobe, plate state, and lettering contradict the locked beat.", "evidence": "Zuv looks at the phone rather than Aachu; a fork and residue appear on the plate; red lettering is visible on his shirt.", "image_fingerprint": "sha256:7ae6f07e13fe647085ea6b96d652f12c069c7ae52e80ffc38e9cdff16c59ce00"},
+        {"slide": 3, "format": "instagram_post", "file": "final/slide-03.png", "status": "REPAIR", "expected_silent_read": "Aachu turns the last of exactly three memory frames face-down.", "observed_image_first_read": "Aachu inspects one of three upright frames while two blank-backed frames remain standing on easels.", "core_action_legible": false, "relationship_turn_legible": false, "focal_hierarchy": "Aachu's hand and the upright frame group dominate the hallway console.", "hands_gaze_prop_legible": true, "storyboard_match": false, "native_format_readability": true, "copy_visual_contradictions": ["Zero frames finish face-down"], "unexpected_story": ["Aachu is arranging or removing a displayed picture"], "match_rationale": "The key memory-darkening action is absent despite correct one-person staging.", "evidence": "Visible kickstands keep the two background frames upright and the held frame is also raised.", "image_fingerprint": "sha256:21301d17f9f3a947477aa44cb8c0a689721481675614a346b97ac8b1a7fe42d2"},
+        {"slide": 4, "format": "instagram_post", "file": "final/slide-04.png", "status": "REPAIR", "expected_silent_read": "Zuv waits in the once-empty chair while Aachu decides whether to enter.", "observed_image_first_read": "Aachu already stands close to a round table while Zuv smiles softly up at her.", "core_action_legible": false, "relationship_turn_legible": false, "focal_hierarchy": "Zuv's softened face and the foreground Aachu dominate over the damaged dinner trace.", "hands_gaze_prop_legible": false, "storyboard_match": false, "native_format_readability": true, "copy_visual_contradictions": ["The rectangular table becomes round", "Aachu's white blouse becomes dark", "One of Zuv's hands is hidden", "Zuv's shirt has unauthorized lettering"], "unexpected_story": ["A gentle morning conversation is already underway"], "match_rationale": "Waiting and hurt traces remain, but threshold distance, hand visibility, chair geography, and guarded emotion fail.", "evidence": "Aachu is at the table rather than the doorway and Zuv presents a near-smile with one hand occluded.", "image_fingerprint": "sha256:8b4d8650015945e71d208e1b0fe42652d7a0fac90e25f3b33e8a730a43e6d9ff"},
+        {"slide": 5, "format": "instagram_post", "file": "final/slide-05.png", "status": "REPAIR", "expected_silent_read": "Aachu voluntarily lifts one frame only halfway while looking directly at Zuv.", "observed_image_first_read": "Aachu steadies an already upright blank-backed frame on a deployed kickstand during direct eye contact.", "core_action_legible": false, "relationship_turn_legible": false, "focal_hierarchy": "The upright frame and mutual gaze dominate a sparse table setting.", "hands_gaze_prop_legible": false, "storyboard_match": false, "native_format_readability": true, "copy_visual_contradictions": ["The frame is upright on a kickstand instead of mid-lift", "The acting hand is reversed"], "unexpected_story": ["A serious conversation around a displayed photograph"], "match_rationale": "Guarded eye contact passes, but the voluntary partial-reopening receipt is replaced by a static frame.", "evidence": "A triangular easel is clearly deployed and Aachu's left hand, not her locked right hand, holds the frame.", "image_fingerprint": "sha256:ea53493f503d0ad4c2314c3413457ac702a7dddeecaf8fe150c5f676dc702e9e"},
+        {"slide": 6, "format": "instagram_post", "file": "final/slide-06.png", "status": "REPAIR", "expected_silent_read": "The chair clears their sightline while one memory returns and the hurt remains.", "observed_image_first_read": "The couple lean close and smile at a round table with a heart-marked phone and moved props.", "core_action_legible": false, "relationship_turn_legible": false, "focal_hierarchy": "Their warm faces dominate before the remaining cold plate, candle, and frame states.", "hands_gaze_prop_legible": false, "storyboard_match": false, "native_format_readability": true, "copy_visual_contradictions": ["The matched rectangular-table axis is lost", "The couple smile and lean inward", "The phone moves and gains a heart", "Aachu's wardrobe changes", "Zuv's shirt has unauthorized lettering"], "unexpected_story": ["The couple have already warmly reconciled"], "match_rationale": "One-up two-down frames and hurt traces appear, but the spatial and emotional ending is too resolved.", "evidence": "Round-table geography, mutual smiles, inward lean, ambiguous contact, and a heart-marked phone contradict the restrained no-touch ending.", "image_fingerprint": "sha256:3bd7608216967d4c65ceb0f3873eef3501fc4a87637f8b93c4c16e1391b76e47"}
+      ],
+      "issues": [
+        "Slides 2, 4, and 6 contain unauthorized clothing text.",
+        "Slides 3 and 5 fail the memory-frame action and state.",
+        "Slides 4 and 6 lose the rectangular-table and chair geography.",
+        "Slide 6 resolves the couple too warmly."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/event_b_attempt3_critic",
+        "reviewer_run_id": "event-b-full-deck-attempt-01-run-2026-08-14",
+        "input_fingerprint": "sha256:ec8e3b12e5d0b1c4fb67d58711c03ef2b2ed6e0a351e0baec030f549e0f4eda2",
+        "raw_response_artifact": ".internal/event-b-full-deck-attempt-01-raw-response.md",
+        "raw_response_fingerprint": "sha256:8323689e4f9c9778f60b7742007418f34900b0da0b0d97cee81e55426ad4d23f",
+        "output_fingerprint": "sha256:454c966359bc68e99179b3d28f540b8456ee0d4070f84c3cbb96b10257c910e3"
+      }
+    }
+  }
+}

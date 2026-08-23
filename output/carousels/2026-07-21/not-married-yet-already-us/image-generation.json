@@ -1,5 +1,5 @@
 {
-  "status": "GENERATED_QUARANTINED",
+  "status": "BATCH_ALLOWED",
   "backend": "codex_builtin",
   "generation_mode": "model_native_publishable",
   "slide_count": 1,
@@ -13,15 +13,15 @@
       "status": "GENERATED_QUARANTINED",
       "native_outputs": {
         "instagram_post": {
-          "path": ".internal/visual-quarantine/attempt-01/final/slide-09.png",
-          "sha256": "e4c441664c93a2a285704afd460c254428d3dcce5f38bcc93d6083f08dd21dca",
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-09.png",
+          "sha256": "01d526d840629fbd3dba1e6d8237dcbfc45b228426694b65d8bd83a335d6ca00",
           "width": 1080,
           "height": 1440,
           "normalization": "proportional export from 1086x1448 to exact 1080x1440",
           "normalization_warning": null,
           "model_native_source": {
-            "path": ".internal/visual-quarantine/attempt-01/model-native-source/instagram-post-slide-09.png",
-            "sha256": "880868395a6fb39f4eb8c21b8d44440c9fad45cf6ef0c419c43549102a0b392f",
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-09.png",
+            "sha256": "3ce022701320970becc4771246265ff89de36be9b1717e654274158703b64d87",
             "width": 1086,
             "height": 1448
           }
@@ -29,13 +29,13 @@
       }
     }
   ],
-  "reason": "Visual QA failed; regenerate with targeted repairs before packaging.",
-  "proof_state": "GENERATED_QUARANTINED",
-  "retry_count": 0,
+  "reason": "The creator accepted this exact QA-failed proof with the recorded known exceptions. Batch generation is allowed; the proof remains non-publishable and did not pass QA.",
+  "proof_state": "BATCH_ALLOWED",
+  "retry_count": 2,
   "max_visual_qa_retries": 2,
-  "retries_remaining": 2,
-  "quarantine_dir": ".internal/visual-quarantine/attempt-01",
-  "image_set_sha256": "e0f8c1c942f4204871afeed04431a5d4e387ef0082ddf83c978302d450c010be",
+  "retries_remaining": 0,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-03",
+  "image_set_sha256": "7627e7fa8fae69d8176861839cc0b87a583f3857d1d08010d96c54017b37e32c",
   "requested_formats": [
     "instagram_post"
   ],
@@ -64,11 +64,11 @@
     "input_bindings": {
       "prompt_pack": {
         "relative_path": "prompt-pack.json",
-        "sha256": "sha256:65b1cbb61f5255b735f6ba6dab36a5ce7900ff3e07f3197bac33637b28f9d1e2"
+        "sha256": "sha256:97fe56fdd5a44b3295ad9ddcec94f9eaf7aa222161c30fdcb466c936da671e76"
       },
       "slides": {
         "relative_path": "slides.json",
-        "sha256": "sha256:5d2350f92681119d808dad745223acd02e3ab793554b614023ee9b839a8ec1ff"
+        "sha256": "sha256:87810c30bc9d39064924074204211b62f0cb265f44c10d030112efeab9215130"
       }
     },
     "files": [
@@ -77,26 +77,223 @@
         "format": "instagram_post",
         "kind": "generator_prompt",
         "relative_path": "codex-image-prompts/instagram-post/slide-09.prompt.txt",
-        "sha256": "sha256:bc99bbb962041f2a69203f3d6836d442b2492de43ea743e2427238da2312b1ed"
+        "sha256": "sha256:f37ba45cef6e2205648723cbe81eb1c1c9498ead85c9a135621e345023bd1fc9"
       },
       {
         "slide": 9,
         "format": "instagram_post",
         "kind": "handoff_markdown",
         "relative_path": "codex-image-prompts/instagram-post/slide-09.md",
-        "sha256": "sha256:df4e61d90dbe16e46183bffd482d29836d4cd1e1da776d8f0618fa50a3d54957"
+        "sha256": "sha256:b5c654f6a03fcd83dd97f50c9b28aea56882d065df8b7c01e674864a4aa4e4b0"
       }
     ],
-    "handoff_set_fingerprint": "sha256:0a3e70dd5462e3946fda7a906c1ada312ad0ba575501385f5d5f9dc13c3ac647"
+    "handoff_set_fingerprint": "sha256:6725a44bae35772fbf08bed98089dddd8859dd53f67742f755025135206ce553"
   },
-  "visual_qa_path": "visual-qa.json",
+  "retry_prompt_handoff_attestation": {
+    "schema_version": "retry-prompt-handoff/v1",
+    "source_status": "REJECTED_SPATIAL_INTEGRITY",
+    "proof_slide": 9,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "failed_image_set_sha256": "cdff2eb95380f70f05ab0b4057563310ce5f2570ee4104cd37d9cceddc8d54ce",
+    "failed_attempt": {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "cdff2eb95380f70f05ab0b4057563310ce5f2570ee4104cd37d9cceddc8d54ce",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "slide 9 instagram_post observed arms do not match expected arms",
+        "slide 9 instagram_post hand 2 is not required by the locked scene",
+        "slide 9 instagram_post anatomy_inventory reports unexpected_limbs",
+        "slide 9 instagram_post scene_entity_integrity arms inventory does not match",
+        "slide 9 instagram_post scene_entity_integrity reports unexpected_limbs",
+        "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: The additional bare forearm at lower center is attached but unauthorized and ends outside the crop.",
+        "visual-qa.json spatial_topology slide 1 contains ambiguous regions: The extra lower-center forearm creates an inventory failure even though it does not merge with another object."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 9 instagram_post observed arms do not match expected arms",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 9 instagram_post hand 2 is not required by the locked scene",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 9 instagram_post anatomy_inventory reports unexpected_limbs",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 9 instagram_post scene_entity_integrity arms inventory does not match",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 9 instagram_post scene_entity_integrity reports unexpected_limbs",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: The additional bare forearm at lower center is attached but unauthorized and ends outside the crop.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 contains ambiguous regions: The extra lower-center forearm creates an inventory failure even though it does not merge with another object."
+      ]
+    },
+    "visual_qa_binding": {
+      "relative_path": ".internal/visual-qa-attempt-02.json",
+      "sha256": "sha256:ae918899816748ba0164914c8714a808c1e7a322c0657d87b61521452e0c8130"
+    },
+    "attempt_ledger_binding": {
+      "relative_path": ".internal/visual-qa-attempts.json",
+      "sha256": "sha256:b7e032f9e415fb265d7b139adb3fbb2e20377121b2030467a6e524142ffd4241"
+    },
+    "gate_input_bindings": [
+      {
+        "relative_path": "format-contract.json",
+        "sha256": "sha256:d8298ddd0fe2423018752adf00b509946e4e376c8a8e11560a9b8769aaf40fdf"
+      },
+      {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:97fe56fdd5a44b3295ad9ddcec94f9eaf7aa222161c30fdcb466c936da671e76"
+      },
+      {
+        "relative_path": "slides.json",
+        "sha256": "sha256:87810c30bc9d39064924074204211b62f0cb265f44c10d030112efeab9215130"
+      },
+      {
+        "relative_path": "visual-plan-quality.json",
+        "sha256": "sha256:07e24d7b59af61c217c57c10332a5f7ceb7e6ad1a63f96f3e24cc811e0d4e953"
+      },
+      {
+        "relative_path": "identity-consistency-review.json",
+        "sha256": "sha256:7dfbb012b9e3e63d51e326760ca7a4f6728aa156f39dfb474bde18c92ccd23c7"
+      },
+      {
+        "relative_path": "review.json",
+        "sha256": "sha256:58c1f5dbb44a67c6eefae43e560496b3955f1cae71d697bdbd8d6a8bfade2ff4"
+      },
+      {
+        "relative_path": "layer-e-story-selling.json",
+        "sha256": "sha256:7aae5947e4af8388a57a5837216c98efc2b8b6eaa5f4a5b28b4bd8a62953b54b"
+      },
+      {
+        "relative_path": "stage-reviews.json",
+        "sha256": "sha256:7e974dc91e601a5e5a10f859ce143a1939864348ce91c8c2ae4792576e2a0c99"
+      }
+    ],
+    "previous_handoff_set_fingerprint": "sha256:747b6a8caa78bfabb24ba908cf93d3aa87ba3130f51fb665ee9dddf157bbacbc",
+    "replacement_handoff_set_fingerprint": "sha256:6725a44bae35772fbf08bed98089dddd8859dd53f67742f755025135206ce553",
+    "previous_prompt_backup_dir": ".internal/codex-image-prompts-previous/attempt-02",
+    "previous_prompt_files": [
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-09.md",
+        "sha256": "sha256:b5c654f6a03fcd83dd97f50c9b28aea56882d065df8b7c01e674864a4aa4e4b0"
+      },
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-09.prompt.txt",
+        "sha256": "sha256:f85c08b7d304f00eb77688896f966ae1bcd6cabe12330e22242361604c3172c8"
+      }
+    ],
+    "next_retry_count": 2,
+    "attestation_fingerprint": "sha256:d4acd0d098e7bb14e277b718a0c898b4ea773705af68deda7cf8806ab5f5c033"
+  },
+  "visual_qa_path": ".internal/visual-qa-attempt-03.json",
   "visual_qa_issues": [
-    "Slide 9 shows three visible hands instead of the locked two-hand inventory.",
-    "Zuv's non-focal pocket hand is visible despite the out-of-frame lock.",
-    "Aachu's tissue-offering hand does not read unambiguously as her right hand at phone size.",
-    "The tissue and thumb-nick care action is not uniquely readable at phone size.",
-    "Aachu's face shape, nose, lips, and hair texture drift from the selected identity references.",
-    "Zuv's face is narrower and longer, with curl mass shifted forward from the selected references.",
-    "The rendered height gap is substantially larger than the locked two-inch difference."
-  ]
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 9 instagram_post observed arms do not match expected arms",
+    "slide 9 instagram_post hand 2 is not required by the locked scene",
+    "slide 9 instagram_post hand 2 fails hand-object contact geometry",
+    "slide 9 instagram_post anatomy_inventory reports unexpected_limbs",
+    "slide 9 instagram_post scene_entity_integrity arms inventory does not match",
+    "slide 9 instagram_post scene_entity_integrity reports unexpected_limbs",
+    "visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+    "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: The lower-center skin-toned sliver has no traceable wrist, hand, or authorized role.",
+    "visual-qa.json spatial_topology slide 1 contains ambiguous regions: An unexplained lower-center skin or limb region remains between the black and white garments.",
+    "visual-qa.json spatial_topology slide 1 contains unresolved intersections: Ownership and continuation of the lower-center skin-toned region cannot be resolved from the pixels.",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+    "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+    "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+    "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+    "visual_story_readability declares unresolved issues while claiming PASS."
+  ],
+  "batch_generation_allowed": true,
+  "creator_override": true,
+  "creator_approval_path": ".internal/creator-proof-approval.json",
+  "creator_approval_binding": {
+    "relative_path": ".internal/creator-proof-approval.json",
+    "sha256": "sha256:dfbfc8547bab3a50101a6a6cb6487c7a2ffbfeb17e12c31195810ebae93ea655"
+  },
+  "creator_approval_sha256": "sha256:dfbfc8547bab3a50101a6a6cb6487c7a2ffbfeb17e12c31195810ebae93ea655",
+  "creator_override_record": {
+    "schema_version": "creator-failed-proof-approval/v1",
+    "source_status": "BLOCKED_VISUAL_QA",
+    "proof_slide": 9,
+    "attempt": 3,
+    "retry_count": 2,
+    "image_set_sha256": "7627e7fa8fae69d8176861839cc0b87a583f3857d1d08010d96c54017b37e32c",
+    "approved_by": "creator",
+    "evidence": "I find the image correct ~ you can proceed",
+    "accepts_known_qa_exceptions": true,
+    "acknowledged_visual_qa_issues": [
+      "visual-qa.json status must be PASS",
+      "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+      "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+      "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+      "slide 9 instagram_post observed arms do not match expected arms",
+      "slide 9 instagram_post hand 2 is not required by the locked scene",
+      "slide 9 instagram_post hand 2 fails hand-object contact geometry",
+      "slide 9 instagram_post anatomy_inventory reports unexpected_limbs",
+      "slide 9 instagram_post scene_entity_integrity arms inventory does not match",
+      "slide 9 instagram_post scene_entity_integrity reports unexpected_limbs",
+      "visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+      "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: The lower-center skin-toned sliver has no traceable wrist, hand, or authorized role.",
+      "visual-qa.json spatial_topology slide 1 contains ambiguous regions: An unexplained lower-center skin or limb region remains between the black and white garments.",
+      "visual-qa.json spatial_topology slide 1 contains unresolved intersections: Ownership and continuation of the lower-center skin-toned region cannot be resolved from the pixels.",
+      "visual_story_readability must be PASS with pass true.",
+      "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+      "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+      "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+      "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+      "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+      "visual_story_readability declares unresolved issues while claiming PASS."
+    ],
+    "acknowledged_visual_qa_issues_fingerprint": "sha256:0f4fd7ad992ef7bdc288f6f2a4db66867faaaf362603f421622e6824d011e531",
+    "approval_binding": {
+      "relative_path": ".internal/creator-proof-approval.json",
+      "sha256": "sha256:dfbfc8547bab3a50101a6a6cb6487c7a2ffbfeb17e12c31195810ebae93ea655"
+    },
+    "visual_qa_binding": {
+      "relative_path": ".internal/visual-qa-attempt-03.json",
+      "sha256": "sha256:55a7f422a4bd4e9c7a4f1b73dda053a483929c6d1eefd9ad70fa531769e36bbd"
+    },
+    "record_fingerprint": "sha256:f66f40230515913f9a8c2275e7d2fa968b9e3af99e4ced26bd2853f9493098f5"
+  },
+  "known_qa_exceptions": {
+    "qa_status": "QA_FAILED",
+    "visual_qa_issues": [
+      "visual-qa.json status must be PASS",
+      "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+      "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+      "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+      "slide 9 instagram_post observed arms do not match expected arms",
+      "slide 9 instagram_post hand 2 is not required by the locked scene",
+      "slide 9 instagram_post hand 2 fails hand-object contact geometry",
+      "slide 9 instagram_post anatomy_inventory reports unexpected_limbs",
+      "slide 9 instagram_post scene_entity_integrity arms inventory does not match",
+      "slide 9 instagram_post scene_entity_integrity reports unexpected_limbs",
+      "visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+      "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: The lower-center skin-toned sliver has no traceable wrist, hand, or authorized role.",
+      "visual-qa.json spatial_topology slide 1 contains ambiguous regions: An unexplained lower-center skin or limb region remains between the black and white garments.",
+      "visual-qa.json spatial_topology slide 1 contains unresolved intersections: Ownership and continuation of the lower-center skin-toned region cannot be resolved from the pixels.",
+      "visual_story_readability must be PASS with pass true.",
+      "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+      "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+      "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+      "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+      "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+      "visual_story_readability declares unresolved issues while claiming PASS."
+    ],
+    "visual_qa_issues_fingerprint": "sha256:0f4fd7ad992ef7bdc288f6f2a4db66867faaaf362603f421622e6824d011e531",
+    "visual_qa_binding": {
+      "relative_path": ".internal/visual-qa-attempt-03.json",
+      "sha256": "sha256:55a7f422a4bd4e9c7a4f1b73dda053a483929c6d1eefd9ad70fa531769e36bbd"
+    },
+    "creator_evidence": "I find the image correct ~ you can proceed"
+  },
+  "visual_qa_status": "QA_FAILED",
+  "proof_qa_passed": false,
+  "promotion_blocker": "creator_override_allows_batch_generation_only"
 }

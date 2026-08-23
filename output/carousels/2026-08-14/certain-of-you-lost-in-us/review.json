@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "scorecard": {
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 5,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 5
+  },
+  "total": 32,
+  "max": 40,
+  "pass": false,
+  "story_director_gate": {
+    "status": "PASS",
+    "hook": 9,
+    "story": 9,
+    "bridge": 9,
+    "zuv_role": 9,
+    "ending": 9,
+    "send_save_potential": 9,
+    "stage_scene": 9,
+    "verdict": "GO: the full six-slide story is stageable, reciprocal, and earned.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Slide-Led Evidence Plan",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 5.0,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 4.0,
+    "total": 29.0
+  },
+  "story_selling_gate": {
+    "status": "GO",
+    "source": "layer-e-story-selling.json",
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "threshold": "28/30",
+    "selector_verdict": "GO: the blueprint route makes the relationship truth legible through equal, continuous action before the text is read.",
+    "candidate_count": 5,
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+      "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+      "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+      "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+      "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+      "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+      "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [
+    "This is a local no-API package; nuanced story mining is based on deterministic rules and the provided story text.",
+    "Use the Codex built-in local image-generation handoff for final illustrated art."
+  ],
+  "required_changes_before_image_generation": [],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "pass": true,
+    "agent_alignment": {
+      "status": "PASS",
+      "instruction": "Concept, copy, visual direction, prompt design, and QA all serve cold-viewer recognition and partner-send behavior."
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  },
+  "total_score": 40
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <!-- bottom book: us (widest) -->
+  <path d="M10 50.5c0-1.2.8-2 2-2h40c1.2 0 2 .8 2 2.2v6.6c0 1.2-.8 2-2 2H12c-1.2 0-2-.8-2-2.1v-6.7z"/>
+  <path d="M16 49v10M48 49v10"/>
+  <!-- third book: people (tilted slightly) -->
+  <path d="M13 41.4c-.1-1.2.6-2.1 1.8-2.2l38-1.4c1.2 0 2 .7 2.1 2l.2 5c0 1.2-.7 2-1.9 2.1l-38 .5c-1.2 0-2-.7-2-1.9l-.2-4.1z"/>
+  <!-- second book: places -->
+  <path d="M15 31c0-1.2.8-2 2-2h32c1.2 0 2 .8 2 2v5.4c0 1.2-.8 2-2 2H17c-1.2 0-2-.8-2-2V31z"/>
+  <path d="M21 29.5v9M45 29.5v9"/>
+  <!-- top book: moments -->
+  <path d="M19 21.4c0-1.2.8-2 2-2h26c1.2 0 2 .8 2 2v5c0 1.2-.8 2-2 2H21c-1.2 0-2-.8-2-2v-5z"/>
+  <!-- spine labels -->
+  <g stroke="none" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="4.6" letter-spacing="0.3">
+    <text x="34" y="25.2" text-anchor="middle">moments</text>
+    <text x="33" y="34.6" text-anchor="middle">places</text>
+    <text x="34" y="44.3" text-anchor="middle" transform="rotate(-1 34 44.3)">people</text>
+    <text x="32" y="55.4" text-anchor="middle" font-size="5.4">us</text>
+  </g>
+</svg>

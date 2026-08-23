@@ -106,6 +106,10 @@ IDEA_AGENT_ROLES = {
 IDEA_AGENT_ROLE_MARKER = re.compile(
     r"^ASOT_IDEA_LOOP_ROLE=(asot_idea_scout|asot_idea_maker|asot_idea_verifier)$"
 )
+IDEA_AGENT_ASSIGNMENT_MARKER = re.compile(
+    r"^ASOT_IDEA_LOOP_ASSIGNMENT_SHA256=([0-9a-f]{64})$"
+)
+TASK_ID_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
 SUPPORTING_EVIDENCE_PURPOSES: set[str | None] = {
     None,
     "owned_account_signal",
@@ -188,6 +192,58 @@ def _sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _sha256_regular_file(path: Path) -> str:
+    """Hash one regular, singly linked file without following a final symlink."""
+
+    flags = os.O_RDONLY
+    if hasattr(os, "O_NOFOLLOW"):
+        flags |= os.O_NOFOLLOW
+    descriptor = os.open(path, flags)
+    try:
+        metadata = os.fstat(descriptor)
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+            raise ValueError(f"refusing to hash unsafe run file: {path}")
+        digest = hashlib.sha256()
+        with os.fdopen(descriptor, "rb", closefd=False) as handle:
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(chunk)
+        return digest.hexdigest()
+    finally:
+        os.close(descriptor)
+
+
+def _run_file_hashes(
+    run_dir: Path,
+    *,
+    exclude: set[str] | None = None,
+) -> dict[str, str]:
+    """Return the deterministic file manifest for one safe run tree."""
+
+    resolved = run_dir.expanduser().resolve()
+    unsafe_entry = _unsafe_run_entry(resolved)
+    if unsafe_entry:
+        raise ValueError(unsafe_entry)
+    excluded = exclude or set()
+    hashes: dict[str, str] = {}
+    for path in sorted(resolved.rglob("*"), key=lambda item: item.as_posix()):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(resolved).as_posix()
+        if relative in excluded:
+            continue
+        hashes[relative] = _sha256_regular_file(path)
+    return hashes
+
+
+def _file_manifest_sha256(hashes: dict[str, str]) -> str:
+    payload = json.dumps(
+        sorted(hashes.items()),
+        separators=(",", ":"),
+        ensure_ascii=False,
+    ).encode("utf-8")
+    return _sha256_bytes(payload)
 
 
 def _relative(repo_root: Path, path: Path) -> str:
@@ -724,6 +780,35 @@ class CriticInputRecord(BaseModel):
     card: dict[str, Any]
 
 
+class AgentResultArtifact(BaseModel):
+    """One task-produced payload before controller-owned task IDs are injected."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    kind: Literal[
+        "source_memory_brief",
+        "candidate",
+        "verification_record",
+        "selector_record",
+    ]
+    payload: dict[str, Any]
+
+
+class AgentResultEnvelope(BaseModel):
+    """Strict terminal message emitted by an independently spawned task."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    run_id: str = Field(min_length=1)
+    agent_name: Literal[
+        "asot_idea_scout",
+        "asot_idea_maker",
+        "asot_idea_verifier",
+    ]
+    artifacts: list[AgentResultArtifact] = Field(min_length=1)
+
+
 class StopEvidence(BaseModel):
     """Structured proof for an early stop before candidate evaluation is safe."""
 
@@ -764,6 +849,7 @@ def artifact_schema() -> dict[str, Any]:
         "taste_gate": TasteGateBundle.model_json_schema(),
         "verification": VerificationBundle.model_json_schema(),
         "critic_input": CriticInputRecord.model_json_schema(),
+        "agent_result_envelope": AgentResultEnvelope.model_json_schema(),
         "stop_evidence": StopEvidence.model_json_schema(),
         "concept_selection": ConceptSelection.model_json_schema(),
     }

@@ -1,0 +1,257 @@
+/* ============================================================
+   A Story of Two — PAPER & EDGES KIT
+   Code-only background / texture utilities.
+
+   Everything here is pure CSS + inline SVG (data-URIs, masks,
+   clip-paths). No external image files, no AI art. The goal is a
+   layered, hand-torn watercolor-paper feel so sections can meet
+   with deckled seams instead of flat rules.
+
+   Palette is warm IVORY only — never yellow / mustard / sepia /
+   parchment / heavy cream. All colour comes from the :root tokens
+   defined in styles.css:
+     --paper #F3ECE0  --paper-2 #ECE2D2  --paper-3 #E4D8C4
+     --ink   #2B2620  --line rgba(43,38,32,0.14)
+     --coral #9E4A32  --sage #9AA98C  --blush #E3B3A0  --denim #5E7A93
+
+   All decoration is pointer-events:none and never captures clicks.
+   Responsive down to 320px; respects reduced-motion / contrast.
+
+   USAGE
+     <section class="ill-tear-top">…</section>      torn edge on top
+     <section class="ill-tear-bottom">…</section>   torn edge on bottom
+     <h2 class="ill-wash ill-wash--coral">…</h2>     bloom behind text
+     <span class="ill-tape">Pinned</span>            washi tape strip
+     <div class="ill-grain"> … </div>                grain overlay host
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. TORN-PAPER EDGE SEPARATORS  —  .ill-tear-top / .ill-tear-bottom
+
+   An irregular, hand-torn edge that sits at the top or bottom of a
+   section. Implemented with a positioned ::before / ::after strip
+   whose own background is the section's paper colour, then MASKED by
+   an inline-SVG path so only the deckled silhouette shows. A second,
+   slightly offset layer carries a faint deckle shadow so the torn
+   lip reads as real, lifted paper.
+
+   The host section keeps its normal background; set --tear-paper to
+   the colour of the section the tear should blend INTO (defaults to
+   --paper). Extra top/bottom padding leaves room for the lip.
+   ------------------------------------------------------------ */
+
+.ill-tear-top,
+.ill-tear-bottom {
+  position: relative;
+  /* colour the torn lip should resolve to — override per section */
+  --tear-paper: var(--paper);
+  /* height of the torn band */
+  --tear-h: clamp(18px, 3.5vw, 34px);
+}
+
+.ill-tear-top { padding-top: calc(var(--tear-h) + 8px); }
+.ill-tear-bottom { padding-bottom: calc(var(--tear-h) + 8px); }
+
+/* The visible torn lip. Its background IS the paper colour; the SVG
+   mask carves the ragged silhouette out of that solid fill. */
+.ill-tear-top::before,
+.ill-tear-bottom::after {
+  content: "";
+  position: absolute;
+  left: -1px;            /* bleed past the edges so no hairline shows */
+  right: -1px;
+  height: var(--tear-h);
+  background: var(--tear-paper);
+  pointer-events: none;
+  z-index: 2;
+
+  /* Irregular hand-torn path, tiled horizontally so it scales to any
+     width. The mask shows the paper only below the ragged line. */
+  --tear-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='34' preserveAspectRatio='none' viewBox='0 0 280 34'%3E%3Cpath d='M0 11 L11 9 L22 14 L34 8 L46 13 L57 6 L70 12 L82 7 L95 13 L107 8 L120 15 L132 7 L145 12 L157 9 L170 14 L182 6 L195 12 L207 8 L220 13 L232 7 L245 12 L257 9 L270 13 L280 8 L280 34 L0 34 Z' fill='%23000'/%3E%3C/svg%3E");
+  -webkit-mask: var(--tear-mask);
+  mask: var(--tear-mask);
+  -webkit-mask-size: 280px 100%;
+  mask-size: 280px 100%;
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+}
+
+/* Top tear: lip sits at the very top, ragged edge facing up. */
+.ill-tear-top::before {
+  top: 0;
+}
+
+/* Bottom tear: lip sits at the very bottom, flipped so the ragged
+   edge faces down. */
+.ill-tear-bottom::after {
+  bottom: 0;
+  transform: scaleY(-1);
+}
+
+/* Faint deckle shadow — a second masked strip nudged inward so the
+   torn lip casts a soft, believable shadow onto the section beneath.
+   Uses the same silhouette via an extra pseudo on a wrapper-free
+   approach: we layer a drop-shadow filter onto the lip itself. */
+.ill-tear-top::before { filter: drop-shadow(0 1.5px 0.5px rgba(43, 38, 32, 0.05)); }
+.ill-tear-bottom::after { filter: drop-shadow(0 1.5px 0.5px rgba(43, 38, 32, 0.05)); }
+
+/* Convenience modifiers so a tear can blend into a darker paper tone. */
+.ill-tear-top.ill-tear--paper-2,
+.ill-tear-bottom.ill-tear--paper-2 { --tear-paper: var(--paper-2); }
+.ill-tear-top.ill-tear--paper-3,
+.ill-tear-bottom.ill-tear--paper-3 { --tear-paper: var(--paper-3); }
+
+
+/* ------------------------------------------------------------
+   2. WATERCOLOUR-BLOOM WASH  —  .ill-wash  (+ accent modifiers)
+
+   A soft pigment bloom meant to sit BEHIND a headline. Built from
+   layered radial-gradients (the colour) whose container edges are
+   roughed up by an SVG feTurbulence displacement filter so the bloom
+   stops feeling like a clean ellipse and starts feeling like pigment
+   bleeding into damp paper.
+
+   Default accent is denim; use the modifier classes to swap pigment.
+   Strictly no yellow cast — opacities stay low and the blend mode is
+   multiply so the warm paper shows through.
+   ------------------------------------------------------------ */
+
+.ill-wash {
+  position: relative;
+  display: inline-block;       /* hug the headline it sits behind */
+  isolation: isolate;          /* keep the multiply blend local */
+  --wash: var(--denim);        /* default pigment */
+}
+
+.ill-wash::before {
+  content: "";
+  position: absolute;
+  /* bleed generously past the text box so the bloom feels loose */
+  inset: -0.55em -0.9em;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
+  mix-blend-mode: multiply;
+
+  /* Three offset radial blooms of the accent at low alpha. The
+     colour-mix lets one --wash token drive every stop. */
+  background:
+    radial-gradient(60% 72% at 32% 38%,
+      color-mix(in srgb, var(--wash) 38%, transparent), transparent 70%),
+    radial-gradient(58% 66% at 72% 64%,
+      color-mix(in srgb, var(--wash) 30%, transparent), transparent 72%),
+    radial-gradient(90% 88% at 50% 50%,
+      color-mix(in srgb, var(--wash) 16%, transparent), transparent 78%);
+
+  /* Organic edge: displace the whole bloom with fractal turbulence so
+     the rim wobbles like a real water edge instead of a CSS ellipse. */
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='bloom'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.018' numOctaves='2' seed='7' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='14' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/svg%3E%23bloom")
+    blur(0.4px);
+}
+
+/* Pigment modifiers */
+.ill-wash--denim { --wash: var(--denim); }
+.ill-wash--sage  { --wash: var(--sage); }
+.ill-wash--coral { --wash: var(--coral); }
+.ill-wash--blush { --wash: var(--blush); }
+
+
+/* ------------------------------------------------------------
+   3. WASHI / MASKING TAPE  —  .ill-tape
+
+   A strip of semi-transparent tape used to "pin" an element. The
+   torn fibrous ends are cut with an inline-SVG clip-path; a subtle
+   sheen + fibre texture and a slight rotation sell the masking-tape
+   read. Translucent so whatever is beneath shows faintly through.
+   ------------------------------------------------------------ */
+
+.ill-tape {
+  position: relative;
+  display: inline-block;
+  padding: 6px 20px;
+  font-family: var(--hand, cursive);
+  font-size: 1.05rem;
+  line-height: 1.15;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 0.01em;
+
+  /* warm translucent ivory body + faint diagonal fibre sheen */
+  background:
+    repeating-linear-gradient(115deg,
+      rgba(255, 255, 255, 0.10) 0 2px,
+      rgba(43, 38, 32, 0.035) 2px 4px),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--paper-2) 78%, #fff 22%),
+      color-mix(in srgb, var(--paper-3) 80%, #fff 20%));
+  opacity: 0.92;
+
+  /* torn fibrous ends — clip the left and right edges into ragged
+     vertical tears while leaving the long edges straight. */
+  --tape-clip: polygon(
+    0% 12%, 4% 2%, 8% 16%, 3% 30%, 7% 48%, 2% 66%, 6% 82%, 3% 96%, 0% 88%,
+    100% 92%, 96% 80%, 99% 62%, 95% 46%, 98% 30%, 94% 14%, 99% 4%, 100% 10%
+  );
+  -webkit-clip-path: var(--tape-clip);
+  clip-path: var(--tape-clip);
+
+  /* the pinned, slightly-skewed look */
+  transform: rotate(-2.4deg);
+  box-shadow: 0 2px 5px rgba(43, 38, 32, 0.12);
+  pointer-events: none;
+}
+
+/* alternate lean, handy when pinning a row of items */
+.ill-tape--right { transform: rotate(2.8deg); }
+
+
+/* ------------------------------------------------------------
+   4. PAPER-GRAIN OVERLAY  —  .ill-grain
+
+   A reusable, subtle paper grain that can be dropped into ANY
+   positioned container. Adds an ::after layer of SVG fractalNoise at
+   low opacity, multiply-blended so it darkens into the tooth of the
+   paper without tinting it. Decorative and inert.
+
+   The host should establish a stacking context (position other than
+   static); .ill-grain sets position:relative for you.
+   ------------------------------------------------------------ */
+
+.ill-grain { position: relative; }
+
+.ill-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  border-radius: inherit;     /* follow rounded panels */
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.42'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+
+/* ------------------------------------------------------------
+   ACCESSIBILITY / MOTION / CONTRAST
+   The kit is static, but turbulence filters can be heavy and the
+   tape rotation reads as motion to some. Keep things calm and legible
+   under user preferences.
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .ill-tape,
+  .ill-tape--right { transform: none; }
+}
+
+/* Under forced high contrast, drop the soft washes/grain so text
+   stays crisp; keep the torn seams since they're structural. */
+@media (prefers-contrast: more) {
+  .ill-wash::before,
+  .ill-grain::after { opacity: 0; }
+}

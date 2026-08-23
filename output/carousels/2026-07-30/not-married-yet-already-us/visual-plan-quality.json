@@ -1,0 +1,1197 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Wedding Origin Story",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "We’re not married yet.\nBut try telling that to our habits.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Every plan starts with:\n“Ek minute, usse poochna padega.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Every small decision becomes\na two-person meeting.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "Problem ek ki hoti hai.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Stress dono lete hain.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "Fight bhi proper hoti hai.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "Then five minutes later:\n“Ghar pahunch ke text karna.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 8,
+      "copy": "Kyunki gussa apni jagah.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 9,
+      "copy": "“Tum theek ho?” apni jagah.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 10,
+      "copy": "Officially?\nNo vows yet.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": false,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 11,
+      "copy": "Shaadi abhi baaki hai.\nPar “hum” toh kab ke ban chuke hain.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The exact 11-slide copy and the Instagram-post-only format contract were locked before the independent review.",
+    "author_id": "/root",
+    "reviewer_id": "/root/blind_storyboard_event_a",
+    "reviewer_evidence": "A fresh orchestrated critic received only the 11 observable frame cards in order and returned its inferred story before seeing slide copy, title, intent labels, or source files.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:e40c20e3d05215b5b56f18164d581c849c2975ba13b6f2eb56222e20f7bcde66",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "the woman",
+          "the man",
+          "two distant office coworkers"
+        ],
+        "visible_setting": "A warm office-building lobby and cafe area in morning light.",
+        "observable_action": "The woman hands the man his forgotten ID lanyard while he gives her a takeaway coffee.",
+        "hands_and_contact": "Each partner owns one clearly visible object and their free hands remain naturally readable.",
+        "gaze": "The couple look at each other with tired, practiced amusement.",
+        "body_blocking": "They meet at conversational distance in the foreground while the coworkers remain clearly background figures.",
+        "object_state": "The ID lanyard moves toward the man and the coffee moves toward the woman.",
+        "camera_view": "A medium-wide lobby establishing shot keeps both exchanges and the office context legible.",
+        "visible_continuity": "The ID, coffee, office clothes, and background coworkers establish the next office beat."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "the man",
+          "two office coworkers"
+        ],
+        "visible_setting": "The same office morning, now beside a desk or meeting area.",
+        "observable_action": "The man pauses two waiting coworkers with one raised finger while holding a phone to his ear.",
+        "hands_and_contact": "One hand owns the phone at his ear and the other forms a clear one-minute gesture.",
+        "gaze": "The man listens into the call while both coworkers look toward him for an answer.",
+        "body_blocking": "The man stands slightly apart as the coworkers angle toward him in visible expectation.",
+        "object_state": "A single plain phone is in active call position; office materials remain secondary.",
+        "camera_view": "A medium office group shot gives the man and both waiting reactions equal readability.",
+        "visible_continuity": "The same man, clothes, coworkers, and morning setting carry forward from the lobby."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "the woman",
+          "the man"
+        ],
+        "visible_setting": "A lived-in dining room that evening with a table, laptop, papers, pen, and two tiny fabric swatches.",
+        "observable_action": "The couple sit opposite each other and lean over a small household choice like a formal meeting.",
+        "hands_and_contact": "Both sets of hands point, hold a pen, or rest near separate papers without overlap.",
+        "gaze": "Their eye-lines converge on the tiny fabric swatches and paperwork.",
+        "body_blocking": "They mirror each other across the table with exaggerated serious posture.",
+        "object_state": "Two small curtain swatches sit at the center as the visibly modest subject of the oversized meeting.",
+        "camera_view": "A symmetrical medium-wide dining-table shot sells the two-person meeting geometry.",
+        "visible_continuity": "This begins the evening sequence and locks the room, table objects, and outfits for the following slides."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "the woman",
+          "the man"
+        ],
+        "visible_setting": "The same dining room, table, and evening light.",
+        "observable_action": "The man folds over one alarming work document while the woman looks up and notices the change.",
+        "hands_and_contact": "The man grips the page with both hands; the woman pauses with her hands visibly separate across the table.",
+        "gaze": "His gaze fixes on the document while hers fixes on his distressed face and posture.",
+        "body_blocking": "His posture collapses inward while she remains upright across the table.",
+        "object_state": "One work document and the laptop become the clear source of pressure; the household swatches recede.",
+        "camera_view": "An over-table medium two-shot favors the man while preserving the woman's noticing reaction.",
+        "visible_continuity": "The same evening wardrobe, table geography, laptop, papers, and pen remain traceable."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "the woman",
+          "the man"
+        ],
+        "visible_setting": "The same dining table moments later.",
+        "observable_action": "Both partners now bend over the same work document and laptop with matching tension.",
+        "hands_and_contact": "Each has distinct hands beside the same page, pointing to different parts without anatomical overlap.",
+        "gaze": "Both eye-lines converge on the same problem.",
+        "body_blocking": "Their furrowed brows, shoulders, and forward lean visibly mirror one another.",
+        "object_state": "The same single problem document is now physically centered between both partners.",
+        "camera_view": "A tighter overhead-leaning two-shot makes the shared stress pattern immediately visible.",
+        "visible_continuity": "The document transfers from one person's isolated worry into one shared visual field."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "the woman",
+          "the man"
+        ],
+        "visible_setting": "The same living and dining area moments later, with the laptop and document still visible behind the action.",
+        "observable_action": "The woman has just thrown one cushion and grips a second while the man grips a third with both hands, ready to throw back.",
+        "hands_and_contact": "Exactly four traceable hands own exactly three cushions: one airborne, one in the woman's hand, and one in both of the man's hands.",
+        "gaze": "They glare directly at each other with open mouths mid-argument and no smiles.",
+        "body_blocking": "Both have planted feet, tense shoulders, tight brows, and opposing torsos with no playful bounce.",
+        "object_state": "Exactly three cushions carry the escalation while the earlier work problem remains visible as the preceding trigger.",
+        "camera_view": "A low wide full-body angle keeps both people, every limb, and all three cushions unobscured.",
+        "visible_continuity": "The same room, evening outfits, laptop, work document, sofa, and coffee table remain recognizable."
+      },
+      {
+        "slide": 7,
+        "visible_people": [
+          "the woman",
+          "the man"
+        ],
+        "visible_setting": "The visibly messy same living room five minutes later, opening naturally toward the front door.",
+        "observable_action": "The unsmiling man puts on his shoes with an office bag ready while the woman stands apart with folded arms and a briefly softened face.",
+        "hands_and_contact": "His hands work at his own shoe and bag; her folded hands stay against her own body with no reaching contact.",
+        "gaze": "Her guarded gaze follows him while he concentrates on leaving.",
+        "body_blocking": "The physical distance and separate postures preserve unresolved anger even as concern appears.",
+        "object_state": "All three fight cushions lie scattered in traceable positions and the office bag is prepared for departure.",
+        "camera_view": "A medium-wide eye-level view includes both people, the room aftermath, his shoes, and the exit path.",
+        "visible_continuity": "The same fight room and props remain while the man's outward departure begins."
+      },
+      {
+        "slide": 8,
+        "visible_people": [
+          "the woman",
+          "the man"
+        ],
+        "visible_setting": "A long apartment corridor seen from behind the departing man, with the open apartment door behind him.",
+        "observable_action": "The man walks outward with his bag while the woman remains inside, sharply picks up one fallen cushion, and turns away.",
+        "hands_and_contact": "His hand owns the bag; her hands own one cushion; neither person reaches toward the other.",
+        "gaze": "His unsmiling profile faces down the corridor while her gaze turns back into the room.",
+        "body_blocking": "His hips, feet, and shoulders all travel away; her smaller figure stays behind the threshold.",
+        "object_state": "His office bag moves outward while the same cushion remains inside with her.",
+        "camera_view": "A long wide corridor shot makes outward direction, separation, and the single doorway unambiguous.",
+        "visible_continuity": "The same clothes, bag, cushion set, apartment door, and anger continue directly from the previous beat."
+      },
+      {
+        "slide": 9,
+        "visible_people": [
+          "the woman"
+        ],
+        "visible_setting": "The same living-room sofa later that night after the man has left.",
+        "observable_action": "The woman presses one plain phone to her ear while knotting a cushion with her free hand.",
+        "hands_and_contact": "One hand holds the phone at her ear and the other visibly grips the cushion; both hands remain distinct.",
+        "gaze": "Her eyes lower with concern even though her jaw and shoulders still hold irritation.",
+        "body_blocking": "She sits alone and curled slightly inward rather than moving toward the door.",
+        "object_state": "One of the same cushions rests in her lap, the work document remains nearby, and the phone is in live-call position.",
+        "camera_view": "An intimate medium close-up keeps the phone-to-ear gesture, cushion grip, and mixed expression readable.",
+        "visible_continuity": "The unchanged room, outfit, cushions, and work document prove that this call follows the departure."
+      },
+      {
+        "slide": 10,
+        "visible_people": [
+          "the man"
+        ],
+        "visible_setting": "The man's separate modest home at night, just inside his own front door.",
+        "observable_action": "He finishes unlocking his door while pressing one plain phone to his ear and visibly relaxing.",
+        "hands_and_contact": "One hand owns the phone at his ear while the other remains near the ordinary key and lock.",
+        "gaze": "His listening gaze and softened face angle into the call rather than toward another visible person.",
+        "body_blocking": "His lowered shoulders and grounded stance show relief after arriving alone.",
+        "object_state": "His office bag and evening outfit continue from the corridor; one ordinary key and one phone belong only to him.",
+        "camera_view": "A medium doorway interior shot clearly establishes a different home without splitting the frame.",
+        "visible_continuity": "The same man, bag, clothes, and active phone call answer the woman's preceding call from a separate location."
+      },
+      {
+        "slide": 11,
+        "visible_people": [
+          "the woman",
+          "the man"
+        ],
+        "visible_setting": "The office-building lobby and cafe again on the next morning.",
+        "observable_action": "The woman again brings his ID lanyard while he again brings her coffee, both tired but gently amused.",
+        "hands_and_contact": "Their two object exchanges repeat with clear ownership and naturally separate hands.",
+        "gaze": "They share a quiet, knowing look after the previous night's conflict.",
+        "body_blocking": "They stand comfortably close without a theatrical embrace or romantic pose.",
+        "object_state": "The ID and coffee return in the same reciprocal arrangement as the opening frame.",
+        "camera_view": "A medium-wide visual rhyme with frame one makes the bookend instantly recognizable.",
+        "visible_continuity": "The repeated lobby, ID, coffee, and habitual exchange show the relationship ritual surviving the argument."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:4f192fd0d83f225e7476bbd1fb2494d3688557b1770a2c8e0dde47ecc215cd36",
+    "source_fingerprint": "sha256:353f17d76febaf3d928a7c1047b9e9fe9a50b0e870ac41139631abf29c636415",
+    "sequence_mode": "montage_with_arc",
+    "physical_event": "A practiced office habit expands into shared household decisions and shared work stress, erupts as a cushion fight, separates the couple across two homes, and returns to the same morning ritual.",
+    "emotional_arc": "Automatic ease becomes shared pressure, real anger, guarded concern, remote relief, and finally tired earned warmth.",
+    "relationship_change": "The repeated closing ritual now proves that care and partnership survived genuine friction rather than existing only in conflict-free moments.",
+    "sequence_read": "A couple’s practiced daily partnership moves from mutual rituals and consultation into shared domestic planning, then shared work stress and a genuine argument. He leaves for his separate home, but concern prompts a remote call, and their familiar morning ritual survives the friction.",
+    "visual_variables": [
+      "body distance",
+      "object ownership"
+    ],
+    "hero_receipt_slide": 6,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Frame 1 establishes the reciprocal ID-and-coffee morning ritual.",
+        "payoff": "Frame 11 repeats the same exchange after the argument and remote check-in.",
+        "changed_meaning": "An amusing habit becomes proof that their ordinary partnership survives friction."
+      },
+      {
+        "setup": "Frames 4 and 5 visibly transfer one work problem into shared stress.",
+        "payoff": "Frames 6 through 10 convert that pressure into conflict, departure, and a concerned remote call.",
+        "changed_meaning": "Shared emotional load is shown as both intimacy and the source of real friction."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "ID lanyard and takeaway coffee",
+        "initial_state": "They are exchanged automatically in the opening office morning.",
+        "later_state": "They return in the final office morning after the argument.",
+        "story_job": "Bookend the sequence with reciprocal habit and prove enduring partnership."
+      },
+      {
+        "object": "three living-room cushions",
+        "initial_state": "They become clearly owned projectiles during the genuine argument.",
+        "later_state": "They remain scattered, one is gathered in anger, and one is gripped during the concerned call.",
+        "story_job": "Carry the physical trace of conflict into the care beat without erasing the anger."
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "establish the reciprocal morning habit",
+        "silent_read": "They instinctively care for each other through a familiar office-morning exchange: she returns his forgotten ID and he brings her usual coffee.",
+        "change_from_previous": "This opening frame establishes the recurring reciprocal ritual.",
+        "critic_evidence": "They instinctively care for each other through a familiar office-morning exchange: she returns his forgotten ID and he brings her usual coffee.",
+        "staged_action": {
+          "subject": "both partners",
+          "action": "exchange the forgotten ID and usual coffee",
+          "target_or_object": "ID lanyard and takeaway coffee",
+          "reaction_or_consequence": "their automatic familiarity becomes visible"
+        },
+        "pov": {
+          "owner": "shared observer",
+          "audience_knows": "they already perform reciprocal care by habit",
+          "audience_feels": "amused recognition"
+        },
+        "shot": {
+          "size": "medium wide",
+          "angle": "eye level",
+          "camera_position": "from the lobby circulation path",
+          "focal_subject": "the reciprocal exchange",
+          "story_reason": "establish both the habit and office world at once"
+        },
+        "blocking": {
+          "hands": "each person's hands own one exchanged object",
+          "gaze": "mutual",
+          "body_distance": "comfortable conversational distance",
+          "posture_or_feet": "relaxed mirrored stance"
+        },
+        "setting": {
+          "sub_location": "office lobby cafe",
+          "time": "morning",
+          "motivated_light": "soft window light",
+          "story_trace": "office coworkers and daily objects establish routine"
+        },
+        "story_evidence": [
+          {
+            "carrier": "ID and coffee",
+            "observable_state": "each partner brings the exact thing the other needs",
+            "narrative_job": "prove reciprocal habit"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The day begins with a familiar reciprocal habit.",
+          "outgoing_state": "The ID, coffee, office clothes, and background coworkers establish the next office beat."
+        },
+        "entity_contract": {
+          "expected_people": 4,
+          "background_people": [
+            "two office coworkers"
+          ],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "prove automatic partner consultation at work",
+        "silent_read": "His coworkers await an answer while he reflexively pauses to consult her by phone.",
+        "change_from_previous": "The same man, clothes, coworkers, and morning setting carry forward from the lobby.",
+        "critic_evidence": "His coworkers await an answer while he reflexively pauses to consult her by phone.",
+        "staged_action": {
+          "subject": "the man",
+          "action": "pauses waiting coworkers to call his partner",
+          "target_or_object": "phone and one-minute hand gesture",
+          "reaction_or_consequence": "the coworkers wait with familiar impatience"
+        },
+        "pov": {
+          "owner": "the waiting coworkers",
+          "audience_knows": "consulting her is his automatic first move",
+          "audience_feels": "affectionate exasperation"
+        },
+        "shot": {
+          "size": "medium group",
+          "angle": "eye level",
+          "camera_position": "beside the office meeting area",
+          "focal_subject": "the phone-to-ear and raised finger",
+          "story_reason": "show both the habit and its social witness"
+        },
+        "blocking": {
+          "hands": "one phone hand and one raised-finger hand",
+          "gaze": "coworkers toward him while he listens",
+          "body_distance": "coworkers clustered across a small gap",
+          "posture_or_feet": "he stands centered and temporarily unavailable"
+        },
+        "setting": {
+          "sub_location": "office meeting area",
+          "time": "same morning",
+          "motivated_light": "clean overhead office light softened by windows",
+          "story_trace": "the same coworkers and wardrobe continue from the lobby"
+        },
+        "story_evidence": [
+          {
+            "carrier": "phone and waiting coworkers",
+            "observable_state": "he interrupts the live plan to consult her",
+            "narrative_job": "make consultation behavior public and specific"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The ID, coffee, office clothes, and background coworkers establish the next office beat.",
+          "outgoing_state": "The same man, clothes, coworkers, and morning setting carry forward from the lobby."
+        },
+        "entity_contract": {
+          "expected_people": 3,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "domestic meeting escalation",
+        "silent_read": "They jointly approach a small household choice with exaggerated, mock-formal seriousness.",
+        "change_from_previous": "This begins the evening sequence and locks the room, table objects, and outfits for the following slides.",
+        "critic_evidence": "They jointly approach a small household choice with exaggerated, mock-formal seriousness.",
+        "staged_action": {
+          "subject": "the couple",
+          "action": "debate a tiny home choice with mock-formal seriousness",
+          "target_or_object": "two curtain swatches, papers, laptop, and pen",
+          "reaction_or_consequence": "a small decision becomes a full shared process"
+        },
+        "pov": {
+          "owner": "shared observer",
+          "audience_knows": "their partnership turns tiny choices into joint meetings",
+          "audience_feels": "recognition and gentle comedy"
+        },
+        "shot": {
+          "size": "medium wide",
+          "angle": "slightly elevated",
+          "camera_position": "centered across the dining table",
+          "focal_subject": "their mirrored formal posture",
+          "story_reason": "contrast a tiny choice with oversized seriousness"
+        },
+        "blocking": {
+          "hands": "all hands remain separate around papers and swatches",
+          "gaze": "both toward the swatches",
+          "body_distance": "opposite sides of the table",
+          "posture_or_feet": "matching forward lean"
+        },
+        "setting": {
+          "sub_location": "home dining table",
+          "time": "evening",
+          "motivated_light": "warm practical pendant light",
+          "story_trace": "table objects lock the evening location"
+        },
+        "story_evidence": [
+          {
+            "carrier": "curtain swatches",
+            "observable_state": "two tiny samples sit at the center of a full meeting",
+            "narrative_job": "prove the decision is small and jointly owned"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The same man, clothes, coworkers, and morning setting carry forward from the lobby.",
+          "outgoing_state": "This begins the evening sequence and locks the room, table objects, and outfits for the following slides."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "individual problem setup",
+        "silent_read": "An alarming work problem hits him, and she notices his distress.",
+        "change_from_previous": "The same evening wardrobe, table geography, laptop, papers, and pen remain traceable.",
+        "critic_evidence": "An alarming work problem hits him, and she notices his distress.",
+        "staged_action": {
+          "subject": "the man",
+          "action": "absorbs an alarming work problem",
+          "target_or_object": "one work document and laptop",
+          "reaction_or_consequence": "the woman notices his sudden collapse"
+        },
+        "pov": {
+          "owner": "the woman",
+          "audience_knows": "the pressure begins with him alone",
+          "audience_feels": "concern"
+        },
+        "shot": {
+          "size": "medium two shot",
+          "angle": "slightly over table",
+          "camera_position": "from the woman's side of the table",
+          "focal_subject": "his gripped document and folded posture",
+          "story_reason": "separate the original owner of the problem before it spreads"
+        },
+        "blocking": {
+          "hands": "his two hands grip the page while hers pause apart",
+          "gaze": "he sees the page and she sees him",
+          "body_distance": "table width separates them",
+          "posture_or_feet": "his torso folds while hers turns alert"
+        },
+        "setting": {
+          "sub_location": "same dining room",
+          "time": "same evening",
+          "motivated_light": "same warm pendant light",
+          "story_trace": "unchanged table and outfits prove immediacy"
+        },
+        "story_evidence": [
+          {
+            "carrier": "work document",
+            "observable_state": "only he grips the alarming page",
+            "narrative_job": "identify whose problem it starts as"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "This begins the evening sequence and locks the room, table objects, and outfits for the following slides.",
+          "outgoing_state": "The same evening wardrobe, table geography, laptop, papers, and pen remain traceable."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "shared stress transfer",
+        "silent_read": "His problem has become their shared problem as they examine it together.",
+        "change_from_previous": "The document transfers from one person's isolated worry into one shared visual field.",
+        "critic_evidence": "His problem has become their shared problem as they examine it together.",
+        "staged_action": {
+          "subject": "both partners",
+          "action": "study the same problem together",
+          "target_or_object": "the same document and laptop",
+          "reaction_or_consequence": "their posture and worry become mirrored"
+        },
+        "pov": {
+          "owner": "shared observer",
+          "audience_knows": "his pressure has become theirs",
+          "audience_feels": "recognition of emotional merging"
+        },
+        "shot": {
+          "size": "tight two shot",
+          "angle": "slightly overhead",
+          "camera_position": "above the table edge",
+          "focal_subject": "the mirrored lean around one document",
+          "story_reason": "make stress transfer visible without explanatory symbols"
+        },
+        "blocking": {
+          "hands": "distinct hands flank the same page",
+          "gaze": "both converge on the same problem",
+          "body_distance": "their shoulders nearly meet over the table",
+          "posture_or_feet": "matching tense forward lean"
+        },
+        "setting": {
+          "sub_location": "same dining table",
+          "time": "moments later",
+          "motivated_light": "same pendant light",
+          "story_trace": "same page and laptop carry the exact problem forward"
+        },
+        "story_evidence": [
+          {
+            "carrier": "mirrored bodies around one document",
+            "observable_state": "both now hold visible tension over the same source",
+            "narrative_job": "prove shared stress"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The same evening wardrobe, table geography, laptop, papers, and pen remain traceable.",
+          "outgoing_state": "The document transfers from one person's isolated worry into one shared visual field."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "escalate shared stress into mutual argument",
+        "silent_read": "The accumulated tension erupts into a genuine argument involving three traceable cushions.",
+        "change_from_previous": "The same room, evening outfits, laptop, work document, sofa, and coffee table remain recognizable.",
+        "critic_evidence": "The accumulated tension erupts into a genuine argument involving three traceable cushions.",
+        "staged_action": {
+          "subject": "both partners",
+          "action": "argue with opposing cushion throws",
+          "target_or_object": "exactly three cushions",
+          "reaction_or_consequence": "shared stress erupts into real conflict"
+        },
+        "pov": {
+          "owner": "shared observer",
+          "audience_knows": "the fight is mutual, ordinary, and genuinely heated",
+          "audience_feels": "surprise without romanticizing anger"
+        },
+        "shot": {
+          "size": "low wide full body",
+          "angle": "low angle",
+          "camera_position": "from the open side of the living room",
+          "focal_subject": "both planted bodies and the airborne cushion",
+          "story_reason": "prove genuine friction and preserve anatomy"
+        },
+        "blocking": {
+          "hands": "four distinct hands own three traceable cushions",
+          "gaze": "direct glare between partners",
+          "body_distance": "several feet of charged space",
+          "posture_or_feet": "planted feet, tense shoulders, open mouths, no smiles"
+        },
+        "setting": {
+          "sub_location": "same living and dining area",
+          "time": "moments later",
+          "motivated_light": "same evening practical light",
+          "story_trace": "the laptop and document remain visible as the pressure trace"
+        },
+        "story_evidence": [
+          {
+            "carrier": "cushions and body tension",
+            "observable_state": "one cushion is airborne while both partners remain unsmiling and braced",
+            "narrative_job": "distinguish conflict from play"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The document transfers from one person's isolated worry into one shared visual field.",
+          "outgoing_state": "The same room, evening outfits, laptop, work document, sofa, and coffee table remain recognizable."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 7,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "interrupt unresolved anger with visible concern",
+        "silent_read": "The conflict remains unresolved as he prepares to leave and her anger briefly softens into concern.",
+        "change_from_previous": "The same fight room and props remain while the man's outward departure begins.",
+        "critic_evidence": "The conflict remains unresolved as he prepares to leave and her anger briefly softens into concern.",
+        "staged_action": {
+          "subject": "the man",
+          "action": "puts on shoes and prepares to leave",
+          "target_or_object": "shoes, office bag, and scattered cushions",
+          "reaction_or_consequence": "the woman's guarded face softens despite unresolved anger"
+        },
+        "pov": {
+          "owner": "shared observer",
+          "audience_knows": "departure is real but concern has not disappeared",
+          "audience_feels": "tension mixed with care"
+        },
+        "shot": {
+          "size": "medium wide",
+          "angle": "eye level",
+          "camera_position": "from inside the living room toward the exit",
+          "focal_subject": "his departure action and her separate reaction",
+          "story_reason": "hold friction and care in the same physical frame"
+        },
+        "blocking": {
+          "hands": "his hands stay with shoes and bag while hers remain folded",
+          "gaze": "she watches him and he looks down",
+          "body_distance": "clear distance without contact",
+          "posture_or_feet": "he bends to leave while she stands closed off"
+        },
+        "setting": {
+          "sub_location": "same living room near the exit",
+          "time": "five minutes later",
+          "motivated_light": "same light with slightly quieter room tone",
+          "story_trace": "scattered cushions preserve the immediate aftermath"
+        },
+        "story_evidence": [
+          {
+            "carrier": "scattered cushions and packed bag",
+            "observable_state": "the fight aftermath remains while he actively leaves",
+            "narrative_job": "prove care occurs before reconciliation"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The same room, evening outfits, laptop, work document, sofa, and coffee table remain recognizable.",
+          "outgoing_state": "The same fight room and props remain while the man's outward departure begins."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 8,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "extend separation through outward departure",
+        "silent_read": "He walks away down the corridor while she remains inside and turns toward the argument’s aftermath.",
+        "change_from_previous": "The same clothes, bag, cushion set, apartment door, and anger continue directly from the previous beat.",
+        "critic_evidence": "He walks away down the corridor while she remains inside and turns toward the argument’s aftermath.",
+        "staged_action": {
+          "subject": "the man",
+          "action": "walks outward down the corridor",
+          "target_or_object": "office bag and one cushion retained inside",
+          "reaction_or_consequence": "the woman turns away and gathers the aftermath"
+        },
+        "pov": {
+          "owner": "behind the departing man",
+          "audience_knows": "the separation continues with no return gesture",
+          "audience_feels": "unresolved distance"
+        },
+        "shot": {
+          "size": "long wide",
+          "angle": "rear three-quarter",
+          "camera_position": "in the corridor behind the man",
+          "focal_subject": "his outward travel with her behind the threshold",
+          "story_reason": "make direction and separation impossible to misread"
+        },
+        "blocking": {
+          "hands": "his hand owns the bag and hers owns the cushion",
+          "gaze": "their gazes diverge",
+          "body_distance": "corridor depth separates foreground and doorway",
+          "posture_or_feet": "his feet and hips move outward while her torso turns inward"
+        },
+        "setting": {
+          "sub_location": "apartment corridor and open front door",
+          "time": "same night",
+          "motivated_light": "corridor practical light",
+          "story_trace": "bag, clothes, door, and cushion continue the exit"
+        },
+        "story_evidence": [
+          {
+            "carrier": "feet, doorway, and bag",
+            "observable_state": "all directional cues carry him away from her",
+            "narrative_job": "protect outward departure continuity"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The same fight room and props remain while the man's outward departure begins.",
+          "outgoing_state": "The same clothes, bag, cushion set, apartment door, and anger continue directly from the previous beat."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 9,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "remote care initiation",
+        "silent_read": "Later, alone and still upset, she makes a live phone call because concern has begun to outweigh her anger.",
+        "change_from_previous": "The unchanged room, outfit, cushions, and work document prove that this call follows the departure.",
+        "critic_evidence": "Later, alone and still upset, she makes a live phone call because concern has begun to outweigh her anger.",
+        "staged_action": {
+          "subject": "the woman",
+          "action": "calls from the sofa while still holding the fight cushion",
+          "target_or_object": "one phone, one cushion, and the work document",
+          "reaction_or_consequence": "concern overtakes part of her anger"
+        },
+        "pov": {
+          "owner": "the woman",
+          "audience_knows": "she chooses contact without erasing the fight",
+          "audience_feels": "tender concern under irritation"
+        },
+        "shot": {
+          "size": "medium close up",
+          "angle": "eye level",
+          "camera_position": "from the opposite sofa arm",
+          "focal_subject": "phone at ear and knotted cushion",
+          "story_reason": "keep mixed emotion and remote-call action legible"
+        },
+        "blocking": {
+          "hands": "one hand at the phone and one gripping the cushion",
+          "gaze": "lowered concerned gaze",
+          "body_distance": "alone on the sofa",
+          "posture_or_feet": "curled inward with residual jaw tension"
+        },
+        "setting": {
+          "sub_location": "same living-room sofa",
+          "time": "later that night",
+          "motivated_light": "one warm lamp",
+          "story_trace": "unchanged cushions, document, and outfit preserve aftermath"
+        },
+        "story_evidence": [
+          {
+            "carrier": "phone and cushion grip",
+            "observable_state": "she contacts him while physically holding the argument residue",
+            "narrative_job": "prove care survives anger"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The same clothes, bag, cushion set, apartment door, and anger continue directly from the previous beat.",
+          "outgoing_state": "The unchanged room, outfit, cushions, and work document prove that this call follows the departure."
+        },
+        "entity_contract": {
+          "expected_people": 1,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 10,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "remote care answer",
+        "silent_read": "At his separate home, he answers the ongoing call and visibly relaxes.",
+        "change_from_previous": "The same man, bag, clothes, and active phone call answer the woman's preceding call from a separate location.",
+        "critic_evidence": "At his separate home, he answers the ongoing call and visibly relaxes.",
+        "staged_action": {
+          "subject": "the man",
+          "action": "answers the live call after reaching his own home",
+          "target_or_object": "one phone, one ordinary key, and the office bag",
+          "reaction_or_consequence": "his shoulders visibly release"
+        },
+        "pov": {
+          "owner": "the man",
+          "audience_knows": "her concern reaches him across separate homes",
+          "audience_feels": "relief"
+        },
+        "shot": {
+          "size": "medium single",
+          "angle": "eye level",
+          "camera_position": "inside his separate entryway",
+          "focal_subject": "phone at ear and softened posture",
+          "story_reason": "answer the preceding call without a split screen"
+        },
+        "blocking": {
+          "hands": "one phone hand and one key hand remain distinct",
+          "gaze": "listening gaze into the call",
+          "body_distance": "he is alone in the entryway",
+          "posture_or_feet": "grounded stance with lowered shoulders"
+        },
+        "setting": {
+          "sub_location": "his separate home entry",
+          "time": "same night",
+          "motivated_light": "cooler entry practical light",
+          "story_trace": "same clothes and bag connect the corridor journey"
+        },
+        "story_evidence": [
+          {
+            "carrier": "phone, key, and bag",
+            "observable_state": "the same departing man is now safely inside another home and answering",
+            "narrative_job": "prove distance and successful contact"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The unchanged room, outfit, cushions, and work document prove that this call follows the departure.",
+          "outgoing_state": "The same man, bag, clothes, and active phone call answer the woman's preceding call from a separate location."
+        },
+        "entity_contract": {
+          "expected_people": 1,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 11,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "pay off the reciprocal habit after conflict",
+        "silent_read": "The next morning, their reciprocal ritual continues with tired affection, showing that the relationship endured the conflict.",
+        "change_from_previous": "The repeated lobby, ID, coffee, and habitual exchange show the relationship ritual surviving the argument.",
+        "critic_evidence": "The next morning, their reciprocal ritual continues with tired affection, showing that the relationship endured the conflict.",
+        "staged_action": {
+          "subject": "both partners",
+          "action": "repeat the ID-and-coffee exchange the next morning",
+          "target_or_object": "ID lanyard and takeaway coffee",
+          "reaction_or_consequence": "the ordinary ritual survives the friction"
+        },
+        "pov": {
+          "owner": "shared observer",
+          "audience_knows": "their partnership is already lived rather than ceremonially declared",
+          "audience_feels": "earned warmth"
+        },
+        "shot": {
+          "size": "medium wide",
+          "angle": "eye level",
+          "camera_position": "from the same lobby circulation path as the opening",
+          "focal_subject": "the repeated reciprocal exchange",
+          "story_reason": "close the arc through a visual rhyme rather than a romantic pose"
+        },
+        "blocking": {
+          "hands": "each partner owns one offered object",
+          "gaze": "quiet mutual look",
+          "body_distance": "comfortable habitual distance",
+          "posture_or_feet": "tired but open posture"
+        },
+        "setting": {
+          "sub_location": "same office lobby cafe",
+          "time": "next morning",
+          "motivated_light": "soft morning window light",
+          "story_trace": "the opening place and objects return with changed emotional meaning"
+        },
+        "story_evidence": [
+          {
+            "carrier": "repeated ID and coffee",
+            "observable_state": "the exact opening ritual recurs after conflict",
+            "narrative_job": "prove enduring partnership through behavior"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The same man, bag, clothes, and active phone call answer the woman's preceding call from a separate location.",
+          "outgoing_state": "The repeated lobby, ID, coffee, and habitual exchange show the relationship ritual surviving the argument."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate foreground people",
+            "unowned hands or limbs",
+            "mirrors or reflections that resemble extra people"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "019fb36b-1433-7623-beee-a485df9730d2",
+      "reviewer_task_id": "/root/blind_storyboard_event_a",
+      "reviewer_run_id": "019fb36a-fde0-7191-9f97-0eb2379fa402",
+      "input_fingerprint": "sha256:4f192fd0d83f225e7476bbd1fb2494d3688557b1770a2c8e0dde47ecc215cd36",
+      "raw_response_artifact": "event-a-blind-critic-raw.json",
+      "raw_response_fingerprint": "sha256:3c6bd91118ce44661f2e857f56a531fe38ed6d8a4945ac9fbeda6a3ae38058b2",
+      "output_fingerprint": "sha256:c844358f976f45f773519b6b832d269f379ca4b3a555dc69b89599821604cbc4"
+    },
+    "director_event_fingerprint": "sha256:80ce6629eb0218305ca8cede8de288d7d9cf533526ac617ad33f92689be7c5c6"
+  }
+}

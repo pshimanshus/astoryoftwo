@@ -52,6 +52,12 @@ EXPECTED_SKILLS = {
         "expected_frame_bindings",
         "visual-qa.json",
     ],
+    "a-story-storytelling-hook": [
+        "references/story-engine.md",
+        "Story State Card",
+        "before -> pressure/choice -> after",
+        "$a-story-carousel-jam",
+    ],
 }
 
 
@@ -109,7 +115,9 @@ def test_repo_codex_skills_are_registered_with_invocation_policy():
     assert repo_records["a-story-wiki-health"].implicit_invocation is False
     assert repo_records["a-story-instagram-idea-loop"].implicit_invocation is True
     assert repo_records["a-story-carousel-jam"].implicit_invocation is True
+    assert repo_records["a-story-storytelling-hook"].implicit_invocation is True
     assert "carousel-jam-runtime-context" in repo_records["a-story-carousel-jam"].dependencies
+    assert "creator-skill-stack" in repo_records["a-story-storytelling-hook"].dependencies
 
 
 def test_risky_repo_codex_skills_require_explicit_invocation():

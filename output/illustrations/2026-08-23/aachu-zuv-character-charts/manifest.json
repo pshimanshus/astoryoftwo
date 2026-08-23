@@ -1,0 +1,27 @@
+{
+  "schema_version": "a-story-character-reference-pack/v1",
+  "created_on": "2026-08-23",
+  "purpose": "Private production reference pack for recurring Aachu and Zuv illustrations.",
+  "status": "AWAITING_CREATOR_JOINT_LIKENESS_AND_ACCESSORY_APPROVAL",
+  "identity_authority": "Actual photographs remain authoritative. Generated sheets are supplemental illustration-consistency references only.",
+  "generation_mode": "built-in-imagegen",
+  "requested_sheets": [
+    "aachu",
+    "zuv",
+    "joint"
+  ],
+  "current_gate": "Creator must approve both likenesses, Zuv's evil-eye locket, Aachu's right-wrist evil-eye bracelet, and the couple scale in proof/aachu-zuv-joint-proof-v2-accessory-lock.png before either solo sheet is generated.",
+  "artifact_map": {
+    "format_contract": "format-contract.json",
+    "character_bible": "character-bible.json",
+    "sheet_contract": "sheets.json",
+    "prompt_pack": "prompt-pack.json",
+    "joint_prompt": "prompts/joint-character-sheet.prompt.txt",
+    "identity_review": "identity-consistency-review.json",
+    "visual_qa": "visual-qa.json",
+    "visual_qa_notes": "visual-qa.md",
+    "attempt_ledger": ".internal/attempt-ledger.json",
+    "joint_creator_proof": "proof/aachu-zuv-joint-proof-v2-accessory-lock.png",
+    "superseded_joint_proof": "proof/aachu-zuv-joint-proof-v1.png"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-202052",
+  "blind_reviews": [
+    {
+      "candidate_id": "run-202052-i1-b-museum-of-almost",
+      "blind_input_sha256": "1f099bb8dca3fd9096489e183a513c7fa5aa5d03827d93695eca323b08801e10",
+      "critic_task_ids": [
+        "verifier_audience_202052",
+        "verifier_taste_202052"
+      ],
+      "objections": []
+    },
+    {
+      "candidate_id": "run-202052-i1-b-habit-changed-address",
+      "blind_input_sha256": "7d2e1a40dc432946f08300af544949b4757d5b01851146ba137b789e637a10d3",
+      "critic_task_ids": [
+        "verifier_audience_202052",
+        "verifier_taste_202052"
+      ],
+      "objections": [
+        "Audience critic found weak cold-context legibility and insufficient couple consequence."
+      ]
+    },
+    {
+      "candidate_id": "run-202052-i1-b-who-started-us",
+      "blind_input_sha256": "5dc7dd96dfefab4f7901e95b05d9c29da31d35f53b9eb88555dd18dc97a702c0",
+      "critic_task_ids": [
+        "verifier_audience_202052",
+        "verifier_taste_202052"
+      ],
+      "objections": [
+        "Recent departure-ritual collision.",
+        "Familiar quiz shell and weak creator-world specificity."
+      ]
+    },
+    {
+      "candidate_id": "ASOT-202052-I1-A-CULTURE-PHERAN-POCKETS",
+      "blind_input_sha256": "fb28f69b24c69d1ed5af3313e3bf58f8d21fc91aabcfe5076a9d983c3105a873",
+      "critic_task_ids": [
+        "verifier_audience_202052",
+        "verifier_taste_202052"
+      ],
+      "objections": [
+        "Cultural provenance unconfirmed.",
+        "Garment and inventory overpower the relationship change."
+      ]
+    }
+  ]
+}

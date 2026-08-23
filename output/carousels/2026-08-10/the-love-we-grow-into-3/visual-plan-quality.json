@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "status": "HOLD",
+  "decision": "AWAIT_EVENT_A",
+  "can_generate": false,
+  "lane": "Tiny Rituals",
+  "winner": "Cinematic Evidence Sequence",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {
+    "couple": "Same Aachu and Zuv faces, full-body proportions, exactly two-inch height difference, sole wardrobe, shoes, and red handbag.",
+    "car": "One charcoal compact sedan, same curb orientation, silver five-spoke rear wheel, and small red rear-light wedge.",
+    "chai_world": "One blue-grey counter, rust-red canopy, and exactly two dark-wood stools: empty on slides 1 and 5, occupied on slide 6.",
+    "restaurant": "One unlabelled terracotta doorway with muted sage awning across the road divider.",
+    "umbrella": "One closed deep-navy umbrella against the car.",
+    "phone": "One phone: visible and held through slide 3, fully pocketed on slide 4, stays pocketed through slide 6.",
+    "door": "One fully closed left-hinged door with a true right latch edge, edge-mounted lever, stable door-to-lift geography, exterior-corridor camera only."
+  },
+  "shot_ladder": [
+    {"slide": 1, "shot": "wide diagonal full-body", "visible_change": "Aachu steps toward two empty stools; Zuv turns the phone inward and follows"},
+    {"slide": 2, "shot": "large unframed two-vignette storybook diptych", "visible_change": "key caught in bag, then parked-car reroute"},
+    {"slide": 3, "shot": "medium-wide side two-shot", "visible_change": "Aachu turns away while Zuv remains on the route"},
+    {"slide": 4, "shot": "wide profile separation", "visible_change": "phone disappears into pocket; distance widens without departure"},
+    {"slide": 5, "shot": "tight over-Zuv-shoulder reaction", "visible_change": "Aachu looks at empty stools; Zuv looks at Aachu"},
+    {"slide": 6, "shot": "low three-quarter seated two-shot", "visible_change": "same stools become occupied; biscuit enters shared space"},
+    {"slide": 7, "shot": "large unframed chronological corridor diptych", "visible_change": "Aachu first walks away, then returns to join the same door check"}
+  ],
+  "event_a_status": "PENDING_FRESH_COPY_HIDDEN_REVIEW",
+  "director_storyboard": null,
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover keys, routes,\nand very small things.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nthat sometimes it means:\n“Give me a minute.\nDon’t go far.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "You still checked the lock twice.\nI still rolled my eyes.\n\nThen I went back\nand checked it with you.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [
+    "Generation remains blocked until the fresh copy-hidden Event A critic returns GO and its response is bound to the final blind-card and prompt payload fingerprints."
+  ]
+}

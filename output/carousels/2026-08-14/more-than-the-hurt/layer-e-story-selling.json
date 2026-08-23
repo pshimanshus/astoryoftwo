@@ -1,0 +1,579 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "task_type": "carousel_idea",
+  "adaptation_target": "C-layer",
+  "rooms": {
+    "source_memory_room": {
+      "name": "Context And Source Memory",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Source Curator",
+          "role": "legality",
+          "claim": "Use derived patterns and source IDs only.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Successful Carousel Standard Reader",
+          "role": "creative north star",
+          "claim": "Prioritize public identity mirror and concrete couple receipts.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Creator Preference Ledger Reader",
+          "role": "memory",
+          "claim": "Avoid repeating cooled-down lanes as fresh ideas.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Loaded project standards and the creator-approved illustrative premise.",
+      "inputs_used": [
+        "config/references/story-selling-canon/source-register.json",
+        "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+        "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+        "wiki/insights/successful-carousel-standard.md",
+        "memory/semantic/carousel-idea-preferences.md"
+      ],
+      "debate_records": [
+        "Source Curator: treat photos, objects, outfits, and canon cards as evidence, never as the premise.",
+        "Successful Carousel Standard Reader: define success before writing as cold-viewer recognition, not beautiful art.",
+        "Creator Preference Ledger Reader: avoid stale perfect-husband, aesthetic-first, and repeated chaos/home lanes."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+        "memory_policy": "fresh route must not recycle cooled-down lanes as fresh ideas"
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "story_meaning_room": {
+      "name": "Story Meaning Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Romance Novelist",
+          "role": "emotional arc",
+          "claim": "The route needs obstacle, proof, reversal, and earned payoff.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Film Scene Director",
+          "role": "scene grammar",
+          "claim": "The meaning must be drawable through behavior.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Aachu/Zuv Dynamics Writer",
+          "role": "character truth",
+          "claim": "Aachu gets spark; Zuv gets active response.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Emotional Obstacle Miner",
+          "role": "friction",
+          "claim": "No obstacle means no story engine.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Selected the missed-dinner obstruction route as the strongest relationship meaning.",
+      "inputs_used": [
+        "Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "C-layer carousel package",
+        "golden theme remains mandatory",
+        "use process cards as influences, not the answer"
+      ],
+      "debate_records": [
+        "Route 'Public Scene, Private Meaning' human story: obstacle='If the private meaning is absent, the scene stays decorative.', proof='Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.', payoff='The pretty part is only proof; the relationship is the subject.', score=25.0/30.",
+        "Route 'Scene Before Summary' human story: obstacle='Summary too early kills tension.', proof='Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.', payoff='The final line lands only after the action.', score=25.0/30.",
+        "Route 'Proof Before Poetry' human story: obstacle='The idea risks becoming pretty but emotionally flat.', proof='Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.', payoff='Love becomes believable only after the scene proves it.', score=24.0/30.",
+        "Human story check: the route must be about a relationship pressure becoming visible, not about a nice photo, outfit, place, or object.",
+        "Scene grammar check: Aachu must carry specific spark and Zuv must answer through visible behavior before copy or captions are written."
+      ],
+      "scores": {
+        "Proof Before Poetry": 24.0,
+        "Public Scene, Private Meaning": 25.0,
+        "Anti-Ideal To Real Love": 24.0,
+        "Reader As Third Witness": 23.0,
+        "Scene Before Summary": 25.0
+      },
+      "selected_outputs": {
+        "raw_winner": "Public Scene, Private Meaning",
+        "human_story_setup": "Shareable if the scene becomes a relationship mirror.",
+        "emotional_obstacle": "If the private meaning is absent, the scene stays decorative."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "audience_algorithm_room": {
+      "name": "Audience And Algorithm Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Retention Analyst",
+          "role": "swipe ladder",
+          "claim": "The route must create curiosity and middle-slide re-engagement.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Algorithm / Share-Save Strategist",
+          "role": "distribution",
+          "claim": "The route needs a send/save/tag reason.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Copy Chief",
+          "role": "wording",
+          "claim": "Public copy should stay name-free and behavior-led.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Culture And Taste Reader",
+          "role": "taste",
+          "claim": "The humor should feel warm, desi, and non-shaming.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Confirmed the act-versus-person distinction as a partner-sendable reader mirror.",
+      "inputs_used": [
+        "wiki/insights/successful-carousel-standard.md#What Success Means",
+        "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md#Comment Behavior"
+      ],
+      "debate_records": [
+        "Reader mirror: A stranger can enter through the public scene first.",
+        "Send/save reason: Shareable if the scene becomes a relationship mirror.",
+        "Success pressure: a strong route must earn partner tags, saves, or DMs because the viewer is saying 'this is us', not because the art is pretty.",
+        "Swipe pressure: the middle must carry receipt density and at least one visual proof beat that can be understood before reading a caption."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "distribution_reason": "Shareable if the scene becomes a relationship mirror.",
+        "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "contrarian_repair_room": {
+      "name": "Contrarian Repair Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Harsh Critic",
+          "role": "route attack",
+          "claim": "The winner must survive genericness and private-context objections.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Genericness Detector",
+          "role": "specificity",
+          "claim": "Specific proof beats beat abstract romance.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Safety/Taste Guard",
+          "role": "safety",
+          "claim": "No shaming, privacy leak, or copied expression.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Visual Generativity Skeptic",
+          "role": "generation",
+          "claim": "The concept must become simple scenes.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Rejected instant forgiveness and retained the cold dinner plus two downturned frames.",
+      "inputs_used": [
+        "Public Scene, Private Meaning",
+        "Scene Before Summary",
+        "Proof Before Poetry"
+      ],
+      "debate_records": [
+        "Attack 'Public Scene, Private Meaning': hard_fails=['none']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+        "Attack 'Scene Before Summary': hard_fails=['none']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+        "Attack 'Proof Before Poetry': hard_fails=['stage-scene gate has no visible active partner action']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+        "Genericness Detector: reject routes that would get 'beautiful' but not 'this is us'.",
+        "Visual Generativity Skeptic: block any route that can only be expressed as poster copy."
+      ],
+      "scores": {},
+      "selected_outputs": {},
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": [
+        "Scene Before Summary",
+        "Proof Before Poetry"
+      ]
+    },
+    "stage_scene_room": {
+      "name": "Stage-Scene Gate",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Stage Director",
+          "role": "blocking",
+          "claim": "The idea must play as action before copy.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Body Language Reader",
+          "role": "proof",
+          "claim": "Hands, distance, and object movement must prove the turn.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Silent Panel Reviewer",
+          "role": "visual story",
+          "claim": "A viewer should understand the beat with text hidden.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Confirmed chair, phone, dinner, frames, gaze, and body distance carry the story without copy.",
+      "inputs_used": [
+        "Public Scene, Private Meaning",
+        "Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal."
+      ],
+      "debate_records": [
+        "Action: Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.",
+        "Reaction: The public image becomes a private receipt.",
+        "Hands/object movement: Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.",
+        "Silence/pause: Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.",
+        "Consequence: Shareable if the scene becomes a relationship mirror.",
+        "Gate rule: text completes the scene; text must not carry the scene."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "action": "Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.",
+        "hands_or_object_movement": "Locked illustrative story approved by the creator on 2026-08-14: Aachu prepares a simple dinner for two after Zuv promises to be home. Aachu waits beside a cold untouched plate and a burned-low candle -> Zuv arrives late and stops in the doorway -> he sets down his keys and deliberately places his phone face-down instead of reaching or explaining -> the empty chair visually blocks Aachu view of him -> later Aachu turns three shared framed memories face-down -> the following morning Zuv sits in the once-empty chair, keeps his hands open, and waits without forcing forgiveness -> Aachu lifts one frame upright with its plain back toward us and looks at him directly -> Zuv pulls that same chair to the adjacent side so its back leaves their sightline while the cold plate remains visible. The obstacle is a repairable broken promise: hurt risks flattening one whole person into one painful act. The reversal is accountability without pressure, not erasure or a grand gesture. Send this to the partner when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity. Safety boundary: this is not about repeated harm, cruelty, coercion, abuse, or betrayal.",
+        "reversal_or_payoff": "The pretty part is only proof; the relationship is the subject."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    },
+    "final_synthesis_room": {
+      "name": "Final Synthesis Room",
+      "status": "GO",
+      "agents": [
+        {
+          "agent": "Story Lens Selector",
+          "role": "selection",
+          "claim": "Selected Public Scene, Private Meaning.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Story-Selling Rubric Judge",
+          "role": "score",
+          "claim": "Apply 30-point Story-Selling threshold.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        },
+        {
+          "agent": "Downstream Contract Writer",
+          "role": "handoff",
+          "claim": "Write emotional machine into C/D/B contracts.",
+          "objection": "",
+          "recommendation": "",
+          "score": null
+        }
+      ],
+      "summary": "Independent audit scored the actual route 30/30 Story-Selling and 29/30 Golden Theme.",
+      "inputs_used": [
+        "story_meaning_room",
+        "audience_algorithm_room",
+        "contrarian_repair_room",
+        "stage_scene_room",
+        "story_selling_score"
+      ],
+      "debate_records": [
+        "Selector chose 'Public Scene, Private Meaning' because it best connects human story, proof, reversal, and distribution.",
+        "Human setup: Shareable if the scene becomes a relationship mirror.",
+        "What success looks like: A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+      ],
+      "scores": {},
+      "selected_outputs": {
+        "selected_story_lens": "Turn the visible scene into a private relationship truth.",
+        "human_story_setup": "Shareable if the scene becomes a relationship mirror.",
+        "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+      },
+      "objections": [],
+      "repairs": [],
+      "repaired_route_names": []
+    }
+  },
+  "exploration_routes": [
+    {
+      "name": "The Chair That Became the Whole Person",
+      "story_lens": "A repairable hurt can dominate the frame without being allowed to become the whole identity of the person who caused it.",
+      "reader_mirror": "For anyone who has watched one painful moment recolor every good memory, then tried to see the person again without pretending the hurt disappeared.",
+      "emotional_obstacle": "Zuv broke a small but meaningful promise, and the empty place he left at dinner became larger in Aachu's sight than the rest of him.",
+      "aachu_specific_spark": "Aachu's hurt spreads backward through the three framed memories she methodically turns down.",
+      "zuv_active_role": "Zuv does not erase the evidence or force comfort: he puts the phone away, returns to the place of absence, keeps his hands open, and waits for Aachu to choose whether to look again.",
+      "proof_engine": "cold untouched dinner and burned-low candle -> empty chair larger than the late arrival -> three framed memories turned face-down -> Zuv occupies the once-empty chair and waits with open hands -> Aachu restores one frame and gives the first direct look -> the same chair moves out of their sightline while the cold plate and two downturned frames remain",
+      "emotional_reversal": "The hurt stays true, but its physical obstruction leaves the center of the frame; accountability makes room for whole-person recognition.",
+      "payoff": "You had disappointed me. You were not a disappointment.",
+      "distribution_reason": "Send this when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity.",
+      "process_influence_ids": [
+        "card-02",
+        "card-20"
+      ],
+      "score_total": 30.0,
+      "golden_theme_score_total": 29.0,
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu waits beside the cold meal, then turns three framed memories face-down.",
+        "reaction": "Zuv stops, puts his phone away, and later waits in the chair he had left empty.",
+        "eye_line_or_attention": "Aachu looks first at the empty chair, then through it, and finally directly at Zuv.",
+        "hands_or_object_movement": "Phone moves out of use; three frames turn down; one frame rises; the obstructing chair rotates aside.",
+        "silence_or_pause": "No reaching or forced apology gesture; Zuv's open hands and waiting keep the choice with Aachu.",
+        "consequence": "The cold plate, dead candle, and two downturned frames remain as evidence that repair does not erase harm.",
+        "reversal_or_payoff": "You had disappointed me. You were not a disappointment.",
+        "blockers": []
+      },
+      "hard_fails": [],
+      "verdict": "GO",
+      "story_selling_score": {
+        "reader_identity_mirror": 5.0,
+        "romantic_conflict_stakes": 5.0,
+        "specificity_of_proof": 5.0,
+        "emotional_reversal": 5.0,
+        "visual_scene_clarity": 5.0,
+        "online_share_save_sell_potential": 5.0,
+        "total": 30.0
+      },
+      "golden_theme_score": {
+        "universal_hook": 5.0,
+        "aachu_zuv_specificity": 4.0,
+        "concrete_proof": 5.0,
+        "zuv_emotional_role": 5.0,
+        "tender_thesis": 5.0,
+        "share_send_potential": 5.0,
+        "total": 29.0
+      }
+    }
+  ],
+  "repaired_routes": [],
+  "rejected_routes": [
+    {
+      "name": "Instant Apology Hug",
+      "story_lens": "A late arrival is solved by one immediate romantic gesture.",
+      "reader_mirror": "A viewer sees a familiar apology scene.",
+      "emotional_obstacle": "The gesture makes forgiveness feel compulsory.",
+      "aachu_specific_spark": "Aachu's hurt would be reduced to a reaction shot.",
+      "zuv_active_role": "Zuv would rescue the mood through physical affection.",
+      "proof_engine": "late arrival -> apology hug -> restored closeness",
+      "emotional_reversal": "The hurt disappears as soon as the hug begins.",
+      "payoff": "One embrace fixes the night.",
+      "distribution_reason": "Familiar but emotionally unsafe because it rushes repair.",
+      "process_influence_ids": [],
+      "score_total": 12.0,
+      "golden_theme_score_total": 12.0,
+      "hard_fails": [
+        "Erases the hurt and makes forgiveness compulsory."
+      ],
+      "verdict": "STOP"
+    },
+    {
+      "name": "Six Sad Portraits",
+      "story_lens": "The relationship hurt is expressed through repeated isolated sadness.",
+      "reader_mirror": "A viewer recognizes emotional pain but not the specific couple event.",
+      "emotional_obstacle": "Mood repeats without causal action or relationship movement.",
+      "aachu_specific_spark": "Aachu appears sad in every frame without a meaningful choice.",
+      "zuv_active_role": "Zuv remains visually passive or absent.",
+      "proof_engine": "sad face -> sad face -> sad face",
+      "emotional_reversal": "A final expression changes without a physical cause.",
+      "payoff": "The hurt becomes a generic quote-card lesson.",
+      "distribution_reason": "Low send value because the sequence lacks a concrete receipt.",
+      "process_influence_ids": [],
+      "score_total": 10.0,
+      "golden_theme_score_total": 9.0,
+      "hard_fails": [
+        "Repeats mood without causal action, accountability, or a visual turn."
+      ],
+      "verdict": "STOP"
+    }
+  ],
+  "selected_story_lens": "A repairable hurt can dominate the frame without being allowed to become the whole identity of the person who caused it.",
+  "emotional_machine": "Zuv broke a small but meaningful promise, and the empty place he left at dinner became larger in Aachu's sight than the rest of him. -> cold untouched dinner and burned-low candle -> empty chair larger than the late arrival -> three framed memories turned face-down -> Zuv occupies the once-empty chair and waits with open hands -> Aachu restores one frame and gives the first direct look -> the same chair moves out of their sightline while the cold plate and two downturned frames remain -> The hurt stays true, but its physical obstruction leaves the center of the frame; accountability makes room for whole-person recognition. -> You had disappointed me. You were not a disappointment.",
+  "proof_engine": "cold untouched dinner and burned-low candle -> empty chair larger than the late arrival -> three framed memories turned face-down -> Zuv occupies the once-empty chair and waits with open hands -> Aachu restores one frame and gives the first direct look -> the same chair moves out of their sightline while the cold plate and two downturned frames remain",
+  "reader_mirror": "For anyone who has watched one painful moment recolor every good memory, then tried to see the person again without pretending the hurt disappeared.",
+  "distribution_reason": "Send this when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity.",
+  "human_story_setup": {
+    "cold_reader_doorway": "For anyone who has watched one painful moment recolor every good memory, then tried to see the person again without pretending the hurt disappeared.",
+    "emotional_obstacle": "Zuv broke a small but meaningful promise, and the empty place he left at dinner became larger in Aachu's sight than the rest of him.",
+    "visible_human_proof": "cold untouched dinner and burned-low candle -> empty chair larger than the late arrival -> three framed memories turned face-down -> Zuv occupies the once-empty chair and waits with open hands -> Aachu restores one frame and gives the first direct look -> the same chair moves out of their sightline while the cold plate and two downturned frames remain",
+    "active_partner_role": "Zuv does not erase the evidence or force comfort: he puts the phone away, returns to the place of absence, keeps his hands open, and waits for Aachu to choose whether to look again.",
+    "emotional_turn": "The hurt stays true, but its physical obstruction leaves the center of the frame; accountability makes room for whole-person recognition.",
+    "shareable_setup": "Send this when you need to say: what you did hurt me, but I am trying not to make that moment your entire identity.",
+    "earned_payoff": "You had disappointed me. You were not a disappointment."
+  },
+  "success_definition": {
+    "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+    "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+    "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+    "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, request-locked native-format, QA, and audit gates must also pass. Default post/carousel delivery is 1080x1440 only; 1080x1920 Reel/Story is required only when explicitly requested.",
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+  },
+  "stage_scene_gate": {
+    "status": "GO",
+    "action": "Aachu waits beside the cold meal, then turns three framed memories face-down.",
+    "reaction": "Zuv stops, puts his phone away, and later waits in the chair he had left empty.",
+    "eye_line_or_attention": "Aachu looks first at the empty chair, then through it, and finally directly at Zuv.",
+    "hands_or_object_movement": "Phone moves out of use; three frames turn down; one frame rises; the obstructing chair rotates aside.",
+    "silence_or_pause": "No reaching or forced apology gesture; Zuv's open hands and waiting keep the choice with Aachu.",
+    "consequence": "The cold plate, dead candle, and two downturned frames remain as evidence that repair does not erase harm.",
+    "reversal_or_payoff": "You had disappointed me. You were not a disappointment.",
+    "blockers": []
+  },
+  "process_influences": [
+    {
+      "id": "successful-carousel-standard",
+      "title": "Successful Carousel Standard",
+      "influence_type": "living_standard",
+      "source_patterns": [],
+      "confidence": 0.9,
+      "reason": "Defines public identity mirror, couple receipts, active Zuv care, reversal, and send/save thesis.",
+      "primary": false
+    },
+    {
+      "id": "card-02",
+      "title": "Misread To Tender Truth",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "gutenberg-austen-pride-prejudice",
+        "pixar-storytelling"
+      ],
+      "confidence": 0.84,
+      "reason": "Primary process card: one painful act is first misread as the whole person, then revised through visible accountability.",
+      "primary": true
+    },
+    {
+      "id": "card-20",
+      "title": "Saveable Lesson From One Scene",
+      "influence_type": "concept_process_card",
+      "source_patterns": [
+        "storybrand-framework",
+        "copyblogger-story-that-sells",
+        "animalz-quality-content"
+      ],
+      "confidence": 0.81,
+      "reason": "Supporting influence: the saveable lesson is discovered through one concrete dinner-room sequence.",
+      "primary": false
+    }
+  ],
+  "story_selling_score": {
+    "reader_identity_mirror": 5.0,
+    "romantic_conflict_stakes": 5.0,
+    "specificity_of_proof": 5.0,
+    "emotional_reversal": 5.0,
+    "visual_scene_clarity": 5.0,
+    "online_share_save_sell_potential": 5.0,
+    "total": 30.0
+  },
+  "golden_theme_score": {
+    "universal_hook": 5.0,
+    "aachu_zuv_specificity": 4.0,
+    "concrete_proof": 5.0,
+    "zuv_emotional_role": 5.0,
+    "tender_thesis": 5.0,
+    "share_send_potential": 5.0,
+    "total": 29.0
+  },
+  "hard_fails": [],
+  "required_repairs": [],
+  "golden_theme_gate": "required_for_carousel",
+  "downstream_contract": {
+    "c_layer": {
+      "must_preserve": [
+        "selected_story_lens",
+        "emotional_machine",
+        "proof_engine",
+        "reader_mirror",
+        "distribution_reason"
+      ],
+      "golden_theme_gate": "required_for_carousel"
+    },
+    "d_layer": {
+      "article_angle_source": "selected_story_lens"
+    },
+    "b_layer": {
+      "prepost_brief_source": "rooms"
+    }
+  },
+  "metadata": {
+    "source_register_path": "config/references/story-selling-canon/source-register.json",
+    "concept_process_bank_path": "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+    "pattern_map_path": "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+    "reference_paths": [
+      "wiki/insights/successful-carousel-standard.md",
+      "wiki/themes/calm-enough-for-chaos.md",
+      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md",
+      "memory/semantic/carousel-idea-preferences.md",
+      "config/references/story-selling-canon/source-policy.md",
+      "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+      "config/references/story-selling-canon/concept-process-cards.md",
+      "config/references/story-selling-canon/rubric.md",
+      "config/references/story-selling-canon/romance-novel-canon.md",
+      "config/references/story-selling-canon/romance-film-canon.md",
+      "config/references/story-selling-canon/story-selling-online.md",
+      "story-selling-online.md"
+    ],
+    "constraints": [
+      "C-layer carousel package",
+      "golden theme remains mandatory",
+      "use process cards as influences, not the answer"
+    ],
+    "requested_tone": "",
+    "reference_images": [
+      "config/references/identity/aachu/reel-jaldi.jpg",
+      "config/references/identity/together/together-01.jpg",
+      "config/references/identity/together/together-18.jpg"
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0",
+  "observer": {
+    "agent": "C0.5-Jarvis",
+    "role": "Track requirements, stage completion, reviewer findings, and final gate status."
+  },
+  "reviews": {
+    "intake_reviewer": {
+      "stage": "intake",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "story captured",
+        "reference images exist",
+        "slide count accepted"
+      ],
+      "done": [
+        "0 reference image(s)",
+        "7 requested slide(s)"
+      ],
+      "issues": [
+        "No reference images were supplied."
+      ],
+      "notes": []
+    },
+    "story_reviewer": {
+      "stage": "story",
+      "status": "PASS",
+      "expected": [
+        "human truth present",
+        "source story preserved"
+      ],
+      "done": [
+        "In many couples, the first polite call is information; the second tone is the actual notification."
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "arc_reviewer": {
+      "stage": "arc",
+      "status": "PASS",
+      "expected": [
+        "slide plan count matches request",
+        "prompt count matches slide plan"
+      ],
+      "done": [
+        "7 planned slide(s)",
+        "7 prompt slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "visual_reviewer": {
+      "stage": "visual",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "every slide has copy, role, visual, emotion, CTA intent, and source images",
+        "post-copy visual room runs after copy lock",
+        "pre-generation visual screen passes before image handoff"
+      ],
+      "done": [
+        "checked 7 slide(s)",
+        "post-copy visual room: GO",
+        "visual screen: PASS"
+      ],
+      "issues": [
+        "Slide 1 missing: cta_intent.",
+        "Slide 2 missing: cta_intent.",
+        "Slide 3 missing: cta_intent.",
+        "Slide 4 missing: cta_intent.",
+        "Slide 5 missing: cta_intent.",
+        "Slide 6 missing: cta_intent.",
+        "Slide 7 missing: cta_intent.",
+        "visual-plan-quality.json has 0 slide records, expected 7."
+      ],
+      "notes": []
+    },
+    "identity_consistency_reviewer": {
+      "stage": "identity_consistency",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "selected identity bundle is present",
+        "each slide locks face structure",
+        "each slide locks facial expression",
+        "each slide locks clothing/body-language cues",
+        "each prompt includes Identity continuity lock before generation"
+      ],
+      "done": [
+        "0 identity reference(s)",
+        "0 reviewed slide(s)"
+      ],
+      "issues": [
+        "identity-consistency-review.json has 0 slide records, expected 7.",
+        "Slide 1 missing identity continuity fields: face_structure, facial_expression, clothing, cross_slide_consistency.",
+        "Slide 2 missing identity continuity fields: face_structure, facial_expression, clothing, cross_slide_consistency.",
+        "Slide 3 missing identity continuity fields: face_structure, facial_expression, clothing, cross_slide_consistency.",
+        "Slide 4 missing identity continuity fields: face_structure, facial_expression, clothing, cross_slide_consistency.",
+        "Slide 5 missing identity continuity fields: face_structure, facial_expression, clothing, cross_slide_consistency.",
+        "Slide 6 missing identity continuity fields: face_structure, facial_expression, clothing, cross_slide_consistency.",
+        "Slide 7 missing identity continuity fields: face_structure, facial_expression, clothing, cross_slide_consistency."
+      ],
+      "notes": []
+    },
+    "prompt_reviewer": {
+      "stage": "prompt",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "shared style prompt",
+        "shared negative prompt",
+        "self-contained slide prompts"
+      ],
+      "done": [
+        "style prompt missing",
+        "negative prompt missing"
+      ],
+      "issues": [
+        "Shared style prompt does not specify watercolor-and-ink illustration.",
+        "Shared style prompt does not specify hand-drawn illustration.",
+        "Shared style prompt does not explicitly preserve photo/reference details.",
+        "Negative prompt missing 'photorealism'.",
+        "Negative prompt missing '3d'.",
+        "Negative prompt missing 'stock'.",
+        "Negative prompt missing 'quote-card'.",
+        "Slide 1 prompt missing Identity continuity lock.",
+        "Slide 2 prompt missing Identity continuity lock.",
+        "Slide 3 prompt missing Identity continuity lock.",
+        "Slide 4 prompt missing Identity continuity lock.",
+        "Slide 5 prompt missing Identity continuity lock.",
+        "Slide 6 prompt missing Identity continuity lock.",
+        "Slide 7 prompt missing Identity continuity lock."
+      ],
+      "notes": []
+    },
+    "copy_reviewer": {
+      "stage": "copy",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "caption",
+        "alt text",
+        "posting notes"
+      ],
+      "done": [],
+      "issues": [
+        "Recommended caption is missing.",
+        "Alt text list is missing."
+      ],
+      "notes": []
+    },
+    "success_standard_reviewer": {
+      "stage": "success_standard",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "open agent alignment to the success goals",
+        "relationship-first premise",
+        "Story-Selling / golden-theme / story-director support",
+        "visual-room and visual-plan support",
+        "prompt-level success-goal handoff"
+      ],
+      "done": [
+        "standard source: wiki/insights/successful-carousel-standard.md",
+        "gate: REPAIR"
+      ],
+      "issues": [
+        "Missing recorded agent alignment to the successful-carousel goals.",
+        "Prompts do not carry the successful-carousel standard into generation handoff."
+      ],
+      "notes": []
+    },
+    "asset_reviewer": {
+      "stage": "assets",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "local preview status recorded",
+        "final generated images packaged"
+      ],
+      "done": [
+        "render status: BATCH_ALLOWED",
+        "final images present: 7 / 7"
+      ],
+      "issues": [
+        "Unexpected render status: BATCH_ALLOWED."
+      ],
+      "notes": []
+    },
+    "wiki_learning_reviewer": {
+      "stage": "wiki_learning",
+      "status": "PASS_WITH_NOTES",
+      "expected": [
+        "wiki page",
+        "wiki index link",
+        "working memory entry",
+        "graph entity"
+      ],
+      "done": [
+        "scheduled wiki and memory updates"
+      ],
+      "issues": [],
+      "notes": [
+        "Wiki and memory files are updated after final audit generation."
+      ]
+    }
+  }
+}

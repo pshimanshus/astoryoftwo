@@ -1,0 +1,120 @@
+{
+  "status": "REJECTED_SPATIAL_INTEGRITY",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-01/model-native-source/instagram-post-slide-07.png",
+            "sha256": "e41267a40c16d8c6d6b954dd5c773c37da249cef985be55d4fccb7fda52b2368",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Whole-person spatial integrity failed; regenerate the rejected body/environment relationship before packaging.",
+  "proof_state": "REJECTED_SPATIAL_INTEGRITY",
+  "retry_count": 0,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 2,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-01",
+  "image_set_sha256": "05d713caca230917de3401aaa899129f833fe949af8813566e0ecb4e035b611f",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 7,
+  "total_slide_count": 7,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      7
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:61b8253c7d0b6a992ccdceb47805e3ef982a5805940ae4163e66c36c2411f5c0"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:701fa858cd952d00a256389dbd7dbfb40fd7cf6e2f0971867a733f21e8786abe"
+      }
+    },
+    "files": [
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:223931d86eea27ebad5c0f7ba47051d6579c74a4f63a28a1513168d69d7d0232"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.md",
+        "sha256": "sha256:5d633bd0fb83f771b4903cde6bfe11ecbc7e73120dd0eddfdd04ab6196b34f5a"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:7e0488b3f69ea2a2b9d420285fa4029a8ffed75cbd3789dff321bdd23f39edb3"
+  },
+  "visual_qa_path": "visual-qa.json",
+  "visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 7 instagram_post anatomy_inventory must inventory every observed hand",
+    "visual-qa.json spatial_topology slide 1 must include evidence_views.",
+    "visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+    "visual-qa.json spatial_topology slide 1 must include a people list.",
+    "visual-qa.json spatial_topology slide 1 has invalid observed_people.",
+    "visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+    "visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+    "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+    "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+    "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+    "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+    "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+    "visual_story_readability declares unresolved issues while claiming PASS.",
+    "visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+    "visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+    "visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+    "visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+  ]
+}

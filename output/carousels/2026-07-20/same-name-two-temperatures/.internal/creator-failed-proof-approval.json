@@ -1,0 +1,32 @@
+{
+  "status": "APPROVED",
+  "approved": true,
+  "image_set_sha256": "49ac6a4206b7ecc02cc8d5b3290bfdbd0bed57f93bfd7b804a1fdb175f596c34",
+  "approved_by": "creator",
+  "evidence": "Creator replied “continue with other” after being offered the explicit option to approve this stylized likeness and use it as the anchor for all remaining slides.",
+  "accepts_known_qa_exceptions": true,
+  "acknowledged_visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json image_set_sha256 is missing or stale",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 7 instagram_post QA hash is stale",
+    "slide 7 instagram_post anatomy_inventory source_asset hash is stale",
+    "slide 7 instagram_post scene_entity_integrity source_asset hash is stale",
+    "slide 7 instagram_post visual_richness source_asset hash is stale",
+    "slide 7 instagram_post must explicitly reject decorative clutter",
+    "visual-qa.json spatial_topology slide 1 environment plane 1 must be structured.",
+    "visual-qa.json spatial_topology slide 1 environment plane 2 must be structured.",
+    "visual-qa.json spatial_topology slide 1 environment plane 3 must be structured.",
+    "visual-qa.json spatial_topology slide 1 person 1 must inventory visible body_regions.",
+    "visual-qa.json spatial_topology slide 1 person 2 must inventory visible body_regions.",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+    "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+    "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-02/final/slide-07.png.",
+    "visual_story_readability.review_provenance must be a structured object."
+  ],
+  "acknowledged_visual_qa_issues_fingerprint": "sha256:db6b644815d5aba0c4dabe1a7ac2ffbdefbd3f55d8092781fa04804aaf0bc2f3"
+}

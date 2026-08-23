@@ -1,0 +1,1020 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "More unofficial rules of marriage\nthat nobody tells you",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Rule no. 1\n“Should we order something?”\nis not a question.\nThe decision has already been made.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Rule no. 2\nIf one person asks, “Kahan hai?”\nThe other must find it\nwithout being told what “it” is.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "Rule no. 3\nOld screenshots\ndo not have an expiry date.\nThey can be presented as evidence\nat any time.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Rule no. 4\nThe person who did not pack\nwill always ask,\n“Charger rakh liya?”\nUsually when you’re already in the cab.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "Rule no. 5\nWi-Fi starts working\nthe moment your spouse enters the room.\nNobody knows why.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "Rule no. 6\nMidnight hunger\nis never one person’s emergency.\nThe entire house gets activated.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 8,
+      "copy": "Rule no. 7\nEvery unnecessary purchase\nbegins immediately after\na serious conversation\nabout saving money.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 9,
+      "copy": "Rule no. 8\nNobody is actually in charge.\nBoth just keep showing up.\nUsually saying, “Maine bola tha.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The exact nine-slide copy and Instagram-post-only format were locked before the observable cards were sent to the critic.",
+    "author_id": "/root",
+    "reviewer_id": "/root/blind_storyboard_critic",
+    "reviewer_evidence": "A fresh orchestrated critic received only observable cards and returned the recorded inference before seeing copy, title, theme, roles, POV labels or intent.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:c700844e5ed6257b8e5e97ef546ce97dbd8377ca21f1c147289b34c7c7bff864",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "woman preparing clothes",
+          "man carrying two mugs"
+        ],
+        "visible_setting": "Warm home threshold beside an open suitcase.",
+        "observable_action": "One person searches clothes while the other crosses the room and steps over a charging cable.",
+        "hands_and_contact": "Her hands work through clothes; his attached hands carry one mug each; there is no contact.",
+        "gaze": "They exchange one familiar glance across separate work zones.",
+        "body_blocking": "Both occupy different parts of the room with the suitcase between their activities.",
+        "object_state": "Suitcase is open, clothes are unfinished, and one charger remains connected in the room.",
+        "camera_view": "High overhead wide showing the home geography and both simultaneous tasks.",
+        "visible_continuity": "Establishes the home, suitcase, charger, travel preparation and initially separate movement."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "two adults seated on one sofa"
+        ],
+        "visible_setting": "Living-room sofa during the same packing period.",
+        "observable_action": "One makes an asking gesture while the other already selects dishes on the shared phone.",
+        "hands_and_contact": "One open hand asks; the other operates the single phone placed between them.",
+        "gaze": "Both gaze toward the same phone.",
+        "body_blocking": "They sit at opposite ends but lean inward toward one shared decision.",
+        "object_state": "One phone already displays abstract food choices with no readable interface.",
+        "camera_view": "Sofa-level medium relationship shot.",
+        "visible_continuity": "The suitcase remains softly visible and both move from separate tasks toward one object."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "person searching",
+          "partner pointing"
+        ],
+        "visible_setting": "Packing area beside the same open suitcase.",
+        "observable_action": "One searches urgently while the keyring already dangles from that person's raised hand; the partner points to it.",
+        "hands_and_contact": "The keys remain owned by the searcher's attached hand while the partner's attached index finger points toward them.",
+        "gaze": "The observer looks at the keys; the searcher scans the room.",
+        "body_blocking": "Searcher fills the foreground while the observer pauses beside the suitcase.",
+        "object_state": "The supposedly missing keys are visibly present in the searcher's hand.",
+        "camera_view": "Deep-focus medium-wide with the keys readable.",
+        "visible_continuity": "Packing continues and the key discovery advances departure preparation."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "calm phone presenter",
+          "sheepish reacting partner"
+        ],
+        "visible_setting": "Living-room edge with the open suitcase and travel preparation still visible behind them.",
+        "observable_action": "One turns a phone containing old abstract message blocks toward the other, whose defensive gesture freezes.",
+        "hands_and_contact": "The phone stays in its owner's attached hand; the reacting partner's free hand stops mid-gesture.",
+        "gaze": "Presenter watches the reaction while the other looks toward the phone.",
+        "body_blocking": "An over-shoulder foreground phone leads to the partner's readable face and hands.",
+        "object_state": "Old message evidence is visible as abstract blocks without readable dialogue.",
+        "camera_view": "Over-shoulder medium reaction view.",
+        "visible_continuity": "The still-open suitcase keeps the teasing incident inside the same pre-departure timeline."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "bag-carrying person",
+          "nearly empty-handed partner"
+        ],
+        "visible_setting": "Outside the home beside a waiting cab, looking through the still-open doorway.",
+        "observable_action": "Both stop mid-departure and rotate back toward a charger still plugged into the inside wall.",
+        "hands_and_contact": "One person's attached hands own the travel bags; the other's hands remain nearly empty.",
+        "gaze": "Both eye-lines converge on the charger inside.",
+        "body_blocking": "One is half inside the cab while the other stands beside the open doorway.",
+        "object_state": "The single charger is visibly inside and still connected while the bags are already outside.",
+        "camera_view": "Exterior deep wide using the doorway to connect couple and forgotten object.",
+        "visible_continuity": "The charger from the opening becomes the last missing item at departure."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "person crouched by router",
+          "partner entering doorway"
+        ],
+        "visible_setting": "Hotel room beside a router and laptop.",
+        "observable_action": "After one person troubleshoots, the router lights steady exactly as the partner casually enters and shrugs.",
+        "hands_and_contact": "Troubleshooting hands stay attached near the cable; the entrant's two hands make a harmless shrug.",
+        "gaze": "The crouching person slowly looks up at the entrant.",
+        "body_blocking": "Active frustrated body is low in foreground; relaxed entrant remains upright in the doorway.",
+        "object_state": "Router changes from unstable to steady and the laptop shows one simple connected symbol.",
+        "camera_view": "Low medium view from router height.",
+        "visible_continuity": "The home departure has resolved into hotel arrival; the connection change is staged as comic coincidence."
+      },
+      {
+        "slide": 7,
+        "visible_people": [
+          "person comparing food choices",
+          "partner pulling on slippers"
+        ],
+        "visible_setting": "The same hotel room at blue midnight.",
+        "observable_action": "Both suddenly activate around a late-night food plan, with one choosing food and the other readying slippers and remaining snacks.",
+        "hands_and_contact": "One owns the phone; the other uses attached hands for slippers and the single snack bag.",
+        "gaze": "Both attention paths angle toward the central shared task.",
+        "body_blocking": "Their bodies form converging diagonals across the disrupted bed.",
+        "object_state": "The phone is active, snack bag opened and slippers in motion.",
+        "camera_view": "High overhead night wide that echoes the opening while making the activity synchronized.",
+        "visible_continuity": "The hotel connection enables a new shared operation and changes parallel preparation into coordinated action."
+      },
+      {
+        "slide": 8,
+        "visible_people": [
+          "two adults carrying one lamp"
+        ],
+        "visible_setting": "Outside a local market the following afternoon.",
+        "observable_action": "They jointly carry one oversized impractical lamp and exchange matched guilty smiles.",
+        "hands_and_contact": "Each person supports one end of the same lamp with clearly attached hands.",
+        "gaze": "They look from the lamp to each other.",
+        "body_blocking": "Their shoulders and steps align because the shared object requires coordination.",
+        "object_state": "The new lamp is too large for one person and a folded paper remains unreadable in a pocket.",
+        "camera_view": "Street-level moving wide.",
+        "visible_continuity": "The trip now produces a shared purchase that must travel home with them."
+      },
+      {
+        "slide": 9,
+        "visible_people": [
+          "the same returning couple"
+        ],
+        "visible_setting": "The original warm home threshold.",
+        "observable_action": "The lamp begins to slip; both catch it simultaneously, stabilize it, point lightly at each other and laugh.",
+        "hands_and_contact": "Both sets of attached hands participate in the shared catch before the small mirrored pointing gesture.",
+        "gaze": "Their eyes meet after checking the recovered lamp.",
+        "body_blocking": "They finish shoulder-to-shoulder in the center where the opening kept them separate.",
+        "object_state": "The lamp is recovered, travel bags are home, and the earlier charger is visible coiled in an outer pocket.",
+        "camera_view": "Lower close doorway return view.",
+        "visible_continuity": "Home, charger and suitcase return with changed body distance and synchronized action."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:226f6dacda6e8c8c738927123aae355c8cbe9ca1ef906f74859abb55bbff8ef9",
+    "source_fingerprint": "sha256:9592400b2e7637820490933a6b354d3e2f4ef1ab6986525857063457b773ee3c",
+    "sequence_mode": "montage_with_arc",
+    "physical_event": "A couple prepares for a weekend trip, crosses a chain of small shared mistakes and returns home carrying one jointly chosen impractical purchase.",
+    "emotional_arc": "Parallel domestic activity becomes reciprocal recognition, shared improvisation, equal complicity and synchronized action.",
+    "relationship_change": "Their bodies and tasks progress from separate zones to converging attention, shared objects and a simultaneous final rescue.",
+    "sequence_read": "A familiar couple moves from parallel travel preparation through shared mistakes, teasing, improvisation and an impractical purchase to a synchronized affectionate return home.",
+    "visual_variables": [
+      "body distance",
+      "shared object ownership"
+    ],
+    "hero_receipt_slide": 5,
+    "setup_payoff_ledger": [
+      {
+        "setup": "The opening keeps them in separate home zones around a suitcase and connected charger.",
+        "payoff": "The ending returns to the same threshold with both catching one shared object shoulder-to-shoulder.",
+        "changed_meaning": "The same domestic chaos becomes proof of synchronized partnership."
+      },
+      {
+        "setup": "The charger begins as an unnoticed home obstacle and later remains visibly forgotten inside.",
+        "payoff": "The recovered charger returns coiled in the bag pocket during the homecoming.",
+        "changed_meaning": "A private mistake becomes a completed shared travel thread."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "single charging cable",
+        "initial_state": "connected and stepped over during separate home preparation",
+        "later_state": "forgotten at departure and recovered in the return-home bag",
+        "story_job": "bind the travel chronology and convert forgetfulness into shared continuity"
+      },
+      {
+        "object": "oversized lamp",
+        "initial_state": "jointly purchased and carried with equal guilt",
+        "later_state": "jointly caught at the original home threshold",
+        "story_job": "turn mutual impulse into a visible synchronized payoff"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "open suitcase establishes separate travel-preparation actions",
+        "silent_read": "A familiar couple prepares for travel through separate but comfortable simultaneous tasks.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "1. Two adults prepare for travel in a familiar home, working separately but comfortably together, evidenced by the open suitcase, clothes search, mugs, stepped-over charging cable, and exchanged glance.",
+        "staged_action": {
+          "subject": "woman preparing clothes",
+          "action": "One person searches clothes while the other crosses the room and steps over a charging cable.",
+          "target_or_object": "Suitcase is open, clothes are unfinished, and one charger remains connected in the room.",
+          "reaction_or_consequence": "A familiar couple prepares for travel through separate but comfortable simultaneous tasks."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "A familiar couple prepares for travel through separate but comfortable simultaneous tasks.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "high overhead wide",
+          "angle": "High overhead wide showing the home geography and both simultaneous tasks.",
+          "camera_position": "High overhead wide showing the home geography and both simultaneous tasks.",
+          "focal_subject": "One person searches clothes while the other crosses the room and steps over a charging cable.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "Her hands work through clothes; his attached hands carry one mug each; there is no contact.",
+          "gaze": "They exchange one familiar glance across separate work zones.",
+          "body_distance": "Both occupy different parts of the room with the suitcase between their activities.",
+          "posture_or_feet": "Both occupy different parts of the room with the suitcase between their activities."
+        },
+        "setting": {
+          "sub_location": "Warm home threshold beside an open suitcase.",
+          "time": "Friday evening",
+          "motivated_light": "warm home practical",
+          "story_trace": "Establishes the home, suitcase, charger, travel preparation and initially separate movement."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Suitcase is open, clothes are unfinished, and one charger remains connected in the room.",
+            "observable_state": "One person searches clothes while the other crosses the room and steps over a charging cable.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "Establishes the home, suitcase, charger, travel preparation and initially separate movement."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "shared phone converts a ceremonial question into joint choice",
+        "silent_read": "A supposedly open question is already becoming a shared food decision.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "2. The couple makes a shared food choice with one partner already anticipating the other’s request, evidenced by the asking gesture, visible dish selection, and both bodies leaning toward one phone.",
+        "staged_action": {
+          "subject": "two adults seated on one sofa",
+          "action": "One makes an asking gesture while the other already selects dishes on the shared phone.",
+          "target_or_object": "One phone already displays abstract food choices with no readable interface.",
+          "reaction_or_consequence": "A supposedly open question is already becoming a shared food decision."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "A supposedly open question is already becoming a shared food decision.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "sofa-level medium",
+          "angle": "Sofa-level medium relationship shot.",
+          "camera_position": "Sofa-level medium relationship shot.",
+          "focal_subject": "One makes an asking gesture while the other already selects dishes on the shared phone.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "One open hand asks; the other operates the single phone placed between them.",
+          "gaze": "Both gaze toward the same phone.",
+          "body_distance": "They sit at opposite ends but lean inward toward one shared decision.",
+          "posture_or_feet": "They sit at opposite ends but lean inward toward one shared decision."
+        },
+        "setting": {
+          "sub_location": "Living-room sofa during the same packing period.",
+          "time": "Friday evening",
+          "motivated_light": "warm home practical",
+          "story_trace": "The suitcase remains softly visible and both move from separate tasks toward one object."
+        },
+        "story_evidence": [
+          {
+            "carrier": "One phone already displays abstract food choices with no readable interface.",
+            "observable_state": "One makes an asking gesture while the other already selects dishes on the shared phone.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "The suitcase remains softly visible and both move from separate tasks toward one object."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "keys already in hand expose an affectionate search ritual",
+        "silent_read": "One partner searches for the keys already held while the other recognizes the ritual.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "3. One partner urgently searches for keys already dangling from their own hand while the other points out the mistake, creating affectionate comedy through the visible keyring, pointing hand, and interrupted search.",
+        "staged_action": {
+          "subject": "person searching",
+          "action": "One searches urgently while the keyring already dangles from that person's raised hand; the partner points to it.",
+          "target_or_object": "The supposedly missing keys are visibly present in the searcher's hand.",
+          "reaction_or_consequence": "One partner searches for the keys already held while the other recognizes the ritual."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "One partner searches for the keys already held while the other recognizes the ritual.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "deep-focus medium-wide",
+          "angle": "Deep-focus medium-wide with the keys readable.",
+          "camera_position": "Deep-focus medium-wide with the keys readable.",
+          "focal_subject": "One searches urgently while the keyring already dangles from that person's raised hand; the partner points to it.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "The keys remain owned by the searcher's attached hand while the partner's attached index finger points toward them.",
+          "gaze": "The observer looks at the keys; the searcher scans the room.",
+          "body_distance": "Searcher fills the foreground while the observer pauses beside the suitcase.",
+          "posture_or_feet": "Searcher fills the foreground while the observer pauses beside the suitcase."
+        },
+        "setting": {
+          "sub_location": "Packing area beside the same open suitcase.",
+          "time": "Friday evening",
+          "motivated_light": "warm home practical",
+          "story_trace": "Packing continues and the key discovery advances departure preparation."
+        },
+        "story_evidence": [
+          {
+            "carrier": "The supposedly missing keys are visibly present in the searcher's hand.",
+            "observable_state": "One searches urgently while the keyring already dangles from that person's raised hand; the partner points to it.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "Packing continues and the key discovery advances departure preparation."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "old phone evidence freezes a confident defence into sheepish recognition",
+        "silent_read": "One partner calmly produces old evidence and the other's defence becomes sheepish amusement.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "4. One partner calmly presents old messages while the other becomes defensively sheepish, suggesting playful accountability through the turned phone, frozen hand, and amused expression, though the exact dispute is unreadable.",
+        "staged_action": {
+          "subject": "calm phone presenter",
+          "action": "One turns a phone containing old abstract message blocks toward the other, whose defensive gesture freezes.",
+          "target_or_object": "Old message evidence is visible as abstract blocks without readable dialogue.",
+          "reaction_or_consequence": "One partner calmly produces old evidence and the other's defence becomes sheepish amusement."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "One partner calmly produces old evidence and the other's defence becomes sheepish amusement.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "over-shoulder medium",
+          "angle": "Over-shoulder medium reaction view.",
+          "camera_position": "Over-shoulder medium reaction view.",
+          "focal_subject": "One turns a phone containing old abstract message blocks toward the other, whose defensive gesture freezes.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "The phone stays in its owner's attached hand; the reacting partner's free hand stops mid-gesture.",
+          "gaze": "Presenter watches the reaction while the other looks toward the phone.",
+          "body_distance": "An over-shoulder foreground phone leads to the partner's readable face and hands.",
+          "posture_or_feet": "An over-shoulder foreground phone leads to the partner's readable face and hands."
+        },
+        "setting": {
+          "sub_location": "Living-room edge with the open suitcase and travel preparation still visible behind them.",
+          "time": "Friday evening",
+          "motivated_light": "warm home practical",
+          "story_trace": "The still-open suitcase keeps the teasing incident inside the same pre-departure timeline."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Old message evidence is visible as abstract blocks without readable dialogue.",
+            "observable_state": "One turns a phone containing old abstract message blocks toward the other, whose defensive gesture freezes.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "The still-open suitcase keeps the teasing incident inside the same pre-departure timeline."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The exact old-message dispute is unreadable.",
+            "repair": "Keep the incident deliberately general while retaining the open suitcase in frame to preserve travel continuity.",
+            "recheck_evidence": "The critic still inferred playful accountability and linked the frame to the continuous pre-departure setting."
+          }
+        ]
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "plugged-in charger interrupts departure and redirects both bodies",
+        "silent_read": "Departure stops when both see the charger still plugged inside.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "5. Mid-departure beside a waiting cab, both realize a charger remains plugged inside, evidenced by the loaded bags, open doorway, nearly empty-handed partner, and synchronized turn toward the wall socket.",
+        "staged_action": {
+          "subject": "bag-carrying person",
+          "action": "Both stop mid-departure and rotate back toward a charger still plugged into the inside wall.",
+          "target_or_object": "The single charger is visibly inside and still connected while the bags are already outside.",
+          "reaction_or_consequence": "Departure stops when both see the charger still plugged inside."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "Departure stops when both see the charger still plugged inside.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "exterior deep wide",
+          "angle": "Exterior deep wide using the doorway to connect couple and forgotten object.",
+          "camera_position": "Exterior deep wide using the doorway to connect couple and forgotten object.",
+          "focal_subject": "Both stop mid-departure and rotate back toward a charger still plugged into the inside wall.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "One person's attached hands own the travel bags; the other's hands remain nearly empty.",
+          "gaze": "Both eye-lines converge on the charger inside.",
+          "body_distance": "One is half inside the cab while the other stands beside the open doorway.",
+          "posture_or_feet": "One is half inside the cab while the other stands beside the open doorway."
+        },
+        "setting": {
+          "sub_location": "Outside the home beside a waiting cab, looking through the still-open doorway.",
+          "time": "departure evening",
+          "motivated_light": "exterior evening and interior practical",
+          "story_trace": "The charger from the opening becomes the last missing item at departure."
+        },
+        "story_evidence": [
+          {
+            "carrier": "The single charger is visibly inside and still connected while the bags are already outside.",
+            "observable_state": "Both stop mid-departure and rotate back toward a charger still plugged into the inside wall.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "The charger from the opening becomes the last missing item at departure."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "router recovery turns one person's effort into comic coincidence",
+        "silent_read": "Connectivity resolves as the uninvolved partner enters, creating an unexplained comic coincidence.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "6. After one partner struggles with the hotel router, connectivity appears as the other enters and shrugs, evidenced by the crouched troubleshooting posture, steady router lights, connected laptop symbol, and incredulous look-up, though causality is unclear.",
+        "staged_action": {
+          "subject": "person crouched by router",
+          "action": "After one person troubleshoots, the router lights steady exactly as the partner casually enters and shrugs.",
+          "target_or_object": "Router changes from unstable to steady and the laptop shows one simple connected symbol.",
+          "reaction_or_consequence": "Connectivity resolves as the uninvolved partner enters, creating an unexplained comic coincidence."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "Connectivity resolves as the uninvolved partner enters, creating an unexplained comic coincidence.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "low medium",
+          "angle": "Low medium view from router height.",
+          "camera_position": "Low medium view from router height.",
+          "focal_subject": "After one person troubleshoots, the router lights steady exactly as the partner casually enters and shrugs.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "Troubleshooting hands stay attached near the cable; the entrant's two hands make a harmless shrug.",
+          "gaze": "The crouching person slowly looks up at the entrant.",
+          "body_distance": "Active frustrated body is low in foreground; relaxed entrant remains upright in the doorway.",
+          "posture_or_feet": "Active frustrated body is low in foreground; relaxed entrant remains upright in the doorway."
+        },
+        "setting": {
+          "sub_location": "Hotel room beside a router and laptop.",
+          "time": "hotel arrival",
+          "motivated_light": "hotel practical daylight",
+          "story_trace": "The home departure has resolved into hotel arrival; the connection change is staged as comic coincidence."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Router changes from unstable to steady and the laptop shows one simple connected symbol.",
+            "observable_state": "After one person troubleshoots, the router lights steady exactly as the partner casually enters and shrugs.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "The home departure has resolved into hotel arrival; the connection change is staged as comic coincidence."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The entrant may appear to cause the connection through hidden competence or magic.",
+            "repair": "Stage no causal gesture: the entrant only crosses the doorway and shrugs while the router changes, preserving coincidence.",
+            "recheck_evidence": "The critic identified the unexplained timing as comic contrast and kept the sequence coherent."
+          }
+        ]
+      },
+      {
+        "slide": 7,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "midnight hunger changes two sleepy bodies into one coordinated operation",
+        "silent_read": "One person's late-night need instantly activates both partners around the same task.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "7. Both partners suddenly coordinate a late-night food plan, evidenced by one comparing phone choices while the other pulls on slippers and empties snacks onto the bed, with both bodies aimed toward the same task.",
+        "staged_action": {
+          "subject": "person comparing food choices",
+          "action": "Both suddenly activate around a late-night food plan, with one choosing food and the other readying slippers and remaining snacks.",
+          "target_or_object": "The phone is active, snack bag opened and slippers in motion.",
+          "reaction_or_consequence": "One person's late-night need instantly activates both partners around the same task."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "One person's late-night need instantly activates both partners around the same task.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "high overhead night wide",
+          "angle": "High overhead night wide that echoes the opening while making the activity synchronized.",
+          "camera_position": "High overhead night wide that echoes the opening while making the activity synchronized.",
+          "focal_subject": "Both suddenly activate around a late-night food plan, with one choosing food and the other readying slippers and remaining snacks.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "One owns the phone; the other uses attached hands for slippers and the single snack bag.",
+          "gaze": "Both attention paths angle toward the central shared task.",
+          "body_distance": "Their bodies form converging diagonals across the disrupted bed.",
+          "posture_or_feet": "Their bodies form converging diagonals across the disrupted bed."
+        },
+        "setting": {
+          "sub_location": "The same hotel room at blue midnight.",
+          "time": "midnight",
+          "motivated_light": "blue night plus bedside lamp",
+          "story_trace": "The hotel connection enables a new shared operation and changes parallel preparation into coordinated action."
+        },
+        "story_evidence": [
+          {
+            "carrier": "The phone is active, snack bag opened and slippers in motion.",
+            "observable_state": "Both suddenly activate around a late-night food plan, with one choosing food and the other readying slippers and remaining snacks.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "The hotel connection enables a new shared operation and changes parallel preparation into coordinated action."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The phone-and-food action partly repeats the earlier sofa decision.",
+            "repair": "Change scale, time, location and blocking: overhead blue night, disrupted bed, slippers and simultaneous activation rather than seated ordering.",
+            "recheck_evidence": "The critic read coordinated late-night activation and a new relationship turn despite the repeated food category."
+          }
+        ]
+      },
+      {
+        "slide": 8,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "oversized lamp makes equal impulse and shared responsibility physical",
+        "silent_read": "Both partners are equally responsible for and delighted by an impractical purchase.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "8. The couple jointly carries an oversized impulsive market purchase with equal guilt and delight, evidenced by each supporting one end of the lamp and exchanging matched looks.",
+        "staged_action": {
+          "subject": "two adults carrying one lamp",
+          "action": "They jointly carry one oversized impractical lamp and exchange matched guilty smiles.",
+          "target_or_object": "The new lamp is too large for one person and a folded paper remains unreadable in a pocket.",
+          "reaction_or_consequence": "Both partners are equally responsible for and delighted by an impractical purchase."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "Both partners are equally responsible for and delighted by an impractical purchase.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "street-level moving wide",
+          "angle": "Street-level moving wide.",
+          "camera_position": "Street-level moving wide.",
+          "focal_subject": "They jointly carry one oversized impractical lamp and exchange matched guilty smiles.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "Each person supports one end of the same lamp with clearly attached hands.",
+          "gaze": "They look from the lamp to each other.",
+          "body_distance": "Their shoulders and steps align because the shared object requires coordination.",
+          "posture_or_feet": "Their shoulders and steps align because the shared object requires coordination."
+        },
+        "setting": {
+          "sub_location": "Outside a local market the following afternoon.",
+          "time": "next afternoon",
+          "motivated_light": "golden afternoon",
+          "story_trace": "The trip now produces a shared purchase that must travel home with them."
+        },
+        "story_evidence": [
+          {
+            "carrier": "The new lamp is too large for one person and a folded paper remains unreadable in a pocket.",
+            "observable_state": "They jointly carry one oversized impractical lamp and exchange matched guilty smiles.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "The trip now produces a shared purchase that must travel home with them."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 9,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "slipping lamp converts mutual blame into simultaneous rescue and laughter",
+        "silent_read": "The returning couple catches the shared purchase together and turns blame into laughter.",
+        "change_from_previous": "This frame changes location, action, object state, blocking or relationship coordination from the preceding beat.",
+        "critic_evidence": "9. Returning home, they simultaneously catch the slipping lamp and laugh in mutual blame, evidenced by the repeated threshold, shared rescue, shoulder-to-shoulder pointing, travel bags, and recovered charger.",
+        "staged_action": {
+          "subject": "the same returning couple",
+          "action": "The lamp begins to slip; both catch it simultaneously, stabilize it, point lightly at each other and laugh.",
+          "target_or_object": "The lamp is recovered, travel bags are home, and the earlier charger is visible coiled in an outer pocket.",
+          "reaction_or_consequence": "The returning couple catches the shared purchase together and turns blame into laughter."
+        },
+        "pov": {
+          "owner": "shared couple rhythm, leaning toward the person surprised in this beat",
+          "audience_knows": "The returning couple catches the shared purchase together and turns blame into laughter.",
+          "audience_feels": "recognition, affectionate exasperation and increasing complicity"
+        },
+        "shot": {
+          "size": "lower close doorway view",
+          "angle": "Lower close doorway return view.",
+          "camera_position": "Lower close doorway return view.",
+          "focal_subject": "The lamp begins to slip; both catch it simultaneously, stabilize it, point lightly at each other and laugh.",
+          "story_reason": "The selected view keeps the visible action, object state and reaction readable together."
+        },
+        "blocking": {
+          "hands": "Both sets of attached hands participate in the shared catch before the small mirrored pointing gesture.",
+          "gaze": "Their eyes meet after checking the recovered lamp.",
+          "body_distance": "They finish shoulder-to-shoulder in the center where the opening kept them separate.",
+          "posture_or_feet": "They finish shoulder-to-shoulder in the center where the opening kept them separate."
+        },
+        "setting": {
+          "sub_location": "The original warm home threshold.",
+          "time": "return evening",
+          "motivated_light": "warm return-home practical",
+          "story_trace": "Home, charger and suitcase return with changed body distance and synchronized action."
+        },
+        "story_evidence": [
+          {
+            "carrier": "The lamp is recovered, travel bags are home, and the earlier charger is visible coiled in an outer pocket.",
+            "observable_state": "The lamp begins to slip; both catch it simultaneously, stabilize it, point lightly at each other and laugh.",
+            "narrative_job": "Prove the current relationship beat without relying on the copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The preceding weekend-trip state remains physically traceable.",
+          "outgoing_state": "Home, charger and suitcase return with changed body distance and synchronized action."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "duplicate partner",
+            "reflection",
+            "portrait that reads as a live person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "codex-root-unofficial-rules-director-20260730-01",
+      "reviewer_task_id": "/root/blind_storyboard_critic",
+      "reviewer_run_id": "blind-storyboard-critic-20260730-02",
+      "input_fingerprint": "sha256:226f6dacda6e8c8c738927123aae355c8cbe9ca1ef906f74859abb55bbff8ef9",
+      "raw_response": "Produced before seeing any copy or intent and based only on the nine blind storyboard cards.\n\n1. Two adults prepare for travel in a familiar home, working separately but comfortably together, evidenced by the open suitcase, clothes search, mugs, stepped-over charging cable, and exchanged glance.\n2. The couple makes a shared food choice with one partner already anticipating the other’s request, evidenced by the asking gesture, visible dish selection, and both bodies leaning toward one phone.\n3. One partner urgently searches for keys already dangling from their own hand while the other points out the mistake, creating affectionate comedy through the visible keyring, pointing hand, and interrupted search.\n4. One partner calmly presents old messages while the other becomes defensively sheepish, suggesting playful accountability through the turned phone, frozen hand, and amused expression, though the exact dispute is unreadable.\n5. Mid-departure beside a waiting cab, both realize a charger remains plugged inside, evidenced by the loaded bags, open doorway, nearly empty-handed partner, and synchronized turn toward the wall socket.\n6. After one partner struggles with the hotel router, connectivity appears as the other enters and shrugs, evidenced by the crouched troubleshooting posture, steady router lights, connected laptop symbol, and incredulous look-up, though causality is unclear.\n7. Both partners suddenly coordinate a late-night food plan, evidenced by one comparing phone choices while the other pulls on slippers and empties snacks onto the bed, with both bodies aimed toward the same task.\n8. The couple jointly carries an oversized impulsive market purchase with equal guilt and delight, evidenced by each supporting one end of the lamp and exchanging matched looks.\n9. Returning home, they simultaneously catch the slipping lamp and laugh in mutual blame, evidenced by the repeated threshold, shared rescue, shoulder-to-shoulder pointing, travel bags, and recovered charger.\n\nSequence: A familiar couple moves from parallel travel preparation through shared mistakes, teasing, improvisation, and an impractical purchase to a synchronized, affectionate return home.\n\nWeaknesses: Frame 4’s exact incident and connection to the trip are unclear, Frame 6 lacks a visible cause for the connection change, and Frame 7 partially repeats Frame 2’s phone-and-food behavior.\n\nVerdict: PASS—the travel continuity and progression from separate activity to shared complicity and simultaneous action make this a coherent relationship story rather than disconnected scenes.",
+      "raw_response_fingerprint": "sha256:3bd25b0cc31e2017730e9c8b09007cd10c006b3f4c013f40f2b6b4af4cdf1d90",
+      "output_fingerprint": "sha256:7787c0a4402ce1bbcc9df35da582d72429c54dc00845662201c0a90a48462e08"
+    },
+    "director_event_fingerprint": "sha256:ddb0ff78192441f06fc3dfe7c0be83aee58a0475271f8aba8f2c0ddd40bf1b60"
+  }
+}

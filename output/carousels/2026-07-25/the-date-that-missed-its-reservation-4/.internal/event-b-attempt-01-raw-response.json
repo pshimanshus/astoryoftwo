@@ -1,0 +1,39 @@
+{
+  "image_first": {
+    "who_where": "Exactly two adults in a dry exterior apartment corridor at closed door 302; the man is at the door and the woman leans closely behind him.",
+    "observable_action": "The man braces one palm on the door and grips/tests the lower handle with the other. The woman touches/holds his waist or back; no visible woman’s hand reaches the door, handle, or lock.",
+    "relationship_state": "Playful, affectionate physical closeness while he checks the door; she appears amused rather than operationally involved.",
+    "likely_before_next": "He finishes testing the door and they walk away together; whether this is departure or arrival is not independently certain from the pixels.",
+    "focal_hierarchy": "1) large upper copy, 2) woman’s viewer-facing expression, 3) man’s hands at the door, 4) tote/umbrella and corridor details.",
+    "hands_contact": "Man: one palm on door, one hand on handle. Woman: one visible hand/arm against his torso; other hand occluded by body/props. Couple contact is visible, but shared lock contact is not.",
+    "gaze": "Man looks down toward the handle with a smile. Woman looks outward toward the viewer with an amused sideways expression. They do not exchange a visible look.",
+    "body_distance": "Near-zero distance; she leans into him from behind/side.",
+    "object_states": "Door fully closed; lower handle is being gripped; key and fob dangle beside the lower lock/handle; exterior horizontal bolt is visible; tote hangs from her shoulder; umbrella is tightly rolled and appears dry; clothes and corridor appear dry.",
+    "unexpected_elements": [
+      "A horizontal sliding bolt is mounted on the corridor-facing side of the apartment door.",
+      "The key/fob appears to hang at the lock/handle rather than being clearly held down at the man’s side.",
+      "The woman addresses the viewer rather than the man or lock."
+    ],
+    "phone_readability": "No phone is visible; not applicable.",
+    "uncertainties": [
+      "The raised trailing foot may imply movement back toward him, but no lift or clear prior path is visible.",
+      "The dangling key’s exact attachment—to his hand, the lock, or the handle—is visually ambiguous.",
+      "The image alone does not decisively establish before-departure chronology."
+    ],
+    "semantic_verdict": "FAIL for shared lock-check semantics: the pixels clearly show him checking while she affectionately accompanies him, not both partners visibly checking."
+  },
+  "intent_match": {
+    "expected_silent_read": "Before departure, outside a fully closed apartment door, Aachu visibly returns from the lift direction and presses the door beside the latch while Zuv pulls the handle, proving that both test the lock together.",
+    "core_action_legible": "Partial: Zuv’s door check is clear; Aachu’s participation in the check is absent.",
+    "relationship_turn_legible": "Weak/partial: her affectionate return is suggested, but the payoff that she shares the same ritual she teases him for is not visually proven.",
+    "storyboard_match": "Partial match on dry exterior corridor, closed door, two people, tote, rolled umbrella, trailing foot, and Zuv checking. Mismatch on Aachu’s palm placement, shared action, return-path proof, shared gaze, and car-key hand placement.",
+    "copy_visual_contradictions": [
+      "Copy says she 'checked it with him,' but her visible contact is with his torso, not the door or lock.",
+      "Prompt requires both to test whether the door moves; only his hands visibly operate against the door.",
+      "Prompt requests a shared amused look; she looks at the viewer while he looks at the handle.",
+      "Prompt places the car key in his left hand at his side; the rendered key/fob dangles at the lock/handle."
+    ],
+    "unexpected_story": "She has come close to hug or playfully cling to him while he alone checks the lock.",
+    "repair_decision": "RE-RENDER. Put Aachu’s visible right palm flat on the closed door immediately beside the latch, keep Zuv visibly pulling the handle, place the car key clearly in his other hand at his side, strengthen the turn-back path, and make their amused recognition mutual without losing the dry before-departure continuity."
+  }
+}

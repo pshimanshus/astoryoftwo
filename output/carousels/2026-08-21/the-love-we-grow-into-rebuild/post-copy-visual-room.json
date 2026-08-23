@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "role": "Cover"
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover wrong turns\nand very small things.",
+      "role": "Cold Open"
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "role": "Mirror"
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nwhich part to hear.",
+      "role": "Spine"
+    },
+    {
+      "slide": 5,
+      "copy": "Not “go away.”\nJust:\n“Give me a minute. Don’t go far.”",
+      "role": "Rhythm"
+    },
+    {
+      "slide": 6,
+      "copy": "And when I’m ready,\nI’ll come back and ask:\n“Chai?”",
+      "role": "Turn"
+    },
+    {
+      "slide": 7,
+      "copy": "Not less irritated.\nJust better\nat coming back.",
+      "role": "Payoff"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Slide-Led Evidence Plan",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual_job": "Cover",
+      "scene": "COVER CONTRADICTION, earliest chronological beat, not a resolution. Frontal medium close view through the rain-speckled windshield of one charcoal right-hand-drive car already parked safely on the quieter curb at blue-hour. Exactly Aachu and Zuv sit in the front seats and point in opposite directions at the same instant: passenger Aachu extends only her right index finger toward the warm restaurant entrance visible across the divided road; driver Zuv extends only his left index finger toward the opposite direction indicated by the single centrally mounted route phone. Their eyes cut toward each other with matching mildly exasperated 'obviously this way' expressions—no anger, no smile, no culprit. The central phone shows only one simple blue route line bending back, one arrowhead and one dot, with no words or UI labels. Their opposite fingers, matching faces and shared car must read immediately as: two people, one evening, two confident directions. Preserve generous clean upper-middle paper for exact text while keeping faces, pointing hands and phone large enough for a thumbnail. The restaurant is the only building visible; the chai counter is not yet shown. No road traffic, reflections, extra hands, background people, duplicate phone, signage, happy ending, chai, scooter or motorbike.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover wrong turns\nand very small things.",
+      "visual_job": "Cold Open",
+      "scene": "Inside the same already parked right-hand-drive charcoal car a few seconds after slide 1, seen from a tight rear-seat over-console angle that makes the phone and their turned-away profiles the focal triangle. Exactly Aachu and Zuv remain in the front seats. Their pointing hands have dropped. The one phone stays fixed in the central dashboard cradle and now shows one plainly doubled-back blue route line: it leaves the dot, loops in a tight U and returns toward the same point, with one arrowhead and no words, road names, buttons or UI labels. Aachu looks out her passenger-side window with lips pressed. Zuv looks through the windshield with one tired raised brow. Neither looks at or blames the other. Aachu's hands rest together on her own lap; Zuv's right hand remains on the steering wheel and his left hand rests open on his own thigh. One red-fob key is in the ignition. Rain and the restaurant glow are visible, with no people, reflections or traffic. This is the quiet reaction after the comic disagreement, not a flashback, diptych or information collage.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "visual_job": "Mirror",
+      "scene": "Medium side view outside the same safely parked car. Aachu has just closed her own passenger door and is taking one clear step toward the barrier. Without turning back, she raises her right palm once at shoulder height in an unmistakable quiet 'not now' gesture; her left hand owns the strap of her red handbag. Zuv has just stepped around the rear of the car but visibly stops in response: his forward foot freezes, his mouth closes mid-sentence, and his left hand lowers the single route phone with its screen now dark. His right hand stays relaxed beside his own body. The physical cause and reaction must read with no text: she asks for silence, he stops. No smile, no pursuit, no touch, no shouting, no background people, no vehicle movement.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nwhich part to hear.",
+      "visual_job": "Spine",
+      "scene": "Wide barrier-level side view that makes the empty distance the main subject while keeping the bodies readable. Aachu sits alone on the far-left end of the low stone barrier, facing the road and breathing. After stopping on slide 3, Zuv has visibly settled to wait: he now sits on the closed rear edge of the parked car at frame-right with ankles loosely crossed, both hands resting open on the car surface beside his own hips, phone fully hidden in his trouser pocket. Sitting down is the visible consequence that proves he is neither pursuing her nor preparing to leave. He looks toward the opposite side of the road rather than watching her, giving privacy while remaining in the same geography. Their red and black-red shoes point generally toward the shared centre gap. The closed umbrella and restaurant across the road anchor continuity. No chai counter emphasis, cups, vendor, gesture, touching or extra person.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "Not “go away.”\nJust:\n“Give me a minute. Don’t go far.”",
+      "visual_job": "Rhythm",
+      "scene": "Tight over-Aachu-shoulder reaction view from beside the barrier. Aachu's face is in clear three-quarter profile as she glances back once. In the softly focused but readable mid-background, Zuv remains exactly where slide 4 left him beside the car, gaze politely turned away, both hands still pocketed, phone invisible. The closed deep-navy umbrella and the car rear-light make his position unmistakable. Aachu's expression changes from hard irritation to one small relieved exhale; no smile yet. Her body remains facing away, so the glance—not a pose—carries the beat. No chai, no touch, no reaching, no extra person or human reflection.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "And when I’m ready,\nI’ll come back and ask:\n“Chai?”",
+      "visual_job": "Turn",
+      "scene": "Low medium reaction two-shot beside the same parked car, with one clear diagonal sightline from Aachu's gesture to the chai counter. Aachu has visibly returned into Zuv's space from the barrier side; the gap is now half as large as slide 4. She does not touch him. With one small raised eyebrow and the first hint of a smile, she extends her right index finger directly toward the one nearby unlabelled roadside chai counter on the quiet-curb side. On its ledge sits one small metal kettle with one restrained plume of steam—the only chai clue—and exactly two empty dark-wood stools beneath it. Her left hand remains on her own handbag strap. Zuv follows her finger and looks at the steaming kettle; his shoulders loosen and a small relieved smile arrives. Both of his hands stay naturally in his own pockets; phone fully hidden. The restaurant remains glowing across the divided road, still awkward to reach. No chai has been poured, no glass, vendor, sign, biscuit, touch, extra person or second stall.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "Not less irritated.\nJust better\nat coming back.",
+      "visual_job": "Payoff",
+      "scene": "Intimate low counter-level close two-shot at the one unlabelled roadside chai stall. Aachu and Zuv now occupy the exact two stools introduced empty on slide 6, angled toward each other. Exactly two cutting-chai glasses exist. Aachu's left hand securely holds her own chai glass while her right hand holds the single last biscuit slightly above the counter with a small triumphant smile. Zuv's left hand securely holds his own chai glass while his right hand makes one clearly attached open-palm reach that stops short of her biscuit; he gives her one mock-offended raised eyebrow. The plainly empty unbranded paper biscuit sleeve lies flat and untouched on the counter between them, visible but secondary. Exactly four hands, one action per hand, no fused fingers or grabbing. They are visibly still capable of irritating each other, but their bodies, gaze and stools have come back together. The restaurant glows softly across the wet road and the parked charcoal car with closed umbrella remains behind them. No vendor, third cup, extra biscuit, brand lettering, background person, romantic embrace or generic posed smile.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

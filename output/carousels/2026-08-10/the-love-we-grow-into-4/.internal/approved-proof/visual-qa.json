@@ -1,0 +1,336 @@
+{
+  "schema_version": "2.1",
+  "status": "PASS",
+  "proof_state": "QA_PASS_CANDIDATE",
+  "image_set_sha256": "e046ef2d93555d403970443605cf6f5eebab8d32bdeaac89f05f72d5fe27ecdb",
+  "slides": [
+    {
+      "slide": 1,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-01.png",
+          "sha256": "1c8b8bb8d1ebc89f2a1560dde89704f4576a59d634f07ab9ab7abb441ec11e1c",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-01/model-native-source/instagram-post-slide-01.png",
+            "sha256": "ca62c530358b3fe037a54e69a8aa4588c7e80f8a430939a938c8cead72828615",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "checks": {
+    "storyboard": {
+      "pass": true
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg"
+      ],
+      "likeness_notes": "Aachu retains the soft oval face, dark brows, delicate nose, warm smile, medium-brown skin, and long center-parted dark wavy hair established by the selected references."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-01.jpg"
+      ],
+      "likeness_notes": "Zuv retains thick dark curly hair, strong brows, warm eyes, defined nose, beard/stubble silhouette, broad relaxed facial structure, and the familiar smile."
+    },
+    "couple_scale": {
+      "pass": true,
+      "evidence": "Zuv reads modestly taller rather than oversized; crown, eye-line, and shoulder positions support the locked approximately two-inch height difference despite the walking depth."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Aachu wears the white wrap shirt, blue jeans, red shoes, and red handbag; Zuv wears the pale-blue shirt, charcoal trousers, and black-red shoes."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Visible paper grain, fine ink, transparent watercolor, and restrained denim/navy/terracotta/sage accents preserve the observational-intimacy house style without a dominant yellow cast."
+    },
+    "scene_logic": {
+      "pass": true,
+      "evidence": "Aachu's step and open-palm invitation toward the two empty stools visibly causes Zuv to lower the route phone and follow, so the unplanned smaller date reads before the copy is considered."
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "1c8b8bb8d1ebc89f2a1560dde89704f4576a59d634f07ab9ab7abb441ec11e1c",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 3,
+              "observed_hands": 3,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv appear. All four arms remain owned and coherent; three hands are visible while Zuv's anatomical right hand is correctly occluded behind Aachu. The car, counter, two empty stools, doorway, and closed umbrella remain distinct."
+            }
+          }
+        }
+      ]
+    },
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "1c8b8bb8d1ebc89f2a1560dde89704f4576a59d634f07ab9ab7abb441ec11e1c",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 3,
+              "observed_hands": 3,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "presents an open-palm invitation toward the two empty stools",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her shoulder, loose sleeve, forearm, wrist, palm, and fingers form one continuous visible chain.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Open lane space visibly separates the gesturing hand from the counter, stools, car, and Zuv.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "grips and supports her red handbag strap",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her shoulder, sleeve, arm, wrist, and hand remain continuously traceable into the red strap grip.",
+                  "contact_object": "red handbag strap",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The strap crosses in front of her hand and plausibly hides part of the fingers without producing an extra digit or hand.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "holds one lowered black route phone beside his outside thigh",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His shoulder, rolled sleeve, forearm, wrist, palm, and phone grip remain one continuous anatomical chain.",
+                  "contact_object": "black phone",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The phone sits in front of the palm and hides only the expected inner fingers while leaving wrist ownership clear.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "occluded_hands": [
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "evidence": "His right upper arm remains visible behind Aachu, while the distal forearm and hand are naturally occluded by her foreground body rather than invented or duplicated."
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Both walking figures occupy coherent, distinct full-body volumes on the same wet lane plane, with the two stools, car, counter, umbrella, and doorway clearly separated.",
+            "person_object_crop": "Aachu's handbag sits in front of her hip and partly occludes Zuv's right side with clear depth order; Zuv's phone hand remains in front of the sedan.",
+            "focal_detail": "Aachu's open invitation hand is free in lane space, her other hand owns the bag strap, and Zuv's outside left hand owns the lowered phone."
+          },
+          "environment_planes": [
+            {
+              "object": "wet service-lane ground",
+              "depth_order": "beneath both pairs of walking feet and extending behind the two empty stools",
+              "boundary_continuous": true
+            },
+            {
+              "object": "charcoal sedan and closed umbrella",
+              "depth_order": "behind Zuv and separate from his phone hand, trousers, and both shoes",
+              "boundary_continuous": true
+            },
+            {
+              "object": "chai counter and exactly two empty stools",
+              "depth_order": "ahead of the couple's movement but separated by open lane space from both bodies",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, neck, shoulders, torso, both sleeves and arms, hips, both legs, and the visible shoe edges remain traceable despite the walking pose.",
+              "body_regions": [
+                {
+                  "region": "full body and both arm-to-hand chains",
+                  "near_object": "handbag, Zuv, stools, counter, and wet lane",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Her foreground outline remains distinct from Zuv, the handbag sits in front of her hip, and the open gesture clears every solid object."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, neck, shoulders, torso, left arm-to-phone chain, visible right upper arm, both trouser legs, and both shoes remain distinct from car and ground.",
+              "body_regions": [
+                {
+                  "region": "full body with left arm-to-phone chain",
+                  "near_object": "Aachu, charcoal sedan, umbrella, and wet lane",
+                  "expected_relation": "behind",
+                  "observed_relation": "behind",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Aachu cleanly occludes only part of his right side; his remaining silhouette and phone hand stay separate from the sedan and umbrella."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 1,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "1c8b8bb8d1ebc89f2a1560dde89704f4576a59d634f07ab9ab7abb441ec11e1c",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The wet reflective lane, exactly two empty dark-wood stools, and closed deep-navy umbrella establish an unplanned roadside pause.",
+              "midground": "Aachu walks a half-step ahead with an open invitation toward the stools while Zuv follows her with the lowered phone in his outside hand.",
+              "background": "The unlabelled blue-grey chai counter, rust-red canopy, terracotta doorway, sage awning, and rain-softened foliage hold the fixed geography.",
+              "focal_action": "Aachu actively chooses the two stools and Zuv visibly changes direction to follow her choice.",
+              "story_details": [
+                "exactly two empty stools",
+                "closed rain umbrella beside the car",
+                "lowered outside-hand phone",
+                "wet lane reflections"
+              ],
+              "cause_effect": "The failed route is visibly put aside when Aachu proposes the smaller roadside date and Zuv follows rather than continuing to solve the map.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The frame renders exactly `This is the kind of love\nI want us to grow into.` and exactly one tiny top-right `@a.storyof.two` brandmark."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof decodes as PNG at the exact locked 1080x1440 Instagram-post dimensions and matches the recorded SHA-256."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/cover_story_audit",
+      "reviewer_evidence": "A fresh image-first reviewer passed the small shared detour, exact copy, exact brandmark, scene restraint, story hierarchy, watercolor linework, and clean paper tone.",
+      "source_director_event_fingerprint": "sha256:24ddc8ecc72c15e8699c45d47e894744ce58ce148c3a1bf5ffd9f4278307b16e",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "After the route and restaurant plan fail, Aachu notices the roadside stools and proposes a smaller shared date; Zuv lowers the phone and follows her lead.",
+      "relationship_turn": "The cover promises a mature love that can move from a failed plan toward an ordinary shared choice without losing its lightness.",
+      "setup_payoff_evidence": "The parked car, lowered phone, unreachable restaurant doorway, two empty stools, and closed rain umbrella hold the entire plan-to-detour bridge in one frame.",
+      "weakest_frame": "The unlit counter can carry a faint secondary reading of a closed kiosk, but the two stools, invitation gesture, title, and later locked chai payoff keep the intended detour clear.",
+      "repair_decision": "No blocking repair is needed; preserve this exact identity, wardrobe, palette, geography, hand ownership, and gesture language for the remaining frames.",
+      "frames": [
+        {
+          "slide": 1,
+          "format": "instagram_post",
+          "file": "final/slide-01.png",
+          "status": "PASS",
+          "expected_silent_read": "A failed original plan turns into a smaller roadside date when Aachu chooses the empty stools and Zuv follows her.",
+          "observed_image_first_read": "After rain, Aachu notices two roadside stools and gestures to sit; Zuv follows her lead, smiling, with his route phone lowered in his outside hand.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "The title leads, Aachu's invitation gesture and Zuv's following gaze carry the decision, and the empty stools with parked car explain the alternative date.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "Two specific seats make the invitation concrete, the lowered phone ends route-fixing, and Zuv's following step turns the individual suggestion into a couple choice.",
+          "evidence": "Aachu's open palm and stool-directed body lead the diagonal movement; Zuv looks at her rather than the phone; the rain-damp lane, parked car, closed umbrella, two stools, counter, and doorway are all visible.",
+          "image_fingerprint": "sha256:1c8b8bb8d1ebc89f2a1560dde89704f4576a59d634f07ab9ab7abb441ec11e1c"
+        }
+      ],
+      "issues": [],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/cover_story_audit",
+        "reviewer_run_id": "cover-story-audit-2026-08-14-01",
+        "input_fingerprint": "sha256:3b91224c24a34962bb3a4204c8909b20d4f73178b6e572575a0cae39c8f9b6cd",
+        "raw_response_artifact": ".internal/event-b-cover-proof-attempt-01-raw-response.txt",
+        "raw_response_fingerprint": "sha256:11fdac2bd909ce4d1849a636ae789b169d9d9f61fb6e56488689e75dd57e08f2",
+        "output_fingerprint": "sha256:1a25b9c20c0ac9b9a50a0ef14434e19bfcd5bb41656294fa7cddee0675ea11e9"
+      }
+    }
+  },
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/cover_anatomy_audit",
+      "pass": true,
+      "evidence": "A fresh exact-pixel review found exactly two people, four coherent arms, three visible attributable hands with Zuv's right hand naturally occluded, no extra or duplicated anatomy, correct prop counts, traceable silhouettes, recognizable identities, locked wardrobe, and near-equal two-inch couple scale."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/cover_story_audit",
+      "pass": true,
+      "evidence": "A separate fresh image-first review passed the shared-detour story, exact title, exact single brandmark, visual hierarchy, fixed roadside geography, watercolor-and-ink style, and clean warm-ivory paper tone."
+    }
+  }
+}

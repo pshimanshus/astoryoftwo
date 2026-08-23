@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Mutual Bad Mood / Shared Repair",
+  "winner": "Narrow Orbit",
+  "agents": [
+    {
+      "agent": "Visual Evidence Planner",
+      "verdict": "GO",
+      "recommendation": "Use the changing extension-cord and lamp state as causal evidence, never decoration."
+    },
+    {
+      "agent": "Romance Scene Planner",
+      "verdict": "GO",
+      "recommendation": "Keep anger in the faces while equal repair begins; do not substitute softness for action."
+    },
+    {
+      "agent": "Visual Continuity Judge",
+      "verdict": "GO",
+      "recommendation": "Preserve one room and wardrobe but change camera scale, angle, action, who is visible, body distance, light and cord state every slide."
+    }
+  ],
+  "visual_options": ["Narrow Orbit", "Duvet Tension", "Unflattering Reflections"],
+  "rejected_visual_patterns": [
+    "reflection-led duplication risk",
+    "bed-and-duvet repetition",
+    "poster poses beside copy",
+    "shouting, pointing or damaged objects",
+    "sentimental reconciliation cliches"
+  ],
+  "shot_ladder": [
+    {"slide": 1, "shot": "compressed medium two-shot", "angle": "doorway chest height", "action": "reciprocal care while squeezing past"},
+    {"slide": 2, "shot": "single-person close-up", "angle": "side profile", "action": "Aachu loosens an over-tight hair tie"},
+    {"slide": 3, "shot": "extreme wide", "angle": "ceiling-corner overhead", "action": "wardrobe door and chair block the only aisle"},
+    {"slide": 4, "shot": "obstructed close", "angle": "low table level", "action": "opposite pulls slide board and tip lamp"},
+    {"slide": 5, "shot": "intimate close insert", "angle": "floor-height three-quarter", "action": "both restore lamp while anger remains"},
+    {"slide": 6, "shot": "wide reprise", "angle": "pulled-back doorway", "action": "ordinary shared meal continues inside repaired light"}
+  ],
+  "visual_variables": ["body distance", "motivated light"],
+  "object_state_arc": "lamp upright / cord slack -> cord taut / lamp tips -> blackout -> lamp jointly restored / cord slack",
+  "decision_reason": "The winning system makes each line visible through action and creates both visual richness and causal restraint."
+}

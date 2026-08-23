@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "pass": true,
+  "scorecard": {
+    "golden_theme_alignment": 5,
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 5
+  },
+  "total": 43,
+  "max": 45,
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 4,
+    "total": 29
+  },
+  "story_selling_gate": {
+    "status": "GO",
+    "evidence": "The lamp-and-extension-board incident supplies mutual action, consequence, blackout, equal repair and an earned wider-room payoff."
+  },
+  "story_selling_hard_fails": [],
+  "story_director_gate": {
+    "status": "GO",
+    "hook": 9,
+    "story": 9,
+    "bridge": 9,
+    "relationship_motion": 10,
+    "ending": 9,
+    "send_save_potential": 9,
+    "stage_scene": 10,
+    "verdict": "GO: exact copy is supported by a six-beat causal incident with equal agency and a specific repair receipt.",
+    "blocks": []
+  },
+  "successful_carousel_standard_gate": {
+    "status": "GO",
+    "pass": true,
+    "audience_success": "A viewer can send it with 'this is us on the days when the mood is ugly but the relationship is still true.'",
+    "creative_success": "Every swipe changes action, camera, object state, light or relationship distance.",
+    "brand_success": "The route is intimate, warm, visually rich and specific without becoming relationship advice.",
+    "production_success": "Six native 1080x1440 illustrated slides, exact copy, identity references, brandmark, visual QA and final audit remain required."
+  },
+  "issues": [],
+  "required_changes_before_image_generation": []
+}

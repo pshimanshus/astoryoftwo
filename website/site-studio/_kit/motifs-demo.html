@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motifs — A Story of Two</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ---- demo-only scaffolding; brand tokens come from styles.css ---- */
+    .kit-wrap {
+      max-width: var(--maxw, 1180px);
+      margin: 0 auto;
+      padding: clamp(40px, 7vw, 88px) var(--gutter, 40px) 120px;
+    }
+    .kit-head { margin-bottom: 3.5rem; max-width: 60ch; }
+    .kit-head .kicker { margin-bottom: 1.1rem; }
+    .kit-head h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.7rem;
+    }
+    .kit-head h1 em { font-style: italic; color: var(--coral); }
+    .kit-head p {
+      font-size: 1.02rem;
+      color: var(--ink-soft);
+      max-width: 54ch;
+      margin: 0;
+    }
+
+    .kit-section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      display: flex; align-items: center; gap: 0.9em;
+      margin: 4rem 0 1.8rem;
+    }
+    .kit-section-label::after {
+      content: ""; flex: 1; height: 1px;
+      background: var(--line);
+    }
+    .kit-section-label:first-of-type { margin-top: 2.5rem; }
+
+    /* ---- the motif grid ---- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 14px;
+    }
+    .cell {
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 14px 28px -22px rgba(43,38,32,0.5);
+    }
+    /* the two-tint / two-size specimen row */
+    .specimen {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 18px;
+      width: 100%;
+      min-height: 76px;
+    }
+    .swatch { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .swatch img { display: block; }
+    .ink   { color: var(--ink); }
+    .coral { color: var(--coral); }
+    /* img can't inherit currentColor; CSS filters approximate the two tints
+       so the <img> path is legible. The inline specimens below are the real proof. */
+    .ink img   { filter: none; }
+    .coral img { filter: invert(31%) sepia(46%) saturate(848%) hue-rotate(331deg) brightness(92%) contrast(88%); }
+
+    .s32 { width: 32px; height: 32px; }
+    .s64 { width: 64px; height: 64px; }
+    .micro {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      opacity: 0.7;
+    }
+    .name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.96rem;
+      color: var(--ink);
+    }
+    .file {
+      font-family: var(--sans);
+      font-size: 0.66rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+      opacity: 0.75;
+      margin-top: -10px;
+    }
+
+    /* ---- inline tinting proof ---- */
+    .proof-note {
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      max-width: 60ch;
+      margin: 0 0 1.8rem;
+    }
+    .proof-note code {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 0.82em;
+      background: var(--paper-3);
+      padding: 1px 6px;
+      border-radius: 5px;
+      color: var(--coral);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+    }
+    .proof-cell {
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      padding: 20px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .proof-row { display: flex; align-items: center; gap: 22px; }
+    .proof-row svg { width: 48px; height: 48px; }
+    .tint-denim { color: var(--denim); }
+    .tint-sage  { color: var(--sage); }
+    .tint-blush { color: var(--blush); }
+    .proof-cell .name { margin-top: 2px; }
+    .proof-cap {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      opacity: 0.7;
+      display: flex; gap: 22px; justify-content: center; width: 100%;
+    }
+    .proof-cap span { width: 48px; text-align: center; }
+
+    .kit-foot {
+      margin-top: 5rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid var(--line);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="kit-wrap">
+    <header class="kit-head">
+      <p class="kicker"><span>the kit</span> ornaments &amp; marks</p>
+      <h1>Ink <em>motifs</em></h1>
+      <p>Loose hand-drawn spot illustrations — the recurring objects and marks that fill quiet
+        corners of the page. Each is single-color line art using <code style="font-family:ui-monospace,Menlo,monospace;font-size:0.85em;">stroke="currentColor"</code>,
+        so any element can tint a motif through CSS <code style="font-family:ui-monospace,Menlo,monospace;font-size:0.85em;">color</code>.</p>
+    </header>
+
+    <!-- ============ FULL SET, two sizes x two tints (via <img>) ============ -->
+    <div class="kit-section-label">The full set · 32px &amp; 64px · ink &amp; coral</div>
+    <div class="grid" id="grid"><!-- populated by script --></div>
+
+    <!-- ============ INLINE currentColor PROOF ============ -->
+    <div class="kit-section-label">Live <code style="font-family:ui-monospace,Menlo,monospace;text-transform:none;letter-spacing:0;font-size:0.9em;color:var(--coral)">currentColor</code> tinting · inlined</div>
+    <p class="proof-note">
+      An external SVG loaded via <code>&lt;img&gt;</code> can't inherit the page's text color, so the grid
+      above approximates coral with a CSS <code>filter</code>. Below, the same SVGs are inlined inside spans
+      whose <code>color</code> is set to brand tokens — proving each motif genuinely takes its stroke from
+      <code>currentColor</code> with no filter trickery.
+    </p>
+
+    <div class="proof-grid">
+      <!-- HEART inlined -->
+      <div class="proof-cell">
+        <div class="proof-row">
+          <span class="ink">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 52C20 44 11 36 11 26c0-6.4 4.6-11 10.4-11 4.6 0 8.4 2.8 10.6 7.4 2-4.6 5.8-7.6 10.6-7.6C48.6 14.8 53 19.4 53 25.8c0 10-9.2 18.2-21 26.2z"/>
+              <path d="M21.6 14.6c-.4-.8-.4-1.6 0-2.4"/>
+            </svg>
+          </span>
+          <span class="coral">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 52C20 44 11 36 11 26c0-6.4 4.6-11 10.4-11 4.6 0 8.4 2.8 10.6 7.4 2-4.6 5.8-7.6 10.6-7.6C48.6 14.8 53 19.4 53 25.8c0 10-9.2 18.2-21 26.2z"/>
+              <path d="M21.6 14.6c-.4-.8-.4-1.6 0-2.4"/>
+            </svg>
+          </span>
+          <span class="tint-sage">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 52C20 44 11 36 11 26c0-6.4 4.6-11 10.4-11 4.6 0 8.4 2.8 10.6 7.4 2-4.6 5.8-7.6 10.6-7.6C48.6 14.8 53 19.4 53 25.8c0 10-9.2 18.2-21 26.2z"/>
+              <path d="M21.6 14.6c-.4-.8-.4-1.6 0-2.4"/>
+            </svg>
+          </span>
+        </div>
+        <div class="proof-cap"><span>ink</span><span>coral</span><span>sage</span></div>
+        <div class="name">heart</div>
+      </div>
+
+      <!-- STAR inlined -->
+      <div class="proof-cell">
+        <div class="proof-row">
+          <span class="ink">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 8 C33 21 35 29 44 31 C51 32.5 55 33 56 32 C45 33 36 35 33.5 44 C32.4 49 32 53 32 56 C31 43 29 35 20 33 C13 31.5 9 31 8 32 C19 31 28 29 30.5 20 C31.6 15 32 11 32 8 Z"/>
+            </svg>
+          </span>
+          <span class="coral">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 8 C33 21 35 29 44 31 C51 32.5 55 33 56 32 C45 33 36 35 33.5 44 C32.4 49 32 53 32 56 C31 43 29 35 20 33 C13 31.5 9 31 8 32 C19 31 28 29 30.5 20 C31.6 15 32 11 32 8 Z"/>
+            </svg>
+          </span>
+          <span class="tint-denim">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 8 C33 21 35 29 44 31 C51 32.5 55 33 56 32 C45 33 36 35 33.5 44 C32.4 49 32 53 32 56 C31 43 29 35 20 33 C13 31.5 9 31 8 32 C19 31 28 29 30.5 20 C31.6 15 32 11 32 8 Z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="proof-cap"><span>ink</span><span>coral</span><span>denim</span></div>
+        <div class="name">star</div>
+      </div>
+
+      <!-- CHAI CUP inlined -->
+      <div class="proof-cell">
+        <div class="proof-row">
+          <span class="ink">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 33c.6 9 2.4 16 6 18.4 2.7 1.8 6.4 2 9 2 2.7 0 6.5-.3 9.2-2.2 3.4-2.5 5.1-9.4 5.7-18.2"/>
+              <path d="M14.6 33c.4-2 8-3.4 17.5-3.4S49.1 31 49.6 33c-.5 2-8.2 3.5-17.6 3.5S15.2 35 14.6 33z"/>
+              <path d="M50 35c4.2-.6 7.6 1.3 7.7 5 .1 3.8-3.3 6-7 5.4"/>
+              <path d="M11 56c1.6 1.8 11 2.6 21 2.6S51.6 57.8 53 56"/>
+              <path d="M27 23c2.4-2 2.4-4.2 0-6.2s-2.4-4.4 0-6.4"/>
+              <path d="M36 22c2.6-2.2 2.6-4.6 0-6.8s-2.6-4.8 0-7"/>
+            </svg>
+          </span>
+          <span class="coral">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 33c.6 9 2.4 16 6 18.4 2.7 1.8 6.4 2 9 2 2.7 0 6.5-.3 9.2-2.2 3.4-2.5 5.1-9.4 5.7-18.2"/>
+              <path d="M14.6 33c.4-2 8-3.4 17.5-3.4S49.1 31 49.6 33c-.5 2-8.2 3.5-17.6 3.5S15.2 35 14.6 33z"/>
+              <path d="M50 35c4.2-.6 7.6 1.3 7.7 5 .1 3.8-3.3 6-7 5.4"/>
+              <path d="M11 56c1.6 1.8 11 2.6 21 2.6S51.6 57.8 53 56"/>
+              <path d="M27 23c2.4-2 2.4-4.2 0-6.2s-2.4-4.4 0-6.4"/>
+              <path d="M36 22c2.6-2.2 2.6-4.6 0-6.8s-2.6-4.8 0-7"/>
+            </svg>
+          </span>
+          <span class="tint-blush">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 33c.6 9 2.4 16 6 18.4 2.7 1.8 6.4 2 9 2 2.7 0 6.5-.3 9.2-2.2 3.4-2.5 5.1-9.4 5.7-18.2"/>
+              <path d="M14.6 33c.4-2 8-3.4 17.5-3.4S49.1 31 49.6 33c-.5 2-8.2 3.5-17.6 3.5S15.2 35 14.6 33z"/>
+              <path d="M50 35c4.2-.6 7.6 1.3 7.7 5 .1 3.8-3.3 6-7 5.4"/>
+              <path d="M11 56c1.6 1.8 11 2.6 21 2.6S51.6 57.8 53 56"/>
+              <path d="M27 23c2.4-2 2.4-4.2 0-6.2s-2.4-4.4 0-6.4"/>
+              <path d="M36 22c2.6-2.2 2.6-4.6 0-6.8s-2.6-4.8 0-7"/>
+            </svg>
+          </span>
+        </div>
+        <div class="proof-cap"><span>ink</span><span>coral</span><span>blush</span></div>
+        <div class="name">chai-cup</div>
+      </div>
+
+      <!-- SPARKLE inlined (bonus, 4th proof) -->
+      <div class="proof-cell">
+        <div class="proof-row">
+          <span class="ink">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M26 14C27 24 29 27 38 28C29 29 27 32 26 42C25 32 23 29 14 28C23 27 25 24 26 14Z"/>
+              <path d="M46 36C46.6 42 47.6 43.6 53 44.4C47.6 45.2 46.6 46.8 46 53C45.4 46.8 44.4 45.2 39 44.4C44.4 43.6 45.4 42 46 36Z"/>
+              <path d="M48 19v7M44.5 22.5h7"/>
+            </svg>
+          </span>
+          <span class="coral">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M26 14C27 24 29 27 38 28C29 29 27 32 26 42C25 32 23 29 14 28C23 27 25 24 26 14Z"/>
+              <path d="M46 36C46.6 42 47.6 43.6 53 44.4C47.6 45.2 46.6 46.8 46 53C45.4 46.8 44.4 45.2 39 44.4C44.4 43.6 45.4 42 46 36Z"/>
+              <path d="M48 19v7M44.5 22.5h7"/>
+            </svg>
+          </span>
+          <span class="tint-sage">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M26 14C27 24 29 27 38 28C29 29 27 32 26 42C25 32 23 29 14 28C23 27 25 24 26 14Z"/>
+              <path d="M46 36C46.6 42 47.6 43.6 53 44.4C47.6 45.2 46.6 46.8 46 53C45.4 46.8 44.4 45.2 39 44.4C44.4 43.6 45.4 42 46 36Z"/>
+              <path d="M48 19v7M44.5 22.5h7"/>
+            </svg>
+          </span>
+        </div>
+        <div class="proof-cap"><span>ink</span><span>coral</span><span>sage</span></div>
+        <div class="name">sparkle</div>
+      </div>
+    </div>
+
+    <p class="kit-foot">A Story of Two — 14 ink motifs · single-color, <code style="font-family:ui-monospace,Menlo,monospace;font-size:0.9em;color:var(--coral)">currentColor</code>, transparent · drop into any section to fill space.</p>
+  </main>
+
+  <script>
+    // Full set, populated so each motif appears at 32px & 64px in ink + coral via <img>.
+    const motifs = [
+      ["chai-cup",     "chai cup"],
+      ["pocket-watch", "pocket watch"],
+      ["rings",        "rings"],
+      ["camera",       "camera"],
+      ["plant",        "plant"],
+      ["book-spines",  "book spines"],
+      ["washi-tape",   "washi tape"],
+      ["paperclip",    "paperclip"],
+      ["arrow",        "arrow"],
+      ["underline",    "underline"],
+      ["star",         "star"],
+      ["heart",        "heart"],
+      ["sparkle",      "sparkle"],
+      ["map-fold",     "map fold"],
+    ];
+    const base = "../assets/illustrations/motifs/";
+    const grid = document.getElementById("grid");
+    for (const [file, label] of motifs) {
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      cell.innerHTML = `
+        <div class="specimen">
+          <div class="swatch ink">
+            <img class="s64" src="${base}${file}.svg" alt="${label}, ink">
+            <span class="micro">ink · 64</span>
+          </div>
+          <div class="swatch ink">
+            <img class="s32" src="${base}${file}.svg" alt="">
+            <span class="micro">32</span>
+          </div>
+          <div class="swatch coral">
+            <img class="s64" src="${base}${file}.svg" alt="${label}, coral">
+            <span class="micro">coral · 64</span>
+          </div>
+          <div class="swatch coral">
+            <img class="s32" src="${base}${file}.svg" alt="">
+            <span class="micro">32</span>
+          </div>
+        </div>
+        <div class="name">${label}</div>
+        <div class="file">${file}.svg</div>`;
+      grid.appendChild(cell);
+    }
+  </script>
+</body>
+</html>

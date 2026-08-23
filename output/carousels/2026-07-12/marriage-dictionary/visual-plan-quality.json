@@ -1,25 +1,228 @@
 {
   "schema_version": "1.0",
-  "status": "GO_REPAIRED",
+  "status": "REPAIR_PROVISIONAL_PENDING_CREATOR_APPROVAL",
+  "can_generate": false,
   "checks": {
-    "copy_visual_alignment": "PASS",
-    "stage_scene_storytelling": "PASS",
-    "relationship_motion": "PASS",
-    "visual_variety": "PASS",
+    "copy_visual_alignment": "REBUILT_PENDING_APPROVAL",
+    "stage_scene_storytelling": "REBUILT_PENDING_EVENT_A",
+    "relationship_motion": "PASS_PROVISIONAL",
+    "visual_variety": "PASS_PROVISIONAL",
     "identity_continuity": "PASS_PENDING_GENERATION",
     "typography_safety": "PASS_PENDING_PROOF",
-    "aspect_ratio_safety": "PASS",
-    "safety_taste": "PASS"
+    "aspect_ratio_safety": "PASS_POST_ONLY",
+    "safety_taste": "PASS_PROVISIONAL"
+  },
+  "rejected_previous_plan": {
+    "status": "REJECTED_BY_CREATOR",
+    "reason": "Previous plan over-relied on definition labels and repeated warm couple scenes. It did not create enough visual cause, reaction, and consequence."
+  },
+  "format_lock": {
+    "requested_formats": ["instagram_post"],
+    "unrequested_formats": ["reels_stories", "square"],
+    "format_contract": "format-contract.json"
+  },
+  "director_storyboard": {
+    "status": "PROVISIONAL_ONLY",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": false,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "can_unlock_generation": false,
+    "why_not_pass": "Exact rebuilt copy needs creator approval before Event A can be run. This board is advisory and must be rerun as a fresh copy-hidden check after approval.",
+    "sequence_mode": "causal_sequence",
+    "physical_event": "A one-day trail of Indian married shorthand, moving from mutual leaving-chaos to household tasks, food-care, quiet repair, and wordless home understanding.",
+    "emotional_arc": "Funny mutual chaos becomes tender private fluency.",
+    "relationship_change": "The couple moves from teasing language to wordless care.",
+    "visual_variables": ["object state", "body distance"],
+    "hero_receipt_slide": 6,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Both partners say normal phrases that hide another meaning.",
+        "payoff": "By the end, they do the right small thing before it has to be said.",
+        "changed_meaning": "The dictionary becomes home fluency, not wordplay."
+      },
+      {
+        "setup": "Objects interrupt or expose the phrase: keys, shoes, shelf, tiffin, plate.",
+        "payoff": "The final slide shows objects being placed for each other without dialogue.",
+        "changed_meaning": "Household objects become proof of understanding."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "keys",
+        "initial_state": "ready by open door",
+        "later_state": "paused mid-lock by one more task",
+        "story_job": "leaving is repeatedly delayed by household life"
+      },
+      {
+        "object": "food plate or tiffin",
+        "initial_state": "kept or untouched because someone is missed",
+        "later_state": "covered after a tiny fight",
+        "story_job": "food becomes Indian care language"
+      },
+      {
+        "object": "phone and charger",
+        "initial_state": "phone in hand during missing-you beat",
+        "later_state": "phone plugged in wordlessly at night",
+        "story_job": "care becomes automatic"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS_PROVISIONAL",
+        "narrative_job": "Cover",
+        "silent_read": "The couple is creating their own home language together.",
+        "change_from_previous": "Opens with hands and household evidence, not a posed title card.",
+        "staged_action": {
+          "subject": "two hands from opposite sides",
+          "action": "reach for the same pen near household objects",
+          "target_or_object": "blank sticky notes, keys, steel tiffin",
+          "reaction_or_consequence": "the dictionary feels co-authored"
+        },
+        "shot": {
+          "size": "overhead insert with partial bodies",
+          "angle": "top-down",
+          "camera_position": "above morning table or fridge corner",
+          "focal_subject": "hands and household evidence",
+          "story_reason": "avoid static couple-poster cover"
+        }
+      },
+      {
+        "slide": 2,
+        "status": "PASS_PROVISIONAL",
+        "narrative_job": "Cold Open",
+        "silent_read": "Both said five minutes; both are unfinished.",
+        "change_from_previous": "Moves from title setup to active leaving-chaos.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "try to leave while both still fix last-minute things",
+          "target_or_object": "earring, shoe or sock, open door, keys",
+          "reaction_or_consequence": "the phrase becomes mutual and funny"
+        },
+        "shot": {
+          "size": "doorway medium-wide",
+          "angle": "eye-level with depth",
+          "camera_position": "inside home facing threshold",
+          "focal_subject": "two unfinished readiness states",
+          "story_reason": "prevent Aachu-only chaos framing"
+        }
+      },
+      {
+        "slide": 3,
+        "status": "PASS_PROVISIONAL",
+        "narrative_job": "Mirror",
+        "silent_read": "They were leaving, then one more household task appeared.",
+        "change_from_previous": "The open door becomes a paused lock and added errand.",
+        "staged_action": {
+          "subject": "one partner's hand",
+          "action": "pauses the key mid-lock",
+          "target_or_object": "trash bag, parcel, or tiffin now in the other partner's hands",
+          "reaction_or_consequence": "departure is interrupted by domestic life"
+        },
+        "shot": {
+          "size": "threshold medium with hands emphasized",
+          "angle": "slight low/side angle",
+          "camera_position": "near door lock or lift lobby",
+          "focal_subject": "key pause and extra object",
+          "story_reason": "make 'one more task' visible as interruption"
+        }
+      },
+      {
+        "slide": 4,
+        "status": "PASS_PROVISIONAL",
+        "narrative_job": "Spine",
+        "silent_read": "One partner knows the exact house-map; the other searched the wrong place.",
+        "change_from_previous": "From leaving tasks to inside-house geography.",
+        "staged_action": {
+          "subject": "Zuv and Aachu",
+          "action": "Zuv searches the wrong lower shelf while Aachu points to the right third shelf",
+          "target_or_object": "visible object on third shelf",
+          "reaction_or_consequence": "the home has a shared map, but only one person remembers it"
+        },
+        "shot": {
+          "size": "kitchen/cupboard medium with shelf depth",
+          "angle": "low enough to show wrong shelf and right shelf",
+          "camera_position": "beside open cupboard",
+          "focal_subject": "wrong search versus exact pointing",
+          "story_reason": "make the phrase spatial, not textual"
+        }
+      },
+      {
+        "slide": 5,
+        "status": "PASS_PROVISIONAL",
+        "narrative_job": "Rhythm",
+        "silent_read": "The food question is really missing someone.",
+        "change_from_previous": "The comedy turns into care through absence.",
+        "staged_action": {
+          "subject": "one partner",
+          "action": "holds phone beside a kept or untouched plate/tiffin",
+          "target_or_object": "empty chair and food kept for the other",
+          "reaction_or_consequence": "the absent partner is felt without being shown"
+        },
+        "shot": {
+          "size": "quiet table medium/insert",
+          "angle": "slight overhead",
+          "camera_position": "near dining table",
+          "focal_subject": "phone, food, empty chair",
+          "story_reason": "let absence carry emotion"
+        }
+      },
+      {
+        "slide": 6,
+        "status": "GO_PROOF_FIRST",
+        "narrative_job": "Turn",
+        "silent_read": "They are annoyed, but one still covered the other's plate.",
+        "change_from_previous": "Care becomes visible during conflict, not only during sweetness.",
+        "staged_action": {
+          "subject": "one partner's hand",
+          "action": "places a steel lid over the other's dinner plate",
+          "target_or_object": "covered plate left in the other's path",
+          "reaction_or_consequence": "body distance says sulk, object state says care"
+        },
+        "shot": {
+          "size": "medium-wide kitchen/table scene",
+          "angle": "side angle with plate foreground and separated bodies",
+          "camera_position": "near table edge",
+          "focal_subject": "covered plate and non-eye-contact",
+          "story_reason": "highest semantic proof of the concept"
+        }
+      },
+      {
+        "slide": 7,
+        "status": "PASS_PROVISIONAL",
+        "narrative_job": "Payoff",
+        "silent_read": "They understand each other before speaking.",
+        "change_from_previous": "The repair object becomes a larger wordless home ritual.",
+        "staged_action": {
+          "subject": "both partners",
+          "action": "quietly place useful things for each other at the same time",
+          "target_or_object": "phone charger, keys bowl, water, covered plate",
+          "reaction_or_consequence": "home is shown as silent coordination"
+        },
+        "shot": {
+          "size": "night home wide/overhead",
+          "angle": "soft overhead or high corner",
+          "camera_position": "above room threshold",
+          "focal_subject": "simultaneous small care actions",
+          "story_reason": "land the thesis without a literal dictionary book"
+        }
+      }
+    ],
+    "issues": [
+      "Fresh Event A is required after creator approves rebuilt copy.",
+      "Prompt handoff is stale and blocked until this rebuilt board is approved."
+    ]
   },
   "per_slide": [
-    {"slide": 1, "status": "GO", "shot_type": "overhead plus partial two-shot", "risk": "random book text", "repair_instruction": "only exact approved text; scene must dominate"},
-    {"slide": 2, "status": "GO_PROOF_FIRST", "shot_type": "doorway medium with mirror", "risk": "text too large or could become nagging wife joke", "repair_instruction": "make text compact; let waiting posture, keys, phone, and mirror action communicate the joke"},
-    {"slide": 3, "status": "GO", "shot_type": "bag detail with reaction", "risk": "object clutter", "repair_instruction": "keep one hero migrated item"},
-    {"slide": 4, "status": "GO", "shot_type": "drawer/search low angle", "risk": "Zuv looking incompetent", "repair_instruction": "make it playful, not foolish"},
-    {"slide": 5, "status": "GO", "shot_type": "quiet table/bedside detail", "risk": "too sad or fight-heavy", "repair_instruction": "tiny fight only, care visible"},
-    {"slide": 6, "status": "GO", "shot_type": "overhead planning still life with couple edge reaction", "risk": "too much text", "repair_instruction": "strict line breaks"},
-    {"slide": 7, "status": "GO", "shot_type": "soft wide/overhead home tableau", "risk": "generic home sweetness", "repair_instruction": "show all prior definition receipts"}
+    {"slide": 1, "status": "PASS_PROVISIONAL", "shot_type": "overhead hands/object setup", "risk": "title card could become decorative", "repair_instruction": "keep hands active and object evidence selected"},
+    {"slide": 2, "status": "PASS_PROVISIONAL", "shot_type": "doorway medium-wide", "risk": "could blame one partner", "repair_instruction": "both partners must be visibly unfinished"},
+    {"slide": 3, "status": "PASS_PROVISIONAL", "shot_type": "threshold key/object interruption", "risk": "extra task may look random", "repair_instruction": "make the key pause and added object the focal action"},
+    {"slide": 4, "status": "PASS_PROVISIONAL", "shot_type": "cupboard spatial comedy", "risk": "could make Zuv look foolish", "repair_instruction": "playful house-map mismatch, not incompetence"},
+    {"slide": 5, "status": "PASS_PROVISIONAL", "shot_type": "table absence/food-care", "risk": "could become too quiet", "repair_instruction": "phone, kept food, and empty chair must carry longing clearly"},
+    {"slide": 6, "status": "GO_PROOF_FIRST", "shot_type": "covered-plate repair scene", "risk": "could look like sad fight", "repair_instruction": "small sulk, strong care object, no cruelty"},
+    {"slide": 7, "status": "PASS_PROVISIONAL", "shot_type": "night home simultaneous care", "risk": "generic home sweetness", "repair_instruction": "two simultaneous useful actions, no literal dictionary book"}
   ],
-  "proof_slide": 2,
-  "proof_reason": "Slide 2 tests the dictionary text, identity continuity, daily-comedy staging, doorway composition, and the risk of making Aachu the joke."
+  "proof_slide": 6,
+  "proof_reason": "Slide 6 tests whether the rebuilt carousel can make the emotional turn visually: conflict posture plus covered plate must read before the text."
 }

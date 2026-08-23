@@ -1,72 +1,79 @@
-{
-  "schema_version": "1.0",
-  "copy_lock": {
-    "status": "repaired_after_creator_note",
-    "approved_by": "creator",
-    "trigger_phrase": "continue, one suggestion the main key word like soon, mine, sorry seems very genric and not chaosic or indian people like... also main word should shine and bigger tna dthen meaning the placement and handling of text should be better",
-    "public_names_policy": "no private names in public slide copy"
+[
+  {
+    "slide": 1,
+    "copy": "Some words change after marriage.",
+    "role": "Cover",
+    "visual": "Warm morning home table or fridge corner. Small blank sticky notes, keys, steel tiffin, one half-open drawer, and Aachu/Zuv partly visible from the edges reaching into the same everyday mess. It should feel like the house itself is about to explain their private language, not like a literal dictionary page.",
+    "emotion": "instant recognition, warm domestic curiosity",
+    "source_images": [],
+    "props": "blank sticky notes, keys, steel tiffin, drawer, pen with no readable text",
+    "cta_intent": "make married viewers swipe because the premise is familiar immediately",
+    "continuity_lock": "Use this as the premise slide only. No literal dictionary book. No extra readable labels besides approved copy and brandmark."
   },
-  "typography_hierarchy": {
-    "keyword": "medium-large, uppercase, hand-drawn dark charcoal, roughly 1.4-1.6x the definition size",
-    "definition": "one smaller translation line below the keyword; no paragraph explanation",
-    "placement": "upper-left or upper-middle label area; scene must dominate the slide"
+  {
+    "slide": 2,
+    "copy": "\"Bas 5 minute\" means both of you are lying.",
+    "role": "Cold Open",
+    "visual": "Doorway before leaving. The door is open and keys are ready, but Aachu has one earring in and one still in hand while Zuv is hopping with one shoe or searching for a sock. Both are unfinished in different ways, catching each other in the same lie.",
+    "emotion": "mutual shaadi chaos, not one-person blame",
+    "source_images": [],
+    "props": "open door, keys, earring, one shoe or sock, small bag",
+    "cta_intent": "make couples send it as a 'this is us' line",
+    "continuity_lock": "Both partners must be visibly not ready. Do not frame Aachu as the only delay or Zuv as the patient saint."
   },
-  "slides": [
-    {
-      "slide": 1,
-      "beat": "Cover",
-      "on_image_text": ["SHAADI", "DICTIONARY"],
-      "story_job": "Stop the scroll with a clear format promise.",
-      "visual_direction": "A warm hand-drawn dictionary book opens on a lived-in home surface while Aachu and Zuv lean in from opposite sides, amused like they are about to define their own marriage language.",
-      "swipe_reason": "Viewers understand the game instantly and want the first definition."
-    },
-    {
-      "slide": 2,
-      "beat": "Cold Open",
-      "on_image_text": ["BAS 5 MIN", "= 40 min + last look"],
-      "story_job": "Start with the most public, taggable marriage joke.",
-      "visual_direction": "Zuv waits near the door with keys and phone while Aachu is visible in a mirror still doing one last thing, one shoe or earring not fully settled.",
-      "swipe_reason": "The audience recognizes the delay and wants the next definition."
-    },
-    {
-      "slide": 3,
-      "beat": "Mirror",
-      "on_image_text": ["MERA CHARGER", "= tumhare bag mein"],
-      "story_job": "Make the dictionary feel like a shared-life receipt, not a quote list.",
-      "visual_direction": "Close detail of Aachu's open bag with a charger, keys, lip balm, and one clearly Zuv-owned item peeking out while Zuv notices with mock betrayal.",
-      "swipe_reason": "Every couple has objects that migrate."
-    },
-    {
-      "slide": 4,
-      "beat": "Spine",
-      "on_image_text": ["MIL NAHI RAHA", "= ek drawer checked"],
-      "story_job": "Flip the joke so both partners are implicated.",
-      "visual_direction": "Aachu points toward a shelf or drawer with full confidence while Zuv kneels/searches, holding the obviously wrong item, both lightly exasperated.",
-      "swipe_reason": "The pattern becomes mutual and funnier."
-    },
-    {
-      "slide": 5,
-      "beat": "Rhythm",
-      "on_image_text": ["THEEK HAI", "= paani rakh diya"],
-      "story_job": "Bridge from comedy into care without becoming sentimental too early.",
-      "visual_direction": "After a tiny fight, one glass of water sits beside the other person's side of the bed or table; Aachu and Zuv are turned slightly away but hands and eye-lines show the care is still active.",
-      "swipe_reason": "The definition changes from joke to tenderness."
-    },
-    {
-      "slide": 6,
-      "beat": "Turn",
-      "on_image_text": ["CHALO", "= bills + dessert bhi"],
-      "story_job": "Show marriage as shared adulthood with one playful rebellion.",
-      "visual_direction": "Grocery list, bill receipt, and calculator sit beside a small dessert box; Aachu and Zuv exchange a guilty, delighted look.",
-      "swipe_reason": "The carousel earns the adulting-to-romance turn."
-    },
-    {
-      "slide": 7,
-      "beat": "Payoff",
-      "on_image_text": ["GHAR", "= same words, new meanings"],
-      "story_job": "Land the send/save thesis: marriage builds a private language.",
-      "visual_direction": "A soft overhead/wide home scene with the dictionary open, migrated objects, water glass, grocery list, dessert, and the couple close together laughing quietly.",
-      "swipe_reason": "The final line is saveable and sendable."
-    }
-  ]
-}
+  {
+    "slide": 3,
+    "copy": "\"Acha suno\" means the house found one more kaam.",
+    "role": "Mirror",
+    "visual": "Threshold or lift-lobby moment. One hand pauses the key mid-lock while the other partner suddenly holds a trash bag, parcel, forgotten tiffin, or small household thing that must go back or come along. Bodies point outward, but the object pulls them back.",
+    "emotion": "leaving-interrupted comedy",
+    "source_images": [],
+    "props": "key in lock, trash bag or parcel, tiffin, doorway/lift-lobby edge",
+    "cta_intent": "make the phrase feel heard before the viewer reads the punchline",
+    "continuity_lock": "The focal event is the paused key plus one more task. Keep the object singular and causal, not cluttered."
+  },
+  {
+    "slide": 4,
+    "copy": "\"Mil gaya?\" means third shelf. Like always.",
+    "role": "Spine",
+    "visual": "Kitchen or cupboard search. Zuv crouches at the wrong lower shelf while Aachu, still doing her own thing, points to the exact third shelf where the object is clearly visible. The joke is house geography, not incompetence.",
+    "emotion": "familiar house-map comedy",
+    "source_images": [],
+    "props": "open cupboard, one visible object on third shelf, clean kitchen counter",
+    "cta_intent": "make couples recognize the person who always knows where things are",
+    "continuity_lock": "Keep it playful and reciprocal. Do not make Zuv foolish; make the home-map specific."
+  },
+  {
+    "slide": 5,
+    "copy": "\"Kha liya?\" is missing you in disguise.",
+    "role": "Rhythm",
+    "visual": "Quiet table or kitchen counter. One partner holds a phone beside an untouched or packed plate/tiffin kept for the other. An empty chair or absent space makes the missing-you feeling visible without melodrama.",
+    "emotion": "soft Indian care language",
+    "source_images": [],
+    "props": "phone with no readable UI, kept plate or tiffin, empty chair, glass",
+    "cta_intent": "turn the carousel from funny dictionary to emotional recognition",
+    "continuity_lock": "The food must feel like care and absence, not a food aesthetic. No brand labels or readable phone text."
+  },
+  {
+    "slide": 6,
+    "copy": "\"Theek hai\" means the plate is covered.",
+    "role": "Turn",
+    "visual": "After a tiny disagreement. The partners are close enough to feel safe but not looking at each other. One hand has just covered the other's dinner plate with a steel lid and placed it where the other will find it. Body distance says sulk; object state says care.",
+    "emotion": "quiet repair without speech",
+    "source_images": [],
+    "props": "covered steel plate, dinner table or kitchen counter, small water glass",
+    "cta_intent": "land the strongest emotional receipt before the payoff",
+    "continuity_lock": "This is the proof slide. No dramatic fight, no cruelty, no lecture. The covered plate must carry the story with text hidden."
+  },
+  {
+    "slide": 7,
+    "copy": "Maybe home is this.\nSame words. More meaning.",
+    "role": "Payoff",
+    "visual": "Night home wide/overhead. No literal dictionary book. Aachu and Zuv quietly do small useful things for each other at the same time: phone plugged in, keys placed in the right bowl, water kept, covered plate nearby. The room is calm because the language has become automatic.",
+    "emotion": "earned tenderness, wordless understanding",
+    "source_images": [],
+    "props": "phone charger, keys bowl, water glass, covered plate, warm night lamp",
+    "cta_intent": "make the final slide saveable and sendable",
+    "continuity_lock": "End with simultaneous care actions, not a posed cuddle or generic home sweetness. No unrequested dictionary-book motif."
+  }
+]

@@ -1,6 +1,6 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-07-11
+last_updated: 2026-08-14
 confidence: 0.8
 sources:
 - direct creator correction in chat on 2026-07-11: this file must be a crisp
@@ -248,11 +248,93 @@ specific production constraint requires compression; if compressing, preserve
 the order and story job of the seven-part pattern.
 confidence: 1.0
 
+fact: Creator correction on 2026-07-30: every carousel cover must operate as a
+scroll stopper, not merely as a beautiful title page. The cover should use the
+strongest public hook, one immediately legible visual contradiction, close
+human emotion or unmistakable action, and phone-size hierarchy that creates a
+swipe question in under one second. A calm portrait, evidence flat-lay,
+disembodied-hands composition, decorative prop spread, or separate editorial
+title card fails even when tasteful. The cover replaces slide one; never add a
+redundant cover that repeats the same hook on the next swipe.
+confidence: 1.0
+
 fact: The seven-part pattern and any reference format must stay subordinate to
 emotion. If a carousel starts to feel like it is matching a structure instead
 of discovering a lived feeling, stop and rebuild from the emotional scene,
 the object/gesture that proves it, and the exact human contradiction. The
 format should disappear into the work; it should not be visible as the idea.
+confidence: 1.0
+
+fact: Creator correction on 2026-08-14: `nahh, stop being relatable lik for the
+sake of it, let's uncover couple or marriage depths`. When the creator asks to
+jam on couple or marriage depth, do not start from taggability, a cute public
+behavior, or a manufactured `this is us` incident. Start from a consequential
+truth about two people building a life: time, identity, obligation, sacrifice,
+ambivalence, repair, family, mortality, freedom, or the repeated choice to
+remain. Let recognition and sendability emerge from the truth after the story
+has earned them; do not use relatability as the premise. Reinforced by the
+creator later the same day: `nahhhh drop them and think fresh ideas. i told what
+works many times and nowyou should start working accoridnlgy but you are
+failing`. After that correction, also reject depth manufactured through an
+invented childhood wound, symbolic trauma gesture, or sudden family emergency
+when the creator has not supplied that lived incident. Find the depth inside a
+recognizable consequence of building one life from two people, and leave any
+required private fact explicitly unlocked instead of inventing it.
+Creator correction later in the same session: `i think tyou are fogetting what
+has been working greeat for a story of two`. This narrows the depth instruction:
+do not equate marriage depth with a solemn, abstract, or visibly high-stakes
+premise. The strongest @a.storyof.two shape is an alive public contradiction,
+tiny observed couple behaviours, affectionate or physically funny receipts,
+and active relationship motion that later turns into emotional permission,
+acceptance, or chosen love. Depth is the truth earned underneath the behaviour;
+it is not the serious-looking subject placed on the cover.
+Creator then supplied the positive calibration example below and said `this
+what i mean`:
+
+```text
+Cover
+I loved you.
+I just didn’t like your face that day.
+
+Self-jab
+Mine wasn’t exactly helping.
+
+Couple mirror
+Two bad moods.
+One very small room.
+
+Deepening
+We made each other’s hurt louder.
+
+Turn
+The anger was real.
+So was the love.
+
+Payoff
+A bad day was never
+the whole truth about us.
+```
+
+Use this as the positive taste reference for marriage depth: begin with a
+spoken, affectionate contradiction; distribute accountability through a
+self-jab; make both partners active inside one ordinary pressure-cooker scene;
+let the emotional consequence deepen without inventing trauma; hold anger and
+love as simultaneous truths; and end by protecting the relationship from being
+defined by its worst moment. Do not copy this wording into unrelated concepts;
+preserve its emotional scale, mutuality, tonal movement, and earned payoff.
+confidence: 1.0
+
+fact: Creator rejection on 2026-08-14: after asking for the final story visual
+and slide copy for `I Was Right. I Enjoyed It Too Much.`, the creator immediately
+rejected the fictional shelf-assembly execution. Retire the shelf, backwards
+panel, stuck drawer, instruction-manual victory lap, and the payoff `You were
+never supposed to lose`. On 2026-08-21 the creator explicitly said `dump this
+idea`, closing the whole route: the title, underlying `I was right` premise,
+copy, shelf story, and visual system are all rejected. Do not repair, revisit,
+or recycle any part as a fresh route unless the creator explicitly reopens it.
+Do not invent a convenient prop incident merely to make an emotional idea
+drawable, and do not close a lived contradiction with relationship-advice
+language.
 confidence: 1.0
 
 fact: Carousel slide copy may be medium-length when a poetic line needs more

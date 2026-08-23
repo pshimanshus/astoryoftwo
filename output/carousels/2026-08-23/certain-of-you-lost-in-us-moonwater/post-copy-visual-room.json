@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "role": "Cover / public contradiction"
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "role": "Cold open / mutual choice"
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "role": "Deepening / ordinary demands arrive at once"
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "role": "Conflict / equal love, conflicting method"
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "role": "Turn / the method changes, not the person"
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "role": "Payoff / shared experimentation"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Slide-Led Evidence Plan",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "visual_job": "Cover / public contradiction",
+      "scene": "EXTREME-WIDE HIGH CORNER COVER, a deliberate flash-forward inside a dreamlike apartment at midnight. Exactly Aachu and Zuv kneel shoulder-to-shoulder on one familiar wooden dining table floating as a small raft in mirror-dark indigo water. Both faces are large enough to read and turned toward the same impossible view. The ordinary lamp is secured at the table center and the same two wooden oars rest fully visible and parallel along the table's outer sides. Three precise fragments from the dry room drift far behind at different distances: the doorway frame, the low shelf, and the pale rectangular rug. The exterior walls dissolve into moonlit open water. Their inside shoulders touch firmly. Aachu's outer left hand presses flat on the tabletop beside her knee; Zuv's outer right hand presses flat beside his knee; both inside hands remain fully hidden between their adjacent torsos. A gentle circular wake shows the table has turned without moving forward. Keep the upper-middle neutral ivory paper clean for copy. Exactly two people and only the specified domestic objects. No visible writing.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "visual_job": "Cold open / mutual choice",
+      "scene": "LOW DOORWAY-LEVEL LATERAL WIDE SHOT in the same apartment while it is still completely dry and almost empty. Exactly Aachu and Zuv carry one plain wooden dining table through the same single doorway into the room. Aachu is already inside, walking backward while gripping the near short end with both anatomically attached hands; Zuv follows forward through the doorway, gripping the far short end with both attached hands. Their feet share one believable travel axis and they exchange a small certain smile over the tabletop. One ordinary lamp waits unplugged on the floor, one low shelf remains against the back wall, the pale rectangular rug lies flat beneath them, and the same two simple wooden oars rest unnoticed against the shelf. A thin moonlit waterline no higher than a finger just touches the threshold behind Zuv as a quiet future clue. Clean upper paper for copy. Exactly two people and only the specified domestic objects. No visible writing.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "visual_job": "Deepening / ordinary demands arrive at once",
+      "scene": "TRUE OVERHEAD WIDE SHOT as ankle-deep silver-blue water crosses the same room. Exactly Aachu and Zuv stand on opposite sides of the dining table while keeping it level between them. Aachu uses only her right hand to catch the ordinary lamp before it slides off the wet shelf; Zuv uses only his left hand to lift the same two lightweight wooden oars, tied together with one indigo cloth strap, from beside the flooding shelf onto the tabletop. Their free hands each press one separate table edge to stabilize it, four visible hands total with clear ownership. A small stream enters under the doorway while the pale rectangular rug begins lifting from the floor. Their gazes split toward their own practical task while their hips brace the same table. The water is luminous and surreal, never dangerous. Clean ivory above for copy. Exactly two people and only the specified objects.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "visual_job": "Conflict / equal love, conflicting method",
+      "scene": "TOP-DOWN MEDIUM-WIDE HERO RECEIPT after the room has dissolved into moonlit open water. Exactly Aachu and Zuv kneel on opposite ends of the same dining-table raft. Each owns exactly one simple wooden oar with both hands. Aachu's oar works along the raft's left side and sweeps backward toward the stern while Zuv's oar works along the right side and pushes forward toward the bow. The two opposite longitudinal strokes create one unmistakable circular whirl around the raft instead of forward travel. Their bodies lean into equal effort; both glance toward the spinning water with baffled, tired expressions, never anger at each other. HARD WARDROBE CONTINUITY: Aachu wears her black open overshirt over a black top with blue jeans; Zuv wears his white zip jacket with charcoal trousers. These exact clothes and colors override every outfit visible in a style reference; never render Aachu in a white shirt or Zuv in a navy T-shirt. The lamp is secured low at the center of the tabletop and glows softly between them. All arms, wrists, hands, oars and table edges remain fully separate and anatomically traceable. Clean neutral-ivory upper paper for copy. Exactly two people and only one table, two oars, and the secured lamp. No visible writing.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "visual_job": "Turn / the method changes, not the person",
+      "scene": "SLIGHTLY WIDER WATER-LEVEL OBLIQUE TWO-SHOT moments later. Exactly Aachu and Zuv remain kneeling shoulder-to-shoulder at the rear edge of the dining-table raft. Both complete bodies from head through knees, all four hands, both full oars, both blades, the lamp and every table edge are visible without overlap. Each owns one oar with a complete two-handed grip. Together they lift both dripping blades fully clear of the water, place Aachu's blade at the identical forward catch position along the left outer side and Zuv's at the matching forward catch position along the right outer side, and pause with the two shafts exactly parallel. Their shared exhausted laugh and direct side glance happen during that matched pause. The old circular wake widens and softens around them. The secured lamp sits clear of both shafts at the tabletop center. The horizon remains empty and unknown. Clean upper paper for copy. Exactly two people and only one table, two oars, and the secured lamp. No visible writing.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "visual_job": "Payoff / shared experimentation",
+      "scene": "PALE-PEACH DAWN RELEASE, REAR THREE-QUARTER MEDIUM-WIDE just above water level, beginning from the exact matched catch pose on slide 5. Exactly Aachu and Zuv kneel side-by-side at the rear of the same dining-table raft, facing an open horizon with no visible shore. Aachu's wooden oar enters the water along the raft's left outer side and Zuv's enters along the right outer side. Each owns one complete two-handed grip; both blades now sweep backward in the same phase at matching angles, creating two short straight parallel wake strokes behind the raft and visibly carrying it out through a clean break in the old circular wake. They exchange one small side glance while continuing the experiment. The lamp remains secured at the table center, now dim beside dawn. Far behind, the same doorway frame, low shelf and pale rectangular rug from slides 1–3 dissolve into ivory mist. Keep faces readable, bodies at the same depth, every hand, oar, and table boundary separate, and the upper-middle paper clean for copy. Exactly two people and only one table, two oars, the secured lamp, doorway frame, shelf, and rug. No visible writing.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

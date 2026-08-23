@@ -1,0 +1,42 @@
+{
+  "schema_version": "a-story-character-prompt-pack/v1",
+  "generation_mode": "built-in-imagegen",
+  "format_contract": "format-contract.json",
+  "style_reference": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+  "prompts": {
+    "joint": {
+      "status": "ATTEMPT_02_GENERATED_AWAITING_CREATOR_APPROVAL",
+      "prompt_file": "prompts/joint-character-sheet.prompt.txt",
+      "identity_references": [
+        "config/references/identity/together/together-16.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/zuv/portrait-07.jpg"
+      ],
+      "targeted_correction": "Preserve Zuv's evil-eye locket on its slim silver chain and Aachu's evil-eye bracelet on her right wrist wherever those placements are visible; change no other approved joint-sheet requirement.",
+      "style_references": [
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+      ]
+    },
+    "aachu": {
+      "status": "BLOCKED_UNTIL_JOINT_APPROVAL",
+      "signature_accessory_lock": "Evil-eye bracelet on right wrist; clear detail inset required and no visible-right-wrist omission allowed.",
+      "identity_references": [
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/aachu/face-04.png",
+        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/together/together-16.jpg"
+      ]
+    },
+    "zuv": {
+      "status": "BLOCKED_UNTIL_JOINT_APPROVAL",
+      "signature_accessory_lock": "Small round evil-eye locket centered on slim silver chain; clear detail inset required and no visible-neck omission allowed.",
+      "identity_references": [
+        "config/references/identity/zuv/portrait-07.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/together/together-20.jpg",
+        "config/references/identity/together/together-16.jpg"
+      ]
+    }
+  }
+}

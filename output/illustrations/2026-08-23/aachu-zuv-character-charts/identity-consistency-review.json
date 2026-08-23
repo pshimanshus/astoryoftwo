@@ -1,0 +1,40 @@
+{
+  "schema_version": "character-identity-review/v1",
+  "status": "PRELIMINARY_PASS_AWAITING_CREATOR_LIKENESS_AND_ACCESSORY_APPROVAL",
+  "can_generate_joint_proof": true,
+  "can_generate_solo_sheets": false,
+  "review_scope": "Reference selection, current rendered pixels, and repeated-view consistency. Creator recognition remains the final likeness authority.",
+  "joint_reference_ids": [
+    "config/references/identity/together/together-16.jpg",
+    "config/references/identity/together/together-18.jpg",
+    "config/references/identity/aachu/face-04.png",
+    "config/references/identity/zuv/portrait-07.jpg"
+  ],
+  "style_reference_ids": [
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+  ],
+  "reference_roles_verified": true,
+  "actual_images_attached_required": true,
+  "rendered_joint_identity": "PRELIMINARY_PASS_REVISED_PROOF",
+  "creator_joint_approval": "PENDING_LIKENESS_ACCESSORIES_AND_SCALE",
+  "rendered_pixel_evidence": {
+    "proof_path": "proof/aachu-zuv-joint-proof-v2-accessory-lock.png",
+    "aachu": [
+      "All four vignettes preserve the same soft oval face, dark expressive eyes and brows, long dark hair silhouette, skin tone, and smile geometry.",
+      "The close-face view supplies the clearest likeness evidence; the standing view uses the photo-supported white wrap blouse, jeans, red shoes, and red bag.",
+      "Her small blue evil-eye bracelet remains on the right wrist in the standing, seated, and affectionate views; the close-face crop hides both wrists.",
+      "She reads as an adult of natural build and never tiny, childlike, beautified, or doll-like."
+    ],
+    "zuv": [
+      "All four vignettes preserve the same thick dark hair silhouette, brows, warm skin tone, broad face, trimmed beard and mustache, and smile geometry.",
+      "The beard remains supported by together-18.jpg; the output does not lose it or turn him into a generic model face.",
+      "His small blue evil-eye locket and slim silver chain are centered and visibly consistent in the standing, close-face, seated, and affectionate views.",
+      "His grounded broader build and powder-blue shirt, grey trousers, and red-black shoes remain consistent."
+    ],
+    "couple_scale": "The standing figures share a baseline and read only slightly different in height; Aachu is not miniaturized and Zuv is not oversized.",
+    "identity_limit": "This is an assistant visual comparison, not creator recognition. Solo generation remains blocked until the creator approves both likenesses."
+  },
+  "creator_correction": "Zuv's evil-eye locket and Anchal's evil-eye bracelet must remain consistent and never be silently missing from carousels.",
+  "invalidated_proof": "proof/aachu-zuv-joint-proof-v1.png",
+  "next_gate": "Ask the creator to approve Aachu's likeness, Zuv's likeness, both signature accessories, and the two-inch scale in the revised proof. Stop before solo generation."
+}

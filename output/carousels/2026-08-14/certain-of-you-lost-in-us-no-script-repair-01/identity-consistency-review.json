@@ -1,0 +1,158 @@
+{
+  "agent": "C3.5-IdentityConsistency",
+  "role": "Runs after slide descriptions are generated and before image generation; blocks prompts that do not explicitly carry face structure, expression, clothing, and cross-slide identity continuity.",
+  "status": "PASS",
+  "identity_references": [
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+    "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+  ],
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 1,
+        "identity_references": [
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (certainty in the person, vertigo inside the shared life) while preserving the same underlying face structure across all slides.",
+        "clothing": "Aachu wears black open overshirt, black top and blue jeans; Zuv wears white zip jacket and charcoal trousers. Preserve the same theatre-night wardrobe.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 2,
+        "identity_references": [
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (an uncomplicated yes before the difficult scenes) while preserving the same underlying face structure across all slides.",
+        "clothing": "Aachu wears black open overshirt, black top and blue jeans; Zuv wears white zip jacket and charcoal trousers. Preserve the same theatre-night wardrobe.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 3,
+        "identity_references": [
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (shared attention pulled in several adult directions) while preserving the same underlying face structure across all slides.",
+        "clothing": "Aachu wears black open overshirt, black top and blue jeans; Zuv wears white zip jacket and charcoal trousers. Preserve the same theatre-night wardrobe.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 4,
+        "identity_references": [
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (shared helplessness without blame) while preserving the same underlying face structure across all slides.",
+        "clothing": "Aachu wears black open overshirt, black top and blue jeans; Zuv wears white zip jacket and charcoal trousers. Preserve the same theatre-night wardrobe.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 5,
+        "identity_references": [
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (exhausted recognition becoming warmth) while preserving the same underlying face structure across all slides.",
+        "clothing": "Aachu wears black open overshirt, black top and blue jeans; Zuv wears white zip jacket and charcoal trousers. Preserve the same theatre-night wardrobe.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "checks": {
+        "face_structure": true,
+        "facial_expression": true,
+        "clothing": true,
+        "cross_slide_consistency": true,
+        "identity_references_attached": true
+      },
+      "identity_continuity": {
+        "slide": 6,
+        "identity_references": [
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/aachu-face-04-crop.png",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/together-18-faces.jpg",
+          "output/carousels/2026-08-14/certain-of-you-lost-in-us-no-script/.internal/reference-crops/zuv-portrait-07-crop.jpg"
+        ],
+        "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+        "facial_expression": "Keep the facial expression specific to this beat (grounded hope without false completion) while preserving the same underlying face structure across all slides.",
+        "clothing": "Aachu wears black open overshirt, black top and blue jeans; Zuv wears white zip jacket and charcoal trousers. Preserve the same theatre-night wardrobe.",
+        "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+      }
+    }
+  ],
+  "issues": [],
+  "reference_roles": {
+    "aachu-face-04-crop.png": "Aachu face, long hair and black overshirt/top/blue-jeans wardrobe",
+    "together-18-faces.jpg": "close facial structures, skin tone, hair and relaxed couple chemistry",
+    "zuv-portrait-07-crop.jpg": "Zuv face, textured hair, short beard and white zip-jacket/charcoal-trouser wardrobe"
+  },
+  "wardrobe_lock": "Single theatre-night continuity: Aachu wears black open overshirt, black top and blue jeans; Zuv wears white zip jacket and dark charcoal trousers.",
+  "height_lock": "Standing same-depth frames must show only the real two-inch difference: Aachu 5'6, Zuv 5'8. Seated frames must not invent a scale gap."
+}

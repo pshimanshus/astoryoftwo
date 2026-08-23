@@ -1,0 +1,233 @@
+{
+  "reviewer_task_id": "/root/slide7_event_b_surgical1",
+  "reviewer_run_id": "slide7-event-b-surgical1-20260730-01",
+  "blind_read": {
+    "inspected_asset": {
+      "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+      "sha256": "cee5d735d7acc755735888b854033ba088d374cf31ca7fae129ddfa3e898d7b3",
+      "format": "png",
+      "dimensions": {
+        "width": 1080,
+        "height": 1440
+      }
+    },
+    "inspection_order": "The decoded 1080x1440 pixels were inspected before the director intent and Event A evidence were opened. Door edges, lever geometry, lift opening, floor path, contacts, hands, body separation, copy, and brandmark were first recorded from the raster alone.",
+    "visible_people": [
+      {
+        "person": "one woman",
+        "position": "left-center, between the far-left lift and the apartment door",
+        "appearance_and_posture": "She wears a white shirt, blue jeans, red flats, and a cream tote with a closed red umbrella. Her back is mostly toward the viewer, her torso twists toward the apartment door, and one heel is lifted.",
+        "visible_action": "Her sole visible hand is planted open against the brown wooden apartment-door slab."
+      },
+      {
+        "person": "one man",
+        "position": "frame right beside the apartment door",
+        "appearance_and_posture": "He wears a plain pale-blue striped shirt, grey trousers, and red-black shoes. His head tilts toward the lever while his other arm remains hidden in or behind the trouser pocket area.",
+        "visible_action": "His sole visible hand grips the horizontal exterior lever."
+      }
+    ],
+    "setting": "A dry apartment corridor. One fully closed brown wooden apartment door dominates the middle of the frame, a small cropped lift remains open by a narrow black strip at far left, and a plant sits at far right. No apartment interior, lift control panel, vehicle, helmet, key, fob, extra person, or human reflection is visible.",
+    "camera_and_threshold": {
+      "camera_side": "Entirely in the common corridor outside the apartment.",
+      "people_side": "Both people remain on the camera side of the closed apartment door.",
+      "door_state": "Fully closed.",
+      "interior_visibility": "No apartment interior or open apartment threshold is visible."
+    },
+    "door_pixel_measurement": {
+      "method": "Approximate pixel coordinates were read against the native 1080-pixel raster. The right slab edge at lever height is inferred from the clearly visible sloping edge above and below the man's partial occlusion.",
+      "slab_left_edge_x_at_lever_height": "approximately 417-423 px",
+      "slab_right_edge_x_at_lever_height": "approximately 868-875 px",
+      "visible_slab_width_at_lever_height": "approximately 445-458 px",
+      "hinge_positions": "Two metal hinge knuckles are visibly attached to the left stile at approximately x=423-431 px.",
+      "lever_spindle_center": "approximately x=752-758 px, y=827-835 px",
+      "right_edge_backset": "approximately 110-123 px from spindle center to the inferred right slab edge",
+      "backset_percentage": "approximately 24-28 percent of the entire visible slab width",
+      "physical_scale_read": "On an ordinary roughly 80-90 cm apartment door, that ratio implies approximately 19-25 cm of backset, not the requested ordinary 7-10 cm latch-edge backset.",
+      "height": "The lever sits at a plausible adult waist or hip height.",
+      "panel_placement": "The rose and spindle remain inside the broad central wooden field. A large wood area remains between the hardware and the right jamb instead of the narrow latch-side strip required by real lock mechanics.",
+      "geometry_verdict": "FAIL. The left hinges and height are credible, but the complete lockset is still too far inside the slab to connect plausibly to a right-edge latch."
+    },
+    "lift_pixel_measurement": {
+      "position": "Small and cropped at the far-left edge.",
+      "visible_aperture": "A black vertical opening remains at approximately x=157-188 px, around 30-32 px wide.",
+      "proportion": "Against the roughly 205-220 px depicted lift opening, the remaining black strip is about 14-16 percent.",
+      "state_read": "The lift is visibly nearly closed rather than fully shut.",
+      "controls": "No call button, switch plate, intercom, or cabin control is visible.",
+      "verdict": "PASS."
+    },
+    "hands_and_contacts": {
+      "visible_hand_count": 2,
+      "expected_visible_hand_count": 2,
+      "count_verdict": "PASS.",
+      "woman_action_hand": {
+        "contact": "One open palm and five fingers visibly meet uninterrupted brown wood on the apartment-door slab.",
+        "surface_evidence": "Brown grain and continuous wooden surface are visible around the fingers. The contact is not on the wall, frame, lift, metal plate, or switch.",
+        "same_door_verdict": "PASS. Her palm contacts the same closed slab that carries the man's lever."
+      },
+      "woman_hidden_hand": {
+        "state": "No second hand, wrist, or extra fingers are visible.",
+        "verdict": "PASS."
+      },
+      "man_action_hand": {
+        "contact": "One hand wraps the horizontal lever.",
+        "anatomy": "The visible shoulder-to-sleeve-to-forearm-to-wrist chain is locally continuous.",
+        "side_read": "The three-quarter pose does not make anatomical-left ownership completely unambiguous from pixels alone.",
+        "verdict": "PASS for one clean lever hand; not independently sufficient to prove the requested anatomical side."
+      },
+      "man_hidden_hand": {
+        "state": "No second male hand, wrist, or extra fingers are visible.",
+        "verdict": "PASS."
+      },
+      "person_to_person_contact": {
+        "state": "None. Clear air separates their torsos, arms, and hands.",
+        "verdict": "PASS."
+      }
+    },
+    "full_outward_u_turn_return_path": {
+      "visible_evidence": "A dark footprint trail begins below the lift threshold, curves broadly through the lower-left and lower-middle floor, and trends toward the door side.",
+      "outward_leg": "FAIL. No distinct first leg can be traced from the apartment-door zone outward to the lift.",
+      "turn_at_lift": "PARTIAL. The trail curves near the lift, but a tight reversal with two independently readable directions is not established.",
+      "return_leg": "PARTIAL. A path from the lift area back toward the woman is readable, but it is not separated from a preceding outward leg and does not terminate cleanly at the raised heel.",
+      "heel_read": "The raised trailing heel appears to be the woman's anatomical left heel in the mostly back-facing pose, not an unambiguous right-heel endpoint.",
+      "arrival_competitor": "The same single path can read as muddy footprints left while she exits the still-open lift and approaches the apartment door.",
+      "verdict": "FAIL under the full-route contract. The pixels show a curved lift-to-door path, not an unmistakable door-to-lift outward leg, tight U-turn, and separate return leg."
+    },
+    "before_departure_readability": {
+      "supporting_evidence": [
+        "The lift has a real residual opening.",
+        "The woman is physically turned back toward the apartment door.",
+        "The man remains anchored at the door while only the woman has floor-path evidence."
+      ],
+      "competing_read": "She may instead have exited the still-closing lift and walked toward the man at the apartment door. The single muddy-looking trail does not exclude arrival.",
+      "verdict": "FAIL under a strict image-first threshold. A return is plausible, but the complete outward-U-turn-return chronology is not visually exclusive."
+    },
+    "same_door_palm": {
+      "verdict": "PASS.",
+      "evidence": "The woman's palm is clearly on the uninterrupted center-left wood of the same fully closed brown slab that carries the lever."
+    },
+    "body_and_limb_separation": {
+      "verdict": "PASS.",
+      "evidence": "Exactly two people are visible, with clear air between their bodies and between every action limb. No person-to-person touch, merged anatomy, duplicate, or reflection appears."
+    },
+    "visible_text": {
+      "main_copy_as_rendered": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "copy_exact": true,
+      "brandmark": "@a.storyof.two",
+      "brandmark_position": "top-right",
+      "brandmark_count": 1,
+      "other_visible_text": [],
+      "verdict": "PASS. Wording, spelling, capitalization, punctuation, and line breaks match the locked copy; one tiny top-right brandmark is present; no extra readable text appears."
+    },
+    "unexpected_story": [
+      "The woman may be arriving from a still-closing lift rather than returning to a door she had just left.",
+      "The lever may be decorative or attached to an implausible internal mechanism because its spindle remains roughly one-quarter of the door width from the latch edge.",
+      "The dark floor marks can read as muddy arrival footprints rather than neutral motion notation."
+    ],
+    "uncertainties": [
+      "The right slab edge is partly occluded by the man at lever height, so its local x-coordinate is inferred from the visible edge above and below; the resulting 24-28 percent backset is large enough that this uncertainty cannot change the failure.",
+      "A single frame cannot prove that the lock was checked twice.",
+      "The man's three-quarter pose does not secure the active hand as anatomical left.",
+      "Footprint direction is not self-labeling."
+    ]
+  },
+  "semantic_verdict": {
+    "status": "REPAIR",
+    "pass": false,
+    "summary": "The frame passes the nearly-closed far-left lift, exact copy, single brandmark, no-extra-text, same-door palm, exactly two visible hands, entirely exterior staging, and clear body separation. It still fails the creator's hard hardware gate: the lever spindle remains approximately 110-123 pixels, or 24-28 percent of the slab width, inside the right door edge. The floor marks also show only one broad curved lift-to-door trail, not a complete outward leg, tight U-turn, and separately legible return leg.",
+    "primary_failure": "Ordinary door-hardware geometry: the lever remains visibly detached from the right latch-side edge and sits inside the main wooden field."
+  },
+  "intent_match": {
+    "left_hinges": {
+      "match": true,
+      "evidence": "Two visible hinge knuckles sit on the left stile."
+    },
+    "right_latch_edge_short_backset": {
+      "match": false,
+      "evidence": "The lever spindle is approximately 110-123 px from the right slab edge across an approximately 445-458 px slab, leaving 24-28 percent of the door width between the hardware and jamb."
+    },
+    "waist_height_lever": {
+      "match": true,
+      "evidence": "The lever reads at a plausible adult waist or hip height."
+    },
+    "lift_gap_visible": {
+      "match": true,
+      "evidence": "A roughly 30-32 px black aperture remains in the small far-left lift, about 14-16 percent of the depicted opening."
+    },
+    "full_outward_u_turn_return_path": {
+      "match": false,
+      "evidence": "A broad curved footprint sequence appears, but a separate door-to-lift outward leg, tight reversal, return leg, and exact heel endpoint cannot all be traced."
+    },
+    "before_departure_not_arrival": {
+      "match": false,
+      "evidence": "The pose supports turning back, but the same single path supports exiting the still-open lift and approaching the apartment door."
+    },
+    "same_door_palm_contact": {
+      "match": true,
+      "evidence": "The woman's open palm and fingers contact uninterrupted center-left wood on the same closed slab carrying the lever."
+    },
+    "exactly_two_visible_hands": {
+      "match": true,
+      "evidence": "Only the woman's door palm and the man's lever hand are visible."
+    },
+    "people_and_limb_separation": {
+      "match": true,
+      "evidence": "Clear air remains between the two people and between all visible action limbs."
+    },
+    "exact_slide_copy": {
+      "match": true,
+      "expected": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "evidence": "Every visible word, capital, punctuation mark, and explicit line break matches."
+    },
+    "brandmark": {
+      "match": true,
+      "evidence": "Exactly one tiny '@a.storyof.two' appears at top-right."
+    },
+    "no_extra_visible_text": {
+      "match": true,
+      "evidence": "No shirt lettering, label, sign, watermark, or other word is visible."
+    },
+    "overall_match": false
+  },
+  "contradictions": [
+    {
+      "severity": "HARD_FAIL",
+      "type": "door_hardware_geometry",
+      "expected": "A lever spindle 7-10 cm from the right latch edge, leaving only a narrow strip of wood before the jamb and no lockset in the main door field.",
+      "observed": "The spindle remains approximately 110-123 px from the right slab edge across a roughly 445-458 px slab, or 24-28 percent of the full door width.",
+      "effect": "The lever does not credibly connect to the latch and repeats the creator-identified central-hardware visual defect."
+    },
+    {
+      "severity": "FAIL",
+      "type": "outward_u_turn_return_chronology",
+      "expected": "Two separately legible path legs: from the apartment door outward to the closing lift, a tight U-turn beside the gap, and a distinct return route ending at the woman at the door.",
+      "observed": "One broad muddy-looking curved trail runs from the lift area toward the door side; the outward leg and return leg are not independently traceable.",
+      "effect": "The image still permits an arrival-from-lift reading."
+    },
+    {
+      "severity": "FAIL",
+      "type": "anatomical_hand_side",
+      "expected": "A strict side profile that makes the man's lever hand unambiguously anatomical left.",
+      "observed": "The three-quarter pose makes the active hand's anatomical side uncertain from pixels alone.",
+      "effect": "Local anatomy and hand count pass, but the strict ownership-side cue is not proven."
+    }
+  ],
+  "repair_decision": {
+    "decision": "REJECT_ATTEMPT_AND_REPAIR_HARDWARE_AND_ROUTE",
+    "promote": false,
+    "reason": "The rendered lever position violates the creator's explicit real-door-mechanics gate. The incomplete floor route independently prevents an unambiguous before-departure return read.",
+    "preserve": [
+      "The two left-side hinges and plausible waist-height lever.",
+      "The real residual lift opening at far left.",
+      "Exactly two visible hands and no duplicated fingers or hidden-hand leakage.",
+      "The woman's palm on uninterrupted wood of the same fully closed door.",
+      "Entirely exterior staging, two-person separation, exact copy, single top-right brandmark, plain clothing, and no extra readable text."
+    ],
+    "required_repairs": [
+      "Move the complete lever rose, spindle, and handle to within approximately 35-50 px of the right slab edge at this scale, leaving only a narrow latch-side wood strip before the jamb. Freeze the left hinges and waist-height placement.",
+      "Keep the man immediately outside the right jamb and rotate him to a strict side profile that makes the active anatomical-left arm unambiguous while keeping his other hand fully hidden.",
+      "Replace the single muddy curved trail with two light, dry, separately legible motion paths: a faint outward leg from the apartment-door zone to the lift, a tight U-turn beside the visible gap, and a distinct return leg ending at the woman at the door.",
+      "Preserve the passing lift gap, same-door palm, exact two-hand count, clear body separation, exact copy, one brandmark, and no-extra-text properties without alteration."
+    ],
+    "recheck_required": "Run a fresh image-first Event B audit on repaired pixels before promotion or any batch generation."
+  }
+}

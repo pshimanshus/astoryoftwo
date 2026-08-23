@@ -1,0 +1,471 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Tiny Rituals",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover wrong turns\nand very small things.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nwhich part to hear.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "Not “go away.”\nJust:\n“Give me a minute. Don’t go far.”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "And when I’m ready,\nI’ll come back and ask:\n“Chai?”",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "Not less irritated.\nJust better\nat coming back.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "Exact seven-slide copy in slides.json was locked before the critic received the observable-only cards.",
+    "author_id": "/root",
+    "reviewer_id": "/root/event_a_blind_critic_rebuild",
+    "reviewer_evidence": "A fresh collaboration critic with no forked chat context was instructed to read only .internal/event-a-blind-cards.json and returned the saved response before seeing copy or intent.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:c4aa8127570a4c942f117b27eded3d22ef64cad465c4e82371a28cf58a51f343",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "2026-08-21-root-carousel-rebuild-turn",
+      "reviewer_task_id": "/root/event_a_blind_critic_rebuild",
+      "reviewer_run_id": "2026-08-21-event-a-blind-turn-1",
+      "input_fingerprint": "sha256:f830979907df76cf8a7c644a1327bb9178748de47351c2c54db4cc4b2ce9535e",
+      "raw_response_artifact": ".internal/event-a-blind-critic-response.md",
+      "raw_response_fingerprint": "sha256:79bb687907bcd90c550b8ee8f192651de8c5ab61ec79f3f6b2003c4c988890cb",
+      "output_fingerprint": "sha256:d7d21e7ba4fe6933a577529e492ce81a16632b7ab86074c2b3e7923ac48820ec"
+    },
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": ["woman in passenger seat", "man in driver seat"],
+        "visible_setting": "Rain-speckled passenger-side windshield view of one right-hand-drive charcoal car already parked parallel to a quiet curb at blue-hour; a warm glow appears only through the passenger-side window.",
+        "observable_action": "The woman points through her side window while the man points forward in the opposite direction; one centrally mounted phone shows a bent blue route line and dot.",
+        "hands_and_contact": "Woman's right index finger points toward her side window and her left hand is below crop. Man's left index finger points forward and his right hand rests on the steering wheel.",
+        "gaze": "They cut their eyes toward each other with matching mildly exasperated expressions.",
+        "body_blocking": "Both upper bodies remain separately traceable in their seats, with the central phone between them.",
+        "object_state": "One active centrally mounted route phone; one parked car; no chai objects.",
+        "camera_view": "Frontal-oblique medium close view through the passenger-side portion of the windshield.",
+        "visible_continuity": "The car, rain, clothes, route phone and restaurant-side glow establish the evening."
+      },
+      {
+        "slide": 2,
+        "visible_people": ["woman in passenger seat", "man in driver seat"],
+        "visible_setting": "The same parked right-hand-drive car a few seconds later, with rain and restaurant glow visible only through the passenger-side window.",
+        "observable_action": "Both pointing hands have dropped. The woman looks out her side window while the man looks forward; the central phone shows a route leaving a dot, looping tightly and returning toward it.",
+        "hands_and_contact": "Woman's hands rest together on her lap. Man's right hand rests on the steering wheel and left hand lies open on his thigh.",
+        "gaze": "They look away from each other and do not blame or confront.",
+        "body_blocking": "The central phone and their turned-away profiles form one clear triangle; seats, dashboard and bodies remain separate.",
+        "object_state": "One active mounted phone; one red-fob key in ignition; car remains parked.",
+        "camera_view": "Tight rear-seat over-console relationship view.",
+        "visible_continuity": "Same car, clothes, phone, weather and side-window restaurant glow as slide 1; hands have changed from pointing to withdrawn."
+      },
+      {
+        "slide": 3,
+        "visible_people": ["woman outside car", "man outside car"],
+        "visible_setting": "Beside the same car parked on the quiet side of the divided road, near a low stone barrier.",
+        "observable_action": "The woman closes her passenger door, steps toward the barrier and raises one stop palm without turning. The man has begun to move around the rear of the car but freezes mid-step and lowers a dark phone.",
+        "hands_and_contact": "Woman's right palm is raised and her left hand owns her handbag strap. Man's left hand lowers one dark phone and his right hand hangs relaxed.",
+        "gaze": "Woman looks toward the barrier. Man's mouth closes and his attention stops on her gesture.",
+        "body_blocking": "Both complete silhouettes and the widening gap remain clear of the car body and closed door.",
+        "object_state": "Passenger door closed; phone screen dark; handbag on woman's shoulder; closed umbrella against car.",
+        "camera_view": "Medium side action-reaction view.",
+        "visible_continuity": "They have moved out of the same car; the active route phone from slide 2 is now dark."
+      },
+      {
+        "slide": 4,
+        "visible_people": ["woman seated left", "man seated right"],
+        "visible_setting": "One long low stone barrier beside the parked car; restaurant glow remains across the divided road.",
+        "observable_action": "The woman sits at the far-left end facing the road. The man has sat at the far-right end several feet away with ankles crossed and both palms supported beside his hips.",
+        "hands_and_contact": "Woman's hands remain close to her body. Man's two open palms contact the barrier top beside his own hips; no phone is visible.",
+        "gaze": "Woman faces the road. Man looks toward the opposite side rather than watching her.",
+        "body_blocking": "A wide empty gap separates them; both seated silhouettes are fully distinct from the barrier and parked car.",
+        "object_state": "Phone fully hidden; car parked; umbrella closed; no chai objects emphasized.",
+        "camera_view": "Wide barrier-level side view dominated by distance.",
+        "visible_continuity": "The interrupted movement from slide 3 has changed into two settled seats at opposite ends of the same barrier."
+      },
+      {
+        "slide": 5,
+        "visible_people": ["woman foreground", "man seated in background"],
+        "visible_setting": "Same barrier and parked car; car rear-light and closed umbrella remain behind the man.",
+        "observable_action": "The woman keeps her body facing away but glances back once. The man remains seated at the far-right end exactly as before, gaze turned away.",
+        "hands_and_contact": "Man's two palms remain open on the barrier beside his hips; woman's hands are outside the crop.",
+        "gaze": "Woman checks behind her. Man deliberately looks elsewhere.",
+        "body_blocking": "Woman's foreground shoulder remains separate from the man's smaller full seated silhouette.",
+        "object_state": "Phone remains invisible; car and umbrella preserve location; no chai objects.",
+        "camera_view": "Tight over-woman-shoulder reaction view.",
+        "visible_continuity": "The man's seat, hands, crossed ankles and gaze match slide 4 while the woman's attention changes."
+      },
+      {
+        "slide": 6,
+        "visible_people": ["woman", "man"],
+        "visible_setting": "Beside the same parked car, with one unlabelled roadside counter on the quiet-curb side and the restaurant across the road.",
+        "observable_action": "The woman has returned closer and points directly toward one steaming metal kettle on the counter. The man follows her pointing line and his shoulders loosen.",
+        "hands_and_contact": "Woman's right index finger points at the kettle and left hand owns her handbag strap. Both of the man's hands remain in his own pockets.",
+        "gaze": "Woman looks toward the counter; man looks at the kettle with a small relieved smile.",
+        "body_blocking": "The gap is half the width of slide 4. Both silhouettes, the pointing line, counter and car remain separate.",
+        "object_state": "One steaming kettle; exactly two empty stools; no chai poured; phone hidden; umbrella closed.",
+        "camera_view": "Low medium two-shot with a diagonal gesture-to-kettle sightline.",
+        "visible_continuity": "The woman closes distance; the man's phone stays absent; the roadside counter enters clearly for the first time."
+      },
+      {
+        "slide": 7,
+        "visible_people": ["woman seated", "man seated"],
+        "visible_setting": "At the same unlabelled roadside counter; the two previously empty stools are occupied, with the parked car and restaurant glow behind.",
+        "observable_action": "The woman holds the single last biscuit slightly out of reach with a triumphant smile. The man reaches with one open palm and reacts with mock offense.",
+        "hands_and_contact": "Woman's left hand holds one chai glass and right hand holds one biscuit. Man's left hand holds one chai glass and right hand reaches empty. Exactly four hands. One empty paper sleeve lies untouched on the counter.",
+        "gaze": "They look at each other and the biscuit with playful, matched energy.",
+        "body_blocking": "They sit on separate stools angled inward; hands, glasses, biscuit, sleeve, counter and seated bodies remain separately traceable.",
+        "object_state": "Exactly two chai glasses, one biscuit, one empty unbranded sleeve and two occupied stools; phone remains absent.",
+        "camera_view": "Intimate low counter-level comic action-reaction two-shot.",
+        "visible_continuity": "The two empty stools from slide 6 are occupied; distance has contracted; practical irritation has changed into play."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:f830979907df76cf8a7c644a1327bb9178748de47351c2c54db4cc4b2ce9535e",
+    "source_fingerprint": "sha256:1902a340778772dd4f00fbe832eb0c37bffe2525a93dc4720bc6bd58f81b29cc",
+    "director_event_fingerprint_version": "director-event/v2",
+    "director_event_fingerprint": "sha256:abd2c4f0a9228d8210db77687d30c74b9dd7678296b6ba2eb3c15e89ee084655",
+    "sequence_mode": "causal_sequence",
+    "physical_event": "A couple disagrees over directions in their parked car, withdraws into silence, steps outside, establishes a boundary, waits at a respectful distance, reconnects through a chai invitation, and returns to playful irritation.",
+    "emotional_arc": "shared exasperation to silence to explicit space to respectful nearness to cautious reassurance to woman-led reconnection to mutual play",
+    "relationship_change": "They move from pointing in opposite directions to honoring a boundary and freely choosing each other again.",
+    "sequence_read": "After a rainy navigation disagreement leaves a couple withdrawn, the woman asks for space, the man respects it, and she freely returns to reconnect over roadside chai until their irritation becomes play.",
+    "visual_variables": ["body distance", "phone and chai object state"],
+    "hero_receipt_slide": 7,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Slides 1-2 place the active route phone between their opposing directions and withdrawn profiles.",
+        "payoff": "Slides 4-7 keep the phone hidden while body distance changes through waiting, return and play.",
+        "changed_meaning": "The evening stops being about solving the route and becomes about how they handle distance."
+      },
+      {
+        "setup": "Slide 6 introduces exactly two empty stools beneath the steaming kettle.",
+        "payoff": "Slide 7 places them on those two stools with chai and one shared last-biscuit joke.",
+        "changed_meaning": "An available roadside stop becomes the place where they choose the date and each other again."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "single route phone",
+        "initial_state": "Active and central during the direction disagreement.",
+        "later_state": "Dark on slide 3 and fully hidden from slide 4 onward.",
+        "story_job": "Make the shift from fixing logistics to respecting the relationship visible."
+      },
+      {
+        "object": "two chai stools",
+        "initial_state": "Empty when Aachu proposes chai on slide 6.",
+        "later_state": "Occupied during the playful biscuit beat on slide 7.",
+        "story_job": "Turn her voluntary return into a physical shared destination."
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "establish comic shared disagreement",
+        "silent_read": "A couple in a parked car disagree mildly over which direction to take.",
+        "change_from_previous": "The opening establishes two people, one car and visibly opposing directions.",
+        "critic_evidence": "Opposing pointing directions, exchanged irritated looks, route display, separate seats and a central phone.",
+        "staged_action": {"subject": "Aachu and Zuv", "action": "point in opposite directions", "target_or_object": "the route and restaurant direction", "reaction_or_consequence": "their matching looks reveal shared friction"},
+        "pov": {"owner": "shared exasperation", "audience_knows": "they disagree about the route", "audience_feels": "comic recognition with an open question"},
+        "shot": {"size": "medium close", "angle": "frontal-oblique", "camera_position": "through the passenger-side windshield", "focal_subject": "opposite fingers and exchanged looks", "story_reason": "The contradiction must read at thumbnail size."},
+        "blocking": {"hands": "Two pointing hands with two other hands controlled.", "gaze": "They look briefly at each other.", "body_distance": "Close but separated by the centre console.", "posture_or_feet": "Both remain seated in the parked car."},
+        "setting": {"sub_location": "parked car on quiet curb", "time": "rainy blue-hour", "motivated_light": "restaurant-side glow and soft exterior rain light", "story_trace": "route phone and passenger-side restaurant glow continue"},
+        "story_evidence": [{"carrier": "opposite pointing hands", "observable_state": "both point away from the same centre at once", "narrative_job": "compress the shared disagreement"}],
+        "text_image_relationship": "counterpoint",
+        "continuity": {"incoming_state": "The evening begins inside the already parked car.", "outgoing_state": "Their pointing hands will drop into silence."},
+        "entity_contract": {"expected_people": 2, "background_people": [], "reflections": [], "forbidden_entities": ["extra person", "duplicate phone", "reflection person", "extra hand"]},
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [{"competing_read": "They may be collaboratively solving the route.", "repair": "Matching exasperated eye contact and the withdrawn reaction on slide 2 establish mild friction without blame.", "recheck_evidence": "The critic inferred mild couple friction and shared exasperation."}]
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "show the disagreement landing",
+        "silent_read": "The same couple withdraws into a modest silent stalemate after the route loops back.",
+        "change_from_previous": "Pointing hands and eye contact disappear; their profiles turn away.",
+        "critic_evidence": "Withdrawn hands, separated gazes, open posture, looped route and stationary car.",
+        "staged_action": {"subject": "Aachu and Zuv", "action": "drop their hands and look away", "target_or_object": "the looped route phone between them", "reaction_or_consequence": "shared disagreement becomes silence"},
+        "pov": {"owner": "shared deflation", "audience_knows": "the route has failed or looped", "audience_feels": "familiar small irritation"},
+        "shot": {"size": "tight relationship insert", "angle": "rear-seat over-console", "camera_position": "behind the centre console", "focal_subject": "phone between turned-away profiles", "story_reason": "The camera converts the active disagreement into quiet separation."},
+        "blocking": {"hands": "All hands have dropped into neutral owned positions.", "gaze": "Aachu to side window and Zuv forward.", "body_distance": "Same physical closeness but emotional separation.", "posture_or_feet": "Both seated, shoulders angled away."},
+        "setting": {"sub_location": "same parked car", "time": "seconds later", "motivated_light": "rain-muted cabin and side-window glow", "story_trace": "same active phone, key and car"},
+        "story_evidence": [{"carrier": "dropped hands and separated gaze", "observable_state": "their prior action stops while the route loops", "narrative_job": "show the small disagreement landing"}],
+        "text_image_relationship": "additive",
+        "continuity": {"incoming_state": "Both were pointing and exchanging looks.", "outgoing_state": "The silence becomes an outside-car boundary."},
+        "entity_contract": {"expected_people": 2, "background_people": [], "reflections": [], "forbidden_entities": ["extra person", "reflection person", "second phone", "second key"]},
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [{"competing_read": "The silence could be ordinary concentration.", "repair": "The sequence binds it to the prior opposing gestures and next withdrawal.", "recheck_evidence": "The critic read quiet stalemate or shared deflation."}]
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "make her boundary physical",
+        "silent_read": "Aachu asks for physical and conversational space; Zuv immediately stops.",
+        "change_from_previous": "They leave the car and silence becomes a clear embodied boundary.",
+        "critic_evidence": "Closed door, widening gap, raised palm, interrupted step, closed mouth and dark lowered phone.",
+        "staged_action": {"subject": "Aachu", "action": "steps away and raises a stop palm", "target_or_object": "Zuv's attempted approach", "reaction_or_consequence": "he freezes and lowers the phone"},
+        "pov": {"owner": "Aachu's need for space", "audience_knows": "the boundary is explicit", "audience_feels": "tension without cruelty"},
+        "shot": {"size": "medium two-shot", "angle": "side profile", "camera_position": "parallel to the car and barrier", "focal_subject": "stop palm against interrupted motion", "story_reason": "Action and reaction must share one frame."},
+        "blocking": {"hands": "Her right palm stops; her left owns bag; his left lowers phone; his right is relaxed.", "gaze": "She looks toward space and he reacts to the gesture.", "body_distance": "Gap actively widens.", "posture_or_feet": "She moves; his forward foot freezes."},
+        "setting": {"sub_location": "quiet curb beside parked car", "time": "same rainy evening", "motivated_light": "soft road and restaurant light", "story_trace": "same car, umbrella, clothes and darkened phone"},
+        "story_evidence": [{"carrier": "stop palm and frozen foot", "observable_state": "one action visibly interrupts the other", "narrative_job": "prove the request and its recognition"}],
+        "text_image_relationship": "interdependent",
+        "continuity": {"incoming_state": "The couple sat in withdrawn silence.", "outgoing_state": "Zuv stops following and gives the requested distance."},
+        "entity_contract": {"expected_people": 2, "background_people": [], "reflections": [], "forbidden_entities": ["extra person", "reflection person", "duplicate phone", "unowned limb"]},
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [{"competing_read": "The palm could mean wait rather than do not talk.", "repair": "Either read establishes the same immediate boundary and his stopped response.", "recheck_evidence": "The critic found the boundary explicit."}]
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "prove his respectful restraint",
+        "silent_read": "They sit far apart while Zuv honors the request without leaving or hovering.",
+        "change_from_previous": "Interrupted movement becomes settled waiting at opposite ends of one barrier.",
+        "critic_evidence": "Large empty gap, opposite gazes, contained hands, open palms, crossed ankles and hidden phone.",
+        "staged_action": {"subject": "Zuv", "action": "sits down at the far end", "target_or_object": "the distance Aachu requested", "reaction_or_consequence": "the space becomes stable rather than abandoned"},
+        "pov": {"owner": "the shared space between them", "audience_knows": "he stayed without pursuing", "audience_feels": "held tension and safety"},
+        "shot": {"size": "wide", "angle": "barrier-level side", "camera_position": "parallel to the long barrier", "focal_subject": "the empty gap between two seated bodies", "story_reason": "Geography makes respectful distance visible."},
+        "blocking": {"hands": "His palms rest beside his hips; her hands remain contained.", "gaze": "Both face away from each other.", "body_distance": "Maximum distance of the deck.", "posture_or_feet": "Both seated, Zuv's ankles crossed in a waiting posture."},
+        "setting": {"sub_location": "long stone barrier beside car", "time": "moments later", "motivated_light": "rainy ambient light and distant restaurant glow", "story_trace": "car, umbrella and barrier anchor the wait"},
+        "story_evidence": [{"carrier": "Zuv's new settled seat", "observable_state": "he changes from frozen movement to a stable waiting posture", "narrative_job": "prove restraint as an action"}],
+        "text_image_relationship": "additive",
+        "continuity": {"incoming_state": "He stopped when she raised her palm.", "outgoing_state": "She will check whether he remained there."},
+        "entity_contract": {"expected_people": 2, "background_people": [], "reflections": [], "forbidden_entities": ["extra person", "reflection person", "phone", "body-barrier merge"]},
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [{"competing_read": "The frame alone could resemble mutual alienation.", "repair": "Its incoming stop-palm action and exact pose continuity into her glance make the waiting causal.", "recheck_evidence": "The critic inferred deliberate non-hostile separation and honored space."}]
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "show her noticing restraint",
+        "silent_read": "Aachu looks back to check whether Zuv stayed; he remains seated and gives privacy.",
+        "change_from_previous": "His waiting pose stays unchanged while her gaze changes for the first time.",
+        "critic_evidence": "Her changed gaze, his unchanged seat and posture, deliberate look elsewhere and absent phone.",
+        "staged_action": {"subject": "Aachu", "action": "glances back once", "target_or_object": "Zuv's unchanged waiting position", "reaction_or_consequence": "she sees that the boundary held"},
+        "pov": {"owner": "Aachu's cautious reappraisal", "audience_knows": "he did not crowd or leave", "audience_feels": "relief still mixed with uncertainty"},
+        "shot": {"size": "close reaction", "angle": "over-shoulder", "camera_position": "beside Aachu toward the far end of barrier", "focal_subject": "her glance and his unchanged seated figure", "story_reason": "The frame transfers the story into her point of view."},
+        "blocking": {"hands": "Her hands are out of crop; his palms keep the slide-4 position.", "gaze": "She checks behind; he looks away.", "body_distance": "Maximum distance preserved through depth.", "posture_or_feet": "Her body stays forward; his seated posture is unchanged."},
+        "setting": {"sub_location": "same barrier and car", "time": "after a quiet minute", "motivated_light": "soft rain-muted light", "story_trace": "car rear-light and umbrella verify his location"},
+        "story_evidence": [{"carrier": "changed versus unchanged gaze", "observable_state": "she looks back while he remains exactly as before", "narrative_job": "show that she notices the respected boundary"}],
+        "text_image_relationship": "interdependent",
+        "continuity": {"incoming_state": "Both sat apart without looking.", "outgoing_state": "Her look becomes a voluntary return on slide 6."},
+        "entity_contract": {"expected_people": 2, "background_people": [], "reflections": [], "forbidden_entities": ["extra person", "reflection person", "duplicate man", "foreground-background merge"]},
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [{"competing_read": "Her glance could be concern, irritation, longing or monitoring.", "repair": "Slide 6 resolves the glance through her voluntary return and invitation.", "recheck_evidence": "The critic named the ambiguity but confirmed the sequence resolves it."}]
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "let her initiate reconnection",
+        "silent_read": "Aachu comes back and proposes roadside chai; Zuv relaxes and accepts the low-pressure reconnection.",
+        "change_from_previous": "She closes half the distance and creates a new shared direction.",
+        "critic_evidence": "Halved distance, direct kettle gesture, loosened shoulders, small smile, two empty stools and absent phone.",
+        "staged_action": {"subject": "Aachu", "action": "returns and points to the steaming kettle", "target_or_object": "the roadside chai counter", "reaction_or_consequence": "Zuv follows her line and visibly relaxes"},
+        "pov": {"owner": "Aachu's agency in repair", "audience_knows": "she freely chooses reconnection", "audience_feels": "release and lightness"},
+        "shot": {"size": "low medium", "angle": "diagonal two-shot", "camera_position": "beside car with counter in gesture line", "focal_subject": "finger-to-kettle-to-gaze chain", "story_reason": "A single clear target makes the invitation readable."},
+        "blocking": {"hands": "Her right points; left owns bag; his hands stay pocketed.", "gaze": "Both follow the kettle direction.", "body_distance": "Gap contracts to half of slide 4.", "posture_or_feet": "She has returned; his shoulders loosen."},
+        "setting": {"sub_location": "quiet-curb roadside chai counter", "time": "same evening", "motivated_light": "small kettle steam and stall light", "story_trace": "car, restaurant and two empty stools connect the choice"},
+        "story_evidence": [{"carrier": "pointing line and steaming kettle", "observable_state": "her body returns and both attention lines meet at one practical destination", "narrative_job": "make the peace offering physical"}],
+        "text_image_relationship": "additive",
+        "continuity": {"incoming_state": "She saw that he stayed.", "outgoing_state": "They will occupy the two empty stools."},
+        "entity_contract": {"expected_people": 2, "background_people": [], "reflections": [], "forbidden_entities": ["vendor", "extra person", "second stall", "chai glass before service"]},
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [{"competing_read": "The kettle gesture could be logistical.", "repair": "The distance contraction and his relieved reaction make it a low-pressure reconnection.", "recheck_evidence": "The critic read it as a peace offering and woman-led return."}]
+      },
+      {
+        "slide": 7,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "release tension through play",
+        "silent_read": "They share chai and return to playful mutual irritation over the last biscuit.",
+        "change_from_previous": "The empty stools become occupied and the restrained smiles become active play.",
+        "critic_evidence": "Occupied stools, inward bodies, direct eye contact, matched playful expressions, shared chai and biscuit tease.",
+        "staged_action": {"subject": "Aachu and Zuv", "action": "tease and reach for the last biscuit", "target_or_object": "one biscuit between them", "reaction_or_consequence": "their earlier irritation returns as safe mutual play"},
+        "pov": {"owner": "mutual couple rhythm", "audience_knows": "they reconnected without erasing irritation", "audience_feels": "recognition, affection and sendability"},
+        "shot": {"size": "low counter close", "angle": "intimate side two-shot", "camera_position": "at counter level", "focal_subject": "four-hand biscuit-and-chai action", "story_reason": "The final receipt must combine comedy, equality and closeness."},
+        "blocking": {"hands": "Exactly four hands: two hold separate chai glasses, one holds biscuit, one reaches empty.", "gaze": "They meet each other's playful look.", "body_distance": "Closest since the car, angled inward.", "posture_or_feet": "Both seated comfortably on separate stools."},
+        "setting": {"sub_location": "same roadside chai counter", "time": "minutes later", "motivated_light": "soft stall light against wet road", "story_trace": "occupied stools, parked car and distant restaurant complete the evening"},
+        "story_evidence": [{"carrier": "one last biscuit and exact hand ownership", "observable_state": "Aachu keeps the biscuit while Zuv mock-reaches and both still hold chai", "narrative_job": "prove affectionate irritation restored"}],
+        "text_image_relationship": "interdependent",
+        "continuity": {"incoming_state": "Aachu proposed the two empty stools.", "outgoing_state": "The evening ends in mutual play rather than a second moral."},
+        "entity_contract": {"expected_people": 2, "background_people": [], "reflections": [], "forbidden_entities": ["vendor", "extra person", "third cup", "second biscuit", "fifth hand"]},
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      }
+    ],
+    "issues": []
+  },
+  "issues": []
+}

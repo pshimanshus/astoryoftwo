@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "More unofficial rules of marriage\nthat nobody tells you",
+      "visual": "Friday evening in their bedroom-living-room threshold. A half-packed suitcase is open. Aachu searches through clothes while Zuv crosses the room carrying two mugs and carefully stepping over a charging cable. They occupy different parts of the frame but exchange one familiar glance. The room is mildly unfinished, never dirty or cluttered."
+    },
+    {
+      "slide": 2,
+      "copy": "Rule no. 1\n“Should we order something?”\nis not a question.\nThe decision has already been made.",
+      "visual": "Aachu and Zuv sit at opposite ends of the sofa during packing. One performs a casual asking gesture while the other is already selecting dishes on the phone placed between them. Both lean toward the same phone, revealing that the question was ceremonial rather than undecided."
+    },
+    {
+      "slide": 3,
+      "copy": "Rule no. 2\nIf one person asks, “Kahan hai?”\nThe other must find it\nwithout being told what “it” is.",
+      "visual": "During packing, Zuv urgently searches around the suitcase for the room keys while the keys already dangle visibly from the fingers of his raised searching hand. Aachu pauses beside the suitcase and silently points at his hand, familiar rather than mocking."
+    },
+    {
+      "slide": 4,
+      "copy": "Rule no. 3\nOld screenshots\ndo not have an expiry date.\nThey can be presented as evidence\nat any time.",
+      "visual": "Zuv confidently gestures that he never said something. Aachu calmly turns her phone toward him with old message evidence already prepared. His free hand freezes mid-defence and his expression collapses into a sheepish smile; she remains composed, not triumphant or hostile."
+    },
+    {
+      "slide": 5,
+      "copy": "Rule no. 4\nThe person who did not pack\nwill always ask,\n“Charger rakh liya?”\nUsually when you’re already in the cab.",
+      "visual": "Aachu is already seated in the waiting cab with both travel bags stacked beside and across her knees. Zuv, carrying only his phone, leans through the open cab door and asks with casual late confidence. Aachu slowly turns toward him with a dry, disbelieving look; he realizes the timing and gives a sheepish half-smile. No charger appears anywhere. The joke is carried by luggage ownership, timing and reaction."
+    },
+    {
+      "slide": 6,
+      "copy": "Rule no. 5\nWi-Fi starts working\nthe moment your spouse enters the room.\nNobody knows why.",
+      "visual": "Inside the hotel, Aachu crouches near a router after trying every fix. Zuv casually enters through the bathroom doorway doing nothing. At that exact moment the router's lights become steady and the nearby laptop changes from a disconnected symbol to a simple connected symbol. Aachu slowly looks up at him, personally betrayed by technology; he gives a helpless shrug."
+    },
+    {
+      "slide": 7,
+      "copy": "Rule no. 6\nMidnight hunger\nis never one person’s emergency.\nThe entire house gets activated.",
+      "visual": "Blue hotel night after one person admits hunger. Show the consequence rather than the whisper: both are fully activated. Aachu sits forward comparing food options while Zuv pulls on slippers and empties their remaining snack bag onto the bed between them. Their separate tasks form one shared operation."
+    },
+    {
+      "slide": 8,
+      "copy": "Rule no. 7\nEvery unnecessary purchase\nbegins immediately after\na serious conversation\nabout saving money.",
+      "visual": "The next afternoon, Aachu and Zuv leave a local market carrying one beautiful but obviously impractical oversized lamp together. A folded budget note sticks harmlessly from a pocket. Both look from the object to each other with equal guilt and delight; the purchase physically requires their cooperation."
+    },
+    {
+      "slide": 9,
+      "copy": "Rule no. 8\nNobody is actually in charge.\nBoth just keep showing up.\nUsually saying, “Maine bola tha.”",
+      "visual": "Back home, Aachu and Zuv try to carry the travel bags and oversized lamp through the doorway together. The lamp begins to slip; both catch and stabilize it in the same instant. Once safe, each points lightly at the other with a free finger and they break into laughter, shoulder-to-shoulder. This returns to slide 1's home geography, but now their movement is synchronized and the shared object connects them."
+    }
+  ]
+}

@@ -1,6 +1,13 @@
 {
   "schema_version": "1.0",
-  "status": "READY_FOR_REPAIRED_PROOF_GENERATION",
+  "status": "STALE_BLOCKED_STANDARD_FORMAT_REBUILD_REQUIRED",
+  "stale_reason": "Creator rejected both the previous visual direction and the dictionary-entry copy schema. Existing prompts target stale copy and must not be used.",
+  "next_prompt_target": {
+    "slide": 6,
+    "format": "instagram_post",
+    "exact_text": "\"Theek hai\" means the plate is covered.",
+    "proof_goal": "Prove the emotional turn visually: after a tiny fight, body distance says sulk while the covered plate says care."
+  },
   "style": {
     "house_style": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, fine ink and pencil linework, transparent watercolor blooms, muted vintage palette, tactile clothing detail, soft faded edges",
     "paper_tone_lock": "neutral warm ivory/off-white paper, not yellow, not parchment, no mustard cast",
@@ -18,19 +25,19 @@
     "/Users/himanshusharma/astoryoftwo-analysis/config/references/style-lock/observational-intimacy-premium/slide-04.png",
     "/Users/himanshusharma/astoryoftwo-analysis/config/references/style-lock/observational-intimacy-premium/slide-07.png"
   ],
-  "shared_prompt_preamble": "Use the attached identity photos as mandatory face, hair, skin tone, body proportion, and wardrobe anchors for Aachu and Zuv. Use the attached style references only for watercolor-and-ink paper texture, line quality, palette, and integrated hand-drawn text. Aachu has large expressive dark eyes, long dark wavy hair, soft oval face, warm medium-brown skin. Zuv has thick dark curly hair, short natural stubble, warm dark almond eyes, grounded posture. In two-shots, Aachu is 5'6 and Zuv is 5'8. Every slide must include exact on-image text in a compact upper label area and tiny @a.storyof.two top-right. Text hierarchy: the main Hinglish keyword or phrase is larger than the translation line, but not poster-sized; the visual scene must carry the joke first.",
-  "proof_slide": {
-    "slide": 2,
-    "post_prompt": "Create native 3:4 Instagram carousel art, source 1440x1920 for final 1080x1440. Exact on-image text in a compact upper label area, handwritten dark charcoal: BAS 5 MIN / = 40 min + last look. Text hierarchy: BAS 5 MIN is larger than the translation line, but not huge; keep the text compact, around 20-25% of the visual height. The scene must dominate. Scene: warm daily-marriage doorway moment in a small lived-in Indian home. Zuv waits near the door in casual off-white or dark shirt with keys and phone, patient but amused, not annoyed. Aachu is visible in a mirror still doing one last getting-ready thing, playful and alive, one hand near an earring or bag strap. Communicate the joke visually through keys ready, phone in hand, open door, shoes/bag ready, and Aachu smiling knowingly. Lower/middle-lower composition, generous ivory paper space above, fine ink/pencil lines, transparent watercolor blooms, tactile denim/shirt details. Text must be exact, no extra words except tiny @a.storyof.two at top-right.",
-    "reels_stories_prompt": "Create separate native 9:16 Reels/Stories art at 1080x1920, same scene and exact compact text: BAS 5 MIN / = 40 min + last look. Keep text in the upper third but small enough that the scene dominates. Do not crop from 3:4."
-  },
+  "shared_prompt_preamble": "Use the attached identity photos as mandatory face, hair, skin tone, body proportion, and wardrobe anchors for Aachu and Zuv. Use style references only for watercolor-and-ink paper texture, line quality, palette, and integrated hand-drawn text. Main text must be compact; the scene carries the meaning through visible action, reaction, object state, gaze, hands, and body distance.",
   "slide_prompts": [
-    {"slide": 1, "text": ["SHAADI", "DICTIONARY"], "intent": "open dictionary/home surface with both leaning in"},
-    {"slide": 2, "text": ["BAS 5 MIN", "= 40 min + last look"], "intent": "doorway waiting and mirror getting-ready proof"},
-    {"slide": 3, "text": ["MERA CHARGER", "= tumhare bag mein"], "intent": "bag detail with migrated Zuv charger"},
-    {"slide": 4, "text": ["MIL NAHI RAHA", "= ek drawer checked"], "intent": "drawer search, Aachu pointing, Zuv one-drawer search"},
-    {"slide": 5, "text": ["THEEK HAI", "= paani rakh diya"], "intent": "silent water glass after tiny fight"},
-    {"slide": 6, "text": ["CHALO", "= bills + dessert bhi"], "intent": "budget list plus dessert"},
-    {"slide": 7, "text": ["GHAR", "= same words, new meanings"], "intent": "final home tableau with prior receipts"}
+    {"slide": 1, "text": "Some words change after marriage.", "intent": "home-language premise through household evidence"},
+    {"slide": 2, "text": "\"Bas 5 minute\" means both of you are lying.", "intent": "both partners visibly not ready at the door"},
+    {"slide": 3, "text": "\"Acha suno\" means the house found one more kaam.", "intent": "door-lock pause and one extra household task"},
+    {"slide": 4, "text": "\"Mil gaya?\" means third shelf. Like always.", "intent": "wrong-shelf search versus exact house-map pointing"},
+    {"slide": 5, "text": "\"Kha liya?\" is missing you in disguise.", "intent": "food and phone make absence/missing-you visible"},
+    {"slide": 6, "text": "\"Theek hai\" means the plate is covered.", "intent": "tiny sulk plus covered plate as care"},
+    {"slide": 7, "text": "Maybe home is this. Same words. More meaning.", "intent": "silent simultaneous useful care actions at night"}
+  ],
+  "blocked_until": [
+    "Creator approves rebuilt copy.",
+    "Fresh Event A visual-story check passes.",
+    "Compiled prompt handoff is regenerated from this repaired board."
   ]
 }

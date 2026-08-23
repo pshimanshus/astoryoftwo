@@ -1,0 +1,207 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "image_set_sha256": "542573cbf974f30497b99d691a2f49e5a8e8d95ac6f312385e833e79caacb153",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/slide7_identity_surgical1",
+      "pass": true,
+      "evidence": "Identity, wardrobe, exactly two people, exactly two owned visible hands, anatomy, occlusion, solid boundaries, and no-extra-text all pass."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/slide7_event_b_surgical1",
+      "pass": false,
+      "evidence": "The lever remains 110 to 123 pixels, or 24 to 28 percent of the slab width, from the right edge. The footprint trail is one broad curve rather than a complete outward-U-turn-return path."
+    }
+  },
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "cee5d735d7acc755735888b854033ba088d374cf31ca7fae129ddfa3e898d7b3",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "cee5d735d7acc755735888b854033ba088d374cf31ca7fae129ddfa3e898d7b3",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "presses brown door wood",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Right shoulder through fingers is traceable.",
+                  "contact_object": "apartment door",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Wood remains visible around her fingers.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "grips the lever",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Left shoulder through fingers is traceable.",
+                  "contact_object": "door lever",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers wrap the lever.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "cee5d735d7acc755735888b854033ba088d374cf31ca7fae129ddfa3e898d7b3",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv appear without touch, reflection, or duplicate."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "cee5d735d7acc755735888b854033ba088d374cf31ca7fae129ddfa3e898d7b3",
+                "width": 1080,
+                "height": 1440
+              },
+              "pass": false,
+              "evidence": "The lever remains 24 to 28 percent of the slab width inboard from the right latch edge."
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": ["together-01.jpg", "together-18.jpg", "reel-jaldi.jpg"],
+      "likeness_notes": "Recognizable Aachu."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": ["together-01.jpg", "together-18.jpg"],
+      "likeness_notes": "Recognizable Zuv."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Locked wardrobe is preserved."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "House watercolor-and-ink style is preserved."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "The latch geometry remains impossible and the return path remains incomplete."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "Exact copy, line breaks, one brandmark, and no extra text pass."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "Exact quarantined 1080x1440 proof is hash-bound."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/slide7_event_b_surgical1",
+      "reviewer_evidence": "Exact-pixel audit measured the lockset at 24 to 28 percent of slab width from the latch edge.",
+      "source_director_event_fingerprint": "sha256:f3000803051f9c6321341a682845f379f8aa87dc46d32ae9d6924fb59dfbd5fc",
+      "reviewed_native_formats": ["instagram_post"],
+      "sequence_read": "The scene is readable, but the primary physical carrier remains wrong.",
+      "relationship_turn": "Aachu joins the check without touching Zuv.",
+      "setup_payoff_evidence": "Lift gap and two hand contacts pass; footprint chronology does not.",
+      "weakest_frame": "Slide 7 is blocked by the inboard lever.",
+      "repair_decision": "Reconstruct the right door edge beside the existing lever instead of moving hardware.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "status": "REPAIR",
+          "expected_silent_read": "A real right-edge latch lever and a full outward-U-turn-return path.",
+          "observed_image_first_read": "A central inboard lever and one broad curved footprint trail.",
+          "core_action_legible": false,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy, figures, door, lift, footprints.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": ["The lever cannot credibly operate the right-edge latch."],
+          "unexpected_story": ["Decorative central door hardware."],
+          "match_rationale": "Identity and anatomy pass; core object logic fails.",
+          "evidence": "Lever is 110 to 123 pixels from the right slab edge.",
+          "image_fingerprint": "sha256:cee5d735d7acc755735888b854033ba088d374cf31ca7fae129ddfa3e898d7b3"
+        }
+      ],
+      "issues": ["Lever remains too far inboard.", "Footprint path is incomplete."],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/slide7_event_b_surgical1",
+        "reviewer_run_id": "slide7-event-b-surgical1-20260730-01",
+        "raw_response_artifact": ".internal/event-b-attempt-01-raw-response.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "date": "2026-07-28",
+  "slug": "the-date-that-missed-its-reservation-8",
+  "title": "The Date That Missed Its Reservation",
+  "channel": "@a.storyof.two",
+  "pipeline": "C-layer illustrated carousel",
+  "runtime": "codex_native_local",
+  "status": "draft_for_human_review",
+  "source_story": "Aachu and Zuv leave for a date in their modest dark car. A missing car key causes a playful accusation before departure. Rain, traffic, and wrong turns make the intended restaurant across the divided road frustratingly close but inconvenient to reach. Their irritation is really about having missed ordinary days together. Zuv gives Aachu a minute without creating distance. They turn the failed reservation into roadside chai beside their safely parked car. The final beat is a nonlinear callback to before departure: entirely outside the apartment in a dry corridor, the front door fully closed, Aachu visibly pivots back from the closing elevator doors, and both test the exterior door together from separated positions without touching each other. Their clothes, shoes, tote, and tightly rolled umbrella are bone-dry and fresh. Car only. No scooter or helmets. Exactly two visible people.",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "format_contract": {
+    "schema_version": "1.0",
+    "status": "LOCKED",
+    "source": "instagram_post_default",
+    "default_applied": true,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "formats": [
+      {
+        "format": "instagram_post",
+        "label": "Instagram post",
+        "aspect_ratio": "3:4",
+        "folder": "final",
+        "source_size": "1440x1920",
+        "target_size": "1080x1440"
+      }
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "format": {
+    "platform": "instagram",
+    "type": "carousel",
+    "slide_count": 7,
+    "native_outputs": {
+      "instagram_post": {
+        "aspect_ratio": "3:4",
+        "size": "1080x1440",
+        "directory": "final/"
+      }
+    },
+    "native_output_rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "reference_images": [],
+  "identity_references": [
+    {
+      "path": "config/references/identity/together/together-01.jpg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "config/references/identity/together/together-18.jpg",
+      "role": "Aachu/Zuv face consistency reference"
+    },
+    {
+      "path": "config/references/identity/aachu/reel-jaldi.jpg",
+      "role": "Aachu/Zuv face consistency reference"
+    }
+  ],
+  "identity_reference_selection": {
+    "mode": "explicit_cli_bundle",
+    "rule": "Do not dump every identity image into a carousel prompt. Treat identity_images/ as a candidate library, then use a small curated bundle for each run.",
+    "max_prompt_images": 4,
+    "candidate_count": 3,
+    "selected_count": 3,
+    "unselected_count": 0,
+    "selected_roles": [
+      "face anchor",
+      "body/posture anchor",
+      "story-relevant outfit or context anchor"
+    ],
+    "guidance": "For best results, pass 2-4 --identity-image paths that match the story. Auto-discovery is a fallback that keeps prompts small, not a promise that every image in identity_images/ will be attached."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-07-28/the-date-that-missed-its-reservation-8/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-07-28/the-date-that-missed-its-reservation-8/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-07-28/the-date-that-missed-its-reservation-8/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "agentic_os": {
+    "context_manifest": "config/agentic_context_manifest.json",
+    "skill_systems": "config/skill-systems.json",
+    "skill_system": "carousel_jam"
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "carousel_story_director_persona": {
+    "skill": "config/skills/carousel-story-director-persona.md",
+    "agent": "agents/carousel-story-director.md",
+    "activation_order": [
+      "project and creator memory",
+      "Calm Enough For Your Chaos theme",
+      "viral theme analysis",
+      "carousel idea preference ledger",
+      "Layer E story-selling engine",
+      "golden-theme tournament",
+      "carousel story director persona before writing/designing"
+    ],
+    "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+    "persists_until": [
+      "concept.json",
+      "slides.json",
+      "visual-debate.json",
+      "visual-plan-quality.json",
+      "prompt-pack.json",
+      "copy.json",
+      "codex-image-prompts/",
+      "final/",
+      "final-reels-stories/",
+      "visual-qa.md"
+    ],
+    "minimum_scores": {
+      "hook": 8,
+      "story": 8,
+      "bridge": 8,
+      "zuv_role": 8,
+      "ending": 8,
+      "send_save_potential": 8,
+      "stage_scene": 8
+    }
+  },
+  "artifacts": {
+    "creative_baseline": "creative-baseline.json",
+    "concept": "concept.json",
+    "post_copy_visual_room": "post-copy-visual-room.json",
+    "visual_debate": "visual-debate.json",
+    "visual_plan_quality": "visual-plan-quality.json",
+    "slides": "slides.json",
+    "prompt_pack": "prompt-pack.json",
+    "identity_dossier": "identity-dossier.json",
+    "identity_generation_preflight": "identity-generation-preflight.md",
+    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
+    "identity_consistency_review": "identity-consistency-review.json",
+    "copy": "copy.json",
+    "review": "review.json",
+    "approval": "final-approval.md",
+    "storyboard": "storyboard.md",
+    "agent_reports": "agent-reports.md"
+  },
+  "quality_spine": {
+    "observer": "C0.5-Jarvis",
+    "reviewers": [
+      "intake_reviewer",
+      "story_reviewer",
+      "arc_reviewer",
+      "visual_reviewer",
+      "identity_consistency_reviewer",
+      "prompt_reviewer",
+      "copy_reviewer",
+      "success_standard_reviewer",
+      "asset_reviewer",
+      "wiki_learning_reviewer",
+      "C7-Final Contract Auditor"
+    ],
+    "artifacts": {
+      "run_ledger": "run-ledger.json",
+      "stage_reviews": "stage-reviews.json",
+      "final_audit": "final-audit.json",
+      "wiki_update": "wiki-update.md",
+      "visual_qa": "visual-qa.md",
+      "identity_consistency_review": "identity-consistency-review.json",
+      "post_copy_visual_room": "post-copy-visual-room.json",
+      "visual_debate": "visual-debate.json",
+      "visual_plan_quality": "visual-plan-quality.json"
+    }
+  }
+}

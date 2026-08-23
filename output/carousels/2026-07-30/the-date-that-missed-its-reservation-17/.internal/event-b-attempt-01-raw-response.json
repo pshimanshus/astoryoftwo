@@ -1,0 +1,203 @@
+{
+  "reviewer_task_id": "/root/slide7_event_b_edge2",
+  "reviewer_run_id": "slide7-event-b-edge2-20260730-01",
+  "source_director_event_fingerprint": "sha256:6612a3150e20795aaf945f518403ed3b253b8b525f8e6dc8c0349ebe36f35dbb",
+  "blind_read": {
+    "inspected_asset": {
+      "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+      "sha256": "1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0",
+      "format": "png",
+      "dimensions": {
+        "width": 1080,
+        "height": 1440
+      },
+      "native_format": "instagram_post"
+    },
+    "inspection_order": "The current decoded pixels were inspected before slides.json, the director card, and Event A intent were opened. The visible scene, hardware geometry, lift gap, floor marks, hands, contacts, body separation, rendered text, and brandmark were recorded from the raster first; the canonical copy and intended outward-U-return chronology were revealed only afterward.",
+    "observed_image_first_read": "Two adults stand outside one fully closed brown apartment door in a dry common corridor. The woman presses one palm against the wooden slab while the man holds the lever and looks down at it, so a joint door check is visible. A nearly closed lift with a narrow dark gap is at far left. Brown footprints and three direction arrows form a broad looping diagram across the lower-left floor, but the marks do not independently establish that she first walked from the door to the lift, made a tight turn beside it, and then returned to her raised heel.",
+    "camera_and_threshold": {
+      "camera_side": "Common corridor outside the apartment.",
+      "people_side": "Both people are outside on the camera side of the closed door.",
+      "door_state": "Fully closed.",
+      "interior_visibility": "No apartment interior is visible.",
+      "verdict": "PASS"
+    },
+    "door_pixel_measurement": {
+      "coordinate_system": "Native 1080x1440 raster with x=0 at the leftmost column. The right latch seam was measured on the unobscured vertical run above the man's shoulder because his body occludes it at lever height.",
+      "right_slab_to_jamb_seam_x": "869 px, with approximately plus or minus 2 px watercolor-edge uncertainty",
+      "outer_right_wooden_casing_to_wall_edge_x": "892 px, with approximately plus or minus 2 px uncertainty",
+      "lever_spindle_center": "x=760 px, y=819 px, with approximately plus or minus 1 px uncertainty",
+      "left_slab_or_hinge_stile_edge_x": "429 px, with approximately plus or minus 2 px uncertainty",
+      "visible_slab_width": "440 px from x=429 to x=869",
+      "right_edge_backset": "109 px from spindle x=760 to the true slab-to-jamb seam x=869",
+      "backset_percentage_of_visible_slab": "24.8 percent",
+      "inner_face_cross_check": "Using the narrower raised wood face from approximately x=442 to x=869 gives a 427 px face and a still-worse 25.5 percent backset.",
+      "director_target_comparison": "The locked edit required the new latch seam only 35-45 px to the right of the unchanged spindle, at approximately x=795-805. The observed seam remains 64-74 px farther right than that target.",
+      "physical_scale_read": "At an ordinary 80-90 cm apartment-door width, a 24.8 percent ratio implies roughly 20-22 cm of backset, not the intended 7-10 cm.",
+      "true_latch_edge_plausibility": "FAIL. The rose and spindle remain visibly inside the main wood field with too much slab between the lockset and right edge; the lever does not plausibly connect to a normal latch at the jamb."
+    },
+    "lift_gap": {
+      "dark_core_x_range": "x=165 through x=191",
+      "dark_core_width": "27 px, or 28 px including the antialiased boundary",
+      "proportion": "Approximately 14-15 percent of the roughly 193 px visible lift aperture.",
+      "state_read": "The dark vertical strip is legible as a nearly closed lift with a residual opening, not a fully closed lift.",
+      "verdict": "PASS for a visible lift gap, though it sits at the low edge of the intended 15-20 percent opening."
+    },
+    "hands_and_contacts": {
+      "visible_hand_count": 2,
+      "expected_visible_hand_count": 2,
+      "count_verdict": "PASS",
+      "aachu_action_hand": {
+        "owner": "Aachu",
+        "side_read": "anatomical right",
+        "action": "Open palm presses uninterrupted brown wood on the apartment-door slab.",
+        "attachment": "Shoulder, sleeve, forearm, wrist, palm, and five fingers are continuously traceable.",
+        "verdict": "PASS"
+      },
+      "aachu_hidden_hand": {
+        "state": "No second female hand or fingers are visible.",
+        "verdict": "PASS"
+      },
+      "zuv_action_hand": {
+        "owner": "Zuv",
+        "action": "One hand grips the horizontal lever.",
+        "attachment": "The hand and wrist connect to his door-side forearm and sleeve.",
+        "side_read": "The owner is clear, but the partly three-quarter upper-body drawing does not make anatomical-left laterality completely ambiguity-free from pixels alone.",
+        "verdict": "PASS for count, owner, and contact; PARTIAL for strict anatomical-left proof."
+      },
+      "zuv_hidden_hand": {
+        "state": "The other arm terminates into the pocket area without a visible second hand or fingers.",
+        "verdict": "PASS"
+      },
+      "same_door_contact": {
+        "state": "Aachu's palm contacts the uninterrupted slab and Zuv's hand contacts the lever mounted on that same closed door.",
+        "verdict": "PASS"
+      }
+    },
+    "body_and_spatial_separation": {
+      "people_count": 2,
+      "unexpected_people_or_reflections": [],
+      "evidence": "Clear air separates the two torsos and action arms. Both silhouettes remain distinct from each other and from the door, jamb, wall, and lift. No duplicate person, human reflection, merged limb, or person-to-person touch appears.",
+      "verdict": "PASS"
+    },
+    "footprint_route": {
+      "observed_marks": "More than the required six sole impressions are visible. Two roughly parallel print columns sit below the lift, while additional prints continue through a broad lower-floor curve toward the woman. An upward arrow appears between the lift-side columns, a curved arrow follows the bottom arc, and another upward arrow sits near Aachu's raised heel.",
+      "three_print_outbound_leg": "FAIL. A unique three-print route from the apartment threshold toward the lift cannot be isolated; the lift-side area instead shows two parallel columns and extra impressions.",
+      "tight_u_beside_lift": "FAIL. The only clearly connected U or broad turn occurs well below the lift across the lower floor, not as one tight 180-degree turn beside the lift opening.",
+      "separate_three_print_return_leg": "FAIL. A distinct three-print return lane beginning only after a lift-side U and ending cleanly at Aachu's heel cannot be traced.",
+      "legs_meet_only_at_u": "FAIL. The visual grouping converges through a broad decorative lower curve rather than two non-overlapping legs meeting once beside the lift.",
+      "direction_markers": "PARTIAL. Direction arrows are present, but their positions do not repair the route topology.",
+      "competing_read": "The marks can read as a decorative curved trail or as arrival from the lift toward the door, rather than exclusively as door-to-lift travel followed by a return.",
+      "verdict": "FAIL"
+    },
+    "visible_text": {
+      "rendered_main_copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "canonical_copy_after_reveal": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "copy_exact": true,
+      "brandmark": "@a.storyof.two",
+      "brandmark_position": "top-right",
+      "brandmark_count": 1,
+      "other_visible_text": [],
+      "verdict": "PASS"
+    },
+    "unexpected_story": [
+      "The lever may be decorative or connected to an implausible internal mechanism because its spindle is about one-quarter of the slab width from the latch edge.",
+      "The footprint diagram can be read as a decorative loop or an arrival path from the still-open lift.",
+      "The single frame cannot visually prove that the lock was checked twice."
+    ]
+  },
+  "intent_match": {
+    "expected_silent_read": "Zuv remains at the real right-edge latch to test it while Aachu visibly reverses from the lift along a separate return path and adds her own physical check to the same fully closed door.",
+    "observed_after_reveal": "Both people visibly participate in one door check, but the hardware is not at a plausible latch-edge backset and the floor marks do not exclusively prove the outward-U-return chronology.",
+    "core_shared_check_legible": {
+      "match": true,
+      "evidence": "Aachu pushes the same closed slab whose lever Zuv holds."
+    },
+    "right_latch_edge_short_backset": {
+      "match": false,
+      "evidence": "Spindle x=760 to slab/jamb seam x=869 is 109 px, or 24.8 percent of the 440 px visible slab."
+    },
+    "lift_gap_visible": {
+      "match": true,
+      "evidence": "A 27-28 px dark residual aperture remains at far left."
+    },
+    "full_outbound_u_turn_return_path": {
+      "match": false,
+      "evidence": "The route has extra prints, parallel lift-side columns, and a broad lower-floor curve instead of two three-print legs joined only by a tight U beside the lift."
+    },
+    "before_departure_not_arrival": {
+      "match": false,
+      "evidence": "The same floor marks permit an arrival-from-lift reading."
+    },
+    "exactly_two_visible_hands": {
+      "match": true,
+      "evidence": "Only Aachu's door palm and Zuv's lever hand are visible."
+    },
+    "same_door_contact": {
+      "match": true,
+      "evidence": "Both hands act on the same closed apartment door assembly."
+    },
+    "body_separation": {
+      "match": true,
+      "evidence": "Clear air separates both people and their action limbs."
+    },
+    "exact_slide_copy": {
+      "match": true,
+      "expected": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him."
+    },
+    "single_exact_brandmark": {
+      "match": true,
+      "evidence": "Exactly one '@a.storyof.two' brandmark appears at top-right."
+    },
+    "overall_match": false
+  },
+  "semantic_verdict": {
+    "status": "REPAIR",
+    "pass": false,
+    "summary": "The frame passes the exact 1080x1440 asset binding, visible near-closed lift gap, exactly two owned action hands, same-door participation, clear two-person separation, exact copy, one top-right brandmark, and no extra text. It fails the primary latch-mechanics gate: the lever spindle is 109 px, or 24.8 percent of the slab width, from the true right edge rather than the required 35-45 px. It also fails the return-path gate because the prints form parallel lift-side columns and a broad lower-floor loop, not two distinct non-overlapping three-print legs joined only by a tight U beside the lift.",
+    "primary_failure": "Door hardware remains too far from the true right latch edge.",
+    "spatial_or_story_ambiguity_remaining": true
+  },
+  "contradictions": [
+    {
+      "severity": "HARD_FAIL",
+      "type": "door_hardware_geometry",
+      "expected": "The unchanged spindle should sit only 35-45 px from the true right slab edge, approximately 8-10 percent of slab width.",
+      "observed": "The spindle at x=760 is 109 px from the slab/jamb seam at x=869, or 24.8 percent of the 440 px visible slab.",
+      "effect": "The lever still floats in the main wood field and does not read as plausible latch-edge hardware."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "type": "outbound_u_turn_return_topology",
+      "expected": "Three outbound prints toward the lift, one tight U beside the opening, then a separate three-print return lane ending at Aachu's heel, with the legs meeting only at the U.",
+      "observed": "More than six marks form two lift-side columns plus a broad lower-floor curve; the legs are not independently traceable and the U is not beside the lift.",
+      "effect": "The frame still permits decorative-curve and arrival-from-lift readings."
+    },
+    {
+      "severity": "AMBIGUITY",
+      "type": "strict_hand_laterality",
+      "expected": "Zuv's active lever hand should be unambiguously anatomical left.",
+      "observed": "Hand ownership is clear, but the partly three-quarter torso does not prove laterality without interpretation.",
+      "effect": "Hand count and ownership pass, but strict side-specific proof is incomplete."
+    }
+  ],
+  "repair_decision": {
+    "decision": "REJECT_ATTEMPT_DO_NOT_PROMOTE",
+    "promote": false,
+    "reason": "PASS is forbidden while the latch geometry and movement chronology remain ambiguous. Any downstream creator-override batching decision must preserve this result as a known exception and must not relabel this frame or Event B as PASS.",
+    "preserve": [
+      "Exact asset dimensions and current composition.",
+      "Visible nearly closed lift gap.",
+      "Exactly two visible owned hands.",
+      "Aachu's palm and Zuv's lever hand acting on the same closed door.",
+      "Two-person and limb separation.",
+      "Exact copy, one top-right brandmark, and no extra visible text."
+    ],
+    "required_repairs": [
+      "Reconstruct the right slab edge and jamb at approximately x=795-805, only 35-45 px to the right of the existing x=760 spindle, and repaint the obsolete brown-door strip to its right as corridor wall or trim.",
+      "Replace the floor diagram with exactly three outbound prints, one tight 180-degree U beside the lift opening, and exactly three separate return prints ending at Aachu's heel; keep the legs non-overlapping and joined only at that U.",
+      "Keep direction markers local to their respective legs and make Zuv's anatomical-left lever hand unambiguous without adding another visible hand.",
+      "Re-run a fresh image-first Event B audit on changed pixels before promotion."
+    ]
+  }
+}

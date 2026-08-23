@@ -1,0 +1,287 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "cdff2eb95380f70f05ab0b4057563310ce5f2570ee4104cd37d9cceddc8d54ce",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/attempt02_identity_anatomy_qa",
+      "pass": false,
+      "evidence": "The exact attempt-02 proof has two complete hands but three visible forearms; the injured hand is Zuv's left rather than his locked right, a second Zuv forearm enters at lower center, both faces drift, and the head-scale/height gap is too large."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/attempt02_story_text_qa",
+      "pass": true,
+      "evidence": "The exact attempt-02 frame clearly reads as restrained tissue-to-thumb care while tension remains; copy, brandmark, phone hierarchy, warm-ivory watercolor-and-ink style, and negative space all pass."
+    }
+  },
+  "slides": [
+    {
+      "slide": 9,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-02/final/slide-09.png",
+          "sha256": "46a5ad0bd93216bf2d34e800a05f9af1a629f92039008efcb98627acccdf77b7",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "46a5ad0bd93216bf2d34e800a05f9af1a629f92039008efcb98627acccdf77b7",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 2,
+              "observed_arms": 3,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "pinches one tissue corner and dabs the visible wound",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her black-sleeved right forearm and wrist connect continuously to the tissue hand.",
+                  "occlusion_evidence": "The tissue only covers the fingertip contact area; wrist and hand ownership remain clear.",
+                  "contact_object": "white tissue",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "presents the injured thumb beneath the tissue while the watch remains visible",
+                  "story_required": false,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The watch-side forearm and wrist connect continuously to the injured left hand.",
+                  "occlusion_evidence": "Fingers remain visible around the tissue contact and the wrist continues into the white sleeve.",
+                  "contact_object": "white tissue",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [
+                "Zuv's additional bare right forearm enters at lower center while its hand is cropped off."
+              ],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "46a5ad0bd93216bf2d34e800a05f9af1a629f92039008efcb98627acccdf77b7",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 2,
+              "observed_arms": 3,
+              "expected_hands": 2,
+              "observed_hands": 2,
+              "unexpected_entities": [],
+              "unexpected_limbs": [
+                "One unauthorized Zuv forearm remains visible below the two focal hands."
+              ],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu and Zuv appear with no reflection or background actor, but Zuv contributes both a left injured hand and an additional cropped right forearm, exceeding the locked arm inventory."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 9,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Aachu and Zuv remain distinct foreground figures against a softly framed apartment threshold.",
+            "person_object_crop": "The tissue, injured hand, wrists, sleeves, and doorway retain readable front-versus-behind order.",
+            "focal_detail": "The tissue visibly meets the wound without penetrating either focal hand."
+          },
+          "environment_planes": [
+            {
+              "object": "doorway and threshold",
+              "depth_order": "The pale doorway sits behind both foreground bodies and hands.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, shoulders, black sleeve, right forearm, wrist, and tissue hand remain continuously traceable.",
+              "body_regions": [
+                {
+                  "region": "head through right tissue hand",
+                  "near_object": "doorway and tissue",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Aachu's contour stays in front of the doorway and her fingertips close naturally around the tissue edge."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, shoulders, white jacket, watch-side forearm, and injured left hand remain continuously traceable.",
+              "body_regions": [
+                {
+                  "region": "head through injured left hand",
+                  "near_object": "doorway and tissue",
+                  "expected_relation": "in_front_of",
+                  "observed_relation": "in_front_of",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Zuv's main silhouette stays in front of the doorway and the tissue overlaps only the wound contact point."
+                }
+              ],
+              "ambiguous_regions": [
+                "The additional bare forearm at lower center is attached but unauthorized and ends outside the crop."
+              ]
+            }
+          ],
+          "ambiguous_regions": [
+            "The extra lower-center forearm creates an inventory failure even though it does not merge with another object."
+          ],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "46a5ad0bd93216bf2d34e800a05f9af1a629f92039008efcb98627acccdf77b7",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The tissue, red wound, and guarded focal hands form the immediate foreground evidence.",
+              "midground": "Aachu and Zuv's tense faces and shared downward gaze carry the relationship beat.",
+              "background": "Soft doorway edges and warm ivory paper establish the threshold without competing props.",
+              "focal_action": "Aachu directly dabs a visible thumb wound with one loose white tissue while both watch.",
+              "story_details": [
+                "small red thumb wound",
+                "single loose white tissue",
+                "downward shared gaze"
+              ],
+              "cause_effect": "The visible wound causes the care gesture, while tight brows and averted eye contact keep the preceding anger unresolved.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID01_AACHU_FACE_04",
+        "ID02_AACHU_REEL_JALDI"
+      ],
+      "likeness_notes": "Hair, skin tone, and black wardrobe anchor Aachu, but the proof makes her face narrower and more angular, her eyes smaller, and her hair bulkier than the youthful fuller-cheeked oval in both selected references."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID03_TOGETHER_18",
+        "ID04_ZUV_PORTRAIT_07"
+      ],
+      "likeness_notes": "Curls, brows, beard, skin tone, white jacket, and pendant are recognizable, but the proof elongates Zuv's face, exaggerates curl height, enlarges his head by roughly fifteen percent, and overstates the two-inch height gap."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Palette check passes on neutral warm-ivory paper; visible grain, fine ink contours, transparent watercolor, muted black/off-white/denim, and generous negative space match the house language."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The rendered line visibly reads “Tum theek ho?” apni jagah. with matching curly quotes, question mark, and final period; one tiny @a.storyof.two brandmark appears at top-right."
+    },
+    "visual_story_readability": {
+      "pass": true,
+      "status": "PASS",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/attempt02_story_text_qa",
+      "reviewer_evidence": "A fresh image-first reviewer inspected the exact quarantined frame without trusting existing QA and found a clear restrained tissue-to-thumb care beat with tension preserved.",
+      "source_director_event_fingerprint": "sha256:8f9f348c8d863dbd2e0b664576c18f8a667fa669e94b7f9398ea870852a50cd5",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The frame reads immediately as a guarded care interruption: Aachu dabs a visible wound while both remain tense and avoid reconciliation eye contact.",
+      "relationship_turn": "Concern survives the disagreement through a practical touch, while tight brows, closed lips, and restrained distance keep anger unresolved.",
+      "setup_payoff_evidence": "The visible wound directly motivates the tissue contact, turning the prior injury setup into a readable care payoff.",
+      "weakest_frame": "Story, copy, and style pass, but the same proof remains unusable because the wrong Zuv hand, extra forearm, identity drift, and scale error violate the separate anatomy and identity lock.",
+      "repair_decision": "Preserve the current story hierarchy, text, brandmark, tissue contrast, and guarded expressions while rebuilding the exact right-hand anatomy, crop, head scale, height gap, and facial likeness.",
+      "frames": [
+        {
+          "slide": 9,
+          "format": "instagram_post",
+          "file": "final/slide-09.png",
+          "status": "PASS",
+          "expected_silent_read": "Still annoyed, Aachu directly dabs the small nick below Zuv's right thumbnail with one tissue while both watch.",
+          "observed_image_first_read": "A tense woman directly dabs a visible thumb wound for a tense man with one white tissue; neither smiles or seeks reconciliation.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy reads first, tense faces and shared downward eye-lines second, then the high-contrast tissue and red wound at center.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": true,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [],
+          "match_rationale": "The visible wound, direct tissue contact, and guarded expressions make care-surviving-anger legible without turning the moment into reconciliation.",
+          "evidence": "At 1080x1440 the exact line and tiny top-right brandmark are readable, the tissue visibly contacts the wound, both gazes land on the action, and both mouths remain closed.",
+          "image_fingerprint": "sha256:46a5ad0bd93216bf2d34e800a05f9af1a629f92039008efcb98627acccdf77b7"
+        }
+      ],
+      "issues": [],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/attempt02_story_text_qa",
+        "reviewer_run_id": "attempt-02-slide-09-image-first-01",
+        "input_fingerprint": "sha256:b40e116c9e17a42e5253570acd51d5d9f8a32400b4abb8976fa1c3a15b8367a3",
+        "raw_response_artifact": ".internal/attempt-02-story-text-qa.md",
+        "raw_response_fingerprint": "sha256:c4f1e3efd612940b35027c60d6ec12ee3d14927f9658de525ccffc101c72b280",
+        "output_fingerprint": "sha256:4109e7dc3f6ad1859bcf863e1d53b1dde9169d094990457c89c4c88fb72c0af7"
+      }
+    }
+  }
+}

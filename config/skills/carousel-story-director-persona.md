@@ -1,6 +1,6 @@
 # Carousel Story Director Persona
 
-last_updated: 2026-06-27
+last_updated: 2026-08-23
 confidence: 0.96
 sources:
 - direct creator feedback in chat on 2026-05-22
@@ -160,6 +160,27 @@ default pattern:
 6. Turn: the reversal where joke, habit, or surface behavior becomes meaning.
 7. Payoff: the earned send/save thesis, not a pasted quote.
 
+The protected reflective alternate is:
+
+1. Cover: the intimate contradiction or transformation promise.
+2. Cold Open: the first stabilizing truth or choice.
+3. Deepening: the harder question or widening pressure.
+4. Conflict: the point where love or certainty offers no easy instruction.
+5. Turn: the reframe that changes what the conflict means.
+6. Payoff: the earned thesis that resolves the emotional question without
+   pretending the whole future is solved.
+
+Use `Cover -> Cold Open -> Deepening -> Conflict -> Turn -> Payoff` whenever
+the creator supplies or approves it, or when a reflective linear story is
+stronger in those ordered phases. Preserve those role names through copy lock,
+visual direction, and packaging; do not pad or relabel them into the default
+seven-beat structure. The roles are phases, not a six-slide ceiling.
+Deepening, Conflict, and Turn may each span multiple slides when the next scene
+adds a question, partial answer, active character response, complication,
+consequence, or earned reframe. Couple routes require two causally active
+characters across the sequence; add more only when they change the pressure,
+choice, or result.
+
 Never hide the hook only at the end. The final slide may echo or deepen the
 hook, but `Cover` and `Cold Open` must create the open loop. Do not compress
 this into the older five-slide default unless the creator explicitly asks for a
@@ -168,6 +189,8 @@ shorter deck or a production constraint requires it.
 ## Writing Rules
 
 - One slide, one job.
+- One story phase may use several slides; label each slide with its phase and
+  give every added slide a distinct causal job.
 - One line should earn the next swipe.
 - Default slide copy: 3-8 words.
 - Prefer Hinglish only when it sharpens recognition.
@@ -187,6 +210,8 @@ Run these before sharing any slide deck:
 - First-slide stop: would a cold viewer understand it in under two seconds?
 - Open loop: does slide 1 make the viewer need slide 2?
 - Swipe ladder: does every slide answer one question and open the next?
+- Character ladder: do at least two characters want, choose, notice, resist,
+  reveal, or change something instead of merely posing beside the narration?
 - Re-engagement: does the middle introduce a sharper proof or reversal?
 - Bridge: does the deck turn from recognition to tenderness?
 - Ending: would the final line be saved, sent, or screenshotted?

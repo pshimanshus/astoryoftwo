@@ -42,6 +42,11 @@ AACHU (woman)
 - Long dark wavy hair: may be loose, half-tied, or in a casual ponytail. Thickness, dark color, natural waves, and face-framing strands stay consistent across slides.
 - Playful warmth, softness, real-person charm. Expressive face; dramatic body language; the spark in the carousel.
 - Height: 5'6".
+- Signature accessory: her slim evil-eye bracelet belongs on her right wrist,
+  grounded in the visible right-wrist bracelet in `aachu/face-04.png`. It is a
+  recurring identity feature, not optional decoration. Whenever her right
+  wrist or forearm is visible, render the same bracelet in the same position;
+  never move it to the left wrist, replace it with a generic bangle, or omit it.
 
 ZUV (man)
 - Zuv is 5'8".
@@ -55,6 +60,23 @@ ZUV (man)
   for every Aachu-led story; relationship motion may come from Aachu, Zuv,
   both, a shared rhythm, or a generic couple situation.
 - Height: 5'8".
+- Signature accessory: his small round evil-eye locket on a slim silver chain,
+  grounded most clearly in `zuv/portrait-07.jpg`. It is a recurring identity
+  feature, not optional decoration. Whenever his neck, open collar, or upper
+  chest is visible, render the same centered locket and chain; never replace it
+  with a generic pendant, change its design, or omit it.
+
+SIGNATURE ACCESSORY VISIBILITY GATE
+- These two signature accessories are always worn in illustrated carousel
+  scenes: Zuv's evil-eye locket and Aachu's right-wrist evil-eye bracelet.
+- A visible neck/open collar without Zuv's locket is a hard fail. A visible
+  Aachu right wrist/forearm without her bracelet is a hard fail.
+- Clothing, framing, pose, or physically credible occlusion may hide an
+  accessory, but the prompt and QA must record that it is hidden rather than
+  redesigning, relocating, or silently dropping it.
+- These two worn identity anchors are mandatory. Optional evil-eye symbols in
+  backgrounds, props, or decorative motifs remain story-dependent and must not
+  be added merely to satisfy this gate.
 
 HEIGHT RULE (hard body-scale gate)
 - The two-inch height difference (Zuv 5'8", Aachu 5'6") is non-negotiable in every two-shot.
@@ -103,6 +125,8 @@ HARD FAIL — regenerate, do not accept
 - height proportions wrong (Aachu reads tiny or Zuv reads oversized)
 - crouched / cramped / unflattering poses
 - distorted hands, extra fingers, broken wrists, warped facial features
+- Zuv's visible neck/open collar is missing or changes the evil-eye locket and silver chain
+- Aachu's visible right wrist/forearm is missing, relocates, or changes her evil-eye bracelet
 
 ANTI-DRIFT NOTES (lessons from real rejections)
 - 2026-05-31 Private Captions early proofs rejected for face drift and wrong heights. The creator's note: Aachu looks tiny, Zuv looks oversized/generic — reject and regenerate one corrected proof from actual identity references before batching the rest.

@@ -1,0 +1,32 @@
+{
+  "status": "APPROVED",
+  "approved": true,
+  "approved_by": "creator",
+  "evidence": "I find the image correct ~ you can proceed",
+  "image_set_sha256": "7627e7fa8fae69d8176861839cc0b87a583f3857d1d08010d96c54017b37e32c",
+  "accepts_known_qa_exceptions": true,
+  "acknowledged_visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 9 instagram_post observed arms do not match expected arms",
+    "slide 9 instagram_post hand 2 is not required by the locked scene",
+    "slide 9 instagram_post hand 2 fails hand-object contact geometry",
+    "slide 9 instagram_post anatomy_inventory reports unexpected_limbs",
+    "slide 9 instagram_post scene_entity_integrity arms inventory does not match",
+    "slide 9 instagram_post scene_entity_integrity reports unexpected_limbs",
+    "visual-qa.json spatial_topology slide 1 person 2 silhouette is not fully traceable.",
+    "visual-qa.json spatial_topology slide 1 person 2 has ambiguous regions: The lower-center skin-toned sliver has no traceable wrist, hand, or authorized role.",
+    "visual-qa.json spatial_topology slide 1 contains ambiguous regions: An unexplained lower-center skin or limb region remains between the black and white garments.",
+    "visual-qa.json spatial_topology slide 1 contains unresolved intersections: Ownership and continuation of the lower-center skin-toned region cannot be resolved from the pixels.",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+    "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+    "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+    "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+    "visual_story_readability declares unresolved issues while claiming PASS."
+  ],
+  "acknowledged_visual_qa_issues_fingerprint": "sha256:0f4fd7ad992ef7bdc288f6f2a4db66867faaaf362603f421622e6824d011e531"
+}

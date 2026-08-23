@@ -1,0 +1,243 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "image_set_sha256": "c637fb0b25d5b5afd1bc7f07297b1c37a60710c4e65e4ebe31bfaf21e744b2db",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/slide7_identity_anatomy_final",
+      "pass": false,
+      "evidence": "Identity, wardrobe, two-person count, and solid-boundary topology pass, but four hands are visible instead of the locked two and Zuv's lever hand reads as anatomical right rather than left."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/slide7_event_b_final_pixels",
+      "pass": false,
+      "evidence": "Door hardware, same-door palm contact, exact copy, brandmark, and no-extra-text pass. The elevator reads fully closed and the scene remains ambiguous between pre-departure return and after-arrival."
+    }
+  },
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "97da02812b6e30ea2e4d044d953c9664140c7be9060e82a302545a0bcaa5b318",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "97da02812b6e30ea2e4d044d953c9664140c7be9060e82a302545a0bcaa5b318",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "presses the apartment-door wood",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "contact_object": "brown apartment-door slab",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "grips the umbrella behind her",
+                  "story_required": false,
+                  "attachment_visible": true,
+                  "contact_object": "rolled umbrella",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "grips the right-edge lever",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "contact_object": "door lever",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "rests behind his back",
+                  "story_required": false,
+                  "attachment_visible": true,
+                  "contact_object": "none",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "97da02812b6e30ea2e4d044d953c9664140c7be9060e82a302545a0bcaa5b318",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv appear, with no reflections, duplicates, or person-to-person touch."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "97da02812b6e30ea2e4d044d953c9664140c7be9060e82a302545a0bcaa5b318",
+                "width": 1080,
+                "height": 1440
+              },
+              "pass": true,
+              "evidence": "The closed door, left hinges, short-backset right-edge lever, both bodies, floor, and corridor planes are coherent with no solid-boundary intersections."
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg",
+        "reel-jaldi.jpg"
+      ],
+      "likeness_notes": "Recognizable face, hair, build, and expression within the watercolor style."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg"
+      ],
+      "likeness_notes": "Recognizable face, beard, hair, build, and relative height within the watercolor style."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Aachu's white shirt, jeans, red flats and Zuv's plain pale-blue striped shirt, grey trousers, and red-black shoes are preserved."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory paper, ink contours, and transparent watercolor match the locked house style."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "The elevator reads fully closed and the still remains ambiguous between returning before departure and arriving home."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The exact locked copy, locked line layout, and one tiny top-right @a.storyof.two are present with no extra lettering."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof is hash-bound at 1080x1440."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/slide7_event_b_final_pixels",
+      "reviewer_evidence": "A fresh image-first critic found the corrected door construction credible but the elevator state and temporal phase unresolved.",
+      "source_director_event_fingerprint": "sha256:9b32b3c4bb2ed2d0b77c17b7b070004216a63c6e4e26de55108a79119e9b9ff0",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "A shared door check is visible, but the still does not independently prove a return before departure.",
+      "relationship_turn": "Aachu joins Zuv's check without touching him.",
+      "setup_payoff_evidence": "Two door contacts and a return heel survive, while the closed-looking elevator weakens the callback.",
+      "weakest_frame": "Slide 7 is blocked by the elevator and temporal ambiguity.",
+      "repair_decision": "Show a real 20 percent residual elevator opening and an unmistakable U-turn floor path, while hiding both spare hands and making Zuv's anatomical left lever arm unambiguous.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "status": "REPAIR",
+          "expected_silent_read": "Aachu turns back from a still-closing elevator before departure to add her own door check.",
+          "observed_image_first_read": "Aachu approaches the door from a fully closed elevator, which can also read as arriving home.",
+          "core_action_legible": true,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy, then two separate functional contacts on one real closed door.",
+          "hands_gaze_prop_legible": false,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [
+            "The closed-looking elevator does not prove that she went back before departure."
+          ],
+          "unexpected_story": [
+            "They may have just arrived home from the elevator."
+          ],
+          "match_rationale": "The door and copy pass, but the temporal carrier and locked hand visibility do not.",
+          "evidence": "The elevator has no visible residual opening; four hands are visible and Zuv's active hand reads right.",
+          "image_fingerprint": "sha256:97da02812b6e30ea2e4d044d953c9664140c7be9060e82a302545a0bcaa5b318"
+        }
+      ],
+      "issues": [
+        "Elevator reads fully closed.",
+        "Before-departure versus after-arrival remains ambiguous.",
+        "Four hands are visible instead of the locked two.",
+        "Zuv's active lever hand reads as anatomical right."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/slide7_event_b_final_pixels",
+        "reviewer_run_id": "slide7-event-b-final-pixels-20260730-01",
+        "raw_response_artifact": ".internal/event-b-attempt-01-raw-response.json"
+      }
+    }
+  }
+}

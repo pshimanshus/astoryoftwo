@@ -1,0 +1,55 @@
+{
+  "schema_version": "character-reference-visual-qa/v1",
+  "status": "PASS_MECHANICAL_AND_ACCESSORY_AWAITING_CREATOR_IDENTITY_APPROVAL",
+  "requested_native_formats": [
+    "instagram_post"
+  ],
+  "joint_proof": {
+    "source_path": ".internal/quarantine/joint-attempt-02-source.png",
+    "source_dimensions": [
+      1086,
+      1448
+    ],
+    "source_aspect_ratio": "3:4",
+    "final_path": "proof/aachu-zuv-joint-proof-v2-accessory-lock.png",
+    "final_dimensions": [
+      1080,
+      1440
+    ],
+    "sha256": "a6730658dc3e3e62f5d6f42edf15a00f47531a685458b1d24719d6170e038fee",
+    "checks": {
+      "dimensions": "PASS",
+      "native_aspect_ratio": "PASS",
+      "palette": "PASS",
+      "paper_measurement": "paper RGB=(249,240,224); paper saturation=0.097; paper B/G=0.933; yellow-band fraction=0.000",
+      "layout_and_required_vignettes": "PASS",
+      "anatomy_and_entity_integrity": "PASS_CURRENT_PIXEL_INSPECTION",
+      "wardrobe": "PASS_CURRENT_PIXEL_INSPECTION",
+      "zuv_evil_eye_locket": "PASS_VISIBLE_AND_CONSISTENT_IN_ALL_FOUR_VIEWS",
+      "aachu_right_wrist_evil_eye_bracelet": "PASS_VISIBLE_IN_STANDING_SEATED_AND_AFFECTIONATE_VIEWS_CLOSE_CROP_HIDES_WRISTS",
+      "couple_scale": "PASS_PRELIMINARY",
+      "exact_visible_text": "PASS_MANUAL_PIXEL_INSPECTION",
+      "automated_ocr": "STOP_EASYOCR_NOT_INSTALLED",
+      "identity_consistency": "PRELIMINARY_PASS_REQUIRES_CREATOR"
+    },
+    "locked_visible_text": [
+      "AACHU + ZUV",
+      "AACHU 5'6\" / ZUV 5'8\"",
+      "@a.storyof.two"
+    ],
+    "invented_visible_text": false,
+    "invented_accessories": false,
+    "creator_approval": "PENDING_LIKENESS_ACCESSORIES_AND_SCALE"
+  },
+  "superseded_proofs": [
+    {
+      "path": "proof/aachu-zuv-joint-proof-v1.png",
+      "sha256": "2e046229ff884c1a6567fa47840fb95e3aaa59dd90cb38020d5346f1cf8e506b",
+      "reason": "Superseded by the creator's mandatory signature-accessory correction."
+    }
+  ],
+  "solo_sheets": {
+    "aachu": "BLOCKED_UNTIL_JOINT_APPROVAL",
+    "zuv": "BLOCKED_UNTIL_JOINT_APPROVAL"
+  }
+}

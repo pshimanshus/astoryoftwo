@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "scorecard": {
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 5
+  },
+  "total": 39,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "GO",
+    "hook": 10,
+    "story": 10,
+    "bridge": 10,
+    "zuv_role": 9,
+    "ending": 10,
+    "send_save_potential": 10,
+    "stage_scene": 10,
+    "verdict": "GO: exact copy and causal visual spine are locked.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": false,
+    "issues": [
+      "Generation remains blocked until the fresh copy-hidden director_storyboard event is recorded and passes."
+    ]
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "Storybook Gallery Portal",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 4,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 5,
+    "total": 29
+  },
+  "story_selling_gate": {
+    "status": "GO",
+    "source": "layer-e-story-selling.json",
+    "selected_concept_process_card": "Card 15 - Proof Before Poetry",
+    "threshold": "28/30",
+    "selector_verdict": "The exact poetic copy is earned by gallery-to-complete-memory scenes with visible action, reaction, and consequence.",
+    "candidate_count": 5,
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "A gallery discovery expands into four causal memories and returns to a repaired final photograph.",
+      "reaction": "Aachu's gaze and choices repeatedly answer Zuv's presence.",
+      "eye_line_or_attention": "Attention moves from phone to partner.",
+      "hands_or_object_movement": "Tap, key turn, light adjustment, camera gesture, released strap, and final pull into frame.",
+      "silence_or_pause": "Stopped scrolling and released hands create the pauses.",
+      "consequence": "The archive's absence becomes invisible authorship.",
+      "reversal_or_payoff": "The missing partner is intentionally returned to the visual record.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5,
+      "aachu_zuv_specificity": 5,
+      "concrete_proof": 5,
+      "zuv_emotional_role": 4,
+      "tender_thesis": 5,
+      "share_send_potential": 5,
+      "total": 29
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [],
+  "required_changes_before_image_generation": [
+    "Complete the fresh copy-hidden director storyboard event and compiled prompt handoff."
+  ],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "GO",
+    "pass": true,
+    "agent_alignment": {
+      "status": "PASS",
+      "instruction": "Concept, copy, visuals, prompts, and QA serve cold-viewer recognition, causal story proof, A Story identity, and native production."
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  }
+}

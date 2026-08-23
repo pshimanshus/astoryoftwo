@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "workspace_root": "output/carousels/2026-07-28/the-date-that-missed-its-reservation-3",
+  "capability_source": "environment",
+  "can_attach_identity_refs": false,
+  "package_terminal_state": "HANDOFF_READY_FOR_CODEX_WITH_IDENTITY",
+  "reason": "The current session has no declared ability to attach actual identity reference images to generation calls.",
+  "required_identity_inputs": [
+    "identity-face-contact-sheet.jpg",
+    "selected Aachu identity references",
+    "selected Zuv identity references",
+    "selected together reference when available"
+  ],
+  "next_action": "handoff_to_identity_reference_capable_generation_environment"
+}

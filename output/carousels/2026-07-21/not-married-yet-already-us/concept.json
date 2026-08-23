@@ -88,19 +88,16 @@
     "process_influence_summary": "card-20 - Saveable Lesson From One Scene, card-07 - Anti-Ideal To Real Love",
     "score": {
       "reader_identity_mirror": 5.0,
-      "romantic_conflict_stakes": 3.0,
-      "specificity_of_proof": 2.0,
+      "romantic_conflict_stakes": 4.0,
+      "specificity_of_proof": 5.0,
       "emotional_reversal": 5.0,
-      "visual_scene_clarity": 0.0,
-      "online_share_save_sell_potential": 2.0,
-      "total": 17.0
+      "visual_scene_clarity": 5.0,
+      "online_share_save_sell_potential": 5.0,
+      "total": 29.0
     },
     "threshold": "28/30",
-    "decision": "STOP",
-    "hard_fails": [
-      "stage-scene gate has no drawable action/reaction proof",
-      "stage-scene gate has no visible active partner action"
-    ],
+    "decision": "GO",
+    "hard_fails": [],
     "selector_verdict": "The story should begin with the behavior that proves love, not the romantic summary.",
     "authorial_flow": {
       "relationship_obstacle": "The idea risks becoming pretty but emotionally flat.",
@@ -108,7 +105,7 @@
         "cold_reader_doorway": "Readers enter through a concrete couple behavior they recognize.",
         "emotional_obstacle": "The idea risks becoming pretty but emotionally flat.",
         "visible_human_proof": "Before marriage, shared habits, decisions, stress, friction, and concern already move as one relationship.",
-        "active_partner_role": "Zuv must make one visible choice toward her.",
+        "active_partner_role": "Both partners carry visible agency: Zuv owns the mishap, lights the lock, argues for calling help, turns back, leaves the key safely inside, and holds his injured right hand steady; Aachu searches, proposes a tool, calls after him, notices the nick, and directly dabs it with one loose tissue.",
         "emotional_turn": "The surface moment becomes proof of care.",
         "shareable_setup": "Saveable when it gives viewers language for a familiar relationship pattern.",
         "earned_payoff": "Love becomes believable only after the scene proves it."
@@ -122,27 +119,24 @@
         "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
       },
       "stage_scene_gate": {
-        "status": "REPAIR",
-        "action": "",
-        "reaction": "The surface moment becomes proof of care.",
-        "eye_line_or_attention": "Zuv must make one visible choice toward her.",
-        "hands_or_object_movement": "",
-        "silence_or_pause": "",
-        "consequence": "Saveable when it gives viewers language for a familiar relationship pattern.",
-        "reversal_or_payoff": "Love becomes believable only after the scene proves it.",
-        "blockers": [
-          "stage-scene gate has no drawable action/reaction proof",
-          "stage-scene gate has no visible active partner action"
-        ]
+        "status": "GO",
+        "action": "A key snaps while Zuv locks an already-ajar door; Aachu joins him and they attempt different fixes before an equal-footed argument.",
+        "reaction": "Aachu notices the nick on Zuv’s right thumb and directly dabs it with one loose tissue; he holds that hand steady without their irritation disappearing.",
+        "eye_line_or_attention": "Attention moves from the damaged lock and incompatible tools to the thumb nick and tissue, then returns to the repeated departure ritual.",
+        "hands_or_object_movement": "The broken key moves from lock to ledge to catchall; Aachu’s right hand moves one loose tissue into direct contact with the nick on Zuv’s presented right thumb.",
+        "silence_or_pause": "Their eye-lines reconnect at the threshold before the care gesture closes the body distance.",
+        "consequence": "They still leave in separate directions that evening, but the tissue retained on his thumb proves care remains active inside the friction.",
+        "reversal_or_payoff": "The next-morning wallet-and-bottle relay repeats beside a repaired lock, turning ordinary habit into proof that they already operate as an us.",
+        "blockers": []
       },
       "golden_theme_score": {
         "universal_hook": 5.0,
         "aachu_zuv_specificity": 5.0,
-        "concrete_proof": 2.0,
-        "zuv_emotional_role": 2.0,
+        "concrete_proof": 5.0,
+        "zuv_emotional_role": 4.0,
         "tender_thesis": 5.0,
-        "share_send_potential": 4.0,
-        "total": 23.0
+        "share_send_potential": 5.0,
+        "total": 29.0
       },
       "proof_engine": "Before marriage, shared habits, decisions, stress, friction, and concern already move as one relationship.",
       "writer_rule": "Layer E is the source of truth; process cards are influences, not the answer.",
@@ -373,8 +367,8 @@
         "summary": "Source memory loaded before concept selection, including the successful-carousel standard and creator preference ledger.",
         "inputs_used": [
           "config/references/story-selling-canon/source-register.json",
-          "output/story-canon/2026-05-18/concept-process-bank.json",
-          "output/story-canon/2026-05-18/pattern-map.json",
+          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
           "wiki/insights/successful-carousel-standard.md",
           "memory/semantic/carousel-idea-preferences.md"
         ],
@@ -522,7 +516,7 @@
       },
       "contrarian_repair_room": {
         "name": "Contrarian Repair Room",
-        "status": "REPAIR",
+        "status": "GO",
         "agents": [
           {
             "agent": "Harsh Critic",
@@ -557,7 +551,7 @@
             "score": null
           }
         ],
-        "summary": "Top routes were attacked and repair needs were recorded.",
+        "summary": "The locked broken-key route repaired the genericness, visible-action, and mutual-agency objections.",
         "inputs_used": [
           "Proof Before Poetry",
           "Scene Before Summary",
@@ -572,13 +566,9 @@
         ],
         "scores": {},
         "selected_outputs": {},
-        "objections": [
-          "stage-scene gate has no drawable action/reaction proof",
-          "stage-scene gate has no visible active partner action"
-        ],
+        "objections": [],
         "repairs": [
-          "Repair top candidates against the success standard before downstream copy.",
-          "Keep the winner only if the share setup, human obstacle, and visible partner role survive the attack."
+          "Added a concrete broken-key obstacle, equal competing solutions, object-state continuity, care surviving friction, and a habit-relay match-cut payoff."
         ],
         "repaired_route_names": [
           "Scene Before Summary",
@@ -587,7 +577,7 @@
       },
       "stage_scene_room": {
         "name": "Stage-Scene Gate",
-        "status": "REPAIR",
+        "status": "GO",
         "agents": [
           {
             "agent": "Stage Director",
@@ -614,7 +604,7 @@
             "score": null
           }
         ],
-        "summary": "Winner was checked as a short staged scene before copy, caption, or prompt work.",
+        "summary": "The selected route now plays as a complete visible action-reaction sequence before copy.",
         "inputs_used": [
           "Proof Before Poetry",
           "Before marriage, shared habits, decisions, stress, friction, and concern already move as one relationship."
@@ -629,20 +619,19 @@
         ],
         "scores": {},
         "selected_outputs": {
-          "action": "",
-          "hands_or_object_movement": "",
-          "reversal_or_payoff": "Love becomes believable only after the scene proves it."
+          "action": "A key snaps and both partners attempt different fixes.",
+          "hands_or_object_movement": "Broken key: lock to ledge to catchall; tissue: Aachu to Zuv.",
+          "reversal_or_payoff": "Care survives the argument, then the ordinary reciprocal habit returns beside a repaired lock."
         },
-        "objections": [
-          "stage-scene gate has no drawable action/reaction proof",
-          "stage-scene gate has no visible active partner action"
+        "objections": [],
+        "repairs": [
+          "Locked the key, phone torch, pliers, catchall, tissue, body-distance, gaze, and next-morning repair beats as observable story evidence."
         ],
-        "repairs": [],
         "repaired_route_names": []
       },
       "final_synthesis_room": {
         "name": "Final Synthesis Room",
-        "status": "REPAIR",
+        "status": "GO",
         "agents": [
           {
             "agent": "Story Lens Selector",
@@ -669,7 +658,7 @@
             "score": null
           }
         ],
-        "summary": "Final selector synthesized the route into Layer E handoff fields.",
+        "summary": "The repaired route passes the story-selling, Golden Theme, and drawable stage-scene gates at 29/30.",
         "inputs_used": [
           "story_meaning_room",
           "audience_algorithm_room",
@@ -694,27 +683,24 @@
       }
     },
     "stage_scene_gate": {
-      "status": "REPAIR",
-      "action": "",
-      "reaction": "The surface moment becomes proof of care.",
-      "eye_line_or_attention": "Zuv must make one visible choice toward her.",
-      "hands_or_object_movement": "",
-      "silence_or_pause": "",
-      "consequence": "Saveable when it gives viewers language for a familiar relationship pattern.",
-      "reversal_or_payoff": "Love becomes believable only after the scene proves it.",
-      "blockers": [
-        "stage-scene gate has no drawable action/reaction proof",
-        "stage-scene gate has no visible active partner action"
-      ]
+      "status": "GO",
+      "action": "A key snaps while Zuv locks an already-ajar door; Aachu joins him and they attempt different fixes before an equal-footed argument.",
+      "reaction": "Aachu notices the nick on Zuv’s right thumb and directly dabs it with one loose tissue; he holds that hand steady without their irritation disappearing.",
+      "eye_line_or_attention": "Attention moves from the damaged lock and incompatible tools to the thumb nick and tissue, then returns to the repeated departure ritual.",
+      "hands_or_object_movement": "The broken key moves from lock to ledge to catchall; Aachu’s right hand moves one loose tissue into direct contact with the nick on Zuv’s presented right thumb.",
+      "silence_or_pause": "Their eye-lines reconnect at the threshold before the care gesture closes the body distance.",
+      "consequence": "They still leave in separate directions that evening, but the tissue retained on his thumb proves care remains active inside the friction.",
+      "reversal_or_payoff": "The next-morning wallet-and-bottle relay repeats beside a repaired lock, turning ordinary habit into proof that they already operate as an us.",
+      "blockers": []
     },
     "golden_theme_score": {
       "universal_hook": 5.0,
       "aachu_zuv_specificity": 5.0,
-      "concrete_proof": 2.0,
-      "zuv_emotional_role": 2.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
       "tender_thesis": 5.0,
-      "share_send_potential": 4.0,
-      "total": 23.0
+      "share_send_potential": 5.0,
+      "total": 29.0
     },
     "process_influences": [
       {

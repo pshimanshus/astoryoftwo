@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "status": "HOLD",
+  "decision": "AWAIT_EVENT_A",
+  "lane": "Tiny Rituals",
+  "winner": "Cinematic Evidence Sequence",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Cinematic Evidence Sequence",
+      "score": 30,
+      "case_for": "Combines slide-specific receipts with a causal progression of movement, body distance, gaze, and object state.",
+      "risk": "Must pass a copy-hidden chronology and closure read before generation."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Cinematic Evidence Sequence wins provisionally; generation stays blocked until a fresh copy-hidden critic verifies the seven images read as one causal relationship story.",
+  "continuity_locks": {
+    "couple": "Same Aachu and Zuv identity, two-inch height difference, wardrobe, shoes, and red handbag throughout.",
+    "car": "One charcoal compact sedan, parked parallel to the curb, with the same silver five-spoke rear wheel and small red rear-light wedge.",
+    "chai_world": "One blue-grey counter with rust-red canopy and exactly two dark-wood stools; the stools are empty on slides 1 and 5 and occupied on slide 6.",
+    "restaurant": "One unlabelled terracotta doorway with muted sage awning across the divided road.",
+    "umbrella": "One closed deep-navy umbrella remains against the car.",
+    "phone": "Held on slides 1 and 3, fully pocketed on slide 4, and remains pocketed through slide 6.",
+    "door": "One fully closed left-hinged apartment door with a true right latch edge and edge-mounted lever, seen only from the common corridor."
+  },
+  "shot_ladder": [
+    "1: wide diagonal full-body decision",
+    "2: large storybook diptych of two petty incidents",
+    "3: medium-wide mid-turn separation",
+    "4: wide profile distance and stillness",
+    "5: tight over-shoulder gaze triangle",
+    "6: low three-quarter seated roadside date",
+    "7: large chronological corridor diptych with shared lock check"
+  ],
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual": "FLASH-FORWARD COVER, one continuous physical scene and decisive choice. Wide diagonal view of the fixed rain-damp service-lane geography. Exactly Aachu and Zuv stand full-length at the same depth beside the single charcoal compact sedan, safely parked parallel to the quieter curb with its silver five-spoke rear wheel and small red rear-light wedge visible. Across the divided road, the fixed warm terracotta restaurant doorway with muted sage awning is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, the fixed narrow blue-grey chai counter with rust-red canopy and EXACTLY TWO EMPTY dark-wood stools waits with no vendor, cups, food, or signage. Aachu has taken one visible step toward the two stools: her feet and torso move stall-ward, her right hand gives one open-palm invitation toward those stools, and her left hand visibly supports the strap of her red handbag on her own left shoulder. Zuv turns the route phone inward in his left hand and has begun one visible following step behind her, looking at Aachu rather than the screen. The diagonal movement must read without copy as: the original plan failed and they are actively choosing the smaller date together. The fixed deep-navy umbrella remains closed against the car. No chai has been served. No touch, generic standing pose, scooter, motorbike, helmet, road sign, random lettering, or extra person."
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover keys, routes,\nand very small things.",
+      "visual": "SLIDE 2 COMPOSITION OVERRIDE. This locked storybook diptych overrides any generic 'two characters maximum', 'one clear focal action', and 'no collage' language elsewhere in the prompt. Render exactly TWO LARGE, READABLE, UNFRAMED left-to-right time vignettes in the lower half, separated only by a narrow open-ivory gutter; never tiny thumbnails and never a hard divider. One clear action per vignette. Exactly Aachu and Zuv appear in each vignette: exactly four intentional person depictions across the page, with no third panel or fifth figure. LEFT / KEYS, outside the apartment door before departure: Zuv searches one trouser pocket while Aachu holds her red handbag; the single car key is visibly caught in the handbag strap, making both of their annoyed suspicion funny. RIGHT / ROUTE, later inside the same single modest dark PARKED car: only their upper bodies are visible; Aachu looks out her side window while Zuv glances at one rerouting map phone held safely below eye level. The map shows only one simple curved route line and location dot, with no readable words, icons, roads, UI labels, or decorative micro-text. The intentional paired incidents must read as keys first, route second. No reflection people, scooter, motorbike, helmet, road sign, menu text, shop text, or invented lettering."
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "visual": "Same fixed service-lane geography and charcoal compact sedan, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car. Aachu is visibly MID-TURN and one step away from Zuv toward the roadside barrier—not looking at the restaurant or chai stools yet. Her feet, hips, torso, and gaze move away from him; both hands are naturally tucked into her own front jean pockets with wrists and forearms visibly attached, and her red handbag hangs securely from her own right shoulder. Zuv remains near the car with one phone map lowered in his left hand and his right hand naturally tucked into his own trouser pocket, gaze still trapped on the route for one last beat. Their attention visibly splits: she wants silence while he is still solving logistics. The fixed deep-navy umbrella remains closed against the car. No touching, shouting, background person, human reflection, restaurant/shop lettering, scooter, motorbike, or helmet."
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nthat sometimes it means:\n“Give me a minute.\nDon’t go far.”",
+      "visual": "Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing; both hands are naturally tucked into her own front jean pockets with attached wrists and forearms visible, and her one red handbag hangs securely from her own right shoulder. Zuv has stopped the route and FULLY POCKETED the one phone inside his own left trouser pocket; no part of the phone or screen remains visible. He waits several feet behind Aachu beside the rear quarter of the same charcoal car, both hands naturally in his own trouser pockets with attached wrists and forearms visible. He does not approach, touch, point, speak, or keep solving. His torso remains softly oriented toward her while his feet stay planted. The distance gives her a minute but shows he did not leave. The restaurant and chai stall are faint geographic anchors only. Exactly two people; no phone on roof, forgotten/damaged-phone story, vendor, diner, passer-by, silhouette, reflection, sign, lettering, scooter, motorbike, or helmet."
+    },
+    {
+      "slide": 5,
+      "copy": "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "visual": "Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, enough of Zuv's pale-blue partial profile and eye-line is visible to prove that he has turned away from route-fixing and is looking at Aachu; his shoulder stays separate from her silhouette. Aachu is in clear three-quarter profile looking NOT at the restaurant but at the EXACT SAME PAIR OF EMPTY dark-wood chai stools established on the cover, her irritation softened into the disappointment of missing ordinary time together. The strap of her same red handbag remains securely on her own right shoulder. The one phone remains fully hidden inside Zuv's left trouser pocket; the fixed closed umbrella remains against the same charcoal car. Nobody touches. The attention triangle—Aachu to empty stools, Zuv to Aachu—must read without text as: she wanted time together, not a better route. Exactly two people; no phone on roof, background person, human reflection, restaurant lettering, CLOSED sign, traffic sign, scooter, helmet, or white substitute car."
+    },
+    {
+      "slide": 6,
+      "copy": "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "visual": "Same rain-damp evening and same fixed charcoal car, now viewed from a low three-quarter angle beside the fixed unlabelled blue-grey chai counter with rust-red canopy. Exactly Aachu and Zuv occupy the EXACT SAME TWO dark-wood stools established empty on slides 1 and 5, angled toward each other with body distance noticeably smaller than slide 4. The unreachable restaurant remains only a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Her same red handbag rests upright immediately beside her own stool, clearly owned and not fused with her body. Zuv has already opened one plain unbranded biscuit packet: his left hand holds the opened packet while his right hand offers exactly one removed biscuit into shared space. Exactly one second cutting-chai glass rests stationary on the stall ledge beside him. The one phone remains fully pocketed in Zuv's left trouser pocket and the fixed deep-navy umbrella remains closed against the car. No vendor, diner, pedestrian, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second packet, white car, scooter, motorbike, helmet, or invented sign."
+    },
+    {
+      "slide": 7,
+      "copy": "You still checked the lock twice.\nI still rolled my eyes.\n\nThen I went back\nand checked it with you.",
+      "visual": "SLIDE 7 COMPOSITION OVERRIDE. This locked chronological diptych overrides any generic 'two characters maximum', 'one clear focal action', and 'no collage' language elsewhere in the prompt. EARLIER CALLBACK TO BEFORE THE DATE, OUTSIDE THE APARTMENT ONLY. Render exactly TWO LARGE, READABLE, UNFRAMED left-to-right time vignettes separated only by a narrow open-ivory gutter; never tiny thumbnails and never a hard divider. One clear action per vignette. Exactly Aachu and Zuv appear in each vignette: exactly four intentional person depictions across the page, with no third panel or fifth figure. LEFT / BEFORE: medium-wide exterior-corridor view showing the complete door-to-lift axis, with the apartment door at frame-right and lift at frame-left. Zuv remains anchored beside the fully closed door and gently tests its exterior lever with his anatomical LEFT hand. Aachu is already three clear steps away, mid-stride toward the lift; both feet, knees, pelvis, and torso point from door to lift, and only her head turns back over her shoulder in an amused eye-roll. She does not touch the door. RIGHT / AFTER RETURN: slightly closer exterior-corridor view of the same door with identical orientation. Aachu is visibly back beside Zuv. Simultaneously, Zuv's anatomical LEFT hand grips and gently tests the same exterior lever while Aachu's anatomical RIGHT palm presses flat against the same closed slab immediately beside the latch edge. Both forearms, wrists, hands, and contact points are fully traceable; neither partner merely watches; the slab remains flush with the jamb with zero open gap. REAL DOOR GEOMETRY IN BOTH VIGNETTES: one coherent left-hinged door leaf; hinges visibly attached along the LEFT slab edge; one continuous true RIGHT latch edge and jamb; the lever spindle sits only 8 to 10 percent of the full slab width inboard from that right edge, approximately one rose or escutcheon width, never one-quarter of the slab. Keep the right edge and jamb visibly adjacent to the hardware and unoccluded at handle height. No handle on wall or trim, central handle, floating rose, second lockset, or mirrored orientation between vignettes. CAMERA / TOPOLOGY: camera and all four depictions remain entirely in the common corridor outside the apartment. No apartment interior or threshold crossing. Preserve the same left-to-right geography in both vignettes. Return evidence comes only from the paired time contrast: outward full-body direction on the left, returned shared door contact on the right. No footprints, arrows, or motion graphics. Keep every head, neck, shoulder, torso, sleeve, wrist, hand, and clothing edge separately traceable from the door slab, latch edge, jamb, wall, lift, and other person. No door or jamb line through a body and no person merged into wood or wall. No corridor signage, apartment number, background person, reflection person, portrait, silhouette, scooter, motorbike, or helmet."
+    }
+  ]
+}

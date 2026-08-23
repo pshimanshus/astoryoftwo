@@ -176,6 +176,89 @@ def test_compile_image_prompt_embeds_explicit_lock_action_chronology():
     assert "one partner checks alone while the other merely watches" in prompt
 
 
+def test_compile_image_prompt_deduplicates_long_locked_scene_across_safety_contracts():
+    scene = (
+        "Callback to the moment they left for the date, viewed entirely from outside "
+        "the apartment in the dry corridor after the fully closed door has closed. "
+        "Zuv's right hand pulls the exterior handle while his left hand holds the car key. "
+        "Aachu had taken two steps toward the lift, visibly turns back, and presses her right "
+        "palm beside the latch so both participate. Her tote remains on her left shoulder and "
+        "a tightly rolled bone-dry umbrella stays under her left arm. "
+        + ("The clothes, hair, shoes, and corridor remain unmistakably dry before departure. " * 45)
+    )
+    slide_copy = (
+        "He still checked the lock twice.\n"
+        "She still rolled her eyes.\n\n"
+        "Then she went back\n"
+        "and checked it with him."
+    )
+
+    prompt = compile_image_prompt(
+        slide_number=7,
+        slide_count=7,
+        slide_copy=slide_copy,
+        visual=scene,
+        format_key="instagram_post",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+    )
+
+    normalized_scene = " ".join(scene.split())
+    assert prompt.count(normalized_scene) == 1
+    assert prompt.count("Scene action binding: Use the locked Scene description above.") == 4
+    assert "HAND OWNERSHIP MAP (HARD GATE):" in prompt
+    assert "ACTION CHRONOLOGY AND DOOR-SIDE CONTRACT (HARD GATE):" in prompt
+    assert "WHOLE-PERSON SPATIAL TOPOLOGY (HARD GATE):" in prompt
+    assert "VISUAL RICHNESS CONTRACT (HARD GATE):" in prompt
+    assert len(prompt) <= MAX_PROMPT_CHARS
+
+
+def test_dense_prompt_compaction_preserves_required_house_style_lock():
+    prompt = compile_image_prompt(
+        slide_number=7,
+        slide_count=7,
+        slide_copy="Still us.",
+        visual="Aachu and Zuv verify one fully closed apartment door from the exterior corridor.",
+        format_key="instagram_post",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+        pose="Keep the exterior closed-door hand ownership and body separation explicit. " * 90,
+    )
+
+    assert len(prompt) <= MAX_PROMPT_CHARS
+    assert "Observational Intimacy Premium" in prompt
+    assert "STYLE ACCEPTANCE RULE:" in prompt
+    assert "ASSET TYPE:" not in prompt
+
+
+def test_targeted_edit_prompt_keeps_hard_gates_without_broad_prompt_noise():
+    prompt = compile_image_prompt(
+        slide_number=7,
+        slide_count=7,
+        slide_copy="Still us.",
+        visual=(
+            "TARGETED EDIT INSTRUCTION: Preserve the left vignette. Rebuild the right "
+            "door with one lever beside the true latch edge and a visible jamb. "
+            "LOCKED SCENE TO PRESERVE: Aachu and Zuv verify one fully closed apartment "
+            "door from the exterior corridor."
+        ),
+        format_key="instagram_post",
+        style="premium romantic watercolor-and-ink illustration",
+        negative="No photorealism.",
+    )
+
+    assert "TARGETED EDIT INSTRUCTION" in prompt
+    assert "ON-IMAGE TEXT:" in prompt
+    assert "HAND OWNERSHIP MAP (HARD GATE):" in prompt
+    assert "WHOLE-PERSON SPATIAL TOPOLOGY (HARD GATE):" in prompt
+    assert "STYLE ACCEPTANCE RULE:" in prompt
+    assert "STAGE-SCENE / VISUAL RECEIPT:" in prompt
+    assert "SHOT LADDER / VISUAL VARIETY:" in prompt
+    assert "RELATIONSHIP MOTION:" in prompt
+    assert "RECURRING PROPS AND MOTIFS:" not in prompt
+    assert "BACKGROUND STYLE:" not in prompt
+
+
 def test_compile_image_prompt_preserves_canonical_master_prompt_fragments():
     canonical = Path("config/references/a-story-illustration-master-prompt.md").read_text(encoding="utf-8")
     required_fragments = [

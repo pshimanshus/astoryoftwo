@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "f81f6a79419d1b90484c3f185fea78443ce93d094a15ac19e51004adb44c435d",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json image_set_sha256 is missing or stale",
+        "visual-qa.json must include two independent structured reviews",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 7 instagram_post is missing exact-image QA binding",
+        "slide 7 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 7 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 7 instagram_post requires format-specific visual_richness evidence",
+        "visual-qa.json spatial_topology must be a structured object, not a boolean.",
+        "visual_story_readability must be a structured object."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json image_set_sha256 is missing or stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json must include two independent structured reviews",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology must be a structured object, not a boolean.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be a structured object."
+      ]
+    },
+    {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "bdd5d3e0b13243668cf689ae91b0e083d8445c7f997e1149c8e0713f24e5c0c2",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json image_set_sha256 is missing or stale",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 7 instagram_post QA hash is stale",
+        "slide 7 instagram_post anatomy_inventory source_asset hash is stale",
+        "slide 7 instagram_post scene_entity_integrity source_asset hash is stale",
+        "slide 7 instagram_post scene_entity_integrity reports unexpected_entities",
+        "slide 7 instagram_post visual_richness source_asset hash is stale",
+        "slide 7 instagram_post must explicitly reject decorative clutter",
+        "visual-qa.json spatial_topology slide 1 environment plane 1 must be structured.",
+        "visual-qa.json spatial_topology slide 1 environment plane 2 must be structured.",
+        "visual-qa.json spatial_topology slide 1 environment plane 3 must be structured.",
+        "visual-qa.json spatial_topology slide 1 person 1 must inventory visible body_regions.",
+        "visual-qa.json spatial_topology slide 1 person 2 must inventory visible body_regions.",
+        "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+        "visual_story_readability.review_provenance must be a structured object."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json image_set_sha256 is missing or stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post QA hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post anatomy_inventory source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post scene_entity_integrity source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post scene_entity_integrity reports unexpected_entities",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post visual_richness source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post must explicitly reject decorative clutter",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 environment plane 1 must be structured.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 environment plane 2 must be structured.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 environment plane 3 must be structured.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 1 must inventory visible body_regions.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 must inventory visible body_regions.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-01/final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance must be a structured object."
+      ]
+    },
+    {
+      "attempt": 3,
+      "retry_count": 2,
+      "image_set_sha256": "49ac6a4206b7ecc02cc8d5b3290bfdbd0bed57f93bfd7b804a1fdb175f596c34",
+      "status": "CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json image_set_sha256 is missing or stale",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 7 instagram_post QA hash is stale",
+        "slide 7 instagram_post anatomy_inventory source_asset hash is stale",
+        "slide 7 instagram_post scene_entity_integrity source_asset hash is stale",
+        "slide 7 instagram_post visual_richness source_asset hash is stale",
+        "slide 7 instagram_post must explicitly reject decorative clutter",
+        "visual-qa.json spatial_topology slide 1 environment plane 1 must be structured.",
+        "visual-qa.json spatial_topology slide 1 environment plane 2 must be structured.",
+        "visual-qa.json spatial_topology slide 1 environment plane 3 must be structured.",
+        "visual-qa.json spatial_topology slide 1 person 1 must inventory visible body_regions.",
+        "visual-qa.json spatial_topology slide 1 person 2 must inventory visible body_regions.",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-02/final/slide-07.png.",
+        "visual_story_readability.review_provenance must be a structured object."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json image_set_sha256 is missing or stale",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post QA hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post anatomy_inventory source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post scene_entity_integrity source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post visual_richness source_asset hash is stale",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post must explicitly reject decorative clutter",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 environment plane 1 must be structured.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 environment plane 2 must be structured.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 environment plane 3 must be structured.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 1 must inventory visible body_regions.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 person 2 must inventory visible body_regions.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-02/final/slide-07.png.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance must be a structured object."
+      ],
+      "qa_status": "QA_FAILED",
+      "visual_qa_issues_fingerprint": "sha256:db6b644815d5aba0c4dabe1a7ac2ffbdefbd3f55d8092781fa04804aaf0bc2f3",
+      "creator_override": {
+        "schema_version": "creator-failed-proof-approval/v1",
+        "source_status": "BLOCKED_VISUAL_QA",
+        "proof_slide": 7,
+        "attempt": 3,
+        "retry_count": 2,
+        "image_set_sha256": "49ac6a4206b7ecc02cc8d5b3290bfdbd0bed57f93bfd7b804a1fdb175f596c34",
+        "approved_by": "creator",
+        "evidence": "Creator replied “continue with other” after being offered the explicit option to approve this stylized likeness and use it as the anchor for all remaining slides.",
+        "accepts_known_qa_exceptions": true,
+        "acknowledged_visual_qa_issues": [
+          "visual-qa.json status must be PASS",
+          "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+          "visual-qa.json image_set_sha256 is missing or stale",
+          "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+          "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+          "slide 7 instagram_post QA hash is stale",
+          "slide 7 instagram_post anatomy_inventory source_asset hash is stale",
+          "slide 7 instagram_post scene_entity_integrity source_asset hash is stale",
+          "slide 7 instagram_post visual_richness source_asset hash is stale",
+          "slide 7 instagram_post must explicitly reject decorative clutter",
+          "visual-qa.json spatial_topology slide 1 environment plane 1 must be structured.",
+          "visual-qa.json spatial_topology slide 1 environment plane 2 must be structured.",
+          "visual-qa.json spatial_topology slide 1 environment plane 3 must be structured.",
+          "visual-qa.json spatial_topology slide 1 person 1 must inventory visible body_regions.",
+          "visual-qa.json spatial_topology slide 1 person 2 must inventory visible body_regions.",
+          "visual_story_readability must be PASS with pass true.",
+          "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+          "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+          "visual_story_readability.frames[1:instagram_post].file must equal canonical package asset final/slide-07.png.",
+          "visual_story_readability.frames[1:instagram_post].file does not exist: .internal/visual-quarantine/attempt-02/final/slide-07.png.",
+          "visual_story_readability.review_provenance must be a structured object."
+        ],
+        "acknowledged_visual_qa_issues_fingerprint": "sha256:db6b644815d5aba0c4dabe1a7ac2ffbdefbd3f55d8092781fa04804aaf0bc2f3",
+        "approval_binding": {
+          "relative_path": ".internal/creator-failed-proof-approval.json",
+          "sha256": "sha256:62b6e33e01b8f88cb0f12c90a0a9a210ab69ef1428888c3fd8f8a792bd05da70"
+        },
+        "visual_qa_binding": {
+          "relative_path": "visual-qa.json",
+          "sha256": "sha256:11a614ad67f78e75791883d278ec670a4c4df882623e98addfe9187628a49d3e"
+        },
+        "record_fingerprint": "sha256:69a97ece15dc4b7eda39320323b8490715f9d2f010c6c1cbeb07801be2c5dd47"
+      },
+      "batch_generation_allowed": true,
+      "publishable": false,
+      "status_history": [
+        {
+          "status": "QA_FAILED",
+          "image_set_sha256": "49ac6a4206b7ecc02cc8d5b3290bfdbd0bed57f93bfd7b804a1fdb175f596c34",
+          "visual_qa_issues_fingerprint": "sha256:db6b644815d5aba0c4dabe1a7ac2ffbdefbd3f55d8092781fa04804aaf0bc2f3",
+          "visual_qa_binding": {
+            "relative_path": "visual-qa.json",
+            "sha256": "sha256:11a614ad67f78e75791883d278ec670a4c4df882623e98addfe9187628a49d3e"
+          }
+        },
+        {
+          "status": "CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS",
+          "approval_binding": {
+            "relative_path": ".internal/creator-failed-proof-approval.json",
+            "sha256": "sha256:62b6e33e01b8f88cb0f12c90a0a9a210ab69ef1428888c3fd8f8a792bd05da70"
+          },
+          "creator_override_record_fingerprint": "sha256:69a97ece15dc4b7eda39320323b8490715f9d2f010c6c1cbeb07801be2c5dd47"
+        }
+      ]
+    }
+  ]
+}

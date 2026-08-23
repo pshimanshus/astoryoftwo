@@ -16,8 +16,10 @@ from pipeline.stages.carousel_format_contract import (
     locked_formats,
 )
 from pipeline.stages.codex_builtin_image_generation import (
+    accept_failed_proof_by_creator,
     package_codex_builtin_outputs,
     promote_quarantined_codex_builtin_outputs,
+    recompile_failed_proof_handoff,
 )
 
 
@@ -88,6 +90,23 @@ def main() -> None:
         action="store_true",
         help="Revalidate and promote the existing quarantined image set after QA and creator approval.",
     )
+    parser.add_argument(
+        "--recompile-failed-proof-handoff",
+        action="store_true",
+        help=(
+            "Atomically recompile the proof-only prompt handoff after persisted failed QA, "
+            "without changing the proof lifecycle state or evidence."
+        ),
+    )
+    parser.add_argument(
+        "--accept-failed-proof-by-creator",
+        action="store_true",
+        help=(
+            "Allow batch generation from one exact QA-failed proof only after a "
+            "hash-bound creator approval explicitly accepts every known QA exception. "
+            "This does not mark QA passed or make the proof publishable."
+        ),
+    )
     parser.add_argument("--visual-qa", dest="visual_qa_path", type=Path)
     parser.add_argument("--creator-approval", dest="creator_approval_path", type=Path)
     parser.add_argument(
@@ -107,7 +126,51 @@ def main() -> None:
         ),
     )
     args = parser.parse_args()
-    if args.promote_quarantine:
+    if args.accept_failed_proof_by_creator:
+        incompatible = (
+            args.instagram_post_paths
+            or args.reels_stories_paths
+            or args.square_paths
+            or args.promote_quarantine
+            or args.recompile_failed_proof_handoff
+            or args.proof_slide is not None
+            or args.visual_qa_path is not None
+            or args.no_quality_refresh
+        )
+        if incompatible:
+            parser.error(
+                "--accept-failed-proof-by-creator cannot be combined with image paths, "
+                "--promote-quarantine, --recompile-failed-proof-handoff, --proof-slide, "
+                "--visual-qa, or --no-quality-refresh."
+            )
+        if args.creator_approval_path is None:
+            parser.error(
+                "--accept-failed-proof-by-creator requires --creator-approval PATH."
+            )
+        manifest = accept_failed_proof_by_creator(
+            args.carousel_dir,
+            args.creator_approval_path,
+        )
+    elif args.recompile_failed_proof_handoff:
+        incompatible = (
+            args.instagram_post_paths
+            or args.reels_stories_paths
+            or args.square_paths
+            or args.promote_quarantine
+            or args.accept_failed_proof_by_creator
+            or args.proof_slide is not None
+            or args.visual_qa_path is not None
+            or args.creator_approval_path is not None
+            or args.no_quality_refresh
+        )
+        if incompatible:
+            parser.error(
+                "--recompile-failed-proof-handoff cannot be combined with image paths, "
+                "--promote-quarantine, --proof-slide, --visual-qa, --creator-approval, "
+                "or --no-quality-refresh."
+            )
+        manifest = recompile_failed_proof_handoff(args.carousel_dir)
+    elif args.promote_quarantine:
         if args.instagram_post_paths or args.reels_stories_paths or args.square_paths:
             parser.error("--promote-quarantine cannot be combined with new generated image paths.")
         if args.proof_slide is not None:

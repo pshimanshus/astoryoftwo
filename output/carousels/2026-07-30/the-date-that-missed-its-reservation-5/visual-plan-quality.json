@@ -1,0 +1,844 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Tiny Rituals",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "The date began with one missing key\nand two suspects.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "By the third wrong turn,\nnobody was cute anymore.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "The plan failed.\nThe date didn’t.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The seven exact slide-copy strings in slides.json and the Instagram-post-only canvas in format-contract.json were locked before this fresh observable-only review.",
+    "author_id": "/root",
+    "reviewer_id": "/root/slide7_event_a_door_surface",
+    "reviewer_evidence": "A fresh orchestrated critic reviewed only the seven observable staged cards in order; the changed slide was supplied as a new copy-hidden card.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:426fdd7ad8afb41ac0a8df95b97011ad594649a351e67d9654d03c0cc115b621",
+    "generation_payload_fingerprint": "sha256:5965a96d0054796e3001067cdc60fe7faa265d61470c48a2d741e908f770f88e",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "carousel-author-door-surface-20260730-01",
+      "reviewer_task_id": "/root/slide7_event_a_door_surface",
+      "reviewer_run_id": "event-a-door-surface-20260730-01",
+      "input_fingerprint": "sha256:9d0a68b0cab9b771efb45259c5c54e59d76ea044a45449cfc1a0c6376f2a9b64",
+      "raw_response_artifact": ".internal/event-a-raw-response.json",
+      "raw_response_fingerprint": "sha256:8d0c5867e186c7c4ca3f6d10004ed9d8cd8da15b60003dce27eca506e2c59a70",
+      "output_fingerprint": "sha256:e1805b16a5a5e48537bec0aec3f5e0f32f1ebb8b300a4bcdd79302e031f0a846"
+    },
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "A rain-damp service lane beside a divided road, with one modest dark parked car, one tiny glowing chai stall nearby, moving traffic in the middle distance, and a restaurant frontage across the road.",
+        "observable_action": "The woman points toward the chai stall while the man holds one umbrella over both of them and lowers a phone map.",
+        "hands_and_contact": "Her right hand points to the stall and her left rests at her side; his right hand owns the umbrella and his left owns the lowered phone.",
+        "gaze": "They look at each other with a small conspiratorial expression after noticing the stall.",
+        "body_blocking": "They stand close under one umbrella, separated from moving traffic by the safely parked car and service-lane edge.",
+        "object_state": "The car is parked, the restaurant remains across the active road, the phone is lowered, and the chai stall is immediately reachable.",
+        "camera_view": "A wide three-quarter street view keeps the couple, parked car, divided-road barrier, traffic, stall, and distant restaurant in one readable geography.",
+        "visible_continuity": "The dark car, one umbrella, phone, rainy evening, and date-night clothes establish the objects and wardrobe carried into later roadside frames."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "A compact apartment entryway with a fully visible closed umbrella near the door.",
+        "observable_action": "The woman holds a soft tote and points playfully at the man while he searches one jacket pocket; a car key is caught visibly in the tote strap.",
+        "hands_and_contact": "Her left hand owns the tote strap and her right points; his right hand searches one pocket and his left remains open at his side.",
+        "gaze": "She looks at him with playful accusation while he meets her look with theatrical innocence.",
+        "body_blocking": "They face each other across the tote, with the caught key placed between their actions as the clearest focal detail.",
+        "object_state": "The missing key is not in either pocket or hand; it is visibly snagged in the tote strap.",
+        "camera_view": "A tight waist-up two-shot with a slight downward angle keeps faces, pointing hand, searching hand, tote strap, and key readable together.",
+        "visible_continuity": "The same date-night clothes, car key, tote, and closed umbrella visibly connect to the outing objects."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The same rain-slick service lane beside the modest dark parked car, with moving traffic and the same restaurant frontage across the divided road.",
+        "observable_action": "The man studies a rerouting phone map while the woman holds the closed umbrella downward and turns her attention toward the distant restaurant.",
+        "hands_and_contact": "Her right hand owns the closed umbrella; his left hand owns the phone; their other hands remain outside the crop.",
+        "gaze": "He looks at the phone while she looks away from him toward the restaurant.",
+        "body_blocking": "They stand on the same side of the car but angle away from each other, creating a visible emotional gap.",
+        "object_state": "The car remains parked; the phone route is active; the restaurant is visibly close across traffic but not directly reachable.",
+        "camera_view": "An over-shoulder view from behind the phone side keeps the reroute, the woman's averted posture, and the restaurant across traffic in the same depth line.",
+        "visible_continuity": "The car, umbrella, phone, road geography, weather, and clothes match the first roadside frame, while their body distance increases."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "A recessed safe roadside edge beside the same parked dark car during the same rainy evening.",
+        "observable_action": "The woman stands facing slightly away with folded arms while the man remains several feet behind near the car with one phone lowered and makes no attempt to touch her.",
+        "hands_and_contact": "Her hands are tucked naturally within folded arms; his left hand holds the phone down and his right remains outside the crop.",
+        "gaze": "She looks away; he keeps gentle attention in her direction without demanding eye contact.",
+        "body_blocking": "A deliberate band of empty space separates them, but both remain within the same wide frame and neither exits.",
+        "object_state": "The phone is inactive and lowered; the closed umbrella leans securely against the parked car.",
+        "camera_view": "A distant lateral wide shot makes the gap between their bodies the dominant visible information.",
+        "visible_continuity": "The same car, umbrella, phone, road, rain, and clothes remain, while closeness from the previous frames becomes a respected pause."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The couple remains on the service-lane side of the divided road, with the intended restaurant frontage dark or inaccessible across traffic.",
+        "observable_action": "The woman looks quietly toward the dark frontage while the man lowers the phone and shifts his attention from the route to her expression.",
+        "hands_and_contact": "Only his left hand is visible, holding the phone down; no one touches yet.",
+        "gaze": "She watches the unreachable frontage; he watches her rather than the frontage.",
+        "body_blocking": "Their distance has narrowed from the previous frame, but a small gap remains between their shoulders.",
+        "object_state": "The phone stays lowered, the car remains partly visible and parked, and the restaurant frontage remains across the wet divided road.",
+        "camera_view": "A closer two-plane reaction view holds her disappointed profile in front and his noticing expression just behind.",
+        "visible_continuity": "The same route geography and objects remain, while attention changes from navigation to the other person's face."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "The tiny roadside chai stall beside the same safely parked dark car, with the restaurant still visible across the divided road.",
+        "observable_action": "The woman drinks from one chai glass at her own lips while the man gives a mock-offended look and clutches a biscuit packet against his own chest.",
+        "hands_and_contact": "Her right hand alone owns the glass at her lips; his right hand owns the biscuit packet; their other hands remain outside the crop.",
+        "gaze": "He looks at her sip with comic disbelief while she looks pleased with herself.",
+        "body_blocking": "They sit on two stools pulled close, their shoulders and knees angled back toward each other.",
+        "object_state": "One glass is at her lips, another finished glass rests near her side, and the biscuit packet is protected against his chest.",
+        "camera_view": "A table-level close relationship shot makes the glass ownership, biscuit packet, and exchanged expressions immediately legible.",
+        "visible_continuity": "The car, road, rain traces, distant restaurant, and date clothes match the earlier roadside sequence; the body gap has closed."
+      },
+      {
+        "slide": 7,
+        "visible_people": [
+          "one woman",
+          "one man"
+        ],
+        "visible_setting": "A pristine dry apartment corridor seen entirely from outside a fully closed warm-brown wooden apartment door. The door dominates the lower frame from center-left to frame right. Its single exterior lever is on the right edge beside the man. A small, partly cropped elevator sits only in the far-left background with its doors 80 percent closed, leaving one narrow dark seam and no visible cabin. There is no elevator control, wall switch, intercom, or metal wall plate.",
+        "observable_action": "The man remains square to the apartment door on frame right and visibly wraps his right hand around its exterior lever, depressing it under testing tension. The woman is the only person reversing from the far-left elevator: her left foot still points toward it, her lifted right heel steps toward the apartment door, and three faint graphite ticks trace that return. She now stands directly before the apartment door's wooden center-left panel. Her locked right arm drives her open palm at least one handspan inside the wooden door outline, with uninterrupted brown grain around all five fingers and two short compression strokes drawn directly on the wood.",
+        "hands_and_contact": "Only two focal hands are visible. The man's right hand owns the apartment-door lever; his left hand stays behind his back. The woman's right hand owns a separate forceful push on the apartment door's wooden center-left panel; her left hand stays hidden by the tote and rolled umbrella. Her palm does not contact a wall, wall fixture, lift control, switch, plate, intercom, or doorframe. No hand or body touches the other person.",
+        "gaze": "The man looks at his handle grip and the woman looks at her palm-to-wood contact. Neither looks at the other or viewer.",
+        "body_blocking": "Both people stand on one depth plane, the man slightly taller and broader. Clear empty air separates their torsos. They do not touch, lean on each other, overlap, or merge.",
+        "object_state": "The apartment door is fully closed and visibly continuous behind both contacts. The right-edge exterior lever is depressed by the man while the woman's palm pushes the separate wooden center-left panel. The small far-left elevator is nearly shut and has no visible control panel. Her tote and tightly rolled unused umbrella remain dry. No key or fob is visible.",
+        "camera_view": "A medium-wide, straight-on full-body view makes the dominant closed brown apartment door, both separate contacts on its surface, empty torso gap, tiny far-left nearly shut elevator, and the woman's return heel readable at once.",
+        "visible_continuity": "The nearly shut far-left elevator, the woman's outward-pointing foot and reversing heel, pristine date-night clothes, tote, rolled dry umbrella, dry floor, and fully closed apartment door support a before-departure callback. There is no apartment interior, elevator cabin, elevator control, wall plate, rain exposure, food trace, visible key, arrow, ghost body, extra person, scooter, motorbike, or helmet."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:9d0a68b0cab9b771efb45259c5c54e59d76ea044a45449cfc1a0c6376f2a9b64",
+    "source_fingerprint": "sha256:65744b6fcf628c2fa3175e288864a960829dd5780803db7dee2d7f39d14d4e26",
+    "director_event_fingerprint_version": "director-event/v2",
+    "director_event_fingerprint": "sha256:6005ff85371a418017fe8cb30c6183671079eba5af88ab6161f180272a8f5dbb",
+    "sequence_mode": "causal_sequence",
+    "physical_event": "A couple leaves for a planned car date, hits small logistical friction, creates respectful space, notices the need beneath the irritation, improvises roadside chai, and is bookended by their shared pre-departure door-check ritual.",
+    "emotional_arc": "Playful coordination expands into a visible irritation gap, holds as a respectful pause, narrows through attention, and returns to close mutual play and affectionate self-recognition.",
+    "relationship_change": "They move from joking together to misaligned attention, then from space without abandonment back into a mutual improvised date and shared ritual.",
+    "sequence_read": "A rainy date is presented nonlinearly: a roadside chai pivot is teased, an apartment key mix-up precedes an unreachable restaurant and a respectful emotional pause, the couple reconnects through playful chai, and a final pre-departure callback shows the woman alone doubling back from the closing elevator to add a palm push to the same fully closed apartment door whose lever the man is still testing.",
+    "visual_variables": [
+      "body distance",
+      "object ownership"
+    ],
+    "hero_receipt_slide": 7,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Slide 1 shows the reachable chai stall while the restaurant remains across traffic.",
+        "payoff": "Slide 6 places the couple on close stools at that same stall, sharing a comic drink-and-biscuit beat.",
+        "changed_meaning": "The stall changes from an improvised alternative into visible proof that the failed plan did not end the date."
+      },
+      {
+        "setup": "Slide 2 catches the car key in Aachu's tote during a playful search near the apartment door.",
+        "payoff": "Slide 7 returns the same tote and a tightly rolled dry umbrella outside the fully closed door while both perform a coordinated push-pull test; the key is deliberately out of frame.",
+        "changed_meaning": "The departure objects change from evidence in a childish accusation into evidence that the habit Aachu teases is one she shares."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "soft tote and car key",
+        "initial_state": "The car key is visibly snagged in Aachu's tote strap while both treat it as missing.",
+        "later_state": "The same tote hangs from Aachu's shoulder outside the closed door while no key is visible.",
+        "story_job": "The tote preserves departure continuity while removing the key from the final frame prevents an unlocking or arrival reading."
+      },
+      {
+        "object": "phone map",
+        "initial_state": "The active map occupies Zuv's attention during the wrong-turn pressure.",
+        "later_state": "The phone is lowered as he shifts attention toward Aachu's expression.",
+        "story_job": "The object's lowered state turns route-fixing into visible emotional attention."
+      },
+      {
+        "object": "one umbrella",
+        "initial_state": "The open umbrella holds them close in the rainy roadside teaser.",
+        "later_state": "The tightly rolled bone-dry umbrella sits under Aachu's arm in the pre-outing corridor callback.",
+        "story_job": "Its wet-weather use versus pristine dry state makes the nonlinear chronology and shared outing continuity legible."
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Establisher and future-payoff teaser",
+        "silent_read": "After a route or restaurant plan becomes awkward, the woman spots the nearby chai stall and proposes it as an easier alternative while the man lets the phone route drop; their exchanged look makes the pivot feel mutually welcomed.",
+        "change_from_previous": "The opening frame establishes the whole road geography, couple, car, phone, umbrella, stall, and distant restaurant.",
+        "critic_evidence": "The woman points directly toward the tiny glowing chai stall. The man lowers the phone map instead of continuing to navigate. One umbrella physically gathers them into the same small space. They look at each other with matching conspiratorial expressions. The car is safely parked while the restaurant remains separated from them by moving traffic and the chai stall sits nearby.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "Aachu points toward the nearby stall while Zuv lowers the route map and holds one umbrella over both.",
+          "target_or_object": "The reachable chai stall contrasted against the restaurant across moving traffic.",
+          "reaction_or_consequence": "Their matching look makes a shared alternative visibly possible."
+        },
+        "pov": {
+          "owner": "Shared couple point of view",
+          "audience_knows": "The intended restaurant is visible but inconvenient while an immediate alternative sits beside them.",
+          "audience_feels": "Rainy frustration is beginning to turn into private mischief."
+        },
+        "shot": {
+          "size": "Wide geography shot",
+          "angle": "Eye-level three-quarter street angle",
+          "camera_position": "On the safe service-lane side, far enough back to hold the car, divider, traffic, stall, restaurant, and couple.",
+          "focal_subject": "The couple's exchanged look and Aachu's pointing hand under one umbrella.",
+          "story_reason": "The wide view proves why the close restaurant is inconvenient and why the stall is an immediate alternative."
+        },
+        "blocking": {
+          "hands": "Aachu right points, Aachu left relaxes; Zuv right holds the umbrella, Zuv left lowers the phone.",
+          "gaze": "Their eye-lines meet after she points.",
+          "body_distance": "They share one umbrella with shoulders close.",
+          "posture_or_feet": "Both remain safely on the service-lane edge beside the parked car."
+        },
+        "setting": {
+          "sub_location": "Rain-damp service lane beside a divided city road.",
+          "time": "Early rainy evening.",
+          "motivated_light": "Warm chai-stall glow against cool rain-damp street light.",
+          "story_trace": "Moving traffic divides the safely parked car and stall from the intended restaurant."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Pointing hand, lowered map, and divided-road geography.",
+            "observable_state": "The stall is reachable beside them while the restaurant remains across active traffic.",
+            "narrative_job": "Prove the shared pivot that slide 6 later pays off."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The audience enters after the route trouble has already happened.",
+          "outgoing_state": "The reachable stall is established as a possible new plan."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "chai vendor",
+            "drivers with visible faces",
+            "pedestrians",
+            "duplicate couple",
+            "human silhouette",
+            "human reflection"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Initial comic departure pressure",
+        "silent_read": "In the apartment entryway, he performs a pocket search while she playfully blames him, even though the missing car key is visibly caught in her own tote strap; the joke is that neither has yet noticed the obvious answer between them.",
+        "change_from_previous": "The swipe flashes back from the rainy roadside teaser to a tighter, dry apartment entryway evidence beat.",
+        "critic_evidence": "Her pointing hand and playful accusation face are directed at him. His hand searches a jacket pocket while his other hand stays openly empty. The key is visibly snagged in the tote strap between their actions. His theatrical innocence and her playful expression keep the exchange light. The date-night clothes, tote, umbrella, and car key visibly prepare an outing.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "Aachu holds the tote and playfully accuses while Zuv searches one jacket pocket.",
+          "target_or_object": "The car key visibly caught in the tote strap.",
+          "reaction_or_consequence": "Their theatrical expressions turn a practical delay into a shared joke."
+        },
+        "pov": {
+          "owner": "Viewer-knows-more comic point of view",
+          "audience_knows": "The key they are searching for is already visible between them.",
+          "audience_feels": "Familiar recognition of a tiny pre-date blame game."
+        },
+        "shot": {
+          "size": "Tight evidence two-shot",
+          "angle": "Slight downward eye-level angle",
+          "camera_position": "Close enough to keep both faces, the pointing hand, pocket search, tote strap, and key in one frame.",
+          "focal_subject": "The caught key between their contradictory actions.",
+          "story_reason": "The key must be readable before the viewer can enjoy the two-suspects joke."
+        },
+        "blocking": {
+          "hands": "Aachu left owns the tote, Aachu right points; Zuv right searches one pocket, Zuv left remains open.",
+          "gaze": "They meet each other's teasing gaze rather than noticing the key.",
+          "body_distance": "They face each other across the tote at conversational distance.",
+          "posture_or_feet": "Their torsos angle inward; no one is already leaving the frame."
+        },
+        "setting": {
+          "sub_location": "Compact apartment entryway.",
+          "time": "Dry pre-departure evening.",
+          "motivated_light": "Soft warm apartment light.",
+          "story_trace": "Date clothes, tote, car key, and a closed umbrella show an outing in preparation."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Car key caught in the tote strap.",
+            "observable_state": "The missing object is visible while both still act as if it is missing.",
+            "narrative_job": "Create the childish comic setup without needing explanatory copy."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The rainy result is temporarily suspended by a dry departure flashback.",
+          "outgoing_state": "The key, tote, umbrella, and wardrobe are established for the outing and final callback."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "neighbor",
+            "family member",
+            "mirror person",
+            "duplicate couple",
+            "scooter",
+            "helmet"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Prolongation through route frustration",
+        "silent_read": "Back beside the parked car, he concentrates on rerouting while she looks past him toward a restaurant that is visibly close but blocked by traffic; the failed route has begun to separate their attention and bodies.",
+        "change_from_previous": "The sequence returns to the wet roadside and expands the playful delay into misaligned attention.",
+        "critic_evidence": "The phone shows an active reroute in his hand. He looks down at the phone while she looks away toward the restaurant. Their torsos angle away from one another rather than sharing one focal point. The restaurant is across active traffic even though it appears geographically close. The car remains parked, so the route problem is not being solved by immediate movement.",
+        "staged_action": {
+          "subject": "Zuv and Aachu",
+          "action": "Zuv studies the reroute while Aachu holds the closed umbrella and looks away.",
+          "target_or_object": "The phone route and restaurant across the divided road.",
+          "reaction_or_consequence": "Their divergent gaze and torso angles create the first visible emotional gap."
+        },
+        "pov": {
+          "owner": "Aachu's mounting frustration",
+          "audience_knows": "The navigation problem persists even though the destination appears close.",
+          "audience_feels": "A small logistical problem has stopped being cute."
+        },
+        "shot": {
+          "size": "Medium over-shoulder route shot",
+          "angle": "Over Zuv's phone side toward Aachu and the distant frontage",
+          "camera_position": "Behind and beside the phone so the route, Aachu's averted posture, and restaurant share one depth line.",
+          "focal_subject": "The split between his active map and her distant gaze.",
+          "story_reason": "The view turns navigation into a relationship composition rather than a generic standing pose."
+        },
+        "blocking": {
+          "hands": "Aachu right owns the closed umbrella; Zuv left owns the phone; both other hands stay outside the crop.",
+          "gaze": "He looks at the phone while she looks toward the restaurant.",
+          "body_distance": "A visible gap opens between their shoulders.",
+          "posture_or_feet": "Their torsos angle in different directions while both remain safely beside the parked car."
+        },
+        "setting": {
+          "sub_location": "The same wet service lane and divided-road geography.",
+          "time": "Same rainy evening.",
+          "motivated_light": "Cool reflected street light with restrained warm frontage glow.",
+          "story_trace": "The parked car, traffic divider, umbrella, and active reroute prove continued navigation pressure."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Divergent gaze and active phone route.",
+            "observable_state": "He keeps solving while she looks at the unreachable destination.",
+            "narrative_job": "Translate a wrong turn into visible couple misalignment."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The outing has resumed after the dry key flashback.",
+          "outgoing_state": "The body gap and route fixation prepare the pause."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "driver face",
+            "pedestrian",
+            "duplicate couple",
+            "human car reflection",
+            "vendor",
+            "scooter",
+            "helmet"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Peak relationship pause",
+        "silent_read": "She has withdrawn into a quiet roadside pause, and he waits several feet back without touching, persuading, or advancing; the dominant event is his decision to give her space while staying present.",
+        "change_from_previous": "The misaligned medium shot expands into a wide frame where empty space becomes the dominant action.",
+        "critic_evidence": "Her folded arms and averted face make her withdrawal visible. A wide band of empty space is the dominant feature between them. He stays several feet behind near the car rather than approaching her. His phone is lowered and inactive, ending the visible attempt to fix the problem through navigation. He keeps gentle attention in her direction while neither person exits the shared frame.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "Aachu closes her posture while Zuv remains nearby without touching or advancing.",
+          "target_or_object": "The deliberate empty space between them.",
+          "reaction_or_consequence": "The frame shows a pause that preserves proximity instead of becoming abandonment."
+        },
+        "pov": {
+          "owner": "Shared tension organized around Aachu's need for space",
+          "audience_knows": "She does not want contact in this instant, and he remains available without crowding.",
+          "audience_feels": "Restraint and care inside a small rupture."
+        },
+        "shot": {
+          "size": "Distant lateral wide shot",
+          "angle": "Straight-on eye-level roadside view",
+          "camera_position": "Perpendicular to the couple so their full separation and shared location remain readable.",
+          "focal_subject": "The empty band between their bodies.",
+          "story_reason": "Only a wide shot can make a minute of space visible without making either person disappear."
+        },
+        "blocking": {
+          "hands": "Aachu's hands stay naturally tucked in folded arms; Zuv left lowers the phone and his right stays out of frame.",
+          "gaze": "She looks away while his attention remains gently in her direction.",
+          "body_distance": "Several feet of clean empty space separate them.",
+          "posture_or_feet": "She faces partly away; he stays grounded near the car without leaning or stepping toward her."
+        },
+        "setting": {
+          "sub_location": "Safe recessed roadside edge beside the parked car.",
+          "time": "Same rainy evening.",
+          "motivated_light": "Soft ambient street glow reflected from wet ground.",
+          "story_trace": "The lowered phone and umbrella against the car show that route solving has paused."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Empty space with both people still inside one frame.",
+            "observable_state": "No touch or approach occurs, but neither partner exits.",
+            "narrative_job": "Prove space without distance."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The small body gap from slide 3 has expanded.",
+          "outgoing_state": "The pause holds long enough for attention to shift in slide 5."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "pedestrian",
+            "driver",
+            "duplicate couple",
+            "human silhouette",
+            "human reflection",
+            "third comforting person"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Attention bridge and emotional recognition",
+        "silent_read": "He stops treating the blocked restaurant as a navigation problem and notices how it has landed on her; their bodies have already moved closer even though she is still looking at the inaccessible frontage.",
+        "change_from_previous": "The camera moves closer and the body gap narrows, replacing empty-space emphasis with a two-plane gaze relationship.",
+        "critic_evidence": "She remains focused on the dark or inaccessible restaurant frontage. He looks at her expression rather than at the frontage or phone. The phone stays lowered in his hand. Their shoulder distance is visibly smaller than in the preceding wide frame. A small gap remains, so the reconciliation is underway rather than already complete.",
+        "staged_action": {
+          "subject": "Zuv and Aachu",
+          "action": "Zuv lowers the phone and attends to Aachu's quiet expression while she watches the frontage.",
+          "target_or_object": "Her face rather than the route or restaurant.",
+          "reaction_or_consequence": "The attention begins repair before touch or a new plan appears."
+        },
+        "pov": {
+          "owner": "Zuv noticing what is underneath the route fight",
+          "audience_knows": "The external destination matters less than the disappointed person beside him.",
+          "audience_feels": "The irritation is carrying a deeper missed-time ache."
+        },
+        "shot": {
+          "size": "Close two-plane reaction shot",
+          "angle": "Three-quarter profile",
+          "camera_position": "Near Aachu's profile with Zuv slightly behind and both eye-lines visible.",
+          "focal_subject": "His changed gaze toward her expression.",
+          "story_reason": "The tighter view proves attention change without inventing a speech or touch."
+        },
+        "blocking": {
+          "hands": "Only Zuv's left hand is visible, holding the phone down; no touch occurs.",
+          "gaze": "She looks at the frontage while he looks at her.",
+          "body_distance": "The wide pause narrows to a small shoulder gap.",
+          "posture_or_feet": "Their torsos begin to share one direction while their attention remains different."
+        },
+        "setting": {
+          "sub_location": "Service-lane side facing the dark restaurant frontage across traffic.",
+          "time": "Same rainy evening.",
+          "motivated_light": "Dim frontage glow and wet-road reflection shape their profiles.",
+          "story_trace": "The lowered route phone and inaccessible frontage remain visible as the failed plan's residue."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Changed eye-line and narrowed body gap.",
+            "observable_state": "Zuv stops reading the route and reads Aachu instead.",
+            "narrative_job": "Bridge the wrong-turn surface into emotional understanding."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Both remain separated by the pause.",
+          "outgoing_state": "Attention reconnects them enough to choose the stall."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "restaurant staff",
+            "diner",
+            "pedestrian",
+            "duplicate couple",
+            "human silhouette",
+            "human reflection"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Release through improvised date comedy",
+        "silent_read": "At the chai stall, the earlier distance has dissolved into a small snack-and-drink joke: she enjoys a glass while he mock-protects the biscuits, and their bodies turn back toward each other.",
+        "change_from_previous": "The unresolved gaze bridge becomes close seating, direct exchange, and object comedy.",
+        "critic_evidence": "Her pleased expression contrasts with his clearly mock-offended look. She alone owns the chai glass at her lips while he clutches the biscuit packet to his own chest. A finished glass near her side suggests the stall visit has already had time to settle. Their stools are pulled close and both shoulders and knees angle toward each other. The same car, road, rain traces, and distant restaurant preserve the earlier problem while the chai stall changes the emotional result.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "Aachu drinks from the glass at her own lips while Zuv protects the biscuit packet with mock offense.",
+          "target_or_object": "The chai glass and biscuit packet now carrying their joke.",
+          "reaction_or_consequence": "Their bodies close the gap and the failed destination becomes an active date."
+        },
+        "pov": {
+          "owner": "Shared playful couple point of view",
+          "audience_knows": "They have chosen the reachable stall and recovered their private rhythm.",
+          "audience_feels": "Comic relief without erasing the earlier irritation."
+        },
+        "shot": {
+          "size": "Table-level close relationship shot",
+          "angle": "Slight low eye-level angle from the stall counter",
+          "camera_position": "Close enough to bind the glass at her lips, biscuit packet at his chest, and both expressions.",
+          "focal_subject": "The exchanged joke created by her sip and his protected biscuits.",
+          "story_reason": "Object ownership and reaction make the date's survival visible without a generic smiling pose."
+        },
+        "blocking": {
+          "hands": "Aachu right alone owns the glass at her lips; Zuv right alone owns the biscuit packet; other hands stay outside the crop.",
+          "gaze": "He looks at her with comic disbelief while she looks pleased.",
+          "body_distance": "Stools, shoulders, and knees are pulled close and angled together.",
+          "posture_or_feet": "Both lean subtly into the shared joke rather than away."
+        },
+        "setting": {
+          "sub_location": "Tiny roadside chai stall beside the same parked car.",
+          "time": "Same rainy evening after the pause.",
+          "motivated_light": "Warm stall light softens the cool road and distant restaurant.",
+          "story_trace": "The car and restaurant across traffic keep the failed plan visible behind the successful improvised date."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Close stools, chai glass, biscuit packet, and exchanged expressions.",
+            "observable_state": "The couple has replaced route-fixing with a mutually playful stop.",
+            "narrative_job": "Pay off the stall choice and prove that the date survives."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Attention has reconnected but the alternative has not yet been shown.",
+          "outgoing_state": "The chai-stall teaser is paid off and the body-distance arc closes."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "chai vendor",
+            "customer",
+            "driver face",
+            "pedestrian",
+            "duplicate couple",
+            "human silhouette",
+            "human reflection"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 7,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "Affectionate callback and shared-habit payoff",
+        "silent_read": "Before departure, the man stays at the fully closed apartment door and tests its exterior lever while the woman alone reverses from the nearly closed elevator to add a separate, forceful palm check on the same wooden door; their parallel checks read as a shared, slightly comic security ritual.",
+        "change_from_previous": "The rainy roadside chai frame cuts to a pristine dry exterior corridor. The apartment door now dominates the composition so both partner actions visibly belong to it.",
+        "critic_evidence": "One dominant warm-brown apartment door extends continuously from center-left to frame right and is explicitly fully closed. The man's right hand wraps the single exterior lever on that door's right edge and visibly depresses it under testing tension. The woman's right palm sits at least one handspan inside the same door's wooden center-left outline, not on the adjacent wall or frame. Uninterrupted brown wood grain surrounds all five of her fingers, and the two compression strokes are drawn directly on the wood beneath her push. The door surface is visibly continuous behind both the right-edge lever contact and the separate center-left palm contact, so both focal contacts belong to the same closed door. The elevator is small, partly cropped, confined to the far-left background, and nearly shut; it shows neither a cabin nor a control panel, switch, intercom, or metal wall plate. Only the woman has a reversal path: her left foot still points toward the elevator, her lifted right heel steps back toward the apartment door, and three motion ticks trace that return. The man remains square to the door at frame right with his hand on the lever and receives no departure, reversal, or elevator-directed motion cue. Clear air separates their torsos, and neither person touches, overlaps, or leans on the other.",
+        "staged_action": {
+          "subject": "Zuv and Aachu",
+          "action": "Zuv stays at the apartment door and tests its lever while Aachu returns alone and drives her locked right palm into a separate part of its wooden panel.",
+          "target_or_object": "One fully closed apartment door, tested at its lever and center-left wood panel.",
+          "reaction_or_consequence": "Their private smiles turn the repeated check into a habit they share."
+        },
+        "pov": {
+          "owner": "Aachu's return",
+          "audience_knows": "She had stepped toward the elevator, then came back and added a real apartment-door check to Zuv's.",
+          "audience_feels": "The habit she teases is one she has grown into with him."
+        },
+        "shot": {
+          "size": "Medium-wide full-body story shot",
+          "angle": "Straight-on exterior corridor angle",
+          "camera_position": "Entirely outside the apartment, framing the large closed door, both separated bodies, two distinct door contacts, and small far-left elevator.",
+          "focal_subject": "Two visible contacts on one dominant closed apartment door.",
+          "story_reason": "The oversized door surface and uninterrupted wood around Aachu's palm remove the competing elevator-control reading."
+        },
+        "blocking": {
+          "hands": "Zuv's right hand wraps the right-edge apartment-door lever. Aachu's right palm presses the wooden center-left panel with brown grain around all fingers. Spare hands stay hidden.",
+          "gaze": "Each looks at their own apartment-door contact.",
+          "body_distance": "Clear air separates their torsos; no touch or overlap.",
+          "posture_or_feet": "Zuv remains square to the apartment door. Only Aachu's outward foot, returning heel, and motion ticks connect her to the small far-left elevator."
+        },
+        "setting": {
+          "sub_location": "Dry exterior apartment corridor with one dominant closed brown front door and a small nearly shut elevator far left.",
+          "time": "Interrupted departure before the rainy outing.",
+          "motivated_light": "Clean warm corridor light with no wet reflection.",
+          "story_trace": "Pristine clothes, dry floor, tote, rolled unused umbrella, nearly shut elevator, and Aachu's reversing heel establish the callback."
+        },
+        "story_evidence": [
+          {
+            "carrier": "Dominant brown apartment door, depressed lever, wood grain around Aachu's palm, locked elbow, compression strokes on wood, return heel, and small nearly shut elevator.",
+            "observable_state": "Both people act on separate points of one fully closed apartment door. Zuv stayed; only Aachu returned. No wall control exists near her hand.",
+            "narrative_job": "Prove that she went back and checked the apartment door with him."
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The rainy outing has reached playful repair.",
+          "outgoing_state": "A dry nonlinear bookend reveals their shared departure ritual."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "neighbor",
+            "delivery person",
+            "interior person",
+            "duplicate couple",
+            "ghost body",
+            "human reflection",
+            "scooter",
+            "motorbike",
+            "helmet"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "A previous proof made Aachu press an elevator call panel instead of the apartment door.",
+            "repair": "The apartment door now dominates the frame and Aachu's palm lies well inside its wood outline with grain around every finger; no elevator control or wall plate is drawn.",
+            "recheck_evidence": "A fresh copy-hidden critic must attribute both focal contacts to the same closed apartment door."
+          },
+          {
+            "competing_read": "A static corridor could hide who went back.",
+            "repair": "Only Aachu receives the outward foot, returning heel, and motion ticks from the small far-left elevator; Zuv stays square to the door.",
+            "recheck_evidence": "A fresh critic must attribute the return only to the woman."
+          },
+          {
+            "competing_read": "A flat palm could look casual.",
+            "repair": "The elbow locks, shoulder weight drives the arm, and compression strokes sit directly on the wood.",
+            "recheck_evidence": "A fresh critic must read a functional panel push."
+          }
+        ]
+      }
+    ],
+    "issues": []
+  }
+}

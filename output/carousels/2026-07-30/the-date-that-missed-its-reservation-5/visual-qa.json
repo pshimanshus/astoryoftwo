@@ -1,0 +1,251 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "image_set_sha256": "05d713caca230917de3401aaa899129f833fe949af8813566e0ecb4e035b611f",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "not_run_after_creator_rejection",
+      "pass": false,
+      "evidence": "Identity promotion was not attempted after the creator rejected the proof's physically impossible door hardware."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/slide7_event_b_door_surface",
+      "pass": false,
+      "evidence": "Image-first review found the lever roughly 300 pixels inward from the right latch edge despite left-side hinges, plus unapproved shirt lettering, a fully closed-looking elevator, weak palm pressure, and altered copy line breaks."
+    }
+  },
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "presses the apartment door's wood",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "contact_object": "brown apartment-door slab",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "grips a physically misplaced door lever",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "contact_object": "central inboard lever",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu and Zuv appear; their bodies remain separate."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29",
+                "width": 1080,
+                "height": 1440
+              },
+              "pass": false,
+              "evidence": "Two hinges are visible on the left stile, but the lever rose is roughly 300 pixels inward from the opposite right edge, so it cannot credibly connect to the latch."
+            }
+          }
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "Two separated full-body figures and their distinct hand contacts.",
+              "midground": "The closed apartment door and wrongly inboard lever.",
+              "background": "The elevator lobby.",
+              "focal_action": "Aachu presses the door while Zuv tests a lever that is too far from the latch edge.",
+              "story_details": [
+                "returning heel",
+                "rolled dry umbrella",
+                "closed apartment door"
+              ],
+              "cause_effect": "The shared-check beat is visible, but the impossible hardware breaks the physical story.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg",
+        "reel-jaldi.jpg"
+      ],
+      "likeness_notes": "Not promoted for likeness review after the structural creator rejection."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg"
+      ],
+      "likeness_notes": "Not promoted for likeness review after the structural creator rejection."
+    },
+    "dress_continuity": {
+      "pass": false,
+      "evidence": "The man's shirt contains unapproved readable embroidery."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory paper, ink contours, and transparent watercolor match the house language."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "The left hinges and centrally inboard lever contradict ordinary door construction."
+    },
+    "integrated_final_text": {
+      "pass": false,
+      "evidence": "Wording is correct, but the locked line breaks changed and extra shirt lettering appears."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof is hash-bound at 1080x1440."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/slide7_event_b_door_surface",
+      "reviewer_evidence": "A fresh critic inspected the exact pixels image-first and measured the lever about 300 pixels inward from the right latch edge.",
+      "source_director_event_fingerprint": "sha256:6005ff85371a418017fe8cb30c6183671079eba5af88ab6161f180272a8f5dbb",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The shared door check is broadly visible, but the core hardware is mechanically impossible.",
+      "relationship_turn": "Aachu returns toward the same door, but the broken latch topology makes Zuv's action unbelievable.",
+      "setup_payoff_evidence": "Return motion and two separate door contacts survive.",
+      "weakest_frame": "Slide 7 is blocked by the handle being mounted far inside the door rather than on the latch-side stile.",
+      "repair_decision": "Regenerate from a prompt that exposes both stiles and explicitly places the lever spindle 7 to 10 centimetres from the right edge opposite left hinges.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "status": "REPAIR",
+          "expected_silent_read": "A real left-hinged apartment door has its latch-side lever at the opposite right edge while Aachu pushes the same door's wood.",
+          "observed_image_first_read": "Aachu pushes the same door, but Zuv grips a lever floating roughly 300 pixels inward from the right edge.",
+          "core_action_legible": false,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy first, then the two figures and their door contacts.",
+          "hands_gaze_prop_legible": false,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [
+            "Zuv cannot credibly check the lock because the lever is detached from the latch-side edge."
+          ],
+          "unexpected_story": [
+            "The door has decorative or surreal central hardware."
+          ],
+          "match_rationale": "The scene geography passes, but the physical object that carries the payoff fails.",
+          "evidence": "Visible left hinges make the right edge the latch side; the lever is approximately 300 pixels inboard.",
+          "image_fingerprint": "sha256:05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29"
+        }
+      ],
+      "issues": [
+        "Door lever is physically misplaced far from the latch-side edge.",
+        "Elevator reads fully closed rather than nearly shut.",
+        "Aachu's palm pressure and gaze are too weak.",
+        "The shirt contains extra lettering.",
+        "The copy line layout changed."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/slide7_event_b_door_surface",
+        "reviewer_run_id": "slide7-event-b-door-surface-20260730-01",
+        "raw_response_artifact": ".internal/event-b-attempt-01-raw-response.json"
+      }
+    }
+  }
+}

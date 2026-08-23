@@ -1,0 +1,244 @@
+{
+  "reviewer_task_id": "/root/slide7_event_b_door_surface",
+  "reviewer_run_id": "slide7-event-b-door-surface-20260730-01",
+  "blind_read": {
+    "inspected_asset": {
+      "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+      "sha256": "05b65d1fe26947c65c2f3c8c42585aeb543e2bc5c3110f915c9a144ac4ffab29",
+      "format": "png",
+      "dimensions": {
+        "width": 1080,
+        "height": 1440
+      }
+    },
+    "inspection_order": "The rendered pixels were inspected before visual-plan-quality.json was opened. The scene geometry was read without using the prompt or director intent as evidence.",
+    "visible_people": [
+      {
+        "person": "one woman",
+        "position": "left of the apartment door and right of the elevator",
+        "appearance_and_posture": "She wears a white blouse, blue jeans, red low heels, and a shoulder tote with a red heart; a closed red umbrella hangs with the tote. Her torso is turned toward the brown door, her right arm reaches to it, and her feet form a rightward stepping pose.",
+        "visible_action": "She presses or braces her open right palm against the brown door while stepping from the elevator side toward the door."
+      },
+      {
+        "person": "one man",
+        "position": "frame right, directly in front of the apartment door",
+        "appearance_and_posture": "He wears a pale blue shirt, loose gray trousers, and dark red-and-black shoes. He stands nearly square to the door with his head bowed.",
+        "visible_action": "He grips the door-mounted lever with his right hand while keeping his left arm behind his back."
+      }
+    ],
+    "setting": "A dry, warmly lit apartment corridor or elevator lobby. A large closed brown paneled wooden apartment door fills the center and right. A small metal two-leaf elevator is recessed at far left. The floor is pale polished stone. No apartment interior, elevator cabin, elevator control, wall switch, intercom, key, fob, rain, wet clothing, extra person, reflection, vehicle, or helmet is visible.",
+    "camera_and_threshold": {
+      "camera_side": "Entirely in the common corridor outside the apartment.",
+      "people_side": "Both people are outside the apartment on the camera side of the fully closed door.",
+      "interior_visibility": "No apartment interior is visible."
+    },
+    "arms_hands_and_object_contacts": [
+      {
+        "owner": "woman",
+        "side": "right",
+        "anatomy": "The right upper arm, elbow, forearm, wrist, palm, and five fingers form one continuous limb.",
+        "contact": "Her open palm and splayed fingers visibly meet the same brown apartment-door slab. Brown wood remains visible beneath and around the hand; the contact is not on the wall, frame, elevator, or a metal plate.",
+        "action_read": "The flat hand reads as a press or brace, but the pixels do not show strong compression or a decisive push."
+      },
+      {
+        "owner": "woman",
+        "side": "left",
+        "anatomy": "The left arm and hand are not clearly visible.",
+        "contact": "No left-hand contact can be verified. The tote straps rest on her shoulder and the closed umbrella is carried with or inside the tote."
+      },
+      {
+        "owner": "man",
+        "side": "right",
+        "anatomy": "The right upper arm, forearm, wrist, hand, and fingers are continuously traceable.",
+        "contact": "His right hand wraps the horizontal lever attached to a circular rose on the brown door.",
+        "action_read": "He appears to hold or test the lever, though the absence of a clear lever-motion cue makes opening and lock-checking competing reads."
+      },
+      {
+        "owner": "man",
+        "side": "left",
+        "anatomy": "His left arm bends behind his torso; the hand is hidden.",
+        "contact": "No left-hand object or person contact is visible."
+      },
+      {
+        "contact": "person_to_person",
+        "state": "No hand, arm, torso, or other body part touches the other person. Clear air separates them."
+      }
+    ],
+    "gaze": {
+      "woman": "Her head angles right and down with a smile, but her eyes appear closed or nearly closed. A gaze specifically at her palm is not readable; she may be oriented toward the man or door generally.",
+      "man": "He looks down toward his right hand and the lever.",
+      "mutual_gaze": "None."
+    },
+    "body_distance": "The two bodies occupy the same corridor depth plane with a substantial open gap between their torsos. Their arms do not overlap and there is no person-to-person touch.",
+    "apartment_door_state": {
+      "state": "Fully closed.",
+      "evidence": "The brown slab sits continuously within its frame with no open threshold gap; the peephole, panels, hinges, and lever are all visible on the corridor-facing side.",
+      "surface_contact": "The woman's palm contacts the wooden center-left area of this same slab while the man's hand contacts its lever."
+    },
+    "ordinary_door_hardware_geometry": {
+      "hinges": "Two visible hinge leaves on the slab's left vertical edge establish the left edge as the hinge side.",
+      "latch_side_stile": "With hinges on the left, the ordinary latch side is the door's right vertical edge, visible behind and beside the man.",
+      "lever_backset": "The lever rose is positioned roughly around x=687 on a slab extending approximately from x=526 to x=994. It therefore sits about 300 pixels inboard from the right latch edge, an implausibly large backset for ordinary latch hardware and visually closer to the middle of the door than to the latch stile.",
+      "height": "The lever is around adult waist or hip height, which is plausible.",
+      "panel_placement": "The rose is not literally inside the upper recessed panel; it floats on the broad central middle field or rail within the door's panel composition. Its extreme distance from the right latch edge makes it read as decorative central hardware rather than a lever mechanically connected to the latch.",
+      "geometry_verdict": "FAIL. The height is plausible, but the hinge-to-latch topology and lever backset are not."
+    },
+    "elevator_state": {
+      "position": "Far-left background.",
+      "observed_state": "The two elevator leaves read as fully closed with an ordinary narrow center seam. There is no visible cabin opening or leaf offset that clearly communicates '80 percent closed' or nearly shut in motion.",
+      "controls": "No elevator control panel, switch, intercom, or metal wall plate is visible."
+    },
+    "movement_and_likely_before_after": {
+      "movement": "Only the woman has a readable path cue: her feet and two or three curved motion ticks behind the rear foot suggest movement from left toward the apartment door. The man has no travel cue and appears stationary at the door.",
+      "most_likely_read": "They are outside a closed apartment door and jointly testing it, with the woman turning or stepping back from the elevator side.",
+      "before_after_confidence": "The tote, closed umbrella, dry corridor, and lock-checking action can support before departure, but the frame alone does not lock that chronology.",
+      "competing_read": "Because the elevator looks fully closed and the woman carries outing items while approaching the apartment door, she can also read as having arrived from the elevator while the man opens or tests the door after an outing."
+    },
+    "unexpected_story": [
+      "The man may be opening the door after arrival rather than rechecking a lock before departure.",
+      "The woman may have just exited a now-closed elevator rather than gone toward it and returned.",
+      "The implausibly central lever creates a surreal or decorative-door story and weakens belief that his hand is operating a real latch-linked exterior lever."
+    ],
+    "visible_text": {
+      "main_copy_as_rendered": "He still checked\nthe lock twice.\n\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "brandmark": "@a.storyof.two",
+      "other_visible_text": [
+        "Small red embroidery on the man's shirt appears to read \"Café de Monte Carlo\"; the painterly glyphs are not perfectly crisp, but it is unmistakably additional lettering."
+      ],
+      "text_uncertainties": [
+        "The exact accent and first-line glyphs of the shirt embroidery are slightly uncertain at native size."
+      ]
+    },
+    "uncertainties": [
+      "A single still cannot prove that the man 'stayed' at the door; only his stationary pose and lack of movement marks support it.",
+      "The woman's closed or downcast eyes do not establish a precise gaze target.",
+      "The elevator's center seam can be described as a very narrow dark line, but it reads as a normal fully closed seam rather than a visible remaining opening.",
+      "The scene supports a shared door-check broadly, but the temporal phase before departure versus after arrival remains ambiguous without the copy."
+    ]
+  },
+  "semantic_verdict": {
+    "status": "REPAIR",
+    "pass": false,
+    "summary": "The frame clearly shows two people outside one fully closed brown apartment door, the woman's palm on its wood, the man's hand on a lever, separate bodies, and a woman-only left-to-right movement cue. It does not strictly pass the locked event because the lever is physically misplaced near the middle of a left-hinged door instead of near the right latch stile, the elevator reads fully closed rather than visibly nearly shut, the before-departure phase is not unambiguous, and unapproved shirt lettering is present.",
+    "primary_failure": "Ordinary door-hardware geometry: the lever's extreme inboard backset makes it look detached from the right-edge latch mechanism."
+  },
+  "intent_match": {
+    "exact_slide_copy": {
+      "expected": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+      "wording_spelling_capitalization_and_punctuation_match": true,
+      "line_breaks_match": false,
+      "evidence": "The rendered words and punctuation are exact, but the first sentence is additionally wrapped after 'checked', and the spacing between the first and second sentences reads as a paragraph gap rather than the single explicit newline in the locked copy."
+    },
+    "director_card_criteria": [
+      {
+        "criterion": "before departure",
+        "match": false,
+        "evidence": "Dry outing props and a check can suggest departure, but arrival from the elevator and opening after an outing remain plausible from pixels alone."
+      },
+      {
+        "criterion": "camera entirely outside",
+        "match": true,
+        "evidence": "The camera and both people are in the common corridor; no apartment interior is visible."
+      },
+      {
+        "criterion": "fully closed apartment door",
+        "match": true,
+        "evidence": "The slab is continuous and seated in its frame with no open threshold."
+      },
+      {
+        "criterion": "Zuv stays at the door and operates its exterior lever",
+        "match": false,
+        "evidence": "The man appears stationary and grips a door-mounted lever, but the lever rose is far from the right latch edge on a left-hinged door, so it does not read as credible latch-linked exterior hardware; a still also cannot prove he stayed."
+      },
+      {
+        "criterion": "only Aachu returns from the far-left nearly shut elevator",
+        "match": false,
+        "evidence": "Only the woman has a left-to-right motion cue, but the elevator reads fully closed rather than visibly nearly shut, and the path can also read as arrival from the elevator."
+      },
+      {
+        "criterion": "Aachu's palm visibly contacts the same brown apartment door's wooden center-left panel",
+        "match": true,
+        "evidence": "Her right palm and fingers visibly meet the brown wood of the same slab whose lever the man holds."
+      },
+      {
+        "criterion": "uninterrupted wood beneath and around Aachu's hand",
+        "match": true,
+        "evidence": "Brown wood grain and panel surface remain visible around the palm and all fingers; no wall, frame, switch, or metal plate occupies the contact."
+      },
+      {
+        "criterion": "no person-to-person touch",
+        "match": true,
+        "evidence": "Clear air separates both bodies and every visible limb."
+      }
+    ],
+    "brandmark": {
+      "match": true,
+      "evidence": "Exactly one small handwritten '@a.storyof.two' appears in the top-right."
+    },
+    "no_unapproved_text": {
+      "match": false,
+      "evidence": "The man's shirt contains extra red lettering that appears to read 'Café de Monte Carlo'."
+    },
+    "overall_match": false
+  },
+  "contradictions": [
+    {
+      "severity": "HARD_FAIL",
+      "type": "door_hardware_geometry",
+      "expected": "A single exterior lever on the right latch-side stile with an ordinary short backset from the right vertical edge.",
+      "observed": "Visible hinges are on the left, but the lever rose is roughly 300 pixels inboard from the right edge and sits near the middle of the slab's panel composition.",
+      "effect": "The man's grip does not credibly operate the door's latch; this is the creator-rejected central-handle defect."
+    },
+    {
+      "severity": "HARD_FAIL",
+      "type": "unapproved_visible_text",
+      "expected": "Only the exact locked slide copy and the top-right '@a.storyof.two' brandmark.",
+      "observed": "Additional red shirt embroidery appears to read 'Café de Monte Carlo'.",
+      "effect": "The raster violates the no-extra-text rule."
+    },
+    {
+      "severity": "FAIL",
+      "type": "elevator_state",
+      "expected": "A far-left elevator visibly about 80 percent closed, leaving a narrow remaining opening that reads as nearly shut.",
+      "observed": "The elevator leaves look fully closed with a normal center seam and no visible cabin opening.",
+      "effect": "The intended interrupted-departure timing is weakened."
+    },
+    {
+      "severity": "FAIL",
+      "type": "temporal_phase",
+      "expected": "Unambiguous before-departure return from the elevator side to recheck the apartment door.",
+      "observed": "The woman-only return cue is present, but fully closed elevator leaves and carried outing items also support arrival from the elevator after an outing.",
+      "effect": "Before departure is not locked by the image alone."
+    },
+    {
+      "severity": "FAIL",
+      "type": "gaze_and_force",
+      "expected": "The woman looks at her palm-to-wood contact and visibly performs a forceful functional panel push.",
+      "observed": "Her eyes appear closed or nearly closed, and the palm reads more as a gentle press or brace than a forceful check; no clear compression strokes are visible at the hand.",
+      "effect": "The copy carries more of her participation than the gesture does."
+    },
+    {
+      "severity": "FAIL",
+      "type": "exact_line_breaks",
+      "expected": "The locked copy's explicit line-break pattern.",
+      "observed": "The first sentence is additionally wrapped after 'checked', and the first-to-second sentence spacing behaves like an extra paragraph break.",
+      "effect": "The wording is exact, but the rendered break pattern is not."
+    }
+  ],
+  "repair_decision": {
+    "decision": "REJECT_ATTEMPT_AND_REGENERATE",
+    "promote": false,
+    "reason": "The creator-rejected lever position is a visible structural contradiction, not a cosmetic note. The extra shirt lettering is independently disqualifying, and the elevator, chronology, gaze, force, and copy-break issues require a fresh rendered proof.",
+    "required_repairs": [
+      "Keep the door left-hinged only if the latch remains on the right, and mount the lever rose on the right latch-side stile at a short ordinary backset from the right vertical edge.",
+      "Keep the lever at standard waist height, but remove it from the slab's central field or recessed-panel composition; show Zuv's right hand clearly depressing or tug-testing the correctly placed exterior lever.",
+      "Keep Aachu's right palm visibly on uninterrupted brown wood in the same door's center-left area, with a more functional locked-arm push and a readable gaze or attention cue toward that contact.",
+      "Show the elevator at far left as genuinely nearly shut through a small but visible residual opening or offset leaf, not merely an ordinary closed-door seam.",
+      "Preserve woman-only return cues from elevator side to apartment door and keep Zuv visually stationary at the door.",
+      "Remove all shirt embroidery and every other text element except the exact locked slide copy and the single tiny top-right '@a.storyof.two' brandmark.",
+      "Render the locked copy with its exact explicit line-break pattern.",
+      "Preserve the entirely exterior camera, fully closed apartment door, same-door dual contacts, clear body separation, and absence of person-to-person touch."
+    ],
+    "recheck_required": "Run a new image-first Event B audit on the regenerated pixels before any promotion."
+  }
+}

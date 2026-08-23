@@ -1,0 +1,302 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "e0f8c1c942f4204871afeed04431a5d4e387ef0082ddf83c978302d450c010be",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/proof_identity_qa",
+      "pass": false,
+      "evidence": "The exact proof has a third visible pocket hand, ambiguous Aachu hand side, exaggerated height gap, and face-shape drift despite passing people count and door topology."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/proof_event_b_critic",
+      "pass": false,
+      "evidence": "The exact proof preserves concerned tension, readable copy, and house style, but the white object and thumb-care action remain ambiguous at phone size."
+    }
+  },
+  "slides": [
+    {
+      "slide": 9,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-09.png",
+          "sha256": "e4c441664c93a2a285704afd460c254428d3dcce5f38bcc93d6083f08dd21dca",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "e4c441664c93a2a285704afd460c254428d3dcce5f38bcc93d6083f08dd21dca",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 3,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "ambiguous near hand",
+                  "action": "holds the folded white item toward Zuv",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "One wrist and forearm connect continuously to Aachu’s extended hand.",
+                  "occlusion_evidence": "No other Aachu hand is clearly separable from the folded item.",
+                  "contact_object": "folded white item",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "opens palm toward the offered item",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Right forearm and wrist connect continuously to the open palm.",
+                  "occlusion_evidence": "The wrist remains visible before the sleeve.",
+                  "contact_object": null,
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "peeks from the trouser or jacket pocket",
+                  "story_required": false,
+                  "attachment_visible": false,
+                  "attachment_evidence": "A skin-toned hand/thumb appears at the pocket without a needed story action.",
+                  "occlusion_evidence": "Most of the limb is hidden by the white jacket.",
+                  "contact_object": "pocket",
+                  "contact_geometry_pass": true,
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [
+                "Zuv’s non-focal left hand is visible at the pocket despite the out-of-frame lock."
+              ],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "e4c441664c93a2a285704afd460c254428d3dcce5f38bcc93d6083f08dd21dca",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 2,
+              "observed_arms": 2,
+              "expected_hands": 2,
+              "observed_hands": 3,
+              "unexpected_entities": [],
+              "unexpected_limbs": [
+                "One non-story pocket hand remains visible on Zuv."
+              ],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu and Zuv appear with no reflection or background actor, but the pocket hand exceeds the locked limb inventory."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 9,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Both complete visible silhouettes remain distinct from the open doorway and interior wall.",
+            "person_object_crop": "Arms, tissue, hand, catchall, and door have readable front-versus-behind order.",
+            "focal_detail": "The two focal wrists remain attached and do not penetrate the tissue, door, or wall."
+          },
+          "environment_planes": [
+            {
+              "object": "door and threshold",
+              "depth_order": "The doorframe sits between and behind the two separated foreground bodies.",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, shoulders, torso, sleeve, forearm, and hand remain continuously traceable.",
+              "body_regions": [
+            {
+              "region": "head through extended arm",
+              "near_object": "interior wall and threshold",
+              "expected_relation": "in_front_of",
+              "observed_relation": "in_front_of",
+              "boundary_continuous": true,
+              "occlusion_order_clear": true,
+              "solid_object_intersection": false,
+              "morph_or_merge": false,
+              "evidence": "Aachu's hair, shoulder, sleeve, forearm, and hand keep a continuous contour in front of the wall and threshold."
+            }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, shoulders, white jacket, right forearm, and open hand remain continuously traceable.",
+              "body_regions": [
+            {
+              "region": "head through open right hand",
+              "near_object": "open door and exterior landing",
+              "expected_relation": "in_front_of",
+              "observed_relation": "in_front_of",
+              "boundary_continuous": true,
+              "occlusion_order_clear": true,
+              "solid_object_intersection": false,
+              "morph_or_merge": false,
+              "evidence": "Zuv's head, jacket, right forearm, and open hand keep a continuous contour in front of the door and landing."
+            }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 9,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "e4c441664c93a2a285704afd460c254428d3dcce5f38bcc93d6083f08dd21dca",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The couple’s opposing bodies and extended hands create a clear foreground.",
+              "midground": "The open doorway and catchall hold the exchange and threshold geometry.",
+              "background": "Soft paper-faded interior surfaces preserve depth without extra actors.",
+              "focal_action": "A folded white item moves toward an open palm, but its identity and purpose remain ambiguous.",
+              "story_details": [
+                "loose key in catchall",
+                "red mark on Zuv’s thumb"
+              ],
+              "cause_effect": "Concerned gazes respond to the handoff, but the nick does not clearly cause the tissue offer at phone size.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID01_AACHU_FACE_04",
+        "ID02_AACHU_REEL_JALDI"
+      ],
+      "likeness_notes": "The proof narrows Aachu’s face and chin, lengthens the nose, thins the lips, and curls the hair more heavily than the softer oval face and wave pattern in both selected references."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID03_TOGETHER_18",
+        "ID04_ZUV_PORTRAIT_07"
+      ],
+      "likeness_notes": "Brows, skin tone, stubble, nose, and dark hair are close, but the proof makes Zuv’s face narrower and longer and the forward curl mass heavier than both references."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Neutral warm-ivory paper, visible grain, fine ink/pencil contours, transparent watercolor, tactile denim, and faded edges match the house language."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The main line visibly reads “Tum theek ho?” apni jagah. and one subtle @a.storyof.two appears at top-right with no other narrative text."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/proof_event_b_critic",
+      "reviewer_evidence": "A fresh critic inspected the decoded canonical proof pixels before receiving the board, copy, or director intent and found the handoff readable but semantically ambiguous.",
+      "source_director_event_fingerprint": "sha256:6d386aaecbc0a43158431d938155ad4405dbe741c0f3dbbd8ad265e5b0950bb5",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The proof reads as a tense or concerned threshold exchange, but not uniquely as care for a thumb nick.",
+      "relationship_turn": "Concern is visible in lowered gazes and the offered object, while the exact care-surviving-anger turn remains under-specified.",
+      "setup_payoff_evidence": "The loose key and doorway preserve continuity traces, but the tissue and nick do not dominate the handoff.",
+      "weakest_frame": "The only proof frame is blocked by an extra pocket hand, ambiguous tissue identity, and weak phone-size nick emphasis.",
+      "repair_decision": "Regenerate the same beat with exactly two visible owned right hands, no pocket hand, one unmistakable tissue, a larger readable nick, tighter face-and-hands framing, and stronger identity fidelity.",
+      "frames": [
+        {
+          "slide": 9,
+          "format": "instagram_post",
+          "file": "final/slide-09.png",
+          "status": "REPAIR",
+          "expected_silent_read": "Still annoyed, Aachu offers a tissue for Zuv’s nick and he opens his hand to receive it.",
+          "observed_image_first_read": "A solemn, hesitant handoff of an ambiguous folded white item between two people divided by a doorway.",
+          "core_action_legible": false,
+          "relationship_turn_legible": false,
+          "focal_hierarchy": "Faces and opposing dark/light silhouettes read first; hands and the ambiguous folded item second; doorway and loose key third.",
+          "hands_gaze_prop_legible": false,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [],
+          "unexpected_story": [
+            "The folded item can read as cloth, papers, or a returned belonging instead of one tissue for a thumb nick.",
+            "A visible pocket hand creates an unintended third-hand story and contradicts the locked two-hand action."
+          ],
+          "match_rationale": "Lowered gazes and an open palm preserve concern, but the proof does not make the tissue-for-thumb-nick action uniquely readable and violates the hand inventory.",
+          "evidence": "At 1080x1440 the folded white item remains in Aachu’s possession, Zuv’s right palm is open, a third hand peeks from his pocket, and the tiny nick is not the immediate focal read.",
+          "image_fingerprint": "sha256:e4c441664c93a2a285704afd460c254428d3dcce5f38bcc93d6083f08dd21dca"
+        }
+      ],
+      "issues": [
+        "Core tissue-for-thumb-nick action is not uniquely readable image-first.",
+        "Observed hand inventory exceeds the two-hand lock.",
+        "Aachu and Zuv likeness and the two-inch height relationship need repair."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/proof_event_b_critic",
+        "reviewer_run_id": "/root/proof_event_b_critic:turn-1",
+        "input_fingerprint": "sha256:623bc6dfc053171922f00885e656334cec1638199fe62603fe960b59d3ee8683",
+        "raw_response": "- **Who/where:** Two young adults face each other across an open doorway. The woman is left in dark clothes; the man is right in a white jacket. An interior surface behind them holds a bowl, plant, and loose key.\n- **Observable action:** She extends a folded white item with both hands toward his open, palm-up hand. The handoff is not yet complete.\n- **Relationship/emotional state:** Intimate but tense or concerned. Both lower their heads with serious expressions, attending to the exchange rather than each other.\n- **Likely before/next:** A serious conversation, arrival, or departure likely preceded this; she may have retrieved the item to return it. He may accept it next, or they may hesitate and continue talking.\n- **Focal hierarchy:** Faces and contrasting silhouettes first; hands and white object second; doorway and key third. The large handwritten line is prominent; the top-right handle is tertiary.\n- **Hands/contact:** Her hands cradle the object; his nearer hand is open and empty. No contact occurs. Finger boundaries near the object are soft but no obvious anatomical anomaly appears.\n- **Gaze:** Both look down toward the exchange, conveying gravity and hesitation while reducing direct emotional connection.\n- **Body distance:** About an arm’s length apart. The vertical doorframe visibly divides them, though both torsos angle inward.\n- **Object states:** Door open; white object remains with her; his hand remains empty; key lies unused. Ownership is unclear.\n- **Unexpected elements:** No extra person or reflection. The threshold strongly suggests separation or transition; the key might imply access, home, departure, or return, but the pixels do not settle which.\n- **Phone readability:** The couple, threshold, lowered gazes, and handoff read immediately. Main text is legible; the brand handle is delicate. The key and exact identity of the folded object may require zooming.\n- **Uncertainties:** The item could be cloth, tissues, papers, or another belonging. The image could depict return, departure, reconciliation, caretaking, or a request; indoor/outdoor orientation and travel direction remain unclear.\n\n**Semantic verdict:** The pixels clearly communicate a solemn, hesitant handoff between a couple divided by a doorway, but the object’s identity and exact relationship turn remain ambiguous.\n",
+        "raw_response_fingerprint": "sha256:a9703b03cfc73d5b062f3e57bd7cb1ab48445e795b8c23b711154332f95eeaa8",
+        "output_fingerprint": "sha256:d6fd06d26f694e41e264988e57e8bda8df24f098053efc4a176048f0fe73b46b"
+      }
+    }
+  }
+}

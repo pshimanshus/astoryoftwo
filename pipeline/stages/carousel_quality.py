@@ -581,6 +581,7 @@ class QualityContext:
     render_result: dict[str, Any]
     workspace_root: Path
     asset_root: Path | None = None
+    visual_qa_path: Path | None = None
 
 
 def quality_asset_root(context: QualityContext) -> Path:
@@ -591,6 +592,37 @@ def quality_asset_root(context: QualityContext) -> Path:
 
 def quality_asset_path(context: QualityContext, folder: str, filename: str) -> Path:
     return quality_asset_root(context) / folder / filename
+
+
+def quality_visual_qa_path(context: QualityContext) -> tuple[Path, str | None]:
+    """Resolve one explicit QA artifact without escaping or symlinking the package."""
+
+    raw_path = context.visual_qa_path or Path("visual-qa.json")
+    raw_path = Path(raw_path)
+    if not raw_path.is_absolute() and ".." in raw_path.parts:
+        return (
+            context.out_dir / raw_path,
+            "visual QA path must not traverse outside the carousel package.",
+        )
+
+    package_dir = context.out_dir.expanduser().absolute()
+    package_root = package_dir.resolve()
+    candidate = raw_path.expanduser() if raw_path.is_absolute() else package_dir / raw_path
+    try:
+        lexical_relative = candidate.absolute().relative_to(package_dir)
+    except ValueError:
+        return candidate, "visual QA path must stay inside the carousel package."
+
+    cursor = package_dir
+    for part in lexical_relative.parts:
+        cursor = cursor / part
+        if cursor.is_symlink():
+            return candidate, "visual QA path must not contain symlinks."
+    try:
+        candidate.expanduser().resolve().relative_to(package_root)
+    except (OSError, ValueError):
+        return candidate, "visual QA path must stay inside the carousel package."
+    return candidate, None
 
 
 def required_final_files(context: QualityContext) -> list[Path]:
@@ -933,7 +965,13 @@ def final_image_gate(context: QualityContext, final_files: list[Path]) -> dict[s
 
 
 def structured_visual_qa_gate(context: QualityContext) -> dict[str, Any]:
-    qa_path = context.out_dir / "visual-qa.json"
+    qa_path, qa_path_issue = quality_visual_qa_path(context)
+    if qa_path_issue:
+        return {
+            "pass": False,
+            "path": str(qa_path),
+            "failed": [qa_path_issue],
+        }
     failed: list[str] = []
     checks: dict[str, Any] = {}
     if not qa_path.exists():

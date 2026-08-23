@@ -1,0 +1,18 @@
+{
+  "schema_version": "full-deck-visual-qa-attempts/v1",
+  "scope": "creator_override_full_deck",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "scope": "creator_override_full_deck",
+      "image_set_sha256": "5bedca27e364ee33592f08a3325a962f0c83f3f396c663506bca583f9c98ebbb",
+      "quarantine_dir": ".internal/full-deck-visual-quarantine/attempt-01",
+      "origin_handoff_fingerprint": "sha256:597ead5ecab9ae85f986c177b9a5a7f4086350fb5f3efce00677fc7caa1d1455",
+      "status": "FINAL_AUDIT_FAILED",
+      "qa_issues": [],
+      "targeted_repair_instructions": []
+    }
+  ]
+}

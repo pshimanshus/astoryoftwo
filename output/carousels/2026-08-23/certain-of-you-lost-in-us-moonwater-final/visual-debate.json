@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "run_before": [
+    "visual plan finalization",
+    "carousel packaging",
+    "image generation"
+  ],
+  "agents": [
+    {
+      "agent": "C3A-VisualEvidencePlanner",
+      "file": "agents/carousel-visual-evidence-planner.md",
+      "verdict": "Use concrete scenes as evidence, not repeated props.",
+      "recommendation": "Root each slide in the story's actual behavior, pose, or setting."
+    },
+    {
+      "agent": "C3B-RomanceScenePlanner",
+      "file": "agents/carousel-romance-scene-planner.md",
+      "verdict": "Keep the romance scene on the unspoken emotional request.",
+      "recommendation": "Make every scene prove the emotional obstacle, not only the pretty surface."
+    },
+    {
+      "agent": "C3C-VisualContinuityJudge",
+      "file": "agents/carousel-visual-continuity-judge.md",
+      "verdict": "Approve only if the plan avoids one-setting repetition and keeps Zuv active.",
+      "recommendation": "Block generic couple stock poses, cluttered backgrounds, and prop-first storyboards."
+    }
+  ],
+  "options": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 28,
+      "case_for": "Lets the chosen story arc dictate scenes instead of repeating one object or setting.",
+      "risk": "Requires final prompt review to remove accidental prop repetition."
+    },
+    {
+      "name": "Photo-First Continuity",
+      "score": 27,
+      "case_for": "Strong when supplied images carry enough variety.",
+      "risk": "Can become place-first if the relationship truth is not foregrounded."
+    },
+    {
+      "name": "Minimal Symbol Plan",
+      "score": 26,
+      "case_for": "Simple, readable, and easy to generate.",
+      "risk": "Can slide into quote-card energy if not anchored in Aachu/Zuv behavior."
+    }
+  ],
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "selector_verdict": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "hard_fails_checked": [
+    "no home-interior default",
+    "story evidence must prove slide copy",
+    "story evidence must prove slide copy",
+    "no repeated object motif across every slide",
+    "no prop-first premise",
+    "no passive Zuv",
+    "no generic couple-stock tableau"
+  ],
+  "final_visual_plan": [
+    {
+      "slide": 1,
+      "copy": "I was never unsure of you.\nI was lost inside our life.",
+      "visual": "EXTREME-WIDE HIGH CORNER COVER, a deliberate flash-forward inside a dreamlike apartment at midnight. Exactly Aachu and Zuv kneel shoulder-to-shoulder on one familiar wooden dining table floating as a small raft in mirror-dark indigo water. Both faces are large enough to read and turned toward the same impossible view. The ordinary lamp is secured at the table center and the same two wooden oars rest fully visible and parallel along the table's outer sides. Three precise fragments from the dry room drift far behind at different distances: the doorway frame, the low shelf, and the pale rectangular rug. The exterior walls dissolve into moonlit open water. Their inside shoulders touch firmly. Aachu's outer left hand presses flat on the tabletop beside her knee; Zuv's outer right hand presses flat beside his knee; both inside hands remain fully hidden between their adjacent torsos. A gentle circular wake shows the table has turned without moving forward. Keep the upper-middle neutral ivory paper clean for copy. Exactly two people and only the specified domestic objects. No visible writing."
+    },
+    {
+      "slide": 2,
+      "copy": "Choosing each other had answered\nthe easiest question.",
+      "visual": "LOW DOORWAY-LEVEL LATERAL WIDE SHOT in the same apartment while it is still completely dry and almost empty. Exactly Aachu and Zuv carry one plain wooden dining table through the same single doorway into the room. Aachu is already inside, walking backward while gripping the near short end with both anatomically attached hands; Zuv follows forward through the doorway, gripping the far short end with both attached hands. Their feet share one believable travel axis and they exchange a small certain smile over the tabletop. One ordinary lamp waits unplugged on the floor, one low shelf remains against the back wall, the pale rectangular rug lies flat beneath them, and the same two simple wooden oars rest unnoticed against the shelf. A thin moonlit waterline no higher than a finger just touches the threshold behind Zuv as a quiet future clue. Clean upper paper for copy. Exactly two people and only the specified domestic objects. No visible writing."
+    },
+    {
+      "slide": 3,
+      "copy": "Then life began asking\nharder ones.",
+      "visual": "TRUE OVERHEAD WIDE SHOT as ankle-deep silver-blue water crosses the same room. Exactly Aachu and Zuv stand on opposite sides of the dining table while keeping it level between them. Aachu uses only her right hand to catch the ordinary lamp before it slides off the wet shelf; Zuv uses only his left hand to lift the same two lightweight wooden oars, tied together with one indigo cloth strap, from beside the flooding shelf onto the tabletop. Their free hands each press one separate table edge to stabilize it, four visible hands total with clear ownership. A small stream enters under the doorway while the pale rectangular rug begins lifting from the floor. Their gazes split toward their own practical task while their hips brace the same table. The water is luminous and surreal, never dangerous. Clean ivory above for copy. Exactly two people and only the specified objects."
+    },
+    {
+      "slide": 4,
+      "copy": "Some days, love did not tell us\nwhat to do.",
+      "visual": "TOP-DOWN MEDIUM-WIDE HERO RECEIPT after the room has dissolved into moonlit open water. Exactly Aachu and Zuv kneel on opposite ends of the same dining-table raft. Each owns exactly one simple wooden oar with both hands. GEOMETRY OVERRIDES GESTURE: render each oar first as one ruler-straight uninterrupted diagonal line, then place both of its owner's hands directly on that line. For each oar, the blade, lower shaft, both grip centers, upper shaft, and rounded handle cap must share one exact collinear axis from end to end. A clearly visible length of shaft continues beyond the upper hand on that SAME diagonal axis. Never draw a short vertical handle inside or above a hand; never change direction at a palm, wrist, or grip; no dog-leg, bend, hinge, joint, crossbar, fused second rod, or angled segment. Aachu's complete straight oar stays outside the raft's left edge, running upper-right to lower-left, and sweeps backward toward the stern. Zuv's separate complete straight oar stays outside the raft's right edge, running upper-left to lower-right on a parallel diagonal, and pushes forward toward the bow. The two parallel-looking but oppositely worked oars create one unmistakable circular whirl around the raft instead of forward travel. Their bodies lean into equal effort; both glance toward the spinning water with baffled, tired expressions, never anger at each other. HARD WARDROBE CONTINUITY: Aachu wears her black open overshirt over a black top with blue jeans; Zuv wears his white zip jacket with charcoal trousers. These exact clothes and colors override every outfit visible in a style reference; never render Aachu in a white shirt or Zuv in a navy T-shirt. The lamp stands freely at the center of the tabletop in one simple circular base collar and glows softly between them; no rope, cord, chain, wire, strap, rod, or tie-line extends from the lamp. All arms, wrists, hands, two straight oars and table edges remain fully separate and anatomically traceable. Clean neutral-ivory upper paper for copy. Exactly two people and only one table, two straight oars, and the free-standing lamp. No visible writing."
+    },
+    {
+      "slide": 5,
+      "copy": "Being lost together did not mean\nI had chosen wrong.",
+      "visual": "SLIGHTLY WIDER WATER-LEVEL OBLIQUE TWO-SHOT moments later. Exactly Aachu and Zuv remain kneeling shoulder-to-shoulder at the rear edge of the dining-table raft. Both complete bodies from head through knees, all four hands, both full oars, both blades, the lamp and every table edge are visible without overlap. Each owns one oar with a complete two-handed grip. Together they lift both dripping blades fully clear of the water, place Aachu's blade at the identical forward catch position along the left outer side and Zuv's at the matching forward catch position along the right outer side, and pause with the two shafts exactly parallel. Their shared exhausted laugh and direct side glance happen during that matched pause. The old circular wake widens and softens around them. The secured lamp sits clear of both shafts at the tabletop center. The horizon remains empty and unknown. Clean upper paper for copy. Exactly two people and only one table, two oars, and the secured lamp. No visible writing."
+    },
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "visual": "PALE-PEACH DAWN RELEASE, REAR THREE-QUARTER MEDIUM-WIDE just above water level, beginning from the exact matched catch pose on slide 5. Exactly Aachu and Zuv kneel side-by-side at the rear of the same dining-table raft, facing an open horizon with no visible shore. Aachu's wooden oar enters the water along the raft's left outer side and Zuv's enters along the right outer side. Each owns one complete two-handed grip; both blades now sweep backward in the same phase at matching angles, creating two short straight parallel wake strokes behind the raft and visibly carrying it out through a clean break in the old circular wake. They exchange one small side glance while continuing the experiment. The lamp remains secured at the table center, now dim beside dawn. Far behind, the same doorway frame, low shelf and pale rectangular rug from slides 1–3 dissolve into ivory mist. Keep faces readable, bodies at the same depth, every hand, oar, and table boundary separate, and the upper-middle paper clean for copy. Exactly two people and only one table, two oars, the secured lamp, doorway frame, shelf, and rug. No visible writing."
+    }
+  ]
+}

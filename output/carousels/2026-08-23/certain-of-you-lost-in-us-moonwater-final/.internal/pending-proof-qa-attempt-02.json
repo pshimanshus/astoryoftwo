@@ -1,0 +1,55 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "REJECTED_SPATIAL_INTEGRITY",
+  "image_set_sha256": "a044d6b7da2151b5d86d0464543204235d189e234258a00c1d7371966d34101b",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/moonwater_anatomy_qa_v2",
+      "pass": false,
+      "evidence": "Exactly two people, four arms, four hands, two oars, clean lamp, wardrobe and identity pass, but Zuv's oar changes axis at the upper hand and reads as a dog-legged rigid object."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/moonwater_event_b_proof_v2",
+      "pass": true,
+      "evidence": "The copy-hidden story read, circular wake, equal effort, tired non-angry emotion, exact text, brandmark and watercolor style pass, but this cannot override the hard shaft-topology failure."
+    }
+  },
+  "slides": [
+    {
+      "slide": 4,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-02/final/slide-04.png",
+          "sha256": "ab5dbc68e574b4787c4d30d65e209f988cc6a338711cbb541da9cdf92160fac6",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 4,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "ab5dbc68e574b4787c4d30d65e209f988cc6a338711cbb541da9cdf92160fac6",
+                "width": 1080,
+                "height": 1440
+              },
+              "pass": false,
+              "evidence": "Zuv's oar has a nearly vertical capped segment above the upper hand, then changes to a diagonal shaft toward the lower hand and blade."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "issues": [
+    "Zuv's oar is visibly dog-legged at the upper hand; the handle cap and main shaft are not collinear."
+  ]
+}

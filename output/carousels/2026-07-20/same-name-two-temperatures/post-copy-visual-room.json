@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO_AFTER_REPAIR",
+  "copy_locked": true,
+  "selected_system": "One continuous home incident with matched call-and-response camera rhymes.",
+  "systems_compared": [
+    {
+      "name": "Matched temperature frames",
+      "verdict": "WINNER",
+      "reason": "Slides 2/5 and 3/6 let the audience compare the same room and action with one changed variable."
+    },
+    {
+      "name": "Object-only controller receipts",
+      "verdict": "REJECTED",
+      "reason": "The controller proves state but cannot carry the asking, hearing and innocent arrival alone."
+    },
+    {
+      "name": "Split-screen normal versus sharp",
+      "verdict": "REJECTED",
+      "reason": "It turns a lived incident into a graphic explainer and weakens the sequential joke."
+    }
+  ],
+  "visual_format_anthropologist": "Use the seven-part carousel as a tiny continuous comedy scene, not two episodes or quote cards.",
+  "scene_evidence_director": "Controller state is the receipt: active, still active, then abandoned.",
+  "romance_blocking_director": "Her first body line remains relaxed; the second projects. His first body stays planted; the second cuts diagonally toward her.",
+  "typography_and_aspect_director": "Keep exact copy in clean upper-middle ivory space and tiny @a.storyof.two at top-right on native 1080x1440.",
+  "generation_prompt_director": "Match kitchen camera on Slides 2/5 and living-room camera on Slides 3/6 while changing only action temperature.",
+  "harsh_visual_selector": "GO only if Slide 7 reads as deliberate innocence rather than generic confusion.",
+  "independent_review": {
+    "reviewer_task": "/root/home_visual_room_20260728",
+    "initial_verdict": "REPAIR",
+    "repairs_applied": [
+      "Slides 2/5 now share one exact kitchen camera while continuing versus stopping the same cooking task.",
+      "Slides 3/6 now share one exact television-side camera while the single controller changes from active hands to the same sofa cushion.",
+      "Slide 4 is now a controller-and-attention detail with no clock, timeline or game UI.",
+      "Slide 7 is now an over-Aachu-shoulder kitchen view that prioritizes Zuv's clear guileless face and empty hands.",
+      "Entity counts are locked to 2, 1, 1, 1 partial, 1, 1, 2."
+    ],
+    "post_repair_verdict": "GO"
+  },
+  "rejected_patterns": [
+    "wedding or family-function setting",
+    "photo stage, tripod or floor marker",
+    "two unrelated episodes",
+    "generic doorway smiles",
+    "angry-wife or frightened-husband stereotype",
+    "public personal names"
+  ],
+  "issues": []
+}

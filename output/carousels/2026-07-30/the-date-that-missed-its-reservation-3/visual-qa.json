@@ -1,0 +1,251 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "image_set_sha256": "ceb56898220b95fdfd1c434666be6a0c6aea5392153f316007dd557d169ca534",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/slide7_identity_callpanel_fail",
+      "pass": false,
+      "evidence": "Exactly two people and coherent gross anatomy are present, but Aachu's right palm visibly contacts a separate metal corridor control plate rather than the apartment door; both identities also remain below final-proof fidelity."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/slide7_event_b_callpanel_fail",
+      "pass": false,
+      "evidence": "The exact pixels show Zuv checking the apartment-door handle while Aachu presses a separate wall-mounted control plate, so the image contradicts the shared apartment-door check required by the copy."
+    }
+  },
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "81d9cc3ecc37ca0ce31f61e9353e971f0ad827baa0f72ea48ec914d91401ce75",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "81d9cc3ecc37ca0ce31f61e9353e971f0ad827baa0f72ea48ec914d91401ce75",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "presses a metal corridor control plate",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The right shoulder, sleeve, forearm, wrist, palm, and fingers are traceable.",
+                  "contact_object": "metal corridor control plate",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The plate boundary remains visible around the contacting palm.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Aachu",
+                  "side": "left",
+                  "action": "holds the rolled umbrella",
+                  "story_required": false,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The left arm and umbrella grip are traceable.",
+                  "contact_object": "rolled umbrella",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The hand wraps the umbrella shaft.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "grips the apartment-door exterior lever",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "The rolled sleeve, forearm, wrist, and lever grip are traceable.",
+                  "contact_object": "apartment-door exterior lever",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The fingers visibly wrap the handle.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "81d9cc3ecc37ca0ce31f61e9353e971f0ad827baa0f72ea48ec914d91401ce75",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Only Aachu and Zuv appear, with four attributable arms and four anatomical hands."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": false,
+      "slides": []
+    },
+    "visual_richness": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "81d9cc3ecc37ca0ce31f61e9353e971f0ad827baa0f72ea48ec914d91401ce75",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "The two separated full-body figures and their active hands.",
+              "midground": "The closed apartment door, handle, wall control plate, tote, and umbrella.",
+              "background": "The dry corridor, nearly shut elevator, and potted plant.",
+              "focal_action": "Zuv checks the apartment-door handle while Aachu presses a different corridor control plate.",
+              "story_details": [
+                "nearly shut elevator",
+                "lifted returning heel",
+                "rolled dry umbrella"
+              ],
+              "cause_effect": "The departure staging draws Aachu back, but her hand terminates on the wrong object.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg",
+        "reel-jaldi.jpg"
+      ],
+      "likeness_notes": "The profile is generic and narrower than the references, with much wavier hair and altered body proportions."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg"
+      ],
+      "likeness_notes": "The beard and smile support attribution, but the face and body are narrower and the hair curlier than the references."
+    },
+    "dress_continuity": {
+      "pass": false,
+      "evidence": "The main color blocks survive, but Aachu's distinctive blouse and bag change and Zuv's shirt script moves to the back."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory paper, ink contours, transparent watercolor, and integrated handwritten copy match the house language."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "Aachu presses a wall-mounted corridor control plate rather than the apartment door, contradicting the shared check."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The locked slide copy and tiny top-right @a.storyof.two are visibly present."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The exact quarantined Instagram-post proof is 1080x1440 and hash-bound."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/slide7_event_b_callpanel_fail",
+      "reviewer_evidence": "A fresh critic inspected the exact pixels image-first and found parallel but different tasks: Zuv checks the apartment door while Aachu presses corridor control hardware.",
+      "source_director_event_fingerprint": "sha256:51879d64d3df1617493836e31a5fa40598baae88538932bedc74f12d953e7cb4",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The dry departure threshold is legible, but the shared apartment-door check is not.",
+      "relationship_turn": "Aachu returns toward Zuv but does not visibly join his door check.",
+      "setup_payoff_evidence": "The dry umbrella, elevator, and return heel preserve the callback while the wrong contact target breaks its payoff.",
+      "weakest_frame": "Slide 7 is blocked by Aachu's palm landing on a control plate.",
+      "repair_decision": "Regenerate with Aachu's palm decisively inside the same brown apartment-door outline, with wood under every finger and all wall controls removed.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "status": "REPAIR",
+          "expected_silent_read": "Aachu returns from the elevator and pushes the same closed apartment door whose handle Zuv tests.",
+          "observed_image_first_read": "Zuv tests the apartment-door handle while Aachu presses a separate metal corridor control plate.",
+          "core_action_legible": false,
+          "relationship_turn_legible": false,
+          "focal_hierarchy": "Copy first, then the two separated figures and their different hand targets.",
+          "hands_gaze_prop_legible": false,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [
+            "The copy says she checked it with him, but her palm is not on the apartment door."
+          ],
+          "unexpected_story": [
+            "She presses an elevator, intercom, or access-control plate while he checks the door."
+          ],
+          "match_rationale": "The callback geography survives, but the focal action lands on the wrong object.",
+          "evidence": "A complete rectangular metal plate is visible beneath Aachu's palm on the wall between the elevator and apartment door.",
+          "image_fingerprint": "sha256:81d9cc3ecc37ca0ce31f61e9353e971f0ad827baa0f72ea48ec914d91401ce75"
+        }
+      ],
+      "issues": [
+        "Aachu does not touch the apartment door.",
+        "The image shows two different tasks rather than one shared door check.",
+        "Aachu and Zuv identity fidelity is below final-proof level."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/slide7_event_b_callpanel_fail",
+        "reviewer_run_id": "slide7-event-b-callpanel-fail-20260730-01",
+        "raw_response_artifact": ".internal/event-b-attempt-01-raw-response.json"
+      }
+    }
+  }
+}

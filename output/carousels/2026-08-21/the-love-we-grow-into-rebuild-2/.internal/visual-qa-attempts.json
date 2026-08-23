@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "max_retries": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "retry_count": 0,
+      "image_set_sha256": "228bb32dd77579e16d2fe9aa2a5def03b4470a3c3e2c9536cccae906d318f374",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 7 instagram_post scene_entity_integrity reports unexpected_entities",
+        "slide 7 instagram_post must explicitly reject decorative clutter",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "visual_story_readability declares unresolved issues while claiming PASS.",
+        "visual_story_readability.review_provenance.input_fingerprint is stale for the exact review input.",
+        "visual_story_readability.review_provenance.output_fingerprint is stale for the structured review/reconciliation output."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post scene_entity_integrity reports unexpected_entities",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post must explicitly reject decorative clutter",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.input_fingerprint is stale for the exact review input.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.output_fingerprint is stale for the structured review/reconciliation output."
+      ]
+    },
+    {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "0bfebb773d3868acf4f311cee36ad097eaa850f094b4cd9f5bd6f16b9a6d29e2",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "visual_story_readability declares unresolved issues while claiming PASS."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].status must be PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS."
+      ]
+    },
+    {
+      "attempt": 3,
+      "retry_count": 2,
+      "image_set_sha256": "8dda4c05fe7d642ae8ba89f9fc869186fcdfc071154ded89796eba51bf9e6a31",
+      "status": "QA_PASSED",
+      "qa_issues": [],
+      "targeted_repair_instructions": []
+    }
+  ]
+}

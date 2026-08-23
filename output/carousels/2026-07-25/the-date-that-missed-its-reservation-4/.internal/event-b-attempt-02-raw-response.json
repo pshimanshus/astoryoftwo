@@ -1,0 +1,35 @@
+{
+  "who_where": "Exactly two people in a dry exterior apartment corridor, standing outside the fully closed door marked 302.",
+  "observable_action": "The man presses one palm to the door and grips/tests the lower handle with the other hand. The woman stands close behind him with one trailing raised foot, but her visible hand wraps around his waist/back rather than touching the door or lock.",
+  "relationship_state": "Playful and physically affectionate; she appears to accompany or hug him, not actively verify the lock.",
+  "likely_before_next": "He finishes testing the handle and they leave together; the door remains closed.",
+  "focal_hierarchy": "Large upper-center copy first; her backward-facing expression and the couple second; his hands and door hardware third.",
+  "hands_contact": "His two visible hands act on the door and handle. Her visible hand contacts him; no hand of hers visibly acts on the closed door, latch, handle, or lock.",
+  "gaze": "He looks down toward the handle. She looks backward toward the viewer, not toward the door, lock, or him.",
+  "body_distance": "Very close, with her torso pressed near his back/side and an arm around him.",
+  "object_states": "Door fully closed; upper slide latch visible; lower handle being held; key/fob dangles at the lower hardware; tote and tightly rolled dry umbrella present; clothes, floor, and corridor appear dry.",
+  "unexpected_elements": [
+    "Her embrace-like waist contact substitutes for the required shared lock-check action.",
+    "The key/fob appears attached to or hanging from the door hardware, inviting a wrong-key or unlocking read.",
+    "The umbrella appears carried inside the tote rather than clearly tucked under her arm."
+  ],
+  "phone_readability": "No phone is visible.",
+  "uncertainties": [
+    "The dangling key/fob may be in his hand or inserted/attached at the lock; the topology is visually ambiguous.",
+    "Her trailing foot suggests a turn-back, but does not prove that she returned to check the lock."
+  ],
+  "semantic_verdict": "FAIL: his lock check is legible, but shared checking is not. She never visibly acts on the closed door or lock.",
+  "intent_match": {
+    "expected_silent_read": "Before departure, he double-checks the closed apartment door; after teasing him, she turns back and actively tests it with him.",
+    "core_action_legible": "PARTIAL: his handle test is clear; her required co-check is absent.",
+    "relationship_turn_legible": "FAIL: affection is visible, but the reversal from eye-roll to sharing his ritual is not.",
+    "storyboard_match": "PARTIAL/FAIL: outside corridor, closed door, dry continuity, tote, umbrella, and trailing foot broadly match. Her palm is not beside the latch, her gaze does not join the check, and his separate car-key hand is not preserved.",
+    "copy_visual_contradictions": [
+      "Copy says she checked it with him; image shows her holding him while looking away.",
+      "Prompt requires her right palm on the door beside the latch; no hand of hers touches the door.",
+      "Prompt requires the car key held separately at his side; the key/fob instead hangs at the door hardware."
+    ],
+    "unexpected_story": "She appears to hug or playfully pull him while he alone checks the lock, creating supportive affection rather than shared compulsive checking.",
+    "repair_decision": "REGENERATE. Hard focal-action failure: place her right palm visibly flat on the closed door beside the latch, orient her attention toward the test, keep the returning foot/path, show him pulling the handle, and hold the car key clearly in his other hand at his side. Remove the waist embrace during the check."
+  }
+}

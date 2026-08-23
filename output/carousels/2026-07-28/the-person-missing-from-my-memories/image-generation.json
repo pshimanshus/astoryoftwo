@@ -1,0 +1,92 @@
+{
+  "status": "GENERATED_QUARANTINED",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 2,
+      "copy": "Not because you weren’t there.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-02.png",
+          "sha256": "7550d06af5a92481967f9d095cc703c9e49d708ce9cdeffc679cbac7eb3b6779",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-01/model-native-source/instagram-post-slide-02.png",
+            "sha256": "3093db73026c2ecf711f8226d38684777a0fc0d095f3134343bbbfc8d3d4c0cd",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Exact-image visual-qa.json is required before any proof can be promoted.",
+  "proof_state": "GENERATED_QUARANTINED",
+  "retry_count": 0,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 2,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-01",
+  "image_set_sha256": "c03b2386eae0822297327d459667abe12a6c11ad951036086ec19e623f8b8bdf",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 2,
+  "total_slide_count": 7,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      2
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:f78fc41a97077e1912cdc77bf580794394b5a7405b2848c5d99453e648d542ba"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:a67cc9016b7e6a3c512519e6f91c9b35a6fa964e45d24ef6ccf3ef928179d35c"
+      }
+    },
+    "files": [
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.prompt.txt",
+        "sha256": "sha256:99b7bf643c9a82450640e4d84b7eea5a52cf310b6fd57397875c81522158979d"
+      },
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.md",
+        "sha256": "sha256:c688591ed8695bade1468f60f43248fffbf5f2572ba7f9208ba7ea1ac6c7b823"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:1358392e9ab54ad45a1d1b6342282d103273546863f9f95296e3ad0443de6dbd"
+  }
+}

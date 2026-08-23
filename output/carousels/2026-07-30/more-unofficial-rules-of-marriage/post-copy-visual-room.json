@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "More unofficial rules of marriage\nthat nobody tells you",
+      "role": "Cover"
+    },
+    {
+      "slide": 2,
+      "copy": "Rule no. 1\n“Should we order something?”\nis not a question.\nThe decision has already been made.",
+      "role": "Cold Open"
+    },
+    {
+      "slide": 3,
+      "copy": "Rule no. 2\nIf one person asks, “Kahan hai?”\nThe other must find it\nwithout being told what “it” is.",
+      "role": "Mirror"
+    },
+    {
+      "slide": 4,
+      "copy": "Rule no. 3\nOld screenshots\ndo not have an expiry date.\nThey can be presented as evidence\nat any time.",
+      "role": "Spine"
+    },
+    {
+      "slide": 5,
+      "copy": "Rule no. 4\nThe person who did not pack\nwill always ask,\n“Charger rakh liya?”\nUsually when you’re already in the cab.",
+      "role": "Prolongation"
+    },
+    {
+      "slide": 6,
+      "copy": "Rule no. 5\nWi-Fi starts working\nthe moment your spouse enters the room.\nNobody knows why.",
+      "role": "Rhythm"
+    },
+    {
+      "slide": 7,
+      "copy": "Rule no. 6\nMidnight hunger\nis never one person’s emergency.\nThe entire house gets activated.",
+      "role": "Turn"
+    },
+    {
+      "slide": 8,
+      "copy": "Rule no. 7\nEvery unnecessary purchase\nbegins immediately after\na serious conversation\nabout saving money.",
+      "role": "Peak"
+    },
+    {
+      "slide": 9,
+      "copy": "Rule no. 8\nNobody is actually in charge.\nBoth just keep showing up.\nUsually saying, “Maine bola tha.”",
+      "role": "Payoff"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Slide-Led Evidence Plan",
+      "score": 29,
+      "case_for": "Best preserves the locked copy while proving each beat through visible relationship behavior.",
+      "risk": "Must stay accountable to per-slide copy and avoid drifting into generic couple art."
+    },
+    {
+      "name": "Format-First Label System",
+      "score": 28,
+      "case_for": "Keeps the carousel visually legible and taggable when the concept depends on labels or a meme grammar.",
+      "risk": "Can become gimmicky if labels replace body language."
+    },
+    {
+      "name": "Cinematic Romance Blocking",
+      "score": 27,
+      "case_for": "Protects eye-lines, hands, distance, and emotional reversal.",
+      "risk": "Can become too soft or abstract if the hook needs deadpan specificity."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Slide-Led Evidence Plan",
+  "why_it_wins": "Slide-Led Evidence Plan wins because it keeps the visual system accountable to the selected story arc.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "More unofficial rules of marriage\nthat nobody tells you",
+      "visual_job": "Cover",
+      "scene": "Friday evening in their bedroom-living-room threshold. A half-packed suitcase is open. Aachu searches through clothes while Zuv crosses the room carrying two mugs and carefully stepping over a charging cable. They occupy different parts of the frame but exchange one familiar glance. The room is mildly unfinished, never dirty or cluttered.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "Rule no. 1\n“Should we order something?”\nis not a question.\nThe decision has already been made.",
+      "visual_job": "Cold Open",
+      "scene": "Aachu and Zuv sit at opposite ends of the sofa during packing. One performs a casual asking gesture while the other is already selecting dishes on the phone placed between them. Both lean toward the same phone, revealing that the question was ceremonial rather than undecided.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "Rule no. 2\nIf one person asks, “Kahan hai?”\nThe other must find it\nwithout being told what “it” is.",
+      "visual_job": "Mirror",
+      "scene": "During packing, Zuv urgently searches around the suitcase for the room keys while the keys already dangle visibly from the fingers of his raised searching hand. Aachu pauses beside the suitcase and silently points at his hand, familiar rather than mocking.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "Rule no. 3\nOld screenshots\ndo not have an expiry date.\nThey can be presented as evidence\nat any time.",
+      "visual_job": "Spine",
+      "scene": "Zuv confidently gestures that he never said something. Aachu calmly turns her phone toward him with old message evidence already prepared. His free hand freezes mid-defence and his expression collapses into a sheepish smile; she remains composed, not triumphant or hostile.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "Rule no. 4\nThe person who did not pack\nwill always ask,\n“Charger rakh liya?”\nUsually when you’re already in the cab.",
+      "visual_job": "Prolongation",
+      "scene": "Aachu is already seated in the waiting cab with both travel bags stacked beside and across her knees. Zuv, carrying only his phone, leans through the open cab door and asks with casual late confidence. Aachu slowly turns toward him with a dry, disbelieving look; he realizes the timing and gives a sheepish half-smile. No charger appears anywhere. The joke is carried by luggage ownership, timing and reaction.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 6,
+      "copy": "Rule no. 5\nWi-Fi starts working\nthe moment your spouse enters the room.\nNobody knows why.",
+      "visual_job": "Rhythm",
+      "scene": "Inside the hotel, Aachu crouches near a router after trying every fix. Zuv casually enters through the bathroom doorway doing nothing. At that exact moment the router's lights become steady and the nearby laptop changes from a disconnected symbol to a simple connected symbol. Aachu slowly looks up at him, personally betrayed by technology; he gives a helpless shrug.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 7,
+      "copy": "Rule no. 6\nMidnight hunger\nis never one person’s emergency.\nThe entire house gets activated.",
+      "visual_job": "Turn",
+      "scene": "Blue hotel night after one person admits hunger. Show the consequence rather than the whisper: both are fully activated. Aachu sits forward comparing food options while Zuv pulls on slippers and empties their remaining snack bag onto the bed between them. Their separate tasks form one shared operation.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 8,
+      "copy": "Rule no. 7\nEvery unnecessary purchase\nbegins immediately after\na serious conversation\nabout saving money.",
+      "visual_job": "Peak",
+      "scene": "The next afternoon, Aachu and Zuv leave a local market carrying one beautiful but obviously impractical oversized lamp together. A folded budget note sticks harmlessly from a pocket. Both look from the object to each other with equal guilt and delight; the purchase physically requires their cooperation.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 9,
+      "copy": "Rule no. 8\nNobody is actually in charge.\nBoth just keep showing up.\nUsually saying, “Maine bola tha.”",
+      "visual_job": "Payoff",
+      "scene": "Back home, Aachu and Zuv try to carry the travel bags and oversized lamp through the doorway together. The lamp begins to slip; both catch and stabilize it in the same instant. Once safe, each points lightly at the other with a free finger and they break into laughter, shoulder-to-shoulder. This returns to slide 1's home geography, but now their movement is synchronized and the shared object connects them.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Keep copy in generous warm-paper negative space near the relevant person or focal action; protect faces and hands.",
+    "reels_stories_9x16": "Recompose natively with taller breathing room; do not crop, resize, pad, or extend the 3:4 artwork.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside artwork."
+  },
+  "generation_prompt_brief": {
+    "style_lock": "premium romantic watercolor-and-ink illustration with established Aachu/Zuv identity references",
+    "copy_lock": "Render exact slide copy inside the generated artwork.",
+    "negative_prompt_additions": [
+      "no generic couple stock art",
+      "no quote-card-only layout",
+      "no copied reference frames or likenesses",
+      "no passive Zuv",
+      "no Aachu-as-the-joke framing"
+    ]
+  },
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

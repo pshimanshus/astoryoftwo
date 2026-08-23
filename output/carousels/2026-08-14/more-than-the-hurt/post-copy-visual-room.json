@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "trigger_phrase_or_event": "copy locked in package before prompt/image handoff",
+  "run_after": [
+    "copy.json",
+    "approved slide copy"
+  ],
+  "run_before": [
+    "visual-debate.json finalization",
+    "visual-plan-quality.json finalization",
+    "prompt-pack.json finalization",
+    "image generation"
+  ],
+  "agent_prompt_source": "agents/carousel-post-copy-visual-room-orchestrator.md",
+  "copy_lock": [
+    {
+      "slide": 1,
+      "copy": "You disappointed me.\nFor a while,\nthat was all I saw.",
+      "role": "Cover / broken-promise hook"
+    },
+    {
+      "slide": 2,
+      "copy": "Hurt can make\none moment look like\na whole person.",
+      "role": "Cold Open / visual distortion"
+    },
+    {
+      "slide": 3,
+      "copy": "I began judging\nevery memory\nthrough that moment.",
+      "role": "Deepening / concrete memory proof"
+    },
+    {
+      "slide": 4,
+      "copy": "But pain knows\nwhat happened,\nnot everything about you.",
+      "role": "Turn / accountability without pressure"
+    },
+    {
+      "slide": 5,
+      "copy": "So I looked at you again.",
+      "role": "Choice / direct re-seeing"
+    },
+    {
+      "slide": 6,
+      "copy": "You had disappointed me.\nYou were not\na disappointment.",
+      "role": "Payoff / whole-person recognition"
+    }
+  ],
+  "agents": [
+    {
+      "agent": "Visual Format Anthropologist",
+      "verdict": "GO",
+      "prompt_summary": "Extract visual mechanics from references without copying frames, likenesses, or exact labels."
+    },
+    {
+      "agent": "Scene Evidence Director",
+      "verdict": "GO",
+      "prompt_summary": "Prove every locked slide through concrete Aachu/Zuv behavior, not decorative illustration."
+    },
+    {
+      "agent": "Romance Blocking Director",
+      "verdict": "GO",
+      "prompt_summary": "Define wants, hidden needs, eye-lines, hands, posture, distance, and joke-to-tenderness movement."
+    },
+    {
+      "agent": "Typography And Aspect Director",
+      "verdict": "GO",
+      "prompt_summary": "Plan readable text and brandmark placement independently for every request-locked native output."
+    },
+    {
+      "agent": "Generation Prompt Director",
+      "verdict": "GO",
+      "prompt_summary": "Translate the selected visual system into specific final-generation and integrated-text constraints."
+    },
+    {
+      "agent": "Harsh Visual Selector",
+      "verdict": "GO",
+      "prompt_summary": "Select one system only after scoring copy alignment, relationship proof, visual variety, identity, aspect safety, and sendability."
+    }
+  ],
+  "visual_system_candidates": [
+    {
+      "name": "Cinematic Obstruction-to-Clearing Sequence",
+      "score": 30,
+      "case_for": "Turns the empty chair from absence, to obstruction, to occupied accountability, to cleared sightline.",
+      "risk": "Object continuity and exact two-chair inventory must stay locked."
+    }
+  ],
+  "cross_debate": [
+    "Keep the approved copy locked and make visuals do proof work.",
+    "Reject decorative quote-card scenes, generic couple stock poses, and repeated props.",
+    "Preserve the selected visual system unless visual-plan-quality records an explicit repair."
+  ],
+  "selected_visual_system": "Cinematic Obstruction-to-Clearing Sequence",
+  "why_it_wins": "The matched dining-room axis, chair obstruction, memory-frame state, and retained cold dinner let the images carry cause, accountability, and partial repair.",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "slide_visual_blueprint": [
+    {
+      "slide": 1,
+      "copy": "You disappointed me.\nFor a while,\nthat was all I saw.",
+      "visual_job": "Cover / broken-promise hook",
+      "scene": "Late-night dining room, medium-wide diagonal geography shot from Aachu's side of the table. Exactly Aachu and Zuv. Aachu sits in the lower-left at a table set for two, still and upright rather than collapsed or crying. One visibly cold, untouched second plate, a serving bowl with a settled surface, and a burned-low plain candle prove she waited. The single empty chair intended for Zuv dominates the center foreground and creates a physical barrier. Zuv has just entered through the background doorway, rain-damp and stopped mid-step when he sees the table; he is present but visually smaller than the empty chair. His phone and keys remain in his own hands for this arrival beat. Aachu looks at the empty chair, not at him. The visual must read without copy as: he promised to be here, he was not, and his absence has become the first thing she sees. Exactly two people; no restaurant, server, flowers, gifts, background people, portraits, readable clock numbers, random lettering, or melodramatic tears.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 2,
+      "copy": "Hurt can make\none moment look like\na whole person.",
+      "visual_job": "Cold Open / visual distortion",
+      "scene": "Same late-night dining room seconds later, low table-level view from just behind Aachu's right shoulder. Exactly Aachu and Zuv. The empty chair back fills the middle plane and clearly occludes part of Zuv's torso without intersecting or merging with him, so Aachu sees him through the geometry of the chair that represented his absence. Zuv is now fully inside the room. His keys already rest on a small side ledge; with one anatomically attached right hand, he deliberately places his phone face-down beside them, away from the table, while his left hand hangs open and empty at his side. He then stays beyond the chair rather than approaching or explaining with gestures. Aachu's partial profile and shoulder remain in the near foreground, her eye-line fixed through the chair slats toward him. The cold plate and burned-low candle stay visible at opposite lower corners. Camera compression makes the chair feel larger than him while keeping clear depth separation. No reflection, extra person, bouquet, apology note, speech bubble, readable clock, or random text.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 3,
+      "copy": "I began judging\nevery memory\nthrough that moment.",
+      "visual_job": "Deepening / concrete memory proof",
+      "scene": "Later that night, a wide single-person hallway shot with exactly Aachu and no live background figure. A short row of three small framed memories sits on a narrow console. Their interiors use only soft, non-figurative washes of the couple's recurring clothing colors, with no discernible faces or bodies. Two frames are already face-down, showing only plain backs. Aachu is in the act of turning the third and final frame face-down with her right hand; her left hand stays naturally at her side. She looks at the moving frame, not toward camera. The repeated downturned rectangles create a visible action trail: one bad moment is being allowed to darken earlier memories. The dining room and Zuv are absent from view, but the cooled blue night light matches slides 1-2. Keep the action restrained and temporary, not destructive or terminal: no packed bag, removed ring, broken glass, torn paper, thrown object, crying fit, extra figure, mirror, silhouette, or random lettering.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 4,
+      "copy": "But pain knows\nwhat happened,\nnot everything about you.",
+      "visual_job": "Turn / accountability without pressure",
+      "scene": "Following morning, over-Aachu-shoulder view from the dining-room doorway. Exactly Aachu and Zuv. Aachu is a partial foreground shoulder and cheek, stopped at the threshold but not hidden. Zuv now sits in the once-empty dining chair at the table, fully visible rather than occluded by its back. The cold plate and burned-out candle remain untouched between them as factual evidence of the previous night; he has not cleared the scene, replaced it with gifts, or staged a grand apology. His phone and keys remain face-down on the distant side ledge. He sits with both feet grounded, hands open and separate on his own thighs, eyes raised to Aachu, waiting rather than reaching. Soft neutral morning window light removes the hard chair-shadow geometry from slide 2. No breakfast makeover, flowers, gift, written apology, kneeling, tears, touch, smile, background person, or live reflection.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    },
+    {
+      "slide": 5,
+      "copy": "So I looked at you again.",
+      "visual_job": "Choice / direct re-seeing",
+      "scene": "EDIT-TARGET COMPOSITION LOCK: rebuild the supplied failed proof as a table-across medium two-shot, not a side-by-side portrait. In the same sparse morning dining room, Aachu sits on the left side of a small rectangular table and Zuv sits on the opposite right side; a clearly visible strip of tabletop and open conversational distance separate their torsos. Frame both people from head through lap, with exactly Aachu and Zuv and all four hands fully visible. Low at the center foreground on the tabletop, place one genuinely palm-sized memory frame with no easel or kickstand. Freeze the physical action midway: the frame's bottom edge remains visibly planted on the tabletop, the frame plane is tilted only about forty-five degrees above the table, its plain blank back faces the viewer, and Aachu's attached right fingertips support one side edge. Her left hand stays open on her own thigh. Zuv sits upright opposite, both open hands separate on his own thighs, without reaching or leaning. Aachu has just moved her eyes from the frame to Zuv; they meet a direct unobstructed eye-line with neutral closed mouths, serious-soft faces, and no smile. Preserve guarded space: no touch, romantic inward lean, cuddling, or already-reconciled pose. At the far lower-left corner show only a thin cropped rim of one cold plate—no fork, food residue, full plate, cup, or meal spread. The background is only neutral warm-ivory paper grain plus a faint non-figurative window-light wash: no plant or foliage, shelf, cabinet, books, wall art, photograph, other frame, mirror, reflection, logo, sign, or decorative object. Exactly two human depictions total. Render no lettering anywhere on skin, clothing, furniture, props, or background. The only visible text in the entire image is the exact slide line 'So I looked at you again.' and the tiny top-right brandmark '@a.storyof.two'.",
+      "must_show": "A palm-sized frame visibly halfway through its lift, all four story-required hands, direct gaze, exact wardrobe, and no figurative background object."
+    },
+    {
+      "slide": 6,
+      "copy": "You had disappointed me.\nYou were not\na disappointment.",
+      "visual_job": "Payoff / whole-person recognition",
+      "scene": "Matched wide release using the same dining-room camera axis as slide 1, now in clear morning light. Exactly Aachu and Zuv and exactly two dining chairs. Aachu remains seated in her original chair. Zuv remains seated in the same once-empty chair from slides 1 and 4, but he has pulled and rotated that chair around to the adjacent side of the table, moving its back out of their sightline and leaving no third chair. Their body distance is conversational and smaller than slide 4, without a celebratory embrace. The cold plate and burned-out candle remain at the far edge of the table, proving the hurt was not erased. One memory frame stands upright near Aachu with its plain back toward the viewer; the other two stay face-down on the distant hallway console, making the ending a beginning rather than a magical restoration. Aachu speaks or listens with one relaxed hand open on the tabletop; Zuv listens with both hands visible and separate, no touching yet. Their faces are calm and fully recognizable. The image must read without copy as: the event is still part of the room, but it is no longer the only thing between them. No third chair, cleaned table, fresh meal, flowers, gifts, hug, kiss, halo light, hearts, background figure, live reflection, or instant-happy ending.",
+      "must_show": "Visible Aachu/Zuv relationship behavior that proves the exact copy."
+    }
+  ],
+  "typography_and_aspect_plan": {
+    "instagram_post_3x4": "Native 1080x1440 only. Keep exact copy in generous upper-middle warm-paper negative space; protect faces, hands, chair geometry, and memory-frame state.",
+    "brandmark": "Tiny low-contrast handwritten @a.storyof.two at top-right inside the artwork."
+  },
+  "generation_prompt_brief": "Generate one causal watercolor-and-ink sequence: obstruction and body distance change while the cold dinner remains. No alternate aspect ratio, poster system, or generic label treatment.",
+  "open_doubts": [],
+  "downstream_requirements": [
+    "visual-debate.json must preserve or explicitly repair this selected visual system.",
+    "visual-plan-quality.json must review each locked-copy slide after this room.",
+    "prompt-pack.json must include the post-copy visual room winner and aspect/typography plan."
+  ]
+}

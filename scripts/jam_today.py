@@ -18,6 +18,7 @@ from scripts.start_agentic_session import load_research_partner_lens  # noqa: E4
 
 REQUIRED_CONTEXT = [
     "config/skills/creator-skill-stack.md",
+    ".agents/skills/a-story-storytelling-hook/SKILL.md",
     "config/skills/carousel-jam-runtime-context.md",
     "config/skills/carousel-jam-autopilot.md",
     "config/skills/carousel-story-director-persona.md",

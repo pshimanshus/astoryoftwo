@@ -1,0 +1,885 @@
+{
+  "status": "supplied",
+  "source": "Creator-approved mature-love route from the current chat on 2026-08-10, rebuilt after the creator rejected the earlier logistics-led visual deck",
+  "source_file": "output/concepts/2026-08-10/the-love-we-grow-into-creative-baseline.json",
+  "creative_authority": "model_first",
+  "guardrail_role": "engineering blocks only hard failures after the free creative pass",
+  "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance.",
+  "concept": {
+    "title": "The Love We Grow Into",
+    "human_truth": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart.",
+    "emotional_arc": "aspirational promise -> familiar small irritation -> requested space -> respectful nearness -> noticing the deeper need -> improvised roadside date -> funny shared-habit coda",
+    "format_shell": "A continuous roadside date story with a cover flash-forward, one causally linked pre-date diptych, and one explicit two-vignette storybook coda.",
+    "public_send_reason": "Send this to the person you want to grow into this kind of love with."
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "visual": "FLASH-FORWARD COVER, one continuous physical scene and decisive choice. Wide diagonal view of the fixed rain-damp service-lane geography. Exactly Aachu and Zuv stand full-length at the same depth beside the single charcoal compact sedan, safely parked parallel to the quieter curb with its silver five-spoke rear wheel and small red rear-light wedge visible. Across the divided road, the fixed warm terracotta restaurant doorway with muted sage awning is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, the fixed narrow blue-grey chai counter with rust-red canopy and EXACTLY TWO EMPTY dark-wood stools waits with no vendor, cups, food, or signage. Aachu has taken one visible step toward the two stools: her feet and torso move stall-ward, her right hand gives one open-palm invitation toward those stools, and her left hand visibly supports the strap of her red handbag on her own left shoulder. Zuv turns the route phone inward in his left hand and has begun one visible following step behind her, looking at Aachu rather than the screen. The diagonal movement must read without copy as: the original plan failed and they are actively choosing the smaller date together. The fixed deep-navy umbrella remains closed against the car. No chai has been served. No touch, generic standing pose, scooter, motorbike, helmet, road sign, random lettering, or extra person.",
+      "role": "Cover / public hook",
+      "emotion": "the first quiet decision to rescue the evening together",
+      "pose": "Full-length same-depth identity-proof two-shot with exactly a two-inch height difference. Aachu leads one step toward the empty stools, right hand making one open-palm invitation and left hand supporting her own shoulder-bag strap. Zuv follows one step, left hand turning the single phone screen inward and right hand naturally inside his own trouser pocket, gaze on Aachu. No embrace, pointing finger, exaggerated scale, cropped shoes, or generic romantic pose.",
+      "wardrobe": "Exact date-night clothing anchors from together-01.jpg: Aachu white wrap shirt, blue jeans, red shoes, red handbag; Zuv pale blue shirt, charcoal trousers, black-red shoes.",
+      "props": "one fixed charcoal compact sedan, one inward-turned phone, one fixed closed deep-navy umbrella, one fixed unlabelled blue-grey chai counter with rust-red canopy, exactly two empty fixed dark-wood stools, one fixed unlabelled restaurant doorway across the divider, Aachu's one red handbag",
+      "continuity_lock": "This flash-forward previews the turn in slide 6. Same car, road geography, weather, wardrobe, phone, umbrella, restaurant entrance, and chai stall continue through slides 3-6.",
+      "cta_intent": "A cold viewer should want to send the cover line to their partner.",
+      "hand_map": {
+        "scene_action_binding": "Aachu steps toward the empty stools, gestures to them with her right hand, and supports her bag with her left; Zuv turns one phone inward and follows.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 3,
+        "default_max_visible_hands": 3,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Lightly hold and support only her own red handbag strap on her left shoulder.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Make one open-palm invitation toward the two empty chai stools; touch nothing.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone lowered and turn its screen inward with no readable UI.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside his own trouser pocket with attached wrist and forearm visible.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "anonymous hand",
+          "phone in Aachu's hand",
+          "open umbrella",
+          "chai cup before the decision",
+          "shared or fused arm"
+        ]
+      }
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover keys, routes,\nand very small things.",
+      "visual": "SLIDE 2 COMPOSITION OVERRIDE. This locked storybook diptych overrides any generic 'two characters maximum', 'one clear focal action', and 'no collage' language elsewhere in the prompt. Render exactly TWO LARGE, READABLE, UNFRAMED left-to-right time vignettes in the lower half, separated only by a narrow open-ivory gutter; never tiny thumbnails and never a hard divider. One clear action per vignette. Exactly Aachu and Zuv appear in each vignette: exactly four intentional person depictions across the page, with no third panel or fifth figure. LEFT / KEYS, outside the apartment door before departure: one single car key with a distinct plain red fob lies alone on the corridor floor exactly midway between Aachu's and Zuv's shoes. Aachu and Zuv stand on opposite sides of it with matching hands-on-their-own-hips posture and look down at the same found key with the same small 'of course' expression. Neither points at the other, holds the key, searches a pocket, looks guilty, or appears to have rescued or corrected the other. RIGHT / ROUTE, visibly later inside the same single modest dark PARKED car: the EXACT SAME single red-fob key is visibly inserted in the ignition, forming the non-text travel bridge. One phone is fixed upright in a CENTRAL DASHBOARD CRADLE exactly between them, untouched by either person. Its screen shows one unmistakable doubled-back U-turn line and one location dot. Both look toward the same central screen with matching mildly exasperated expressions directed at the inconvenience, not at each other; all four right-vignette hands stay naturally below the crop and away from the phone. No readable words, icons, road labels, UI labels, or decorative micro-text. The intentional order reads only from object state: key found between them, same key in parked car, shared view of an unnecessary U-turn. No reflection people, duplicate key, handheld phone, blame gesture, scooter, motorbike, helmet, road sign, menu text, shop text, or invented lettering.",
+      "role": "Cold Open / concrete Aachu-Zuv proof",
+      "emotion": "comic proof that maturity does not erase petty irritation",
+      "pose": "Follow the two vignette actions exactly. Left: Aachu and Zuv stand on opposite sides of one floor key with mirrored hands-on-their-own-hips posture and matching mild exasperation; neither points, searches, holds the key, or blames. Right: both sit naturally in the parked car and look at one centrally mounted untouched phone with the same doubled-back route; all four hands stay below the crop and away from the device. No culprit coding, guilty expression, eye-contact confrontation, leaning together, touching, duplicate limb, handheld phone, or additional vignette.",
+      "wardrobe": "Same exact date-night clothing from slide 1 and together-01.jpg in both vignettes.",
+      "props": "one red handbag and one red-fob car key lying alone on the corridor floor between them in the left vignette; the exact same red-fob key inserted in the ignition, one untouched phone in a central dashboard cradle with one doubled-back U-turn line and dot, and the same dark-car interior in the right vignette",
+      "continuity_lock": "This is a permitted two-time storybook diptych, not two simultaneous couples. The same red-fob key moves from neutral floor space between them on the left to the car ignition on the right, visibly proving door-before-car order. Mirrored reactions to two centrally placed objects carry shared inconvenience into slide 3 without assigning either partner blame.",
+      "cta_intent": "The viewer recognizes their own tiny pre-date fights and swipes to see what happens when one lands badly.",
+      "hand_map": {
+        "scene_action_binding": "Left vignette: Aachu's right hand lifts the single red-fob key clear of her bag strap while Zuv's right hand holds his visibly empty pocket mouth open. Right vignette: Zuv alone holds the low route phone in his left hand; Aachu touches no object.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 8,
+        "expected_visible_hands": 4,
+        "default_max_visible_hands": 4,
+        "hands": [
+          {
+            "owner": "Aachu-left-vignette",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Lift only the single red-fob key clear of her own handbag strap so the recovery is unmistakable.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-left-vignette",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden behind her own torso and handbag.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-left-vignette",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Hold only his visibly empty right trouser-pocket mouth open.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-left-vignette",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden behind his own torso.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-right-vignette",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone low with one obvious doubled-back U-turn line and one dot, without words or UI.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-right-vignette",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden behind his own torso; do not hold a steering wheel because the car is parked.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-right-vignette",
+            "side": "right",
+            "visibility": "visible_relaxed",
+            "action": "Rest on her own lap; hold nothing.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-right-vignette",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden beside her own torso.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "second or duplicate car key",
+          "duplicate key or second key fob",
+          "two phones",
+          "hard split-screen divider",
+          "extra figure",
+          "reflection person",
+          "steering while looking away",
+          "random UI text"
+        ]
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "Two authorized time vignettes: keys outside the apartment, then route inside the parked car.",
+        "people": [
+          {
+            "person": "Aachu-left-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "right arm",
+              "right wrist",
+              "right hand",
+              "hips",
+              "legs"
+            ],
+            "environment_planes": [
+              {
+                "object": "closed apartment door",
+                "expected_relation": "in_front_of_and_separate_from"
+              },
+              {
+                "object": "corridor wall",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+                "right hand lifting only the single red-fob key clear of her own handbag strap"
+            ],
+            "forbidden_intersections": [
+              "door or wall line through body",
+              "handbag merged into torso"
+            ],
+            "required_visible_separation": "Whole silhouette stays readable from door, wall, handbag, and Zuv."
+          },
+          {
+            "person": "Zuv-left-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "right arm",
+              "right wrist",
+              "hips",
+              "legs"
+            ],
+            "environment_planes": [
+              {
+                "object": "closed apartment door",
+                "expected_relation": "in_front_of_and_separate_from"
+              },
+              {
+                "object": "corridor wall",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+                "right hand holding only his own empty trouser-pocket mouth open"
+            ],
+            "forbidden_intersections": [
+              "door or wall line through body",
+              "arm merged into pocket or torso"
+            ],
+            "required_visible_separation": "Whole silhouette stays readable from door, wall, pocket, and Aachu."
+          },
+          {
+            "person": "Aachu-right-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "upper torso",
+              "right forearm",
+              "right wrist",
+              "right hand"
+            ],
+            "environment_planes": [
+              {
+                "object": "car seat",
+                "expected_relation": "touching_at_back_and_hips"
+              },
+              {
+                "object": "car window",
+                "expected_relation": "in_front_of_and_separate_from"
+              },
+              {
+                "object": "dashboard",
+                "expected_relation": "behind_and_separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "back and hips on her own seat",
+              "right hand resting on her own lap"
+            ],
+            "forbidden_intersections": [
+              "window or dashboard line through body",
+              "seat absorbing shoulder or hair"
+            ],
+            "required_visible_separation": "Upper-body contour stays readable from window, seat, dashboard, and Zuv."
+          },
+          {
+            "person": "Zuv-right-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "upper torso",
+              "left forearm",
+              "left wrist",
+              "left hand"
+            ],
+            "environment_planes": [
+              {
+                "object": "car seat",
+                "expected_relation": "touching_at_back_and_hips"
+              },
+              {
+                "object": "car window",
+                "expected_relation": "in_front_of_and_separate_from"
+              },
+              {
+                "object": "dashboard",
+                "expected_relation": "behind_and_separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "back and hips on his own seat",
+              "left hand holding only the phone"
+            ],
+            "forbidden_intersections": [
+              "window or dashboard line through body",
+              "phone merged into palm or torso"
+            ],
+            "required_visible_separation": "Upper-body contour stays readable from window, seat, dashboard, phone, and Aachu."
+          }
+        ],
+        "solid_objects": [
+          "closed apartment door",
+          "corridor wall",
+          "car seats",
+          "car windows",
+          "dashboard",
+          "ignition",
+          "single red-fob key",
+          "handbag",
+          "phone"
+        ],
+        "review_order": [
+          "whole-frame intentional vignette inventory",
+          "each person silhouette",
+          "environment boundaries",
+          "person-object depth and contacts",
+          "hands and local anatomy"
+        ],
+        "forbidden": [
+          "person absorbed into door, wall, seat, window, dashboard, handbag, or phone",
+          "hard divider through a body",
+          "unresolved front-behind relationship",
+          "extra person or reflection"
+        ]
+      }
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "visual": "Same fixed service-lane geography and charcoal compact sedan, now parked and fully separate from traffic. Medium-wide side view. Exactly Aachu and Zuv have just stepped out of the car after the two shared inconveniences on slide 2. Aachu is visibly MID-TURN and one step away from Zuv toward the roadside barrier—not looking at him, a phone, the restaurant, or the chai stools yet. Her feet, hips, torso, and gaze all move toward the open barrier-side space; her mouth holds the same small pressed line from their matching route reaction. Both hands are naturally tucked into her own front jean pockets with wrists and forearms visibly attached, and her red handbag hangs securely from her own right shoulder. Zuv remains planted near the car with BOTH hands naturally in his own trouser pockets. The single route phone is already fully hidden inside his LEFT pocket with no screen or edge visible. His gaze is quietly on Aachu, never on a device; his shoulders stay soft and he does not follow, fix, defend, point, or reach. Her withdrawal reads as needing a minute after accumulated tiny frustrations, not as accusing him. The fixed deep-navy umbrella remains closed against the car. No visible phone, blame gesture, touching, shouting, background person, human reflection, restaurant/shop lettering, scooter, motorbike, or helmet.",
+      "role": "Mirror / reader recognition",
+      "emotion": "the familiar sharp sentence after a small thing becomes too much",
+      "pose": "Medium-wide separated two-shot. Aachu is mid-turn and one step toward the barrier: feet, hips, torso, and gaze all move into the open space while both hands remain naturally in her own jean pockets. Zuv remains by the car with both hands in his own trouser pockets, the phone fully hidden in his left pocket, feet planted, shoulders soft, and gaze quietly on Aachu. No visible device, blame gesture, pointing, reaching, touching, shouting, rescue gesture, or comforting pose.",
+      "wardrobe": "Same exact date-night clothing from slide 1.",
+      "props": "one parked dark car, one phone fully hidden inside Zuv's left trouser pocket, one closed umbrella, Aachu's one red shoulder handbag, unlabelled restaurant entrance across divided road",
+      "continuity_lock": "Begins the continuous roadside sequence after slide 2. Aachu's matching mild exasperation becomes a visible turn into open space; the phone is already fully pocketed so no partner or device owns the blame. Same car position and road geography continue through slide 6.",
+      "cta_intent": "The sentence should feel recognizably childish without making either partner cruel.",
+      "hand_map": {
+        "scene_action_binding": "Aachu turns away with both hands naturally inside her own jean pockets; Zuv lowers one phone in his left hand and keeps his right hand in his own trouser pocket.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside her own left front jean pocket with attached wrist and forearm visible.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside her own right front jean pocket with attached wrist and forearm visible.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold one phone lowered at his own side.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside his own trouser pocket with attached wrist and forearm visible.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "touching Aachu",
+          "reaching toward Aachu",
+          "phone in Aachu's hand",
+          "extra hand",
+          "human reflection",
+          "shouting gesture"
+        ]
+      }
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nthat sometimes it means:\n“Give me a minute.\nDon’t go far.”",
+      "visual": "Same location and wardrobe, a few seconds later. Wide profile view with intentional empty space as the focal action. Aachu stands near the roadside barrier, facing away and breathing, not crying or gesturing; both hands are naturally tucked into her own front jean pockets with attached wrists and forearms visible, and her one red handbag hangs securely from her own right shoulder. Zuv has stopped the route and FULLY POCKETED the one phone inside his own left trouser pocket; no part of the phone or screen remains visible. He waits several feet behind Aachu beside the rear quarter of the same charcoal car, both hands naturally in his own trouser pockets with attached wrists and forearms visible. He does not approach, touch, point, speak, or keep solving. His torso remains softly oriented toward her while his feet stay planted. The distance gives her a minute but shows he did not leave. The restaurant and chai stall are faint geographic anchors only. Exactly two people; no phone on roof, forgotten/damaged-phone story, vendor, diner, passer-by, silhouette, reflection, sign, lettering, scooter, motorbike, or helmet.",
+      "role": "Spine / mature pause",
+      "emotion": "space without abandonment",
+      "pose": "Wide profile separation. Aachu faces away near the barrier with both hands inside her own jean pockets. Zuv stays several feet behind beside the car with both hands inside his own trouser pockets, feet planted and torso quietly oriented toward her. Nobody touches, reaches, looks at camera, leaves, cries theatrically, or performs a comforting gesture.",
+      "wardrobe": "Same exact date-night clothing from slide 1.",
+      "props": "same fixed charcoal car, one phone fully hidden inside Zuv's left trouser pocket, same fixed closed deep-navy umbrella against car, Aachu's one red shoulder handbag",
+      "continuity_lock": "The phone changes from held in slide 3 to fully pocketed in slide 4 and stays pocketed through slide 6. Body distance widens deliberately; nobody leaves the scene.",
+      "cta_intent": "This is the mature-love thesis, proven by blocking rather than a comforting hug.",
+      "hand_map": {
+        "scene_action_binding": "Neither person uses a hand for the emotional action; the face-down phone and body distance carry it.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 0,
+        "default_max_visible_hands": 0,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside her own left front jean pocket with attached wrist and forearm visible.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside her own right front jean pocket with attached wrist and forearm visible.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside his own left trouser pocket, where the single phone is fully pocketed, with attached wrist and forearm visible.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "naturally_occluded",
+            "action": "Remain naturally inside his own right trouser pocket with attached wrist and forearm visible.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "touching",
+          "reaching",
+          "phone in a hand",
+          "phone screen visible",
+          "extra hand",
+          "Zuv walking away",
+          "comforting embrace"
+        ]
+      }
+    },
+    {
+      "slide": 5,
+      "copy": "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "visual": "Same roadside moment, now a tighter over-Zuv-shoulder reaction view. In foreground, enough of Zuv's pale-blue partial profile and eye-line is visible to prove that he has turned away from route-fixing and is looking at Aachu; his shoulder stays separate from her silhouette. Aachu is in clear three-quarter profile looking NOT at the restaurant but at the EXACT SAME PAIR OF EMPTY dark-wood chai stools established on the cover, her irritation softened into the disappointment of missing ordinary time together. The strap of her same red handbag remains securely on her own right shoulder. The one phone remains fully hidden inside Zuv's left trouser pocket; the fixed closed umbrella remains against the same charcoal car. Nobody touches. The attention triangle—Aachu to empty stools, Zuv to Aachu—must read without text as: she wanted time together, not a better route. Exactly two people; no phone on roof, background person, human reflection, restaurant lettering, CLOSED sign, traffic sign, scooter, helmet, or white substitute car.",
+      "role": "Rhythm / deeper need",
+      "emotion": "attention shifts from the failed route to the person",
+      "pose": "Tight over-Zuv-shoulder reaction view cropped above the elbows. Show enough of Zuv's partial profile and eye to make his gaze toward Aachu unambiguous. Aachu looks only at the two empty chai stools, never at the restaurant. Keep clear air and contour separation between Zuv's shoulder and Aachu. No hands, touch, embrace, camera-facing pose, mutual gaze, or phone interaction.",
+      "wardrobe": "Same exact date-night clothing from slide 1.",
+      "props": "same charcoal car edge, same phone fully pocketed inside Zuv's left trouser pocket, same fixed closed umbrella, Aachu's one red shoulder handbag, exact same two empty chai stools from slide 1",
+      "continuity_lock": "Same positions as slide 4, but the camera moves closer. Aachu's first specific gaze target becomes the empty stools, while Zuv's gaze changes from waiting generally to noticing Aachu specifically.",
+      "cta_intent": "The image should reveal the deeper need before slide 6 resolves it.",
+      "hand_map": {
+        "scene_action_binding": "No visible hand action; gaze and the abandoned phone carry the beat.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 0,
+        "default_max_visible_hands": 0,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "out_of_frame",
+            "action": "Remain fully outside the crop.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "touching Aachu",
+          "reaching",
+          "phone in a hand",
+          "phone on car roof",
+          "phone screen visible",
+          "extra hand",
+          "Aachu looking at restaurant",
+          "Zuv gaze target unclear",
+          "person-shaped car-window reflection"
+        ]
+      }
+    },
+    {
+      "slide": 6,
+      "copy": "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "visual": "Same rain-damp evening and same fixed charcoal car, now viewed from a low three-quarter angle beside the fixed unlabelled blue-grey chai counter with rust-red canopy. Exactly Aachu and Zuv occupy the EXACT SAME TWO dark-wood stools established empty on slides 1 and 5, angled toward each other with body distance noticeably smaller than slide 4. The unreachable restaurant remains only a small warm glow across the divided road. Aachu holds exactly one small cutting-chai glass with both hands near her chest, finally smiling. Her same red handbag rests upright immediately beside her own stool, clearly owned and not fused with her body. Zuv has already opened one plain unbranded biscuit packet: his left hand holds the opened packet while his right hand offers exactly one removed biscuit into shared space. Exactly one second cutting-chai glass rests stationary on the stall ledge beside him. The one phone remains fully pocketed in Zuv's left trouser pocket and the fixed deep-navy umbrella remains closed against the car. No vendor, diner, pedestrian, restaurant text, stall text, menu, price, package lettering, PARLE-G, extra cup, second packet, white car, scooter, motorbike, helmet, or invented sign.",
+      "role": "Turn / improvised date",
+      "emotion": "lightness returns because the date was each other, not the reservation",
+      "pose": "Natural seated two-shot on separate stools, angled toward each other. Aachu holds one chai glass with both hands and smiles toward the offered biscuit. Zuv's left hand holds one already-open packet and his right hand offers exactly one biscuit. No additional gesture, touching, feeding, extra object, crossed limb, or cramped pose.",
+      "wardrobe": "Same exact date-night clothing from slide 1, slightly rain-damp but unchanged.",
+      "props": "same fixed charcoal car, one phone fully pocketed in Zuv's left trouser pocket, same fixed closed deep-navy umbrella, Aachu's one red handbag, exact same two stools from slides 1 and 5, exactly two cutting-chai glasses, one plain unbranded biscuit packet, exactly one offered biscuit",
+      "continuity_lock": "Pays off slide 1's flash-forward. The phone stays face-down; the road, car, restaurant, stall, weather, and outfits do not change.",
+      "cta_intent": "The light, funny receipt that makes the mature handling feel lived rather than heavy.",
+      "hand_map": {
+        "scene_action_binding": "Aachu holds one chai glass with both hands; Zuv opens one plain biscuit packet with both hands.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 4,
+        "default_max_visible_hands": 4,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Support the left side of exactly one small chai glass.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Support the right side of the same single chai glass.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Hold the lower half of one plain biscuit packet.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Hold and offer exactly one biscuit already removed from the opened packet.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "extra hand",
+          "third chai glass",
+          "chai glass in Zuv's hand",
+          "branded packet",
+          "package text",
+          "vendor hand",
+          "anonymous hand",
+          "impossible grip"
+        ]
+      }
+    },
+    {
+      "slide": 7,
+      "copy": "You still checked the lock twice.\nI still rolled my eyes.\n\nThen I went back\nand checked it with you.",
+      "visual": "SLIDE 7 COMPOSITION OVERRIDE. This locked chronological diptych overrides any generic 'two characters maximum', 'one clear focal action', and 'no collage' language elsewhere in the prompt. EARLIER CALLBACK TO BEFORE THE DATE, OUTSIDE THE APARTMENT ONLY. Render exactly TWO LARGE, READABLE, UNFRAMED left-to-right time vignettes separated only by a narrow open-ivory gutter; never tiny thumbnails and never a hard divider. One clear action per vignette. Exactly Aachu and Zuv appear in each vignette: exactly four intentional person depictions across the page, with no third panel or fifth figure. LEFT / BEFORE: medium-wide exterior-corridor view showing the complete door-to-lift axis, with the apartment door at frame-right and lift at frame-left. Zuv remains anchored beside the fully closed door and gives its exterior lever one small, calm verifying pull with his anatomical LEFT hand; his posture is relaxed, never straining as if stuck. Aachu is already three clear steps away, mid-stride toward the lift; both feet, knees, pelvis, and torso point from door to lift, and only her head turns back over her shoulder in an amused eye-roll. She does not touch the door. RIGHT / AFTER RETURN: slightly closer exterior-corridor view of the same door with identical orientation. Aachu is visibly back beside Zuv. Simultaneously, Zuv's anatomical LEFT hand gives the same exterior lever one small verifying pull while Aachu's anatomical RIGHT palm presses flat against the same closed slab immediately beside the latch edge, gently bracing it for the shared test. Both forearms, wrists, hands, and contact points are fully traceable; neither partner merely watches; the slab remains confidently flush with the jamb with zero open gap. At the instant the closed door holds, both lift their eyes from their separate contact points and exchange a small matching amused, satisfied glance—no panic, effort, frustration, or failed-entry body language. This shared glance is the visible result: they knowingly completed his fussy ritual together. REAL DOOR GEOMETRY IN BOTH VIGNETTES: one coherent left-hinged door leaf; hinges visibly attached along the LEFT slab edge; one continuous true RIGHT latch edge and jamb; the lever spindle sits only 8 to 10 percent of the full slab width inboard from that right edge, approximately one rose or escutcheon width, never one-quarter of the slab. Keep the right edge and jamb visibly adjacent to the hardware and unoccluded at handle height. No handle on wall or trim, central handle, floating rose, second lockset, or mirrored orientation between vignettes. CAMERA / TOPOLOGY: camera and all four depictions remain entirely in the common corridor outside the apartment. No apartment interior or threshold crossing. Preserve the same left-to-right geography in both vignettes. Return evidence comes only from the paired time contrast: outward full-body direction on the left, returned shared door contact plus matching amused glance on the right. No footprints, arrows, motion graphics, lock icons, checkmarks, or written sound effects. Keep every head, neck, shoulder, torso, sleeve, wrist, hand, and clothing edge separately traceable from the door slab, latch edge, jamb, wall, lift, and other person. No door or jamb line through a body and no person merged into wood or wall. No corridor signage, apartment number, background person, reflection person, portrait, silhouette, scooter, motorbike, or helmet.",
+      "role": "Payoff / earned send-save thesis",
+      "emotion": "they do not become less themselves; they become more together",
+      "pose": "Follow the two chronology vignettes exactly; this overrides generic care gestures. Left: Zuv anchors at the fully closed door and calmly verifies it with only his left hand on the edge-mounted lever; Aachu's full lower body moves toward the lift while only her head turns back in an eye-roll. Right: Zuv's left hand gives the same lever one small verifying pull while Aachu's right palm gently braces the same closed slab beside the latch edge; their separate actions are simultaneous, then their eyes meet in one small matching amused, satisfied glance. Relaxed shoulders and faces must read as a completed shared ritual, never forced entry or a stuck door. No embrace, reach between partners, open door, indoor body, or additional gesture.",
+      "wardrobe": "Same exact date-night clothing from slide 1 because this is the immediately-before-departure callback.",
+      "props": "one fully closed apartment door repeated consistently across two time vignettes, one correctly edge-mounted lever/lock, one lift doorway, Aachu's red handbag",
+      "continuity_lock": "Nonlinear coda: both vignettes occur immediately after the single key has been recovered from Aachu's handbag in slide 2's left vignette and before either person enters the car in slide 2's right vignette. Camera and both people remain outside the apartment. The door stays fully closed. Panel one proves prior outward travel toward the lift; panel two proves Aachu returned and checks the same closed door with Zuv.",
+      "cta_intent": "The cover's aspiration becomes a funny visible definition of growing together.",
+      "hand_map": {
+        "scene_action_binding": "Left vignette: Zuv calmly verifies the closed door with one small left-hand lever pull while Aachu walks toward the lift. Right vignette: Zuv repeats the small lever test while Aachu gently braces the same closed slab near the latch edge; the closed door holds and they exchange one amused, satisfied glance.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 8,
+        "expected_visible_hands": 3,
+        "default_max_visible_hands": 3,
+        "hands": [
+          {
+            "owner": "Zuv-left-vignette",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Grip and give only the correctly edge-mounted door lever one small calm verifying pull; no strain.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-left-vignette",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden in his own trouser pocket.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-left-vignette",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden behind her own handbag and hip while she walks toward the lift.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-left-vignette",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden behind her own torso; do not touch the door.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-right-vignette",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "Grip and give the same correctly edge-mounted lever one small calm verifying pull; no strain.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Zuv-right-vignette",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden in his own trouser pocket.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-right-vignette",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "Remain fully hidden behind her own torso and handbag.",
+            "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+          },
+          {
+            "owner": "Aachu-right-vignette",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "Gently brace one open palm flat against the same closed door slab immediately beside the right latch edge while Zuv gives the lever its small verifying pull.",
+            "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+          }
+        ],
+        "forbidden": [
+          "middle-of-door lock",
+          "lock without adjacent latch edge",
+          "open door",
+          "camera inside apartment",
+          "Aachu checks alone",
+          "Zuv merely watches",
+          "footprints",
+          "arrows",
+          "floating hand",
+          "unowned hand",
+          "door boundary through a body"
+        ]
+      },
+      "action_topology_contract": {
+        "applies": true,
+        "scene_action_binding": "Before departure, viewed entirely from outside in the apartment corridor. The apartment door is fully closed in both chronological vignettes. In the first vignette Aachu has moved toward the lift while Zuv checks the lock. In the second vignette Aachu returns, joins him, and both check the same fully closed door together.",
+        "copy_action_binding": "You still checked the lock twice. I still rolled my eyes. Then I went back and checked it with you.",
+        "camera_side": "outside",
+        "temporal_phase": "before_departure",
+        "door_state": "fully_closed",
+        "return_path_visible": true,
+        "return_evidence_mode": "paired_chronological_vignettes",
+        "vignette_order": "left_before_then_right_after_return",
+        "prior_direction_visible": "Aachu's feet, knees, pelvis, and torso point from the door toward the lift in the left vignette.",
+        "returned_endpoint_visible": "Aachu is back at the same latch edge, gently braces the slab during Zuv's small lever test, and shares an amused satisfied glance with him when the closed door holds.",
+        "resolved_result_visible": "The door remains securely closed without strain; relaxed shoulders and a matching amused satisfied glance show a completed shared verification, not failed entry.",
+        "shared_action_visible": true,
+        "forbidden": [
+          "camera on the inside of the apartment",
+          "post-date arrival substituted for before-departure callback",
+          "one partner checking alone in the second vignette",
+          "copy saying Aachu went back without the first vignette showing her prior direction toward the lift",
+          "lock or lever floating in the middle of the door slab",
+          "door edge or jamb intersecting either person's head, shoulder, torso, hand, or clothing",
+          "panic, straining, forced entry, or failed-opening body language",
+          "opening or cracking the door as proof of a lock check"
+        ],
+        "issues": []
+      },
+      "spatial_topology_contract": {
+        "scene_action_binding": "Two authorized outside-corridor time vignettes using the same fully closed door and the same left-to-right geography.",
+        "people": [
+          {
+            "person": "Zuv-left-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "left arm",
+              "left wrist",
+              "left hand",
+              "hips",
+              "legs"
+            ],
+            "environment_planes": [
+              {
+                "object": "closed door slab",
+                "expected_relation": "in_front_of_with_left_hand_contact_only"
+              },
+              {
+                "object": "right latch edge and jamb",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "corridor wall",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "left hand gripping only the exterior lever",
+              "feet on corridor floor"
+            ],
+            "forbidden_intersections": [
+              "door or jamb line through head, shoulder, torso, sleeve, wrist, hand, or leg",
+              "body merged into door or wall"
+            ],
+            "required_visible_separation": "Complete silhouette and lever arm remain traceable from shoulder to hand."
+          },
+          {
+            "person": "Aachu-left-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "hips",
+              "knees",
+              "legs",
+              "feet"
+            ],
+            "environment_planes": [
+              {
+                "object": "closed door slab",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "lift doorway",
+                "expected_relation": "moving_toward_but_separate_from"
+              },
+              {
+                "object": "corridor wall",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "feet on corridor floor",
+              "handbag against her own hip"
+            ],
+            "forbidden_intersections": [
+              "lift, door, wall, or gutter line through body",
+              "handbag replacing hip or arm"
+            ],
+            "required_visible_separation": "Full walking silhouette proves door-to-lift direction."
+          },
+          {
+            "person": "Zuv-right-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "left arm",
+              "left wrist",
+              "left hand",
+              "hips",
+              "legs"
+            ],
+            "environment_planes": [
+              {
+                "object": "closed door slab",
+                "expected_relation": "in_front_of_with_left_hand_contact_only"
+              },
+              {
+                "object": "right latch edge and jamb",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "corridor wall",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "left hand gripping only the exterior lever",
+              "feet on corridor floor"
+            ],
+            "forbidden_intersections": [
+              "door or jamb line through head, shoulder, torso, sleeve, wrist, hand, or leg",
+              "body merged into door or wall"
+            ],
+            "required_visible_separation": "Complete silhouette and lever arm remain traceable from shoulder to hand."
+          },
+          {
+            "person": "Aachu-right-vignette",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso",
+              "right arm",
+              "right wrist",
+              "right palm",
+              "hips",
+              "legs"
+            ],
+            "environment_planes": [
+              {
+                "object": "closed door slab",
+                "expected_relation": "in_front_of_with_right_palm_contact_only"
+              },
+              {
+                "object": "right latch edge and jamb",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "corridor wall",
+                "expected_relation": "separate_from"
+              }
+            ],
+            "allowed_contacts": [
+              "right palm flat on door slab beside latch edge",
+              "feet on corridor floor",
+              "handbag against her own hip"
+            ],
+            "forbidden_intersections": [
+              "door or jamb line through head, shoulder, torso, sleeve, wrist, palm, or leg",
+              "body merged into door, wall, Zuv, or handbag"
+            ],
+            "required_visible_separation": "Complete silhouette and palm contact remain readable beside Zuv's separate lever contact."
+          }
+        ],
+        "solid_objects": [
+          "closed door slab",
+          "left hinge edge",
+          "right latch edge",
+          "right jamb",
+          "exterior lever and rose",
+          "corridor wall",
+          "lift doorway",
+          "corridor floor"
+        ],
+        "review_order": [
+          "two-vignette intentional entity inventory",
+          "whole-person silhouettes",
+          "door leaf and latch geometry",
+          "door-to-lift geography",
+          "separate shared contacts",
+          "hands and local anatomy"
+        ],
+        "forbidden": [
+          "person absorbed into door, jamb, wall, lift, floor, or other person",
+          "door edge crossing any body region",
+          "mirrored door orientation",
+          "ambiguous front-behind-contact relationship",
+          "extra person or reflection"
+        ]
+      }
+    }
+  ],
+  "copy": {
+    "caption_recommended": "Maybe growing together is not becoming less annoying. Maybe it is learning which small things are only small things—and which ones are asking us to stay close.\n\nSend this to the person you still want to take on the date, even when the plan fails. 🤍",
+    "caption_alt": "Not a love without small fights. A love that learns what they are really about—and still stops for chai.",
+    "hashtags": [
+      "#astoryoftwo",
+      "#relationship",
+      "#couple",
+      "#love",
+      "#roadsidechai"
+    ]
+  },
+  "visual_setup": "HYBRID CINEMATIC EVIDENCE SEQUENCE. One coherent rain-damp evening date world. Slides 1 and 3-6 use the same fixed geography and non-text identifiers: one charcoal compact sedan parked parallel to the service-lane curb with the same silver five-spoke rear wheel, small red rear-light wedge, and rear-right three-quarter orientation; one narrow blue-grey metal chai counter with a small rust-red canopy and exactly two round dark-wood stools; one warm terracotta restaurant doorway with a muted sage awning across the divider; one closed deep-navy umbrella with a curved dark-wood handle leaning against the car; one wardrobe and weather state. None has a sign, word, logo, price, menu, person, or reflection. Slide 2 visibly bridges apartment to car: the same single key with a red fob moves from caught handbag strap to the parked car ignition, and Aachu's mild frustration carries into the route vignette and then slide 3. Slide 7 is an explicit earlier callback outside the apartment, rendered as two unframed chronological storybook vignettes separated by clean ivory paper; its final beat uses a shared amused glance and coordinated closed-door test so it reads as a ritual, never as a door they cannot open. No scooter, motorbike, helmet, menu text, shop text, road text, restaurant lettering, background people, live-looking reflections, footprints, arrows, or decorative labels anywhere. Wardrobe is locked to together-01.jpg: Aachu in white wrap shirt, blue jeans, red shoes, red handbag; Zuv in pale blue shirt, charcoal trousers, black-red shoes. Faces and body proportions also use together-18.jpg and reel-jaldi.jpg. Visual progression across slides 3-6: phone held -> phone fully pocketed; body distance widens -> gaze shifts from route to Aachu -> both occupy the same two chai stools.",
+  "identity_prompt_override": "CURRENT STORY IDENTITY OVERRIDE — HARD LOCK, overriding any generic dossier or character-bible adjective. Attach only the three original photos, never the generated contact sheet. together-01.jpg controls the full-body proportions, exact two-inch standing height difference, and the sole wardrobe for every vignette. reel-jaldi.jpg controls Aachu's real face, eye and brow shape, oval cheek structure, lips, and long dark hair. together-18.jpg controls Zuv's real face, thick brows, dark hair volume, nose, jaw, and short natural beard. Both have warm medium-brown South Asian skin and normal adult proportions at the same depth: Aachu is 5 feet 6 inches and Zuv is 5 feet 8 inches, exactly two inches apart. Never describe or render Aachu as petite, tiny, fair, fair-medium, or child-scaled; never render Zuv oversized, lanky, chiseled, or dramatically taller. Sole wardrobe for all seven slides and both time vignettes: Aachu wears the plain white wrap shirt, blue jeans, red shoes, and red handbag from together-01.jpg; Zuv wears the plain pale-blue shirt, charcoal trousers, and black-red shoes from together-01.jpg. No shirt lettering or embroidery, grey blazer, dark shirt, tinted glasses, bridal styling, lehenga, sherwani, dupatta, wedding jewelry, or alternate outfit."
+}

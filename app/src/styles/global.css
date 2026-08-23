@@ -1,0 +1,14 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: #15110d;       /* dark surround behind the phone */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

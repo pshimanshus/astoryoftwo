@@ -1,48 +1,58 @@
-# Common Context Prompt — Same Name, Two Temperatures
+# Common Context Prompt — The First “Suno” Never Counts
 
-Every image-creation agent must include this context verbatim before its slide-specific prompt.
+Every image-creation agent must use this shared context before its slide-specific prompt.
 
 ## Shared production context
 
-Use case: illustration-story
-Asset type: final Instagram carousel slide for @a.storyof.two
-Canvas: exact native 1080x1440 px portrait (3:4). Do not create a larger source for later export. Do not create Story, Reel, square, landscape, contact sheet, collage, diptych, or split-screen output.
+Use case: illustration-story carousel for `@a.storyof.two`.
 
-Create one premium hand-drawn romantic editorial illustration from the same continuous Indian family-function sequence. The story is literal and simple: she calls to him softly and later with unmistakable urgency; he gives the same answer at two different speeds. The family photograph is only the visible circumstance that explains the second urgency. It must not replace the tone-and-reaction premise.
+Output: one native `1080x1440` portrait raster per slide. Do not create Story, Reel, square, landscape, collage, diptych, split-screen, or contact-sheet outputs.
 
-Identity inputs and roles:
-- `config/references/identity/together/together-21.jpg`: primary wardrobe, body-proportion, height, and couple-presence anchor. Keep Aachu in the same grey printed kurta with understated bangles; keep Zuv in the same black shirt and tan trousers across all seven slides.
-- `config/references/identity/together/together-18.jpg`: shared face, warmth, smile, and couple-chemistry anchor.
-- `config/references/identity/aachu/face-04.png`: Aachu face anchor. Preserve her real oval face, dark almond eyes, strong brows, defined nose, full smile, long dark hair, warm medium skin, and expressive energy.
-- `config/references/identity/zuv/portrait-07.jpg`: Zuv face anchor. Preserve his real broad face, thick brows, dark eyes, defined nose, thick dark hair, short natural stubble beard, warm medium skin, and grounded humor.
-- `config/references/style-lock/observational-intimacy-premium/slide-01.png`: style-only reference. Never use its illustrated faces as identity.
+Story: one continuous lived-in evening at home. Zuv is absorbed in a PlayStation game in the living room. Aachu calls him normally from the kitchen. He automatically replies but does not move. She calls again in the unmistakably firmer familiar tone. He immediately abandons the controller, hurries to the kitchen, and then sincerely behaves as though this were the first time she called. The comedy is affectionate recognition, never fear, anger, incompetence, or a scolding-wife stereotype.
 
-Identity hard locks:
-- The two people must remain recognizably Aachu and Zuv in every slide, not generic Indian stock characters.
-- Aachu is 5'6" and Zuv is 5'8". Preserve the subtle two-inch height difference in standing two-shots; never make her tiny or him oversized.
-- Preserve real face structure, hair identity, skin tone, body proportions, and same continuous wardrobe across the deck.
-- Natural flattering anatomy only: correct hands and fingers, proportional limbs, believable feet, no crouched or cramped pose, no duplicated people or body parts.
+Continuity:
 
-House illustration style:
-- Observational Intimacy Premium watercolor-and-ink on clean warm ivory paper, never yellow, beige, parchment, or sepia.
-- Visible fine paper grain, delicate ink and pencil linework, transparent watercolor blooms, gentle crosshatching, imperfect organic edges, expressive faces, tactile fabric detail, muted premium palette with charcoal, soft grey, camel, dusty coral, faded sage, and restrained warm light.
-- Layered visual storytelling with foreground, midground, and background; one instantly readable relationship action; two to four story-relevant environmental details; no decorative clutter.
-- Exactly two people total: Aachu and Zuv. No relatives, photographer, background people, silhouettes, reflections, portraits, duplicated couple, or extra limbs. Prove the family-photo circumstance with an empty floral photo backdrop, empty chairs, a camera on an empty tripod, a floor photo marker, restrained marigold strings, and warm fairy lights.
+- Same apartment, same evening, same wardrobe, same couple, and one continuous cause-and-effect chain across all seven slides.
+- Living room and kitchen must be visibly connected by the same open doorway.
+- Slides 2 and 5 are the same kitchen camera, lens, doorway geometry, counter, stove, and prop layout.
+- Slides 3 and 6 are the same television-side living-room camera, lens, sofa, rug, controller, and doorway geometry.
+- The only controller appears in the living-room beats. It is in Zuv’s hands on Slides 1, 3, and 4; abandoned on the sofa on Slide 6; absent from the kitchen on Slides 2, 5, and 7.
+- Exactly the people authorized by each slide: both people on Slides 1 and 7; Aachu only on Slides 2 and 5; Zuv only on Slides 3, 4, and 6. No relatives, background people, reflections, portraits, photographs, silhouettes, or television avatars.
 
-Text and layout hard locks:
-- Bake the slide's exact approved ON-IMAGE TEXT into the illustration raster in warm charcoal, slightly imperfect hand-lettered ink.
-- Preserve every character, capitalization, punctuation mark, ellipsis, and exclamation mark exactly.
-- Place copy in generous clean upper-left or upper-middle paper space without covering faces, hands, the empty saved place, or the central action.
-- The only other visible text is one tiny low-contrast handwritten `@a.storyof.two` at the top-right. No personal name may appear anywhere in the image.
-- No random letters, signs, labels, banners, speech bubbles, thought bubbles, captions, UI, camera interface, countdown, watermark, or second social handle.
+Identity and wardrobe:
 
-Story and tone locks:
-- The visual chain is soft call -> hear -> relaxed response -> urgent call -> comic self-audit -> faster movement -> shared laughter.
-- Aachu is never an angry scolding wife. Her second call is urgent because the family-photo setup is ready and she is actively saving the empty place beside her.
-- Zuv is never frightened, submissive, incompetent, or apologetic. His freeze is affectionate comic recognition; he actively responds and joins her.
-- No rescue, danger, falling objects, shopping bag, market, dance cue, split-screen, temperature graphics, dictionary page, annotation system, or quote-card layout.
+- Use `config/references/identity/together/together-21.jpg` for the grey floral kurta, understated bangles, black shirt, tan trousers, body proportions, and the subtle two-inch height difference.
+- Use `config/references/identity/together/together-18.jpg` for shared face warmth and relaxed couple chemistry.
+- Use `config/references/identity/aachu/face-04.png` for Aachu’s softly oval face, full natural cheeks, expressive dark eyes, strong brows, softer nose–chin profile, warm medium skin, and long thick dark hair.
+- Use `config/references/identity/zuv/portrait-07.jpg` for Zuv’s broader face and jaw, thick brows, dark eyes, looser swept textured hair, short natural stubble, warm medium skin, and grounded build.
+- The creator explicitly accepted the selected Slide 7 proof as a stylized-likeness anchor. Preserve that proof’s wardrobe, palette, line language, apartment simplicity, and expression logic across the remaining slides; do not increase facial drift.
+
+House style:
+
+- Match `config/references/style-lock/observational-intimacy-premium/slide-01.png`.
+- Clean neutral warm-ivory/off-white paper, visible fine grain, delicate ink and pencil linework, restrained crosshatching, pale transparent watercolor blooms, imperfect organic edges, and generous negative space.
+- Muted charcoal, soft grey, camel, dusty coral, and faded sage. No yellow, parchment, beige, or sepia overload.
+- One instantly readable physical action per frame. Use only two to four story-relevant domestic details; no decorative clutter.
+- Home details may include the same sofa, rug, low table, abstract television glow, open doorway, plain refrigerator, stove, pan, wooden spoon, and one restrained plant shape.
+
+Text and brandmark:
+
+- Bake only the exact approved slide copy into the raster in warm-charcoal imperfect hand lettering.
+- Preserve every character, capitalization, punctuation mark, asterisk, and curly quotation mark exactly.
+- Keep copy in clean upper-left or upper-middle negative space without covering faces, hands, controller, spoon, doorway, or the focal action.
+- Add one tiny low-contrast handwritten `@a.storyof.two` at the top-right.
+- No personal names, game logos, UI, HUD, labels, random letters, speech bubbles, thought bubbles, banners, packaging text, or second watermark.
+
+Performance:
+
+- Aachu’s first request is casual and completely normal.
+- Her second call is firm, projected, and familiar—not furious, threatening, or caricatured.
+- Zuv’s first response is automatic: mouth answers while eyes, thumbs, torso, and feet remain committed to the game.
+- His Slide 6 movement is immediate and physical: empty-handed launch toward the kitchen with the single controller visibly left on the sofa.
+- His Slide 7 innocence is committed and guileless; Aachu answers it with contained dry recognition while continuing to cook.
 
 Rendering finish:
-- Publishable single-slide illustration, not a mockup.
-- No photorealism, 3D, glossy AI finish, anime, vector-flat art, over-saturated colors, or generic wedding-poster aesthetics.
-- Keep the family-function courtyard intimate and lived-in: soft floral strands, a few warm lanterns, fabric texture, an empty camera tripod where needed, and enough negative paper space to preserve the A Story house style.
+
+- Premium hand-drawn editorial illustration, not a mockup.
+- Natural flattering anatomy, attached hands, correct fingers, coherent prop contact, and believable depth.
+- No photorealism, 3D, glossy AI finish, anime, vector-flat art, generic stock couple, or quote-card treatment.

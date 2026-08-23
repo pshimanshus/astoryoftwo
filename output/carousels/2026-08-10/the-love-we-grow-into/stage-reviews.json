@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "observer": {
+    "agent": "C0.5-Jarvis",
+    "role": "Track requirements, stage completion, reviewer findings, and final gate status."
+  },
+  "reviews": {
+    "intake_reviewer": {
+      "stage": "intake",
+      "status": "PASS_WITH_NOTES",
+      "expected": [
+        "story captured",
+        "reference images exist",
+        "slide count accepted"
+      ],
+      "done": [
+        "identity-only concept-led run",
+        "7 requested slide(s)"
+      ],
+      "issues": [],
+      "notes": [
+        "No story photos supplied; identity references and the creative brief are the source of truth."
+      ]
+    },
+    "story_reviewer": {
+      "stage": "story",
+      "status": "PASS",
+      "expected": [
+        "human truth present",
+        "source story preserved"
+      ],
+      "done": [
+        "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart."
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "arc_reviewer": {
+      "stage": "arc",
+      "status": "PASS",
+      "expected": [
+        "slide plan count matches request",
+        "prompt count matches slide plan"
+      ],
+      "done": [
+        "7 planned slide(s)",
+        "7 prompt slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "visual_reviewer": {
+      "stage": "visual",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "every slide has copy, role, visual, emotion, CTA intent, and source images",
+        "post-copy visual room runs after copy lock",
+        "pre-generation visual screen passes before image handoff"
+      ],
+      "done": [
+        "checked 7 slide(s)",
+        "post-copy visual room: GO",
+        "visual screen: PASS"
+      ],
+      "issues": [
+        "visual-plan-quality.json missing structured director_storyboard evidence."
+      ],
+      "notes": []
+    },
+    "identity_consistency_reviewer": {
+      "stage": "identity_consistency",
+      "status": "PASS",
+      "expected": [
+        "selected identity bundle is present",
+        "each slide locks face structure",
+        "each slide locks facial expression",
+        "each slide locks clothing/body-language cues",
+        "each prompt includes Identity continuity lock before generation"
+      ],
+      "done": [
+        "3 identity reference(s)",
+        "7 reviewed slide(s)"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "prompt_reviewer": {
+      "stage": "prompt",
+      "status": "PASS",
+      "expected": [
+        "shared style prompt",
+        "shared negative prompt",
+        "self-contained slide prompts"
+      ],
+      "done": [
+        "style prompt present",
+        "negative prompt present"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "copy_reviewer": {
+      "stage": "copy",
+      "status": "PASS",
+      "expected": [
+        "caption",
+        "alt text",
+        "posting notes"
+      ],
+      "done": [
+        "caption_recommended",
+        "alt_text",
+        "posting_notes"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "success_standard_reviewer": {
+      "stage": "success_standard",
+      "status": "PASS",
+      "expected": [
+        "open agent alignment to the success goals",
+        "relationship-first premise",
+        "Story-Selling / golden-theme / story-director support",
+        "visual-room and visual-plan support",
+        "prompt-level success-goal handoff"
+      ],
+      "done": [
+        "standard source: wiki/insights/successful-carousel-standard.md",
+        "gate: PASS"
+      ],
+      "issues": [],
+      "notes": []
+    },
+    "asset_reviewer": {
+      "stage": "assets",
+      "status": "NEEDS_FIXES",
+      "expected": [
+        "local preview status recorded",
+        "final generated images packaged"
+      ],
+      "done": [
+        "render status: skipped",
+        "final images present: 0 / 7"
+      ],
+      "issues": [
+        "Missing final generated images: output/carousels/2026-08-10/the-love-we-grow-into/final/slide-01.png, output/carousels/2026-08-10/the-love-we-grow-into/final/slide-02.png, output/carousels/2026-08-10/the-love-we-grow-into/final/slide-03.png, output/carousels/2026-08-10/the-love-we-grow-into/final/slide-04.png, output/carousels/2026-08-10/the-love-we-grow-into/final/slide-05.png, output/carousels/2026-08-10/the-love-we-grow-into/final/slide-06.png, output/carousels/2026-08-10/the-love-we-grow-into/final/slide-07.png"
+      ],
+      "notes": [
+        "render_assets=False"
+      ]
+    },
+    "wiki_learning_reviewer": {
+      "stage": "wiki_learning",
+      "status": "PASS_WITH_NOTES",
+      "expected": [
+        "wiki page",
+        "wiki index link",
+        "working memory entry",
+        "graph entity"
+      ],
+      "done": [
+        "scheduled wiki and memory updates"
+      ],
+      "issues": [],
+      "notes": [
+        "Wiki and memory files are updated after final audit generation."
+      ]
+    }
+  }
+}

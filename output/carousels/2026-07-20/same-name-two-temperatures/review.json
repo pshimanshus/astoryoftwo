@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "status": "GO",
+  "decision": "GO",
+  "score": 43,
+  "score_total": 45,
+  "reviewed_on": "2026-07-28",
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 4,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 5,
+    "total": 29
+  },
+  "story_selling_gate": {
+    "status": "GO",
+    "source": "layer-e-story-selling.json",
+    "threshold": "28/30",
+    "selector_verdict": "A normal kitchen request and one sharper repeat become a universal, instantly sendable couple recognition joke.",
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "She calls from the kitchen while he is playing; the first request does not interrupt him, while the second does.",
+      "reaction": "His attention stays on the game after the first reply and his whole body launches after the second call.",
+      "eye_line_or_attention": "The doorway keeps each request spatially connected to his gaming attention and later turn.",
+      "hands_or_object_movement": "The controller stays active in both hands, then is abandoned visibly on the sofa.",
+      "silence_or_pause": "The *still playing* beat holds the comic proof before the second call.",
+      "consequence": "The second tone produces immediate physical movement through the same doorway.",
+      "reversal_or_payoff": "He reaches the kitchen and asks what happened as though he was only just called.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5,
+      "aachu_zuv_specificity": 5,
+      "concrete_proof": 5,
+      "zuv_emotional_role": 4,
+      "tender_thesis": 5,
+      "share_send_potential": 5,
+      "total": 29
+    }
+  },
+  "story_selling_hard_fails": [],
+  "story_director_gate": {
+    "status": "GO",
+    "hook": 10,
+    "story": 10,
+    "bridge": 9,
+    "zuv_role": 9,
+    "ending": 10,
+    "send_save_potential": 10,
+    "stage_scene": 10,
+    "verdict": "GO: the controller state, matched cameras and innocent arrival make the creator's literal incident readable without explanation.",
+    "blocks": []
+  },
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "pass": true,
+    "agent_alignment": {
+      "status": "PASS",
+      "instruction": "Protect the creator's literal home incident and human dialogue.",
+      "evidence": [
+        "Concept: a universal first-call-does-not-count couple pattern.",
+        "Copy: actual Hinglish dialogue with no explanatory romance thesis.",
+        "Visuals: controller active after the first call, abandoned after the second.",
+        "Payoff: the final innocent face completes the joke without summary copy.",
+        "Production: seven post-only native 1080x1440 images with exact text and brandmark."
+      ]
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  },
+  "checks": {
+    "golden_theme_alignment": 5,
+    "story_specificity": 5,
+    "photo_to_illustration_faithfulness": 5,
+    "character_likeness_prompting": 5,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 5,
+    "emotional_payoff": 5,
+    "channel_voice_fit": 5,
+    "absence_of_generic_couple_content": 4
+  },
+  "required_fixes": [],
+  "note": "Creator locked the exact copy and the PlayStation-to-kitchen route. Fresh Event A, proof generation and Event B remain required."
+}

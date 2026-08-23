@@ -3,15 +3,16 @@
   "title": "Shaadi Dictionary",
   "slug": "marriage-dictionary",
   "created_at": "2026-07-12",
-  "status": "proof_series_generated_pass_with_notes",
+  "status": "standard_format_copy_visual_story_rebuild_pending_creator_approval",
   "creator_trigger": "continue, one suggestion the main key word like soon, mine, sorry seems very genric and not chaosic or indian people like... also main word should shine and bigger tna dthen meaning the placement and handling of text should be better",
   "format": {
     "primary": "instagram_carousel",
     "post_final_size": "1080x1440",
     "post_source_size": "1440x1920",
-    "reels_stories_size": "1080x1920"
+    "locked_formats": ["instagram_post"]
   },
   "artifact_map": {
+    "format_contract": "format-contract.json",
     "slides": "slides.json",
     "copy": "copy.json",
     "post_copy_visual_room": "post-copy-visual-room.json",
@@ -29,6 +30,10 @@
     "Creator then requested less generic, more chaotic/Indian entries and stronger text hierarchy.",
     "Package keeps repaired copy locked and moves to repaired visual proof.",
     "Proof series now covers slides 1-7 and is ready for creator direction review.",
-    "Proofs are not final assets: dimensions, brandmark spacing, and separate 9:16 outputs remain open."
+    "Proofs are not final assets: dimensions, brandmark spacing, and separate 9:16 outputs remain open.",
+    "Creator rejected the proof direction and asked to rethink copy and visual storytelling.",
+    "New repair changes the engine to a one-day Indian married-language trail with event-first scenes.",
+    "Creator corrected that the package was not in the format we follow; slides.json now uses the standard list of slide objects with copy, role, visual, emotion, props, CTA intent, and continuity lock.",
+    "Current format lock is instagram_post only; Story/Reel and square are unrequested."
   ]
 }

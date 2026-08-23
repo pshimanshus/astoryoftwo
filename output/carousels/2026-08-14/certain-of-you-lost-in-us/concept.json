@@ -1,0 +1,1267 @@
+{
+  "title": "Certain of You, Lost in Us",
+  "content_lane": "Soft Love Notes",
+  "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
+  "golden_theme_contract": {
+    "required": true,
+    "skill": "config/skills/golden-viral-carousel-theme.md",
+    "reference": "config/references/golden-viral-carousel-theme-reference.md",
+    "first_principles_sources": [
+      "wiki/themes/calm-enough-for-chaos.md",
+      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md"
+    ],
+    "first_principles_rule": "Before submitting or scoring any new carousel idea, use these source files as the first-principles explanation of why the gold carousel worked: universal anti-ideal -> concrete Aachu proof -> Zuv steady response -> tender acceptance thesis.",
+    "rule": "Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise.",
+    "hard_fail_if": [
+      "The concept is primarily about an object, outfit, location, or photo aesthetic.",
+      "A stranger could not send the carousel to a partner without knowing the private photo context.",
+      "Aachu's expressive role is missing or mocked.",
+      "Zuv's calm role is passive, absent, or treated as background.",
+      "The concept is mostly about taking photos, looking beautiful, glowing, or waiting for one more picture without a deeper relationship tension.",
+      "One partner's role is only looking good while the other waits or holds things.",
+      "The final thesis is generic romance without a concrete proof trail."
+    ],
+    "default_five_slide_map": [
+      "Universal hook: one swipe-stopping relationship truth.",
+      "Aachu-specific reveal: her version of the truth.",
+      "Concrete proof: a drawable behavior, object, or ritual from the reference material.",
+      "Zuv role: what his calm, patience, care, or choice does emotionally.",
+      "Save/share thesis: the tender truth underneath the joke."
+    ],
+    "caption_formula": [
+      "Open with the universal relationship truth.",
+      "Show the couple-specific behavior, care, posture, object, or rhythm in the middle; name Aachu/Zuv only when natural.",
+      "End with a soft send/save-worthy thesis."
+    ]
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "human_truth": "Commitment can settle who we choose without giving us a map for every life we will have to build together.",
+  "emotional_arc": "absolute certainty in the person -> a shared plan opens -> shared life outgrows the plan -> the instructions fail -> the failed plan becomes a new surface -> they author only the next line together",
+  "slide_count": 6,
+  "source_story_summary": "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.",
+  "visual_style": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition by default: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork at 1080x1920 only when the creator explicitly requests Reel or Story; never add it as an automatic companion output. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
+  "target_voice": "Aachu/Zuv archive voice: warm, specific, playful underneath the tenderness",
+  "story_selling_contract": {
+    "skill": "config/skills/romance-story-selling-engine.md",
+    "references": [
+      "config/skills/carousel-story-director-persona.md",
+      "config/references/story-selling-canon/source-policy.md",
+      "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+      "config/references/story-selling-canon/concept-process-cards.md",
+      "config/references/story-selling-canon/rubric.md",
+      "config/references/story-selling-canon/story-selling-online.md"
+    ],
+    "minimum_score": 28,
+    "rule": "Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions."
+  },
+  "story_selling_decision": {
+    "contract": {
+      "skill": "config/skills/romance-story-selling-engine.md",
+      "references": [
+        "config/skills/carousel-story-director-persona.md",
+        "config/references/story-selling-canon/source-policy.md",
+        "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+        "config/references/story-selling-canon/concept-process-cards.md",
+        "config/references/story-selling-canon/rubric.md",
+        "config/references/story-selling-canon/story-selling-online.md"
+      ],
+      "minimum_score": 28,
+      "rule": "Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions.",
+      "source": "layer-e-story-selling.json",
+      "mode": "multi_room_thinking_engine"
+    },
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "process_influence_summary": "Card 20 supplies the saveable lesson; Card 07 keeps the ending rooted in imperfect real love.",
+    "score": {
+      "reader_identity_mirror": 5.0,
+      "romantic_conflict_stakes": 5.0,
+      "specificity_of_proof": 5.0,
+      "emotional_reversal": 5.0,
+      "visual_scene_clarity": 5.0,
+      "online_share_save_sell_potential": 4.0,
+      "total": 29.0
+    },
+    "threshold": "28/30",
+    "decision": "GO",
+    "hard_fails": [],
+    "selector_verdict": "GO: the blueprint route makes the relationship truth legible through equal, continuous action before the text is read.",
+    "authorial_flow": {
+      "relationship_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+      "human_story_setup": {
+        "cold_reader_doorway": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "visible_human_proof": "One blueprint grows into branching rooms, loses its route in rain, turns blank, and receives one new line from two equal hands.",
+        "active_partner_role": "Neither rescues the other; both repeatedly own the same problem and the same next action.",
+        "emotional_turn": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "shareable_setup": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "earned_payoff": "Commitment answers who; the couple keeps learning how through equal authorship."
+      },
+      "success_definition": {
+        "audience_success": "A cold viewer recognizes their own relationship and sends the deck to the person they are sure about.",
+        "creative_success": "The sequence reads silently as mutual choice, pressure, lost instructions, reinterpretation, and equal next-step authorship.",
+        "brand_success": "The route feels tender, observant, specific, and relationship-first rather than like a decorative quote card.",
+        "production_success": "Exact copy, Aachu/Zuv likeness, one tiny brandmark, 1080x1440 finals, visual QA, and final audit all pass."
+      },
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+        "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+        "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+        "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+        "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+        "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+        "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+        "blockers": []
+      },
+      "golden_theme_score": {
+        "universal_hook": 5.0,
+        "aachu_zuv_specificity": 5.0,
+        "concrete_proof": 5.0,
+        "zuv_emotional_role": 4.0,
+        "tender_thesis": 5.0,
+        "share_send_potential": 5.0,
+        "total": 29.0
+      },
+      "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+      "writer_rule": "Layer E is the source of truth; process cards are influences, not the answer.",
+      "story_context": "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how.",
+      "emotional_machine": "certainty in the person -> shared plan opens -> life outgrows the plan -> instructions fail -> failure is not a verdict -> one next line is authored together",
+      "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty."
+    },
+    "candidate_table": [
+      {
+        "name": "The House That Outgrew the Blueprint",
+        "story_lens": "A shared plan becomes an impossible house; when its route disappears, they turn it over and draw only the next line.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      },
+      {
+        "name": "The Unfinished Floor",
+        "story_lens": "A practical renovation scene carries the theme but loses the cover's dreamlike contradiction.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 27.0,
+        "golden_theme_score_total": 27.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "Two Maps, One Kitchen",
+        "story_lens": "Separate inherited instructions collide, but the metaphor becomes more argumentative than tender.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 25.0,
+        "golden_theme_score_total": 25.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "The Red-Thread Constellation",
+        "story_lens": "Beautiful connection symbolism, but too familiar and too weak on visible adult-life pressure.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 23.0,
+        "golden_theme_score_total": 23.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "The Paper Boat in a Storm",
+        "story_lens": "Dreamy and dramatic, but danger overwhelms the relational recognition and risks generic romance.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 21.0,
+        "golden_theme_score_total": 21.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "rooms": {
+      "source_memory_room": {
+        "name": "Context And Source Memory",
+        "status": "GO",
+        "agents": [],
+        "summary": "The relationship-first standard and creator preference ledger support a universal truth proved by specific couple action.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "story_meaning_room": {
+        "name": "Story Meaning Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The winning route separates certainty in the person from uncertainty inside shared adulthood.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {
+          "The House That Outgrew the Blueprint": 29.0,
+          "The Unfinished Floor": 27.0,
+          "Two Maps, One Kitchen": 25.0,
+          "The Red-Thread Constellation": 23.0,
+          "The Paper Boat in a Storm": 21.0
+        },
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "audience_algorithm_room": {
+        "name": "Audience And Algorithm Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The hook is instantly recognizable and the payoff gives couples language worth sending to each other.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "contrarian_repair_room": {
+        "name": "Contrarian Repair Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "Literal navigation symbols and generic romantic peril were rejected; concrete domestic architecture and equal action survived.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "stage_scene_room": {
+        "name": "Stage Scene Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "Every beat has readable object movement, gaze, distance, consequence, and reciprocity before copy is visible.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "final_synthesis_room": {
+        "name": "Final Synthesis Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The House That Outgrew the Blueprint is selected at 29/30 with no hard fail.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      }
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+      "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+      "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+      "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+      "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+      "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+      "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    },
+    "process_influences": [
+      {
+        "id": "successful-carousel-standard",
+        "title": "Successful Carousel Standard",
+        "influence_type": "living_standard"
+      },
+      {
+        "id": "card-20",
+        "title": "Saveable Lesson From One Scene",
+        "influence_type": "concept_process_card"
+      },
+      {
+        "id": "card-07",
+        "title": "Anti-Ideal To Real Love",
+        "influence_type": "concept_process_card"
+      }
+    ]
+  },
+  "layer_e_story_selling": {
+    "schema_version": "1.0",
+    "status": "GO",
+    "task_type": "carousel_idea",
+    "adaptation_target": "C-layer",
+    "rooms": {
+      "source_memory_room": {
+        "name": "Context And Source Memory",
+        "status": "GO",
+        "agents": [],
+        "summary": "The relationship-first standard and creator preference ledger support a universal truth proved by specific couple action.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "story_meaning_room": {
+        "name": "Story Meaning Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The winning route separates certainty in the person from uncertainty inside shared adulthood.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {
+          "The House That Outgrew the Blueprint": 29.0,
+          "The Unfinished Floor": 27.0,
+          "Two Maps, One Kitchen": 25.0,
+          "The Red-Thread Constellation": 23.0,
+          "The Paper Boat in a Storm": 21.0
+        },
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "audience_algorithm_room": {
+        "name": "Audience And Algorithm Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The hook is instantly recognizable and the payoff gives couples language worth sending to each other.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "contrarian_repair_room": {
+        "name": "Contrarian Repair Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "Literal navigation symbols and generic romantic peril were rejected; concrete domestic architecture and equal action survived.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "stage_scene_room": {
+        "name": "Stage Scene Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "Every beat has readable object movement, gaze, distance, consequence, and reciprocity before copy is visible.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      },
+      "final_synthesis_room": {
+        "name": "Final Synthesis Room",
+        "status": "GO",
+        "agents": [],
+        "summary": "The House That Outgrew the Blueprint is selected at 29/30 with no hard fail.",
+        "inputs_used": [
+          "creative-baseline.json",
+          "visual-plan-quality.json"
+        ],
+        "debate_records": [],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+          "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": [
+          "The House That Outgrew the Blueprint"
+        ]
+      }
+    },
+    "exploration_routes": [
+      {
+        "name": "The House That Outgrew the Blueprint",
+        "story_lens": "A shared plan becomes an impossible house; when its route disappears, they turn it over and draw only the next line.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      },
+      {
+        "name": "The Unfinished Floor",
+        "story_lens": "A practical renovation scene carries the theme but loses the cover's dreamlike contradiction.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 27.0,
+        "golden_theme_score_total": 27.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "Two Maps, One Kitchen",
+        "story_lens": "Separate inherited instructions collide, but the metaphor becomes more argumentative than tender.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 25.0,
+        "golden_theme_score_total": 25.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "The Red-Thread Constellation",
+        "story_lens": "Beautiful connection symbolism, but too familiar and too weak on visible adult-life pressure.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 23.0,
+        "golden_theme_score_total": 23.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "The Paper Boat in a Storm",
+        "story_lens": "Dreamy and dramatic, but danger overwhelms the relational recognition and risks generic romance.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 21.0,
+        "golden_theme_score_total": 21.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "repaired_routes": [
+      {
+        "name": "The House That Outgrew the Blueprint",
+        "story_lens": "A shared plan becomes an impossible house; when its route disappears, they turn it over and draw only the next line.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      }
+    ],
+    "rejected_routes": [
+      {
+        "name": "The Red-Thread Constellation",
+        "story_lens": "Beautiful connection symbolism, but too familiar and too weak on visible adult-life pressure.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 23.0,
+        "golden_theme_score_total": 23.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "The Paper Boat in a Storm",
+        "story_lens": "Dreamy and dramatic, but danger overwhelms the relational recognition and risks generic romance.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 21.0,
+        "golden_theme_score_total": 21.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "selected_story_lens": "Commitment can settle who we choose without supplying every instruction for the life we build together.",
+    "selected_route_name": "The House That Outgrew the Blueprint",
+    "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+    "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+    "emotional_machine": "certainty in the person -> shared plan opens -> life outgrows the plan -> instructions fail -> failure is not a verdict -> one next line is authored together",
+    "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+    "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+    "human_story_setup": {
+      "cold_reader_doorway": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+      "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+      "visible_human_proof": "One blueprint grows into branching rooms, loses its route in rain, turns blank, and receives one new line from two equal hands.",
+      "active_partner_role": "Neither rescues the other; both repeatedly own the same problem and the same next action.",
+      "emotional_turn": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+      "shareable_setup": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+      "earned_payoff": "Commitment answers who; the couple keeps learning how through equal authorship."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer recognizes their own relationship and sends the deck to the person they are sure about.",
+      "creative_success": "The sequence reads silently as mutual choice, pressure, lost instructions, reinterpretation, and equal next-step authorship.",
+      "brand_success": "The route feels tender, observant, specific, and relationship-first rather than like a decorative quote card.",
+      "production_success": "Exact copy, Aachu/Zuv likeness, one tiny brandmark, 1080x1440 finals, visual QA, and final audit all pass."
+    },
+    "selected_concept_process_card": "Card 20 - Saveable Lesson From One Scene",
+    "process_influence_summary": "Card 20 supplies the saveable lesson; Card 07 keeps the ending rooted in imperfect real love.",
+    "process_influences": [
+      {
+        "id": "successful-carousel-standard",
+        "title": "Successful Carousel Standard",
+        "influence_type": "living_standard"
+      },
+      {
+        "id": "card-20",
+        "title": "Saveable Lesson From One Scene",
+        "influence_type": "concept_process_card"
+      },
+      {
+        "id": "card-07",
+        "title": "Anti-Ideal To Real Love",
+        "influence_type": "concept_process_card"
+      }
+    ],
+    "candidate_table": [
+      {
+        "name": "The House That Outgrew the Blueprint",
+        "story_lens": "A shared plan becomes an impossible house; when its route disappears, they turn it over and draw only the next line.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 29.0,
+        "golden_theme_score_total": 29.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      },
+      {
+        "name": "The Unfinished Floor",
+        "story_lens": "A practical renovation scene carries the theme but loses the cover's dreamlike contradiction.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 27.0,
+        "golden_theme_score_total": 27.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "Two Maps, One Kitchen",
+        "story_lens": "Separate inherited instructions collide, but the metaphor becomes more argumentative than tender.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 25.0,
+        "golden_theme_score_total": 25.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "The Red-Thread Constellation",
+        "story_lens": "Beautiful connection symbolism, but too familiar and too weak on visible adult-life pressure.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 23.0,
+        "golden_theme_score_total": 23.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      },
+      {
+        "name": "The Paper Boat in a Storm",
+        "story_lens": "Dreamy and dramatic, but danger overwhelms the relational recognition and risks generic romance.",
+        "reader_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+        "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+        "aachu_specific_spark": "Aachu carries equal visible agency and expressive pressure without being reduced to chaos.",
+        "zuv_active_role": "Zuv carries equal visible agency without becoming a handler or rescuer.",
+        "proof_engine": "folded blueprint -> expanding rooms -> bleeding route -> blank reverse -> one new chalk line",
+        "emotional_reversal": "The failed map is turned over instead of treated as evidence that the choice of partner was wrong.",
+        "payoff": "Commitment answers who; the couple keeps learning how through equal authorship.",
+        "distribution_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-20",
+          "card-07"
+        ],
+        "score_total": 21.0,
+        "golden_theme_score_total": 21.0,
+        "stage_scene_gate": {
+          "status": "STOP",
+          "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+          "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+          "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+          "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+          "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+          "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+          "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "STOP"
+      }
+    ],
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Aachu and Zuv jointly open, hold, turn over, and finally mark the same blueprint as the imagined house outgrows its instructions.",
+      "reaction": "Their gazes divide under pressure, converge on the failed route, meet after the page turn, and align along one newly snapped line.",
+      "eye_line_or_attention": "Attention moves from each other, to diverging shared-life demands, to the same failed plan, and finally to one shared next direction.",
+      "hands_or_object_movement": "Equal ownership is visible in every beat: meeting hands, one plan corner each, one page corner each, and one chalk-line endpoint each.",
+      "silence_or_pause": "The dead-end page turn creates the quiet pause in which failure stops reading as a verdict on the relationship.",
+      "consequence": "The ruined plan becomes a blank working surface without pretending the unfinished house is solved.",
+      "reversal_or_payoff": "They cannot draw the whole future, but they can author the next line together.",
+      "blockers": []
+    },
+    "story_selling_score": {
+      "reader_identity_mirror": 5.0,
+      "romantic_conflict_stakes": 5.0,
+      "specificity_of_proof": 5.0,
+      "emotional_reversal": 5.0,
+      "visual_scene_clarity": 5.0,
+      "online_share_save_sell_potential": 4.0,
+      "total": 29.0
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 4.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 29.0
+    },
+    "golden_theme_gate": "required_for_carousel",
+    "threshold": "28/30",
+    "hard_fails": [],
+    "required_repairs": [],
+    "selector_verdict": "GO: the blueprint route makes the relationship truth legible through equal, continuous action before the text is read.",
+    "downstream_contract": {
+      "C_layer": "Preserve the six exact approved lines and their contradiction-to-authorship arc.",
+      "D_layer": "Keep the single blueprint/house transformation continuous and keep both partners equally active.",
+      "B_layer": "Generate one native 1080x1440 slide at a time with identity and style references attached."
+    }
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "I was never unsure of you.\nI was lost inside our life.",
+      "reader_identity_mirror": "The painful recognition of being completely sure about a partner while unsure how to build the life around that love.",
+      "emotional_obstacle": "Shared adulthood keeps producing decisions that commitment alone cannot answer.",
+      "aachu_proof": "She repeatedly owns an equal share of the blueprint, page turn, and chalk line.",
+      "zuv_active_role": "He repeatedly owns an equal share of the blueprint, page turn, and chalk line.",
+      "bridge": "certainty in the person -> shared plan opens -> life outgrows the plan -> instructions fail -> failure is not a verdict -> one next line is authored together",
+      "earned_ending": "Commitment answered who.\nWe are still learning how.",
+      "send_save_reason": "Sendable to the person you remain certain of while both of you are still learning the life around that certainty."
+    },
+    "hook_bank": [
+      {
+        "hook": "I was never unsure of you.\nI was lost inside our life.",
+        "score": 5,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "Commitment can settle who we choose without giving us a map for every life we will have to",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with soft love notes.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "I was never unsure of you.\nI was lost inside our life.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "I was never unsure of you.\nI was lost inside our life."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "Commitment can settle who we choose without giving us a map for every life we will have to build together."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "absolute certainty in the person -> a shared plan opens -> shared life outgrows the plan -> the instructions fail -> the failed plan becomes a new surface -> they author only the next line together"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "Commitment answered who.\nWe are still learning how."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9,
+      "stage_scene": 9
+    },
+    "verdict": "GO: the full six-slide story is stageable, reciprocal, and earned.",
+    "blocks": [],
+    "concept_selection_used": true,
+    "source_story": "I was never unsure of you. I was lost inside our life. Choosing each other had answered the easiest question. Then life began asking harder ones. Some days, love did not tell us what to do. Being lost together did not mean I had chosen wrong. Commitment answered who. We are still learning how."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-08-14/certain-of-you-lost-in-us/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-08-14/certain-of-you-lost-in-us/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-08-14/certain-of-you-lost-in-us/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "creative_baseline": {
+    "artifact": "creative-baseline.json",
+    "status": "supplied",
+    "creative_authority": "model_first",
+    "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance.",
+    "source": "Creator-supplied locked six-beat copy in the current chat on 2026-08-14; visual route selected by an independent creative room"
+  }
+}

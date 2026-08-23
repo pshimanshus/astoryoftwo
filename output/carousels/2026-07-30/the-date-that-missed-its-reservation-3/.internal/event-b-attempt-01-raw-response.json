@@ -1,0 +1,109 @@
+{
+  "reviewer_task_id": "/root/slide7_event_b_callpanel_fail",
+  "reviewer_run_id": "slide7-event-b-callpanel-fail-20260730-01",
+  "blind_read": {
+    "image_inspected": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-30/the-date-that-missed-its-reservation-3/.internal/visual-quarantine/attempt-01/final/slide-07.png",
+    "visible_people": [
+      {
+        "person": "one woman on frame left",
+        "appearance_and_posture": "She wears a white shirt, blue jeans, and red shoes, with a cream tote and tightly rolled red umbrella. She smiles, faces right, extends her right arm, and has one rear heel lifted as if stepping from the elevator side toward the apartment-door side."
+      },
+      {
+        "person": "one man on frame right",
+        "appearance_and_posture": "He wears a pale blue shirt, gray trousers, and red-accented shoes. He stands close to the brown apartment door, smiles, turns his head slightly left/down, and keeps his right hand on the door's exterior handle hardware."
+      }
+    ],
+    "setting": "A dry, warmly lit apartment corridor. Closed or nearly closed metal elevator doors occupy frame left; a fully closed brown wooden apartment door occupies frame right. A pale wall strip with mounted control plates separates them. The polished floor is dry, and a potted plant stands at the far right.",
+    "hand_object_contact": {
+      "woman": "Her open right palm visibly contacts a tall, narrow rectangular metal wall plate/control panel mounted on the pale wall between the elevator and the brown apartment door. The complete plate boundary is visible around and below her hand. Her palm does not contact the wooden apartment-door panel. Small drawn pressure/action ticks appear beside this wall-plate contact. Her other hand carries the rolled umbrella.",
+      "man": "His right hand visibly grips or operates the apartment door's exterior handle/lock hardware on the door's right edge.",
+      "person_to_person_contact": "None. Their hands act on separate objects, and neither person touches the other."
+    },
+    "gaze": "The woman appears to look rightward toward the wall-plate/man area rather than clearly down at her palm. The man appears to look down and slightly left toward the handle/woman area. Exact eye targets are somewhat soft at this scale.",
+    "body_distance": "The two torsos are separated by a substantial clear corridor gap, roughly more than an arm's reach. They occupy the same general depth plane without touching, overlapping, or merging.",
+    "object_state": {
+      "apartment_door": "Fully closed; no apartment interior is visible.",
+      "apartment_handle": "The man is holding/operating the exterior hardware.",
+      "elevator": "Its metal doors appear shut or almost shut, with a narrow dark central seam and no readable cabin interior.",
+      "wall_controls": "A small elevator call plate near the elevator shows a glowing up-arrow symbol. A second taller rectangular wall plate between elevator and apartment door is under the woman's palm.",
+      "departure_items": "The woman's tote hangs at her side and her umbrella is tightly rolled and dry. Clothing, hair, shoes, and floor appear dry."
+    },
+    "likely_before_after": {
+      "likely_before": "The pair likely exited the apartment and closed the door while preparing to leave. The man remained at the lock. The woman's lifted rear heel and rightward body orientation suggest she was on the elevator side and is stepping back toward him, although the still image does not prove the full prior path.",
+      "likely_after": "The man may finish testing the door and the pair may then use the elevator. Because the woman's palm is on a wall control plate rather than the door, an equally strong immediate next action is that she is pressing or operating a corridor/elevator/intercom control while he checks the door."
+    },
+    "unexpected_story": "Without relying on the large copy, the most concrete visual story is parallel but different tasks: the man checks the apartment-door handle while the woman presses a separate wall-mounted control plate, plausibly an elevator or intercom control. It does not visually show both people checking the same apartment door.",
+    "visible_text": [
+      "He still checked the lock twice.",
+      "She still rolled her eyes.",
+      "Then she went back and checked it with him.",
+      "@a.storyof.two",
+      "Small red embroidered shirt text appears to read \"Café de Marin-Droite,\" but the exact spelling is uncertain.",
+      "A glowing up-arrow symbol is visible on the elevator call plate."
+    ],
+    "uncertainties": [
+      "The elevator doors could be read as completely closed or nearly closed because only a narrow dark seam is visible.",
+      "The exact functional identity of the tall plate under the woman's palm is unclear; it may be an elevator control, intercom, access plate, or generic wall control. Its separation from the wooden apartment door is not unclear.",
+      "The woman's gaze target could be the tall plate, the man, or the area between them.",
+      "A single frame cannot conclusively prove that she previously walked away and then returned, though her lifted heel and direction support movement from left to right."
+    ]
+  },
+  "semantic_verdict": "FAIL",
+  "intent_match": {
+    "matches": false,
+    "matched_evidence": [
+      "The scene is outside the apartment in a dry corridor.",
+      "The apartment door is fully closed.",
+      "Zuv remains at the apartment door and operates its exterior handle/lock hardware.",
+      "Aachu is spatially separated from Zuv and does not touch him.",
+      "Aachu's stepping direction can support a return from the elevator side while Zuv remains stationed at the door.",
+      "The elevator is shut or nearly shut rather than visibly open."
+    ],
+    "failed_evidence": [
+      "Aachu's palm does not touch or push the apartment-door panel.",
+      "Her palm visibly lands on a separate tall wall-mounted plate between the elevator and apartment door.",
+      "The pressure ticks therefore emphasize force on the wrong target.",
+      "The pixels communicate two different tasks rather than a shared functional test of one fully closed apartment door."
+    ],
+    "copy_and_director_comparison": "The exact copy says she went back and checked the lock with him. The director card requires Zuv at the exterior handle while Aachu forcefully pushes a separate point on the same apartment-door panel. The image preserves Zuv's half of that action but relocates Aachu's contact to corridor control hardware, so the intended shared check is not legible without the copy and is visually contradicted by the target object."
+  },
+  "contradictions": [
+    {
+      "severity": "FATAL",
+      "type": "wrong_contact_target",
+      "evidence": "A complete narrow rectangular wall plate is visibly outlined beneath Aachu's open palm on the pale wall. The brown wooden apartment door begins farther right, beyond a separate jamb/frame, and is not under her hand.",
+      "impact": "Aachu cannot be read as pushing the apartment door. The central payoff action is replaced by pressing a wall control."
+    },
+    {
+      "severity": "FATAL",
+      "type": "shared_action_not_proven",
+      "evidence": "Zuv contacts the apartment-door handle while Aachu contacts a different corridor-mounted object.",
+      "impact": "The frame shows simultaneous separate operations, not her going back to check the same lock/door with him."
+    },
+    {
+      "severity": "MAJOR",
+      "type": "force_applied_to_wrong_object",
+      "evidence": "Aachu's extended arm and the drawn pressure ticks make a push/press readable, but all of that force terminates on the wall plate.",
+      "impact": "Stronger action styling reinforces the unintended elevator/intercom-control story rather than repairing the intended door-panel push."
+    },
+    {
+      "severity": "MINOR",
+      "type": "gaze_evidence_soft",
+      "evidence": "The faces are smiling and the exact eye targets are not crisply resolved as each person's own contact point.",
+      "impact": "This weakens the specified functional concentration but is not the primary failure."
+    }
+  ],
+  "repair_decision": {
+    "decision": "REGENERATE_TARGETED",
+    "promotable": false,
+    "failure_layer": "generation_drift_in_contact_geometry",
+    "required_repair": "Move Aachu's open palm decisively onto the brown wooden apartment-door panel, left of Zuv and inside the same door slab boundary. Show uninterrupted brown door material directly beneath every contacting finger and the heel of her palm. Keep the pale corridor wall, elevator controls, intercom plates, and jamb visibly away from and outside her hand contact. Preserve the fully closed door, Zuv's separate exterior-handle operation, Aachu-only return direction, nearly shut elevator, dry departure items, clear body gap, and no person-to-person touch.",
+    "acceptance_test": "With the copy hidden, a fresh reviewer must be able to point to continuous apartment-door material under Aachu's palm and state that she has returned to push/check the same closed apartment door while Zuv tests its handle. Any reading that her palm is on an elevator call panel, intercom, access plate, wall switch, wall plate, or jamb remains FAIL."
+  },
+  "completion": {
+    "persisted_verbatim": true,
+    "artifact": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-07-30/the-date-that-missed-its-reservation-3/.internal/event-b-attempt-01-raw-response.json",
+    "jq_empty": "PASS",
+    "other_files_modified": false
+  }
+}

@@ -1,0 +1,816 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Soft Love Notes",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "You’re missing from so many of my memories.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Not because you weren’t there.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "You were there when I chose courage.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "You made me visible from places no one could see.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "You held the world outside for a minute.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "You never made love the reason I stayed behind.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 7,
+      "copy": "Sometimes the person missing from your memories is the person who made them possible.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The creator approved the exact seven slide lines before the repaired observable-only review payload was created.",
+    "author_id": "/root",
+    "reviewer_id": "/root/memory_storyboard_critic",
+    "reviewer_evidence": "A fresh orchestrated critic received only revised observable staged cards and reported the archive imbalance, off-crop partner presence, invisible authorship, and final correction before seeing copy or intent.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:7dbc4238f3e762937df660dcb7b88a17402fd8be4210312ca2b796d1bea6260d",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Shared room floor rug seen from a true overhead view, with a cushion and open photo envelope.",
+        "observable_action": "Aachu stops scrolling a phone grid of ten solo Aachu thumbnails and turns to study Zuv while he still studies the archive.",
+        "hands_and_contact": "Aachu's index finger pauses above the shared phone; Zuv's near hand rests open beside it; shoulders touch lightly.",
+        "gaze": "Aachu looks from the solo gallery toward Zuv; Zuv remains focused on the phone.",
+        "body_blocking": "Both sit shoulder-to-shoulder with clear upper bodies and separate owned hands around one phone.",
+        "object_state": "The phone grid and four nearby prints visibly show Aachu alone in different places; none visibly includes Zuv.",
+        "camera_view": "True high overhead wide view with the gallery small but pattern-readable inside the full storybook scene.",
+        "visible_continuity": "Present-day grey and charcoal wardrobe, shared rug, cushion, phone, envelope, and afternoon light begin the sequence."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Same overhead shared room dissolving into an unfamiliar apartment doorway with cartons and two suitcases.",
+        "observable_action": "Aachu taps a solo moving-day thumbnail; its crop remains central while the surrounding memory expands to reveal Zuv entering behind her with his own suitcase.",
+        "hands_and_contact": "Aachu's tapping hand remains above the phone; Zuv leans closer without touching the dissolving memory elements.",
+        "gaze": "Both present-day faces study the selected solo crop as the complete two-person memory appears around it.",
+        "body_blocking": "The seated present-day couple remains together while the expanding doorway memory stays spatially behind and outside the phone crop.",
+        "object_state": "One solo phone photo remains intact at centre; two suitcases, cartons, and a doorway appear beyond its original boundary.",
+        "camera_view": "Closer three-quarter overhead view that preserves both faces, the phone crop, and the expanding memory geography.",
+        "visible_continuity": "Exact slide-one room, wardrobe, phone, cushion, and light continue; the expanded setting leads directly into slide three."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Nearly empty unfamiliar apartment threshold in cool new-city daylight.",
+        "observable_action": "Aachu opens the new door with keys while looking back; Zuv enters one step behind carrying his own separate suitcase.",
+        "hands_and_contact": "Aachu's key hand moves toward the lock; Zuv owns the handle of his suitcase; no luggage ownership is ambiguous.",
+        "gaze": "Aachu looks back toward Zuv; he answers with a small forward nod.",
+        "body_blocking": "Aachu leads just inside the threshold; Zuv follows behind without blocking her path, preserving their two-inch height difference.",
+        "object_state": "Two distinct suitcases, new keys, and restrained moving cartons show that both lives are crossing the threshold.",
+        "camera_view": "Wide cinematic doorway view with feet, lock, hands, luggage, and entering direction all visible.",
+        "visible_continuity": "This is the full moving-day memory opened on slide two; the original solo crop would exclude Zuv's rear position."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Small improvised creative studio with one worktable, camera, soft light, illustrated page, and notes.",
+        "observable_action": "Aachu creates inside the lit recording area while Zuv adjusts the light and gives a timing cue from behind the camera.",
+        "hands_and_contact": "Aachu's working hands remain at the creation area; Zuv's hands separately own the light adjustment and timing cue.",
+        "gaze": "Aachu looks toward Zuv rather than into the lens; Zuv watches her framing.",
+        "body_blocking": "Aachu occupies the visible foreground work area; Zuv remains deeper outside the camera preview with clear equipment-body separation.",
+        "object_state": "A small camera preview visibly contains only Aachu while the full illustrated scene contains both partners and Zuv's production work.",
+        "camera_view": "Medium-wide diagonal studio view that shows the recorded rectangle and the unseen labour outside it in one composition.",
+        "visible_continuity": "The archive pattern deepens from physical crop to public visibility created through shared behind-camera work."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Quiet ordinary city roadside at night beside a safely parked car under warm streetlights.",
+        "observable_action": "Aachu folds with real laughter toward Zuv while he completes a playful gesture and takes her spontaneous photograph.",
+        "hands_and_contact": "Zuv owns the camera phone in one hand and finishes the playful gesture with the other; Aachu's hands remain naturally attached through her laughing posture.",
+        "gaze": "Aachu's face and body turn fully toward Zuv; he watches the expression he has caused.",
+        "body_blocking": "They stand several safe feet apart beside the passenger side, with no road danger or posed romantic contact.",
+        "object_state": "The small camera preview contains Aachu laughing alone; her closed work tote and face-down phone remain inside the car outside the pause.",
+        "camera_view": "Wide roadside two-shot with the solo preview kept secondary and the cause-and-reaction exchange dominant.",
+        "visible_continuity": "The gallery pattern now reveals that Zuv shaped the emotion inside a solo photograph, not only the event around it."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Residential curb at dawn with one waiting cab, open rear door, suitcase, and backpack.",
+        "observable_action": "Aachu moves toward the cab after Zuv tightens one loose backpack strap and visibly releases it; she turns back as their hands separate.",
+        "hands_and_contact": "Zuv's hand is open and released; Aachu's hand moves away; no grip blocks her body, bag, or open path.",
+        "gaze": "Aachu looks back toward Zuv while her feet and suitcase remain decisively oriented toward departure.",
+        "body_blocking": "Zuv stands behind and to the side, never between Aachu and the cab; the route forward stays visually open.",
+        "object_state": "One secured backpack and suitcase move with Aachu; the cab door remains open; no camera or photograph records this act.",
+        "camera_view": "Wide side-profile departure view keeping released hands, forward feet, luggage, and clear path legible together.",
+        "visible_continuity": "The pattern deepens from cropped-out presence to meaningful care that was never photographed at all."
+      },
+      {
+        "slide": 7,
+        "visible_people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "visible_setting": "Exact return to the opening overhead shared room, now wider and warmer.",
+        "observable_action": "Aachu pulls Zuv beside her into a new timed photograph while both look at each other before posing.",
+        "hands_and_contact": "Aachu's near hand rests at Zuv's forearm; Zuv supports himself on the floor; all four hands remain owned and separate from the phone.",
+        "gaze": "They look at each other rather than the device, with surprise and recognition in the exchange.",
+        "body_blocking": "Both sit naturally inside the active camera composition for the first time, close but not merged.",
+        "object_state": "The same ten solo thumbnails and four solo prints remain nearby; the propped phone shows an unmistakable countdown light without readable UI.",
+        "camera_view": "True overhead match cut to slide one, slightly wider so the first two-person live composition and prior solo archive read together.",
+        "visible_continuity": "Opening room, wardrobe, phone, cushion, envelope, and archive return; warmer light completes the correction."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:9a291520b04880bd9ba72ca3fb17fa2f347f669d50a98bed3de7122c8d1326bb",
+    "source_fingerprint": "sha256:a78e148d2f3a021565c2cb1396293bc6df103fb659a4ed5ffac0853f93f7a59a",
+    "sequence_mode": "montage_with_arc",
+    "physical_event": "A couple reviews a gallery dominated by Aachu, opens four incomplete photographs into their complete shared memories, and finally makes a new image containing both partners.",
+    "emotional_arc": "visual absence becomes off-crop presence, invisible collaboration, unrecorded freedom, and deliberate recognition.",
+    "relationship_change": "Aachu moves from noticing Zuv's omission to understanding his authorship and actively returning him to the visual record.",
+    "sequence_read": "The solo archive opens into moving, creating, laughing, and leaving scenes whose full frames reveal Zuv's causal presence before the final timed photograph includes both.",
+    "visual_variables": [
+      "recorded crop versus lived frame",
+      "Aachu's gaze toward Zuv"
+    ],
+    "hero_receipt_slide": 2,
+    "setup_payoff_ledger": [
+      {
+        "setup": "The opening gallery and prints repeatedly show Aachu alone while Zuv sits beside them.",
+        "payoff": "The same archive remains visible as Aachu pulls Zuv into the first live two-person camera composition.",
+        "changed_meaning": "His absence stops reading as non-participation and becomes evidence of the off-camera position from which he helped create the memories."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "phone gallery and camera frame",
+        "initial_state": "a grid and prints repeatedly record Aachu without Zuv",
+        "later_state": "the propped phone's active frame visibly contains both partners",
+        "story_job": "separate what the archive recorded from what the relationship actually authored"
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "establish archive imbalance",
+        "silent_read": "The solo archive is noticed while he sits physically beside her.",
+        "change_from_previous": "Begins the archive question.",
+        "critic_evidence": "The solo archive is noticed while he sits physically beside her.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "stops scrolling and turns toward Zuv",
+          "target_or_object": "the solo gallery pattern",
+          "reaction_or_consequence": "Zuv remains present beside the archive that omits him"
+        },
+        "pov": {
+          "owner": "Aachu's discovery of Zuv's invisible place in their shared memories",
+          "audience_knows": "the visual archive shows less of the relationship than the complete lived scene",
+          "audience_feels": "recognition, gratitude, and increasing tenderness"
+        },
+        "shot": {
+          "size": "overhead wide",
+          "angle": "true overhead",
+          "camera_position": "above the shared rug",
+          "focal_subject": "Aachu stops scrolling a phone grid of ten solo Aachu thumbnails and turns to study Zuv while he still studies the archive.",
+          "story_reason": "The camera keeps the recorded crop and the fuller two-person consequence visually comparable."
+        },
+        "blocking": {
+          "hands": "Four hands remain traceable around one phone without overlap.",
+          "gaze": "Aachu turns toward Zuv while he studies the grid.",
+          "body_distance": "Shoulders touch lightly.",
+          "posture_or_feet": "Both sit relaxed on the rug."
+        },
+        "setting": {
+          "sub_location": "shared floor-rug corner",
+          "time": "late afternoon",
+          "motivated_light": "soft window light",
+          "story_trace": "solo thumbnails and prints surround the physically present couple"
+        },
+        "story_evidence": [
+          {
+            "carrier": "The phone grid and four nearby prints visibly show Aachu alone in different places; none visibly includes Zuv.",
+            "observable_state": "Aachu stops scrolling a phone grid of ten solo Aachu thumbnails and turns to study Zuv while he still studies the archive.",
+            "narrative_job": "establish archive imbalance"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The archive question and recurring crop-versus-lived-scene grammar remain active.",
+          "outgoing_state": "The next frame receives a clearer form of Zuv's presence or authorship."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "extra live person",
+            "human reflection",
+            "portrait that reads as a third actor"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "open incomplete memory",
+        "silent_read": "A solo moving-day crop expands to reveal his presence outside the recorded boundary.",
+        "change_from_previous": "Changes setting, action, and evidence while advancing absence toward visible authorship.",
+        "critic_evidence": "A solo moving-day crop expands to reveal his presence outside the recorded boundary.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "taps the moving-day crop and opens the complete memory",
+          "target_or_object": "the phone photo and surrounding doorway",
+          "reaction_or_consequence": "Zuv's off-crop presence becomes visible"
+        },
+        "pov": {
+          "owner": "Aachu's discovery of Zuv's invisible place in their shared memories",
+          "audience_knows": "the visual archive shows less of the relationship than the complete lived scene",
+          "audience_feels": "recognition, gratitude, and increasing tenderness"
+        },
+        "shot": {
+          "size": "overhead medium",
+          "angle": "three-quarter overhead",
+          "camera_position": "above and beside the seated couple",
+          "focal_subject": "Aachu taps a solo moving-day thumbnail; its crop remains central while the surrounding memory expands to reveal Zuv entering behind her with his own suitcase.",
+          "story_reason": "The camera keeps the recorded crop and the fuller two-person consequence visually comparable."
+        },
+        "blocking": {
+          "hands": "Aachu taps; Zuv's hands stay outside the dissolving memory.",
+          "gaze": "Both study the crop and expanded scene.",
+          "body_distance": "They remain shoulder-close in the present.",
+          "posture_or_feet": "Seated posture continues from slide one."
+        },
+        "setting": {
+          "sub_location": "shared room becoming apartment threshold",
+          "time": "late afternoon into remembered daylight",
+          "motivated_light": "window light blending into cool doorway daylight",
+          "story_trace": "the solo crop remains central while the lived scene exceeds it"
+        },
+        "story_evidence": [
+          {
+            "carrier": "One solo phone photo remains intact at centre; two suitcases, cartons, and a doorway appear beyond its original boundary.",
+            "observable_state": "Aachu taps a solo moving-day thumbnail; its crop remains central while the surrounding memory expands to reveal Zuv entering behind her with his own suitcase.",
+            "narrative_job": "open incomplete memory"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The archive question and recurring crop-versus-lived-scene grammar remain active.",
+          "outgoing_state": "The next frame receives a clearer form of Zuv's presence or authorship."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "extra live person",
+            "human reflection",
+            "portrait that reads as a third actor"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The dissolve might read as fantasy or a future plan.",
+            "repair": "Keep the original solo crop visible at centre while the same cartons and suitcase positions expand around it.",
+            "recheck_evidence": "The fresh critic read the image as an incomplete recorded memory revealing the lived event outside its crop."
+          }
+        ]
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "prove shared courage",
+        "silent_read": "They cross the new-city threshold together, with her leading and his own suitcase proving shared movement.",
+        "change_from_previous": "Changes setting, action, and evidence while advancing absence toward visible authorship.",
+        "critic_evidence": "They cross the new-city threshold together, with her leading and his own suitcase proving shared movement.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "enter the unfamiliar apartment in sequence",
+          "target_or_object": "new door, keys, and their separate suitcases",
+          "reaction_or_consequence": "the door opens on a choice that changes both lives"
+        },
+        "pov": {
+          "owner": "Aachu's discovery of Zuv's invisible place in their shared memories",
+          "audience_knows": "the visual archive shows less of the relationship than the complete lived scene",
+          "audience_feels": "recognition, gratitude, and increasing tenderness"
+        },
+        "shot": {
+          "size": "wide doorway",
+          "angle": "eye-level three-quarter",
+          "camera_position": "inside the complete lived memory with both actions visible",
+          "focal_subject": "Aachu opens the new door with keys while looking back; Zuv enters one step behind carrying his own separate suitcase.",
+          "story_reason": "The camera keeps the recorded crop and the fuller two-person consequence visually comparable."
+        },
+        "blocking": {
+          "hands": "Aachu owns keys; Zuv owns his suitcase.",
+          "gaze": "Their backward glance connects across the threshold.",
+          "body_distance": "One step separates leader and follower.",
+          "posture_or_feet": "Her feet enter while his feet cross behind."
+        },
+        "setting": {
+          "sub_location": "new-city apartment threshold",
+          "time": "moving-day morning",
+          "motivated_light": "cool corridor daylight warming inside",
+          "story_trace": "new keys, two suitcases, and cartons show a joint transition"
+        },
+        "story_evidence": [
+          {
+            "carrier": "Two distinct suitcases, new keys, and restrained moving cartons show that both lives are crossing the threshold.",
+            "observable_state": "Aachu opens the new door with keys while looking back; Zuv enters one step behind carrying his own separate suitcase.",
+            "narrative_job": "prove shared courage"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The archive question and recurring crop-versus-lived-scene grammar remain active.",
+          "outgoing_state": "The next frame receives a clearer form of Zuv's presence or authorship."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "extra live person",
+            "human reflection",
+            "portrait that reads as a third actor"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "Zuv might appear to be helping Aachu move rather than moving with her.",
+            "repair": "Give Zuv his own separate travel suitcase and show both lives crossing the threshold.",
+            "recheck_evidence": "The fresh critic read them as entering the transition together, with separate luggage supporting shared movement."
+          }
+        ]
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "reveal invisible collaboration",
+        "silent_read": "Her visible creative identity is supported by his production work outside the recorded rectangle.",
+        "change_from_previous": "Changes setting, action, and evidence while advancing absence toward visible authorship.",
+        "critic_evidence": "Her visible creative identity is supported by his production work outside the recorded rectangle.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "create one recorded frame through distinct foreground and behind-camera actions",
+          "target_or_object": "camera preview, light, and creative work",
+          "reaction_or_consequence": "her public visibility is shown as shared labour"
+        },
+        "pov": {
+          "owner": "Aachu's discovery of Zuv's invisible place in their shared memories",
+          "audience_knows": "the visual archive shows less of the relationship than the complete lived scene",
+          "audience_feels": "recognition, gratitude, and increasing tenderness"
+        },
+        "shot": {
+          "size": "medium-wide diagonal",
+          "angle": "eye-level three-quarter",
+          "camera_position": "inside the complete lived memory with both actions visible",
+          "focal_subject": "Aachu creates inside the lit recording area while Zuv adjusts the light and gives a timing cue from behind the camera.",
+          "story_reason": "The camera keeps the recorded crop and the fuller two-person consequence visually comparable."
+        },
+        "blocking": {
+          "hands": "Her working hands and his equipment hands remain separate.",
+          "gaze": "She looks toward his cue; he watches her framing.",
+          "body_distance": "Camera depth separates visible creator and hidden collaborator.",
+          "posture_or_feet": "Both stand naturally with equipment clear of silhouettes."
+        },
+        "setting": {
+          "sub_location": "improvised creative studio",
+          "time": "working afternoon",
+          "motivated_light": "one motivated soft light and practical room spill",
+          "story_trace": "unfinished page, cue notes, camera, and preview expose the work behind visibility"
+        },
+        "story_evidence": [
+          {
+            "carrier": "A small camera preview visibly contains only Aachu while the full illustrated scene contains both partners and Zuv's production work.",
+            "observable_state": "Aachu creates inside the lit recording area while Zuv adjusts the light and gives a timing cue from behind the camera.",
+            "narrative_job": "reveal invisible collaboration"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The archive question and recurring crop-versus-lived-scene grammar remain active.",
+          "outgoing_state": "The next frame receives a clearer form of Zuv's presence or authorship."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "extra live person",
+            "human reflection",
+            "portrait that reads as a third actor"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "reveal emotional authorship",
+        "silent_read": "Her solo laughter photograph is visibly created within their two-person interaction.",
+        "change_from_previous": "Changes setting, action, and evidence while advancing absence toward visible authorship.",
+        "critic_evidence": "Her solo laughter photograph is visibly created within their two-person interaction.",
+        "staged_action": {
+          "subject": "Zuv and Aachu",
+          "action": "create and record spontaneous laughter together",
+          "target_or_object": "playful gesture, camera phone, and her response",
+          "reaction_or_consequence": "the solo image now carries visible two-person causality"
+        },
+        "pov": {
+          "owner": "Aachu's discovery of Zuv's invisible place in their shared memories",
+          "audience_knows": "the visual archive shows less of the relationship than the complete lived scene",
+          "audience_feels": "recognition, gratitude, and increasing tenderness"
+        },
+        "shot": {
+          "size": "wide roadside",
+          "angle": "eye-level three-quarter",
+          "camera_position": "inside the complete lived memory with both actions visible",
+          "focal_subject": "Aachu folds with real laughter toward Zuv while he completes a playful gesture and takes her spontaneous photograph.",
+          "story_reason": "The camera keeps the recorded crop and the fuller two-person consequence visually comparable."
+        },
+        "blocking": {
+          "hands": "His phone hand and gesture hand remain owned; her arms fold naturally with laughter.",
+          "gaze": "Both attend fully to each other.",
+          "body_distance": "Several safe feet preserve the spontaneous camera relation.",
+          "posture_or_feet": "Her uneven laughing stance contrasts with his grounded framing stance."
+        },
+        "setting": {
+          "sub_location": "quiet urban roadside beside parked car",
+          "time": "late night",
+          "motivated_light": "warm streetlight with distant city glow",
+          "story_trace": "work tote and phone stay in the car while laughter interrupts the day"
+        },
+        "story_evidence": [
+          {
+            "carrier": "The small camera preview contains Aachu laughing alone; her closed work tote and face-down phone remain inside the car outside the pause.",
+            "observable_state": "Aachu folds with real laughter toward Zuv while he completes a playful gesture and takes her spontaneous photograph.",
+            "narrative_job": "reveal emotional authorship"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The archive question and recurring crop-versus-lived-scene grammar remain active.",
+          "outgoing_state": "The next frame receives a clearer form of Zuv's presence or authorship."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "extra live person",
+            "human reflection",
+            "portrait that reads as a third actor"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The roadside frame might read as a generic casual photograph.",
+            "repair": "Show his active playful gesture causing her full-body laugh and a preview that records only her.",
+            "recheck_evidence": "The fresh critic identified the unseen relational cause inside the apparently solo photograph."
+          }
+        ]
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "deepen beyond recorded memories",
+        "silent_read": "He supports her departure and releases her without obstruction in an act that has no photographic record.",
+        "change_from_previous": "Changes setting, action, and evidence while advancing absence toward visible authorship.",
+        "critic_evidence": "He supports her departure and releases her without obstruction in an act that has no photographic record.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "separate hands as she continues toward the open cab",
+          "target_or_object": "released backpack strap and clear departure path",
+          "reaction_or_consequence": "support becomes freedom rather than restriction"
+        },
+        "pov": {
+          "owner": "Aachu's discovery of Zuv's invisible place in their shared memories",
+          "audience_knows": "the visual archive shows less of the relationship than the complete lived scene",
+          "audience_feels": "recognition, gratitude, and increasing tenderness"
+        },
+        "shot": {
+          "size": "wide profile",
+          "angle": "eye-level three-quarter",
+          "camera_position": "inside the complete lived memory with both actions visible",
+          "focal_subject": "Aachu moves toward the cab after Zuv tightens one loose backpack strap and visibly releases it; she turns back as their hands separate.",
+          "story_reason": "The camera keeps the recorded crop and the fuller two-person consequence visually comparable."
+        },
+        "blocking": {
+          "hands": "His released palm and her departing hand remain separate.",
+          "gaze": "She looks back; he holds the gaze without pursuit.",
+          "body_distance": "He stays behind and to the side of her open path.",
+          "posture_or_feet": "Her feet and suitcase continue toward the cab."
+        },
+        "setting": {
+          "sub_location": "residential curb beside waiting cab",
+          "time": "early dawn",
+          "motivated_light": "cool dawn light warming at the horizon",
+          "story_trace": "released strap, open path, and luggage show love without obstruction"
+        },
+        "story_evidence": [
+          {
+            "carrier": "One secured backpack and suitcase move with Aachu; the cab door remains open; no camera or photograph records this act.",
+            "observable_state": "Aachu moves toward the cab after Zuv tightens one loose backpack strap and visibly releases it; she turns back as their hands separate.",
+            "narrative_job": "deepen beyond recorded memories"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The archive question and recurring crop-versus-lived-scene grammar remain active.",
+          "outgoing_state": "The next frame receives a clearer form of Zuv's presence or authorship."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "extra live person",
+            "human reflection",
+            "portrait that reads as a third actor"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The departure might read as ordinary travel or abandonment.",
+            "repair": "Lock the released strap, non-obstructing position, open path, forward feet, and backward mutual gaze.",
+            "recheck_evidence": "The fresh critic read support without restraint and identified the frame as a deliberate deepening into care that was never photographed."
+          }
+        ]
+      },
+      {
+        "slide": 7,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "repair the visual record",
+        "silent_read": "She corrects the archive pattern by deliberately pulling him into the first live two-person composition.",
+        "change_from_previous": "Changes setting, action, and evidence while advancing absence toward visible authorship.",
+        "critic_evidence": "She corrects the archive pattern by deliberately pulling him into the first live two-person composition.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "pulls Zuv into the timed live frame",
+          "target_or_object": "propped phone and unchanged solo archive",
+          "reaction_or_consequence": "the person excluded from prior records becomes intentionally visible"
+        },
+        "pov": {
+          "owner": "Aachu's discovery of Zuv's invisible place in their shared memories",
+          "audience_knows": "the visual archive shows less of the relationship than the complete lived scene",
+          "audience_feels": "recognition, gratitude, and increasing tenderness"
+        },
+        "shot": {
+          "size": "overhead wide",
+          "angle": "true overhead",
+          "camera_position": "above the shared rug",
+          "focal_subject": "Aachu pulls Zuv beside her into a new timed photograph while both look at each other before posing.",
+          "story_reason": "The camera keeps the recorded crop and the fuller two-person consequence visually comparable."
+        },
+        "blocking": {
+          "hands": "Her hand at his forearm and his supporting floor hand remain traceable.",
+          "gaze": "They look at each other before posing.",
+          "body_distance": "They sit close inside one live frame.",
+          "posture_or_feet": "Natural seated bodies echo slide one without merging."
+        },
+        "setting": {
+          "sub_location": "shared floor-rug corner",
+          "time": "warmer late afternoon",
+          "motivated_light": "soft window light with warmer watercolor bloom",
+          "story_trace": "unchanged solo archive sits beside the first intentional two-person frame"
+        },
+        "story_evidence": [
+          {
+            "carrier": "The same ten solo thumbnails and four solo prints remain nearby; the propped phone shows an unmistakable countdown light without readable UI.",
+            "observable_state": "Aachu pulls Zuv beside her into a new timed photograph while both look at each other before posing.",
+            "narrative_job": "repair the visual record"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The archive question and recurring crop-versus-lived-scene grammar remain active.",
+          "outgoing_state": "The next frame receives a clearer form of Zuv's presence or authorship."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "duplicate couple",
+            "extra live person",
+            "human reflection",
+            "portrait that reads as a third actor"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": []
+      }
+    ],
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "/root#memory-carousel-author-20260730",
+      "reviewer_task_id": "/root/memory_storyboard_critic",
+      "reviewer_run_id": "/root/memory_storyboard_critic#followup-1",
+      "input_fingerprint": "sha256:9a291520b04880bd9ba72ca3fb17fa2f347f669d50a98bed3de7122c8d1326bb",
+      "raw_response_artifact": ".internal/event-a-attempt-02-raw-response.md",
+      "raw_response_fingerprint": "sha256:c686eb567ab6d7a6099e8afaa2855ab3afa9b6e8187abbeba587b77b1504f16c",
+      "output_fingerprint": "sha256:7f84a1ad1cdedc2a9e92937113a3a47a07c4cebbe240c8800094fd52f97c3616"
+    },
+    "director_event_fingerprint": "sha256:f80b483522a55296b5be688d463f617d8ebb92a03a241e30feeab576c08d6a73"
+  }
+}

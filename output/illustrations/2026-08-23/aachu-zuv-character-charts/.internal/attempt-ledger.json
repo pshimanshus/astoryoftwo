@@ -1,0 +1,52 @@
+{
+  "schema_version": "character-reference-attempt-ledger/v1",
+  "joint": {
+    "next_attempt": 3,
+    "maximum_attempts": 3,
+    "attempts": [
+      {
+        "attempt": 1,
+        "date": "2026-08-23",
+        "source_path": ".internal/quarantine/joint-attempt-01-source.png",
+        "source_dimensions": [
+          1086,
+          1448
+        ],
+        "creator_proof_path": "proof/aachu-zuv-joint-proof-v1.png",
+        "final_dimensions": [
+          1080,
+          1440
+        ],
+        "result": "PASS_MECHANICAL_AWAITING_CREATOR_IDENTITY_APPROVAL",
+        "prompt_sha256": "9a27a22deb4fadf0475cbe1dc246acd141289fd44a0fcde039dcf875bb8683d2",
+        "result_after_creator_correction": "SUPERSEDED",
+        "targeted_correction": "Attempt 02 must add and preserve Zuv's exact evil-eye locket on its slim silver chain and Aachu's exact right-wrist evil-eye bracelet wherever visible; all other requirements stay unchanged."
+      },
+      {
+        "attempt": 2,
+        "date": "2026-08-23",
+        "source_path": ".internal/quarantine/joint-attempt-02-source.png",
+        "source_dimensions": [
+          1086,
+          1448
+        ],
+        "creator_proof_path": "proof/aachu-zuv-joint-proof-v2-accessory-lock.png",
+        "final_dimensions": [
+          1080,
+          1440
+        ],
+        "source_sha256": "a68ae6e3977cb1b7525a8abfd991fbaddd228af2abf13a06bdc3da0131442c36",
+        "final_sha256": "a6730658dc3e3e62f5d6f42edf15a00f47531a685458b1d24719d6170e038fee",
+        "prompt_sha256": "6421da780b4ff482dda631d11ab386cebebfa030fae29cea1ecae01df38e1edd",
+        "result": "PASS_MECHANICAL_AND_ACCESSORY_AWAITING_CREATOR_IDENTITY_APPROVAL",
+        "targeted_correction": "Applied only the creator-requested signature accessory lock."
+      }
+    ]
+  },
+  "aachu": {
+    "status": "BLOCKED_UNTIL_JOINT_APPROVAL"
+  },
+  "zuv": {
+    "status": "BLOCKED_UNTIL_JOINT_APPROVAL"
+  }
+}

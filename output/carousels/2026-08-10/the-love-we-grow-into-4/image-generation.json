@@ -1,0 +1,667 @@
+{
+  "status": "handoff_ready",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 7,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": true,
+  "slides": [
+    {
+      "slide": 1,
+      "copy": "This is the kind of love\nI want us to grow into.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-01.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-01.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-01.prompt.txt"
+      },
+      "expected_file": "final/slide-01.png",
+      "expected_files": {
+        "instagram_post": "final/slide-01.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-08-10/the-love-we-grow-into-4/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 2,
+      "copy": "We will still get irritated\nover keys, routes,\nand very small things.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-02.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-02.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-02.prompt.txt"
+      },
+      "expected_file": "final/slide-02.png",
+      "expected_files": {
+        "instagram_post": "final/slide-02.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-08-10/the-love-we-grow-into-4/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 3,
+      "copy": "I will still say,\n“Don’t talk to me.”",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-03.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-03.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-03.prompt.txt"
+      },
+      "expected_file": "final/slide-03.png",
+      "expected_files": {
+        "instagram_post": "final/slide-03.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-08-10/the-love-we-grow-into-4/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 4,
+      "copy": "I hope we learn\nthat sometimes it means:\n“Give me a minute.\nDon’t go far.”",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-04.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-04.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-04.prompt.txt"
+      },
+      "expected_file": "final/slide-04.png",
+      "expected_files": {
+        "instagram_post": "final/slide-04.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-08-10/the-love-we-grow-into-4/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 5,
+      "copy": "Not to fix it.\nJust to notice\nwhat it was really about.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-05.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-05.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-05.prompt.txt"
+      },
+      "expected_file": "final/slide-05.png",
+      "expected_files": {
+        "instagram_post": "final/slide-05.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-08-10/the-love-we-grow-into-4/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 6,
+      "copy": "And when the plan fails,\nlet’s still go on the date.\nEven if it’s roadside chai.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-06.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-06.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-06.prompt.txt"
+      },
+      "expected_file": "final/slide-06.png",
+      "expected_files": {
+        "instagram_post": "final/slide-06.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-08-10/the-love-we-grow-into-4/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    },
+    {
+      "slide": 7,
+      "copy": "You still checked the lock twice.\nI still rolled my eyes.\n\nThen I went back\nand checked it with you.",
+      "status": "awaiting_codex_builtin_image",
+      "generation_mode": "model_native_publishable",
+      "backend": "codex_builtin",
+      "prompt_file": "codex-image-prompts/instagram-post/slide-07.md",
+      "prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-07.md"
+      },
+      "generator_prompt_files": {
+        "instagram_post": "codex-image-prompts/instagram-post/slide-07.prompt.txt"
+      },
+      "expected_file": "final/slide-07.png",
+      "expected_files": {
+        "instagram_post": "final/slide-07.png"
+      },
+      "identity_dossier_reference_images": [
+        "output/carousels/2026-08-10/the-love-we-grow-into-4/identity-face-contact-sheet.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg",
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg"
+      ],
+      "identity_reference_images": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "story_reference_images": [],
+      "style_reference_images": [
+        "config/references/style-lock/observational-intimacy-premium/slide-01.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-03.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-08.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-02.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-04.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-05.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-06.png",
+        "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+      ]
+    }
+  ],
+  "reason": "Full-deck prompt files are ready from the exact QA-passed, creator-approved proof; final PNGs still require Codex built-in image generation.",
+  "proof_gate": null,
+  "requested_proof_slide": null,
+  "proof_only": false,
+  "total_slide_count": 7,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "generation_capability": {
+    "schema_version": "1.0",
+    "workspace_root": "output/carousels/2026-08-10/the-love-we-grow-into-4",
+    "capability_source": "environment",
+    "can_attach_identity_refs": false,
+    "package_terminal_state": "HANDOFF_READY_FOR_CODEX_WITH_IDENTITY",
+    "reason": "The current session has no declared ability to attach actual identity reference images to generation calls.",
+    "required_identity_inputs": [
+      "identity-face-contact-sheet.jpg",
+      "selected Aachu identity references",
+      "selected Zuv identity references",
+      "selected together reference when available"
+    ],
+    "next_action": "handoff_to_identity_reference_capable_generation_environment"
+  },
+  "prompt_dir": "codex-image-prompts",
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:17cb2981ec58a9e45139c7d5ad8269b3727d4db4d8c4b4529b030a9625adab63"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:6535203988782b7cd8e44124cdf4e5b5b0c7b878610a95530fcf5252571295af"
+      }
+    },
+    "files": [
+      {
+        "slide": 1,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-01.prompt.txt",
+        "sha256": "sha256:1060d40fc428b6bed8de942a4d8d475dc8a11f4994054974cd97828650208585"
+      },
+      {
+        "slide": 1,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-01.md",
+        "sha256": "sha256:4f22379016cd451bc102c5befadc468db93a9e75b3e832e7ca91cabf282b00ca"
+      },
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.prompt.txt",
+        "sha256": "sha256:15b9d498c14bed2dd56fcde42eee5f0f341aacaa75e3493f15a5deb2a9086877"
+      },
+      {
+        "slide": 2,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-02.md",
+        "sha256": "sha256:d69587b6a42a4de6e233cad35e1a1904975883e6208575e51fe31c22a069ce1b"
+      },
+      {
+        "slide": 3,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-03.prompt.txt",
+        "sha256": "sha256:aef606c39ea7b4164799198badba15d9b0f973262c406ce96e30cc7db9fc36e7"
+      },
+      {
+        "slide": 3,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-03.md",
+        "sha256": "sha256:0553557cd8748e019c22ebc3c8809f8c0542aaf5be894bcecfa5064affbcbd2f"
+      },
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.prompt.txt",
+        "sha256": "sha256:3619e2c37a309a1b4db6410eb4b83113da286fe326412444751fa5b6ad10984f"
+      },
+      {
+        "slide": 4,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-04.md",
+        "sha256": "sha256:c0818568736cddd31170ac286b93e4bf34edccf202a6b076072dbdda6d2444a9"
+      },
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.prompt.txt",
+        "sha256": "sha256:aa22ea9318143597f7f07f94d7b92d3dbf72ee9614ed090687e6f042f059674d"
+      },
+      {
+        "slide": 5,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-05.md",
+        "sha256": "sha256:2de2db9a4f7837867bebc88291dc82f1642f50c5123dc9db7c301f78c1564508"
+      },
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.prompt.txt",
+        "sha256": "sha256:19d2ca108a00dc686c11e339eabb5bf88ced40cc45900f204baede7a53a03f13"
+      },
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.md",
+        "sha256": "sha256:997b009ddb6aefc01b392bb5e59ead7685a58e33f29d80def6b48c95916f787a"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.prompt.txt",
+        "sha256": "sha256:ad860a56e2ee08444cb27fbd6293411b8ae8e93be7a802895d9f02f12d498bfc"
+      },
+      {
+        "slide": 7,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-07.md",
+        "sha256": "sha256:24981efa54c47ba869d4a963989c9b9f0b00e2ed9447311cf9136db23b2b0668"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:1f8465100a6e40e804c665d7c3d3ea51fc2d83a2941dc246dfc4aef30bd464ed"
+  },
+  "identity_reference_requirement": "Load/view identity-face-contact-sheet.jpg and selected identity images before every Codex image generation call; the final art must preserve Aachu/Zuv face structure.",
+  "approved_proof_batch_handoff_attestation": {
+    "schema_version": "approved-proof-batch-handoff/v1",
+    "proof_slide": 1,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "image_set_sha256": "e046ef2d93555d403970443605cf6f5eebab8d32bdeaac89f05f72d5fe27ecdb",
+    "source_handoff_set_fingerprint": null,
+    "recovered_after_state_loss": true,
+    "visual_qa_binding": {
+      "relative_path": ".internal/approved-proof/visual-qa.json",
+      "sha256": "sha256:d0e78b50b75ba169990abf9a79bdb09663ea5a6bcd9a54e9bb3652f1e810e3f3"
+    },
+    "creator_approval_binding": {
+      "relative_path": ".internal/approved-proof/creator-approval.json",
+      "sha256": "sha256:d9d77cb6cd65820db2625bfa64b7038312b48c14e2440dfbcd28f119b8354378"
+    },
+    "quarantine_bindings": [
+      {
+        "relative_path": ".internal/visual-quarantine/attempt-01/final/slide-01.png",
+        "sha256": "sha256:1c8b8bb8d1ebc89f2a1560dde89704f4576a59d634f07ab9ab7abb441ec11e1c"
+      }
+    ],
+    "attestation_fingerprint": "sha256:f03ecd3d327e5d2720ac5a9d205c886a49a390f1da4176bfc11ed5e834e53493"
+  },
+  "qa_failed_full_deck_retry_handoff_attestation": {
+    "schema_version": "qa-failed-full-deck-retry-handoff/v1",
+    "source_status": "REJECTED_SPATIAL_INTEGRITY",
+    "failed_image_set_sha256": "961792408b04bbb232a4008929751eeea575f94785aa9214757b3b0e43950a20",
+    "failed_attempt": {
+      "attempt": 3,
+      "retry_count": 2,
+      "image_set_sha256": "961792408b04bbb232a4008929751eeea575f94785aa9214757b3b0e43950a20",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 1 instagram_post is missing exact-image QA binding",
+        "slide 1 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 1 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 1 instagram_post requires format-specific visual_richness evidence",
+        "slide 2 instagram_post is missing exact-image QA binding",
+        "slide 2 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 2 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 2 instagram_post requires format-specific visual_richness evidence",
+        "slide 3 instagram_post is missing exact-image QA binding",
+        "slide 3 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 3 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 3 instagram_post requires format-specific visual_richness evidence",
+        "slide 4 instagram_post is missing exact-image QA binding",
+        "slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 4 instagram_post requires format-specific visual_richness evidence",
+        "slide 5 instagram_post is missing exact-image QA binding",
+        "slide 5 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 5 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 5 instagram_post requires format-specific visual_richness evidence",
+        "slide 6 instagram_post is missing exact-image QA binding",
+        "slide 6 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 6 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 6 instagram_post requires format-specific visual_richness evidence",
+        "slide 7 instagram_post is missing exact-image QA binding",
+        "slide 7 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 7 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 7 instagram_post requires format-specific visual_richness evidence",
+        "visual-qa.json spatial_topology slide 1 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 1 must include a people list.",
+        "visual-qa.json spatial_topology slide 1 records 2 people but inventories 0.",
+        "visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+        "visual-qa.json spatial_topology slide 2 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 2 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 2 must include a people list.",
+        "visual-qa.json spatial_topology slide 2 records 4 people but inventories 0.",
+        "visual-qa.json spatial_topology slide 2 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 2 must include unresolved_intersections as a list.",
+        "visual-qa.json spatial_topology slide 3 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 3 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 3 must include a people list.",
+        "visual-qa.json spatial_topology slide 3 records 2 people but inventories 0.",
+        "visual-qa.json spatial_topology slide 3 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 3 must include unresolved_intersections as a list.",
+        "visual-qa.json spatial_topology slide 4 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 4 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 4 must include a people list.",
+        "visual-qa.json spatial_topology slide 4 records 2 people but inventories 0.",
+        "visual-qa.json spatial_topology slide 4 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 4 must include unresolved_intersections as a list.",
+        "visual-qa.json spatial_topology slide 5 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 5 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 5 must include a people list.",
+        "visual-qa.json spatial_topology slide 5 records 2 people but inventories 0.",
+        "visual-qa.json spatial_topology slide 5 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 5 must include unresolved_intersections as a list.",
+        "visual-qa.json spatial_topology slide 6 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 6 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 6 must include a people list.",
+        "visual-qa.json spatial_topology slide 6 records 2 people but inventories 0.",
+        "visual-qa.json spatial_topology slide 6 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 6 must include unresolved_intersections as a list.",
+        "visual-qa.json spatial_topology slide 7 must include evidence_views.",
+        "visual-qa.json spatial_topology slide 7 must inventory environment_planes.",
+        "visual-qa.json spatial_topology slide 7 must include a people list.",
+        "visual-qa.json spatial_topology slide 7 records 4 people but inventories 0.",
+        "visual-qa.json spatial_topology slide 7 must include ambiguous_regions as a list.",
+        "visual-qa.json spatial_topology slide 7 must include unresolved_intersections as a list.",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.source_director_event_fingerprint is missing or invalid.",
+        "visual_story_readability is stale for the complete current director Event A payload.",
+        "visual_story_readability.reviewed_native_formats must cover exactly: instagram_post.",
+        "visual_story_readability.frames missing required records: 1:instagram_post, 2:instagram_post, 3:instagram_post, 4:instagram_post, 5:instagram_post, 6:instagram_post, 7:instagram_post.",
+        "visual_story_readability.frames has 0 records, expected 7.",
+        "visual_story_readability declares unresolved issues while claiming PASS.",
+        "visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+        "visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 1 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 1 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 1 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 1 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 2 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 2 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 2 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 2 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 3 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 3 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 3 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 3 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 4 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 5 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 5 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 5 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 5 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post is missing exact-image QA binding",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 7 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 records 2 people but inventories 0.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 1 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 2 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 2 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 2 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 2 records 4 people but inventories 0.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 2 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 2 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 3 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 3 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 3 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 3 records 2 people but inventories 0.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 3 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 3 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 4 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 4 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 4 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 4 records 2 people but inventories 0.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 4 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 4 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 5 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 5 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 5 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 5 records 2 people but inventories 0.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 5 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 5 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 6 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 6 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 6 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 6 records 2 people but inventories 0.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 6 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 6 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 7 must include evidence_views.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 7 must inventory environment_planes.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 7 must include a people list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 7 records 4 people but inventories 0.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 7 must include ambiguous_regions as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology slide 7 must include unresolved_intersections as a list.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.source_director_event_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability is stale for the complete current director Event A payload.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.reviewed_native_formats must cover exactly: instagram_post.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames missing required records: 1:instagram_post, 2:instagram_post, 3:instagram_post, 4:instagram_post, 5:instagram_post, 6:instagram_post, 7:instagram_post.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames has 0 records, expected 7.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.raw_response_fingerprint is stale for raw_response_artifact.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.output_fingerprint is missing or invalid."
+      ]
+    },
+    "visual_qa_binding": {
+      "relative_path": ".internal/attempt-03-fail-visual-qa.json",
+      "sha256": "sha256:9a4174276a2841ae2ee618046242b3cac12f4c4865432872bec4588cd0707e38"
+    },
+    "next_retry_count": 3,
+    "attestation_fingerprint": "sha256:998727472c00b2786e0e5b25c8d1415ba7445b95261bb199dfdca764374f5cbc"
+  }
+}

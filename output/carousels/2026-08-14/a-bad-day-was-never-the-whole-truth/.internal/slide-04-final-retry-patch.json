@@ -1,0 +1,54 @@
+{
+  "scene": "LOW TABLE-LEVEL OBSTRUCTED CLOSE VIEW, 35MM FEEL, FINAL HERO PROOF. Exactly Aachu and Zuv each drag one opposite end of the same live extension board toward themselves at the same instant because both attached cables are too short: Aachu's clearly attached left hand grips the left plastic end of the board and pulls left; Zuv's clearly attached right hand grips the right plastic end and pulls right. Their free hands stay fully outside the frame. A white phone-charger adapter is visibly inserted in the left socket with its white cable stretched taut toward Aachu's phone just outside the focal area. A black lamp plug is visibly inserted in the right socket with its black cord stretched taut to the intact table lamp. The opposing hand forces rotate and skid the board diagonally; the taut black cord lifts the lamp base into a clear mid-tip toward its padded side, and the moving board physically clips the key bowl so two keys spill along the same impact direction. Both recognizable faces recoil toward the shared consequence with closed mouths, hurt rather than rage. Show exactly two people, exactly two visible hands, one board, two inserted plugs, two taut cables, one intact mid-tip lamp and one struck key bowl. No loose plug in either hand, no empty-cable ambiguity, no third cable, no broken lamp, no fire, no shouting and no extra limb. Reduce the meal to a soft partial foreground trace. Leave a clean upper-left neutral ivory text zone.",
+  "visual": "LOW TABLE-LEVEL OBSTRUCTED CLOSE VIEW, 35MM FEEL, FINAL HERO PROOF. Exactly Aachu and Zuv each drag one opposite end of the same live extension board toward themselves at the same instant because both attached cables are too short: Aachu's clearly attached left hand grips the left plastic end of the board and pulls left; Zuv's clearly attached right hand grips the right plastic end and pulls right. Their free hands stay fully outside the frame. A white phone-charger adapter is visibly inserted in the left socket with its white cable stretched taut toward Aachu's phone just outside the focal area. A black lamp plug is visibly inserted in the right socket with its black cord stretched taut to the intact table lamp. The opposing hand forces rotate and skid the board diagonally; the taut black cord lifts the lamp base into a clear mid-tip toward its padded side, and the moving board physically clips the key bowl so two keys spill along the same impact direction. Both recognizable faces recoil toward the shared consequence with closed mouths, hurt rather than rage. Show exactly two people, exactly two visible hands, one board, two inserted plugs, two taut cables, one intact mid-tip lamp and one struck key bowl. No loose plug in either hand, no empty-cable ambiguity, no third cable, no broken lamp, no fire, no shouting and no extra limb. Reduce the meal to a soft partial foreground trace. Leave a clean upper-left neutral ivory text zone.",
+  "repair_instruction": "This is a fresh restaging of the failed proof, not a cosmetic edit. Preserve exact copy, tiny top-right brandmark, Zuv likeness, charcoal wardrobe, neutral ivory watercolor-and-ink finish and restrained expressions. Restore Aachu to the wider soft oval face, larger expressive dark eyes, softly arched brows, softer shorter nose, fuller natural lips and lighter facial shading in reel-jaldi.jpg and together-18.jpg. Do not show either person holding a plug. Each person grips only one opposite plastic end of the same extension board. Two plugs are already inserted and remain visible in occupied sockets. Make both cables ruler-taut in opposing directions, make the board visibly skid and rotate, make the black lamp cord lift the lamp base mid-tip, and make the board edge visibly strike the key bowl so two keys share the impact path. The copy-hidden read must be: both pulled the same shared thing their own way, and together made the room worse.",
+  "pose": "Aachu leans left from her own side with one continuous left shoulder-to-forearm-to-hand chain gripping only the board's left plastic end. Zuv leans right from his own side with one continuous right shoulder-to-forearm-to-hand chain gripping only the board's right plastic end. Their two pull vectors oppose each other; faces, torsos and hands stay separate from lamp, board, table and cords.",
+  "props": "one shared extension board held at opposite plastic ends, one inserted white charger adapter with one taut white cable, one inserted black lamp plug with one taut black cord, one intact lamp caught mid-tip, one struck key bowl with exactly two spilling keys, minimal partial meal",
+  "hand_map": {
+    "scene_action_binding": "LOW TABLE-LEVEL OBSTRUCTED CLOSE VIEW, 35MM FEEL, FINAL HERO PROOF. Aachu's left hand grips and pulls only the left plastic end of one live extension board while Zuv's right hand grips and pulls only its right plastic end. Two plugs remain visibly inserted; neither hand holds a plug. Opposing pulls skid and rotate the board, tighten the lamp cord, tip the intact lamp and strike the key bowl.",
+    "hands": [
+      {
+        "owner": "Aachu",
+        "side": "left",
+        "visibility": "focal_action",
+        "action": "Grip and pull only the left plastic end of the shared extension board",
+        "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+      },
+      {
+        "owner": "Aachu",
+        "side": "right",
+        "visibility": "out_of_frame",
+        "action": "Stay completely outside the frame; do not enter from a wall, door, or body edge",
+        "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+      },
+      {
+        "owner": "Zuv",
+        "side": "left",
+        "visibility": "out_of_frame",
+        "action": "Stay completely outside the frame; do not enter from a wall, door, or body edge",
+        "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+      },
+      {
+        "owner": "Zuv",
+        "side": "right",
+        "visibility": "focal_action",
+        "action": "Grip and pull only the right plastic end of the shared extension board",
+        "attachment": "continuous shoulder-to-upper-arm-to-elbow-to-forearm-to-wrist-to-hand"
+      }
+    ]
+  },
+  "action_topology_contract": {
+    "applies": true,
+    "scene_action_binding": "Aachu and Zuv grip opposite plastic ends of one extension board; two inserted plugs and two taut cables transmit the opposing force to the board, lamp and key bowl.",
+    "copy_action_binding": "We made each other’s hurt louder.",
+    "issues": []
+  },
+  "spatial_topology_contract": {
+    "scene_action_binding": "Aachu and Zuv remain behind the table with one owned hand each on opposite ends of the same board. Both people, both hands, both inserted plugs, both taut cables, the lamp and key bowl remain separate coherent objects with explicit front-behind-contact relations."
+  },
+  "visual_richness_contract": {
+    "scene_action_binding": "Foreground: diagonal skidding board, two owned grip hands, two inserted plugs and taut cables. Midground: recoiling recognizable faces. Background: minimal chair and untouched meal trace. The board's impact visibly causes the lamp tip and key spill.",
+    "focal_action": "two opposite grip-and-pull vectors on the same live extension board",
+    "cause_effect": "opposing board pulls tighten the black lamp cord, lift the lamp base mid-tip and drive the board edge into the key bowl"
+  }
+}

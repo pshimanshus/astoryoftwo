@@ -1,0 +1,240 @@
+{
+  "status": "BLOCKED_VISUAL_QA",
+  "backend": "codex_builtin",
+  "generation_mode": "model_native_publishable",
+  "slide_count": 1,
+  "done": false,
+  "publishable": false,
+  "requires_human_generation": false,
+  "slides": [
+    {
+      "slide": 6,
+      "copy": "Commitment answered who.\nWe are still learning how.",
+      "status": "GENERATED_QUARANTINED",
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-06.png",
+          "sha256": "d720f0bd5a7cda90fcd3201b9643644f33be0eb114ce666ad456076e4d64fe08",
+          "width": 1080,
+          "height": 1440,
+          "normalization": "proportional export from 1086x1448 to exact 1080x1440",
+          "normalization_warning": null,
+          "model_native_source": {
+            "path": ".internal/visual-quarantine/attempt-03/model-native-source/instagram-post-slide-06.png",
+            "sha256": "01a043f147319892a06259f61357c3c8acaa18e78348120371fecae6dd7c7380",
+            "width": 1086,
+            "height": 1448
+          }
+        }
+      }
+    }
+  ],
+  "reason": "Visual QA failed after the initial generation and two repair retries; batching is blocked.",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "retry_count": 2,
+  "max_visual_qa_retries": 2,
+  "retries_remaining": 0,
+  "quarantine_dir": ".internal/visual-quarantine/attempt-03",
+  "image_set_sha256": "a8f6fc4d578edbfe7683a3a8a86a7a9328da63db9976fbd4338010d966e7f7ac",
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "native_output_contract": {
+    "formats": [
+      "instagram_post"
+    ],
+    "workers": [
+      "instagram_post_output",
+      "identity_visual_qa"
+    ],
+    "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+  },
+  "proof_only": true,
+  "requested_proof_slide": 6,
+  "total_slide_count": 6,
+  "compiled_prompt_handoff": {
+    "schema_version": "compiled-prompt-handoff/v1",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "slide_numbers": [
+      6
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "input_bindings": {
+      "prompt_pack": {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:945a7e11b61e7db8dd79db846bee68cf91a1c3c23ea83e87e0925814384d05a2"
+      },
+      "slides": {
+        "relative_path": "slides.json",
+        "sha256": "sha256:608d21a3555e411fcb2a306a0caa7979815189caf4a9668e1640da0ae7cf4c22"
+      }
+    },
+    "files": [
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "generator_prompt",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.prompt.txt",
+        "sha256": "sha256:39486d401cdf2cc9aae3062d97546534f92d9166ccbc9f8c563df7b536bf78f2"
+      },
+      {
+        "slide": 6,
+        "format": "instagram_post",
+        "kind": "handoff_markdown",
+        "relative_path": "codex-image-prompts/instagram-post/slide-06.md",
+        "sha256": "sha256:c21dbbe77ab9d205dd87e207e415ccf745c7323d3907eac52873faeaf85197ab"
+      }
+    ],
+    "handoff_set_fingerprint": "sha256:bdabd811416c077fa7ddf432f51163c84d2bf414da9359c2a3bd9a4b397ba4c8"
+  },
+  "retry_prompt_handoff_attestation": {
+    "schema_version": "retry-prompt-handoff/v1",
+    "source_status": "REJECTED_SPATIAL_INTEGRITY",
+    "proof_slide": 6,
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "failed_image_set_sha256": "8b6230770d8f7e5bcb5b4b7cc378bcd81faeb972ea1e9de8ba86ef86deab3eca",
+    "failed_attempt": {
+      "attempt": 2,
+      "retry_count": 1,
+      "image_set_sha256": "8b6230770d8f7e5bcb5b4b7cc378bcd81faeb972ea1e9de8ba86ef86deab3eca",
+      "status": "QA_FAILED",
+      "qa_issues": [
+        "visual-qa.json status must be PASS",
+        "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "slide 6 instagram_post requires format-specific anatomy_inventory evidence",
+        "slide 6 instagram_post requires format-specific scene_entity_integrity evidence",
+        "slide 6 instagram_post requires format-specific visual_richness evidence",
+        "slides must cover exactly the selected proof slides: 6",
+        "visual-qa.json spatial_topology has 0 slide records, expected 1.",
+        "visual-qa.json spatial_topology is missing slide records: 1",
+        "frames must cover exactly the selected proof slides: 6",
+        "visual_story_readability must be PASS with pass true.",
+        "visual_story_readability.frames missing required records: 1:instagram_post.",
+        "visual_story_readability.frames has 0 records, expected 1.",
+        "visual_story_readability declares unresolved issues while claiming PASS.",
+        "visual_story_readability.review_provenance.schema_version must be visual-review-provenance/v2.",
+        "visual_story_readability.review_provenance.reviewer_task_id must record an orchestration-issued audit ID.",
+        "visual_story_readability.review_provenance.reviewer_run_id must record an orchestration-issued audit ID.",
+        "visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "visual_story_readability.review_provenance must provide exactly one critic response source: raw_response or raw_response_artifact.",
+        "visual_story_readability.review_provenance.output_fingerprint is missing or invalid.",
+        "visual_story_readability.reviewer_id must equal review_provenance.reviewer_task_id."
+      ],
+      "targeted_repair_instructions": [
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json status must be PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post requires format-specific anatomy_inventory evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post requires format-specific scene_entity_integrity evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slide 6 instagram_post requires format-specific visual_richness evidence",
+        "Repair this exact QA failure without weakening any other locked constraint: slides must cover exactly the selected proof slides: 6",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology has 0 slide records, expected 1.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual-qa.json spatial_topology is missing slide records: 1",
+        "Repair this exact QA failure without weakening any other locked constraint: frames must cover exactly the selected proof slides: 6",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability must be PASS with pass true.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames missing required records: 1:instagram_post.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.frames has 0 records, expected 1.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability declares unresolved issues while claiming PASS.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.schema_version must be visual-review-provenance/v2.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.reviewer_task_id must record an orchestration-issued audit ID.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.reviewer_run_id must record an orchestration-issued audit ID.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance must provide exactly one critic response source: raw_response or raw_response_artifact.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.review_provenance.output_fingerprint is missing or invalid.",
+        "Repair this exact QA failure without weakening any other locked constraint: visual_story_readability.reviewer_id must equal review_provenance.reviewer_task_id."
+      ]
+    },
+    "visual_qa_binding": {
+      "relative_path": ".internal/visual-qa-attempt-02.json",
+      "sha256": "sha256:5e90717b31e140a0b2aa77d2996eb7aa075b62a9c5c9fcb2664f4b7b97c9c932"
+    },
+    "attempt_ledger_binding": {
+      "relative_path": ".internal/visual-qa-attempts.json",
+      "sha256": "sha256:7210696ef6a5942983c1493218d1f4948ec82c08d712b8815a700b387bf029b0"
+    },
+    "gate_input_bindings": [
+      {
+        "relative_path": "format-contract.json",
+        "sha256": "sha256:79c4368458f4ecad308ec16f4dd47249e798ffb51f00d5ccc903e9478342d860"
+      },
+      {
+        "relative_path": "prompt-pack.json",
+        "sha256": "sha256:945a7e11b61e7db8dd79db846bee68cf91a1c3c23ea83e87e0925814384d05a2"
+      },
+      {
+        "relative_path": "slides.json",
+        "sha256": "sha256:608d21a3555e411fcb2a306a0caa7979815189caf4a9668e1640da0ae7cf4c22"
+      },
+      {
+        "relative_path": "visual-plan-quality.json",
+        "sha256": "sha256:13d89153c24814b2d84fe1aa00b6578a419c0c02c982683aa057871d068e4840"
+      },
+      {
+        "relative_path": "identity-consistency-review.json",
+        "sha256": "sha256:f52a87d3974523be347aa78b505a5460ec2736a8b6a05debdbf13b65c9c7c499"
+      },
+      {
+        "relative_path": "review.json",
+        "sha256": "sha256:654acdc203ac75f75429f0acc94bc8ca3dbe5b23d452f4f89538206564ad60ee"
+      },
+      {
+        "relative_path": "layer-e-story-selling.json",
+        "sha256": "sha256:1247fa72988aaf483528e0badfb475ba0f1498dec23a7126e433fdb372396c78"
+      },
+      {
+        "relative_path": "stage-reviews.json",
+        "sha256": "sha256:508939667ff038ebf26bb1103981628a4e36eb9016f1936888e4f89bfedbc927"
+      }
+    ],
+    "previous_handoff_set_fingerprint": "sha256:13e4a3c8a7bb00c347a0ed07e38a0ea7cb878491af37583cb969c32a4247c1ad",
+    "replacement_handoff_set_fingerprint": "sha256:bdabd811416c077fa7ddf432f51163c84d2bf414da9359c2a3bd9a4b397ba4c8",
+    "previous_prompt_backup_dir": ".internal/codex-image-prompts-previous/attempt-02",
+    "previous_prompt_files": [
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-06.md",
+        "sha256": "sha256:c21dbbe77ab9d205dd87e207e415ccf745c7323d3907eac52873faeaf85197ab"
+      },
+      {
+        "relative_path": ".internal/codex-image-prompts-previous/attempt-02/instagram-post/slide-06.prompt.txt",
+        "sha256": "sha256:4b101faa7c2a316e9eca11377b38330fdd811f24e4282819baae43825f28a07b"
+      }
+    ],
+    "next_retry_count": 2,
+    "attestation_fingerprint": "sha256:0b27b55657c0e6f6d13638124a3a9d897cdf4377ae20ca7ecc69cdf5064b9ab2"
+  },
+  "visual_qa_path": ".internal/visual-qa-attempt-03.json",
+  "visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 6 instagram_post requires format-specific anatomy_inventory evidence",
+    "slide 6 instagram_post requires format-specific scene_entity_integrity evidence",
+    "slide 6 instagram_post requires format-specific visual_richness evidence",
+    "slides must cover exactly the selected proof slides: 6",
+    "visual-qa.json spatial_topology has 0 slide records, expected 1.",
+    "visual-qa.json spatial_topology is missing slide records: 1",
+    "frames must cover exactly the selected proof slides: 6",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames missing required records: 1:instagram_post.",
+    "visual_story_readability.frames has 0 records, expected 1.",
+    "visual_story_readability declares unresolved issues while claiming PASS.",
+    "visual_story_readability.review_provenance.schema_version must be visual-review-provenance/v2.",
+    "visual_story_readability.review_provenance.reviewer_task_id must record an orchestration-issued audit ID.",
+    "visual_story_readability.review_provenance.reviewer_run_id must record an orchestration-issued audit ID.",
+    "visual_story_readability.review_provenance.input_fingerprint is missing or invalid.",
+    "visual_story_readability.review_provenance.raw_response_fingerprint is missing or invalid.",
+    "visual_story_readability.review_provenance must provide exactly one critic response source: raw_response or raw_response_artifact.",
+    "visual_story_readability.review_provenance.output_fingerprint is missing or invalid.",
+    "visual_story_readability.reviewer_id must equal review_provenance.reviewer_task_id."
+  ]
+}

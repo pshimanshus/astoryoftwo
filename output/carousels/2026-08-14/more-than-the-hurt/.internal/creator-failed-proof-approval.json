@@ -1,0 +1,28 @@
+{
+  "status": "APPROVED",
+  "approved": true,
+  "image_set_sha256": "f536f88fd378a9c6e8176780b542ab23fa759e810631c80bca576cbde5824513",
+  "approved_by": "creator",
+  "evidence": "After receiving the exact attempt-03 identity, hand, frame-angle, and story-readability failures plus the choice to accept the current proof with known exceptions, the creator instructed: \"continue and create all, usng idenityf image u already have\". This authorizes batch generation from the existing Aachu/Zuv identity bundle while preserving the failed-proof exceptions and requiring fresh full-deck QA.",
+  "accepts_known_qa_exceptions": true,
+  "acknowledged_visual_qa_issues": [
+    "visual-qa.json status must be PASS",
+    "visual-qa.json proof_state must be QA_PASS_CANDIDATE or a later approved state",
+    "visual-qa.json review anatomy_entity_spatial_identity must be a structured PASS",
+    "visual-qa.json review storytelling_richness_text_style must be a structured PASS",
+    "slide 5 instagram_post observed hands do not match expected hands",
+    "slide 5 instagram_post scene_entity_integrity hands inventory does not match",
+    "visual_story_readability must be PASS with pass true.",
+    "visual_story_readability.frames[1:instagram_post].status must be PASS.",
+    "visual_story_readability.frames[1:instagram_post].core_action_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].relationship_turn_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].hands_gaze_prop_legible must be true.",
+    "visual_story_readability.frames[1:instagram_post].storyboard_match must be true.",
+    "visual_story_readability.frames[1:instagram_post].copy_visual_contradictions must be empty before PASS.",
+    "visual_story_readability.frames[1:instagram_post].unexpected_story must be empty before PASS.",
+    "visual_story_readability declares unresolved issues while claiming PASS.",
+    "visual_story_readability.review_provenance.input_fingerprint is stale for the exact review input.",
+    "visual_story_readability.review_provenance.output_fingerprint is stale for the structured review/reconciliation output."
+  ],
+  "acknowledged_visual_qa_issues_fingerprint": "sha256:10c993a2fb2d4181072236485d58cfdbfa9751972d24ee8ab7549ba691a41632"
+}

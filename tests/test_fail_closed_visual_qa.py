@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from dataclasses import replace
 from datetime import date
 from pathlib import Path
 from unittest.mock import patch
@@ -262,6 +263,70 @@ def test_schema_v2_full_evidence_passes(tmp_path: Path) -> None:
         result = structured_visual_qa_gate(_context(tmp_path))
 
     assert result["pass"], result["failed"]
+
+
+def test_structured_visual_qa_accepts_explicit_package_contained_path(
+    tmp_path: Path,
+) -> None:
+    (tmp_path / "visual-qa.json").write_text(
+        json.dumps({"schema_version": "2.1", "status": "FAIL"}),
+        encoding="utf-8",
+    )
+    alternate = tmp_path / ".internal" / "full-deck-visual-qa.json"
+    alternate.parent.mkdir(parents=True)
+    alternate.write_text(json.dumps(_valid_qa(tmp_path)), encoding="utf-8")
+    context = replace(_context(tmp_path), visual_qa_path=alternate)
+
+    with patch(
+        "pipeline.stages.carousel_quality.validate_frame_readability",
+        return_value=[],
+    ):
+        result = structured_visual_qa_gate(context)
+
+    assert result["pass"], result["failed"]
+    assert result["path"] == str(alternate)
+
+
+def test_structured_visual_qa_rejects_external_explicit_path(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "package"
+    package.mkdir()
+    external = tmp_path / "external-qa.json"
+    external.write_text(json.dumps(_valid_qa(package)), encoding="utf-8")
+    context = replace(_context(package), visual_qa_path=external)
+
+    result = structured_visual_qa_gate(context)
+
+    assert not result["pass"]
+    assert "inside the carousel package" in " ".join(result["failed"])
+
+
+def test_structured_visual_qa_rejects_traversal_and_symlink_paths(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "package"
+    package.mkdir()
+    qa = package / ".internal" / "full-deck-visual-qa.json"
+    qa.parent.mkdir()
+    qa.write_text(json.dumps(_valid_qa(package)), encoding="utf-8")
+
+    traversal_result = structured_visual_qa_gate(
+        replace(
+            _context(package),
+            visual_qa_path=Path("../outside-qa.json"),
+        )
+    )
+    linked = package / "linked-qa.json"
+    linked.symlink_to(qa)
+    symlink_result = structured_visual_qa_gate(
+        replace(_context(package), visual_qa_path=Path("linked-qa.json"))
+    )
+
+    assert not traversal_result["pass"]
+    assert "traverse outside" in " ".join(traversal_result["failed"])
+    assert not symlink_result["pass"]
+    assert "symlinks" in " ".join(symlink_result["failed"])
 
 
 def test_boolean_only_pose_anatomy_is_rejected(tmp_path: Path) -> None:

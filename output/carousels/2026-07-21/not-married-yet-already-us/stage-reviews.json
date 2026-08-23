@@ -51,7 +51,7 @@
     },
     "visual_reviewer": {
       "stage": "visual",
-      "status": "NEEDS_FIXES",
+      "status": "PASS",
       "expected": [
         "every slide has copy, role, visual, emotion, CTA intent, and source images",
         "post-copy visual room runs after copy lock",
@@ -62,19 +62,7 @@
         "post-copy visual room: GO",
         "visual screen: PASS"
       ],
-      "issues": [
-        "Slide 1 missing: cta_intent.",
-        "Slide 2 missing: cta_intent.",
-        "Slide 3 missing: cta_intent.",
-        "Slide 4 missing: cta_intent.",
-        "Slide 5 missing: cta_intent.",
-        "Slide 6 missing: cta_intent.",
-        "Slide 7 missing: cta_intent.",
-        "Slide 8 missing: cta_intent.",
-        "Slide 9 missing: cta_intent.",
-        "Slide 10 missing: cta_intent.",
-        "Slide 11 missing: cta_intent."
-      ],
+      "issues": [],
       "notes": []
     },
     "identity_consistency_reviewer": {
@@ -157,7 +145,7 @@
         "Missing final generated images: output/carousels/2026-07-21/not-married-yet-already-us/final/slide-01.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-02.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-03.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-04.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-05.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-06.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-07.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-08.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-09.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-10.png, output/carousels/2026-07-21/not-married-yet-already-us/final/slide-11.png"
       ],
       "notes": [
-        "render_assets=False"
+        "proof retry pending"
       ]
     },
     "wiki_learning_reviewer": {

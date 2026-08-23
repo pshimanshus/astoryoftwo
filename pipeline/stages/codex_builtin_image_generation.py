@@ -4,6 +4,7 @@ import json
 import hashlib
 import re
 import shutil
+import uuid
 from collections.abc import Callable
 from datetime import date
 from pathlib import Path
@@ -57,10 +58,41 @@ GENERATION_MODE = "model_native_publishable"
 MAX_VISUAL_QA_RETRIES = 2
 QUARANTINE_FOLDER = ".internal/visual-quarantine"
 ATTEMPT_LEDGER = ".internal/visual-qa-attempts.json"
+FULL_DECK_ATTEMPT_LEDGER = ".internal/full-deck-visual-qa-attempts.json"
+FULL_DECK_QUARANTINE_FOLDER = ".internal/full-deck-visual-quarantine"
+FULL_DECK_VISUAL_QA = ".internal/full-deck-visual-qa.json"
+CREATOR_OVERRIDE_FULL_DECK_SCOPE = "creator_override_full_deck"
 PROMOTION_STAGING_FOLDER = ".internal/promotion-staging"
 PROMPT_HANDOFF_ACTIVE_FOLDER = "codex-image-prompts"
 PROMPT_HANDOFF_STAGING_FOLDER = ".internal/codex-image-prompts-staging"
+PROMPT_HANDOFF_BACKUP_FOLDER = ".internal/codex-image-prompts-previous"
 PROMPT_HANDOFF_SCHEMA_VERSION = "compiled-prompt-handoff/v1"
+APPROVED_PROOF_BATCH_HANDOFF_SCHEMA_VERSION = (
+    "approved-proof-batch-handoff/v1"
+)
+APPROVED_PROOF_BATCH_HANDOFF_ARCHIVE = (
+    ".internal/approved-proof/handoff-attestation.json"
+)
+RETRY_HANDOFF_SCHEMA_VERSION = "retry-prompt-handoff/v1"
+CREATOR_FAILED_PROOF_APPROVAL_SCHEMA_VERSION = (
+    "creator-failed-proof-approval/v1"
+)
+CREATOR_OVERRIDE_PROOF_BINDING_SCHEMA_VERSION = (
+    "creator-override-proof-binding/v1"
+)
+CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS = (
+    "CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS"
+)
+RETRY_GATE_INPUT_FILES = (
+    FORMAT_CONTRACT_FILENAME,
+    "prompt-pack.json",
+    "slides.json",
+    "visual-plan-quality.json",
+    "identity-consistency-review.json",
+    "review.json",
+    "layer-e-story-selling.json",
+    "stage-reviews.json",
+)
 VISUAL_QA_REVIEW_KEYS = (
     "anatomy_entity_spatial_identity",
     "storytelling_richness_text_style",
@@ -240,6 +272,7 @@ def compiled_prompt_handoff_integrity_issues(
         GenerationStatus.GENERATED_QUARANTINED.value,
         GenerationStatus.QA_PASS_CANDIDATE.value,
         GenerationStatus.CREATOR_APPROVED_PROOF.value,
+        GenerationStatus.BATCH_ALLOWED.value,
         GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value,
     }
     if state.get("status") not in allowed_states:
@@ -367,6 +400,286 @@ def compiled_prompt_handoff_integrity_issues(
     }
     if handoff.get("handoff_set_fingerprint") != _canonical_fingerprint(fingerprint_payload):
         issues.append("compiled-prompt handoff set fingerprint is stale")
+    if state.get("status") in {
+        GenerationStatus.GENERATED_QUARANTINED.value,
+        GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value,
+    }:
+        issues.extend(retry_prompt_handoff_attestation_issues(carousel_dir, state=state))
+    if state.get("approved_proof_batch_handoff_attestation") is not None:
+        issues.extend(
+            approved_proof_batch_handoff_attestation_issues(
+                carousel_dir,
+                state=state,
+            )
+        )
+    return issues
+
+
+def approved_proof_batch_handoff_attestation_issues(
+    carousel_dir: Path,
+    *,
+    state: Any,
+) -> list[str]:
+    """Verify the immutable proof evidence carried into a clean full-deck handoff."""
+
+    if not isinstance(state, dict):
+        return ["approved-proof batch handoff state is malformed"]
+    attestation = state.get("approved_proof_batch_handoff_attestation")
+    if not isinstance(attestation, dict):
+        return ["approved-proof batch handoff attestation is missing"]
+
+    issues: list[str] = []
+    if (
+        attestation.get("schema_version")
+        != APPROVED_PROOF_BATCH_HANDOFF_SCHEMA_VERSION
+    ):
+        issues.append("approved-proof batch handoff schema is missing or unsupported")
+    fingerprint_payload = {
+        key: value
+        for key, value in attestation.items()
+        if key != "attestation_fingerprint"
+    }
+    if attestation.get("attestation_fingerprint") != _canonical_fingerprint(
+        fingerprint_payload
+    ):
+        issues.append("approved-proof batch handoff attestation fingerprint is stale")
+    if attestation.get("requested_formats") != state.get("requested_formats"):
+        issues.append("approved-proof batch handoff formats are stale")
+
+    for label, binding in (
+        ("visual QA", attestation.get("visual_qa_binding")),
+        ("creator approval", attestation.get("creator_approval_binding")),
+    ):
+        if not isinstance(binding, dict) or not isinstance(
+            binding.get("relative_path"), str
+        ):
+            issues.append(f"approved-proof batch handoff is missing {label} binding")
+            continue
+        issues.extend(
+            f"approved-proof {label}: {issue}"
+            for issue in _bound_package_file_issues(
+                carousel_dir,
+                binding,
+                expected_relative_path=binding["relative_path"],
+            )
+        )
+
+    quarantine_bindings = attestation.get("quarantine_bindings")
+    if not isinstance(quarantine_bindings, list) or not quarantine_bindings:
+        issues.append("approved-proof batch handoff quarantine bindings are missing")
+    else:
+        seen: set[str] = set()
+        for binding in quarantine_bindings:
+            if not isinstance(binding, dict) or not isinstance(
+                binding.get("relative_path"), str
+            ):
+                issues.append("approved-proof batch handoff has a malformed quarantine binding")
+                continue
+            relative_path = binding["relative_path"]
+            if relative_path in seen:
+                issues.append("approved-proof batch handoff repeats a quarantine binding")
+                continue
+            seen.add(relative_path)
+            issues.extend(
+                f"approved-proof quarantine: {issue}"
+                for issue in _bound_package_file_issues(
+                    carousel_dir,
+                    binding,
+                    expected_relative_path=relative_path,
+                )
+            )
+    return issues
+
+
+def _failed_proof_retry_scope(state: Any) -> bool:
+    """Return whether a state is a failed proof that requires retry attestation."""
+
+    if not isinstance(state, dict) or state.get("proof_only") is not True:
+        return False
+    status = state.get("status")
+    if status == GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value:
+        return True
+    return (
+        status == GenerationStatus.GENERATED_QUARANTINED.value
+        and isinstance(state.get("visual_qa_issues"), list)
+        and bool(state["visual_qa_issues"])
+    )
+
+
+def _binding_for_package_file(carousel_dir: Path, relative_path: str) -> dict[str, str]:
+    relative = Path(relative_path)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise ValueError(f"Retry handoff input escapes the package: {relative_path}")
+    package_root = carousel_dir.expanduser().resolve()
+    path = carousel_dir / relative
+    cursor = carousel_dir
+    for part in relative.parts:
+        cursor = cursor / part
+        if cursor.is_symlink():
+            raise ValueError(f"Retry handoff input contains a symlink: {relative_path}")
+    try:
+        path.resolve().relative_to(package_root)
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"Retry handoff input escapes the package: {relative_path}") from exc
+    if path.is_symlink() or not path.is_file():
+        raise ValueError(f"Retry handoff input is missing or unsafe: {relative_path}")
+    return {
+        "relative_path": relative_path,
+        "sha256": sha256_binding(path.read_bytes()),
+    }
+
+
+def _retry_gate_input_bindings(carousel_dir: Path) -> list[dict[str, str]]:
+    return [
+        _binding_for_package_file(carousel_dir, relative_path)
+        for relative_path in RETRY_GATE_INPUT_FILES
+    ]
+
+
+def retry_prompt_handoff_attestation_issues(
+    carousel_dir: Path,
+    *,
+    state: Any,
+) -> list[str]:
+    """Verify the retry handoff only for a proof with persisted failed QA.
+
+    Fresh quarantines and full-deck generation states intentionally do not use
+    this attestation. Their ordinary compiled-handoff checks remain unchanged.
+    """
+
+    if not _failed_proof_retry_scope(state):
+        return []
+    attestation = state.get("retry_prompt_handoff_attestation")
+    if not isinstance(attestation, dict):
+        return ["failed proof retry is missing retry_prompt_handoff_attestation"]
+
+    issues: list[str] = []
+    if attestation.get("schema_version") != RETRY_HANDOFF_SCHEMA_VERSION:
+        issues.append("retry prompt handoff attestation schema is missing or unsupported")
+    fingerprint_payload = {
+        key: value
+        for key, value in attestation.items()
+        if key != "attestation_fingerprint"
+    }
+    if attestation.get("attestation_fingerprint") != _canonical_fingerprint(
+        fingerprint_payload
+    ):
+        issues.append("retry prompt handoff attestation fingerprint is stale")
+    if attestation.get("source_status") != state.get("status"):
+        issues.append("retry prompt handoff attestation source status is stale")
+    if attestation.get("proof_slide") != state.get("requested_proof_slide"):
+        issues.append("retry prompt handoff attestation proof slide is stale")
+    if attestation.get("requested_formats") != state.get("requested_formats"):
+        issues.append("retry prompt handoff attestation formats are stale")
+    if attestation.get("failed_image_set_sha256") != state.get("image_set_sha256"):
+        issues.append("retry prompt handoff attestation image set is stale")
+
+    handoff = state.get("compiled_prompt_handoff")
+    if (
+        not isinstance(handoff, dict)
+        or attestation.get("replacement_handoff_set_fingerprint")
+        != handoff.get("handoff_set_fingerprint")
+    ):
+        issues.append("retry prompt handoff attestation does not bind the active handoff")
+
+    failed_attempt = attestation.get("failed_attempt")
+    ledger = load_attempt_ledger(carousel_dir)
+    attempts = ledger.get("attempts", [])
+    if not isinstance(failed_attempt, dict):
+        issues.append("retry prompt handoff attestation is missing failed-attempt evidence")
+    else:
+        attempt_number = failed_attempt.get("attempt")
+        matching = [
+            attempt
+            for attempt in attempts
+            if isinstance(attempt, dict) and attempt.get("attempt") == attempt_number
+        ]
+        if len(matching) != 1 or matching[0] != failed_attempt:
+            issues.append("retry prompt handoff attestation failed-attempt evidence is stale")
+
+    for label, binding in (
+        ("visual QA", attestation.get("visual_qa_binding")),
+        ("attempt ledger", attestation.get("attempt_ledger_binding")),
+    ):
+        if not isinstance(binding, dict):
+            issues.append(f"retry prompt handoff attestation is missing {label} binding")
+            continue
+        relative_path = binding.get("relative_path")
+        if not isinstance(relative_path, str):
+            issues.append(f"retry prompt handoff attestation has malformed {label} binding")
+            continue
+        issues.extend(
+            f"retry {label}: {issue}"
+            for issue in _bound_package_file_issues(
+                carousel_dir,
+                binding,
+                expected_relative_path=relative_path,
+            )
+        )
+
+    gate_bindings = attestation.get("gate_input_bindings")
+    expected_gate_paths = list(RETRY_GATE_INPUT_FILES)
+    if not isinstance(gate_bindings, list):
+        issues.append("retry prompt handoff attestation gate input bindings are missing")
+    else:
+        seen_gate_paths: list[str] = []
+        for binding in gate_bindings:
+            if not isinstance(binding, dict):
+                issues.append("retry prompt handoff attestation has malformed gate input binding")
+                continue
+            relative_path = binding.get("relative_path")
+            if not isinstance(relative_path, str):
+                issues.append("retry prompt handoff attestation gate binding has no path")
+                continue
+            seen_gate_paths.append(relative_path)
+            issues.extend(
+                f"retry gate input: {issue}"
+                for issue in _bound_package_file_issues(
+                    carousel_dir,
+                    binding,
+                    expected_relative_path=relative_path,
+                )
+            )
+        if seen_gate_paths != expected_gate_paths:
+            issues.append("retry prompt handoff attestation gate input set is stale")
+
+    backup_dir = attestation.get("previous_prompt_backup_dir")
+    backup_files = attestation.get("previous_prompt_files")
+    if not isinstance(backup_dir, str) or not isinstance(backup_files, list):
+        issues.append("retry prompt handoff attestation previous prompt backup is missing")
+    else:
+        expected_prefix = backup_dir.rstrip("/") + "/"
+        seen_backup_paths: set[str] = set()
+        for binding in backup_files:
+            if not isinstance(binding, dict):
+                issues.append("retry prompt handoff attestation has malformed backup binding")
+                continue
+            relative_path = binding.get("relative_path")
+            if not isinstance(relative_path, str) or not relative_path.startswith(
+                expected_prefix
+            ):
+                issues.append("retry prompt handoff backup binding escapes its immutable attempt")
+                continue
+            if relative_path in seen_backup_paths:
+                issues.append("retry prompt handoff repeats an immutable backup binding")
+                continue
+            seen_backup_paths.add(relative_path)
+            issues.extend(
+                f"retry prompt backup: {issue}"
+                for issue in _bound_package_file_issues(
+                    carousel_dir,
+                    binding,
+                    expected_relative_path=relative_path,
+                )
+            )
+        backup_root = carousel_dir / backup_dir
+        actual_backup_paths = {
+            path.relative_to(carousel_dir).as_posix()
+            for path in backup_root.rglob("*")
+            if path.is_file() or path.is_symlink()
+        }
+        if actual_backup_paths != seen_backup_paths:
+            issues.append("retry prompt handoff immutable backup file set changed")
     return issues
 
 
@@ -482,7 +795,11 @@ def write_attempt_ledger(carousel_dir: Path, ledger: dict[str, Any]) -> None:
     write_json(path, ledger)
 
 
-def next_retry_count(carousel_dir: Path) -> int:
+def next_retry_count(
+    carousel_dir: Path,
+    *,
+    allow_approved_proof_batch: bool = False,
+) -> int:
     """Derive the next immutable attempt number from persisted state."""
 
     ledger = load_attempt_ledger(carousel_dir)
@@ -490,13 +807,24 @@ def next_retry_count(carousel_dir: Path) -> int:
     if not attempts:
         return 0
     last = attempts[-1]
-    if not isinstance(last, dict) or last.get("status") != "QA_FAILED":
+    eligible_statuses = {"QA_FAILED"}
+    if allow_approved_proof_batch:
+        eligible_statuses.add("BATCH_ALLOWED")
+    if not isinstance(last, dict) or last.get("status") not in eligible_statuses:
         raise ValueError(
             "A new candidate is allowed only after the current quarantined attempt has "
             "completed QA with a recorded failure."
         )
     retry_count = len(attempts)
-    if retry_count > MAX_VISUAL_QA_RETRIES:
+    retry_limit = (
+        MAX_VISUAL_QA_RETRIES + 1
+        if allow_approved_proof_batch
+        and attempts
+        and isinstance(attempts[0], dict)
+        and attempts[0].get("status") == GenerationStatus.BATCH_ALLOWED.value
+        else MAX_VISUAL_QA_RETRIES
+    )
+    if retry_count > retry_limit:
         raise ValueError("Visual-QA retry limit is exhausted; the run is BLOCKED_VISUAL_QA.")
     return retry_count
 
@@ -547,6 +875,277 @@ def update_current_attempt(
     write_attempt_ledger(carousel_dir, ledger)
 
 
+def full_deck_quarantine_dir(carousel_dir: Path, retry_count: int) -> Path:
+    return (
+        carousel_dir
+        / FULL_DECK_QUARANTINE_FOLDER
+        / f"attempt-{retry_count + 1:02d}"
+    )
+
+
+def load_full_deck_attempt_ledger(carousel_dir: Path) -> dict[str, Any]:
+    path = carousel_dir / FULL_DECK_ATTEMPT_LEDGER
+    if not path.exists():
+        return {
+            "schema_version": "full-deck-visual-qa-attempts/v1",
+            "scope": CREATOR_OVERRIDE_FULL_DECK_SCOPE,
+            "max_retries": MAX_VISUAL_QA_RETRIES,
+            "attempts": [],
+        }
+    ledger = load_json(path)
+    if (
+        ledger.get("schema_version") != "full-deck-visual-qa-attempts/v1"
+        or ledger.get("scope") != CREATOR_OVERRIDE_FULL_DECK_SCOPE
+        or not isinstance(ledger.get("attempts"), list)
+    ):
+        raise ValueError("Full-deck visual-QA attempt ledger is malformed.")
+    return ledger
+
+
+def write_full_deck_attempt_ledger(
+    carousel_dir: Path,
+    ledger: dict[str, Any],
+) -> None:
+    path = carousel_dir / FULL_DECK_ATTEMPT_LEDGER
+    path.parent.mkdir(parents=True, exist_ok=True)
+    write_json(path, ledger)
+
+
+def next_full_deck_retry_count(carousel_dir: Path) -> int:
+    """Derive a batch retry without mutating or counting proof attempts."""
+
+    attempts = load_full_deck_attempt_ledger(carousel_dir)["attempts"]
+    if not attempts:
+        return 0
+    last = attempts[-1]
+    if not isinstance(last, dict) or last.get("status") != "QA_FAILED":
+        raise ValueError(
+            "A new full-deck candidate is allowed only after the current full-deck "
+            "quarantine completed QA with a recorded failure."
+        )
+    retry_count = len(attempts)
+    if retry_count > MAX_VISUAL_QA_RETRIES:
+        raise ValueError(
+            "Full-deck visual-QA retry limit is exhausted; the batch remains blocked."
+        )
+    return retry_count
+
+
+def append_full_deck_attempt(
+    carousel_dir: Path,
+    *,
+    retry_count: int,
+    image_set_hash: str,
+    quarantine_path: str,
+    origin_handoff_fingerprint: str,
+) -> None:
+    ledger = load_full_deck_attempt_ledger(carousel_dir)
+    attempts = ledger["attempts"]
+    if retry_count != len(attempts):
+        raise ValueError(
+            f"Full-deck attempt ledger expected retry_count {len(attempts)}, "
+            f"got {retry_count}."
+        )
+    attempts.append(
+        {
+            "attempt": retry_count + 1,
+            "retry_count": retry_count,
+            "scope": CREATOR_OVERRIDE_FULL_DECK_SCOPE,
+            "image_set_sha256": image_set_hash,
+            "quarantine_dir": quarantine_path,
+            "origin_handoff_fingerprint": origin_handoff_fingerprint,
+            "status": "QUARANTINED",
+            "qa_issues": [],
+            "targeted_repair_instructions": [],
+        }
+    )
+    write_full_deck_attempt_ledger(carousel_dir, ledger)
+
+
+def update_current_full_deck_attempt(
+    carousel_dir: Path,
+    *,
+    status: str,
+    qa_issues: list[str] | None = None,
+) -> None:
+    ledger = load_full_deck_attempt_ledger(carousel_dir)
+    attempts = ledger["attempts"]
+    if not attempts:
+        raise ValueError("Cannot update full-deck visual-QA before batch generation.")
+    current = attempts[-1]
+    current["status"] = status
+    if qa_issues is not None:
+        current["qa_issues"] = list(qa_issues)
+        current["targeted_repair_instructions"] = [
+            f"Repair this exact full-deck QA failure without weakening any locked constraint: {issue}"
+            for issue in qa_issues
+        ]
+    write_full_deck_attempt_ledger(carousel_dir, ledger)
+
+
+def validate_current_full_deck_attempt(
+    carousel_dir: Path,
+    *,
+    state: dict[str, Any],
+) -> None:
+    """Bind the active batch manifest to exactly one separate ledger attempt."""
+
+    attempts = load_full_deck_attempt_ledger(carousel_dir)["attempts"]
+    if not attempts or not isinstance(attempts[-1], dict):
+        raise ValueError("Creator-override full-deck candidate has no ledger attempt.")
+    current = attempts[-1]
+    retry_count = state.get("retry_count")
+    expected_statuses = {
+        GenerationStatus.GENERATED_QUARANTINED.value: {
+            "QUARANTINED",
+            "QA_FAILED",
+        },
+        GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value: {"QA_FAILED"},
+        GenerationStatus.BLOCKED_VISUAL_QA.value: {"QA_FAILED"},
+        GenerationStatus.QA_PASS_CANDIDATE.value: {"QA_PASSED"},
+        GenerationStatus.CREATOR_APPROVED_PROOF.value: {"CREATOR_APPROVED"},
+        GenerationStatus.BATCH_ALLOWED.value: {"CREATOR_APPROVED"},
+    }
+    if (
+        not isinstance(retry_count, int)
+        or current.get("attempt") != retry_count + 1
+        or current.get("retry_count") != retry_count
+        or current.get("scope") != CREATOR_OVERRIDE_FULL_DECK_SCOPE
+        or current.get("image_set_sha256") != state.get("image_set_sha256")
+        or current.get("quarantine_dir") != state.get("quarantine_dir")
+        or current.get("origin_handoff_fingerprint")
+        != state.get("creator_override_origin_handoff_fingerprint")
+        or current.get("status") not in expected_statuses.get(
+            state.get("status"),
+            set(),
+        )
+    ):
+        raise ValueError(
+            "Creator-override full-deck candidate and its QA ledger disagree."
+        )
+
+
+def reconstruct_full_deck_quarantine_records(
+    carousel_dir: Path,
+    *,
+    state: dict[str, Any],
+    prompt_slides: list[dict[str, Any]],
+    output_formats: tuple[str, ...],
+) -> list[dict[str, Any]]:
+    """Rebind a crash-interrupted pre-audit state to immutable batch pixels."""
+
+    if (
+        state.get("status") != GenerationStatus.BATCH_ALLOWED.value
+        or state.get("proof_state") != GenerationStatus.BATCH_ALLOWED.value
+        or state.get("generation_scope") != CREATOR_OVERRIDE_FULL_DECK_SCOPE
+        or state.get("publishable") is not False
+        or state.get("done") is not False
+        or state.get("full_deck_qa_passed") is not True
+        or state.get("visual_qa_status") != "QA_PASSED"
+        or state.get("requested_formats") != list(output_formats)
+    ):
+        raise ValueError(
+            "Creator-override pre-audit re-entry requires an exact non-publishable "
+            "full-deck BATCH_ALLOWED state."
+        )
+    try:
+        retry_count = int(state["retry_count"])
+        prompt_numbers = [int(slide["slide"]) for slide in prompt_slides]
+        state_numbers = [int(slide["slide"]) for slide in state["slides"]]
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError(
+            "Creator-override pre-audit re-entry has malformed deck coverage."
+        ) from exc
+    if (
+        not prompt_numbers
+        or prompt_numbers != state_numbers
+        or len(prompt_numbers) != len(set(prompt_numbers))
+        or state.get("slide_count") != len(prompt_numbers)
+        or state.get("total_slide_count") != len(prompt_numbers)
+    ):
+        raise ValueError(
+            "Creator-override pre-audit re-entry does not cover the exact current deck."
+        )
+
+    attempt_dir = full_deck_quarantine_dir(carousel_dir, retry_count)
+    if state.get("quarantine_dir") != package_relative_path(
+        carousel_dir,
+        attempt_dir,
+    ):
+        raise ValueError(
+            "Creator-override pre-audit re-entry quarantine binding is stale."
+        )
+
+    records: list[dict[str, Any]] = []
+    for slide in prompt_slides:
+        number = int(slide["slide"])
+        native_outputs: dict[str, Any] = {}
+        for output_format in output_formats:
+            spec = format_spec(output_format)
+            frame_path = (
+                attempt_dir
+                / str(spec["folder"])
+                / f"slide-{number:02d}.png"
+            )
+            source_path = (
+                attempt_dir
+                / "model-native-source"
+                / f"{spec['source_prefix']}-slide-{number:02d}.png"
+            )
+            if not frame_path.is_file() or not source_path.is_file():
+                raise ValueError(
+                    "Creator-override pre-audit re-entry quarantine files are missing."
+                )
+            frame_bytes = frame_path.read_bytes()
+            source_bytes = source_path.read_bytes()
+            frame_dimensions = image_dimensions(frame_bytes)
+            source_dimensions = require_native_source_dimensions(
+                image_bytes=source_bytes,
+                output_format=output_format,
+                slide_number=number,
+                path=source_path,
+            )
+            if (
+                frame_dimensions["width"],
+                frame_dimensions["height"],
+            ) != target_size_for_format(output_format):
+                raise ValueError(
+                    "Creator-override pre-audit re-entry quarantine dimensions are invalid."
+                )
+            native_outputs[output_format] = {
+                "path": package_relative_path(carousel_dir, frame_path),
+                "sha256": sha256_bytes(frame_bytes),
+                "width": frame_dimensions["width"],
+                "height": frame_dimensions["height"],
+                "model_native_source": {
+                    "path": package_relative_path(carousel_dir, source_path),
+                    "sha256": sha256_bytes(source_bytes),
+                    "width": source_dimensions["width"],
+                    "height": source_dimensions["height"],
+                },
+            }
+        records.append(
+            {
+                "slide": number,
+                "copy": slide["text"],
+                "status": GenerationStatus.GENERATED_QUARANTINED.value,
+                "native_outputs": native_outputs,
+            }
+        )
+
+    integrity_issues = validate_quarantine_integrity(
+        records,
+        output_formats,
+        carousel_dir=carousel_dir,
+    )
+    if integrity_issues or image_set_sha256(records) != state.get("image_set_sha256"):
+        raise ValueError(
+            "Creator-override pre-audit re-entry quarantine evidence is stale: "
+            + "; ".join(integrity_issues or ["image-set fingerprint changed"])
+        )
+    return records
+
+
 def resolve_package_artifact_path(carousel_dir: Path, raw_path: str | Path | None, default: str) -> Path:
     path = Path(raw_path) if raw_path is not None else Path(default)
     return path if path.is_absolute() else carousel_dir / path
@@ -587,6 +1186,34 @@ def _qa_native_output_binding(
     return None
 
 
+def _known_quarantine_binding(
+    package_root: Path,
+    raw_path: Path,
+) -> tuple[Path, Path] | None:
+    """Bind a path to one exact supported quarantine root without symlinks."""
+
+    if ".." in raw_path.parts:
+        return None
+    candidate = raw_path if raw_path.is_absolute() else package_root / raw_path
+    try:
+        lexical_relative = candidate.absolute().relative_to(package_root)
+    except ValueError:
+        return None
+    cursor = package_root
+    for part in lexical_relative.parts:
+        cursor = cursor / part
+        if cursor.is_symlink():
+            return None
+    for folder in (QUARANTINE_FOLDER, FULL_DECK_QUARANTINE_FOLDER):
+        quarantine_root = (package_root / folder).resolve()
+        try:
+            relative = candidate.resolve().relative_to(quarantine_root)
+        except (OSError, ValueError):
+            continue
+        return quarantine_root, relative
+    return None
+
+
 def _quarantine_review_root(
     carousel_dir: Path,
     slides: list[dict[str, Any]],
@@ -594,7 +1221,6 @@ def _quarantine_review_root(
     """Return one verified package-contained attempt root for Event B."""
 
     package_root = Path(carousel_dir).expanduser().resolve()
-    quarantine_root = (package_root / QUARANTINE_FOLDER).resolve()
     attempt_roots: set[Path] = set()
     found = False
     for slide in slides:
@@ -606,22 +1232,14 @@ def _quarantine_review_root(
                 continue
             found = True
             raw_path = Path(str(output["path"])).expanduser()
-            candidate = raw_path if raw_path.is_absolute() else package_root / raw_path
-            if ".." in raw_path.parts:
+            binding = _known_quarantine_binding(package_root, raw_path)
+            if binding is None:
                 return None
-            try:
-                relative = candidate.resolve().relative_to(quarantine_root)
-            except (OSError, ValueError):
-                return None
+            quarantine_root, relative = binding
             if len(relative.parts) != 3 or not re.fullmatch(
                 r"attempt-\d{2,}", relative.parts[0]
             ):
                 return None
-            cursor = quarantine_root
-            for part in relative.parts:
-                cursor = cursor / part
-                if cursor.is_symlink():
-                    return None
             attempt_roots.add(quarantine_root / relative.parts[0])
     if not found or len(attempt_roots) != 1:
         return None
@@ -957,6 +1575,17 @@ def validate_creator_approval(
     return issues
 
 
+def visual_qa_issues_fingerprint(issues: list[str]) -> str:
+    """Bind a creator acknowledgement to one exact, ordered QA issue list."""
+
+    payload = json.dumps(
+        issues,
+        ensure_ascii=False,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return sha256_binding(payload)
+
+
 def validate_quarantine_integrity(
     slides: list[dict[str, Any]],
     output_formats: tuple[str, ...] | list[str],
@@ -969,7 +1598,7 @@ def validate_quarantine_integrity(
             "quarantine integrity requires carousel_dir to verify package-contained canonical assets"
         ]
     package_root = Path(carousel_dir).expanduser().resolve()
-    quarantine_root = (package_root / QUARANTINE_FOLDER).resolve()
+    bound_attempt_roots: set[Path] = set()
     for slide in slides:
         number = slide.get("slide")
         try:
@@ -998,11 +1627,13 @@ def validate_quarantine_integrity(
             canonical = True
             if not str(item.get("path") or "").strip() or ".." in raw_path.parts:
                 canonical = False
-            try:
-                relative = path.resolve().relative_to(quarantine_root)
-            except (OSError, ValueError):
+            binding = _known_quarantine_binding(package_root, raw_path)
+            if binding is None:
                 canonical = False
                 relative = None
+                quarantine_root = None
+            else:
+                quarantine_root, relative = binding
             if relative is not None:
                 expected_relative = Path(
                     relative.parts[0] if relative.parts else "",
@@ -1015,22 +1646,13 @@ def validate_quarantine_integrity(
                     or relative != expected_relative
                 ):
                     canonical = False
-            try:
-                lexical_relative = path.absolute().relative_to(package_root)
-            except ValueError:
-                lexical_relative = None
-            if lexical_relative is not None:
-                cursor = package_root
-                for part in lexical_relative.parts:
-                    cursor = cursor / part
-                    if cursor.is_symlink():
-                        canonical = False
-                        break
             if not canonical:
                 issues.append(
                     f"quarantined slide {number} {output_format} path must be the canonical package-contained quarantine asset"
                 )
                 continue
+            assert quarantine_root is not None
+            bound_attempt_roots.add(quarantine_root / relative.parts[0])
             if not path.is_file():
                 issues.append(f"quarantined slide {number} {output_format} file is missing")
                 continue
@@ -1061,11 +1683,16 @@ def validate_quarantine_integrity(
             source_canonical = True
             if not str(source.get("path") or "").strip() or ".." in source_raw_path.parts:
                 source_canonical = False
-            try:
-                source_relative = source_path.resolve().relative_to(quarantine_root)
-            except (OSError, ValueError):
+            source_binding = _known_quarantine_binding(
+                package_root,
+                source_raw_path,
+            )
+            if source_binding is None:
                 source_canonical = False
                 source_relative = None
+                source_quarantine_root = None
+            else:
+                source_quarantine_root, source_relative = source_binding
             if source_relative is not None:
                 expected_source_relative = Path(
                     source_relative.parts[0] if source_relative.parts else "",
@@ -1076,19 +1703,10 @@ def validate_quarantine_integrity(
                     len(source_relative.parts) != 3
                     or not re.fullmatch(r"attempt-\d{2,}", source_relative.parts[0])
                     or source_relative != expected_source_relative
+                    or source_quarantine_root != quarantine_root
+                    or source_relative.parts[0] != relative.parts[0]
                 ):
                     source_canonical = False
-            try:
-                source_lexical_relative = source_path.absolute().relative_to(package_root)
-            except ValueError:
-                source_lexical_relative = None
-            if source_lexical_relative is not None:
-                cursor = package_root
-                for part in source_lexical_relative.parts:
-                    cursor = cursor / part
-                    if cursor.is_symlink():
-                        source_canonical = False
-                        break
             if not source_canonical:
                 issues.append(
                     f"quarantined slide {number} {output_format} model-native source path must be package-contained"
@@ -1118,6 +1736,10 @@ def validate_quarantine_integrity(
                 issues.append(
                     f"quarantined slide {number} {output_format} model-native source dimensions are stale"
                 )
+    if len(bound_attempt_roots) > 1:
+        issues.append(
+            "quarantined slides must belong to one canonical quarantine attempt scope"
+        )
     return issues
 
 
@@ -1359,6 +1981,15 @@ def generator_prompt_text(slide_prompt: dict[str, Any], output_format: str) -> s
     visual = slide_prompt.get("visual") or slide_prompt.get("scene")
     if not visual:
         visual = extract_scene_summary(str(slide_prompt["prompt"]))
+    repair_instruction = str(slide_prompt.get("repair_instruction") or "").strip()
+    if repair_instruction:
+        visual = (
+            "TARGETED EDIT INSTRUCTION (takes priority while preserving every other "
+            "locked detail): "
+            + repair_instruction
+            + "\n\nLOCKED SCENE TO PRESERVE: "
+            + str(visual)
+        )
     return compile_image_prompt(
         int(slide_prompt["slide"]),
         int(slide_prompt.get("slide_count") or 0) or 1,
@@ -1559,11 +2190,18 @@ def quarantine_generated_sources(
     generated_paths_by_format: dict[str, list[str | Path]],
     retry_count: int,
     output_formats: tuple[str, ...],
+    quarantine_scope_dir: Path | None = None,
+    refuse_existing_scope: bool = False,
 ) -> list[dict[str, Any]]:
     """Copy model results into an internal, non-publishable exact-image quarantine."""
 
-    attempt_dir = quarantine_dir(carousel_dir, retry_count)
+    attempt_dir = quarantine_scope_dir or quarantine_dir(carousel_dir, retry_count)
     if attempt_dir.exists():
+        if refuse_existing_scope:
+            raise ValueError(
+                "Full-deck quarantine scope already exists; refusing to overwrite "
+                f"immutable candidate evidence: {attempt_dir}"
+            )
         shutil.rmtree(attempt_dir)
     attempt_dir.mkdir(parents=True, exist_ok=True)
     records: list[dict[str, Any]] = []
@@ -1877,6 +2515,1003 @@ def prompt_file_text(
     )
 
 
+def _creator_override_batch_handoff_evidence(
+    carousel_dir: Path,
+    *,
+    requested_formats: list[str] | None,
+    _accepted_state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Validate and snapshot one creator-accepted failed proof for batch handoff."""
+
+    if _accepted_state is None:
+        state_path = carousel_dir / "image-generation.json"
+        final_state_path = carousel_dir / "final-images.json"
+        try:
+            state_bytes = state_path.read_bytes()
+            final_state_bytes = final_state_path.read_bytes()
+            state = json.loads(state_bytes)
+            final_state = json.loads(final_state_bytes)
+        except (FileNotFoundError, OSError, json.JSONDecodeError) as exc:
+            raise ValueError(
+                "Creator-override full-deck handoff requires matching generation manifests."
+            ) from exc
+        if not isinstance(state, dict) or state != final_state:
+            raise ValueError(
+                "Creator-override full-deck handoff requires image-generation.json and "
+                "final-images.json to contain the same current state."
+            )
+    else:
+        state = json.loads(json.dumps(_accepted_state))
+    if state.get("status") != GenerationStatus.BATCH_ALLOWED.value:
+        raise ValueError(
+            "Creator-override full-deck handoff requires BATCH_ALLOWED."
+        )
+    if state.get("proof_state") != GenerationStatus.BATCH_ALLOWED.value:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED status and proof_state must agree."
+        )
+    if (
+        state.get("creator_override") is not True
+        or state.get("batch_generation_allowed") is not True
+    ):
+        raise ValueError(
+            "BATCH_ALLOWED can compile a full deck only from a recorded creator override."
+        )
+    if state.get("proof_only") is not True:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED must still describe the accepted proof-only run."
+        )
+    if (
+        state.get("publishable") is not False
+        or state.get("done") is not False
+        or state.get("proof_qa_passed") is not False
+        or state.get("visual_qa_status") != "QA_FAILED"
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED must preserve its non-publishable QA_FAILED state."
+        )
+
+    try:
+        proof_slide = int(state["requested_proof_slide"])
+        retry_count = int(state["retry_count"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED is missing proof-slide or retry evidence."
+        ) from exc
+    proof_records = state.get("slides")
+    if (
+        not isinstance(proof_records, list)
+        or len(proof_records) != 1
+        or not isinstance(proof_records[0], dict)
+        or int(proof_records[0].get("slide", 0) or 0) != proof_slide
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED must bind exactly its accepted proof slide."
+        )
+
+    current_formats = list(locked_formats(carousel_dir))
+    if state.get("requested_formats") != current_formats:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED formats disagree with the current format lock."
+        )
+    if requested_formats is not None:
+        supplied_formats = list(normalize_requested_formats(requested_formats))
+        if supplied_formats != current_formats:
+            raise ValueError(
+                "Creator-override full-deck handoff cannot change the accepted proof formats."
+            )
+
+    prompt_pack = load_json(carousel_dir / "prompt-pack.json")
+    prompt_slides = prompt_pack.get("slides") if isinstance(prompt_pack, dict) else None
+    if not isinstance(prompt_slides, list) or not prompt_slides:
+        raise ValueError(
+            "Creator-override full-deck handoff requires a non-empty prompt pack."
+        )
+    try:
+        prompt_slide_numbers = [int(slide["slide"]) for slide in prompt_slides]
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError(
+            "Creator-override full-deck handoff found invalid prompt-pack slide numbers."
+        ) from exc
+    if (
+        len(prompt_slide_numbers) != len(set(prompt_slide_numbers))
+        or proof_slide not in prompt_slide_numbers
+        or state.get("total_slide_count") != len(prompt_slides)
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED proof scope is stale for the current full deck."
+        )
+
+    quarantine_issues = validate_quarantine_integrity(
+        proof_records,
+        current_formats,
+        carousel_dir=carousel_dir,
+    )
+    if quarantine_issues:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED quarantine integrity failed: "
+            + "; ".join(quarantine_issues)
+        )
+    current_image_set_sha256 = image_set_sha256(proof_records)
+    if state.get("image_set_sha256") != current_image_set_sha256:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED image-set binding is stale."
+        )
+    expected_quarantine_dir = package_relative_path(
+        carousel_dir,
+        quarantine_dir(carousel_dir, retry_count),
+    )
+    if state.get("quarantine_dir") != expected_quarantine_dir:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED quarantine directory binding is stale."
+        )
+
+    visual_qa_issues = state.get("visual_qa_issues")
+    if (
+        not isinstance(visual_qa_issues, list)
+        or not visual_qa_issues
+        or not all(isinstance(issue, str) and issue for issue in visual_qa_issues)
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED must preserve the exact failed-QA issue list."
+        )
+    issues_fingerprint = visual_qa_issues_fingerprint(visual_qa_issues)
+
+    approval_binding = state.get("creator_approval_binding")
+    approval_path = state.get("creator_approval_path")
+    if (
+        not isinstance(approval_binding, dict)
+        or not isinstance(approval_path, str)
+        or approval_binding.get("relative_path") != approval_path
+        or approval_binding.get("sha256") != state.get("creator_approval_sha256")
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED is missing its bound creator approval."
+        )
+    try:
+        current_approval_binding, approval_bytes = _read_creator_override_package_file(
+            carousel_dir,
+            approval_path,
+            label="Creator failed-proof approval",
+        )
+    except ValueError as exc:
+        raise ValueError(
+            f"Creator-override BATCH_ALLOWED approval binding is invalid: {exc}"
+        ) from exc
+    if current_approval_binding != approval_binding:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED creator approval changed after acceptance."
+        )
+    try:
+        approval = json.loads(approval_bytes)
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED creator approval is malformed."
+        ) from exc
+    if (
+        not isinstance(approval, dict)
+        or approval.get("status") != "APPROVED"
+        or approval.get("approved") is not True
+        or str(approval.get("approved_by") or "").strip().casefold() != "creator"
+        or approval.get("image_set_sha256") != current_image_set_sha256
+        or approval.get("accepts_known_qa_exceptions") is not True
+        or approval.get("acknowledged_visual_qa_issues") != visual_qa_issues
+        or approval.get("acknowledged_visual_qa_issues_fingerprint")
+        != issues_fingerprint
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED creator approval no longer matches the failed proof."
+        )
+
+    approval_record = state.get("creator_override_record")
+    if not isinstance(approval_record, dict):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED is missing its immutable approval record."
+        )
+    record_payload = {
+        key: value
+        for key, value in approval_record.items()
+        if key != "record_fingerprint"
+    }
+    if (
+        approval_record.get("schema_version")
+        != CREATOR_FAILED_PROOF_APPROVAL_SCHEMA_VERSION
+        or approval_record.get("source_status")
+        not in {
+            GenerationStatus.BLOCKED_VISUAL_QA.value,
+            GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value,
+        }
+        or approval_record.get("proof_slide") != proof_slide
+        or approval_record.get("retry_count") != retry_count
+        or approval_record.get("image_set_sha256") != current_image_set_sha256
+        or approval_record.get("approved_by") != "creator"
+        or approval_record.get("accepts_known_qa_exceptions") is not True
+        or approval_record.get("acknowledged_visual_qa_issues")
+        != visual_qa_issues
+        or approval_record.get("acknowledged_visual_qa_issues_fingerprint")
+        != issues_fingerprint
+        or approval_record.get("approval_binding") != approval_binding
+        or approval_record.get("record_fingerprint")
+        != _canonical_fingerprint(record_payload)
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED approval record is stale or incomplete."
+        )
+
+    known_exceptions = state.get("known_qa_exceptions")
+    visual_qa_binding = approval_record.get("visual_qa_binding")
+    visual_qa_path = state.get("visual_qa_path")
+    if (
+        not isinstance(known_exceptions, dict)
+        or known_exceptions.get("qa_status") != "QA_FAILED"
+        or known_exceptions.get("visual_qa_issues") != visual_qa_issues
+        or known_exceptions.get("visual_qa_issues_fingerprint")
+        != issues_fingerprint
+        or known_exceptions.get("visual_qa_binding") != visual_qa_binding
+        or known_exceptions.get("creator_evidence")
+        != approval_record.get("evidence")
+        or not isinstance(visual_qa_binding, dict)
+        or not isinstance(visual_qa_path, str)
+        or visual_qa_binding.get("relative_path") != visual_qa_path
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED known-exception evidence is stale or incomplete."
+        )
+    try:
+        current_visual_qa_binding, visual_qa_bytes = (
+            _read_creator_override_package_file(
+                carousel_dir,
+                visual_qa_path,
+                label="Failed visual-QA artifact",
+            )
+        )
+    except ValueError as exc:
+        raise ValueError(
+            f"Creator-override BATCH_ALLOWED visual-QA binding is invalid: {exc}"
+        ) from exc
+    if current_visual_qa_binding != visual_qa_binding:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED failed visual-QA artifact changed after acceptance."
+        )
+    try:
+        visual_qa = json.loads(visual_qa_bytes)
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED failed visual-QA artifact is malformed."
+        ) from exc
+    if (
+        not isinstance(visual_qa, dict)
+        or visual_qa.get("image_set_sha256") != current_image_set_sha256
+        or str(visual_qa.get("status") or "").upper() == "PASS"
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED failed visual-QA artifact is stale or claims PASS."
+        )
+
+    ledger = load_attempt_ledger(carousel_dir)
+    attempts = ledger.get("attempts")
+    if (
+        not isinstance(attempts, list)
+        or not attempts
+        or not isinstance(attempts[-1], dict)
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED is missing its accepted failed attempt."
+        )
+    latest_attempt = attempts[-1]
+    history = latest_attempt.get("status_history")
+    accepted_history = (
+        [
+            event
+            for event in history
+            if isinstance(event, dict)
+            and event.get("status") == CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS
+        ]
+        if isinstance(history, list)
+        else []
+    )
+    failed_history = (
+        [
+            event
+            for event in history
+            if isinstance(event, dict) and event.get("status") == "QA_FAILED"
+        ]
+        if isinstance(history, list)
+        else []
+    )
+    if (
+        latest_attempt.get("status")
+        != CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS
+        or latest_attempt.get("attempt") != approval_record.get("attempt")
+        or latest_attempt.get("retry_count") != retry_count
+        or latest_attempt.get("image_set_sha256") != current_image_set_sha256
+        or latest_attempt.get("qa_status") != "QA_FAILED"
+        or latest_attempt.get("qa_issues") != visual_qa_issues
+        or latest_attempt.get("visual_qa_issues_fingerprint")
+        != issues_fingerprint
+        or latest_attempt.get("creator_override") != approval_record
+        or latest_attempt.get("batch_generation_allowed") is not True
+        or latest_attempt.get("publishable") is not False
+        or not any(
+            event.get("image_set_sha256") == current_image_set_sha256
+            and event.get("visual_qa_issues_fingerprint") == issues_fingerprint
+            and event.get("visual_qa_binding") == visual_qa_binding
+            for event in failed_history
+        )
+        or not any(
+            event.get("approval_binding") == approval_binding
+            and event.get("creator_override_record_fingerprint")
+            == approval_record.get("record_fingerprint")
+            for event in accepted_history
+        )
+    ):
+        raise ValueError(
+            "Creator-override BATCH_ALLOWED attempt ledger is stale or incomplete."
+        )
+
+    proof_binding: dict[str, Any] = {
+        "schema_version": CREATOR_OVERRIDE_PROOF_BINDING_SCHEMA_VERSION,
+        "source_status": GenerationStatus.BATCH_ALLOWED.value,
+        "proof_state": GenerationStatus.BATCH_ALLOWED.value,
+        "proof_slide": proof_slide,
+        "proof_slide_record": json.loads(json.dumps(proof_records[0])),
+        "retry_count": retry_count,
+        "image_set_sha256": current_image_set_sha256,
+        "quarantine_dir": expected_quarantine_dir,
+        "requested_formats": current_formats,
+        "visual_qa_path": visual_qa_path,
+        "visual_qa_binding": json.loads(json.dumps(visual_qa_binding)),
+        "visual_qa_issues_fingerprint": issues_fingerprint,
+        "creator_approval_binding": json.loads(json.dumps(approval_binding)),
+        "creator_override_record_fingerprint": approval_record[
+            "record_fingerprint"
+        ],
+        "attempt_ledger_binding": _binding_for_package_file(
+            carousel_dir,
+            ATTEMPT_LEDGER,
+        ),
+    }
+    proof_binding["binding_fingerprint"] = _canonical_fingerprint(proof_binding)
+
+    carried_evidence: dict[str, Any] = {
+        "proof_state": GenerationStatus.BATCH_ALLOWED.value,
+        "accepted_proof_slide": proof_slide,
+        "creator_override": True,
+        "batch_generation_allowed": True,
+        "creator_approval_path": approval_path,
+        "creator_approval_binding": json.loads(json.dumps(approval_binding)),
+        "creator_approval_sha256": approval_binding["sha256"],
+        "creator_override_record": json.loads(json.dumps(approval_record)),
+        "known_qa_exceptions": json.loads(json.dumps(known_exceptions)),
+        "creator_override_proof_binding": proof_binding,
+        "visual_qa_path": visual_qa_path,
+        "visual_qa_status": "QA_FAILED",
+        "visual_qa_issues": list(visual_qa_issues),
+        "proof_qa_passed": False,
+        "accepted_proof_image_set_sha256": current_image_set_sha256,
+        "accepted_proof_quarantine_dir": expected_quarantine_dir,
+        "promotion_blocker": "creator_override_allows_batch_generation_only",
+    }
+    return carried_evidence
+
+
+def creator_override_batch_handoff_integrity_issues(
+    carousel_dir: Path,
+    *,
+    state: Any,
+    final_state: Any,
+) -> list[str]:
+    """Validate a prepared full-deck handoff against its accepted failed proof.
+
+    The carried creator override is batch-only. It can suppress historical
+    proof blockers only while both manifests describe the same non-publishable
+    HANDOFF_READY deck and every immutable proof/approval binding still
+    validates.
+    """
+
+    if not isinstance(state, dict) or not isinstance(final_state, dict):
+        return ["creator-override handoff generation manifests are missing or malformed"]
+    if state != final_state:
+        return ["creator-override handoff generation manifests disagree"]
+
+    issues: list[str] = []
+    required_values = {
+        "status": GenerationStatus.HANDOFF_READY.value,
+        "proof_state": GenerationStatus.BATCH_ALLOWED.value,
+        "proof_only": False,
+        "requested_proof_slide": None,
+        "creator_override": True,
+        "batch_generation_allowed": True,
+        "publishable": False,
+        "done": False,
+        "proof_qa_passed": False,
+        "visual_qa_status": "QA_FAILED",
+    }
+    for key, expected in required_values.items():
+        if state.get(key) != expected:
+            issues.append(
+                f"creator-override handoff {key} must remain {expected!r}"
+            )
+
+    try:
+        current_formats = list(locked_formats(carousel_dir))
+    except (ValueError, OSError, json.JSONDecodeError) as exc:
+        issues.append(f"creator-override handoff format lock is invalid: {exc}")
+        current_formats = []
+    if state.get("requested_formats") != current_formats:
+        issues.append(
+            "creator-override handoff requested formats disagree with the current format lock"
+        )
+
+    try:
+        prompt_pack = load_json(carousel_dir / "prompt-pack.json")
+    except (FileNotFoundError, OSError, json.JSONDecodeError) as exc:
+        issues.append(f"creator-override handoff prompt pack is invalid: {exc}")
+        prompt_pack = {}
+    prompt_slides = prompt_pack.get("slides") if isinstance(prompt_pack, dict) else None
+    prompt_slide_numbers: list[int] = []
+    if not isinstance(prompt_slides, list) or not prompt_slides:
+        issues.append("creator-override handoff requires a non-empty full-deck prompt pack")
+    else:
+        try:
+            prompt_slide_numbers = [int(slide["slide"]) for slide in prompt_slides]
+        except (KeyError, TypeError, ValueError):
+            issues.append("creator-override handoff prompt-pack slide numbers are invalid")
+            prompt_slide_numbers = []
+        if len(prompt_slide_numbers) != len(set(prompt_slide_numbers)):
+            issues.append("creator-override handoff prompt-pack slide numbers repeat")
+
+    handoff_slides = state.get("slides")
+    handoff_slide_numbers: list[int] = []
+    if not isinstance(handoff_slides, list):
+        issues.append("creator-override handoff full-deck slide records are missing")
+    else:
+        try:
+            handoff_slide_numbers = [int(slide["slide"]) for slide in handoff_slides]
+        except (KeyError, TypeError, ValueError):
+            issues.append("creator-override handoff full-deck slide records are malformed")
+            handoff_slide_numbers = []
+    if (
+        not prompt_slide_numbers
+        or handoff_slide_numbers != prompt_slide_numbers
+        or state.get("slide_count") != len(prompt_slide_numbers)
+        or state.get("total_slide_count") != len(prompt_slide_numbers)
+    ):
+        issues.append(
+            "creator-override handoff does not cover the exact current full deck"
+        )
+
+    if (
+        prompt_slide_numbers
+        and len(prompt_slide_numbers) == len(set(prompt_slide_numbers))
+        and current_formats
+    ):
+        try:
+            compiled_handoff_issues = compiled_prompt_handoff_integrity_issues(
+                carousel_dir,
+                state=state,
+                slides=prompt_slides,
+                output_formats=current_formats,
+            )
+        except (KeyError, TypeError, ValueError, OSError, json.JSONDecodeError) as exc:
+            issues.append(
+                f"creator-override full-deck compiled handoff is invalid: {exc}"
+            )
+        else:
+            issues.extend(
+                "creator-override full-deck compiled handoff: " + issue
+                for issue in compiled_handoff_issues
+            )
+
+    proof_binding = state.get("creator_override_proof_binding")
+    if not isinstance(proof_binding, dict):
+        issues.append("creator-override handoff proof binding is missing")
+        return issues
+
+    accepted_state = {
+        "status": proof_binding.get("source_status"),
+        "proof_state": proof_binding.get("proof_state"),
+        "creator_override": state.get("creator_override"),
+        "batch_generation_allowed": state.get("batch_generation_allowed"),
+        "proof_only": True,
+        "publishable": state.get("publishable"),
+        "done": state.get("done"),
+        "proof_qa_passed": state.get("proof_qa_passed"),
+        "visual_qa_status": state.get("visual_qa_status"),
+        "requested_proof_slide": proof_binding.get("proof_slide"),
+        "retry_count": proof_binding.get("retry_count"),
+        "slides": [proof_binding.get("proof_slide_record")],
+        "requested_formats": proof_binding.get("requested_formats"),
+        "total_slide_count": state.get("total_slide_count"),
+        "image_set_sha256": proof_binding.get("image_set_sha256"),
+        "quarantine_dir": proof_binding.get("quarantine_dir"),
+        "visual_qa_issues": state.get("visual_qa_issues"),
+        "creator_approval_binding": state.get("creator_approval_binding"),
+        "creator_approval_path": state.get("creator_approval_path"),
+        "creator_approval_sha256": state.get("creator_approval_sha256"),
+        "creator_override_record": state.get("creator_override_record"),
+        "known_qa_exceptions": state.get("known_qa_exceptions"),
+        "visual_qa_path": state.get("visual_qa_path"),
+    }
+    try:
+        expected_evidence = _creator_override_batch_handoff_evidence(
+            carousel_dir,
+            requested_formats=current_formats,
+            _accepted_state=accepted_state,
+        )
+    except ValueError as exc:
+        issues.append(f"creator-override accepted-proof evidence is invalid: {exc}")
+        return issues
+
+    for key, expected in expected_evidence.items():
+        if state.get(key) != expected:
+            issues.append(
+                f"creator-override handoff carried evidence is stale: {key}"
+            )
+    return issues
+
+
+def _validated_creator_override_origin_handoff(
+    carousel_dir: Path,
+    *,
+    lifecycle_state: dict[str, Any],
+    final_state: dict[str, Any],
+) -> tuple[dict[str, Any], str] | None:
+    """Return the immutable override handoff behind a full-deck lifecycle."""
+
+    if lifecycle_state.get("generation_scope") == CREATOR_OVERRIDE_FULL_DECK_SCOPE:
+        if lifecycle_state != final_state:
+            raise ValueError(
+                "Creator-override full-deck generation manifests disagree."
+            )
+        snapshot = lifecycle_state.get("creator_override_origin_handoff")
+        fingerprint = lifecycle_state.get("creator_override_origin_handoff_fingerprint")
+        if (
+            not isinstance(snapshot, dict)
+            or fingerprint != _canonical_fingerprint(snapshot)
+        ):
+            raise ValueError(
+                "Creator-override full-deck origin handoff is missing or tampered."
+            )
+        if lifecycle_state.get("compiled_prompt_handoff") != snapshot.get(
+            "compiled_prompt_handoff"
+        ):
+            raise ValueError(
+                "Creator-override full-deck compiled handoff changed after source acceptance."
+            )
+    elif (
+        lifecycle_state.get("status") == GenerationStatus.HANDOFF_READY.value
+        and lifecycle_state.get("creator_override") is True
+    ):
+        snapshot = json.loads(json.dumps(lifecycle_state))
+        fingerprint = _canonical_fingerprint(snapshot)
+    else:
+        return None
+
+    integrity_issues = creator_override_batch_handoff_integrity_issues(
+        carousel_dir,
+        state=snapshot,
+        final_state=(
+            final_state
+            if lifecycle_state.get("status") == GenerationStatus.HANDOFF_READY.value
+            else snapshot
+        ),
+    )
+    if integrity_issues:
+        raise ValueError(
+            "Creator-override full-deck handoff integrity failed: "
+            + "; ".join(integrity_issues)
+        )
+    return snapshot, fingerprint
+
+
+def _approved_proof_batch_handoff_evidence(
+    carousel_dir: Path,
+    *,
+    requested_formats: list[str] | None,
+) -> dict[str, Any]:
+    """Archive and bind one QA-passed creator-approved proof before full-deck compile."""
+
+    carousel_dir = carousel_dir.expanduser().resolve()
+    state_path = carousel_dir / "image-generation.json"
+    final_state_path = carousel_dir / "final-images.json"
+    try:
+        state = json.loads(state_path.read_bytes())
+        final_state = json.loads(final_state_path.read_bytes())
+    except (FileNotFoundError, OSError, json.JSONDecodeError) as exc:
+        raise ValueError(
+            "Approved-proof full-deck handoff requires matching generation manifests."
+        ) from exc
+    if not isinstance(state, dict) or state != final_state:
+        raise ValueError(
+            "Approved-proof full-deck handoff requires image-generation.json and "
+            "final-images.json to contain the same current state."
+        )
+    if (
+        state.get("status") != GenerationStatus.BATCH_ALLOWED.value
+        or state.get("proof_state")
+        != GenerationStatus.CREATOR_APPROVED_PROOF.value
+        or state.get("proof_only") is not True
+        or state.get("publishable") is not False
+        or state.get("done") is not False
+    ):
+        raise ValueError(
+            "Approved-proof full-deck handoff requires the exact non-publishable "
+            "QA-passed proof state."
+        )
+
+    current_formats = list(locked_formats(carousel_dir))
+    if state.get("requested_formats") != current_formats:
+        raise ValueError(
+            "Approved-proof formats disagree with the current format lock."
+        )
+    if requested_formats is not None:
+        supplied_formats = list(normalize_requested_formats(requested_formats))
+        if supplied_formats != current_formats:
+            raise ValueError(
+                "Requested full-deck formats disagree with the approved proof."
+            )
+
+    proof_records = state.get("slides")
+    if not isinstance(proof_records, list) or len(proof_records) != 1:
+        raise ValueError("Approved-proof handoff must bind exactly one proof slide.")
+    try:
+        proof_slide = int(state["requested_proof_slide"])
+        record_slide = int(proof_records[0]["slide"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError("Approved-proof slide evidence is malformed.") from exc
+    if proof_slide != record_slide:
+        raise ValueError("Approved-proof slide record does not match its selected proof.")
+    quarantine_issues = validate_quarantine_integrity(
+        proof_records,
+        tuple(current_formats),
+        carousel_dir=carousel_dir,
+    )
+    if quarantine_issues:
+        raise ValueError(
+            "Approved-proof quarantine integrity failed: "
+            + "; ".join(quarantine_issues)
+        )
+    if state.get("image_set_sha256") != image_set_sha256(proof_records):
+        raise ValueError("Approved-proof image-set binding is stale.")
+
+    visual_qa_path = resolve_package_artifact_path(
+        carousel_dir,
+        state.get("visual_qa_path"),
+        "visual-qa.json",
+    )
+    visual_qa_binding, visual_qa_bytes = _read_creator_override_package_file(
+        carousel_dir,
+        visual_qa_path,
+        label="Approved-proof visual QA",
+    )
+    try:
+        visual_qa = json.loads(visual_qa_bytes)
+    except json.JSONDecodeError as exc:
+        raise ValueError("Approved-proof visual QA is malformed.") from exc
+    qa_issues = validate_exact_image_visual_qa(
+        visual_qa,
+        proof_records,
+        visual_plan=load_json(carousel_dir / "visual-plan-quality.json"),
+        carousel_dir=carousel_dir,
+    )
+    if qa_issues:
+        raise ValueError(
+            "Approved-proof visual QA is no longer valid: " + "; ".join(qa_issues)
+        )
+
+    approval_binding, approval_bytes = _read_creator_override_package_file(
+        carousel_dir,
+        state.get("creator_approval_path") or "creator-proof-approval.json",
+        label="Approved-proof creator approval",
+    )
+    if state.get("creator_approval_sha256") != approval_binding["sha256"]:
+        raise ValueError("Approved-proof creator approval binding is stale.")
+    try:
+        approval = json.loads(approval_bytes)
+    except json.JSONDecodeError as exc:
+        raise ValueError("Approved-proof creator approval is malformed.") from exc
+    approval_issues = validate_creator_approval(
+        approval,
+        expected_image_set_sha256=state["image_set_sha256"],
+    )
+    if approval_issues:
+        raise ValueError(
+            "Approved-proof creator approval is invalid: "
+            + "; ".join(approval_issues)
+        )
+
+    latest_attempts = load_attempt_ledger(carousel_dir).get("attempts")
+    latest_attempt = latest_attempts[-1] if isinstance(latest_attempts, list) and latest_attempts else None
+    if (
+        not isinstance(latest_attempt, dict)
+        or latest_attempt.get("status") != GenerationStatus.BATCH_ALLOWED.value
+        or latest_attempt.get("image_set_sha256") != state["image_set_sha256"]
+    ):
+        raise ValueError("Approved-proof attempt ledger is stale or incomplete.")
+
+    archive_dir = carousel_dir / ".internal" / "approved-proof"
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    archive_files = {
+        archive_dir / "visual-qa.json": visual_qa_bytes,
+        archive_dir / "creator-approval.json": approval_bytes,
+    }
+    for archive_path, payload in archive_files.items():
+        if archive_path.exists() and archive_path.read_bytes() != payload:
+            raise ValueError(
+                f"Approved-proof archive already exists with different bytes: {archive_path.name}"
+            )
+        if not archive_path.exists():
+            archive_path.write_bytes(payload)
+
+    archived_visual_qa_binding = _binding_for_package_file(
+        carousel_dir,
+        ".internal/approved-proof/visual-qa.json",
+    )
+    archived_approval_binding = _binding_for_package_file(
+        carousel_dir,
+        ".internal/approved-proof/creator-approval.json",
+    )
+    quarantine_bindings: list[dict[str, str]] = []
+    for proof_record in proof_records:
+        outputs = proof_record.get("native_outputs")
+        if not isinstance(outputs, dict):
+            raise ValueError("Approved-proof native output bindings are missing.")
+        for output in outputs.values():
+            if not isinstance(output, dict) or not isinstance(output.get("path"), str):
+                raise ValueError("Approved-proof native output binding is malformed.")
+            quarantine_bindings.append(
+                _binding_for_package_file(carousel_dir, output["path"])
+            )
+
+    source_handoff = state.get("compiled_prompt_handoff")
+    if not isinstance(source_handoff, dict):
+        raise ValueError("Approved-proof compiled prompt handoff is missing.")
+    source_handoff_payload = {
+        key: value
+        for key, value in source_handoff.items()
+        if key != "handoff_set_fingerprint"
+    }
+    if source_handoff.get("handoff_set_fingerprint") != _canonical_fingerprint(
+        source_handoff_payload
+    ):
+        raise ValueError("Approved-proof compiled handoff fingerprint is stale.")
+    for input_name, expected_path in (
+        ("prompt_pack", "prompt-pack.json"),
+        ("slides", "slides.json"),
+    ):
+        input_binding = source_handoff.get("input_bindings", {}).get(input_name)
+        binding_issues = _bound_package_file_issues(
+            carousel_dir,
+            input_binding,
+            expected_relative_path=expected_path,
+        )
+        if binding_issues:
+            raise ValueError(
+                "Approved-proof compiled handoff input changed: "
+                + "; ".join(binding_issues)
+            )
+    proof_prompt_slides = [
+        slide
+        for slide in load_json(carousel_dir / "prompt-pack.json").get("slides", [])
+        if int(slide.get("slide", 0) or 0) == proof_slide
+    ]
+    if (carousel_dir / PROMPT_HANDOFF_ACTIVE_FOLDER).exists():
+        handoff_issues = compiled_prompt_handoff_integrity_issues(
+            carousel_dir,
+            state=state,
+            slides=proof_prompt_slides,
+            output_formats=current_formats,
+        )
+        if handoff_issues:
+            raise ValueError(
+                "Approved-proof compiled handoff is invalid: "
+                + "; ".join(handoff_issues)
+            )
+
+    payload = {
+        "schema_version": APPROVED_PROOF_BATCH_HANDOFF_SCHEMA_VERSION,
+        "proof_slide": proof_slide,
+        "requested_formats": current_formats,
+        "image_set_sha256": state["image_set_sha256"],
+        "source_handoff_set_fingerprint": source_handoff.get(
+            "handoff_set_fingerprint"
+        ),
+        "visual_qa_binding": archived_visual_qa_binding,
+        "creator_approval_binding": archived_approval_binding,
+        "quarantine_bindings": quarantine_bindings,
+    }
+    return {
+        **payload,
+        "attestation_fingerprint": _canonical_fingerprint(payload),
+    }
+
+
+def _archive_approved_proof_batch_handoff_evidence(
+    carousel_dir: Path,
+    evidence: dict[str, Any],
+) -> None:
+    """Keep the immutable proof handoff across a later compile failure."""
+
+    archive_path = carousel_dir / APPROVED_PROOF_BATCH_HANDOFF_ARCHIVE
+    archive_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps(evidence, indent=2, ensure_ascii=False).encode("utf-8")
+    if archive_path.exists():
+        try:
+            existing = json.loads(archive_path.read_bytes())
+        except (OSError, json.JSONDecodeError) as exc:
+            raise ValueError("Approved-proof handoff archive is malformed.") from exc
+        if existing != evidence:
+            raise ValueError(
+                "Approved-proof handoff archive already exists with different evidence."
+            )
+        return
+    archive_path.write_bytes(payload)
+
+
+def _recover_approved_proof_batch_handoff_evidence(
+    carousel_dir: Path,
+    *,
+    requested_formats: list[str] | None,
+) -> dict[str, Any]:
+    """Recover an approved-proof attestation after a failed prompt recompile.
+
+    The proof image, original QA, creator approval, and attempt ledger are all
+    immutable package evidence.  A transient compile failure must not erase
+    that approval and force the creator to approve the same hash again.
+    """
+
+    carousel_dir = carousel_dir.expanduser().resolve()
+    current_formats = list(locked_formats(carousel_dir))
+    if requested_formats is not None:
+        supplied_formats = list(normalize_requested_formats(requested_formats))
+        if supplied_formats != current_formats:
+            raise ValueError(
+                "Requested full-deck formats disagree with the archived approved proof."
+            )
+
+    archive_path = carousel_dir / APPROVED_PROOF_BATCH_HANDOFF_ARCHIVE
+    if archive_path.exists():
+        try:
+            evidence = json.loads(archive_path.read_bytes())
+        except (OSError, json.JSONDecodeError) as exc:
+            raise ValueError("Approved-proof handoff archive is malformed.") from exc
+        state = {
+            "requested_formats": current_formats,
+            "approved_proof_batch_handoff_attestation": evidence,
+        }
+        issues = approved_proof_batch_handoff_attestation_issues(
+            carousel_dir,
+            state=state,
+        )
+        if issues:
+            raise ValueError(
+                "Archived approved-proof handoff is invalid: " + "; ".join(issues)
+            )
+        return evidence
+
+    visual_qa_path = carousel_dir / ".internal" / "approved-proof" / "visual-qa.json"
+    approval_path = carousel_dir / ".internal" / "approved-proof" / "creator-approval.json"
+    try:
+        visual_qa = json.loads(visual_qa_path.read_bytes())
+        approval = json.loads(approval_path.read_bytes())
+    except (FileNotFoundError, OSError, json.JSONDecodeError) as exc:
+        raise ValueError(
+            "Approved-proof recovery requires the immutable QA and creator-approval archive."
+        ) from exc
+    if not isinstance(visual_qa, dict) or not isinstance(approval, dict):
+        raise ValueError("Approved-proof recovery archive is malformed.")
+
+    approved_image_set = str(approval.get("image_set_sha256") or "")
+    approval_issues = validate_creator_approval(
+        approval,
+        expected_image_set_sha256=approved_image_set,
+    )
+    if approval_issues:
+        raise ValueError(
+            "Archived approved-proof creator approval is invalid: "
+            + "; ".join(approval_issues)
+        )
+    attempts = load_attempt_ledger(carousel_dir).get("attempts")
+    latest_attempt = attempts[-1] if isinstance(attempts, list) and attempts else None
+    if (
+        not isinstance(latest_attempt, dict)
+        or latest_attempt.get("status") != GenerationStatus.BATCH_ALLOWED.value
+        or latest_attempt.get("image_set_sha256") != approved_image_set
+    ):
+        raise ValueError("Archived approved-proof attempt ledger is stale or incomplete.")
+
+    readability = (visual_qa.get("checks") or {}).get(VISUAL_STORY_READABILITY_KEY)
+    frames = readability.get("frames") if isinstance(readability, dict) else None
+    if not isinstance(frames, list) or not frames:
+        raise ValueError("Archived approved-proof QA is missing reviewed frame evidence.")
+    proof_slides = {
+        int(frame.get("slide", 0) or 0)
+        for frame in frames
+        if isinstance(frame, dict)
+    }
+    if len(proof_slides) != 1 or 0 in proof_slides:
+        raise ValueError("Archived approved-proof QA must bind exactly one proof slide.")
+    proof_slide = next(iter(proof_slides))
+
+    native_outputs: dict[str, dict[str, Any]] = {}
+    quarantine_bindings: list[dict[str, str]] = []
+    quarantine_root = carousel_dir / ".internal" / "visual-quarantine"
+    for output_format in current_formats:
+        matching_frames = [
+            frame
+            for frame in frames
+            if isinstance(frame, dict)
+            and int(frame.get("slide", 0) or 0) == proof_slide
+            and frame.get("format") == output_format
+        ]
+        if len(matching_frames) != 1:
+            raise ValueError(
+                f"Archived approved-proof QA must bind one {output_format} frame."
+            )
+        expected_hash = str(matching_frames[0].get("image_fingerprint") or "")
+        if expected_hash.startswith("sha256:"):
+            expected_hash = expected_hash.removeprefix("sha256:")
+        candidates = []
+        for candidate in quarantine_root.rglob(f"slide-{proof_slide:02d}.png"):
+            if candidate.is_symlink() or not candidate.is_file():
+                continue
+            try:
+                payload = candidate.read_bytes()
+            except OSError:
+                continue
+            if sha256_bytes(payload) == expected_hash:
+                candidates.append((candidate, payload))
+        if not candidates:
+            raise ValueError(
+                f"Archived approved-proof image is missing for {output_format}."
+            )
+        candidate, payload = sorted(candidates, key=lambda item: item[0].as_posix())[0]
+        dimensions = image_dimensions(payload)
+        native_outputs[output_format] = {
+            "path": candidate.relative_to(carousel_dir).as_posix(),
+            "sha256": expected_hash,
+            "width": dimensions["width"],
+            "height": dimensions["height"],
+        }
+        quarantine_bindings.append(
+            _binding_for_package_file(
+                carousel_dir,
+                candidate.relative_to(carousel_dir).as_posix(),
+            )
+        )
+
+    recovered_image_set = image_set_sha256(
+        [{"slide": proof_slide, "native_outputs": native_outputs}]
+    )
+    if recovered_image_set != approved_image_set:
+        raise ValueError("Archived approved-proof image-set binding is stale.")
+
+    payload = {
+        "schema_version": APPROVED_PROOF_BATCH_HANDOFF_SCHEMA_VERSION,
+        "proof_slide": proof_slide,
+        "requested_formats": current_formats,
+        "image_set_sha256": approved_image_set,
+        "source_handoff_set_fingerprint": None,
+        "recovered_after_state_loss": True,
+        "visual_qa_binding": _binding_for_package_file(
+            carousel_dir,
+            visual_qa_path.relative_to(carousel_dir).as_posix(),
+        ),
+        "creator_approval_binding": _binding_for_package_file(
+            carousel_dir,
+            approval_path.relative_to(carousel_dir).as_posix(),
+        ),
+        "quarantine_bindings": quarantine_bindings,
+    }
+    evidence = {
+        **payload,
+        "attestation_fingerprint": _canonical_fingerprint(payload),
+    }
+    _archive_approved_proof_batch_handoff_evidence(carousel_dir, evidence)
+    return evidence
+
+
 def prepare_codex_builtin_image_generation(
     carousel_dir: Path,
     *,
@@ -1886,12 +3521,205 @@ def prepare_codex_builtin_image_generation(
     carousel_dir = carousel_dir.expanduser()
     prompt_dir = carousel_dir / PROMPT_HANDOFF_ACTIVE_FOLDER
     prompt_staging_dir = carousel_dir / PROMPT_HANDOFF_STAGING_FOLDER
+    creator_override_evidence: dict[str, Any] | None = None
+    approved_proof_evidence: dict[str, Any] | None = None
+    full_deck_retry_evidence: dict[str, Any] | None = None
+    try:
+        existing_state = load_json(carousel_dir / "image-generation.json")
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
+        existing_state = None
+    if (
+        isinstance(existing_state, dict)
+        and existing_state.get("status")
+        in {
+            GenerationStatus.GENERATED_QUARANTINED.value,
+            GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value,
+        }
+        and existing_state.get("proof_only") is False
+    ):
+        if proof_slide is not None:
+            raise ValueError(
+                "QA-failed full-deck retry must recompile the full deck; "
+                "proof_slide must be omitted."
+            )
+        final_state = load_json(carousel_dir / "final-images.json")
+        if final_state != existing_state:
+            raise ValueError(
+                "QA-failed full-deck retry generation manifests disagree."
+            )
+        slide_records = existing_state.get("slides")
+        if (
+            not isinstance(slide_records, list)
+            or len(slide_records) < 2
+            or existing_state.get("slide_count") != len(slide_records)
+            or existing_state.get("total_slide_count") != len(slide_records)
+            or existing_state.get("image_set_sha256")
+            != image_set_sha256(slide_records)
+        ):
+            raise ValueError(
+                "QA-failed full-deck retry image-set evidence is incomplete or stale."
+            )
+        output_formats = list(locked_formats(carousel_dir))
+        if existing_state.get("requested_formats") != output_formats:
+            raise ValueError(
+                "QA-failed full-deck retry formats disagree with the current format lock."
+            )
+        quarantine_issues = validate_quarantine_integrity(
+            slide_records,
+            output_formats,
+            carousel_dir=carousel_dir,
+        )
+        if quarantine_issues:
+            raise ValueError(
+                "QA-failed full-deck retry quarantine evidence is inconsistent: "
+                + "; ".join(quarantine_issues)
+            )
+        attempts = load_attempt_ledger(carousel_dir).get("attempts")
+        latest_attempt = (
+            attempts[-1] if isinstance(attempts, list) and attempts else None
+        )
+        state_issues = existing_state.get("visual_qa_issues")
+        if (
+            not isinstance(latest_attempt, dict)
+            or latest_attempt.get("status") != "QA_FAILED"
+            or latest_attempt.get("image_set_sha256")
+            != existing_state.get("image_set_sha256")
+            or latest_attempt.get("retry_count")
+            != existing_state.get("retry_count")
+            or not isinstance(state_issues, list)
+            or not state_issues
+            or latest_attempt.get("qa_issues") != state_issues
+        ):
+            raise ValueError(
+                "QA-failed full-deck retry state and attempt ledger disagree."
+            )
+        qa_relative_path = existing_state.get("visual_qa_path")
+        if not isinstance(qa_relative_path, str):
+            raise ValueError(
+                "QA-failed full-deck retry is missing its visual-QA artifact."
+            )
+        qa_binding = _binding_for_package_file(carousel_dir, qa_relative_path)
+        qa_payload = load_json(carousel_dir / qa_relative_path)
+        if (
+            not isinstance(qa_payload, dict)
+            or qa_payload.get("status") != "FAIL"
+            or qa_payload.get("image_set_sha256")
+            != existing_state.get("image_set_sha256")
+        ):
+            raise ValueError(
+                "QA-failed full-deck retry visual-QA binding is stale or not failed."
+            )
+        next_retry = next_retry_count(
+            carousel_dir,
+            allow_approved_proof_batch=(
+                carousel_dir / APPROVED_PROOF_BATCH_HANDOFF_ARCHIVE
+            ).is_file(),
+        )
+        full_deck_retry_payload = {
+            "schema_version": "qa-failed-full-deck-retry-handoff/v1",
+            "source_status": existing_state["status"],
+            "failed_image_set_sha256": existing_state["image_set_sha256"],
+            "failed_attempt": latest_attempt,
+            "visual_qa_binding": qa_binding,
+            "next_retry_count": next_retry,
+        }
+        full_deck_retry_evidence = {
+            **full_deck_retry_payload,
+            "attestation_fingerprint": _canonical_fingerprint(
+                full_deck_retry_payload
+            ),
+        }
+    if (
+        isinstance(existing_state, dict)
+        and existing_state.get("status") == GenerationStatus.HANDOFF_READY.value
+        and isinstance(
+            existing_state.get("approved_proof_batch_handoff_attestation"),
+            dict,
+        )
+    ):
+        attestation_issues = approved_proof_batch_handoff_attestation_issues(
+            carousel_dir,
+            state=existing_state,
+        )
+        if attestation_issues:
+            raise ValueError(
+                "Approved-proof full-deck handoff cannot be recompiled: "
+                + "; ".join(attestation_issues)
+            )
+        approved_proof_evidence = existing_state[
+            "approved_proof_batch_handoff_attestation"
+        ]
+        retry_attestation = existing_state.get(
+            "qa_failed_full_deck_retry_handoff_attestation"
+        )
+        if isinstance(retry_attestation, dict):
+            retry_payload = {
+                key: value
+                for key, value in retry_attestation.items()
+                if key != "attestation_fingerprint"
+            }
+            if retry_attestation.get(
+                "attestation_fingerprint"
+            ) != _canonical_fingerprint(retry_payload):
+                raise ValueError(
+                    "QA-failed full-deck retry handoff attestation is stale."
+                )
+            full_deck_retry_evidence = retry_attestation
+    if (
+        isinstance(existing_state, dict)
+        and existing_state.get("status") == GenerationStatus.BATCH_ALLOWED.value
+    ):
+        if proof_slide is not None:
+            raise ValueError(
+                "Creator-override BATCH_ALLOWED can compile only the full deck; "
+                "proof_slide must be omitted."
+            )
+        if (
+            existing_state.get("proof_state")
+            == GenerationStatus.CREATOR_APPROVED_PROOF.value
+            and existing_state.get("creator_override") is not True
+        ):
+            approved_proof_evidence = _approved_proof_batch_handoff_evidence(
+                carousel_dir,
+                requested_formats=formats,
+            )
+        else:
+            creator_override_evidence = _creator_override_batch_handoff_evidence(
+                carousel_dir,
+                requested_formats=formats,
+            )
+
+    if approved_proof_evidence is not None:
+        _archive_approved_proof_batch_handoff_evidence(
+            carousel_dir,
+            approved_proof_evidence,
+        )
+    elif (
+        creator_override_evidence is None
+        and proof_slide is None
+        and (carousel_dir / ".internal" / "approved-proof" / "visual-qa.json").is_file()
+        and (carousel_dir / ".internal" / "approved-proof" / "creator-approval.json").is_file()
+    ):
+        approved_proof_evidence = _recover_approved_proof_batch_handoff_evidence(
+            carousel_dir,
+            requested_formats=formats,
+        )
+
+    preserves_approved_proof = (
+        creator_override_evidence is not None or approved_proof_evidence is not None
+    )
+
     # A previous active set is executable by a human or agent. Invalidate it
     # before reading any mutable prerequisite so a blocked recompilation can
-    # never leave stale prompts available for use.
-    remove_path_without_following(prompt_dir)
+    # never leave stale prompts available for use. A creator-override transition
+    # validates every immutable proof/approval binding first and keeps the prior
+    # proof-only set intact if a prerequisite blocks the full-deck compilation.
+    if not preserves_approved_proof:
+        remove_path_without_following(prompt_dir)
     remove_path_without_following(prompt_staging_dir)
-    if formats is not None:
+    if preserves_approved_proof:
+        format_contract = load_format_contract(carousel_dir)
+    elif formats is not None:
         format_contract = write_format_contract(
             carousel_dir,
             formats,
@@ -1918,36 +3746,41 @@ def prepare_codex_builtin_image_generation(
         if not slides:
             raise ValueError(f"proof_slide {proof_slide} is not present in prompt-pack.json.")
 
+    def blocked_result(reason: str) -> dict[str, Any]:
+        if creator_override_evidence is not None:
+            raise ValueError(
+                "Creator-override full-deck handoff remains blocked: " + reason
+            )
+        return write_blocked_status(carousel_dir, reason)
+
     visual_quality_reason = visual_plan_quality_gate_reason(carousel_dir)
     if visual_quality_reason:
-        return write_blocked_status(carousel_dir, visual_quality_reason)
+        return blocked_result(visual_quality_reason)
 
     identity_reason = identity_consistency_gate_reason(carousel_dir)
     if identity_reason:
-        return write_blocked_status(carousel_dir, identity_reason)
+        return blocked_result(identity_reason)
 
     style_consistency_reason = house_style_consistency_gate_reason(prompt_pack)
     if style_consistency_reason:
-        return write_blocked_status(carousel_dir, style_consistency_reason)
+        return blocked_result(style_consistency_reason)
 
     layer_e_reason = layer_e_gate_reason(carousel_dir)
     if layer_e_reason:
-        return write_blocked_status(carousel_dir, layer_e_reason)
+        return blocked_result(layer_e_reason)
 
     package_review_reason = pre_generation_review_gate_reason(carousel_dir)
     if package_review_reason:
-        return write_blocked_status(carousel_dir, package_review_reason)
+        return blocked_result(package_review_reason)
 
     dossier_paths = existing_paths(prompt_pack.get("identity_dossier_reference_images", []))
     identity_paths = existing_paths(prompt_pack.get("identity_reference_images", []))
     if not dossier_paths:
-        return write_blocked_status(
-            carousel_dir,
+        return blocked_result(
             "Codex built-in image generation requires identity-face-contact-sheet.jpg as an actual image input.",
         )
     if not identity_paths:
-        return write_blocked_status(
-            carousel_dir,
+        return blocked_result(
             "Codex built-in image generation requires selected identity images as actual image inputs.",
         )
 
@@ -1956,6 +3789,8 @@ def prepare_codex_builtin_image_generation(
         for path in existing_reference_paths({"style_reference_images": prompt_pack.get("style_reference_images", [])})
         if path not in identity_paths
     ]
+    if preserves_approved_proof:
+        remove_path_without_following(prompt_dir)
     prompt_staging_dir.parent.mkdir(parents=True, exist_ok=True)
     prompt_staging_dir.mkdir()
     handoff_complete = False
@@ -1995,8 +3830,7 @@ def prepare_codex_builtin_image_generation(
                     expected_text=str(slide_prompt["text"]),
                 )
                 if gate.status != "PASS":
-                    return write_blocked_status(
-                        carousel_dir,
+                    return blocked_result(
                         (
                             f"Compiled prompt constraints failed for slide {number:02d} "
                             f"{format_prompt_dir_name(output_format)}: {gate.reason}"
@@ -2059,29 +3893,56 @@ def prepare_codex_builtin_image_generation(
         # Same-filesystem rename is the exposure point: no active prompt path
         # exists until every prompt and markdown file has passed compilation.
         prompt_staging_dir.replace(prompt_dir)
+        state_extra: dict[str, Any] = {
+            "proof_gate": prompt_pack.get("proof_gate"),
+            "requested_proof_slide": proof_slide,
+            "proof_only": proof_slide is not None,
+            "total_slide_count": total_prompt_pack_slide_count,
+            "requested_formats": output_formats,
+            "native_output_contract": native_output_contract(output_formats),
+            "generation_capability": generation_capability,
+            "prompt_dir": PROMPT_HANDOFF_ACTIVE_FOLDER,
+            "compiled_prompt_handoff": compiled_handoff,
+            "identity_reference_requirement": (
+                "Load/view identity-face-contact-sheet.jpg and selected identity images before every "
+                "Codex image generation call; the final art must preserve Aachu/Zuv face structure."
+            ),
+        }
+        if creator_override_evidence is not None:
+            state_extra.update(creator_override_evidence)
+        if approved_proof_evidence is not None:
+            state_extra["approved_proof_batch_handoff_attestation"] = (
+                approved_proof_evidence
+            )
+        if full_deck_retry_evidence is not None:
+            state_extra["qa_failed_full_deck_retry_handoff_attestation"] = (
+                full_deck_retry_evidence
+            )
+
         result = write_generation_state(
             carousel_dir,
             status=GenerationStatus.HANDOFF_READY,
             backend=BACKEND,
             generation_mode=GENERATION_MODE,
             slide_count=len(slides),
-            reason="Prompt files are ready; final PNGs still require Codex built-in image generation.",
+            reason=(
+                "Full-deck prompt files are ready under the creator's bound failed-proof "
+                "acceptance; the known proof exceptions remain QA_FAILED and no image is "
+                "publishable."
+                if creator_override_evidence is not None
+                else "Full-deck prompt files are ready from the exact QA-passed, creator-approved proof; final PNGs still require Codex built-in image generation."
+                if approved_proof_evidence is not None
+                else "Prompt files are ready; final PNGs still require Codex built-in image generation."
+            ),
             slides=records,
-            extra={
-                "proof_gate": prompt_pack.get("proof_gate"),
-                "requested_proof_slide": proof_slide,
-                "proof_only": proof_slide is not None,
-                "total_slide_count": total_prompt_pack_slide_count,
-                "requested_formats": output_formats,
-                "native_output_contract": native_output_contract(output_formats),
-                "generation_capability": generation_capability,
-                "prompt_dir": PROMPT_HANDOFF_ACTIVE_FOLDER,
-                "compiled_prompt_handoff": compiled_handoff,
-                "identity_reference_requirement": (
-                    "Load/view identity-face-contact-sheet.jpg and selected identity images before every "
-                    "Codex image generation call; the final art must preserve Aachu/Zuv face structure."
-                ),
-            },
+            extra=state_extra,
+            creator_override_handoff_validated=(
+                creator_override_evidence is not None
+                or approved_proof_evidence is not None
+            ),
+            qa_failed_full_deck_retry_handoff_validated=(
+                full_deck_retry_evidence is not None
+            ),
         )
         write_handoff_blocker(carousel_dir, result, prompt_pack.get("proof_gate"))
         handoff_complete = True
@@ -2090,6 +3951,949 @@ def prepare_codex_builtin_image_generation(
         remove_path_without_following(prompt_staging_dir)
         if not handoff_complete:
             remove_path_without_following(prompt_dir)
+
+
+def _failed_proof_retry_context(
+    carousel_dir: Path,
+) -> tuple[dict[str, Any], dict[str, Any], int, list[str], Path]:
+    """Load and cross-check the immutable evidence for one failed proof."""
+
+    state_path = carousel_dir / "image-generation.json"
+    final_state_path = carousel_dir / "final-images.json"
+    try:
+        state = load_json(state_path)
+        final_state = load_json(final_state_path)
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError("Failed-proof retry requires both generation state manifests.") from exc
+    if state != final_state:
+        raise ValueError("Failed-proof retry generation state manifests disagree.")
+    if state.get("status") not in {
+        GenerationStatus.GENERATED_QUARANTINED.value,
+        GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value,
+    }:
+        raise ValueError(
+            "Failed-proof handoff recompile requires GENERATED_QUARANTINED or "
+            "REJECTED_SPATIAL_INTEGRITY."
+        )
+    if not _failed_proof_retry_scope(state):
+        raise ValueError(
+            "Failed-proof handoff recompile requires a proof-only state with persisted QA failures."
+        )
+    try:
+        proof_slide = int(state["requested_proof_slide"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError("Failed-proof retry is missing its selected proof slide.") from exc
+
+    output_formats = list(locked_formats(carousel_dir))
+    if state.get("requested_formats") != output_formats:
+        raise ValueError("Failed-proof retry formats disagree with the current format lock.")
+    if state.get("proof_state") != state.get("status"):
+        raise ValueError("Failed-proof retry lifecycle status and proof_state disagree.")
+    if state.get("slide_count") != 1:
+        raise ValueError("Failed-proof retry state must contain exactly one proof slide.")
+    slide_records = state.get("slides")
+    if (
+        not isinstance(slide_records, list)
+        or len(slide_records) != 1
+        or int(slide_records[0].get("slide", 0) or 0) != proof_slide
+    ):
+        raise ValueError("Failed-proof retry state does not contain its selected proof slide.")
+    if image_set_sha256(slide_records) != state.get("image_set_sha256"):
+        raise ValueError("Failed-proof retry image-set binding is stale.")
+    quarantine_issues = validate_quarantine_integrity(
+        slide_records,
+        output_formats,
+        carousel_dir=carousel_dir,
+    )
+    if quarantine_issues:
+        raise ValueError(
+            "Failed-proof retry quarantine evidence is inconsistent: "
+            + "; ".join(quarantine_issues)
+        )
+
+    ledger = load_attempt_ledger(carousel_dir)
+    attempts = ledger["attempts"]
+    if not attempts or not isinstance(attempts[-1], dict):
+        raise ValueError("Failed-proof retry requires an attempt ledger entry.")
+    failed_attempt = attempts[-1]
+    if failed_attempt.get("status") != "QA_FAILED":
+        raise ValueError("Failed-proof retry requires the latest ledger attempt to be QA_FAILED.")
+    if failed_attempt.get("image_set_sha256") != state.get("image_set_sha256"):
+        raise ValueError("Failed-proof retry state and ledger image-set bindings disagree.")
+    if failed_attempt.get("retry_count") != state.get("retry_count"):
+        raise ValueError("Failed-proof retry state and ledger retry counts disagree.")
+    state_issues = state.get("visual_qa_issues")
+    if (
+        not isinstance(state_issues, list)
+        or not state_issues
+        or failed_attempt.get("qa_issues") != state_issues
+    ):
+        raise ValueError("Failed-proof retry state and ledger QA failure evidence disagree.")
+    retry_count = next_retry_count(carousel_dir)
+    if retry_count > MAX_VISUAL_QA_RETRIES:
+        raise ValueError("Visual-QA retry limit is exhausted; handoff cannot be recompiled.")
+
+    qa_relative_path = state.get("visual_qa_path")
+    if not isinstance(qa_relative_path, str):
+        raise ValueError("Failed-proof retry is missing its visual QA path.")
+    _binding_for_package_file(carousel_dir, qa_relative_path)
+    qa = load_json(carousel_dir / qa_relative_path)
+    if not isinstance(qa, dict):
+        raise ValueError("Failed-proof retry visual QA is malformed.")
+    if qa.get("image_set_sha256") != state.get("image_set_sha256"):
+        raise ValueError("Failed-proof retry visual QA belongs to a different image set.")
+    visual_plan = load_json(carousel_dir / "visual-plan-quality.json")
+    recomputed_qa_issues = validate_exact_image_visual_qa(
+        qa,
+        slide_records,
+        visual_plan=visual_plan,
+        carousel_dir=carousel_dir,
+    )
+    if not recomputed_qa_issues:
+        raise ValueError(
+            "Failed-proof retry visual QA no longer reproduces any validator failure."
+        )
+
+    expected_quarantine_dir = package_relative_path(
+        carousel_dir,
+        quarantine_dir(carousel_dir, int(state["retry_count"])),
+    )
+    if state.get("quarantine_dir") != expected_quarantine_dir:
+        raise ValueError("Failed-proof retry quarantine directory binding is stale.")
+    return state, failed_attempt, proof_slide, output_formats, carousel_dir / qa_relative_path
+
+
+def _retry_source_handoff_issues(
+    carousel_dir: Path,
+    *,
+    state: dict[str, Any],
+    proof_slide: int,
+    output_formats: list[str],
+) -> list[str]:
+    """Check the exposed source prompt set without requiring stale inputs to match."""
+
+    handoff = state.get("compiled_prompt_handoff")
+    if not isinstance(handoff, dict):
+        return ["failed proof state is missing its prior compiled handoff"]
+    issues: list[str] = []
+    if handoff.get("schema_version") != PROMPT_HANDOFF_SCHEMA_VERSION:
+        issues.append("prior compiled handoff schema is missing or unsupported")
+    if handoff.get("requested_formats") != output_formats:
+        issues.append("prior compiled handoff formats disagree with the failed proof")
+    if handoff.get("slide_numbers") != [proof_slide]:
+        issues.append("prior compiled handoff does not expose exactly the failed proof slide")
+    fingerprint_payload = {
+        "schema_version": handoff.get("schema_version"),
+        "requested_formats": handoff.get("requested_formats"),
+        "slide_numbers": handoff.get("slide_numbers"),
+        "format_contract_fingerprint": handoff.get("format_contract_fingerprint"),
+        "input_bindings": handoff.get("input_bindings"),
+        "files": handoff.get("files"),
+    }
+    if handoff.get("handoff_set_fingerprint") != _canonical_fingerprint(
+        fingerprint_payload
+    ):
+        issues.append("prior compiled handoff fingerprint is stale")
+
+    expected = {
+        prompt_handoff_relative_path(output_format, proof_slide, kind): (
+            output_format,
+            kind,
+        )
+        for output_format in output_formats
+        for kind in ("generator_prompt", "handoff_markdown")
+    }
+    if (
+        handoff.get("format_contract_fingerprint")
+        != locked_format_contract_fingerprint(carousel_dir)
+    ):
+        issues.append("prior compiled handoff format fingerprint is stale")
+    raw_files = handoff.get("files")
+    if not isinstance(raw_files, list):
+        return [*issues, "prior compiled handoff file bindings are missing"]
+    seen: set[str] = set()
+    for binding in raw_files:
+        if not isinstance(binding, dict):
+            issues.append("prior compiled handoff has a malformed file binding")
+            continue
+        relative_path = binding.get("relative_path")
+        if not isinstance(relative_path, str) or relative_path not in expected:
+            issues.append("prior compiled handoff has an unexpected file binding")
+            continue
+        if relative_path in seen:
+            issues.append(f"prior compiled handoff repeats {relative_path}")
+            continue
+        seen.add(relative_path)
+        expected_format, expected_kind = expected[relative_path]
+        if (
+            binding.get("slide") != proof_slide
+            or binding.get("format") != expected_format
+            or binding.get("kind") != expected_kind
+        ):
+            issues.append(f"prior compiled handoff metadata is stale for {relative_path}")
+        issues.extend(
+            _bound_package_file_issues(
+                carousel_dir,
+                binding,
+                expected_relative_path=relative_path,
+            )
+        )
+    if seen != set(expected):
+        issues.append("prior compiled handoff does not bind the complete proof prompt set")
+    active_root = carousel_dir / PROMPT_HANDOFF_ACTIVE_FOLDER
+    actual = {
+        path.relative_to(carousel_dir).as_posix()
+        for path in active_root.rglob("*")
+        if path.is_file() or path.is_symlink()
+    }
+    if actual != set(expected):
+        issues.append("active prior prompt set contains missing or unbound files")
+    return issues
+
+
+def _raise_retry_gate_failure(label: str, reason: str | None) -> None:
+    if reason:
+        raise ValueError(f"Failed-proof handoff recompile {label} failed: {reason}")
+
+
+def _retry_prompt_records(
+    carousel_dir: Path,
+    *,
+    prompt_staging_dir: Path,
+    slides: list[dict[str, Any]],
+    output_formats: list[str],
+    prompt_pack: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Compile a complete replacement prompt set without exposing it."""
+
+    dossier_paths = existing_paths(prompt_pack.get("identity_dossier_reference_images", []))
+    identity_paths = existing_paths(prompt_pack.get("identity_reference_images", []))
+    if not dossier_paths:
+        raise ValueError(
+            "Failed-proof handoff recompile requires identity-face-contact-sheet.jpg "
+            "as an actual image input."
+        )
+    if not identity_paths:
+        raise ValueError(
+            "Failed-proof handoff recompile requires selected identity images "
+            "as actual image inputs."
+        )
+    style_paths = [
+        path
+        for path in existing_reference_paths(
+            {"style_reference_images": prompt_pack.get("style_reference_images", [])}
+        )
+        if path not in identity_paths
+    ]
+    slide_plans = load_json(carousel_dir / "slides.json")
+    records: list[dict[str, Any]] = []
+    for slide_prompt in slides:
+        number = int(slide_prompt["slide"])
+        slide_plan = next(
+            (
+                item
+                for item in slide_plans
+                if int(item.get("slide", 0) or 0) == number
+            ),
+            {},
+        )
+        source_paths = slide_source_paths(slide_plan)
+        active_prompt_files: dict[str, Path] = {}
+        for output_format in output_formats:
+            format_dir = format_prompt_dir_name(output_format)
+            active_prompt_path = (
+                carousel_dir
+                / PROMPT_HANDOFF_ACTIVE_FOLDER
+                / format_dir
+                / f"slide-{number:02d}.md"
+            )
+            staging_prompt_path = (
+                prompt_staging_dir / format_dir / f"slide-{number:02d}.md"
+            )
+            staging_prompt_path.parent.mkdir(parents=True, exist_ok=True)
+            staging_generator_path = staging_prompt_path.with_suffix(".prompt.txt")
+            staging_generator_path.write_text(
+                generator_prompt_text(slide_prompt, output_format),
+                encoding="utf-8",
+            )
+            gate = check_prompt_constraints(
+                staging_generator_path,
+                expected_text=str(slide_prompt["text"]),
+            )
+            if gate.status != "PASS":
+                raise ValueError(
+                    f"Compiled prompt constraints failed for slide {number:02d} "
+                    f"{format_dir}: {gate.reason}"
+                )
+            active_generator_path = active_prompt_path.with_suffix(".prompt.txt")
+            staging_prompt_path.write_text(
+                prompt_file_text(
+                    carousel_dir=carousel_dir,
+                    slide_prompt=slide_prompt,
+                    output_format=output_format,
+                    generator_prompt_path=active_generator_path,
+                    dossier_paths=dossier_paths,
+                    identity_dossier_path=prompt_pack.get("identity_dossier_path"),
+                    identity_preflight_path=prompt_pack.get(
+                        "identity_generation_preflight_path"
+                    ),
+                    identity_paths=identity_paths,
+                    source_paths=source_paths,
+                    style_paths=style_paths,
+                ),
+                encoding="utf-8",
+            )
+            active_prompt_files[output_format] = active_prompt_path
+        first_output_format = output_formats[0]
+        records.append(
+            {
+                "slide": number,
+                "copy": slide_prompt["text"],
+                "status": "awaiting_codex_builtin_image",
+                "generation_mode": GENERATION_MODE,
+                "backend": BACKEND,
+                "prompt_file": active_prompt_files[first_output_format]
+                .relative_to(carousel_dir)
+                .as_posix(),
+                "prompt_files": {
+                    key: path.relative_to(carousel_dir).as_posix()
+                    for key, path in active_prompt_files.items()
+                },
+                "generator_prompt_files": {
+                    key: path.with_suffix(".prompt.txt")
+                    .relative_to(carousel_dir)
+                    .as_posix()
+                    for key, path in active_prompt_files.items()
+                },
+                "expected_file": expected_output_relative_path(
+                    first_output_format, number
+                ),
+                "expected_files": {
+                    output_format: expected_output_relative_path(output_format, number)
+                    for output_format in output_formats
+                },
+                "identity_dossier_reference_images": [
+                    str(path) for path in dossier_paths
+                ],
+                "identity_reference_images": [str(path) for path in identity_paths],
+                "story_reference_images": [str(path) for path in source_paths],
+                "style_reference_images": [str(path) for path in style_paths],
+            }
+        )
+    return records
+
+
+def recompile_failed_proof_handoff(carousel_dir: Path) -> dict[str, Any]:
+    """Atomically replace only the compiled handoff for a QA-failed proof."""
+
+    carousel_dir = Path(carousel_dir).expanduser()
+    state, failed_attempt, proof_slide, output_formats, qa_path = (
+        _failed_proof_retry_context(carousel_dir)
+    )
+    prompt_pack = load_json(carousel_dir / "prompt-pack.json")
+    all_slides = prompt_pack.get("slides", [])
+    slides = [
+        slide
+        for slide in all_slides
+        if int(slide.get("slide", 0) or 0) == proof_slide
+    ]
+    if len(slides) != 1:
+        raise ValueError(
+            "Failed-proof retry slide is not present exactly once in prompt-pack.json."
+        )
+    if state.get("total_slide_count") != len(all_slides):
+        raise ValueError("Failed-proof retry total slide count is stale.")
+    if str(slides[0].get("text")) != str(state["slides"][0].get("copy")):
+        raise ValueError("Failed-proof retry cannot change the exact proof copy.")
+    source_handoff_issues = _retry_source_handoff_issues(
+        carousel_dir,
+        state=state,
+        proof_slide=proof_slide,
+        output_formats=output_formats,
+    )
+    if source_handoff_issues:
+        raise ValueError(
+            "Failed-proof retry prior handoff is inconsistent: "
+            + "; ".join(source_handoff_issues)
+        )
+
+    _raise_retry_gate_failure(
+        "visual-plan gate", visual_plan_quality_gate_reason(carousel_dir)
+    )
+    _raise_retry_gate_failure(
+        "identity gate", identity_consistency_gate_reason(carousel_dir)
+    )
+    _raise_retry_gate_failure(
+        "house-style gate", house_style_consistency_gate_reason(prompt_pack)
+    )
+    _raise_retry_gate_failure("Layer E gate", layer_e_gate_reason(carousel_dir))
+    _raise_retry_gate_failure(
+        "pre-generation review gate", pre_generation_review_gate_reason(carousel_dir)
+    )
+    gate_input_bindings = _retry_gate_input_bindings(carousel_dir)
+
+    prompt_dir = carousel_dir / PROMPT_HANDOFF_ACTIVE_FOLDER
+    prompt_staging_dir = carousel_dir / PROMPT_HANDOFF_STAGING_FOLDER
+    if prompt_dir.is_symlink() or not prompt_dir.is_dir():
+        raise ValueError("Failed-proof retry active prompt set is missing or unsafe.")
+    for path in prompt_dir.rglob("*"):
+        if path.is_symlink():
+            raise ValueError("Failed-proof retry active prompt set contains a symlink.")
+    remove_path_without_following(prompt_staging_dir)
+    prompt_staging_dir.parent.mkdir(parents=True, exist_ok=True)
+    prompt_staging_dir.mkdir()
+    backup_dir = (
+        carousel_dir
+        / PROMPT_HANDOFF_BACKUP_FOLDER
+        / f"attempt-{int(failed_attempt['attempt']):02d}"
+    )
+    if backup_dir.exists() or backup_dir.is_symlink():
+        raise ValueError(
+            "Immutable failed-attempt prompt backup already exists; refusing to overwrite it."
+        )
+
+    state_path = carousel_dir / "image-generation.json"
+    final_state_path = carousel_dir / "final-images.json"
+    transaction_id = uuid.uuid4().hex
+    state_temp = carousel_dir / ".internal" / f".retry-state-{transaction_id}.json"
+    final_state_temp = carousel_dir / ".internal" / f".retry-final-{transaction_id}.json"
+    old_state_bytes = state_path.read_bytes()
+    old_final_state_bytes = final_state_path.read_bytes()
+    swapped = False
+    try:
+        _retry_prompt_records(
+            carousel_dir,
+            prompt_staging_dir=prompt_staging_dir,
+            slides=slides,
+            output_formats=output_formats,
+            prompt_pack=prompt_pack,
+        )
+        replacement_handoff = build_compiled_prompt_handoff(
+            carousel_dir,
+            slide_numbers=[proof_slide],
+            output_formats=output_formats,
+            prompt_source_root=prompt_staging_dir,
+        )
+
+        backup_dir.parent.mkdir(parents=True, exist_ok=True)
+        prompt_dir.replace(backup_dir)
+        try:
+            prompt_staging_dir.replace(prompt_dir)
+        except Exception:
+            backup_dir.replace(prompt_dir)
+            raise
+        swapped = True
+
+        previous_prompt_files = [
+            _binding_for_package_file(
+                carousel_dir, path.relative_to(carousel_dir).as_posix()
+            )
+            for path in sorted(backup_dir.rglob("*"))
+            if path.is_file()
+        ]
+        attestation: dict[str, Any] = {
+            "schema_version": RETRY_HANDOFF_SCHEMA_VERSION,
+            "source_status": state["status"],
+            "proof_slide": proof_slide,
+            "requested_formats": output_formats,
+            "failed_image_set_sha256": state["image_set_sha256"],
+            "failed_attempt": failed_attempt,
+            "visual_qa_binding": _binding_for_package_file(
+                carousel_dir, qa_path.relative_to(carousel_dir).as_posix()
+            ),
+            "attempt_ledger_binding": _binding_for_package_file(
+                carousel_dir, ATTEMPT_LEDGER
+            ),
+            "gate_input_bindings": gate_input_bindings,
+            "previous_handoff_set_fingerprint": (
+                state.get("compiled_prompt_handoff", {}).get(
+                    "handoff_set_fingerprint"
+                )
+            ),
+            "replacement_handoff_set_fingerprint": replacement_handoff[
+                "handoff_set_fingerprint"
+            ],
+            "previous_prompt_backup_dir": backup_dir.relative_to(
+                carousel_dir
+            ).as_posix(),
+            "previous_prompt_files": previous_prompt_files,
+            "next_retry_count": len(load_attempt_ledger(carousel_dir)["attempts"]),
+        }
+        attestation["attestation_fingerprint"] = _canonical_fingerprint(attestation)
+        updated_state = json.loads(json.dumps(state))
+        updated_state["compiled_prompt_handoff"] = replacement_handoff
+        updated_state["retry_prompt_handoff_attestation"] = attestation
+        write_json(state_temp, updated_state)
+        write_json(final_state_temp, updated_state)
+        state_temp.replace(state_path)
+        final_state_temp.replace(final_state_path)
+        return updated_state
+    except Exception:
+        if swapped:
+            remove_path_without_following(prompt_dir)
+            if backup_dir.exists():
+                backup_dir.replace(prompt_dir)
+        state_path.write_bytes(old_state_bytes)
+        final_state_path.write_bytes(old_final_state_bytes)
+        raise
+    finally:
+        remove_path_without_following(prompt_staging_dir)
+        remove_path_without_following(state_temp)
+        remove_path_without_following(final_state_temp)
+
+
+def _read_creator_override_package_file(
+    carousel_dir: Path,
+    raw_path: str | Path,
+    *,
+    label: str,
+) -> tuple[dict[str, str], bytes]:
+    """Read one immutable, package-contained approval artifact."""
+
+    package_root = carousel_dir.expanduser().resolve()
+    supplied = Path(raw_path).expanduser()
+    if ".." in supplied.parts:
+        raise ValueError(f"{label} path cannot traverse outside the carousel package.")
+    candidate = supplied if supplied.is_absolute() else package_root / supplied
+    try:
+        lexical_relative = candidate.absolute().relative_to(package_root)
+    except ValueError as exc:
+        raise ValueError(f"{label} must be stored inside the carousel package.") from exc
+
+    cursor = package_root
+    for part in lexical_relative.parts:
+        cursor = cursor / part
+        if cursor.is_symlink():
+            raise ValueError(f"{label} path cannot contain a symlink.")
+    try:
+        resolved = candidate.resolve(strict=True)
+        relative_path = resolved.relative_to(package_root).as_posix()
+    except (FileNotFoundError, OSError, ValueError) as exc:
+        raise ValueError(
+            f"{label} is missing or escapes the carousel package."
+        ) from exc
+    if not resolved.is_file():
+        raise ValueError(f"{label} must be a regular file.")
+    payload = resolved.read_bytes()
+    return {
+        "relative_path": relative_path,
+        "sha256": sha256_binding(payload),
+    }, payload
+
+
+def _read_full_deck_approval_file(
+    carousel_dir: Path,
+    raw_path: str | Path,
+    *,
+    allow_legacy_package_prefix: bool,
+) -> tuple[Path, dict[str, str], bytes]:
+    """Read a canonical approval, decoding one historical relative path shape."""
+
+    try:
+        binding, payload = _read_creator_override_package_file(
+            carousel_dir,
+            raw_path,
+            label="Full-deck creator approval",
+        )
+    except ValueError:
+        supplied = Path(raw_path).expanduser()
+        package_arg = Path(carousel_dir).expanduser()
+        legacy_suffix = (".internal", "full-deck-creator-approval.json")
+        legacy_prefix = supplied.parts[: -len(legacy_suffix)]
+        package_root_parts = carousel_dir.expanduser().resolve().parts
+        prefix_matches_package = bool(legacy_prefix) and (
+            (
+                not package_arg.is_absolute()
+                and legacy_prefix == package_arg.parts
+            )
+            or (
+                package_arg.is_absolute()
+                and len(legacy_prefix) <= len(package_root_parts)
+                and tuple(package_root_parts[-len(legacy_prefix) :])
+                == legacy_prefix
+            )
+        )
+        if (
+            not allow_legacy_package_prefix
+            or supplied.is_absolute()
+            or ".." in supplied.parts
+            or tuple(supplied.parts[-len(legacy_suffix) :]) != legacy_suffix
+            or not prefix_matches_package
+        ):
+            raise
+        legacy_relative = Path(*legacy_suffix)
+        binding, payload = _read_creator_override_package_file(
+            carousel_dir,
+            legacy_relative,
+            label="Legacy full-deck creator approval",
+        )
+    resolved = carousel_dir.expanduser().resolve() / binding["relative_path"]
+    return resolved, binding, payload
+
+
+def accept_failed_proof_by_creator(
+    carousel_dir: Path,
+    approval_path: str | Path,
+) -> dict[str, Any]:
+    """Allow batch generation after explicit acceptance of one exact failed proof.
+
+    This is intentionally not a QA promotion. The failed QA artifact, issue
+    list, and QA_FAILED ledger evidence remain intact and publishability stays
+    false. The creator approval only permits generation of the rest of the
+    batch with the acknowledged proof exceptions.
+    """
+
+    carousel_dir = Path(carousel_dir).expanduser()
+    state_path = carousel_dir / "image-generation.json"
+    final_state_path = carousel_dir / "final-images.json"
+    ledger_path = attempt_ledger_path(carousel_dir)
+    try:
+        old_state_bytes = state_path.read_bytes()
+        old_final_state_bytes = final_state_path.read_bytes()
+        old_ledger_bytes = ledger_path.read_bytes()
+        state = json.loads(old_state_bytes)
+        final_state = json.loads(old_final_state_bytes)
+        ledger = json.loads(old_ledger_bytes)
+    except (FileNotFoundError, OSError, json.JSONDecodeError) as exc:
+        raise ValueError(
+            "Creator failed-proof acceptance requires matching generation manifests "
+            "and an existing attempt ledger."
+        ) from exc
+    if not isinstance(state, dict) or state != final_state:
+        raise ValueError(
+            "Creator failed-proof acceptance requires image-generation.json and "
+            "final-images.json to contain the same current state."
+        )
+
+    source_status = state.get("status")
+    allowed_source_statuses = {
+        GenerationStatus.BLOCKED_VISUAL_QA.value,
+        GenerationStatus.REJECTED_SPATIAL_INTEGRITY.value,
+    }
+    if source_status not in allowed_source_statuses:
+        raise ValueError(
+            "Creator failed-proof acceptance requires BLOCKED_VISUAL_QA or "
+            "REJECTED_SPATIAL_INTEGRITY."
+        )
+    if state.get("proof_state") != source_status:
+        raise ValueError(
+            "Creator failed-proof acceptance requires status and proof_state to agree."
+        )
+    if state.get("proof_only") is not True:
+        raise ValueError(
+            "Creator failed-proof acceptance is available only for a proof-only run."
+        )
+
+    try:
+        proof_slide = int(state["requested_proof_slide"])
+        retry_count = int(state["retry_count"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError(
+            "Creator failed-proof acceptance is missing proof-slide or retry evidence."
+        ) from exc
+    slides = state.get("slides")
+    if (
+        not isinstance(slides, list)
+        or len(slides) != 1
+        or not isinstance(slides[0], dict)
+        or int(slides[0].get("slide", 0) or 0) != proof_slide
+    ):
+        raise ValueError(
+            "Creator failed-proof acceptance requires exactly the selected proof slide."
+        )
+
+    output_formats = list(locked_formats(carousel_dir))
+    if state.get("requested_formats") != output_formats:
+        raise ValueError(
+            "Creator failed-proof acceptance formats disagree with the current format lock."
+        )
+    quarantine_issues = validate_quarantine_integrity(
+        slides,
+        output_formats,
+        carousel_dir=carousel_dir,
+    )
+    if quarantine_issues:
+        raise ValueError(
+            "Creator failed-proof acceptance quarantine integrity failed: "
+            + "; ".join(quarantine_issues)
+        )
+    current_image_set_sha256 = image_set_sha256(slides)
+    if state.get("image_set_sha256") != current_image_set_sha256:
+        raise ValueError(
+            "Creator failed-proof acceptance image-set binding is stale."
+        )
+    expected_quarantine_dir = package_relative_path(
+        carousel_dir,
+        quarantine_dir(carousel_dir, retry_count),
+    )
+    if state.get("quarantine_dir") != expected_quarantine_dir:
+        raise ValueError(
+            "Creator failed-proof acceptance quarantine directory binding is stale."
+        )
+
+    attempts = ledger.get("attempts") if isinstance(ledger, dict) else None
+    if not isinstance(attempts, list) or not attempts or not isinstance(
+        attempts[-1], dict
+    ):
+        raise ValueError(
+            "Creator failed-proof acceptance requires a current ledger attempt."
+        )
+    failed_attempt = attempts[-1]
+    if failed_attempt.get("status") != "QA_FAILED":
+        raise ValueError(
+            "Creator failed-proof acceptance requires the latest attempt to remain QA_FAILED."
+        )
+    if failed_attempt.get("image_set_sha256") != current_image_set_sha256:
+        raise ValueError(
+            "Creator failed-proof acceptance state and ledger image-set bindings disagree."
+        )
+    if failed_attempt.get("retry_count") != retry_count:
+        raise ValueError(
+            "Creator failed-proof acceptance state and ledger retry counts disagree."
+        )
+
+    visual_qa_issues = state.get("visual_qa_issues")
+    if (
+        not isinstance(visual_qa_issues, list)
+        or not visual_qa_issues
+        or not all(isinstance(issue, str) and issue for issue in visual_qa_issues)
+        or failed_attempt.get("qa_issues") != visual_qa_issues
+    ):
+        raise ValueError(
+            "Creator failed-proof acceptance requires the exact persisted QA failure list."
+        )
+    issues_fingerprint = visual_qa_issues_fingerprint(visual_qa_issues)
+
+    visual_qa_path = state.get("visual_qa_path")
+    if not isinstance(visual_qa_path, str):
+        raise ValueError(
+            "Creator failed-proof acceptance is missing its failed visual-QA artifact."
+        )
+    visual_qa_binding, visual_qa_bytes = _read_creator_override_package_file(
+        carousel_dir,
+        visual_qa_path,
+        label="Failed visual-QA artifact",
+    )
+    try:
+        visual_qa = json.loads(visual_qa_bytes)
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            "Creator failed-proof acceptance visual-QA artifact is malformed."
+        ) from exc
+    if (
+        not isinstance(visual_qa, dict)
+        or visual_qa.get("image_set_sha256") != current_image_set_sha256
+    ):
+        raise ValueError(
+            "Creator failed-proof acceptance visual-QA artifact belongs to a "
+            "different image set."
+        )
+
+    approval_binding, approval_bytes = _read_creator_override_package_file(
+        carousel_dir,
+        approval_path,
+        label="Creator failed-proof approval",
+    )
+    try:
+        approval = json.loads(approval_bytes)
+    except json.JSONDecodeError as exc:
+        raise ValueError("Creator failed-proof approval is malformed.") from exc
+    if not isinstance(approval, dict):
+        raise ValueError("Creator failed-proof approval must be a JSON object.")
+
+    approval_issues: list[str] = []
+    if approval.get("status") != "APPROVED" or approval.get("approved") is not True:
+        approval_issues.append("status must be APPROVED with approved=true")
+    if approval.get("image_set_sha256") != current_image_set_sha256:
+        approval_issues.append("image_set_sha256 is stale or missing")
+    if str(approval.get("approved_by") or "").strip().casefold() != "creator":
+        approval_issues.append("approved_by must be creator")
+    evidence = str(approval.get("evidence") or "").strip()
+    if len(evidence) < 8:
+        approval_issues.append("evidence must concretely record the creator decision")
+    if approval.get("accepts_known_qa_exceptions") is not True:
+        approval_issues.append("accepts_known_qa_exceptions must be true")
+    if approval.get("acknowledged_visual_qa_issues") != visual_qa_issues:
+        approval_issues.append(
+            "acknowledged_visual_qa_issues must exactly match the current failures"
+        )
+    if (
+        approval.get("acknowledged_visual_qa_issues_fingerprint")
+        != issues_fingerprint
+    ):
+        approval_issues.append(
+            "acknowledged_visual_qa_issues_fingerprint is stale or missing"
+        )
+    if approval_issues:
+        raise ValueError(
+            "Creator failed-proof approval is invalid: "
+            + "; ".join(approval_issues)
+        )
+
+    approval_record: dict[str, Any] = {
+        "schema_version": CREATOR_FAILED_PROOF_APPROVAL_SCHEMA_VERSION,
+        "source_status": source_status,
+        "proof_slide": proof_slide,
+        "attempt": failed_attempt.get("attempt"),
+        "retry_count": retry_count,
+        "image_set_sha256": current_image_set_sha256,
+        "approved_by": "creator",
+        "evidence": evidence,
+        "accepts_known_qa_exceptions": True,
+        "acknowledged_visual_qa_issues": list(visual_qa_issues),
+        "acknowledged_visual_qa_issues_fingerprint": issues_fingerprint,
+        "approval_binding": approval_binding,
+        "visual_qa_binding": visual_qa_binding,
+    }
+    approval_record["record_fingerprint"] = _canonical_fingerprint(
+        approval_record
+    )
+    known_exceptions = {
+        "qa_status": "QA_FAILED",
+        "visual_qa_issues": list(visual_qa_issues),
+        "visual_qa_issues_fingerprint": issues_fingerprint,
+        "visual_qa_binding": visual_qa_binding,
+        "creator_evidence": evidence,
+    }
+
+    updated_state = json.loads(json.dumps(state))
+    updated_state.update(
+        {
+            "status": GenerationStatus.BATCH_ALLOWED.value,
+            "proof_state": GenerationStatus.BATCH_ALLOWED.value,
+            "reason": (
+                "The creator accepted this exact QA-failed proof with the recorded "
+                "known exceptions. Batch generation is allowed; the proof remains "
+                "non-publishable and did not pass QA."
+            ),
+            "done": False,
+            "publishable": False,
+            "requires_human_generation": False,
+            "batch_generation_allowed": True,
+            "creator_override": True,
+            "creator_approval_path": approval_binding["relative_path"],
+            "creator_approval_binding": approval_binding,
+            "creator_approval_sha256": approval_binding["sha256"],
+            "creator_override_record": approval_record,
+            "known_qa_exceptions": known_exceptions,
+            "visual_qa_status": "QA_FAILED",
+            "proof_qa_passed": False,
+            "promotion_blocker": "creator_override_allows_batch_generation_only",
+        }
+    )
+
+    updated_ledger = json.loads(json.dumps(ledger))
+    updated_attempt = updated_ledger["attempts"][-1]
+    prior_history = updated_attempt.get("status_history")
+    status_history = (
+        list(prior_history) if isinstance(prior_history, list) else []
+    )
+    status_history.extend(
+        [
+            {
+                "status": "QA_FAILED",
+                "image_set_sha256": current_image_set_sha256,
+                "visual_qa_issues_fingerprint": issues_fingerprint,
+                "visual_qa_binding": visual_qa_binding,
+            },
+            {
+                "status": CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS,
+                "approval_binding": approval_binding,
+                "creator_override_record_fingerprint": approval_record[
+                    "record_fingerprint"
+                ],
+            },
+        ]
+    )
+    updated_attempt.update(
+        {
+            "status": CREATOR_ACCEPTED_WITH_KNOWN_EXCEPTIONS,
+            "qa_status": "QA_FAILED",
+            "qa_issues": list(visual_qa_issues),
+            "visual_qa_issues_fingerprint": issues_fingerprint,
+            "creator_override": approval_record,
+            "batch_generation_allowed": True,
+            "publishable": False,
+            "status_history": status_history,
+        }
+    )
+
+    transaction_id = uuid.uuid4().hex
+    internal_dir = carousel_dir / ".internal"
+    internal_dir.mkdir(parents=True, exist_ok=True)
+    state_temp = internal_dir / f".creator-override-state-{transaction_id}.json"
+    final_state_temp = internal_dir / f".creator-override-final-{transaction_id}.json"
+    ledger_temp = internal_dir / f".creator-override-ledger-{transaction_id}.json"
+    state_payload = json.dumps(
+        updated_state, indent=2, ensure_ascii=False
+    ).encode("utf-8")
+    ledger_payload = json.dumps(
+        updated_ledger, indent=2, ensure_ascii=False
+    ).encode("utf-8")
+    state_replaced = False
+    final_state_replaced = False
+    ledger_replaced = False
+    try:
+        state_temp.write_bytes(state_payload)
+        final_state_temp.write_bytes(state_payload)
+        ledger_temp.write_bytes(ledger_payload)
+
+        if (
+            state_path.read_bytes() != old_state_bytes
+            or final_state_path.read_bytes() != old_final_state_bytes
+            or ledger_path.read_bytes() != old_ledger_bytes
+        ):
+            raise ValueError(
+                "Creator failed-proof evidence changed during acceptance; retry "
+                "against the current state."
+            )
+        if (
+            _read_creator_override_package_file(
+                carousel_dir,
+                approval_binding["relative_path"],
+                label="Creator failed-proof approval",
+            )[1]
+            != approval_bytes
+            or _read_creator_override_package_file(
+                carousel_dir,
+                visual_qa_binding["relative_path"],
+                label="Failed visual-QA artifact",
+            )[1]
+            != visual_qa_bytes
+        ):
+            raise ValueError(
+                "Creator failed-proof approval or QA evidence changed during acceptance."
+            )
+        final_quarantine_issues = validate_quarantine_integrity(
+            slides,
+            output_formats,
+            carousel_dir=carousel_dir,
+        )
+        if final_quarantine_issues:
+            raise ValueError(
+                "Creator failed-proof quarantine changed during acceptance: "
+                + "; ".join(final_quarantine_issues)
+            )
+
+        state_temp.replace(state_path)
+        state_replaced = True
+        final_state_temp.replace(final_state_path)
+        final_state_replaced = True
+        ledger_temp.replace(ledger_path)
+        ledger_replaced = True
+        return updated_state
+    except Exception:
+        if state_replaced:
+            state_path.write_bytes(old_state_bytes)
+        if final_state_replaced:
+            final_state_path.write_bytes(old_final_state_bytes)
+        if ledger_replaced:
+            ledger_path.write_bytes(old_ledger_bytes)
+        raise
+    finally:
+        remove_path_without_following(state_temp)
+        remove_path_without_following(final_state_temp)
+        remove_path_without_following(ledger_temp)
 
 
 def package_codex_builtin_outputs(
@@ -2117,10 +4921,13 @@ def package_codex_builtin_outputs(
     if not generated_paths_by_format and not promote_existing_quarantine:
         raise ValueError("generated_paths_by_format is required.")
     state_path = carousel_dir / "image-generation.json"
+    final_state_path = carousel_dir / "final-images.json"
     try:
         lifecycle_state = load_json(state_path)
+        final_lifecycle_state = load_json(final_state_path)
     except (OSError, json.JSONDecodeError):
         lifecycle_state = None
+        final_lifecycle_state = None
     if promote_existing_quarantine:
         if not isinstance(lifecycle_state, dict):
             raise ValueError("No quarantined generation state exists to promote.")
@@ -2157,6 +4964,93 @@ def package_codex_builtin_outputs(
         if len(slides) != 1:
             raise ValueError(f"proof_slide {proof_slide} is not present exactly once.")
     proof_only = proof_slide is not None
+    creator_override_origin: tuple[dict[str, Any], str] | None = None
+    creator_override_scope_claimed = (
+        not proof_only
+        and isinstance(lifecycle_state, dict)
+        and (
+            lifecycle_state.get("creator_override") is True
+            or lifecycle_state.get("generation_scope")
+            == CREATOR_OVERRIDE_FULL_DECK_SCOPE
+        )
+    )
+    if creator_override_scope_claimed and not isinstance(final_lifecycle_state, dict):
+        raise ValueError(
+            "Creator-override full-deck packaging requires matching generation manifests."
+        )
+    if (
+        creator_override_scope_claimed
+        and isinstance(final_lifecycle_state, dict)
+    ):
+        creator_override_origin = _validated_creator_override_origin_handoff(
+            carousel_dir,
+            lifecycle_state=lifecycle_state,
+            final_state=final_lifecycle_state,
+        )
+    creator_override_full_deck = creator_override_origin is not None
+    approved_proof_batch_attestation = (
+        lifecycle_state.get("approved_proof_batch_handoff_attestation")
+        if isinstance(lifecycle_state, dict)
+        else None
+    )
+    if (
+        not proof_only
+        and not isinstance(approved_proof_batch_attestation, dict)
+        and (carousel_dir / APPROVED_PROOF_BATCH_HANDOFF_ARCHIVE).is_file()
+    ):
+        archived_attestation = load_json(
+            carousel_dir / APPROVED_PROOF_BATCH_HANDOFF_ARCHIVE
+        )
+        attestation_state = {
+            "requested_formats": list(output_formats),
+            "approved_proof_batch_handoff_attestation": archived_attestation,
+        }
+        if not approved_proof_batch_handoff_attestation_issues(
+            carousel_dir,
+            state=attestation_state,
+        ):
+            approved_proof_batch_attestation = archived_attestation
+    approved_proof_batch_full_deck = (
+        not proof_only
+        and isinstance(
+            approved_proof_batch_attestation,
+            dict,
+        )
+    )
+    effective_retry_limit = (
+        MAX_VISUAL_QA_RETRIES + 1
+        if approved_proof_batch_full_deck
+        else MAX_VISUAL_QA_RETRIES
+    )
+    if (
+        creator_override_full_deck
+        and isinstance(lifecycle_state, dict)
+        and lifecycle_state.get("generation_scope")
+        == CREATOR_OVERRIDE_FULL_DECK_SCOPE
+    ):
+        validate_current_full_deck_attempt(
+            carousel_dir,
+            state=lifecycle_state,
+        )
+
+    def update_active_attempt(
+        *,
+        status: str,
+        qa_issues: list[str] | None = None,
+    ) -> None:
+        if creator_override_full_deck:
+            update_current_full_deck_attempt(
+                carousel_dir,
+                status=status,
+                qa_issues=qa_issues,
+            )
+        else:
+            update_current_attempt(
+                carousel_dir,
+                status=status,
+                qa_issues=qa_issues,
+            )
+
     expected_formats = set(output_formats)
     compiled_handoff: dict[str, Any] | None = None
     if not promote_existing_quarantine:
@@ -2205,6 +5099,7 @@ def package_codex_builtin_outputs(
         "total_slide_count": len(all_slides),
     }
     current_proof_status: GenerationStatus | None = None
+    preaudit_reentry = False
     if promote_existing_quarantine:
         current_state = lifecycle_state
         if not isinstance(current_state, dict):
@@ -2213,14 +5108,36 @@ def package_codex_builtin_outputs(
         if isinstance(existing_compiled_handoff, dict):
             compiled_handoff = existing_compiled_handoff
         current_proof_status = GenerationStatus(current_state.get("status"))
-        if current_state.get("status") not in {
+        eligible_statuses = {
             GenerationStatus.GENERATED_QUARANTINED.value,
             GenerationStatus.QA_PASS_CANDIDATE.value,
             GenerationStatus.CREATOR_APPROVED_PROOF.value,
-        }:
+        }
+        if (
+            creator_override_full_deck
+            and current_state.get("status")
+            == GenerationStatus.BATCH_ALLOWED.value
+        ):
+            preaudit_reentry = True
+            eligible_statuses.add(GenerationStatus.BATCH_ALLOWED.value)
+        if current_state.get("status") not in eligible_statuses:
             raise ValueError("Current generation state is not eligible for quarantined promotion.")
-        quarantine_records = current_state.get("slides") or []
         retry_count = int(current_state.get("retry_count", 0))
+        quarantine_records = (
+            reconstruct_full_deck_quarantine_records(
+                carousel_dir,
+                state=current_state,
+                prompt_slides=slides,
+                output_formats=output_formats,
+            )
+            if preaudit_reentry
+            else current_state.get("slides") or []
+        )
+        active_quarantine_dir = (
+            full_deck_quarantine_dir(carousel_dir, retry_count)
+            if creator_override_full_deck
+            else quarantine_dir(carousel_dir, retry_count)
+        )
         quarantine_issues = validate_quarantine_integrity(
             quarantine_records,
             output_formats,
@@ -2238,41 +5155,94 @@ def package_codex_builtin_outputs(
                 extra={
                     "proof_state": GenerationStatus.BLOCKED_VISUAL_QA.value,
                     "retry_count": retry_count,
-                    "max_visual_qa_retries": MAX_VISUAL_QA_RETRIES,
+                    "max_visual_qa_retries": effective_retry_limit,
                     "quarantine_integrity_issues": quarantine_issues,
                 },
             )
     else:
-        retry_count = next_retry_count(carousel_dir)
+        retry_count = (
+            next_full_deck_retry_count(carousel_dir)
+            if creator_override_full_deck
+            else next_retry_count(
+                carousel_dir,
+                allow_approved_proof_batch=approved_proof_batch_full_deck,
+            )
+        )
+        active_quarantine_dir = (
+            full_deck_quarantine_dir(carousel_dir, retry_count)
+            if creator_override_full_deck
+            else quarantine_dir(carousel_dir, retry_count)
+        )
         quarantine_records = quarantine_generated_sources(
             carousel_dir,
             slides=slides,
             generated_paths_by_format=generated_paths_by_format or {},
             retry_count=retry_count,
             output_formats=output_formats,
+            quarantine_scope_dir=active_quarantine_dir,
+            refuse_existing_scope=creator_override_full_deck,
         )
     quarantine_extra = {
         "proof_state": GenerationStatus.GENERATED_QUARANTINED.value,
         "retry_count": retry_count,
-        "max_visual_qa_retries": MAX_VISUAL_QA_RETRIES,
-        "retries_remaining": MAX_VISUAL_QA_RETRIES - retry_count,
+        "max_visual_qa_retries": effective_retry_limit,
+        "retries_remaining": effective_retry_limit - retry_count,
         "quarantine_dir": package_relative_path(
             carousel_dir,
-            quarantine_dir(carousel_dir, retry_count),
+            active_quarantine_dir,
         ),
         "image_set_sha256": image_set_sha256(quarantine_records),
         "requested_formats": list(output_formats),
         "native_output_contract": output_contract,
         **scope_extra,
     }
+    if creator_override_origin is not None:
+        origin_handoff, origin_handoff_fingerprint = creator_override_origin
+        quarantine_extra.update(
+            {
+                "generation_scope": CREATOR_OVERRIDE_FULL_DECK_SCOPE,
+                "full_deck_qa_state": "FULL_DECK_GENERATED_QUARANTINED",
+                "full_deck_qa_passed": False,
+                "proof_qa_passed": False,
+                "visual_qa_status": "PENDING_FULL_DECK_QA",
+                "promotion_blocker": "fresh_full_deck_visual_qa_required",
+                "creator_override_origin_handoff": origin_handoff,
+                "creator_override_origin_handoff_fingerprint": (
+                    origin_handoff_fingerprint
+                ),
+                "full_deck_visual_qa_path": FULL_DECK_VISUAL_QA,
+            }
+        )
     if compiled_handoff is not None:
         quarantine_extra["compiled_prompt_handoff"] = compiled_handoff
-    if not promote_existing_quarantine:
-        append_attempt(
-            carousel_dir,
-            retry_count=retry_count,
-            image_set_hash=quarantine_extra["image_set_sha256"],
+    if approved_proof_batch_full_deck:
+        quarantine_extra["approved_proof_batch_handoff_attestation"] = (
+            approved_proof_batch_attestation
         )
+    retry_attestation = (
+        lifecycle_state.get("retry_prompt_handoff_attestation")
+        if isinstance(lifecycle_state, dict)
+        else None
+    )
+    if isinstance(retry_attestation, dict):
+        quarantine_extra["retry_prompt_handoff_attestation"] = retry_attestation
+    if not promote_existing_quarantine:
+        if creator_override_full_deck:
+            append_full_deck_attempt(
+                carousel_dir,
+                retry_count=retry_count,
+                image_set_hash=quarantine_extra["image_set_sha256"],
+                quarantine_path=quarantine_extra["quarantine_dir"],
+                origin_handoff_fingerprint=quarantine_extra[
+                    "creator_override_origin_handoff_fingerprint"
+                ],
+            )
+        else:
+            append_attempt(
+                carousel_dir,
+                retry_count=retry_count,
+                image_set_hash=quarantine_extra["image_set_sha256"],
+            )
         write_generation_state(
             carousel_dir,
             status=GenerationStatus.GENERATED_QUARANTINED,
@@ -2285,8 +5255,17 @@ def package_codex_builtin_outputs(
         )
 
     resolved_visual_qa_path = resolve_package_artifact_path(
-        carousel_dir, visual_qa_path, "visual-qa.json"
+        carousel_dir,
+        visual_qa_path,
+        FULL_DECK_VISUAL_QA if creator_override_full_deck else "visual-qa.json",
     )
+    if preaudit_reentry and (
+        current_state.get("visual_qa_path")
+        != package_relative_path(carousel_dir, resolved_visual_qa_path)
+    ):
+        raise ValueError(
+            "Creator-override pre-audit re-entry visual-QA binding changed."
+        )
     if not resolved_visual_qa_path.exists():
         if not proof_only:
             clean_packaged_output_files(carousel_dir, slide_numbers)
@@ -2310,8 +5289,7 @@ def package_codex_builtin_outputs(
         carousel_dir=carousel_dir,
     )
     if visual_qa_issues:
-        update_current_attempt(
-            carousel_dir,
+        update_active_attempt(
             status="QA_FAILED",
             qa_issues=visual_qa_issues,
         )
@@ -2325,8 +5303,11 @@ def package_codex_builtin_outputs(
             ),
             "visual_qa_issues": visual_qa_issues,
         }
+        if creator_override_full_deck:
+            failed_extra["full_deck_qa_state"] = "FULL_DECK_QA_FAILED"
+            failed_extra["visual_qa_status"] = "QA_FAILED"
         spatial_failure = any("spatial_topology" in issue for issue in visual_qa_issues)
-        if retry_count >= MAX_VISUAL_QA_RETRIES:
+        if retry_count >= effective_retry_limit:
             failed_extra["proof_state"] = GenerationStatus.BLOCKED_VISUAL_QA.value
             return write_generation_state(
                 carousel_dir,
@@ -2367,8 +5348,19 @@ def package_codex_builtin_outputs(
             resolved_visual_qa_path,
         ),
     }
-    update_current_attempt(carousel_dir, status="QA_PASSED")
-    if current_proof_status != GenerationStatus.CREATOR_APPROVED_PROOF:
+    if creator_override_full_deck:
+        candidate_extra["full_deck_qa_state"] = (
+            "FULL_DECK_QA_PASS_CANDIDATE"
+        )
+        candidate_extra["full_deck_qa_passed"] = True
+        candidate_extra["visual_qa_status"] = "QA_PASSED"
+        candidate_extra["promotion_blocker"] = "fresh_full_deck_creator_approval_required"
+    if not preaudit_reentry:
+        update_active_attempt(status="QA_PASSED")
+    if (
+        not preaudit_reentry
+        and current_proof_status != GenerationStatus.CREATOR_APPROVED_PROOF
+    ):
         write_generation_state(
             carousel_dir,
             status=GenerationStatus.QA_PASS_CANDIDATE,
@@ -2380,10 +5372,69 @@ def package_codex_builtin_outputs(
             extra=candidate_extra,
         )
 
-    resolved_approval_path = resolve_package_artifact_path(
-        carousel_dir, creator_approval_path, "creator-proof-approval.json"
+    approval_raw_path = (
+        creator_approval_path
+        or (
+            current_state.get("creator_approval_path")
+            if preaudit_reentry
+            else None
+        )
+        or "creator-proof-approval.json"
     )
+    approval_binding: dict[str, str] | None = None
+    approval_bytes: bytes | None = None
+    try:
+        (
+            resolved_approval_path,
+            approval_binding,
+            approval_bytes,
+        ) = _read_full_deck_approval_file(
+            carousel_dir,
+            approval_raw_path,
+            allow_legacy_package_prefix=preaudit_reentry,
+        )
+    except ValueError:
+        if preaudit_reentry:
+            raise ValueError(
+                "Creator-override pre-audit re-entry is missing or has an unsafe "
+                "full-deck approval binding."
+            )
+        resolved_approval_path = resolve_package_artifact_path(
+            carousel_dir,
+            approval_raw_path,
+            "creator-proof-approval.json",
+        )
+        if resolved_approval_path.exists():
+            raise ValueError(
+                "Full-deck creator approval must be a safe package-contained file."
+            )
+    if preaudit_reentry:
+        (
+            recorded_approval_path,
+            recorded_approval_binding,
+            _,
+        ) = _read_full_deck_approval_file(
+            carousel_dir,
+            current_state.get("creator_approval_path"),
+            allow_legacy_package_prefix=True,
+        )
+        if (
+            resolved_approval_path.resolve() != recorded_approval_path.resolve()
+            or approval_binding != recorded_approval_binding
+            or (
+                current_state.get("creator_approval_sha256") is not None
+                and current_state.get("creator_approval_sha256")
+                != recorded_approval_binding["sha256"]
+            )
+        ):
+            raise ValueError(
+                "Creator-override pre-audit re-entry approval binding changed."
+            )
     if not resolved_approval_path.exists():
+        if preaudit_reentry:
+            raise ValueError(
+                "Creator-override pre-audit re-entry is missing its bound full-deck approval."
+            )
         if not proof_only:
             clean_packaged_output_files(carousel_dir, slide_numbers)
         return write_generation_state(
@@ -2396,11 +5447,18 @@ def package_codex_builtin_outputs(
             slides=quarantine_records,
             extra=candidate_extra,
         )
-    approval = load_json(resolved_approval_path)
+    try:
+        approval = json.loads(approval_bytes or resolved_approval_path.read_bytes())
+    except (json.JSONDecodeError, OSError) as exc:
+        raise ValueError("Full-deck creator approval is malformed.") from exc
     approval_issues = validate_creator_approval(
         approval, expected_image_set_sha256=quarantine_extra["image_set_sha256"]
     )
     if approval_issues:
+        if preaudit_reentry:
+            raise ValueError(
+                "Creator-override pre-audit re-entry full-deck approval is stale."
+            )
         if not proof_only:
             clean_packaged_output_files(carousel_dir, slide_numbers)
         return write_generation_state(
@@ -2414,13 +5472,23 @@ def package_codex_builtin_outputs(
             extra={**candidate_extra, "creator_approval_issues": approval_issues},
         )
 
+    assert approval_binding is not None
     approved_extra = {
         **candidate_extra,
         "proof_state": GenerationStatus.CREATOR_APPROVED_PROOF.value,
-        "creator_approval_path": str(resolved_approval_path),
+        "creator_approval_path": approval_binding["relative_path"],
+        "creator_approval_sha256": approval_binding["sha256"],
     }
-    update_current_attempt(carousel_dir, status="CREATOR_APPROVED")
-    if current_proof_status != GenerationStatus.CREATOR_APPROVED_PROOF:
+    if creator_override_full_deck:
+        approved_extra["full_deck_qa_state"] = (
+            "FULL_DECK_CREATOR_APPROVED"
+        )
+    if not preaudit_reentry:
+        update_active_attempt(status="CREATOR_APPROVED")
+    if (
+        not preaudit_reentry
+        and current_proof_status != GenerationStatus.CREATOR_APPROVED_PROOF
+    ):
         write_generation_state(
             carousel_dir,
             status=GenerationStatus.CREATOR_APPROVED_PROOF,
@@ -2433,7 +5501,7 @@ def package_codex_builtin_outputs(
         )
 
     if proof_only:
-        update_current_attempt(carousel_dir, status="BATCH_ALLOWED")
+        update_active_attempt(status="BATCH_ALLOWED")
         return write_generation_state(
             carousel_dir,
             status=GenerationStatus.BATCH_ALLOWED,
@@ -2449,6 +5517,8 @@ def package_codex_builtin_outputs(
         )
 
     if not refresh_quality:
+        if preaudit_reentry:
+            return current_state
         clean_packaged_output_files(carousel_dir, slide_numbers)
         return write_generation_state(
             carousel_dir,
@@ -2634,6 +5704,7 @@ def package_codex_builtin_outputs(
             render_result=result,
             workspace_root=infer_workspace_root_from_carousel_dir(carousel_dir),
             asset_root=staging_root,
+            visual_qa_path=resolved_visual_qa_path,
         )
     )
     audit_extra = {
@@ -2644,7 +5715,9 @@ def package_codex_builtin_outputs(
         "promotion_staging_dir": str(staging_root),
     }
     if not final_audit["pass"]:
-        update_current_attempt(carousel_dir, status="FINAL_AUDIT_FAILED")
+        if creator_override_full_deck:
+            audit_extra["full_deck_qa_state"] = "FULL_DECK_FINAL_AUDIT_FAILED"
+        update_active_attempt(status="FINAL_AUDIT_FAILED")
         result = write_generation_state(
             carousel_dir,
             status=GenerationStatus.GENERATED_AUDIT_FAILED,
@@ -2656,6 +5729,8 @@ def package_codex_builtin_outputs(
             extra=audit_extra,
         )
     else:
+        if creator_override_full_deck:
+            audit_extra["full_deck_qa_state"] = "FULL_DECK_PUBLISH_READY"
         public_dirs = {
             carousel_dir / str(format_spec(value)["folder"])
             for value in normalize_requested_formats(
@@ -2668,7 +5743,7 @@ def package_codex_builtin_outputs(
         for staging_dir in {staging_final_dir, *staging_output_dirs.values()}:
             target_dir = carousel_dir / staging_dir.relative_to(staging_root)
             staging_dir.replace(target_dir)
-        update_current_attempt(carousel_dir, status="PROMOTED")
+        update_active_attempt(status="PROMOTED")
         result = write_generation_state(
             carousel_dir,
             status=GenerationStatus.PUBLISH_READY,

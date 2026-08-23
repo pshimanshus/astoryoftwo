@@ -1,0 +1,56 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "REJECTED_SPATIAL_INTEGRITY",
+  "image_set_sha256": "16e533e175f9730d08fd5a167d8b66e2a9ef2289409ddb629b77072da7651c27",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/moonwater_anatomy_qa",
+      "pass": false,
+      "evidence": "Exactly two people, four hands, wardrobe and text pass, but Zuv's right oar changes from a near-horizontal segment between his hands to a steep diagonal segment beyond the outer hand, reading as a kinked oar or two fused rods."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/moonwater_event_b_proof",
+      "pass": true,
+      "evidence": "The circular wake, equal effort, exact copy, wardrobe, premium style and tired non-angry expressions read strongly, but this cannot override the hard oar-topology failure."
+    }
+  },
+  "slides": [
+    {
+      "slide": 4,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-04.png",
+          "sha256": "1ac2d7850e6b192ca60c3b385f2375152e68ce133942fd909b5345c67bf85446",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 4,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "1ac2d7850e6b192ca60c3b385f2375152e68ce133942fd909b5345c67bf85446",
+                "width": 1080,
+                "height": 1440
+              },
+              "pass": false,
+              "evidence": "Zuv's assigned oar has a discontinuous angle at his outer hand and is not one straight rigid shaft."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "issues": [
+    "Zuv's right oar is kinked or fused at the outer hand.",
+    "The lamp has unrequested tie-lines extending toward the table corners."
+  ]
+}

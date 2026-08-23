@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-202052",
+  "status": "READY_FOR_CONCEPT_LOCK",
+  "stage": "CONCEPT_LOCK",
+  "iteration": 1,
+  "max_iterations": 3,
+  "candidate_budget": 6,
+  "seed": null,
+  "final_candidate_id": "run-202052-i1-b-museum-of-almost",
+  "stop_reason": "",
+  "creator_approval": "PENDING",
+  "history": [
+    {
+      "at": "2026-07-28T14:50:52+00:00",
+      "stage": "DISCOVER",
+      "event": "run_prepared"
+    },
+    {
+      "at": "2026-07-28T14:51:53+00:00",
+      "stage": "VALIDATE",
+      "event": "completion_contract_failed"
+    },
+    {
+      "at": "2026-07-28T15:00:00+00:00",
+      "stage": "GENERATE",
+      "event": "controller_resumed_with_direct_custom_agents"
+    },
+    {
+      "at": "2026-07-28T15:20:00+00:00",
+      "stage": "SELECT",
+      "event": "two_blind_verifiers_completed_one_double_pass_survivor"
+    },
+    {
+      "at": "2026-07-28T15:21:00+00:00",
+      "stage": "SELECT",
+      "event": "fresh_selector_pending_agent_thread_capacity"
+    },
+    {
+      "at": "2026-07-30T00:00:00+00:00",
+      "stage": "SELECT",
+      "event": "fresh_selector_passed"
+    },
+    {
+      "at": "2026-07-30T00:01:00+00:00",
+      "stage": "CONCEPT_LOCK",
+      "event": "ready_for_creator_concept_lock"
+    }
+  ]
+}

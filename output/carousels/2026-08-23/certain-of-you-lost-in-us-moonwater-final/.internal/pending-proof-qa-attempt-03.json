@@ -1,0 +1,104 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "REJECTED_SPATIAL_INTEGRITY",
+  "image_set_sha256": "a5b3caed67742d2ccba33940127d20d49b147e6757d6614d0c1f30c4ed0a80f1",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/moonwater_anatomy_qa_v3",
+      "pass": false,
+      "evidence": "People, limbs, hands, grips, two straight oars, lamp, wardrobe and likeness pass, but Aachu's mandatory evil-eye bracelet appears on her subject-left wrist instead of her right wrist."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/moonwater_event_b_proof_v3",
+      "pass": true,
+      "evidence": "A fresh copy-hidden review passed the stranded-together story, equal effort, circular motion, tired non-angry emotion, exact copy, exact brandmark, composition and watercolor style."
+    }
+  },
+  "slides": [
+    {
+      "slide": 4,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-04.png",
+          "sha256": "80d99bfb307a9e516756dd92b9b464d653c8078cd7af0bceac3294144642a0c8",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 4,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Two complete kneeling adults remain distinct on one table raft inside a circular water wake.",
+            "person_object_crop": "Each person has two attached hands gripping one separate ruler-straight oar outside the table edge.",
+            "focal_detail": "Both oars remain collinear from visible handle cap through two grips to one visible blade."
+          },
+          "environment_planes": [
+            {
+              "object": "wooden dining-table raft",
+              "depth_order": "beneath both kneeling figures and the free-standing lamp, above the water",
+              "boundary_continuous": true
+            },
+            {
+              "object": "circular moonlit water wake",
+              "depth_order": "behind and around the table raft, with each blade entering water outside the table edge",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, torso, both arms, both wrists, both hands and kneeling legs stay separate from the table and water.",
+              "body_regions": [
+                {
+                  "region": "torso and both arm-to-hand chains",
+                  "near_object": "Aachu's left-side oar and table edge",
+                  "expected_relation": "separate_from",
+                  "observed_relation": "separate_from",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Both arms terminate in distinct close grips on one straight shaft while the shaft clears the table edge."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, torso, both arms, both wrists, both hands and kneeling legs stay separate from the table and water.",
+              "body_regions": [
+                {
+                  "region": "torso and both arm-to-hand chains",
+                  "near_object": "Zuv's right-side oar and table edge",
+                  "expected_relation": "separate_from",
+                  "observed_relation": "separate_from",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Both arms terminate in distinct grips on one straight shaft while the shaft clears the table edge."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    }
+  },
+  "issues": [
+    "Aachu's evil-eye bracelet is on her subject-left wrist; identity continuity requires it on her subject-right wrist."
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema_version": "2.1",
+  "status": "FAIL",
+  "proof_state": "REJECTED_SPATIAL_INTEGRITY",
+  "image_set_sha256": "961792408b04bbb232a4008929751eeea575f94785aa9214757b3b0e43950a20",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/cover_story_audit",
+      "pass": true,
+      "evidence": "The exact attempt-03 frames preserve attributable limbs, coherent contacts, identity and wardrobe; the anatomy reviewer found no hard failure."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/cover_story_audit_02",
+      "pass": false,
+      "evidence": "Slides 1-6 pass, but slide 7 places the right-panel lever materially inside the slab and obscures the true latch edge and jamb."
+    }
+  },
+  "checks": {
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 1,
+          "observed_people": 2,
+          "status": "PASS",
+          "evidence": "Whole people and environment planes remain coherent."
+        },
+        {
+          "slide": 2,
+          "observed_people": 4,
+          "status": "PASS",
+          "evidence": "Both intentional temporal vignettes remain coherent."
+        },
+        {
+          "slide": 3,
+          "observed_people": 2,
+          "status": "PASS",
+          "evidence": "Space and body boundaries remain coherent."
+        },
+        {
+          "slide": 4,
+          "observed_people": 2,
+          "status": "PASS",
+          "evidence": "Distance and depth order remain coherent."
+        },
+        {
+          "slide": 5,
+          "observed_people": 2,
+          "status": "PASS",
+          "evidence": "Close-crop identities and gaze chain remain coherent."
+        },
+        {
+          "slide": 6,
+          "observed_people": 2,
+          "status": "PASS",
+          "evidence": "Seated bodies, biscuit, chai, stools, and counter remain coherent."
+        },
+        {
+          "slide": 7,
+          "observed_people": 4,
+          "status": "FAIL",
+          "evidence": "The right-panel lever is materially inside the slab and Aachu obscures the true latch edge and jamb."
+        }
+      ],
+      "issues": [
+        "Slide 7 right-panel lever and latch-edge topology fail."
+      ]
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "FAIL",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "reviewer_id": "/root/cover_story_audit_02",
+      "reviewer_evidence": "A fresh image-first full-deck review passed slides 1-6 and rejected slide 7's right-door latch geometry.",
+      "sequence_read": "Shared inconvenience becomes space, noticing, roadside chai reconnection, and an attempted shared lock-check ritual.",
+      "relationship_turn": "The emotional turn reads, but the final physical proof remains implausible.",
+      "setup_payoff_evidence": "The stools pay off on slide 6; the key and lock motif returns on slide 7 but fails spatially.",
+      "weakest_frame": "Slide 7 because the right-panel lever sits too deep in the slab.",
+      "repair_decision": "Preserve slides 1-6 and the left vignette of slide 7; rebuild only the right vignette with the lever immediately beside a visible true latch edge and jamb.",
+      "frames": [],
+      "issues": [
+        "Slide 7 right-panel latch geometry must be repaired."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/cover_story_audit_02",
+        "reviewer_run_id": "event-b-full-deck-attempt-03-2026-08-14",
+        "raw_response_artifact": ".internal/event-b-full-deck-attempt-03-raw-response.md"
+      }
+    }
+  },
+  "issues": [
+    "Preserve slides 1-6. Repair only slide 7 right-panel lever placement and expose the true latch edge and jamb."
+  ]
+}

@@ -1,0 +1,748 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "decision": "GO",
+  "can_generate": true,
+  "lane": "Mutual Bad Mood / Shared Repair",
+  "winner": "Slide-Led Evidence Plan",
+  "rejected_visual_patterns": [
+    "Photo-First Continuity",
+    "Minimal Symbol Plan"
+  ],
+  "continuity_locks": {},
+  "agents": [
+    "C3A-VisualEvidencePlanner",
+    "C3B-RomanceScenePlanner",
+    "C3C-ContinuityJudge",
+    "C3D-ScreenQualityJudge"
+  ],
+  "screen_policy": "Every slide must prove the exact copy through visible Aachu/Zuv behavior. Any doubtful slide blocks image generation until repaired and re-reviewed.",
+  "slide_reviews": [
+    {
+      "slide": 1,
+      "copy": "I loved you.\nI just didn’t like your face that day.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 2,
+      "copy": "Mine wasn’t exactly helping.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 3,
+      "copy": "Two bad moods.\nOne very small room.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 4,
+      "copy": "We made each other’s hurt louder.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 5,
+      "copy": "The anger was real.\nSo was the love.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    },
+    {
+      "slide": 6,
+      "copy": "A bad day was never\nthe whole truth about us.",
+      "status": "GO",
+      "reviewers": [
+        "C3A-VisualEvidencePlanner",
+        "C3B-RomanceScenePlanner",
+        "C3C-ContinuityJudge",
+        "C3D-ScreenQualityJudge"
+      ],
+      "checks": {
+        "copy_visual_alignment": true,
+        "golden_theme_proof": true,
+        "relationship_behavior_visible": true,
+        "stage_scene_storytelling": true,
+        "no_losing_visual_option_leak": true,
+        "slide_world_continuity": true,
+        "aspect_safe_composition": true,
+        "doubt_flags_resolved": true
+      },
+      "issues": []
+    }
+  ],
+  "director_storyboard": {
+    "status": "PASS",
+    "event": "copy_hidden_storyboard_read",
+    "copy_locked": true,
+    "copy_hidden": true,
+    "intent_hidden": true,
+    "copy_lock_evidence": "The exact six-slide copy and Instagram-post-only canvas were locked before the independent observable-card review.",
+    "author_id": "/root",
+    "reviewer_id": "/root/event_a_final_retry",
+    "reviewer_evidence": "A fresh critic with no forked context received only the repaired six observable blind cards. Without seeing copy, title, theme, intent, prompts, prior review, or package artifacts, the critic passed the tense-to-repair sequence and explicitly traced the board skid, taut lamp cord, lamp tip and key spill as one causal chain.",
+    "requested_formats": [
+      "instagram_post"
+    ],
+    "format_contract_fingerprint": "sha256:8c02ec90e265aa4522cc665fb7865f775057c5f3cc02262b36c358a3099878d0",
+    "creator_correction_fingerprint": "sha256:f7a16b09464a5c685750ee6df95b2205cc946836ff2cb152cb04374c410b4fe0",
+    "generation_payload_fingerprint": "sha256:746c4293b4eef6a57319bdafe1b6121020bf3ead3fdb3895f93de75cf5ef6a56",
+    "blind_cards": [
+      {
+        "slide": 1,
+        "visible_people": [
+          "woman",
+          "man"
+        ],
+        "visible_setting": "A narrow aisle inside one small room at rainy dusk; a table, glowing lamp, charger and water glass are visible.",
+        "observable_action": "The woman and man squeeze past in opposite directions with faces turned away. The woman places the man's phone onto the charger while the man catches the woman's slipping water glass upright.",
+        "hands_and_contact": "The woman's right hand contacts the phone; her left hand is pocketed. The man's left hand contacts the glass; his right hand is hidden behind his body. Their bodies do not touch.",
+        "gaze": "Neither looks at the other; both faces turn away with tightened brows and mouths.",
+        "body_blocking": "They occupy the same narrow aisle at the same depth with torsos angled in opposite directions.",
+        "object_state": "Phone is placed on charger; water glass is caught upright; lamp is upright and lit; extension cord is slack.",
+        "camera_view": "Chest-height compressed medium view from the doorway.",
+        "visible_continuity": "Charcoal-and-ivory evening clothes are slightly rain-damp."
+      },
+      {
+        "slide": 2,
+        "visible_people": [
+          "woman"
+        ],
+        "visible_setting": "Beside the open wardrobe in the same room; warm lamp edge and cool window light cross the frame.",
+        "observable_action": "The woman pulls her hair tie tight, pauses with a pinched facial expression, then loosens the tie slightly.",
+        "hands_and_contact": "Her right arm, wrist and hand remain visible and connected to the hair tie; her left hand is outside the crop.",
+        "gaze": "Her eyes drop toward the floor after the pause.",
+        "body_blocking": "Tight side profile; no other person, mirror or reflection is visible.",
+        "object_state": "One hair tie changes from taut to slightly loosened; the wardrobe remains open.",
+        "camera_view": "Intimate side-profile close-up.",
+        "visible_continuity": "Same charcoal-grey blazer, ivory top and slightly damp shoulder as the previous frame."
+      },
+      {
+        "slide": 3,
+        "visible_people": [
+          "woman",
+          "man"
+        ],
+        "visible_setting": "The same tiny room seen from a ceiling corner; a low divan and small table leave one narrow aisle between them.",
+        "observable_action": "The woman opens the wardrobe door into the aisle at the same moment the man rolls one chair backward into it. Both stop with only a hand-span of floor remaining.",
+        "hands_and_contact": "The woman's right hand holds the wardrobe handle; her left arm is behind the door. The man's right hand rests on the chair back; his left hand rests on his thigh.",
+        "gaze": "They look across the narrow remaining gap at each other.",
+        "body_blocking": "The wardrobe door and chair occupy opposite diagonals and block the only path between the two people.",
+        "object_state": "Wardrobe is open; chair is rolled back; lamp remains upright and lit; extension cord remains slack; an untouched meal sits on the table.",
+        "camera_view": "Extreme overhead wide view from the ceiling corner.",
+        "visible_continuity": "Same room, clothes, lamp, charger, bags, umbrella and meal."
+      },
+      {
+        "slide": 4,
+        "visible_people": [
+          "woman",
+          "man"
+        ],
+        "visible_setting": "Low table-level view in the same room; an extension board fills the lower foreground.",
+        "observable_action": "The woman and man each drag one opposite plastic end of the same live extension board toward themselves at the same moment. The board rotates and skids diagonally, its taut black lamp cord lifts the intact lamp base mid-tip, and the moving board clips the key bowl so two keys spill along the impact direction.",
+        "hands_and_contact": "The woman's left shoulder, arm, wrist and hand connect to and grip only the board's left plastic end. The man's right shoulder, arm, wrist and hand connect to and grip only the board's right plastic end. Their other hands are outside the frame; neither visible hand holds a plug.",
+        "gaze": "Both faces recoil toward the sliding board and tipping lamp; mouths are closed.",
+        "body_blocking": "They lean in from opposite sides without crossing bodies or touching.",
+        "object_state": "A white charger adapter and black lamp plug remain inserted in occupied sockets; both cables are taut in opposite directions; the board skids and rotates; the intact lamp lifts mid-tip; the struck bowl releases two keys; nothing breaks.",
+        "camera_view": "Low obstructed close view with foreground consequence and faces behind.",
+        "visible_continuity": "Same charcoal clothing, chair, untouched meal, lamp and extension board."
+      },
+      {
+        "slide": 5,
+        "visible_people": [
+          "woman",
+          "man"
+        ],
+        "visible_setting": "The same room in cool rainy near-darkness at floor height; the intact lamp rests on its side beside the extension board.",
+        "observable_action": "The man lifts the lamp by its base while the woman pushes the lamp plug into the extension board. Warm light returns between them.",
+        "hands_and_contact": "The man's right hand owns the lamp base and his left hand rests on his thigh. The woman's left hand owns the plug and her right hand braces on the floor beside her knee. All four wrists and forearms remain visible.",
+        "gaze": "Both keep set jaws and meet eyes only as the lamp lights.",
+        "body_blocking": "They kneel at the same depth on opposite sides of the lamp with separate silhouettes.",
+        "object_state": "Lamp changes from dark and sideways to supported and lit; plug becomes connected; cord becomes slack.",
+        "camera_view": "Intimate floor-height three-quarter close insert with hands sharp and faces readable.",
+        "visible_continuity": "Same creased charcoal-and-ivory wardrobe; no object is broken."
+      },
+      {
+        "slide": 6,
+        "visible_people": [
+          "woman",
+          "man"
+        ],
+        "visible_setting": "The same room seen from farther outside the doorway; rain remains at the window and the chair is still displaced.",
+        "observable_action": "The woman and man sit shoulder-to-shoulder on the floor inside the lamp's warm pool. The woman offers the final piece of food and the man receives it.",
+        "hands_and_contact": "The woman's right hand offers the food and her left hand rests on her knee. The man's left hand receives and his right hand rests on his own knee.",
+        "gaze": "They meet eyes with tired neutral expressions rather than broad smiles.",
+        "body_blocking": "They sit at the same depth with shoulders lightly touching and no embrace.",
+        "object_state": "Lamp is upright and lit; extension cord is slack; wardrobe is closed; key bowl is settled; the previously untouched meal is nearly finished.",
+        "camera_view": "Stable wide doorway reprise pulled farther back than the first frame.",
+        "visible_continuity": "Same room disorder, bags, umbrella, clothes, lamp, cord and meal remain visible."
+      }
+    ],
+    "blind_input_fingerprint": "sha256:6fa8e0c27061502dd1175469131547a0118784850f7fc0107b3f18cb39c41beb",
+    "source_fingerprint": "sha256:20667e480492b459d598770dbeb2f8ff3ebd4f26e33f4a9196a40de8ddcaeec5",
+    "sequence_mode": "causal_sequence",
+    "physical_event": "Two rain-damp people move around one cramped room, collide through separate tasks, drag opposite ends of the same live extension board until its taut lamp cord tips the lamp and the moving board spills keys, then restore the light together and finish their meal side by side.",
+    "emotional_arc": "Guarded residual care becomes private strain, spatial standoff, shared consequence, restrained cooperation, and quiet reconnection.",
+    "relationship_change": "Aachu and Zuv move from avoiding direct engagement while still caring reflexively to coordinating a repair and accepting a small final exchange.",
+    "sequence_read": "The fresh independent critic read the repaired full sequence without copy: automatic care inside visible tension, private self-regulation, mutual spatial obstruction, two opposing pulls on one live board causing the lamp and key-bowl consequence, equal practical repair, and subdued reconnection.",
+    "visual_variables": [
+      "body distance",
+      "motivated light"
+    ],
+    "hero_receipt_slide": 4,
+    "setup_payoff_ledger": [
+      {
+        "setup": "Slide 1 establishes an upright warm lamp, a slack cord, opposite-facing bodies, and residual care through the phone and glass.",
+        "payoff": "Slides 4 and 5 turn the cord taut, tip the lamp, darken the room, and then require complementary hands to restore the light.",
+        "changed_meaning": "A practical object becomes visible proof that their separate hurt amplifies the room and their equal cooperation can soften it without erasing anger."
+      },
+      {
+        "setup": "Slide 3 leaves the meal untouched while the wardrobe door and chair make their separate movements incompatible.",
+        "payoff": "Slide 6 closes the wardrobe, leaves the chair honestly displaced, and shows the meal nearly finished as they exchange its last piece.",
+        "changed_meaning": "The room remains imperfect, but the couple has stopped treating shared space as a contest."
+      }
+    ],
+    "object_motif_ledger": [
+      {
+        "object": "lamp and extension cord",
+        "initial_state": "The lamp is upright and warm while its cord lies slack during tense coexistence.",
+        "later_state": "The cord pulls taut and tips the lamp; both then reconnect and support it until warm light returns and the cord lies slack again.",
+        "story_job": "Externalize the escalation and repair without melodrama, blame, or a generic embrace."
+      },
+      {
+        "object": "shared meal",
+        "initial_state": "The meal sits untouched during the spatial standoff.",
+        "later_state": "The meal is nearly finished and its final piece passes between them.",
+        "story_job": "Show time and reconnection through ordinary domestic behavior rather than a declared resolution."
+      }
+    ],
+    "slides": [
+      {
+        "slide": 1,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "establish guarded coexistence with residual care",
+        "silent_read": "They do not want to face each other, yet neither stops looking after the other's things.",
+        "change_from_previous": "The opening establishes the cramped room, tense faces, withheld gaze, upright lamp, slack cord, and two reflexive care actions.",
+        "critic_evidence": "The critic cited opposite-facing torsos, absent eye contact, tightened brows, the charged phone, caught glass, rain-damp clothes, and upright lit lamp.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "squeeze past while protecting each other's objects",
+          "target_or_object": "Zuv's phone and Aachu's water glass",
+          "reaction_or_consequence": "care persists even while direct engagement is withheld"
+        },
+        "pov": {
+          "owner": "shared observational view",
+          "audience_knows": "the tension is real but care has not disappeared",
+          "audience_feels": "recognition with a dry comic edge"
+        },
+        "shot": {
+          "size": "compressed medium two-shot",
+          "angle": "chest-height doorway angle",
+          "camera_position": "just outside the only aisle",
+          "focal_subject": "opposite faces and crossed care actions",
+          "story_reason": "Compression makes mood and room pressure readable together."
+        },
+        "blocking": {
+          "hands": "Aachu owns the phone and Zuv owns the glass",
+          "gaze": "both look away",
+          "body_distance": "same narrow aisle without touching",
+          "posture_or_feet": "torsos and feet drive in opposite directions"
+        },
+        "setting": {
+          "sub_location": "doorway-side aisle",
+          "time": "rainy dusk",
+          "motivated_light": "warm practical lamp against cool window rain",
+          "story_trace": "lamp, cord, meal, wardrobe, chair, bags, and umbrella persist"
+        },
+        "story_evidence": [
+          {
+            "carrier": "phone and water glass",
+            "observable_state": "each quietly stabilizes the other's object while looking away",
+            "narrative_job": "prove love remains inside a bad mood"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The evening begins after a rain-damp arrival.",
+          "outgoing_state": "The couple remains in one room with the lamp upright and tension unspoken."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "human reflection",
+            "duplicate couple",
+            "unowned limb"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The faces could mean general fatigue and the object actions could be routine courtesy.",
+            "repair": "Keep the faces specifically withheld and carry the same spatial opposition into the wardrobe-chair standoff and plug collision.",
+            "recheck_evidence": "The critic's complete sequence read connected the opening tension to the later uncoordinated escalation while preserving residual care."
+          }
+        ]
+      },
+      {
+        "slide": 2,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "turn the accusation inward through private self-regulation",
+        "silent_read": "She tightens herself against the discomfort, then eases off slightly.",
+        "change_from_previous": "The shared compressed two-shot becomes a solitary close profile, moving responsibility from the partner's face to Aachu's own bodily strain.",
+        "critic_evidence": "The critic cited the intimate side profile, dropped gaze, pinched face, taut-to-loosened hair tie, open wardrobe, and continuous damp wardrobe.",
+        "staged_action": {
+          "subject": "Aachu",
+          "action": "tightens then loosens her hair tie",
+          "target_or_object": "one hair tie",
+          "reaction_or_consequence": "her body reveals that her own mood is adding pressure"
+        },
+        "pov": {
+          "owner": "Aachu's private beat",
+          "audience_knows": "she is not exempt from the bad mood",
+          "audience_feels": "self-recognition rather than blame"
+        },
+        "shot": {
+          "size": "intimate profile close-up",
+          "angle": "eye-level side profile",
+          "camera_position": "beside the open wardrobe",
+          "focal_subject": "the tension and release in hair tie, jaw, and gaze",
+          "story_reason": "A close bodily action delivers the self-jab without a mirror cliché."
+        },
+        "blocking": {
+          "hands": "one connected right hand owns the hair tie",
+          "gaze": "eyes drop after the pause",
+          "body_distance": "Zuv is absent from frame",
+          "posture_or_feet": "shoulder stays tight before easing slightly"
+        },
+        "setting": {
+          "sub_location": "open wardrobe edge",
+          "time": "same rainy dusk",
+          "motivated_light": "lamp edge and cool window light cross her profile",
+          "story_trace": "wardrobe position sets up the next aisle obstruction"
+        },
+        "story_evidence": [
+          {
+            "carrier": "hair tie",
+            "observable_state": "taut pressure changes to a small deliberate release",
+            "narrative_job": "make the self-jab physical and observable"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "Aachu leaves the squeezed passing beat.",
+          "outgoing_state": "She remains beside an open wardrobe that will enter the shared aisle."
+        },
+        "entity_contract": {
+          "expected_people": 1,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "second person",
+            "mirror",
+            "human reflection",
+            "duplicate face",
+            "unowned limb"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The hair-tie action could read as ordinary grooming or physical discomfort.",
+            "repair": "Hold the pinched expression, damp wardrobe continuity, and immediate return to the obstructed shared space.",
+            "recheck_evidence": "The critic read the beat as private self-management within the larger strain while correctly noting it does not independently blame Zuv."
+          }
+        ]
+      },
+      {
+        "slide": 3,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "make two bad moods physically incompatible in one tiny room",
+        "silent_read": "Their separate movements cannot coexist in the room without one of them adjusting.",
+        "change_from_previous": "A private close-up opens into an extreme overhead standoff where furniture turns both moods into shared geometry.",
+        "critic_evidence": "The critic cited the opposing diagonals of wardrobe door and chair, the blocked aisle, owned hands, hand-span gap, exchanged gaze, untouched meal, and still-upright lamp.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "open the wardrobe and roll the chair into one aisle",
+          "target_or_object": "the only shared path",
+          "reaction_or_consequence": "both stop without yielding as the room compresses them"
+        },
+        "pov": {
+          "owner": "detached room-level view",
+          "audience_knows": "neither alone caused the standoff",
+          "audience_feels": "comic claustrophobia with real strain"
+        },
+        "shot": {
+          "size": "extreme overhead wide two-shot",
+          "angle": "ceiling-corner top view",
+          "camera_position": "above the room's only aisle",
+          "focal_subject": "wardrobe-door and chair diagonals",
+          "story_reason": "Architectural geometry proves the small-room conflict in one glance."
+        },
+        "blocking": {
+          "hands": "Aachu owns the wardrobe handle and Zuv owns the chair back",
+          "gaze": "they look across the hand-span gap",
+          "body_distance": "objects separate them inside one obstructed aisle",
+          "posture_or_feet": "both freeze mid-task instead of advancing"
+        },
+        "setting": {
+          "sub_location": "wardrobe-to-table aisle",
+          "time": "same rainy dusk",
+          "motivated_light": "lamp remains warm and window remains cool",
+          "story_trace": "untouched meal and upright lamp preserve the pre-incident state"
+        },
+        "story_evidence": [
+          {
+            "carrier": "wardrobe door and chair",
+            "observable_state": "opposing diagonals block the only path",
+            "narrative_job": "externalize two simultaneous bad moods"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The wardrobe is open after Aachu's solitary beat.",
+          "outgoing_state": "Neither yields; both resume separate tasks near the shared extension board."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "human reflection",
+            "duplicate couple",
+            "unowned limb"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The standoff could play as harmless comic awkwardness or surprise.",
+            "repair": "Keep the tightened faces, untouched meal, opposite task ownership, and carry the same failure to coordinate directly into slide 4.",
+            "recheck_evidence": "The critic identified a literal and interpersonal standoff and correctly predicted a further mishap through uncoordinated action."
+          }
+        ]
+      },
+      {
+        "slide": 4,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "show the shared consequence that makes hurt louder",
+        "silent_read": "They both pull; the board moves; the taut cord tips the lamp; the collision spills the keys.",
+        "change_from_previous": "The static overhead obstruction becomes one low kinetic causal chain: both hands drag the same board in opposite directions, the board skids and rotates, the taut lamp cord lifts the lamp, and the board clips the key bowl.",
+        "critic_evidence": "The fresh critic cited two owned grips on opposite plastic ends of the same board, simultaneous opposing arms, diagonal skid and rotation, inserted lamp plug, taut black cord, lamp base lifting mid-tip, direct bowl impact, aligned spilling keys, and both faces recoiling toward the shared consequence.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "drag opposite plastic ends of the same live extension board",
+          "target_or_object": "one shared board with an inserted charger and inserted lamp plug",
+          "reaction_or_consequence": "the board skids, the taut lamp cord lifts the intact lamp mid-tip, and the board clips the key bowl"
+        },
+        "pov": {
+          "owner": "the shared physical consequence",
+          "audience_knows": "both incompatible pulls combine into one visible escalation",
+          "audience_feels": "a jolt without melodrama or assigned villain"
+        },
+        "shot": {
+          "size": "low table-level consequence close view",
+          "angle": "obstructed near-floor angle",
+          "camera_position": "behind the sliding extension board",
+          "focal_subject": "taut cord, tipping lamp, and recoiling faces",
+          "story_reason": "Foreground physics makes the emotional escalation unmistakably visible."
+        },
+        "blocking": {
+          "hands": "Aachu's left hand grips only the board's left plastic end and Zuv's right hand grips only its right plastic end; neither hand holds a plug",
+          "gaze": "both recoil toward the same board, lamp and key spill",
+          "body_distance": "opposite sides with no crossing or touch",
+          "posture_or_feet": "both shoulders and forearms pull outward along opposing vectors"
+        },
+        "setting": {
+          "sub_location": "low table and extension-board zone",
+          "time": "same rainy dusk",
+          "motivated_light": "warm lamp begins to fall against cool ambient rain",
+          "story_trace": "chair, untouched meal, keys, lamp, and cord continue exactly"
+        },
+        "story_evidence": [
+          {
+            "carrier": "board, two inserted plugs, two taut cables, intact lamp and key bowl",
+            "observable_state": "opposite board grips cause diagonal skid and rotation; the taut black cord lifts the lamp while the board edge strikes the bowl and spills two keys",
+            "narrative_job": "turn mutual hurt into one blame-balanced visible consequence"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The lamp is upright, both cables and the board are settled, and the meal is untouched after the aisle standoff.",
+          "outgoing_state": "The lamp is tipped intact and dark, the board displaced, and two keys spilled beside the struck bowl."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "human reflection",
+            "duplicate couple",
+            "extra arm",
+            "loose plug in a hand",
+            "third cable",
+            "broken lamp",
+            "fire",
+            "sparks"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The opposite white charger cable may briefly compete with the black lamp cord as the primary causal line, and a crowded still could blur the hand-board-cord-lamp-bowl chain.",
+            "repair": "Keep hands on plastic board ends only; give the black lamp cord the clearest taut diagonal and direct lamp connection; subordinate the white charger cable; reduce meal detail; maintain isolated contours for board, bowl and exactly two keys.",
+            "recheck_evidence": "The fresh critic returned overall PASS and explicitly traced both hands to the same board, the board to the taut lamp cord, the cord to the mid-tip lamp, and the board edge to the aligned key spill."
+          }
+        ]
+      },
+      {
+        "slide": 5,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "hold anger and love in the same restrained repair",
+        "silent_read": "They solve together what their lack of coordination disturbed.",
+        "change_from_previous": "Kinetic opposition becomes complementary floor-level action as cool darkness changes back to warm light between them.",
+        "critic_evidence": "The critic cited Zuv supporting the lamp base, Aachu reconnecting the plug, separate complementary tasks, equal depth, distinct silhouettes, dark-to-lit state change, timed eye contact, and retained set jaws.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "support and reconnect the same lamp",
+          "target_or_object": "lamp base, plug, and extension board",
+          "reaction_or_consequence": "warm light returns while their anger remains visible"
+        },
+        "pov": {
+          "owner": "balanced shared repair",
+          "audience_knows": "both are necessary and neither rescues the other",
+          "audience_feels": "earned tenderness without false resolution"
+        },
+        "shot": {
+          "size": "intimate floor-height three-quarter two-shot",
+          "angle": "low close angle",
+          "camera_position": "beside the dark extension board",
+          "focal_subject": "four owned hands, returning light, and guarded eye contact",
+          "story_reason": "The close equal-depth view holds practical love and unresolved anger together."
+        },
+        "blocking": {
+          "hands": "Zuv owns the lamp base; Aachu owns the plug; other hands remain visible",
+          "gaze": "eyes meet only as light returns",
+          "body_distance": "kneeling opposite at equal depth",
+          "posture_or_feet": "both lean toward the shared repair"
+        },
+        "setting": {
+          "sub_location": "floor beside the fallen lamp",
+          "time": "same rainy dusk",
+          "motivated_light": "cool rainy near-darkness becomes warm practical light",
+          "story_trace": "intact lamp and board continue directly from slide 4"
+        },
+        "story_evidence": [
+          {
+            "carrier": "two complementary hand actions",
+            "observable_state": "one supports the lamp while the other reconnects it",
+            "narrative_job": "prove love through equal repair while anger remains in their faces"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The lamp is dark and sideways after their shared mishap.",
+          "outgoing_state": "The lamp is upright, lit, and available as a shared pool of light."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "human reflection",
+            "duplicate couple",
+            "unowned hand",
+            "broken lamp",
+            "fire",
+            "sparks"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The cooperation could be purely practical and the eye contact could still carry accusation.",
+            "repair": "Keep their set jaws and make no embrace or smile; the proof is complementary action, not complete reconciliation.",
+            "recheck_evidence": "The critic read restrained cooperation with guarded expressions, exactly preserving both anger and care rather than overstating resolution."
+          }
+        ]
+      },
+      {
+        "slide": 6,
+        "status": "PASS",
+        "inference_match": true,
+        "narrative_job": "reframe the bad day through ordinary continued choosing",
+        "silent_read": "They are not exuberant, but they have chosen the same small pool of light and one final exchange.",
+        "change_from_previous": "The close repair pulls back to a stable doorway reprise: bodies now touch lightly, the cord is slack, the room stays imperfect, and the meal is nearly finished.",
+        "critic_evidence": "The critic cited shoulder contact, offered and received food, tired neutral eye contact, no broad smile or embrace, nearly finished meal, upright lamp, slack cord, closed wardrobe, settled keys, displaced chair, and continuing rain.",
+        "staged_action": {
+          "subject": "Aachu and Zuv",
+          "action": "offer and receive the last piece of food",
+          "target_or_object": "the final piece from their shared meal",
+          "reaction_or_consequence": "quiet companionship occupies the same imperfect room"
+        },
+        "pov": {
+          "owner": "distant stable observation",
+          "audience_knows": "one bad day did not exhaust the relationship's truth",
+          "audience_feels": "subdued relief and recognition"
+        },
+        "shot": {
+          "size": "stable wide doorway reprise",
+          "angle": "eye-level from farther outside",
+          "camera_position": "beyond the threshold",
+          "focal_subject": "two bodies inside one warm pool and the exchanged food",
+          "story_reason": "The pullback lets room continuity prove change without a sentimental close-up."
+        },
+        "blocking": {
+          "hands": "Aachu offers with right hand and Zuv receives with left",
+          "gaze": "tired neutral eye contact",
+          "body_distance": "shoulders lightly touch without embrace",
+          "posture_or_feet": "both settle on the floor at equal depth"
+        },
+        "setting": {
+          "sub_location": "floor inside the doorway",
+          "time": "later in the same rainy evening",
+          "motivated_light": "one restored lamp creates a warm shared pool",
+          "story_trace": "wardrobe closed, keys settled, chair displaced, rain continuing, meal nearly finished"
+        },
+        "story_evidence": [
+          {
+            "carrier": "last piece of food and restored lamp",
+            "observable_state": "food passes between them inside a steady warm pool while disorder remains",
+            "narrative_job": "show the relationship is larger than the bad day"
+          }
+        ],
+        "text_image_relationship": "interdependent",
+        "continuity": {
+          "incoming_state": "The lamp has just been restored through equal cooperation.",
+          "outgoing_state": "The evening remains imperfect but the couple stays and shares what is left."
+        },
+        "entity_contract": {
+          "expected_people": 2,
+          "background_people": [],
+          "reflections": [],
+          "forbidden_entities": [
+            "extra person",
+            "human reflection",
+            "duplicate couple",
+            "unowned limb",
+            "broad grin",
+            "embrace"
+          ]
+        },
+        "unresolved_ambiguities": [],
+        "resolved_ambiguities": [
+          {
+            "competing_read": "The final exchange could mean reconciliation, temporary truce, or ordinary meal-sharing, and the chair remains displaced.",
+            "repair": "Do not claim total resolution; keep tired expressions, honest disorder, and one reciprocal exchange inside the restored light.",
+            "recheck_evidence": "The critic read subdued reconnection without claiming every tension was resolved, which is precisely the payoff's emotional boundary."
+          }
+        ]
+      }
+    ],
+    "review_provenance": {
+      "schema_version": "visual-review-provenance/v2",
+      "author_task_id": "/root",
+      "author_run_id": "root-author-2026-08-14-01",
+      "reviewer_task_id": "/root/event_a_final_retry",
+      "reviewer_run_id": "event-a-retry-2026-08-14-01",
+      "input_fingerprint": "sha256:6fa8e0c27061502dd1175469131547a0118784850f7fc0107b3f18cb39c41beb",
+      "raw_response_artifact": ".internal/event-a-final-retry-response.json",
+      "raw_response_fingerprint": "sha256:0521aedb20a19f586ed5a230e686704630453c66cd2c57491ad3e4831c77c3dc",
+      "output_fingerprint": "sha256:40782393db9bb3652ddb03bbbcd708562178ff56619a84b2f2d31dcdeb00f417"
+    },
+    "issues": [],
+    "director_event_fingerprint_version": "director-event/v2",
+    "director_event_fingerprint": "sha256:f0287632a992ac78d3b62426b3918bc3f44e3fb1c150bdcb831520c596248752"
+  },
+  "issues": []
+}

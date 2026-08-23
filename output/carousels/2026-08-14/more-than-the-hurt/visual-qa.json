@@ -1,0 +1,316 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "GENERATED_QUARANTINED",
+  "image_set_sha256": "f536f88fd378a9c6e8176780b542ab23fa759e810631c80bca576cbde5824513",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/identity_attempt3_qa",
+      "pass": false,
+      "evidence": "Two-person inventory and wardrobe pass, but Aachu's left hand is hidden, both faces drift from the selected identities, and Zuv's compact ringlets violate the swept-wavy-quiff lock."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/event_b_attempt3_critic",
+      "pass": false,
+      "evidence": "Slide copy, signature, canvas, guarded table gap, and style pass, but the frame is too upright for the hero action and Aachu's left hand is hidden."
+    }
+  },
+  "slides": [
+    {
+      "slide": 5,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-03/final/slide-05.png",
+          "sha256": "32a747fa106597163bb4f635d79ec2e162a34795b65eec9911cd8a37fd611d1a",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "storyboard": {
+      "pass": false,
+      "evidence": "Mutual gaze, guarded table separation, and restraint match, but the frame state change and four-hand inventory do not."
+    },
+    "anatomy_inventory": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 5,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "32a747fa106597163bb4f635d79ec2e162a34795b65eec9911cd8a37fd611d1a",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 3,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "steadies the bottom-planted, near-upright frame",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Her white sleeve, forearm, wrist, and gripping hand form one continuous chain.",
+                  "contact_object": "memory frame",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Her fingers wrap around the frame edge without fusing into the wood.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "rests open on his own thigh",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His left sleeve and forearm connect continuously to the visible hand.",
+                  "contact_object": "own thigh",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The hand remains distinct from the trousers.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "right",
+                  "action": "rests open on his own thigh",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "His right sleeve and forearm connect continuously to the visible hand.",
+                  "contact_object": "own thigh",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "The hand remains distinct from the trousers.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 5,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "32a747fa106597163bb4f635d79ec2e162a34795b65eec9911cd8a37fd611d1a",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 3,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv are visible with no figurative image or reflection, but only three of four required hands are readable because Aachu's left hand is concealed."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 5,
+          "observed_people": 2,
+          "evidence_views": {
+            "full_frame": "Aachu and Zuv occupy distinct seated volumes at the table.",
+            "person_object_crop": "Aachu's right frame-supporting arm stays distinct from the frame and table; both Zuv hands remain attached and visible.",
+            "focal_detail": "Aachu's visible right fingertips meet the frame edge with clear overlap order and no kickstand."
+          },
+          "environment_planes": [
+            {
+              "object": "table and background cabinet",
+              "depth_order": "table in front of both torsos; cabinet behind both people",
+              "boundary_continuous": true
+            }
+          ],
+          "people": [
+            {
+              "person": "Aachu",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, hair, shoulders, torso, right sleeve, forearm, wrist, and visible right hand remain continuous; the left hand is occluded by pose.",
+              "body_regions": [
+                {
+                  "region": "right forearm through frame hand",
+                  "near_object": "wooden frame",
+                  "expected_relation": "touching",
+                  "observed_relation": "touching",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Sleeve and wrist terminate in fingers visibly wrapping the frame edge."
+                }
+              ],
+              "ambiguous_regions": []
+            },
+            {
+              "person": "Zuv",
+              "silhouette_traceable": true,
+              "silhouette_evidence": "Head, shoulders, torso, and both upper arms are separately traceable from the chair and table.",
+              "body_regions": [
+                {
+                  "region": "both shoulders and upper arms",
+                  "near_object": "table edge",
+                  "expected_relation": "behind",
+                  "observed_relation": "behind",
+                  "boundary_continuous": true,
+                  "occlusion_order_clear": true,
+                  "solid_object_intersection": false,
+                  "morph_or_merge": false,
+                  "evidence": "Both sleeves descend naturally behind the table crop without merging into furniture."
+                }
+              ],
+              "ambiguous_regions": []
+            }
+          ],
+          "ambiguous_regions": [],
+          "unresolved_intersections": []
+        }
+      ]
+    },
+    "visual_richness": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 5,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "32a747fa106597163bb4f635d79ec2e162a34795b65eec9911cd8a37fd611d1a",
+                "width": 1080,
+                "height": 1440
+              },
+              "foreground": "A bottom-planted near-upright blank-backed frame and a thin cropped plate rim occupy the foreground.",
+              "midground": "Aachu and Zuv exchange a sustained gaze.",
+              "background": "A faint non-figurative window-light wash sits on sparse ivory paper.",
+              "focal_action": "Aachu steadies a bottom-planted but near-upright frame while looking at Zuv.",
+              "story_details": [
+                "thin cold-plate rim",
+                "blank-backed memory frame",
+                "guarded mutual gaze"
+              ],
+              "cause_effect": "The plate rim preserves hurt evidence, but the near-upright frame weakens the visible face-down-to-halfway reversal.",
+              "posed_portrait": false,
+              "decorative_clutter": false
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID01",
+        "ID02"
+      ],
+      "likeness_notes": "Face remains too long and narrow with reduced cheek fullness, thinner lips, and a longer sharper nose versus Aachu's shorter soft oval, rounder eyes, round-tip nose, and fuller lips."
+    },
+    "zuv_face": {
+      "pass": false,
+      "reference_option_ids": [
+        "ID03"
+      ],
+      "likeness_notes": "Face remains too narrow and angular with a longer nose and narrower mouth; most decisively the hair is still a dense compact-ringlet cap rather than Zuv's swept wavy quiff."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "Aachu wears the white tied wrap blouse with flared sleeves and blue jeans; Zuv wears the pale-blue striped button-down and charcoal trousers."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory paper, grain, fine ink, translucent watercolor, muted palette, and observational intimacy match the selected style references."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "The frame is bottom-planted but near upright rather than at forty-five degrees, and Aachu's required left hand is concealed."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "The slide copy and top-right brandmark are exact and no other lettering is visible."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "Quarantined proof is a readable native 1080x1440 PNG bound to the current attempt hash."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/event_b_attempt3_critic",
+      "reviewer_evidence": "A fresh independent critic inspected only the current attempt-03 pixels and found the ambiguous near-upright frame mechanics and hidden required hand independently disqualifying.",
+      "source_director_event_fingerprint": "sha256:c00a9bbb1ee12cadf5a39c123752ae0d0579af40c69cb5b2cfe88cd836b14d1c",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The proof reads as a restrained post-conflict conversation with Aachu steadying an already-raised frame; the intended unfinished reversal is not decisive.",
+      "relationship_turn": "Mutual gaze and guarded table distance support cautious engagement, but the near-upright frame weakens Aachu's voluntary state change.",
+      "setup_payoff_evidence": "The cold-plate rim carries prior hurt, but the frame angle does not clearly prove reversal from face-down.",
+      "weakest_frame": "The selected proof still fails at its hero receipt: the frame is near upright and Aachu's left hand is missing.",
+      "repair_decision": "Lower the frame to a clear forty-five-degree midpoint, expose Aachu's left hand on her thigh, and repair both identities—especially Zuv's compact-ringlet hair.",
+      "frames": [
+        {
+          "slide": 5,
+          "format": "instagram_post",
+          "file": "final/slide-05.png",
+          "status": "REPAIR",
+          "expected_silent_read": "Aachu actively raises one of three downturned memory frames and chooses the first direct, unobstructed look at Zuv while hurt evidence remains.",
+          "observed_image_first_read": "Exactly two people hold a guarded direct gaze across a substantial table gap while Aachu steadies a blank-backed, bottom-planted frame that is already close to upright; her left hand is hidden.",
+          "core_action_legible": false,
+          "relationship_turn_legible": false,
+          "focal_hierarchy": "Faces and shared eye-line first, exact text second, the near-upright bottom-planted frame third, then the thin cold-plate rim.",
+          "hands_gaze_prop_legible": false,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [
+            "The frame is bottom-planted but reads two-thirds to near-upright rather than at an unmistakable forty-five-degree midpoint.",
+            "Aachu's required left hand is hidden rather than open and visible on her own thigh."
+          ],
+          "unexpected_story": [
+            "The frame can read as an object Aachu is already displaying during a restrained post-conflict conversation."
+          ],
+          "match_rationale": "Mutual gaze, table separation, restrained expressions, exact text, and three attributable hands are readable, but the frame midpoint and required four-hand inventory fail.",
+          "evidence": "The frame bottom touches the table but its plane is near vertical; Aachu's left arm/hand is concealed; both Zuv hands remain visible on his thighs.",
+          "image_fingerprint": "sha256:32a747fa106597163bb4f635d79ec2e162a34795b65eec9911cd8a37fd611d1a"
+        }
+      ],
+      "issues": [
+        "Active memory-frame state change is not legible.",
+        "Aachu's required left hand is hidden.",
+        "Both faces and Zuv's compact-ringlet hair drift from the selected identity references."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/event_b_attempt3_critic",
+        "reviewer_run_id": "event-b-attempt3-critic-run-2026-08-14-01",
+        "input_fingerprint": "sha256:184690ca228e342f5c6a09843df24be84fe5b0b18a73bf91cb8dba0e4793e8dd",
+        "raw_response_artifact": ".internal/event-b-attempt-03-raw-response.md",
+        "raw_response_fingerprint": "sha256:04a14dbbb3604dee64326a9bacf0660a30f0007272bf89619db4347212744af1",
+        "output_fingerprint": "sha256:c9374bbf644dce152bf37b92b9ef8298e428ff7727a47504a98217bbe77e094b"
+      }
+    }
+  }
+}

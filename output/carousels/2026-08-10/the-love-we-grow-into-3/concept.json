@@ -1,0 +1,922 @@
+{
+  "title": "The Love We Grow Into",
+  "content_lane": "Tiny Rituals",
+  "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
+  "golden_theme_contract": {
+    "required": true,
+    "skill": "config/skills/golden-viral-carousel-theme.md",
+    "reference": "config/references/golden-viral-carousel-theme-reference.md",
+    "first_principles_sources": [
+      "wiki/themes/calm-enough-for-chaos.md",
+      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md"
+    ],
+    "first_principles_rule": "Before submitting or scoring any new carousel idea, use these source files as the first-principles explanation of why the gold carousel worked: universal anti-ideal -> concrete Aachu proof -> Zuv steady response -> tender acceptance thesis.",
+    "rule": "Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise.",
+    "hard_fail_if": [
+      "The concept is primarily about an object, outfit, location, or photo aesthetic.",
+      "A stranger could not send the carousel to a partner without knowing the private photo context.",
+      "Aachu's expressive role is missing or mocked.",
+      "Zuv's calm role is passive, absent, or treated as background.",
+      "The concept is mostly about taking photos, looking beautiful, glowing, or waiting for one more picture without a deeper relationship tension.",
+      "One partner's role is only looking good while the other waits or holds things.",
+      "The final thesis is generic romance without a concrete proof trail."
+    ],
+    "default_five_slide_map": [
+      "Universal hook: one swipe-stopping relationship truth.",
+      "Aachu-specific reveal: her version of the truth.",
+      "Concrete proof: a drawable behavior, object, or ritual from the reference material.",
+      "Zuv role: what his calm, patience, care, or choice does emotionally.",
+      "Save/share thesis: the tender truth underneath the joke."
+    ],
+    "caption_formula": [
+      "Open with the universal relationship truth.",
+      "Show the couple-specific behavior, care, posture, object, or rhythm in the middle; name Aachu/Zuv only when natural.",
+      "End with a soft send/save-worthy thesis."
+    ]
+  },
+  "successful_carousel_standard": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "mode": "creative_north_star",
+    "rule": "Build a public identity mirror with concrete couple receipts, active Zuv care, an emotional reversal, and a send/save thesis; stage the story in visible actions before choosing poster text; do not optimize for keywords.",
+    "open_reasoning_policy": "Expose the real goal and selection logic; do not optimize for keywords or let slide copy substitute for staged story action.",
+    "prompt_rule": "Prompts must prove relationship behavior through stage-scene Aachu/Zuv action; text completes the scene instead of carrying it.",
+    "success_goals": [
+      "public identity mirror",
+      "concrete couple receipts",
+      "active Zuv care",
+      "emotional reversal",
+      "send/save thesis",
+      "stage-scene storytelling"
+    ]
+  },
+  "human_truth": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart.",
+  "emotional_arc": "aspirational promise -> familiar small irritation -> requested space -> respectful nearness -> noticing the deeper need -> improvised roadside date -> funny shared-habit coda",
+  "slide_count": 7,
+  "source_story_summary": "Aachu and Zuv leave for a date in their charcoal compact car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, pockets the phone, and notices her attention on two empty roadside chai stools. They keep the date at the unlabelled chai stall. The closing callback happens after the key is recovered and before they enter the car, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.",
+  "visual_style": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition by default: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork at 1080x1920 only when the creator explicitly requests Reel or Story; never add it as an automatic companion output. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
+  "target_voice": "Aachu/Zuv archive voice: warm, specific, playful underneath the tenderness",
+  "story_selling_contract": {
+    "skill": "config/skills/romance-story-selling-engine.md",
+    "references": [
+      "config/skills/carousel-story-director-persona.md",
+      "config/references/story-selling-canon/source-policy.md",
+      "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+      "config/references/story-selling-canon/concept-process-cards.md",
+      "config/references/story-selling-canon/rubric.md",
+      "config/references/story-selling-canon/story-selling-online.md"
+    ],
+    "minimum_score": 28,
+    "rule": "Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions."
+  },
+  "story_selling_decision": {
+    "contract": {
+      "skill": "config/skills/romance-story-selling-engine.md",
+      "references": [
+        "config/skills/carousel-story-director-persona.md",
+        "config/references/story-selling-canon/source-policy.md",
+        "config/references/story-selling-canon/a-story-of-two-adaptation.md",
+        "config/references/story-selling-canon/concept-process-cards.md",
+        "config/references/story-selling-canon/rubric.md",
+        "config/references/story-selling-canon/story-selling-online.md"
+      ],
+      "minimum_score": 28,
+      "rule": "Begin concept thinking like an author: find the relationship obstacle, choose one process card, prove the feeling with Aachu/Zuv behavior, then score before writing slides or captions.",
+      "source": "layer-e-story-selling.json",
+      "mode": "multi_room_thinking_engine"
+    },
+    "selected_concept_process_card": "Card 08 - Small Ritual, Large Promise",
+    "process_influence_summary": "card-05 - Banter To Belonging, card-20 - Saveable Lesson From One Scene, card-07 - Anti-Ideal To Real Love",
+    "score": {
+      "reader_identity_mirror": 5.0,
+      "romantic_conflict_stakes": 5.0,
+      "specificity_of_proof": 5.0,
+      "emotional_reversal": 5.0,
+      "visual_scene_clarity": 5.0,
+      "online_share_save_sell_potential": 5.0,
+      "total": 30.0
+    },
+    "threshold": "28/30",
+    "decision": "GO",
+    "hard_fails": [],
+    "selector_verdict": "Mature love does not remove childish irritation; it notices the need beneath it, respects the pause, and still finds a small way back to play.",
+    "authorial_flow": {
+      "relationship_obstacle": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding.",
+      "human_story_setup": {
+        "cold_reader_doorway": "Couples who have turned one tiny plan failure into a whole fight will recognize themselves and think: this is us.",
+        "emotional_obstacle": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding.",
+        "visible_human_proof": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+        "active_partner_role": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+        "emotional_turn": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+        "shareable_setup": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+        "earned_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him."
+      },
+      "success_definition": {
+        "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+        "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+        "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+        "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, request-locked native-format, QA, and audit gates must also pass. Default post/carousel delivery is 1080x1440 only; 1080x1920 Reel/Story is required only when explicitly requested.",
+        "source": "wiki/insights/successful-carousel-standard.md",
+        "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+      },
+      "stage_scene_gate": {
+        "status": "GO",
+        "action": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+        "reaction": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+        "eye_line_or_attention": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+        "hands_or_object_movement": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+        "silence_or_pause": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+        "consequence": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+        "reversal_or_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+        "blockers": []
+      },
+      "golden_theme_score": {
+        "universal_hook": 5.0,
+        "aachu_zuv_specificity": 5.0,
+        "concrete_proof": 5.0,
+        "zuv_emotional_role": 5.0,
+        "tender_thesis": 5.0,
+        "share_send_potential": 5.0,
+        "total": 30.0
+      },
+      "proof_engine": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "writer_rule": "Layer E is the source of truth; process cards are influences, not the answer.",
+      "story_context": "Aachu and Zuv leave for a date in their charcoal compact car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, pockets the phone, and notices her attention on two empty roadside chai stools. They keep the date at the unlabelled chai stall. The closing callback happens after the key is recovered and before they enter the car, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.",
+      "emotional_machine": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding. -> missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock -> The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted. -> He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+      "distribution_reason": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other."
+    },
+    "candidate_table": [
+      {
+        "name": "Give Me A Minute, Not Distance",
+        "story_lens": "Mature love does not remove childish irritation; it notices the need beneath it, respects the pause, and still finds a small way back to play.",
+        "reader_mirror": "Couples who have turned one tiny plan failure into a whole fight will recognize themselves and think: this is us.",
+        "emotional_obstacle": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding.",
+        "aachu_specific_spark": "Aachu moves from playful key accusation to honest irritation, then turns a failed restaurant plan into a roadside chai date and returns to share the lock-check habit.",
+        "zuv_active_role": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+        "proof_engine": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+        "emotional_reversal": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+        "payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+        "distribution_reason": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-05",
+          "card-20",
+          "card-07",
+          "card-08"
+        ],
+        "score_total": 30.0,
+        "golden_theme_score_total": 30.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "reaction": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+          "eye_line_or_attention": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+          "hands_or_object_movement": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "silence_or_pause": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "consequence": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+          "reversal_or_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      },
+      {
+        "name": "The Date Did Not Fail",
+        "story_lens": "A reservation is logistics; the date survives when both people choose the same small improvised moment.",
+        "reader_mirror": "Partners who remember the accidental chai more fondly than the planned dinner have an immediate this-is-us doorway.",
+        "emotional_obstacle": "The pressure of a missed plan can turn disappointment into blame unless the couple sees the missed ordinary time beneath it.",
+        "aachu_specific_spark": "Aachu points toward the chai stall, steals his glass, and lets play return without pretending the irritation never happened.",
+        "zuv_active_role": "Zuv stays during the pause, lowers the map, follows the chai pivot, and protects the biscuit packet with mock seriousness.",
+        "proof_engine": "restaurant visible across traffic -> phone map lowered -> two stools pulled close -> Aachu takes his chai -> Zuv clutches the biscuit packet",
+        "emotional_reversal": "What looked like a ruined evening becomes the date they needed because neither person insists that love must follow the original plan.",
+        "payoff": "The plan failed. The date did not.",
+        "distribution_reason": "Send this to your partner when your best dates are the ones the two of you accidentally rescued together.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-05",
+          "card-20",
+          "card-07",
+          "card-08"
+        ],
+        "score_total": 25.0,
+        "golden_theme_score_total": 27.0,
+        "stage_scene_gate": {
+          "status": "REPAIR",
+          "action": "restaurant visible across traffic -> phone map lowered -> two stools pulled close -> Aachu takes his chai -> Zuv clutches the biscuit packet",
+          "reaction": "What looked like a ruined evening becomes the date they needed because neither person insists that love must follow the original plan.",
+          "eye_line_or_attention": "Zuv stays during the pause, lowers the map, follows the chai pivot, and protects the biscuit packet with mock seriousness.",
+          "hands_or_object_movement": "restaurant visible across traffic -> phone map lowered -> two stools pulled close -> Aachu takes his chai -> Zuv clutches the biscuit packet",
+          "silence_or_pause": "",
+          "consequence": "Send this to your partner when your best dates are the ones the two of you accidentally rescued together.",
+          "reversal_or_payoff": "The plan failed. The date did not.",
+          "blockers": [
+            "stage-scene gate has no visible active partner action"
+          ]
+        },
+        "hard_fails": [
+          "stage-scene gate has no visible active partner action"
+        ],
+        "verdict": "REPAIR"
+      },
+      {
+        "name": "The Habit She Teased",
+        "story_lens": "Affection appears in the tiny habit one partner teases and quietly shares.",
+        "reader_mirror": "Couples with one repeated leaving-the-house ritual will recognize the eye-roll and the secret participation.",
+        "emotional_obstacle": "The callback risks reading like a generic domestic joke unless the earlier key, car, umbrella, and departure path make the shared habit specific.",
+        "aachu_specific_spark": "Aachu rolls her eyes, visibly turns back from the lift, and adds her hand to the same closed-door check.",
+        "zuv_active_role": "Zuv checks the exterior handle, keeps the car key in his other hand, and receives her return with amused recognition.",
+        "proof_engine": "closed exterior door -> Zuv tests handle -> car key stays in free hand -> Aachu turns back from lift -> both hands meet at the lock",
+        "emotional_reversal": "The annoying habit becomes a love receipt when the person teasing it returns and does the same thing beside their partner.",
+        "payoff": "She went back and checked it with him.",
+        "distribution_reason": "Send this to the partner whose habit you tease, share, and would miss if it disappeared.",
+        "process_influence_ids": [
+          "successful-carousel-standard",
+          "card-05",
+          "card-20",
+          "card-07",
+          "card-08"
+        ],
+        "score_total": 30.0,
+        "golden_theme_score_total": 30.0,
+        "stage_scene_gate": {
+          "status": "GO",
+          "action": "closed exterior door -> Zuv tests handle -> car key stays in free hand -> Aachu turns back from lift -> both hands meet at the lock",
+          "reaction": "The annoying habit becomes a love receipt when the person teasing it returns and does the same thing beside their partner.",
+          "eye_line_or_attention": "Zuv checks the exterior handle, keeps the car key in his other hand, and receives her return with amused recognition.",
+          "hands_or_object_movement": "closed exterior door -> Zuv tests handle -> car key stays in free hand -> Aachu turns back from lift -> both hands meet at the lock",
+          "silence_or_pause": "",
+          "consequence": "Send this to the partner whose habit you tease, share, and would miss if it disappeared.",
+          "reversal_or_payoff": "She went back and checked it with him.",
+          "blockers": []
+        },
+        "hard_fails": [],
+        "verdict": "GO"
+      }
+    ],
+    "rooms": {
+      "source_memory_room": {
+        "name": "Context And Source Memory",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Source Curator",
+            "role": "legality",
+            "claim": "Use derived patterns and source IDs only.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Successful Carousel Standard Reader",
+            "role": "creative north star",
+            "claim": "Prioritize public identity mirror and concrete couple receipts.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Creator Preference Ledger Reader",
+            "role": "memory",
+            "claim": "Avoid repeating cooled-down lanes as fresh ideas.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Source memory loaded before concept selection, including the successful-carousel standard and creator preference ledger.",
+        "inputs_used": [
+          "config/references/story-selling-canon/source-register.json",
+          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/concept-process-bank.json",
+          "/Users/himanshusharma/astoryoftwo-analysis/output/story-canon/2026-05-18/pattern-map.json",
+          "wiki/insights/successful-carousel-standard.md",
+          "memory/semantic/carousel-idea-preferences.md"
+        ],
+        "debate_records": [
+          "Source Curator: treat photos, objects, outfits, and canon cards as evidence, never as the premise.",
+          "Successful Carousel Standard Reader: define success before writing as cold-viewer recognition, not beautiful art.",
+          "Creator Preference Ledger Reader: avoid stale perfect-husband, aesthetic-first, and repeated chaos/home lanes."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+          "memory_policy": "fresh route must not recycle cooled-down lanes as fresh ideas"
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "story_meaning_room": {
+        "name": "Story Meaning Room",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Romance Novelist",
+            "role": "emotional arc",
+            "claim": "The route needs obstacle, proof, reversal, and earned payoff.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Film Scene Director",
+            "role": "scene grammar",
+            "claim": "The meaning must be drawable through behavior.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Aachu/Zuv Dynamics Writer",
+            "role": "character truth",
+            "claim": "Aachu gets spark; Zuv gets active response.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Emotional Obstacle Miner",
+            "role": "friction",
+            "claim": "No obstacle means no story engine.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Generated 3 story routes and selected Give Me A Minute, Not Distance as the strongest raw meaning.",
+        "inputs_used": [
+          "Aachu and Zuv leave for a date in their charcoal compact car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, pockets the phone, and notices her attention on two empty roadside chai stools. They keep the date at the unlabelled chai stall. The closing callback happens after the key is recovered and before they enter the car, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet.",
+          "config/references/identity/together/together-01.jpg",
+          "config/references/identity/together/together-18.jpg",
+          "config/references/identity/aachu/reel-jaldi.jpg",
+          "C-layer carousel package",
+          "golden theme remains mandatory",
+          "use process cards as influences, not the answer"
+        ],
+        "debate_records": [
+          "Route 'Give Me A Minute, Not Distance' human story: obstacle='Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding.', proof='missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock', payoff='He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.', score=30.0/30.",
+          "Route 'The Habit She Teased' human story: obstacle='The callback risks reading like a generic domestic joke unless the earlier key, car, umbrella, and departure path make the shared habit specific.', proof='closed exterior door -> Zuv tests handle -> car key stays in free hand -> Aachu turns back from lift -> both hands meet at the lock', payoff='She went back and checked it with him.', score=30.0/30.",
+          "Route 'The Date Did Not Fail' human story: obstacle='The pressure of a missed plan can turn disappointment into blame unless the couple sees the missed ordinary time beneath it.', proof='restaurant visible across traffic -> phone map lowered -> two stools pulled close -> Aachu takes his chai -> Zuv clutches the biscuit packet', payoff='The plan failed. The date did not.', score=25.0/30.",
+          "Human story check: the route must be about a relationship pressure becoming visible, not about a nice photo, outfit, place, or object.",
+          "Scene grammar check: Aachu must carry specific spark and Zuv must answer through visible behavior before copy or captions are written."
+        ],
+        "scores": {
+          "Give Me A Minute, Not Distance": 30.0,
+          "The Date Did Not Fail": 25.0,
+          "The Habit She Teased": 30.0
+        },
+        "selected_outputs": {
+          "raw_winner": "Give Me A Minute, Not Distance",
+          "human_story_setup": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+          "emotional_obstacle": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding."
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "audience_algorithm_room": {
+        "name": "Audience And Algorithm Room",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Retention Analyst",
+            "role": "swipe ladder",
+            "claim": "The route must create curiosity and middle-slide re-engagement.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Algorithm / Share-Save Strategist",
+            "role": "distribution",
+            "claim": "The route needs a send/save/tag reason.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Copy Chief",
+            "role": "wording",
+            "claim": "Public copy should stay name-free and behavior-led.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Culture And Taste Reader",
+            "role": "taste",
+            "claim": "The humor should feel warm, desi, and non-shaming.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Audience pass checked reader mirror, send/save logic, and taste.",
+        "inputs_used": [
+          "wiki/insights/successful-carousel-standard.md#What Success Means",
+          "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md#Comment Behavior"
+        ],
+        "debate_records": [
+          "Reader mirror: Couples who have turned one tiny plan failure into a whole fight will recognize themselves and think: this is us.",
+          "Send/save reason: Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+          "Success pressure: a strong route must earn partner tags, saves, or DMs because the viewer is saying 'this is us', not because the art is pretty.",
+          "Swipe pressure: the middle must carry receipt density and at least one visual proof beat that can be understood before reading a caption."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "distribution_reason": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+          "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "contrarian_repair_room": {
+        "name": "Contrarian Repair Room",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Harsh Critic",
+            "role": "route attack",
+            "claim": "The winner must survive genericness and private-context objections.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Genericness Detector",
+            "role": "specificity",
+            "claim": "Specific proof beats beat abstract romance.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Safety/Taste Guard",
+            "role": "safety",
+            "claim": "No shaming, privacy leak, or copied expression.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Visual Generativity Skeptic",
+            "role": "generation",
+            "claim": "The concept must become simple scenes.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Top routes were attacked and repair needs were recorded.",
+        "inputs_used": [
+          "Give Me A Minute, Not Distance",
+          "The Habit She Teased",
+          "The Date Did Not Fail"
+        ],
+        "debate_records": [
+          "Attack 'Give Me A Minute, Not Distance': hard_fails=['none']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+          "Attack 'The Habit She Teased': hard_fails=['none']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+          "Attack 'The Date Did Not Fail': hard_fails=['stage-scene gate has no visible active partner action']; repair target is stronger human obstacle, share setup, and visible Zuv action.",
+          "Genericness Detector: reject routes that would get 'beautiful' but not 'this is us'.",
+          "Visual Generativity Skeptic: block any route that can only be expressed as poster copy."
+        ],
+        "scores": {},
+        "selected_outputs": {},
+        "objections": [],
+        "repairs": [
+          "Repair top candidates against the success standard before downstream copy.",
+          "Keep the winner only if the share setup, human obstacle, and visible partner role survive the attack."
+        ],
+        "repaired_route_names": [
+          "The Habit She Teased",
+          "The Date Did Not Fail"
+        ]
+      },
+      "stage_scene_room": {
+        "name": "Stage-Scene Gate",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Stage Director",
+            "role": "blocking",
+            "claim": "The idea must play as action before copy.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Body Language Reader",
+            "role": "proof",
+            "claim": "Hands, distance, and object movement must prove the turn.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Silent Panel Reviewer",
+            "role": "visual story",
+            "claim": "A viewer should understand the beat with text hidden.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Winner was checked as a short staged scene before copy, caption, or prompt work.",
+        "inputs_used": [
+          "Give Me A Minute, Not Distance",
+          "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock"
+        ],
+        "debate_records": [
+          "Action: missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "Reaction: The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+          "Hands/object movement: missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "Silence/pause: missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "Consequence: Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+          "Gate rule: text completes the scene; text must not carry the scene."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "action": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "hands_or_object_movement": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+          "reversal_or_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him."
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      },
+      "final_synthesis_room": {
+        "name": "Final Synthesis Room",
+        "status": "GO",
+        "agents": [
+          {
+            "agent": "Story Lens Selector",
+            "role": "selection",
+            "claim": "Selected Give Me A Minute, Not Distance.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Story-Selling Rubric Judge",
+            "role": "score",
+            "claim": "Apply 30-point Story-Selling threshold.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          },
+          {
+            "agent": "Downstream Contract Writer",
+            "role": "handoff",
+            "claim": "Write emotional machine into C/D/B contracts.",
+            "objection": "",
+            "recommendation": "",
+            "score": null
+          }
+        ],
+        "summary": "Final selector synthesized the route into Layer E handoff fields.",
+        "inputs_used": [
+          "story_meaning_room",
+          "audience_algorithm_room",
+          "contrarian_repair_room",
+          "stage_scene_room",
+          "story_selling_score"
+        ],
+        "debate_records": [
+          "Selector chose 'Give Me A Minute, Not Distance' because it best connects human story, proof, reversal, and distribution.",
+          "Human setup: Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+          "What success looks like: A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+        ],
+        "scores": {},
+        "selected_outputs": {
+          "selected_story_lens": "Mature love does not remove childish irritation; it notices the need beneath it, respects the pause, and still finds a small way back to play.",
+          "human_story_setup": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+          "what_success_looks_like": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired."
+        },
+        "objections": [],
+        "repairs": [],
+        "repaired_route_names": []
+      }
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "reaction": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+      "eye_line_or_attention": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+      "hands_or_object_movement": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "silence_or_pause": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "consequence": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+      "reversal_or_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 30.0
+    },
+    "process_influences": [
+      {
+        "id": "successful-carousel-standard",
+        "title": "Successful Carousel Standard",
+        "influence_type": "living_standard",
+        "source_patterns": [],
+        "confidence": 0.9,
+        "reason": "Defines public identity mirror, couple receipts, active Zuv care, reversal, and send/save thesis."
+      },
+      {
+        "id": "card-05",
+        "title": "Banter To Belonging",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "copyblogger-story-that-sells",
+          "golden-viral-carousel-theme",
+          "reedsy-romance-guide"
+        ],
+        "confidence": 0.85,
+        "reason": "Useful influence for this story because: The humor must never make Aachu the problem."
+      },
+      {
+        "id": "card-20",
+        "title": "Saveable Lesson From One Scene",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "storybrand-framework",
+          "copyblogger-story-that-sells",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.81,
+        "reason": "Useful influence for this story because: The lesson must feel discovered through Aachu/Zuv, not pasted onto them."
+      },
+      {
+        "id": "card-07",
+        "title": "Anti-Ideal To Real Love",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "golden-viral-carousel-theme",
+          "storybrand-framework",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.9,
+        "reason": "Useful influence for this story because: This is the default rescue card when an idea is too aesthetic-first."
+      },
+      {
+        "id": "card-08",
+        "title": "Small Ritual, Large Promise",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "reedsy-romance-guide",
+          "copyblogger-story-that-sells"
+        ],
+        "confidence": 0.78,
+        "reason": "Useful influence for this story because: The object is proof only when tied to emotional labor."
+      }
+    ]
+  },
+  "layer_e_story_selling": {
+    "artifact": "layer-e-story-selling.json",
+    "markdown_artifact": "layer-e-story-selling.md",
+    "status": "GO",
+    "selected_story_lens": "Mature love does not remove childish irritation; it notices the need beneath it, respects the pause, and still finds a small way back to play.",
+    "emotional_machine": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding. -> missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock -> The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted. -> He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+    "human_story_setup": {
+      "cold_reader_doorway": "Couples who have turned one tiny plan failure into a whole fight will recognize themselves and think: this is us.",
+      "emotional_obstacle": "Traffic, wrong turns, and accumulated missed time create pressure: either the irritation becomes distance, or one partner stays near without crowding.",
+      "visible_human_proof": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "active_partner_role": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+      "emotional_turn": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+      "shareable_setup": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+      "earned_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him."
+    },
+    "success_definition": {
+      "audience_success": "A cold viewer thinks 'this is us' or sends/saves/tags a partner because the relationship truth is recognizable before the art is admired.",
+      "creative_success": "The deck works as silent panels: public hook, emotional obstacle, concrete receipts, active Zuv behavior, reversal, and earned final thesis.",
+      "brand_success": "The idea strengthens @a.storyof.two as warm, funny, desi relationship IP where small behaviors become evidence of love.",
+      "production_success": "Story-Selling and Golden Theme gates pass before C-layer writing, then visual, identity, request-locked native-format, QA, and audit gates must also pass. Default post/carousel delivery is 1080x1440 only; 1080x1920 Reel/Story is required only when explicitly requested.",
+      "source": "wiki/insights/successful-carousel-standard.md",
+      "memory_excerpt": "# Successful Carousel Standard\n\nlast_updated: 2026-06-27\nconfidence: 0.9\nstatus: living creative standard\nsources:\n- wiki/themes/calm-enough-for-chaos.md\n- output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md\n- output/reports/2026-05-24-carousel-performance-autopsy.md\n- output/reports/2026-05-24-carousel-growth-correction-plan.md\n- wiki/insights/carousel-quality-spine.md\n- config/skills/golden-viral-carousel-theme.md\n- config/references/golden-viral-carousel-theme-reference.md\n"
+    },
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "reaction": "The failed plan stops looking like a ruined date once the pause, shared chai, and returned hand reveal that ordinary time together was what both people wanted.",
+      "eye_line_or_attention": "Zuv lowers the phone, waits nearby without reaching, notices the disappointment, and lets the roadside chai pivot become mutual rather than managerial.",
+      "hands_or_object_movement": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "silence_or_pause": "missing car key caught in tote -> wrong-turn phone lowered -> quiet roadside pause without distance -> shared chai -> both return a hand to the closed-door lock",
+      "consequence": "Send this to the partner who will say this is us: the plan can fail, the mood can dip, and we can still find our way back to each other.",
+      "reversal_or_payoff": "He still checked the lock twice; she still rolled her eyes; then she went back and checked it with him.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5.0,
+      "aachu_zuv_specificity": 5.0,
+      "concrete_proof": 5.0,
+      "zuv_emotional_role": 5.0,
+      "tender_thesis": 5.0,
+      "share_send_potential": 5.0,
+      "total": 30.0
+    },
+    "process_influences": [
+      {
+        "id": "successful-carousel-standard",
+        "title": "Successful Carousel Standard",
+        "influence_type": "living_standard",
+        "source_patterns": [],
+        "confidence": 0.9,
+        "reason": "Defines public identity mirror, couple receipts, active Zuv care, reversal, and send/save thesis."
+      },
+      {
+        "id": "card-05",
+        "title": "Banter To Belonging",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "copyblogger-story-that-sells",
+          "golden-viral-carousel-theme",
+          "reedsy-romance-guide"
+        ],
+        "confidence": 0.85,
+        "reason": "Useful influence for this story because: The humor must never make Aachu the problem."
+      },
+      {
+        "id": "card-20",
+        "title": "Saveable Lesson From One Scene",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "storybrand-framework",
+          "copyblogger-story-that-sells",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.81,
+        "reason": "Useful influence for this story because: The lesson must feel discovered through Aachu/Zuv, not pasted onto them."
+      },
+      {
+        "id": "card-07",
+        "title": "Anti-Ideal To Real Love",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "golden-viral-carousel-theme",
+          "storybrand-framework",
+          "animalz-quality-content"
+        ],
+        "confidence": 0.9,
+        "reason": "Useful influence for this story because: This is the default rescue card when an idea is too aesthetic-first."
+      },
+      {
+        "id": "card-08",
+        "title": "Small Ritual, Large Promise",
+        "influence_type": "concept_process_card",
+        "source_patterns": [
+          "reedsy-romance-guide",
+          "copyblogger-story-that-sells"
+        ],
+        "confidence": 0.78,
+        "reason": "Useful influence for this story because: The object is proof only when tied to emotional labor."
+      }
+    ]
+  },
+  "carousel_story_director_persona": {
+    "contract": {
+      "skill": "config/skills/carousel-story-director-persona.md",
+      "agent": "agents/carousel-story-director.md",
+      "activation_order": [
+        "project and creator memory",
+        "Calm Enough For Your Chaos theme",
+        "viral theme analysis",
+        "carousel idea preference ledger",
+        "Layer E story-selling engine",
+        "golden-theme tournament",
+        "carousel story director persona before writing/designing"
+      ],
+      "rule": "Before any hook, slide copy, caption, visual direction, prompt, or image handoff, confirm hook, setup, proof, escalation, bridge, active Zuv role, earned ending, and send/save reason.",
+      "persists_until": [
+        "concept.json",
+        "slides.json",
+        "visual-debate.json",
+        "visual-plan-quality.json",
+        "prompt-pack.json",
+        "copy.json",
+        "codex-image-prompts/",
+        "final/",
+        "final-reels-stories/",
+        "visual-qa.md"
+      ],
+      "minimum_scores": {
+        "hook": 8,
+        "story": 8,
+        "bridge": 8,
+        "zuv_role": 8,
+        "ending": 8,
+        "send_save_potential": 8,
+        "stage_scene": 8
+      }
+    },
+    "status": "PASS",
+    "concept_diagnosis": {
+      "public_hook": "This is the kind of love\nI want us to grow into.",
+      "reader_identity_mirror": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart.",
+      "emotional_obstacle": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart.",
+      "aachu_proof": "FLASH-FORWARD COVER, one continuous physical scene and decisive choice. Wide diagonal view of the fixed rain-damp service-lane geography. Exactly Aachu and Zuv stand full-length at the same depth beside the single charcoal compact sedan, safely parked parallel to the quieter curb with its silver five-spoke rear wheel and small red rear-light wedge visible. Across the divided road, the fixed warm terracotta restaurant doorway with muted sage awning is visibly close but awkward to reach; it has no sign, letters, menu, staff, diners, silhouettes, or reflections. Beside the couple, the fixed narrow blue-grey chai counter with rust-red canopy and EXACTLY TWO EMPTY dark-wood stools waits with no vendor, cups, food, or signage. Aachu has taken one visible step toward the two stools: her feet and torso move stall-ward, her right hand gives one open-palm invitation toward those stools, and her left hand visibly supports the strap of her red handbag on her own left shoulder. Zuv turns the route phone inward in his left hand and has begun one visible following step behind her, looking at Aachu rather than the screen. The diagonal movement must read without copy as: the original plan failed and they are actively choosing the smaller date together. The fixed deep-navy umbrella remains closed against the car. No chai has been served. No touch, generic standing pose, scooter, motorbike, helmet, road sign, random lettering, or extra person.",
+      "zuv_active_role": "SLIDE 2 COMPOSITION OVERRIDE. This locked storybook diptych overrides any generic 'two characters maximum', 'one clear focal action', and 'no collage' language elsewhere in the prompt. Render exactly TWO LARGE, READABLE, UNFRAMED left-to-right time vignettes in the lower half, separated only by a narrow open-ivory gutter; never tiny thumbnails and never a hard divider. One clear action per vignette. Exactly Aachu and Zuv appear in each vignette: exactly four intentional person depictions across the page, with no third panel or fifth figure. LEFT / KEYS, outside the apartment door before departure: Zuv searches one trouser pocket while Aachu holds her red handbag; the single car key is visibly caught in the handbag strap, making both of their annoyed suspicion funny. RIGHT / ROUTE, later inside the same single modest dark PARKED car: only their upper bodies are visible; Aachu looks out her side window while Zuv glances at one rerouting map phone held safely below eye level. The map shows only one simple curved route line and location dot, with no readable words, icons, roads, UI labels, or decorative micro-text. The intentional paired incidents must read as keys first, route second. No reflection people, scooter, motorbike, helmet, road sign, menu text, shop text, or invented lettering.",
+      "bridge": "aspirational promise -> familiar small irritation -> requested space -> respectful nearness -> noticing the deeper need -> improvised roadside date -> funny shared-habit coda",
+      "earned_ending": "You still checked the lock twice.\nI still rolled my eyes.\n\nThen I went back\nand checked it with you.",
+      "send_save_reason": "A cold viewer should want to send the cover line to their partner."
+    },
+    "hook_bank": [
+      {
+        "hook": "This is the kind of love\nI want us to grow into.",
+        "score": 9,
+        "why": "Current selected first-slide hook from deterministic builder."
+      },
+      {
+        "hook": "Mature love does not mean becoming less irritating or less human. It means learning the ne",
+        "score": 8,
+        "why": "Universal relationship truth variant; should be sharpened by the next creative pass."
+      },
+      {
+        "hook": "Some love stories start with tiny rituals.",
+        "score": 7,
+        "why": "Fallback lane hook; usually weaker than a behavior-specific line."
+      },
+      {
+        "hook": "The line is not the story yet.",
+        "score": 8,
+        "why": "Process reminder when a liked payoff is being mistaken for a deck."
+      },
+      {
+        "hook": "Make them send it before making it pretty.",
+        "score": 8,
+        "why": "Distribution test hook for internal review, not public copy."
+      }
+    ],
+    "selected_hook": "This is the kind of love\nI want us to grow into.",
+    "story_spine": [
+      {
+        "beat": "hook",
+        "job": "Stop the scroll with a public relationship truth.",
+        "must_show": "This is the kind of love\nI want us to grow into."
+      },
+      {
+        "beat": "setup",
+        "job": "Define the pattern or situation.",
+        "must_show": "Mature love does not mean becoming less irritating or less human. It means learning the need beneath each other's small reactions, staying near without crowding, and still choosing the date when the plan falls apart."
+      },
+      {
+        "beat": "proof",
+        "job": "Show a concrete Aachu/Zuv behavior.",
+        "must_show": "One visible action, not explanation."
+      },
+      {
+        "beat": "escalation",
+        "job": "Sharpen recognition or humor.",
+        "must_show": "A more specific receipt."
+      },
+      {
+        "beat": "bridge",
+        "job": "Turn surface behavior into emotional meaning.",
+        "must_show": "aspirational promise -> familiar small irritation -> requested space -> respectful nearness -> noticing the deeper need -> improvised roadside date -> funny shared-habit coda"
+      },
+      {
+        "beat": "zuv_role",
+        "job": "Make Zuv's calm active.",
+        "must_show": "He notices, chooses, carries, protects, or softens."
+      },
+      {
+        "beat": "stage_scene",
+        "job": "Make the story understandable if poster text is hidden.",
+        "must_show": "Action, reaction, hands, eye-line, distance, object movement, consequence, and payoff."
+      },
+      {
+        "beat": "ending",
+        "job": "Land the earned save/share thesis.",
+        "must_show": "You still checked the lock twice.\nI still rolled my eyes.\n\nThen I went back\nand checked it with you."
+      }
+    ],
+    "structural_audit": {
+      "hook": 9,
+      "story": 9,
+      "bridge": 9,
+      "zuv_role": 9,
+      "ending": 9,
+      "send_save_potential": 9,
+      "stage_scene": 9
+    },
+    "verdict": "PASS: persona spine is loaded and present in package artifacts.",
+    "blocks": [],
+    "concept_selection_used": false,
+    "source_story": "Aachu and Zuv leave for a date in their charcoal compact car. A key caught in Aachu's red handbag and a rerouting map create small irritation. The restaurant is close across a divided road but awkward to reach, so they park safely on the quieter service lane. Aachu says, ‘Don’t talk to me.’ Zuv gives her a minute without leaving, pockets the phone, and notices her attention on two empty roadside chai stools. They keep the date at the unlabelled chai stall. The closing callback happens after the key is recovered and before they enter the car, entirely outside their apartment: Zuv checks the real edge-mounted lock on the fully closed door; Aachu walks toward the lift, returns, and checks the same door with him. Car only—no scooter, motorbike, or helmet."
+  },
+  "identity_dossier": {
+    "path": "output/carousels/2026-08-10/the-love-we-grow-into-3/identity-dossier.json",
+    "preflight_path": "output/carousels/2026-08-10/the-love-we-grow-into-3/identity-generation-preflight.md",
+    "contact_sheet_path": "output/carousels/2026-08-10/the-love-we-grow-into-3/identity-face-contact-sheet.jpg",
+    "status": "REQUIRED_BEFORE_IMAGE_GENERATION"
+  },
+  "creative_baseline": {
+    "artifact": "creative-baseline.json",
+    "status": "supplied",
+    "creative_authority": "model_first",
+    "preservation_rule": "Creative baseline source of truth: model owns concept, copy, and visual invention; engineering guards repetition, identity, visuals, exact text, brandmark, dimensions, stale artifacts, house guidance.",
+    "source": "Creator-approved mature-love route from the current chat on 2026-08-10, rebuilt after the creator rejected the earlier logistics-led visual deck"
+  }
+}

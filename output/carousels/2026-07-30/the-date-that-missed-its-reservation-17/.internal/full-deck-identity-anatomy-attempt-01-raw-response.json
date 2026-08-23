@@ -1,0 +1,539 @@
+{
+  "schema_version": "full-deck-identity-anatomy-review/v1",
+  "reviewer_task_id": "/root/full_deck_identity_17",
+  "reviewer_run_id": "full-deck-identity-17-20260730-attempt-01",
+  "image_set_sha256": "a6ca6c8585394b3a7d4823b2c30ece0eeaeaec8f082dd6c60cecfbbee6a569c6",
+  "status": "REPAIR",
+  "pass": false,
+  "review_scope": [
+    "whole-person Aachu and Zuv likeness against the three named identity references",
+    "cross-slide face, hair, body-type, relative-scale, and outing-wardrobe continuity",
+    "visible arm and hand count, ownership, laterality, attachment, fingers, and object contact",
+    "unexpected people, portraits that read as actors, reflections, silhouettes, and duplicate bodies",
+    "whole-person separation from architecture, furniture, vehicles, doors, and other solid planes",
+    "same-outing vehicle continuity",
+    "visible lettering other than the locked slide copy and one exact top-right @a.storyof.two brandmark"
+  ],
+  "reference_images": [
+    {
+      "option_id": "ID01",
+      "path": "config/references/identity/together/together-01.jpg",
+      "sha256": "1633655653c6a3bd1ca79894676037a5a4b61786c3813c363554346257007e64",
+      "identity_use": "Both faces, real whole-person proportions, approximately two-inch height relationship, white-and-blue date wardrobe, denim, grey trousers, and red footwear anchors."
+    },
+    {
+      "option_id": "ID02",
+      "path": "config/references/identity/together/together-18.jpg",
+      "sha256": "cde5964aad5bbdb00399cbc9f651f3dc69bd104f87ef7ad242488fdb72c249a5",
+      "identity_use": "Close facial structure for both people, especially Zuv's brow, eyes, nose, cheek and beard shape and Aachu's brow, nose, lips, cheek and jaw."
+    },
+    {
+      "option_id": "ID03",
+      "path": "config/references/identity/aachu/reel-jaldi.jpg",
+      "sha256": "dc0e1cff68cfb79ba1528d6bad37b0556c48f08f7ad5e7b9e77db34389c265c2",
+      "identity_use": "Aachu's large expressive eyes, softly arched brows, delicate nose, oval cheek and jaw structure, natural lips, long dark hair, adult hand proportions, and warm South Asian skin tone."
+    }
+  ],
+  "reviewed_assets": [
+    {
+      "slide": 1,
+      "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-01.png",
+      "sha256": "f6c197e4e3f652fc31449ffdde5da2d4cba394a0e938e89e8eaabbd5aa46c606",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "slide": 2,
+      "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-02.png",
+      "sha256": "decfd1bca5abd342cefbeb3462e8c9af9f9f5906341f8664ba51b8b1d19962e2",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "slide": 3,
+      "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-03.png",
+      "sha256": "e548b6cd18006864715085ca13289a51ceefbd98470aed08869fbe8bfa34ceef",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "slide": 4,
+      "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-04.png",
+      "sha256": "55c9764f919791a95527f998d684f5038c6a6bf38c89d7b64d3ccb7da1ca074c",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "slide": 5,
+      "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-05.png",
+      "sha256": "89286691fc0b160093836e105dc6d989df9e791831711275f502f061cbfe2946",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "slide": 6,
+      "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-06.png",
+      "sha256": "a7be2c071a38afaa7da6e04c9e77fd45861e480d54aa5e02b0542775dce20656",
+      "width": 1080,
+      "height": 1440
+    },
+    {
+      "slide": 7,
+      "path": ".internal/full-deck-visual-quarantine/attempt-01/final/slide-07.png",
+      "sha256": "1c566159f993445d27fad06a5e6cdb144c22d839bfa265b77d540f8574bea5b0",
+      "width": 1080,
+      "height": 1440
+    }
+  ],
+  "deck_identity_consistency": {
+    "pass": true,
+    "aachu": {
+      "pass": true,
+      "notes": "Across clear face views on slides 1 through 4 and 6, Aachu retains the reference bundle's expressive dark eyes and brows, soft oval face, delicate nose, natural lips, long dense dark hair, warm South Asian skin tone, and stable adult body type. Slides 5 and 7 use rear or small profile evidence but remain supported by the same hair, body, wardrobe, and posture anchors."
+    },
+    "zuv": {
+      "pass": true,
+      "notes": "Across clear face views on slides 1 through 4 and 6, Zuv retains dense dark curly hair, strong brows, defined nose, warm South Asian skin tone, short natural beard and moustache, rounded adult facial structure, and grounded broad body type. Expression and angle change without replacing his identity."
+    },
+    "relative_scale": {
+      "pass": true,
+      "notes": "Where both are comparably staged, Zuv reads modestly taller and broader without becoming oversized and Aachu remains adult-sized. Slides 4 and 6 use depth or seated asymmetry, while slide 7 uses Aachu's lean and raised heel; none creates a pixie-sized Aachu or lanky, chiseled Zuv."
+    },
+    "face_drift_hard_failures": [],
+    "whole_person_drift_hard_failures": []
+  },
+  "deck_continuity": {
+    "pass": false,
+    "wardrobe": {
+      "pass": false,
+      "evidence": [
+        "Aachu's core white shirt, blue jeans, cream tote, red umbrella, and blue-red scarf anchors recur, but slide 1 changes her outing footwear to white sneakers while the dry departure callback on slide 7 uses the selected-reference red flats.",
+        "Zuv changes from a navy overshirt, white T-shirt, tan jogger-like trousers, and red-black shoes on slide 1 to a navy jacket over a blue striped shirt and tan trousers on slide 2, then to the blue striped shirt and loose grey trousers on slides 3 through 7. These are presented as one outing with dry departure bookends, not separate dates."
+      ]
+    },
+    "car": {
+      "pass": false,
+      "evidence": [
+        "Slide 1 shows a dark compact car with one rear-quarter window and rectangular tail-lamp treatment.",
+        "Slide 3 shows a different dark sedan rear with a broad two-part tail lamp, trunk geometry, shark-fin antenna, and visible '1.5D' badge.",
+        "Slide 4 shows a more upright hatchback or crossover rear with different roofline, rear glass, lamp, bumper, and wheel geometry.",
+        "Slide 6 shows a dark blue SUV or crossover side/rear with another window, roof, body-height, and lamp system.",
+        "Slide 5 additionally introduces a white vehicle at the left edge without making it clearly unrelated, which compounds the vehicle-switch reading."
+      ],
+      "required_lock": "Choose one unbadged modest dark four-door car and keep its exact paint tone, body class, rear-quarter window, roofline, tail lamps, trunk or hatch seam, wheel, bumper, and plate treatment identical on slides 1, 3, 4, and 6. Remove the white slide-5 vehicle or replace it with the same canonical car if it is meant to be theirs."
+    }
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "status": "REPAIR",
+      "pass": false,
+      "identity_likeness": {
+        "pass": true,
+        "evidence": "Both clear faces retain the named reference bundle's facial, hair, skin-tone, beard, and adult body anchors."
+      },
+      "height_and_body_scale": {
+        "pass": true,
+        "evidence": "Their standing scale is mutually plausible and Zuv reads only modestly taller and broader."
+      },
+      "anatomy_inventory": {
+        "pass": true,
+        "expected_visible_hands": 4,
+        "observed_visible_hands": 4,
+        "evidence": "Aachu's right pointing hand and relaxed left hand and Zuv's right umbrella hand and left phone hand each have a traceable shoulder-to-wrist attachment and plausible object contact. No extra limb or malformed digit is visible."
+      },
+      "scene_entity_integrity": {
+        "pass": true,
+        "expected_people": 2,
+        "observed_people": 2,
+        "unexpected_entities": [],
+        "reflections": [],
+        "evidence": "Only Aachu and Zuv read as people; traffic and window texture do not form another unambiguous actor."
+      },
+      "spatial_topology": {
+        "pass": true,
+        "solid_boundary_intersections": [],
+        "ambiguous_occlusions": [],
+        "evidence": "Both silhouettes remain separate from the umbrella, stall, car, road barrier, and ground except at the declared hand-object and foot-ground contacts."
+      },
+      "wardrobe_continuity": {
+        "pass": false,
+        "evidence": "Zuv's white T-shirt, tan jogger-like trousers, and navy overshirt do not match the blue striped shirt and loose grey trousers used for the same outing on slides 3 through 7. Aachu's white sneakers do not match the red flats in the dry departure callback."
+      },
+      "car_continuity": {
+        "pass": false,
+        "evidence": "The visible rear-quarter, window, and tail-lamp design do not bind cleanly to the cars on slides 3, 4, and 6."
+      },
+      "other_text": {
+        "pass": false,
+        "brandmark_count": 1,
+        "brandmark_exact": true,
+        "brandmark_location": "top-right",
+        "observed_extra_text": [
+          "CHAI on the stall fascia",
+          "CHAI / KADAK CHAI / MASALA CHAI / GINGER CHAI / ELAICHI CHAI on the menu board",
+          "THE COURTYARD KITCHEN on the restaurant frontage",
+          "partial license-plate lettering"
+        ]
+      },
+      "required_repairs": [
+        "Preserve both faces, the four valid hands, umbrella contact, body scale, exact slide copy, and one top-right brandmark.",
+        "Put Zuv in the same blue striped shirt, loose grey trousers, and red-black shoes used on slides 3 through 7; put Aachu in the same red flats used in the departure callback, without changing her white shirt, jeans, tote, scarf, or likeness.",
+        "Replace the visible car with the deck's single canonical unbadged modest dark car, matching the same rear-quarter window, roofline, lamp, seam, wheel, bumper, paint, and plate treatment used on slides 3, 4, and 6 after repair.",
+        "Remove every stall, menu, restaurant, license-plate, and map label or letter. Keep only the exact locked slide copy and one exact top-right @a.storyof.two."
+      ]
+    },
+    {
+      "slide": 2,
+      "status": "REPAIR",
+      "pass": false,
+      "identity_likeness": {
+        "pass": true,
+        "evidence": "Both faces, hair silhouettes, skin tones, beard, and adult builds are recognizable against the references."
+      },
+      "height_and_body_scale": {
+        "pass": true,
+        "evidence": "The head and shoulder relationship preserves Zuv as modestly taller without distorting either person."
+      },
+      "anatomy_inventory": {
+        "pass": false,
+        "expected_visible_hands": 4,
+        "observed_visible_hands": 3,
+        "evidence": "Aachu's right pointing hand and left tote hand pass. Zuv shows only the hand in the viewer-right jacket pocket, which reads as his anatomical left; the locked action requires his anatomical right to search the pocket and his anatomical left to remain relaxed and visible. No malformed fingers are present, but the required hand map is not satisfied."
+      },
+      "scene_entity_integrity": {
+        "pass": true,
+        "expected_people": 2,
+        "observed_people": 2,
+        "unexpected_entities": [],
+        "reflections": []
+      },
+      "spatial_topology": {
+        "pass": true,
+        "solid_boundary_intersections": [],
+        "ambiguous_occlusions": [],
+        "evidence": "The tote, caught key, hands, jacket pocket, door, cabinet, and bodies have coherent front-behind and contact order."
+      },
+      "wardrobe_continuity": {
+        "pass": false,
+        "evidence": "The dry pre-departure scene uses tan trousers and a navy jacket while the other dry departure callback and the outing use loose grey trousers and the blue striped shirt."
+      },
+      "car_continuity": {
+        "pass": true,
+        "evidence": "No vehicle is visible."
+      },
+      "other_text": {
+        "pass": true,
+        "brandmark_count": 1,
+        "brandmark_exact": true,
+        "brandmark_location": "top-right",
+        "observed_extra_text": []
+      },
+      "required_repairs": [
+        "Keep Aachu's two correct hands and the key caught in the tote strap unchanged.",
+        "Move the pocket-search action to Zuv's anatomical right hand and render his anatomical left hand relaxed, open, visible, and continuously attached; do not add any other hand.",
+        "Use the same blue striped shirt and loose grey trousers established for the departure and outing. If a navy outer layer is retained, make it a removable layer over that unchanged base outfit rather than a different outfit.",
+        "Preserve both faces, exact copy, single top-right brandmark, and the two-person count."
+      ]
+    },
+    {
+      "slide": 3,
+      "status": "REPAIR",
+      "pass": false,
+      "identity_likeness": {
+        "pass": true,
+        "evidence": "The serious expressions remain compatible with the same Aachu and Zuv facial structure, hair, skin tone, beard, and adult builds."
+      },
+      "height_and_body_scale": {
+        "pass": true,
+        "evidence": "Their standing body sizes remain mutually plausible and do not invert the real relationship."
+      },
+      "anatomy_inventory": {
+        "pass": false,
+        "expected_visible_hands": 2,
+        "observed_visible_hands": 3,
+        "evidence": "Aachu's umbrella hand is visible as required, but her other hand also hangs visibly at her side. Zuv holds the phone with the screen-left hand, which reads as anatomical right in this frontal three-quarter stance, while the lock requires anatomical left. Fingers and wrists are otherwise plausible."
+      },
+      "scene_entity_integrity": {
+        "pass": false,
+        "expected_people": 2,
+        "observed_people": 3,
+        "unexpected_entities": [
+          "one distinct blue-clothed human figure inside the lit restaurant frontage"
+        ],
+        "reflections": [],
+        "evidence": "The focal couple is joined by a small but legible head-and-torso figure behind the restaurant windows."
+      },
+      "spatial_topology": {
+        "pass": true,
+        "solid_boundary_intersections": [],
+        "ambiguous_occlusions": [],
+        "evidence": "Both focal bodies remain separate from each other and the car, road, phone, umbrella, and clothing surfaces."
+      },
+      "wardrobe_continuity": {
+        "pass": true,
+        "evidence": "Aachu's white shirt, jeans, tote and umbrella and Zuv's blue striped shirt and grey trousers match the main outing lock."
+      },
+      "car_continuity": {
+        "pass": false,
+        "evidence": "This broad two-part-tail-lamp sedan with shark-fin antenna and '1.5D' badge does not match the car bodies on slides 1, 4, and 6."
+      },
+      "other_text": {
+        "pass": false,
+        "brandmark_count": 1,
+        "brandmark_exact": true,
+        "brandmark_location": "top-right",
+        "observed_extra_text": [
+          "THE COURTYARD KITCHEN on the restaurant frontage",
+          "1.5D on the car"
+        ]
+      },
+      "required_repairs": [
+        "Keep both faces, body scale, Aachu's anatomical right umbrella hand, exact copy, and one top-right brandmark.",
+        "Fully occlude Aachu's non-action hand behind her torso or tote and put the phone in Zuv's anatomical left hand; keep his other hand fully hidden and add no new hand.",
+        "Remove the blue-clothed restaurant figure and reconstruct only glazing, plants, tables, light, and rain behind it; add no staff, diners, pedestrians, driver faces, silhouettes, or human reflections.",
+        "Make the car the deck's single canonical unbadged modest dark car and match all rear-quarter geometry used on repaired slides 1, 4, and 6.",
+        "Remove the restaurant sign and car badge lettering, plus any other map, plate, or storefront letters. Keep only the exact locked slide copy and one exact top-right @a.storyof.two."
+      ]
+    },
+    {
+      "slide": 4,
+      "status": "REPAIR",
+      "pass": false,
+      "identity_likeness": {
+        "pass": true,
+        "evidence": "Aachu and Zuv retain their recognizable hair, face, skin, beard, and stable adult body anchors despite the depth difference."
+      },
+      "height_and_body_scale": {
+        "pass": true,
+        "evidence": "The larger foreground Aachu and smaller background Zuv are explained by camera depth; neither body itself is miniaturized or stretched."
+      },
+      "anatomy_inventory": {
+        "pass": false,
+        "expected_visible_hands": 3,
+        "observed_visible_hands": 3,
+        "evidence": "Aachu's two folded-arm hands are plausible and continuously attached. Zuv's phone is held by the screen-left hand, which reads as anatomical right in the near-frontal stance, while the locked map requires anatomical left; his anatomical left is instead hidden in the viewer-right trouser pocket."
+      },
+      "scene_entity_integrity": {
+        "pass": true,
+        "expected_people": 2,
+        "observed_people": 2,
+        "unexpected_entities": [],
+        "reflections": []
+      },
+      "spatial_topology": {
+        "pass": true,
+        "solid_boundary_intersections": [],
+        "ambiguous_occlusions": [],
+        "evidence": "The crossed arms, lowered phone, umbrella lean, car, wall, ground, and both whole-person silhouettes remain physically separable."
+      },
+      "wardrobe_continuity": {
+        "pass": true,
+        "evidence": "The white shirt, jeans, tote and scarf for Aachu and blue striped shirt, grey trousers and red-black shoes for Zuv match the main outing."
+      },
+      "car_continuity": {
+        "pass": false,
+        "evidence": "The upright hatchback or crossover rear, lamp, roofline, wheel and bumper differ from the cars on slides 1, 3, and 6."
+      },
+      "other_text": {
+        "pass": true,
+        "brandmark_count": 1,
+        "brandmark_exact": true,
+        "brandmark_location": "top-right",
+        "observed_extra_text": []
+      },
+      "required_repairs": [
+        "Keep Aachu's folded arms, both faces, their clean body gap, umbrella-to-ground and umbrella-to-car lean, exact copy, and one top-right brandmark.",
+        "Put the lowered phone in Zuv's anatomical left hand and fully hide his anatomical right hand, with continuous shoulder, sleeve, wrist, and grip anatomy.",
+        "Replace the visible vehicle with the same canonical unbadged modest dark car used after repair on slides 1, 3, and 6, preserving its exact body class, paint, glass, lamp, seam, wheel, bumper, and plate treatment."
+      ]
+    },
+    {
+      "slide": 5,
+      "status": "REPAIR",
+      "pass": false,
+      "identity_likeness": {
+        "pass": true,
+        "evidence": "The rear and profile view cannot independently prove faces, but the long dark hair, Zuv curl and beard profile, body proportions, wardrobe, tote, umbrella and posture remain consistent with the clear-face slides and references."
+      },
+      "height_and_body_scale": {
+        "pass": true,
+        "evidence": "At comparable depth, Zuv reads modestly taller and broader while Aachu remains adult-sized."
+      },
+      "anatomy_inventory": {
+        "pass": true,
+        "expected_visible_hands": 1,
+        "observed_visible_hands": 1,
+        "evidence": "Only Zuv's lowered phone hand is visible; it has a continuous sleeve, forearm, wrist, fingers, and phone contact. Aachu's hands and Zuv's other hand remain naturally occluded."
+      },
+      "scene_entity_integrity": {
+        "pass": true,
+        "expected_people": 2,
+        "observed_people": 2,
+        "unexpected_entities": [],
+        "reflections": [],
+        "evidence": "The frontage is empty; no staff, diners, silhouettes, or human reflections are legible."
+      },
+      "spatial_topology": {
+        "pass": true,
+        "solid_boundary_intersections": [],
+        "ambiguous_occlusions": [],
+        "evidence": "Hair, shoulders, clothing, tote, umbrella, phone, road, frontage, and both bodies remain spatially distinct."
+      },
+      "wardrobe_continuity": {
+        "pass": true,
+        "evidence": "The main outing wardrobe and carried accessories remain coherent."
+      },
+      "car_continuity": {
+        "pass": false,
+        "evidence": "A white vehicle at the left edge is the only visible car and is not clearly established as unrelated, creating an avoidable switch from the locked dark car."
+      },
+      "other_text": {
+        "pass": false,
+        "brandmark_count": 1,
+        "brandmark_exact": true,
+        "brandmark_location": "top-right",
+        "observed_extra_text": [
+          "THE GARDEN TABLE",
+          "KITCHEN / BAKERY / COFFEE",
+          "CLOSED",
+          "See You Soon",
+          "menu-sheet micro-lettering"
+        ]
+      },
+      "required_repairs": [
+        "Preserve the couple's current bodies, hair, wardrobe, single visible phone hand, empty frontage, exact copy, and one top-right brandmark.",
+        "Remove the white car completely, or replace it with the deck's canonical modest dark car only if this vehicle is intended to be theirs.",
+        "Remove all restaurant-name, category, closure, menu, and pseudo-lettering. Show closure through an unlettered dark gate, chain, unlit frontage, or other non-text object state. Keep only the exact locked slide copy and one exact top-right @a.storyof.two."
+      ]
+    },
+    {
+      "slide": 6,
+      "status": "REPAIR",
+      "pass": false,
+      "identity_likeness": {
+        "pass": true,
+        "evidence": "Both close faces retain the reference bundle's eyes, brows, nose, lips, cheek and jaw structure, dark hair, beard, skin tone, and stable adult bodies."
+      },
+      "height_and_body_scale": {
+        "pass": true,
+        "evidence": "The seated overlap does not distort either person's head, torso, arms, or legs and does not make Aachu tiny or Zuv oversized."
+      },
+      "anatomy_inventory": {
+        "pass": false,
+        "expected_visible_hands": 2,
+        "observed_visible_hands": 3,
+        "evidence": "Aachu's chai-glass hand and Zuv's packet hand are owned, attached, and plausible, but Zuv also shows his other hand holding a second chai glass. The locked hand map requires all other hands outside the crop, so the extra hand and second-glass action are not authorized."
+      },
+      "scene_entity_integrity": {
+        "pass": false,
+        "expected_people": 2,
+        "observed_people": "2 focal people plus multiple distinct background human silhouettes",
+        "unexpected_entities": [
+          "multiple seated and standing human silhouettes across both lit restaurant floors"
+        ],
+        "reflections": [],
+        "evidence": "Numerous head-and-torso silhouettes are visible through the lit building windows behind the couple."
+      },
+      "spatial_topology": {
+        "pass": true,
+        "solid_boundary_intersections": [],
+        "ambiguous_occlusions": [],
+        "evidence": "The focal faces, shoulders, arms, glasses, packet, chairs, car, table and ground remain separable; the failure is authorization and continuity, not malformed contact."
+      },
+      "wardrobe_continuity": {
+        "pass": true,
+        "evidence": "The white shirt and jeans for Aachu and blue striped shirt and grey trousers for Zuv match the main outing."
+      },
+      "car_continuity": {
+        "pass": false,
+        "evidence": "The dark blue SUV or crossover window, roof, side body and tail lamp do not match the other outing vehicles."
+      },
+      "other_text": {
+        "pass": false,
+        "brandmark_count": 1,
+        "brandmark_exact": true,
+        "brandmark_location": "top-right",
+        "observed_extra_text": [
+          "THE LITTLE POND on the background restaurant",
+          "PARLE-G and package subcopy",
+          "printed child portrait and label graphics on the biscuit packet",
+          "CHAI",
+          "10/-"
+        ]
+      },
+      "required_repairs": [
+        "Preserve both faces, Aachu's anatomical right glass-to-lips contact, Zuv's anatomical right packet-protection hand, body closeness, exact copy, and one top-right brandmark.",
+        "Remove Zuv's other visible hand and the second chai glass; reconstruct his sleeve, lap, and chair so that no wrist, fingers, or glass remains. Do not add another hand.",
+        "Remove every background human silhouette from both restaurant floors and reconstruct only empty glazing, tables, lights, architecture, trees, and rain.",
+        "Replace the visible vehicle with the deck's single canonical unbadged modest dark car, matching repaired slides 1, 3, and 4 exactly.",
+        "Replace the branded biscuit wrapper with a plain unlettered paper biscuit packet with no portrait, logo, letters, or pseudo-text. Remove THE LITTLE POND, CHAI, 10/-, and all other signage. Keep only the exact locked slide copy and one exact top-right @a.storyof.two."
+      ]
+    },
+    {
+      "slide": 7,
+      "status": "PASS",
+      "pass": true,
+      "identity_likeness": {
+        "pass": true,
+        "evidence": "Small profile and rear evidence retains Aachu's oval profile and long dark hair and Zuv's dense curls, brow, nose, beard, warm skin and broad adult build; wardrobe and body anchors match the clear-face slides and references."
+      },
+      "height_and_body_scale": {
+        "pass": true,
+        "evidence": "Zuv reads modestly taller and broader. Aachu's forward lean and raised heel explain the larger head-height offset without miniaturizing her."
+      },
+      "anatomy_inventory": {
+        "pass": true,
+        "expected_visible_hands": 2,
+        "observed_visible_hands": 2,
+        "evidence": "Aachu's right palm has a continuous shoulder, upper arm, elbow, forearm, wrist, five plausible digits, and flat door contact. Zuv's lever hand has continuous sleeve, forearm, wrist, plausible curled fingers, and lever contact; his other hand is fully hidden in the trouser pocket. No extra limb, malformed digit, or ownerless hand is visible."
+      },
+      "scene_entity_integrity": {
+        "pass": true,
+        "expected_people": 2,
+        "observed_people": 2,
+        "unexpected_entities": [],
+        "reflections": [],
+        "evidence": "Only Aachu and Zuv are visible; the lift gap, plant, tote, umbrella, footprints, and door do not form another person."
+      },
+      "spatial_topology": {
+        "pass": true,
+        "solid_boundary_intersections": [],
+        "ambiguous_occlusions": [],
+        "evidence": "Both whole-person silhouettes remain separate from the closed door, wall, jamb, lift, floor, tote and umbrella except at declared palm-to-door, hand-to-lever, shoe-to-floor, tote-to-shoulder, and umbrella-to-tote contacts."
+      },
+      "wardrobe_continuity": {
+        "pass": true,
+        "evidence": "White shirt, blue jeans, cream tote, red umbrella and red flats for Aachu and blue striped shirt, grey trousers and red-black shoes for Zuv preserve the strongest selected-reference departure anchors."
+      },
+      "car_continuity": {
+        "pass": true,
+        "evidence": "No vehicle is visible."
+      },
+      "other_text": {
+        "pass": true,
+        "brandmark_count": 1,
+        "brandmark_exact": true,
+        "brandmark_location": "top-right",
+        "observed_extra_text": []
+      },
+      "required_repairs": []
+    }
+  ],
+  "deck_level_issues": [
+    "Slides 1 through 6 fail at least one hard gate; therefore the image set cannot pass.",
+    "Same-outing wardrobe is not locked across the nonlinear departure, route, pause, and chai beats.",
+    "The car changes body class and detailed rear geometry across slides 1, 3, 4, and 6, with an additional ambiguous white car on slide 5.",
+    "Slides 2, 3, 4, and 6 do not match their locked visible-hand ownership or laterality maps.",
+    "Slides 3 and 6 contain unauthorized background people or human silhouettes.",
+    "Slides 1, 3, 5, and 6 contain visible lettering beyond the exact slide copy and the one permitted brandmark."
+  ],
+  "decision": {
+    "verdict": "REJECT_ATTEMPT_DO_NOT_PROMOTE",
+    "identity_result": "PASS",
+    "anatomy_entity_continuity_result": "REPAIR",
+    "identity_anatomy_entity_gate_passed": false,
+    "batch_continuation_allowed_by_this_review": false,
+    "summary": "Aachu and Zuv remain recognizably the same two people with stable whole-person body types and generally sound local anatomy, but the exact seven-asset set fails hand-map, unexpected-entity, outing-wardrobe, vehicle-continuity, and stray-lettering gates. Slides 1 through 6 require the listed pixel repairs; slide 7 passes this audit slice."
+  }
+}

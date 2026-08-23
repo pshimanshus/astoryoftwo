@@ -1,0 +1,223 @@
+{
+  "schema_version": "2.1",
+  "status": "REPAIR",
+  "proof_state": "BLOCKED_VISUAL_QA",
+  "image_set_sha256": "e0781bbe7762418a243175a27d3afe7997d451efc18905f2035f9b62663c4db2",
+  "reviews": {
+    "anatomy_entity_spatial_identity": {
+      "reviewer_id": "/root/slide7_identity_uturn_pixels",
+      "pass": true,
+      "evidence": "Aachu/Zuv likeness, wardrobe, two-person count, exactly two visible hands, hand attachment, occlusion, solid-boundary topology, no touch, no reflections, and no extra text all pass."
+    },
+    "storytelling_richness_text_style": {
+      "reviewer_id": "/root/slide7_event_b_uturn_pixels",
+      "pass": false,
+      "evidence": "The lever spindle is about 103 to 110 pixels from the right slab edge, roughly 23 to 25 percent of the door width, so it still floats in the main field. The footprint curve also does not clearly prove the complete outward-U-turn-return path."
+    }
+  },
+  "slides": [
+    {
+      "slide": 7,
+      "native_outputs": {
+        "instagram_post": {
+          "path": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "sha256": "6fc88c17732b770d7da525fe82f57e611b28479df6e9a8538697843dc6060577",
+          "width": 1080,
+          "height": 1440
+        }
+      }
+    }
+  ],
+  "checks": {
+    "anatomy_inventory": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "6fc88c17732b770d7da525fe82f57e611b28479df6e9a8538697843dc6060577",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "visible_hands": [
+                {
+                  "owner": "Aachu",
+                  "side": "right",
+                  "action": "presses the apartment-door wood",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Right shoulder, elbow, forearm, wrist, palm, and fingers form one traceable line.",
+                  "contact_object": "brown apartment-door slab",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Wood grain remains visible around the palm and fingers.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                },
+                {
+                  "owner": "Zuv",
+                  "side": "left",
+                  "action": "grips the exterior lever",
+                  "story_required": true,
+                  "attachment_visible": true,
+                  "attachment_evidence": "Left shoulder, elbow, forearm, wrist, hand, and fingers are continuously traceable in profile.",
+                  "contact_object": "door lever",
+                  "contact_geometry_pass": true,
+                  "occlusion_evidence": "Fingers visibly wrap the lever.",
+                  "solid_object_intersection": false,
+                  "edge_entry_unexplained": false
+                }
+              ],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "malformed_fingers": false
+            }
+          }
+        }
+      ]
+    },
+    "scene_entity_integrity": {
+      "pass": true,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "6fc88c17732b770d7da525fe82f57e611b28479df6e9a8538697843dc6060577",
+                "width": 1080,
+                "height": 1440
+              },
+              "expected_people": 2,
+              "observed_people": 2,
+              "expected_arms": 4,
+              "observed_arms": 4,
+              "expected_hands": 4,
+              "observed_hands": 4,
+              "unexpected_entities": [],
+              "unexpected_limbs": [],
+              "duplicated_limbs": [],
+              "evidence": "Exactly Aachu and Zuv appear with no reflections, duplicates, or person-to-person touch."
+            }
+          }
+        }
+      ]
+    },
+    "spatial_topology": {
+      "pass": false,
+      "slides": [
+        {
+          "slide": 7,
+          "formats": {
+            "instagram_post": {
+              "source_asset": {
+                "sha256": "6fc88c17732b770d7da525fe82f57e611b28479df6e9a8538697843dc6060577",
+                "width": 1080,
+                "height": 1440
+              },
+              "pass": false,
+              "evidence": "Left hinges make the right edge the latch side, but the lever is 103 to 110 pixels inboard, about one quarter of the slab width."
+            }
+          }
+        }
+      ]
+    },
+    "aachu_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg",
+        "reel-jaldi.jpg"
+      ],
+      "likeness_notes": "Recognizable face, hair, build, and expression within the watercolor style."
+    },
+    "zuv_face": {
+      "pass": true,
+      "reference_option_ids": [
+        "together-01.jpg",
+        "together-18.jpg"
+      ],
+      "likeness_notes": "Recognizable face, beard, hair, build, and relative height within the watercolor style."
+    },
+    "dress_continuity": {
+      "pass": true,
+      "evidence": "The locked white/denim/red and pale-blue/grey/red-black wardrobe is preserved without shirt lettering."
+    },
+    "style": {
+      "pass": true,
+      "evidence": "Warm ivory paper, ink contours, and transparent watercolor match the house style."
+    },
+    "scene_logic": {
+      "pass": false,
+      "evidence": "The lift gap and two-hand repair pass, but the primary lock hardware is still mechanically too far from the latch edge and the footprints do not unambiguously encode the full U-turn."
+    },
+    "integrated_final_text": {
+      "pass": true,
+      "evidence": "Exact copy, locked line breaks, and one tiny top-right @a.storyof.two are present with no extra text."
+    },
+    "final_files": {
+      "pass": true,
+      "evidence": "The quarantined proof is hash-bound at 1080x1440."
+    },
+    "visual_story_readability": {
+      "pass": false,
+      "status": "REPAIR",
+      "event": "rendered_frame_story_audit",
+      "image_first": true,
+      "provisional": true,
+      "scope": "selected_proof_only",
+      "full_event_b": false,
+      "reviewer_id": "/root/slide7_event_b_uturn_pixels",
+      "reviewer_evidence": "A fresh image-first critic measured the lever at roughly one quarter of the slab width from the latch edge and found the footprint path incomplete.",
+      "source_director_event_fingerprint": "sha256:70654fde968f3668613e72a443e4a11e6eb8dcb46fc897a9665cf6d3aa52b5fe",
+      "reviewed_native_formats": [
+        "instagram_post"
+      ],
+      "sequence_read": "The mid-closing lift and two action hands improve the departure callback, but the impossible lever placement still breaks the lock-check story.",
+      "relationship_turn": "Aachu visibly joins Zuv's check without touching him.",
+      "setup_payoff_evidence": "The lift gap, umbrella, and return marks support departure, but the floor path is not a complete outward-U-turn-return diagram.",
+      "weakest_frame": "Slide 7 is blocked by the inboard lever.",
+      "repair_decision": "Do not regenerate the same scene again. Rework or use a surgical object-edit route only with explicit creator direction.",
+      "frames": [
+        {
+          "slide": 7,
+          "format": "instagram_post",
+          "file": ".internal/visual-quarantine/attempt-01/final/slide-07.png",
+          "status": "REPAIR",
+          "expected_silent_read": "A real right-edge lever is checked while Aachu visibly U-turns before departure to press the same door.",
+          "observed_image_first_read": "Aachu returns toward the door, but Zuv grips hardware floating too far inside the slab.",
+          "core_action_legible": false,
+          "relationship_turn_legible": true,
+          "focal_hierarchy": "Copy, then two separate action hands, lift, and footprint path.",
+          "hands_gaze_prop_legible": true,
+          "storyboard_match": false,
+          "native_format_readability": true,
+          "copy_visual_contradictions": [
+            "The visible lever cannot credibly connect to the right-edge latch."
+          ],
+          "unexpected_story": [
+            "The door has decorative central hardware."
+          ],
+          "match_rationale": "Identity, anatomy, text, lift gap, and hand count pass; the primary door mechanism does not.",
+          "evidence": "Lever spindle is approximately 103 to 110 pixels from the right slab edge, 23 to 25 percent of the door width.",
+          "image_fingerprint": "sha256:6fc88c17732b770d7da525fe82f57e611b28479df6e9a8538697843dc6060577"
+        }
+      ],
+      "issues": [
+        "Lever remains too far inboard from the right latch edge.",
+        "Footprints do not clearly prove the full outward-U-turn-return path."
+      ],
+      "review_provenance": {
+        "schema_version": "visual-review-provenance/v2",
+        "reviewer_task_id": "/root/slide7_event_b_uturn_pixels",
+        "reviewer_run_id": "slide7-event-b-uturn-pixels-20260730-01",
+        "raw_response_artifact": ".internal/event-b-attempt-01-raw-response.json"
+      }
+    }
+  }
+}

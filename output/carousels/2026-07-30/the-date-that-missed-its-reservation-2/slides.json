@@ -1,0 +1,507 @@
+[
+  {
+    "slide": 1,
+    "copy": "This is the kind of love\nI want us to grow into.",
+    "role": "Cover / public hook / emotional destination",
+    "visual": "Rain-damp evening beside a tiny roadside chai stall. Exactly Aachu and Zuv stand under one umbrella beside their modest dark car, safely parked on the quieter service lane away from traffic, dressed for a proper date. Across the divided road, through moving cars, the intended restaurant on the next road is visibly close but inconvenient to reach. The chai stall glows immediately beside them. Aachu points toward the chai stall with her right hand while her left hand stays relaxed at her side. Zuv holds the umbrella in his right hand and lowers the phone map in his left; they exchange a small conspiratorial 'shall we?' look. This is the decision before the accidental date, not the seated payoff. No chai vendor or background people visible.",
+    "emotion": "rainy frustration turning into a shared mischievous decision",
+    "source_images": [],
+    "props": "one umbrella, one modest dark parked car, lowered phone map, glowing chai stall, distant restaurant frontage across divided road",
+    "continuity_lock": "Same date-night wardrobe, same modest dark car, same umbrella, and same rainy evening continue through slides 2-7. Exactly two visible people in every frame. No scooter or helmets.",
+    "cta_intent": "Send this as: this is the kind of love I want us to grow into.",
+    "hand_map": {
+      "scene_action_binding": "Aachu points to the chai stall; Zuv holds the umbrella and lowers the phone map.",
+      "people": [
+        "Aachu",
+        "Zuv"
+      ],
+      "expected_anatomical_hands": 4,
+      "expected_visible_hands": 4,
+      "default_max_visible_hands": 4,
+      "hands": [
+        {
+          "owner": "Aachu",
+          "side": "left",
+          "visibility": "visible_relaxed",
+          "action": "Rest naturally at her own side; touch nothing.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Aachu",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "Point only toward the glowing chai stall.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "left",
+          "visibility": "focal_action",
+          "action": "Hold one lowered phone map at his own side.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "Hold the single umbrella handle above both people.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        }
+      ],
+      "forbidden": [
+        "extra hand",
+        "swapped prop ownership",
+        "anonymous hand",
+        "shared arm",
+        "umbrella in Aachu's hand",
+        "phone in Aachu's hand"
+      ]
+    },
+    "identity_continuity": {
+      "slide": 1,
+      "identity_references": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+      "facial_expression": "Keep the facial expression specific to this beat (rainy frustration turning into a shared mischievous decision) while preserving the same underlying face structure across all slides.",
+      "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+      "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+    }
+  },
+  {
+    "slide": 2,
+    "copy": "The date began with one missing key\nand two suspects.",
+    "role": "Cold open / playful proof",
+    "visual": "Inside their entryway before leaving, Aachu holds a soft tote by its strap with her left hand and points a playful accusing finger with her right while Zuv checks one jacket pocket with his right hand and looks theatrically innocent. His left hand stays relaxed and visible. The missing car key is visibly caught in the tote strap between them. Exactly two people; the physical evidence makes the joke readable without text.",
+    "emotion": "playful accusation",
+    "source_images": [],
+    "props": "car key, tote bag, closed umbrella near the door",
+    "continuity_lock": "Same date-night wardrobe, car key, tote, and umbrella used throughout the outing. No scooter or helmets.",
+    "cta_intent": "Recognize our silly pre-date fights over one tiny thing.",
+    "hand_map": {
+      "scene_action_binding": "Aachu holds the tote and accuses; Zuv searches one jacket pocket.",
+      "people": [
+        "Aachu",
+        "Zuv"
+      ],
+      "expected_anatomical_hands": 4,
+      "expected_visible_hands": 4,
+      "default_max_visible_hands": 4,
+      "hands": [
+        {
+          "owner": "Aachu",
+          "side": "left",
+          "visibility": "focal_action",
+          "action": "Hold only the soft tote strap with the caught key visible.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Aachu",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "Point one playful accusing finger toward Zuv.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "left",
+          "visibility": "visible_relaxed",
+          "action": "Rest open at his own side; touch nothing.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "Search only one jacket pocket.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        }
+      ],
+      "forbidden": [
+        "extra hand",
+        "key in Zuv's pocket",
+        "key in a hand",
+        "two hands inside one pocket",
+        "anonymous hand"
+      ]
+    },
+    "identity_continuity": {
+      "slide": 2,
+      "identity_references": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+      "facial_expression": "Keep the facial expression specific to this beat (playful accusation) while preserving the same underlying face structure across all slides.",
+      "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+      "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+    }
+  },
+  {
+    "slide": 3,
+    "copy": "By the third wrong turn,\nnobody was cute anymore.",
+    "role": "Mirror / irritation",
+    "visual": "They stand beside their modest dark car, safely parked on the quieter service lane of a rain-slick divided road. A phone map in Zuv's hand reroutes while the intended restaurant is frustratingly visible across the traffic on the next road. Aachu holds the closed umbrella downward and looks away toward the restaurant, tired and irritated; Zuv studies the route with restrained frustration. Exactly two visible people and no human reflections.",
+    "emotion": "comic frustration tipping into real irritation",
+    "source_images": [],
+    "props": "parked dark car, closed umbrella, phone map without legible UI text, traffic divider, distant restaurant frontage",
+    "continuity_lock": "Same car, route, wardrobe, umbrella, weather, and evening. The parked car must remain separate from moving traffic.",
+    "cta_intent": "Send this as: us when one simple route becomes the whole fight.",
+    "hand_map": {
+      "scene_action_binding": "Aachu holds the closed umbrella downward; Zuv holds the rerouting phone map.",
+      "people": [
+        "Aachu",
+        "Zuv"
+      ],
+      "expected_anatomical_hands": 4,
+      "expected_visible_hands": 2,
+      "default_max_visible_hands": 2,
+      "hands": [
+        {
+          "owner": "Aachu",
+          "side": "left",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Aachu",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "Hold the single closed umbrella pointing down.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "left",
+          "visibility": "focal_action",
+          "action": "Hold and study one phone map.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "right",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        }
+      ],
+      "forbidden": [
+        "extra hand",
+        "open umbrella",
+        "phone in Aachu's hand",
+        "umbrella in Zuv's hand",
+        "anonymous hand"
+      ]
+    },
+    "identity_continuity": {
+      "slide": 3,
+      "identity_references": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+      "facial_expression": "Keep the facial expression specific to this beat (comic frustration tipping into real irritation) while preserving the same underlying face structure across all slides.",
+      "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+      "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+    }
+  },
+  {
+    "slide": 4,
+    "copy": "“Don’t talk to me.”\n\nHe gave her the minute.\nNot the distance.",
+    "role": "Spine / mature pause",
+    "visual": "At a safe recessed roadside edge near their parked dark car, Aachu faces slightly away with arms folded. Zuv stays beside the car several feet behind her, body open and grounded, not reaching or crowding. His phone hangs lowered at his side; the closed umbrella leans securely against the car. The empty space between them communicates a respected pause while his remaining nearby communicates care. Exactly two people.",
+    "emotion": "hurt, restraint, emotionally available space",
+    "source_images": [],
+    "props": "parked dark car, lowered phone, closed umbrella",
+    "continuity_lock": "Same road, weather, wardrobe, car, phone, and umbrella.",
+    "cta_intent": "Save or send this as: give me a minute, not distance.",
+    "hand_map": {
+      "scene_action_binding": "Aachu folds her arms without reaching; Zuv stays nearby with one lowered phone.",
+      "people": [
+        "Aachu",
+        "Zuv"
+      ],
+      "expected_anatomical_hands": 4,
+      "expected_visible_hands": 1,
+      "default_max_visible_hands": 1,
+      "hands": [
+        {
+          "owner": "Aachu",
+          "side": "left",
+          "visibility": "naturally_occluded",
+          "action": "Stay tucked against her opposite upper arm within the folded-arm posture.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Aachu",
+          "side": "right",
+          "visibility": "naturally_occluded",
+          "action": "Stay tucked against her opposite upper arm within the folded-arm posture.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "left",
+          "visibility": "focal_action",
+          "action": "Hold one phone lowered at his own side.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "right",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        }
+      ],
+      "forbidden": [
+        "touching Aachu",
+        "reaching toward Aachu",
+        "extra hand",
+        "phone in Aachu's hand",
+        "anonymous hand"
+      ]
+    },
+    "identity_continuity": {
+      "slide": 4,
+      "identity_references": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+      "facial_expression": "Keep the facial expression specific to this beat (hurt, restraint, emotionally available space) while preserving the same underlying face structure across all slides.",
+      "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+      "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+    }
+  },
+  {
+    "slide": 5,
+    "copy": "It wasn’t really the wrong turn.\n\nThey had simply missed each other\nfor too many ordinary days.",
+    "role": "Rhythm / what was underneath",
+    "visual": "Across the road outside the intended restaurant, the frontage is closed or inaccessible after the long detour. Aachu's irritation has fallen into quiet disappointment as she looks at the dark entrance. Zuv notices her expression rather than the shutter, holding the phone down at his side. Their body distance has narrowed but they do not yet touch. Exactly two people, no background diners or staff.",
+    "emotion": "disappointment becoming understanding",
+    "source_images": [],
+    "props": "restaurant frontage across the divided road, phone held down, partial parked car, rain traces",
+    "continuity_lock": "Same evening, wardrobe, car route, and date.",
+    "cta_intent": "Recognize the small fight that is really two people missing ordinary time.",
+    "hand_map": {
+      "scene_action_binding": "Zuv holds the phone down while noticing Aachu's disappointment.",
+      "people": [
+        "Aachu",
+        "Zuv"
+      ],
+      "expected_anatomical_hands": 4,
+      "expected_visible_hands": 1,
+      "default_max_visible_hands": 1,
+      "hands": [
+        {
+          "owner": "Aachu",
+          "side": "left",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Aachu",
+          "side": "right",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "left",
+          "visibility": "focal_action",
+          "action": "Hold one phone down at his own side.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "right",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        }
+      ],
+      "forbidden": [
+        "extra hand",
+        "raised phone",
+        "phone in Aachu's hand",
+        "touching before the payoff",
+        "anonymous hand"
+      ]
+    },
+    "identity_continuity": {
+      "slide": 5,
+      "identity_references": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+      "facial_expression": "Keep the facial expression specific to this beat (disappointment becoming understanding) while preserving the same underlying face structure across all slides.",
+      "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+      "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+    }
+  },
+  {
+    "slide": 6,
+    "copy": "The plan failed.\nThe date didn’t.",
+    "role": "Turn / accidental date",
+    "visual": "At the tiny roadside chai stall beside their safely parked dark car, Aachu steals a sip from Zuv's chai after finishing hers. The glass is visibly at her own lips, not being offered to him. Zuv gives her a mock-offended look while protecting the biscuit packet against his chest. Two stools are now pulled close. The unreachable restaurant glows softly across the divided road behind traffic. Exactly two people, vendor out of frame.",
+    "emotion": "comic release and renewed closeness",
+    "source_images": [],
+    "props": "two chai glasses, biscuit packet, two close stools, parked dark car, distant restaurant",
+    "continuity_lock": "Exact return to the cover location and same wardrobe.",
+    "cta_intent": "Send this as: the plan failed, but we still had the date.",
+    "hand_map": {
+      "scene_action_binding": "Aachu drinks from the chai glass at her own lips; Zuv protects the biscuit packet.",
+      "people": [
+        "Aachu",
+        "Zuv"
+      ],
+      "expected_anatomical_hands": 4,
+      "expected_visible_hands": 2,
+      "default_max_visible_hands": 2,
+      "hands": [
+        {
+          "owner": "Aachu",
+          "side": "left",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Aachu",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "Hold one chai glass at Aachu's own lips for her sip.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "left",
+          "visibility": "out_of_frame",
+          "action": "Remain naturally outside the crop.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "Clutch the biscuit packet against his own chest.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        }
+      ],
+      "forbidden": [
+        "Zuv offering the glass",
+        "glass at Zuv's lips",
+        "glass held by Zuv",
+        "extra hand",
+        "anonymous hand"
+      ]
+    },
+    "identity_continuity": {
+      "slide": 6,
+      "identity_references": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+      "facial_expression": "Keep the facial expression specific to this beat (comic release and renewed closeness) while preserving the same underlying face structure across all slides.",
+      "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+      "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+    }
+  },
+  {
+    "slide": 7,
+    "copy": "He still checked the lock twice.\nShe still rolled her eyes.\n\nThen she went back\nand checked it with him.",
+    "role": "Payoff / affectionate callback",
+    "visual": "Before-departure nonlinear callback, entirely OUTSIDE the apartment in a pristine dry corridor. Medium-wide, nearly straight-on full-body view. Center the fully closed front door, with its single exterior lever on the RIGHT edge beside Zuv. On frame left behind Aachu, the elevator doors are already 80 percent closed: only one narrow dark vertical seam, no open cabin or visible interior. Its call button glows. Exactly two people stand on one depth plane, Zuv slightly taller and broader, with one forearm of clear air between their torsos. Zuv has stayed at the door; his hips, shoes, and torso remain square to it. His visible anatomical RIGHT hand wraps and depresses the exterior lever under testing tension. His LEFT arm stays hidden behind his own back, never crossed or pocketed. Aachu is the only person who turns back from the elevator. Her left foot still points toward it, her lifted right heel steps back toward the apartment, and three fading graphite ticks trace that short return. Her visible anatomical RIGHT palm performs a forceful push-test on the separate center-left panel: elbow locked straight, shoulder and torso weight through the arm, sleeve compressed, and two tiny pressure ticks at contact. Her left hand stays hidden by her shoulder tote and tightly rolled bone-dry umbrella. They do not touch, lean, hug, or overlap. Each looks at their own door contact, not at the other or viewer, with a small private smile. Preserve attached-reference identity. Aachu: soft oval-round fuller-cheeked face, fuller lips, expressive dark eyes and brows, mostly straight center-parted dark hair, white shirt, blue jeans, red pointed flats; never a sharp narrow face or strongly tousled waves. Zuv: broad rounded-oval face, thick brows, fuller trimmed beard and moustache, dense dark hair brushed up into broad swept waves, pale blue embroidered shirt, loose grey trousers, red-black shoes; never tight curls or ringlets. Everything is pristine and dry. Both participate in one functional check through separate contacts: he tests the handle while she has gone back and adds a weighted panel push. No casual resting palm, key, fob, interior, open door, open elevator cabin, post-date return, wetness, folded or pocketed arms, solo checker, couple touch, arrows, ghost bodies, scooter, motorbike, or helmets.",
+    "emotion": "affectionate recognition without a moral",
+    "source_images": [],
+    "props": "fully closed apartment door viewed from dry corridor, right-edge exterior lever depressed by Zuv's right hand, two tiny palm-pressure ticks at Aachu's separate center-left push-test, elevator doors 80 percent closed with only a narrow dark seam and no cabin visible, glowing call button on frame left, three tiny heel-return ticks, same tote and tightly rolled bone-dry umbrella; no key or key fob",
+    "continuity_lock": "Fresh date-night wardrobe, tote, and bone-dry umbrella. Outside a fully closed door before rain. The elevator on frame left is 80 percent closed, with only a narrow dark seam and no visible cabin. Zuv stayed at the door; only Aachu had stepped toward the elevator and turns back. One depth plane, Zuv slightly taller and broader, one forearm torso gap, no touch. Zuv's right hand depresses the right-edge handle; Aachu's locked right arm visibly pushes the center-left panel inward. Preserve reference faces and hair: Aachu soft oval-round and fuller-cheeked with mostly straight center-parted hair; Zuv broad rounded-oval with fuller beard and dense brushed-up swept waves, never ringlets. Zuv wears the pale blue embroidered shirt, loose grey trousers, and red-black shoes. Aachu wears the white shirt, jeans, and red pointed flats. No casual resting palm, key, interior, wetness, folded or pocketed arms, mutual gaze, untouched handle, overlap, duplicate, or arrival reading.",
+    "cta_intent": "Send this to the partner whose habit you tease and secretly share.",
+    "hand_map": {
+      "scene_action_binding": "Outside the fully closed apartment door before departure, Zuv remains at the door while only Aachu returns from the nearly closed elevator; they act on two distinct contact points, with Zuv's visible right hand depressing the right-edge exterior handle and Aachu's visible right palm forcefully pressing the center-left door panel.",
+      "people": [
+        "Aachu",
+        "Zuv"
+      ],
+      "expected_anatomical_hands": 4,
+      "expected_visible_hands": 2,
+      "default_max_visible_hands": 2,
+      "hands": [
+        {
+          "owner": "Aachu",
+          "side": "left",
+          "visibility": "naturally_occluded",
+          "action": "Remain hidden while the bone-dry closed umbrella is tucked under her left arm and the tote hangs from her left shoulder.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Aachu",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "From a separate body position, lock the elbow straight and lean shoulder and torso weight through her fully visible palm into a forceful push-test on the center-left closed panel; show two tiny pressure ticks at contact.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "left",
+          "visibility": "naturally_occluded",
+          "action": "Remain naturally hidden behind his own back; never cross the torso and never enter a pocket.",
+          "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand"
+        },
+        {
+          "owner": "Zuv",
+          "side": "right",
+          "visibility": "focal_action",
+          "action": "From immediately beside the handle, keep the full forearm readable and wrap five visible fingers around the right-edge exterior lever so its downward testing tension is unmistakable.",
+          "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand"
+        }
+      ],
+      "forbidden": [
+        "extra hand",
+        "any visible key or key fob",
+        "Zuv holding the umbrella",
+        "only one partner checking",
+        "casual Aachu palm resting on the door without visible pushing force",
+        "untouched exterior handle",
+        "Zuv folding or pocketing either arm",
+        "both hands crowded onto one small handle",
+        "Aachu touching or embracing Zuv",
+        "overlapping torsos",
+        "waist hold or back hug",
+        "viewer-facing glamour gaze",
+        "mutual flirtation gaze instead of looking at the two door contacts",
+        "interior-side handle",
+        "hand through door",
+        "wet umbrella",
+        "rain marks",
+        "post-date arrival",
+        "anonymous hand"
+      ]
+    },
+    "identity_continuity": {
+      "slide": 7,
+      "identity_references": [
+        "config/references/identity/together/together-01.jpg",
+        "config/references/identity/together/together-18.jpg",
+        "config/references/identity/aachu/reel-jaldi.jpg"
+      ],
+      "face_structure": "Match the real face structure from the selected identity bundle for both people: recurring facial proportions, hairline, jaw/cheek shape, eyes, brows, nose, smile, and relative height/posture. Do not substitute generic Indian couple faces.",
+      "facial_expression": "Keep the facial expression specific to this beat (affectionate recognition without a moral) while preserving the same underlying face structure across all slides.",
+      "clothing": "Use story-relevant clothes, dupatta/shawl/shirt colors, accessories, and body-language cues from the identity bundle when visible; keep outfit continuity intentional instead of inventing random wardrobe changes.",
+      "cross_slide_consistency": "The illustrated couple must read as the same Anchal/Aachu and Himanshu/Zuv in every slide, with consistent faces, hair, body proportions, and relationship energy."
+    }
+  }
+]

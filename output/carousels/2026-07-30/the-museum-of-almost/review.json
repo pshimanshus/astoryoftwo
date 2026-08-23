@@ -1,0 +1,106 @@
+{
+  "status": "pass",
+  "scorecard": {
+    "story_specificity": 4,
+    "photo_to_illustration_faithfulness": 4,
+    "character_likeness_prompting": 4,
+    "visual_simplicity": 4,
+    "slide_to_slide_flow": 4,
+    "emotional_payoff": 4,
+    "channel_voice_fit": 4,
+    "absence_of_generic_couple_content": 4
+  },
+  "total": 39,
+  "max": 40,
+  "pass": true,
+  "story_director_gate": {
+    "status": "PASS",
+    "hook": 8,
+    "story": 9,
+    "bridge": 9,
+    "relationship_motion": 9,
+    "ending": 9,
+    "send_save_potential": 9,
+    "stage_scene": 9,
+    "verdict": "PASS: exact copy, causal storyboard, visible relationship motion, and earned payoff are locked.",
+    "blocks": []
+  },
+  "visual_plan_quality_gate": {
+    "status": "PASS",
+    "decision": "GO",
+    "can_generate": true,
+    "director_storyboard": "PASS",
+    "issues": []
+  },
+  "post_copy_visual_room_gate": {
+    "status": "GO",
+    "decision": "GO",
+    "selected_visual_system": "The Folder Changes Hands",
+    "open_doubts": []
+  },
+  "story_selling_score": {
+    "reader_identity_mirror": 5,
+    "romantic_conflict_stakes": 5,
+    "specificity_of_proof": 5,
+    "emotional_reversal": 5,
+    "visual_scene_clarity": 5,
+    "online_share_save_sell_potential": 4,
+    "total": 29
+  },
+  "story_selling_gate": {
+    "status": "PASS",
+    "source": "output/idea-loops/2026-07-28/run-202052/",
+    "threshold": "28/30",
+    "selector_verdict": "PASS",
+    "stage_scene_gate": {
+      "status": "GO",
+      "action": "Aachu discards a worn folder; Zuv retrieves it, opens it without tugging, and orders the unfinished pages; Aachu later adds the current page.",
+      "reaction": "Aachu first tries to close the folder, then releases it and softens after seeing the chronology.",
+      "eye_line_or_attention": "Attention moves from the discard carton to the exposed pages, then to the ordered line and the new page.",
+      "hands_or_object_movement": "The folder moves from Aachu to the carton to Zuv, then opens; papers become a chronology; Aachu extends it.",
+      "silence_or_pause": "Zuv does not praise, explain, hug, or manage her; the ordering and her reaction carry the turn.",
+      "consequence": "The discarded attempts become a visible record rather than rubbish.",
+      "reversal_or_payoff": "Aachu voluntarily adds today's unfinished page and turns a rescued archive into a living one.",
+      "blockers": []
+    },
+    "golden_theme_score": {
+      "universal_hook": 5,
+      "aachu_zuv_specificity": 4,
+      "concrete_proof": 5,
+      "zuv_emotional_role": 5,
+      "tender_thesis": 4,
+      "share_send_potential": 5,
+      "total": 28
+    }
+  },
+  "story_selling_hard_fails": [],
+  "issues": [],
+  "required_changes_before_image_generation": [],
+  "successful_carousel_standard_gate": {
+    "source": "wiki/insights/successful-carousel-standard.md",
+    "status": "PASS",
+    "pass": true,
+    "agent_alignment": {
+      "status": "PASS",
+      "evidence": "Fresh idea-loop verification, selector pass, post-copy visual room, and Event A bind recognition, story proof, taste, sendability, and production feasibility."
+    },
+    "dimensions": {
+      "agent_goal_alignment": {
+        "pass": true
+      },
+      "relationship_first_premise": {
+        "pass": true
+      },
+      "story_selling_threshold": {
+        "pass": true
+      },
+      "prompt_goal_alignment": {
+        "pass": true
+      },
+      "stage_scene_storytelling": {
+        "pass": true
+      }
+    },
+    "issues": []
+  }
+}

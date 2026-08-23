@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import re
 from typing import Any
 
@@ -19,10 +20,55 @@ from pipeline.stages.carousel_visual_integrity import (
 # alone is ~17k chars; this leaves comfortable headroom for the per-slide contract
 # (size, pose, wardrobe, props, background, emotion, style lock, negative prompt)
 # while still catching runaway inputs. The Codex built-in image path accepts long
-# prompts, so the cap is a guardrail against accidental bloat, not a model limit.
+# prompts, and the built-in provider enforces this as a hard request limit.
 # Whole-person topology and hand-ownership contracts are deliberately explicit;
 # keep enough room for both instead of trimming safety-critical clauses.
 MAX_PROMPT_CHARS = 32000
+
+# These generic closing sections repeat rules already present earlier in the
+# master prompt. For a dense, topology-sensitive scene, remove them only as a
+# last-mile size repair so door/hand/spatial instructions remain intact.
+DENSE_PROMPT_REDUNDANT_SECTIONS = {
+    "ASSET TYPE:",
+    "BRAND INTEGRATION VISIBILITY RULE:",
+    "BRAND LABEL WORKFLOW:",
+    "REFERENCE ESSENCE RULE:",
+    "FINAL IDENTITY REINFORCEMENT:",
+    "FINAL STYLE REINFORCEMENT:",
+    "PROJECT STYLE LOCK:",
+}
+
+# Targeted image edits already carry a locked scene, exact copy, identity lock,
+# and slide-specific hand/topology contracts.  Repeating broad ideation advice
+# after that point dilutes the local repair instruction without adding a gate.
+TARGETED_EDIT_REDUNDANT_SECTIONS = DENSE_PROMPT_REDUNDANT_SECTIONS | {
+    "USE CASE:",
+    "REFERENCE IMAGE ROLES:",
+    "IDENTITY IMAGE INPUT CONTRACT:",
+    "FACE PRESERVATION RULES:",
+    "ILLUSTRATION STYLE:",
+    "COMPOSITION AND FORMAT:",
+    "EMOTIONAL DIRECTION:",
+    "WARDROBE CONTINUITY:",
+    "RECURRING PROPS AND MOTIFS:",
+    "BACKGROUND STYLE:",
+    "LINE AND TEXTURE DETAILS:",
+    "ANATOMY AND QUALITY RULES:",
+    "SCENE LOGIC AND POSE RULES:",
+}
+
+TARGETED_EDIT_CONCISE_SECTIONS = {
+    "STAGE-SCENE / VISUAL RECEIPT:": (
+        "Keep the locked visible behavior and object contact readable with the copy hidden."
+    ),
+    "SHOT LADDER / VISUAL VARIETY:": (
+        "Preserve this slide's locked shot role and do not invent another panel or scene. "
+        "No split-screen divider may appear."
+    ),
+    "RELATIONSHIP MOTION:": (
+        "Preserve the locked shared action and emotional turn; do not replace it with a generic pose."
+    ),
+}
 
 FORMAT_COPY = {
     "instagram_post": (
@@ -85,6 +131,62 @@ def extract_scene_summary(prompt: str) -> str:
     return cleaned[:700].strip()
 
 
+def prompt_contract_without_repeated_scene(contract: dict[str, Any]) -> dict[str, Any]:
+    """Keep the safety contract while avoiding four verbatim scene copies.
+
+    The locked scene is already rendered once in the master prompt. Hand,
+    action, spatial-topology, and richness sections need to bind to that scene,
+    but repeating a long scene verbatim inside each section can overflow the
+    prompt cap on the exact door/chronology beats that need those guards most.
+    """
+
+    compact = deepcopy(contract)
+    if compact.get("scene_action_binding"):
+        compact["scene_action_binding"] = "Use the locked Scene description above."
+    return compact
+
+
+def compact_dense_prompt(prompt: str) -> str:
+    """Drop only redundant master sections while preserving scene hard gates."""
+
+    parts = prompt.strip().split("\n\n")
+    kept = [
+        part
+        for part in parts
+        if not any(part.startswith(heading) for heading in DENSE_PROMPT_REDUNDANT_SECTIONS)
+    ]
+    return "\n\n".join(kept).strip() + "\n"
+
+
+def compact_targeted_edit_prompt(prompt: str) -> str:
+    """Keep edit-critical gates prominent and remove broad first-pass advice."""
+
+    kept: list[str] = []
+    for part in prompt.strip().split("\n\n"):
+        if any(
+            part.startswith(heading)
+            for heading in TARGETED_EDIT_REDUNDANT_SECTIONS
+        ):
+            continue
+        concise_heading = next(
+            (
+                heading
+                for heading in TARGETED_EDIT_CONCISE_SECTIONS
+                if part.startswith(heading)
+            ),
+            None,
+        )
+        if concise_heading is not None:
+            kept.append(
+                concise_heading
+                + "\n"
+                + TARGETED_EDIT_CONCISE_SECTIONS[concise_heading]
+            )
+        else:
+            kept.append(part)
+    return "\n\n".join(kept).strip() + "\n"
+
+
 def compile_image_prompt(
     slide_number: int,
     slide_count: int,
@@ -128,11 +230,17 @@ def compile_image_prompt(
             "feeling staged."
         )
     )
-    pose_text += "\n\n" + hand_ownership_prompt(hand_contract)
-    action_prompt = action_topology_prompt(action_contract)
+    pose_text += "\n\n" + hand_ownership_prompt(
+        prompt_contract_without_repeated_scene(hand_contract)
+    )
+    action_prompt = action_topology_prompt(
+        prompt_contract_without_repeated_scene(action_contract)
+    )
     if action_prompt:
         pose_text += "\n\n" + action_prompt
-    pose_text += "\n\n" + spatial_topology_prompt(topology_contract)
+    pose_text += "\n\n" + spatial_topology_prompt(
+        prompt_contract_without_repeated_scene(topology_contract)
+    )
     background_text = clean_text(
         background
         or (
@@ -140,7 +248,9 @@ def compile_image_prompt(
             "lower detail than the characters."
         )
     )
-    background_text += "\n\n" + visual_richness_prompt(richness_contract)
+    background_text += "\n\n" + visual_richness_prompt(
+        prompt_contract_without_repeated_scene(richness_contract)
+    )
     prompt = build_generation_master_prompt(
         slide_number=slide_number,
         slide_count=slide_count,
@@ -170,6 +280,10 @@ def compile_image_prompt(
         style_prompt=clean_text(style),
         negative_prompt=clean_text(negative),
     ).strip() + "\n"
+    if "TARGETED EDIT INSTRUCTION" in scene:
+        prompt = compact_targeted_edit_prompt(prompt)
+    if len(prompt) > MAX_PROMPT_CHARS and len(scene) <= 5000:
+        prompt = compact_dense_prompt(prompt)
     if len(prompt) > MAX_PROMPT_CHARS:
         raise ValueError(f"Compiled image prompt is too long: {len(prompt)} characters.")
     return prompt

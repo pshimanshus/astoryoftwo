@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "status": "LOCKED",
+  "source": "instagram_post_default",
+  "default_applied": true,
+  "requested_formats": [
+    "instagram_post"
+  ],
+  "formats": [
+    {
+      "format": "instagram_post",
+      "label": "Instagram post",
+      "aspect_ratio": "3:4",
+      "folder": "final",
+      "source_size": "1440x1920",
+      "target_size": "1080x1440"
+    }
+  ],
+  "rule": "Generate only the formats locked by the current request. Generate each requested aspect ratio from its own native source; never infer another output from folders or derive one aspect ratio by cropping, padding, stretching, or extending another."
+}

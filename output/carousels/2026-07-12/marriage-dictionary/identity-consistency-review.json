@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "status": "PASS_FOR_PROOF_SERIES_WITH_NOTES",
+  "status": "IDENTITY_BUNDLE_SELECTED_REBUILT_PROOF_PENDING",
   "selected_identity_bundle": [
     {
       "path": "config/references/identity/aachu/face-05.png",
@@ -26,17 +26,16 @@
     "Aachu is 5'6 and Zuv is 5'8 in two-shots.",
     "No generic South Asian couple faces."
   ],
-  "wardrobe_direction": "Casual contemporary daily-marriage wardrobe inspired by selected identity refs: Aachu in black top/blue denim or soft grey homewear depending on scene; Zuv in off-white or dark casual shirt/polo/trousers. Wardrobe supports daily scenes and must not become the premise.",
-  "proof_v4_likeness_notes": {
+  "wardrobe_direction": "Casual contemporary daily-marriage wardrobe inspired by selected identity refs. Wardrobe supports daily home scenes and must not become the premise.",
+  "rejected_previous_proof_notes": {
     "path": "proofs/slide-02-proof-v4.png",
-    "status": "PASS_WITH_NOTES",
-    "aachu": "Recognizable enough for proof direction: expressive eyes, long dark hair, warm playful face, casual outfit energy.",
-    "zuv": "Recognizable enough for proof direction: curly dark hair, stubble, warm grounded gaze, casual waiting posture.",
-    "limitations": [
-      "Proof v4 remains generated proof only, not a final likeness pass.",
-      "Brandmark spacing drift and non-final dimensions remain unresolved.",
-      "Every final slide still requires identity references attached and final visual QA."
-    ]
+    "status": "SUPERSEDED_REJECTED_DIRECTION",
+    "reason": "The previous proof direction was rejected for copy and visual-storytelling reasons. Its likeness notes cannot approve the rebuilt route."
   },
-  "generation_requirement": "Attach the selected identity bundle to every final slide generation call. Text-only identity descriptions are blocked. Proof v4 may be used only as a compact text/scene-layout reference, not as the source of face identity."
+  "next_identity_eval_target": {
+    "slide": 6,
+    "text": "\"Theek hai\" means the plate is covered.",
+    "requirement": "Attach the selected identity bundle to the rebuilt proof generation and record fresh likeness, body, wardrobe, and scene-entity notes before any batch continuation."
+  },
+  "generation_requirement": "Attach the selected identity bundle to every final slide generation call. Text-only identity descriptions are blocked."
 }

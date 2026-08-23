@@ -1,0 +1,420 @@
+{
+  "schema_version": "1.0",
+  "status": "REQUIRED_BEFORE_IMAGE_GENERATION",
+  "last_updated": "2026-07-30",
+  "purpose": "Preflight identity memory for Aachu/Zuv face and clothes consistency before any image generation.",
+  "library": {
+    "source_dir": "/Users/himanshusharma/astoryoftwo-analysis/identity_images",
+    "image_count": 3,
+    "images": [
+      {
+        "option_id": "ID01",
+        "path": "config/references/identity/aachu/reel-jaldi.jpg",
+        "filename": "reel-jaldi.jpg",
+        "width": 750,
+        "height": 1316,
+        "faces": [
+          {
+            "x": 239,
+            "y": 331,
+            "width": 358,
+            "height": 358
+          },
+          {
+            "x": 52,
+            "y": 41,
+            "width": 85,
+            "height": 85
+          },
+          {
+            "x": 208,
+            "y": 56,
+            "width": 57,
+            "height": 57
+          }
+        ],
+        "face_count": 3,
+        "dominant_color": "#7e6f52",
+        "readable": true
+      },
+      {
+        "option_id": "ID02",
+        "path": "config/references/identity/together/together-01.jpg",
+        "filename": "together-01.jpg",
+        "width": 2848,
+        "height": 3798,
+        "faces": [
+          {
+            "x": 1614,
+            "y": 2644,
+            "width": 416,
+            "height": 416
+          },
+          {
+            "x": 1383,
+            "y": 689,
+            "width": 314,
+            "height": 314
+          },
+          {
+            "x": 893,
+            "y": 733,
+            "width": 284,
+            "height": 284
+          },
+          {
+            "x": 1029,
+            "y": 415,
+            "width": 147,
+            "height": 147
+          },
+          {
+            "x": 2334,
+            "y": 890,
+            "width": 111,
+            "height": 111
+          },
+          {
+            "x": 830,
+            "y": 3661,
+            "width": 111,
+            "height": 111
+          },
+          {
+            "x": 969,
+            "y": 1156,
+            "width": 109,
+            "height": 109
+          },
+          {
+            "x": 1346,
+            "y": 367,
+            "width": 107,
+            "height": 107
+          },
+          {
+            "x": 381,
+            "y": 1676,
+            "width": 100,
+            "height": 100
+          },
+          {
+            "x": 978,
+            "y": 1342,
+            "width": 98,
+            "height": 98
+          },
+          {
+            "x": 1124,
+            "y": 2779,
+            "width": 96,
+            "height": 96
+          },
+          {
+            "x": 121,
+            "y": 109,
+            "width": 91,
+            "height": 91
+          },
+          {
+            "x": 1681,
+            "y": 2756,
+            "width": 88,
+            "height": 88
+          },
+          {
+            "x": 1684,
+            "y": 317,
+            "width": 81,
+            "height": 81
+          },
+          {
+            "x": 1869,
+            "y": 1495,
+            "width": 70,
+            "height": 70
+          },
+          {
+            "x": 1019,
+            "y": 2296,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "x": 2453,
+            "y": 257,
+            "width": 63,
+            "height": 63
+          },
+          {
+            "x": 1262,
+            "y": 1907,
+            "width": 63,
+            "height": 63
+          },
+          {
+            "x": 2542,
+            "y": 250,
+            "width": 62,
+            "height": 62
+          },
+          {
+            "x": 603,
+            "y": 2327,
+            "width": 62,
+            "height": 62
+          },
+          {
+            "x": 1679,
+            "y": 2650,
+            "width": 60,
+            "height": 60
+          },
+          {
+            "x": 1306,
+            "y": 3695,
+            "width": 60,
+            "height": 60
+          },
+          {
+            "x": 301,
+            "y": 23,
+            "width": 59,
+            "height": 59
+          },
+          {
+            "x": 778,
+            "y": 2020,
+            "width": 58,
+            "height": 58
+          },
+          {
+            "x": 522,
+            "y": 2411,
+            "width": 58,
+            "height": 58
+          },
+          {
+            "x": 1079,
+            "y": 2656,
+            "width": 58,
+            "height": 58
+          },
+          {
+            "x": 2336,
+            "y": 1261,
+            "width": 57,
+            "height": 57
+          },
+          {
+            "x": 643,
+            "y": 2513,
+            "width": 57,
+            "height": 57
+          },
+          {
+            "x": 104,
+            "y": 2287,
+            "width": 55,
+            "height": 55
+          },
+          {
+            "x": 1510,
+            "y": 526,
+            "width": 54,
+            "height": 54
+          },
+          {
+            "x": 1020,
+            "y": 1366,
+            "width": 54,
+            "height": 54
+          },
+          {
+            "x": 225,
+            "y": 1661,
+            "width": 53,
+            "height": 53
+          },
+          {
+            "x": 197,
+            "y": 1831,
+            "width": 53,
+            "height": 53
+          }
+        ],
+        "face_count": 33,
+        "dominant_color": "#b89e86",
+        "readable": true
+      },
+      {
+        "option_id": "ID03",
+        "path": "config/references/identity/together/together-18.jpg",
+        "filename": "together-18.jpg",
+        "width": 3024,
+        "height": 4032,
+        "faces": [
+          {
+            "x": 857,
+            "y": 451,
+            "width": 1051,
+            "height": 1051
+          },
+          {
+            "x": 826,
+            "y": 1714,
+            "width": 998,
+            "height": 998
+          },
+          {
+            "x": 832,
+            "y": 2867,
+            "width": 894,
+            "height": 894
+          },
+          {
+            "x": 104,
+            "y": 3513,
+            "width": 170,
+            "height": 170
+          },
+          {
+            "x": 204,
+            "y": 1737,
+            "width": 147,
+            "height": 147
+          },
+          {
+            "x": 179,
+            "y": 3745,
+            "width": 115,
+            "height": 115
+          },
+          {
+            "x": 624,
+            "y": 3102,
+            "width": 100,
+            "height": 100
+          },
+          {
+            "x": 2131,
+            "y": 3053,
+            "width": 65,
+            "height": 65
+          }
+        ],
+        "face_count": 8,
+        "dominant_color": "#65584d",
+        "readable": true
+      }
+    ]
+  },
+  "selected_generation_bundle_count": 3,
+  "selected_generation_bundle": [
+    "config/references/identity/aachu/reel-jaldi.jpg",
+    "config/references/identity/together/together-01.jpg",
+    "config/references/identity/together/together-18.jpg"
+  ],
+  "selected_generation_options": [
+    {
+      "option_id": "ID01",
+      "path": "config/references/identity/aachu/reel-jaldi.jpg",
+      "filename": "reel-jaldi.jpg",
+      "face_count": 3,
+      "width": 750,
+      "height": 1316
+    },
+    {
+      "option_id": "ID02",
+      "path": "config/references/identity/together/together-01.jpg",
+      "filename": "together-01.jpg",
+      "face_count": 33,
+      "width": 2848,
+      "height": 3798
+    },
+    {
+      "option_id": "ID03",
+      "path": "config/references/identity/together/together-18.jpg",
+      "filename": "together-18.jpg",
+      "face_count": 8,
+      "width": 3024,
+      "height": 4032
+    }
+  ],
+  "reference_images_for_generation": [
+    "output/carousels/2026-07-30/the-date-that-missed-its-reservation-9/identity-face-contact-sheet.jpg",
+    "config/references/identity/aachu/reel-jaldi.jpg",
+    "config/references/identity/together/together-01.jpg",
+    "config/references/identity/together/together-18.jpg"
+  ],
+  "face_identity_contract": {
+    "Himanshu/Zuv": {
+      "non_negotiable": [
+        "dark wavy hair with visible volume",
+        "thick dark brows",
+        "warm brown skin tone",
+        "rounded/oval smiling face structure",
+        "trimmed full beard and mustache",
+        "calm grounded expression, not a generic model face",
+        "medium-tall broader build relative to Aachu"
+      ],
+      "expression_range": [
+        "tired but soft",
+        "small private smile",
+        "warm amused smile",
+        "steady attentive look"
+      ],
+      "clothing_and_detail_anchors": [
+        "light blue or white shirt when story-relevant",
+        "dark shirt from close couch selfie when story-relevant",
+        "grey trousers",
+        "red-black shoes",
+        "simple chain/neck detail when visible"
+      ]
+    },
+    "Aachu/Anchal": {
+      "non_negotiable": [
+        "long dark hair",
+        "expressive eyes and brows",
+        "warm fair-medium skin tone",
+        "soft oval/round face structure",
+        "fuller lips and expressive smile",
+        "playful dramatic energy under the softness",
+        "slightly smaller/petite presence relative to Himanshu"
+      ],
+      "expression_range": [
+        "bright smile",
+        "dramatic waiting face",
+        "soft affectionate look",
+        "playful chaos, never mocked"
+      ],
+      "clothing_and_detail_anchors": [
+        "white/light shirt",
+        "grey pinstripe jacket when story-relevant",
+        "blue jeans",
+        "red bag and red shoes as strong continuity props",
+        "soft gold jewelry/necklace when visible",
+        "pink-tinted glasses only when supported by reference context"
+      ]
+    }
+  },
+  "identity_contact_sheet_guidance": {
+    "option_id_rule": "Use the ID labels printed on identity-face-contact-sheet.jpg when discussing or replacing references.",
+    "aachu_repair_rule": "If Anchal/Aachu face is wrong, stop generation, choose 2-4 stronger Aachu face IDs from the contact sheet, rebuild the package with those identity images, and regenerate from slide 1.",
+    "zuv_repair_rule": "If Himanshu/Zuv face is wrong, stop generation, choose 1-2 stronger Zuv face IDs from the contact sheet, rebuild the package with those identity images, and regenerate from slide 1.",
+    "hard_limit": "Do not accept a pretty scene or correct text as final when either face fails likeness."
+  },
+  "hard_fails": [
+    "Generation starts without loading the identity contact sheet.",
+    "Generation starts without loading the selected identity references.",
+    "Prompt only describes the faces in text but does not use actual identity images.",
+    "Generated Himanshu/Zuv loses dark wavy hair, thick brows, beard/mustache, face structure, or build.",
+    "Generated Aachu/Anchal loses long dark hair, expressive eyes/brows, face structure, or soft dramatic energy.",
+    "A slide is accepted because the scene is pretty even though the faces are wrong."
+  ],
+  "human_review_required": true,
+  "limitations": [
+    "This dossier inventories the local identity library and creates visual preflight anchors; it cannot mathematically guarantee model output likeness.",
+    "Final acceptance still requires visual QA against the identity references before packaging a slide as final."
+  ]
+}
