@@ -1,241 +1,98 @@
-"""
-Illustrated carousel pipeline for @a.storyof.two.
+"""Small shared contract for the @a.storyof.two carousel hot path.
 
-Turns user-supplied photos plus a short story into a complete carousel package:
-concept, slide arc, image-generation prompt pack, captions, review, and
-approval checklist.
+The old module ran a sequential eleven-agent Anthropic room before it could
+write a package.  That duplicated Codex-native creation, buried the creator's
+idea under scores and debates, and made a production command depend on an API
+key.  Carousel creation now has one implementation: ``create_codex_native_carousel``.
 
-Usage:
-    python -m pipeline.stages.c1_illustration_carousel --story "..." --image photo.jpg
-    python scripts/create_illustration_carousel.py
-    /story title: Optional title
-    <story text>
+This module keeps the stable parsing and manifest helpers used by the CLI and
+tests.  ``create_illustration_carousel`` remains as a compatibility alias; it
+does not start a second orchestration system.
 """
 
 from __future__ import annotations
 
-import base64
 import json
-import mimetypes
-import os
 import re
 import sys
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 from typing import Any
-
-import anthropic
 
 from pipeline.stages.carousel_format_contract import (
     build_format_contract,
     format_spec,
     normalize_requested_formats,
-    write_format_contract,
 )
 
 
-BASE_DIR = Path(__file__).parent.parent.parent
-SKILLS_DIR = BASE_DIR / "config" / "skills"
-AGENTS_DIR = BASE_DIR / "agents"
+BASE_DIR = Path(__file__).resolve().parents[2]
 OUTPUT_ROOT = BASE_DIR / "output" / "carousels"
-VOICE_FILE = BASE_DIR / "config" / "rules" / "voice.md"
-WORKING_MEMORY = BASE_DIR / "memory" / "working.md"
 MIN_STORY_SLIDES = 4
 MAX_STORY_SLIDES = 11
 DEFAULT_SLIDE_COUNT = 5
-STORY_SELLING_MIN_SCORE = 28
 
-RELATED_SKILL_REFERENCES = {
-    "romance-story-selling-engine": [
-        BASE_DIR / "config" / "references" / "story-selling-canon" / "source-policy.md",
-        BASE_DIR / "config" / "references" / "story-selling-canon" / "a-story-of-two-adaptation.md",
-        BASE_DIR / "config" / "references" / "story-selling-canon" / "concept-process-cards.md",
-        BASE_DIR / "config" / "references" / "story-selling-canon" / "rubric.md",
-        BASE_DIR / "config" / "references" / "golden-viral-carousel-theme-reference.md",
-    ],
-}
-
+# This is the package contract, not a record of internal deliberation.  Proof
+# and final artifacts appear only when those stages have actually completed.
 ARTIFACT_CONTRACT = {
-    "creative_baseline": "creative-baseline.json",
-    "concept": "concept.json",
-    "post_copy_visual_room": "post-copy-visual-room.json",
-    "visual_debate": "visual-debate.json",
-    "visual_plan_quality": "visual-plan-quality.json",
+    "creative_context": "creative-context.json",
+    "format_contract": "format-contract.json",
     "slides": "slides.json",
     "prompt_pack": "prompt-pack.json",
-    "identity_dossier": "identity-dossier.json",
-    "identity_generation_preflight": "identity-generation-preflight.md",
-    "identity_face_contact_sheet": "identity-face-contact-sheet.jpg",
-    "identity_consistency_review": "identity-consistency-review.json",
-    "copy": "copy.json",
-    "review": "review.json",
-    "approval": "final-approval.md",
-    "storyboard": "storyboard.md",
-    "agent_reports": "agent-reports.md",
+    "compiled_prompts": ".internal/compiled-prompts/",
+    "proof_image": ".internal/visual-quarantine/",
+    "proof_qa": "proof-qa.json",
+    "final_images": "final-images.json",
+    "visual_qa": "visual-qa.json",
+    "final_audit": "final-audit.json",
 }
 
-SPECIALIST_AGENTS = [
-    (
-        "carousel-story-director",
-        [
-            "carousel-story-director-persona",
-            "golden-viral-carousel-theme",
-            "romance-story-selling-engine",
-            "hook-and-edit-framework",
-            "instagram-algorithm-2026",
-        ],
-    ),
-    (
-        "carousel-story-miner",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-        ],
-    ),
-    (
-        "carousel-arc-builder",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-            "hook-and-edit-framework",
-        ],
-    ),
-    (
-        "carousel-visual-director",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-            "indian-creator-intelligence",
-        ],
-    ),
-    (
-        "carousel-visual-evidence-planner",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-            "indian-creator-intelligence",
-        ],
-    ),
-    (
-        "carousel-romance-scene-planner",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-            "indian-creator-intelligence",
-        ],
-    ),
-    (
-        "carousel-visual-continuity-judge",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-            "indian-creator-intelligence",
-        ],
-    ),
-    (
-        "carousel-prompt-engineer",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-        ],
-    ),
-    (
-        "carousel-copy-packager",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-            "instagram-algorithm-2026",
-            "indian-creator-intelligence",
-        ],
-    ),
-    (
-        "carousel-post-copy-visual-room-orchestrator",
-        [
-            "illustration-carousel-framework",
-            "continuous-carousel-agent-room",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-            "indian-creator-intelligence",
-        ],
-    ),
-    (
-        "carousel-reviewer",
-        [
-            "illustration-carousel-framework",
-            "golden-viral-carousel-theme",
-            "carousel-story-director-persona",
-            "romance-story-selling-engine",
-        ],
-    ),
-]
-
-ORCHESTRATOR_AGENT = "illustration-carousel-orchestrator"
-ORCHESTRATOR_SKILLS = [
+# Compatibility names for callers that imported the legacy orchestration
+# constants.  Empty means no default agent room; the explicit idea-loop system
+# remains registered separately in config/skill-systems.json.
+SPECIALIST_AGENTS: tuple[()] = ()
+ORCHESTRATOR_SKILLS: tuple[str, ...] = (
+    "creator-skill-stack",
+    "carousel-jam-runtime-context",
     "illustration-carousel-framework",
-    "continuous-carousel-agent-room",
-    "golden-viral-carousel-theme",
-    "carousel-story-director-persona",
-    "romance-story-selling-engine",
-    "indian-creator-intelligence",
-]
+)
 
 
 class CarouselPipelineError(RuntimeError):
-    """Raised when the carousel pipeline cannot produce a valid package."""
+    """Raised when a carousel package violates the small public contract."""
 
 
 def slugify_title(value: str, fallback: str = "illustration-carousel") -> str:
-    slug = value.strip().lower()
-    slug = re.sub(r"[^a-z0-9]+", "-", slug)
-    slug = re.sub(r"-{2,}", "-", slug).strip("-")
-    return slug or fallback
+    slug = re.sub(r"[^a-z0-9]+", "-", value.strip().lower())
+    return re.sub(r"-{2,}", "-", slug).strip("-") or fallback
 
 
 def validate_slide_count(slide_count: int) -> int:
-    if slide_count < MIN_STORY_SLIDES or slide_count > MAX_STORY_SLIDES:
+    if not MIN_STORY_SLIDES <= slide_count <= MAX_STORY_SLIDES:
         raise ValueError(
-            f"Slide count must be between {MIN_STORY_SLIDES} and {MAX_STORY_SLIDES} for /story."
+            f"Slide count must be between {MIN_STORY_SLIDES} and "
+            f"{MAX_STORY_SLIDES} for /story."
         )
     return slide_count
 
 
 def parse_story_command(command: str) -> dict[str, Any]:
-    """Parse a chat-style /story command into carousel options."""
     text = command.strip()
     if not text.startswith("/story"):
         raise ValueError("Story command must start with /story.")
 
-    body = text[len("/story") :].strip()
-    title = None
+    title: str | None = None
     slide_count = DEFAULT_SLIDE_COUNT
     story_lines: list[str] = []
-
-    for line in body.splitlines():
+    for line in text[len("/story") :].strip().splitlines():
         stripped = line.strip()
         if not stripped:
             continue
         key, separator, value = stripped.partition(":")
-        normalized_key = key.strip().lower().replace("-", "_").replace(" ", "_")
-        if separator and normalized_key in {"title", "working_title"}:
+        normalized = key.strip().lower().replace("-", "_").replace(" ", "_")
+        if separator and normalized in {"title", "working_title"}:
             title = value.strip() or None
-        elif separator and normalized_key in {"slides", "slide_count"}:
+        elif separator and normalized in {"slides", "slide_count"}:
             slide_count = validate_slide_count(int(value.strip()))
         else:
             story_lines.append(stripped)
@@ -243,84 +100,7 @@ def parse_story_command(command: str) -> dict[str, Any]:
     story = "\n".join(story_lines).strip()
     if not story:
         raise ValueError("Story command must include the story text.")
-
-    return {
-        "title": title,
-        "story": story,
-        "slide_count": slide_count,
-    }
-
-
-def extract_json_object(text: str) -> dict[str, Any]:
-    """Extract the first JSON object from an agent response."""
-    fenced = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, flags=re.DOTALL)
-    candidate = fenced.group(1) if fenced else text.strip()
-
-    if not candidate.startswith("{"):
-        start = candidate.find("{")
-        end = candidate.rfind("}")
-        if start == -1 or end == -1 or end <= start:
-            raise CarouselPipelineError("Agent response did not contain a JSON object.")
-        candidate = candidate[start : end + 1]
-
-    try:
-        parsed = json.loads(candidate)
-    except json.JSONDecodeError as exc:
-        raise CarouselPipelineError(f"Agent response JSON was invalid: {exc}") from exc
-
-    if not isinstance(parsed, dict):
-        raise CarouselPipelineError("Agent response JSON must be an object.")
-    return parsed
-
-
-def load_skill(name: str) -> str:
-    path = SKILLS_DIR / f"{name}.md"
-    if path.exists():
-        body = path.read_text(encoding="utf-8")
-        reference_parts = []
-        for reference_path in RELATED_SKILL_REFERENCES.get(name, []):
-            if reference_path.exists():
-                reference_parts.append(
-                    f"# Required Reference: {reference_path.relative_to(BASE_DIR)}\n"
-                    f"{reference_path.read_text(encoding='utf-8')}"
-                )
-        if reference_parts:
-            return body + "\n\n---\n\n" + "\n\n---\n\n".join(reference_parts)
-        return body
-    return f"[Skill file not found: {name}]"
-
-
-def load_agent(name: str) -> str:
-    path = AGENTS_DIR / f"{name}.md"
-    if path.exists():
-        return path.read_text(encoding="utf-8")
-    return f"[Agent file not found: {name}]"
-
-
-def load_context() -> str:
-    from pipeline.agentic.context_loader import assemble_context_pack, render_context_pack
-
-    pack = assemble_context_pack(BASE_DIR, profile="a-story-of-two")
-    return render_context_pack(pack)
-
-
-def build_system_prompt(agent_name: str, skill_names: list[str]) -> str:
-    agent_def = load_agent(agent_name)
-    skills = "\n\n---\n\n".join(load_skill(name) for name in skill_names)
-    context = load_context()
-
-    return f"""You are a specialist illustrated-carousel agent for @a.storyof.two.
-Follow the agent definition exactly. Be specific, visual, and non-generic.
-
-# Agent Definition
-{agent_def}
-
-# Skill References
-{skills}
-
-# Channel Context
-{context}
-"""
+    return {"title": title, "story": story, "slide_count": slide_count}
 
 
 def normalize_image_paths(image_paths: list[str | Path]) -> list[Path]:
@@ -331,140 +111,11 @@ def normalize_image_paths(image_paths: list[str | Path]) -> list[Path]:
     return normalized
 
 
-def image_content_block(path: Path) -> dict[str, Any]:
-    media_type = mimetypes.guess_type(path.name)[0] or "image/jpeg"
-    allowed = {"image/jpeg", "image/png", "image/gif", "image/webp"}
-    if media_type not in allowed:
-        raise CarouselPipelineError(f"Unsupported image type for {path}: {media_type}")
+def load_context() -> str:
+    """Render the canonical Agentic OS context without embedding agent prompts."""
+    from pipeline.agentic.context_loader import assemble_context_pack, render_context_pack
 
-    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
-    return {
-        "type": "image",
-        "source": {
-            "type": "base64",
-            "media_type": media_type,
-            "data": encoded,
-        },
-    }
-
-
-def build_brief_text(
-    *,
-    story: str,
-    title: str | None,
-    slide_count: int,
-    style_brief: str | None,
-    image_paths: list[Path],
-    identity_image_paths: list[Path] | None = None,
-    prior_outputs: dict[str, str] | None = None,
-    requested_formats: list[str] | tuple[str, ...] | None = None,
-) -> str:
-    locked_formats = normalize_requested_formats(requested_formats)
-    format_lines = [
-        (
-            f"- {output_format}: {format_spec(output_format)['aspect_ratio']}, "
-            f"{'x'.join(str(value) for value in format_spec(output_format)['target_size'])}"
-        )
-        for output_format in locked_formats
-    ]
-    lines = [
-        f"Title: {title or '[choose the strongest title]'}",
-        f"Story: {story}",
-        f"Slide count: {slide_count}",
-        f"Style brief: {style_brief or '[use the channel illustration framework]'}",
-        "Current-request native output lock (do not add or infer formats):",
-        *format_lines,
-        "Generate each locked canvas independently; never derive one aspect ratio from another.",
-        "Reference images:",
-    ]
-    lines.extend(f"- {path}" for path in image_paths)
-    if identity_image_paths:
-        lines.append("")
-        lines.append("Identity reference images for Aachu/Zuv face consistency:")
-        lines.extend(f"- {path}" for path in identity_image_paths)
-
-    if prior_outputs:
-        lines.append("")
-        lines.append("# Previous Specialist Outputs")
-        for name, output in prior_outputs.items():
-            lines.append(f"\n## {name}\n{output}")
-
-    return "\n".join(lines)
-
-
-def build_user_content(
-    *,
-    story: str,
-    title: str | None,
-    slide_count: int,
-    style_brief: str | None,
-    image_paths: list[Path],
-    identity_image_paths: list[Path] | None = None,
-    prior_outputs: dict[str, str] | None = None,
-    requested_formats: list[str] | tuple[str, ...] | None = None,
-) -> list[dict[str, Any]]:
-    content: list[dict[str, Any]] = []
-    for path in identity_image_paths or []:
-        content.append({"type": "text", "text": f"Identity reference image for Aachu/Zuv: {path.name}"})
-        content.append(image_content_block(path))
-
-    for path in image_paths:
-        content.append({"type": "text", "text": f"Reference image: {path.name}"})
-        content.append(image_content_block(path))
-
-    content.append(
-        {
-            "type": "text",
-            "text": build_brief_text(
-                story=story,
-                title=title,
-                slide_count=slide_count,
-                style_brief=style_brief,
-                image_paths=image_paths,
-                identity_image_paths=identity_image_paths,
-                prior_outputs=prior_outputs,
-                requested_formats=requested_formats,
-            ),
-        }
-    )
-    return content
-
-
-def run_agent(
-    client: anthropic.Anthropic,
-    *,
-    agent_name: str,
-    skill_names: list[str],
-    story: str,
-    title: str | None,
-    slide_count: int,
-    style_brief: str | None,
-    image_paths: list[Path],
-    identity_image_paths: list[Path] | None = None,
-    prior_outputs: dict[str, str] | None = None,
-    requested_formats: list[str] | tuple[str, ...] | None = None,
-    model: str = "claude-sonnet-4-6",
-    max_tokens: int = 2500,
-) -> str:
-    system = build_system_prompt(agent_name, skill_names)
-    content = build_user_content(
-        story=story,
-        title=title,
-        slide_count=slide_count,
-        style_brief=style_brief,
-        image_paths=image_paths,
-        identity_image_paths=identity_image_paths,
-        prior_outputs=prior_outputs,
-        requested_formats=requested_formats,
-    )
-
-    message = client.messages.create(
-        model=model,
-        max_tokens=max_tokens,
-        system=system,
-        messages=[{"role": "user", "content": content}],
-    )
-    return message.content[0].text
+    return render_context_pack(assemble_context_pack(BASE_DIR, profile="a-story-of-two"))
 
 
 def build_manifest(
@@ -477,19 +128,19 @@ def build_manifest(
     today: date | None = None,
     requested_formats: list[str] | tuple[str, ...] | None = None,
 ) -> dict[str, Any]:
-    today = today or date.today()
+    """Build the small public manifest used by compatibility callers."""
     format_contract = build_format_contract(
         requested_formats,
         source=("creator_request" if requested_formats is not None else "instagram_post_default"),
     )
     locked = normalize_requested_formats(format_contract["requested_formats"])
     return {
-        "date": str(today),
+        "date": str(today or date.today()),
         "slug": slug,
         "title": title,
         "channel": "@a.storyof.two",
-        "pipeline": "C-layer illustrated carousel",
-        "status": "draft_for_human_review",
+        "pipeline": "carousel_hot_path_v2",
+        "status": "draft",
         "source_story": story,
         "requested_formats": list(locked),
         "format_contract": format_contract,
@@ -506,387 +157,86 @@ def build_manifest(
                 }
                 for output_format in locked
             },
-            "native_output_rule": format_contract["rule"],
         },
         "reference_images": [
-            {"path": str(path), "role": "user supplied story reference"}
-            for path in image_paths
+            {"path": str(path), "role": "story reference"} for path in image_paths
         ],
         "identity_references": [
-            {"path": str(path), "role": "Aachu/Zuv face consistency reference"}
+            {"path": str(path), "role": "Aachu/Zuv identity reference"}
             for path in (identity_image_paths or [])
         ],
-        "agentic_os": {
-            "context_manifest": "config/agentic_context_manifest.json",
-            "skill_systems": "config/skill-systems.json",
-            "skill_system": "carousel_jam",
-        },
         "artifacts": ARTIFACT_CONTRACT,
     }
 
 
+def extract_json_object(text: str) -> dict[str, Any]:
+    """Retained for old integrations that hand a package through JSON text."""
+    fenced = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, flags=re.DOTALL)
+    candidate = fenced.group(1) if fenced else text.strip()
+    if not candidate.startswith("{"):
+        start, end = candidate.find("{"), candidate.rfind("}")
+        if start == -1 or end <= start:
+            raise CarouselPipelineError("Response did not contain a JSON object.")
+        candidate = candidate[start : end + 1]
+    try:
+        parsed = json.loads(candidate)
+    except json.JSONDecodeError as exc:
+        raise CarouselPipelineError(f"Response JSON was invalid: {exc}") from exc
+    if not isinstance(parsed, dict):
+        raise CarouselPipelineError("Response JSON must be an object.")
+    return parsed
+
+
 def validate_package(package: dict[str, Any]) -> None:
-    required = {
-        "concept",
-        "post_copy_visual_room",
-        "visual_debate",
-        "slides",
-        "prompt_pack",
-        "copy",
-        "review",
-    }
+    required = {"creative_context", "slides", "prompt_pack"}
     missing = sorted(required - set(package))
     if missing:
-        raise CarouselPipelineError("Orchestrator package missing keys: " + ", ".join(missing))
-
+        raise CarouselPipelineError("Package missing keys: " + ", ".join(missing))
     slides = package["slides"]
     if not isinstance(slides, list) or not slides:
-        raise CarouselPipelineError("Orchestrator package must include at least one slide.")
-
+        raise CarouselPipelineError("Package must include at least one slide.")
     prompt_slides = package["prompt_pack"].get("slides", [])
     if len(prompt_slides) != len(slides):
-        raise CarouselPipelineError("Prompt pack slide count must match slides.json.")
-
-    if not isinstance(package["review"], dict):
-        raise CarouselPipelineError("Orchestrator review must be an object.")
-    validate_story_selling_review(package["review"])
+        raise CarouselPipelineError("Prompt-pack slide count must match slides.json.")
 
 
-def validate_story_selling_review(review: dict[str, Any]) -> None:
-    story_selling_score = review.get("story_selling_score")
-    if not isinstance(story_selling_score, dict):
-        raise CarouselPipelineError("Review must include story_selling_score.")
+def create_illustration_carousel(**options: Any) -> Path:
+    """Compatibility alias for the single Codex-native implementation."""
+    from pipeline.stages.codex_native_carousel import create_codex_native_carousel
 
-    total = story_selling_score.get("total")
-    try:
-        total_score = float(total)
-    except (TypeError, ValueError) as exc:
-        raise CarouselPipelineError("Review story_selling_score.total must be numeric.") from exc
-    if total_score < STORY_SELLING_MIN_SCORE:
-        raise CarouselPipelineError(
-            f"Story-Selling score must be at least {STORY_SELLING_MIN_SCORE}/30."
-        )
-
-    hard_fails = review.get("story_selling_hard_fails", [])
-    if not isinstance(hard_fails, list):
-        raise CarouselPipelineError("Review story_selling_hard_fails must be a list.")
-    if hard_fails:
-        raise CarouselPipelineError("Story-Selling hard fails must be repaired before packaging.")
-
-    gate = review.get("story_selling_gate")
-    if not isinstance(gate, dict):
-        raise CarouselPipelineError("Review must include story_selling_gate.")
-    if gate.get("status") not in {"PASS", "PASS_WITH_NOTES", "GO"}:
-        raise CarouselPipelineError("Review story_selling_gate.status must pass before packaging.")
-    if not gate.get("selected_concept_process_card"):
-        raise CarouselPipelineError("Review must record the selected Story-Selling concept-process card.")
-
-    story_director_gate = review.get("story_director_gate")
-    if story_director_gate is not None:
-        if not isinstance(story_director_gate, dict):
-            raise CarouselPipelineError("Review story_director_gate must be an object when present.")
-        if story_director_gate.get("status") not in {"PASS", "GO", "PASS_WITH_NOTES"}:
-            raise CarouselPipelineError("Review story_director_gate.status must pass before packaging.")
-
-
-def write_json(path: Path, data: Any) -> None:
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-
-
-def write_storyboard(out_dir: Path, package: dict[str, Any]) -> None:
-    concept = package["concept"]
-    copy = package["copy"]
-    lines = [
-        f"# {concept.get('title', 'Illustrated Carousel')}",
-        "",
-        concept.get("human_truth", ""),
-        "",
-        "## Emotional Arc",
-        "",
-        concept.get("emotional_arc", ""),
-        "",
-        "## Slide Flow",
-        "",
-    ]
-
-    for slide in package["slides"]:
-        lines.append(
-            f"- {slide.get('slide')}: {slide.get('copy')} - {slide.get('visual')}"
-        )
-
-    lines.extend(
-        [
-            "",
-            "## Recommended Caption",
-            "",
-            copy.get("caption_recommended", ""),
-            "",
-            "## Generation Notes",
-            "",
-            "- Use `prompt-pack.json` for image generation.",
-            "- Review `final-approval.md` before posting.",
-        ]
-    )
-    (out_dir / "storyboard.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
-def write_approval_checklist(out_dir: Path, package: dict[str, Any]) -> None:
-    review = package["review"]
-    story_selling_score = review.get("story_selling_score", {})
-    story_selling_gate = review.get("story_selling_gate", {})
-    lines = [
-        "# Final Approval Checklist",
-        "",
-        f"Status: {review.get('status', 'draft_review')}",
-        f"Score: {review.get('total', 0)} / {review.get('max', 40)}",
-        f"Story-Selling: {story_selling_score.get('total', 0)} / 30",
-        f"Story-Selling Gate: {story_selling_gate.get('status', 'PENDING')}",
-        f"Pass: {review.get('pass', False)}",
-        "",
-        "## Before Image Generation",
-        "",
-        "- [ ] Slide copy is final.",
-        "- [ ] `post-copy-visual-room.json` is GO after copy confirmation.",
-        "- [ ] The prompts preserve the supplied photos and story.",
-        "- [ ] The package does not feel like generic couple content.",
-        "- [ ] Text is short enough for every format locked in format-contract.json.",
-        "- [ ] Final generation will create every request-locked native output independently, not as a resized duplicate.",
-        "- [ ] Brandmark is tiny and low contrast.",
-        "",
-        "## Required Changes",
-        "",
-    ]
-    changes = review.get("required_changes_before_image_generation") or []
-    if changes:
-        lines.extend(f"- [ ] {change}" for change in changes)
-    else:
-        lines.append("- [ ] No required changes listed by reviewer.")
-
-    (out_dir / "final-approval.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
-def write_agent_reports(out_dir: Path, outputs: dict[str, str]) -> None:
-    lines = ["# C-Layer Agent Reports", ""]
-    for name, output in outputs.items():
-        lines.extend([f"## {name}", "", output, ""])
-    (out_dir / "agent-reports.md").write_text("\n".join(lines), encoding="utf-8")
-
-
-def write_package(
-    *,
-    out_dir: Path,
-    manifest: dict[str, Any],
-    package: dict[str, Any],
-    agent_outputs: dict[str, str],
-) -> None:
-    out_dir.mkdir(parents=True, exist_ok=True)
-    manifest_contract = manifest.get("format_contract", {})
-    formats_to_write = (
-        None
-        if isinstance(manifest_contract, dict) and manifest_contract.get("default_applied") is True
-        else manifest.get("requested_formats")
-    )
-    write_format_contract(
-        out_dir,
-        formats_to_write,
-        source=str(manifest_contract.get("source") or "package_manifest"),
-        replace=True,
-    )
-    write_json(out_dir / "manifest.json", manifest)
-    write_json(
-        out_dir / "creative-baseline.json",
-        package.get(
-            "creative_baseline",
-            {
-                "status": "not_supplied",
-                "source": "anthropic_c_layer_agents",
-                "creative_authority": "model_first_expected",
-                "guardrail_role": "engineering blocks hard failures after the creative pass",
-            },
-        ),
-    )
-    write_json(out_dir / "concept.json", package["concept"])
-    write_json(out_dir / "post-copy-visual-room.json", package["post_copy_visual_room"])
-    write_json(out_dir / "visual-debate.json", package["visual_debate"])
-    write_json(out_dir / "slides.json", package["slides"])
-    write_json(out_dir / "prompt-pack.json", package["prompt_pack"])
-    write_json(out_dir / "copy.json", package["copy"])
-    write_json(out_dir / "review.json", package["review"])
-    write_storyboard(out_dir, package)
-    write_approval_checklist(out_dir, package)
-    write_agent_reports(out_dir, agent_outputs)
-
-
-def create_illustration_carousel(
-    *,
-    story: str,
-    image_paths: list[str | Path],
-    identity_image_paths: list[str | Path] | None = None,
-    title: str | None = None,
-    slide_count: int = DEFAULT_SLIDE_COUNT,
-    style_brief: str | None = None,
-    output_root: Path = OUTPUT_ROOT,
-    requested_formats: list[str] | None = None,
-) -> Path:
-    if not story.strip():
-        raise ValueError("Story is required.")
-    validate_slide_count(slide_count)
-
-    normalized_images = normalize_image_paths(image_paths)
-    normalized_identity_images = normalize_image_paths(identity_image_paths or [])
-    current_request_formats = normalize_requested_formats(requested_formats)
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-
-    print("Running C-layer illustrated carousel agents...")
-    agent_outputs: dict[str, str] = {}
-    for agent_name, skills in SPECIALIST_AGENTS:
-        print(f"  -> {agent_name}...")
-        agent_outputs[agent_name] = run_agent(
-            client,
-            agent_name=agent_name,
-            skill_names=skills,
-            story=story,
-            title=title,
-            slide_count=slide_count,
-            style_brief=style_brief,
-            image_paths=normalized_images,
-            identity_image_paths=normalized_identity_images,
-            prior_outputs=agent_outputs,
-            requested_formats=current_request_formats,
-        )
-
-    print("  -> illustration-carousel-orchestrator...")
-    orchestrator_output = run_agent(
-        client,
-        agent_name=ORCHESTRATOR_AGENT,
-        skill_names=ORCHESTRATOR_SKILLS,
-        story=story,
-        title=title,
-        slide_count=slide_count,
-        style_brief=style_brief,
-        image_paths=normalized_images,
-        identity_image_paths=normalized_identity_images,
-        prior_outputs=agent_outputs,
-        requested_formats=current_request_formats,
-        model="claude-opus-4-6",
-        max_tokens=5000,
-    )
-    agent_outputs[ORCHESTRATOR_AGENT] = orchestrator_output
-
-    package = extract_json_object(orchestrator_output)
-    validate_package(package)
-
-    concept = package["concept"]
-    final_title = title or concept.get("title") or "Illustration Carousel"
-    slug = slugify_title(final_title)
-    dated_root = output_root / datetime.now().strftime("%Y-%m-%d")
-    out_dir = dated_root / slug
-    suffix = 2
-    while out_dir.exists():
-        out_dir = dated_root / f"{slug}-{suffix}"
-        suffix += 1
-
-    manifest = build_manifest(
-        title=final_title,
-        slug=out_dir.name,
-        story=story,
-        image_paths=normalized_images,
-        identity_image_paths=normalized_identity_images,
-        requested_formats=requested_formats,
-    )
-    write_package(
-        out_dir=out_dir,
-        manifest=manifest,
-        package=package,
-        agent_outputs=agent_outputs,
-    )
-    print(f"\nCarousel package saved -> {out_dir}")
-    return out_dir
+    return create_codex_native_carousel(**options)
 
 
 def interactive_mode() -> dict[str, Any]:
-    print("\n=== Illustrated Carousel Automation - @a.storyof.two ===\n")
-    print("Share the story and reference pictures. Press Enter to skip optional fields.\n")
-
+    print("\n=== Carousel Creator - @a.storyof.two ===\n")
     title = input("Working title (optional): ").strip() or None
     story = input("Story (required): ").strip()
     if not story:
-        print("Story is required.")
-        sys.exit(1)
-
-    raw_images = input("Image paths (comma-separated, required): ").strip()
-    if not raw_images:
-        print("At least one image path is required.")
-        sys.exit(1)
-    image_paths = [item.strip() for item in raw_images.split(",") if item.strip()]
-    raw_identity_images = input("Identity image paths for Aachu/Zuv (comma-separated, optional): ").strip()
-    identity_image_paths = (
-        [item.strip() for item in raw_identity_images.split(",") if item.strip()]
-        if raw_identity_images
-        else None
-    )
-
-    slide_count_raw = input(
-        f"Slide count [{DEFAULT_SLIDE_COUNT}, choose {MIN_STORY_SLIDES}-{MAX_STORY_SLIDES}]: "
-    ).strip()
-    slide_count = validate_slide_count(int(slide_count_raw)) if slide_count_raw else DEFAULT_SLIDE_COUNT
+        raise SystemExit("Story is required.")
+    raw_images = input("Story-reference image paths (comma-separated): ").strip()
+    images = [item.strip() for item in raw_images.split(",") if item.strip()]
+    raw_identity = input("Aachu/Zuv identity images (comma-separated, required for art): ").strip()
+    identity = [item.strip() for item in raw_identity.split(",") if item.strip()]
+    raw_count = input(f"Slide count [{DEFAULT_SLIDE_COUNT}]: ").strip()
     style_brief = input("Style brief (optional): ").strip() or None
-
     return {
         "title": title,
         "story": story,
-        "image_paths": image_paths,
-        "identity_image_paths": identity_image_paths,
-        "slide_count": slide_count,
+        "image_paths": images,
+        "identity_image_paths": identity or None,
+        "slide_count": validate_slide_count(int(raw_count)) if raw_count else DEFAULT_SLIDE_COUNT,
         "style_brief": style_brief,
     }
 
 
+def _main() -> None:
+    # The public entrypoint is scripts/create_illustration_carousel.py.  Keeping
+    # this module executable avoids breaking old one-liners without restoring a
+    # second workflow.
+    options = interactive_mode()
+    out_dir = create_illustration_carousel(**options, output_root=OUTPUT_ROOT)
+    print(f"Carousel package saved -> {out_dir}")
+
+
 if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser(description="Create an illustrated carousel package.")
-    parser.add_argument("--story", help="Story or memory behind the pictures")
-    parser.add_argument("--story-file", help="Read story from a text file")
-    parser.add_argument("--title", help="Optional working title")
-    parser.add_argument(
-        "--image",
-        dest="images",
-        action="append",
-        default=[],
-        help="Reference image path. Repeat for multiple images.",
-    )
-    parser.add_argument(
-        "--identity-image",
-        dest="identity_images",
-        action="append",
-        default=None,
-        help="Aachu/Zuv identity or clothing reference image. Repeat for multiple references.",
-    )
-    parser.add_argument(
-        "--slide-count",
-        type=int,
-        default=DEFAULT_SLIDE_COUNT,
-        help=f"Slide count, {MIN_STORY_SLIDES}-{MAX_STORY_SLIDES}",
-    )
-    parser.add_argument("--style-brief", help="Optional illustration/style direction")
-    args = parser.parse_args()
-
-    if args.story_file:
-        story_text = Path(args.story_file).expanduser().read_text(encoding="utf-8")
-    else:
-        story_text = args.story
-
-    if story_text and args.images:
-        options = {
-            "story": story_text,
-            "image_paths": args.images,
-            "identity_image_paths": args.identity_images,
-            "title": args.title,
-            "slide_count": args.slide_count,
-            "style_brief": args.style_brief,
-        }
-    else:
-        options = interactive_mode()
-
-    create_illustration_carousel(**options)
+    _main()

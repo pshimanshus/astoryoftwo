@@ -6,7 +6,6 @@ from datetime import date
 from pathlib import Path
 
 from pipeline.stages import codex_native_carousel
-from pipeline.stages.c1_illustration_carousel import build_manifest as build_anthropic_manifest
 from pipeline.stages.c1_illustration_carousel import load_context as load_anthropic_context
 from pipeline.stages.b1_prepost import build_agentic_os_brief, load_context as load_prepost_context
 from scripts.create_substack_article_package import create_article_package
@@ -14,22 +13,24 @@ from tests.helpers.agentic_workspace import write_minimal_agentic_workspace
 from tests.helpers.images import write_jpeg
 
 
-def test_anthropic_context_and_manifest_use_agentic_os():
+def test_carousel_context_and_registry_use_small_agentic_os_contract():
     rendered_context = load_anthropic_context()
-    manifest = build_anthropic_manifest(
-        title="Agentic Provenance",
-        slug="agentic-provenance",
-        story="A small proof story.",
-        image_paths=[],
-        today=date(2026, 5, 28),
+    systems = json.loads(
+        (Path(__file__).resolve().parents[1] / "config" / "skill-systems.json").read_text()
     )
+    carousel = systems["systems"]["carousel_jam"]
 
     assert "# Agentic Context Pack" in rendered_context
-    assert "config/agentic_context_manifest.json" in manifest["agentic_os"]["context_manifest"]
-    assert manifest["agentic_os"]["skill_system"] == "carousel_jam"
+    assert carousel["agents"] == []
+    assert carousel["gates"] == [
+        "concept_lock",
+        "copy_format_lock",
+        "proof_pixel_qa_creator_approval",
+        "final_package_qa",
+    ]
 
 
-def test_codex_native_manifest_records_agentic_os_contract():
+def test_codex_native_manifest_is_small_creative_context():
     manifest = codex_native_carousel.build_manifest(
         title="Agentic Native",
         slug="agentic-native",
@@ -42,9 +43,15 @@ def test_codex_native_manifest_records_agentic_os_contract():
         today=date(2026, 5, 28),
     )
 
-    assert manifest["agentic_os"]["skill_system"] == "carousel_jam"
-    assert manifest["agentic_os"]["context_manifest"] == "config/agentic_context_manifest.json"
-    assert manifest["agentic_os"]["skill_systems"] == "config/skill-systems.json"
+    assert manifest["schema_version"] == "carousel-creative-context/v2"
+    assert manifest["status"] == "copy_and_format_locked"
+    assert manifest["artifacts"] == [
+        "creative-context.json",
+        "format-contract.json",
+        "slides.json",
+        "prompt-pack.json",
+    ]
+    assert "agentic_os" not in manifest
 
 
 def test_codex_native_workflow_rejects_empty_explicit_identity_refs(tmp_path: Path):
@@ -146,10 +153,14 @@ def test_agentic_os_cli_plan_aliases(tmp_path: Path):
     assert "memory.sqlite3" in index_memory.stdout
 
 
-def test_skill_systems_name_layer_e_artifacts():
+def test_layer_e_artifacts_are_not_in_default_carousel_jam():
     systems = json.loads((Path(__file__).resolve().parents[1] / "config" / "skill-systems.json").read_text())
 
-    for name in ("carousel_jam", "story_article", "prepost_reel"):
+    assert not any(
+        "layer-e" in artifact
+        for artifact in systems["systems"]["carousel_jam"].get("artifacts", [])
+    )
+    for name in ("story_article", "prepost_reel"):
         system = systems["systems"][name]
         artifacts = system.get("artifacts", [])
         assert "layer-e-story-selling.json" in artifacts

@@ -150,9 +150,9 @@ newer Aachu/Zuv-specific requirements.
 
 ### `docs/`
 
-- `docs/superpowers/plans/2026-05-16-carousel-generation-loop-fix.md`:
+- Superseded repair history (now summarized in `docs/superpowers/plans/2026-06-28-analysis-hot-path-repair.md`):
   full implementation plan.
-- `docs/superpowers/plans/2026-05-16-carousel-generation-loop-remaining-fixes.md`:
+- Remaining fixes were folded into the same current hot-path repair record:
   running checklist that was partly completed during implementation.
 - `docs/audits/2026-05-16-carousel-pipeline-structure-audit.md`:
   this structure and health audit.

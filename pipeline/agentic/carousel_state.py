@@ -42,8 +42,9 @@ def _read_json(path: Path) -> dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
-def _status(payload: dict[str, Any]) -> str:
-    return str(payload.get("status") or "").strip().lower()
+def _status(payload: dict[str, Any] | Any) -> str:
+    value = payload.get("status") if isinstance(payload, dict) else payload
+    return str(value or "").strip().lower()
 
 
 def _audit_passed(payload: dict[str, Any]) -> bool:
@@ -56,6 +57,45 @@ def _handoff_ready(payload: dict[str, Any]) -> bool:
         "ready_for_codex_builtin_generation",
         "handoff_ready_for_codex_builtin_image_generation",
     }
+
+
+def _generation_state(package_dir: Path) -> dict[str, Any]:
+    """Read the one transient state record, with legacy compatibility."""
+
+    return _read_json(package_dir / "generation-state.json") or _read_json(
+        package_dir / "image-generation.json"
+    )
+
+
+def _proof_qa(package_dir: Path) -> dict[str, Any]:
+    return _read_json(package_dir / "proof-qa.json") or _read_json(
+        package_dir / "visual-qa.json"
+    )
+
+
+def _proof_failed(payload: dict[str, Any], qa: dict[str, Any]) -> bool:
+    state = _status(payload.get("proof_state") or payload.get("state") or payload.get("status"))
+    if state in {"proof_failed", "rejected_spatial_integrity", "blocked_visual_qa"}:
+        return True
+    if state != "generated_quarantined":
+        return False
+    return _status(qa.get("status") or qa.get("verdict")) == "fail" or qa.get("pass") is False
+
+
+def _batch_allowed(payload: dict[str, Any]) -> bool:
+    return bool(
+        _status(payload.get("proof_state") or payload.get("state") or payload.get("status"))
+        in {
+            "batch_allowed",
+            "batch_generation_ready",
+            "continue_batch",
+            "proof_accepted_continue_batch",
+            "proof_passed",
+            "remaining_slides_ready",
+        }
+        or payload.get("can_continue_batch") is True
+        or payload.get("batch_generation_allowed") is True
+    )
 
 
 def _has_final_slide_png(package_dir: Path) -> bool:
@@ -95,6 +135,23 @@ def derive_carousel_state(package_dir: Path) -> CarouselState:
     report = inspect_carousel_package(package_dir)
     issue_codes = [issue.code for issue in report.issues]
 
+    image_generation = _generation_state(package_dir)
+    proof_qa = _proof_qa(package_dir)
+    final_images = _read_json(package_dir / "final-images.json")
+    final_audit = _read_json(package_dir / "final-audit.json")
+
+    # A failed proof is a repairable creative state, not a handoff.  Resolve it
+    # before generic doctor blockers so the caller gets the right next action.
+    if _proof_failed(image_generation, proof_qa):
+        return CarouselState(
+            name="proof_failed",
+            publishable=False,
+            blocked=True,
+            next_action="repair_visual_premise",
+            issue_codes=_unique_issue_codes(issue_codes),
+            package_dir=str(package_dir),
+        )
+
     if report.blocked:
         return CarouselState(
             name="blocked",
@@ -104,10 +161,6 @@ def derive_carousel_state(package_dir: Path) -> CarouselState:
             issue_codes=_unique_issue_codes(issue_codes),
             package_dir=str(package_dir),
         )
-
-    image_generation = _read_json(package_dir / "image-generation.json")
-    final_images = _read_json(package_dir / "final-images.json")
-    final_audit = _read_json(package_dir / "final-audit.json")
 
     if _status(image_generation) == "blocked" or _status(final_images) == "blocked":
         return CarouselState(
@@ -119,7 +172,10 @@ def derive_carousel_state(package_dir: Path) -> CarouselState:
             package_dir=str(package_dir),
         )
 
-    if final_images.get("publishable") is True and _audit_passed(final_audit):
+    if (
+        final_images.get("publishable") is True
+        or _status(final_images) in {"publish_ready", "publishable"}
+    ) and _audit_passed(final_audit):
         asset_report = validate_publishable_final_assets(package_dir)
 
         if not asset_report.ok:
@@ -145,10 +201,33 @@ def derive_carousel_state(package_dir: Path) -> CarouselState:
 
     if _has_generated_signal(final_images, package_dir):
         return CarouselState(
-            name="partial_final",
+            name="final_qa_required",
             publishable=False,
             blocked=False,
             next_action="run_visual_qa_and_final_audit",
+            issue_codes=_unique_issue_codes(issue_codes),
+            package_dir=str(package_dir),
+        )
+
+    if _batch_allowed(image_generation):
+        return CarouselState(
+            name="proof_approved",
+            publishable=False,
+            blocked=False,
+            next_action="generate_remaining_slides",
+            issue_codes=_unique_issue_codes(issue_codes),
+            package_dir=str(package_dir),
+        )
+
+    if _status(image_generation) in {"generated_quarantined", "proof_ready_for_review", "qa_pass_candidate"} or (
+        package_dir / "non-final-proofs"
+    ).exists() or (package_dir / ".internal" / "visual-quarantine").exists():
+        qa_passed = proof_qa.get("pass") is True or _status(proof_qa.get("status")) == "pass"
+        return CarouselState(
+            name="proof_ready",
+            publishable=False,
+            blocked=False,
+            next_action="record_creator_approval" if qa_passed else "review_proof_pixels",
             issue_codes=_unique_issue_codes(issue_codes),
             package_dir=str(package_dir),
         )
@@ -162,19 +241,7 @@ def derive_carousel_state(package_dir: Path) -> CarouselState:
             name="handoff_ready",
             publishable=False,
             blocked=False,
-            next_action="generate_with_identity_refs",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if _status(image_generation) == "proof_ready_for_review" or (
-        package_dir / "non-final-proofs"
-    ).exists():
-        return CarouselState(
-            name="proof_ready",
-            publishable=False,
-            blocked=False,
-            next_action="review_or_repair_proof",
+            next_action="generate_risky_proof",
             issue_codes=_unique_issue_codes(issue_codes),
             package_dir=str(package_dir),
         )
@@ -184,7 +251,7 @@ def derive_carousel_state(package_dir: Path) -> CarouselState:
             name="copy_locked",
             publishable=False,
             blocked=False,
-            next_action="prepare_image_handoff",
+            next_action="generate_risky_proof",
             issue_codes=_unique_issue_codes(issue_codes),
             package_dir=str(package_dir),
         )
@@ -193,7 +260,7 @@ def derive_carousel_state(package_dir: Path) -> CarouselState:
         name="draft",
         publishable=False,
         blocked=False,
-        next_action="complete_c_layer_package",
+        next_action="lock_concept_then_copy_and_format",
         issue_codes=_unique_issue_codes(issue_codes),
         package_dir=str(package_dir),
     )

@@ -60,5 +60,5 @@ the agent bypasses it. `review.json`, `stage-reviews.json`, and
 `final-audit.json` already contained REPAIR/NEEDS_FIXES, while a manually
 altered Layer-E artifact said GO. The generated candidates were then displayed
 from ad-hoc chat prompts without a fresh precheck, compiled-handoff binding,
-native-dimension validation, quarantine, or Event B. Every current artifact
+native-dimension validation, quarantine, or actual-pixel QA. Every current artifact
 must agree before generation, and unchecked model outputs must stay internal.

@@ -56,7 +56,6 @@ def test_starter_tasks_are_issue_like_and_cover_project_contract() -> None:
         "ASTO-019-duplicate-background-characters",
         "ASTO-020-hand-object-integrity",
         "ASTO-021-whole-person-spatial-integrity",
-        "ASTO-022-hil-stage-checkpoints",
     ):
         assert expected in task_ids
 
@@ -101,29 +100,6 @@ def test_starter_tasks_are_issue_like_and_cover_project_contract() -> None:
                 not path.startswith(("tests/", "output/", "docs/"))
                 for path in task.expected_files_changed
             ), f"{task.id}: regression task has no production mutation target"
-
-
-def test_hil_checkpoint_eval_uses_a_real_current_to_stale_lifecycle() -> None:
-    task = next(
-        task
-        for task in discover_tasks(ROOT)
-        if task.id == "ASTO-022-hil-stage-checkpoints"
-    )
-    fixture_path = task.task_dir / "fixtures" / "approvals.json"
-    fixture_text = fixture_path.read_text(encoding="utf-8")
-    fixture = json.loads(fixture_text)
-    spec = (task.task_dir / "deep-spec.md").read_text(encoding="utf-8").lower()
-
-    assert fixture["stages"] == {}
-    assert "stale-concept-fingerprint" not in fixture_text
-    assert "stage_fingerprint" in spec
-    assert "approval_valid(concept)=true" in spec
-    assert "concept-selection.json" in spec
-    assert any(
-        "before mutation" in criterion.lower()
-        and "current explicit creator approval" in criterion.lower()
-        for criterion in task.pass_to_pass
-    )
 
 
 def test_task_metadata_protects_root_contract_and_sensitive_outputs() -> None:
@@ -220,8 +196,6 @@ def test_eval_research_assets_are_present_and_source_grounded() -> None:
     assert "ASTO-020" in taxonomy_text
     assert "whole-person spatial" in taxonomy_text.lower()
     assert "ASTO-021" in taxonomy_text
-    assert "stale or agent-inferred human approval" in taxonomy_text.lower()
-    assert "ASTO-022" in taxonomy_text
     for fragment in (
         "Seeti Count Marriage",
         "The Almosts Were Practicing",

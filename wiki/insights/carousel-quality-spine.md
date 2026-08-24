@@ -4,7 +4,7 @@ last_updated: 2026-05-31
 confidence: 0.82
 sources:
 - docs/superpowers/specs/2026-05-10-carousel-quality-spine-design.md
-- docs/superpowers/plans/2026-05-10-carousel-quality-spine.md
+- docs/superpowers/plans/creative-os-master-plan.md
 - pipeline/stages/carousel_quality.py
 
 ---

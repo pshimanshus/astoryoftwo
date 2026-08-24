@@ -14,13 +14,13 @@
   "done_when": [
     "The visual plan includes a shot ladder before image generation.",
     "Slides vary camera distance, angle, action, setting or sub-location, props, and who is visible.",
-    "Generation remains blocked until visual-plan-quality is GO/PASS."
+    "Generation remains blocked until each slide has a distinct observable physical action and the risky proof passes actual-pixel QA."
   ],
   "allowed_paths": ["pipeline/stages/**", "pipeline/agentic/**", "config/rules/visual-variety.md", "tests/**", "output/carousels/**/visual-plan-quality.json", "output/carousels/**/storyboard.md"],
   "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/references/identity/**", "output/**/final/**", "output/**/final-reels-stories/**", "logs/**", "venv/**", "**/__pycache__/**"],
-  "expected_files_changed": ["pipeline/stages/carousel_visual_rooms.py", "tests/test_story_scene_first_contract.py", "tests/test_illustration_carousel.py"],
+  "expected_files_changed": ["pipeline/stages/carousel_visual_storytelling.py", "tests/test_carousel_visual_storytelling.py", "tests/test_illustration_carousel.py"],
   "forbidden_changes": ["Do not allow quote-card visuals with characters added later.", "Do not approve repeated full-couple medium shots by changing the threshold."],
-  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_story_scene_first_contract.py", "tests/test_illustration_carousel.py", "-q"]],
+  "required_commands": [["venv/bin/python", "-m", "pytest", "tests/test_carousel_visual_storytelling.py", "tests/test_illustration_carousel.py", "-q"]],
   "deterministic_checkers": ["diff_guard", "visual_variety_shot_ladder_fixture"],
   "rubric_checkers": ["visual_variety"],
   "fail_to_pass": ["repeated-scene visual plan is blocked until a shot ladder varies camera, action, setting, and subject visibility"],

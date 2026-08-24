@@ -186,7 +186,7 @@ def test_identity_stop_gate_fixture_triggers_named_checker(tmp_path: Path) -> No
     results = run_named_checkers(task, tmp_path, ["identity_stop_gate_fixture"])
 
     assert [result.status for result in results] == ["PASS"]
-    assert any("identity_eval" in item for item in results[0].evidence)
+    assert "identity_references_missing" in results[0].evidence
 
 
 def test_score_rejection_fixture_fails_until_rejected_scores_are_stopped(tmp_path: Path) -> None:

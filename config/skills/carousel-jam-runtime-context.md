@@ -1,282 +1,114 @@
 # Carousel Jam Runtime Context
 
 last_updated: 2026-08-23
-confidence: 0.94
-status: compact runtime contract
+status: minimal default runtime
 
 ## Purpose
 
-Use this as the first file for @a.storyof.two carousel jams, idea selection,
-story repair, and copy-before-visual planning. It condenses the recurring
-context from the four long source files so Codex does not repeatedly load the
-same large surfaces at the start of every jam.
+This is the compact context for ordinary @a.storyof.two carousel work. It keeps
+the default run fast and readable. Canonical `config/rules/` files win on
+palette, identity, text, brandmark, dimensions, variety, relationship motion,
+and scene/entity integrity.
 
-This file is a runtime entrypoint, not a new source of truth. If it conflicts
-with the source files below, the source file wins and this compact file should
-be repaired.
+Do not load the long theme, scoring, memory, agent-room, or review-loop sources
+at startup. Search the relevant section only when a creator correction, rejected
+lane, or failed check needs it. Use `$a-story-instagram-idea-loop` only on an
+explicit request for the deep idea loop.
 
-## Source Files
-
-- `wiki/insights/successful-carousel-standard.md`: defines public recognition,
-  audience success, creative success, brand success, production success, and
-  final-gate expectations.
-- `memory/semantic/carousel-idea-preferences.md`: records creator preferences,
-  rejected lanes, cooldowns, repeated beats, and fresh-idea constraints.
-- `config/skills/romance-story-selling-engine.md`: Layer E story-selling
-  process, concept-process card choice, emotional obstacle, proof, and 28/30
-  story score.
-- `config/skills/golden-viral-carousel-theme.md`: golden-theme tournament,
-  universal relationship truth, Aachu/Zuv proof engine, taste caps, and 28/30
-  golden score.
-
-## Token Policy
-
-Load this file first. Do not open all four source files by default.
-
-Open a long source file only when the current task needs detail from that file:
-
-- a gate fails or needs repair;
-- a creator correction must be written into durable memory;
-- a concept is near a rejected or cooled-down lane;
-- a score needs the full rubric/reference;
-- a source conflict appears;
-- final packaging, image handoff, or audit needs exact evidence.
-
-When detail is needed, read only the relevant section or search for the exact
-phrase. Do not full-read the four source files as a routine opening move.
-
-## Runtime Contract
-
-session-start creator hook: load `config/skills/creator-skill-stack.md` before
-fresh ideation, carousel jams, Reel routes, caption routes, or format decisions.
-Use it to define Scroll-Stop, Recognition, Emotional Contradiction, Scene-Proof,
-Retention Ladder, Payoff, Format Remix, Audience Mirror, Volume, Taste Gate, and
-DM Send Test before creator-facing concept suggestions. Keep the skill names
-private unless the creator asks for operating analysis.
-
-storytelling change hook: invoke
-`.agents/skills/a-story-storytelling-hook/SKILL.md` at the first creative
-response and keep it active across brainstorming, idea generation, thinking,
-comparison, discussion, rejection, revision, and production follow-ups. That
-skill owns transformation, ERCRT/WHW, story state, and correction continuity;
-this runtime owns carousel workflow gates. Do not duplicate the story engine
-here.
-
-free creative pass before scoring: model owns concept, copy, and visual
-invention, and engineering is the guardrail layer for repeated ideas, identity
-drift, visual issues, exact text, brandmark, dimensions, stale artifacts, and
-house guidance. The checks should protect the first alive route and block hard
-failures; they should not replace the model's strongest concept/copy/visual
-setup with a safer template.
-
-format inference preflight: before prompt handoff, generation, export, or
-packaging, lock the canvas from the current creator instruction, current
-attached references, and any immediate correction in the chat. If the creator
-removes, rejects, or corrects a format/aspect/size decision, that correction
-overrides repo defaults for the current task. Do not silently snap back to
-`3:4`, `9:16`, feed, Story, Reel, square, or multi-format output from workflow
-defaults. If the canvas is unclear after a correction, stop and ask for the
-exact canvas instead of generating. Persist this request-derived lock through
-`carousel_format_contract`: `instagram_post` is the no-canvas default;
-`reels_stories` and `square` are explicit-only. Never infer intent from final
-folders or older generated assets.
-
-Before writing hooks, slide copy, captions, visual directions, prompt text, or
-image handoff, define:
-
-- audience success: a cold viewer thinks "this is us", sends, saves, tags, or
-  recognizes a kind of love;
-- creative success: the carousel proves a story through staged behavior,
-  active reaction, emotional turn, and earned payoff;
-- brand success: the idea feels like warm, desi, specific @a.storyof.two IP,
-  not generic couple content;
-- production success: the route can become every request-locked native output
-  (3:4 by default; 9:16 and/or 1:1 only when explicitly requested) with visual
-  QA and final audit;
-- relationship-motion success: the post creates a public relationship mirror
-  through enough behavior, receipts, contradiction, rhythm, or situation to
-  feel real; the mover can be Aachu, Zuv, both, a generic couple pattern, or no
-  heroic actor when the shared rhythm is the point;
-- story/theme success: the exact story, viral theme, or golden-theme machine
-  being protected before copy exists.
-
-For carousel conversion, the last slides must kill. Slides 5 and 6 are not a
-soft wrap-up zone; they must sharpen the reversal, expose the strongest visual
-receipt, and land the send/save thesis. If the first four slides work but the
-ending drifts into generic sweetness, narrator summary, or weak moral, return
-REPAIR before copy lock.
-
-## Idea Memory
-
-Do not present a recently rejected, cooled-down, or merely resurfaced lane as
-fresh. Avoid defaulting to repeated surfaces such as generic chaos, home,
-high-maintenance, overthinking/reassurance, or chai unless the creator's actual
-moment requires them.
-
-Use the "How This Ledger Learns" method in
-`memory/semantic/carousel-idea-preferences.md`: match new feedback to existing
-memory first, then update, merge, downgrade, delete, or append only if the lane
-is genuinely new.
-
-When the creator rejects or dumps a route, stop that route at the exact scope
-rejected; do not defend it, polish it, or return it under a new name. Keep the
-exact feedback and rejection reason in the current Story State Card. If it
-closes a lane or creates a reusable future preference, update the durable idea
-ledger during closeout. Before a future fresh-idea response, use Agentic OS
-recall/search against the new seed to detect relevant rejected or cooled lanes
-without loading the entire ledger by default.
-
-Creator-facing carousel suggestions must be 28/30 or higher after Story-Selling,
-Golden Theme, Stage-Scene, and taste-gate caps. Discard every below-28 route as
-internal rejected evidence; do not show it as a suggestion, shortlist item,
-runner-up, or "maybe" option unless the creator explicitly asks to inspect the
-trash pile. If no route reaches 28/30, return REPAIR or STOP and rebuild from a
-stronger raw incident, reference mechanic, corpus signal, or visible
-contradiction instead of presenting low-scoring choices.
-
-When the creator starts a jam, do not answer with 5-line slide copy, a hook
-bank, or slide architecture. First lock the concept: story/theme diagnosis,
-multi-voice debate summary, Stage-Scene proof, scores, rejected lanes, selector
-verdict, and GO / REPAIR / STOP.
-
-After concept lock, the default copy architecture is the creator's seven-part
-pattern in this exact order: `Cover`, `Cold Open`, `Mirror`, `Spine`, `Rhythm`,
-`Turn`, `Payoff`. Treat it as the baseline for fresh carousel jams and copy
-drafts when no structure has been supplied. The creator's reflective six-part
-architecture—`Cover`, `Cold Open`, `Deepening`, `Conflict`, `Turn`, `Payoff`—is
-also first-class. Preserve it whenever the creator supplies, approves, or asks
-to continue that style; do not treat it as an inferior compression, pad it to
-seven roles, or rename its phases. This is not a six-slide limit: Deepening,
-Conflict, and Turn may each span multiple slides so long as every added scene
-advances the question-and-answer chain, a causal character action or reaction,
-the conflict pressure, or the earned reframe. Otherwise compress only when the
-creator explicitly asks for a shorter deck or a production constraint requires
-it.
-
-## Layer E
-
-Think like an author before thinking like a packager:
-
-- identify the emotional obstacle;
-- choose one concept-process card;
-- make Aachu/Zuv behavior prove the truth;
-- keep the relevant relationship motion visible, but do not force Zuv to be
-  the active handler/caretaker when the beat belongs to Aachu, both of them, or
-  a generic couple pattern;
-- score the winning route with Story-Selling;
-- proceed only when the best route can reach 28/30 or has a clear repair path.
-
-## Golden Theme
-
-The copyable machine is not the literal "He didn't marry..." wording. The
-machine is:
+## Default Flow
 
 ```text
-universal relationship truth
--> concrete Aachu proof
--> relationship motion or relevant partner response
--> tender acceptance thesis
+small brief
+-> Gate 1: concept lock
+-> Gate 2: exact copy + requested format lock
+-> one physical event per slide
+-> compact prompt compile
+-> riskiest proof
+-> Gate 3: actual-pixel QA + creator approval
+-> remaining native slides
+-> Gate 4: final package QA
 ```
 
-Run 5-10 routes, score against the golden-theme standard, and require 28/30+
-before moving into public copy or image generation. Apply taste caps: weak
-novelty or weak creator-world specificity cannot pass by polish alone, and a
-known trope with a tender ending is still capped until it becomes ownable.
+These are the only gates. A deterministic check may support a gate but must not
+create another approval state or duplicate artifact.
 
-## Stage-Scene Gate
+## Creative Context
 
-Storyboard first. Every serious route must show action, reaction, consequence,
-reversal, and payoff. For each scene, define eye-line, hands, body distance,
-object movement, silence, and the partner's active response.
+- Preserve the creator's literal sequence, objects, corrections, approved
+  language, and rejected scope.
+- Write the alive draft before using rules. The rules block hard failures; they
+  do not invent the first idea.
+- Make the relationship legible to a cold viewer through action and consequence,
+  not explanation alone.
+- Use `config/skills/creator-skill-stack.md` as the six-question taste pass.
+- Keep public copy free of internal framework and score language.
+- The last beat must reframe or answer the opening, not soften into a generic
+  moral.
+- Preserve a creator-supplied architecture, including
+  `Cover -> Cold Open -> Deepening -> Conflict -> Turn -> Payoff`.
+- Treat that reflective structure as first-class. Deepening, Conflict, and Turn
+  may each span multiple slides when each new scene changes the story.
 
-Text completes the scene; text must not carry the scene.
+## Format Lock
 
-Apply `config/rules/visual-variety.md` before prompt handoff. The visual plan
-must break the pattern across slides: vary shot type, camera angle, setting
-lane, primary action, and who is visible. Do not default to repeated
-full-couple medium shots, repeated bed/table/chai/books/garden scenes, or the
-same quiet-listening composition with different clothes. A same-location
-sequence is allowed only when the story is continuous and the camera/action
-still changes materially.
+Resolve format from the current request and corrections before prompts:
 
-## Visual And Final Gates
+- `instagram_post`: default only when no canvas is specified; 1080x1440.
+- `reels_stories`: 1080x1920; explicit request only.
+- `square`: 1080x1080; explicit request only.
 
-After copy approval, run the Post-Copy Visual Creative Room and Visual Debate
-Gate before image generation. Compare three or more visual systems, record
-rejected motifs, repair the winner, and return GO / REPAIR / STOP.
+Persist only the requested set in `format-contract.json`. Generate each natively;
+never crop, stretch, pad, or infer intent from old folders. A current creator
+correction overrides defaults and stale assets.
 
-After concept lock, invoke `$a-story-direct-visual-story`. Direct the route as
-physical events and causal evidence before prompt language: action, reaction,
-object state, hands, gaze, feet, body distance, motivated camera, lived setting,
-and frame-to-frame change. Richness is evidence, not extra décor.
+## Scene Lock
 
-The first checker event is a fresh copy-hidden storyboard read stored under
-`director_storyboard` in `visual-plan-quality.json`. A provisional pre-copy or
-pre-canvas board is advisory: Event A cannot pass until exact copy (or its
-documented exception) and the request-derived format set are locked. Persist
-orchestration-backed `review_provenance`, raw pre-reveal critic evidence, and
-the complete `director_event_fingerprint` before image handoff.
+For every slide, `slides.json` must contain exact on-image text and one concise
+physical event:
 
-After the blind read, reconcile the inferred scene against the exact copy's
-verbs, chronology, movement path, spatial side, and shared-versus-solo action.
-Door/lock/threshold beats must explicitly say inside versus outside, before
-departure versus after return, door state, where each person moved from, and
-who participates in the final action. A coherent but wrong-side scene remains
-a hard failure.
+```text
+subject + observable action + target/object + visible reaction or changed state
+```
 
-The second event is a new image-first rendered-frame run, stored as
-`checks.visual_story_readability` in `visual-qa.json`. Its task/run provenance
-must be pairwise distinct from the author and Event A run; arbitrary names are
-not proof of independence. Bind it to `source_director_event_fingerprint` and
-the exact package-local asset returned by `expected_frame_bindings` for every
-locked post, Reel/Story, and/or square slide. Inspect decoded current pixels;
-never pass from a prompt, filename, folder, or generator claim. Deterministic
-code validates evidence and freshness but does not replace either semantic
-judgment.
+Also capture the few generation-critical facts: camera/focal hierarchy, hands,
+gaze, body distance, object ownership, expected people, wardrobe reference, and
+text-safe space. Vary story job, action, shot, or setting between adjacent
+slides. Text completes the scene; it must not be the only story carrier.
 
-The final visual-plan-quality pass must include a shot ladder and repeated
-setting/prop audit. If the images would feel like the same scene with new
-captions after hiding the text, return REPAIR before generation.
+## Generation Lock
 
-Apply `config/rules/scene-entity-integrity.md` before and after generation.
-Lock the intended people/entity inventory for every slide, then record expected
-and observed people counts plus any unexpected entities in `visual-qa.json`.
-An extra background person, duplicate couple, reflection, silhouette, or
-second narrative action is a hard fail, not a harmless style detail.
+- Attach a small selected bundle of actual Aachu/Zuv identity images plus style
+  references to every call. Text-only identity descriptions are blocked.
+- Wardrobe comes from the attached identity/current-request images first.
+- Preserve both whole people: face, hair, height, proportions, expression,
+  posture, and clothing.
+- Integrate exact approved text and tiny `@a.storyof.two` at top-right.
+- Generate one risky proof first. Do not batch until its current pixels pass and
+  the creator approves.
+- No identity eval means no next slide.
+- Allow two total semantic attempts for one visual premise. Replace the premise
+  after the second miss.
 
-Whole-person spatial integrity runs before local anatomy: trace head, neck,
-shoulders, back, torso, clothing and visible limbs against every nearby solid
-plane. A person morphed into a door/wall/furniture mass, crossed by an object
-boundary, or left with ambiguous depth/occlusion is an immediate rejection even
-when people counts and hands pass.
+## Pixel QA
 
-Before image generation, attach selected actual Aachu/Zuv identity images and
-style references. Text-only "same couple" prompts are blocked, and wardrobe
-comes from attached identity/current-request photos first.
+Inspect the decoded file, in order:
 
-Immediately before every carousel image-generation call, rerun the current
-visual-story precheck and workflow doctor. Generate only from the active
-hash-bound compiled prompt handoff. Any creator correction, prompt edit,
-REPAIR/NEEDS_FIXES artifact, or score contradiction invalidates the handoff.
-Unchecked model outputs stay in package quarantine and are not shown as
-creator-ready images.
+1. visible physical action and relationship state;
+2. expected people/entities, continuous silhouettes, body/solid-object depth,
+   and owner-to-hand-to-object contact;
+3. Aachu/Zuv likeness and wardrobe against attached reference IDs;
+4. exact text, brandmark, house style, and native dimensions.
 
-Identity eval stop gate: no identity eval, no next slide. After any proof slide
-or creator correction about likeness, stop before generating the rest of the
-batch until identity is explicitly reviewed. A pass requires a structured
-`identity-consistency-review.json` or `visual-qa.json` with Aachu/Zuv reference
-IDs and specific likeness notes. If the available tools cannot run a real
-face/likeness comparison, record `BLOCKED_FOR_IDENTITY_EVAL` or
-`IDENTITY_UNVERIFIED`, tell the creator, and do not call the images final.
-Back-facing, tiny, hidden, or partial faces cannot prove identity by
-themselves.
+Bind QA to the current package-relative path, SHA-256, and dimensions. A prompt,
+filename, agent label, or generation report cannot pass pixel QA. Failed
+candidates stay quarantined and set the next action to a concrete repair.
 
-Do not call the carousel done until every format locked in
-`format-contract.json` has its own native finals, visual QA, and final audit.
-The no-canvas default is 3:4 only; 9:16 and 1:1 remain explicit-only.
+## Minimal Artifacts
 
-When the creator requests continuous review until fixed, route through
-`config/skills/carousel-review-loop.md` and `make review-loop CAROUSEL=...`.
-The loop rechecks after every repair and completes only at genuine publishable
-state. Human approval, identity evidence, critic provenance, and generated
-pixels remain fail-closed stop conditions, never auto-filled fields.
+Before proof: `creative-context.json`, `format-contract.json`, `slides.json`,
+`prompt-pack.json`, and compiled prompt files. After proof: quarantined PNG and
+`proof-qa.json`. After final: requested native PNGs, `final-images.json`,
+`visual-qa.json`, and `final-audit.json`.
+
+The ordinary run does not create debate rooms, numeric scorecards, provenance
+graphs, ledgers, stage reviews, or wiki-update artifacts.

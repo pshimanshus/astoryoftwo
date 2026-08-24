@@ -1,334 +1,79 @@
 {
-  "schema_version": "1.3",
+  "schema_version": "2.0",
+  "last_updated": "2026-08-24",
   "north_star": "A soft illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals.",
   "brandmark": "@a.storyof.two",
   "canonical_illustration_master_prompt": "config/references/a-story-illustration-master-prompt.md",
-  "shared_style_prompt": "Create a premium hand-drawn romantic watercolor-and-ink @a.storyof.two Instagram post illustration in native 3:4 portrait composition by default: generate the source at 1440x1920 and export proportionally to exact 1080x1440 final. Generate separate native 9:16 artwork at 1080x1920 only when the creator explicitly requests Reel or Story; never add it as an automatic companion output. Always use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the style bundle in config/references/style-lock/observational-intimacy-premium/. Use shared images only as mood/composition references unless the creator explicitly says otherwise or the images clearly depict the requested people/couple for this prompt; in that case, treat them as current-request identity references for faces, expressions, posture, wardrobe anchors, and relationship energy. Preserve their emotional essence, copy, message, story, gesture, objects, and requested composition, but never let an external reference style take over. Use the Aachu/Zuv identity reference as the face and wardrobe anchor always. Identity reference images are the highest-priority face source: preserve the same recurring real-person Aachu/Zuv faces, expressions, warm medium-brown South Asian skin tones, Aachu's expressive dark eyes and long dark wavy hair, and Zuv's curly dark hair, strong brows, dark almond eyes, defined nose, short natural stubble, and gentle smile. Previous successful illustrations are style references only: use them for warm ivory paper, visible paper grain, fine ink and pencil linework, transparent watercolor blooms, delicate sketch texture, muted vintage palette, tactile clothing detail, soft faded edges, lower/middle-lower couple placement, and generous clean upper-middle negative space. Render exact handwritten text in upper-middle negative space, matching the approved handwritten font styles from the reference images. Every final illustration must include only the tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right as part of the paper artwork. No photorealism, no UI, no random text, no quote-card design. Scene logic and pose anatomy are hard gates: clothing, props, and body action must prove the exact copy, and any visible people must look natural, flattering, and physically believable.",
-  "compact_style_prompt": "premium hand-drawn romantic watercolor-and-ink illustration, warm ivory paper grain, Aachu/Zuv faces, fine ink/pencil, watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact upper text, tiny top-right @a.storyof.two",
-  "shared_negative_prompt": "No photorealism, no yellowish tone, no mustard cast, no 3D rendering, no glossy AI look, no flat vector art, no corporate/startup illustration, no stock Indian couple style, no generic model faces, no anime, no doll-like faces, no children's cartoon style, no Canva quote-card design, no poster design, no typography card, no complex background, no overcrowded props, no dramatic shadows, no harsh contrast, no neon colors, no gradients, no isometric style, no Pixar/Disney style, no hyper-detailed faces, no perfect vector geometry, no heavy black outlines, no large unrelated logo, no random unreadable text, no extra decorative clutter, no mean-spirited humor, no generic self-help poster energy, no extra words beyond the exact ON-IMAGE TEXT and explicitly requested brand/product labels.",
-  "model_native_master_prompt": {
-    "version": "a-story-of-two-watercolor-ink-v4-observational-intimacy-premium-lock",
-    "required": true,
-    "applies_to": [
-      "prompt-pack.json",
-      "codex-image-prompts/**/*.prompt.txt",
-      "Codex built-in image generation",
-      "final image generation and integrated text placement"
-    ],
-    "rule": "Every final image-generation prompt must use config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the observational-intimacy-premium style bundle before slide-specific scene details. The master prompt defines identity-first reference roles, shared images only as mood/composition, A Story of Two watercolor-and-ink style, exact ON-IMAGE TEXT handling, PAPER TONE LOCK, STAGE-SCENE / VISUAL RECEIPT, SHOT LADDER / VISUAL VARIETY, RELATIONSHIP MOTION, Aachu/Zuv height lock, reference essence preservation, brand label visibility, composition, emotional direction, wardrobe continuity, recurring props, background style, line/texture details, anatomy/quality rules, and final identity/style reinforcement.",
-    "required_failure_state_sections": [
-      "PAPER TONE LOCK",
-      "STAGE-SCENE / VISUAL RECEIPT",
-      "SHOT LADDER / VISUAL VARIETY",
-      "RELATIONSHIP MOTION",
-      "Aachu is 5'6\"",
-      "Zuv is 5'8\""
-    ],
-    "asset_outputs": {
-      "instagram_post": {
-        "aspect_ratio": "3:4",
-        "source_size": "1440x1920",
-        "size": "1080x1440",
-        "directory": "final/"
-      },
-      "reels_stories": {
-        "aspect_ratio": "9:16",
-        "size": "1080x1920",
-        "directory": "final-reels-stories/"
-      },
-      "illustration_story_proof": {
-        "aspect_ratio": "3:4",
-        "source_size": "1440x1920",
-        "size": "1080x1440",
-        "square_on_request": "1080x1080",
-        "directory": "proofs/ or output/illustrations/"
-      }
-    },
-    "reference_image_roles": "Identity references control face, hair, skin tone, age, ethnicity, expressions, body language, wardrobe anchors, and emotional presence. Observational-intimacy-premium and previous A Story illustrations control only style, palette, font style, paper texture, line quality, composition, wardrobe continuity, and recurring props. Shared/non-A Story references control only text, message, emotion, story, gesture, object evidence, and composition essence.",
-    "text_rule": "When ON-IMAGE TEXT is provided, the final publishable image must include that exact written text as readable, polished, hand-drawn/storybook typography in clean warm upper-middle negative space. Preserve spelling, line breaks, punctuation, and wording exactly. If the image model cannot reliably render the exact text, block the package or retry with a text-bearing generation prompt. A controlled typography repair may only correct an already text-bearing raster; never create, keep, or rely on a textless generated image. Do not add extra words, random letters, labels, signs, logos, watermarks, or speech bubbles beyond the required tiny '@a.storyof.two' brandmark. If no ON-IMAGE TEXT is provided, do not invent text.",
-    "brandmark_rule": "Every final @a.storyof.two illustration must include the tiny low-contrast handwritten brandmark '@a.storyof.two' at top-right as part of the artwork."
-  },
+  "shared_style_prompt": "Premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper grain; fine ink and pencil linework, transparent watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact integrated upper text, and tiny top-right @a.storyof.two.",
+  "compact_style_prompt": "Premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper grain; fine ink and pencil linework, transparent watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact integrated upper text, and tiny top-right @a.storyof.two.",
+  "shared_negative_prompt": "No photorealism, 3D, glossy AI stock finish, flat vector art, anime, doll faces, generic couple faces, yellow or mustard cast, quote-card layout, UI, split screen, extra people, duplicate couple, extra limbs, malformed hands, broken contact, dense clutter, random text, missing or misspelled copy, missing brandmark, or unrequested logos.",
   "typography": {
     "strategy": "integrated_final_text",
     "text_color": "#2a2621",
     "background": "#fbf4e8",
     "max_words_per_slide": 18,
     "max_lines": 3,
-    "placement": "exact requested text belongs in generous clean warm upper-middle whitespace as integrated hand-drawn/storybook typography in the final image raster; never cover faces, hands, props, or emotional gestures",
-    "brandmark_placement": "always top-right for final @a.storyof.two illustrations; keep tiny, low-contrast, and handwritten"
-  },
-  "premium_style_lock": {
-    "status": "creator_approved",
-    "date": "2026-05-30",
-    "reference_package": "config/references/style-lock/observational-intimacy-premium",
-    "original_reference_package": "output/illustrations/2026-05-30/observational-intimacy-premium",
-    "contact_sheet": "output/illustrations/2026-05-30/observational-intimacy-premium/contact-sheet.png",
-    "paper": "warm ivory paper with visible paper grain",
-    "typography": "readable hand-drawn dark-charcoal storybook text integrated into upper-middle negative space",
-    "scene_logic_rule": "The visible clothing, props, hands, and action must prove the exact copy; if the scene contradicts the line, the slide fails.",
-    "pose_anatomy_rule": "Aachu and Zuv must look natural, flattering, and physically believable; crouched, cramped, broken, or awkward poses fail."
-  },
-  "legacy_typography": {
-    "strategy": "controlled_final_text_placement",
-    "text_color": "#2a2621",
-    "background": "#fbf4e8",
-    "placement": "generous warm upper-middle paper whitespace, integrated into the final illustration image",
-    "brandmark_placement": "top-right",
-    "rule": "This is not a legacy quote-card overlay. It is the approved exact-text placement path when image-model text would drift; final/slide-XX.png must be the unified text-bearing illustration."
-  },
-  "public_copy_policy": {
-    "name_rule": "Do not force Aachu/Zuv, Anchal/Himanshu, or other private names into every public slide or caption. Use names only when the story naturally needs them.",
-    "default_public_references": [
-      "she",
-      "he",
-      "we",
-      "us",
-      "relationship roles"
-    ],
-    "internal_identity_rule": "Keep Aachu/Zuv as internal character anchors for likeness, role, prompt consistency, and visual review.",
-    "review_rule": "Golden-theme alignment can be proven through behavior, care, posture, expression, and objects; it does not require visible name repetition."
+    "placement": "Exact approved text in generous clean upper-middle paper space without covering faces, hands, props, or gestures.",
+    "brandmark_placement": "tiny low-contrast handwritten @a.storyof.two at top-right"
   },
   "style_references": [
     "config/references/style-lock/observational-intimacy-premium/slide-01.png",
     "config/references/style-lock/observational-intimacy-premium/slide-03.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-08.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-02.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-04.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-05.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-06.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-07.png"
+    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
   ],
-  "style_reference_attachment_limit": 8,
+  "style_reference_attachment_limit": 3,
   "characters": {
     "aachu": {
-      "names": [
-        "Aachu",
-        "Anchal"
-      ],
+      "names": ["Aachu", "Anchal"],
       "visual_cues": [
-        "expressive warm smile",
-        "soft dramatic energy",
-        "playful body language",
-        "Kashmiri bridal details when story-relevant",
-        "pink/coral/orange/red lehenga energy when wedding-relevant",
-        "mehendi",
-        "jasmine",
-        "jewelry"
+        "expressive dark eyes and long dark wavy hair",
+        "warm medium-brown South Asian skin tone",
+        "playful expressive posture"
       ],
-      "signature_accessory": "Evil-eye bracelet on her right wrist; always worn and required whenever the right wrist or forearm is visible.",
+      "signature_accessory": "Evil-eye bracelet on her right wrist whenever the right wrist or forearm is visible.",
       "relationship_role": "spark"
     },
     "zuv": {
-      "names": [
-        "Zuv",
-        "Himanshu"
-      ],
+      "names": ["Zuv", "Himanshu"],
       "visual_cues": [
-        "dark wavy hair",
-        "calm warm smile",
-        "grounded patient posture",
-        "taller presence",
-        "ivory sherwani with subtle pastel embroidery when wedding-relevant"
+        "curly dark hair, strong brows, defined nose, and short natural stubble",
+        "warm medium-brown South Asian skin tone",
+        "grounded gentle posture"
       ],
-      "signature_accessory": "Small round evil-eye locket centered on a slim silver chain; always worn and required whenever the neck, open collar, or upper chest is visible.",
+      "signature_accessory": "Small round evil-eye locket centered on a slim silver chain whenever the neck, open collar, or upper chest is visible.",
       "relationship_role": "steady flame"
     }
   },
   "identity_reference_policy": {
-    "rule": "Treat identity_images/ as a candidate library, not as one prompt dump. Every carousel should use a small curated identity bundle chosen for that story.",
+    "rule": "Use a small story-specific bundle of actual Aachu/Zuv files on every generation call; text descriptions and filenames alone are not identity evidence.",
     "max_prompt_images": 4,
     "recommended_prompt_images": "2-4",
     "bundle_roles": [
       "face anchor",
       "body/posture anchor",
-      "story-relevant outfit or context anchor",
+      "story-relevant wardrobe or context anchor",
       "emotion/detail anchor"
     ],
     "hard_fail_if": [
-      "A run feeds the entire identity_images/ folder into the image model.",
-      "A run depends on one default Aachu/Zuv identity image for every future carousel.",
-      "Identity references appear only in metadata and not in every slide prompt's Identity continuity lock.",
-      "Final image generation uses text-only identity descriptions instead of passing the selected identity files as actual image inputs.",
-      "A generated slide is accepted as final even though Aachu/Zuv face structure is generic or not recognizably based on the selected identity bundle.",
-      "Image generation starts before identity-consistency-review.json passes.",
-      "Outfit variety becomes the premise instead of evidence for the relationship truth."
+      "No actual identity image is attached.",
+      "The entire identity library is attached.",
+      "Identity appears only in metadata rather than the image input.",
+      "A generated person is generic or not recognizably based on the selected bundle."
     ]
   },
-  "concept_selection_policy": {
-    "required": true,
-    "rule": "Do not finalize a carousel idea from a single recommendation. Generate 5-10 distinct concept variants, score each on the 30-point Golden Theme rubric, and let a selector choose the highest-rated option.",
-    "minimum_variants": 5,
-    "maximum_variants": 10,
-    "minimum_go_score": 28,
-    "required_decision": "GO / REPAIR / STOP",
-    "hard_fail_if": [
-      "A final carousel idea is recommended without a scored variant table.",
-      "The selected concept scores below 28/30 and is not repaired before packaging.",
-      "Image generation starts before the selector verdict exists."
-    ],
-    "decision_record_required_fields": [
-      "candidate table",
-      "scores",
-      "selector verdict",
-      "winner rationale",
-      "GO / REPAIR / STOP decision",
-      "stage-scene storyboard",
-      "final public slide-copy direction"
-    ]
-  },
-  "stage_scene_policy": {
-    "required": true,
-    "artifact": "visual-plan-quality.json",
-    "mode": "storyboard-first",
-    "rule": "After Layer E and before hooks, slide copy, prompt finalization, or image generation, every serious carousel route must be staged as visible action. The viewer should understand the relationship beat if poster text is hidden.",
-    "must_include": [
-      "action",
-      "reaction",
-      "eye-line",
-      "hands",
-      "body distance",
-      "object movement",
-      "silence or pause",
-      "consequence",
-      "reversal",
-      "payoff",
-      "shot ladder",
-      "camera angle variety",
-      "setting lane variety",
-      "repeated prop audit"
-    ],
-    "copy_rule": "Text completes the scene; text must not carry the scene.",
-    "hard_fail_if": [
-      "A recommended idea is only a text spine or candidate table.",
-      "The visual plan is a quote-card, poster-copy layout, or generic couple pose.",
-      "Aachu and Zuv are merely standing beside the line instead of acting inside the beat.",
-      "The visual plan repeats the same shot type, camera angle, setting, and emotional action across slides.",
-      "The plan changes clothes but keeps the same bed/table/chai/books/garden scene grammar.",
-      "The story cannot be understood when the on-image text is hidden.",
-      "Layer E is not visible in the creator-facing decision record.",
-      "The continuous C-layer council is skipped before recommendation."
-    ]
-  },
-  "visual_variety_policy": {
-    "required": true,
-    "artifact": "visual-plan-quality.json",
-    "rule": "Every carousel must break the visual pattern across slides. Variety means changing shot type, camera angle, setting lane, primary visible action, prop grammar, and who is visible; changing wardrobe alone is not enough.",
-    "must_include_per_slide": [
-      "shot type",
-      "camera angle",
-      "setting lane",
-      "primary visible action",
-      "who is visible",
-      "repeated prop/setting check"
-    ],
-    "minimum_gates": [
-      "No same shot type twice in a row unless it is a deliberate before/after or action/reaction pair.",
-      "No more than two full-couple medium shots in a 5-6 slide carousel.",
-      "At least one slide should use single-person, over-shoulder, object-only, or detail-shot grammar when the story allows it.",
-      "At least three distinct setting lanes are required in a 5-6 slide carousel unless the creator has locked a single continuous sequence.",
-      "If the same setting repeats, camera angle and action must change materially."
+  "visual_story_policy": {
+    "rule": "After copy and format lock, each slide states one observable physical event; prove the riskiest event in actual pixels before generating the rest.",
+    "pixel_review_order": [
+      "physical event and relationship state",
+      "people, entities, anatomy, contact, and spatial depth",
+      "Aachu/Zuv identity and wardrobe",
+      "exact text, brandmark, house style, and dimensions"
     ],
     "hard_fail_if": [
-      "Four or more slides use the same front-facing or three-quarter full-couple medium shot.",
-      "Consecutive slides repeat the same camera angle, distance, and emotional action.",
-      "Every slide shows both partners sitting together and processing feelings.",
-      "The deck defaults to bed, table, chai, books, mugs, garden, balcony plants, or quiet-listening scenes without story need.",
-      "The deck feels like the same scene with new captions after hiding the text."
-    ]
-  },
-  "visual_debate_policy": {
-    "required": true,
-    "artifact": "visual-debate.json",
-    "rule": "After copy is confirmed and post-copy-visual-room.json returns GO, and before visual plan finalization, carousel packaging, or image generation, run three visual agents that ideate, critique, and select the strongest visual system.",
-    "depends_on": "post-copy-visual-room.json when creator has confirmed copy",
-    "agent_count": 3,
-    "agents": [
-      "carousel-visual-evidence-planner",
-      "carousel-romance-scene-planner",
-      "carousel-visual-continuity-judge"
-    ],
-    "run_before": [
-      "visual plan finalization",
-      "carousel packaging",
-      "image generation"
-    ],
-    "required_decision": "GO / REPAIR / STOP",
-    "hard_fail_if": [
-      "Image generation starts before visual-debate.json exists.",
-      "Creator-confirmed copy exists but post-copy-visual-room.json is missing or not GO.",
-      "The visual plan repeats one prop, color accent, object, or location across every slide without a story reason.",
-      "The visual plan repeats the same shot type, camera angle, composition, or both-people action across slides.",
-      "The visual plan changes wardrobe but not camera/action/setting grammar.",
-      "The visual plan defaults to home interiors after the creator asks for outside/public visuals.",
-      "The visual plan makes objects, outfits, or places the premise instead of relationship evidence.",
-      "Zuv's care is passive, absent, performative, or framed as rescue."
-    ],
-    "decision_record_required_fields": [
-      "three agent verdicts",
-      "visual options",
-      "rejected visual patterns",
-      "selector verdict",
-      "winner",
-      "GO / REPAIR / STOP decision",
-      "final visual plan"
-    ]
-  },
-  "post_copy_visual_room_policy": {
-    "required": true,
-    "artifact": "post-copy-visual-room.json",
-    "trigger_phrases": [
-      "copy is final",
-      "copies are closed",
-      "copy locked",
-      "perfect",
-      "I like it",
-      "go ahead",
-      "proceed",
-      "approved",
-      "now visuals",
-      "make prompts",
-      "generate"
-    ],
-    "rule": "When the creator confirms copy, lock the approved words and run a mandatory visual creative room before final visual debate, prompt-pack finalization, or image generation.",
-    "agent_count": 6,
-    "agents": [
-      "visual-format-anthropologist",
-      "scene-evidence-director",
-      "romance-blocking-director",
-      "typography-and-aspect-director",
-      "generation-prompt-director",
-      "harsh-visual-selector"
-    ],
-    "run_after": [
-      "creator confirms final slide copy",
-      "copy.json or chat-approved copy is locked"
-    ],
-    "run_before": [
-      "visual-debate.json finalization",
-      "visual-plan-quality.json finalization",
-      "prompt-pack.json finalization",
-      "image generation"
-    ],
-    "required_decision": "GO / REPAIR / STOP",
-    "hard_fail_if": [
-      "The flow moves from approved copy directly to prompts or image generation.",
-      "Fewer than three visual systems are compared.",
-      "The selected visuals decorate the copy but do not prove it through visible Aachu/Zuv behavior.",
-      "A reference format is copied as frames, likenesses, or exact labels instead of abstracted into original mechanics.",
-      "Text placement is not planned separately for every native format locked in format-contract.json."
-    ],
-    "decision_record_required_fields": [
-      "trigger phrase or confirmation event",
-      "copy lock",
-      "six agent verdicts",
-      "three or more visual system candidates",
-      "cross-debate and repairs",
-      "selected visual system",
-      "rejected visual patterns",
-      "slide visual blueprint",
-      "typography and aspect plan",
-      "generation prompt brief",
-      "GO / REPAIR / STOP decision"
+      "The physical event cannot be identified with copy hidden.",
+      "The image creates a competing relationship or task read.",
+      "Adjacent slides repeat the same pose, action, angle, and story job.",
+      "A failed semantic proof is promoted or reported as handoff-ready."
     ]
   },
   "content_lanes": [
@@ -340,138 +85,26 @@
     "Himanshu POV",
     "Aachu POV"
   ],
-  "viral_reference_pattern": {
-    "source": "https://www.instagram.com/p/DYJpjt9CQYY/",
-    "observed_on": "2026-05-16",
-    "performance_note": "Reference @a.storyof.two sidecar: high follower/like/share response and copied by others.",
-    "core_mechanic": "Reuse the storytelling architecture, not the literal hook. Start with a universal relationship truth, reveal the specific Aachu/Zuv angle, prove it one beat at a time with concrete visual details, turn the joke or observation into tenderness, then land on a save/share-worthy thesis.",
-    "do_not_reuse_as_global_template": [
-      "Do not make every carousel start with 'He didn't marry...'.",
-      "Do not repeat 'He married...' as the default slide grammar.",
-      "Do not copy the old winning sentence pattern unless the new story specifically earns that wording."
-    ],
-    "story_architecture": [
-      "Universal hook: one instantly readable relationship truth, tension, or curiosity gap.",
-      "Special revelation: the specific Aachu/Zuv interpretation that makes this not generic couple content.",
-      "Proof beat 1: a concrete visual detail from the real photo, object, habit, or moment.",
-      "Proof beat 2: a second, sharper or more memeable detail that escalates the idea.",
-      "Pattern recognition: show the relationship rhythm behind the isolated details.",
-      "Emotional turn: reveal what the funny, pretty, or chaotic details actually mean emotionally.",
-      "Save/share thesis: one line friends can send to partners because it feels true."
-    ],
-    "voice_rules": [
-      "Use short handwritten lines, usually one sentence per slide.",
-      "Keep the humor affectionate, never mocking.",
-      "Use Hinglish sparingly as the emotional truth line, not as decoration.",
-      "Prefer concrete couple behaviors over abstract romance.",
-      "Preserve the theme grammar, not the sentence grammar of any prior carousel.",
-      "End with a shareable thesis that friends can send to partners."
-    ],
-    "visual_rules": [
-      "One clear illustrated beat per slide on warm off-white background.",
-      "Aachu carries expressive chaos through posture, face, dupatta, shoes, food, suitcase, tears, or sudden mood shifts.",
-      "Zuv stays visually steady: smiling, holding shoes, tissue, water, snacks, charger, or simply sitting closer.",
-      "Use recurring wedding/desi details when relevant: lehenga, sherwani, jasmine, mehendi, marigold, diya.",
-      "Final slide should soften the figures and foreground a simple metaphor object.",
-      "Every final slide must have exactly the native outputs locked in format-contract.json: 3:4 Instagram post by default, plus 9:16 Reels/Stories and/or 1:1 square only when explicitly requested.",
-      "Generate each locked output independently; do not resize, crop, pad, stretch, or extend one format into another, and never infer request intent from existing folders."
-    ]
-  },
-  "golden_theme_contract": {
-    "required": true,
-    "skill": "config/skills/golden-viral-carousel-theme.md",
-    "reference": "config/references/golden-viral-carousel-theme-reference.md",
-    "first_principles_sources": [
-      "wiki/themes/calm-enough-for-chaos.md",
-      "output/reports/2026-05-17-he-didnt-marry-peace-viral-theme-analysis.md"
-    ],
-    "first_principles_rule": "Before submitting or scoring any new carousel idea, use these source files as the first-principles explanation of why the gold carousel worked: universal anti-ideal -> concrete Aachu proof -> Zuv steady response -> tender acceptance thesis.",
-    "rule": "Every carousel must start from a universal relationship truth, then prove it through Aachu/Zuv specifics. Photos, places, outfits, and objects are evidence, not the premise.",
-    "hard_fail_if": [
-      "The concept is primarily about an object, outfit, location, or photo aesthetic.",
-      "A stranger could not send the carousel to a partner without knowing the private photo context.",
-      "Aachu's expressive role is missing or mocked.",
-      "Zuv's calm role is passive, absent, or treated as background.",
-      "The concept is mostly about taking photos, looking beautiful, glowing, or waiting for one more picture without a deeper relationship tension.",
-      "One partner's role is only looking good while the other waits or holds things.",
-      "The final thesis is generic romance without a concrete proof trail."
-    ],
-    "default_five_slide_map": [
-      "Universal hook: one swipe-stopping relationship truth.",
-      "Aachu-specific reveal: her version of the truth.",
-      "Concrete proof: a drawable behavior, object, or ritual from the reference material.",
-      "Zuv role: what his calm, patience, care, or choice does emotionally.",
-      "Save/share thesis: the tender truth underneath the joke."
-    ],
-    "caption_formula": [
-      "Open with the universal relationship truth.",
-      "Show the couple-specific behavior, care, posture, object, or rhythm in the middle; name Aachu/Zuv only when natural.",
-      "End with a soft send/save-worthy thesis."
-    ]
-  },
   "production_gate": {
     "final_art_requirement": "generated_scene_illustrations",
-    "rule": "Identity photos are references for likeness, clothing, posture, and relationship energy. Style references are references for A Story of Two watercolor-and-ink composition, clothing fidelity, warm ivory paper illustration, and handwritten text integration. Default final art must be complete publishable illustrations with exact ON-IMAGE TEXT integrated into the final raster. Model-native text is acceptable only when exact; otherwise retry, block, or use controlled typography repair only on an already text-bearing raster. For brand integration, requested product labels must be readable at phone-screen size and remain tasteful scene props; illegible brand/product names fail QA.",
+    "rule": "Only requested native, text-bearing illustrations can become final. Identity photos control likeness and wardrobe; style references control watercolor-and-ink finish. Exact text, top-right brandmark, physical action, entity/anatomy/spatial integrity, identity, style, and dimensions must pass on current pixels.",
     "forbidden_final_art": [
       "photo-filter",
-      "opencv-cartoon-filter",
       "same-photo-repeated-across-slides",
       "primitive-shape-collage",
-      "quote-card-only-layout"
+      "quote-card-only-layout",
+      "unrequested-format-derivative"
     ],
     "required_package_artifacts": [
-      "manifest.json",
-      "concept.json",
-      "post-copy-visual-room.json",
-      "visual-debate.json",
+      "creative-context.json",
+      "format-contract.json",
       "slides.json",
       "prompt-pack.json",
-      "copy.json",
-      "review.json",
-      "storyboard.md",
-      "final-approval.md",
-      "agent-reports.md",
-      "run-ledger.json",
-      "stage-reviews.json",
-      "final-audit.json",
-      "wiki-update.md"
+      "proof-qa.json",
+      "final-images.json",
+      "visual-qa.json",
+      "final-audit.json"
     ],
-    "approved_creation_path": "Use scripts/create_illustration_carousel.py and the C-layer artifact contract for new carousel work. One-off carousel renderers are not allowed unless they are explicitly approved as legacy fixtures."
-  },
-  "last_updated": "2026-08-23",
-  "creator_approved_illustration_style": {
-    "status": "locked",
-    "source": "direct creator correction on 2026-05-30: these are the best illustrations produced so far and must be followed always for every @a.storyof.two image, illustration, and carousel generation.",
-    "source_run": "observational-intimacy-premium",
-    "reference_bundle": "config/references/style-lock/observational-intimacy-premium/",
-    "rule": "For @a.storyof.two illustration-story assets, always start from config/references/a-story-illustration-master-prompt.md, config/references/a-story-premium-illustration-style-lock.md, and the observational-intimacy-premium style bundle. Preserve the approved look: identity-first recurring Aachu/Zuv faces, Aachu/Zuv identity reference as the face and wardrobe anchor, shared images only as mood/composition unless they clearly depict the requested people/couple for this prompt, exact handwritten text integrated into the final image's upper-middle negative space, couple and props in the lower or middle-lower canvas, soft minimal background, tactile wardrobe and prop detail, warm ivory paper, visible paper grain, transparent watercolor blooms, fine ink/pencil linework, delicate sketch texture, muted vintage color, soft faded edges, tiny low-contrast handwritten brandmark '@a.storyof.two' in the top-right, and no dense external-reference style takeover.",
-    "default_text_behavior": "Every @a.storyof.two proof/concept/final must include exact ON-IMAGE TEXT inside the generated final image. Preserve spelling, punctuation, capitalization, and line breaks exactly. If the image model cannot reliably render exact copy, block the package or retry with a text-bearing generation prompt. Typography repair may only correct an already text-bearing raster. Never present a textless generated image as proof/final.",
-    "preferred_raw_aspect": "Creator hard rule (config/rules/image-dimensions.md): proof illustrations, concept illustrations, single-slide outputs, and default Instagram post/carousel slides must finish as exact 1080x1440 px exports (Instagram Feed Portrait, 3:4). Generate Instagram post/carousel source art at exactly 1440x1920 px when the model path needs a hard-enforced source size, then export proportionally to 1080x1440. If the creator explicitly asks for Story/Stories/Reel/Reels, generate natively at exactly 1080x1920 px (9:16). Generate square 1080x1080 px only when the creator explicitly asks for square. Instruct the image model with the exact source pixel size and final export size, not the aspect ratio alone. Reject any image whose dimensions do not match an approved source or final format; do not crop, pad, stretch, or arbitrarily resize to fake compliance.",
-    "reference_roles": "Identity references control the couple faces, expressions, posture, body proportions, and wardrobe anchors. User-shared photos that clearly depict the requested people/couple can serve as current-request identity references even without explicit role labels. Observational-intimacy-premium and previous A Story illustrations control style, composition, palette, wardrobe continuity, line quality, font style, and text integration. Other references control essence, message, emotion, story, pose, and requested composition only.",
-    "hard_fail_if": [
-      "The image does not feel like the A Story of Two watercolor-and-ink house style.",
-      "The exact ON-IMAGE TEXT is missing, misspelled, unreadable, or not integrated into the warm upper-middle negative space.",
-      "The top negative space is filled with decorative clutter instead of supporting integrated handwritten text.",
-      "Aachu or Zuv face identity drifts into generic model, anime, doll, stock couple, or photorealistic output.",
-      "The background becomes a dramatic external-reference style or dense cinematic poster instead of airy A Story of Two paper space.",
-      "The image drifts away from warm ivory paper with visible paper grain.",
-      "Clothing, props, hands, pose, or action contradict the exact ON-IMAGE TEXT.",
-      "Aachu or Zuv looks crouched, cramped, broken, awkward, or unflattering.",
-      "Unrequested labels, captions, signs, watermarks, or random text appear in the artwork.",
-      "For brand integrations, the brand/product name or product type is too small, occluded, or unreadable at phone-screen size."
-    ]
-  },
-  "brand_integration_policy": {
-    "required_when": "creator asks to test, add, or place a brand/product in an illustration",
-    "rule": "The brand product must be a tasteful story prop, but the brand name, product name/type, and core color/package cue must be legible at phone-screen size.",
-    "implementation": "Use a two-step brand workflow when needed: generate the product body, color, scale, and placement as part of the watercolor illustration; if the image model produces unreadable product text, apply a controlled exact product-label pass with scripts/render_brand_product_labels.swift so the final image has readable brand text without losing the A Story of Two style. Narrative slide copy follows the same exactness principle: it must be integrated into the final image raster, with controlled text placement used whenever image-model text would drift.",
-    "placement": "Use a front-facing or three-quarter angle, enough size, clean contrast, and minimal occlusion. Keep it near the story object, such as suitcase, toiletry pouch, table, or hand, without making the whole slide an ad.",
-    "hard_fail_if": [
-      "Brand name or wordmark is unreadable.",
-      "Product type/name is unreadable when the integration depends on it.",
-      "Product is hidden behind fabric, hands, glare, clutter, or cropped edges.",
-      "The brand prop overpowers the couple story or changes the A Story of Two illustration style.",
-      "Unrelated logos, fake labels, or random text appear."
-    ]
+    "approved_creation_path": "scripts/create_illustration_carousel.py using the four-gate compact package contract"
   }
 }

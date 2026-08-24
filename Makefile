@@ -2,10 +2,6 @@ PY ?= venv/bin/python
 NOTE ?= AI command-center health run.
 SLIDES ?= 5
 PHASE ?= all
-MAX_ITERATIONS ?= 12
-STAGNATION_LIMIT ?= 3
-STAGE ?= auto
-DECIDED_BY ?=
 IDEA_MAX_ITERATIONS ?= 3
 IDEA_CANDIDATES ?= 6
 export ASOT_IDEA_LOOP_SEED := $(value SEED)
@@ -13,7 +9,7 @@ export ASOT_IDEA_LOOP_RUN_DIR := $(value RUN_DIR)
 export ASOT_IDEA_LOOP_MAX_ITERATIONS := $(value IDEA_MAX_ITERATIONS)
 export ASOT_IDEA_LOOP_CANDIDATES := $(value IDEA_CANDIDATES)
 
-.PHONY: help brief health wiki-health idea-loop jam prepost carousel visual-check review-loop article publish publish-dry-run test
+.PHONY: help brief health wiki-health idea-loop jam prepost carousel visual-check article publish publish-dry-run test
 
 help:
 	@printf "%s\n" "AI command center commands:"
@@ -24,7 +20,6 @@ help:
 	@printf "%s\n" "  make prepost CONCEPT='...'       Run planned Reel pre-post analysis"
 	@printf "%s\n" "  make carousel STORY='...'        Create a carousel package"
 	@printf "%s\n" "  make visual-check CAROUSEL=path  Check directed story before/after imagegen"
-	@printf "%s\n" "  make review-loop CAROUSEL=path   Run the next concept/copy/images/publish HIL loop"
 	@printf "%s\n" "  make article CAROUSEL=path       Create Substack article package"
 	@printf "%s\n" "  make publish NOTE='...'          Run safe verify -> commit -> push gate"
 	@printf "%s\n" "  make publish-dry-run NOTE='...'  Preview safe publish scope"
@@ -46,18 +41,11 @@ prepost:
 	$(PY) scripts/analyze_prepost.py $(if $(CONCEPT),--concept "$(CONCEPT)") $(if $(HOOK),--hook "$(HOOK)") $(if $(CAPTION),--caption "$(CAPTION)") $(if $(EDIT),--edit "$(EDIT)") $(if $(AUDIO),--audio "$(AUDIO)") $(if $(COVER),--cover "$(COVER)")
 
 carousel:
-	$(PY) -m pytest tests/test_agentic_docs_contract.py tests/test_instruction_surface_contract.py tests/test_codex_project_surfaces.py tests/test_creator_workflow_contract.py -q
-	$(PY) -m pytest tests/test_checks_prompt_constraints.py tests/test_checks_image_size.py tests/test_carousel_state_contract.py tests/test_carousel_workflow_doctor.py tests/test_carousel_doctor_cli.py -q
-	$(PY) scripts/agentic_os.py health
 	$(PY) scripts/create_illustration_carousel.py $(if $(STORY),--story "$(STORY)") $(if $(TITLE),--title "$(TITLE)") --slide-count "$(SLIDES)" $(foreach image,$(IMAGE),--image "$(image)") $(foreach identity,$(IDENTITY_IMAGE),--identity-image "$(identity)")
 
 visual-check:
 	@test -n "$(CAROUSEL)" || (printf "%s\n" "Usage: make visual-check CAROUSEL=output/carousels/YYYY-MM-DD/slug PHASE=pre|post|all"; exit 2)
 	$(PY) .agents/skills/a-story-direct-visual-story/scripts/check_visual_story.py --carousel-dir "$(CAROUSEL)" --phase "$(PHASE)"
-
-review-loop:
-	@test -n "$(CAROUSEL)" || (printf "%s\n" "Usage: make review-loop CAROUSEL=output/carousels/YYYY-MM-DD/slug [STAGE=auto|concept|copy|images|publish] [DECISION=APPROVE|REVISE|REJECT]"; exit 2)
-	$(PY) scripts/carousel_review_loop.py "$(CAROUSEL)" --stage "$(STAGE)" --max-iterations "$(MAX_ITERATIONS)" --stagnation-limit "$(STAGNATION_LIMIT)" $(if $(DECISION),--decision "$(DECISION)" --decided-by "$(DECIDED_BY)" --feedback "$(FEEDBACK)") $(if $(REPAIR_COMMAND),--repair-command "$(REPAIR_COMMAND)") $(if $(VERIFY),--verify-command "$(VERIFY)")
 
 article:
 	@test -n "$(CAROUSEL)" || (printf "%s\n" "Usage: make article CAROUSEL=output/carousels/YYYY-MM-DD/slug TITLE='Optional title'"; exit 2)

@@ -44,18 +44,16 @@ EXPECTED_SKILLS = {
     ],
     "a-story-direct-visual-story": [
         "config/skills/illustration-carousel-framework.md",
-        "config/rules/scene-entity-integrity.md",
-        "references/legacy-package-migration.md",
-        "review_provenance",
-        "director_event_fingerprint",
-        "source_director_event_fingerprint",
-        "expected_frame_bindings",
+        "entity/anatomy/spatial",
+        "physical event",
+        "proof-qa.json",
+        "actual-pixel",
+        "repair_visual_premise",
         "visual-qa.json",
     ],
     "a-story-storytelling-hook": [
         "references/story-engine.md",
-        "Story State Card",
-        "before -> pressure/choice -> after",
+        "before -> pressure or choice -> after",
         "$a-story-carousel-jam",
     ],
 }
@@ -78,13 +76,13 @@ def test_agents_md_is_a_lean_codex_router_with_core_links():
     assert "Automations" in agents
 
 
-def test_original_operating_contract_is_preserved_outside_agents_router():
+def test_operating_manual_documents_current_small_control_plane():
     manual = (ROOT / "docs" / "agentic-os-operating-manual.md").read_text(encoding="utf-8")
 
-    assert "Illustrated Carousel Pipeline" in manual
-    assert "Creator Jam Response Contract" in manual
-    assert "Visual Debate Gate" in manual
-    assert "Autopublish Closeout Gate" in manual
+    assert "Agentic OS Operating Manual" in manual
+    assert "four gates and no default agents" in manual
+    assert "proof_failed" in manual
+    assert "Learning is proposal-only" in manual
 
 
 def test_repo_codex_skills_wrap_existing_agentic_os_workflows():
@@ -135,7 +133,6 @@ def test_active_workflow_surfaces_use_canonical_voice_rule():
         ROOT / "config" / "skill-systems.json",
         ROOT / "config" / "skills" / "couple-substack-article-framework.md",
         ROOT / "pipeline" / "stages" / "b1_prepost.py",
-        ROOT / "pipeline" / "stages" / "c1_illustration_carousel.py",
     ]
 
     for path in active_paths:

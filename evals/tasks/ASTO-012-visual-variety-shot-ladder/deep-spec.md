@@ -34,12 +34,11 @@ camera and action materially change.
 
 ## Checker Design
 
-Use `build_visual_plan_quality`, story-scene tests, and a hidden comparison of
-visual fields. The fail-to-pass case flips when repeated scene plans block
-generation. The pass-to-pass case proves legitimate two-act or continuous scene
-plans still pass when action, camera, and props change. A hidden variant should
-repeat a different setting, such as a bed/table/chai sequence, to avoid
-overfitting to one room.
+Use the compact visual preflight and pixel-story tests plus a hidden comparison
+of physical-action fields. The fail-to-pass case flips when repeated scenes
+block proof generation. The pass-to-pass case proves a continuous scene still
+passes when action, camera, and object state materially change. A hidden variant
+should repeat a different setting to avoid overfitting to one room.
 
 ## Anti-Gaming
 

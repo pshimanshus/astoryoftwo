@@ -223,7 +223,7 @@ Needs split, not deletion:
 
 - `tests/test_illustration_carousel.py`
 
-Use `docs/superpowers/plans/2026-06-30-test-illustration-carousel-split.md`. The tests are mostly required, but the file is not. Split by workflow ownership.
+The obsolete split plan was removed. Keep tests grouped by active workflow ownership and delete assertions for retired runtime ceremony.
 
 Needs action:
 

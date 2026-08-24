@@ -89,7 +89,6 @@ before writing hooks, slide copy, captions, visual directions, prompt packs, or
 image-generation instructions, load:
 
 - `config/skills/carousel-story-director-persona.md`
-- `config/skills/continuous-carousel-agent-room.md`
 
 This persona must stay active through final native image sets and QA. It checks
 that every direction has a real hook, setup, proof, escalation, bridge,
@@ -97,10 +96,9 @@ relationship motion or relevant partner role, earned ending, and send/save
 reason. If a concept only has a good line without story structure, mark it
 REPAIR.
 
-For serious carousel concepts, the continuous agent room is a hard gate. It
-must generate multiple routes, debate why each can or cannot work, repair the
-top 2-3 candidates, and return a selector verdict before final copy or image
-generation. Do not collapse the room into debating only the first favorite.
+Use the separate Instagram idea loop only when the creator explicitly asks for
+a deep independently verified search. An ordinary carousel concept must not
+start an agent room or tournament by default.
 
 ## Non-Negotiables
 
@@ -280,12 +278,9 @@ Required tournament record:
 - if GO, the final public slide-copy direction;
 - if REPAIR or STOP, do not create the carousel package yet.
 
-After the creator confirms that final copy is approved or closed, the next
-mandatory step is not prompt writing or image generation. Enter the Post-Copy
-Visual Creative Room from
-`agents/carousel-post-copy-visual-room-orchestrator.md`, write
-`post-copy-visual-room.json`, and require GO before visual-debate,
-visual-plan-quality, prompt-pack, or image handoff can pass.
+After the creator confirms final copy, lock copy and format, write one physical
+event per slide, compile compact prompts, and generate the riskiest proof. The
+actual-pixel proof plus creator approval is the next gate.
 
 ## Creator Jam Response Contract
 

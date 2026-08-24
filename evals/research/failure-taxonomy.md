@@ -388,28 +388,6 @@ Eval-system coverage:
   file update, and every baseline failure to flip to `PASS`;
 - `evals/**` is protected from solver changes.
 
-### E20 Stale Or Agent-Inferred Human Approval
-
-Pattern: an automated verifier result, old creator decision, or agent-authored
-ledger entry is treated as permission to enter copy, image, or publish work
-after the approved artifact changed. The creator saw one candidate, while
-downstream production acts on another.
-
-Evidence:
-- `memory/episodic/2026-07-25-session-health.md` records the implementation of
-  hash-bound concept, copy, image, and publish checkpoints.
-- `config/skills/carousel-review-loop.md` states that verifier `PASS` is not
-  creator approval and that every candidate must stop at a hash-bound human
-  decision.
-- `tests/test_carousel_review_loop.py` covers stale artifact hashes,
-  downstream-lock invalidation, and explicit
-  `creator_concept_approval_required` blockers.
-- `ASTO-022-hil-stage-checkpoints` proves a current explicit approval is valid
-  before mutation and invalid immediately after its governed concept changes.
-
-Eval coverage:
-- `ASTO-022-hil-stage-checkpoints`
-
 ## Mechanical Contract Failures
 
 - Root-contract damage: editing `AGENTS.md` to resolve downstream drift.
@@ -490,4 +468,3 @@ shot grammar, object continuity, or copy-visual causality.
 | E17 hand ownership and object-contact AI slop | `ASTO-020` |
 | E18 whole-person spatial topology failure | `ASTO-021` |
 | E19 eval direction/no-op credit | finite suite review + fixture contracts |
-| E20 stale or agent-inferred human approval | `ASTO-022` |

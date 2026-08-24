@@ -228,38 +228,29 @@ plants, or generic soft-couple setup without story need. If the story needs one
 continuous location, vary distance, angle, hand/object focus, and perspective
 so the carousel still feels like a sequence rather than repeated captions.
 
-## Two-Event Readability Loop
+## Proof-First Pixel Readability Loop
 
 After concept lock, use `.agents/skills/a-story-direct-visual-story/SKILL.md`.
 
-1. A pre-copy or pre-canvas board may guide drafting, but it is advisory. Only
-   after exact copy (or its documented exception) and the request-derived
-   `carousel_format_contract` are locked, give a fresh orchestrated critic
-   fingerprinted observable `blind_cards`: visible people, setting, action,
-   hands/contact, gaze, blocking, object state, camera view, and continuity.
-   Hide copy, caption, theme, narrative/POV labels, story reasons, scores, and
-   intended interpretation. Persist the raw pre-reveal response and
-   `review_provenance`, record inferred story/evidence/ambiguity under
-   `director_storyboard`, then compute the complete
-   `director_event_fingerprint`.
-2. After generation, use another orchestrated critic whose task/run provenance
-   is pairwise distinct from both author and first critic. Inspect every exact
-   package-local expected asset image-first, then compare observed meaning to
-   the director card and exact copy. Record `checks.visual_story_readability`
-   in `visual-qa.json`, bound to `source_director_event_fingerprint`, canonical
-   slide/format path, dimensions, and current bytes. The format set is exactly
-   the request lock: post by default only when unspecified, Story/Reel or square
-   only when explicit. Never infer intent from folders or create 9:16 by
-   default.
+1. After exact copy and requested native formats are locked, write one concrete
+   physical event per slide: visible people, action, hands/contact, gaze,
+   blocking, object state, camera reason, and visible consequence. A compact
+   copy-hidden read is useful when the visual premise is ambiguous, but it does
+   not create another lifecycle or approval artifact.
+2. Generate only the riskiest slide. Inspect the decoded current pixels
+   image-first, then compare observed action and relationship state to the
+   physical event and exact copy. Bind `proof-qa.json` to the package-relative
+   path, SHA-256, and native dimensions. Check story, entity/anatomy/spatial
+   integrity, identity, exact text, brandmark, style, and dimensions in order.
+3. Only passed proof pixels plus explicit creator approval unlock the remaining
+   deck. Repeat the same file-bound checks for every final asset in
+   `visual-qa.json` and `final-audit.json`.
 
-Task/run provenance makes the review execution auditable; arbitrary names do
-not prove reviewer independence or human identity. Prompts, filenames, and
-generator claims are not pixel evidence. Deterministic checks validate
-completeness, current fingerprints, exact expected assets, formats, and
-declared contradictions. They cannot judge whether the story genuinely reads;
-the semantic events remain mandatory. Legacy packages may be inspected, but
-cannot be promoted by translating an old PASS or synthesizing missing evidence;
-rerun both events against current locks and assets.
+Prompts, filenames, reviewer names, and generator claims are not pixel evidence.
+The format set is exactly the request lock: post by default only when
+unspecified, Story/Reel or square only when explicit. Never infer intent from
+old folders or create 9:16 by default. Old reports may inform diagnosis but
+cannot promote current files; rerun pixel QA against current locks and bytes.
 
 ---
 

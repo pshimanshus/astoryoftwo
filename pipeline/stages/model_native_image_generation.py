@@ -68,22 +68,39 @@ def write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def collect_existing_paths(raw_paths: list[Any], seen: set[str]) -> list[Path]:
+def collect_existing_paths(
+    raw_paths: list[Any],
+    seen: set[str],
+    *,
+    base_dir: Path | None = None,
+) -> list[Path]:
     paths: list[Path] = []
     for raw_path in raw_paths:
         path = Path(str(raw_path)).expanduser()
-        marker = str(path)
-        if marker not in seen and path.exists():
-            paths.append(path)
+        if not path.is_absolute() and base_dir is not None:
+            path = base_dir / path
+        marker = str(path.resolve()) if path.exists() else str(path)
+        if marker not in seen and path.is_file():
+            paths.append(path.resolve())
             seen.add(marker)
     return paths
 
 
-def existing_reference_paths(prompt_pack: dict[str, Any]) -> list[Path]:
+def existing_reference_paths(
+    prompt_pack: dict[str, Any],
+    *,
+    base_dir: Path | None = None,
+) -> list[Path]:
     seen: set[str] = set()
-    dossier_paths = collect_existing_paths(prompt_pack.get("identity_dossier_reference_images", []), seen)
-    identity_paths = collect_existing_paths(prompt_pack.get("identity_reference_images", []), seen)
-    style_paths = collect_existing_paths(prompt_pack.get("style_reference_images", []), seen)
+    dossier_paths = collect_existing_paths(
+        prompt_pack.get("identity_dossier_reference_images", []), seen, base_dir=base_dir
+    )
+    identity_paths = collect_existing_paths(
+        prompt_pack.get("identity_reference_images", []), seen, base_dir=base_dir
+    )
+    style_paths = collect_existing_paths(
+        prompt_pack.get("style_reference_images", []), seen, base_dir=base_dir
+    )
 
     if not identity_paths and not dossier_paths:
         return style_paths[:MAX_REFERENCE_IMAGES]

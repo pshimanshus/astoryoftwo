@@ -83,17 +83,11 @@ For carousel ideas, also read the current gold-theme source memory:
    - D-layer: article brief, outline, draft, growth package, editorial gates,
      and publish package.
 
-For C-layer carousel work, the Story-Selling winner is not generation-ready
-until the C-layer uses multiple visual reviewers, preserves the golden-theme
-learning, and passes `visual-plan-quality.json` as a per-slide pre-generation
-screen. Any doubtful slide must be repaired before image generation.
-
-When the creator confirms final copy, generation is still blocked until the
-Post-Copy Visual Creative Room runs from
-`agents/carousel-post-copy-visual-room-orchestrator.md` and writes
-`post-copy-visual-room.json` with a GO decision. This room locks the approved
-copy, compares visual systems, and hands the winning visual system to
-`visual-debate.json`, `visual-plan-quality.json`, and `prompt-pack.json`.
+For the default carousel path, translate the selected emotional machine into
+one observable physical event per slide, then prove the riskiest frame from its
+actual pixels. Do not add a visual room, debate artifact, or numeric production
+gate. The scoring workflow in this file is for explicit story-selling diagnosis
+or deep concept comparison only.
 
 ## Output Requirements
 

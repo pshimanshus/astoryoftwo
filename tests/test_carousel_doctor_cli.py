@@ -5,7 +5,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-from tests.helpers.visual_story import write_passing_director_storyboard
+from PIL import Image
+
+from pipeline.stages.carousel_format_contract import write_format_contract
 
 
 def write_json(path: Path, data: dict) -> None:
@@ -13,13 +15,29 @@ def write_json(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 
+def write_base_package(path: Path, *, status: str) -> None:
+    path.mkdir()
+    write_format_contract(path, ["instagram_post"], source="test")
+    identity = path / "refs" / "couple.png"
+    identity.parent.mkdir(parents=True)
+    Image.new("RGB", (64, 64), "ivory").save(identity)
+    write_json(path / "slides.json", {"slides": [{"slide": 1, "copy": "Exact copy."}]})
+    write_json(
+        path / "prompt-pack.json",
+        {
+            "identity_reference_images": ["refs/couple.png"],
+            "slides": [{"slide": 1, "text": "Exact copy."}],
+        },
+    )
+    write_json(
+        path / "generation-state.json",
+        {"status": status, "requested_formats": ["instagram_post"]},
+    )
+
+
 def test_carousel_doctor_cli_outputs_json(tmp_path: Path) -> None:
     package = tmp_path / "handoff"
-    package.mkdir()
-    write_json(package / "prompt-pack.json", {"slides": [{"slide": 1}]})
-    write_json(package / "image-generation.json", {"status": "handoff_ready"})
-    write_json(package / "final-images.json", {"status": "handoff_ready", "publishable": False})
-    write_passing_director_storyboard(package)
+    write_base_package(package, status="HANDOFF_READY")
 
     result = subprocess.run(
         [sys.executable, "scripts/carousel_doctor.py", str(package), "--json"],
@@ -37,9 +55,7 @@ def test_carousel_doctor_cli_outputs_json(tmp_path: Path) -> None:
 
 def test_carousel_doctor_cli_returns_nonzero_for_blocker(tmp_path: Path) -> None:
     package = tmp_path / "blocked"
-    package.mkdir()
-    (package / "raw-scene-row.md").write_text("STATUS: REJECTED\n", encoding="utf-8")
-    write_json(package / "visual-plan-quality.json", {"status": "PASS", "can_generate": True})
+    write_base_package(package, status="BATCH_ALLOWED")
 
     result = subprocess.run(
         [sys.executable, "scripts/carousel_doctor.py", str(package), "--json"],
@@ -52,3 +68,4 @@ def test_carousel_doctor_cli_returns_nonzero_for_blocker(tmp_path: Path) -> None
     assert result.returncode == 2
     assert payload["state"]["name"] == "blocked"
     assert payload["highest_severity"] == "blocker"
+    assert any(issue["code"] == "batch_without_approved_proof" for issue in payload["issues"])

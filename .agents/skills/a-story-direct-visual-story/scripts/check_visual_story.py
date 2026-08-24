@@ -1,42 +1,34 @@
 #!/usr/bin/env python3
-"""Check the two visual-story events inside an existing carousel package."""
+"""Run the compact preflight or actual-pixel carousel story check."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
 from typing import Any
+
+from PIL import Image, UnidentifiedImageError
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[4]
 if str(WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT))
 
-from pipeline.stages.carousel_visual_storytelling import (  # noqa: E402
-    VISUAL_STORY_READABILITY_KEY,
-    current_creator_correction_fingerprint,
-    current_generation_payload_fingerprint,
-    director_author_id,
-    director_creator_correction_fingerprint,
-    director_event_fingerprint,
-    director_generation_payload_fingerprint,
-    director_review_provenance,
-    director_reviewer_id,
-    storyboard_source_fingerprint,
-    validate_director_storyboard,
-    validate_frame_readability,
-)
+from pipeline.agentic.workflow_doctor import inspect_carousel_package  # noqa: E402
 from pipeline.stages.carousel_format_contract import (  # noqa: E402
     FORMAT_CONTRACT_FILENAME,
-    expected_frame_bindings,
-    locked_format_contract_fingerprint,
+    format_spec,
     locked_formats,
+)
+from pipeline.stages.carousel_visual_storytelling import (  # noqa: E402
+    first_failed_pixel_gate,
 )
 
 
-def _read_json_value(path: Path) -> Any:
+def _read_json(path: Path) -> Any:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
@@ -45,128 +37,206 @@ def _read_json_value(path: Path) -> Any:
         raise ValueError(f"Invalid JSON in {path}: {exc}") from exc
 
 
-def _slide_records(slides: Any) -> list[dict[str, Any]]:
-    if isinstance(slides, list):
-        return [record for record in slides if isinstance(record, dict)]
-    if isinstance(slides, dict) and isinstance(slides.get("slides"), list):
-        return [record for record in slides["slides"] if isinstance(record, dict)]
+def _records(payload: Any) -> list[dict[str, Any]]:
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+    if isinstance(payload, dict) and isinstance(payload.get("slides"), list):
+        return [item for item in payload["slides"] if isinstance(item, dict)]
     return []
 
 
+def _slide_number(record: dict[str, Any], fallback: int) -> int:
+    try:
+        return int(record.get("slide") or record.get("slide_number") or fallback)
+    except (TypeError, ValueError):
+        return fallback
+
+
+def _text(record: dict[str, Any]) -> str:
+    for key in ("text", "copy", "on_image_text", "slide_text"):
+        value = record.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
+
+
+def _action(record: dict[str, Any]) -> str:
+    for key in ("physical_action", "visual_sentence", "observable_action", "visual", "scene"):
+        value = record.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
+
+
+def _resolve_package_file(package: Path, raw_path: Any) -> Path | None:
+    if not raw_path:
+        return None
+    path = Path(str(raw_path)).expanduser()
+    if not path.is_absolute():
+        path = package / path
+    try:
+        resolved = path.resolve(strict=True)
+        resolved.relative_to(package.resolve(strict=True))
+    except (FileNotFoundError, OSError, ValueError):
+        return None
+    return resolved if resolved.is_file() and not path.is_symlink() else None
+
+
+def _preflight(package: Path) -> list[str]:
+    slides = _records(_read_json(package / "slides.json"))
+    prompt_pack = _read_json(package / "prompt-pack.json")
+    prompts = _records(prompt_pack)
+    if not slides:
+        return ["slides.json has no slide records."]
+    issues: list[str] = []
+
+    if not (package / FORMAT_CONTRACT_FILENAME).is_file():
+        issues.append("format-contract.json is missing.")
+    else:
+        try:
+            locked_formats(package)
+        except (ValueError, OSError, json.JSONDecodeError) as exc:
+            issues.append(f"format-contract.json is invalid: {exc}")
+
+    refs = prompt_pack.get("identity_reference_images") if isinstance(prompt_pack, dict) else None
+    if not isinstance(refs, list) or not refs:
+        issues.append("prompt-pack.json has no attached Aachu/Zuv identity references.")
+    else:
+        for raw_path in refs:
+            path = Path(str(raw_path)).expanduser()
+            if not path.is_absolute():
+                path = package / path
+            if not path.is_file():
+                issues.append(f"identity reference is missing: {path}")
+
+    prompt_by_slide = {
+        _slide_number(record, index): record
+        for index, record in enumerate(prompts, start=1)
+    }
+    for index, slide in enumerate(slides, start=1):
+        number = _slide_number(slide, index)
+        exact_text = _text(slide)
+        action = _action(slide)
+        if not exact_text:
+            issues.append(f"slide {number}: exact on-image text is missing")
+        if len(action.split()) < 6:
+            issues.append(
+                f"slide {number}: needs one concrete physical action sentence with subject, action, target, and visible result"
+            )
+        prompt = prompt_by_slide.get(number)
+        if prompt is None:
+            issues.append(f"slide {number}: prompt-pack record is missing")
+        elif exact_text and exact_text not in json.dumps(prompt, ensure_ascii=False):
+            issues.append(f"slide {number}: prompt-pack does not preserve the exact slide text")
+    return issues
+
+
+def _postcheck(package: Path) -> list[str]:
+    qa_path = package / "proof-qa.json"
+    if not qa_path.is_file():
+        qa_path = package / "visual-qa.json"
+    qa = _read_json(qa_path)
+    if not isinstance(qa, dict):
+        return [f"{qa_path.name} must contain an object."]
+
+    failed_gate = first_failed_pixel_gate(qa)
+    if failed_gate is not None:
+        return [failed_gate[1]]
+
+    issues: list[str] = []
+    status = str(qa.get("status") or qa.get("verdict") or "").strip().upper()
+    if status != "PASS" or qa.get("pass") is False:
+        issues.append(f"{qa_path.name} must record PASS and cannot set pass false.")
+
+    try:
+        requested_formats = set(locked_formats(package))
+    except (ValueError, OSError, json.JSONDecodeError) as exc:
+        return [f"format-contract.json is invalid: {exc}"]
+    seen: set[tuple[int, str]] = set()
+    for index, record in enumerate(_records(qa), start=1):
+        slide = _slide_number(record, index)
+        outputs = record.get("native_outputs")
+        if not isinstance(outputs, dict):
+            issues.append(f"slide {slide}: native_outputs pixel bindings are missing")
+            continue
+        for output_format, binding in outputs.items():
+            if not isinstance(binding, dict):
+                issues.append(f"slide {slide} {output_format}: pixel binding must be an object")
+                continue
+            seen.add((slide, str(output_format)))
+            path = _resolve_package_file(package, binding.get("path") or binding.get("relative_path"))
+            if path is None:
+                issues.append(f"slide {slide} {output_format}: reviewed package image is missing")
+                continue
+            recorded_hash = str(binding.get("sha256") or "").lower().removeprefix("sha256:")
+            actual_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+            if not recorded_hash or recorded_hash != actual_hash:
+                issues.append(f"slide {slide} {output_format}: reviewed SHA-256 is missing or stale")
+            try:
+                with Image.open(path) as image:
+                    dimensions = tuple(image.size)
+                    image.verify()
+            except (UnidentifiedImageError, OSError, SyntaxError, ValueError):
+                issues.append(f"slide {slide} {output_format}: reviewed file is not a decodable image")
+                continue
+            if output_format in requested_formats:
+                expected = tuple(format_spec(str(output_format))["target_size"])
+                if dimensions != expected:
+                    issues.append(
+                        f"slide {slide} {output_format}: dimensions are {dimensions[0]}x{dimensions[1]}, expected {expected[0]}x{expected[1]}"
+                    )
+
+    slide_count = len(_records(_read_json(package / "slides.json")))
+    expected = {
+        (slide, output_format)
+        for slide in range(1, slide_count + 1)
+        for output_format in requested_formats
+    }
+    if seen != expected:
+        missing = sorted(expected - seen)
+        if missing:
+            issues.append("missing reviewed slide/format bindings: " + ", ".join(f"{slide}:{fmt}" for slide, fmt in missing))
+
+    report = inspect_carousel_package(package)
+    issues.extend(
+        f"doctor:{issue.code}: {issue.message}"
+        for issue in report.issues
+        if issue.severity == "blocker"
+    )
+    return list(dict.fromkeys(issues))
+
+
 def check_package(carousel_dir: Path, phase: str) -> dict[str, Any]:
-    slides = _read_json_value(carousel_dir / "slides.json")
-    records = _slide_records(slides)
-    if not records:
-        raise ValueError("slides.json has no slide records.")
-
-    format_contract_path = carousel_dir / FORMAT_CONTRACT_FILENAME
-    if not format_contract_path.is_file():
-        raise ValueError(
-            f"Missing required current-request format contract: {format_contract_path}"
-        )
-
-    plan = _read_json_value(carousel_dir / "visual-plan-quality.json")
-    if not isinstance(plan, dict):
-        raise ValueError("visual-plan-quality.json must contain an object.")
-    current_formats = locked_formats(carousel_dir)
-    correction_fingerprint = current_creator_correction_fingerprint(carousel_dir)
-    generation_fingerprint = current_generation_payload_fingerprint(carousel_dir)
-
     result: dict[str, Any] = {
         "carousel_dir": str(carousel_dir),
         "phase": phase,
-        "source_fingerprint": storyboard_source_fingerprint(slides),
-        "locked_native_formats": list(current_formats),
         "checks": {},
     }
     failures: list[str] = []
-
-    # Event B is only meaningful when the exact current Event A still passes.
-    # Therefore post-only checks establish Event A currentness too.
-    if phase in {"pre", "post", "all"}:
-        pre_issues = validate_director_storyboard(
-            plan,
-            slide_count=len(records),
-            expected_slides=slides,
-            expected_formats=current_formats,
-            expected_format_contract_fingerprint=(
-                locked_format_contract_fingerprint(carousel_dir)
-            ),
-            expected_creator_correction_fingerprint=correction_fingerprint,
-            expected_generation_payload_fingerprint=generation_fingerprint,
-            provenance_package_dir=carousel_dir,
-        )
-        result["checks"]["pre_generation_director_storyboard"] = {
+    if phase in {"pre", "all"}:
+        pre_issues = _preflight(carousel_dir)
+        result["checks"]["copy_format_action_preflight"] = {
             "pass": not pre_issues,
             "issues": pre_issues,
         }
         failures.extend(f"pre: {issue}" for issue in pre_issues)
-
     if phase in {"post", "all"}:
-        qa = _read_json_value(carousel_dir / "visual-qa.json")
-        checks = qa.get("checks") if isinstance(qa, dict) else None
-        readability = (
-            checks.get(VISUAL_STORY_READABILITY_KEY)
-            if isinstance(checks, dict)
-            else None
-        )
-        post_issues = validate_frame_readability(
-            readability,
-            slide_count=len(records),
-            required_formats=current_formats,
-            expected_director_event_fingerprint=director_event_fingerprint(plan),
-            event_a_review_provenance=director_review_provenance(plan),
-            event_a_creator_correction_fingerprint=(
-                director_creator_correction_fingerprint(plan)
-            ),
-            expected_creator_correction_fingerprint=correction_fingerprint,
-            event_a_generation_payload_fingerprint=(
-                director_generation_payload_fingerprint(plan)
-            ),
-            expected_generation_payload_fingerprint=generation_fingerprint,
-            director_author_id=director_author_id(plan),
-            director_reviewer_id=director_reviewer_id(plan),
-            expected_frame_bindings=expected_frame_bindings(
-                carousel_dir,
-                len(records),
-                current_formats,
-            ),
-            package_dir=carousel_dir,
-            provenance_package_dir=carousel_dir,
-            require_files=True,
-        )
-        result["checks"]["post_generation_visual_story_readability"] = {
+        post_issues = _postcheck(carousel_dir)
+        result["checks"]["actual_pixel_story_qa"] = {
             "pass": not post_issues,
             "issues": post_issues,
         }
         failures.extend(f"post: {issue}" for issue in post_issues)
-
     result["pass"] = not failures
     result["issues"] = failures
     return result
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        description="Validate copy-hidden director and rendered-frame story checks."
-    )
-    parser.add_argument(
-        "--carousel-dir",
-        required=True,
-        type=Path,
-        help="Existing output/carousels/YYYY-MM-DD/slug package directory.",
-    )
-    parser.add_argument(
-        "--phase",
-        choices=("pre", "post", "all"),
-        default="all",
-        help="Lifecycle phase to validate.",
-    )
-    parser.add_argument(
-        "--compact",
-        action="store_true",
-        help="Print compact JSON instead of indented JSON.",
-    )
+    parser = argparse.ArgumentParser(description="Validate carousel scene preflight or current rendered pixels.")
+    parser.add_argument("--carousel-dir", required=True, type=Path)
+    parser.add_argument("--phase", choices=("pre", "post", "all"), default="all")
+    parser.add_argument("--compact", action="store_true")
     return parser
 
 
@@ -182,14 +252,7 @@ def main() -> int:
             "pass": False,
             "issues": [str(exc)],
         }
-    print(
-        json.dumps(
-            result,
-            ensure_ascii=False,
-            separators=(",", ":") if args.compact else None,
-            indent=None if args.compact else 2,
-        )
-    )
+    print(json.dumps(result, ensure_ascii=False, indent=None if args.compact else 2, separators=(",", ":") if args.compact else None))
     return 0 if result.get("pass") else 1
 
 

@@ -17,31 +17,12 @@ from pipeline.stages.carousel_quality import (
 )
 from pipeline.stages.carousel_format_contract import (
     expected_output_relative_path,
-    format_contract_fingerprint,
 )
 from pipeline.stages.carousel_visual_storytelling import (
-    DIRECTOR_EVENT_FINGERPRINT_VERSION,
-    EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-    REVIEW_PROVENANCE_VERSION,
-    blind_cards_fingerprint,
-    director_event_fingerprint,
-    director_review_output_fingerprint,
-    director_review_provenance,
-    frame_review_input_fingerprint,
-    frame_review_output_fingerprint,
-    generation_payload_fingerprint,
-    review_response_fingerprint,
-    storyboard_source_fingerprint,
     validate_director_storyboard,
     validate_frame_readability,
 )
 from pipeline.agentic.carousel_state import derive_carousel_state
-from pipeline.agentic.carousel_hil_checkpoints import (
-    approval_valid,
-    inspect_stage,
-    next_unapproved_stage,
-    stage_fingerprint,
-)
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
 from scripts.autopublish import find_risky_paths, parse_changed_paths, scan_secret_text
 
@@ -76,224 +57,60 @@ def _fail(
 
 
 _EVAL_FORMATS = ("instagram_post",)
-_EVAL_GENERATION_PAYLOAD_FINGERPRINT = generation_payload_fingerprint({})
-_LIFECYCLE_MASKING_MARKERS = (
-    "director_event_fingerprint",
-    "format_contract_fingerprint",
-    "input_fingerprint",
-    "output_fingerprint",
-    "review_provenance",
-    "source_director_event_fingerprint",
-    "source_fingerprint",
-    "requested_formats",
-    "stale",
-)
 
 
-def _eval_lifecycle_masking_issues(issues: list[str]) -> list[str]:
-    return [
-        issue
-        for issue in issues
-        if any(marker in issue for marker in _LIFECYCLE_MASKING_MARKERS)
-    ]
-
-
-def _build_current_eval_director_plan(
+def _build_eval_visual_direction(
     slides: list[dict[str, Any]],
     *,
     formats: tuple[str, ...] = _EVAL_FORMATS,
 ) -> dict[str, Any]:
-    """Build a current Event A envelope before seeding one semantic defect.
+    """Build a small valid physical-scene baseline for semantic evals."""
 
-    These eval fixtures test a visual-story failure, not whether missing
-    lifecycle fields fail closed.  The baseline therefore carries valid copy,
-    format, blind-input, provenance, output, and complete-event bindings.
-    """
-
-    blind_cards: list[dict[str, Any]] = []
-    director_slides: list[dict[str, Any]] = []
     narrative_jobs = (
         "establish the lived relationship geography",
         "advance the physical action and pressure",
         "release the action into visible consequence",
     )
     shot_sizes = ("wide geography shot", "medium action shot", "close evidence shot")
-    for index, _source_slide in enumerate(slides, start=1):
-        narrative_job = narrative_jobs[(index - 1) % len(narrative_jobs)]
-        shot_size = shot_sizes[(index - 1) % len(shot_sizes)]
-        blind_cards.append(
-            {
-                "slide": index,
-                "visible_people": ["the acting partner", "the reacting partner"],
-                "visible_setting": "A specific lived room with a doorway, work surface, and practical window light.",
-                "observable_action": "One partner moves a shared object while the other visibly reacts to the changed state.",
-                "hands_and_contact": "Both hand owners and their contact with the shared object remain clearly attributable.",
-                "gaze": "Their eye-lines connect the moving hand, shared object, and receiving reaction.",
-                "body_blocking": "Body distance and torso direction change with the action rather than forming a portrait.",
-                "object_state": "The shared object has one visible owner and position before its consequence becomes readable.",
-                "camera_view": f"A motivated {shot_size} keeps the current action and reaction legible.",
-                "visible_continuity": "The same people, room geography, shared object, and changed state remain traceable.",
-            }
+    records: list[dict[str, Any]] = []
+    for index, source in enumerate(slides, start=1):
+        action = str(
+            source.get("physical_action")
+            or source.get("visual")
+            or "One partner moves a shared object while the other visibly reacts to its changed state."
         )
-        director_slides.append(
+        records.append(
             {
                 "slide": index,
-                "status": "PASS",
-                "inference_match": True,
-                "narrative_job": narrative_job,
-                "silent_read": "A shared domestic action visibly changes the distance and attention between both partners.",
-                "change_from_previous": (
-                    "The opening view establishes the lived room, object owner, and relationship geometry."
-                    if index == 1
-                    else "The object position, hand action, camera scale, and relationship pressure change from before."
-                ),
-                "critic_evidence": "The copy-hidden critic cited the acting hands, changed object state, gaze, and body distance.",
-                "staged_action": {
-                    "subject": "the acting partner",
-                    "action": "moves the shared object across the lived work surface",
-                    "target_or_object": "the shared object and reacting partner",
-                    "reaction_or_consequence": "the reacting partner changes gaze and reaches toward its new position",
-                },
-                "pov": {
-                    "owner": "the couple's shared observational point of view",
-                    "audience_knows": "a familiar negotiation is happening through a concrete shared routine",
-                    "audience_feels": "recognition and affection beneath the small friction",
-                },
+                "physical_action": action,
+                "narrative_job": narrative_jobs[(index - 1) % len(narrative_jobs)],
+                "silent_read": action,
                 "shot": {
-                    "size": shot_size,
-                    "angle": "motivated eye-level three-quarter angle",
-                    "camera_position": "beside the doorway with both the action surface and reaction visible",
-                    "focal_subject": "the acting hands and visibly changed shared object",
-                    "story_reason": "This position preserves cause, reaction, room geography, and object ownership together.",
-                },
-                "blocking": {
-                    "hands": "Each visible hand belongs to a named partner and performs one readable action.",
-                    "gaze": "Both eye-lines land on the person or object driving the current beat.",
-                    "body_distance": "Their changing distance expresses the pressure and release of the interaction.",
-                    "posture_or_feet": "Feet and torsos orient toward the action instead of posing toward camera.",
+                    "size": shot_sizes[(index - 1) % len(shot_sizes)],
+                    "camera_position": "Eye-level beside the active hands and changed shared object.",
                 },
                 "setting": {
-                    "sub_location": "the work surface beside the apartment doorway",
-                    "time": "late afternoon after both partners return home",
-                    "motivated_light": "side light enters from the visible window and falls across the active surface",
-                    "story_trace": "an open bag and moved charger show the routine already in progress",
+                    "motivated_light": "Window light crosses the acting hands and changed object state."
                 },
                 "story_evidence": [
                     {
-                        "carrier": "the shared charger and open work bag",
-                        "observable_state": "the charger visibly changes owner and position beside the unfinished bag",
-                        "narrative_job": "prove the familiar negotiation and its immediate consequence without copy",
+                        "carrier": "the shared object between both partners",
+                        "observable_state": "its owner and position visibly change during the action",
+                        "narrative_job": "prove the relationship turn without relying on copy",
                     }
                 ],
-                "text_image_relationship": "additive",
-                "continuity": {
-                    "incoming_state": "the shared object begins beside the acting partner's open bag",
-                    "outgoing_state": "the object and both partners' attention move toward the receiving side",
-                },
-                "entity_contract": {
-                    "expected_people": 2,
-                    "background_people": [],
-                    "reflections": [],
-                    "forbidden_entities": ["duplicate couple", "invented background roommate"],
-                },
-                "unresolved_ambiguities": [],
-                "resolved_ambiguities": [],
             }
         )
-
-    blind_fingerprint = blind_cards_fingerprint(blind_cards)
-    raw_response = (
-        "The fresh critic inferred a concrete shared-object negotiation, its visible reaction, "
-        "and the relationship change from the observable cards before copy reveal."
-    )
-    director: dict[str, Any] = {
-        "status": "PASS",
-        "event": "copy_hidden_storyboard_read",
-        "copy_locked": True,
-        "copy_hidden": True,
-        "intent_hidden": True,
-        "copy_lock_evidence": "The exact fixture copy was locked before the observable-only review input was assembled.",
-        "author_id": "eval-route-author-task",
-        "reviewer_id": "eval-event-a-reviewer-task",
-        "reviewer_evidence": "A separate eval critic received only observable cards and returned its inference before reveal.",
-        "requested_formats": list(formats),
-        "format_contract_fingerprint": format_contract_fingerprint(formats),
-        "creator_correction_fingerprint": EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        "generation_payload_fingerprint": _EVAL_GENERATION_PAYLOAD_FINGERPRINT,
-        "blind_cards": blind_cards,
-        "blind_input_fingerprint": blind_fingerprint,
-        "source_fingerprint": storyboard_source_fingerprint(slides),
-        "sequence_mode": "single_image" if len(slides) == 1 else "causal_sequence",
-        "physical_event": "A shared household object changes hands and visibly alters both partners' attention.",
-        "emotional_arc": "Small practical friction becomes recognition through the visible response and consequence.",
-        "relationship_change": "Separate attention converges on one shared action and a more connected final state.",
-        "sequence_read": "The room establishes ownership, the action moves the object, and the reaction supplies meaning.",
-        "visual_variables": ["body distance", "object ownership"],
-        "hero_receipt_slide": min(2, len(slides)),
-        "setup_payoff_ledger": (
-            []
-            if len(slides) == 1
-            else [
-                {
-                    "setup": "The object begins beside one partner's unfinished bag.",
-                    "payoff": "The object and both eye-lines arrive on the receiving side.",
-                    "changed_meaning": "A practical move becomes evidence of their familiar negotiation.",
-                }
-            ]
-        ),
-        "object_motif_ledger": [
-            {
-                "object": "the shared charger",
-                "initial_state": "beside the acting partner's open bag",
-                "later_state": "moved toward the reacting partner's reaching hand",
-                "story_job": "make ownership, routine, and relationship response physically visible",
-            }
-        ],
-        "slides": director_slides,
-        "issues": [],
-        "director_event_fingerprint_version": DIRECTOR_EVENT_FINGERPRINT_VERSION,
-        "review_provenance": {
-            "schema_version": REVIEW_PROVENANCE_VERSION,
-            "author_task_id": "eval-route-author-task",
-            "author_run_id": "eval-route-author-run",
-            "reviewer_task_id": "eval-event-a-reviewer-task",
-            "reviewer_run_id": "eval-event-a-reviewer-run",
-            "input_fingerprint": blind_fingerprint,
-            "raw_response": raw_response,
-            "raw_response_fingerprint": review_response_fingerprint(raw_response),
-            "output_fingerprint": "",
-        },
-    }
-    plan = {
-        "status": "PASS",
-        "can_generate": True,
-        "issues": [],
-        "director_storyboard": director,
-    }
-    director["review_provenance"]["output_fingerprint"] = (
-        director_review_output_fingerprint(director)
-    )
-    director["director_event_fingerprint"] = director_event_fingerprint(director)
-    return plan
+    return {"requested_formats": list(formats), "slides": records}
 
 
-def _refresh_eval_director_fingerprints(plan: dict[str, Any]) -> None:
-    director = plan["director_storyboard"]
-    director["review_provenance"]["output_fingerprint"] = (
-        director_review_output_fingerprint(director)
-    )
-    director["director_event_fingerprint"] = director_event_fingerprint(director)
-
-
-def _build_current_eval_frame_review(
-    plan: dict[str, Any],
+def _build_eval_frame_review(
+    slides: list[dict[str, Any]],
     *,
-    slide_count: int,
     formats: tuple[str, ...] = _EVAL_FORMATS,
 ) -> dict[str, Any]:
     frames: list[dict[str, Any]] = []
-    director_slides = plan["director_storyboard"]["slides"]
-    for number in range(1, slide_count + 1):
+    for number, source in enumerate(slides, start=1):
         for output_format in formats:
             frames.append(
                 {
@@ -301,62 +118,22 @@ def _build_current_eval_frame_review(
                     "format": output_format,
                     "file": expected_output_relative_path(output_format, number),
                     "status": "PASS",
-                    "expected_silent_read": director_slides[number - 1]["silent_read"],
-                    "observed_image_first_read": "The current frame visibly preserves the intended action, reaction, and changed object state.",
+                    "expected_silent_read": str(source.get("visual") or source.get("physical_action") or ""),
+                    "observed_image_first_read": "The frame visibly preserves the intended action, reaction, and changed object state.",
                     "core_action_legible": True,
                     "relationship_turn_legible": True,
-                    "focal_hierarchy": "The acting hands and changed object state read before decorative room detail.",
-                    "hands_gaze_prop_legible": True,
-                    "storyboard_match": True,
-                    "native_format_readability": True,
                     "copy_visual_contradictions": [],
                     "unexpected_story": [],
-                    "match_rationale": "Visible hands, eye-lines, object ownership, and consequence match the approved director event.",
-                    "evidence": "The image-first critic cited the current frame's hands, gaze, object position, and reaction.",
-                    "image_fingerprint": review_response_fingerprint(
-                        f"eval-current-pixels-{number}-{output_format}"
-                    ),
+                    "evidence": "Visible hands, eye-lines, object position, and reaction prove the current story beat.",
                 }
             )
-    raw_response = (
-        "The image-first critic reported the visible action and relationship turn from the current frame manifest."
-    )
-    check: dict[str, Any] = {
+    return {
         "pass": True,
         "status": "PASS",
-        "event": "rendered_frame_story_audit",
         "image_first": True,
-        "reviewer_id": "eval-event-b-reviewer-task",
-        "reviewer_evidence": "A third eval critic inspected the current image-first manifest before receiving copy or intent.",
-        "source_director_event_fingerprint": director_event_fingerprint(plan),
-        "reviewed_native_formats": list(formats),
-        "sequence_read": "The current rendered sequence preserves action, reaction, and visible consequence.",
-        "relationship_turn": "The shared action visibly changes both partners' attention and distance.",
-        "setup_payoff_evidence": "The initial object state earns its changed position and reaction.",
-        "weakest_frame": "The establishing view carries less pressure but remains specific and necessary.",
-        "repair_decision": "No repair is required in the valid baseline review.",
         "frames": frames,
         "issues": [],
-        "review_provenance": {
-            "schema_version": REVIEW_PROVENANCE_VERSION,
-            "reviewer_task_id": "eval-event-b-reviewer-task",
-            "reviewer_run_id": "eval-event-b-reviewer-run",
-            "input_fingerprint": frame_review_input_fingerprint(frames),
-            "raw_response": raw_response,
-            "raw_response_fingerprint": review_response_fingerprint(raw_response),
-            "output_fingerprint": "",
-        },
     }
-    check["review_provenance"]["output_fingerprint"] = (
-        frame_review_output_fingerprint(check)
-    )
-    return check
-
-
-def _refresh_eval_frame_review_output(check: dict[str, Any]) -> None:
-    check["review_provenance"]["output_fingerprint"] = (
-        frame_review_output_fingerprint(check)
-    )
 
 
 def _line_allows_bottom_right_as_negative_example(line: str) -> bool:
@@ -597,6 +374,7 @@ def check_identity_stop_gate_fixture(task: EvalTask, root: Path) -> list[CheckRe
     state = derive_carousel_state(package)
     issue_codes = sorted({issue.code for issue in report.issues})
     expected_codes = {
+        "identity_references_missing",
         "identity_eval_missing_stop_gate",
         "identity_eval_unverified_stop_gate",
         "identity_eval_not_passed_stop_gate",
@@ -713,21 +491,18 @@ def check_home_cinematic_fixture(task: EvalTask, root: Path) -> list[CheckResult
             )
         ]
 
-    plan = _build_current_eval_director_plan(slides)
+    plan = _build_eval_visual_direction(slides)
     baseline_issues = validate_director_storyboard(
         plan,
         slide_count=len(slides),
         expected_slides=slides,
         expected_formats=_EVAL_FORMATS,
-        expected_format_contract_fingerprint=format_contract_fingerprint(_EVAL_FORMATS),
-        expected_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        expected_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
     )
     if baseline_issues:
         return [
             _fail(
                 "home_cinematic_fixture",
-                "Home-cinematic eval harness is not a valid current Event A baseline.",
+                "Home-cinematic eval harness is not a valid physical-scene baseline.",
                 evidence=baseline_issues,
             )
         ]
@@ -735,9 +510,7 @@ def check_home_cinematic_fixture(task: EvalTask, root: Path) -> list[CheckResult
     defect = fixture.get("defect")
     if isinstance(defect, dict) and defect:
         try:
-            target = plan["director_storyboard"]["slides"][
-                int(defect.get("slide") or 1) - 1
-            ]
+            target = plan["slides"][int(defect.get("slide") or 1) - 1]
         except (IndexError, TypeError, ValueError):
             return [
                 _fail(
@@ -760,16 +533,12 @@ def check_home_cinematic_fixture(task: EvalTask, root: Path) -> list[CheckResult
                 "narrative_job": "couple moment",
             }
         ]
-        _refresh_eval_director_fingerprints(plan)
 
     issues = validate_director_storyboard(
         plan,
         slide_count=len(slides),
         expected_slides=slides,
         expected_formats=_EVAL_FORMATS,
-        expected_format_contract_fingerprint=format_contract_fingerprint(_EVAL_FORMATS),
-        expected_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        expected_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
     )
 
     required_target_markers = (
@@ -781,15 +550,11 @@ def check_home_cinematic_fixture(task: EvalTask, root: Path) -> list[CheckResult
     target_issues = [
         issue for issue in issues if any(marker in issue for marker in required_target_markers)
     ]
-    lifecycle_issues = _eval_lifecycle_masking_issues(issues)
-    if (
-        all(any(marker in issue for issue in target_issues) for marker in required_target_markers)
-        and not lifecycle_issues
-    ):
+    if all(any(marker in issue for issue in target_issues) for marker in required_target_markers):
         return [
             _pass(
                 "home_cinematic_fixture",
-                "A current Event A envelope is blocked specifically for generic home-story evidence.",
+                "The physical-scene preflight blocks generic home-story evidence.",
                 evidence=target_issues,
             )
         ]
@@ -797,7 +562,7 @@ def check_home_cinematic_fixture(task: EvalTask, root: Path) -> list[CheckResult
         _fail(
             "home_cinematic_fixture",
             "Home visual fixture was not isolated to concrete cinematic story-evidence failures.",
-            evidence=[*issues, *lifecycle_issues, str(plan_path)],
+            evidence=[*issues, str(plan_path)],
         )
     ]
 
@@ -868,47 +633,33 @@ def check_copy_visual_logic_fixture(task: EvalTask, root: Path) -> list[CheckRes
             )
         ]
 
-    plan = _build_current_eval_director_plan(slides)
+    plan = _build_eval_visual_direction(slides)
     pre_issues = validate_director_storyboard(
         plan,
         slide_count=len(slides),
         expected_slides=slides,
         expected_formats=_EVAL_FORMATS,
-        expected_format_contract_fingerprint=format_contract_fingerprint(_EVAL_FORMATS),
-        expected_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        expected_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
     )
     if pre_issues:
         return [
             _fail(
                 "copy_visual_logic_fixture",
-                "Copy-visual eval harness is not a valid current Event A baseline.",
+                "Copy-visual eval harness is not a valid physical-scene baseline.",
                 evidence=pre_issues,
             )
         ]
 
-    readability = _build_current_eval_frame_review(
-        plan,
-        slide_count=len(slides),
-    )
+    readability = _build_eval_frame_review(slides)
     baseline_issues = validate_frame_readability(
         readability,
         slide_count=len(slides),
         required_formats=_EVAL_FORMATS,
-        expected_director_event_fingerprint=director_event_fingerprint(plan),
-        event_a_review_provenance=director_review_provenance(plan),
-        event_a_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        expected_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        event_a_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
-        expected_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
-        director_author_id=plan["director_storyboard"]["author_id"],
-        director_reviewer_id=plan["director_storyboard"]["reviewer_id"],
     )
     if baseline_issues:
         return [
             _fail(
                 "copy_visual_logic_fixture",
-                "Copy-visual eval harness is not a valid current Event B baseline.",
+                "Copy-visual eval harness is not a valid rendered-frame baseline.",
                 evidence=baseline_issues,
             )
         ]
@@ -945,30 +696,20 @@ def check_copy_visual_logic_fixture(task: EvalTask, root: Path) -> list[CheckRes
             if isinstance(contradictions, list)
             else ["The visible action contradicts the locked copy order."]
         )
-        _refresh_eval_frame_review_output(readability)
 
     issues = validate_frame_readability(
         readability,
         slide_count=len(slides),
         required_formats=_EVAL_FORMATS,
-        expected_director_event_fingerprint=director_event_fingerprint(plan),
-        event_a_review_provenance=director_review_provenance(plan),
-        event_a_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        expected_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        event_a_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
-        expected_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
-        director_author_id=plan["director_storyboard"]["author_id"],
-        director_reviewer_id=plan["director_storyboard"]["reviewer_id"],
     )
     contradiction_issues = [
         issue for issue in issues if "copy_visual_contradictions" in issue
     ]
-    lifecycle_issues = _eval_lifecycle_masking_issues(issues)
-    if contradiction_issues and not lifecycle_issues and len(issues) == len(contradiction_issues):
+    if contradiction_issues and len(issues) == len(contradiction_issues):
         return [
             _pass(
                 "copy_visual_logic_fixture",
-                "A current Event B envelope is blocked only by the seeded copy-visual contradiction.",
+                "Rendered-frame QA is blocked only by the seeded copy-visual contradiction.",
                 evidence=contradiction_issues,
             )
         ]
@@ -976,7 +717,7 @@ def check_copy_visual_logic_fixture(task: EvalTask, root: Path) -> list[CheckRes
         _fail(
             "copy_visual_logic_fixture",
             "Copy-visual fixture was not isolated to its concrete visible contradiction.",
-            evidence=[*issues, *lifecycle_issues, str(qa_path)],
+            evidence=[*issues, str(qa_path)],
         )
     ]
 
@@ -1391,21 +1132,18 @@ def check_visual_variety_shot_ladder_fixture(task: EvalTask, root: Path) -> list
             )
         ]
 
-    plan = _build_current_eval_director_plan(slides)
+    plan = _build_eval_visual_direction(slides)
     baseline_issues = validate_director_storyboard(
         plan,
         slide_count=len(slides),
         expected_slides=slides,
         expected_formats=_EVAL_FORMATS,
-        expected_format_contract_fingerprint=format_contract_fingerprint(_EVAL_FORMATS),
-        expected_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        expected_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
     )
     if baseline_issues:
         return [
             _fail(
                 "visual_variety_shot_ladder_fixture",
-                "Shot-ladder eval harness is not a valid current Event A baseline.",
+                "Shot-ladder eval harness is not a valid physical-scene baseline.",
                 evidence=baseline_issues,
             )
         ]
@@ -1416,20 +1154,16 @@ def check_visual_variety_shot_ladder_fixture(task: EvalTask, root: Path) -> list
             defect.get("narrative_job") or "repeat the same table interaction"
         )
         repeated_size = str(defect.get("shot_size") or "medium two-shot")
-        for slide in plan["director_storyboard"]["slides"]:
+        for slide in plan["slides"]:
             slide["narrative_job"] = repeated_job
             slide["shot"]["size"] = repeated_size
-        plan["director_storyboard"].pop("deliberate_shot_repetition_reason", None)
-        _refresh_eval_director_fingerprints(plan)
+        plan.pop("deliberate_shot_repetition_reason", None)
 
     issues = validate_director_storyboard(
         plan,
         slide_count=len(slides),
         expected_slides=slides,
         expected_formats=_EVAL_FORMATS,
-        expected_format_contract_fingerprint=format_contract_fingerprint(_EVAL_FORMATS),
-        expected_creator_correction_fingerprint=EMPTY_CREATOR_CORRECTION_FINGERPRINT,
-        expected_generation_payload_fingerprint=_EVAL_GENERATION_PAYLOAD_FINGERPRINT,
     )
     target_issues = [
         issue
@@ -1437,17 +1171,15 @@ def check_visual_variety_shot_ladder_fixture(task: EvalTask, root: Path) -> list
         if "repeats one narrative job" in issue
         or "repeats one shot size" in issue
     ]
-    lifecycle_issues = _eval_lifecycle_masking_issues(issues)
     if (
         any("repeats one narrative job" in issue for issue in target_issues)
         and any("repeats one shot size" in issue for issue in target_issues)
-        and not lifecycle_issues
         and len(issues) == len(target_issues)
     ):
         return [
             _pass(
                 "visual_variety_shot_ladder_fixture",
-                "A current Event A envelope is blocked only by repeated narrative job and shot size.",
+                "The physical-scene preflight blocks repeated narrative job and shot size.",
                 evidence=target_issues,
             )
         ]
@@ -1455,7 +1187,7 @@ def check_visual_variety_shot_ladder_fixture(task: EvalTask, root: Path) -> list
         _fail(
             "visual_variety_shot_ladder_fixture",
             "Visual-variety fixture was not isolated to the repeated shot-ladder defect.",
-            evidence=[*issues, *lifecycle_issues, str(path)],
+            evidence=[*issues, str(path)],
         )
     ]
 
@@ -1534,158 +1266,6 @@ def check_creator_visible_copy_artifact(task: EvalTask, root: Path) -> list[Chec
     return check_creator_visible_copy(_creator_visible_artifact(task, root))
 
 
-def check_hil_stage_checkpoint_fixture(task: EvalTask, root: Path) -> list[CheckResult]:
-    fixture_package = _carousel_package_from_fixture(task, root)
-    if fixture_package is None or not fixture_package.exists():
-        return [
-            _fail(
-                "hil_stage_checkpoint_fixture",
-                "Task has no materialized HIL checkpoint carousel fixture package.",
-            )
-        ]
-
-    fixture_ledger_path = (
-        fixture_package / ".internal" / "hil" / "approvals.json"
-    )
-    fixture_ledger = _read_json(fixture_ledger_path)
-    if not fixture_ledger:
-        return [
-            _fail(
-                "hil_stage_checkpoint_fixture",
-                "HIL checkpoint fixture must provide a valid bootstrap ledger.",
-                evidence=[str(fixture_ledger_path)],
-            )
-        ]
-
-    concept_artifacts: dict[str, dict[str, Any]] = {
-        "source-memory-brief.json": {
-            "schema_version": "1.0",
-            "status": "ready",
-            "seed": "A concrete couple moment grounded in lived visual evidence.",
-        },
-        "concept-routes.json": {
-            "schema_version": "1.0",
-            "status": "ready",
-            "routes": [{"id": "route-a", "scene": "One partner silently helps the other."}],
-        },
-        "concept-debate.json": {
-            "schema_version": "1.0",
-            "status": "pass",
-            "arguments": [{"route_id": "route-a", "verdict": "keep"}],
-        },
-        "concept-repairs.json": {
-            "schema_version": "1.0",
-            "status": "pass",
-            "repairs": [],
-        },
-        "taste-gate.json": {
-            "schema_version": "1.0",
-            "status": "pass",
-            "verdict": "pass",
-        },
-        "verification.json": {
-            "schema_version": "1.0",
-            "status": "pass",
-            "reviews": [
-                {"critic_task_id": "critic-a", "verdict": "pass"},
-                {"critic_task_id": "critic-b", "verdict": "pass"},
-            ],
-            "selector": {"selector_task_id": "selector-a", "verdict": "pass"},
-        },
-        "concept-selection.json": {
-            "schema_version": "1.0",
-            "status": "ready_for_concept_lock",
-            "creator_approval": "pending",
-            "selected_route_id": "route-a",
-        },
-    }
-
-    with tempfile.TemporaryDirectory(prefix="asto-022-hil-") as temp_dir:
-        package = Path(temp_dir) / "hil-stage-checkpoints"
-        for filename, payload in concept_artifacts.items():
-            path = package / filename
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(
-                json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
-                encoding="utf-8",
-            )
-
-        ledger = dict(fixture_ledger)
-        ledger["stages"] = {
-            "concept": {
-                "decision": "APPROVE",
-                "source": "explicit_creator_input",
-                "artifact_fingerprint": stage_fingerprint(package, "concept"),
-                "decided_by": "creator",
-                "decided_at": "2026-07-21T00:00:00+00:00",
-            }
-        }
-        ledger.setdefault("decisions", [])
-        probe_ledger_path = package / ".internal" / "hil" / "approvals.json"
-        probe_ledger_path.parent.mkdir(parents=True, exist_ok=True)
-        probe_ledger_path.write_text(
-            json.dumps(ledger, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-
-        concept_report = inspect_stage(package, "concept")
-        approval_was_current = approval_valid(package, "concept")
-        routed_to_copy_before_mutation = next_unapproved_stage(package) == "copy"
-
-        mutation_path = package / "concept-selection.json"
-        mutated_selection = _read_json(mutation_path)
-        mutated_selection["mutation_probe"] = (
-            "governed artifact changed after explicit creator approval"
-        )
-        mutation_path.write_text(
-            json.dumps(mutated_selection, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-
-        copy_report = inspect_stage(package, "copy")
-        issue_codes = sorted({issue.code for issue in copy_report.issues})
-        stale_concept_rejected = not approval_valid(package, "concept")
-        routed_to_concept = next_unapproved_stage(package) == "concept"
-        copy_is_locked = "creator_concept_approval_required" in issue_codes
-
-    if (
-        not concept_report.issues
-        and approval_was_current
-        and routed_to_copy_before_mutation
-        and stale_concept_rejected
-        and routed_to_concept
-        and copy_is_locked
-    ):
-        return [
-            _pass(
-                "hil_stage_checkpoint_fixture",
-                "A current explicit approval passes, then a governed artifact mutation makes it stale and relocks copy.",
-                evidence=[
-                    "approval_valid(concept) before mutation=True",
-                    "next_unapproved_stage before mutation=copy",
-                    "mutation=concept-selection.json",
-                    "approval_valid(concept) after mutation=False",
-                    "next_unapproved_stage after mutation=concept",
-                    *issue_codes,
-                ],
-            )
-        ]
-    return [
-        _fail(
-            "hil_stage_checkpoint_fixture",
-            "The HIL lifecycle did not preserve a current approval and invalidate it after governed artifact mutation.",
-            evidence=[
-                f"concept_issue_codes={sorted(issue.code for issue in concept_report.issues)}",
-                f"approval_valid(concept) before mutation={approval_was_current}",
-                f"next_unapproved_stage before mutation={'copy' if routed_to_copy_before_mutation else 'not-copy'}",
-                f"approval_valid(concept) after mutation={not stale_concept_rejected}",
-                f"next_unapproved_stage after mutation={'concept' if routed_to_concept else 'not-concept'}",
-                *issue_codes,
-            ],
-        )
-    ]
-
-
 TASK_SPECIFIC_CHECKERS: dict[str, Checker] = {
     "brandmark_top_right_rule": check_brandmark_top_right_rule,
     "carousel_doctor_fixture": check_carousel_doctor_fixture,
@@ -1700,7 +1280,6 @@ TASK_SPECIFIC_CHECKERS: dict[str, Checker] = {
     "scene_entity_integrity_fixture": check_scene_entity_integrity_fixture,
     "hand_object_integrity_fixture": check_hand_object_integrity_fixture,
     "whole_person_spatial_integrity_fixture": check_whole_person_spatial_integrity_fixture,
-    "hil_stage_checkpoint_fixture": check_hil_stage_checkpoint_fixture,
     "format_snapback_fixture": check_format_snapback_fixture,
     "working_memory_pointer_fixture": check_working_memory_pointer_fixture,
     "creator_skill_routing_fixture": check_creator_skill_routing_fixture,

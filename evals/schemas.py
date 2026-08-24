@@ -32,7 +32,6 @@ KNOWN_DETERMINISTIC_CHECKERS = {
     "scene_entity_integrity_fixture",
     "hand_object_integrity_fixture",
     "whole_person_spatial_integrity_fixture",
-    "hil_stage_checkpoint_fixture",
     "format_snapback_fixture",
     "working_memory_pointer_fixture",
     "creator_skill_routing_fixture",

@@ -4,8 +4,8 @@ research_partner_summary: thinking research partner; form explicit hypotheses;
 challenge weak ideas; proposal-first durable updates; improve existing project
 files before creating new files.
 
-last_updated: 2026-07-04
-confidence: 0.94
+last_updated: 2026-08-23
+confidence: 0.98
 sources:
 - direct creator instruction in Codex chat on 2026-05-25
 - direct creator approval in Codex chat on 2026-05-28 to proceed with safe
@@ -33,6 +33,10 @@ sources:
 - direct creator correction in Codex chat on 2026-07-12 after The Almosts Were
   Practicing images moved forward without structured face identity eval; the
   correct behavior is to stop instead of continuing
+- direct creator correction in Codex chat on 2026-08-23 after a prose-approved
+  carousel proof took roughly thirty minutes and still failed to communicate
+  its duvet-cover action from the actual pixels; simplify the default workflow,
+  cap prompts, inspect semantics first, and remove duplicated agent ceremony
 
 ## Research Partner Operating Model
 
@@ -98,22 +102,36 @@ failures or repair issues without replacing the strongest alive route with a
 safer template.
 confidence: 1.0
 
-fact: After the creator corrects a carousel story/proof, treat stale downstream
-artifacts as a production bug. Rebuild every generation-facing artifact from
-the corrected source of truth before calling image generation: `slides.json`,
-`copy.json`, `post-copy-visual-room.json`, `visual-debate.json`,
-`visual-plan-quality.json`, `identity-consistency-review.json`,
-`prompt-pack.json`, `review.json`, `manifest.json`, `proof-review.json`, and
-`image-generation.json`/`final-images.json`. Then run `rg` for old phrases and
-block generation if stale copy remains.
+fact: The default carousel path has exactly four locks: concept, copy plus
+format, one risky proof inspected from its actual pixels plus creator approval,
+and final package QA. Agent rooms, numeric taste tournaments, prose-only Event A
+reviews, approval ledgers, provenance graphs, and stage-review files are not
+default gates. Use the separate Instagram idea loop only when the creator asks
+for a deep autonomous search or agent debate.
 confidence: 1.0
 
-fact: For Codex-native carousel packaging, `prompt-pack.json` must contain a
-complete `slides[]` array before handoff or packaging. A proof-only prompt pack
-or old `prompt-pack-draft.json` is not enough. Handoff gates must pass
-`identity-consistency-review.json` with `status: PASS` and
-`visual-plan-quality.json` with `status: PASS` plus `can_generate: true`.
-confidence: 0.99
+fact: After the creator corrects a carousel story or proof, rebuild only the
+generation-facing source of truth: `creative-context.json`,
+`format-contract.json`, `slides.json`, `prompt-pack.json`, compiled prompts,
+and the affected proof. Invalidate downstream QA and final manifests, search
+for stale copy, and retry only that slide. Do not regenerate deliberation files.
+confidence: 1.0
+
+fact: A generator prompt should describe what the model must draw, not explain
+the repository. Keep each compiled prompt at or below 8,000 characters and 900
+words, its scene description at or below 180 words, and additional negatives at
+or below 80 words. Keep identity/style image attachments, exact text, wardrobe,
+physical action, camera/focal hierarchy, dimensions, brandmark, and essential
+entity/anatomy/spatial constraints. Keep hashes, lifecycle, provenance, and
+workflow topology in validators.
+confidence: 1.0
+
+fact: Proof QA begins with the cold pixel read: what physical action and
+relationship state a viewer can actually infer. If that semantic read fails,
+stop and repair the visual premise before spending time on identity polish,
+text polish, or more slides. A failed quarantined proof is `proof_failed` with
+next action `repair_visual_premise`; it is never `handoff_ready`.
+confidence: 1.0
 
 fact: Do not call carousel proof images, old generated sources, or handoff
 state "final images." For a normal post/carousel request, a carousel is final

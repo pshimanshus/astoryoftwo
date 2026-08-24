@@ -3,8 +3,7 @@
 last_updated: 2026-05-31
 confidence: 0.88
 sources:
-- docs/superpowers/plans/2026-05-25-agentic-os-spine.md
-- docs/superpowers/plans/2026-05-31-agentic-os-activation-sprint.md
+- docs/superpowers/plans/creative-os-master-plan.md
 - AGENTS.md
 - config/rules/
 - pipeline/agentic/checks/

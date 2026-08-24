@@ -1,184 +1,112 @@
-"""Artifact writers for Codex-native carousel packages."""
+"""Small, deterministic writer for carousel work-in-progress packages.
+
+The package is intentionally boring. Creative context, exact slide copy, the
+format lock, and compact prompts are the only inputs needed before pixels
+exist. Generation state and QA artifacts are written later by the image
+handoff. Historical review rooms, scorecards, ledgers, and agent transcripts
+do not belong in the default package.
+"""
 
 from __future__ import annotations
 
+from copy import deepcopy
+import hashlib
 import json
+import shutil
 from datetime import date
 from pathlib import Path
 from typing import Any
 
-from pipeline.stages.c1_illustration_carousel import ARTIFACT_CONTRACT
-from pipeline.stages.carousel_generation_state import GenerationStatus, write_generation_state
 from pipeline.stages.carousel_format_contract import (
     build_format_contract,
     expected_output_relative_path,
-    format_spec,
-    native_output_contract,
     normalize_requested_formats,
     write_format_contract,
 )
-from pipeline.stages.carousel_lanes import CAROUSEL_STORY_DIRECTOR_CONTRACT
-from pipeline.stages.carousel_quality import QUALITY_ARTIFACTS
-from pipeline.stages.successful_carousel_standard import (
-    SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
-    evaluate_successful_carousel_standard,
+
+
+HOT_PATH_ARTIFACTS = (
+    "creative-context.json",
+    "format-contract.json",
+    "slides.json",
+    "prompt-pack.json",
 )
 
 
 def write_json(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def write_storyboard(out_dir: Path, package: dict[str, Any]) -> None:
-    concept = package["concept"]
-    lines = [
-        f"# {concept['title']}",
-        "",
-        concept["human_truth"],
-        "",
-        "## Story-Selling Spine",
-        "",
-        f"- Card: {concept['story_selling_decision']['selected_concept_process_card']}",
-        f"- Score: {concept['story_selling_decision']['score']['total']} / 30",
-        f"- Decision: {concept['story_selling_decision']['decision']}",
-        f"- Authorial rule: {concept['story_selling_decision']['authorial_flow']['writer_rule']}",
-        "",
-        "## Story Director Persona",
-        "",
-        f"- Status: {concept['carousel_story_director_persona']['status']}",
-        f"- Selected hook: {concept['carousel_story_director_persona']['selected_hook']}",
-        f"- Verdict: {concept['carousel_story_director_persona']['verdict']}",
-        "",
-        "## Emotional Arc",
-        "",
-        concept["emotional_arc"],
-        "",
-        "## Slide Flow",
-        "",
+def _paths(items: list[Path], role: str) -> list[dict[str, str]]:
+    return [{"path": str(path), "role": role} for path in items]
+
+
+def _materialize_reference(
+    out_dir: Path,
+    raw_path: str | Path,
+    *,
+    category: str,
+    cache: dict[tuple[str, str], str],
+) -> str:
+    """Copy a selected reference into the package and return its relative path."""
+
+    source = Path(raw_path).expanduser()
+    if not source.is_absolute():
+        source = source.resolve()
+    if not source.is_file():
+        raise FileNotFoundError(f"Missing selected {category} reference: {source}")
+    key = (str(source), category)
+    if key in cache:
+        return cache[key]
+    digest = hashlib.sha256(source.read_bytes()).hexdigest()[:20]
+    suffix = source.suffix.lower() or ".bin"
+    relative = Path(".internal") / "references" / category / f"{digest}{suffix}"
+    destination = out_dir / relative
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    if not destination.exists():
+        shutil.copy2(source, destination)
+    value = relative.as_posix()
+    cache[key] = value
+    return value
+
+
+def _localize_path_list(
+    out_dir: Path,
+    values: Any,
+    *,
+    category: str,
+    cache: dict[tuple[str, str], str],
+) -> list[str]:
+    if not isinstance(values, list):
+        return []
+    return [
+        _materialize_reference(out_dir, value, category=category, cache=cache)
+        for value in values
+        if str(value).strip()
     ]
-    for slide in package["slides"]:
-        lines.append(f"- {slide['slide']}: {slide['copy']} - {slide['visual']}")
-    lines.extend(["", "## Recommended Caption", "", package["copy"]["caption_recommended"], ""])
-    (out_dir / "storyboard.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def write_approval(out_dir: Path, package: dict[str, Any]) -> None:
-    review = package["review"]
-    changes = review.get("required_changes_before_image_generation") or ["No required changes listed by reviewer."]
-    lines = [
-        "# Final Approval Checklist",
-        "",
-        f"Status: {review['status']}",
-        f"Score: {review['total']} / {review['max']}",
-        f"Story-Selling: {review['story_selling_score']['total']} / 30",
-        f"Story-Selling Gate: {review['story_selling_gate']['status']}",
-        f"Story Director Gate: {review['story_director_gate']['status']}",
-        f"Pass: {review['pass']}",
-        "",
-        "## Before Posting",
-        "",
-        "- [ ] Slide copy is final.",
-        "- [ ] `post-copy-visual-room.json` is GO after copy confirmation.",
-        "- [ ] Reference photo details are preserved.",
-        "- [ ] Aachu/Zuv identity references are present and used.",
-        "- [ ] `visual-plan-quality.json` is PASS before image generation.",
-        "- [ ] `identity-consistency-review.json` passes before image generation.",
-        "- [ ] Story-Selling gate is PASS and the selected process card is visible in `concept.json`.",
-        "- [ ] Story Director gate is PASS: hook, story, bridge, Zuv role, ending, and send/save reason are visible.",
-        "- [ ] Successful carousel standard is PASS: agents aligned to the real goals, not a keyword checklist.",
-        "- [ ] Every output locked in `format-contract.json` exists at its canonical path.",
-        "- [ ] Each requested aspect ratio was generated natively, not resized/cropped/padded from another ratio.",
-        "- [ ] Exact slide copy and brandmark are rendered inside the artwork.",
-        "- [ ] Text is readable at Instagram size and has no spelling errors.",
-        "- [ ] `visual-qa.md` has no failed checks.",
-        "- [ ] The package does not feel like generic couple content.",
-        "",
-        "## Required Changes",
-        "",
-    ]
-    lines.extend(f"- [ ] {change}" for change in changes)
-    (out_dir / "final-approval.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
-def write_agent_reports(out_dir: Path, package: dict[str, Any]) -> None:
-    lines = [
-        "# C-Layer Agent Reports",
-        "",
-        "Runtime: codex_native_local",
-        "",
-        "This package was produced by the local Codex-native builder, which mirrors the C-layer roles without requiring an external API key.",
-        "",
-        "## C1 - Story Miner",
-        "",
-        package["concept"]["human_truth"],
-        "",
-        "## C2 - Arc Builder",
-        "",
-        package["concept"]["emotional_arc"],
-        "",
-        "## E-Layer - Story-Selling Authorial Spine",
-        "",
-        f"Card: {package['concept']['story_selling_decision']['selected_concept_process_card']}",
-        f"Score: {package['review']['story_selling_score']['total']} / 30",
-        package["concept"]["story_selling_decision"]["selector_verdict"],
-        "",
-        "## C0.25 - Carousel Story Director Persona",
-        "",
-        f"Status: {package['concept']['carousel_story_director_persona']['status']}",
-        f"Selected hook: {package['concept']['carousel_story_director_persona']['selected_hook']}",
-        package["concept"]["carousel_story_director_persona"]["verdict"],
-        "",
-        "## Success Carousel Standard",
-        "",
-        f"Source: {package['concept']['successful_carousel_standard']['source']}",
-        package["concept"]["successful_carousel_standard"]["rule"],
-        f"Gate: {package['review']['successful_carousel_standard_gate']['status']}",
-        "",
-        "## C5.5 - Post-Copy Visual Creative Room",
-        "",
-        f"Status: {package['post_copy_visual_room']['status']}",
-        f"Selected visual system: {package['post_copy_visual_room']['selected_visual_system']}",
-        package["post_copy_visual_room"]["why_it_wins"],
-        "",
-        "## C3/C4 - Visual And Prompt Direction",
-        "",
-        package["prompt_pack"]["shared_style_prompt"],
-        "",
-        "## C3A-C3C - Visual Debate Gate",
-        "",
-        f"Winner: {package['visual_debate']['winner']}",
-        "",
-        package["visual_debate"]["selector_verdict"],
-        "",
-        "## C3D - Pre-Generation Visual Screen",
-        "",
-        f"Status: {package['visual_plan_quality']['status']}",
-        f"Decision: {package['visual_plan_quality']['decision']}",
-        *(
-            f"- {issue}"
-            for issue in package["visual_plan_quality"].get("issues", [])
-        ),
-        "",
-        "## C3.5 - Identity Consistency",
-        "",
-        f"Status: {package['identity_consistency_review']['status']}",
-        "",
-        *(
-            f"- Slide {item['slide']}: "
-            + ", ".join(name for name, passed in item["checks"].items() if passed)
-            for item in package["identity_consistency_review"]["slides"]
-        ),
-        "",
-        "## C5 - Copy Packager",
-        "",
-        package["copy"]["caption_recommended"],
-        "",
-        "## C6 - Reviewer",
-        "",
-        f"Score: {package['review']['total']} / {package['review']['max']}",
-        f"Story-Selling: {package['review']['story_selling_score']['total']} / 30",
-    ]
-    (out_dir / "agent-reports.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+def _localize_path_records(
+    out_dir: Path,
+    records: Any,
+    *,
+    category: str,
+    cache: dict[tuple[str, str], str],
+) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    for record in records if isinstance(records, list) else []:
+        if not isinstance(record, dict) or not str(record.get("path") or "").strip():
+            continue
+        current = dict(record)
+        current["path"] = _materialize_reference(
+            out_dir,
+            current["path"],
+            category=category,
+            cache=cache,
+        )
+        result.append(current)
+    return result
 
 
 def build_manifest(
@@ -194,44 +122,28 @@ def build_manifest(
     today: date,
     requested_formats: list[str] | tuple[str, ...] | None = None,
 ) -> dict[str, Any]:
+    """Build the creative-context payload (legacy function name retained)."""
+
     format_contract = build_format_contract(
         requested_formats,
         source=("creator_request" if requested_formats is not None else "instagram_post_default"),
     )
-    locked = normalize_requested_formats(format_contract["requested_formats"])
     return {
+        "schema_version": "carousel-creative-context/v2",
         "date": str(today),
         "slug": slug,
         "title": title,
         "channel": "@a.storyof.two",
-        "pipeline": "C-layer illustrated carousel",
-        "runtime": "codex_native_local",
-        "status": "draft_for_human_review",
         "source_story": story,
-        "requested_formats": list(locked),
+        "slide_count": slide_count,
+        "status": "copy_and_format_locked",
+        "requested_formats": list(format_contract["requested_formats"]),
         "format_contract": format_contract,
-        "format": {
-            "platform": "instagram",
-            "type": "carousel",
-            "slide_count": slide_count,
-            "native_outputs": {
-                output_format: {
-                    "aspect_ratio": format_spec(output_format)["aspect_ratio"],
-                    "size": "x".join(str(value) for value in format_spec(output_format)["target_size"]),
-                    "directory": f"{format_spec(output_format)['folder']}/",
-                }
-                for output_format in locked
-            },
-            "native_output_rule": format_contract["rule"],
-        },
-        "reference_images": [
-            {"path": str(path), "role": "user supplied story reference"}
-            for path in image_paths
-        ],
-        "identity_references": [
-            {"path": str(path), "role": "Aachu/Zuv face consistency reference"}
-            for path in identity_image_paths
-        ],
+        "reference_images": _paths(image_paths, "current story reference"),
+        "identity_references": _paths(
+            identity_image_paths,
+            "Aachu/Zuv identity and wardrobe reference",
+        ),
         "identity_reference_selection": identity_reference_selection,
         "identity_dossier": {
             "path": identity_dossier.get("path"),
@@ -239,231 +151,175 @@ def build_manifest(
             "contact_sheet_path": identity_dossier.get("contact_sheet_path"),
             "status": identity_dossier.get("status"),
         },
-        "agentic_os": {
-            "context_manifest": "config/agentic_context_manifest.json",
-            "skill_systems": "config/skill-systems.json",
-            "skill_system": "carousel_jam",
-        },
-        "successful_carousel_standard": SUCCESSFUL_CAROUSEL_STANDARD_CONTRACT,
-        "carousel_story_director_persona": CAROUSEL_STORY_DIRECTOR_CONTRACT,
-        "artifacts": ARTIFACT_CONTRACT,
-        "quality_spine": {
-            "observer": "C0.5-Jarvis",
-            "reviewers": [
-                "intake_reviewer",
-                "story_reviewer",
-                "arc_reviewer",
-                "visual_reviewer",
-                "identity_consistency_reviewer",
-                "prompt_reviewer",
-                "copy_reviewer",
-                "success_standard_reviewer",
-                "asset_reviewer",
-                "wiki_learning_reviewer",
-                "C7-Final Contract Auditor",
-            ],
-            "artifacts": {
-                **QUALITY_ARTIFACTS,
-                "identity_consistency_review": "identity-consistency-review.json",
-                "post_copy_visual_room": "post-copy-visual-room.json",
-                "visual_debate": "visual-debate.json",
-                "visual_plan_quality": "visual-plan-quality.json",
-            },
-        },
+        "artifacts": list(HOT_PATH_ARTIFACTS),
+    }
+
+
+def _minimal_slide(slide: dict[str, Any]) -> dict[str, Any]:
+    """Keep scene evidence and exact copy; discard internal scoring debris."""
+
+    keep = (
+        "slide",
+        "role",
+        "copy",
+        "visual",
+        "emotion",
+        "physical_action",
+        "relationship_state",
+        "camera",
+        "focal_hierarchy",
+        "setting",
+        "source_images",
+        "continuity_lock",
+        "needs_physical_action",
+    )
+    result = {key: slide[key] for key in keep if key in slide and slide[key] not in (None, "", [])}
+    if not isinstance(result.get("slide"), int):
+        result["slide"] = int(slide.get("slide", 0) or 0)
+    result["copy"] = str(slide.get("copy") or "")
+    result["visual"] = str(slide.get("visual") or slide.get("physical_action") or "")
+    return result
+
+
+def _minimal_prompt_pack(prompt_pack: dict[str, Any], slides: list[dict[str, Any]]) -> dict[str, Any]:
+    """Strip embedded upstream artifacts while preserving generator inputs."""
+
+    prompts = prompt_pack.get("slides")
+    if not isinstance(prompts, list):
+        prompts = []
+    minimal_prompts: list[dict[str, Any]] = []
+    slide_copy = {int(slide["slide"]): slide["copy"] for slide in slides}
+    for prompt in prompts:
+        if not isinstance(prompt, dict):
+            continue
+        number = int(prompt.get("slide", 0) or 0)
+        if number not in slide_copy:
+            continue
+        minimal_prompts.append(
+            {
+                "slide": number,
+                "text": slide_copy[number],
+                "scene": str(prompt.get("scene") or prompt.get("visual") or ""),
+                "prompt": str(prompt.get("prompt") or ""),
+                "negative_prompt": str(
+                    prompt.get("negative_prompt")
+                    or prompt_pack.get("shared_negative_prompt")
+                    or ""
+                ),
+            }
+        )
+    return {
+        "schema_version": "carousel-prompt-pack/v2",
+        "generation_mode": "model_native_publishable",
+        "brandmark": "@a.storyof.two",
+        "style_prompt": str(
+            prompt_pack.get("style_prompt")
+            or prompt_pack.get("shared_style_prompt")
+            or ""
+        ),
+        "negative_prompt": str(prompt_pack.get("shared_negative_prompt") or ""),
+        "style_reference_images": list(prompt_pack.get("style_reference_images") or []),
+        "identity_reference_images": list(prompt_pack.get("identity_reference_images") or []),
+        "identity_dossier_reference_images": list(
+            prompt_pack.get("identity_dossier_reference_images") or []
+        ),
+        "slides": minimal_prompts,
     }
 
 
 def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, Any]) -> None:
-    review = package["review"]
-    success_gate = evaluate_successful_carousel_standard(
-        package,
-        slide_count=len(package["slides"]),
-    )
-    review["successful_carousel_standard_gate"] = success_gate
-    required_changes = list(review.get("required_changes_before_image_generation") or [])
-    gate_failures = (
-        (
-            str(review.get("story_selling_gate", {}).get("status") or "").upper()
-            not in {"PASS", "GO"}
-            or bool(review.get("story_selling_hard_fails"))
-        ),
-        str(review.get("story_director_gate", {}).get("status") or "").upper()
-        not in {"PASS", "GO"},
-        success_gate.get("pass") is not True,
-    )
-    for failed, message in zip(
-        gate_failures,
-        (
-            "Repair Story-Selling gate before image generation.",
-            "Repair Story Director gate before image generation.",
-            "Repair Successful Carousel Standard gate before image generation.",
-        ),
-        strict=True,
-    ):
-        if failed and message not in required_changes:
-            required_changes.append(message)
-    review["required_changes_before_image_generation"] = required_changes
-    review["pass"] = bool(review.get("pass")) and not any(gate_failures)
-    if not review["pass"]:
-        review["status"] = "repair_required"
+    """Write only the pre-proof hot-path contract."""
+
     out_dir.mkdir(parents=True, exist_ok=True)
-    manifest_contract = manifest.get("format_contract", {})
-    formats_to_write = (
-        None
-        if isinstance(manifest_contract, dict) and manifest_contract.get("default_applied") is True
-        else manifest.get("requested_formats")
-    )
-    format_contract = write_format_contract(
+    contract = manifest.get("format_contract") if isinstance(manifest, dict) else None
+    requested = contract.get("requested_formats") if isinstance(contract, dict) else None
+    source = str(contract.get("source") or "package") if isinstance(contract, dict) else "package"
+    write_format_contract(out_dir, requested, source=source, replace=True)
+
+    cache: dict[tuple[str, str], str] = {}
+    creative_context = deepcopy(manifest)
+    creative_context["reference_images"] = _localize_path_records(
         out_dir,
-        formats_to_write,
-        source=str(manifest_contract.get("source") or "package_manifest"),
-        replace=True,
+        creative_context.get("reference_images"),
+        category="story",
+        cache=cache,
     )
-    locked = normalize_requested_formats(format_contract["requested_formats"])
-    write_json(out_dir / "manifest.json", manifest)
-    write_json(out_dir / "creative-baseline.json", package["creative_baseline"])
-    write_json(out_dir / "concept.json", package["concept"])
-    if package.get("concept_selection"):
-        write_json(out_dir / "concept-selection.json", package["concept_selection"])
-    write_json(out_dir / "post-copy-visual-room.json", package["post_copy_visual_room"])
-    write_json(out_dir / "visual-debate.json", package["visual_debate"])
-    write_json(out_dir / "visual-plan-quality.json", package["visual_plan_quality"])
-    write_json(out_dir / "slides.json", package["slides"])
-    write_json(out_dir / "prompt-pack.json", package["prompt_pack"])
-    write_json(out_dir / "identity-consistency-review.json", package["identity_consistency_review"])
-    write_json(out_dir / "copy.json", package["copy"])
-    write_json(out_dir / "review.json", package["review"])
-    write_storyboard(out_dir, package)
-    write_approval(out_dir, package)
-    write_agent_reports(out_dir, package)
-    write_generation_state(
+    creative_context["identity_references"] = _localize_path_records(
         out_dir,
-        status=GenerationStatus.DRAFT,
-        backend="none",
-        generation_mode="not_generated",
-        slide_count=len(package["slides"]),
-        reason="Carousel package exists, but image handoff has not been prepared.",
-        slides=[
-            {
-                "slide": slide["slide"],
-                "copy": slide["copy"],
-                "expected_files": {
-                    output_format: expected_output_relative_path(output_format, slide["slide"])
-                    for output_format in locked
-                },
-                "source_prompt_slide": slide["slide"],
-            }
-            for slide in package["slides"]
-        ],
-        extra={
-            "requested_formats": list(locked),
-            "native_output_contract": native_output_contract(locked),
+        creative_context.get("identity_references"),
+        category="identity",
+        cache=cache,
+    )
+    selection = creative_context.get("identity_reference_selection")
+    if isinstance(selection, dict):
+        selection["selected_references"] = _localize_path_records(
+            out_dir,
+            selection.get("selected_references"),
+            category="identity",
+            cache=cache,
+        )
+    creative_context.pop("format_contract", None)
+    write_json(out_dir / "creative-context.json", creative_context)
+
+    slides = [_minimal_slide(slide) for slide in package.get("slides", [])]
+    for slide in slides:
+        slide["source_images"] = _localize_path_list(
+            out_dir,
+            slide.get("source_images"),
+            category="story",
+            cache=cache,
+        )
+        if not slide["source_images"]:
+            slide.pop("source_images", None)
+    if not slides or any(not slide.get("copy") or not slide.get("visual") for slide in slides):
+        raise ValueError("Every carousel slide needs exact copy and one visible physical scene.")
+    write_json(out_dir / "slides.json", slides)
+    prompt_pack = deepcopy(package.get("prompt_pack", {}))
+    prompt_pack["style_reference_images"] = _localize_path_list(
+        out_dir,
+        prompt_pack.get("style_reference_images"),
+        category="style",
+        cache=cache,
+    )
+    prompt_pack["identity_reference_images"] = _localize_path_list(
+        out_dir,
+        prompt_pack.get("identity_reference_images"),
+        category="identity",
+        cache=cache,
+    )
+    prompt_pack["identity_dossier_reference_images"] = _localize_path_list(
+        out_dir,
+        prompt_pack.get("identity_dossier_reference_images"),
+        category="identity-dossier",
+        cache=cache,
+    )
+    write_json(
+        out_dir / "prompt-pack.json",
+        _minimal_prompt_pack(prompt_pack, slides),
+    )
+
+    formats = normalize_requested_formats(requested)
+    write_json(
+        out_dir / "generation-state.json",
+        {
+            "schema_version": "carousel-generation-state/v2",
+            "status": "draft",
+            "stage": "proof",
+            "slide_count": len(slides),
+            "selected_slides": [],
+            "requested_formats": list(formats),
+            "attempts_by_slide": {str(slide["slide"]): 0 for slide in slides},
+            "approved_final_candidates": {},
+            "next_action": "prepare_riskiest_proof",
         },
     )
 
 
 def try_render_assets(out_dir: Path, slides: list[dict[str, Any]]) -> dict[str, Any]:
-    try:
-        import cv2
-        import numpy as np
-    except ImportError as exc:
-        return {"status": "skipped", "reason": f"OpenCV render dependency unavailable: {exc}"}
+    """Legacy preview rendering is deliberately outside the production hot path."""
 
-    if not any(slide.get("source_images") for slide in slides):
-        return {
-            "status": "skipped",
-            "reason": "No source images supplied for local preview renderer.",
-            "slides": [],
-        }
-
-    def read_image(path: str) -> Any:
-        image = cv2.imdecode(np.fromfile(path, dtype=np.uint8), cv2.IMREAD_COLOR)
-        if image is None:
-            raise RuntimeError(f"Could not read image: {path}")
-        return image
-
-    def cover_resize(image: Any, width: int, height: int) -> Any:
-        h, w = image.shape[:2]
-        scale = max(width / w, height / h)
-        resized = cv2.resize(image, (round(w * scale), round(h * scale)), interpolation=cv2.INTER_LANCZOS4)
-        rh, rw = resized.shape[:2]
-        x = max(0, (rw - width) // 2)
-        y = max(0, (rh - height) // 2)
-        return resized[y : y + height, x : x + width]
-
-    def wrap(text: str, limit: int) -> list[str]:
-        lines: list[str] = []
-        current: list[str] = []
-        for word in text.split():
-            candidate = " ".join([*current, word])
-            if len(candidate) > limit and current:
-                lines.append(" ".join(current))
-                current = [word]
-            else:
-                current.append(word)
-        if current:
-            lines.append(" ".join(current))
-        return lines
-
-    def stylize(image: Any) -> Any:
-        small = cv2.resize(image, None, fx=0.55, fy=0.55, interpolation=cv2.INTER_AREA)
-        smooth = cv2.pyrMeanShiftFiltering(small, sp=18, sr=34)
-        gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
-        gray = cv2.medianBlur(gray, 7)
-        edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 5)
-        edges = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
-        poster = np.clip(np.round(smooth.astype(np.float32) / 32) * 32, 0, 255).astype(np.uint8)
-        cartoon = cv2.bitwise_and(poster, edges)
-        return cv2.resize(cartoon, (image.shape[1], image.shape[0]), interpolation=cv2.INTER_CUBIC)
-
-    def write_jpg(path: Path, image: Any) -> None:
-        ok, encoded = cv2.imencode(".jpg", image, [cv2.IMWRITE_JPEG_QUALITY, 88])
-        if not ok:
-            raise RuntimeError(f"Could not encode {path}")
-        path.write_bytes(encoded.tobytes())
-
-    for folder in ["legacy-preview-clean", "legacy-preview-text"]:
-        (out_dir / folder).mkdir(parents=True, exist_ok=True)
-
-    rendered = []
-    for slide in slides:
-        source_images = slide.get("source_images") or []
-        if not source_images:
-            rendered.append(
-                {
-                    "slide": slide["slide"],
-                    "status": "skipped",
-                    "reason": "No source images supplied for this slide.",
-                }
-            )
-            continue
-        source = source_images[0]
-        try:
-            image = stylize(read_image(source))
-        except Exception as exc:  # noqa: BLE001 - best-effort renderer should not break package creation.
-            return {"status": "partial", "reason": str(exc), "slides": rendered}
-
-        clean = cover_resize(image, 1080, 1440)
-        text_preview = clean.copy()
-        copy_lines = wrap(slide["copy"], 30)
-        panel_height = 85 + (len(copy_lines) * 63)
-        overlay = text_preview.copy()
-        cv2.rectangle(overlay, (48, 42), (1032, panel_height), (236, 226, 207), -1)
-        text_preview = cv2.addWeighted(overlay, 0.72, text_preview, 0.28, 0)
-        y = 95
-        for line in copy_lines:
-            cv2.putText(text_preview, line, (72, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (42, 38, 33), 3, cv2.LINE_AA)
-            y += 63
-        cv2.putText(text_preview, f"{slide['slide']:02d} / {len(slides):02d}", (72, 1272), cv2.FONT_HERSHEY_SIMPLEX, 0.42, (92, 86, 76), 1, cv2.LINE_AA)
-        cv2.putText(text_preview, "@a.storyof.two", (780, 1272), cv2.FONT_HERSHEY_SIMPLEX, 0.42, (92, 86, 76), 1, cv2.LINE_AA)
-
-        number = f"{slide['slide']:02d}"
-        outputs = {
-            "legacy_preview_clean": f"legacy-preview-clean/slide-{number}.jpg",
-            "legacy_preview_text": f"legacy-preview-text/slide-{number}.jpg",
-        }
-        write_jpg(out_dir / outputs["legacy_preview_clean"], clean)
-        write_jpg(out_dir / outputs["legacy_preview_text"], text_preview)
-        rendered.append({"slide": slide["slide"], "source": source, "outputs": outputs})
-
-    return {"status": "rendered", "mode": "local_cv2_stylized_render", "slides": rendered}
+    return {
+        "status": "skipped",
+        "reason": "Legacy local previews are disabled; prove the riskiest real image instead.",
+        "slides": [],
+    }

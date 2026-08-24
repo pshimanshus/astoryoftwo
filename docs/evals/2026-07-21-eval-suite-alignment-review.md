@@ -55,17 +55,16 @@ deep spec, fixture mapping, named deterministic checker, and rubric declaration.
 | [ASTO-009](../../evals/tasks/ASTO-009-article-story-selling-gate/) | solution / unresolved | Generated article artifacts carry Layer E, Story-Selling, and final gate evidence. | PASS |
 | [ASTO-010](../../evals/tasks/ASTO-010-prepost-layer-e/) | solution / unresolved | Every prepost agent and the orchestrator carry Layer E grounding. | PASS |
 | [ASTO-011](../../evals/tasks/ASTO-011-small-brief-no-framework-dump/) | solution / unresolved | Creator brief preserves the seed, format, scene object, reaction, and payoff without framework leakage. | PASS; anchored creative review required after repair |
-| [ASTO-012](../../evals/tasks/ASTO-012-visual-variety-shot-ladder/) | regression / guarded | Current Event A validator isolates repeated narrative job and shot-size failure. | PASS; hidden code mutation and anchored visual review required |
+| [ASTO-012](../../evals/tasks/ASTO-012-visual-variety-shot-ladder/) | regression / guarded | Physical-scene preflight isolates repeated narrative job and shot-size failure. | PASS; hidden code mutation and anchored visual review required |
 | [ASTO-013](../../evals/tasks/ASTO-013-stale-artifact-after-correction/) | regression / guarded | Active stale phrases block generation while archival correction evidence remains. | PASS; hidden code mutation required for agent solve credit |
 | [ASTO-014](../../evals/tasks/ASTO-014-identity-eval-stop-gate/) | regression / guarded | Missing or incomplete structured identity evidence stops batch continuation. | PASS; hidden code mutation required for agent solve credit |
 | [ASTO-015](../../evals/tasks/ASTO-015-score-inflation-after-rejection/) | solution / unresolved | Rejected 28+ concepts require stop, cap, invalidation, or rebuild routing. | PASS; anchored creative review required after repair |
 | [ASTO-016](../../evals/tasks/ASTO-016-home-cinematic-visual-evidence/) | regression / guarded | Generic home language fails concrete camera, light, and story-evidence fields. | PASS; hidden code mutation and anchored visual review required |
 | [ASTO-017](../../evals/tasks/ASTO-017-public-name-leakage/) | solution / unresolved | Public names are removed while internal identity names remain available. | PASS; anchored creative review required after repair |
-| [ASTO-018](../../evals/tasks/ASTO-018-copy-visual-logic-contradiction/) | regression / guarded | Current Event B validator isolates explicit copy-visual contradictions. | PASS; hidden code mutation and anchored visual review required |
+| [ASTO-018](../../evals/tasks/ASTO-018-copy-visual-logic-contradiction/) | regression / guarded | Rendered-frame QA isolates explicit copy-visual contradictions. | PASS; hidden code mutation and anchored visual review required |
 | [ASTO-019](../../evals/tasks/ASTO-019-duplicate-background-characters/) | regression / guarded | Structured entity QA blocks unexpected background people. | PASS; hidden code mutation required for agent solve credit |
 | [ASTO-020](../../evals/tasks/ASTO-020-hand-object-integrity/) | regression / guarded | Anatomy QA blocks ownerless limbs, unexplained edge entry, and solid-object intersection. | PASS; hidden code mutation required for agent solve credit |
 | [ASTO-021](../../evals/tasks/ASTO-021-whole-person-spatial-integrity/) | regression / guarded | Spatial QA blocks body/environment morphs while valid occlusion remains possible. | PASS; hidden code mutation required for agent solve credit |
-| [ASTO-022](../../evals/tasks/ASTO-022-hil-stage-checkpoints/) | regression / guarded | Stale creator approval hashes cannot unlock a downstream stage or trigger publishing. | PASS; hidden code mutation required for agent solve credit |
 
 ## Resolved Findings
 
