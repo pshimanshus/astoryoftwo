@@ -13,16 +13,28 @@ CREATOR HARD RULE
   format. If the current canvas is not explicit after a correction, stop and ask
   for the exact canvas instead of generating.
 
-- Every @a.storyof.two proof illustration, concept illustration,
-  single-slide output, and default Instagram post/carousel slide must finish
-  as an Instagram Feed Portrait Post export:
+- Every @a.storyof.two proof illustration, concept illustration, single-slide
+  output, and default Instagram post/carousel slide must finish exactly as:
   `1080x1440 px`
 
-- For image models that cannot hard-enforce `1080x1440` directly, generate the
-  Instagram post/carousel source as native `1440x1920 px` (same 3:4 ratio), then
-  export proportionally to exact `1080x1440 px`. This deterministic export is
-  allowed only when the source and final share the exact same aspect ratio. It
-  is not a crop, pad, stretch, or format conversion.
+- Keep the generation prompt requesting exact `1080x1440`; do not advertise a
+  fallback canvas or claim that a returned source is already the final.
+
+- Observed built-in-runtime accommodation, `instagram_post` only: the repo may
+  quarantine an untouched returned source at any exact 3:4 integer size from
+  `1080x1440` through `1440x1920`, inclusive. Width must be from 1080 through
+  1440, height from 1440 through 1920, and `width * 4 == height * 3`.
+  This is an observed current-runtime accommodation, not a published model or
+  platform guarantee.
+
+- Bind the untouched source path, SHA-256, width, and height before processing.
+  If it is larger than `1080x1440`, proportionally downsample exactly once to
+  `1080x1440`. Never crop, pad, stretch, upscale, change ratio, or resample more
+  than once. If already exact target size, preserve the bytes.
+
+- Proof QA and creator approval bind the normalized `1080x1440` proof bytes
+  while retaining the source binding. Reuse those approved normalized proof
+  bytes as the final candidate; never regenerate or downsample the proof again.
 
 - If the creator explicitly asks for Instagram Story, Stories, Reel, or Reels format, generate natively as:
   `1080x1920 px`
@@ -30,19 +42,18 @@ CREATOR HARD RULE
 - If the creator explicitly asks for square format, generate natively as:
   `1080x1080 px`
 
-- Reject any generated proof, concept, single-slide, post, story, or reel image
-  whose pixel dimensions do not match an approved source size or the requested
-  final format.
+- Reject any generated proof, concept, single-slide, post, story, or reel source
+  whose ratio or dimensions fall outside the applicable contract.
 
 - Do not accept, present, or continue from a wrong-dimension image as a proof, even if the identity, style, story, or text looks good.
 
-- Do not repair a failed generation by cropping, padding, stretching, or
-  arbitrary resizing. Regenerate at the approved source dimensions. The only
-  allowed post-processing for carousel/post outputs is proportional export from
-  `1440x1920` source to exact `1080x1440` final.
+- Do not repair a failed generation by cropping, padding, stretching, upscaling,
+  or arbitrary resizing. The only allowed transform is one proportional
+  downsample from an accepted larger 3:4 `instagram_post` source to exact
+  `1080x1440`.
 
 - Check dimensions immediately after generation with `file`, PIL, or the matching size check:
-  - Post / carousel source: `1440x1920`
+  - Post / carousel source: exact 3:4, from `1080x1440` through `1440x1920`
   - Post / carousel final export: `1080x1440`
   - Story / Reel: `1080x1920`
   - Square: `1080x1080`
@@ -67,8 +78,11 @@ HARD FAIL
   variant, or "all formats" batch because a repo workflow mentions it.
 - Continuing generation after the creator says the format decision was wrong
   without first locking the exact requested canvas.
-- Any proof/concept/single-slide/post source that is not `1440x1920` or
-  already-exact `1080x1440` is rejected.
+- Any proof/concept/single-slide/post source below `1080x1440`, above
+  `1440x1920`, or not exact 3:4 is rejected.
+- Any transform other than the single allowed proportional downsample is
+  rejected, including crop, pad, stretch, upscale, ratio change, or a second
+  resample.
 - Any proof/concept/single-slide/post final export that is not exactly
   `1080x1440` is rejected.
 - Any Story/Reel output that is not exactly `1080x1920` is rejected.

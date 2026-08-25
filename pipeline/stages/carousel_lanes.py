@@ -9,17 +9,17 @@ keeps identity-reference selection bounded.
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 from typing import Any
 
 
-IDENTITY_IMAGE_DIRS = (
-    Path("config/references/identity"),
-    Path("identity_images"),
-)
 SUPPORTED_IDENTITY_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_IDENTITY_REFERENCE_BUNDLE = 4
+IDENTITY_DOSSIER_PATH = Path(
+    "config/references/identity/_dossier/identity-dossier.json"
+)
 IDENTITY_REFERENCE_RULE = (
     "Select a small story-specific identity bundle. Attach actual files to every "
     "generation call; filenames and prose are not identity evidence."
@@ -31,19 +31,53 @@ FALLBACK_COMPACT_STYLE_PROMPT = (
 
 
 def discover_identity_images(workspace_root: Path) -> list[Path]:
-    candidates: list[Path] = []
-    for relative in IDENTITY_IMAGE_DIRS:
-        directory = workspace_root / relative
-        if not directory.is_dir():
-            continue
-        candidates.extend(
-            path
-            for path in directory.rglob("*")
-            if path.is_file()
-            and path.suffix.lower() in SUPPORTED_IDENTITY_IMAGE_EXTENSIONS
-            and "_dossier" not in path.parts
+    """Return the curated generation bundle, never a filename-sorted sample.
+
+    The identity dossier is the creator-owned selection surface. Falling back
+    to the first files in the library made the people vary with directory
+    order and could omit either Aachu, Zuv, or a together/body anchor.
+    """
+
+    dossier_path = workspace_root / IDENTITY_DOSSIER_PATH
+    if not dossier_path.is_file():
+        return []
+    payload = json.loads(dossier_path.read_text(encoding="utf-8"))
+    raw_bundle = payload.get("selected_generation_bundle")
+    if not isinstance(raw_bundle, list):
+        raise ValueError(
+            f"{IDENTITY_DOSSIER_PATH} needs selected_generation_bundle."
         )
-    return sorted(dict.fromkeys(candidates))
+    selected: list[Path] = []
+    for raw_path in raw_bundle:
+        path = Path(str(raw_path)).expanduser()
+        if not path.is_absolute():
+            path = workspace_root / path
+        if not path.is_file():
+            raise FileNotFoundError(f"Missing curated identity reference: {path}")
+        if path.suffix.lower() not in SUPPORTED_IDENTITY_IMAGE_EXTENSIONS:
+            raise ValueError(f"Unsupported curated identity reference: {path}")
+        selected.append(path)
+    selected = list(dict.fromkeys(selected))
+    if len(selected) > MAX_IDENTITY_REFERENCE_BUNDLE:
+        raise ValueError(
+            f"Curated identity dossier exceeds the {MAX_IDENTITY_REFERENCE_BUNDLE}-image limit."
+        )
+    subjects = {_identity_subject(path) for path in selected}
+    missing = {"aachu", "zuv", "together"} - subjects
+    if missing:
+        raise ValueError(
+            "Curated identity dossier must include Aachu, Zuv, and together references; "
+            f"missing: {', '.join(sorted(missing))}."
+        )
+    return selected
+
+
+def _identity_subject(path: Path) -> str:
+    lowered = {part.lower() for part in path.parts}
+    for subject in ("aachu", "zuv", "together"):
+        if subject in lowered:
+            return subject
+    return "identity"
 
 
 def select_identity_reference_bundle(
@@ -52,7 +86,7 @@ def select_identity_reference_bundle(
     if explicit and not candidate_paths:
         raise ValueError(
             "Pass 1-4 actual Aachu/Zuv identity reference images, or omit the "
-            "explicit identity argument to use the candidate library."
+            "explicit identity argument to use the curated dossier."
         )
     if explicit and len(candidate_paths) > MAX_IDENTITY_REFERENCE_BUNDLE:
         raise ValueError(
@@ -68,21 +102,27 @@ def build_identity_reference_selection(
     selected_paths: list[Path],
     explicit: bool,
 ) -> dict[str, Any]:
-    roles = (
-        "face anchor",
-        "body/posture anchor",
-        "story-relevant outfit/context anchor",
-        "emotion/detail anchor",
-    )
+    subject_counts: dict[str, int] = {}
+    selected_references: list[dict[str, str]] = []
+    for path in selected_paths:
+        subject = _identity_subject(path)
+        subject_counts[subject] = subject_counts.get(subject, 0) + 1
+        role = {
+            "aachu": "Aachu identity anchor",
+            "zuv": "Zuv identity anchor",
+            "together": (
+                "together face/scale anchor"
+                if subject_counts[subject] == 1
+                else "together body/posture anchor"
+            ),
+        }.get(subject, "creator-selected identity anchor")
+        selected_references.append({"path": str(path), "role": role})
     return {
-        "mode": "explicit" if explicit else "auto_discovered",
+        "mode": "explicit" if explicit else "curated_identity_dossier",
         "rule": IDENTITY_REFERENCE_RULE,
         "candidate_count": len(candidate_paths),
         "selected_count": len(selected_paths),
-        "selected_references": [
-            {"path": str(path), "role": roles[index]}
-            for index, path in enumerate(selected_paths)
-        ],
+        "selected_references": selected_references,
     }
 
 
@@ -117,18 +157,41 @@ def _source_groups(paths: list[Path], slide_count: int) -> list[list[str]]:
 
 def _story_beats(story: str) -> list[tuple[str, str]]:
     labeled: list[tuple[str, str]] = []
+    current_role: str | None = None
+    current_lines: list[str] = []
+    unlabeled_before_first: list[str] = []
+
+    def flush_current() -> None:
+        nonlocal current_role, current_lines
+        if current_role is None:
+            return
+        copy = "\n".join(current_lines).strip()
+        if not copy:
+            raise ValueError(f"{current_role.replace('_', ' ').title()} needs copy.")
+        labeled.append((current_role, copy))
+        current_role = None
+        current_lines = []
+
     for raw in story.splitlines():
-        line = raw.strip()
-        if not line:
-            continue
         match = re.match(
-            r"^(cover|cold\s*open|deepening|conflict|turn|payoff)\s*:\s*(.+)$",
-            line,
+            r"^\s*(cover|cold\s*open|deepening|conflict|turn|payoff)\s*:\s?(.*)$",
+            raw,
             flags=re.IGNORECASE,
         )
         if match:
-            labeled.append((match.group(1).lower().replace(" ", "_"), match.group(2).strip()))
+            flush_current()
+            current_role = match.group(1).lower().replace(" ", "_")
+            current_lines = [match.group(2).rstrip()]
+        elif current_role is not None:
+            current_lines.append(raw.rstrip())
+        elif raw.strip():
+            unlabeled_before_first.append(raw.strip())
+    flush_current()
     if labeled:
+        if unlabeled_before_first:
+            raise ValueError(
+                "Unlabeled copy appears before the first story beat; refusing to discard it."
+            )
         return labeled
 
     sentences = [
@@ -150,7 +213,7 @@ def _story_beats(story: str) -> list[tuple[str, str]]:
 def build_slides(
     story: str,
     image_paths: list[Path],
-    slide_count: int,
+    slide_count: int | None,
 ) -> list[dict[str, Any]]:
     """Build a conservative draft when no model-authored creative brief exists.
 
@@ -163,8 +226,15 @@ def build_slides(
     beats = _story_beats(story)
     if not beats:
         raise ValueError("Story must contain at least one non-empty beat.")
-    if len(beats) > slide_count:
-        beats = beats[:slide_count]
+    if len(beats) > 11:
+        raise ValueError(
+            "Story contains more than 11 beats; reduce or explicitly combine beats before packaging."
+        )
+    if slide_count is not None and len(beats) > slide_count:
+        raise ValueError(
+            f"Story contains {len(beats)} beats but --slide-count is {slide_count}; "
+            "refusing to discard creator copy."
+        )
     sources = _source_groups(image_paths, len(beats))
     slides: list[dict[str, Any]] = []
     for index, ((role, copy), source_images) in enumerate(zip(beats, sources, strict=True), start=1):
@@ -191,6 +261,7 @@ def build_slides(
 
 __all__ = [
     "FALLBACK_COMPACT_STYLE_PROMPT",
+    "IDENTITY_DOSSIER_PATH",
     "MAX_IDENTITY_REFERENCE_BUNDLE",
     "build_identity_reference_selection",
     "build_slides",

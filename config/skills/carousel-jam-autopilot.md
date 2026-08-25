@@ -59,11 +59,36 @@ roles, wardrobe, compact house style, exact text, tiny top-right brandmark,
 dimensions, and essential negatives. Lifecycle rules, hashes, QA rubrics, agent
 instructions, and upstream JSON do not belong in the generator prompt.
 
+The generator prompt continues to request the exact locked target. At ingest,
+only `instagram_post` may accept an untouched exact-3:4 source from 1080x1440
+through 1440x1920 inclusive, bind its source bytes/dimensions, and downsample it
+once proportionally to exact 1080x1440. Never crop, pad, stretch, upscale,
+accept a wrong ratio, or apply this accommodation to Story/Reel or square.
+
 ## Gate 3 — Proof Pixels + Creator
 
-Choose the frame most likely to fail semantically or visually. Attach the actual
-selected Aachu/Zuv identity images and chosen style references, then generate
-only that proof in each requested native format.
+Choose the frame most likely to fail semantically or visually. The repo command
+prepares the selected compiled prompt. Codex reads it and attaches exactly five
+files: all four files in `identity-dossier.json.selected_generation_bundle`,
+then the one canonical style contact sheet bound by the package. It calls image
+generation only for that proof in each requested native format, immediately
+ingests the returned file into quarantine, and inspects the decoded normalized
+candidate pixels with `view_image` (or unchanged bytes when already exact).
+
+This five-attachment boundary comes from the current built-in Codex runtime
+smoke; do not describe it as an official platform limit. Do not append the
+three individual style slides or silently remove an identity file.
+
+Story images are pre-lock creative context, not extra imagegen attachments.
+Inspect them before authoring the brief, encode their observable clothing,
+object, setting, and continuity facts in the slide-authoritative fields, and
+keep their package-local hashes as slide-local invalidation evidence. The
+compiled handoff separates them as `context_reference_bindings`; do not imply
+they guided a generation call unless the runtime actually received them.
+
+If image generation or `view_image` is unavailable, stop successfully at
+`handoff_ready` and report `BLOCKED/NOT_RUN`. No prompt review, filename, model
+claim, or authored expectation may substitute for pixel inspection.
 
 Quarantine the candidate. Inspect decoded current pixels and write
 `proof-qa.json` bound to file path, SHA-256, and dimensions. Check, in order:
@@ -79,20 +104,26 @@ If the semantic idea fails, repair the physical premise or staging before prompt
 adjectives. Permit two total semantic attempts for one premise. After attempt
 two, set `proof_failed` with next action `repair_visual_premise`.
 
-Only a passed pixel audit plus explicit creator approval unlocks the rest of the
-deck. A model output must not be displayed as approved before this gate.
+Only a passed pixel audit plus explicit hash-bound creator approval unlocks the
+rest of the deck. The approved proof becomes its final candidate and is omitted
+from remaining-slide generation; if normalized, those exact normalized proof
+bytes are reused without another resample. A model output must not be displayed as
+approved before this gate.
 
 ## Gate 4 — Final Package QA
 
 Generate remaining slides with the same locks. Produce no unrequested format.
-Run the proof checks on every current final asset and bind results to exact
-package-relative path, format, dimensions, and hash in `visual-qa.json`.
+Run the proof checks on every current candidate and bind observations to each
+asset binding hash in `visual-qa.json`. The manifest owns the path, format,
+dimensions, and file hash inventory; QA must not duplicate it.
 
 Then write:
 
-- `final-images.json`: only final files and their current hashes/dimensions;
-- `final-audit.json`: PASS only when files, formats, copy, brandmark, identity,
-  anatomy/spatial integrity, visible story, and QA all agree.
+- `final-images.json`: file inventory, input fingerprints, hashes, and
+  dimensions only;
+- `visual-qa.json`: observed checks bound to the final-manifest fingerprint and
+  per-asset binding hashes, with no copied inventory;
+- `final-audit.json`: manifest/QA fingerprints, status, and issues only.
 
 Public final folders are:
 
@@ -104,26 +135,35 @@ Public final folders are:
 
 Use one current state and one next action:
 
-- `awaiting_concept_approval`
-- `awaiting_copy_format_approval`
+- `draft`
+- `blocked`
 - `handoff_ready`
-- `proof_failed` -> `repair_visual_premise`
+- `proof_qa_required`
+- `proof_failed`
 - `awaiting_creator_proof_approval`
-- `generating_remaining_slides`
-- `final_qa_failed` -> repair the named slide/check
-- `final`
-- `blocked` -> request the named missing input
+- `batch_ready`
+- `final_qa_required`
+- `final_qa_failed`
+- `publish_ready`
 
 Do not let a failed proof report `handoff_ready` or let a partial deck report
-`final`. Do not create separate ledgers for creator decisions, generation state,
-review state, and package state.
+`publish_ready`. Do not create separate ledgers for creator decisions,
+generation state, review state, and package state. Creator approval is embedded
+in hash-bound `proof-qa.json`.
+
+A final QA PASS remains `final_qa_required` with next action `finalize_deck`;
+`finalize` is the audit and atomic-promotion boundary that alone produces
+`publish_ready`. Do not invent an intermediate ready-to-finalize state.
 
 ## One Command
 
-`make carousel STORY="..." TITLE="..."` creates the compact package and prepares
-the proof handoff. It must not run the repository test suite or Agentic OS health
-as a production preflight. Those checks belong to `make test` and maintenance.
+`make carousel STORY="..." CREATIVE_BRIEF="locked-brief.json" TITLE="..."`
+creates the compact package and prepares the risky proof when the brief has
+locked physical actions. Story-only input remains `draft`, names the missing
+lock, and spends no generation call. It must not run the repository test suite,
+Agentic OS health, wiki health, or network calls. Those checks belong to tests
+and maintenance.
 
-Do not stop at a prompt handoff when generation is available. If generation is
-unavailable, report `handoff_ready`; if a required reference or lock is missing,
-report `blocked` and name only that blocker.
+Do not stop at a prompt handoff when Codex image generation and pixel viewing
+are available. If either is unavailable, report `handoff_ready`; if a required
+reference or lock is missing, report `blocked` and name only that blocker.

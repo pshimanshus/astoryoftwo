@@ -66,6 +66,12 @@ def test_carousel_doctor_cli_returns_nonzero_for_blocker(tmp_path: Path) -> None
 
     payload = json.loads(result.stdout)
     assert result.returncode == 2
-    assert payload["state"]["name"] == "blocked"
+    # Archived v2 BATCH_ALLOWED maps read-only to the canonical batch_ready
+    # lifecycle state. The doctor reports the missing approval as a blocker; it
+    # does not rewrite the package's public state merely because evidence is
+    # incomplete.
+    assert payload["state"]["name"] == "batch_ready"
+    assert payload["state"]["blocked"] is True
+    assert payload["state"]["publishable"] is False
     assert payload["highest_severity"] == "blocker"
     assert any(issue["code"] == "batch_without_approved_proof" for issue in payload["issues"])

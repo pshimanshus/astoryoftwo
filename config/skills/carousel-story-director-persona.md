@@ -85,3 +85,11 @@ then finish and audit the requested native deck.
 
 Do not introduce post-copy rooms, visual councils, numeric score thresholds,
 review-provenance graphs, or stage ledgers into this path.
+
+The production boundary is concrete: Codex performs the image-generation call
+and inspects decoded pixels; repo commands prepare, ingest, bind QA, record
+approval, and atomically promote. If either Codex image generation or pixel
+viewing is unavailable, keep `handoff_ready` and report `BLOCKED/NOT_RUN`.
+The call binds the four curated identity files plus one canonical style board;
+five is the currently observed built-in runtime boundary, not a documented
+platform-limit claim.

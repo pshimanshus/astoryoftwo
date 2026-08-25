@@ -11,6 +11,21 @@ pass. Use `references/story-engine.md` only when a specific story problem needs
 deeper repair. Do not copy the story engine into this file or load its full
 framework by default.
 
+## Conversational Lifecycle
+
+This lifecycle exists only in the conversation. It does not create a state
+file, memory write, daemon, approval gate, or agent room.
+
+1. **Activate:** at the first creative request, privately capture the exact
+   seed, known facts, change, receipt, open question, and current locks.
+2. **Refresh:** after each creator correction, update only the affected layer,
+   mark the replaced route superseded, and preserve untouched facts and locks.
+3. **Resume:** on a later follow-up, reconstruct the latest surviving state
+   from the conversation before proposing or changing anything.
+4. **Close:** when the creator pauses, rejects the whole route, or the package
+   reaches its requested handoff, summarize only the surviving decision and
+   next action in the response. Do not write a lifecycle artifact.
+
 Before a creative response:
 
 1. Preserve the creator's exact seed, facts, corrections, rejected scope, and
@@ -38,7 +53,8 @@ rubric names or unsupported psychology claims in public copy. Do not return a
 rejected route under a new title. For tiny requests, apply this mentally and
 answer simply.
 
-Handoff to `$a-story-carousel-jam` for production and
+The hook remains active through discussion and repairs; refresh or resume it
+before handing off to `$a-story-carousel-jam` for production and
 `$a-story-direct-visual-story` after concept lock. This hook owns story
 continuity; the production skills own exact text, references, dimensions,
 generation, pixel QA, and packaging.

@@ -16,6 +16,7 @@ from typing import Any, Iterable
 
 FORMAT_CONTRACT_FILENAME = "format-contract.json"
 FORMAT_CONTRACT_SCHEMA_VERSION = "1.0"
+SOURCE_NORMALIZATION_CONTRACT_VERSION = "carousel-source-normalization/v1"
 
 INSTAGRAM_POST_FORMAT = "instagram_post"
 REELS_STORIES_FORMAT = "reels_stories"
@@ -28,6 +29,9 @@ SUPPORTED_NATIVE_FORMATS = (
 )
 DEFAULT_NATIVE_FORMATS = (INSTAGRAM_POST_FORMAT,)
 
+INSTAGRAM_POST_MIN_SOURCE_SIZE = (1080, 1440)
+INSTAGRAM_POST_MAX_SOURCE_SIZE = (1440, 1920)
+
 FORMAT_SPECS: dict[str, dict[str, Any]] = {
     INSTAGRAM_POST_FORMAT: {
         "label": "Instagram post",
@@ -35,10 +39,10 @@ FORMAT_SPECS: dict[str, dict[str, Any]] = {
         "folder": "final",
         "prompt_folder": "instagram-post",
         "source_prefix": "instagram-post",
-        "source_size": (1440, 1920),
+        "source_size": (1080, 1440),
         "allowed_source_sizes": ((1440, 1920), (1080, 1440)),
         "target_size": (1080, 1440),
-        "request_size": "1440x1920",
+        "request_size": "1080x1440",
     },
     REELS_STORIES_FORMAT: {
         "label": "Reels/Stories",
@@ -92,6 +96,30 @@ def format_spec(output_format: str) -> dict[str, Any]:
         raise ValueError(f"Unsupported current-request output format: {output_format}") from exc
 
 
+def source_dimensions_are_acceptable(
+    output_format: str,
+    width: int,
+    height: int,
+) -> bool:
+    """Return whether a decoded source can safely become the native output.
+
+    Instagram post generation may return an exact 3:4 canvas at an in-range
+    size such as 1086x1448. That source can be downsampled without cropping,
+    padding, stretching, or upscaling. Story and square stay exact-only.
+    """
+
+    width, height = int(width), int(height)
+    if output_format == INSTAGRAM_POST_FORMAT:
+        min_width, min_height = INSTAGRAM_POST_MIN_SOURCE_SIZE
+        max_width, max_height = INSTAGRAM_POST_MAX_SOURCE_SIZE
+        return bool(
+            width * 4 == height * 3
+            and min_width <= width <= max_width
+            and min_height <= height <= max_height
+        )
+    return (width, height) == tuple(format_spec(output_format)["target_size"])
+
+
 def _public_spec(output_format: str) -> dict[str, Any]:
     spec = format_spec(output_format)
     source_width, source_height = spec["source_size"]
@@ -122,7 +150,9 @@ def build_format_contract(
         "rule": (
             "Generate only the formats locked by the current request. Generate each requested "
             "aspect ratio from its own native source; never infer another output from folders "
-            "or derive one aspect ratio by cropping, padding, stretching, or extending another."
+            "or derive one aspect ratio by cropping, padding, stretching, or extending another. "
+            "An exact 3:4 Instagram-post source between 1080x1440 and 1440x1920 may be "
+            "deterministically downsampled to 1080x1440; Story and square are exact-only."
         ),
     }
 
@@ -237,6 +267,23 @@ def format_contract_fingerprint(contract_or_formats: Any) -> str:
     payload = {
         "requested_formats": list(locked),
         "formats": [_public_spec(output_format) for output_format in locked],
+        "source_normalization_contract": SOURCE_NORMALIZATION_CONTRACT_VERSION,
+        "source_acceptance": {
+            output_format: (
+                {
+                    "aspect_ratio": "3:4",
+                    "min_size": list(INSTAGRAM_POST_MIN_SOURCE_SIZE),
+                    "max_size": list(INSTAGRAM_POST_MAX_SOURCE_SIZE),
+                    "method": "pillow_lanczos_downsample_only",
+                }
+                if output_format == INSTAGRAM_POST_FORMAT
+                else {
+                    "exact_size": list(format_spec(output_format)["target_size"]),
+                    "method": "byte_preserving_exact_only",
+                }
+            )
+            for output_format in locked
+        },
     }
     encoded = json.dumps(
         payload,

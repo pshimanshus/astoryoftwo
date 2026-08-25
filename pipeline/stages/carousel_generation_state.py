@@ -1,186 +1,188 @@
-"""Shared carousel image-generation manifest state."""
+"""Canonical compact v3 state for carousel image generation.
+
+This file is the only public transient state surface. It never mirrors state
+into ``image-generation.json`` or ``final-images.json``; those names are,
+respectively, a legacy read fallback and the final file inventory.
+"""
 
 from __future__ import annotations
 
 import json
+import re
 from enum import StrEnum
 from pathlib import Path
 from typing import Any
 
+from pipeline.stages.carousel_generation_inputs import build_generation_inputs
+
+
+STATE_SCHEMA_VERSION = "carousel-generation-state/v3"
+STATE_FILE = "generation-state.json"
+
 
 class GenerationStatus(StrEnum):
     DRAFT = "draft"
-    HANDOFF_READY = "handoff_ready"
     BLOCKED = "blocked"
-    LEGACY_PREVIEW_GENERATED = "legacy_preview_generated"
-    DRY_RUN_GENERATED = "dry_run_generated"
-    PROOF_READY_FOR_REVIEW = "proof_ready_for_review"
-    GENERATED = "generated"
-    GENERATED_AUDIT_FAILED = "generated_audit_failed"
-    QA_PASSED = "qa_passed"
+    HANDOFF_READY = "handoff_ready"
+    PROOF_QA_REQUIRED = "proof_qa_required"
+    PROOF_FAILED = "proof_failed"
+    AWAITING_CREATOR_PROOF_APPROVAL = "awaiting_creator_proof_approval"
+    BATCH_READY = "batch_ready"
+    FINAL_QA_REQUIRED = "final_qa_required"
+    FINAL_QA_FAILED = "final_qa_failed"
     PUBLISH_READY = "publish_ready"
-    GENERATED_QUARANTINED = "GENERATED_QUARANTINED"
-    QA_PASS_CANDIDATE = "QA_PASS_CANDIDATE"
-    CREATOR_APPROVED_PROOF = "CREATOR_APPROVED_PROOF"
-    BATCH_ALLOWED = "BATCH_ALLOWED"
-    REJECTED_SPATIAL_INTEGRITY = "REJECTED_SPATIAL_INTEGRITY"
-    BLOCKED_VISUAL_QA = "BLOCKED_VISUAL_QA"
 
 
-DONE_STATUSES = {
-    GenerationStatus.GENERATED,
-    GenerationStatus.PUBLISH_READY,
-}
-PUBLISHABLE_STATUSES = {
-    GenerationStatus.PUBLISH_READY,
-}
-HUMAN_GENERATION_STATUSES = {
-    GenerationStatus.HANDOFF_READY,
-    GenerationStatus.PROOF_READY_FOR_REVIEW,
-}
-
-PROOF_PIPELINE_STATUSES = {
-    GenerationStatus.GENERATED_QUARANTINED,
-    GenerationStatus.QA_PASS_CANDIDATE,
-    GenerationStatus.CREATOR_APPROVED_PROOF,
-    GenerationStatus.BATCH_ALLOWED,
-    GenerationStatus.REJECTED_SPATIAL_INTEGRITY,
-    GenerationStatus.BLOCKED_VISUAL_QA,
-}
-
-ALLOWED_PROOF_TRANSITIONS = {
-    GenerationStatus.GENERATED_QUARANTINED: {
-        GenerationStatus.QA_PASS_CANDIDATE,
-        GenerationStatus.REJECTED_SPATIAL_INTEGRITY,
-        GenerationStatus.BLOCKED_VISUAL_QA,
-    },
-    GenerationStatus.QA_PASS_CANDIDATE: {
-        GenerationStatus.CREATOR_APPROVED_PROOF,
-        GenerationStatus.BLOCKED_VISUAL_QA,
-    },
-    GenerationStatus.CREATOR_APPROVED_PROOF: {
-        GenerationStatus.BATCH_ALLOWED,
-        GenerationStatus.BLOCKED_VISUAL_QA,
-    },
-    GenerationStatus.BATCH_ALLOWED: set(),
-    GenerationStatus.REJECTED_SPATIAL_INTEGRITY: {
-        GenerationStatus.GENERATED_QUARANTINED,
-        GenerationStatus.BLOCKED_VISUAL_QA,
-    },
-    GenerationStatus.BLOCKED_VISUAL_QA: set(),
-}
+PUBLIC_STATUSES = tuple(status.value for status in GenerationStatus)
+SHA256_BINDING_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
 
 
-def _existing_generation_status(carousel_dir: Path) -> GenerationStatus | None:
-    path = carousel_dir / "image-generation.json"
-    if not path.exists():
-        return None
+def _read_json(path: Path) -> dict[str, Any]:
     try:
-        value = json.loads(path.read_text(encoding="utf-8")).get("status")
-        return GenerationStatus(value)
-    except (OSError, json.JSONDecodeError, ValueError, AttributeError):
-        return None
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
 
 
-def validate_proof_transition(
-    current: GenerationStatus | None,
-    requested: GenerationStatus,
-    *,
-    creator_override_handoff_validated: bool = False,
-    qa_failed_full_deck_retry_handoff_validated: bool = False,
-) -> None:
-    """Block lifecycle skips once a proof has entered the fail-closed state machine."""
+def read_generation_state(package_dir: Path) -> dict[str, Any]:
+    """Read v3 state, falling back to archived legacy state without writing."""
 
-    if requested in PROOF_PIPELINE_STATUSES and current not in PROOF_PIPELINE_STATUSES:
-        if requested != GenerationStatus.GENERATED_QUARANTINED:
-            current_label = current.value if current is not None else "none"
-            raise ValueError(
-                "Invalid proof-state entry: "
-                f"{current_label} -> {requested.value}; first state must be "
-                f"{GenerationStatus.GENERATED_QUARANTINED.value}."
-            )
-        return
-    if current in PROOF_PIPELINE_STATUSES and requested not in PROOF_PIPELINE_STATUSES:
-        if (
-            current == GenerationStatus.BATCH_ALLOWED
-            and requested == GenerationStatus.HANDOFF_READY
-            and creator_override_handoff_validated
-        ):
-            return
-        if (
-            current
-            in {
-                GenerationStatus.GENERATED_QUARANTINED,
-                GenerationStatus.REJECTED_SPATIAL_INTEGRITY,
-            }
-            and requested == GenerationStatus.HANDOFF_READY
-            and qa_failed_full_deck_retry_handoff_validated
-        ):
-            return
-        if current == GenerationStatus.BATCH_ALLOWED and requested in {
-            GenerationStatus.PUBLISH_READY,
-            GenerationStatus.GENERATED_AUDIT_FAILED,
-        }:
-            return
-        raise ValueError(
-            f"Invalid exit from fail-closed proof state: {current.value} -> {requested.value}."
-        )
-    if requested not in PROOF_PIPELINE_STATUSES:
-        return
-    if requested == current:
-        return
-    allowed = ALLOWED_PROOF_TRANSITIONS.get(current, set())
-    if requested not in allowed:
-        raise ValueError(
-            f"Invalid proof-state transition: {current.value} -> {requested.value}."
-        )
-
-
-def write_generation_state(
-    carousel_dir: Path,
-    *,
-    status: GenerationStatus,
-    backend: str,
-    generation_mode: str,
-    slide_count: int,
-    reason: str | None = None,
-    slides: list[dict[str, Any]] | None = None,
-    extra: dict[str, Any] | None = None,
-    creator_override_handoff_validated: bool = False,
-    qa_failed_full_deck_retry_handoff_validated: bool = False,
-) -> dict[str, Any]:
-    validate_proof_transition(
-        _existing_generation_status(carousel_dir),
-        status,
-        creator_override_handoff_validated=creator_override_handoff_validated,
-        qa_failed_full_deck_retry_handoff_validated=(
-            qa_failed_full_deck_retry_handoff_validated
-        ),
+    package_dir = Path(package_dir).expanduser()
+    return _read_json(package_dir / STATE_FILE) or _read_json(
+        package_dir / "image-generation.json"
     )
-    if status in DONE_STATUSES.union(PROOF_PIPELINE_STATUSES) and not slides:
-        raise ValueError(f"status {status.value!r} requires slides records")
 
-    state: dict[str, Any] = {
-        "status": status.value,
-        "backend": backend,
-        "generation_mode": generation_mode,
-        "slide_count": slide_count,
-        "done": status in DONE_STATUSES,
-        "publishable": status in PUBLISHABLE_STATUSES,
-        "requires_human_generation": status in HUMAN_GENERATION_STATUSES,
-        "slides": slides or [],
+
+def _required_sha256(value: Any, *, field: str) -> str:
+    binding = str(value or "")
+    if not SHA256_BINDING_RE.fullmatch(binding):
+        raise ValueError(f"{field} must be canonical sha256:<64 lowercase hex>.")
+    return binding
+
+
+def _compact_slide(value: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "status": str(value.get("status") or "draft"),
+        "attempts": int(value.get("attempts", 0) or 0),
+        "source_sha256": _required_sha256(
+            value.get("source_sha256"), field="source_sha256"
+        ),
+        "prompt_sha256": _required_sha256(
+            value.get("prompt_sha256"), field="prompt_sha256"
+        ),
+        "references_sha256": _required_sha256(
+            value.get("references_sha256"), field="references_sha256"
+        ),
+        "input_sha256": _required_sha256(
+            value.get("input_sha256"), field="input_sha256"
+        ),
     }
-    if reason is not None:
-        state["reason"] = reason
-    if extra:
-        reserved_keys = set(state)
-        conflicts = sorted(reserved_keys.intersection(extra))
-        if conflicts:
-            raise ValueError(f"extra contains reserved generation state keys: {', '.join(conflicts)}")
-        state.update(extra)
 
-    carousel_dir.mkdir(parents=True, exist_ok=True)
-    payload = json.dumps(state, indent=2, ensure_ascii=False)
-    for filename in ("image-generation.json", "final-images.json"):
-        (carousel_dir / filename).write_text(payload, encoding="utf-8")
-    return state
+
+def compact_v3_state(state: dict[str, Any]) -> dict[str, Any]:
+    allowed = {
+        "schema_version",
+        "status",
+        "next_action",
+        "proof_slide",
+        "selected_slides",
+        "selected_formats",
+        "format_sha256",
+        "slides",
+        "reason",
+    }
+    unexpected = sorted(set(state) - allowed)
+    if unexpected:
+        raise ValueError(
+            "v3 generation state contains non-canonical fields: "
+            + ", ".join(unexpected)
+        )
+    status = str(state.get("status") or GenerationStatus.DRAFT.value)
+    if status not in PUBLIC_STATUSES:
+        raise ValueError(f"Unsupported carousel generation status: {status}")
+    slides = state.get("slides")
+    if not isinstance(slides, dict) or not slides:
+        raise ValueError("v3 generation state requires compact per-slide records.")
+    result: dict[str, Any] = {
+        "schema_version": STATE_SCHEMA_VERSION,
+        "status": status,
+        "next_action": str(state.get("next_action") or "prepare_riskiest_proof"),
+        "proof_slide": (
+            int(state["proof_slide"])
+            if state.get("proof_slide") is not None
+            else None
+        ),
+        "selected_slides": [int(value) for value in state.get("selected_slides") or []],
+        "selected_formats": [str(value) for value in state.get("selected_formats") or []],
+        "format_sha256": _required_sha256(
+            state.get("format_sha256"), field="format_sha256"
+        ),
+        "slides": {
+            str(int(number)): _compact_slide(record)
+            for number, record in sorted(
+                slides.items(), key=lambda item: int(item[0])
+            )
+            if isinstance(record, dict)
+        },
+    }
+    reason = str(state.get("reason") or "").strip()
+    if reason:
+        result["reason"] = reason
+    return result
+
+
+def write_v3_state(package_dir: Path, state: dict[str, Any]) -> dict[str, Any]:
+    compact = compact_v3_state(state)
+    package_dir = Path(package_dir).expanduser()
+    package_dir.mkdir(parents=True, exist_ok=True)
+    (package_dir / STATE_FILE).write_text(
+        json.dumps(compact, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    return compact
+
+
+def initialize_generation_state(package_dir: Path) -> dict[str, Any]:
+    """Write the first v3 state after the minimal package inputs exist."""
+
+    package_dir = Path(package_dir)
+    inputs = build_generation_inputs(package_dir)
+    try:
+        raw_slides = json.loads((package_dir / "slides.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        raw_slides = []
+    needs_actions = any(
+        isinstance(slide, dict) and slide.get("needs_physical_action") is True
+        for slide in raw_slides if isinstance(raw_slides, list)
+    )
+    first_action = "lock_visible_actions" if needs_actions else "prepare_riskiest_proof"
+    return write_v3_state(
+        package_dir,
+        {
+            "status": GenerationStatus.DRAFT.value,
+            "next_action": first_action,
+            "proof_slide": None,
+            "selected_slides": [],
+            "selected_formats": inputs["selected_formats"],
+            "format_sha256": inputs["format_sha256"],
+            "slides": {
+                number: {
+                    "status": "draft",
+                    "attempts": 0,
+                    **fingerprints,
+                }
+                for number, fingerprints in inputs["slides"].items()
+            },
+        },
+    )
+__all__ = [
+    "GenerationStatus",
+    "PUBLIC_STATUSES",
+    "STATE_FILE",
+    "STATE_SCHEMA_VERSION",
+    "compact_v3_state",
+    "initialize_generation_state",
+    "read_generation_state",
+    "write_v3_state",
+]

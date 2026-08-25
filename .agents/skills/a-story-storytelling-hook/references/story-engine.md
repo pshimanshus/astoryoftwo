@@ -271,6 +271,20 @@ explanatory model, not verified scientific authority.
 
 ## Continuous-Chat Protocol
 
+Apply the hook as an explicit conversational lifecycle:
+
+- **activate** once at the first creative request by creating the private Story
+  State Card in working context;
+- **refresh** after each correction by changing only affected fields;
+- **resume** on follow-up by reconstructing the last surviving card from the
+  conversation before adding a new route;
+- **close** by retaining only the surviving decision and next action in the
+  response when the creator pauses, rejects the route, or completes the
+  requested handoff.
+
+This is working conversational context, not a repository artifact. Never write
+a hook-state file, start a daemon, create an agent room, or add an approval gate.
+
 At every follow-up:
 
 1. Recall the latest confirmed card.

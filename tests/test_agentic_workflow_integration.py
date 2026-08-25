@@ -6,21 +6,18 @@ from datetime import date
 from pathlib import Path
 
 from pipeline.stages import codex_native_carousel
-from pipeline.stages.c1_illustration_carousel import load_context as load_anthropic_context
 from pipeline.stages.b1_prepost import build_agentic_os_brief, load_context as load_prepost_context
 from scripts.create_substack_article_package import create_article_package
 from tests.helpers.agentic_workspace import write_minimal_agentic_workspace
 from tests.helpers.images import write_jpeg
 
 
-def test_carousel_context_and_registry_use_small_agentic_os_contract():
-    rendered_context = load_anthropic_context()
+def test_carousel_registry_uses_small_agentless_contract():
     systems = json.loads(
         (Path(__file__).resolve().parents[1] / "config" / "skill-systems.json").read_text()
     )
     carousel = systems["systems"]["carousel_jam"]
 
-    assert "# Agentic Context Pack" in rendered_context
     assert carousel["agents"] == []
     assert carousel["gates"] == [
         "concept_lock",
@@ -65,7 +62,6 @@ def test_codex_native_workflow_rejects_empty_explicit_identity_refs(tmp_path: Pa
             identity_image_paths=[],
             title="Empty Identity",
             output_root=tmp_path / "output" / "carousels",
-            render_assets=False,
             today=date(2026, 5, 28),
         )
     except ValueError as exc:

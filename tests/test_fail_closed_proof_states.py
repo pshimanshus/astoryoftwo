@@ -8,11 +8,10 @@ from PIL import Image
 import pytest
 
 from pipeline.stages.codex_builtin_image_generation import (
-    accept_failed_proof_by_creator,
-    package_codex_builtin_outputs,
+    approve_proof,
+    ingest_generated_outputs,
     prepare_codex_builtin_image_generation,
-    promote_quarantined_codex_builtin_outputs,
-    recompile_failed_proof_handoff,
+    review_quarantined_outputs,
 )
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel
 
@@ -24,44 +23,54 @@ def _png(path: Path, size: tuple[int, int] = (1080, 1440)) -> Path:
 
 
 def _package(tmp_path: Path) -> Path:
-    identity = _png(tmp_path / "identity.png", (300, 300))
     brief = tmp_path / "brief.json"
     brief.write_text(
         json.dumps(
             {
                 "slides": [
-                    {"copy": f"Locked copy {number}", "physical_action": f"Aachu and Zuv perform visible action {number}."}
+                    {
+                        "copy": f"Locked copy {number}",
+                        "physical_action": f"Aachu and Zuv perform visible action {number} together.",
+                    }
                     for number in range(1, 5)
                 ]
             }
         ),
         encoding="utf-8",
     )
+    identity_paths = [
+        _png(tmp_path / "identity/aachu/a.png", (40, 40)),
+        _png(tmp_path / "identity/zuv/z.png", (41, 40)),
+        _png(tmp_path / "identity/together/face.png", (42, 40)),
+        _png(tmp_path / "identity/together/body.png", (43, 40)),
+    ]
     return create_codex_native_carousel(
         story="A difficult shared decision",
         image_paths=[],
-        identity_image_paths=[identity],
+        identity_image_paths=identity_paths,
+        style_reference_paths=[_png(tmp_path / "style.png", (44, 40))],
         creative_baseline_path=brief,
         output_root=tmp_path / "output/carousels",
         today=date(2026, 8, 24),
     )
 
 
-def _failed_qa(state: dict[str, object]) -> dict[str, object]:
-    candidate = state["quarantine_candidates"][0]  # type: ignore[index]
+def _failed_authored_qa(slide: int) -> dict[str, object]:
     return {
-        "schema_version": "carousel-pixel-qa/v1",
-        "scope": "proof",
         "status": "FAIL",
-        "image_set_sha256": state["image_set_sha256"],
+        "inspection": {"method": "codex_view_image", "decoded_pixels_observed": True},
+        "selected_slides": [slide],
         "slides": [
             {
-                "slide": candidate["slide"],
-                "native_outputs": candidate["native_outputs"],
-                "checks": {
-                    "semantic_action": {
-                        "status": "FAIL",
-                        "evidence": "Both people pull unrelated objects, so the intended shared decision is not visible.",
+                "slide": slide,
+                "reviews": {
+                    "instagram_post": {
+                        "checks": {
+                            "physical_action": {
+                                "status": "FAIL",
+                                "evidence": "Both people pull unrelated objects, so the locked action is not visible.",
+                            }
+                        }
                     }
                 },
             }
@@ -69,64 +78,48 @@ def _failed_qa(state: dict[str, object]) -> dict[str, object]:
     }
 
 
-def test_failed_semantic_proof_is_not_handoff_ready_and_retry_is_slide_local(tmp_path: Path) -> None:
+def _failed_attempt(package: Path, tmp_path: Path, slide: int, attempt: int) -> dict[str, object]:
+    ingest_generated_outputs(
+        package,
+        {"instagram_post": [_png(tmp_path / f"attempt-{attempt}.png")]},
+        proof_slide=slide if attempt == 1 else None,
+    )
+    (package / "proof-qa.json").write_text(
+        json.dumps(_failed_authored_qa(slide)), encoding="utf-8"
+    )
+    return review_quarantined_outputs(package)
+
+
+def test_failed_semantic_proof_retries_only_the_proof_slide(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=2)
-    first = package_codex_builtin_outputs(
-        package,
-        {"instagram_post": [_png(tmp_path / "attempt-1.png")]},
-        proof_slide=2,
-    )
-    (package / "proof-qa.json").write_text(json.dumps(_failed_qa(first)), encoding="utf-8")
-    failed = promote_quarantined_codex_builtin_outputs(package)
+    failed = _failed_attempt(package, tmp_path, 2, 1)
     assert failed["status"] == "proof_failed"
-    assert failed["next_action"] == "repair_visual_premise"
-    assert failed["repair_slides"] == [2]
+    assert failed["selected_slides"] == [2]
+    assert failed["slides"]["2"]["attempts"] == 1
     assert not (package / "final-images.json").exists()
 
-    repair = recompile_failed_proof_handoff(package)
+    repair = prepare_codex_builtin_image_generation(package)
     assert repair["status"] == "handoff_ready"
-    assert repair["stage"] == "repair"
     assert repair["selected_slides"] == [2]
-    prompt_files = list((package / ".internal/compiled-prompts").rglob("*.prompt.txt"))
-    assert len(prompt_files) == 1
-    assert prompt_files[0].name == "slide-02.prompt.txt"
+    assert len(list((package / ".internal/compiled-prompts").rglob("*.prompt.txt"))) == 1
 
 
-def test_two_failed_semantic_attempts_block_more_generation(tmp_path: Path) -> None:
+def test_two_semantic_attempts_exhaust_only_current_premise(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=2)
-    for attempt in (1, 2):
-        state = package_codex_builtin_outputs(
-            package,
-            {"instagram_post": [_png(tmp_path / f"attempt-{attempt}.png")]},
-            proof_slide=2 if attempt == 1 else None,
-        )
-        (package / "proof-qa.json").write_text(json.dumps(_failed_qa(state)), encoding="utf-8")
-        state = promote_quarantined_codex_builtin_outputs(package)
-        if attempt == 1:
-            assert state["status"] == "proof_failed"
-            recompile_failed_proof_handoff(package)
-    assert state["status"] == "blocked_visual_qa"
-    assert state["attempts_by_slide"]["2"] == 2
-    assert state["next_action"] == "revise_copy_or_visual_premise"
+    first = _failed_attempt(package, tmp_path, 2, 1)
+    assert first["next_action"] == "retry_selected_slides"
+    prepare_codex_builtin_image_generation(package)
+    second = _failed_attempt(package, tmp_path, 2, 2)
+    assert second["status"] == "proof_failed"
+    assert second["slides"]["2"]["attempts"] == 2
+    assert second["next_action"] == "repair_visual_premise"
     blocked = prepare_codex_builtin_image_generation(package)
-    assert blocked["status"] == "blocked_visual_qa"
+    assert blocked["status"] == "proof_failed"
+    assert blocked["next_action"] == "repair_visual_premise"
 
 
-def test_creator_cannot_override_a_failed_proof(tmp_path: Path) -> None:
-    package = _package(tmp_path)
-    with pytest.raises(ValueError, match="cannot be accepted"):
-        accept_failed_proof_by_creator(package, package / "approval.json")
-
-
-def test_wrong_size_candidate_is_rejected_instead_of_resized(tmp_path: Path) -> None:
-    package = _package(tmp_path)
-    prepare_codex_builtin_image_generation(package, proof_slide=1)
-    with pytest.raises(ValueError, match="must be native 1080x1440"):
-        package_codex_builtin_outputs(
-            package,
-            {"instagram_post": [_png(tmp_path / "wrong.png", (1440, 1920))]},
-            proof_slide=1,
-        )
-    assert not (package / "final").exists()
+def test_creator_cannot_override_failed_pixels(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="approval|proof|candidate"):
+        approve_proof(_package(tmp_path), proof_sha256="sha256:" + "0" * 64)

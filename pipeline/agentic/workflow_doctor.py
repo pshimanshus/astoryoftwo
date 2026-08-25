@@ -22,11 +22,15 @@ from pipeline.agentic.checks.prompt_constraints import check_prompt_constraints
 from pipeline.stages.carousel_format_contract import (
     DEFAULT_NATIVE_FORMATS,
     FORMAT_CONTRACT_FILENAME,
+    SUPPORTED_NATIVE_FORMATS,
     expected_output_path,
     format_spec,
     locked_formats,
 )
 from pipeline.stages.carousel_visual_storytelling import first_failed_pixel_gate
+from pipeline.stages.carousel_generation_inputs import build_generation_inputs
+from pipeline.stages.carousel_generation_state import STATE_SCHEMA_VERSION
+from pipeline.stages.carousel_pixel_qa import validate_final_qa, validate_proof_qa
 
 
 SEVERITY_RANK = {"ok": 0, "info": 1, "warning": 2, "blocker": 3}
@@ -276,9 +280,24 @@ def _stale_generation_matches(package_dir: Path) -> list[str]:
     return list(dict.fromkeys(matches))
 
 
-def _identity_reference_issues(package_dir: Path, prompt_pack: dict[str, Any]) -> list[str]:
-    refs = prompt_pack.get("identity_reference_images")
-    if not isinstance(refs, list) or not refs:
+def _identity_reference_issues(
+    package_dir: Path,
+    prompt_pack: dict[str, Any],
+    *,
+    strict_v3: bool = False,
+) -> list[str]:
+    if strict_v3:
+        from pipeline.stages.codex_builtin_image_generation import (
+            identity_consistency_gate_reason,
+        )
+
+        reason = identity_consistency_gate_reason(package_dir)
+        return [reason] if reason else []
+    refs = [
+        *(prompt_pack.get("identity_reference_images") or []),
+        *(prompt_pack.get("identity_dossier_reference_images") or []),
+    ]
+    if not refs:
         return ["prompt-pack.json must attach selected Aachu/Zuv identity reference images."]
     issues: list[str] = []
     for raw in refs:
@@ -456,6 +475,266 @@ def _creator_approved(package_dir: Path, state: dict[str, Any], qa: dict[str, An
     return bool(approved and qa_hash and qa_hash == approval_hash)
 
 
+def _v3_creator_approved(
+    package_dir: Path,
+    state: dict[str, Any],
+    qa: dict[str, Any],
+) -> bool:
+    proof_slide = state.get("proof_slide")
+    approval = qa.get("creator_approval") if isinstance(qa, dict) else None
+    if proof_slide is None or not isinstance(approval, dict):
+        return False
+    slide = (state.get("slides") or {}).get(str(proof_slide), {})
+    candidate = (
+        package_dir
+        / ".internal/approved-final-candidates"
+        / f"slide-{int(proof_slide):02d}"
+        / "candidate.json"
+    )
+    return bool(
+        approval.get("approved") is True
+        and _status(approval.get("status")) == "approved"
+        and approval.get("proof_input_sha256") == slide.get("input_sha256")
+        and candidate.is_file()
+        and not candidate.is_symlink()
+    )
+
+
+def _inspect_v3_package(
+    package_dir: Path,
+    state: dict[str, Any],
+    formats: tuple[str, ...],
+) -> WorkflowDoctorReport:
+    """Validate the compact v3 truth surface without legacy terminology."""
+
+    issues: list[WorkflowIssue] = []
+    status = _status(state)
+    selected = [int(value) for value in state.get("selected_slides") or []]
+    state_slides = state.get("slides") if isinstance(state.get("slides"), dict) else {}
+    allowed_root = {
+        "schema_version",
+        "status",
+        "next_action",
+        "proof_slide",
+        "selected_slides",
+        "selected_formats",
+        "format_sha256",
+        "slides",
+        "reason",
+    }
+    unexpected = sorted(set(state) - allowed_root)
+    if unexpected:
+        issues.append(
+            _issue(
+                "v3_state_not_compact",
+                "blocker",
+                "generation-state.json contains non-canonical transient fields.",
+                evidence=unexpected,
+                next_action="rewrite_compact_v3_state",
+            )
+        )
+    if list(state.get("selected_formats") or []) != list(formats):
+        issues.append(
+            _issue(
+                "format_contract_mismatch",
+                "blocker",
+                "generation-state.json selected formats do not match the current lock.",
+                evidence=[package_dir / FORMAT_CONTRACT_FILENAME, package_dir / "generation-state.json"],
+                next_action="reconcile_package_state",
+            )
+        )
+
+    try:
+        current = build_generation_inputs(package_dir)
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        issues.append(
+            _issue(
+                "generation_inputs_invalid",
+                "blocker",
+                str(exc),
+                evidence=[package_dir / "slides.json", package_dir / "prompt-pack.json"],
+                next_action="repair_inputs",
+            )
+        )
+        current = {"slides": {}, "format_sha256": ""}
+    if state.get("format_sha256") != current.get("format_sha256"):
+        issues.append(
+            _issue(
+                "stale_format_fingerprint",
+                "blocker",
+                "The generation state was compiled against a different format contract.",
+                evidence=[package_dir / "generation-state.json"],
+                next_action="reconcile_package_state",
+            )
+        )
+    for number, fingerprints in current.get("slides", {}).items():
+        recorded = state_slides.get(number, {})
+        fingerprint_keys = (
+            "source_sha256",
+            "prompt_sha256",
+            "references_sha256",
+            "input_sha256",
+        )
+        mismatched = [
+            key
+            for key in fingerprint_keys
+            if recorded.get(key) != fingerprints.get(key)
+        ]
+        if mismatched:
+            issues.append(
+                _issue(
+                    "stale_slide_input_fingerprint",
+                    "blocker",
+                    f"Slide {number} state is stale against current semantic inputs: "
+                    + ", ".join(mismatched),
+                    evidence=[package_dir / "generation-state.json"],
+                    next_action="reconcile_package_state",
+                )
+            )
+
+    if status != "draft":
+        identity = _identity_reference_issues(
+            package_dir,
+            _read_json(package_dir / "prompt-pack.json"),
+            strict_v3=True,
+        )
+        if identity:
+            issues.append(
+                _issue(
+                    "identity_references_missing",
+                    "blocker",
+                    "Actual Aachu/Zuv references are required before image generation.",
+                    evidence=identity,
+                    next_action="attach_selected_identity_references",
+                )
+            )
+
+    if status == "handoff_ready":
+        from pipeline.stages.codex_builtin_image_generation import (
+            compiled_prompt_handoff_integrity_issues,
+        )
+
+        prompt_issues = compiled_prompt_handoff_integrity_issues(package_dir, state=state)
+        if prompt_issues:
+            issues.append(
+                _issue(
+                    "compiled_prompt_stale",
+                    "blocker",
+                    "; ".join(prompt_issues),
+                    evidence=[package_dir / ".internal/compiled-prompts"],
+                    next_action="recompile_prompt_handoff",
+                )
+            )
+
+    proof_qa = _read_json(package_dir / "proof-qa.json")
+    if status in {"awaiting_creator_proof_approval", "batch_ready"}:
+        from pipeline.stages.codex_builtin_image_generation import (
+            current_proof_qa_issues,
+        )
+
+        qa_issues = current_proof_qa_issues(
+            package_dir,
+            proof_qa,
+            state=state,
+        )
+        if qa_issues:
+            issues.append(
+                _issue(
+                    "proof_pixel_qa_incomplete",
+                    "blocker",
+                    "; ".join(qa_issues),
+                    evidence=[package_dir / "proof-qa.json"],
+                    next_action="review_proof_pixels",
+                )
+            )
+        if status == "batch_ready" and not _v3_creator_approved(package_dir, state, proof_qa):
+            issues.append(
+                _issue(
+                    "batch_without_approved_proof",
+                    "blocker",
+                    "Batch generation requires a hash-bound embedded creator approval.",
+                    evidence=[package_dir / "proof-qa.json"],
+                    next_action="approve_current_proof",
+                )
+            )
+
+    public_manifest = _read_json(package_dir / "final-images.json")
+    public_qa = _read_json(package_dir / "visual-qa.json")
+    final_audit = _read_json(package_dir / "final-audit.json")
+    final_png_exists = any(
+        (package_dir / str(format_spec(value)["folder"])).is_dir()
+        and any((package_dir / str(format_spec(value)["folder"])).glob("*.png"))
+        for value in SUPPORTED_NATIVE_FORMATS
+    )
+    if status != "publish_ready" and (public_manifest or final_png_exists):
+        issues.append(
+            _issue(
+                "premature_public_final",
+                "blocker",
+                "Public final evidence exists before complete-deck audit and promotion.",
+                evidence=[package_dir / "final-images.json"],
+                next_action="retract_public_finals",
+            )
+        )
+
+    if status == "final_qa_required" and state.get("next_action") == "finalize_deck":
+        hidden_root = package_dir / ".internal/final-audit-candidate"
+        hidden_manifest = _read_json(package_dir / ".internal/final-manifest-candidate.json")
+        qa_issues = validate_final_qa(hidden_root, public_qa, hidden_manifest)
+        if qa_issues:
+            issues.append(
+                _issue(
+                    "final_pixel_qa_incomplete",
+                    "blocker",
+                    "; ".join(qa_issues),
+                    evidence=[package_dir / "visual-qa.json"],
+                    next_action="review_final_pixels",
+                )
+            )
+
+    if status == "publish_ready":
+        from pipeline.stages.carousel_quality import build_final_audit
+
+        audit = build_final_audit(package_dir, write=False)
+        if audit.get("status") != "PASS":
+            issues.append(
+                _issue(
+                    "publish_evidence_stale",
+                    "blocker",
+                    "; ".join(audit.get("issues") or ["final audit failed"]),
+                    evidence=[
+                        package_dir / "final-images.json",
+                        package_dir / "visual-qa.json",
+                        package_dir / "final-audit.json",
+                    ],
+                    next_action="repair_publish_evidence",
+                )
+            )
+        if _status(final_audit) != "pass":
+            issues.append(
+                _issue(
+                    "publishable_without_final_audit",
+                    "blocker",
+                    "publish_ready requires final-audit.json status PASS.",
+                    evidence=[package_dir / "final-audit.json"],
+                    next_action="run_final_audit",
+                )
+            )
+
+    if status in {"blocked", "proof_failed", "final_qa_failed"}:
+        issues.append(
+            _issue(
+                f"carousel_{status}",
+                "blocker",
+                str(state.get("reason") or f"Carousel state is {status}."),
+                evidence=[package_dir / "generation-state.json"],
+                next_action=str(state.get("next_action") or "repair_current_failure"),
+            )
+        )
+
+    return WorkflowDoctorReport(package_dir=str(package_dir), issues=issues)
+
+
 def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
     package_dir = Path(package_dir).expanduser()
     if not package_dir.exists():
@@ -488,6 +767,15 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
                 next_action="repair_and_relock_current_request_formats",
             )
         )
+
+    if generation_state.get("schema_version") == STATE_SCHEMA_VERSION:
+        report = _inspect_v3_package(package_dir, generation_state, formats)
+        if issues:
+            return WorkflowDoctorReport(
+                package_dir=str(package_dir),
+                issues=[*issues, *report.issues],
+            )
+        return report
 
     stale_matches = _stale_generation_matches(package_dir)
     if stale_matches:

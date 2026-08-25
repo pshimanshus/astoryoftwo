@@ -9,6 +9,10 @@ from pathlib import Path
 from PIL import Image
 
 from pipeline.stages.carousel_format_contract import write_format_contract
+from pipeline.stages.carousel_pixel_qa import (
+    PIXEL_QA_SCHEMA_VERSION,
+    asset_binding_fingerprint,
+)
 
 
 SCRIPT = (
@@ -97,6 +101,63 @@ def test_pre_checker_requires_persisted_current_format_contract(tmp_path: Path) 
     assert any("format-contract.json is missing" in issue for issue in payload["issues"])
 
 
+def test_v3_pre_checker_requires_curated_identity_roles_and_style_attachment(
+    tmp_path: Path,
+) -> None:
+    package = base_package(tmp_path / "v3-refs")
+    write_json(
+        package / "generation-state.json",
+        {"schema_version": "carousel-generation-state/v3", "status": "draft"},
+    )
+
+    result = _run_checker(package, "pre")
+    payload = json.loads(result.stdout)
+
+    assert result.returncode == 1
+    assert any("Aachu, Zuv, and together" in issue for issue in payload["issues"])
+    assert any("no attached style references" in issue for issue in payload["issues"])
+
+
+def test_v3_pre_checker_reads_identity_roles_from_localized_selection(
+    tmp_path: Path,
+) -> None:
+    package = base_package(tmp_path / "v3-localized")
+    refs = [
+        ".internal/references/identity/a1.png",
+        ".internal/references/identity/b2.png",
+        ".internal/references/identity/c3.png",
+    ]
+    style_ref = ".internal/references/style/s1.png"
+    for ref in [*refs, style_ref]:
+        write_png(package / ref, (64, 64))
+    prompt = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
+    prompt["identity_reference_images"] = refs
+    prompt["style_reference_images"] = [style_ref]
+    write_json(package / "prompt-pack.json", prompt)
+    write_json(
+        package / "creative-context.json",
+        {
+            "identity_reference_selection": {
+                "selected_references": [
+                    {"path": refs[0], "role": "Aachu identity anchor"},
+                    {"path": refs[1], "role": "Zuv identity anchor"},
+                    {"path": refs[2], "role": "together body/posture anchor"},
+                ]
+            }
+        },
+    )
+    write_json(
+        package / "generation-state.json",
+        {"schema_version": "carousel-generation-state/v3", "status": "draft"},
+    )
+
+    result = _run_checker(package, "pre")
+    payload = json.loads(result.stdout)
+
+    assert result.returncode == 0
+    assert payload["checks"]["copy_format_action_preflight"]["pass"] is True
+
+
 def test_post_checker_fails_fast_on_semantic_pixels(tmp_path: Path) -> None:
     package = base_package(tmp_path / "semantic")
     proof = package / ".internal" / "visual-quarantine" / "proof.png"
@@ -133,7 +194,7 @@ def test_post_checker_fails_fast_on_semantic_pixels(tmp_path: Path) -> None:
     payload = json.loads(result.stdout)
 
     assert result.returncode == 1
-    assert payload["checks"]["actual_pixel_story_qa"]["pass"] is False
+    assert payload["checks"]["bound_pixel_observation_qa"]["pass"] is False
     assert payload["issues"] == [
         "post: semantic_action failed on the rendered pixels (semantic_action)."
     ]
@@ -178,3 +239,126 @@ def test_post_checker_rejects_stale_asset_hash(tmp_path: Path) -> None:
 
     assert result.returncode == 1
     assert any("SHA-256 is missing or stale" in issue for issue in payload["issues"])
+
+
+def test_strict_post_checker_validates_authored_view_image_evidence_without_claiming_vision(
+    tmp_path: Path,
+) -> None:
+    package = base_package(tmp_path / "strict")
+    # Strict identity evidence names the exact four selected role anchors.
+    refs = [
+        "refs/aachu.png",
+        "refs/zuv.png",
+        "refs/together-face.png",
+        "refs/together-body.png",
+    ]
+    style_ref = "refs/style.png"
+    for ref in [*refs, style_ref]:
+        write_png(package / ref, (64, 64))
+    prompt = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
+    prompt["identity_reference_images"] = refs
+    prompt["style_reference_images"] = [style_ref]
+    write_json(package / "prompt-pack.json", prompt)
+    write_json(
+        package / "creative-context.json",
+        {
+            "identity_reference_selection": {
+                "selected_references": [
+                    {"path": refs[0], "role": "Aachu identity anchor"},
+                    {"path": refs[1], "role": "Zuv identity anchor"},
+                    {"path": refs[2], "role": "together face/scale anchor"},
+                    {"path": refs[3], "role": "together body/posture anchor"},
+                ]
+            }
+        },
+    )
+
+    proof = package / ".internal" / "visual-quarantine" / "slide-01" / "attempt-01" / "instagram_post.png"
+    write_png(proof)
+    binding = {
+        "path": str(proof.relative_to(package)),
+        "sha256": "sha256:" + hashlib.sha256(proof.read_bytes()).hexdigest(),
+        "width": 1080,
+        "height": 1440,
+    }
+    binding["binding_sha256"] = asset_binding_fingerprint(1, "instagram_post", binding)
+    copy_text = "We knew who. We were learning how."
+    checks = {
+        "physical_action": {
+            "status": "PASS",
+            "evidence": "Both people visibly pull the dining table toward opposite walls.",
+        },
+        "relationship_state": {
+            "status": "PASS",
+            "evidence": "Their conflict is visible while the shared table keeps them connected.",
+        },
+        "entity_spatial_integrity": {
+            "status": "PASS",
+            "evidence": "Two silhouettes, four hands, and the shared table have coherent contact and ownership.",
+        },
+        "identity_wardrobe_accessories": {
+            "status": "PASS",
+            "evidence": "Aachu and Zuv match the named face, body, wardrobe, and shared-scale references.",
+            "references": {
+                "aachu": [refs[0]],
+                "zuv": [refs[1]],
+                "together": refs[2:],
+            },
+        },
+        "text_brandmark_style_dimensions": {
+            "status": "PASS",
+            "evidence": "The exact text and tiny top-right brandmark are visible on the native post canvas.",
+            "expected_text": copy_text,
+            "observed_text": copy_text,
+            "observed_brandmark": "@a.storyof.two",
+            "style_references": [style_ref],
+        },
+    }
+    write_json(
+        package / "proof-qa.json",
+        {
+            "schema_version": PIXEL_QA_SCHEMA_VERSION,
+            "scope": "proof",
+            "status": "PASS",
+            "inspection": {
+                "method": "codex_view_image",
+                "decoded_pixels_observed": True,
+            },
+            "selected_slides": [1],
+            "slides": [
+                {
+                    "slide": 1,
+                    "asset_bindings": {"instagram_post": binding},
+                    "reviews": {"instagram_post": {"checks": checks}},
+                }
+            ],
+        },
+    )
+
+    result = _run_checker(package, "post")
+    payload = json.loads(result.stdout)
+
+    # The checker validates an external pixel observation. It does not invoke
+    # image generation, OCR, or a vision backend itself.
+    assert result.returncode == 0
+    assert payload["checks"]["bound_pixel_observation_qa"]["pass"] is True
+
+
+def test_strict_post_checker_rejects_fabricated_unobserved_qa(tmp_path: Path) -> None:
+    package = base_package(tmp_path / "fabricated")
+    write_json(
+        package / "proof-qa.json",
+        {
+            "schema_version": PIXEL_QA_SCHEMA_VERSION,
+            "scope": "proof",
+            "status": "PASS",
+            "selected_slides": [1],
+            "slides": [],
+        },
+    )
+
+    result = _run_checker(package, "post")
+    payload = json.loads(result.stdout)
+
+    assert result.returncode == 1
+    assert any("inspection metadata is missing" in issue for issue in payload["issues"])

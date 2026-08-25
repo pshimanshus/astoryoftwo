@@ -41,9 +41,10 @@ def test_make_carousel_runs_only_the_production_command():
     text = (WORKSPACE / "Makefile").read_text(encoding="utf-8")
     carousel_target = text.split("\narticle:", 1)[0].split("\ncarousel:", 1)[1]
 
-    assert carousel_target.count("scripts/create_illustration_carousel.py") == 1
+    assert carousel_target.count("scripts/carousel.py create") == 1
     assert "pytest" not in carousel_target
     assert "scripts/agentic_os.py health" not in carousel_target
+    assert "wiki" not in carousel_target.lower()
 
 
 def test_command_center_scripts_have_help():
@@ -76,12 +77,13 @@ def test_jam_today_prints_free_creative_pass_before_gates():
     )
 
     assert result.returncode == 0
-    assert "free creative pass first" in result.stdout.lower()
-    assert "engineering guardrails" in result.stdout.lower()
+    assert "free creative pass" in result.stdout.lower()
+    assert "story-only input creates a truthful draft" in result.stdout.lower()
+    assert "scripts/carousel.py create" in result.stdout
     assert "before writing public copy" not in result.stdout.lower()
 
 
-def test_jam_today_prints_research_partner_lens_and_learning_capture():
+def test_jam_today_omits_default_research_and_learning_ceremony():
     result = subprocess.run(
         [sys.executable, str(WORKSPACE / "scripts" / "jam_today.py"), "--moment", "blanket border moved again"],
         cwd=WORKSPACE,
@@ -92,16 +94,13 @@ def test_jam_today_prints_research_partner_lens_and_learning_capture():
     )
 
     assert result.returncode == 0
-    assert "## Research Partner Lens" in result.stdout
-    assert "memory/semantic/engineering-workflow-preferences.md" in result.stdout
-    assert "hypothesis:" in result.stdout.lower()
-    assert "challenge:" in result.stdout.lower()
-    assert "durable learning:" in result.stdout.lower()
-    assert "scripts/agentic_os.py capture-hypothesis" in result.stdout
-    assert "scripts/agentic_os.py capture-learning" in result.stdout
+    assert "Research Partner Lens" not in result.stdout
+    assert "Research Challenge Gate" not in result.stdout
+    assert "capture-hypothesis" not in result.stdout
+    assert "capture-learning" not in result.stdout
 
 
-def test_jam_today_challenges_weak_abstract_moments_before_packaging():
+def test_jam_today_keeps_abstract_seed_as_truthful_draft_command():
     result = subprocess.run(
         [
             sys.executable,
@@ -116,15 +115,14 @@ def test_jam_today_challenges_weak_abstract_moments_before_packaging():
         timeout=30,
     )
 
-    assert result.returncode == 2
-    assert "## Research Challenge Gate" in result.stdout
-    assert "verdict: REWORK" in result.stdout
-    assert "missing concrete couple scene" in result.stdout
-    assert "missing reader-recognition proof" in result.stdout
-    assert "Package Command" not in result.stdout
+    assert result.returncode == 0
+    assert "## Creative Pass" in result.stdout
+    assert "scripts/carousel.py create" in result.stdout
+    assert "--prepare-proof" not in result.stdout
+    assert "Research Challenge Gate" not in result.stdout
 
 
-def test_jam_today_allows_concrete_couple_moments_through_challenge_gate():
+def test_jam_today_routes_concrete_couple_moment_without_gate_ceremony():
     result = subprocess.run(
         [sys.executable, str(WORKSPACE / "scripts" / "jam_today.py"), "--moment", "blanket border moved again"],
         cwd=WORKSPACE,
@@ -135,9 +133,9 @@ def test_jam_today_allows_concrete_couple_moments_through_challenge_gate():
     )
 
     assert result.returncode == 0
-    assert "## Research Challenge Gate" in result.stdout
-    assert "verdict: PASS" in result.stdout
-    assert "## Package Command" in result.stdout
+    assert "## Carousel Command" in result.stdout
+    assert "scripts/carousel.py create" in result.stdout
+    assert "Research Challenge Gate" not in result.stdout
 
 
 def test_daily_creator_brief_surfaces_research_partner_lens():

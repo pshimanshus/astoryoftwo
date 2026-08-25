@@ -14,13 +14,13 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.stages.c1_illustration_carousel import (
-    DEFAULT_SLIDE_COUNT,
     normalize_image_paths,
     slugify_title,
     validate_slide_count,
 )
 from pipeline.stages.carousel_contract import load_style_contract
 from pipeline.stages.carousel_lanes import (
+    IDENTITY_DOSSIER_PATH,
     build_identity_reference_selection,
     build_slides,
     discover_identity_images,
@@ -30,10 +30,12 @@ from pipeline.stages.carousel_lanes import (
 )
 from pipeline.stages.carousel_package_writer import (
     build_manifest,
-    try_render_assets,
     write_package,
 )
 from pipeline.stages.carousel_visual_storytelling import physical_action_issue
+
+
+MAX_IMAGEGEN_REFERENCE_ATTACHMENTS = 5
 
 
 def load_creative_baseline(path: str | Path | None) -> dict[str, Any] | None:
@@ -45,31 +47,22 @@ def load_creative_baseline(path: str | Path | None) -> dict[str, Any] | None:
     payload = json.loads(baseline_path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError("Creative brief must be a JSON object.")
+    raw_slides = payload.get("slides")
+    if isinstance(raw_slides, list):
+        for index, slide in enumerate(raw_slides, start=1):
+            if not isinstance(slide, dict) or "source_images" not in slide:
+                continue
+            values = slide.get("source_images")
+            if not isinstance(values, list):
+                raise ValueError(f"Creative brief slide {index} source_images must be a list.")
+            resolved: list[str] = []
+            for value in values:
+                source = Path(str(value)).expanduser()
+                if not source.is_absolute():
+                    source = baseline_path.parent / source
+                resolved.append(str(source))
+            slide["source_images"] = resolved
     return payload
-
-
-def build_local_creative_baseline_record(
-    *,
-    story: str,
-    title: str,
-    slides: list[dict[str, Any]],
-    style_brief: str | None,
-) -> dict[str, Any]:
-    return {
-        "schema_version": "carousel-creative-brief/v2",
-        "source": "creator_or_local_draft",
-        "title": title,
-        "story": story,
-        "style_brief": style_brief or "",
-        "slides": [
-            {
-                "slide": int(slide["slide"]),
-                "copy": str(slide["copy"]),
-                "visual": str(slide["visual"]),
-            }
-            for slide in slides
-        ],
-    }
 
 
 def slides_from_creative_baseline(
@@ -102,6 +95,13 @@ def slides_from_creative_baseline(
         )
         if action_issue:
             raise ValueError(f"Creative brief slide {index} {action_issue}.")
+        local_sources = item.get("source_images")
+        if local_sources is not None and not isinstance(local_sources, list):
+            raise ValueError(f"Creative brief slide {index} source_images must be a list.")
+        source_images = [
+            str(value)
+            for value in (image_paths if local_sources is None else local_sources)
+        ]
         slide = {
             "slide": index,
             "role": str(item.get("role") or "story_beat"),
@@ -113,8 +113,20 @@ def slides_from_creative_baseline(
             "camera": str(item.get("camera") or ""),
             "focal_hierarchy": str(item.get("focal_hierarchy") or ""),
             "setting": str(item.get("setting") or ""),
-            "source_images": [str(path) for path in image_paths],
+            "source_images": source_images,
         }
+        for key in (
+            "composition",
+            "wardrobe",
+            "pose",
+            "props",
+            "background",
+            "continuity_lock",
+            "negative_prompt",
+        ):
+            value = item.get(key)
+            if value not in (None, "", []):
+                slide[key] = value
         slides.append(slide)
     return slides
 
@@ -128,6 +140,34 @@ def _slide_prompt(
     scene = str(slide.get("physical_action") or slide["visual"])
     camera = str(slide.get("camera") or "clear observational medium-wide framing")
     focal = str(slide.get("focal_hierarchy") or "the couple's physical action reads first")
+    pose_direction = "; ".join(
+        value
+        for value in (
+            str(slide.get("pose") or "").strip(),
+            str(slide.get("composition") or "").strip(),
+            str(slide.get("camera") or "").strip(),
+            str(slide.get("focal_hierarchy") or "").strip(),
+        )
+        if value
+    )
+    background_direction = "; ".join(
+        value
+        for value in (
+            str(slide.get("background") or "").strip(),
+            str(slide.get("setting") or "").strip(),
+            str(slide.get("continuity_lock") or "").strip(),
+        )
+        if value
+    )
+    default_negative = (
+        "extra people, extra arms, duplicated hands, malformed fingers, impossible contact, "
+        "wrong identity, wrong wardrobe, invented text, misspelling, missing brandmark"
+    )
+    negative = " ".join(
+        value
+        for value in (default_negative, str(slide.get("negative_prompt") or "").strip())
+        if value
+    )
     prompt = "\n".join(
         (
             f"SCENE: {scene}",
@@ -141,17 +181,27 @@ def _slide_prompt(
             "illegible or invented text, photorealism, 3D, glossy vector art, collage, or quote card.",
         )
     )
-    return {
+    result = {
         "slide": int(slide["slide"]),
         "text": str(slide["copy"]),
         "scene": scene,
         "prompt": prompt,
-        "negative_prompt": (
-            "extra people, extra arms, duplicated hands, malformed fingers, impossible contact, "
-            "wrong identity, wrong wardrobe, invented text, misspelling, missing brandmark"
-        ),
+        "negative_prompt": negative,
         "identity_reference_images": [str(path) for path in identity_images],
     }
+    optional = {
+        "pose": pose_direction,
+        "wardrobe": slide.get("wardrobe"),
+        "props": slide.get("props"),
+        "background": background_direction,
+        "emotion": slide.get("emotion"),
+        "composition": slide.get("composition"),
+        "camera": slide.get("camera"),
+        "focal_hierarchy": slide.get("focal_hierarchy"),
+        "continuity_lock": slide.get("continuity_lock"),
+    }
+    result.update({key: value for key, value in optional.items() if value not in (None, "", [])})
+    return result
 
 
 def build_package(
@@ -161,15 +211,13 @@ def build_package(
     identity_image_paths: list[Path],
     identity_reference_selection: dict[str, Any],
     identity_dossier: dict[str, Any],
-    title: str,
-    slide_count: int,
+    slide_count: int | None,
     style_brief: str | None,
-    layer_e_decision: Any | None = None,
+    style_reference_paths: list[Path] | None = None,
     creative_baseline: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Create one human-readable slide plan and its compact prompt pack."""
 
-    del layer_e_decision  # Historical compatibility; no default scoring layer.
     contract = load_style_contract()
     slides = slides_from_creative_baseline(creative_baseline, image_paths)
     if slides is None:
@@ -183,23 +231,34 @@ def build_package(
         or contract.get("shared_style_prompt")
         or "warm ivory paper, watercolor and loose ink, intimate lived-in scene"
     )
-    style_reference_limit = int(contract.get("style_reference_attachment_limit", 3))
-    style_references = [
-        str(path)
-        for value in contract.get("style_references", [])
-        if (path := Path(str(value))).is_file()
-    ][:style_reference_limit]
+    style_reference_limit = int(contract.get("style_reference_attachment_limit", 1))
+    style_candidates = (
+        style_reference_paths
+        if style_reference_paths is not None
+        else [Path(str(value)) for value in contract.get("style_references", [])]
+    )
+    style_references = [str(path) for path in style_candidates if path.is_file()]
+    if style_reference_paths is not None and len(style_references) != style_reference_limit:
+        raise ValueError(
+            f"Pass exactly {style_reference_limit} explicit style board; "
+            f"received {len(style_references)}."
+        )
+    if len(style_references) > style_reference_limit:
+        raise ValueError(
+            f"Style contract allows exactly {style_reference_limit} style board; "
+            f"found {len(style_references)}."
+        )
+    attachment_count = len(identity_image_paths) + len(style_references)
+    if attachment_count > MAX_IMAGEGEN_REFERENCE_ATTACHMENTS:
+        raise ValueError(
+            "Image generation supports at most five identity and style attachments; "
+            f"selected {len(identity_image_paths)} identity and {len(style_references)} style."
+        )
     prompts = [
         _slide_prompt(slide, style_prompt=style_prompt, identity_images=identity_image_paths)
         for slide in slides
     ]
     return {
-        "creative_context": build_local_creative_baseline_record(
-            story=story,
-            title=title,
-            slides=slides,
-            style_brief=style_brief,
-        ),
         "slides": slides,
         "prompt_pack": {
             "schema_version": "carousel-prompt-pack/v2",
@@ -225,11 +284,11 @@ def create_codex_native_carousel(
     story: str,
     image_paths: list[str | Path],
     identity_image_paths: list[str | Path] | None = None,
+    style_reference_paths: list[str | Path] | None = None,
     title: str | None = None,
-    slide_count: int = DEFAULT_SLIDE_COUNT,
+    slide_count: int | None = None,
     style_brief: str | None = None,
     output_root: Path = Path("output") / "carousels",
-    render_assets: bool = False,
     today: date | None = None,
     creative_baseline_path: str | Path | None = None,
     requested_formats: list[str] | None = None,
@@ -238,13 +297,26 @@ def create_codex_native_carousel(
         raise ValueError("Story is required.")
     creative_baseline = load_creative_baseline(creative_baseline_path)
     if creative_baseline and isinstance(creative_baseline.get("slides"), list):
-        slide_count = len(creative_baseline["slides"])
-    validate_slide_count(slide_count)
+        brief_slide_count = len(creative_baseline["slides"])
+        if slide_count is not None and slide_count != brief_slide_count:
+            raise ValueError(
+                f"Creative brief contains {brief_slide_count} slides but --slide-count is "
+                f"{slide_count}; refusing to discard or invent creator beats."
+            )
+        slide_count = brief_slide_count
+        validate_slide_count(slide_count)
+    elif slide_count is not None:
+        validate_slide_count(slide_count)
     today = today or date.today()
     output_root = Path(output_root)
     workspace_root = infer_workspace_root(output_root)
 
     story_paths = normalize_image_paths(image_paths)
+    style_paths = (
+        normalize_image_paths(style_reference_paths)
+        if style_reference_paths is not None
+        else None
+    )
     explicit_identity = identity_image_paths is not None
     identity_candidates = (
         normalize_image_paths(identity_image_paths or [])
@@ -260,6 +332,17 @@ def create_codex_native_carousel(
         selected_paths=identity_paths,
         explicit=explicit_identity,
     )
+    identity_dossier = (
+        {
+            "status": "selected_generation_bundle",
+            "path": str(IDENTITY_DOSSIER_PATH),
+        }
+        if not explicit_identity and identity_paths
+        else {
+            "status": "creator_selected" if identity_paths else "unavailable",
+            "path": None,
+        }
+    )
 
     final_title = infer_title(story, title)
     dated_root = output_root / str(today)
@@ -274,10 +357,10 @@ def create_codex_native_carousel(
         image_paths=story_paths,
         identity_image_paths=identity_paths,
         identity_reference_selection=selection,
-        identity_dossier={"status": "not_required", "path": None},
-        title=final_title,
+        identity_dossier=identity_dossier,
         slide_count=slide_count,
         style_brief=style_brief,
+        style_reference_paths=style_paths,
         creative_baseline=creative_baseline,
     )
     context = build_manifest(
@@ -287,7 +370,7 @@ def create_codex_native_carousel(
         image_paths=story_paths,
         identity_image_paths=identity_paths,
         identity_reference_selection=selection,
-        identity_dossier={"status": "not_required", "path": None},
+        identity_dossier=identity_dossier,
         slide_count=len(package["slides"]),
         today=today,
         requested_formats=requested_formats,
@@ -298,18 +381,13 @@ def create_codex_native_carousel(
     )
     write_package(out_dir, context, package)
 
-    if render_assets:
-        # Kept as an explicit compatibility no-op. It never creates final art.
-        try_render_assets(out_dir, package["slides"])
     return out_dir
 
 
 __all__ = [
-    "build_local_creative_baseline_record",
     "build_manifest",
     "build_package",
     "create_codex_native_carousel",
     "load_creative_baseline",
     "slides_from_creative_baseline",
-    "try_render_assets",
 ]

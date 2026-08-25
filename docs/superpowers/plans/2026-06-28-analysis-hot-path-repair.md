@@ -1,6 +1,6 @@
 # Carousel Hot-Path Repair
 
-Status: implemented on `codex/carousel-hot-path-v2`
+Status: v3 repair implemented on `codex/carousel-hot-path-v2`
 Updated: 2026-08-24
 
 ## Failure That Triggered the Rewrite
@@ -37,31 +37,36 @@ false confidence without preventing the actual failure.
   approval, slide-local retries, and final hashes.
 - Removed production-time test/health preflights from `make carousel`; those
   remain verification and closeout commands.
-- Removed the legacy eleven-agent Anthropic orchestration path; compatibility
-  calls now route to the single Codex-native builder.
-- Copied selected identity/style inputs into package-local reference paths so
-  proof generation and the doctor inspect the same real files.
 - Blocked story-only placeholder scenes from entering proof generation; the
   next action is now `define_physical_actions`.
-- Reduced default style attachments from eight to three and replaced the 30 KB
-  legacy style/policy contract with the 5.5 KB active contract.
+- Consolidated creation, preparation, ingestion, review, approval, status, and
+  finalization under `scripts/carousel.py` with versioned JSON responses.
+- Made the production boundary explicit: Codex generates and opens decoded
+  pixels; repo commands prepare, quarantine, bind QA, approve, and atomically
+  promote. Unavailable visual tools remain `handoff_ready`, never PASS.
+- Added slide-semantic v3 fingerprints and slide-local invalidation. Shared
+  identity/style/compiler/brand/format/order changes invalidate the full deck;
+  harmless JSON formatting does not.
+- Reused a passed, hash-bound, creator-approved proof as its final candidate
+  and removed duplicate inventory from visual QA and final audit.
+- New calls bind four curated identity files plus one style contact sheet—five
+  is an observed built-in-runtime boundary, not an official limit claim.
+- Post ingest may bind an untouched exact-3:4 source through 1440x1920 and
+  downsample once to the exact 1080x1440 final; other formats stay exact-only.
+- Kept archived v2 packages read-only. No existing carousel was migrated,
+  regenerated, inspected, or edited by this repair.
 
 ## Acceptance Tests
 
-- `carousel_jam` has four gates and zero default agents.
-- A representative compiled prompt is below all budgets.
-- A semantic proof failure cannot become `handoff_ready`.
-- No public final manifest is written for an incomplete deck.
-- Unrequested formats are never generated.
-- Exact text, identity refs, brandmark, dimensions, and pixel integrity remain
-  blocking requirements.
-- A minimal fixture produces only the active hot-path artifacts.
+Acceptance covers four gates/zero default agents, prompt budgets, truthful
+failed-proof state, no incomplete final claim, requested formats only, exact
+text/identity/brandmark/dimensions/pixel integrity, a minimal fixture, and the
+synthetic public lifecycle/benchmark without claiming vision quality.
 
 ## Deliberately Removed
 
-The default route no longer writes agent-room, concept-debate, concept-repair,
-taste-score, post-copy-room, visual-debate, Event A director storyboard,
-run-ledger, stage-review, approval-ledger, raw-response, or wiki-update files.
+The default route writes no agent-room, debate, taste-score, Event A director,
+run/stage/approval ledger, raw-response, or wiki-update files.
 Historical generated packages are not source truth and are not migrated in
 place.
 

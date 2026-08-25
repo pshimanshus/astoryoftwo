@@ -56,41 +56,38 @@ The normal route uses no default agent room. Add depth only for a named need:
 
 Keep these hard gates:
 
-- selected actual Aachu/Zuv identity images attached to generation;
-- package-local copies of selected identity/style files shared by the prompt
-  handoff and doctor;
-- wardrobe and identity anchors from those images;
+- four selected identity images plus one canonical style board, copied locally
+  and shared by prompt handoff and doctor;
+- wardrobe and whole-person identity anchored to those images;
 - exact integrated on-image text;
 - tiny top-right `@a.storyof.two`;
 - exact `1080x1440` final post/carousel output by default;
 - `1080x1920` Story/Reel and `1080x1080` square only when requested;
-- correct people, limbs, hands, entities, object geometry, and scene physics;
-- actual-pixel identity, story, text, style, and dimension inspection;
-- one risky proof before the rest of the deck;
-- at most two semantic generation attempts for a slide;
+- correct people/entities/physics plus actual-pixel story, integrity, identity,
+  text, style, and dimension inspection;
+- one risky proof and at most two semantic attempts per premise;
 - final hashes and manifests only after the complete deck passes.
+
+The prompt still asks for exact 1080x1440. As an observed built-in-runtime
+accommodation, only post ingest may bind an untouched exact-3:4 source from
+1080x1440 through 1440x1920 and proportionally downsample once. Final remains
+exact 1080x1440; crop/pad/stretch/upscale/wrong ratio are blocked. Story/Reel
+and square remain exact-only, and approved normalized proof bytes are reused.
+
+Codex owns image-generation calls and actual decoded-pixel inspection. The repo
+owns prompt preparation, exact-output ingestion, QA/approval binding, state,
+and atomic promotion. There is no repo API renderer, API-key flow, OCR fallback,
+or environment capability artifact.
+
+New calls attach those four identity files plus one style board. Five is the
+observed built-in-runtime boundary, not an official limit; never drop identity.
 
 ## Small Package
 
-Before proof:
-
-- `creative-context.json`
-- `format-contract.json`
-- `slides.json`
-- `prompt-pack.json`
-- `.internal/compiled-prompts/`
-
-After proof:
-
-- one quarantined proof image
-- `proof-qa.json`
-
-After the full deck passes:
-
-- final native PNGs
-- `final-images.json`
-- `visual-qa.json`
-- `final-audit.json`
+Before proof: `creative-context.json`, `format-contract.json`, `slides.json`,
+`prompt-pack.json`, and `.internal/compiled-prompts/`. After proof: one
+quarantined proof image and `proof-qa.json`. After the full deck passes: final
+native PNGs, `final-images.json`, `visual-qa.json`, and `final-audit.json`.
 
 Deliberation transcripts, agent-room records, approval ledgers, provenance
 graphs, raw model responses, and prose-only storyboard certifications are not
@@ -112,10 +109,19 @@ next action is `repair_visual_premise`. It is never `handoff_ready`. Public fina
 folders and `final-images.json` are written only after all requested slides and
 formats pass actual-pixel QA.
 
+New packages use compact v3 state with slide-semantic fingerprints. A local
+slide edit invalidates only that slide; a proof edit also revokes approval;
+shared identity/style/compiler/brand/format/order changes invalidate the deck.
+An approved proof is reused, not regenerated. Archived v2 packages remain
+read-only and are never migrated during an ordinary run.
+
+The public state vocabulary is: `draft`, `blocked`, `handoff_ready`,
+`proof_qa_required`, `proof_failed`,
+`awaiting_creator_proof_approval`, `batch_ready`, `final_qa_required`,
+`final_qa_failed`, and `publish_ready`.
+
 ## Source of Truth
 
-Canonical rules stay in `config/rules/`. Runtime routing stays in
-`config/skill-systems.json`. The compact execution instructions live in
-`config/skills/carousel-jam-runtime-context.md` and
-`config/skills/carousel-jam-autopilot.md`. Generated output and old plans are
-never rule authority.
+Canonical rules stay in `config/rules/`; routing stays in
+`config/skill-systems.json`; compact execution lives in the carousel runtime
+and autopilot skill docs. Generated output and old plans are not rule authority.

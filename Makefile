@@ -1,6 +1,5 @@
 PY ?= venv/bin/python
 NOTE ?= AI command-center health run.
-SLIDES ?= 5
 PHASE ?= all
 IDEA_MAX_ITERATIONS ?= 3
 IDEA_CANDIDATES ?= 6
@@ -18,7 +17,7 @@ help:
 	@printf "%s\n" "  make idea-loop                   Discover and verify one fresh Instagram idea"
 	@printf "%s\n" "  make jam MOMENT='...'            Prepare a carousel jam prompt/command"
 	@printf "%s\n" "  make prepost CONCEPT='...'       Run planned Reel pre-post analysis"
-	@printf "%s\n" "  make carousel STORY='...'        Create a carousel package"
+	@printf "%s\n" "  make carousel STORY='...'        Create a draft; CREATIVE_BRIEF=path prepares one proof"
 	@printf "%s\n" "  make visual-check CAROUSEL=path  Check directed story before/after imagegen"
 	@printf "%s\n" "  make article CAROUSEL=path       Create Substack article package"
 	@printf "%s\n" "  make publish NOTE='...'          Run safe verify -> commit -> push gate"
@@ -35,13 +34,13 @@ idea-loop:
 	$(PY) scripts/instagram_idea_loop.py run $(if $(DRY_RUN),--dry-run)
 
 jam:
-	$(PY) scripts/jam_today.py $(if $(MOMENT),--moment "$(MOMENT)") --slides "$(SLIDES)"
+	$(PY) scripts/jam_today.py $(if $(MOMENT),--moment "$(MOMENT)") $(if $(filter command line environment override,$(origin SLIDES)),--slides "$(SLIDES)")
 
 prepost:
 	$(PY) scripts/analyze_prepost.py $(if $(CONCEPT),--concept "$(CONCEPT)") $(if $(HOOK),--hook "$(HOOK)") $(if $(CAPTION),--caption "$(CAPTION)") $(if $(EDIT),--edit "$(EDIT)") $(if $(AUDIO),--audio "$(AUDIO)") $(if $(COVER),--cover "$(COVER)")
 
 carousel:
-	$(PY) scripts/create_illustration_carousel.py $(if $(STORY),--story "$(STORY)") $(if $(TITLE),--title "$(TITLE)") --slide-count "$(SLIDES)" $(foreach image,$(IMAGE),--image "$(image)") $(foreach identity,$(IDENTITY_IMAGE),--identity-image "$(identity)")
+	$(PY) scripts/carousel.py create $(if $(STORY_FILE),--story-file "$(STORY_FILE)",$(if $(STORY),--story "$(STORY)")) $(if $(TITLE),--title "$(TITLE)") $(if $(filter command line environment override,$(origin SLIDES)),--slide-count "$(SLIDES)") $(if $(CREATIVE_BRIEF),--creative-brief "$(CREATIVE_BRIEF)" --prepare-proof,$(if $(PREPARE_PROOF),--prepare-proof)) $(if $(OUTPUT_ROOT),--output-root "$(OUTPUT_ROOT)") $(if $(PROOF_SLIDE),--proof-slide "$(PROOF_SLIDE)") $(foreach image,$(STORY_IMAGES) $(IMAGE),--story-image "$(image)") $(foreach identity,$(IDENTITY_IMAGES) $(IDENTITY_IMAGE),--identity-image "$(identity)") $(foreach style,$(STYLE_REFERENCES) $(STYLE_REFERENCE),--style-reference "$(style)") $(foreach format,$(FORMATS),--format "$(format)")
 
 visual-check:
 	@test -n "$(CAROUSEL)" || (printf "%s\n" "Usage: make visual-check CAROUSEL=output/carousels/YYYY-MM-DD/slug PHASE=pre|post|all"; exit 2)

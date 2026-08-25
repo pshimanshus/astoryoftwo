@@ -90,6 +90,11 @@ def test_compile_image_prompt_locks_one_native_format(
     assert f"Canvas: {label}; exact {size} px; native {ratio}" in prompt
     assert excluded in prompt
     assert "Do not crop, pad, stretch, resize, or derive it from another format" in prompt
+    assert "downsample" not in prompt.lower()
+    assert "accepted source" not in prompt.lower()
+    if format_key == "instagram_post":
+        assert "exact 1080x1440 px; native 3:4" in prompt
+        assert "1440x1920" not in prompt
 
 
 def test_compile_image_prompt_preserves_exact_text_line_breaks_and_brandmark():
@@ -101,6 +106,20 @@ def test_compile_image_prompt_preserves_exact_text_line_breaks_and_brandmark():
     assert "Add no other words except" in prompt
     assert "`@a.storyof.two` at the top-right" in prompt
     assert "textless" not in prompt.casefold()
+
+
+def test_exact_copy_is_never_sanitized_as_scene_or_reference_prose() -> None:
+    exact = (
+        "We saved /home/us/photo.jpg.  Exactly twice.\n"
+        "References: [us]. The file was vows.png."
+    )
+
+    prompt = _compile(slide_copy=exact)
+
+    assert f"ON-IMAGE TEXT:\n{exact}" in prompt
+    assert "attached reference image" not in _section(
+        prompt, "ON-IMAGE TEXT:", "SCENE:"
+    )
 
 
 def test_prompt_keeps_reference_identity_wardrobe_and_style_requirements():
@@ -179,6 +198,13 @@ def test_verbose_inputs_are_deduplicated_and_compacted_to_field_budgets():
     assert len(prompt.split()) <= MAX_PROMPT_WORDS
 
 
+def test_locked_field_over_budget_blocks_instead_of_dropping_tail() -> None:
+    wardrobe = " ".join(f"wardrobe-token-{index}" for index in range(55)) + " LOCKED_TAIL"
+
+    with pytest.raises(ValueError, match="Locked wardrobe exceeds its 55-word"):
+        _compile(wardrobe=wardrobe)
+
+
 def test_canonical_generation_body_has_no_workflow_state_or_duplicate_prompt_sections():
     canonical = load_canonical_master_prompt()
 
@@ -195,25 +221,6 @@ def test_canonical_generation_body_has_no_workflow_state_or_duplicate_prompt_sec
         "visual-qa.json",
     ):
         assert noise not in canonical.casefold()
-
-
-def test_handoff_markdown_points_to_prompt_txt_without_second_prompt_body():
-    from pipeline.stages.codex_builtin_image_generation import build_handoff_markdown
-
-    markdown = build_handoff_markdown(
-        slide_number=1,
-        output_label="Instagram Post Output",
-        prompt_filename="slide-01.prompt.txt",
-        reference_paths=["identity_images/aachu-zuv-reference.jpg"],
-        exact_slide_copy="dumber",
-        expected_file="final/slide-01.png",
-        generated_source="final/model-native-source/instagram-post-slide-01.png",
-    )
-
-    assert "Paste the full prompt from `slide-01.prompt.txt`" in markdown
-    assert "intentionally does not duplicate the prompt body" in markdown
-    assert "\n## Prompt Source\n" in markdown
-    assert "\n## Prompt\n" not in markdown
 
 
 def test_extract_scene_summary_and_legacy_generator_drop_old_checklist_noise():
@@ -241,6 +248,7 @@ def test_master_prompt_contract_keeps_only_requested_native_outputs():
 
     assert contract["version"] == MASTER_PROMPT_VERSION
     assert contract["native_outputs"]["instagram_post"]["size"] == "1080x1440"
+    assert contract["native_outputs"]["instagram_post"]["source_size"] == "1080x1440"
     assert contract["native_outputs"]["reels_stories"]["size"] == "1080x1920"
     assert contract["native_outputs"]["square"]["size"] == "1080x1080"
     assert "hashes, provenance, and QA schemas outside" in contract["rule"]

@@ -19,8 +19,6 @@ from typing import Any
 
 from pipeline.stages.carousel_format_contract import (
     build_format_contract,
-    expected_output_relative_path,
-    normalize_requested_formats,
     write_format_contract,
 )
 
@@ -169,8 +167,14 @@ def _minimal_slide(slide: dict[str, Any]) -> dict[str, Any]:
         "camera",
         "focal_hierarchy",
         "setting",
+        "composition",
+        "wardrobe",
+        "pose",
+        "props",
+        "background",
         "source_images",
         "continuity_lock",
+        "negative_prompt",
         "needs_physical_action",
     )
     result = {key: slide[key] for key in keep if key in slide and slide[key] not in (None, "", [])}
@@ -195,19 +199,13 @@ def _minimal_prompt_pack(prompt_pack: dict[str, Any], slides: list[dict[str, Any
         number = int(prompt.get("slide", 0) or 0)
         if number not in slide_copy:
             continue
-        minimal_prompts.append(
-            {
-                "slide": number,
-                "text": slide_copy[number],
-                "scene": str(prompt.get("scene") or prompt.get("visual") or ""),
-                "prompt": str(prompt.get("prompt") or ""),
-                "negative_prompt": str(
-                    prompt.get("negative_prompt")
-                    or prompt_pack.get("shared_negative_prompt")
-                    or ""
-                ),
-            }
-        )
+        record = {
+            "slide": number,
+            "text": slide_copy[number],
+            "scene": str(prompt.get("scene") or prompt.get("visual") or ""),
+            "prompt": str(prompt.get("prompt") or ""),
+        }
+        minimal_prompts.append(record)
     return {
         "schema_version": "carousel-prompt-pack/v2",
         "generation_mode": "model_native_publishable",
@@ -298,28 +296,9 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
         _minimal_prompt_pack(prompt_pack, slides),
     )
 
-    formats = normalize_requested_formats(requested)
-    write_json(
-        out_dir / "generation-state.json",
-        {
-            "schema_version": "carousel-generation-state/v2",
-            "status": "draft",
-            "stage": "proof",
-            "slide_count": len(slides),
-            "selected_slides": [],
-            "requested_formats": list(formats),
-            "attempts_by_slide": {str(slide["slide"]): 0 for slide in slides},
-            "approved_final_candidates": {},
-            "next_action": "prepare_riskiest_proof",
-        },
-    )
+    # Import at the write boundary so the package writer remains independent of
+    # the image lifecycle module during module import. Every new package starts
+    # with the canonical compact v3 state; legacy v2 is read-only.
+    from pipeline.stages.codex_builtin_image_generation import initialize_generation_state
 
-
-def try_render_assets(out_dir: Path, slides: list[dict[str, Any]]) -> dict[str, Any]:
-    """Legacy preview rendering is deliberately outside the production hot path."""
-
-    return {
-        "status": "skipped",
-        "reason": "Legacy local previews are disabled; prove the riskiest real image instead.",
-        "slides": [],
-    }
+    initialize_generation_state(out_dir)

@@ -57,9 +57,18 @@ Resolve format from the current request and corrections before prompts:
 - `reels_stories`: 1080x1920; explicit request only.
 - `square`: 1080x1080; explicit request only.
 
-Persist only the requested set in `format-contract.json`. Generate each natively;
-never crop, stretch, pad, or infer intent from old folders. A current creator
-correction overrides defaults and stale assets.
+Persist only the requested set in `format-contract.json` and prompt each exact
+target. Never infer intent from old folders. A current creator correction
+overrides defaults and stale assets.
+
+The prompt still requests the exact target and must not mention a fallback.
+Observed built-in-runtime accommodation applies only at `instagram_post`
+ingest: quarantine and bind an untouched exact-3:4 source whose size lies from
+1080x1440 through 1440x1920 inclusive, then proportionally downsample once to
+the exact 1080x1440 proof/final asset. No crop, pad, stretch, upscale, wrong
+ratio, or second resample is allowed. Story/Reel and square sources remain
+exact-size only. Preserve source hash/dimensions and reuse approved normalized
+proof bytes as the final candidate.
 
 ## Scene Lock
 
@@ -77,14 +86,27 @@ slides. Text completes the scene; it must not be the only story carrier.
 
 ## Generation Lock
 
-- Attach a small selected bundle of actual Aachu/Zuv identity images plus style
-  references to every call. Text-only identity descriptions are blocked.
+- The repo prepares prompts and reference bindings; Codex performs the image
+  generation call and actual-pixel inspection. There is no API renderer,
+  credential flow, OCR dependency, or environment capability artifact.
+- Read `identity-dossier.json.selected_generation_bundle` and attach its exact
+  four Aachu/Zuv/together identity files plus one style-board file copied from
+  `config/references/style-lock/observational-intimacy-premium/contact-sheet.png`.
+  This exact five-file set is the practical boundary observed in the current
+  built-in Codex image-generation runtime smoke; it is not a published-platform
+  limit claim. Do not add the three individual style slides on top of the board,
+  and never drop an identity role to make room. Text-only identity descriptions
+  are blocked.
 - Wardrobe comes from the attached identity/current-request images first.
 - Preserve both whole people: face, hair, height, proportions, expression,
   posture, and clothing.
 - Integrate exact approved text and tiny `@a.storyof.two` at top-right.
 - Generate one risky proof first. Do not batch until its current pixels pass and
   the creator approves.
+- Ingest each returned image into quarantine immediately, then inspect the
+  decoded file with `view_image` and submit QA bound to its path, SHA-256, and
+  dimensions. If either image generation or pixel viewing is unavailable,
+  remain `handoff_ready` and report `BLOCKED/NOT_RUN`; never infer PASS.
 - No identity eval means no next slide.
 - Allow two total semantic attempts for one visual premise. Replace the premise
   after the second miss.
@@ -106,9 +128,19 @@ candidates stay quarantined and set the next action to a concrete repair.
 ## Minimal Artifacts
 
 Before proof: `creative-context.json`, `format-contract.json`, `slides.json`,
-`prompt-pack.json`, and compiled prompt files. After proof: quarantined PNG and
-`proof-qa.json`. After final: requested native PNGs, `final-images.json`,
-`visual-qa.json`, and `final-audit.json`.
+`prompt-pack.json`, `generation-state.json`, and compiled prompt files. After
+proof: quarantined PNG and `proof-qa.json`. After final: requested native PNGs,
+`final-images.json`, `visual-qa.json`, and `final-audit.json`.
 
 The ordinary run does not create debate rooms, numeric scorecards, provenance
 graphs, ledgers, stage reviews, or wiki-update artifacts.
+
+## Public State Vocabulary
+
+Use exactly: `draft`, `blocked`, `handoff_ready`, `proof_qa_required`,
+`proof_failed`, `awaiting_creator_proof_approval`, `batch_ready`,
+`final_qa_required`, `final_qa_failed`, and `publish_ready`.
+
+An ordinary carousel command never runs tests or health checks and never writes
+wiki, memory, rules, tests, or diagnostics. Those are maintenance and closeout
+operations, not production side effects.

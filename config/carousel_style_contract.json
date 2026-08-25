@@ -17,11 +17,9 @@
     "brandmark_placement": "tiny low-contrast handwritten @a.storyof.two at top-right"
   },
   "style_references": [
-    "config/references/style-lock/observational-intimacy-premium/slide-01.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-03.png",
-    "config/references/style-lock/observational-intimacy-premium/slide-08.png"
+    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
   ],
-  "style_reference_attachment_limit": 3,
+  "style_reference_attachment_limit": 1,
   "characters": {
     "aachu": {
       "names": ["Aachu", "Anchal"],
@@ -105,6 +103,6 @@
       "visual-qa.json",
       "final-audit.json"
     ],
-    "approved_creation_path": "scripts/create_illustration_carousel.py using the four-gate compact package contract"
+    "approved_creation_path": "scripts/carousel.py using the four-gate Codex-first v3 package contract"
   }
 }

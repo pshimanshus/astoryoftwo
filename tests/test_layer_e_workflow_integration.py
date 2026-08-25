@@ -9,8 +9,19 @@ from pipeline.stages.codex_native_carousel import create_codex_native_carousel
 
 
 def test_default_carousel_does_not_write_layer_e_or_room_artifacts(tmp_path: Path) -> None:
-    identity = tmp_path / "aachu-zuv.png"
-    Image.new("RGB", (300, 300), "tan").save(identity)
+    identities = []
+    for relative, color in (
+        ("identity/aachu/a.png", "salmon"),
+        ("identity/zuv/z.png", "skyblue"),
+        ("identity/together/face.png", "tan"),
+        ("identity/together/body.png", "plum"),
+    ):
+        identity = tmp_path / relative
+        identity.parent.mkdir(parents=True, exist_ok=True)
+        Image.new("RGB", (300, 300), color).save(identity)
+        identities.append(identity)
+    style = tmp_path / "style.png"
+    Image.new("RGB", (300, 300), "ivory").save(style)
     brief = tmp_path / "brief.json"
     brief.write_text(
         json.dumps(
@@ -46,7 +57,8 @@ def test_default_carousel_does_not_write_layer_e_or_room_artifacts(tmp_path: Pat
         title="Duvet Test",
         story="One shared task became a visible lesson in staying.",
         image_paths=[],
-        identity_image_paths=[identity],
+        identity_image_paths=identities,
+        style_reference_paths=[style],
         creative_baseline_path=brief,
         output_root=tmp_path / "output" / "carousels",
         today=date(2026, 8, 24),
@@ -58,4 +70,16 @@ def test_default_carousel_does_not_write_layer_e_or_room_artifacts(tmp_path: Pat
     assert not (package / "run-ledger.json").exists()
     result = prepare_codex_builtin_image_generation(package, proof_slide=1)
     assert result["status"] == "handoff_ready"
-    assert result["stage"] == "proof"
+    assert result["proof_slide"] == 1
+    assert result["selected_slides"] == [1]
+    assert set(result) <= {
+        "schema_version",
+        "status",
+        "next_action",
+        "proof_slide",
+        "selected_slides",
+        "selected_formats",
+        "format_sha256",
+        "slides",
+        "reason",
+    }

@@ -1,0 +1,116 @@
+{
+  "schema_version": "carousel-live-smoke-report/v1",
+  "run_date": "2026-08-25",
+  "scenario_contract": "config/evals/carousel-live-smoke-scenarios.json",
+  "scope": "Opt-in Codex built-in image generation followed by decoded-pixel review; generated and identity assets stayed outside the repository.",
+  "summary": {
+    "result": "PASS",
+    "scenario_passes": 3,
+    "first_attempt_passes": 2,
+    "false_passes_in_corruption_controls": 0
+  },
+  "scenarios": [
+    {
+      "id": "shared-plain-frame-hold",
+      "result": "PASS",
+      "attempts": 1,
+      "first_attempt_pass": true,
+      "attachments": {
+        "identity": 4,
+        "style_board": 1
+      },
+      "raw_dimensions": [1086, 1448],
+      "raw_sha256": "843985649ce730d944cba718e9f1b09680258fe1861849f8935600c92fe2c3ac",
+      "normalized_dimensions": [1080, 1440],
+      "normalized_sha256": "ff5b87f4e77613535d6a3a32fca55bbdac263a2c57859e01c96c8f6731db8c13",
+      "references_sha256": "sha256:2557b8be92342deb9504916298c14a5e4261eb35c773f04dbeb0f4de3b32afc8",
+      "timing_seconds": {
+        "create": 0.19,
+        "generation": 68.256,
+        "ingest": 0.93,
+        "pixel_review": 1.44
+      }
+    },
+    {
+      "id": "box-seal-key-glance",
+      "result": "PASS",
+      "attempts": 1,
+      "first_attempt_pass": true,
+      "attachments": {
+        "identity": 4,
+        "style_board": 1
+      },
+      "raw_dimensions": [1086, 1448],
+      "raw_sha256": "8b969b078f87ec168d7ec1f8b2d862e21bbc3ebbd767a149763b1011d2abd417",
+      "normalized_dimensions": [1080, 1440],
+      "normalized_sha256": "168bd24bfa92c1b3c3c7c4aefc99e988d30a4632849109aff31b3ad63e52c530",
+      "references_sha256": "sha256:bfff128faaffbcc20216fcd667d1a76712ed1b534035b29e01560d4a8b02e04c",
+      "timing_seconds": {
+        "generation_approximate": 157.0,
+        "total_elapsed_approximate": 309.0
+      }
+    },
+    {
+      "id": "rug-through-doorway",
+      "result": "PASS",
+      "attempts": 2,
+      "first_attempt_pass": false,
+      "attachments": {
+        "identity": 4,
+        "style_board": 1
+      },
+      "raw_dimensions": [1086, 1448],
+      "raw_sha256": "1385bb35fb6671b143edd90d88d53a6ed2300a2ce8ae1748d81d5702628e1c6f",
+      "normalized_dimensions": [1080, 1440],
+      "normalized_sha256": "5b4ac86f12273ee6709ab8ab8b36ba65e1f2f3008568967e5175be9ec927c4e6",
+      "references_sha256": "sha256:bfff128faaffbcc20216fcd667d1a76712ed1b534035b29e01560d4a8b02e04c",
+      "timing_seconds": {
+        "generation_attempt_1": 176.306,
+        "generation_attempt_2": 62.109,
+        "generation_total": 238.415
+      }
+    }
+  ],
+  "corruption_controls": {
+    "result": "PASS",
+    "source_package_unchanged": true,
+    "false_passes": 0,
+    "controls": [
+      {
+        "id": "sha256_mismatch",
+        "result": "REJECTED",
+        "state": "proof_qa_required",
+        "next_action": "repair_proof_qa",
+        "elapsed_seconds": 0.13
+      },
+      {
+        "id": "exact_text_mismatch",
+        "result": "REJECTED",
+        "state": "proof_qa_required",
+        "next_action": "repair_proof_qa",
+        "elapsed_seconds": 0.12
+      },
+      {
+        "id": "native_dimension_mismatch",
+        "result": "REJECTED",
+        "state": "proof_failed",
+        "next_action": "retry_selected_slides",
+        "elapsed_seconds": 0.73
+      }
+    ],
+    "additional_tamper_checks": [
+      {
+        "id": "post_approval_qa_tamper",
+        "result": "REJECTED",
+        "approval_revoked": true,
+        "elapsed_seconds": 0.72
+      },
+      {
+        "id": "promoted_final_pixel_tamper",
+        "result": "REJECTED",
+        "public_finals_retracted": true,
+        "elapsed_seconds": 1.01
+      }
+    ]
+  }
+}

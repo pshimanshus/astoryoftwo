@@ -1,4 +1,4 @@
-"""Canonical derived state for illustrated carousel packages."""
+"""Read-only public state derivation for illustrated carousel packages."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from typing import Any
 
 from pipeline.agentic.checks.final_assets import validate_publishable_final_assets
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
-from pipeline.stages.carousel_format_contract import format_spec, locked_formats
+from pipeline.stages.carousel_generation_state import PUBLIC_STATUSES, STATE_SCHEMA_VERSION
 
 
 @dataclass(frozen=True)
@@ -33,234 +33,72 @@ class CarouselState:
 
 
 def _read_json(path: Path) -> dict[str, Any]:
-    if not path.exists():
-        return {}
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except (json.JSONDecodeError, OSError):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
         return {}
-    return data if isinstance(data, dict) else {}
+    return payload if isinstance(payload, dict) else {}
 
 
-def _status(payload: dict[str, Any] | Any) -> str:
-    value = payload.get("status") if isinstance(payload, dict) else payload
+def _status(value: Any) -> str:
+    if isinstance(value, dict):
+        value = value.get("status") or value.get("state") or value.get("proof_state")
     return str(value or "").strip().lower()
 
 
-def _audit_passed(payload: dict[str, Any]) -> bool:
-    return payload.get("pass") is True or _status(payload) in {"pass", "pass_with_notes"}
-
-
-def _handoff_ready(payload: dict[str, Any]) -> bool:
-    return _status(payload) in {
-        "handoff_ready",
-        "ready_for_codex_builtin_generation",
-        "handoff_ready_for_codex_builtin_image_generation",
+def _legacy_state(package_dir: Path) -> tuple[str, str]:
+    legacy = _read_json(package_dir / "image-generation.json") or _read_json(
+        package_dir / "generation-state.json"
+    )
+    status = _status(legacy)
+    mapping = {
+        "generated_quarantined": ("proof_qa_required", "review_proof_pixels"),
+        "proof_ready_for_review": ("proof_qa_required", "review_proof_pixels"),
+        "qa_pass_candidate": ("awaiting_creator_proof_approval", "approve_proof"),
+        "creator_approved_proof": ("batch_ready", "prepare_remaining_slides"),
+        "batch_allowed": ("batch_ready", "prepare_remaining_slides"),
+        "generated_audit_failed": ("final_qa_failed", "repair_final_audit"),
+        "generated": ("final_qa_required", "run_final_pixel_qa"),
+        "packaged": ("final_qa_required", "run_final_pixel_qa"),
+        "publishable": ("publish_ready", "publish"),
     }
-
-
-def _generation_state(package_dir: Path) -> dict[str, Any]:
-    """Read the one transient state record, with legacy compatibility."""
-
-    return _read_json(package_dir / "generation-state.json") or _read_json(
-        package_dir / "image-generation.json"
-    )
-
-
-def _proof_qa(package_dir: Path) -> dict[str, Any]:
-    return _read_json(package_dir / "proof-qa.json") or _read_json(
-        package_dir / "visual-qa.json"
-    )
-
-
-def _proof_failed(payload: dict[str, Any], qa: dict[str, Any]) -> bool:
-    state = _status(payload.get("proof_state") or payload.get("state") or payload.get("status"))
-    if state in {"proof_failed", "rejected_spatial_integrity", "blocked_visual_qa"}:
-        return True
-    if state != "generated_quarantined":
-        return False
-    return _status(qa.get("status") or qa.get("verdict")) == "fail" or qa.get("pass") is False
-
-
-def _batch_allowed(payload: dict[str, Any]) -> bool:
-    return bool(
-        _status(payload.get("proof_state") or payload.get("state") or payload.get("status"))
-        in {
-            "batch_allowed",
-            "batch_generation_ready",
-            "continue_batch",
-            "proof_accepted_continue_batch",
-            "proof_passed",
-            "remaining_slides_ready",
-        }
-        or payload.get("can_continue_batch") is True
-        or payload.get("batch_generation_allowed") is True
-    )
-
-
-def _has_final_slide_png(package_dir: Path) -> bool:
-    return any(
-        path.is_file()
-        for name in (
-            str(format_spec(output_format)["folder"])
-            for output_format in locked_formats(package_dir)
-        )
-        for path in (package_dir / name).glob("slide-*.png")
-    )
-
-
-def _has_generated_signal(final_images: dict[str, Any], package_dir: Path) -> bool:
-    return (
-        _status(final_images) in {"generated", "packaged", "generated_audit_failed"}
-        or bool(final_images.get("done"))
-        or _has_final_slide_png(package_dir)
-    )
-
-
-def _unique_issue_codes(codes: list[str]) -> list[str]:
-    seen: set[str] = set()
-    unique: list[str] = []
-
-    for code in codes:
-        if code and code not in seen:
-            seen.add(code)
-            unique.append(code)
-
-    return unique
+    if status in PUBLIC_STATUSES:
+        return status, str(legacy.get("next_action") or "inspect_archived_package")
+    return mapping.get(status, ("draft", "inspect_archived_package"))
 
 
 def derive_carousel_state(package_dir: Path) -> CarouselState:
-    package_dir = package_dir.expanduser()
+    package_dir = Path(package_dir).expanduser()
+    state = _read_json(package_dir / "generation-state.json")
+    if state.get("schema_version") == STATE_SCHEMA_VERSION:
+        name = _status(state)
+        next_action = str(state.get("next_action") or "repair_state")
+    else:
+        name, next_action = _legacy_state(package_dir)
 
     report = inspect_carousel_package(package_dir)
-    issue_codes = [issue.code for issue in report.issues]
-
-    image_generation = _generation_state(package_dir)
-    proof_qa = _proof_qa(package_dir)
-    final_images = _read_json(package_dir / "final-images.json")
-    final_audit = _read_json(package_dir / "final-audit.json")
-
-    # A failed proof is a repairable creative state, not a handoff.  Resolve it
-    # before generic doctor blockers so the caller gets the right next action.
-    if _proof_failed(image_generation, proof_qa):
-        return CarouselState(
-            name="proof_failed",
-            publishable=False,
-            blocked=True,
-            next_action="repair_visual_premise",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if report.blocked:
-        return CarouselState(
-            name="blocked",
-            publishable=False,
-            blocked=True,
-            next_action=report.issues[0].next_action or "repair_blockers",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if _status(image_generation) == "blocked" or _status(final_images) == "blocked":
-        return CarouselState(
-            name="blocked",
-            publishable=False,
-            blocked=True,
-            next_action="repair_blockers",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if (
-        final_images.get("publishable") is True
-        or _status(final_images) in {"publish_ready", "publishable"}
-    ) and _audit_passed(final_audit):
-        asset_report = validate_publishable_final_assets(package_dir)
-
-        if not asset_report.ok:
-            asset_issue_codes = [issue.code for issue in asset_report.issues]
-
-            return CarouselState(
-                name="blocked",
-                publishable=False,
-                blocked=True,
-                next_action="repair_final_image_assets",
-                issue_codes=_unique_issue_codes(issue_codes + asset_issue_codes),
-                package_dir=str(package_dir),
-            )
-
-        return CarouselState(
-            name="publishable",
-            publishable=True,
-            blocked=False,
-            next_action="ready_for_closeout",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if _has_generated_signal(final_images, package_dir):
-        return CarouselState(
-            name="final_qa_required",
-            publishable=False,
-            blocked=False,
-            next_action="run_visual_qa_and_final_audit",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if _batch_allowed(image_generation):
-        return CarouselState(
-            name="proof_approved",
-            publishable=False,
-            blocked=False,
-            next_action="generate_remaining_slides",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if _status(image_generation) in {"generated_quarantined", "proof_ready_for_review", "qa_pass_candidate"} or (
-        package_dir / "non-final-proofs"
-    ).exists() or (package_dir / ".internal" / "visual-quarantine").exists():
-        qa_passed = proof_qa.get("pass") is True or _status(proof_qa.get("status")) == "pass"
-        return CarouselState(
-            name="proof_ready",
-            publishable=False,
-            blocked=False,
-            next_action="record_creator_approval" if qa_passed else "review_proof_pixels",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if (
-        _handoff_ready(image_generation)
-        or _handoff_ready(final_images)
-        or (package_dir / "image-generation-blocker.md").exists()
-    ):
-        return CarouselState(
-            name="handoff_ready",
-            publishable=False,
-            blocked=False,
-            next_action="generate_risky_proof",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
-    if (package_dir / "prompt-pack.json").exists() or (package_dir / "copy.json").exists():
-        return CarouselState(
-            name="copy_locked",
-            publishable=False,
-            blocked=False,
-            next_action="generate_risky_proof",
-            issue_codes=_unique_issue_codes(issue_codes),
-            package_dir=str(package_dir),
-        )
-
+    issue_codes = list(dict.fromkeys(issue.code for issue in report.issues))
+    blocked = name in {"blocked", "proof_failed", "final_qa_failed"} or report.blocked
+    publishable = name == "publish_ready" and not report.blocked
+    if publishable:
+        assets = validate_publishable_final_assets(package_dir)
+        if not assets.ok:
+            publishable = False
+            blocked = True
+            name = "final_qa_failed"
+            next_action = "repair_final_image_assets"
+            issue_codes.extend(issue.code for issue in assets.issues)
+    elif name == "publish_ready" and report.blocked:
+        name = "final_qa_failed"
+        next_action = report.issues[0].next_action or "repair_publish_evidence"
     return CarouselState(
-        name="draft",
-        publishable=False,
-        blocked=False,
-        next_action="lock_concept_then_copy_and_format",
-        issue_codes=_unique_issue_codes(issue_codes),
+        name=name,
+        publishable=publishable,
+        blocked=blocked,
+        next_action=next_action,
+        issue_codes=list(dict.fromkeys(issue_codes)),
         package_dir=str(package_dir),
     )
+
+
+__all__ = ["CarouselState", "derive_carousel_state"]

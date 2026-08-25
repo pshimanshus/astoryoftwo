@@ -40,3 +40,6 @@ Keep this pass proportional. For a tiny request, run it mentally. For a fresh
 jam, show one strong route and the concrete reason it works. Use the explicit
 `$a-story-instagram-idea-loop` only when the creator asks for deep, repeated, or
 evidence-heavy ideation.
+
+This pass creates no artifact, gate, score, research requirement, or default
+agent. It is quiet creative context only.

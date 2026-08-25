@@ -8,6 +8,19 @@ from pipeline.agentic.context_loader import assemble_context_pack
 
 ROOT = Path(__file__).resolve().parents[1]
 
+PUBLIC_STATES = [
+    "draft",
+    "blocked",
+    "handoff_ready",
+    "proof_qa_required",
+    "proof_failed",
+    "awaiting_creator_proof_approval",
+    "batch_ready",
+    "final_qa_required",
+    "final_qa_failed",
+    "publish_ready",
+]
+
 
 def _read(relative: str) -> str:
     return (ROOT / relative).read_text(encoding="utf-8")
@@ -27,6 +40,8 @@ def test_default_carousel_system_is_exactly_four_gates_with_no_agents() -> None:
         "final_package_qa",
     ]
     assert carousel["agents"] == []
+    assert carousel["default_agent_count"] == 0
+    assert carousel["public_states"] == PUBLIC_STATES
     assert carousel["artifacts"] == [
         "creative-context.json",
         "format-contract.json",
@@ -44,12 +59,17 @@ def test_style_contract_is_small_and_contains_no_retired_workflow_policy() -> No
     contract = json.loads(path.read_text(encoding="utf-8"))
 
     assert path.stat().st_size < 8_000
-    assert contract["style_reference_attachment_limit"] == 3
-    assert len(contract["style_references"]) == 3
+    assert contract["style_reference_attachment_limit"] == 1
+    assert contract["style_references"] == [
+        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+    ]
     assert "concept_selection_policy" not in contract
     assert "stage_scene_policy" not in contract
     assert "golden_theme_contract" not in contract
     assert "model_native_master_prompt" not in contract
+    assert contract["production_gate"]["approved_creation_path"].startswith(
+        "scripts/carousel.py"
+    )
 
 
 def test_carousel_skill_keeps_the_creator_first_hot_path() -> None:
@@ -76,6 +96,15 @@ def test_story_hook_preserves_change_receipt_and_creator_structure() -> None:
     assert "Deepening, Conflict, and Turn may each span multiple slides" in hook
     assert "$a-story-carousel-jam" in hook
     assert "$a-story-direct-visual-story" in hook
+
+
+def test_story_hook_lifecycle_is_conversational_only() -> None:
+    hook = _flat(".agents/skills/a-story-storytelling-hook/SKILL.md")
+
+    for phase in ("Activate:", "Refresh:", "Resume:", "Close:"):
+        assert phase in hook
+    for forbidden in ("state file", "daemon", "agent room"):
+        assert forbidden in hook
 
 
 def test_compact_creator_pass_keeps_recognition_change_receipt_and_send() -> None:
@@ -122,8 +151,29 @@ def test_format_lock_defaults_to_post_and_never_manufactures_derivatives() -> No
         assert "1080x1920" in surface
         assert "1080x1080" in surface
         assert "explicit" in surface.lower()
-    assert "never crop, stretch, pad" in runtime
-    assert "Never add an unrequested format" in framework
+    assert "downsample once" in runtime
+    assert "1080x1440 through 1440x1920" in runtime
+    for forbidden in ("crop", "pad", "stretch", "upscale", "wrong ratio", "second resample"):
+        assert forbidden in runtime
+    assert "add an unrequested format" in framework.lower()
+
+
+def test_post_source_accommodation_keeps_exact_final_and_source_binding() -> None:
+    dimensions = _flat("config/rules/image-dimensions.md")
+    framework = _flat("config/skills/illustration-carousel-framework.md")
+
+    for surface in (dimensions, framework):
+        assert "1080x1440" in surface
+        assert "1440x1920" in surface
+        assert "exact 3:4" in surface
+        assert "source" in surface.lower()
+        assert "hash" in surface.lower() or "sha-256" in surface.lower()
+        assert "downsample" in surface.lower()
+        assert "upscale" in surface.lower()
+    assert "width * 4 == height * 3" in dimensions
+    assert "`reels_stories`" in framework
+    assert "exact 1080x1920" in framework
+    assert "approved normalized" in framework
 
 
 def test_copy_brandmark_and_pixels_remain_hard_gates() -> None:
@@ -188,9 +238,79 @@ def test_make_carousel_is_production_only_not_repo_maintenance() -> None:
     makefile = _read("Makefile")
     recipe = makefile.split("carousel:", 1)[1].split("\n\n", 1)[0]
 
-    assert "create_illustration_carousel.py" in recipe
+    assert "scripts/carousel.py" in recipe
     assert "pytest" not in recipe
     assert "agentic_os.py health" not in recipe
+    assert "wiki_health" not in recipe
+
+
+def test_codex_first_generation_boundary_is_explicit_and_truthful() -> None:
+    system = json.loads(_read("config/skill-systems.json"))["systems"]["carousel_jam"]
+    boundary = system["generation_boundary"]
+
+    assert boundary["codex"] == [
+        "read_compiled_prompt",
+        "attach_four_curated_identity_references_and_one_style_board",
+        "call_image_generation",
+        "inspect_decoded_pixels_with_view_image",
+        "submit_hash_and_dimension_bound_qa",
+    ]
+    assert boundary["repository"] == [
+        "prepare",
+        "ingest",
+        "bind_review",
+        "record_creator_approval",
+        "atomic_promote",
+    ]
+    surfaces = "\n".join(
+        _flat(path)
+        for path in (
+            ".agents/skills/a-story-carousel-jam/SKILL.md",
+            "config/skills/carousel-jam-runtime-context.md",
+            "config/skills/carousel-jam-autopilot.md",
+            "config/skills/illustration-carousel-framework.md",
+        )
+    )
+    assert "identity-dossier.json.selected_generation_bundle" in surfaces
+    assert "four" in surfaces.lower()
+    assert "exactly five" in surfaces.lower()
+    assert "contact-sheet.png" in surfaces
+    assert "not a claim" in surfaces.lower()
+    assert "view_image" in surfaces
+    assert "BLOCKED/NOT_RUN" in surfaces
+    assert "remain `handoff_ready`" in surfaces or "retain `handoff_ready`" in surfaces
+
+
+def test_public_state_vocabulary_is_identical_across_current_surfaces() -> None:
+    for relative in (
+        ".agents/skills/a-story-carousel-jam/SKILL.md",
+        "config/skills/carousel-jam-runtime-context.md",
+        "config/skills/carousel-jam-autopilot.md",
+        "config/skills/illustration-carousel-framework.md",
+        "docs/ai-ops-playbook.md",
+        "docs/superpowers/plans/creative-os-master-plan.md",
+    ):
+        surface = _read(relative)
+        for state in PUBLIC_STATES:
+            assert f"`{state}`" in surface, f"{state} missing from {relative}"
+        for retired in (
+            "awaiting_concept_approval",
+            "awaiting_copy_format_approval",
+            "awaiting_creator_approval",
+            "generating_remaining_slides",
+            "final_package_ready",
+        ):
+            assert retired not in surface, f"retired {retired} remains in {relative}"
+
+
+def test_ordinary_carousel_contract_has_no_maintenance_side_effects() -> None:
+    runtime = _flat("config/skills/carousel-jam-runtime-context.md").lower()
+    autopilot = _flat("config/skills/carousel-jam-autopilot.md").lower()
+
+    for forbidden_side_effect in ("wiki", "memory", "rules", "tests", "diagnostics"):
+        assert forbidden_side_effect in runtime
+    assert "must not run" in autopilot
+    assert "network calls" in autopilot
 
 
 def test_context_loads_compact_creative_hooks_before_heavy_rules() -> None:

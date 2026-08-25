@@ -53,18 +53,30 @@ sequenceDiagram
             Codex-->>User: Brief result
         else Carousel jam or package
             Codex->>Make: make jam or make carousel
-            Make->>Tests: Carousel contract tests before package command for make carousel
-            Tests-->>Make: pass/fail
-            Make->>Pipeline: scripts/jam_today.py or scripts/create_illustration_carousel.py
+            Make->>Pipeline: scripts/jam_today.py or scripts/carousel.py create
             Pipeline->>Skills: Use carousel_jam components and source references
             Pipeline->>Rules: Enforce identity, on-image text, dimensions, brandmark, visual variety, voice
-            Pipeline->>Artifacts: Write package artifacts under output/carousels/*
-            Artifacts-->>Pipeline: brief, prompt pack, prompts, gate JSON/MD, generated state
-            Pipeline->>AgenticOS: workflow_doctor and carousel_state checks
-            AgenticOS-->>Pipeline: blocked, partial, handoff_ready, or publishable state
-            Pipeline->>Tests: prompt constraints, image size, carousel state, workflow doctor tests
-            Tests-->>Codex: pass/fail
-            Codex-->>User: Package status, blockers, or final package summary
+            Pipeline->>Artifacts: Write minimal v3 package and selected compiled prompt
+            Artifacts-->>Pipeline: draft, blocked, or handoff_ready
+            alt handoff_ready and Codex image tools available
+                Codex->>Artifacts: Read prompt plus four identity bindings and one canonical style-board binding
+                Codex->>Codex: Attach those five actual files and call image generation for selected slides
+                Codex->>Pipeline: Ingest untouched source; bind source hash and dimensions
+                opt exact-3:4 post source is larger than 1080x1440 and at most 1440x1920
+                    Pipeline->>Artifacts: Proportionally downsample once to exact 1080x1440
+                end
+                Codex->>Artifacts: Open decoded normalized candidate pixels with view_image
+                Codex->>Pipeline: scripts/carousel.py review with hash/dimension-bound observations
+                Pipeline->>Artifacts: proof_qa_required, proof_failed, awaiting_creator_proof_approval, batch_ready, final_qa_required, or final_qa_failed
+                Codex->>Pipeline: scripts/carousel.py approve / finalize when eligible
+                Pipeline->>Artifacts: Atomically promote a complete audited deck
+                Artifacts-->>Codex: publish_ready
+            else image generation or pixel viewer unavailable
+                Codex-->>User: handoff_ready with BLOCKED/NOT_RUN; no generated or QA claim
+            end
+            Codex->>AgenticOS: workflow_doctor and carousel_state read-only checks when needed
+            AgenticOS-->>Codex: Canonical package state and one next action
+            Codex-->>User: Package state, blocker, or publish-ready summary
         else Pre-post Reel analysis
             Codex->>Make: make prepost
             Make->>Pipeline: scripts/analyze_prepost.py
@@ -167,7 +179,7 @@ sequenceDiagram
 | Routine commands | `Makefile` |
 | Canonical creative rules | `config/rules/*` |
 | Workflow registry | `config/skill-systems.json` |
-| Carousel work | `scripts/jam_today.py`, `scripts/create_illustration_carousel.py`, `pipeline/agentic/workflow_doctor.py`, `pipeline/agentic/carousel_state.py` |
+| Carousel work | `scripts/jam_today.py`, `scripts/carousel.py`, `pipeline/agentic/workflow_doctor.py`, `pipeline/agentic/carousel_state.py` |
 | Pre-post Reel work | `scripts/analyze_prepost.py` |
 | Article package work | `scripts/create_substack_article_package.py` |
 | Agentic OS health/context | `scripts/agentic_os.py`, `pipeline/agentic/*` |
@@ -180,9 +192,19 @@ sequenceDiagram
 
 - `AGENTS.md` is the root router; normal downstream fixes should not edit it.
 - `config/rules/*` is the canonical creative rule layer.
-- Carousel final packages require native post and story/reel outputs, exact text
-  handling, identity/style review, visual QA, and final audit before publishable
-  status.
+- Carousel packages require only explicitly requested native outputs, exact
+  text, identity/style review, actual-pixel QA, and final audit before
+  `publish_ready`. Default is 1080x1440 only.
+- Ordinary `make carousel` runs no tests, health checks, network calls, wiki
+  writes, memory writes, rule edits, test edits, or diagnostics writes.
+- New generation calls attach four curated identity files plus one canonical
+  style board. Five is the current built-in runtime's observed smoke boundary,
+  not a published-platform limit claim.
+- Prompts still request exact targets. Only post ingest may accept an untouched
+  exact-3:4 source from 1080x1440 through 1440x1920 and downsample once to exact
+  1080x1440. Source bindings remain recorded; Story/Reel and square are
+  exact-only; crop, pad, stretch, upscale, wrong ratio, and repeated resampling
+  are blocked.
 - `memory/working.md` stays pointer-only; durable learning belongs in semantic
   memory and matching rule/skill/test surfaces.
 - `scripts/autopublish.py` blocks `.env*`, live-looking secrets, identity media,

@@ -26,6 +26,7 @@ def test_instruction_surface_contract_declares_required_and_banned_phrases() -> 
     assert data["max_agents_md_lines"] <= 420
     assert "AGENTS.md" in data["surfaces"]
     assert data["agents_md_edit_policy"].startswith("Do not edit AGENTS.md")
+    assert data["canonical_carousel_entrypoint"] == "scripts/carousel.py"
     assert "CLAUDE.md" not in data["surfaces"]
     assert "CLAUDE.md" in data["retired_paths"]
     assert ".claude/commands/story.md" in data["retired_paths"]
@@ -41,7 +42,6 @@ def test_instruction_surface_contract_declares_required_and_banned_phrases() -> 
     assert "scripts/autopublish.py" in required
 
     banned = set(data["banned_phrases"]["AGENTS.md"])
-    assert "Entry: scripts/create_illustration_carousel.py" in banned
     assert "and can be called directly from Claude Code sessions" in banned
     assert "CLAUDE.md" not in data["banned_phrases"]
 
@@ -76,7 +76,7 @@ def test_dependent_brandmark_surfaces_follow_agents_md_source_text() -> None:
         "memory/semantic/carousel-idea-preferences.md",
         "memory/semantic/premium-illustration-style-lock.md",
         "pipeline/agentic/checks/prompt_constraints.py",
-        "pipeline/stages/carousel_quality.py",
+        "pipeline/stages/carousel_pixel_qa.py",
         "pipeline/stages/carousel_visual_storytelling.py",
         "pipeline/stages/codex_native_carousel.py",
         "tests/test_checks_prompt_constraints.py",

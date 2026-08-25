@@ -1,0 +1,79 @@
+{
+  "schema_version": "carousel-live-smoke/v1",
+  "opt_in_only": true,
+  "purpose": "Live Codex image-generation and decoded-pixel smoke checks; never run from make carousel or the deterministic test suite.",
+  "asset_policy": {
+    "output_location": "untracked temporary directory outside output/carousels",
+    "commit_generated_assets": false,
+    "commit_identity_images": false,
+    "unavailable_tool_result": "BLOCKED/NOT_RUN"
+  },
+  "attachment_contract": {
+    "observed_runtime_boundary": 5,
+    "boundary_source": "current built-in Codex image-generation runtime smoke; not a published platform limit",
+    "identity_attachments": 4,
+    "identity_source": "config/references/identity/_dossier/identity-dossier.json.selected_generation_bundle",
+    "style_board_attachments": 1,
+    "style_board_source": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "forbid_individual_style_slides_in_addition": true,
+    "forbid_silent_identity_omission": true
+  },
+  "source_size_contract": {
+    "boundary_source": "current built-in Codex image-generation runtime smoke; not a published platform guarantee",
+    "prompt_target": "1080x1440; native 3:4",
+    "instagram_post": {
+      "accepted_exact_ratio": "3:4",
+      "minimum_source": [1080, 1440],
+      "maximum_source": [1440, 1920],
+      "final": [1080, 1440],
+      "transform": "at most one proportional downsample"
+    },
+    "reels_stories_source": [1080, 1920],
+    "square_source": [1080, 1080],
+    "forbidden": [
+      "crop",
+      "pad",
+      "stretch",
+      "upscale",
+      "wrong_ratio",
+      "second_resample"
+    ],
+    "binding": "retain untouched source hash/dimensions and reuse approved normalized proof bytes"
+  },
+  "attempt_policy": {
+    "maximum_attempts_per_visual_premise": 2,
+    "minimum_first_attempt_passes": 2,
+    "all_scenarios_must_pass_hard_gates": true
+  },
+  "corrupted_controls": [
+    "sha256_mismatch",
+    "exact_text_mismatch",
+    "native_dimension_mismatch"
+  ],
+  "scenarios": [
+    {
+      "id": "shared-plain-frame-hold",
+      "risk": "shared-object hands and owner-to-object contact",
+      "format": "instagram_post",
+      "exact_text": "One corner each.\nOne picture of home.",
+      "physical_action": "Waist-up Aachu on the left and Zuv on the right each use one clearly visible active hand to grip opposite vertical sides of one plain, unlettered wooden picture frame with a blank warm-ivory center; fingers visibly wrap the same connected frame, each forearm is clearly attached, and their other arms remain outside the crop.",
+      "relationship_state": "both choosing the same picture of home"
+    },
+    {
+      "id": "box-seal-key-glance",
+      "risk": "asymmetric action and directed gaze",
+      "format": "instagram_post",
+      "exact_text": "I sealed what we had.\nYou opened where we'd go.",
+      "physical_action": "Aachu kneels beside one plain, unprinted moving box and presses blank brown paper tape along its seam while looking at the seam; Zuv stands behind her holding one brass key and looking toward an open doorway, with clearly different actions, gaze targets, and posture.",
+      "relationship_state": "closing one chapter while opening the next together"
+    },
+    {
+      "id": "rug-through-doorway",
+      "risk": "occlusion, doorway depth, spatial topology, and multiline exact text",
+      "format": "instagram_post",
+      "exact_text": "The doorway was too narrow.\n\nSo we stopped pushing\nand changed the angle.",
+      "physical_action": "One continuous rolled jute rug is halfway through a narrow doorway: Aachu is visible in the near room crouching and pulling the front end downward while Zuv is visible beyond the threshold pushing the far end at waist height; the door jamb occludes only a short middle band of the rug and neither body intersects the wall.",
+      "relationship_state": "repairing a shared approach instead of pushing harder"
+    }
+  ]
+}

@@ -50,16 +50,24 @@ def clean_text(value: str) -> str:
 
 
 def clean_slide_copy(value: str) -> str:
-    text = str(value).replace("\r\n", "\n").replace("\r", "\n")
-    return "\n".join(clean_text(line) for line in text.split("\n")).strip()
+    # Exact on-image copy is creator-owned data, not scene prose. Only normalize
+    # platform line endings; path/reference/noise sanitizers would rewrite
+    # legitimate words, punctuation, extensions, or deliberate spacing.
+    return str(value).replace("\r\n", "\n").replace("\r", "\n")
 
 
 def _word_count(value: str) -> int:
     return len(value.split())
 
 
-def _compact_words(value: str, limit: int) -> str:
-    """Deduplicate sentence noise, then keep a deterministic word-bounded field."""
+def _compact_words(
+    value: str,
+    limit: int,
+    *,
+    field_name: str,
+    allow_truncate: bool = False,
+) -> str:
+    """Deduplicate repetition, then fail rather than erase locked semantics."""
 
     cleaned = clean_text(value)
     if _word_count(cleaned) <= limit:
@@ -76,7 +84,13 @@ def _compact_words(value: str, limit: int) -> str:
 
     compacted = " ".join(unique_sentences)
     words = compacted.split()
-    return " ".join(words[:limit]).strip()
+    if len(words) <= limit:
+        return compacted.strip()
+    if allow_truncate:
+        return " ".join(words[:limit]).strip()
+    raise ValueError(
+        f"Locked {field_name} exceeds its {limit}-word prompt limit after deduplication."
+    )
 
 
 def extract_scene_summary(prompt: str) -> str:
@@ -87,8 +101,18 @@ def extract_scene_summary(prompt: str) -> str:
         flags=re.IGNORECASE,
     )
     if match and match.group(1).strip():
-        return _compact_words(match.group(1), MAX_SCENE_WORDS)
-    return _compact_words(cleaned, MAX_SCENE_WORDS)
+        return _compact_words(
+            match.group(1),
+            MAX_SCENE_WORDS,
+            field_name="legacy scene",
+            allow_truncate=True,
+        )
+    return _compact_words(
+        cleaned,
+        MAX_SCENE_WORDS,
+        field_name="legacy scene",
+        allow_truncate=True,
+    )
 
 
 def _build_prompt(
@@ -163,7 +187,7 @@ def compile_image_prompt(
         )
 
     fields = {
-        "scene": _compact_words(full_scene, MAX_SCENE_WORDS),
+        "scene": _compact_words(full_scene, MAX_SCENE_WORDS, field_name="scene"),
         "pose": _compact_words(
             pose
             or (
@@ -172,6 +196,7 @@ def compile_image_prompt(
                 "scene-specific body language rather than a posed couple portrait."
             ),
             60,
+            field_name="pose/composition/camera",
         ),
         "wardrobe": _compact_words(
             wardrobe
@@ -180,10 +205,12 @@ def compile_image_prompt(
                 "current-request photos; repeat only when the scene continues."
             ),
             55,
+            field_name="wardrobe",
         ),
         "props": _compact_words(
             props or "Include only objects required by the action or its visible consequence.",
             35,
+            field_name="props",
         ),
         "background": _compact_words(
             background
@@ -192,14 +219,18 @@ def compile_image_prompt(
                 "to the action, with clear foreground, subject plane, and negative space."
             ),
             45,
+            field_name="background/setting",
         ),
         "emotion": _compact_words(
             emotion or "Match the exact beat: intimate, specific, human, and emotionally legible.",
             25,
+            field_name="emotion",
         ),
-        "style": _compact_words(style, 55),
+        "style": _compact_words(style, 55, field_name="style"),
         "negative": _compact_words(
-            f"{BASE_ESSENTIAL_NEGATIVES} {negative}", MAX_NEGATIVE_WORDS
+            f"{BASE_ESSENTIAL_NEGATIVES} {negative}",
+            MAX_NEGATIVE_WORDS,
+            field_name="essential negatives",
         ),
     }
 
@@ -210,30 +241,6 @@ def compile_image_prompt(
         format_key=format_key,
         **fields,
     )
-
-    # Exact copy is never trimmed. If unusually long copy pushes the prompt over
-    # budget, rebuild once with tighter optional fields before failing clearly.
-    if len(prompt) > MAX_PROMPT_CHARS or _word_count(prompt) > MAX_PROMPT_WORDS:
-        compact_limits = {
-            "scene": 150,
-            "pose": 42,
-            "wardrobe": 36,
-            "props": 24,
-            "background": 30,
-            "emotion": 18,
-            "style": 36,
-            "negative": 55,
-        }
-        fields = {
-            key: _compact_words(value, compact_limits[key]) for key, value in fields.items()
-        }
-        prompt = _build_prompt(
-            slide_number=slide_number,
-            slide_count=slide_count,
-            slide_copy=copy,
-            format_key=format_key,
-            **fields,
-        )
 
     if len(prompt) > MAX_PROMPT_CHARS or _word_count(prompt) > MAX_PROMPT_WORDS:
         raise ValueError(

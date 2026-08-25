@@ -94,7 +94,7 @@ def master_prompt_contract() -> dict[str, Any]:
             "instagram_post": {
                 "aspect_ratio": "3:4",
                 "size": "1080x1440",
-                "source_size": "1440x1920",
+                "source_size": "1080x1440",
                 "directory": "final/",
             },
             "reels_stories": {

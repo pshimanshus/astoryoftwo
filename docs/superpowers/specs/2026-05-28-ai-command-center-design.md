@@ -7,7 +7,7 @@ sources:
 - memory/semantic/engineering-workflow-preferences.md
 - AGENTS.md
 - scripts/analyze_prepost.py
-- scripts/create_illustration_carousel.py
+- scripts/carousel.py
 - scripts/create_substack_article_package.py
 - scripts/wiki_health.py
 
@@ -19,9 +19,9 @@ in plain English through Codex, without remembering every long script command.
 ## Scope
 
 This design adds a Makefile, a concise ops playbook, three dependency-free
-Python helper scripts, and a Make target for the safe autopublish gate. It does
-not replace the existing C-layer carousel,
-D-layer article, pre-post, or wiki-health pipelines.
+Python helper scripts, and a Make target for the safe autopublish gate. The
+carousel target routes through the canonical Codex-first `scripts/carousel.py`
+surface; article, pre-post, and wiki-health pipelines remain separate.
 
 ## Approach
 

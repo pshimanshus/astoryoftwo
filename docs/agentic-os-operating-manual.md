@@ -55,29 +55,35 @@ their own components and gates.
 The public sequence is:
 
 ```text
-concept
-  -> copy + format
-  -> quarantined proof
-  -> actual-pixel QA + creator approval
-  -> remaining slides
-  -> final QA
+draft -> handoff_ready -> proof_qa_required
+  -> awaiting_creator_proof_approval -> batch_ready
+  -> final_qa_required -> publish_ready
 ```
 
-The doctor must trust current files and pixels:
+`blocked`, `proof_failed`, and `final_qa_failed` are repair states. These ten
+names are the complete public vocabulary; creator locks remain the four gates,
+not extra lifecycle states.
+
+The doctor trusts current files and hash-bound pixel observations:
 
 - a missing input yields `blocked` with the specific missing input;
 - placeholder copy-only scenes yield `blocked` with
   `define_physical_actions`;
 - a ready compact prompt handoff yields `handoff_ready`;
+- quarantined proof bytes without bound QA yield `proof_qa_required`;
 - a semantic proof failure yields `proof_failed` and
   `repair_visual_premise`;
 - a passed proof awaiting the creator yields
   `awaiting_creator_proof_approval`;
-- an incomplete deck cannot be `final`;
-- `final` requires current final files, hashes, dimensions, visual QA, and final
-  audit.
+- creator-approved proof reuse unlocks `batch_ready`;
+- quarantined remaining candidates yield `final_qa_required`;
+- failed complete-deck QA yields `final_qa_failed`;
+- a final QA PASS remains `final_qa_required` with next action `finalize_deck`;
+- only current final files, hashes, dimensions, visual QA, and final audit yield
+  `publish_ready`.
 
 Do not create separate approval, review, run, provenance, and package states.
+Archived v2 packages are read-only auditable; new writes use v3.
 
 ## Learning
 

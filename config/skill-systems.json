@@ -24,6 +24,7 @@
         "config/carousel_style_contract.json"
       ],
       "agents": [],
+      "default_agent_count": 0,
       "gates": [
         "concept_lock",
         "copy_format_lock",
@@ -39,7 +40,35 @@
         "final-images.json",
         "visual-qa.json",
         "final-audit.json"
-      ]
+      ],
+      "public_states": [
+        "draft",
+        "blocked",
+        "handoff_ready",
+        "proof_qa_required",
+        "proof_failed",
+        "awaiting_creator_proof_approval",
+        "batch_ready",
+        "final_qa_required",
+        "final_qa_failed",
+        "publish_ready"
+      ],
+      "generation_boundary": {
+        "codex": [
+          "read_compiled_prompt",
+          "attach_four_curated_identity_references_and_one_style_board",
+          "call_image_generation",
+          "inspect_decoded_pixels_with_view_image",
+          "submit_hash_and_dimension_bound_qa"
+        ],
+        "repository": [
+          "prepare",
+          "ingest",
+          "bind_review",
+          "record_creator_approval",
+          "atomic_promote"
+        ]
+      }
     },
     "instagram_idea_loop": {
       "description": "Bounded evidence -> maker -> independent verifier loop that selects one Instagram concept for creator lock.",
