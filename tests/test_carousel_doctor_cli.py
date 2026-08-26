@@ -75,3 +75,49 @@ def test_carousel_doctor_cli_returns_nonzero_for_blocker(tmp_path: Path) -> None
     assert payload["state"]["publishable"] is False
     assert payload["highest_severity"] == "blocker"
     assert any(issue["code"] == "batch_without_approved_proof" for issue in payload["issues"])
+
+
+def test_archived_publishable_claim_without_final_evidence_fails_closed(
+    tmp_path: Path,
+) -> None:
+    package = tmp_path / "empty-publishable-claim"
+    package.mkdir()
+    write_json(
+        package / "generation-state.json",
+        {
+            "schema_version": "carousel-generation-state/v2",
+            "status": "publishable",
+        },
+    )
+    before = {
+        path.relative_to(package): path.read_bytes()
+        for path in package.rglob("*")
+        if path.is_file()
+    }
+
+    doctor = subprocess.run(
+        [sys.executable, "scripts/carousel_doctor.py", str(package), "--json"],
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    status = subprocess.run(
+        [sys.executable, "scripts/carousel.py", "status", str(package)],
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+
+    doctor_payload = json.loads(doctor.stdout)
+    status_payload = json.loads(status.stdout)
+    assert doctor.returncode == 2
+    assert doctor_payload["highest_severity"] == "blocker"
+    assert doctor_payload["state"]["name"] == "final_qa_failed"
+    assert status.returncode == 2
+    assert status_payload["state"] == "final_qa_failed"
+    assert status_payload["next_action"] == "lock_current_request_formats"
+    assert {
+        path.relative_to(package): path.read_bytes()
+        for path in package.rglob("*")
+        if path.is_file()
+    } == before

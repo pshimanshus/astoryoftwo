@@ -29,7 +29,11 @@ from pipeline.stages.carousel_format_contract import (
 )
 from pipeline.stages.carousel_visual_storytelling import first_failed_pixel_gate
 from pipeline.stages.carousel_generation_inputs import build_generation_inputs
-from pipeline.stages.carousel_generation_state import PUBLIC_STATUSES, STATE_SCHEMA_VERSION
+from pipeline.stages.carousel_generation_state import (
+    PUBLIC_STATUSES,
+    STATE_SCHEMA_VERSION,
+    canonical_state_and_next_action,
+)
 from pipeline.stages.carousel_pixel_qa import validate_final_qa, validate_proof_qa
 
 
@@ -822,9 +826,13 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
             )
 
     status = _status(state)
+    public_status, _ = canonical_state_and_next_action(state)
+    publishable_claim = public_status == "publish_ready" or _publishable_claim(
+        final_images
+    )
     generated_or_handoff = bool(
         status in HANDOFF_STATES | PROOF_CANDIDATE_STATES | PROOF_FAILURE_STATES | BATCH_STATES
-        or _publishable_claim(final_images)
+        or publishable_claim
     )
     if generated_or_handoff:
         if not (package_dir / FORMAT_CONTRACT_FILENAME).exists():
@@ -937,7 +945,7 @@ def inspect_carousel_package(package_dir: Path) -> WorkflowDoctorReport:
                 )
             )
 
-    if _publishable_claim(final_images):
+    if publishable_claim:
         asset_report = validate_publishable_final_assets(package_dir)
         for asset_issue in asset_report.issues:
             issues.append(

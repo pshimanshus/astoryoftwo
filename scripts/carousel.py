@@ -44,7 +44,22 @@ class JsonArgumentParser(argparse.ArgumentParser):
 def _core_read(package_dir: Path) -> dict[str, Any]:
     from pipeline.stages.codex_builtin_image_generation import reconcile_package_state
 
-    return reconcile_package_state(package_dir)
+    state = reconcile_package_state(package_dir)
+    if state.get("schema_version") == "carousel-generation-state/v3":
+        return state
+    from pipeline.agentic.carousel_state import derive_carousel_state
+    from pipeline.agentic.workflow_doctor import inspect_carousel_package
+
+    report = inspect_carousel_package(package_dir)
+    derived = derive_carousel_state(package_dir, report=report)
+    result = {
+        **state,
+        "status": derived.name,
+        "next_action": derived.next_action,
+    }
+    if derived.blocked and report.issues:
+        result["reason"] = report.issues[0].message
+    return result
 
 
 def _core_prepare(

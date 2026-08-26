@@ -118,6 +118,28 @@ def test_v3_pre_checker_requires_curated_identity_roles_and_style_attachment(
     assert any("no attached style references" in issue for issue in payload["issues"])
 
 
+def test_v3_pre_checker_rejects_story_only_physical_action_placeholders(
+    tmp_path: Path,
+) -> None:
+    package = base_package(tmp_path / "v3-action-placeholder")
+    slides = json.loads((package / "slides.json").read_text(encoding="utf-8"))
+    slides["slides"][0]["physical_action"] = (
+        "Draft needed: choose one specific observable action before image generation."
+    )
+    slides["slides"][0]["needs_physical_action"] = True
+    write_json(package / "slides.json", slides)
+    write_json(
+        package / "generation-state.json",
+        {"schema_version": "carousel-generation-state/v3", "status": "draft"},
+    )
+
+    result = _run_checker(package, "pre")
+    payload = json.loads(result.stdout)
+
+    assert result.returncode == 1
+    assert any("physical action is still a draft placeholder" in issue for issue in payload["issues"])
+
+
 def test_v3_pre_checker_reads_identity_roles_from_localized_selection(
     tmp_path: Path,
 ) -> None:

@@ -44,7 +44,7 @@ def main(argv: list[str] | None = None) -> int:
             print("issues: none")
         print(f"next action: {state.next_action}")
 
-    return 2 if report.blocked else 0
+    return 2 if report.blocked or state.blocked else 0
 
 
 if __name__ == "__main__":

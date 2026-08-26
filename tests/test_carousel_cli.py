@@ -498,7 +498,7 @@ def test_review_rejects_archived_v2_before_staging_any_file(tmp_path: Path) -> N
         ("creator_approved_proof", "batch_ready"),
         ("generated", "final_qa_required"),
         ("packaged", "final_qa_required"),
-        ("publishable", "publish_ready"),
+        ("publishable", "final_qa_failed"),
     ],
 )
 def test_archived_status_uses_one_read_only_public_mapping(

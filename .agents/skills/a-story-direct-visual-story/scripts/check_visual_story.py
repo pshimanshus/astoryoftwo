@@ -197,7 +197,11 @@ def _preflight(package: Path) -> list[str]:
         action = _action(slide)
         if not exact_text:
             issues.append(f"slide {number}: exact on-image text is missing")
-        if len(action.split()) < 6:
+        if strict_v3 and slide.get("needs_physical_action") is True:
+            issues.append(
+                f"slide {number}: physical action is still a draft placeholder and must be locked before handoff"
+            )
+        elif len(action.split()) < 6:
             issues.append(
                 f"slide {number}: needs one concrete physical action sentence with subject, action, target, and visible result"
             )
