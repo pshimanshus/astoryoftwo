@@ -352,6 +352,27 @@ def test_external_system_alias_is_allowed_but_source_file_symlink_is_rejected(
     assert read_generation_state(other)["slides"]["2"]["attempts"] == 0
 
 
+def test_package_system_alias_is_allowed_during_ingest(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    source = _png(tmp_path / "package-alias-source.png", (1080, 1440), "blue")
+    prepare_codex_builtin_image_generation(package, proof_slide=2)
+    supplied_package = package
+    package_text = str(package)
+    if package_text.startswith("/private/var/"):
+        supplied_package = Path("/var") / package_text.removeprefix("/private/var/")
+    elif package_text.startswith("/private/tmp/"):
+        supplied_package = Path("/tmp") / package_text.removeprefix("/private/tmp/")
+
+    state = ingest_generated_outputs(
+        supplied_package,
+        {"instagram_post": [source]},
+        proof_slide=2,
+    )
+
+    assert state["status"] == "proof_qa_required"
+    assert state["slides"]["2"]["attempts"] == 1
+
+
 def test_package_internal_image_cannot_be_recycled_as_fresh_imagegen_output(
     tmp_path: Path,
 ) -> None:

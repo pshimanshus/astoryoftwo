@@ -1,4 +1,7 @@
-PY ?= venv/bin/python
+PY ?= $(firstword $(wildcard venv/bin/python ../../venv/bin/python))
+ifeq ($(strip $(PY)),)
+PY := python3
+endif
 NOTE ?= AI command-center health run.
 PHASE ?= all
 IDEA_MAX_ITERATIONS ?= 3
@@ -57,4 +60,4 @@ publish-dry-run:
 	$(PY) scripts/autopublish.py --dry-run --session-note "$(NOTE)" $(foreach include,$(INCLUDE),--include "$(include)") $(if $(NO_PUSH),--no-push)
 
 test:
-	$(PY) -m pytest
+	$(PY) -m pytest --import-mode=importlib tests

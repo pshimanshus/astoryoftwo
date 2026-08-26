@@ -20,30 +20,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from pipeline.stages.carousel_format_contract import locked_formats  # noqa: E402
+from pipeline.stages.carousel_generation_state import (  # noqa: E402
+    PUBLIC_STATUSES,
+    canonical_state_and_next_action,
+)
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel  # noqa: E402
 
 
 CLI_SCHEMA_VERSION = "carousel-cli/v1"
-CANONICAL_STATES = {
-    "draft",
-    "blocked",
-    "handoff_ready",
-    "proof_qa_required",
-    "proof_failed",
-    "awaiting_creator_proof_approval",
-    "batch_ready",
-    "final_qa_required",
-    "final_qa_failed",
-    "publish_ready",
-}
+CANONICAL_STATES = frozenset(PUBLIC_STATUSES)
 FAILED_EXIT_STATES = {"blocked", "proof_failed", "final_qa_failed"}
-LEGACY_V2_STATE_ALIASES = {
-    "qa_pass_candidate": "awaiting_creator_proof_approval",
-    "batch_allowed": "batch_ready",
-    "generated_audit_failed": "final_qa_failed",
-    "generated_quarantined": "proof_qa_required",
-    "blocked_visual_qa": "proof_failed",
-}
 
 
 class CliInputError(ValueError):
@@ -141,20 +127,15 @@ def _core_finalize(package_dir: Path) -> dict[str, Any]:
 
 
 def _canonical_state(state: dict[str, Any]) -> str:
-    value = str(state.get("status") or "draft").strip().lower()
-    if state.get("schema_version") != "carousel-generation-state/v3":
-        stage = str(state.get("stage") or state.get("repair_scope") or "proof").lower()
-        value = LEGACY_V2_STATE_ALIASES.get(value, value)
-        if value == "proof_qa_required" and stage != "proof":
-            value = "final_qa_required"
-        elif value == "proof_failed" and stage != "proof":
-            value = "final_qa_failed"
+    value, _ = canonical_state_and_next_action(state)
     return value if value in CANONICAL_STATES else "blocked"
 
 
 def _response(package_dir: Path | None, state: dict[str, Any]) -> dict[str, Any]:
     package = package_dir.expanduser().resolve() if package_dir is not None else None
-    status = _canonical_state(state)
+    status, canonical_next_action = canonical_state_and_next_action(state)
+    if status not in CANONICAL_STATES:
+        status = "blocked"
     selected_formats = state.get("selected_formats")
     if not isinstance(selected_formats, list) and package is not None and package.is_dir():
         try:
@@ -166,7 +147,7 @@ def _response(package_dir: Path | None, state: dict[str, Any]) -> dict[str, Any]
         "schema_version": CLI_SCHEMA_VERSION,
         "package_dir": str(package) if package is not None else "",
         "state": status,
-        "next_action": str(state.get("next_action") or "repair_inputs"),
+        "next_action": canonical_next_action,
         "selected_slides": [int(value) for value in state.get("selected_slides") or []],
         "selected_formats": [str(value) for value in selected_formats or []],
     }

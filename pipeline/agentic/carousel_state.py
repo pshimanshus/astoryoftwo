@@ -9,7 +9,10 @@ from typing import Any
 
 from pipeline.agentic.checks.final_assets import validate_publishable_final_assets
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
-from pipeline.stages.carousel_generation_state import PUBLIC_STATUSES, STATE_SCHEMA_VERSION
+from pipeline.stages.carousel_generation_state import (
+    STATE_SCHEMA_VERSION,
+    canonical_state_and_next_action,
+)
 
 
 @dataclass(frozen=True)
@@ -40,47 +43,19 @@ def _read_json(path: Path) -> dict[str, Any]:
     return payload if isinstance(payload, dict) else {}
 
 
-def _status(value: Any) -> str:
-    if isinstance(value, dict):
-        value = value.get("status") or value.get("state") or value.get("proof_state")
-    return str(value or "").strip().lower()
-
-
-def _legacy_state(package_dir: Path) -> tuple[str, str]:
-    legacy = _read_json(package_dir / "image-generation.json") or _read_json(
-        package_dir / "generation-state.json"
-    )
-    status = _status(legacy)
-    mapping = {
-        "generated_quarantined": ("proof_qa_required", "review_proof_pixels"),
-        "proof_ready_for_review": ("proof_qa_required", "review_proof_pixels"),
-        "qa_pass_candidate": ("awaiting_creator_proof_approval", "approve_proof"),
-        "creator_approved_proof": ("batch_ready", "prepare_remaining_slides"),
-        "batch_allowed": ("batch_ready", "prepare_remaining_slides"),
-        "generated_audit_failed": ("final_qa_failed", "repair_final_audit"),
-        "generated": ("final_qa_required", "run_final_pixel_qa"),
-        "packaged": ("final_qa_required", "run_final_pixel_qa"),
-        "publishable": ("publish_ready", "publish"),
-    }
-    if status in PUBLIC_STATUSES:
-        return status, str(legacy.get("next_action") or "inspect_archived_package")
-    return mapping.get(status, ("draft", "inspect_archived_package"))
-
-
-def derive_carousel_state(package_dir: Path) -> CarouselState:
+def derive_carousel_state(package_dir: Path, *, report: Any | None = None) -> CarouselState:
     package_dir = Path(package_dir).expanduser()
-    state = _read_json(package_dir / "generation-state.json")
-    if state.get("schema_version") == STATE_SCHEMA_VERSION:
-        name = _status(state)
-        next_action = str(state.get("next_action") or "repair_state")
-    else:
-        name, next_action = _legacy_state(package_dir)
+    state = _read_json(package_dir / "generation-state.json") or _read_json(
+        package_dir / "image-generation.json"
+    )
+    is_v3 = state.get("schema_version") == STATE_SCHEMA_VERSION
+    name, next_action = canonical_state_and_next_action(state)
 
-    report = inspect_carousel_package(package_dir)
+    report = report or inspect_carousel_package(package_dir)
     issue_codes = list(dict.fromkeys(issue.code for issue in report.issues))
     blocked = name in {"blocked", "proof_failed", "final_qa_failed"} or report.blocked
     publishable = name == "publish_ready" and not report.blocked
-    if publishable:
+    if publishable and not is_v3:
         assets = validate_publishable_final_assets(package_dir)
         if not assets.ok:
             publishable = False

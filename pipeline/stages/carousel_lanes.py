@@ -126,13 +126,6 @@ def build_identity_reference_selection(
     }
 
 
-def infer_workspace_root(output_root: Path) -> Path:
-    resolved = output_root.expanduser().resolve()
-    if resolved.name == "carousels" and resolved.parent.name == "output":
-        return resolved.parent.parent
-    return resolved.parent
-
-
 def infer_title(story: str, title: str | None) -> str:
     if title and title.strip():
         return title.strip()
@@ -267,6 +260,5 @@ __all__ = [
     "build_slides",
     "discover_identity_images",
     "infer_title",
-    "infer_workspace_root",
     "select_identity_reference_bundle",
 ]

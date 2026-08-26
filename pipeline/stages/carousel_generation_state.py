@@ -35,6 +35,18 @@ class GenerationStatus(StrEnum):
 
 PUBLIC_STATUSES = tuple(status.value for status in GenerationStatus)
 SHA256_BINDING_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
+LEGACY_STATE_TRANSITIONS = {
+    "generated_quarantined": ("proof_qa_required", "review_proof_pixels"),
+    "proof_ready_for_review": ("proof_qa_required", "review_proof_pixels"),
+    "qa_pass_candidate": ("awaiting_creator_proof_approval", "approve_proof"),
+    "creator_approved_proof": ("batch_ready", "prepare_remaining_slides"),
+    "batch_allowed": ("batch_ready", "prepare_remaining_slides"),
+    "blocked_visual_qa": ("proof_failed", "repair_visual_premise"),
+    "generated_audit_failed": ("final_qa_failed", "repair_final_audit"),
+    "generated": ("final_qa_required", "run_final_pixel_qa"),
+    "packaged": ("final_qa_required", "run_final_pixel_qa"),
+    "publishable": ("publish_ready", "publish"),
+}
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -52,6 +64,37 @@ def read_generation_state(package_dir: Path) -> dict[str, Any]:
     return _read_json(package_dir / STATE_FILE) or _read_json(
         package_dir / "image-generation.json"
     )
+
+
+def canonical_state_and_next_action(state: dict[str, Any]) -> tuple[str, str]:
+    """Map current or archived state to the one public vocabulary.
+
+    This is deliberately the sole compatibility map. New v3 writes are strict;
+    archived packages remain read-only but every reader reports the same public
+    state and next action.
+    """
+
+    raw = str(
+        state.get("status") or state.get("state") or state.get("proof_state") or "draft"
+    ).strip().lower()
+    supplied_next = str(state.get("next_action") or "").strip()
+    if state.get("schema_version") == STATE_SCHEMA_VERSION:
+        if raw not in PUBLIC_STATUSES:
+            return "blocked", "repair_state"
+        return raw, supplied_next or "repair_state"
+
+    if raw in PUBLIC_STATUSES:
+        return raw, supplied_next or "inspect_archived_package"
+    public, default_next = LEGACY_STATE_TRANSITIONS.get(
+        raw,
+        ("blocked", "inspect_archived_package"),
+    )
+    stage = str(state.get("stage") or state.get("repair_scope") or "proof").lower()
+    if public == "proof_qa_required" and stage != "proof":
+        public, default_next = "final_qa_required", "run_final_pixel_qa"
+    elif public == "proof_failed" and stage != "proof":
+        public, default_next = "final_qa_failed", "repair_final_pixel_qa"
+    return public, supplied_next or default_next
 
 
 def _required_sha256(value: Any, *, field: str) -> str:
@@ -177,7 +220,9 @@ def initialize_generation_state(package_dir: Path) -> dict[str, Any]:
         },
     )
 __all__ = [
+    "canonical_state_and_next_action",
     "GenerationStatus",
+    "LEGACY_STATE_TRANSITIONS",
     "PUBLIC_STATUSES",
     "STATE_FILE",
     "STATE_SCHEMA_VERSION",

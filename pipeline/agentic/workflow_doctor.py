@@ -29,7 +29,7 @@ from pipeline.stages.carousel_format_contract import (
 )
 from pipeline.stages.carousel_visual_storytelling import first_failed_pixel_gate
 from pipeline.stages.carousel_generation_inputs import build_generation_inputs
-from pipeline.stages.carousel_generation_state import STATE_SCHEMA_VERSION
+from pipeline.stages.carousel_generation_state import PUBLIC_STATUSES, STATE_SCHEMA_VERSION
 from pipeline.stages.carousel_pixel_qa import validate_final_qa, validate_proof_qa
 
 
@@ -531,6 +531,16 @@ def _inspect_v3_package(
                 "generation-state.json contains non-canonical transient fields.",
                 evidence=unexpected,
                 next_action="rewrite_compact_v3_state",
+            )
+        )
+    if status not in PUBLIC_STATUSES:
+        issues.append(
+            _issue(
+                "invalid_v3_public_state",
+                "blocker",
+                "generation-state.json status is outside the canonical public vocabulary.",
+                evidence=[package_dir / "generation-state.json"],
+                next_action="repair_state",
             )
         )
     if list(state.get("selected_formats") or []) != list(formats):

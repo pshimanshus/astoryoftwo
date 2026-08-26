@@ -26,7 +26,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     report = inspect_carousel_package(args.package_dir)
-    state = derive_carousel_state(args.package_dir)
+    state = derive_carousel_state(args.package_dir, report=report)
     payload = report.to_dict()
     payload["state"] = state.to_dict()
 

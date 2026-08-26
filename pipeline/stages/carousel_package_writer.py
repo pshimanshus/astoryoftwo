@@ -208,7 +208,6 @@ def _minimal_prompt_pack(prompt_pack: dict[str, Any], slides: list[dict[str, Any
         minimal_prompts.append(record)
     return {
         "schema_version": "carousel-prompt-pack/v2",
-        "generation_mode": "model_native_publishable",
         "brandmark": "@a.storyof.two",
         "style_prompt": str(
             prompt_pack.get("style_prompt")
@@ -218,9 +217,6 @@ def _minimal_prompt_pack(prompt_pack: dict[str, Any], slides: list[dict[str, Any
         "negative_prompt": str(prompt_pack.get("shared_negative_prompt") or ""),
         "style_reference_images": list(prompt_pack.get("style_reference_images") or []),
         "identity_reference_images": list(prompt_pack.get("identity_reference_images") or []),
-        "identity_dossier_reference_images": list(
-            prompt_pack.get("identity_dossier_reference_images") or []
-        ),
         "slides": minimal_prompts,
     }
 
@@ -283,12 +279,6 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
         out_dir,
         prompt_pack.get("identity_reference_images"),
         category="identity",
-        cache=cache,
-    )
-    prompt_pack["identity_dossier_reference_images"] = _localize_path_list(
-        out_dir,
-        prompt_pack.get("identity_dossier_reference_images"),
-        category="identity-dossier",
         cache=cache,
     )
     write_json(

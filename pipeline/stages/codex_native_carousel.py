@@ -25,7 +25,6 @@ from pipeline.stages.carousel_lanes import (
     build_slides,
     discover_identity_images,
     infer_title,
-    infer_workspace_root,
     select_identity_reference_bundle,
 )
 from pipeline.stages.carousel_package_writer import (
@@ -36,6 +35,7 @@ from pipeline.stages.carousel_visual_storytelling import physical_action_issue
 
 
 MAX_IMAGEGEN_REFERENCE_ATTACHMENTS = 5
+WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
 
 
 def load_creative_baseline(path: str | Path | None) -> dict[str, Any] | None:
@@ -235,7 +235,10 @@ def build_package(
     style_candidates = (
         style_reference_paths
         if style_reference_paths is not None
-        else [Path(str(value)) for value in contract.get("style_references", [])]
+        else [
+            path if path.is_absolute() else WORKSPACE_ROOT / path
+            for path in (Path(str(value)) for value in contract.get("style_references", []))
+        ]
     )
     style_references = [str(path) for path in style_candidates if path.is_file()]
     if style_reference_paths is not None and len(style_references) != style_reference_limit:
@@ -262,7 +265,6 @@ def build_package(
         "slides": slides,
         "prompt_pack": {
             "schema_version": "carousel-prompt-pack/v2",
-            "generation_mode": "model_native_publishable",
             "brandmark": "@a.storyof.two",
             "style_prompt": style_prompt,
             "shared_negative_prompt": (
@@ -271,7 +273,6 @@ def build_package(
             ),
             "style_reference_images": style_references,
             "identity_reference_images": [str(path) for path in identity_image_paths],
-            "identity_dossier_reference_images": [],
             "slides": prompts,
         },
         "identity_reference_selection": identity_reference_selection,
@@ -309,8 +310,6 @@ def create_codex_native_carousel(
         validate_slide_count(slide_count)
     today = today or date.today()
     output_root = Path(output_root)
-    workspace_root = infer_workspace_root(output_root)
-
     story_paths = normalize_image_paths(image_paths)
     style_paths = (
         normalize_image_paths(style_reference_paths)
@@ -321,7 +320,7 @@ def create_codex_native_carousel(
     identity_candidates = (
         normalize_image_paths(identity_image_paths or [])
         if explicit_identity
-        else discover_identity_images(workspace_root)
+        else discover_identity_images(WORKSPACE_ROOT)
     )
     identity_paths = select_identity_reference_bundle(
         identity_candidates,

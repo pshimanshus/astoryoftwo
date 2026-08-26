@@ -272,6 +272,28 @@ def test_semantic_failure_rejects_downstream_passes(tmp_path: Path) -> None:
     ]
 
 
+def test_placeholder_qa_cannot_claim_pixel_inspection_or_gate_evidence(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package)
+    qa = _proof_qa(package, binding)
+    qa["inspection"] = {
+        "method": "prompt_review",
+        "decoded_pixels_observed": False,
+    }
+    qa["slides"][0]["reviews"]["instagram_post"]["checks"]["physical_action"] = {
+        "status": "PASS",
+        "evidence": "PASS",
+    }
+
+    issues = validate_proof_qa(package, qa)
+
+    assert "inspection.method must be codex_view_image" in issues
+    assert "inspection.decoded_pixels_observed must be true" in issues
+    assert any("physical_action needs concrete observed pixel evidence" in issue for issue in issues)
+
+
 def test_proof_qa_rejects_tampered_hash_dimensions_and_binding(tmp_path: Path) -> None:
     package = _package(tmp_path)
     binding = _binding(package)

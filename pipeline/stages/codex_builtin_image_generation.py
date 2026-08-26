@@ -137,15 +137,20 @@ def resolve_package_artifact_path(
     package_path = Path(carousel_dir).expanduser()
     if package_path.is_symlink():
         raise ValueError("Carousel package path cannot itself be a symlink.")
+    supplied_root = Path(os.path.abspath(package_path))
     root = package_path.resolve(strict=True)
     candidate = Path(raw_path or default).expanduser()
     if not candidate.is_absolute():
-        candidate = root / candidate
+        candidate = supplied_root / candidate
     candidate = Path(os.path.abspath(candidate))
     try:
-        relative = candidate.relative_to(root)
-    except ValueError as exc:
-        raise ValueError("Package artifact escaped the carousel directory.") from exc
+        relative = candidate.relative_to(supplied_root)
+    except ValueError:
+        try:
+            relative = candidate.resolve(strict=require_file).relative_to(root)
+        except (FileNotFoundError, OSError, ValueError) as exc:
+            raise ValueError("Package artifact escaped the carousel directory.") from exc
+    candidate = root / relative
     cursor = root
     for part in relative.parts:
         cursor = cursor / part
@@ -811,6 +816,7 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
     try:
         inputs = build_generation_inputs(package_dir)
     except (OSError, ValueError, json.JSONDecodeError) as exc:
+        _retract_public_finals(package_dir)
         return write_v3_state(
             package_dir,
             {**state, "status": "blocked", "next_action": "repair_inputs", "reason": str(exc)},
@@ -1107,7 +1113,16 @@ def prepare_codex_builtin_image_generation(
         selected = failed or [
             int(number)
             for number in state["slides"]
-            if _approved_candidate(carousel_dir, int(number)) is None
+            if not _candidate_is_usable(
+                carousel_dir,
+                state,
+                _approved_candidate(carousel_dir, int(number)),
+            )
+            and not _candidate_is_usable(
+                carousel_dir,
+                state,
+                _current_candidate(carousel_dir, state, int(number)),
+            )
         ]
     else:
         proof_number = int(
@@ -1462,7 +1477,6 @@ def _write_manifest_candidate_if_complete(carousel_dir: Path, state: dict[str, A
                 target = expected_output_path(audit_root, output_format, number)
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, target)
-        write_json(audit_root / "final-images.json", manifest)
 
 
 def ingest_generated_outputs(

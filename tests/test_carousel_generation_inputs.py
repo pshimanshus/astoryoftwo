@@ -6,6 +6,7 @@ from pathlib import Path
 
 from PIL import Image
 
+import pipeline.stages.carousel_generation_inputs as generation_inputs
 from pipeline.stages.carousel_generation_inputs import (
     build_generation_inputs,
     canonical_fingerprint,
@@ -197,6 +198,38 @@ def test_shared_identity_byte_change_invalidates_complete_deck(tmp_path: Path) -
 
     assert all(record["attempts"] == 0 for record in after["slides"].values())
     assert not (package / ".internal/approved-final-candidates").exists()
+    assert "all slide candidates" in after["reason"]
+
+
+def test_brand_contract_change_invalidates_complete_deck(tmp_path: Path) -> None:
+    package = _package_with_actual_reference_bundle(tmp_path)
+    _mark_work_in_progress(package)
+    prompt_path = package / "prompt-pack.json"
+    prompt_pack = json.loads(prompt_path.read_text(encoding="utf-8"))
+    prompt_pack["brandmark"] = "@a.storyof.two.changed"
+    prompt_path.write_text(json.dumps(prompt_pack), encoding="utf-8")
+
+    after = reconcile_package_state(package)
+
+    assert all(record["attempts"] == 0 for record in after["slides"].values())
+    assert "all slide candidates" in after["reason"]
+
+
+def test_compiler_version_change_invalidates_complete_deck(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    package = _package_with_actual_reference_bundle(tmp_path)
+    _mark_work_in_progress(package)
+    monkeypatch.setattr(
+        generation_inputs,
+        "PROMPT_COMPILER_VERSION",
+        "carousel-prompt-compiler/v-next",
+    )
+
+    after = reconcile_package_state(package)
+
+    assert all(record["attempts"] == 0 for record in after["slides"].values())
     assert "all slide candidates" in after["reason"]
 
 

@@ -411,8 +411,6 @@ def test_default_prepared_handoff_uses_four_identity_roles_and_one_style_board(
         "--output-root",
         str(tmp_path / "output" / "carousels"),
     ]
-    for identity in identity_bundle:
-        command.extend(("--identity-image", str(identity)))
 
     result = _run(*command)
 
@@ -493,6 +491,75 @@ def test_review_rejects_archived_v2_before_staging_any_file(tmp_path: Path) -> N
     assert _tree_bytes(package) == before
 
 
+@pytest.mark.parametrize(
+    ("legacy_status", "expected"),
+    [
+        ("proof_ready_for_review", "proof_qa_required"),
+        ("creator_approved_proof", "batch_ready"),
+        ("generated", "final_qa_required"),
+        ("packaged", "final_qa_required"),
+        ("publishable", "publish_ready"),
+    ],
+)
+def test_archived_status_uses_one_read_only_public_mapping(
+    tmp_path: Path,
+    legacy_status: str,
+    expected: str,
+) -> None:
+    package = tmp_path / legacy_status
+    package.mkdir()
+    (package / "generation-state.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "carousel-generation-state/v2",
+                "status": legacy_status,
+            }
+        ),
+        encoding="utf-8",
+    )
+    before = _tree_bytes(package)
+
+    result = _run("status", str(package))
+
+    assert result.returncode == (2 if expected in {"proof_failed", "final_qa_failed"} else 0)
+    assert json.loads(result.stdout)["state"] == expected
+    assert _tree_bytes(package) == before
+
+
+@pytest.mark.parametrize(
+    "command",
+    ("prepare", "ingest", "approve", "finalize"),
+)
+def test_every_writing_cli_command_keeps_archived_v2_tree_unchanged(
+    tmp_path: Path,
+    command: str,
+) -> None:
+    package = tmp_path / f"archived-{command}"
+    package.mkdir()
+    (package / "generation-state.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "carousel-generation-state/v2",
+                "status": "proof_ready_for_review",
+            }
+        ),
+        encoding="utf-8",
+    )
+    external = _write_reference(tmp_path / "external.png", b"external")
+    args = [command, str(package)]
+    if command == "ingest":
+        args.extend(("--instagram-post", str(external)))
+    elif command == "approve":
+        args.extend(("--proof-sha256", "sha256:" + "0" * 64))
+    before = _tree_bytes(package)
+
+    result = _run(*args)
+
+    assert result.returncode == 2
+    assert "read-only" in json.loads(result.stdout)["reason"]
+    assert _tree_bytes(package) == before
+
+
 def test_explicit_style_overflow_blocks_instead_of_silently_slicing(tmp_path: Path) -> None:
     style_one = _write_reference(tmp_path / "style-one.png", b"one")
     style_two = _write_reference(tmp_path / "style-two.png", b"two")
@@ -556,6 +623,20 @@ def test_make_carousel_infers_beats_unless_creator_sets_slide_cap() -> None:
     assert "--slide-count" not in default.stdout
     assert explicit.returncode == 0
     assert '--slide-count "6"' in explicit.stdout
+
+
+def test_make_defaults_work_in_a_codex_worktree_and_scope_the_project_suite() -> None:
+    result = subprocess.run(
+        ["make", "-n", "test"],
+        cwd=WORKSPACE,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "pytest --import-mode=importlib tests" in result.stdout
+    assert "../../venv/bin/python" in result.stdout or "venv/bin/python" in result.stdout
 
 
 def test_jam_uses_canonical_command_without_research_ceremony() -> None:

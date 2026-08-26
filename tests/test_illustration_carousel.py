@@ -565,6 +565,66 @@ def test_final_pixel_tampering_revokes_publish_ready(tmp_path: Path) -> None:
     assert not (package / "final-audit.json").exists()
 
 
+def test_malformed_inputs_retract_every_public_final_claim(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    _publish(package, tmp_path)
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    slides.reverse()
+    slides_path.write_text(json.dumps(slides), encoding="utf-8")
+
+    state = reconcile_package_state(package)
+
+    assert state["status"] == "blocked"
+    assert state["next_action"] == "repair_inputs"
+    assert not (package / "final").exists()
+    assert not (package / "final-images.json").exists()
+    assert not (package / "visual-qa.json").exists()
+    assert not (package / "final-audit.json").exists()
+
+
+def test_slide_local_batch_correction_reuses_unaffected_current_candidates(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    _approve_proof(package, tmp_path)
+    prepared = prepare_codex_builtin_image_generation(package)
+    assert prepared["selected_slides"] == [1, 2, 4]
+    ingest_generated_outputs(
+        package,
+        _generated(tmp_path / "batch-before-correction", [1, 2, 4]),
+    )
+    before = read_generation_state(package)
+    preserved = {
+        number: (
+            package
+            / f".internal/visual-quarantine/slide-{number:02d}/attempt-01/candidate.json"
+        ).read_bytes()
+        for number in (1, 4)
+    }
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    slides[1]["physical_action"] = (
+        "Aachu rotates one moving box while Zuv braces its opposite corner."
+    )
+    slides[1]["visual"] = slides[1]["physical_action"]
+    slides_path.write_text(json.dumps(slides), encoding="utf-8")
+
+    reconciled = reconcile_package_state(package)
+    next_handoff = prepare_codex_builtin_image_generation(package)
+
+    assert reconciled["slides"]["1"]["attempts"] == before["slides"]["1"]["attempts"]
+    assert reconciled["slides"]["2"]["attempts"] == 0
+    assert reconciled["slides"]["4"]["attempts"] == before["slides"]["4"]["attempts"]
+    assert next_handoff["selected_slides"] == [2]
+    for number, expected in preserved.items():
+        path = (
+            package
+            / f".internal/visual-quarantine/slide-{number:02d}/attempt-01/candidate.json"
+        )
+        assert path.read_bytes() == expected
+
+
 def test_post_publish_visual_qa_prose_tamper_revokes_bound_audit(
     tmp_path: Path,
 ) -> None:
@@ -606,7 +666,7 @@ def test_post_publish_visual_qa_prose_tamper_revokes_bound_audit(
         )
         assert path.read_bytes() == expected
     assert (package / ".internal/final-manifest-candidate.json").is_file()
-    assert (package / ".internal/final-audit-candidate/final-images.json").is_file()
+    assert not (package / ".internal/final-audit-candidate/final-images.json").exists()
     assert not (package / "final").exists()
     assert not (package / "final-images.json").exists()
     assert not (package / "visual-qa.json").exists()

@@ -223,10 +223,6 @@ def _strict_final_manifest(package: Path) -> tuple[dict[str, Any], Path]:
             package / ".internal" / "final-manifest-candidate.json",
             package / ".internal" / "final-audit-candidate",
         ),
-        (
-            package / ".internal" / "final-audit-candidate" / "final-images.json",
-            package / ".internal" / "final-audit-candidate",
-        ),
     )
     for path, asset_root in candidates:
         if path.is_file():

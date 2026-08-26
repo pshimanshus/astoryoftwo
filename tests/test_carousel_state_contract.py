@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -8,6 +10,7 @@ from PIL import Image
 import pytest
 
 from pipeline.agentic.carousel_state import derive_carousel_state
+from pipeline.agentic.workflow_doctor import inspect_carousel_package
 from pipeline.stages.codex_builtin_image_generation import (
     ingest_generated_outputs,
     prepare_codex_builtin_image_generation,
@@ -107,6 +110,37 @@ def test_archived_v2_state_is_mapped_read_only_to_v3_vocabulary(tmp_path: Path) 
     state = derive_carousel_state(package)
     assert state.name == "batch_ready"
     assert not (package / "generation-state.json").exists()
+
+
+def test_noncanonical_v3_status_fails_closed_in_doctor_state_and_cli(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    state_path = package / "generation-state.json"
+    payload = json.loads(state_path.read_text(encoding="utf-8"))
+    payload["status"] = "publishable_v4"
+    payload["next_action"] = "publish"
+    state_path.write_text(json.dumps(payload), encoding="utf-8")
+
+    report = inspect_carousel_package(package)
+    assert report.blocked is True
+    assert "invalid_v3_public_state" in {issue.code for issue in report.issues}
+    derived = derive_carousel_state(package, report=report)
+    assert derived.name == "blocked"
+    assert derived.blocked is True
+
+    result = subprocess.run(
+        [sys.executable, "scripts/carousel.py", "status", str(package)],
+        cwd=Path(__file__).resolve().parents[1],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+    assert result.returncode == 2
+    cli_payload = json.loads(result.stdout)
+    assert cli_payload["state"] == "blocked"
+    assert cli_payload["next_action"] == "repair_state"
 
 
 def test_archived_v2_prepare_with_format_change_leaves_whole_tree_unchanged(
