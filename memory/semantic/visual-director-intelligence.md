@@ -103,6 +103,56 @@ into an unrelated scene. This optionality does not apply to the two signature
 worn accessories: keep Zuv's locket and Aachu's right-wrist bracelet on their
 bodies, showing them whenever the framing makes their placement visible.
 
+## Character Reference Packs — Technical, Face-First
+
+Creator correction, 2026-08-23: a character chart is not a decorative montage
+or one polished couple illustration split into vignettes. It is a production
+model sheet with large, recognizable, source-backed face views from the front,
+left three-quarter, right three-quarter, left profile, and right profile; an
+additional rear/over-shoulder view should lock the hair silhouette. It also
+needs readable written construction notes for the
+face, hair, beard, body, wardrobe, and signature accessories.
+
+Before saying the photographs are insufficient, search the full verified
+private source libraries already supplied by the creator, not just the minimal
+repository copy. Curate 2–4 role-specific real photos for front, expression,
+three-quarter, and true side projection. Do not infer profile projection from
+frontal photographs. If no true side photograph exists after that search, stop
+with `BLOCKED_FOR_PROFILE_REFERENCE_PHOTOS`. A single true side image may
+support projection on both turnaround sides, but bilateral asymmetry stays
+provisional. Approve each solo face turnaround
+before generating the couple scale/interaction sheet. Mechanical consistency
+inside a generated image cannot overrule the creator saying the likeness is
+wrong. Zuv's evil-eye locket and Aachu's right-wrist evil-eye bracelet each need
+a dedicated placement/detail callout on their production sheets.
+
+Creator correction, 2026-08-23: Aachu's first technical turnaround was still a
+different face because the dedicated Desktop Aachu library was missed and the
+prompt introduced genericizing traits. Reject the whole face, never repair from
+the generated woman, and rebuild from the photographs. In Anchal's current
+photo evidence, preserve a soft rounded-to-oval face with full cheeks and a
+softly squared jaw, large dark round-almond eyes, full mostly straight brows,
+a natural medium-width nose with rounded tip, compact lips with a fuller lower
+lip, and dense very dark mostly straight hair with soft bends—not a narrowed
+face, “delicate” nose, or exaggerated wavy hair.
+A creator-rejected generated face is never an identity reference.
+
+Creator correction, 2026-08-24: Aachu turnaround v2 is a partial approval only.
+The large neutral front view is recognized as correct; both three-quarter
+views, both profiles, and the expression row are rejected. Never treat one
+approved component as approval of the full sheet, and never attach the full v2
+sheet as identity authority. Preserve the approved front only as a supplemental
+comparison aid. The file previously labeled as a true Aachu profile is actually
+an oblique, downward, smiling bridal candid. A full search of the dedicated
+Aachu library and repository couple photos found no clean neutral 90-degree
+profile, so profile generation is `BLOCKED_FOR_PROFILE_REFERENCE_PHOTOS`.
+
+Generated character charts never replace actual photographs used for identity. Every generation
+call with a visible Aachu or Zuv face must attach selected real photos of that
+person. An approved generated view, photo contact sheet, photo master board, or
+written character bible can help continuity, but none may become the sole face
+source.
+
 ---
 
 ## Shot Types — When to Use Which
@@ -291,7 +341,7 @@ do not retain identity from a previous call. Face drift accumulates in long
 carousels (7+ slides) and across sessions.
 
 **Fastest identity consistency checks:**
-- Aachu: her long dark wavy hair silhouette — thickness and wave pattern must match
+- Aachu: her dense very dark mostly-straight hair silhouette — thickness, hairline, layers, and soft bends must match
 - Zuv: his thick dark curly hair silhouette — the curls must be present, not straightened
 - Both: skin tone must stay consistent across every slide in the carousel
 

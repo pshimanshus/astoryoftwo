@@ -24,7 +24,7 @@
     "aachu": {
       "names": ["Aachu", "Anchal"],
       "visual_cues": [
-        "expressive dark eyes and long dark wavy hair",
+        "expressive dark eyes and dense very dark mostly-straight hair with soft bends",
         "warm medium-brown South Asian skin tone",
         "playful expressive posture"
       ],
@@ -43,7 +43,7 @@
     }
   },
   "identity_reference_policy": {
-    "rule": "Use a small story-specific bundle of actual Aachu/Zuv files on every generation call; text descriptions and filenames alone are not identity evidence.",
+    "rule": "Use exactly four story-specific actual Aachu/Zuv photographs on every generation call. Generated character charts, contact sheets, photo-master boards, prior illustrations, text descriptions, and filenames are supplemental comparison aids only and can never replace the real photographs or occupy the four-photo attachment bundle.",
     "max_prompt_images": 4,
     "recommended_prompt_images": "2-4",
     "bundle_roles": [
@@ -56,6 +56,7 @@
       "No actual identity image is attached.",
       "The entire identity library is attached.",
       "Identity appears only in metadata rather than the image input.",
+      "A generated character chart, contact sheet, photo-master board, or prior illustration is attached instead of one of the four actual photographs.",
       "A generated person is generic or not recognizably based on the selected bundle."
     ]
   },

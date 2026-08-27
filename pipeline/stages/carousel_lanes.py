@@ -21,13 +21,40 @@ IDENTITY_DOSSIER_PATH = Path(
     "config/references/identity/_dossier/identity-dossier.json"
 )
 IDENTITY_REFERENCE_RULE = (
-    "Select a small story-specific identity bundle. Attach actual files to every "
-    "generation call; filenames and prose are not identity evidence."
+    "Select four story-specific actual-photo identity anchors. Attach the files to "
+    "every generation call; filenames, prose, generated character charts, and prior "
+    "illustrations are not identity evidence."
 )
 FALLBACK_COMPACT_STYLE_PROMPT = (
     "premium romantic watercolor-and-ink illustration on warm ivory paper, visible "
     "paper grain, fine pencil/ink linework, transparent washes, muted vintage palette"
 )
+
+
+def is_generated_character_chart_path(path: Path) -> bool:
+    """Return true for derived identity art that must not replace real photos."""
+
+    normalized = str(path.expanduser()).lower().replace("\\", "/")
+    name = path.name.lower()
+    return any(
+        marker in normalized
+        for marker in (
+            "/config/references/character-models/",
+            "/aachu-zuv-character-charts/",
+            "/approved-components/",
+            "/photo-master/",
+        )
+    ) or any(
+        marker in name
+        for marker in (
+            "character-chart",
+            "character-sheet",
+            "face-turnaround",
+            "model-sheet",
+            "contact-sheet",
+            "photo-master",
+        )
+    )
 
 
 def discover_identity_images(workspace_root: Path) -> list[Path]:
@@ -56,18 +83,21 @@ def discover_identity_images(workspace_root: Path) -> list[Path]:
             raise FileNotFoundError(f"Missing curated identity reference: {path}")
         if path.suffix.lower() not in SUPPORTED_IDENTITY_IMAGE_EXTENSIONS:
             raise ValueError(f"Unsupported curated identity reference: {path}")
+        if is_generated_character_chart_path(path):
+            continue
         selected.append(path)
     selected = list(dict.fromkeys(selected))
-    if len(selected) > MAX_IDENTITY_REFERENCE_BUNDLE:
-        raise ValueError(
-            f"Curated identity dossier exceeds the {MAX_IDENTITY_REFERENCE_BUNDLE}-image limit."
-        )
     subjects = {_identity_subject(path) for path in selected}
     missing = {"aachu", "zuv", "together"} - subjects
     if missing:
         raise ValueError(
             "Curated identity dossier must include Aachu, Zuv, and together references; "
             f"missing: {', '.join(sorted(missing))}."
+        )
+    if len(selected) != MAX_IDENTITY_REFERENCE_BUNDLE:
+        raise ValueError(
+            "Curated identity dossier must resolve to exactly four actual photographs "
+            "after excluding generated charts and derived boards."
         )
     return selected
 
@@ -92,6 +122,12 @@ def select_identity_reference_bundle(
         raise ValueError(
             f"Use at most {MAX_IDENTITY_REFERENCE_BUNDLE} identity references: "
             "face, body/posture, outfit/context, and emotion/detail anchors."
+        )
+    derived = [path for path in candidate_paths if is_generated_character_chart_path(path)]
+    if derived:
+        raise ValueError(
+            "Generated character charts are supplemental comparison aids and cannot "
+            "occupy the four-photo image-generation attachment bundle."
         )
     return candidate_paths[:MAX_IDENTITY_REFERENCE_BUNDLE]
 
@@ -122,6 +158,9 @@ def build_identity_reference_selection(
         "rule": IDENTITY_REFERENCE_RULE,
         "candidate_count": len(candidate_paths),
         "selected_count": len(selected_paths),
+        "actual_photo_count": len(selected_paths),
+        "generated_chart_count": 0,
+        "generated_chart_role": "supplemental_only_never_generation_attachment",
         "selected_references": selected_references,
     }
 
@@ -260,5 +299,6 @@ __all__ = [
     "build_slides",
     "discover_identity_images",
     "infer_title",
+    "is_generated_character_chart_path",
     "select_identity_reference_bundle",
 ]

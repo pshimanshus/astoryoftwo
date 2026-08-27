@@ -10,7 +10,7 @@ this prompt.
 
 ```text
 PRIMARY REQUEST:
-Create one image-led @a.storyof.two relationship-story frame. The physical event must remain understandable with the copy hidden. Use the attached actual Aachu and Zuv identity images for faces, hair, skin tone, age, body proportions, height relationship, expressions, posture, and wardrobe anchors. Use the attached approved A Story references for illustration style only. If actual identity and style references are not attached, stop; prose such as "same couple" is not a substitute.
+Create one image-led @a.storyof.two relationship-story frame. The physical event must remain understandable with the copy hidden. Use the attached actual Aachu and Zuv identity images—each one an actual photograph—for faces, hair, skin tone, age, body proportions, height relationship, expressions, posture, and wardrobe anchors. Generated character charts, contact sheets, prior illustrations, and written descriptions may be supplemental comparison aids but can never replace the actual photographs or become the sole face source. Use the attached approved A Story references for illustration style only. If actual identity and style references are not attached, stop; identity references must be photographs, and prose such as "same couple" is not a substitute.
 
 ON-IMAGE TEXT:
 [INSERT EXACT TEXT TO INCLUDE IN THE ILLUSTRATION HERE]

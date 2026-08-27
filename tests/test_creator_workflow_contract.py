@@ -3,7 +3,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from pipeline.agentic.context_loader import assemble_context_pack
+from pipeline.stages.carousel_lanes import (
+    discover_identity_images,
+    select_identity_reference_bundle,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -139,6 +145,61 @@ def test_identity_references_cover_the_whole_person_and_block_batching() -> None
     ):
         assert fragment in surfaces
     assert "Text-only identity descriptions are blocked" in surfaces
+
+
+def test_generated_character_charts_never_replace_actual_photo_inputs() -> None:
+    surfaces = "\n".join(
+        _flat(path)
+        for path in (
+            "config/carousel_style_contract.json",
+            "config/references/a-story-illustration-master-prompt.md",
+            "memory/semantic/visual-director-intelligence.md",
+        )
+    ).lower()
+
+    assert "actual photograph" in surfaces
+    assert "generated character chart" in surfaces
+    assert "supplemental" in surfaces
+    assert "sole face source" in surfaces
+
+
+def test_identity_attachment_bundle_rejects_generated_charts(tmp_path: Path) -> None:
+    photo = tmp_path / "aachu" / "aachu-real-photo.jpg"
+    chart = tmp_path / "character-models" / "aachu-face-turnaround.png"
+    for path in (photo, chart):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"image")
+
+    with pytest.raises(ValueError, match="cannot occupy"):
+        select_identity_reference_bundle([photo, chart], explicit=True)
+
+
+def test_auto_identity_discovery_uses_exact_four_actual_photos(tmp_path: Path) -> None:
+    actual = [
+        tmp_path / "config/references/identity/aachu/aachu.jpg",
+        tmp_path / "config/references/identity/zuv/zuv.jpg",
+        tmp_path / "config/references/identity/together/together-face.jpg",
+        tmp_path / "config/references/identity/together/together-body.jpg",
+    ]
+    chart = tmp_path / "config/references/character-models/aachu-face-turnaround.png"
+    for path in [*actual, chart]:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"image")
+    dossier = tmp_path / "config/references/identity/_dossier/identity-dossier.json"
+    dossier.parent.mkdir(parents=True, exist_ok=True)
+    dossier.write_text(
+        json.dumps(
+            {
+                "selected_generation_bundle": [
+                    *(str(path.relative_to(tmp_path)) for path in actual),
+                    str(chart.relative_to(tmp_path)),
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert discover_identity_images(tmp_path) == actual
 
 
 def test_format_lock_defaults_to_post_and_never_manufactures_derivatives() -> None:
