@@ -73,6 +73,10 @@ HARD FAIL — reject or repair before proceeding
 - Copyrighted source text copied verbatim into the artifact.
 - Premise relies on private context the reader cannot infer.
 - Thesis is a teach-claim ("relationships need X") rather than a lived truth.
+- A supplied example prop becomes the concept engine instead of evidence for a
+  more precise unspoken consequence.
+- A creator-rejected surface returns under new wording. Mark rejected objects,
+  metaphors, and scene mechanics superseded; do not keep polishing them.
 
 REQUIRED RECORD (when scoring, write into `layer-e-story-selling.json`)
 - concept title

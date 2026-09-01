@@ -1,6 +1,6 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-08-14
+last_updated: 2026-09-01
 confidence: 0.8
 sources:
 - direct creator correction in chat on 2026-07-11: this file must be a crisp
@@ -239,13 +239,29 @@ scores, rejected lanes, selector verdict, and GO / REPAIR / STOP.
 Public slide copy comes only after the creator approves the concept direction.
 confidence: 1.0
 
-fact: For fresh carousel jams and copy-lock drafts, use the creator's default
-pattern in this exact order: `Cover`, `Cold Open`, `Mirror`, `Spine`,
-`Rhythm`, `Turn`, `Payoff`. Treat `Cover` as the scroll-stop/thumbnail promise
-and the six named beats as the swipe ladder. Do not fall back to the older
-5-slide default unless the creator explicitly asks for fewer slides or a
-specific production constraint requires compression; if compressing, preserve
-the order and story job of the seven-part pattern.
+fact: For reflective carousel jams and copy-lock drafts, use two nested story
+structures invisibly. The macro arc is `Question -> Bridge/Crisis -> Answer`:
+the opening plants one human contradiction, the middle makes it harder through
+lived action, choice, failed solutions, or consequence, and the ending answers
+by changing what the opening means. Inside that arc, use the relevant story
+jobs from `Cover`, `Cold Open`, `Mirror` or `Deepening`, `Spine` or `Conflict`,
+`Rhythm`, `Turn`, and `Payoff`. These are phases, not a fixed slide count, and
+their labels never appear in public copy. Every swipe must change knowledge,
+pressure, choice, relationship position, or meaning; the payoff must answer or
+deepen the opening rather than paste on a moral. Creator approval on 2026-09-01
+established `The Homes That Miss Us` as positive calibration: an ordinary
+planning question reveals an impossible fairness crisis, mutual generosity is
+reframed as each partner volunteering to be missed by their own people, and the
+final answer names the quiet cost of building one shared home. Preserve that
+thematic method--uncover the private consequence beneath an ordinary shared-life
+decision--without repeating its family, festival, calendar, or phone surface.
+A creator-supplied object example is evidence of the depth or recognition being
+requested, not a mandate to keep its props. If the creator rejects that surface,
+mark it superseded and move inward to the thought people rarely say; do not
+circle back to dabbas, takeaway tubs, gift paper, ribbons, saved packaging,
+kitchen cleanups, or shared shelves under new language. In this session, the
+approved leap came only after the object-inheritance route was dropped and an
+ordinary scheduling decision exposed its unspoken emotional cost.
 confidence: 1.0
 
 fact: Creator correction on 2026-07-30: every carousel cover must operate as a
