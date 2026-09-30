@@ -1,37 +1,82 @@
 {
-  "schema_version": "a-story-character-bible/v1",
-  "version": "2026-08-23-draft-2-accessory-lock",
-  "status": "AWAITING_CREATOR_JOINT_LIKENESS_AND_ACCESSORY_APPROVAL",
+  "schema_version": "a-story-character-bible/v2",
+  "version": "2026-08-24-aachu-v4-rejected-individual-proof-reset",
+  "status": "AACHU_V4_REJECTED_WHOLE_SHEET_IDENTITY_FAILURE",
   "authority": {
     "identity": "verified_actual_photographs",
+    "creator_recognition": "final_likeness_authority",
     "illustration_style": "observational-intimacy-premium",
-    "generated_sheets": "supplemental_only"
+    "generated_sheets": "supplemental_only",
+    "rejected_proofs": "never_use_as_identity_reference"
+  },
+  "identity_source_policy": {
+    "final_generation_requires_actual_photos": true,
+    "actual_photos_attached_for_every_visible_face": true,
+    "generated_character_charts_can_be_face_authority_alone": false,
+    "photo_contact_sheet_or_master_board_replaces_original_photos": false,
+    "photo_master_board_path": "photo-master/aachu-photo-identity-master-v1.png",
+    "photo_master_board_status": "INTERNAL_EVIDENCE_AUDIT_ONLY; NOT_THE_REQUESTED_CHARACTER_SHEET_AND_NOT_A_REPLACEMENT_FOR_ORIGINAL_PHOTO_INPUTS",
+    "generated_sheets": "supplemental_after_explicit_creator_approval_only",
+    "approval_scope": "per_view_not_per_sheet",
+    "partially_approved_sheet_rule": "Never attach the complete sheet as identity input; only the approved component may be used as a secondary comparison aid while actual photos remain attached."
   },
   "style_reference": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+  "written_clarity_rule": "Every approved private model sheet must contain readable construction notes explaining what to preserve and what to avoid. Generic adjectives are not enough; profile-dependent claims remain explicitly pending until source photographs exist.",
   "characters": {
     "aachu": {
-      "names": [
-        "Aachu",
-        "Anchal"
-      ],
+      "names": ["Aachu", "Anchal"],
       "height": "5'6\"",
       "verified_photo_references": [
-        "config/references/identity/aachu/reel-jaldi.jpg",
-        "config/references/identity/aachu/face-04.png",
-        "config/references/identity/aachu/face-06.png",
+        "config/references/identity/aachu/curated-v3/aachu-master-front.jpg",
+        "config/references/identity/aachu/curated-v3/aachu-shallow-three-quarter.jpg",
+        "config/references/identity/aachu/curated-v3/aachu-deeper-three-quarter.jpg",
+        "config/references/identity/aachu/curated-v3/aachu-smile-close.jpg",
         "config/references/identity/together/together-16.jpg"
       ],
-      "face_lock": [
-        "warm medium-brown South Asian skin",
-        "large expressive dark eyes",
-        "softly arched brows",
-        "delicate nose",
-        "natural lips",
-        "youthful soft oval face and cheek structure"
-      ],
-      "hair_lock": "Long, thick, dark, naturally wavy hair with a consistent face-framing silhouette; allowed variants are loose, half-tied, and a casual ponytail.",
-      "body_and_presence_lock": "Natural adult proportions, 5'6\" height, playful warmth, expressive posture, real-person charm; never tiny, childlike, doll-like, or model-generic.",
+      "verified_source_library": "/Users/himanshusharma/Desktop/Identity Images /Aachu Images/",
+      "photo_bundle": "aachu-photo-bundle-v3.json",
+      "reference_coverage": {
+        "front": "AVAILABLE",
+        "three_quarter": "AVAILABLE_FROM SHALLOW AND DEEPER DEDICATED THREE-QUARTER PHOTOS",
+        "profile_projection": "NO APPROVED PROFILE. V4 AND ITS PROFILE REPAIR ARE REJECTED. A CONSTRUCTED PROFILE MAY BE GENERATED ONLY AS ONE LARGE STANDALONE PROOF AND REMAINS PROVISIONAL UNTIL EXPLICIT CREATOR APPROVAL.",
+        "rear_hair": "SUPPORTED_BY_MULTIPLE LOOSE-HAIR PHOTOS; PROOF STILL REQUIRES CREATOR APPROVAL"
+      },
+      "face_construction": {
+        "evidence_status": "V4 WAS REJECTED AS A WHOLE-SHEET IDENTITY FAILURE AND IS NON-REUSABLE. THE CURATED-V3 ACTUAL PHOTOS REMAIN THE IDENTITY AUTHORITY. THE NEXT ROUTE IS ONE LARGE PORTRAIT AT A TIME WITH CREATOR APPROVAL AFTER EVERY VIEW, FOLLOWED BY DETERMINISTIC SHEET ASSEMBLY.",
+        "face_envelope": "Soft rounded-to-oval adult face with real cheek breadth and fullness, a short-to-medium lower face, softly squared jaw corners, and a rounded—not sharp or V-shaped—chin.",
+        "forehead_and_hairline": "Natural medium-height forehead and softly curved hairline. Preserve irregular real hairline edges and face-framing strands; do not draw a perfect wig-like arc.",
+        "brows": "Dark, medium-thick brows that remain relatively straight through the inner sections with a low soft arch. Preserve their real thickness and spacing; do not thin, raise, laminate, or glamorize them.",
+        "eyes": "Large, dark, expressive round-almond eyes with prominent dark irises. Preserve the photographed spacing, upper-lid fold, lower-lid fullness, and alert warmth; do not enlarge into doll/anime eyes or add glam liner.",
+        "nose": "Natural medium-width nose with a straight bridge, rounded tip, and real nostril width in the available front and three-quarter photos. Side projection remains pending clean neutral 90-degree photographs; never make it tiny, delicate, pinched, narrow, upturned, or sculpted.",
+        "lips": "Compact natural mouth with a thinner upper lip, fuller lower lip, and real asymmetry. Preserve the photographed smile width and contour; do not overfill, widen, sharpen, or add a beauty-ad pout.",
+        "cheeks": "Soft cheek structure is part of recognition. Keep natural fullness and smile compression; do not hollow or contour the cheeks into a fashion-model face.",
+        "jaw_and_chin": "Grounded softly squared jaw corners and rounded chin in the approved front. Never make the jaw extremely narrow, long, childlike, sharply V-shaped, or doll-like. Side projection remains pending clean neutral profile photographs.",
+        "ears": "Ear placement, projection, and bilateral detail remain pending clean neutral profile photographs. Do not invent additional piercing or perfectly symmetrize unobserved detail.",
+        "skin_tone": "Warm medium-brown South Asian skin. Preserve consistent undertone across views; no whitening, orange cast, heavy blush, or sepia shift.",
+        "distinguishing_asymmetry": "Do not auto-symmetrize the face. Record eyebrow, eye, smile, and cheek asymmetries only after the full angle set is available.",
+        "likeness_hard_fails": [
+          "generic pretty illustrated woman",
+          "narrow V-shaped face",
+          "oversized doll eyes",
+          "overfilled lips or sculpted nose",
+          "whitened skin or changed age",
+          "profile geometry inferred from frontal references"
+        ]
+      },
+      "hair_construction": {
+        "core": "Long, dense, very dark hair that is predominantly straight and smooth with soft natural bends, layered ends, and face-framing movement.",
+        "approved_states": ["loose", "half-tied", "casual ponytail"],
+        "locks": ["dark color", "visible thickness", "mostly straight texture with soft bends", "consistent hairline", "recognizable face-framing strands"],
+        "avoid": ["flat thin sheet hair", "thin low-volume hair", "invented bangs", "generic princess curls or exaggerated waves"]
+      },
+      "body_construction": {
+        "height": "5'6\"",
+        "build": "Natural adult proportions and grounded real-person build; expressive posture without miniaturization or doll-like limbs.",
+        "posture": "Playful warmth and expressive movement, while keeping shoulders, torso, hips, hands, and feet anatomically natural.",
+        "avoid": ["tiny or childlike scale", "fashion-model elongation", "pinched waist", "oversized head", "cramped or crouched pose"]
+      },
       "expression_set": [
+        "neutral identity-check expression",
         "bright warm smile",
         "playfully amused",
         "dramatic but affectionate exasperation",
@@ -39,27 +84,26 @@
       ],
       "wardrobe": {
         "core": "Black top and black blazer with blue jeans, grounded in face-04.png.",
-        "alternate": "White wrap blouse, wide blue jeans, red shoes, and red bag, grounded in together-16.jpg."
+        "alternate": "White wrap blouse, wide blue jeans, red shoes, and red bag, grounded in together-16.jpg.",
+        "rule": "Garment cut, drape, footwear, and bag must follow the attached photo rather than a generic fashion interpretation."
       },
       "signature_accessory": {
         "item": "evil-eye bracelet",
-        "placement": "right wrist",
+        "placement": "right wrist only",
         "reference": "config/references/identity/aachu/face-04.png",
-        "visibility_rule": "Always worn. It must be present whenever the right wrist or forearm is visible; if physically hidden by crop, sleeve, pose, or natural occlusion, record the reason in the prompt and QA.",
+        "detail_reference_status": "CURRENT PHOTO SUPPORTS PLACEMENT; CLOSE SHARP DESIGN MACRO STILL REQUESTED",
+        "visibility_rule": "Always worn. Show the same bracelet whenever the right wrist or forearm is visible; otherwise record the physical occlusion.",
+        "model_sheet_requirement": "Dedicated enlarged bracelet inset plus a right/left wrist placement diagram clearly marking RIGHT WRIST.",
         "hard_fails": [
-          "missing from a visible right wrist or forearm",
-          "moved to the left wrist",
-          "replaced with a generic bangle, thread, watch, or invented bracelet",
-          "design or scale drifts across repeated views"
+          "missing from visible right wrist or forearm",
+          "moved to left wrist",
+          "replaced by generic bangle, thread, watch, or invented charm",
+          "design or scale changes between views"
         ]
-      },
-      "accessories": "The right-wrist evil-eye bracelet is mandatory. Use other photo-supported simple gold jewelry, ring, watch, or bracelet only when visible in the selected references; do not invent jewelry."
+      }
     },
     "zuv": {
-      "names": [
-        "Zuv",
-        "Himanshu"
-      ],
+      "names": ["Zuv", "Himanshu"],
       "height": "5'8\"",
       "verified_photo_references": [
         "config/references/identity/zuv/portrait-07.jpg",
@@ -67,72 +111,138 @@
         "config/references/identity/together/together-20.jpg",
         "config/references/identity/together/together-16.jpg"
       ],
-      "face_lock": [
-        "warm medium-brown South Asian skin",
-        "thick dark brows",
-        "dark almond-shaped eyes",
-        "defined nose",
-        "short neatly trimmed beard and mustache",
-        "relaxed broad masculine facial structure"
-      ],
-      "hair_lock": "Thick dark curly hair with visible volume and a consistent silhouette; never straightened or reduced to a slight wave.",
-      "body_and_presence_lock": "Natural adult proportions, 5'8\" height, broader grounded build, warm steady presence; never oversized, lanky, chiseled, or generic.",
+      "reference_coverage": {
+        "front": "AVAILABLE",
+        "left_three_quarter": "MISSING_CLEAN_ORIGINAL",
+        "right_three_quarter": "MISSING_CLEAN_ORIGINAL",
+        "left_profile": "MISSING_CLEAN_ORIGINAL",
+        "right_profile": "MISSING_CLEAN_ORIGINAL",
+        "rear_hair": "MISSING_CLEAN_ORIGINAL"
+      },
+      "face_construction": {
+        "evidence_status": "PROVISIONAL_FROM FRONT AND NEAR-FRONT PHOTOS; PROFILE DEPTH, EAR GEOMETRY, AND BEARD SIDE BOUNDARY MUST NOT BE INVENTED",
+        "face_envelope": "Broad, relaxed adult face with a soft oval-to-rectangular envelope, visible cheek breadth, and a grounded lower face. Do not sharpen it into a chiseled model jaw.",
+        "forehead_and_hairline": "Natural forehead framed by dense dark curls. Preserve the real hairline and curl-edge irregularity; do not draw a clean helmet edge or reduce the top volume.",
+        "brows": "Thick dark brows with a natural, mostly relaxed arc. Keep their real weight and spacing; do not taper them into stylized fashion brows.",
+        "eyes": "Dark almond-shaped eyes beneath strong brows, with a gentle attentive gaze. Preserve photographed scale and spacing; do not enlarge, brighten, or make them hyper-symmetrical.",
+        "nose": "Defined natural nose with real bridge and front-view width. Do not narrow or sculpt it; side projection and tip angle are pending profile photographs.",
+        "lips": "Natural medium lips shaped by the mustache boundary and relaxed expression. Preserve real width and resting contour; do not add a model pout or erase the upper-lip relationship to the mustache.",
+        "cheeks": "Keep the natural breadth and smile fullness. Do not hollow the cheeks or over-define cheekbones.",
+        "jaw_and_chin": "Grounded jaw and rounded-to-broad chin read through the short beard. Do not make the jaw square-chiseled, extremely narrow, or elongated. Side geometry is pending profile photographs.",
+        "ears": "Ear shape, projection, and relation to the curl mass must come from clean profile photographs; do not invent or permanently hide them.",
+        "beard_and_mustache": "Short, neatly trimmed natural beard and mustache with consistent density and boundary. Keep the cheeks and jaw visible through the trim; do not turn it into clean shave, heavy full beard, razor-sharp barbershop line, or disconnected mustache.",
+        "skin_tone": "Warm medium-brown South Asian skin. Preserve consistent undertone across views; no whitening, orange cast, hyper-tan, or sepia shift.",
+        "distinguishing_asymmetry": "Do not auto-symmetrize the face. Record eyebrow, eye, smile, cheek, beard, and hair asymmetries only after the full angle set is available.",
+        "likeness_hard_fails": [
+          "generic handsome illustrated man",
+          "straight or slightly wavy hair instead of dense curls",
+          "chiseled square jaw or elongated face",
+          "beard shape or density drift",
+          "whitened skin or changed age",
+          "profile geometry inferred from frontal references"
+        ]
+      },
+      "hair_construction": {
+        "core": "Thick dark curly hair with visible top and side volume and a consistent irregular curl silhouette.",
+        "locks": ["dense curls", "dark color", "recognizable top volume", "natural irregular edge", "consistent hairline"],
+        "avoid": ["straightened hair", "slight generic wave", "close crop", "perfect round helmet silhouette", "invented fade"]
+      },
+      "body_construction": {
+        "height": "5'8\"",
+        "build": "Natural adult proportions with a broader grounded build and warm steady presence; only two inches taller than Aachu.",
+        "posture": "Relaxed masculine stance and natural shoulders; affectionate interaction without default rescuer/caretaker blocking.",
+        "avoid": ["oversized body", "lanky fashion proportions", "bodybuilder shoulders", "chiseled torso", "cramped or crouched pose"]
+      },
       "expression_set": [
+        "neutral identity-check expression",
         "steady attentive look",
         "small private smile",
         "warm amused grin",
         "soft serious calm"
       ],
       "wardrobe": {
-        "core": "Powder-blue shirt, grey trousers, red-black shoes, and simple pendant/chain, grounded in together-16.jpg.",
-        "alternate": "White zip top and grey trousers, grounded in portrait-07.jpg."
+        "core": "Powder-blue shirt, grey trousers, and red-black shoes, grounded in together-16.jpg.",
+        "alternate": "White zip top and grey trousers, grounded in portrait-07.jpg.",
+        "rule": "Garment cut, drape, footwear, and neckline must follow attached photos and must preserve the locket visibility rule."
       },
       "signature_accessory": {
         "item": "small round evil-eye locket on a slim silver chain",
-        "placement": "centered at the upper chest",
+        "placement": "centered at upper chest",
         "reference": "config/references/identity/zuv/portrait-07.jpg",
-        "visibility_rule": "Always worn. It must be present whenever the neck, open collar, or upper chest is visible; if physically hidden by crop, closed clothing, pose, or natural occlusion, record the reason in the prompt and QA.",
+        "detail_reference_status": "CURRENT PHOTO SUPPORTS ITEM AND PLACEMENT; CLOSE SHARP DESIGN MACRO STILL REQUESTED",
+        "visibility_rule": "Always worn. Show the same locket and chain whenever neck, open collar, or upper chest is visible; otherwise record the physical occlusion.",
+        "model_sheet_requirement": "Dedicated enlarged locket/chain inset showing symbol, round shape, chain thickness, center placement, and hanging length.",
         "hard_fails": [
-          "missing from a visible neck, open collar, or upper chest",
-          "replaced with a generic pendant or different symbol",
-          "chain changes material, thickness, or placement",
-          "design or scale drifts across repeated views"
+          "missing from visible neck, open collar, or upper chest",
+          "replaced with generic pendant or different symbol",
+          "chain material, thickness, length, or placement changes",
+          "locket design or scale changes between views"
         ]
       },
-      "accessories": "The evil-eye locket and slim silver chain are mandatory. Use other photo-supported watch and visible forearm tattoo placement only when supported; do not invent tattoo designs or jewelry."
+      "tattoo_rule": "Only reproduce tattoo placement and design when a selected original photograph clearly supports both. Never complete, mirror, or invent an obscured tattoo."
     }
   },
   "couple_scale_lock": {
     "height_difference": "Exactly two inches: Zuv 5'8\", Aachu 5'6\".",
-    "standing_rule": "Place both on the same baseline in equivalent flat footwear for the scale view. Zuv reads only slightly taller; Aachu never reads tiny and Zuv never reads oversized.",
-    "relationship_blocking": "Show equal partnership across side-by-side, seated, and affectionate poses. Do not make Zuv the default handler or Aachu the problem.",
-    "joint_photo_references": [
-      "config/references/identity/together/together-16.jpg",
-      "config/references/identity/together/together-18.jpg",
-      "config/references/identity/together/together-21.jpg",
-      "config/references/identity/together/together-05.png"
-    ]
+    "standing_rule": "Same baseline and equivalent flat footwear. Zuv reads only slightly taller; Aachu never reads tiny and Zuv never reads oversized.",
+    "relationship_blocking": "Equal partnership across side-by-side, seated, affectionate, and reaction poses. Neither person is the default handler, rescuer, or problem.",
+    "generation_gate": "Generate only after both solo face turnarounds and both body/accessory sheets have explicit creator approval."
   },
   "approved_sheet_paths": {
-    "aachu": null,
-    "zuv": null,
-    "joint": null
+    "aachu_face_turnaround": null,
+    "aachu_body_hair_accessory": null,
+    "zuv_face_turnaround": null,
+    "zuv_body_hair_accessory": null,
+    "couple_scale_interaction": null
+  },
+  "partially_approved_components": {
+    "aachu_front_neutral": {
+      "sheet_path": "proof/aachu-face-turnaround-v2-photo-library-reset.png",
+      "component_path": "approved-components/aachu-front-neutral-v2-approved.png",
+      "component_sha256": "1be392e4cf303a6e43b912154e4aea88137d8b053c2101d53559e639d5d602e0",
+      "component": "FRONT (NEUTRAL)",
+      "creator_status": "APPROVED_AS_CORRECT_AACHU_FACE",
+      "allowed_use": "secondary comparison aid only with actual Aachu photographs attached",
+      "forbidden_use": "sole face authority or evidence that the complete sheet is approved"
+    }
+  },
+  "rejected_sheet_components": {
+    "aachu_face_turnaround_v2": [
+      "LEFT 3/4",
+      "RIGHT 3/4",
+      "LEFT PROFILE",
+      "RIGHT PROFILE",
+      "expression row"
+    ]
+  },
+  "candidate_sheet_paths": {
+    "aachu_face_turnaround": null
   },
   "hard_fails": [
-    "Either person is not recognizably derived from the attached actual photographs.",
-    "Face geometry, age, ethnicity, skin tone, hair identity, beard, or body build drifts across vignettes.",
-    "Aachu appears tiny, childlike, or model-generic; Zuv appears oversized, lanky, chiseled, or generic.",
-    "The standing scale view does not preserve the exact two-inch height difference.",
-    "Wardrobe, jewelry, tattoos, or accessories are invented rather than reference-supported.",
-    "Zuv's visible neck, open collar, or upper chest omits or changes his evil-eye locket and slim silver chain.",
+    "Creator says either face is wrong.",
+    "A generated character chart is used alone as face authority without selected actual photographs attached.",
+    "A partially approved sheet is supplied whole or treated as fully approved.",
+    "A decorative montage is presented as a technical character model sheet.",
+    "Any provisional profile is presented as photographically verified or canonical without explicit creator approval.",
+    "Either person becomes generic, beautified, aged, whitened, anime-like, Europeanized, or internally inconsistent.",
+    "Face, skin tone, hair silhouette, beard, body build, wardrobe, or signature accessories drift across views.",
     "Aachu's visible right wrist or forearm omits, relocates, or changes her evil-eye bracelet.",
-    "Paper reads yellow, mustard, sepia, beige, parchment, coffee-stained, or heavy cream.",
-    "Any anatomy, hands, duplicated body parts, or accidental extra people are malformed.",
-    "Visible text differs from the locked sheet text or contains any additional words or letters.",
-    "The top-right brandmark is missing, duplicated, misplaced, or misspelled."
+    "Zuv's visible neck, open collar, or upper chest omits or changes his evil-eye locket and slim silver chain.",
+    "Aachu appears tiny or childlike; Zuv appears oversized, lanky, or chiseled.",
+    "Unsupported jewelry or tattoo geometry is invented.",
+    "Hands, limbs, profiles, or facial anatomy are malformed.",
+    "Technical labels are unreadable, misspelled, or contradict the photographs.",
+    "Canvas is not exactly 1080x1440 or brandmark is missing/misspelled."
   ],
   "human_approval": {
-    "joint_proof": "PENDING_CREATOR_APPROVAL_OF_REVISED_PROOF",
-    "complete_pack": "PENDING"
+    "rejected_joint_montages": "REJECTED_WRONG_FORMAT_AND_LIKENESS",
+    "aachu_face_turnaround_v1": "REJECTED_WRONG_ANCHAL_FACE_INCOMPLETE_PHOTO_LIBRARY",
+    "aachu_face_turnaround_v2": "PARTIAL_APPROVAL_FRONT_NEUTRAL_ONLY_OTHER_FACE_VIEWS_REJECTED",
+    "aachu_face_turnaround_v3": "SUPERSEDED_BY_CREATOR_NEW_MULTI_PHOTO_CORRECTION_DO_NOT_USE_AS_IDENTITY_INPUT",
+    "aachu_face_turnaround_v4": "REJECTED_BY_CREATOR_WHOLE_SHEET_NOT_CORRECT_DO_NOT_USE_AS_IDENTITY_INPUT",
+    "aachu_profile_repair": "REJECTED_WITH_V4_WHOLE_SHEET",
+    "next_aachu_gate": "GENERATE_ONE_LARGE_NEUTRAL_FRONT_FROM_ACTUAL_PHOTOS_ONLY_THEN_STOP_FOR_CREATOR_APPROVAL",
+    "zuv_face_turnaround": "BLOCKED_UNTIL_COMPLETE_AACHU_FACE_APPROVAL",
+    "complete_pack": "NOT_STARTED"
   }
 }

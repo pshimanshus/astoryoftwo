@@ -1,55 +1,64 @@
 {
-  "schema_version": "character-reference-visual-qa/v1",
-  "status": "PASS_MECHANICAL_AND_ACCESSORY_AWAITING_CREATOR_IDENTITY_APPROVAL",
-  "requested_native_formats": [
-    "instagram_post"
-  ],
-  "joint_proof": {
-    "source_path": ".internal/quarantine/joint-attempt-02-source.png",
-    "source_dimensions": [
-      1086,
-      1448
-    ],
-    "source_aspect_ratio": "3:4",
-    "final_path": "proof/aachu-zuv-joint-proof-v2-accessory-lock.png",
-    "final_dimensions": [
-      1080,
-      1440
-    ],
-    "sha256": "a6730658dc3e3e62f5d6f42edf15a00f47531a685458b1d24719d6170e038fee",
-    "checks": {
-      "dimensions": "PASS",
-      "native_aspect_ratio": "PASS",
-      "palette": "PASS",
-      "paper_measurement": "paper RGB=(249,240,224); paper saturation=0.097; paper B/G=0.933; yellow-band fraction=0.000",
-      "layout_and_required_vignettes": "PASS",
-      "anatomy_and_entity_integrity": "PASS_CURRENT_PIXEL_INSPECTION",
-      "wardrobe": "PASS_CURRENT_PIXEL_INSPECTION",
-      "zuv_evil_eye_locket": "PASS_VISIBLE_AND_CONSISTENT_IN_ALL_FOUR_VIEWS",
-      "aachu_right_wrist_evil_eye_bracelet": "PASS_VISIBLE_IN_STANDING_SEATED_AND_AFFECTIONATE_VIEWS_CLOSE_CROP_HIDES_WRISTS",
-      "couple_scale": "PASS_PRELIMINARY",
-      "exact_visible_text": "PASS_MANUAL_PIXEL_INSPECTION",
-      "automated_ocr": "STOP_EASYOCR_NOT_INSTALLED",
-      "identity_consistency": "PRELIMINARY_PASS_REQUIRES_CREATOR"
-    },
-    "locked_visible_text": [
-      "AACHU + ZUV",
-      "AACHU 5'6\" / ZUV 5'8\"",
-      "@a.storyof.two"
-    ],
-    "invented_visible_text": false,
-    "invented_accessories": false,
-    "creator_approval": "PENDING_LIKENESS_ACCESSORIES_AND_SCALE"
+  "schema_version": "character-reference-visual-qa/v3",
+  "status": "AACHU_V4_MECHANICAL_STRUCTURE_PASS_IDENTITY_FAIL_REJECTED",
+  "requested_native_formats": ["instagram_post"],
+  "internal_photo_evidence_board": {
+    "path": "photo-master/aachu-photo-identity-master-v1.png",
+    "dimensions": [1080, 1440],
+    "sha256": "aba6eb3f47bb7f02de7655f926b5bbe771ed4390b0ac3c3f28f2f143f0a0af8f",
+    "pixel_policy": "REAL_PHOTO_PIXELS_ONLY_NO_GENERATED_PROFILE_GEOMETRY",
+    "profile_gaps": "EXPLICITLY_MARKED_MISSING"
   },
-  "superseded_proofs": [
+  "rejected_joint_route": "RETAINED_AS_FAILED_ATTEMPT_EVIDENCE_ONLY",
+  "rejected_aachu_face_proofs": [
     {
-      "path": "proof/aachu-zuv-joint-proof-v1.png",
-      "sha256": "2e046229ff884c1a6567fa47840fb95e3aaa59dd90cb38020d5346f1cf8e506b",
-      "reason": "Superseded by the creator's mandatory signature-accessory correction."
+      "path": "proof/aachu-face-turnaround-v1.png",
+      "status": "REJECTED_BY_CREATOR_WRONG_FACE",
+      "reusable_as_identity_reference": false
+    },
+    {
+      "path": "proof/aachu-face-turnaround-v2-photo-library-reset.png",
+      "status": "PARTIAL_APPROVAL_FRONT_NEUTRAL_ONLY_REST_REJECTED",
+      "reusable_as_complete_identity_reference": false
+    },
+    {
+      "path": "proof/aachu-face-turnaround-v3-a-story-angle-repair.png",
+      "status": "SUPERSEDED_BY_CREATOR_NEW_MULTI_PHOTO_CORRECTION",
+      "reusable_as_identity_reference": false
     }
   ],
-  "solo_sheets": {
-    "aachu": "BLOCKED_UNTIL_JOINT_APPROVAL",
-    "zuv": "BLOCKED_UNTIL_JOINT_APPROVAL"
-  }
+  "aachu_face_proof": {
+    "base_source_path": ".internal/quarantine/aachu-face-v4-fresh-photo-reset-source.png",
+    "source_path": ".internal/quarantine/aachu-face-v4-profile-repair-source.png",
+    "source_dimensions": [1024, 1536],
+    "source_aspect_ratio": "2:3_GENERATOR_RETURNED_DESPITE_3:4_PROMPT",
+    "final_path": "proof/aachu-face-turnaround-v4-photo-angle-reconstruction.png",
+    "final_dimensions": [1080, 1440],
+    "sha256": "ca68cabeb73fb1e0cbc37b3241e22af16733a3149c4b42a3b918b56577e62b46",
+    "finalization": "PROPORTIONAL_SCALE_TO_960X1440_PLUS_60PX_NEUTRAL_IVORY_PADDING_PER_SIDE; NO_CROP_NO_STRETCH_NO_FACE_REDRAW",
+    "checks": {
+      "dimensions": "PASS",
+      "native_aspect_ratio": "SOURCE_FAIL_2_TO_3; FINAL_PASS_3_TO_4_WITH_NONDESTRUCTIVE_SIDE_PADDING",
+      "technical_character_sheet_structure": "PASS",
+      "front_view": "PASS_PRESENT",
+      "left_and_right_three_quarter_views": "PASS_PRESENT_BUT_NOT_APPROVED_UNDER_WHOLE_SHEET_REJECTION",
+      "left_and_right_profile_views": "PASS_PRESENT_BUT_NOT_APPROVED_UNDER_WHOLE_SHEET_REJECTION",
+      "rear_hair_silhouette": "PASS_PRESENT",
+      "expression_strip": "PASS_PRESENT",
+      "written_construction_notes": "PASS_PRESENT_AND_READABLE_BY_MANUAL_PIXEL_INSPECTION; NOSE_AND_HAIR_DESCRIPTIONS_CORRECTED_FROM_V1",
+      "aachu_right_wrist_evil_eye_bracelet": "PASS_DEDICATED_PLACEMENT_INSET_PRESENT",
+      "palette_and_paper": "PASS_NEUTRAL_IVORY_VISIBLE_GRAIN_MUTED_WATERCOLOR_FINE_INK",
+      "palette_measurements": "PASS paper RGB=(247,243,235); saturation=0.054; blue/green=0.967; yellow-band fraction=0.001",
+      "exact_title_and_brandmark": "PASS_MANUAL_PIXEL_INSPECTION",
+      "identity_likeness": "FAIL_CREATOR_REJECTED_WHOLE_SHEET; EXPRESSION_ROW_SCREENSHOT_SHOWS_GENERIC_SYNTHETIC_FACE_AND_GEOMETRY_DRIFT"
+    },
+    "creator_approval": {
+      "front_neutral": "REJECTED_OR_UNAPPROVED_BY_WHOLE_SHEET_VERDICT",
+      "historical_v2_front_comparison_component": "approved-components/aachu-front-neutral-v2-approved.png",
+      "all_other_face_views": "REJECTED_OR_UNAPPROVED_BY_WHOLE_SHEET_VERDICT",
+      "expression_row": "REJECTED_SCREENSHOT_CONFIRMS_IDENTITY_AND_EXPRESSION_DRIFT",
+      "complete_sheet": "REJECTED_DO_NOT_USE_AS_IDENTITY_INPUT"
+    }
+  },
+  "next_generation": "STOP_WHOLE_SHEET_ROUTE; NEXT_ALLOWED_ASSET_IS_ONE_LARGE_NEUTRAL_FRONT_PORTRAIT_FROM_ACTUAL_PHOTOS_ONLY"
 }

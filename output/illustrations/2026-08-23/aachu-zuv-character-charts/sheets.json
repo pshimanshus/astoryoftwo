@@ -1,28 +1,52 @@
 {
-  "schema_version": "character-reference-sheets/v1",
+  "schema_version": "character-reference-sheets/v2",
+  "status": "AACHU_V4_REJECTED_REBUILD_AS_INDIVIDUAL_APPROVAL_PROOFS",
+  "rationale": "Five sheets are required to preserve large faces and readable written construction notes at 1080x1440. The rejected three-sheet montage route is retired.",
   "sheets": [
     {
-      "id": "aachu",
-      "title_text": "AACHU / ANCHAL",
-      "brandmark_text": "@a.storyof.two",
-      "signature_accessory_requirement": "Include a clear design/placement detail of Anchal's evil-eye bracelet on her right wrist, then preserve it in every view where that wrist or forearm is visible.",
-      "status": "BLOCKED_UNTIL_JOINT_APPROVAL"
+      "id": "aachu-face-turnaround",
+      "title_text": "AACHU / ANCHAL — FACE TURNAROUND",
+      "required_views": ["front", "left three-quarter", "right three-quarter", "left profile", "right profile", "rear or over-shoulder hair silhouette"],
+      "required_written_notes": ["face envelope", "hairline", "brows", "eyes", "nose", "lips", "cheeks", "jaw and chin", "ears", "skin tone", "distinguishing asymmetries", "likeness hard fails"],
+      "proof_path": null,
+      "approved_components": [],
+      "rejected_proof_paths": [
+        "proof/aachu-face-turnaround-v1.png",
+        "proof/aachu-face-turnaround-v2-photo-library-reset.png as a complete sheet",
+        "proof/aachu-face-turnaround-v3-a-story-angle-repair.png",
+        "proof/aachu-face-turnaround-v4-photo-angle-reconstruction.png"
+      ],
+      "status": "BLOCKED_PENDING_SINGLE_NEUTRAL_FRONT_PROOF_AND_CREATOR_APPROVAL"
     },
     {
-      "id": "zuv",
-      "title_text": "ZUV / HIMANSHU",
-      "brandmark_text": "@a.storyof.two",
-      "signature_accessory_requirement": "Include a clear design/placement detail of Himanshu's small round evil-eye locket on its slim silver chain, then preserve it in every view where his neck, open collar, or upper chest is visible.",
-      "status": "BLOCKED_UNTIL_JOINT_APPROVAL"
+      "id": "aachu-body-hair-accessory",
+      "title_text": "AACHU / ANCHAL — BODY, HAIR + ACCESSORY",
+      "required_views": ["front body", "side body", "back body", "four expressions", "loose hair", "half-tied hair", "ponytail", "right-wrist bracelet detail"],
+      "signature_accessory_requirement": "Exact evil-eye bracelet on the right wrist; always worn and visible wherever the right wrist or forearm is visible.",
+      "status": "BLOCKED_UNTIL_COMPLETE_AACHU_FACE_APPROVAL"
     },
     {
-      "id": "joint",
-      "title_text": "AACHU + ZUV",
+      "id": "zuv-face-turnaround",
+      "title_text": "ZUV / HIMANSHU — FACE TURNAROUND",
+      "required_views": ["front", "left three-quarter", "right three-quarter", "left profile", "right profile", "rear or over-shoulder curl silhouette"],
+      "required_written_notes": ["face envelope", "hairline and curl mass", "brows", "eyes", "nose", "lips", "cheeks", "jaw and chin", "ears", "beard and mustache boundary", "skin tone", "distinguishing asymmetries", "likeness hard fails"],
+      "status": "BLOCKED_UNTIL_COMPLETE_AACHU_FACE_APPROVAL"
+    },
+    {
+      "id": "zuv-body-hair-accessory",
+      "title_text": "ZUV / HIMANSHU — BODY, HAIR + ACCESSORY",
+      "required_views": ["front body", "side body", "back body", "four expressions", "curl silhouette", "beard boundary", "evil-eye locket and chain detail"],
+      "signature_accessory_requirement": "Exact small round evil-eye locket centered on its slim silver chain; always worn and visible wherever the neck, open collar, or upper chest is visible.",
+      "status": "BLOCKED_UNTIL_ZUV_FACE_APPROVAL"
+    },
+    {
+      "id": "couple-scale-interaction",
+      "title_text": "AACHU + ZUV — SCALE + INTERACTION",
       "height_text": "AACHU 5'6\" / ZUV 5'8\"",
-      "brandmark_text": "@a.storyof.two",
-      "signature_accessory_requirement": "The revised joint proof must visibly preserve Zuv's evil-eye locket and Aachu's right-wrist evil-eye bracelet wherever their placements are visible.",
-      "status": "AWAITING_CREATOR_LIKENESS_AND_ACCESSORY_APPROVAL"
+      "required_views": ["same-baseline standing scale", "clear close face comparison", "side-by-side", "seated", "affectionate equal-partnership pose"],
+      "status": "BLOCKED_UNTIL_BOTH_SOLO_PACKS_APPROVED"
     }
   ],
-  "text_rule": "No visible text beyond each sheet's locked title, the joint height line where applicable, and the exact top-right brandmark."
+  "brandmark_text": "@a.storyof.two",
+  "text_rule": "Technical labels and detailed construction notes are required on this private reference pack. No invented prose, spellings, measurements, or decorative copy."
 }

@@ -1,49 +1,114 @@
 {
-  "schema_version": "creator-correction/v1",
-  "status": "VISUAL_ROUTE_REJECTED_BY_CREATOR",
-  "revision": 1,
-  "date": "2026-08-21",
-  "copy_lock_preserved": true,
-  "creator_feedback": "visual storytelling is so fucking bad and pathetic. even after so many skills you are creating shit",
-  "diagnosis": [
-    "The generated route invents a power-strip and lamp incident that is not contained in the locked copy or a creator-supplied lived moment.",
-    "The object chain is over-engineered and makes the couple perform prompt mechanics instead of recognizable relationship behavior.",
-    "The repeated cramped grey room, rigid expressions and prop-heavy staging flatten the humour-to-tenderness arc.",
-    "Technical QA passed an emotionally false and creator-rejected visual premise; those PASS records are invalid after this correction."
+  "schema_version": "creator-correction/v3",
+  "package_id": "output/carousels/2026-08-14/a-bad-day-was-never-the-whole-truth",
+  "events": [
+    {
+      "feedback_id": "fb-legacy-f86a539bbf9d518c",
+      "captured_at": "2026-08-21",
+      "user_instruction_exact": "visual storytelling is so fucking bad and pathetic. even after so many skills you are creating shit",
+      "user_instruction_sha256": "sha256:df262b821dc203ad2803ac893397643cd38390019b12b342e1fb1131104a540e",
+      "kind": "rejection",
+      "scope": "package",
+      "slide_number": null,
+      "slides": [],
+      "asset_sha256": null,
+      "primary_diagnosis": "scene_action",
+      "secondary_diagnoses": [],
+      "root_cause": "The generated route invents a power-strip and lamp incident that is not contained in the locked copy or a creator-supplied lived moment.; The object chain is over-engineered and makes the couple perform prompt mechanics instead of recognizable relationship behavior.; The repeated cramped grey room, rigid expressions and prop-heavy staging flatten the humour-to-tenderness arc.; Technical QA passed an emotionally false and creator-rejected visual premise; those PASS records are invalid after this correction.",
+      "desired_behavior": null,
+      "must_change": [
+        "Narrow Orbit",
+        "rainy one-room sequence",
+        "power strip",
+        "extension board",
+        "lamp repair",
+        "snapped hair tie",
+        "phone and glass reciprocal care",
+        "wardrobe-chair obstruction",
+        "key-bowl spill",
+        "final food handoff"
+      ],
+      "must_preserve": [],
+      "affected_artifacts": [
+        "creator-correction.json"
+      ],
+      "repair_operations": [],
+      "action_taken": {
+        "type": "metadata_backfill",
+        "legacy_status": "VISUAL_ROUTE_REJECTED_BY_CREATOR"
+      },
+      "resolution_evidence": [
+        "creator-correction.json"
+      ],
+      "learning_event_id": "event-feedback-fb-legacy-f86a539bbf9d518c",
+      "learning_proposal_id": null,
+      "eval_task_ids": [
+        "FEEDBACK-LEGACY-F86A539BBF9D518C"
+      ],
+      "eval_waiver_reason": "Historical correction predates deterministic feedback-case capture; metadata was normalized without changing carousel media.",
+      "status": "evaluated",
+      "generation_effect": "shared",
+      "supersedes_feedback_id": null,
+      "historical_only": true,
+      "legacy_artifact": "creator-correction.json",
+      "legacy_payload_sha256": "sha256:f86a539bbf9d518c99056491a8cb4cde6b0961028e03734cbe0ea9de9c95379d"
+    }
   ],
-  "rejected_route_phrases": [
-    "Narrow Orbit",
-    "rainy one-room sequence",
-    "power strip",
-    "extension board",
-    "lamp repair",
-    "snapped hair tie",
-    "phone and glass reciprocal care",
-    "wardrobe-chair obstruction",
-    "key-bowl spill",
-    "final food handoff"
-  ],
-  "active_artifact_paths": [
-    "post-copy-visual-room.json",
-    "visual-debate.json",
-    "visual-plan-quality.json",
-    "slides.json",
-    "storyboard.md",
-    "prompt-pack.json",
-    "codex-image-prompts/",
-    "identity-consistency-review.json",
-    "image-generation.json",
-    "final-images.json",
-    "visual-qa.json",
-    "final-audit.json"
-  ],
-  "archival_artifact_paths": [
-    ".internal/visual-quarantine/",
-    ".internal/approved-proof/",
-    ".internal/event-a-blind-cards.json",
-    ".internal/event-a-critic-response.json",
-    ".internal/full-deck-event-b-raw-response.md"
-  ],
-  "next_visual_rule": "Return to the visual premise. Build the humour from facial timing, stubborn body language, physical distance and involuntary everyday care. Do not invent a prop accident or a six-frame causal mechanism unless the creator supplies that lived incident.",
-  "generation_status": "BLOCKED_PENDING_NEW_VISUAL_CONCEPT_LOCK"
+  "legacy_sources": [
+    {
+      "artifact": "creator-correction.json",
+      "sha256": "sha256:f86a539bbf9d518c99056491a8cb4cde6b0961028e03734cbe0ea9de9c95379d",
+      "schema_version": "creator-correction/v1",
+      "payload": {
+        "schema_version": "creator-correction/v1",
+        "status": "VISUAL_ROUTE_REJECTED_BY_CREATOR",
+        "revision": 1,
+        "date": "2026-08-21",
+        "copy_lock_preserved": true,
+        "creator_feedback": "visual storytelling is so fucking bad and pathetic. even after so many skills you are creating shit",
+        "diagnosis": [
+          "The generated route invents a power-strip and lamp incident that is not contained in the locked copy or a creator-supplied lived moment.",
+          "The object chain is over-engineered and makes the couple perform prompt mechanics instead of recognizable relationship behavior.",
+          "The repeated cramped grey room, rigid expressions and prop-heavy staging flatten the humour-to-tenderness arc.",
+          "Technical QA passed an emotionally false and creator-rejected visual premise; those PASS records are invalid after this correction."
+        ],
+        "rejected_route_phrases": [
+          "Narrow Orbit",
+          "rainy one-room sequence",
+          "power strip",
+          "extension board",
+          "lamp repair",
+          "snapped hair tie",
+          "phone and glass reciprocal care",
+          "wardrobe-chair obstruction",
+          "key-bowl spill",
+          "final food handoff"
+        ],
+        "active_artifact_paths": [
+          "post-copy-visual-room.json",
+          "visual-debate.json",
+          "visual-plan-quality.json",
+          "slides.json",
+          "storyboard.md",
+          "prompt-pack.json",
+          "codex-image-prompts/",
+          "identity-consistency-review.json",
+          "image-generation.json",
+          "final-images.json",
+          "visual-qa.json",
+          "final-audit.json"
+        ],
+        "archival_artifact_paths": [
+          ".internal/visual-quarantine/",
+          ".internal/approved-proof/",
+          ".internal/event-a-blind-cards.json",
+          ".internal/event-a-critic-response.json",
+          ".internal/full-deck-event-b-raw-response.md"
+        ],
+        "next_visual_rule": "Return to the visual premise. Build the humour from facial timing, stubborn body language, physical distance and involuntary everyday care. Do not invent a prop accident or a six-frame causal mechanism unless the creator supplies that lived incident.",
+        "generation_status": "BLOCKED_PENDING_NEW_VISUAL_CONCEPT_LOCK"
+      },
+      "raw_utf8": "{\n  \"schema_version\": \"creator-correction/v1\",\n  \"status\": \"VISUAL_ROUTE_REJECTED_BY_CREATOR\",\n  \"revision\": 1,\n  \"date\": \"2026-08-21\",\n  \"copy_lock_preserved\": true,\n  \"creator_feedback\": \"visual storytelling is so fucking bad and pathetic. even after so many skills you are creating shit\",\n  \"diagnosis\": [\n    \"The generated route invents a power-strip and lamp incident that is not contained in the locked copy or a creator-supplied lived moment.\",\n    \"The object chain is over-engineered and makes the couple perform prompt mechanics instead of recognizable relationship behavior.\",\n    \"The repeated cramped grey room, rigid expressions and prop-heavy staging flatten the humour-to-tenderness arc.\",\n    \"Technical QA passed an emotionally false and creator-rejected visual premise; those PASS records are invalid after this correction.\"\n  ],\n  \"rejected_route_phrases\": [\n    \"Narrow Orbit\",\n    \"rainy one-room sequence\",\n    \"power strip\",\n    \"extension board\",\n    \"lamp repair\",\n    \"snapped hair tie\",\n    \"phone and glass reciprocal care\",\n    \"wardrobe-chair obstruction\",\n    \"key-bowl spill\",\n    \"final food handoff\"\n  ],\n  \"active_artifact_paths\": [\n    \"post-copy-visual-room.json\",\n    \"visual-debate.json\",\n    \"visual-plan-quality.json\",\n    \"slides.json\",\n    \"storyboard.md\",\n    \"prompt-pack.json\",\n    \"codex-image-prompts/\",\n    \"identity-consistency-review.json\",\n    \"image-generation.json\",\n    \"final-images.json\",\n    \"visual-qa.json\",\n    \"final-audit.json\"\n  ],\n  \"archival_artifact_paths\": [\n    \".internal/visual-quarantine/\",\n    \".internal/approved-proof/\",\n    \".internal/event-a-blind-cards.json\",\n    \".internal/event-a-critic-response.json\",\n    \".internal/full-deck-event-b-raw-response.md\"\n  ],\n  \"next_visual_rule\": \"Return to the visual premise. Build the humour from facial timing, stubborn body language, physical distance and involuntary everyday care. Do not invent a prop accident or a six-frame causal mechanism unless the creator supplies that lived incident.\",\n  \"generation_status\": \"BLOCKED_PENDING_NEW_VISUAL_CONCEPT_LOCK\"\n}\n"
+    }
+  ]
 }

@@ -13,7 +13,7 @@ sources:
 Status: PASS
 Failures: 0
 Warnings: 0
-Wiki pages: 119
+Wiki pages: 121
 
 ## Checks
 
@@ -106,8 +106,8 @@ Wiki pages: 119
 
 ```json
 {
-  "declared": 119,
-  "actual": 119
+  "declared": 121,
+  "actual": 121
 }
 ```
 
@@ -127,7 +127,7 @@ Wiki pages: 119
 
 ```json
 {
-  "count": 239
+  "count": 243
 }
 ```
 
@@ -135,6 +135,6 @@ Wiki pages: 119
 
 ```json
 {
-  "count": 298
+  "count": 302
 }
 ```
