@@ -5,56 +5,38 @@ description: Keep transformation and creator corrections active across @a.storyo
 
 # A Story Storytelling Hook
 
-Keep the lived event and the emotional change intact from first draft through
-final pixels. Use `config/skills/creator-skill-stack.md` for the compact channel
-pass. Use `references/story-engine.md` only when a specific story problem needs
-deeper repair. Do not copy the story engine into this file or load its full
-framework by default.
+Use `config/skills/creator-skill-stack.md` for the compact channel pass. Open
+`references/story-engine.md` only for a specific story repair.
 
-## Conversational Lifecycle
+This hook is conversational only: no state file, daemon, approval gate, or agent
+room.
 
-This lifecycle exists only in the conversation. It does not create a state
-file, memory write, daemon, approval gate, or agent room.
+- **Activate:** capture exact seed, known facts, change, receipt, open question,
+  and current locks.
+- **Refresh:** after correction, update only the affected layer and preserve
+  untouched facts and locks.
+- **Resume:** reconstruct the latest surviving state before proposing changes.
+- **Close:** summarize only the surviving decision and next action.
 
-1. **Activate:** at the first creative request, privately capture the exact
-   seed, known facts, change, receipt, open question, and current locks.
-2. **Refresh:** after each creator correction, update only the affected layer,
-   mark the replaced route superseded, and preserve untouched facts and locks.
-3. **Resume:** on a later follow-up, reconstruct the latest surviving state
-   from the conversation before proposing or changing anything.
-4. **Close:** when the creator pauses, rejects the whole route, or the package
-   reaches its requested handoff, summarize only the surviving decision and
-   next action in the response. Do not write a lifecycle artifact.
+Before creative output, preserve exact seed/corrections/locks. Name the private
+change `before -> pressure or choice -> after`; find a concrete receipt (action,
+reaction, object state, gaze, distance, silence, or consequence), an honest
+question, and a natural send reason.
 
-Before a creative response:
+Use the creator's structure. For a fresh story use `Cover -> Cold Open -> Mirror
+-> Spine -> Rhythm -> Turn -> Payoff`; reflective route is `Cover -> Cold Open
+-> Deepening -> Conflict -> Turn -> Payoff`. Deepening, Conflict, and Turn may
+each span multiple slides when each slide advances pressure, consequence, or
+reframe. These are story jobs, not a mandatory slide count. Preserve an explicit
+creator-selected alternative; do not silently replace the selected architecture
+with a shorter exchange.
 
-1. Preserve the creator's exact seed, facts, corrections, rejected scope, and
-   approved concept/copy/visual/format locks.
-2. Name the private change in plain language:
-   `before -> pressure or choice -> after`.
-3. Find the concrete receipt: action, reaction, object state, gaze, distance,
-   silence, or consequence that makes the change visible.
-4. Keep one honest question alive until the turn or payoff.
-5. Give the cold viewer a natural send reason: “this is me,” “this is you,” or
-   “this is us.”
+For a requested final draft, read the named architecture sections in
+`references/story-engine.md` and map the delivered draft to its cover promise,
+pressure, caused turn, and earned payoff. Preserve locked wording. A proposed
+action ends the story only when it answers the opening need; otherwise show its
+consequence and response. Do not claim an unrun formal evaluation.
 
-Use the creator's chosen structure. The default may be
-`Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff`; the
-reflective alternate is
-`Cover -> Cold Open -> Deepening -> Conflict -> Turn -> Payoff`. Roles are
-phases, not fixed slide counts. Add a slide only when it changes knowledge,
-pressure, choice, relationship position, or meaning.
-
-Deepening, Conflict, and Turn may each span multiple slides when every added
-scene advances the question, pressure, consequence, or reframe.
-
-Run voice and taste checks after the alive draft exists. Do not expose internal
-rubric names or unsupported psychology claims in public copy. Do not return a
-rejected route under a new title. For tiny requests, apply this mentally and
-answer simply.
-
-The hook remains active through discussion and repairs; refresh or resume it
-before handing off to `$a-story-carousel-jam` for production and
-`$a-story-direct-visual-story` after concept lock. This hook owns story
-continuity; the production skills own exact text, references, dimensions,
-generation, pixel QA, and packaging.
+Hand off to `$a-story-carousel-jam` for production and
+`$a-story-direct-visual-story` after concept lock. Production skills own exact
+text, references, dimensions, generation, pixel QA, and packaging.

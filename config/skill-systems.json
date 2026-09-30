@@ -3,11 +3,18 @@
   "systems": {
     "carousel_jam": {
       "description": "Minimal four-gate creator jam to final illustrated carousel workflow.",
+      "completion_contract": "Codex directly invokes ImageGen, attaches four identity references and one style board, opens returned pixels, and completes hash-bound repository QA and promotion; prompt-only handoff is incomplete.",
       "components": [
         "config/skills/creator-skill-stack.md",
         ".agents/skills/a-story-storytelling-hook/SKILL.md",
         "config/skills/carousel-jam-runtime-context.md",
         "config/skills/carousel-jam-autopilot.md",
+        "config/skills/instagram-carousel-intelligence.md",
+        "pipeline/stages/carousel_intelligence.py",
+        "pipeline/stages/carousel_patterns.py",
+        "pipeline/stages/carousel_sequence.py",
+        "pipeline/stages/carousel_results.py",
+        "config/references/carousel-patterns.json",
         "config/skills/carousel-story-director-persona.md",
         ".agents/skills/a-story-direct-visual-story/SKILL.md",
         "config/skills/illustration-carousel-framework.md"
@@ -74,14 +81,13 @@
       "description": "Bounded evidence -> maker -> independent verifier loop that selects one Instagram concept for creator lock.",
       "components": [
         ".agents/skills/a-story-instagram-idea-loop/SKILL.md",
-        "config/skills/creator-skill-stack.md",
-        ".agents/skills/a-story-storytelling-hook/SKILL.md",
-        "config/skills/carousel-jam-runtime-context.md",
-        "memory/semantic/carousel-idea-preferences.md",
+        "config/skills/a-story-ideation-context-compact.md",
         "pipeline/agentic/instagram_idea_loop.py",
         "scripts/instagram_idea_loop.py"
       ],
       "source_references": [
+        "config/skills/carousel-jam-runtime-context.md",
+        "memory/semantic/carousel-idea-preferences.md",
         "https://addyosmani.com/blog/loop-engineering/"
       ],
       "agents": [
@@ -100,7 +106,7 @@
         "visual_generativity_27",
         "story_director_dimensions_8",
         "stage_scene_pass",
-        "world_class_taste_no_cap",
+        "independent_qualitative_taste_review",
         "safety_pass",
         "moment_provenance_bound",
         "iteration_history_attested",
@@ -156,17 +162,20 @@
     "prepost_reel": {
       "description": "Planned Reel pre-post analysis workflow.",
       "components": [
+        "config/skills/a-story-prepost-context-compact.md",
+        "pipeline/stages/b1_prepost.py"
+      ],
+      "source_references": [
         "config/skills/romance-story-selling-engine.md",
         "config/skills/hook-and-edit-framework.md",
         "config/skills/instagram-algorithm-2026.md",
         "config/skills/indian-creator-intelligence.md"
       ],
-      "agents": [
-        "agents/hook-analyzer.md",
-        "agents/edit-auditor.md",
-        "agents/algorithm-scorer.md",
-        "agents/caption-advisor.md",
-        "agents/cultural-resonance.md"
+      "runtime_call_count": 3,
+      "runtime_stages": [
+        "combined_five_facet_analysis",
+        "independent_challenge",
+        "synthesis"
       ],
       "gates": [
         "layer_e_story_selling_go",
@@ -180,6 +189,34 @@
         "layer-e-story-selling.json",
         "layer-e-story-selling.md",
         "prepost-analysis.md"
+      ]
+    },
+    "knowledge_governance": {
+      "description": "Evidence-bound learning validation and target-scoped human approval.",
+      "components": [
+        "pipeline/agentic/validator_registry.py",
+        "pipeline/agentic/approval_policy.py",
+        "pipeline/agentic/knowledge_workflow.py",
+        "config/agentic_validator_registry.json",
+        "config/agentic_approval_policy.json"
+      ],
+      "agents": [
+        ".codex/agents/asot_evidence_reviewer.toml",
+        ".codex/agents/asot_contradiction_reviewer.toml",
+        ".codex/agents/asot_wiki_compiler_verifier.toml"
+      ],
+      "gates": [
+        "allow_list_validator_execution",
+        "hash_bound_persisted_validator_receipts",
+        "target_scoped_human_approval",
+        "dynamic_bounded_role_routing",
+        "read_only_reviewers_single_compiler_writer",
+        "verified_compile_before_retrieval_invalidation"
+      ],
+      "artifacts": [
+        "memory/agentic/validator-receipts/<proposal-id>/<validator-id>.json",
+        "memory/agentic/knowledge-workflows/<run-id>/workflow-receipt.json",
+        "memory/agentic/retrieval-invalidations/<run-id>.json"
       ]
     },
     "wiki_health": {

@@ -1,164 +1,52 @@
 {
   "schema_version": "1.0",
-  "default_profile": "a-story-of-two",
+  "default_profile": "ideation",
   "profiles": {
-    "a-story-of-two": {
-      "budget_tokens": 2800,
+    "ideation": {
+      "budget_tokens": 350,
+      "description": "Default for idea discussion and recall. Open targeted rules or memories only when needed.",
       "sections": [
         {
-          "id": "creator_skill_stack",
-          "path": "config/skills/creator-skill-stack.md",
+          "id": "ideation_context_compact",
+          "path": "config/skills/a-story-ideation-context-compact.md",
           "kind": "creative_session_hook",
           "required": true
-        },
+        }
+      ]
+    },
+    "a-story-of-two": {
+      "budget_tokens": 600,
+      "description": "Compact image-production context. Open targeted full rules only when exact wording is needed.",
+      "sections": [
         {
-          "id": "storytelling_change_hook",
-          "path": ".agents/skills/a-story-storytelling-hook/SKILL.md",
-          "kind": "creative_session_hook",
+          "id": "production_context_compact",
+          "path": "config/skills/a-story-production-context-compact.md",
+          "kind": "production_context",
           "required": true
-        },
-        {
-          "id": "rule_palette",
-          "path": "config/rules/palette.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_identity",
-          "path": "config/rules/identity.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_on_image_text",
-          "path": "config/rules/on-image-text.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_brandmark",
-          "path": "config/rules/brandmark.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_image_dimensions",
-          "path": "config/rules/image-dimensions.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_visual_variety",
-          "path": "config/rules/visual-variety.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_scene_entity_integrity",
-          "path": "config/rules/scene-entity-integrity.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_relationship_motion",
-          "path": "config/rules/relationship-motion.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_voice",
-          "path": "config/rules/voice.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_golden_theme",
-          "path": "config/rules/golden-theme.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_story_selling",
-          "path": "config/rules/story-selling.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "rule_brand_zone",
-          "path": "config/rules/brand-zone.md",
-          "kind": "canonical_rule",
-          "required": false
-        },
-        {
-          "id": "engineering_preferences",
-          "path": "memory/semantic/engineering-workflow-preferences.md",
-          "kind": "semantic_memory",
-          "required": true
-        },
-        {
-          "id": "working_memory",
-          "path": "memory/working.md",
-          "kind": "working_memory",
-          "required": true
-        },
-        {
-          "id": "carousel_runtime_context",
-          "path": "config/skills/carousel-jam-runtime-context.md",
-          "kind": "workflow_runtime_context",
-          "required": true
-        },
-        {
-          "id": "identity_reference_bundle",
-          "path": "config/references/identity/README.md",
-          "kind": "identity_reference",
-          "required": true
-        },
-        {
-          "id": "agent_contract",
-          "path": "AGENTS.md",
-          "kind": "operating_contract",
-          "required": false
         }
       ]
     },
     "article": {
-      "budget_tokens": 1800,
+      "budget_tokens": 300,
+      "description": "Compact article context. Open full voice/story rules only when needed.",
       "sections": [
         {
-          "id": "rule_voice",
-          "path": "config/rules/voice.md",
-          "kind": "canonical_rule",
+          "id": "article_context_compact",
+          "path": "config/skills/a-story-article-context-compact.md",
+          "kind": "workflow_context",
           "required": true
-        },
+        }
+      ]
+    },
+    "prepost": {
+      "budget_tokens": 1500,
+      "description": "Compact Reel analysis contract for the three-call pre-post workflow.",
+      "sections": [
         {
-          "id": "rule_golden_theme",
-          "path": "config/rules/golden-theme.md",
-          "kind": "canonical_rule",
+          "id": "prepost_context_compact",
+          "path": "config/skills/a-story-prepost-context-compact.md",
+          "kind": "workflow_context",
           "required": true
-        },
-        {
-          "id": "rule_story_selling",
-          "path": "config/rules/story-selling.md",
-          "kind": "canonical_rule",
-          "required": true
-        },
-        {
-          "id": "working_memory",
-          "path": "memory/working.md",
-          "kind": "working_memory",
-          "required": true
-        },
-        {
-          "id": "carousel_preferences",
-          "path": "memory/semantic/carousel-idea-preferences.md",
-          "kind": "semantic_memory",
-          "required": true
-        },
-        {
-          "id": "article_framework",
-          "path": "config/skills/couple-substack-article-framework.md",
-          "kind": "workflow_skill",
-          "required": false
         }
       ]
     }

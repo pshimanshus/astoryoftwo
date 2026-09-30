@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 
@@ -50,3 +51,29 @@ def test_instruction_precedence_is_documented_on_agent_surfaces():
 
 def test_claude_md_is_retired_not_required_instruction_surface():
     assert not (ROOT / "CLAUDE.md").exists()
+
+
+def test_active_illustration_docs_point_to_one_style_authority():
+    contract = json.loads(
+        (ROOT / "config" / "carousel_style_contract.json").read_text(encoding="utf-8")
+    )
+    profile = contract["style_profile"]
+    active_surfaces = (
+        ".agents/skills/a-story-carousel-jam/SKILL.md",
+        ".agents/skills/a-story-direct-visual-story/SKILL.md",
+        ".agents/skills/astory/references/master-prompt.md",
+        "config/skills/carousel-jam-runtime-context.md",
+        "config/skills/carousel-jam-autopilot.md",
+        "config/skills/illustration-carousel-framework.md",
+        "config/references/a-story-premium-illustration-style-lock.md",
+        "wiki/insights/carousel-quality-spine.md",
+        "wiki/insights/successful-carousel-standard.md",
+        "docs/ai-ops-playbook.md",
+    )
+    combined = "\n".join((ROOT / path).read_text(encoding="utf-8") for path in active_surfaces)
+
+    assert "config/carousel_style_contract.json" in combined
+    assert "config/rules/palette.md" in combined
+    assert "config/rules/visual-variety.md" in combined
+    assert profile["generation_prompt"] not in combined
+    assert "config/references/style-lock/observational-intimacy-premium/contact-sheet.png" not in combined

@@ -3,9 +3,18 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 from pipeline.agentic.audit_log import append_audit_event, snapshot_file
-from pipeline.agentic.learning_loop import capture_learning_event, create_learning_proposal
+from pipeline.agentic.learning_loop import (
+    CREATOR_FEEDBACK_PENDING_LINKAGE,
+    apply_learning_proposal,
+    capture_learning_event,
+    create_learning_proposal,
+    learning_debt_records,
+)
 from pipeline.agentic.skill_eval import evaluate_learning_proposal
+from pipeline.agentic.validator_registry import run_required_validators
 
 
 def test_audit_log_appends_jsonl_and_snapshots_file(tmp_path: Path):
@@ -37,7 +46,7 @@ def test_learning_loop_creates_draft_proposal_without_auto_apply(tmp_path: Path)
 
     event = capture_learning_event(
         root,
-        source="creator_feedback",
+        source="code_review",
         summary="Storyboard first, copy second.",
         evidence_paths=["memory/working.md"],
     )
@@ -50,11 +59,211 @@ def test_learning_loop_creates_draft_proposal_without_auto_apply(tmp_path: Path)
         proposed_content="# Alpha\n\nconfidence: 0.9\n\nStoryboard first.\n",
         required_validators=["skill_eval"],
     )
+    run_required_validators(root, proposal_path)
     proposal = json.loads(proposal_path.read_text(encoding="utf-8"))
 
     assert proposal["status"] == "draft"
     assert proposal["auto_apply"] is False
     assert proposal["target_path"] == "config/skills/alpha.md"
+
+
+def test_learning_event_supports_idempotent_caller_id_and_feedback_metadata(tmp_path: Path):
+    values = {
+        "event_id": "feedback-package-quiet-morning-v2",
+        "source": "creator_feedback",
+        "summary": "The visual route repeated a previously rejected caretaker beat.",
+        "evidence_paths": ["output/carousels/quiet-morning/creator-correction.json"],
+        "user_instruction_exact": "Do not make Zuv the handler again.",
+        "diagnosis": "The scene repair restored the default caretaker pattern.",
+        "scope": "package",
+        "package_path": "output/carousels/quiet-morning",
+        "feedback_status": "captured",
+        "resolution_evidence": [],
+        "eval_disposition": "background",
+        "feedback_metadata": {"revision": 2, "slide_ids": [4, 5]},
+    }
+
+    first = capture_learning_event(tmp_path, **values)
+    second = capture_learning_event(tmp_path, **values)
+    event_files = list((tmp_path / "memory" / "agentic" / "learning-events").glob("*.json"))
+    stored = json.loads(event_files[0].read_text(encoding="utf-8"))
+
+    assert first == second
+    assert len(event_files) == 1
+    assert stored["event_id"] == values["event_id"]
+    assert stored["user_instruction_exact"] == values["user_instruction_exact"]
+    assert stored["eval_disposition"] == "background"
+    assert stored["feedback_metadata"] == {"revision": 2, "slide_ids": [4, 5]}
+
+
+def test_learning_event_rejects_conflicting_retry_without_overwrite(tmp_path: Path):
+    event_id = "feedback-package-conflict-v1"
+    original = capture_learning_event(
+        tmp_path,
+        event_id=event_id,
+        source="creator_feedback",
+        summary="Keep this exact correction.",
+    )
+    path = tmp_path / "memory" / "agentic" / "learning-events" / f"{event_id}.json"
+    before = path.read_bytes()
+
+    with pytest.raises(ValueError, match="different content"):
+        capture_learning_event(
+            tmp_path,
+            event_id=event_id,
+            source="creator_feedback",
+            summary="A conflicting correction.",
+        )
+
+    assert path.read_bytes() == before
+    assert json.loads(path.read_text(encoding="utf-8"))["summary"] == original.summary
+
+
+def test_unlinked_creator_feedback_defaults_to_package_local_linkage_debt(tmp_path: Path):
+    exact_words = "The carousel isn't following the story structure I want."
+    event = capture_learning_event(
+        tmp_path,
+        source="creator_feedback",
+        summary="Repair this carousel's story structure.",
+        user_instruction_exact=exact_words,
+    )
+
+    stored_path = (
+        tmp_path
+        / "memory"
+        / "agentic"
+        / "learning-events"
+        / f"{event.event_id}.json"
+    )
+    stored = json.loads(stored_path.read_text(encoding="utf-8"))
+    debt = learning_debt_records(tmp_path, limit=None)
+
+    assert stored["user_instruction_exact"] == exact_words
+    assert stored["feedback_status"] == "captured"
+    assert stored["eval_disposition"] == CREATOR_FEEDBACK_PENDING_LINKAGE
+    assert len(debt) == 1
+    assert debt[0]["kind"] == "feedback_linkage"
+    assert debt[0]["path"].endswith(f"{event.event_id}.json")
+    assert debt[0]["line"].startswith("link package-local creator feedback")
+    assert "needs proposal" not in debt[0]["line"]
+
+
+def test_package_linked_creator_feedback_defaults_to_background_disposition(tmp_path: Path):
+    event = capture_learning_event(
+        tmp_path,
+        source="creator_feedback",
+        summary="Repair the current package before considering durable learning.",
+        package_path="output/carousels/quiet-morning",
+        feedback_metadata={"feedback_id": "fb-package-quiet-morning"},
+    )
+
+    assert event.feedback_status == "captured"
+    assert event.eval_disposition == "background"
+    assert event.package_path == "output/carousels/quiet-morning"
+    assert event.feedback_metadata == {"feedback_id": "fb-package-quiet-morning"}
+
+
+def test_capture_learning_cli_routes_creator_feedback_to_linkage_not_proposal(tmp_path: Path):
+    repo_root = Path(__file__).resolve().parents[1]
+    capture = subprocess.run(
+        [
+            sys.executable,
+            "scripts/agentic_os.py",
+            "--workspace-root",
+            str(tmp_path),
+            "capture-learning",
+            "--source",
+            "creator_feedback",
+            "--summary",
+            "Repair the selected carousel structure without changing its concept.",
+        ],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+    debt = subprocess.run(
+        [
+            sys.executable,
+            "scripts/agentic_os.py",
+            "--workspace-root",
+            str(tmp_path),
+            "learning-debt",
+        ],
+        cwd=repo_root,
+        text=True,
+        capture_output=True,
+        check=False,
+        timeout=30,
+    )
+
+    assert capture.returncode == 0, capture.stderr
+    captured = json.loads(capture.stdout)
+    assert captured["feedback_status"] == "captured"
+    assert captured["eval_disposition"] == CREATOR_FEEDBACK_PENDING_LINKAGE
+    assert debt.returncode == 0, debt.stderr
+    debt_payload = json.loads(debt.stdout)
+    assert debt_payload["debt_count"] == 1
+    assert debt_payload["records"][0]["kind"] == "feedback_linkage"
+    assert "needs proposal" not in debt_payload["records"][0]["line"]
+
+
+def test_legacy_unlinked_creator_feedback_is_reported_without_mutation(tmp_path: Path):
+    event_dir = tmp_path / "memory" / "agentic" / "learning-events"
+    event_dir.mkdir(parents=True)
+    event_path = event_dir / "event-legacy-package-feedback.json"
+    event_path.write_text(
+        json.dumps(
+            {
+                "schema_version": "learning-event/v1",
+                "event_id": "event-legacy-package-feedback",
+                "source": "creator_feedback",
+                "summary": "Creator selected the sofa route for this carousel.",
+                "evidence_paths": ["Exact creator selection: We needed a bigger sofa."],
+                "created_at": "2026-09-12T06:11:46+00:00",
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    original_bytes = event_path.read_bytes()
+
+    debt = learning_debt_records(tmp_path, limit=None)
+
+    assert event_path.read_bytes() == original_bytes
+    assert len(debt) == 1
+    assert debt[0]["kind"] == "feedback_linkage"
+    assert "needs proposal" not in debt[0]["line"]
+
+
+def test_explicit_proposal_replaces_unlinked_feedback_linkage_debt(tmp_path: Path):
+    target = tmp_path / "config" / "skills" / "alpha.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("# Alpha\n", encoding="utf-8")
+    event = capture_learning_event(
+        tmp_path,
+        source="creator_feedback",
+        summary="A reviewed correction should become durable.",
+    )
+    proposal_path = create_learning_proposal(
+        tmp_path,
+        source_event_id=event.event_id,
+        target_path="config/skills/alpha.md",
+        proposed_action="modify",
+        rationale="The creator explicitly requested a durable workflow change.",
+        proposed_content="# Alpha\n\nRead the current pixels.\n",
+        required_validators=["skill_eval"],
+    )
+
+    debt = learning_debt_records(tmp_path, limit=None)
+
+    assert not any(item["kind"] == "feedback_linkage" for item in debt)
+    assert any(
+        item["kind"] == "draft_proposal"
+        and item["path"] == proposal_path.relative_to(tmp_path).as_posix()
+        for item in debt
+    )
 
 
 def test_agentic_os_cli_applies_valid_learning_proposal_with_approval(tmp_path: Path):
@@ -64,7 +273,7 @@ def test_agentic_os_cli_applies_valid_learning_proposal_with_approval(tmp_path: 
     target.write_text("# Alpha\n\nconfidence: 0.8\n", encoding="utf-8")
     event = capture_learning_event(
         root,
-        source="creator_feedback",
+        source="code_review",
         summary="Storyboard first, copy second.",
         evidence_paths=["memory/working.md"],
     )
@@ -77,6 +286,7 @@ def test_agentic_os_cli_applies_valid_learning_proposal_with_approval(tmp_path: 
         proposed_content="# Alpha\n\nconfidence: 0.9\n\nStoryboard first.\n",
         required_validators=["skill_eval"],
     )
+    run_required_validators(root, proposal_path)
 
     repo_root = Path(__file__).resolve().parents[1]
     result = subprocess.run(
@@ -110,6 +320,99 @@ def test_agentic_os_cli_applies_valid_learning_proposal_with_approval(tmp_path: 
     assert (root / payload["snapshot_path"]).exists()
 
 
+def test_apply_learning_refuses_stale_target_before_hash(tmp_path: Path):
+    target = tmp_path / "config" / "skills" / "alpha.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("# Alpha\n\nBefore.\n", encoding="utf-8")
+    proposal_path = create_learning_proposal(
+        tmp_path,
+        source_event_id="event-1",
+        target_path="config/skills/alpha.md",
+        proposed_action="modify",
+        rationale="Update the guidance.",
+        proposed_content="# Alpha\n\nAfter.\n",
+        required_validators=["skill_eval"],
+    )
+    target.write_text("# Alpha\n\nConcurrent creator edit.\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="before_hash mismatch"):
+        apply_learning_proposal(tmp_path, proposal_path, approved_by="creator")
+
+    assert "Concurrent creator edit" in target.read_text(encoding="utf-8")
+    assert json.loads(proposal_path.read_text(encoding="utf-8"))["status"] == "draft"
+
+
+def test_apply_learning_refuses_changed_proposed_content(tmp_path: Path):
+    target = tmp_path / "config" / "skills" / "alpha.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("# Alpha\n\nBefore.\n", encoding="utf-8")
+    proposal_path = create_learning_proposal(
+        tmp_path,
+        source_event_id="event-1",
+        target_path="config/skills/alpha.md",
+        proposed_action="modify",
+        rationale="Update the guidance.",
+        proposed_content="# Alpha\n\nAfter.\n",
+        required_validators=["skill_eval"],
+    )
+    proposal = json.loads(proposal_path.read_text(encoding="utf-8"))
+    content_path = tmp_path / proposal["proposed_content_path"]
+    content_path.write_text("# Alpha\n\nTampered.\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="after_hash mismatch"):
+        apply_learning_proposal(tmp_path, proposal_path, approved_by="creator")
+
+    assert target.read_text(encoding="utf-8") == "# Alpha\n\nBefore.\n"
+    assert json.loads(proposal_path.read_text(encoding="utf-8"))["status"] == "draft"
+
+
+def test_apply_learning_refuses_target_traversal(tmp_path: Path):
+    target = tmp_path / "config" / "skills" / "alpha.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("# Alpha\n\nBefore.\n", encoding="utf-8")
+    proposal_path = create_learning_proposal(
+        tmp_path,
+        source_event_id="event-1",
+        target_path="config/skills/alpha.md",
+        proposed_action="modify",
+        rationale="Update the guidance.",
+        proposed_content="# Alpha\n\nAfter.\n",
+        required_validators=["skill_eval"],
+    )
+    proposal = json.loads(proposal_path.read_text(encoding="utf-8"))
+    proposal["target_path"] = "../outside.md"
+    proposal_path.write_text(json.dumps(proposal), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="parent traversal"):
+        apply_learning_proposal(tmp_path, proposal_path, approved_by="creator")
+
+    assert target.read_text(encoding="utf-8") == "# Alpha\n\nBefore.\n"
+
+
+def test_apply_learning_refuses_symlink_target(tmp_path: Path):
+    outside = tmp_path.parent / f"{tmp_path.name}-outside.md"
+    outside.write_text("outside content", encoding="utf-8")
+    target = tmp_path / "config" / "skills" / "alpha.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("# Alpha\n\nBefore.\n", encoding="utf-8")
+    proposal_path = create_learning_proposal(
+        tmp_path,
+        source_event_id="event-1",
+        target_path="config/skills/alpha.md",
+        proposed_action="modify",
+        rationale="Update the guidance.",
+        proposed_content="# Alpha\n\nAfter.\n",
+        required_validators=["skill_eval"],
+    )
+    target.unlink()
+    target.symlink_to(outside)
+
+    with pytest.raises(ValueError, match="symlink"):
+        apply_learning_proposal(tmp_path, proposal_path, approved_by="creator")
+
+    assert outside.read_text(encoding="utf-8") == "outside content"
+
+
 def test_agentic_os_cli_refuses_to_reapply_learning_proposal(tmp_path: Path):
     root = tmp_path
     target = root / "config" / "skills" / "alpha.md"
@@ -117,7 +420,7 @@ def test_agentic_os_cli_refuses_to_reapply_learning_proposal(tmp_path: Path):
     target.write_text("# Alpha\n\nconfidence: 0.8\n", encoding="utf-8")
     event = capture_learning_event(
         root,
-        source="creator_feedback",
+        source="code_review",
         summary="Storyboard first, copy second.",
         evidence_paths=["memory/working.md"],
     )
@@ -130,6 +433,7 @@ def test_agentic_os_cli_refuses_to_reapply_learning_proposal(tmp_path: Path):
         proposed_content="# Alpha\n\nconfidence: 0.9\n\nStoryboard first.\n",
         required_validators=["skill_eval"],
     )
+    run_required_validators(root, proposal_path)
 
     repo_root = Path(__file__).resolve().parents[1]
     first = subprocess.run(
@@ -179,7 +483,7 @@ def test_agentic_os_cli_evaluate_learning_includes_review_context(tmp_path: Path
     target.write_text("# Alpha\n\nconfidence: 0.8\n", encoding="utf-8")
     event = capture_learning_event(
         root,
-        source="creator_feedback",
+        source="code_review",
         summary="Storyboard first, copy second.",
         evidence_paths=["memory/working.md"],
     )
@@ -217,7 +521,7 @@ def test_agentic_os_cli_evaluate_learning_includes_review_context(tmp_path: Path
     assert payload["proposal_status"] == "draft"
     assert payload["target_path"] == "config/skills/alpha.md"
     assert payload["proposed_content_path"].startswith("memory/agentic/learning-proposals/content/")
-    assert payload["next_action"] == "review_then_apply_learning"
+    assert payload["next_action"] == "validate_then_review_then_apply_learning"
     assert "apply-learning" in payload["apply_command"]
 
 

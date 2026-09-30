@@ -14,13 +14,15 @@ repairs when the creator asks for workflow discovery or instruction drift work.
 ## Load First
 
 1. `AGENTS.md`
-2. `.agents/skills/*/SKILL.md`
+2. `venv/bin/python scripts/agentic_os.py skill-system wiki_health`
 3. `config/skill-systems.json` -> `wiki_health`
-4. `scripts/agentic_os.py health`
-5. `scripts/wiki_health.py`
-6. `memory/working.md`
-7. `memory/semantic/`
-8. `wiki/index.md`
+4. Current output from `scripts/agentic_os.py health` and
+   `scripts/wiki_health.py`
+5. A bounded `scripts/agentic_os.py recall "<specific issue>"` result
+
+Open only the named skill, rule, semantic-memory record, wiki page, or source
+receipt implicated by those results. Do not preload all skills or the whole
+semantic-memory directory.
 
 When editing a Codex skill, also load the system `skill-creator` instructions
 and use its validator. Do not copy long skill-creator guidance into this repo

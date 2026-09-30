@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "target_authorities": [
+    {
+      "authority": "creator",
+      "patterns": [
+        "config/rules/**",
+        "config/skills/**",
+        "config/skill-systems.json",
+        "config/agentic_*.json",
+        "config/token_budget_contract.json",
+        "memory/semantic/**",
+        "memory/working.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "agents/**",
+        ".agents/skills/**",
+        ".codex/agents/**"
+      ]
+    },
+    {
+      "authority": "maintainer",
+      "patterns": ["config/**", "pipeline/**", "scripts/**", "agents/**"]
+    }
+  ],
+  "authorities": {
+    "creator": {
+      "identities": ["creator", "himanshu"],
+      "targets": [
+        "config/skills/**",
+        "config/rules/**",
+        "config/skill-systems.json",
+        "config/agentic_*.json",
+        "config/token_budget_contract.json",
+        "memory/semantic/**",
+        "memory/working.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "agents/**",
+        ".agents/skills/**",
+        ".codex/agents/**"
+      ]
+    },
+    "maintainer": {
+      "identities": ["maintainer"],
+      "targets": [
+        "config/**",
+        "pipeline/**",
+        "scripts/**",
+        "agents/**",
+        ".codex/agents/**"
+      ]
+    }
+  }
+}

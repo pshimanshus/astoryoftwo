@@ -123,3 +123,21 @@ def test_repo_skill_usage_tracks_frequency_and_failures(tmp_path: Path):
     assert gamma["failures"] == 1
     assert gamma["passes"] == 1
     assert gamma["last_outcome"] == "pass"
+
+
+def test_discover_skill_records_reads_project_codex_agent_toml(tmp_path: Path):
+    agent_dir = tmp_path / ".codex" / "agents"
+    agent_dir.mkdir(parents=True)
+    (agent_dir / "evidence-reviewer.toml").write_text(
+        'name = "evidence_reviewer"\n'
+        'description = "Checks evidence without writing."\n'
+        'sandbox_mode = "read-only"\n',
+        encoding="utf-8",
+    )
+
+    records = discover_skill_records(tmp_path)
+
+    record = next(item for item in records if item.skill_id == "codex_agent.evidence_reviewer")
+    assert record.kind == "agent"
+    assert record.path == ".codex/agents/evidence-reviewer.toml"
+    assert record.implicit_invocation is False

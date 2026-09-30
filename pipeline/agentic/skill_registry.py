@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import tomllib
 from pathlib import Path
 from typing import Any
 
@@ -134,6 +135,30 @@ def make_repo_skill_record(root: Path, path: Path) -> SkillRecord:
     )
 
 
+def make_codex_agent_record(root: Path, path: Path) -> SkillRecord:
+    """Discover project-local executable Codex role records from TOML."""
+    try:
+        payload = tomllib.loads(path.read_text(encoding="utf-8"))
+    except (OSError, tomllib.TOMLDecodeError) as exc:
+        raise ValueError(f"invalid Codex agent record {path}: {exc}") from exc
+    name = str(payload.get("name") or path.stem).strip()
+    description = str(payload.get("description") or name).strip()
+    sandbox_mode = str(payload.get("sandbox_mode") or "")
+    if not name or not description or not sandbox_mode:
+        raise ValueError(
+            f"Codex agent record {path} requires name, description, and sandbox_mode"
+        )
+    return SkillRecord(
+        skill_id=f"codex_agent.{name}",
+        name=name,
+        kind="agent",
+        path=path.relative_to(root).as_posix(),
+        description=description,
+        implicit_invocation=False,
+        confidence=1.0,
+    )
+
+
 def discover_skill_records(root: Path) -> list[SkillRecord]:
     root = root.resolve()
     records: list[SkillRecord] = []
@@ -143,6 +168,8 @@ def discover_skill_records(root: Path) -> list[SkillRecord]:
         records.append(make_record(root, path, "skill"))
     for path in sorted((root / "agents").glob("*.md")):
         records.append(make_record(root, path, "agent"))
+    for path in sorted((root / ".codex" / "agents").glob("*.toml")):
+        records.append(make_codex_agent_record(root, path))
     return records
 
 

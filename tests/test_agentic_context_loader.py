@@ -7,7 +7,7 @@ from pipeline.agentic.context_loader import assemble_context_pack, estimate_toke
 
 
 def test_estimate_tokens_is_deterministic():
-    assert estimate_tokens("one two three four") == 1
+    assert estimate_tokens("one two three four") == 5
     assert estimate_tokens("x" * 400) == 100
 
 
@@ -22,7 +22,7 @@ def test_assemble_context_pack_loads_profile_with_provenance(tmp_path: Path):
         "default_profile": "a-story-of-two",
         "profiles": {
             "a-story-of-two": {
-                "budget_tokens": 80,
+                "budget_tokens": 160,
                 "sections": [
                     {"id": "voice", "path": "config/rules/voice.md", "kind": "brand_voice", "required": True},
                     {"id": "working", "path": "memory/working.md", "kind": "working_memory", "required": True},
@@ -51,7 +51,7 @@ def test_assemble_context_pack_rejects_missing_required_file(tmp_path: Path):
         "default_profile": "a-story-of-two",
         "profiles": {
             "a-story-of-two": {
-                "budget_tokens": 80,
+                "budget_tokens": 160,
                 "sections": [
                     {"id": "voice", "path": "config/rules/voice.md", "kind": "brand_voice", "required": True}
                 ],
@@ -81,7 +81,7 @@ def test_render_context_pack_includes_budget_and_provenance(tmp_path: Path):
                 "default_profile": "a-story-of-two",
                 "profiles": {
                     "a-story-of-two": {
-                        "budget_tokens": 80,
+                        "budget_tokens": 160,
                         "sections": [
                             {
                                 "id": "voice",
@@ -110,3 +110,20 @@ def test_render_context_pack_includes_budget_and_provenance(tmp_path: Path):
     assert "Budget:" in rendered
     assert "Source: `config/rules/voice.md`" in rendered
     assert "Warm voice." in rendered
+
+
+def test_repository_profiles_preserve_all_required_context_within_budget():
+    root = Path(__file__).resolve().parents[1]
+    manifest = json.loads((root / "config" / "agentic_context_manifest.json").read_text(encoding="utf-8"))
+
+    assert manifest["default_profile"] == "ideation"
+    for profile, profile_config in manifest["profiles"].items():
+        pack = assemble_context_pack(root, profile=profile)
+        expected_required = {
+            section["id"]
+            for section in profile_config["sections"]
+            if section.get("required", True)
+        }
+        loaded_required = {section.id for section in pack.sections if section.required}
+        assert loaded_required == expected_required
+        assert pack.estimated_tokens <= pack.budget_tokens

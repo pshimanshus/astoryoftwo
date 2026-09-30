@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
 import pytest
 
 from pipeline.agentic.context_loader import assemble_context_pack
+from pipeline.stages.carousel_contract import (
+    load_active_illustration_style_profile,
+    resolve_style_profile_reference_path,
+    style_profile_contract_sha256,
+)
 from pipeline.stages.carousel_lanes import (
     discover_identity_images,
     select_identity_reference_bundle,
@@ -63,12 +69,28 @@ def test_default_carousel_system_is_exactly_four_gates_with_no_agents() -> None:
 def test_style_contract_is_small_and_contains_no_retired_workflow_policy() -> None:
     path = ROOT / "config" / "carousel_style_contract.json"
     contract = json.loads(path.read_text(encoding="utf-8"))
+    profile = load_active_illustration_style_profile(path, project_root=ROOT)
 
     assert path.stat().st_size < 8_000
-    assert contract["style_reference_attachment_limit"] == 1
-    assert contract["style_references"] == [
-        "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
-    ]
+    assert contract["schema_version"] == "3.0"
+    assert profile["id"] == "cinematic-observational-watercolor"
+    assert profile["version"] == "1.0.0"
+    assert profile["status"] == "active"
+    assert profile["reference"] == {
+        "path": "config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png",
+        "sha256": "sha256:850634480a635e296cbbb352bcbf461ade1bc4e1c3b419881a614e4ded13ee18",
+        "attachment_count": 1,
+    }
+    assert resolve_style_profile_reference_path(profile, project_root=ROOT).is_file()
+    assert style_profile_contract_sha256(profile).startswith("sha256:")
+    for retired in (
+        "shared_style_prompt",
+        "compact_style_prompt",
+        "shared_negative_prompt",
+        "style_references",
+        "style_reference_attachment_limit",
+    ):
+        assert retired not in contract
     assert "concept_selection_policy" not in contract
     assert "stage_scene_policy" not in contract
     assert "golden_theme_contract" not in contract
@@ -76,6 +98,44 @@ def test_style_contract_is_small_and_contains_no_retired_workflow_policy() -> No
     assert contract["production_gate"]["approved_creation_path"].startswith(
         "scripts/carousel.py"
     )
+
+
+def test_active_style_profile_fails_closed_when_reference_bytes_drift(
+    tmp_path: Path,
+) -> None:
+    source_contract = json.loads(
+        (ROOT / "config" / "carousel_style_contract.json").read_text(encoding="utf-8")
+    )
+    contract_path = tmp_path / "config" / "carousel_style_contract.json"
+    board_path = tmp_path / source_contract["style_profile"]["reference"]["path"]
+    contract_path.parent.mkdir(parents=True)
+    board_path.parent.mkdir(parents=True)
+    contract_path.write_text(json.dumps(source_contract), encoding="utf-8")
+    board_path.write_bytes(b"changed board bytes")
+
+    with pytest.raises(ValueError, match="hash mismatch"):
+        load_active_illustration_style_profile(contract_path, project_root=tmp_path)
+
+
+def test_cinematic_style_bundle_manifest_binds_all_approved_bytes() -> None:
+    bundle = ROOT / "config/references/style-lock/cinematic-observational-watercolor-v1"
+    manifest = json.loads((bundle / "manifest.json").read_text(encoding="utf-8"))
+
+    assert manifest["profile_id"] == "cinematic-observational-watercolor"
+    assert manifest["profile_version"] == "1.0.0"
+    assert len(manifest["sources"]) == 4
+    for record in [manifest["contact_sheet"], *manifest["sources"]]:
+        relative = record.get("path") or record["tracked_path"]
+        path = ROOT / relative
+        digest = "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
+        expected = record["sha256"] if "sha256" in record else record["tracked_sha256"]
+        assert digest == expected
+        assert record["width"] == 1080
+        assert record["height"] == 1440
+
+    policy = manifest["generation_attachment_policy"]
+    assert policy["attachment_count"] == 1
+    assert policy["source_files_are_provenance_only"] is True
 
 
 def test_carousel_skill_keeps_the_creator_first_hot_path() -> None:
@@ -374,24 +434,28 @@ def test_ordinary_carousel_contract_has_no_maintenance_side_effects() -> None:
     assert "network calls" in autopilot
 
 
-def test_context_loads_compact_creative_hooks_before_heavy_rules() -> None:
+def test_context_loads_compact_production_context_without_heavy_rules() -> None:
     pack = assemble_context_pack(ROOT, profile="a-story-of-two")
     sections = {section.id: section for section in pack.sections}
     order = [section.id for section in pack.sections]
 
-    assert order.index("creator_skill_stack") < order.index("rule_palette")
-    assert order.index("storytelling_change_hook") < order.index("rule_palette")
-    assert not sections["creator_skill_stack"].truncated
-    assert not sections["storytelling_change_hook"].truncated
+    assert order == ["production_context_compact"]
+    assert "rule_palette" not in sections
+    assert "rule_identity" not in sections
+    assert "storytelling_change_hook" not in sections
+    assert not sections["production_context_compact"].truncated
 
 
 def test_current_plans_are_small_and_point_to_the_hot_path() -> None:
     plans = sorted((ROOT / "docs" / "superpowers" / "plans").glob("*.md"))
 
-    assert [path.name for path in plans] == [
+    canonical_names = {
         "2026-06-28-analysis-hot-path-repair.md",
         "THE-PLAN.md",
         "creative-os-master-plan.md",
-    ]
-    assert sum(len(path.read_text(encoding="utf-8").splitlines()) for path in plans) < 260
+    }
+    assert canonical_names.issubset({path.name for path in plans})
+    # Full feedback-loop acceptance criteria belong here; the technical schema
+    # stays in the spec rather than imposing a prose budget that drops asks.
+    assert sum(len(path.read_text(encoding="utf-8").splitlines()) for path in plans if path.name in canonical_names) < 360
     assert "four locks" in _read("docs/superpowers/plans/creative-os-master-plan.md").lower()

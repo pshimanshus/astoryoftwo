@@ -1,0 +1,4 @@
+# Optional local semantic retrieval candidate. Never installed by normal workflow startup.
+# Install only for an explicit benchmark or local-dense index run:
+#   venv/bin/pip install -r requirements-retrieval.txt
+sentence-transformers==5.1.2
