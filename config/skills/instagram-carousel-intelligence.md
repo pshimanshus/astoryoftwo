@@ -57,14 +57,13 @@ or reach guarantee. This skill must not invent one. `Views`, `Viewers`,
 `Shares`, `Saves`, `Profile visits`, and `Follows` remain separate native
 labels. Reels and single-image posts are excluded from carousel calibration.
 
-The concept-lock score is an internal diagnostic for addressability, visible
-scene proof, beat novelty, relationship motion, payoff/reframe, send/save
-reason, and copy-visual cohesion. Numeric thresholds from the seed calibration
-are historical comparison evidence only. Current packages use the structural
-checks and a qualitative creator decision; a score never blocks concept lock
-or substitutes for creator taste. It is not a prediction of distribution and
-cannot support causal language when metric provenance, age-band coverage, or
-direct visual evidence is incomplete.
+The concept-lock score is an internal creative readiness measure. It checks
+addressability, visible scene proof, beat novelty, relationship motion,
+payoff/reframe, send/save reason, and copy-visual cohesion. A score of 70/100
+with minimum scene proof, relationship motion, and send/save scores is a
+blocking editorial floor for new packages. It is not a prediction of
+distribution and cannot support causal language when metric provenance,
+age-band coverage, or direct visual evidence is incomplete.
 
 Run the verified seed calibration with:
 
@@ -74,8 +73,8 @@ venv/bin/python scripts/carousel.py dry-run
 
 The dry run writes `carousel-intelligence-dry-run.json` and
 `carousel-intelligence-dry-run.md` beside the verified audit. Treat the gate
-distribution as rubric calibration evidence. Preserve later creator feedback
-as evidence without turning the historical thresholds back into a gate.
+distribution as rubric calibration evidence, then revise thresholds only
+through the creator feedback loop.
 
 For a per-carousel calibration table with before/after gate classifications,
 run:

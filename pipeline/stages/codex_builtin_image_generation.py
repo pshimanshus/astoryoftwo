@@ -37,6 +37,7 @@ from pipeline.stages.carousel_generation_inputs import (
     effective_slide_prompt_fields,
     sha256_binding,
     visual_premise_fingerprint,
+    validated_image_operation,
 )
 from pipeline.stages.carousel_generation_state import (
     STATE_SCHEMA_VERSION,
@@ -134,7 +135,7 @@ def _assert_current_receipt(
     immutable = (
         "generator_boundary", "tool_reported_model", "prompt_sha256",
         "reference_manifest_sha256", "references", "slide", "attempt",
-        "returned_sources", "feedback_id", "feedback_ids",
+        "returned_sources", "feedback_id", "feedback_ids", "invocations",
     )
     if not isinstance(original, dict) or any(receipt.get(key) != original.get(key) for key in immutable):
         raise ValueError(f"Slide {number} generation receipt does not match its returned candidate.")
@@ -154,6 +155,34 @@ def _assert_current_receipt(
     for source in receipt["returned_sources"]:
         if not source.get("returned_at") or int(source.get("width") or 0) <= 0 or int(source.get("height") or 0) <= 0:
             raise ValueError(f"Slide {number} returned source lacks dimensions or timestamp.")
+    if "invocations" in receipt:
+        invocations = receipt["invocations"]
+        returned_by_format = {item["format"]: item for item in receipt["returned_sources"]}
+        if (not isinstance(invocations, list) or len(invocations) != len(returned_by_format)
+                or {item.get("format") for item in invocations} != set(returned_by_format)):
+            raise ValueError(f"Slide {number} invocation coverage is incomplete.")
+        slide = next(item for item in _slides(carousel_dir) if int(item["slide"]) == number)
+        operation = validated_image_operation(carousel_dir, slide, list(returned_by_format))
+        expected_intent = "edit" if operation else "generate"
+        for invocation in invocations:
+            output_format = invocation["format"]
+            if (invocation.get("evidence") != "operator_recorded"
+                    or invocation.get("tool") != "image_gen.imagegen"
+                    or invocation.get("slide") != number
+                    or invocation.get("intent") != expected_intent
+                    or invocation.get("returned_source_sha256") != returned_by_format[output_format]["sha256"]
+                    or invocation.get("sent_prompt_sha256") != sha256_binding(_current_compiled_prompt(carousel_dir, number, output_format).encode("utf-8"))):
+                raise ValueError(f"Slide {number} invocation binding is stale.")
+            inputs = invocation.get("input_images") or []
+            reference_inputs = inputs[1:] if operation else inputs
+            if [{key: item.get(key) for key in ("role", "path", "sha256")} for item in reference_inputs] != references:
+                raise ValueError(f"Slide {number} invocation reference order is stale.")
+            if operation and (not inputs or inputs[0] != {"role": "edit_target", **operation["targets"][output_format]}):
+                raise ValueError(f"Slide {number} invocation edit target is stale.")
+            for binding in inputs:
+                path = resolve_package_artifact_path(carousel_dir, binding.get("path"), "", require_file=True)
+                if sha256_binding(path.read_bytes()) != binding.get("sha256"):
+                    raise ValueError(f"Slide {number} invocation input bytes are stale.")
     if require_review:
         qa_hashes = set()
         for filename in ("proof-qa.json", "visual-qa.json"):
@@ -308,6 +337,8 @@ def generator_prompt_text(slide_prompt: dict[str, Any], output_format: str) -> s
         spatial_topology=slide_prompt.get("spatial_topology"),
         visual_richness=slide_prompt.get("visual_richness"),
         feedback_constraints=slide_prompt.get("feedback_constraints"),
+        image_operation=slide_prompt.get("image_operation"),
+        scene_contract=slide_prompt.get("scene_contract"),
     )
 
 
@@ -350,6 +381,7 @@ def _current_compiled_prompt(carousel_dir: Path, number: int, output_format: str
         "spatial_topology": effective["spatial_topology"],
         "visual_richness": effective["visual_richness"],
         "feedback_constraints": active_feedback_constraints(carousel_dir, number),
+        "scene_contract": effective["scene_contract"],
     }
     prompt = generator_prompt_text(source, output_format)
     style_issue = house_style_consistency_gate_reason(
@@ -420,6 +452,28 @@ def build_compiled_prompt_handoff(
             "ImageGen handoff requires four named identity references and one style board."
         )
     slide_by_number = {int(item["slide"]): item for item in _slides(carousel_dir)}
+    # Five reference authorities remain distinct from the editable canvas.
+    inputs = []
+    for binding in generation_references:
+        path = resolve_package_artifact_path(carousel_dir, binding["path"], "", require_file=True)
+        try:
+            with Image.open(path) as image:
+                image.load()
+                width, height = image.size
+        except (OSError, ValueError) as exc:
+            raise ValueError("Generation input images must be readable.") from exc
+        inputs.append({
+            "role": binding["role"], "path": binding["path"], "sha256": binding["sha256"],
+            "width": width, "height": height,
+        })
+    for item in files:
+        operation = validated_image_operation(carousel_dir, slide_by_number[item["slide"]], output_formats)
+        item["intent"] = "edit" if operation else "generate"
+        item["input_images"] = [dict(binding) for binding in inputs]
+        if operation:
+            target = {"role": "edit_target", **operation["targets"][item["format"]]}
+            item["edit_target_binding"] = target
+            item["input_images"].insert(0, dict(target))
     context_by_path: dict[str, dict[str, Any]] = {}
     for number in slide_numbers:
         for raw_path in slide_by_number[number].get("source_images") or []:
@@ -446,9 +500,8 @@ def build_compiled_prompt_handoff(
         "slides": list(slide_numbers),
         "formats": list(output_formats),
         "files": files,
-        # Only these five files are image-generation attachments. Story images
-        # are creator/model context used to author the locked slide fields; the
-        # observed built-in boundary does not permit silently appending them.
+        # Identity/style authority remains exactly five references. Per-file
+        # input_images derives the actual ordered tool attachments (six for edits).
         "reference_bindings": generation_references,
         "context_reference_bindings": context_references,
     }
@@ -778,11 +831,13 @@ def _proof_qa_validation_issues(
 ) -> list[str]:
     try:
         from pipeline.stages.carousel_pixel_qa import validate_proof_qa
+        from pipeline.stages.carousel_scene_contracts import expected_pixel_qa_contracts
 
         return validate_proof_qa(
             carousel_dir,
             qa,
             expected_asset_bindings=[candidate],
+            expected_scene_contracts=expected_pixel_qa_contracts(_slides(carousel_dir)),
         )
     except ImportError:
         return ["carousel pixel QA validator is unavailable"]
@@ -1408,15 +1463,113 @@ def _require_v3(package_dir: Path) -> dict[str, Any]:
     return state
 
 
+def _prepare_image_operations(
+    carousel_dir: Path,
+    records: Any,
+    *,
+    proof_slide: int | None,
+    formats: list[str],
+) -> list[int]:
+    """Validate the whole request and hold source bytes before invalidation."""
+    require_writable_package(carousel_dir)
+    if not isinstance(records, list) or not records:
+        raise ValueError("image_operations must be a non-empty array.")
+    slides = _slides(carousel_dir)
+    by_number = {int(slide["slide"]): slide for slide in slides}
+    state = read_generation_state(carousel_dir)
+    proof_number = int(proof_slide or state.get("proof_slide") or proof_slide_from_gate(None, slides))
+    approved = _proof_approved(carousel_dir, state)
+    if approved:
+        # A receipt tied to old state cannot authorize editing other slides
+        # while current proof inputs already differ from that approved state.
+        try:
+            current_inputs = build_generation_inputs(carousel_dir)
+        except (OSError, ValueError):
+            approved = False
+        else:
+            approved = current_inputs["slides"].get(str(state["proof_slide"]), {}).get("input_sha256") == state["slides"][str(state["proof_slide"])]["input_sha256"]
+    if proof_slide is not None and state.get("proof_slide") not in (None, proof_slide) and approved:
+        raise ValueError("A different proof is already approved; change inputs to invalidate it first.")
+    selected: list[int] = []
+    snapshots: dict[str, bytes] = {}
+    for record in records:
+        if not isinstance(record, dict) or set(record) != {"slide", "intent", "targets"}:
+            raise ValueError("Each image operation requires exactly slide, intent and targets.")
+        number = record["slide"]
+        if type(number) is not int or number not in by_number or number in selected:
+            raise ValueError("Image operation slides must be unique existing slide numbers.")
+        selected.append(number)
+        targets = record["targets"]
+        if not isinstance(targets, dict):
+            raise ValueError("Image operation targets must map formats to source paths.")
+        if record["intent"] == "generate" and not targets:
+            by_number[number].pop("image_operation", None)
+            continue
+        if record["intent"] != "edit" or set(targets) != set(formats):
+            raise ValueError("Each edit requires exactly one target per selected format.")
+        bindings = {}
+        for output_format, raw_path in targets.items():
+            if not isinstance(raw_path, (str, Path)) or not str(raw_path):
+                raise ValueError("Edit target sources must be file paths.")
+            source = Path(raw_path).expanduser()
+            if not source.is_absolute():
+                source = carousel_dir / source
+            if source.is_symlink() or not source.is_file():
+                raise ValueError("Edit target source is missing or unsafe.")
+            # Local candidates may be targets, but package symlink escapes may not.
+            try:
+                source.absolute().relative_to(carousel_dir.resolve())
+            except ValueError:
+                pass
+            else:
+                source = resolve_package_artifact_path(carousel_dir, source, "", require_file=True)
+            payload = source.read_bytes()
+            dimensions = decoded_png_dimensions(payload)
+            digest = sha256_binding(payload)
+            relative = f".internal/references/edit-targets/{digest.removeprefix('sha256:')}.png"
+            destination = resolve_package_artifact_path(carousel_dir, relative, "")
+            if destination.exists() and destination.read_bytes() != payload:
+                raise ValueError("Edit target snapshot path already contains different bytes.")
+            snapshots[relative] = payload
+            bindings[output_format] = {"path": relative, "sha256": digest, **dimensions}
+        by_number[number]["image_operation"] = {"intent": "edit", "targets": bindings}
+    if ((not approved or proof_slide is not None) and selected != [proof_number]
+            or proof_number in selected and selected != [proof_number]):
+        raise ValueError("Image operations must follow the current proof selection and approval gate.")
+    for slide in slides:
+        operation = slide.get("image_operation")
+        if operation and operation.get("intent") == "edit" and set(operation.get("targets", {})) != set(formats):
+            raise ValueError("Every edit operation must cover the requested format contract.")
+    # All validation above is read-only. Materialize every source before slides
+    # change; reconciliation may archive/delete the candidate that supplied it.
+    for relative, payload in snapshots.items():
+        destination = resolve_package_artifact_path(carousel_dir, relative, "")
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if not destination.exists():
+            staging = destination.with_name(destination.name + ".tmp")
+            staging.write_bytes(payload)
+            staging.replace(destination)
+    write_json(carousel_dir / "slides.json", slides)
+    return selected
+
+
 def prepare_codex_builtin_image_generation(
     carousel_dir: Path,
     *,
     proof_slide: int | None = None,
     formats: list[str] | None = None,
+    image_operations: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     carousel_dir = Path(carousel_dir).expanduser()
-    # Reject archived packages before changing their format contract or any
-    # other byte. Archived v2 remains read-only auditable.
+    # Snapshot editable canvases before reconciliation can invalidate their
+    # original candidates. Validate the entire operation request first.
+    operation_slides = None
+    if image_operations is not None:
+        requested_formats = list(normalize_requested_formats(formats)) if formats is not None else list(locked_formats(carousel_dir))
+        operation_slides = _prepare_image_operations(
+            carousel_dir, image_operations, proof_slide=proof_slide, formats=requested_formats
+        )
+    # Archived v2 remains read-only auditable.
     state = _require_v3(carousel_dir)
     if formats is not None:
         write_format_contract(
@@ -1476,6 +1629,8 @@ def prepare_codex_builtin_image_generation(
             or proof_slide_from_gate(None, slides)
         )
         selected = [proof_number]
+    if operation_slides is not None:
+        selected = operation_slides
     if not selected:
         return write_v3_state(
             carousel_dir,
@@ -1647,8 +1802,12 @@ def quarantine_generated_sources(
     tool_reported_model: str | None = None,
     feedback_id: str | None = None,
     feedback_ids_by_slide: dict[int, list[str]] | None = None,
+    invocation_records: list[dict[str, Any]] | None = None,
+    returned_payloads: dict[tuple[int, str], bytes] | None = None,
     **_: Any,
 ) -> list[dict[str, Any]]:
+    if not invocation_records or returned_payloads is None:
+        raise ValueError("Quarantine requires validated invocation records and returned bytes.")
     records: list[dict[str, Any]] = []
     input_fingerprints = input_fingerprints or {}
     for index, slide in enumerate(slides):
@@ -1664,7 +1823,8 @@ def quarantine_generated_sources(
         ingest_issues: list[str] = []
         for output_format in output_formats:
             source = Path(generated_paths_by_format[output_format][index]).expanduser()
-            payload = source.read_bytes()
+            payload = (returned_payloads[(number, output_format)]
+                       if returned_payloads is not None else source.read_bytes())
             raw_target = root / "source" / f"{output_format}.png"
             raw_target.parent.mkdir(parents=True, exist_ok=True)
             raw_target.write_bytes(payload)
@@ -1722,6 +1882,7 @@ def quarantine_generated_sources(
             for binding in (reference_bindings or [])
         ]
         receipt = {
+            "invocations": [record for record in (invocation_records or []) if record["slide"] == number],
             "generator_boundary": "codex_builtin_imagegen",
             "tool_reported_model": str(tool_reported_model).strip() or None
             if tool_reported_model is not None
@@ -1910,6 +2071,64 @@ def _write_manifest_candidate_if_complete(carousel_dir: Path, state: dict[str, A
                 shutil.copyfile(source, target)
 
 
+def _validate_invocation_records(
+    carousel_dir: Path,
+    records: Any,
+    *,
+    handoff: dict[str, Any],
+    selected: list[int],
+    formats: list[str],
+    generated_paths_by_format: dict[str, list[str | Path]],
+    tool_reported_model: str | None,
+) -> tuple[list[dict[str, Any]], dict[tuple[int, str], bytes]]:
+    """Check the entire operator record before any lifecycle mutation."""
+    if not isinstance(records, list) or not records:
+        raise ValueError("invocation_records are required for every new ImageGen return.")
+    expected = {(item["slide"], item["format"]): item for item in handoff["files"]}
+    validated: dict[tuple[int, str], dict[str, Any]] = {}
+    returned: dict[tuple[int, str], bytes] = {}
+    required = {"slide", "format", "intent", "tool", "sent_prompt_sha256", "input_images", "returned_source_sha256"}
+    for record in records:
+        if not isinstance(record, dict) or not required.issubset(record) or set(record) - required - {"tool_call_id", "model"}:
+            raise ValueError("Invocation records require exact call, prompt, ordered inputs and returned-source bindings.")
+        if type(record["slide"]) is not int or not isinstance(record["format"], str):
+            raise ValueError("Invocation slide and format are invalid.")
+        key = (record["slide"], record["format"])
+        if key not in expected or key in validated:
+            raise ValueError("Invocation records must cover each selected slide and format exactly once.")
+        item = expected[key]
+        if record["tool"] != "image_gen.imagegen" or record["intent"] != item["intent"]:
+            raise ValueError("Invocation tool or intent does not match the prepared handoff.")
+        if record["sent_prompt_sha256"] != item["sha256"]:
+            raise ValueError("Invocation sent_prompt_sha256 must bind the exact per-file compiled prompt.")
+        inputs = record["input_images"]
+        if (not isinstance(inputs, list) or any(
+            not isinstance(binding, dict)
+            or any(not isinstance(binding.get(field), str) for field in ("role", "path", "sha256"))
+            or any(type(binding.get(field)) is not int for field in ("width", "height"))
+            for binding in inputs
+        ) or inputs != item["input_images"]):
+            raise ValueError("Invocation ordered input_images do not match the current handoff.")
+        for binding in item["input_images"]:
+            source = resolve_package_artifact_path(carousel_dir, binding["path"], "", require_file=True)
+            if sha256_binding(source.read_bytes()) != binding["sha256"]:
+                raise ValueError("Invocation input image bytes have drifted.")
+        for optional in ("tool_call_id", "model"):
+            if optional in record and (not isinstance(record[optional], str) or not record[optional].strip()):
+                raise ValueError(f"Invocation {optional} must be non-empty when exposed.")
+        if tool_reported_model is not None and record.get("model") != tool_reported_model:
+            raise ValueError("tool_reported_model must match the invocation's exposed model.")
+        source = Path(generated_paths_by_format[key[1]][selected.index(key[0])]).expanduser()
+        payload = source.read_bytes()
+        if sha256_binding(payload) != record["returned_source_sha256"]:
+            raise ValueError("Invocation returned_source_sha256 does not match the raw returned image.")
+        returned[key] = payload
+        validated[key] = {"evidence": "operator_recorded", **record}
+    if set(validated) != set(expected):
+        raise ValueError("Invocation records must cover each selected slide and format exactly once.")
+    return [validated[(number, output_format)] for number in selected for output_format in formats], returned
+
+
 def ingest_generated_outputs(
     carousel_dir: Path,
     generated_paths_by_format: dict[str, list[str | Path]],
@@ -1917,26 +2136,23 @@ def ingest_generated_outputs(
     proof_slide: int | None = None,
     tool_reported_model: str | None = None,
     feedback_id: str | None = None,
+    invocation_records: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     carousel_dir = resolve_package_artifact_path(
         Path(carousel_dir).expanduser(),
         ".",
         "",
     )
-    state = _require_v3(carousel_dir)
-    if state.get("status") != "handoff_ready":
+    # All new returns need evidence before _require_v3 can archive stale work.
+    require_writable_package(carousel_dir)
+    state = read_generation_state(carousel_dir)
+    if state.get("schema_version") != STATE_SCHEMA_VERSION or state.get("status") != "handoff_ready":
         raise ValueError("Prepare the compiled prompt before ingesting images.")
+    if not isinstance(invocation_records, list) or not invocation_records:
+        raise ValueError("invocation_records are required for every new ImageGen return.")
     handoff_issues = compiled_prompt_handoff_integrity_issues(carousel_dir, state=state)
     if handoff_issues:
-        return write_v3_state(
-            carousel_dir,
-            {
-                **state,
-                "status": "blocked",
-                "next_action": "recompile_prompt_handoff",
-                "reason": "; ".join(handoff_issues),
-            },
-        )
+        raise ValueError("Prepare the compiled prompt again; stale handoff: " + "; ".join(handoff_issues))
     selected = [int(value) for value in state["selected_slides"]]
     if proof_slide is not None and selected != [int(proof_slide)]:
         raise ValueError("proof_slide does not match the active compiled handoff.")
@@ -1956,6 +2172,16 @@ def ingest_generated_outputs(
         slide_numbers=selected,
         output_formats=formats,
     )
+    invocations, returned_payloads = _validate_invocation_records(
+        carousel_dir, invocation_records, handoff=handoff, selected=selected, formats=formats,
+        generated_paths_by_format=generated_paths_by_format, tool_reported_model=tool_reported_model,
+    )
+    current_inputs = build_generation_inputs(carousel_dir)
+    if (current_inputs["format_sha256"] != state["format_sha256"] or any(
+        current_inputs["slides"].get(str(number), {}).get("input_sha256") != state["slides"].get(str(number), {}).get("input_sha256")
+        for number in selected
+    )):
+        raise ValueError("Prepared generation inputs have changed; prepare again before ingesting.")
     feedback_ids_by_slide = {
         number: sorted({
             str(item.get("feedback_id"))
@@ -1968,6 +2194,9 @@ def ingest_generated_outputs(
         feedback_id in ids for ids in feedback_ids_by_slide.values()
     ):
         raise ValueError("feedback_id must identify active feedback for a selected slide.")
+    state = _require_v3(carousel_dir)
+    if state.get("status") != "handoff_ready" or state.get("selected_slides") != selected:
+        raise ValueError("Prepared handoff changed during invocation validation.")
     candidates = quarantine_generated_sources(
         carousel_dir,
         slides=[slide_by_number[number] for number in selected],
@@ -1979,6 +2208,8 @@ def ingest_generated_outputs(
         tool_reported_model=tool_reported_model,
         feedback_id=feedback_id,
         feedback_ids_by_slide=feedback_ids_by_slide,
+        invocation_records=invocations,
+        returned_payloads=returned_payloads,
     )
     failed_candidates = [candidate for candidate in candidates if candidate.get("ingest_issues")]
     for candidate in candidates:
@@ -2035,20 +2266,37 @@ def _bind_and_validate_qa(
 ) -> tuple[dict[str, Any], list[str]]:
     authored = load_json(qa_path)
     try:
+        from pipeline.stages.carousel_scene_contracts import expected_pixel_qa_contracts
+
+        expected_scene_contracts = expected_pixel_qa_contracts(_slides(carousel_dir))
         if proof:
             from pipeline.stages.carousel_pixel_qa import bind_proof_qa, validate_proof_qa
 
-            bound = bind_proof_qa(carousel_dir, authored, candidates)
-            issues = validate_proof_qa(carousel_dir, bound)
+            bound = bind_proof_qa(
+                carousel_dir,
+                authored,
+                candidates,
+                expected_scene_contracts=expected_scene_contracts,
+            )
+            issues = validate_proof_qa(
+                carousel_dir,
+                bound,
+                expected_scene_contracts=expected_scene_contracts,
+            )
         else:
             from pipeline.stages.carousel_pixel_qa import bind_final_qa, validate_final_qa
 
             manifest = load_json(carousel_dir / FINAL_MANIFEST_CANDIDATE)
-            bound = bind_final_qa(authored, manifest)
+            bound = bind_final_qa(
+                authored,
+                manifest,
+                expected_scene_contracts=expected_scene_contracts,
+            )
             issues = validate_final_qa(
                 carousel_dir / FINAL_AUDIT_CANDIDATE_FOLDER,
                 bound,
                 manifest,
+                expected_scene_contracts=expected_scene_contracts,
             )
     except ValueError as exc:
         bound = authored
@@ -2304,11 +2552,13 @@ def finalize_codex_builtin_outputs(carousel_dir: Path) -> dict[str, Any]:
     qa = load_json(qa_path)
     try:
         from pipeline.stages.carousel_pixel_qa import validate_final_qa
+        from pipeline.stages.carousel_scene_contracts import expected_pixel_qa_contracts
 
         qa_issues = validate_final_qa(
             carousel_dir / FINAL_AUDIT_CANDIDATE_FOLDER,
             qa,
             manifest,
+            expected_scene_contracts=expected_pixel_qa_contracts(_slides(carousel_dir)),
         )
     except ImportError:
         qa_issues = ["carousel pixel QA validator is unavailable"]

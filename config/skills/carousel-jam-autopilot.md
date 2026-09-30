@@ -1,12 +1,12 @@
 # Carousel Jam Autopilot
 
-last_updated: 2026-09-04
+last_updated: 2026-09-30
 status: four-gate production path
 
 Codex directly invokes ImageGen for the risky proof and every selected final
-slide. It attaches exactly four identity references and one style board, opens
-the decoded returns, and submits hash-bound QA. Prompt preparation alone is not
-completion.
+slide. It attaches exactly four identity references and one style board, plus
+a separate target first for an edit, opens the decoded returns, and submits
+hash-bound QA. Prompt preparation alone is not completion.
 
 ## Outcome
 
@@ -60,11 +60,11 @@ optional shadow judges and telemetry never delay illustration generation.
 
 ## Gate 2 — Copy + Format
 
-For copy-only requests, apply the final-draft review in
-`.agents/skills/a-story-storytelling-hook/SKILL.md` before delivering the exact
-copy. Concept approval selects the direction; it does not certify an unwritten
-or shortened sequence. No production package or image generation is needed
-merely to deliver a draft in chat.
+For multi-slide copy, including working drafts and revisions in chat, apply
+`Copy Delivery Review` in the storytelling hook's `references/story-engine.md`.
+Check instruction compliance and editorial quality separately. Concept approval
+selects the direction; it does not certify an unwritten or shortened sequence.
+A chat draft needs no production package or image generation for this review.
 
 Lock exact on-image text and the requested native canvas set together:
 
@@ -88,6 +88,10 @@ ownership map plus whole-person/object topology. The compiler embeds both in
 the generation prompt and blocks before ImageGen if either is incomplete. Do
 not replace the map with a generic "natural hands" negative.
 
+Use `$non-ai-image-skill` for the scene's activated risks and store the locked
+`scene_contract` with each slide. Its scene/copy bindings must match the slide
+and reach the compiled prompt. Canonical rules own the detailed requirements.
+
 Compile `prompt-pack.json` and `.prompt.txt` files only after this gate passes.
 Prompts contain physical event, camera/focal hierarchy, attached reference
 roles, wardrobe, compact house style, exact text, tiny top-right brandmark,
@@ -103,16 +107,28 @@ accept a wrong ratio, or apply this accommodation to Story/Reel or square.
 ## Gate 3 — Proof Pixels + Creator
 
 Choose the frame most likely to fail semantically or visually. The repo command
-prepares the selected compiled prompt. Codex reads it and attaches exactly five
-files: all four files in `identity-dossier.json.selected_generation_bundle`,
-then the one canonical style contact sheet bound by the package. It calls image
-generation only for that proof in each requested native format, immediately
-ingests the returned file into quarantine, and inspects the decoded normalized
-candidate pixels with `view_image` (or unchanged bytes when already exact).
+prepares the selected compiled prompt. Codex sends that exact prompt without
+rewriting it and follows the ordered `input_images`. The reference list stays
+exactly five: all four files in
+`identity-dossier.json.selected_generation_bundle`, then the canonical style
+contact sheet. For an edit, use `prepare --operation-json PATH` to bind a
+separate target as image 1 before those five references; inspect it with
+`view_image` before editing. Slide fields and feedback own the change and
+preserve instructions. The target is the editable canvas, not identity/style
+authority. Target changes do not reset the semantic attempt budget, and proof
+edits revoke approval.
 
-This five-attachment boundary comes from the current built-in Codex runtime
-smoke; do not describe it as an official platform limit. Do not append the
-three individual style slides or silently remove an identity file.
+Call `image_gen.imagegen` only for that proof in each requested native format.
+Every new return requires `ingest --invocation-json PATH`, including ordinary
+generation: record the per-file sent prompt hash, ordered input bindings, and
+raw return hash. These records are `operator_recorded`, never independent
+server attestation; legacy receipts retain their original evidence. See
+`.agents/skills/astory/references/imagegen-contract.md` for the schema. Ingest
+immediately into quarantine and inspect decoded normalized candidate pixels
+with `view_image` (or unchanged bytes when already exact).
+
+The five references plus a separate edit target are not an official platform
+limit claim. Do not append individual style slides or remove an identity role.
 
 Story images are pre-lock creative context, not extra imagegen attachments.
 Inspect them before authoring the brief, encode their observable clothing,
@@ -125,8 +141,11 @@ If image generation or `view_image` is unavailable, stop successfully at
 `handoff_ready` and report `BLOCKED/NOT_RUN`. No prompt review, filename, model
 claim, or authored expectation may substitute for pixel inspection.
 
-Quarantine the candidate. Inspect decoded current pixels and write
-`proof-qa.json` bound to file path, SHA-256, and dimensions. Check, in order:
+Quarantine the candidate. Start with the non-AI-image skill's blind scene read
+with copy hidden: actor, recipient or response, and visible consequence. Then
+route only applicable specialist reviews and synthesize against the locked
+scene. Inspect decoded current pixels and write `proof-qa.json` bound to file
+path, SHA-256, dimensions, and derived scene-contract hash. Check, in order:
 
 1. intended physical event and relationship state are visibly readable;
 2. the frame reads as a caught event with motivated light, distinct depth,
@@ -152,7 +171,9 @@ approved before this gate.
 
 The entity/spatial audit cannot pass on summary prose alone. It must inventory
 every planned visible hand by owner and side and record attachment, contact
-geometry, finger integrity, and solid-object intersection results.
+geometry, finger integrity, and solid-object intersection results. Inspect foreground
+support/overlap as carefully as hands; unresolved critical evidence remains
+failed or `data_gap`, never an assumed PASS.
 
 ## Gate 4 — Final Package QA
 

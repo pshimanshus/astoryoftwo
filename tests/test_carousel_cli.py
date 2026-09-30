@@ -9,6 +9,7 @@ import pytest
 
 from pipeline.stages.carousel_lanes import discover_identity_images
 from pipeline.stages.codex_builtin_image_generation import build_compiled_prompt_handoff
+from tests.helpers.imagegen_invocations import with_synthetic_cli_invocation
 from tests.helpers.carousel_qa import cinematic_slide_fields, synthetic_route_story_plan
 
 
@@ -17,6 +18,7 @@ SCRIPT = WORKSPACE / "scripts" / "carousel.py"
 
 
 def _run(*args: str) -> subprocess.CompletedProcess[str]:
+    args = with_synthetic_cli_invocation(args)
     return subprocess.run(
         [sys.executable, str(SCRIPT), *args],
         cwd=WORKSPACE,
@@ -29,7 +31,13 @@ def _run(*args: str) -> subprocess.CompletedProcess[str]:
 
 def _write_reference(path: Path, payload: bytes = b"reference") -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(payload)
+    # Input attachment validation now decodes references before preparing a
+    # handoff. Keep distinguishable fixture bytes while supplying real pixels.
+    from PIL import Image
+    import hashlib
+
+    color = tuple(hashlib.sha256(payload).digest()[:3])
+    Image.new("RGB", (32, 32), color).save(path)
     return path
 
 
@@ -383,7 +391,7 @@ def test_locked_visual_fields_survive_package_and_compiled_prompt(tmp_path: Path
     for retired in ("visual", "scene", "composition", "pose", "background"):
         assert retired not in packaged_slide
     assert len(packaged_slide["source_images"]) == 1
-    assert (package / packaged_slide["source_images"][0]).read_bytes() == b"story"
+    assert (package / packaged_slide["source_images"][0]).read_bytes() == local_story_reference.read_bytes()
 
     compiled = (
         package

@@ -112,18 +112,23 @@ structure and must not be padded or relabelled.
 
 ## Identity And Reference Contract
 
-Before generation, use exactly five attachments:
+For both generation and editing, keep exactly five canonical references:
 
 1. the four actual Aachu/Zuv/together files in
    `identity-dossier.json.selected_generation_bundle`;
 2. one package-bound style board resolved from the active profile in
    `config/carousel_style_contract.json` and verified by its declared SHA-256.
 
-Codex attaches all five actual files to every image-generation call. Filenames
-or text descriptions alone do not satisfy identity. The five-file boundary is
-an observed constraint of the current built-in Codex runtime smoke, not a claim
-about an official platform limit. Do not attach the three individual style
-slides in addition to the board, and do not remove an identity role to fit.
+Codex attaches all five actual files to every image-generation call. For an
+edit, the separately bound target is image 1, followed by these five references
+in canonical order. Filenames or text descriptions alone do not satisfy
+identity. This is not a claim about an official platform limit. Do not attach
+individual style slides in addition to the board or remove an identity role.
+Use `prepare --operation-json PATH` for edits, send the exact compiled prompt,
+and record every new call through `ingest --invocation-json PATH`. Invocation
+evidence is `operator_recorded`; it is not independent server attestation.
+Legacy receipts remain readable without invented evidence. The input and
+record schemas live in `.agents/skills/astory/references/imagegen-contract.md`.
 
 Use the identity/current-request images for the whole person:
 
@@ -186,8 +191,12 @@ probe.
 
 Inspect decoded current pixels in this order:
 
-1. **Story meaning:** observed action and relationship state match the visual
-   sentence and exact copy.
+1. **Story meaning:** hide the copy and name the event actually visible before
+   comparing it with the visual sentence. For an exchange, identify the actor,
+   recipient, directed action and consequence. A phone and parcel in the frame
+   do not establish a delivery; presenting a prop to the viewer does not supply
+   a missing in-scene recipient. Prompt compliance alone cannot pass story
+   meaning when the planned event is itself weak or wrong.
 2. **Cinematic story frame:** the image reads as a caught event, with motivated
    light, distinct depth layers, mapped story evidence, before/after
    implication, continuation or final payoff, and no posed/decorative/generic-
@@ -200,6 +209,11 @@ Inspect decoded current pixels in this order:
    Record each visible hand separately with owner, side, attachment, contact,
    finger integrity, and solid-object intersection evidence. Summary prose
    cannot pass this layer.
+   Trace feet, shoes, rugs/mats and thresholds too: which surface supports each
+   object, which edge occludes which, and whether contact/shadow/depth agree.
+   Do not infer correct shoe contact merely because the floor is level. Put a
+   visible contradiction or unresolved contact in the existing failed check;
+   do not invent a physical explanation to preserve PASS.
 4. **Identity:** compare both people to the attached reference IDs with concrete
    face, hair, height, proportion, posture, expression, and wardrobe notes.
 5. **Finish:** exact integrated text, brandmark, house style, deterministic

@@ -372,7 +372,9 @@ def test_codex_first_generation_boundary_is_explicit_and_truthful() -> None:
     assert boundary["codex"] == [
         "read_compiled_prompt",
         "attach_four_curated_identity_references_and_one_style_board",
+        "prepend_bound_edit_target_when_editing",
         "call_image_generation",
+        "record_operator_invocation_for_every_new_return",
         "inspect_decoded_pixels_with_view_image",
         "submit_hash_and_dimension_bound_qa",
     ]

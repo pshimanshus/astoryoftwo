@@ -9,6 +9,7 @@
 - WHW translation
 - Supported carousel architectures
 - Phase-to-slide expansion
+- Copy delivery review
 - Question, conflict, character, and answer engine
 - Emotional waveform
 - Viewer participation
@@ -238,6 +239,92 @@ because the copy commands them to swipe.
   QA, and package artifacts.
 - Never add a slide only to satisfy the default; never merge beats if doing so
   erases a real change, conflict, or turn.
+
+## Copy Delivery Review
+
+Apply before delivering any multi-slide copy: initial working drafts, pitches
+that include slide copy, requested final drafts, and repairs. Concept-only
+discussion and single-line edits need only the relevant continuity and voice
+checks. Keep this work private unless the creator requests an explanation.
+It adds no artifact, numerical score, or creator approval gate.
+
+### Preserve The Brief Before Writing
+
+Recover the surviving concept, creator-selected architecture, facts, exact
+locks, and wording the creator has specifically liked. Preserve liked wording
+as the revision baseline even if formal copy lock has not happened; concept
+approval alone does not approve every provisional line. A correction to the
+middle does not authorize replacing the hook. Keep an alternative separate
+unless the creator asks to change that layer.
+
+State the unresolved relationship question and the change the ending needs to
+make legible. Sketch the causal story jobs before drafting; do not fill a
+fixed number of caption slots. Use `Supported Carousel Architectures` and
+`Phase-to-Slide Expansion` when establishing or repairing the sequence.
+
+### Check Instructions Against The Delivered Draft
+
+Compare the actual words with the surviving brief. For each selected phase,
+locate the exact line and planned visible event doing its job, then identify
+what new knowledge, pressure, choice, relationship position, or meaning it
+adds. A phase heading is not evidence. If the explanation supplies something
+missing from both copy and scene, repair the draft itself.
+
+Keep copy and images complementary: the pictures may carry the action or a
+silent response. A scene plan is proposed evidence, not inspected pixels.
+Missing jobs need development, not extra slides or framework labels. A clean
+instruction check establishes compliance only; it does not establish good copy.
+
+### Read As An Editor Without The Labels
+
+Remove phase labels, author explanations, and claims that the draft works.
+Read the copy continuously in the channel voice, then read it with the planned
+scenes. Apply Humanizer. Name the weakest actual passage privately, quoting it
+and explaining what the reader is missing. Challenge these specific risks:
+
+- The middle inventories events while the relationship question stands still.
+  Test what would be lost by cutting or moving the suspect slide.
+- The claimed turn repeats a gag or swaps actors without changing its meaning.
+  A reciprocal joke can earn a turn when its second occurrence reveals
+  something the first could not; repetition is not automatically a failure.
+- The ending resolves logistics but leaves the cover's emotional promise
+  unanswered. Comic, quiet, or wordless closure can work; do not paste on a
+  romantic moral or manufacture serious stakes to make it feel deeper.
+- A line needs a clever-sounding explanation to feel human, merely narrates
+  the picture, or could be pasted into an unrelated couple story unchanged.
+  Repair the specific thought and spoken rhythm, not just its word count.
+
+For repeated copy-quality failures, read
+[Copy Taste Calibration](copy-taste-calibration.md) and its bounded positive
+reference. Compare the actual candidate with one relevant creator-approved
+sequence and one rejected sequence. Compare what their words and scenes
+accomplish, not their props, hook syntax, slide count, or apparent performance.
+Creator labels establish those examples' status, not a verdict for new work.
+
+### Repair And Recheck
+
+Repair the diagnosed layer, preserve untouched choices, and reread the full
+sequence for the effects of the change. Do not silently abandon a liked concept
+because its copy failed. Two rejected copy attempts on the same approved
+premise warrant one bounded independent reader review before another rewrite
+is presented, using the existing helper allowance for necessary audits.
+Give that reader the creator's request, surviving choices, calibration examples
+with their actual creator feedback, complete candidate, and intended scenes,
+without the author's defence or expected candidate verdict. Ask for
+line-specific weaknesses and missing emotional development; no numeric score
+or standing agent room. If unavailable, perform a separate cold reread and
+state its limits when reporting validation; do not call it independent.
+
+If a reviewer endorses known creator-rejected copy, the review has exposed a
+taste mismatch. Do not override the creator or claim the workflow is validated.
+Calibrate on known cases, then assess a new draft separately; repeating the
+known verdict after seeing its label is not evidence of generalization.
+
+Review is judgment, not proof of creator taste or future performance. Do not
+claim a formal eval ran unless it did. Existing eval-harness tests check review
+contracts only; they do not intercept ordinary chat or certify its prose.
+Deliver the repaired copy when requested, without an unsolicited self-awarded
+PASS or paragraph explaining why every phase now works.
 
 ## Emotional Waveform
 

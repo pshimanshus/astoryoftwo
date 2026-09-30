@@ -13,7 +13,9 @@ Use this contract for every final `@a.storyof.two` illustration.
 Faces are highest priority. Final generation must use actual identity references made visible to Codex. Text-only descriptions are not sufficient.
 
 Codex directly calls ImageGen with exactly four named identity references and
-one canonical style board, then opens and reviews the returned pixels.
+one canonical style board. An edit adds its separate bound target as image 1,
+then the same five references. The target is the editable canvas; the references
+remain identity/style authority. Open and review the returned pixels.
 
 Preserve:
 - eye shape

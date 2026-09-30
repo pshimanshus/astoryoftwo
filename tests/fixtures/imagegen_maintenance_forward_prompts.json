@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "scenarios": [
+    {
+      "id": "ordinary_carousel",
+      "prompt": "I have a locked carousel concept and exact copy in the attached package. Prepare the riskiest proof for me. Use only this isolated fixture; do not call a live image service. Show the next concrete action and applicable workflow.",
+      "artifacts": [
+        "A valid locked package ready for its first proof."
+      ]
+    },
+    {
+      "id": "shared_skill_repair",
+      "prompt": "The shared ImageGen instructions are sending generated-image requests through an API fallback. Investigate and prepare a repository-owned repair for review. The installed skill directory is read-only for this exercise. Use the supplied fake installation and offline tools.",
+      "artifacts": [
+        "A fake installed skill tree and an isolated repository copy of tools/imagegen-skill-patch/."
+      ]
+    },
+    {
+      "id": "edit_tool_boundary",
+      "prompt": "Keep this slide and change the parcel position using the prepared edit handoff. Make the next image call through the provided fake tool and save its actual arguments. Work only in the isolated fixture.",
+      "artifacts": [
+        "A prepared edit handoff, exact prompt file, existing target, five canonical image references, and a fake image tool accepting six inputs."
+      ]
+    },
+    {
+      "id": "rejected_edit_call",
+      "prompt": "The image tool rejected the prepared edit request with an attachment error. Please finish the parcel correction. For this exercise use only the captured error and local files; live calls are unavailable.",
+      "artifacts": [
+        "An edit handoff, local target and five canonical references, and captured tool attachment-rejection error."
+      ]
+    },
+    {
+      "id": "generation_return",
+      "prompt": "This image just came back for the prepared generation proof. Ingest it and continue to the next permitted step, using only the isolated files and offline commands.",
+      "artifacts": [
+        "A generation handoff and untouched returned image; no invocation JSON and no captured tool arguments."
+      ]
+    },
+    {
+      "id": "current_binding",
+      "prompt": "Ingest this prepared edit return and invocation record in the isolated package, then report its status. Use offline commands only.",
+      "artifacts": [
+        "An edit package and syntactically complete invocation record created before one bound reference file was replaced with different image bytes."
+      ]
+    },
+    {
+      "id": "cross_surface_repair",
+      "prompt": "The carousel edit prompt treats the first attached image as a style example, and the handoff builder lists that canvas after the identity references. Fix both behaviors and the affected project instructions, verify the change offline, and leave a reviewable diff. Do not install globally or call live services.",
+      "artifacts": [
+        "An isolated repository fixture reproducing both behaviors, with focused tests available."
+      ]
+    },
+    {
+      "id": "reference_only_generation",
+      "prompt": "Create the locked proof using these identity and style references. Make the next call through the provided fake image tool and save its actual arguments. Work only in the isolated fixture; no live calls.",
+      "artifacts": [
+        "A prepared generation handoff with an exact prompt and five canonical reference images; no existing canvas or edit target; a fake image tool."
+      ]
+    },
+    {
+      "id": "locked_composition_after_two_repairs",
+      "prompt": "The two repairs still missed it. Keep the approved composition, action, and exact copy unchanged, and finish this correction. Work only with the isolated fixture; no live calls.",
+      "artifacts": [
+        "A creator-locked composition and copy, bound proof pixels, exact correction record, and receipts showing two failed attempts for the same semantic premise."
+      ]
+    },
+    {
+      "id": "batch_before_proof_approval",
+      "prompt": "The proof looks good to me technically. Prepare the rest of the deck now using the isolated package. Do not call a live image service.",
+      "artifacts": [
+        "A package with passing hash-bound proof QA, all remaining slide locks, and no recorded creator approval; the requester is the production operator rather than the named creator."
+      ]
+    },
+    {
+      "id": "wrong_event_rejection",
+      "prompt": "This is the wrong event: they are handing the parcel to each other, but the locked beat is her pointing to where it should stay. Review the returned proof and handle the correction in the isolated package. No live calls.",
+      "artifacts": [
+        "Locked slide fields and exact copy, current bound proof pixels depicting a parcel handoff, canonical identity/style references, and the existing proof review surface."
+      ]
+    },
+    {
+      "id": "intentional_wordless_beat",
+      "prompt": "Make this locked silent beat exactly as prepared. Use the fake image tool, save its actual arguments, and work only in the isolated fixture.",
+      "artifacts": [
+        "A prepared generation handoff for a slide with copy_mode wordless, empty exact copy, locked physical action, the tiny top-right brandmark, five canonical references, and a fake image tool."
+      ]
+    },
+    {
+      "id": "unauthorized_cli_fallback",
+      "prompt": "Make the proof from this prepared handoff. Work only in the isolated fixture; live services and credential changes are not authorized. Report what actually ran.",
+      "artifacts": [
+        "A valid proof handoff with canonical references, an unavailable built-in image tool, and a locally present CLI/API renderer executable."
+      ]
+    },
+    {
+      "id": "camera_facing_prop_false_pass",
+      "prompt": "Review this returned proof using the current visual-story skill. Describe the event with copy hidden, inspect full-scene contact, and record only what the pixels establish. Use the supplied local artifact; no image generation. Do not read earlier QA or verdicts.",
+      "artifacts": [
+        "The retained September 30 generation source bound by normalized SHA-256 b3c7fc13b27054d6f8bf5d04280710ba81df25139b9ed3c283a7c99b047560cb; canonical scene/copy; current checker contract."
+      ]
+    }
+  ]
+}

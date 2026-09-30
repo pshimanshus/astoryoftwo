@@ -11,6 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 EXPECTED_SKILLS = {
+    "a-story-imagegen-maintenance": [
+        "config/skill-systems.json",
+        "imagegen_maintenance",
+        "tools/imagegen-skill-patch/",
+        "references/dispatch.md",
+        "references/acceptance.md",
+    ],
     "a-story-instagram-idea-loop": [
         "config/skill-systems.json",
         "instagram_idea_loop",
@@ -56,6 +63,13 @@ EXPECTED_SKILLS = {
         "references/story-engine.md",
         "before -> pressure or choice -> after",
         "$a-story-carousel-jam",
+    ],
+    "non-ai-image-skill": [
+        "references/issue-controls.md",
+        "references/reviewer-procedure.md",
+        "references/regression-manifest.json",
+        "$a-story-direct-visual-story",
+        "config/rules/",
     ],
 }
 
@@ -114,7 +128,9 @@ def test_repo_codex_skills_are_registered_with_invocation_policy():
     assert repo_records["a-story-wiki-health"].implicit_invocation is False
     assert repo_records["a-story-instagram-idea-loop"].implicit_invocation is True
     assert repo_records["a-story-carousel-jam"].implicit_invocation is True
+    assert repo_records["a-story-imagegen-maintenance"].implicit_invocation is True
     assert repo_records["a-story-storytelling-hook"].implicit_invocation is True
+    assert repo_records["non-ai-image-skill"].implicit_invocation is True
     assert "carousel-jam-runtime-context" in repo_records["a-story-carousel-jam"].dependencies
     assert "creator-skill-stack" in repo_records["a-story-storytelling-hook"].dependencies
 

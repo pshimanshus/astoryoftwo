@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from tests.helpers.imagegen_invocations import ingest_synthetic_outputs
+
 import json
 import subprocess
 import sys
@@ -12,7 +14,6 @@ import pytest
 from pipeline.agentic.carousel_state import derive_carousel_state
 from pipeline.agentic.workflow_doctor import inspect_carousel_package
 from pipeline.stages.codex_builtin_image_generation import (
-    ingest_generated_outputs,
     prepare_codex_builtin_image_generation,
 )
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel
@@ -115,7 +116,7 @@ def test_handoff_state_uses_generation_state_truth(tmp_path: Path) -> None:
 def test_ingested_proof_is_proof_qa_required_not_generic_ready(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=2)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "proof.png", (1080, 1440))]},
         proof_slide=2,

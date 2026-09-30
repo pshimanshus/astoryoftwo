@@ -63,7 +63,6 @@ REQUIRED_MEMORY_SURFACE = {
     "semantic_memory": "memory/semantic",
     "episodic_memory": "memory/episodic",
     "graph_memory": "memory/graph.json",
-    "logs": "logs",
 }
 
 WIKI_REQUIRED_METADATA = ["last_updated", "confidence", "sources"]
@@ -1255,6 +1254,12 @@ def heal_proposal_markdown(health: dict[str, Any]) -> str:
     actionable = [
         check for check in health["checks"] if check["status"] in {"FAIL", "WARN"}
     ]
+    hypothesis = (
+        "The listed failing or warning checks need investigation. This scan "
+        "identifies symptoms; it does not establish their root causes."
+        if actionable
+        else "No repair is proposed: the latest run has no failing or warning checks."
+    )
     lines = [
         "# HEAL Proposal - Wiki Health",
         "",
@@ -1267,7 +1272,7 @@ def heal_proposal_markdown(health: dict[str, Any]) -> str:
         "",
         "## Hypothesis",
         "",
-        "Repeated project setup failures are happening because the repo has C-layer carousel quality checks but no repo-wide session-close gate for wiki health, episodic memory, stale index metadata, advertised pipeline drift, or repair proposals.",
+        hypothesis,
         "",
         "## Evidence",
         "",
@@ -1276,11 +1281,11 @@ def heal_proposal_markdown(health: dict[str, Any]) -> str:
         for check in actionable:
             lines.append(f"- {check['id']}: {check['status']} - {check['message']}")
     else:
-        lines.append("- No failing checks in the latest run.")
+        lines.append("- No failing or warning checks in the latest run.")
     lines.extend(["", "## Action", ""])
     if actionable:
         for check in actionable:
-            lines.append(f"- Repair `{check['id']}` and rerun `venv/bin/python scripts/wiki_health.py --write --fix-index`.")
+            lines.append(f"- Investigate `{check['id']}`, repair confirmed issues, and rerun `venv/bin/python scripts/wiki_health.py --write --fix-index`.")
     else:
         lines.append("- Keep running the health check at session close.")
     lines.extend(

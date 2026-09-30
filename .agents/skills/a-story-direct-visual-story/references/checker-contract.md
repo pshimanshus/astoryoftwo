@@ -54,7 +54,7 @@ The preflight output uses one check key:
 
 ## Strict pixel QA inputs
 
-All new v3 packages use `carousel-pixel-qa/v2`. Archived v2 packages remain
+All new v3 packages use `carousel-pixel-qa/v3`. Archived v2 packages remain
 read-only auditable through the legacy checker path; legacy QA is not a valid
 new write.
 
@@ -70,7 +70,7 @@ authored payload supplies conflicting inventory, review fails closed.
 
 ```json
 {
-  "schema_version": "carousel-pixel-qa/v2",
+  "schema_version": "carousel-pixel-qa/v3",
   "scope": "proof",
   "status": "PASS",
   "inspection": {
@@ -95,6 +95,7 @@ authored payload supplies conflicting inventory, review fails closed.
           "checks": {
             "physical_action": {"status": "PASS", "evidence": "..."},
             "relationship_state": {"status": "PASS", "evidence": "..."},
+            "cinematic_story_frame": {"status": "PASS", "evidence": "..."},
             "entity_spatial_integrity": {"status": "PASS", "evidence": "..."},
             "identity_wardrobe_accessories": {
               "status": "PASS",
@@ -132,7 +133,7 @@ bindings are rejected.
 
 ```json
 {
-  "schema_version": "carousel-pixel-qa/v2",
+  "schema_version": "carousel-pixel-qa/v3",
   "scope": "final",
   "status": "PASS",
   "inspection": {
@@ -153,6 +154,7 @@ bindings are rejected.
           "checks": {
             "physical_action": {"status": "PASS", "evidence": "..."},
             "relationship_state": {"status": "PASS", "evidence": "..."},
+            "cinematic_story_frame": {"status": "PASS", "evidence": "..."},
             "entity_spatial_integrity": {"status": "PASS", "evidence": "..."},
             "identity_wardrobe_accessories": {
               "status": "PASS",
@@ -182,16 +184,31 @@ bindings are rejected.
 Each separately generated native format receives its own review. One 3:4
 observation cannot certify a separate 9:16 or square render.
 
+These abbreviated examples show envelope and check order only. The `...`
+evidence and missing detailed cinematic/entity observations are not valid QA.
+Use the current runtime contract in `pipeline/stages/carousel_pixel_qa.py` for
+required fields, including observed story carriers and individual hand records.
+
 Review in this fail-fast order:
 
-1. `physical_action`: does the physical event read from the image alone?
+1. `physical_action`: hide the copy and describe the observed event before
+   comparing it to the plan. In an exchange, who acts, who receives/responds,
+   and what visibly changes? A screen displayed toward the camera with no
+   in-scene recipient does not prove verification or a delivery. Describe
+   what is absent; do not promote the intended event into observed evidence.
 2. `relationship_state`: is the intended between-them state or change visible?
-3. `entity_spatial_integrity`: expected people/entities, whole silhouettes,
+3. `cinematic_story_frame`: is there a caught event, meaningful action and
+   consequence, and an intelligible participant point of view? Depth layers,
+   smiling faces and neatly arranged props cannot substitute for that event.
+4. `entity_spatial_integrity`: expected people/entities, whole silhouettes,
    limbs, hands, contact, depth, and object ownership are coherent.
-4. `identity_wardrobe_accessories`: both people match the named attached
+   Trace shoes, rugs/mats, thresholds and floor support in addition to hands.
+   Put a shoe–rug overlap contradiction or uncertainty in `ambiguous_contacts`
+   and `silhouette_evidence`; the per-hand intersection field is not a foot field.
+5. `identity_wardrobe_accessories`: both people match the named attached
    Aachu, Zuv, and together references in face, hair, body proportions, height,
    posture, expression, reference-led wardrobe, and accessories.
-5. `text_brandmark_style_dimensions`: exact text, tiny top-right
+6. `text_brandmark_style_dimensions`: exact text, tiny top-right
    `@a.storyof.two`, house style against named attached style references, and
    the locked native dimension pass.
 
@@ -206,9 +223,12 @@ label, generator response, or prior QA record is not pixel evidence. The
 declared method is a fail-closed workflow contract, not tool telemetry; the
 skill must not author it when pixel viewing was unavailable.
 
-If semantic action fails, set the package state to `proof_failed` and the next
-action to `repair_visual_premise`. Do not continue the batch or regenerate an
-unchanged semantic premise.
+Record an explicit check-level FAIL for a visible semantic failure. Run the
+review command to bind it; do not hand-edit lifecycle state. It produces
+`proof_failed`, with `retry_selected_slides` after the first attempt and
+`repair_visual_premise` after two. A wrong-event diagnosis requires scene
+planning even when a numerical retry remains: a camera tweak cannot repair an
+absent transaction. Do not continue the batch or regenerate the unchanged event.
 
 ## Commands
 

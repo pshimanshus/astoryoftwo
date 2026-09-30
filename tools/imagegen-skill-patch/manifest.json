@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "patch_id": "imagegen-2026-09-30-v1",
+  "marker": "<!-- imagegen-maintenance:2026-09-30-v1 -->",
+  "description": "Built-in input binding, project lifecycle ownership, and offline-tested CLI preflight/recovery maintenance.",
+  "official_source": "https://developers.openai.com/api/reference/cli/resources/images/methods/generate",
+  "source_checked": "2026-09-30",
+  "files": {
+    "SKILL.md": {
+      "before_sha256": "34b6776a64db22b89c4b82120251dd952ee4df9e4c4149d65876fb6616ac9339",
+      "after_sha256": "0d4ce44f8d94a12d25aee3ab69a1b005820ff4e2c4e4781f225f4bfc5ee4424a"
+    },
+    "scripts/image_gen.py": {
+      "before_sha256": "b4345cf835e5b593b97df6bb2b70bda493b8a97eee4cabbc99b2fa57dba9b448",
+      "after_sha256": "f7d84bfba60496465185e1dc97b1c832a09ad2bc8f8851426d4993218c8b09c7"
+    },
+    "references/cli.md": {
+      "before_sha256": "ecfc2e09261a0feb3482517a5fa0ff410cb7d1958e3cbd2ac6b61586f5b81405",
+      "after_sha256": "eb92872a0e1d57a818cd91edc125ccf989dcad771f6b1d63e080ac92312b4fd8"
+    },
+    "references/image-api.md": {
+      "before_sha256": "dc975d7af8a4888967251a0276014b4a71ea30455294944b762256373ce3e569",
+      "after_sha256": "b469e7bac9f3e5827566350cee54d71bec5cb08cd11c42e8b6dc9476edd7c7c8"
+    },
+    "references/visual-repair.md": {
+      "before_sha256": null,
+      "after_sha256": "192463940a19c36439f7549b0c55a0f70fa99cb13a1e63e24583742878c3ca96"
+    },
+    "references/prompting.md": {
+      "before_sha256": "b210b051c775860267080941eba968212bf0ac7fce581d75c5dcc217d8293f8b",
+      "after_sha256": "aa99842058032bd8c8b73a259932d7a4146765a3c17c620728e65c8eea79904f"
+    },
+    "references/sample-prompts.md": {
+      "before_sha256": "70474177d151855b175c6133de2aae1d90b7f146b0dab50ec830972c47d72183",
+      "after_sha256": "ed58323b8bcde71ac0c2a55045cd8baacf6451bf9940258f3549a083f254f2f4"
+    },
+    "references/codex-network.md": {
+      "before_sha256": "c88298ca4481f6116a16fa7987434fc977f8b311c1bbc0c3d862ffd0c5981148",
+      "after_sha256": "f52977a94f02ab1a5e360df010f07a4006cdb3f7f1b13e4f7cbc9f939e358b35"
+    }
+  },
+  "patch_sha256": "56c0754d1ef7575966177d90c58a75060c67983c2fc44f5d56fc1bbb5819f9ca"
+}

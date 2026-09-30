@@ -13,6 +13,8 @@ detail is needed.
 
 ## Hot Path
 
+Preserve exact seeds, facts, approved wording and locks, and creator
+corrections. Never revive a rejected route unless the creator reopens it.
 When the creator asks to jam from scratch, invent a fresh route. Start with the
 strongest human draft; use memory and rules as quiet seasoning. Each slide needs
 one sentence describing a visible physical event. If a premise misses
@@ -49,6 +51,8 @@ limit. If the runtime rejects the bound files, remain `handoff_ready` and report
 Codex directly invokes ImageGen: read the compiled prompt, attach the files, call image generation,
 inspect decoded pixels with `view_image`, and submit hash/dimension-bound QA.
 Repository commands prepare, ingest, bind review, record approval, and promote.
+For edits and invocation receipts, follow
+`.agents/skills/astory/references/imagegen-contract.md`.
 
 ## Feedback And Helpers
 

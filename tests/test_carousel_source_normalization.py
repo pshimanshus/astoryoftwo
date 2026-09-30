@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from tests.helpers.imagegen_invocations import ingest_synthetic_outputs
+
 import hashlib
 import json
 from datetime import date
@@ -14,7 +16,6 @@ from pipeline.stages.codex_builtin_image_generation import (
     approve_proof,
     current_proof_binding_sha256,
     finalize_codex_builtin_outputs,
-    ingest_generated_outputs,
     prepare_codex_builtin_image_generation,
     read_generation_state,
     reconcile_package_state,
@@ -185,7 +186,7 @@ def test_1086x1448_is_raw_preserved_then_lanczos_normalized(tmp_path: Path) -> N
     source_bytes = source.read_bytes()
     prepare_codex_builtin_image_generation(package, proof_slide=2)
 
-    state = ingest_generated_outputs(
+    state = ingest_synthetic_outputs(
         package,
         {"instagram_post": [source]},
         proof_slide=2,
@@ -219,11 +220,11 @@ def test_receipt_binds_every_applicable_correction_without_other_slide_feedback(
     prepare_codex_builtin_image_generation(package, proof_slide=2)
     before = (package / "generation-state.json").read_bytes()
     with pytest.raises(ValueError, match="active feedback"):
-        ingest_generated_outputs(package, {"instagram_post": [source]},
+        ingest_synthetic_outputs(package, {"instagram_post": [source]},
                                  proof_slide=2, feedback_id=events[2]["feedback_id"])
     assert (package / "generation-state.json").read_bytes() == before
     trigger = events[0]["feedback_id"] if select_trigger else None
-    state = ingest_generated_outputs(package, {"instagram_post": [source]}, proof_slide=2,
+    state = ingest_synthetic_outputs(package, {"instagram_post": [source]}, proof_slide=2,
                                      feedback_id=trigger)
     receipt = _candidate(package, 2, 1)["generation_receipt"]
     assert receipt["feedback_ids"] == sorted(event["feedback_id"] for event in events[:2])
@@ -244,7 +245,7 @@ def test_receipt_preserves_scalar_compatibility_for_one_correction(tmp_path):
         primary_diagnosis="scene_action", must_preserve=["Keep the shared action."],
     )
     prepare_codex_builtin_image_generation(package, proof_slide=2)
-    state = ingest_generated_outputs(
+    state = ingest_synthetic_outputs(
         package, {"instagram_post": [_png(tmp_path / "source.png", (1080, 1440))]},
         proof_slide=2, feedback_id=event["feedback_id"],
     )
@@ -263,7 +264,7 @@ def test_ingest_accepts_relative_package_path_without_nesting_root(
     relative_package = package.relative_to(tmp_path)
     monkeypatch.chdir(tmp_path)
 
-    state = ingest_generated_outputs(
+    state = ingest_synthetic_outputs(
         relative_package,
         {"instagram_post": [source]},
         proof_slide=2,
@@ -280,7 +281,7 @@ def test_exact_native_source_is_byte_preserved(tmp_path: Path) -> None:
     package = _package(tmp_path)
     source = _png(tmp_path / "exact.png", (1080, 1440), "skyblue")
     prepare_codex_builtin_image_generation(package, proof_slide=1)
-    ingest_generated_outputs(package, {"instagram_post": [source]}, proof_slide=1)
+    ingest_synthetic_outputs(package, {"instagram_post": [source]}, proof_slide=1)
     candidate = _candidate(package, 1, 1)
     raw = candidate["source_evidence"]["instagram_post"]
     normalized = candidate["native_outputs"]["instagram_post"]
@@ -293,7 +294,7 @@ def test_wrong_ratio_is_quarantined_counts_attempt_and_caps_at_two(tmp_path: Pat
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=2)
     first_source = _png(tmp_path / "wrong-1.png", (1086, 1447), "red")
-    first = ingest_generated_outputs(
+    first = ingest_synthetic_outputs(
         package,
         {"instagram_post": [first_source]},
         proof_slide=2,
@@ -307,7 +308,7 @@ def test_wrong_ratio_is_quarantined_counts_attempt_and_caps_at_two(tmp_path: Pat
     assert failed["native_outputs"] == {}
 
     prepare_codex_builtin_image_generation(package)
-    second = ingest_generated_outputs(
+    second = ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "wrong-2.png", (1090, 1440), "red")]},
     )
@@ -325,7 +326,7 @@ def test_cosmetic_prompt_edit_keeps_premise_budget_and_archives_first_attempt(
     package = _package(tmp_path)
     first_source = _png(tmp_path / "first.png", (1086, 1447), "red")
     prepare_codex_builtin_image_generation(package, proof_slide=2)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [first_source]},
         proof_slide=2,
@@ -350,7 +351,7 @@ def test_cosmetic_prompt_edit_keeps_premise_budget_and_archives_first_attempt(
     assert archived_sources[0].read_bytes() == first_source.read_bytes()
 
     prepare_codex_builtin_image_generation(package)
-    second = ingest_generated_outputs(
+    second = ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "second.png", (1090, 1440), "blue")]},
     )
@@ -367,7 +368,7 @@ def test_physical_premise_change_resets_budget_and_preserves_archive(
     package = _package(tmp_path)
     first_source = _png(tmp_path / "first.png", (1086, 1447), "red")
     prepare_codex_builtin_image_generation(package, proof_slide=2)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [first_source]},
         proof_slide=2,
@@ -395,7 +396,7 @@ def test_physical_premise_change_resets_budget_and_preserves_archive(
 
     prepare_codex_builtin_image_generation(package)
     second_source = _png(tmp_path / "second.png", (1090, 1440), "blue")
-    second = ingest_generated_outputs(
+    second = ingest_synthetic_outputs(
         package,
         {"instagram_post": [second_source]},
     )
@@ -431,7 +432,7 @@ def test_legacy_v3_uses_compiled_scene_to_recognize_real_premise_change(
 ) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=2)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "first.png", (1086, 1447), "red")]},
         proof_slide=2,
@@ -469,7 +470,7 @@ def test_story_and_square_sources_remain_exact_only() -> None:
 def test_normalized_proof_is_reused_and_all_finals_are_exact_native(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=3)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "proof-large.png", (1086, 1448), "linen")]},
         proof_slide=3,
@@ -487,7 +488,7 @@ def test_normalized_proof_is_reused_and_all_finals_are_exact_native(tmp_path: Pa
     )
     handoff = prepare_codex_builtin_image_generation(package)
     assert handoff["selected_slides"] == [1, 2, 4]
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {
             "instagram_post": [
@@ -515,7 +516,7 @@ def test_normalized_proof_is_reused_and_all_finals_are_exact_native(tmp_path: Pa
 def test_raw_source_tamper_revokes_approved_proof(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=3)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "proof-large.png", (1086, 1448), "linen")]},
         proof_slide=3,
@@ -542,7 +543,7 @@ def test_raw_source_tamper_revokes_approved_proof(tmp_path: Path) -> None:
 def test_raw_source_tamper_retracts_promoted_final_claims(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=3)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "proof.png", (1080, 1440), "linen")]},
         proof_slide=3,
@@ -553,7 +554,7 @@ def test_raw_source_tamper_retracts_promoted_final_claims(tmp_path: Path) -> Non
     review_quarantined_outputs(package)
     approve_proof(package, proof_sha256=current_proof_binding_sha256(package))
     handoff = prepare_codex_builtin_image_generation(package)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {
             "instagram_post": [
@@ -593,7 +594,7 @@ def test_external_system_alias_is_allowed_but_source_file_symlink_is_rejected(
         supplied = Path("/var") / source_text.removeprefix("/private/var/")
     elif source_text.startswith("/private/tmp/"):
         supplied = Path("/tmp") / source_text.removeprefix("/private/tmp/")
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [supplied]},
         proof_slide=2,
@@ -607,7 +608,7 @@ def test_external_system_alias_is_allowed_but_source_file_symlink_is_rejected(
     link = tmp_path / "source-link.png"
     link.symlink_to(source)
     with pytest.raises(FileNotFoundError, match="unsafe generated image"):
-        ingest_generated_outputs(
+        ingest_synthetic_outputs(
             other,
             {"instagram_post": [link]},
             proof_slide=2,
@@ -626,7 +627,7 @@ def test_package_system_alias_is_allowed_during_ingest(tmp_path: Path) -> None:
     elif package_text.startswith("/private/tmp/"):
         supplied_package = Path("/tmp") / package_text.removeprefix("/private/tmp/")
 
-    state = ingest_generated_outputs(
+    state = ingest_synthetic_outputs(
         supplied_package,
         {"instagram_post": [source]},
         proof_slide=2,
@@ -644,7 +645,7 @@ def test_package_internal_image_cannot_be_recycled_as_fresh_imagegen_output(
     recycled = _png(package / ".internal/recycled.png", (1080, 1440), "blue")
 
     with pytest.raises(ValueError, match="cannot be recycled"):
-        ingest_generated_outputs(
+        ingest_synthetic_outputs(
             package,
             {"instagram_post": [recycled]},
             proof_slide=2,
@@ -666,7 +667,7 @@ def test_cleanup_refuses_symlinked_parent_without_deleting_external_target(
     (package / ".internal/visual-quarantine").symlink_to(external, target_is_directory=True)
 
     with pytest.raises(ValueError, match="symlinked package directory"):
-        ingest_generated_outputs(
+        ingest_synthetic_outputs(
             package,
             {"instagram_post": [_png(tmp_path / "fresh.png", (1080, 1440), "blue")]},
             proof_slide=2,
@@ -680,7 +681,7 @@ def test_candidate_source_evidence_parent_symlink_revokes_approval(
 ) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=3)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "proof.png", (1080, 1440), "linen")]},
         proof_slide=3,

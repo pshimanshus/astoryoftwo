@@ -549,6 +549,7 @@ def slides_from_creative_baseline(
             "negative_prompt",
             "hand_map",
             "spatial_topology",
+            "scene_contract",
         ):
             value = item.get(key)
             if value not in (None, "", []):

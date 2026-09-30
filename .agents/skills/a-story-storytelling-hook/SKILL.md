@@ -7,6 +7,7 @@ description: Keep transformation and creator corrections active across @a.storyo
 
 Use `config/skills/creator-skill-stack.md` for the compact channel pass. Open
 `references/story-engine.md` only for a specific story repair.
+Preserve locked wording and never revive a rejected route without permission.
 
 This hook is conversational only: no state file, daemon, approval gate, or agent
 room.
