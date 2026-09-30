@@ -5,15 +5,9 @@ description: Keep transformation and creator corrections active across @a.storyo
 
 # A Story Storytelling Hook
 
-Keep the lived event and the emotional change intact from first draft through
-final pixels. Use `config/skills/creator-skill-stack.md` for the compact channel
-pass. For multi-slide copy, read `Copy Delivery Review` in
-`references/story-engine.md` before drafting and apply it before delivery,
-including working copy, pitches containing slide copy, and revisions. Apply
-its separate instruction and editorial checks to the actual draft; phase
-labels and fluent prose prove neither. Load other story-engine sections only
-for the selected architecture or a specific story problem. Do not copy the
-story engine into this file or load its full framework by default.
+Use `config/skills/creator-skill-stack.md` for the compact channel pass. Open
+`references/story-engine.md` only for a specific story repair.
+Preserve locked wording and never revive a rejected route without permission.
 
 This hook is conversational only: no state file, daemon, approval gate, or agent
 room.
@@ -44,15 +38,6 @@ pressure, caused turn, and earned payoff. Preserve locked wording. A proposed
 action ends the story only when it answers the opening need; otherwise show its
 consequence and response. Do not claim an unrun formal evaluation.
 
-Run voice and taste checks on the alive draft. Keep internal rubric names and
-unsupported psychology claims out of public copy; never return a rejected
-route under a new title. For repeated copy failures, use the bounded
-`Copy Taste Calibration` reference and independent-reader escalation in
-`Copy Delivery Review`. Tiny requests need only relevant continuity and voice
-checks. Do not duplicate the story engine here.
-
-The hook stays active through discussion and repair. Refresh or resume it
-before handing off to `$a-story-carousel-jam` for production and
-`$a-story-direct-visual-story` after concept lock. This hook owns story
-continuity; production skills own exact text, references, dimensions,
-generation, pixel QA, and packaging.
+Hand off to `$a-story-carousel-jam` for production and
+`$a-story-direct-visual-story` after concept lock. Production skills own exact
+text, references, dimensions, generation, pixel QA, and packaging.

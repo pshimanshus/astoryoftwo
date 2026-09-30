@@ -63,7 +63,6 @@ REQUIRED_MEMORY_SURFACE = {
     "semantic_memory": "memory/semantic",
     "episodic_memory": "memory/episodic",
     "graph_memory": "memory/graph.json",
-    "logs": "logs",
 }
 
 WIKI_REQUIRED_METADATA = ["last_updated", "confidence", "sources"]

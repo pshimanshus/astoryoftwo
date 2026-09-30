@@ -190,6 +190,17 @@ def test_health_flags_missing_advertised_stage_files_and_stale_index(tmp_path):
     assert checks["episodic_records"]["status"] == "WARN"
 
 
+def test_clean_checkout_without_generated_logs_is_warning_only(tmp_path):
+    minimal_workspace(tmp_path)
+    (tmp_path / "logs").rmdir()
+
+    health = collect_wiki_health(tmp_path, today=date(2026, 5, 19))
+    checks = checks_by_id(health)
+
+    assert "logs" not in checks["memory_surface"]["evidence"]["missing"]
+    assert checks["session_logs"]["status"] == "WARN"
+
+
 def test_write_health_artifacts_creates_diagnostics_heal_episode_and_log(tmp_path):
     minimal_workspace(tmp_path)
     health = collect_wiki_health(tmp_path, today=date(2026, 5, 19))

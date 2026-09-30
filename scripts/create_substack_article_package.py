@@ -7,9 +7,10 @@ from typing import Any
 
 from pipeline.agentic.workflow_metadata import (
     build_workflow_contract,
-    build_workflow_metadata,
-    build_workflow_recall_markdown,
+    build_workflow_context,
+    workflow_context_metadata,
 )
+from pipeline.agentic.recall import render_recall_bundle
 from pipeline.layer_e.artifacts import write_layer_e_artifacts
 from pipeline.layer_e.engine import run_layer_e
 
@@ -87,17 +88,14 @@ def build_article_agentic_os(carousel_dir: Path, article_title: str) -> tuple[di
     workspace_root = infer_workspace_root(carousel_dir)
     query = f"{article_title} {carousel_dir.name}"
     try:
-        metadata = build_workflow_metadata(
+        workflow = build_workflow_context(
             workspace_root,
             skill_system_name="story_article",
             recall_query=query,
             profile="article",
         )
-        recall_text = build_workflow_recall_markdown(
-            workspace_root,
-            query=query,
-            profile="article",
-        )
+        metadata = workflow_context_metadata(workflow)
+        recall_text = render_recall_bundle(workflow.recall)
         metadata["recall_brief"] = "source-memory-brief.md"
         return metadata, recall_text
     except Exception as exc:  # noqa: BLE001 - package creation should expose, not hide, missing OS setup.

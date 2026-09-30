@@ -13,9 +13,10 @@ detail is needed.
 
 ## Hot Path
 
-Preserve exact seeds, facts, liked wording, corrections, and approved locks. A
-rejected route stays rejected unless the creator reopens it. When the creator asks to jam
-from scratch, invent a fresh route. Start with the strongest human draft; use memory and rules as quiet seasoning. Each slide needs
+Preserve exact seeds, facts, approved wording and locks, and creator
+corrections. Never revive a rejected route unless the creator reopens it.
+When the creator asks to jam from scratch, invent a fresh route. Start with the
+strongest human draft; use memory and rules as quiet seasoning. Each slide needs
 one sentence describing a visible physical event. If a premise misses
 semantically, allow at most two total semantic attempts, then replace it.
 
@@ -24,13 +25,12 @@ final package QA. Do not generate the remaining deck before proof QA and creator
 approval. Prefer the one-command workflow; if automation is missing, name the
 missing link.
 
-Before delivering any multi-slide copy, including chat drafts, pitches with
-slide copy, final drafts, and revisions, apply `Copy Delivery Review` in the
-storytelling hook's `references/story-engine.md`. Preserve the selected
-architecture and approved premise; check instruction compliance separately
-from the actual middle, turn, payoff, and voice. Concept approval does not
-certify an unwritten or shortened sequence. The review stays private and adds
-no production artifact, numerical score, or creator approval step.
+A request for a final draft after concept approval enters the copy part of
+Gate 2, including in chat-only work. Apply the storytelling hook's final-draft
+review before delivery: preserve the selected architecture and approved
+premise, and check the actual middle, turn, and payoff. A shorter restatement
+of the pitch is not automatically a completed story. Keep this review private;
+it adds no artifact, numerical score, or creator approval step.
 
 Default post/carousel output is `1080x1440`. Generate `1080x1920` or `1080x1080`
 only by explicit request. Put exact approved text in-image and the tiny
@@ -42,22 +42,17 @@ Use actual Aachu/Zuv identity images for face, hair, height, proportions,
 posture, expression, and wardrobe. Text-only identity descriptions are blocked.
 No identity eval means no next slide.
 
-Keep exactly five canonical references: the four actual files from
+For new packages, attach exactly five files: the four actual files from
 `identity-dossier.json.selected_generation_bundle` plus the active
-`contact-sheet.png` style board. Generate attaches these five; an edit attaches
-its separate bound target as image 1, then the same five references. This is
-not a claim about a published platform limit. If the runtime rejects the bound
-files, remain `handoff_ready` and report `BLOCKED/NOT_RUN`.
+`contact-sheet.png` style board. This is not a claim about a published platform
+limit. If the runtime rejects the bound files, remain `handoff_ready` and report
+`BLOCKED/NOT_RUN`.
 
-Codex directly invokes ImageGen for requested generation and edit operations.
-Use `prepare --operation-json PATH` for edits. Send the exact compiled prompt
-without rewriting it, with the handoff's ordered `input_images`; inspect a
-local edit target before calling `image_gen.imagegen`. Every new return requires
-`ingest --invocation-json PATH`, recording prompt, ordered inputs, and raw return
-hash as `operator_recorded` evidence, never server attestation. Inspect decoded
-pixels with `view_image` and submit hash/dimension-bound QA. Repository commands
-prepare, ingest, bind review, record approval, and promote. Detailed recording
-format lives in `.agents/skills/astory/references/imagegen-contract.md`.
+Codex directly invokes ImageGen: read the compiled prompt, attach the files, call image generation,
+inspect decoded pixels with `view_image`, and submit hash/dimension-bound QA.
+Repository commands prepare, ingest, bind review, record approval, and promote.
+For edits and invocation receipts, follow
+`.agents/skills/astory/references/imagegen-contract.md`.
 
 ## Feedback And Helpers
 
