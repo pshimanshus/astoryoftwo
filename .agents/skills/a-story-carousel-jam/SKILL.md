@@ -52,6 +52,9 @@ ledgers, numeric taste gates, agent rooms, or lifecycle ceremonies.
   asking them to arrive with the concept solved.
 - Start with the strongest human draft. Use memory and rules as quiet seasoning,
   not as a visible framework or a tournament the creator must review.
+- Before showing any multi-slide copy, apply the storytelling hook's
+  `Copy Delivery Review`, including working drafts and revisions. It stays
+  private and adds no production package, numeric score, or creator gate.
 - Infer the best format early. Default carousel/post output is only 1080x1440.
   Generate 1080x1920 Story/Reel or 1080x1080 square only when explicitly asked.
   Never crop or resize one requested format into another.

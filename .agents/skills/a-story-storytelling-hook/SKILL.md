@@ -9,7 +9,10 @@ Keep the lived event and the emotional change intact from first draft through
 final pixels. Use `config/skills/creator-skill-stack.md` for the compact channel
 pass. Use `references/story-engine.md` only when a specific story problem needs
 deeper repair. Do not copy the story engine into this file or load its full
-framework by default.
+framework by default. Before delivering a multi-slide draft, including working
+copy, pitches containing slide copy, and revisions, read `Copy Delivery Review`
+in `references/story-engine.md`. Apply its separate instruction and editorial
+checks to the actual draft; phase labels and fluent prose prove neither.
 
 ## Conversational Lifecycle
 
