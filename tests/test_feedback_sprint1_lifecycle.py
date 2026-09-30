@@ -8,6 +8,8 @@ from datetime import date
 from pathlib import Path
 from threading import Barrier
 
+import pytest
+
 from pipeline.agentic.learning_loop import learning_debt_records
 from pipeline.stages.carousel_visual_storytelling import (
     active_feedback_constraints, apply_creator_feedback_revision,
@@ -595,3 +597,99 @@ def test_retirement_binds_historical_exact_history_and_canonical_origin(tmp_path
     status = successor_feedback_retirement_status(retired, workspace_root=tmp_path)
     assert status["retired"] is False
     assert any("origin exact text" in issue for issue in status["issues"])
+
+
+def archived_origin_successors(root):
+    source = package(root, "read-only-origin")
+    capture(root, source, user_instruction_exact="Preserve the earlier correction.")
+    write(source / "prompt-pack.json", {"schema_version": "carousel-prompt-pack/v2"})
+    event = capture(root, source)
+    retired = package(root, "retired-successor")
+    active = package(root, "active-successor")
+    adopt(root, retired, source, event)
+    adopt(root, active, source, event)
+    return source, event, retired, active
+
+
+def test_legacy_retirement_migrates_read_only_learning_event_origin_without_rewriting_history(tmp_path):
+    from pipeline.stages.carousel_visual_storytelling import _stable_fingerprint
+
+    source, event, retired, active = archived_origin_successors(tmp_path)
+    source_before = {path: path.read_bytes() for path in source.rglob("*") if path.is_file()}
+    learning_path = tmp_path / "memory/agentic/learning-events" / f"{event['learning_event_id']}.json"
+    learning_before = learning_path.read_bytes()
+    reason = "The active successor carries this exact correction."
+    retire_successor_feedback(
+        retired, workspace_root=tmp_path, superseded_by=active,
+        retired_by="creator", reason_exact=reason,
+    )
+    correction = retired / "creator-correction.json"
+    document = json.loads(correction.read_text())
+    current = document["successor_retirement"]
+    identity = {
+        "retired_package_path": retired.relative_to(tmp_path).as_posix(),
+        **{key: current[key] for key in (
+            "superseded_by_package_path", "carried_feedback_lineage", "retired_at",
+            "retired_by", "reason_exact", "production_state_effect",
+        )},
+    }
+    legacy_id = _stable_fingerprint(identity, namespace="successor-retirement/v1")
+    document["successor_retirement"] = {
+        "schema_version": "successor-retirement/v1", "retirement_id": legacy_id, **identity,
+    }
+    write(correction, document)
+    events_before = document["events"]
+    state_before = (retired / "generation-state.json").read_bytes()
+
+    result = retire_successor_feedback(
+        retired, workspace_root=tmp_path, superseded_by=active,
+        retired_by="creator", reason_exact=reason,
+    )
+    saved = json.loads(correction.read_text())
+    receipt = saved["successor_retirement"]
+    assert result["metadata_upgraded"] is True
+    assert successor_feedback_retirement_status(retired, workspace_root=tmp_path)["retired"] is True
+    assert receipt["migration_provenance"]["from_retirement_id"] == legacy_id
+    assert all(receipt[key] == current[key] for key in ("retired_by", "retired_at", "reason_exact"))
+    assert saved["events"] == events_before
+    assert (retired / "generation-state.json").read_bytes() == state_before
+    assert all(path.read_bytes() == raw for path, raw in source_before.items())
+    assert learning_path.read_bytes() == learning_before
+    assert creator_feedback_records(active)[0]["status"] == "diagnosed"
+    migrated_bytes = correction.read_bytes()
+    retry = retire_successor_feedback(
+        retired, workspace_root=tmp_path, superseded_by=active,
+        retired_by="creator", reason_exact=reason,
+    )
+    assert retry["idempotent"] is True
+    assert correction.read_bytes() == migrated_bytes
+
+
+@pytest.mark.parametrize("tamper", ["writable", "missing", "marker", "identity", "text", "duplicate"])
+def test_read_only_learning_event_origin_remains_fail_closed(tmp_path, tamper):
+    source, event, retired, active = archived_origin_successors(tmp_path)
+    path = tmp_path / "memory/agentic/learning-events" / f"{event['learning_event_id']}.json"
+    payload = json.loads(path.read_text())
+    if tamper == "writable":
+        write(source / "prompt-pack.json", {"schema_version": "carousel-prompt-pack/v3"})
+    elif tamper == "missing":
+        path.unlink()
+    elif tamper == "marker":
+        payload["feedback_metadata"].pop("historical_package_read_only")
+        write(path, payload)
+    elif tamper == "identity":
+        payload["event_id"] = "event-another-identity"
+        write(path, payload)
+    elif tamper == "text":
+        payload["user_instruction_exact"] = "These are different words."
+        write(path, payload)
+    else:
+        write(path.with_name("duplicate.json"), payload)
+
+    before = (retired / "creator-correction.json").read_bytes()
+    with pytest.raises(ValueError):
+        retire_successor_feedback(
+            retired, workspace_root=tmp_path, superseded_by=active,
+            retired_by="creator", reason_exact="The active successor carries this correction.",
+        )
+    assert (retired / "creator-correction.json").read_bytes() == before

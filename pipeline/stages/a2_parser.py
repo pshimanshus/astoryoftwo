@@ -4,14 +4,53 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 from datetime import date
 from pathlib import Path
 from typing import Any
 
+from pipeline.stages.source_integrity import (
+    atomic_write_text,
+    build_source_receipt,
+    provenance_for_raw,
+    source_receipt_path,
+)
+
 
 HASHTAG_RE = re.compile(r"(?<!\w)#([\w]+)")
 MENTION_RE = re.compile(r"(?<!\w)@([\w.]+)")
+NORMALIZATION_SCHEMA_VERSION = "2.0"
+METRIC_ALIASES = {
+    "likes": ("likesCount", "likes"),
+    "comments": ("commentsCount", "comments"),
+    "views": ("videoViewCount", "viewCount", "views", "Views"),
+    "viewers": ("viewers", "Viewers"),
+    "follows": ("follows", "Follows"),
+    "profile_visits": ("profile_visits", "profileVisits", "Profile visits"),
+    "plays": ("videoPlayCount", "playCount", "plays"),
+    "reach": ("reach", "reachCount"),
+    "saves": ("saves", "saved", "savesCount", "Saves"),
+    "shares": ("shares", "sharesCount", "Shares"),
+    "sends": ("sends", "sendsCount"),
+    "retention_rate": ("retention_rate",),
+}
+FORMAT_ALIASES = {
+    "video": "video",
+    "clips": "video",
+    "clip": "video",
+    "reel": "video",
+    "reels": "video",
+    "igtv": "video",
+    "graphvideo": "video",
+    "sidecar": "sidecar",
+    "carousel": "sidecar",
+    "carousel_album": "sidecar",
+    "graphsidecar": "sidecar",
+    "image": "image",
+    "photo": "image",
+    "graphimage": "image",
+}
 
 
 def latest_file(directory: Path, pattern: str) -> Path:
@@ -22,31 +61,76 @@ def latest_file(directory: Path, pattern: str) -> Path:
 
 
 def raw_date(raw_path: Path) -> str:
-    match = re.match(r"(\d{4}-\d{2}-\d{2})-raw\.json$", raw_path.name)
+    match = re.match(r"(\d{4}-\d{2}-\d{2})-raw(?:-\d+)?\.json$", raw_path.name)
     return match.group(1) if match else str(date.today())
 
 
-def normalize_post(item: dict[str, Any]) -> dict[str, Any]:
-    caption = item.get("caption") or item.get("text") or ""
+def _metric_value(item: dict[str, Any], metric: str) -> int | float | None:
+    """Use an observed numeric value; missing data must never become zero."""
+    for alias in METRIC_ALIASES[metric]:
+        value = item.get(alias)
+        # bool is an int subclass, and string/list metadata is not a count.
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            continue
+        if value < 0 or (isinstance(value, float) and not math.isfinite(value)):
+            continue
+        if metric == "retention_rate" and value > 1:
+            continue
+        return value
+    return None
+
+
+def _post_type(item: dict[str, Any]) -> str:
+    candidates = [str(item.get(key) or "").strip().lower() for key in ("type", "productType", "post_type", "media_type")]
+    for candidate in candidates:
+        if candidate in FORMAT_ALIASES:
+            return FORMAT_ALIASES[candidate]
+    return next((candidate for candidate in candidates if candidate), "")
+
+
+def normalize_post(item: dict[str, Any], provenance: dict[str, Any] | None = None) -> dict[str, Any]:
+    caption = item.get("caption")
+    if not isinstance(caption, str):
+        caption = item.get("text")
+    if not isinstance(caption, str):
+        caption = ""
     shortcode = item.get("shortCode") or item.get("shortcode")
-    post_type = str(item.get("type") or item.get("productType") or "").lower()
-    return {
+    engagement = {metric: _metric_value(item, metric) for metric in METRIC_ALIASES}
+    children = item.get("childPosts")
+    images = item.get("images")
+    slide_count = len(children) if isinstance(children, list) and children else len(images) if isinstance(images, list) and images else None
+    explicit_count = item.get("slide_count")
+    if slide_count is None and type(explicit_count) is int and explicit_count > 0:
+        slide_count = explicit_count
+    normalized = {
+        "schema_version": NORMALIZATION_SCHEMA_VERSION,
         "id": item.get("id") or shortcode or item.get("url"),
         "shortcode": shortcode,
         "url": item.get("url"),
         "timestamp": item.get("timestamp") or item.get("takenAt") or item.get("createdAt"),
-        "post_type": post_type,
+        "observed_at": item.get("observed_at"),
+        "collected_on": item.get("collected_on"),
+        "metric_sources": {metric: next((alias for alias in METRIC_ALIASES[metric]
+                                         if _metric_value({alias: item.get(alias)}, metric) is not None), None)
+                           for metric in METRIC_ALIASES},
+        "post_type": _post_type(item),
         "caption": caption,
         "hashtags": [tag.lower() for tag in HASHTAG_RE.findall(caption)],
         "mentions": [mention.lower() for mention in MENTION_RE.findall(caption)],
-        "engagement": {
-            "likes": item.get("likesCount") or item.get("likes") or 0,
-            "comments": item.get("commentsCount") or item.get("comments") or 0,
-            "views": item.get("videoViewCount") or item.get("viewCount") or 0,
-            "plays": item.get("videoPlayCount") or item.get("playCount") or 0,
+        "engagement": engagement,
+        "metric_status": {
+            metric: "observed" if value is not None else "unavailable"
+            for metric, value in engagement.items()
         },
         "raw_type": item.get("type"),
+        "slide_count": slide_count,
+        "ownerUsername": item.get("ownerUsername"),
+        "coauthorProducers": item.get("coauthorProducers"),
+        "inputUrl": item.get("inputUrl"),
     }
+    if provenance is not None:
+        normalized["source_provenance"] = provenance
+    return normalized
 
 
 def parse_raw_posts(raw_path: Path, output_dir: Path | None = None) -> Path:
@@ -56,15 +140,24 @@ def parse_raw_posts(raw_path: Path, output_dir: Path | None = None) -> Path:
     items = json.loads(raw_path.read_text(encoding="utf-8"))
     if not isinstance(items, list):
         raise ValueError(f"Expected a list in {raw_path}")
-    posts = [normalize_post(item) for item in items if isinstance(item, dict)]
-    out_path = output_dir / f"{raw_date(raw_path)}-posts.json"
-    out_path.write_text(json.dumps(posts, indent=2, ensure_ascii=False), encoding="utf-8")
+    root = raw_path.parents[2] if raw_path.parent.name == "raw" else raw_path.parents[1]
+    provenance = provenance_for_raw(root, raw_path)
+    suffix = raw_path.stem.removeprefix(f"{raw_date(raw_path)}-raw")
+    out_path = output_dir / f"{raw_date(raw_path)}-posts{suffix}.json"
+    provenance["normalized_posts_path"] = out_path.relative_to(root).as_posix()
+    posts = [normalize_post(item, provenance) for item in items if isinstance(item, dict)]
+    atomic_write_text(out_path, json.dumps(posts, indent=2, ensure_ascii=False) + "\n")
+    receipt = build_source_receipt(root, raw_path, out_path, len(posts))
+    atomic_write_text(
+        source_receipt_path(out_path),
+        json.dumps(receipt, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+    )
     return out_path
 
 
 def run(root: Path | None = None, raw_path: Path | None = None) -> Path:
     root = (root or Path.cwd()).resolve()
-    raw_path = raw_path or latest_file(root / "corpus" / "raw", "*-raw.json")
+    raw_path = raw_path or latest_file(root / "corpus" / "raw", "*-raw*.json")
     return parse_raw_posts(raw_path, output_dir=root / "corpus" / "posts")
 
 

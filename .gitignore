@@ -13,6 +13,7 @@ __pycache__/
 # Virtual environments
 venv/
 .venv/
+.venv-evals/
 env/
 
 # Node dependencies and build output (app/)
@@ -61,3 +62,24 @@ output/single-posts/**/node_modules/
 logs/
 memory/agentic/index/*.sqlite3
 memory/agentic/index/*.sqlite3-*
+memory/agentic/index/*.sqlite3.state.json
+memory/agentic/index/retrieval-manifest.json
+memory/agentic/index/qmd/
+memory/agentic/index/local-dense/
+memory/agentic/audit/*.jsonl
+memory/agentic/learning-events/*.json
+memory/agentic/learning-proposals/**/*.json
+memory/agentic/learning-proposals/**/*.md
+memory/agentic/locks/
+memory/agentic/snapshots/
+memory/heal/proposals/
+output/diagnostics/
+output/reports/
+output/.trash/
+memory/episodic/*-session-health*.md
+output/carousels/
+output/concepts/
+output/illustrations/
+output/imagegen/
+output/video/
+output/video-research/

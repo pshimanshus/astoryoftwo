@@ -7,6 +7,7 @@ import json
 import os
 import tempfile
 from contextlib import contextmanager
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -17,11 +18,18 @@ except ImportError:  # pragma: no cover
 
 
 REGISTRY_RELATIVE_PATH = Path("corpus/integrity/raw-snapshots.json")
-REGISTRY_SCHEMA_VERSION = 1
+REGISTRY_SCHEMA_VERSION = 2
+SNAPSHOT_SCHEMA_VERSION = "raw-snapshot/v2"
+SOURCE_RECEIPT_SCHEMA_VERSION = "source-receipt/v1"
 
 
 def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def raw_snapshot_id(raw_path: str, content_sha256: str) -> str:
+    """Name one immutable capture without conflating it with repeated content."""
+    return sha256_bytes(f"{raw_path}\0{content_sha256}".encode("utf-8"))
 
 
 def relative_to_root(path: Path, root: Path) -> str:
@@ -110,20 +118,45 @@ def validate_raw_snapshot_registry(root: Path) -> list[str]:
         raw_path = snapshot.get("raw_path")
         digest = snapshot.get("sha256")
         snapshot_id = snapshot.get("snapshot_id")
+        required = {
+            "schema_version": SNAPSHOT_SCHEMA_VERSION,
+            "source_id": str,
+            "source_relative_path": str,
+            "collected_at": str,
+            "record_count": int,
+            "prior_version": (str, type(None)),
+        }
+        for key, expected in required.items():
+            value = snapshot.get(key)
+            if key == "schema_version":
+                if value != expected:
+                    errors.append(f"{label} schema_version is unsupported")
+            elif not isinstance(value, expected):
+                errors.append(f"{label} {key} is invalid")
         if not isinstance(raw_path, str) or not raw_path.startswith("corpus/raw/"):
             errors.append(f"{label} raw_path must stay under corpus/raw")
             continue
+        if snapshot.get("source_relative_path") != raw_path:
+            errors.append(f"{label} source_relative_path must match raw_path")
         if raw_path in seen_paths:
             errors.append(f"{label} duplicates raw_path {raw_path}")
         seen_paths.add(raw_path)
         if not isinstance(digest, str) or len(digest) != 64:
             errors.append(f"{label} sha256 is invalid")
             continue
-        if snapshot_id != digest:
-            errors.append(f"{label} snapshot_id must equal sha256")
+        if snapshot_id != raw_snapshot_id(raw_path, digest):
+            errors.append(f"{label} snapshot_id does not bind raw_path and sha256")
+        prior_ids = set(seen_ids)
         if snapshot_id in seen_ids:
             errors.append(f"{label} duplicates snapshot_id {snapshot_id}")
         seen_ids.add(str(snapshot_id))
+        try:
+            datetime.fromisoformat(str(snapshot.get("collected_at", "")).replace("Z", "+00:00"))
+        except ValueError:
+            errors.append(f"{label} collected_at is not ISO-8601")
+        prior = snapshot.get("prior_version")
+        if prior is not None and (prior == snapshot_id or prior not in prior_ids):
+            errors.append(f"{label} prior_version does not name an earlier snapshot")
         target = root / raw_path
         if not target.is_file():
             errors.append(f"{label} raw snapshot is missing: {raw_path}")
@@ -131,6 +164,8 @@ def validate_raw_snapshot_registry(root: Path) -> list[str]:
         actual = sha256_bytes(target.read_bytes())
         if actual != digest:
             errors.append(f"{label} raw snapshot hash mismatch: {raw_path}")
+        if snapshot.get("bytes") != target.stat().st_size:
+            errors.append(f"{label} byte count mismatch: {raw_path}")
     return errors
 
 
@@ -142,7 +177,14 @@ def snapshot_for_raw(root: Path, raw_path: Path) -> dict[str, Any] | None:
     return None
 
 
-def register_raw_snapshot(root: Path, raw_path: Path, item_count: int) -> dict[str, Any]:
+def register_raw_snapshot(
+    root: Path,
+    raw_path: Path,
+    item_count: int,
+    *,
+    collected_at: str | None = None,
+    prior_version: str | None = None,
+) -> dict[str, Any]:
     """Append one immutable record, rejecting a changed file at an existing path."""
     root = root.resolve()
     raw_path = raw_path.resolve()
@@ -151,11 +193,26 @@ def register_raw_snapshot(root: Path, raw_path: Path, item_count: int) -> dict[s
         raise ValueError("Only corpus/raw files can be registered as immutable snapshots")
     raw_bytes = raw_path.read_bytes()
     digest = sha256_bytes(raw_bytes)
+    collected_at = collected_at or datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    if prior_version is None:
+        previous = [
+            item for item in load_raw_snapshot_registry(root).get("snapshots", [])
+            if isinstance(item, dict)
+        ]
+        prior_version = str(previous[-1]["snapshot_id"]) if previous else None
+    snapshot_id = raw_snapshot_id(relative, digest)
     snapshot = {
-        "snapshot_id": digest,
+        "schema_version": SNAPSHOT_SCHEMA_VERSION,
+        "snapshot_id": snapshot_id,
+        "source_id": f"a1-instagram:{collected_at[:10]}:{snapshot_id[:16]}",
+        "source_relative_path": relative,
         "raw_path": relative,
         "sha256": digest,
         "bytes": len(raw_bytes),
+        "collected_at": collected_at,
+        "record_count": item_count,
+        "prior_version": prior_version,
+        # Kept for readers written before registry v2.
         "item_count": item_count,
     }
     registry = load_raw_snapshot_registry(root)
@@ -173,6 +230,55 @@ def register_raw_snapshot(root: Path, raw_path: Path, item_count: int) -> dict[s
     registry["schema_version"] = REGISTRY_SCHEMA_VERSION
     atomic_write_text(registry_path(root), json.dumps(registry, indent=2, sort_keys=True) + "\n")
     return snapshot
+
+
+def source_receipt_path(normalized_path: Path) -> Path:
+    return normalized_path.with_suffix(normalized_path.suffix + ".source-receipt.json")
+
+
+def build_source_receipt(root: Path, raw_path: Path, normalized_path: Path, record_count: int) -> dict[str, Any]:
+    provenance = provenance_for_raw(root, raw_path)
+    provenance["normalized_posts_path"] = relative_to_root(normalized_path, root)
+    return {
+        "schema_version": SOURCE_RECEIPT_SCHEMA_VERSION,
+        "status": "verified" if provenance.get("status") == "verified" else "unverified_legacy",
+        "source_provenance": provenance,
+        "raw_path": relative_to_root(raw_path, root),
+        "raw_sha256": sha256_bytes(raw_path.read_bytes()),
+        "normalized_path": relative_to_root(normalized_path, root),
+        "normalized_sha256": sha256_bytes(normalized_path.read_bytes()),
+        "record_count": record_count,
+    }
+
+
+def verify_source_receipt(root: Path, normalized_path: Path) -> tuple[dict[str, Any], list[str]]:
+    """Verify the A2 output and its complete A1 receipt chain."""
+    path = source_receipt_path(normalized_path)
+    if not path.is_file():
+        return {"status": "unverified_legacy"}, ["A2 source receipt is missing"]
+    try:
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return {"status": "unverified_legacy"}, [f"A2 source receipt is unreadable: {exc}"]
+    errors: list[str] = []
+    if not isinstance(receipt, dict) or receipt.get("schema_version") != SOURCE_RECEIPT_SCHEMA_VERSION:
+        return {"status": "unverified_legacy"}, ["A2 source receipt schema is unsupported"]
+    try:
+        relative = relative_to_root(normalized_path, root)
+    except ValueError as exc:
+        return receipt, [str(exc)]
+    if receipt.get("normalized_path") != relative:
+        errors.append("A2 source receipt names a different normalized artifact")
+    if receipt.get("normalized_sha256") != sha256_bytes(normalized_path.read_bytes()):
+        errors.append("A2 normalized artifact hash mismatch")
+    provenance = receipt.get("source_provenance")
+    if not isinstance(provenance, dict):
+        errors.append("A2 source provenance is missing")
+    else:
+        errors.extend(verify_provenance(root, provenance))
+    if receipt.get("status") != "verified":
+        errors.append("A2 source receipt is not verified")
+    return receipt, errors
 
 
 def provenance_for_raw(root: Path, raw_path: Path) -> dict[str, Any]:

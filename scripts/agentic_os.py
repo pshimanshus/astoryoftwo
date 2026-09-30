@@ -26,6 +26,7 @@ from pipeline.agentic.learning_loop import (  # noqa: E402
     list_hypotheses,
     resolve_hypothesis,
 )
+from pipeline.agentic.knowledge_workflow import run_knowledge_workflow  # noqa: E402
 from pipeline.agentic.memory_index import build_memory_index, search_memory  # noqa: E402
 from pipeline.agentic.recall import build_recall_bundle, render_recall_bundle  # noqa: E402
 from pipeline.agentic.skill_eval import evaluate_learning_proposal  # noqa: E402
@@ -53,8 +54,10 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("registry")
     index = sub.add_parser("index")
     index.add_argument("--index-path", type=Path)
+    index.add_argument("--backend", choices=["fts5", "qmd", "sentence_transformers"], default="fts5")
     index_memory = sub.add_parser("index-memory")
     index_memory.add_argument("--index-path", type=Path)
+    index_memory.add_argument("--backend", choices=["fts5", "qmd", "sentence_transformers"], default="fts5")
 
     search = sub.add_parser("search")
     search.add_argument("query")
@@ -127,6 +130,16 @@ def build_parser() -> argparse.ArgumentParser:
     decline_learning.add_argument("--reason", required=True)
     learning_debt = sub.add_parser("learning-debt")
     learning_debt.add_argument("--limit", type=int, default=8)
+    knowledge_workflow = sub.add_parser(
+        "knowledge-workflow",
+        help="Dynamically review and compile one bounded knowledge event.",
+    )
+    knowledge_workflow.add_argument("event_path", type=Path)
+    knowledge_workflow.add_argument(
+        "--execute-compile",
+        action="store_true",
+        help="Invoke the A4 build/apply compiler boundary after read-only reviews pass.",
+    )
     sub.add_parser("feedback-integrations", help="Report optional SDK and calibration availability.")
     annotations = sub.add_parser("import-feedback-annotations", help="Import exported Langfuse annotations as local review candidates.")
     annotations.add_argument("input", type=Path)
@@ -151,6 +164,18 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     root = args.workspace_root.resolve()
 
+    if args.command == "knowledge-workflow":
+        try:
+            result = run_knowledge_workflow(
+                root,
+                args.event_path,
+                execute_compile=args.execute_compile,
+            )
+        except (OSError, ValueError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 2
+        print_json(result)
+        return 0 if result["status"] == "PASS" else 2
     if args.command == "feedback-integrations":
         from evals.deepeval_adapter import calibration_status, deepeval_environment_status
         from pipeline.agentic.langfuse_mirror import langfuse_environment_status
@@ -216,8 +241,15 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "registry":
         print_json([record.model_dump() for record in discover_skill_records(root)])
     elif args.command in {"index", "index-memory"}:
-        path = build_memory_index(root, index_path=args.index_path)
-        print_json({"index_path": str(path)})
+        if args.backend == "fts5":
+            path = build_memory_index(root, index_path=args.index_path)
+        else:
+            if args.index_path is not None:
+                print("--index-path is supported only by the fts5 backend", file=sys.stderr)
+                return 2
+            from pipeline.agentic.retrieval import get_backend
+            path = get_backend(args.backend).build(root)
+        print_json({"backend": args.backend, "index_path": str(path)})
     elif args.command == "search":
         from pipeline.agentic.retrieval import search as search_retrieval
         print_json([hit.model_dump() for hit in search_retrieval(root, args.query, limit=args.limit, backend=args.backend)])

@@ -1,0 +1,26 @@
+{
+  "schema_version": "retrieval-benchmark/v2",
+  "fixture_version": 2,
+  "corpus": [
+    {"path": "memory/semantic/sequence.md", "text": "# Sequence evidence\n\nEvery swipe must add a visible emotional change. कहानी में भावनात्मक बदलाव दिखना चाहिए. A tired partner quietly handles the chores: partner ne thakawat dekhi aur ghar ka kaam sambhala.\n"},
+    {"path": "memory/semantic/visual-qa.md", "text": "# Fail closed visual QA\n\nDo not hide a visual proof failure. Missing pixels are a data gap and cannot be approved.\n"},
+    {"path": "config/rules/conflicts.md", "text": "# Conflict policy\n\nConflicting guidance must remain visible until a reviewer resolves it.\n"},
+    {"path": "memory/semantic/corrections.md", "text": "# Correction policy\n\nThe latest creator correction replaces stale feedback. A rejected carousel route stays retired and must not be polished.\n"},
+    {"path": "memory/semantic/maker.md", "text": "# Maker preference\n\nPublic maker preferences require creator approval before promotion.\n"},
+    {"path": "output/carousels/2026-09-30/alpha/creator-correction.json", "json": {"schema_version": "creator-correction/v3", "package_id": "output/carousels/2026-09-30/alpha", "events": [{"feedback_id": "fb-old", "status": "evaluated", "user_instruction_exact": "stale ochre latch", "scope": "package"}, {"feedback_id": "fb-current", "status": "captured", "supersedes_feedback_id": "fb-old", "user_instruction_exact": "current cerulean latch", "scope": "package"}]}},
+    {"path": "output/carousels/2026-09-30/beta/creator-correction.json", "json": {"schema_version": "creator-correction/v3", "package_id": "output/carousels/2026-09-30/beta", "events": [{"feedback_id": "fb-beta", "status": "captured", "user_instruction_exact": "current crimson umbrella", "scope": "package"}]}},
+    {"path": "memory/agentic/learning-events/private.json", "json": {"schema_version": "learning-event/v1", "event_id": "private", "source": "creator_feedback", "summary": "private maker preferences hidden role token", "eval_disposition": "passed"}}
+  ],
+  "queries": [
+    {"id": "exact", "class": "exact", "query": "visible emotional change", "critical": true, "relevance": {"memory/semantic/sequence.md": 3}},
+    {"id": "paraphrase", "class": "paraphrase", "query": "each page should advance how the feeling changes", "critical": false, "relevance": {"memory/semantic/sequence.md": 3}},
+    {"id": "hindi", "class": "hindi", "query": "कहानी में भावनात्मक बदलाव", "critical": false, "relevance": {"memory/semantic/sequence.md": 3}},
+    {"id": "hinglish", "class": "hinglish", "query": "partner ne thakawat dekhi kaam sambhala", "critical": false, "relevance": {"memory/semantic/sequence.md": 3}},
+    {"id": "negation", "class": "negation", "query": "do not hide a visual proof failure", "critical": true, "relevance": {"memory/semantic/visual-qa.md": 3}},
+    {"id": "conflict", "class": "conflict", "query": "conflicting guidance remain visible", "critical": true, "relevance": {"config/rules/conflicts.md": 3}},
+    {"id": "latest", "class": "latest_correction", "query": "package:output/carousels/2026-09-30/alpha current cerulean latch", "critical": true, "relevance": {"output/carousels/2026-09-30/alpha/creator-correction.json": 3}, "forbidden_text": ["stale ochre"]},
+    {"id": "rejected", "class": "rejected_route", "query": "rejected carousel route stays retired", "critical": true, "relevance": {"memory/semantic/corrections.md": 3}},
+    {"id": "package", "class": "package_isolation", "query": "package:output/carousels/2026-09-30/beta current umbrella", "critical": true, "relevance": {"output/carousels/2026-09-30/beta/creator-correction.json": 3}, "forbidden_source_paths": ["output/carousels/2026-09-30/alpha/"]},
+    {"id": "role", "class": "forbidden_role_leakage", "query": "role:maker public maker preferences", "critical": true, "relevance": {"memory/semantic/maker.md": 3}, "forbidden_source_paths": ["memory/agentic/learning-events/"]}
+  ]
+}

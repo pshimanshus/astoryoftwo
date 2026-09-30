@@ -73,12 +73,16 @@ class RecallHit(BaseModel):
     # `path` is retained for callers written before the retrieval manifest.
     # The fields below let a later workflow reproduce the exact evidence used.
     backend: str = "fts5"
+    requested_backend: str = "fts5"
     record_id: str = ""
     source_path: str = ""
     source_pointer: str = ""
     content_sha256: str = ""
     authority: str = "reviewed_observation"
     lifecycle: str = "active"
+    scope: str = ""
+    package: str = ""
+    feedback_ids: list[str] = Field(default_factory=list)
     fallback_reason: str = ""
 
 

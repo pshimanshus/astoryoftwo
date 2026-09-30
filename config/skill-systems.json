@@ -203,16 +203,12 @@
         "config/skills/instagram-algorithm-2026.md",
         "config/skills/indian-creator-intelligence.md"
       ],
-      "agents": [
-        "agents/prepost-orchestrator.md",
-        "agents/hook-analyzer.md",
-        "agents/edit-auditor.md",
-        "agents/algorithm-scorer.md",
-        "agents/caption-advisor.md",
-        "agents/cultural-resonance.md"
+      "runtime_call_count": 3,
+      "runtime_stages": [
+        "combined_five_facet_analysis",
+        "independent_challenge",
+        "synthesis"
       ],
-      "orchestrator": "agents/prepost-orchestrator.md",
-      "specialist_agent_count": 5,
       "gates": [
         "layer_e_story_selling_go",
         "hook_score",
@@ -232,6 +228,7 @@
       "components": [
         "pipeline/agentic/validator_registry.py",
         "pipeline/agentic/approval_policy.py",
+        "pipeline/agentic/knowledge_workflow.py",
         "config/agentic_validator_registry.json",
         "config/agentic_approval_policy.json"
       ],
@@ -243,10 +240,15 @@
       "gates": [
         "allow_list_validator_execution",
         "hash_bound_persisted_validator_receipts",
-        "target_scoped_human_approval"
+        "target_scoped_human_approval",
+        "dynamic_bounded_role_routing",
+        "read_only_reviewers_single_compiler_writer",
+        "verified_compile_before_retrieval_invalidation"
       ],
       "artifacts": [
-        "memory/agentic/validator-receipts/<proposal-id>/<validator-id>.json"
+        "memory/agentic/validator-receipts/<proposal-id>/<validator-id>.json",
+        "memory/agentic/knowledge-workflows/<run-id>/workflow-receipt.json",
+        "memory/agentic/retrieval-invalidations/<run-id>.json"
       ]
     },
     "wiki_health": {

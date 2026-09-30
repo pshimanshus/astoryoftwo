@@ -643,6 +643,8 @@ def _validate_feedback_origin(
         raise ValueError("feedback origin package path must be canonical")
     evidence_ids: set[str] = set()
     found = False
+    archived_event_only = False
+    matching_learning_events = 0
     correction = origin / "creator-correction.json"
     if correction.exists():
         if correction.is_symlink() or not correction.is_file():
@@ -663,19 +665,26 @@ def _validate_feedback_origin(
             if len(matches) > 1:
                 raise ValueError("feedback origin identity is duplicated")
             if not matches:
-                raise ValueError("feedback lineage origin is absent from its v3 package")
-            found = True
-            event = matches[0]
-            actual_hash = _feedback_text_sha256(
-                str(event.get("user_instruction_exact") or "")
-            )
-            if (
-                event.get("user_instruction_sha256") != actual_hash
-                or actual_hash != instruction_hash
-            ):
-                raise ValueError("feedback origin exact text does not match lineage")
-            if event.get("learning_event_id"):
-                evidence_ids.add(str(event["learning_event_id"]))
+                from pipeline.stages.carousel_generation_state import archived_package_read_only_reason
+
+                # Read-only packages can retain an earlier v3 correction file;
+                # later feedback is deliberately captured only as LearningEvents.
+                if not archived_package_read_only_reason(origin) or not expected_learning_event_id:
+                    raise ValueError("feedback lineage origin is absent from its v3 package")
+                archived_event_only = True
+            else:
+                found = True
+                event = matches[0]
+                actual_hash = _feedback_text_sha256(
+                    str(event.get("user_instruction_exact") or "")
+                )
+                if (
+                    event.get("user_instruction_sha256") != actual_hash
+                    or actual_hash != instruction_hash
+                ):
+                    raise ValueError("feedback origin exact text does not match lineage")
+                if event.get("learning_event_id"):
+                    evidence_ids.add(str(event["learning_event_id"]))
 
     for event_path in sorted(
         workspace.glob("memory/agentic/learning-events/*.json")
@@ -694,6 +703,14 @@ def _validate_feedback_origin(
             or metadata.get("feedback_id") != feedback_id
         ):
             continue
+        matching_learning_events += 1
+        if archived_event_only and (
+            metadata.get("historical_package_read_only") is not True
+            or payload.get("event_id") != expected_learning_event_id
+            or matching_learning_events > 1
+            or event_path.is_symlink()
+        ):
+            raise ValueError("archived feedback origin requires one matching read-only LearningEvent")
         found = True
         actual_hash = _feedback_text_sha256(
             str(payload.get("user_instruction_exact") or "")

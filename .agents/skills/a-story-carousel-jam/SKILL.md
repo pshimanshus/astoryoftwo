@@ -49,6 +49,7 @@ its separate bound target as image 1, then the same five references. This is
 not a claim about a published platform limit. If the runtime rejects the bound
 files, remain `handoff_ready` and report `BLOCKED/NOT_RUN`.
 
+Codex directly invokes ImageGen for requested generation and edit operations.
 Use `prepare --operation-json PATH` for edits. Send the exact compiled prompt
 without rewriting it, with the handoff's ordered `input_images`; inspect a
 local edit target before calling `image_gen.imagegen`. Every new return requires

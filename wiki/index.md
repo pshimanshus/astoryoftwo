@@ -3,7 +3,7 @@
 # Updated by: `wiki compile` operation.
 
 last_updated: 2026-09-30
-total_pages: 120
+total_pages: 133
 confidence_floor: 0.4
 
 ---
@@ -21,19 +21,19 @@ Recurring content themes distilled from the full corpus.
 | Theme | Posts Count | Avg Engagement | Confidence | Notes |
 |-------|------------|----------------|------------|-------|
 | [Calm Enough For Your Chaos](themes/calm-enough-for-chaos.md) | 1 core carousel + variants | 16,151 likes / 73 comments on source post | 0.86 | Strongest golden theme; high partner-tag behavior |
-| [Travel](themes/travel.md) | — | — | — | — |
-| [Milestones](themes/milestones.md) | — | — | — | — |
-| [Daily Life](themes/daily-life.md) | — | — | — | — |
-| [Celebrations](themes/celebrations.md) | — | — | — | — |
-| [Reflections](themes/reflections.md) | — | — | — | — |
+| Travel (not yet compiled) | — | — | — | — |
+| Milestones (not yet compiled) | — | — | — | — |
+| Daily Life (not yet compiled) | — | — | — | — |
+| Celebrations (not yet compiled) | — | — | — | — |
+| Reflections (not yet compiled) | — | — | — | — |
 
 ## People
 Channel subjects and their content presence.
 
 | Person | Role | Content Presence | Visual Style |
 |--------|------|-----------------|-------------|
-| [Anchal Sharma](people/anchal.md) | Creator | — | — |
-| [Himanshu Sharma](people/himanshu.md) | Subject/Co-creator | — | — |
+| Anchal Sharma (not yet compiled) | Creator | — | — |
+| Himanshu Sharma (not yet compiled) | Subject/Co-creator | — | — |
 
 
 ## Carousels
@@ -41,6 +41,17 @@ Illustrated carousel packages and their learning records.
 
 | Carousel | Date | Slides | Pipeline | Confidence |
 |----------|------|--------|----------|------------|
+| [I Have Lived So Many Years Without You](carousels/i-have-lived-so-many-years-without-you.md) | 2026-08-27 | 10 | C-layer | 0.7 |
+| [I Call It Remembering](carousels/i-call-it-remembering.md) | 2026-08-26 | 7 | C-layer | 0.7 |
+| [My Love Did Not Stay Young](carousels/my-love-did-not-stay-young-2.md) | 2026-08-26 | 10 | C-layer | 0.7 |
+| [My Love Did Not Stay Young](carousels/my-love-did-not-stay-young.md) | 2026-08-26 | 10 | C-layer | 0.7 |
+| [One Evening, Two Truths](carousels/one-evening-two-truths.md) | 2026-08-26 | 7 | C-layer | 0.7 |
+| [Two True Love Stories](carousels/two-true-love-stories-2.md) | 2026-08-26 | 8 | C-layer | 0.7 |
+| [Two True Love Stories](carousels/two-true-love-stories.md) | 2026-08-26 | 8 | C-layer | 0.7 |
+| [Even Our Anger Finds Sukoon Between Us](carousels/even-our-anger-finds-sukoon-between-us-2.md) | 2026-08-24 | 7 | C-layer | 0.7 |
+| [Even Our Anger Finds Sukoon Between Us](carousels/even-our-anger-finds-sukoon-between-us-3.md) | 2026-08-24 | 7 | C-layer | 0.7 |
+| [Even Our Anger Finds Sukoon Between Us](carousels/even-our-anger-finds-sukoon-between-us.md) | 2026-08-24 | 7 | C-layer | 0.7 |
+| [Certain of You, Lost in Us — The Duvet Cover That Swallowed Us](carousels/certain-of-you-lost-in-us-the-duvet-cover-that-swallowed-us.md) | 2026-08-23 | 6 | C-layer | 0.7 |
 | [Certain of You, Lost in Us — Moonwater Final](carousels/certain-of-you-lost-in-us-moonwater-final.md) | 2026-08-23 | 6 | C-layer | 0.7 |
 | [Certain of You, Lost in Us — Moonwater](carousels/certain-of-you-lost-in-us-moonwater.md) | 2026-08-23 | 6 | C-layer | 0.7 |
 | [The Love We Grow Into Rebuild](carousels/the-love-we-grow-into-rebuild-2.md) | 2026-08-21 | 7 | C-layer | 0.7 |
@@ -75,22 +86,7 @@ Illustrated carousel packages and their learning records.
 | [Not Married Yet, Already Us](carousels/not-married-yet-already-us.md) | 2026-07-30 | 11 | C-layer | 0.7 |
 | [More Unofficial Rules of Marriage](carousels/more-unofficial-rules-of-marriage.md) | 2026-07-30 | 9 | C-layer | 0.7 |
 | [The Person Missing From My Memories](carousels/the-person-missing-from-my-memories.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-8.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-7.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-6.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-5.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-4.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-3.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-2.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation.md) | 2026-07-28 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-4.md) | 2026-07-25 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-3.md) | 2026-07-25 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-2.md) | 2026-07-25 | 7 | C-layer | 0.7 |
-| [Not Married Yet, Already Us](carousels/not-married-yet-already-us.md) | 2026-07-21 | 11 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation.md) | 2026-07-25 | 7 | C-layer | 0.7 |
 | [Marriage Pvt. Ltd.](carousels/marriage-pvt-ltd.md) | 2026-07-25 | 9 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-4.md) | 2026-07-20 | 7 | C-layer | 0.7 |
-| [The Date That Missed Its Reservation](carousels/the-date-that-missed-its-reservation-3.md) | 2026-07-20 | 7 | C-layer | 0.7 |
 | [After One Hour With You - Zuv POV](carousels/after-one-hour-with-you-zuv-pov.md) | 2026-07-12 | 7 | C-layer | 0.7 |
 | [After One Hour With You](carousels/after-one-hour-with-you.md) | 2026-07-12 | 7 | C-layer | 0.7 |
 | [Still Learning Love](carousels/still-learning-love-2.md) | 2026-07-03 | 7 | C-layer | 0.7 |
@@ -143,7 +139,6 @@ Illustrated carousel packages and their learning records.
 | [Softness Under Fire](carousels/softness-under-fire-4.md) | 2026-05-19 | 5 | C-layer | 0.7 |
 | [Softness Under Fire](carousels/softness-under-fire-3.md) | 2026-05-19 | 5 | C-layer | 0.7 |
 | [She Was Sorry Bas Style Alag Tha](carousels/she-was-sorry-bas-style-alag-tha-2.md) | 2026-05-19 | 5 | C-layer | 0.7 |
-| [She Was Sorry Bas Style Alag Tha](carousels/she-was-sorry-bas-style-alag-tha.md) | 2026-05-19 | 5 | C-layer | 0.7 |
 | [Softness Under Fire](carousels/softness-under-fire-2.md) | 2026-05-19 | 5 | C-layer | 0.7 |
 | [Softness Under Fire](carousels/softness-under-fire.md) | 2026-05-19 | 5 | C-layer | 0.7 |
 | [He Married I'm Not Hungry](carousels/he-married-i-m-not-hungry.md) | 2026-05-19 | 5 | C-layer | 0.7 |
@@ -151,7 +146,6 @@ Illustrated carousel packages and their learning records.
 | [He Married I'm Not Hungry](carousels/he-married-i-m-not-hungry-2.md) | 2026-05-19 | 5 | C-layer | 0.7 |
 | [Love Carries The Heavier Half](carousels/love-carries-the-heavier-half.md) | 2026-05-19 | 5 | C-layer | 0.7 |
 | [Main Kar Lungi](carousels/main-kar-lungi.md) | 2026-05-19 | 5 | C-layer | 0.7 |
-| [Main Kar Lungi](carousels/main-kar-lungi.md) | 2026-05-18 | 5 | C-layer | 0.7 |
 | [Pakka](carousels/pakka.md) | 2026-05-18 | 5 | C-layer | 0.7 |
 | [Maybe Chaos Is Also Home](carousels/maybe-chaos-is-also-home-2.md) | 2026-05-18 | 5 | C-layer | 0.7 |
 | [She Was Not High Maintenance](carousels/she-was-not-high-maintenance.md) | 2026-05-18 | 5 | C-layer | 0.7 |
@@ -186,11 +180,17 @@ Distilled strategic insights about the channel.
 
 | Insight | Confidence | Source Posts | Date |
 |---------|------------|-------------|------|
+| [Retrieved Carousel Pattern Analysis](insights/retrieved-carousel-pattern-analysis.md) | 0.85 | [Archived] 27 mapped sequences; visual/copy/swipe analysis and outcome limits | 2026-09-20 |
 | [Carousel Generation Loop Health](insights/carousel-generation-loop-health.md) | 0.8 | C-layer workflow | 2026-05-16 |
 | [Carousel Quality Spine](insights/carousel-quality-spine.md) | 0.7 | C-layer workflow | 2026-05-10 |
+| [Successful Carousel Standard](insights/successful-carousel-standard.md) | 0.9 | Compiled carousel evidence and creator corrections | 2026-09-04 |
 | _(populated after first analysis run)_ | | | |
 
 ---
+
+## Wiki History
+
+- [Wiki Log](log.md)
 
 ## Operations log
 ```

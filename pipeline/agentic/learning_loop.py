@@ -16,11 +16,15 @@ from typing import Any, Iterator
 import fcntl
 
 from pipeline.agentic.audit_log import append_audit_event, snapshot_file
-from pipeline.agentic.approval_policy import require_approval_authority
+from pipeline.agentic.approval_policy import (
+    require_approval_authority,
+    required_authority_for_target,
+)
 from pipeline.agentic.contracts import LearningEvent, LearningProposal, utc_now_iso
 from pipeline.agentic.skill_eval import evaluate_learning_proposal
 from pipeline.agentic.validator_registry import (
     allowed_validator_ids,
+    proposal_binding,
     require_current_validator_receipts,
     run_required_validators,
 )
@@ -476,6 +480,55 @@ def _validate_feedback_proposal_evidence(
         )
 
 
+def _approval_evidence(
+    root: Path,
+    proposal_path: Path,
+    *,
+    approved_by: str,
+    authority: str,
+) -> dict[str, Any]:
+    binding = proposal_binding(root, proposal_path)
+    return {
+        "schema_version": "learning-approval/v1",
+        "approved_by": approved_by,
+        "authority": authority,
+        "target_path": binding["target_path"],
+        "artifact_sha256": binding["after_hash"],
+        "proposal_binding_sha256": binding["binding_sha256"],
+        "approved_at": utc_now_iso(),
+    }
+
+
+def _require_current_approval_evidence(
+    root: Path,
+    proposal_path: Path,
+    payload: dict[str, Any],
+    *,
+    required_authority: str,
+) -> dict[str, Any]:
+    evidence = payload.get("approval_evidence")
+    if not isinstance(evidence, dict):
+        raise ValueError("missing hash-bound approval evidence")
+    binding = proposal_binding(root, proposal_path)
+    if evidence.get("authority") != required_authority:
+        raise ValueError("approval evidence has the wrong target authority")
+    if evidence.get("target_path") != binding["target_path"]:
+        raise ValueError("approval evidence is bound to the wrong target")
+    if evidence.get("artifact_sha256") != binding["after_hash"]:
+        raise ValueError("approval evidence is bound to stale proposed content")
+    if evidence.get("proposal_binding_sha256") != binding["binding_sha256"]:
+        raise ValueError("approval evidence is stale for this proposal")
+    approved_by = str(evidence.get("approved_by") or "")
+    actual_authority = require_approval_authority(
+        root,
+        approver=approved_by,
+        target_path=binding["target_path"],
+    )
+    if actual_authority != required_authority:
+        raise ValueError("approval evidence signer no longer has target authority")
+    return evidence
+
+
 def approve_learning_proposal(
     root: Path,
     proposal_path: Path,
@@ -499,7 +552,7 @@ def approve_learning_proposal(
             root, approver=reviewer, target_path=target_value
         )
         if authority != "creator":
-            raise ValueError("feedback-derived learning requires explicit creator authority")
+            raise ValueError("durable creator learning requires explicit creator authority")
         source = read_json(
             root / "memory" / "agentic" / "learning-events" / f"{payload.get('source_event_id')}.json"
         )
@@ -530,7 +583,20 @@ def approve_learning_proposal(
             payload["status"] = "approved"
             payload["creator_approved_by"] = reviewer
             payload["creator_approved_at"] = utc_now_iso()
+            payload["approval_evidence"] = _approval_evidence(
+                root,
+                path,
+                approved_by=reviewer,
+                authority=authority,
+            )
             atomic_write_text(path, json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+        else:
+            _require_current_approval_evidence(
+                root,
+                path,
+                payload,
+                required_authority="creator",
+            )
 
         if package_path is not None:
             from pipeline.stages.carousel_visual_storytelling import update_creator_feedback_event
@@ -701,21 +767,16 @@ def apply_learning_proposal_locked(
     source_event_id = str(payload.get("source_event_id") or "")
     source_path = root / "memory" / "agentic" / "learning-events" / f"{source_event_id}.json"
     source_event = read_json(source_path)
+    target_for_approval = str(payload.get("target_path") or "")
+    required_authority = required_authority_for_target(root, target_for_approval)
+    applying_authority = require_approval_authority(
+        root,
+        approver=approved_by,
+        target_path=target_for_approval,
+    )
     if source_event.get("source") == "creator_feedback":
         _validate_feedback_proposal_evidence(root, payload)
-        target_for_approval = str(payload.get("target_path") or "")
-        try:
-            feedback_authority = require_approval_authority(
-                root, approver=approved_by, target_path=target_for_approval
-            )
-        except ValueError as error:
-            raise ValueError(
-                "feedback-derived rule, skill, or memory changes require creator approval before apply"
-            ) from error
-        if proposal_status == "draft" and feedback_authority == "creator":
-            payload["creator_approved_by"] = approved_by
-            payload["creator_approved_at"] = utc_now_iso()
-        elif proposal_status != "approved" or not str(payload.get("creator_approved_by") or ""):
+        if required_authority != "creator":
             raise ValueError(
                 "feedback-derived rule, skill, or memory changes require creator approval before apply"
             )
@@ -756,10 +817,25 @@ def apply_learning_proposal_locked(
     if payload.get("before_hash") != current_before_hash:
         raise ValueError("target changed since proposal creation (before_hash mismatch)")
 
-    approval_authority = require_approval_authority(
-        root, approver=approved_by, target_path=target_path_value
-    )
     validator_receipts = require_current_validator_receipts(root, proposal_path)
+
+    if proposal_status == "draft":
+        payload["approval_evidence"] = _approval_evidence(
+            root,
+            proposal_path,
+            approved_by=approved_by,
+            authority=applying_authority,
+        )
+        if applying_authority == "creator":
+            payload["creator_approved_by"] = approved_by
+            payload["creator_approved_at"] = payload["approval_evidence"]["approved_at"]
+    else:
+        _require_current_approval_evidence(
+            root,
+            proposal_path,
+            payload,
+            required_authority=required_authority,
+        )
 
     target_path = target.relative_to(root).as_posix()
 
@@ -769,7 +845,7 @@ def apply_learning_proposal_locked(
     payload["status"] = "applied"
     payload["applied_by"] = approved_by
     payload["approved_by"] = payload.get("creator_approved_by", approved_by)
-    payload["approval_authority"] = approval_authority
+    payload["approval_authority"] = applying_authority
     payload["validator_receipts"] = validator_receipts
     payload["applied_at"] = utc_now_iso()
     atomic_write_text(
@@ -822,7 +898,7 @@ def apply_learning_proposal_locked(
         "proposal_path": relative_to(root, proposal_path),
         "snapshot_path": relative_to(root, snapshot),
         "audit_path": relative_to(root, audit_path),
-        "approval_authority": approval_authority,
+        "approval_authority": applying_authority,
         "validator_receipts": validator_receipts,
     }
 

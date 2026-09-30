@@ -13,11 +13,14 @@ from pipeline.agentic.instagram_idea_loop import (
     IdeaLoopConfig,
     blind_candidate_card,
     blind_candidate_fingerprint,
+    build_preference_index,
     build_codex_command,
     candidate_fingerprint,
     execute_loop,
     failure_signature,
+    parse_preference_ledger,
     prepare_run,
+    role_prompt_context_violations,
     resume_run,
     validate_run,
 )
@@ -35,6 +38,18 @@ TEST_CORE_EVIDENCE_PATHS = (
 def _write_json(path: Path, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def _write_minimal_preference_ledger(repo_root: Path) -> None:
+    path = repo_root / "memory/semantic/carousel-idea-preferences.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "# Preferences\n\n## Idea Ledger\n\n"
+        "| Date | Concept | Lane | Status | Memory Note | Confidence |\n"
+        "|---|---|---|---|---|---:|\n"
+        "| 2026-01-01 | Test lane | test proof | rejected_lane | Do not repeat. | 1.0 |\n",
+        encoding="utf-8",
+    )
 
 
 def _candidate(
@@ -332,7 +347,15 @@ def _executable_run(
     for relative in TEST_CORE_EVIDENCE_PATHS:
         path = repo_root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(f"test evidence for {relative}\n", encoding="utf-8")
+        content = f"test evidence for {relative}\n"
+        if relative == "memory/semantic/carousel-idea-preferences.md":
+            content = (
+                "# Preferences\n\n## Idea Ledger\n\n"
+                "| Date | Concept | Lane | Status | Memory Note | Confidence |\n"
+                "|---|---|---|---|---|---:|\n"
+                "| 2026-01-01 | Test lane | test proof | rejected_lane | Do not repeat. | 1.0 |\n"
+            )
+        path.write_text(content, encoding="utf-8")
     config = IdeaLoopConfig(max_iterations=3, candidate_budget=6)
     run_dir = prepare_run(
         repo_root,
@@ -484,6 +507,12 @@ def test_prepare_run_discovers_evidence_without_requiring_a_seed(tmp_path: Path)
         (run_dir / ".internal/evidence-manifest.json").read_text(encoding="utf-8")
     )
     prompt = (run_dir / ".internal/orchestration-prompt.md").read_text(encoding="utf-8")
+    preference_index = json.loads(
+        (run_dir / ".internal/preference-index.json").read_text(encoding="utf-8")
+    )
+    context_budget = json.loads(
+        (run_dir / ".internal/context-budget.json").read_text(encoding="utf-8")
+    )
 
     assert state["seed"] is None
     assert state["status"] == "RUNNING"
@@ -492,6 +521,111 @@ def test_prepare_run_discovers_evidence_without_requiring_a_seed(tmp_path: Path)
     }
     assert "asot_idea_scout" in prompt
     assert "two blind verifier tasks" in prompt
+    assert preference_index["source"]["row_count"] > 0
+    assert len(preference_index["collision_catalog"]) == preference_index["source"]["row_count"]
+    assert context_budget["full_ledger_fallback"]["max_uses"] == 1
+    assert "Only the scout may read" in prompt
+
+
+def test_preference_index_binds_source_and_limits_full_details() -> None:
+    index = build_preference_index(ROOT, seed="shopping bill laugh")
+
+    assert index["schema_version"] == "idea-preference-index/v1"
+    assert len(index["source"]["sha256"]) == 64
+    assert len(index["collision_catalog"]) == index["source"]["row_count"]
+    assert 1 <= len(index["selected_details"]) <= 20
+    assert any("shopping" in row["lane"].lower() for row in index["selected_details"])
+
+
+def test_preference_ledger_parser_fails_closed_without_table() -> None:
+    with pytest.raises(ValueError, match="Idea Ledger"):
+        parse_preference_ledger("# Preferences\n\nNo table here.\n")
+
+
+def test_role_prompts_reject_forbidden_context_surfaces() -> None:
+    dynamic = ["corpus/posts/private-example.md"]
+
+    assert role_prompt_context_violations(
+        "asot_idea_scout",
+        "ASOT_IDEA_LOOP_ROLE=asot_idea_scout\nRead .internal/preference-index.json and memory/semantic/carousel-idea-preferences.md",
+        dynamic_paths=dynamic,
+    ) == []
+    assert role_prompt_context_violations(
+        "asot_idea_maker",
+        "ASOT_IDEA_LOOP_ROLE=asot_idea_maker\nRead memory/semantic/carousel-idea-preferences.md",
+        dynamic_paths=dynamic,
+    ) == ["memory/semantic/carousel-idea-preferences.md"]
+    assert role_prompt_context_violations(
+        "asot_idea_maker",
+        "ASOT_IDEA_LOOP_ROLE=asot_idea_maker\nRead corpus/posts/private-example.md",
+        dynamic_paths=dynamic,
+    ) == dynamic
+    assert role_prompt_context_violations(
+        "asot_idea_verifier",
+        "ASOT_IDEA_LOOP_ROLE=asot_idea_verifier\nRead source-memory-brief.json",
+        selector=True,
+    ) == ["source-memory-brief.json"]
+    assert role_prompt_context_violations(
+        "asot_idea_verifier",
+        "ASOT_IDEA_LOOP_ROLE=asot_idea_verifier\nReview the supplied blind card and excerpt.",
+    ) == []
+
+
+def test_live_attestation_rejects_maker_prompt_with_full_ledger(tmp_path: Path) -> None:
+    run_dir, _, _ = _successful_run(tmp_path)
+    roles = {
+        "scout-task-a": "asot_idea_scout",
+        "maker-task-a": "asot_idea_maker",
+        "maker-task-b": "asot_idea_maker",
+        "critic-task-a": "asot_idea_verifier",
+        "critic-task-b": "asot_idea_verifier",
+        "selector-task-c": "asot_idea_verifier",
+    }
+    _write_codex_event_log(run_dir, "run-01", roles)
+    events_path = run_dir / ".internal/executions/run-01/codex-events.jsonl"
+    events = [json.loads(line) for line in events_path.read_text(encoding="utf-8").splitlines()]
+    for event in events:
+        item = event["item"]
+        if item.get("receiver_thread_ids") == ["maker-task-a"] and item.get("tool") == "spawn_agent":
+            item["prompt"] += "\nRead memory/semantic/carousel-idea-preferences.md"
+    events_path.write_text(
+        "".join(json.dumps(event, sort_keys=True) + "\n" for event in events),
+        encoding="utf-8",
+    )
+
+    report = validate_run(run_dir, require_live_attestation=True)
+
+    assert report.valid is False
+    assert any("role context boundary" in error for error in report.errors)
+
+
+def test_preference_index_source_hash_tamper_is_rejected(tmp_path: Path) -> None:
+    run_dir = prepare_run(ROOT, config=IdeaLoopConfig(), run_dir=tmp_path / "hash-tamper")
+    index_path = run_dir / ".internal/preference-index.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    index["source"]["sha256"] = "0" * 64
+    _write_json(index_path, index)
+
+    report = validate_run(run_dir)
+
+    assert any("source hash does not match" in error for error in report.errors)
+
+
+def test_full_ledger_fallback_must_be_scout_only_single_use_and_explained(
+    tmp_path: Path,
+) -> None:
+    run_dir = prepare_run(ROOT, config=IdeaLoopConfig(), run_dir=tmp_path / "fallback")
+    budget_path = run_dir / ".internal/context-budget.json"
+    budget = json.loads(budget_path.read_text(encoding="utf-8"))
+    budget["full_ledger_fallback"].update(
+        {"allowed_role": "asot_idea_maker", "max_uses": 2, "used": True, "reason": ""}
+    )
+    _write_json(budget_path, budget)
+
+    report = validate_run(run_dir)
+
+    assert any("scout-only and single-use" in error for error in report.errors)
+    assert any("requires a reason" in error for error in report.errors)
 
 
 def test_success_requires_two_fresh_verifiers_and_a_distinct_selector(tmp_path: Path) -> None:
@@ -809,6 +943,7 @@ def test_live_controller_maps_outcomes_and_cleans_lease(
     expected_returncode: int,
 ) -> None:
     fake_root = tmp_path / "repo"
+    _write_minimal_preference_ledger(fake_root)
     run_dir = fake_root / "output" / "idea-loops" / "2026-07-25" / "controller"
     prepared = prepare_run(
         fake_root,
@@ -865,6 +1000,7 @@ def test_nonzero_codex_exit_is_normalized_and_logged(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     fake_root = tmp_path / "repo"
+    _write_minimal_preference_ledger(fake_root)
     run_dir = fake_root / "output" / "idea-loops" / "2026-07-25" / "nonzero"
     prepared = prepare_run(
         fake_root,
@@ -898,6 +1034,7 @@ def test_parent_rejects_child_symlink_before_post_child_writes(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     fake_root = tmp_path / "repo"
+    _write_minimal_preference_ledger(fake_root)
     run_dir = fake_root / "output" / "idea-loops" / "2026-07-25" / "symlink"
     prepared = prepare_run(
         fake_root,
@@ -1130,6 +1267,7 @@ def test_stagnated_stop_requires_two_identical_normalized_signatures(tmp_path: P
 
 def test_cli_dry_run_prepares_durable_prompt_without_invoking_codex(tmp_path: Path) -> None:
     fake_root = tmp_path / "repo"
+    _write_minimal_preference_ledger(fake_root)
     run_dir = fake_root / "output" / "idea-loops" / "2026-07-25" / "dry-run"
     driver = """
 import sys

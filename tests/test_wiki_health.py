@@ -4,10 +4,13 @@ from pathlib import Path
 
 from pipeline.stages.wiki_health import (
     collect_wiki_health,
+    feedback_health_evidence,
+    generation_receipt_health_evidence,
     heal_proposal_markdown,
     repair_wiki_index_metadata,
     write_health_artifacts,
 )
+from pipeline.stages.carousel_generation_inputs import canonical_fingerprint, sha256_binding
 
 
 def write_text(path: Path, text: str) -> None:
@@ -58,6 +61,60 @@ def minimal_workspace(root: Path) -> None:
     (root / "memory" / "episodic").mkdir(parents=True)
     (root / "logs").mkdir()
     (root / "pipeline" / "stages").mkdir(parents=True)
+
+
+def test_generation_health_accepts_hash_verified_superseded_draft_attempt(tmp_path):
+    package = tmp_path / "output" / "carousels" / "2026-09-05" / "archived-attempt"
+    source_relative = ".internal/visual-quarantine/slide-06/attempt-01/source/instagram_post.png"
+    candidate_relative = ".internal/visual-quarantine/slide-06/attempt-01/candidate.json"
+    receipt = {
+        "generator_boundary": "codex_builtin_imagegen",
+        "tool_reported_model": "codex-imagegen",
+        "prompt_sha256": "sha256:prompt",
+        "reference_manifest_sha256": "sha256:references",
+        "references": [{"path": ".internal/references/person.png", "sha256": "sha256:ref"}],
+        "slide": 6,
+        "attempt": 1,
+        "returned_sources": [{"path": source_relative, "sha256": "", "width": 1080, "height": 1440}],
+        "feedback_id": None,
+        "pixel_review_status": "passed",
+        "promotion_status": "pending",
+    }
+    archive = package / ".internal" / "visual-quarantine" / "superseded" / "archive-one"
+    source = archive / source_relative
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_bytes(b"historical-pixels")
+    receipt["returned_sources"][0]["sha256"] = sha256_binding(source.read_bytes())
+    candidate = archive / candidate_relative
+    write_text(candidate, json.dumps({"slide": 6, "generation_receipt": receipt}))
+    qa = {"schema_version": "carousel-pixel-qa/v3", "status": "PASS"}
+    write_text(archive / "proof-qa.json", json.dumps(qa))
+    receipt["qa_sha256"] = canonical_fingerprint(qa)
+    write_text(candidate, json.dumps({"slide": 6, "generation_receipt": receipt}))
+    entries = []
+    for relative in (candidate_relative, source_relative, "proof-qa.json"):
+        target = archive / relative
+        entries.append({"original_path": relative, "sha256": sha256_binding(target.read_bytes())})
+    write_text(archive / "archive.json", json.dumps({
+        "schema_version": "carousel-superseded-evidence/v1",
+        "archive_id": "archive-one",
+        "files": entries,
+    }))
+    write_text(package / "prompt-pack.json", json.dumps({"schema_version": "carousel-prompt-pack/v3"}))
+    write_text(package / "generation-state.json", json.dumps({
+        "schema_version": "carousel-generation-state/v3",
+        "status": "proof_qa_required",
+        "selected_slides": [8],
+        "slides": {
+            "6": {"status": "draft", "attempts": 1, "attempt_history": [receipt]},
+            "8": {"status": "draft", "attempts": 0, "attempt_history": []},
+        },
+    }))
+
+    assert generation_receipt_health_evidence(tmp_path, date(2026, 9, 30)) == {}
+    source.write_bytes(b"tampered")
+    failures = generation_receipt_health_evidence(tmp_path, date(2026, 9, 30))
+    assert "slide 6: receipt has no candidate" in next(iter(failures.values()))
 
 
 def checks_by_id(health: dict) -> dict[str, dict]:
@@ -354,3 +411,109 @@ def test_health_passes_clean_instruction_surface_contract(tmp_path):
     checks = checks_by_id(health)
 
     assert checks["instruction_surface_contract"]["status"] == "PASS"
+
+
+def test_feedback_health_rejects_a_stored_pass_after_its_artifact_changes(tmp_path):
+    package = tmp_path / "output" / "carousels" / "2026-09-04" / "flight-story"
+    write_text(package / "slides.json", json.dumps({"route": "flight"}))
+    write_text(
+        package / "creator-correction.json",
+        json.dumps(
+            {
+                "schema_version": "creator-correction/v3",
+                "events": [
+                    {
+                        "feedback_id": "fb-stale-eval",
+                        "kind": "correction",
+                        "primary_diagnosis": "scene_action",
+                        "status": "evaluated",
+                        "action_taken": {"type": "existing_package_repair"},
+                        "resolution_evidence": ["slides.json"],
+                        "eval_task_ids": ["FEEDBACK-STALE-EVAL"],
+                    }
+                ],
+            }
+        ),
+    )
+    write_text(
+        tmp_path / "evals" / "feedback-cases" / "FEEDBACK-STALE-EVAL.json",
+        json.dumps(
+            {
+                "schema_version": "creator-feedback-eval/v1",
+                "task_id": "FEEDBACK-STALE-EVAL",
+                "status": "passed",
+                "affected_artifacts": ["slides.json"],
+                "checks": [
+                    {
+                        "code": "declared_artifacts_repaired",
+                        "status": "PASS",
+                        "current_hashes": {"slides.json": "sha256:" + "0" * 64},
+                    }
+                ],
+            }
+        ),
+    )
+
+    evidence = feedback_health_evidence(tmp_path, date(2026, 9, 5))
+
+    issues = evidence["invalid_events"][
+        "output/carousels/2026-09-04/flight-story/creator-correction.json"
+    ]
+    assert any("linked eval FEEDBACK-STALE-EVAL is stale" in issue for issue in issues)
+
+
+def test_feedback_health_separates_live_feedback_on_read_only_package_from_history(tmp_path):
+    package = tmp_path / "output" / "carousels" / "2026-07-01" / "legacy-story"
+    package.mkdir(parents=True)
+    event_dir = tmp_path / "memory" / "agentic" / "learning-events"
+    write_text(
+        event_dir / "event-feedback-live.json",
+        json.dumps(
+            {
+                "schema_version": "learning-event/v1",
+                "event_id": "event-feedback-live",
+                "source": "creator_feedback",
+                "created_at": "2026-09-05T06:00:00+00:00",
+                "diagnosis": "provenance_qa",
+                "package_path": "output/carousels/2026-07-01/legacy-story",
+                "feedback_status": "captured",
+                "resolution_evidence": [],
+                "feedback_metadata": {
+                    "feedback_id": "fb-live-on-legacy",
+                    "kind": "rejection",
+                    "primary_diagnosis": "provenance_qa",
+                    "must_change": ["Reject the visibly broken hand."],
+                    "eval_task_ids": [],
+                    "historical_package_read_only": True,
+                },
+            }
+        ),
+    )
+    write_text(
+        event_dir / "event-feedback-history.json",
+        json.dumps(
+            {
+                "schema_version": "learning-event/v1",
+                "event_id": "event-feedback-history",
+                "source": "creator_feedback",
+                "created_at": "2026-09-05T06:00:00+00:00",
+                "feedback_status": "evaluated",
+                "feedback_metadata": {
+                    "feedback_id": "fb-backfilled-history",
+                    "historical_only": True,
+                },
+            }
+        ),
+    )
+
+    evidence = feedback_health_evidence(tmp_path, date(2026, 9, 5))
+
+    assert [item["feedback_id"] for item in evidence["live_feedback_on_read_only_packages"]] == [
+        "fb-live-on-legacy"
+    ]
+    assert [item["feedback_id"] for item in evidence["historical_feedback"]] == [
+        "fb-backfilled-history"
+    ]
+    live_path = "memory/agentic/learning-events/event-feedback-live.json"
+    assert any("unresolved feedback debt" in issue for issue in evidence["invalid_events"][live_path])
+    assert not any("fb-backfilled-history" in issue for issues in evidence["invalid_events"].values() for issue in issues)

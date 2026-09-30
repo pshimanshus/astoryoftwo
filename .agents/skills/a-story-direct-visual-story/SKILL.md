@@ -40,6 +40,7 @@ through its recipient, grip, gaze and the resulting action.
 
 ## Proof And QA
 
+Codex directly invokes ImageGen for requested proof, edit, and final-slide operations.
 Generate the riskiest proof first. For a requested edit, bind its target with
 `prepare --operation-json PATH`, inspect it, then attach it first followed by
 the five canonical identity/style references. Send the exact compiled prompt;
