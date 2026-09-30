@@ -29,6 +29,17 @@ memory updates, or final audit evidence.
 Use `venv/bin/python scripts/agentic_os.py skill-system carousel_jam` for the
 machine-readable workflow record.
 
+## Optional Research Stack
+
+Use the winning-carousel research stack when the creator asks to research
+winning posts, build skills from Instagram references, mine audience/persona
+language, repair hooks or swipe flow, or repurpose a proven idea. Resolve it
+with `venv/bin/python scripts/agentic_os.py skill-system winning_carousel_research`.
+Do not load the full stack by default during an ordinary jam; use it only when
+the current task needs audience research, external carousel examples, hook
+repair, swipe architecture, brand guidance, caption/CTA repair, visual proof
+planning, or cross-format repurposing.
+
 ## Operating Contract
 
 - Small Brief First: preserve the creator's exact feeling, situation, line, or

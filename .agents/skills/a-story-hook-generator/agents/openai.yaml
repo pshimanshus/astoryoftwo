@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Hook Generator"
+  short_description: "Generate ASOT-specific carousel hooks"
+  default_prompt: "Use $a-story-hook-generator to create ASOT-specific hooks for this concept."
+policy:
+  allow_implicit_invocation: true
