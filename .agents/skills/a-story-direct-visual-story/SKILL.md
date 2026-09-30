@@ -20,8 +20,9 @@ native dimensions, exact copy, and tiny top-right brandmark aligned.
 
 Use actual identity refs for the whole person. Stage relationship, then style.
 Check entity/anatomy/spatial integrity before beauty language.
-Bind the locked scene/copy and activated contact, object, chronology, scale, and
-depth risks in each slide's `scene_contract` before generation.
+Store the resulting `scene_contract` with every slide before
+generation. Bind locked scene/copy and activated contact, object, chronology,
+scale, and depth risks.
 
 ## Proof And QA
 
@@ -31,11 +32,11 @@ Generate the riskiest proof first. Inspect actual-pixel evidence with
 not evidence.
 For edits and invocation receipts, follow
 `.agents/skills/astory/references/imagegen-contract.md`. Start review with a
-blind pixel-only scene read; unresolved contact or overlap is failure/data gap.
+blind scene read; unresolved contact or overlap is failure/data gap.
 
 Record proof results in `proof-qa.json` with path, SHA-256, dimensions, story
-read, identity, exact text, brandmark, style, and native canvas. Creator approval
-comes only after proof QA passes.
+read, identity, exact text, brandmark, style, scene-contract hash, and native
+canvas. Creator approval comes only after proof QA passes.
 
 On failure, classify the visible miss. Wrong event means replace the premise;
 weak evidence means change action/reaction/object state/consequence; weak
