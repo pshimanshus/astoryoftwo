@@ -1,0 +1,38 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-7907079D790719F1",
+  "feedback_id": "fb-7907079d790719f1",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+  "user_instruction_sha256": "sha256:118fc4a97a2780cf20486bf2cdb8bd7ea2d3be93d2d93e7870869dbe07ff56bf",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Replace the posed shared-throw cuddle with an observable post-fight movement into a side hug; keep the room messy, keep both complete bodies and four legs visible."
+  ],
+  "must_preserve": [
+    "Preserve exact Slide 3 copy, Aachu/Zuv identity, urban middle-class setting, neutral-ivory watercolor theme, 1080x1440 canvas, and tiny top-right @a.storyof.two brandmark."
+  ],
+  "source_affected_artifacts": [
+    "slides.json"
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:140b4924fdb0ffaf750bab9071647f3f21bffb78d3363be97e3d967f1fb4bbf6"
+  },
+  "status": "pending",
+  "created_at": "2026-09-05T13:33:34+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:55470dcec6d937ac2a624c2dbcfb22bcbbaa1b63de147b87a9732c5a35f9af57"
+}

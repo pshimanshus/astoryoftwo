@@ -1,52 +1,122 @@
 {
-  "schema_version": "character-reference-attempt-ledger/v1",
-  "joint": {
-    "next_attempt": 3,
-    "maximum_attempts": 3,
+  "schema_version": "character-reference-attempt-ledger/v3",
+  "retired_joint_montage_route": {
+    "status": "ABANDONED_WRONG_FORMAT_AND_LIKENESS",
+    "reusable_as_identity_reference": false,
+    "promotion_allowed": false,
+    "proofs": [
+      "proof/aachu-zuv-joint-proof-v1.png",
+      "proof/aachu-zuv-joint-proof-v2-accessory-lock.png"
+    ]
+  },
+  "aachu_face_turnaround": {
+    "status": "V1_REJECTED_V2_PARTIAL_V3_SUPERSEDED_V4_REJECTED_WHOLE_SHEET",
+    "next_attempt": 8,
+    "maximum_attempts": null,
+    "attempt_policy": "One targeted correction at a time. Stop after any creator identity failure and never reuse a rejected generated face as an input.",
     "attempts": [
       {
         "attempt": 1,
         "date": "2026-08-23",
-        "source_path": ".internal/quarantine/joint-attempt-01-source.png",
-        "source_dimensions": [
-          1086,
-          1448
-        ],
-        "creator_proof_path": "proof/aachu-zuv-joint-proof-v1.png",
-        "final_dimensions": [
-          1080,
-          1440
-        ],
-        "result": "PASS_MECHANICAL_AWAITING_CREATOR_IDENTITY_APPROVAL",
-        "prompt_sha256": "9a27a22deb4fadf0475cbe1dc246acd141289fd44a0fcde039dcf875bb8683d2",
-        "result_after_creator_correction": "SUPERSEDED",
-        "targeted_correction": "Attempt 02 must add and preserve Zuv's exact evil-eye locket on its slim silver chain and Aachu's exact right-wrist evil-eye bracelet wherever visible; all other requirements stay unchanged."
+        "source_path": ".internal/quarantine/aachu-face-attempt-01-wrong-ratio.png",
+        "source_dimensions": [1024, 1536],
+        "result": "REJECTED_WRONG_2_TO_3_CANVAS",
+        "targeted_correction": "Recompose the same technical sheet natively at exact 3:4 without redesigning the face or content."
       },
       {
         "attempt": 2,
         "date": "2026-08-23",
-        "source_path": ".internal/quarantine/joint-attempt-02-source.png",
+        "source_path": ".internal/quarantine/aachu-face-attempt-01-source.png",
+        "source_dimensions": [1086, 1448],
+        "creator_proof_path": "proof/aachu-face-turnaround-v1.png",
+        "final_dimensions": [1080, 1440],
+        "source_sha256": "9f55079bddfac5c068fa333bf7fb29cc67225c5c897feb2f05783f2c05864715",
+        "final_sha256": "591239e5a5450c4d2b1ace946ae885c51f676797dfcfcbb30e88abedd1db4696",
+        "result": "REJECTED_BY_CREATOR_WRONG_ANCHAL_FACE_INCOMPLETE_PHOTO_LIBRARY",
+        "reusable_as_identity_reference": false,
+        "creator_reason": "Anchal's face is very different; many available Anchal photos were not used."
+      },
+      {
+        "attempt": 3,
+        "date": "2026-08-23",
+        "source_path": ".internal/quarantine/aachu-face-v2-photo-library-reset-source.png",
         "source_dimensions": [
           1086,
           1448
         ],
-        "creator_proof_path": "proof/aachu-zuv-joint-proof-v2-accessory-lock.png",
+        "creator_proof_path": "proof/aachu-face-turnaround-v2-photo-library-reset.png",
         "final_dimensions": [
           1080,
           1440
         ],
-        "source_sha256": "a68ae6e3977cb1b7525a8abfd991fbaddd228af2abf13a06bdc3da0131442c36",
-        "final_sha256": "a6730658dc3e3e62f5d6f42edf15a00f47531a685458b1d24719d6170e038fee",
-        "prompt_sha256": "6421da780b4ff482dda631d11ab386cebebfa030fae29cea1ecae01df38e1edd",
-        "result": "PASS_MECHANICAL_AND_ACCESSORY_AWAITING_CREATOR_IDENTITY_APPROVAL",
-        "targeted_correction": "Applied only the creator-requested signature accessory lock."
+        "source_sha256": "b151c60a7d3010c8e0af9326c44873f90f1882887dc6ade18a58015b705837c6",
+        "final_sha256": "8af6e7952b522e46d3530e99657f4915b7a3d30fa557f8406b60d0d97e25297b",
+        "photo_bundle": "aachu-photo-bundle-v2.json",
+        "result": "PARTIAL_APPROVAL_FRONT_NEUTRAL_ONLY_OTHER_FACE_VIEWS_REJECTED",
+        "approved_components": [
+          "FRONT (NEUTRAL)"
+        ],
+        "rejected_components": [
+          "LEFT 3/4",
+          "RIGHT 3/4",
+          "LEFT PROFILE",
+          "RIGHT PROFILE",
+          "expression row"
+        ],
+        "reusable_as_complete_identity_reference": false,
+        "creator_reason": "Only the front face is correct; the rest are not correct and no profile is good."
+      },
+      {
+        "attempt": 4,
+        "date": "2026-08-24",
+        "source_path": ".internal/quarantine/aachu-face-v3-angle-reconstruction-source.png",
+        "source_dimensions": [1086, 1448],
+        "source_sha256": "c6c101e5d851643d8f29302d703e379809894ea4af49c9d431f29fcc02966132",
+        "prompt_file": "prompts/aachu-face-turnaround-v3-a-story-angle-repair.prompt.txt",
+        "result": "COMPLETE_ILLUSTRATED_TURNAROUND_GENERATED_PROFILE_RISK_SENT_TO_TARGETED_EDIT"
+      },
+      {
+        "attempt": 5,
+        "date": "2026-08-24",
+        "source_path": ".internal/quarantine/aachu-face-v3-profile-repair-source.png",
+        "source_dimensions": [1086, 1448],
+        "creator_proof_path": "proof/aachu-face-turnaround-v3-a-story-angle-repair.png",
+        "final_dimensions": [1080, 1440],
+        "source_sha256": "906cf6692b5293345d133c795da98138fd0d66b0f38244e4d32f26eadfb5cecd",
+        "final_sha256": "caa2240ef4bdfac3bb7527b2864da3631b54b7408efe268184e209cd09ccf77a",
+        "prompt_file": "prompts/aachu-face-turnaround-v3-a-story-angle-repair.prompt.txt",
+        "result": "V3_ILLUSTRATED_TURNAROUND_AWAITING_CREATOR_ANGLE_APPROVAL"
+      },
+      {
+        "attempt": 6,
+        "date": "2026-08-24",
+        "source_path": ".internal/quarantine/aachu-face-v4-fresh-photo-reset-source.png",
+        "source_dimensions": [1024, 1536],
+        "source_sha256": "6807cc331106d70d60683492c3ad170a31bf9635e43ec882d8c23f667bc1a5df",
+        "prompt_file": "prompts/aachu-face-turnaround-v4-identity-reconstruction-hook.prompt.txt",
+        "photo_bundle": "aachu-photo-bundle-v3.json",
+        "result": "FRESH_PHOTO_ONLY_TURNAROUND_GENERATED_PROFILE_RISK_SENT_TO_TARGETED_EDIT"
+      },
+      {
+        "attempt": 7,
+        "date": "2026-08-24",
+        "source_path": ".internal/quarantine/aachu-face-v4-profile-repair-source.png",
+        "source_dimensions": [1024, 1536],
+        "source_sha256": "e7a6b1e7a34e398d6d086c62c223323bbb59b18e80ae7a6927357e2c453f3fca",
+        "creator_proof_path": "proof/aachu-face-turnaround-v4-photo-angle-reconstruction.png",
+        "final_dimensions": [1080, 1440],
+        "final_sha256": "ca68cabeb73fb1e0cbc37b3241e22af16733a3149c4b42a3b918b56577e62b46",
+        "finalization": "proportional scale and neutral-ivory side padding; no crop, stretch, or face redraw",
+        "prompt_file": "prompts/aachu-face-turnaround-v4-identity-reconstruction-hook.prompt.txt",
+        "result": "REJECTED_BY_CREATOR_WHOLE_SHEET_NOT_CORRECT_IDENTITY_FAILURE",
+        "creator_exact_rejection": "the character sheet is not correct.",
+        "reusable_as_identity_reference": false
       }
-    ]
+    ],
+    "blocking_condition": "WHOLE_SHEET_GENERATION_ROUTE_REJECTED",
+    "next_attempt_invariant": "Do not reuse or repair V4. Generate one large portrait at a time from actual photos only, require creator approval after every portrait, and assemble approved pixels without ImageGen redrawing the sheet."
   },
-  "aachu": {
-    "status": "BLOCKED_UNTIL_JOINT_APPROVAL"
-  },
-  "zuv": {
-    "status": "BLOCKED_UNTIL_JOINT_APPROVAL"
+  "zuv_face_turnaround": {
+    "status": "BLOCKED_UNTIL_COMPLETE_AACHU_FACE_APPROVAL"
   }
 }

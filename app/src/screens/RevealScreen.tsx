@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { copy } from '../content/copy';
 import { Carousel } from '../components/Carousel';
 import { useFlow } from '../flow/FlowProvider';
@@ -8,13 +7,17 @@ export function RevealScreen() {
   const { advance } = useFlow();
   const { session } = useSession();
   return (
-    <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}
-      style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 20, gap: 14, justifyContent: 'center' }}>
-      <p style={{ fontSize: 22, textAlign: 'center' }}>{copy.reveal.title}</p>
+    // No entrance animation of its own — the App-level crossfade (App.tsx's CurrentScreen)
+    // already handles the entrance. Two animations describing the same event is the bug that
+    // shows up the moment the WebGL page turn (printing->reveal) is wired in: that turn IS this
+    // screen's real entrance. sheet--plain: the carousel is its own framed object, not composed
+    // against the margin rule.
+    <div className="sheet sheet--plain" style={{ padding: '24px 22px', gap: 'var(--space-5)', justifyContent: 'center' }}>
+      <p className="headline headline--hand" style={{ textAlign: 'center', maxWidth: 'none', margin: 0 }}>{copy.reveal.title}</p>
       <Carousel slides={session.slides ?? []} />
-      <button onClick={advance} style={{ padding: 14, borderRadius: 14, background: 'var(--ink)', color: 'var(--paper)', fontSize: 16 }}>
+      <button onClick={advance} className="stamp stamp--solid stamp--block">
         continue
       </button>
-    </motion.div>
+    </div>
   );
 }

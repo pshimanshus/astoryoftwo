@@ -1,0 +1,151 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-F3B200513F9623AC",
+  "feedback_id": "fb-f3b200513f9623ac",
+  "package_path": "output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him",
+  "user_instruction_sha256": "sha256:599ae2a5e3cd944fc0995846d62c6cbc5f170980b3eb5cee0919a2266ad9c2e6",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Aachu and Zuv must read as normal-height adults, not dwarf-like, chibi, squat, compressed, or childlike.",
+    "Avoid deep crouch and low crop that shorten the body; stage Aachu mostly standing or only slightly bending/pointing toward the floor parcel.",
+    "Use doorframe, hallway, and visible body proportions to establish adult scale and natural head-to-body ratio."
+  ],
+  "must_preserve": [
+    "Parcel remains on the floor mat at a flat home entrance with no half-knee step-down.",
+    "Aachu has no bag; casual Saturday noon wardrobe remains; Zuv's evil-eye locket remains visible.",
+    "Slide 4 exact copy remains: His phone had the OTP."
+  ],
+  "source_affected_artifacts": [
+    "slides.json",
+    "prompt-pack.json",
+    "proof-qa.json"
+  ],
+  "affected_artifacts": [
+    "slides.json",
+    "prompt-pack.json",
+    "proof-qa.json"
+  ],
+  "verification_assertions": [
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/adult_body_scale/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/no_deep_crouch_low_crop/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/adult_scale_cues/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/no_private_or_background_text/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/asset_bindings/instagram_post/sha256",
+      "operator": "equals",
+      "value": "sha256:9014d6b25b75fc92ebcc15c6dddb9bac4bec1a29d570f6da1bad3a10ff1495b1"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/text_brandmark_style_dimensions/observed_text",
+      "operator": "equals",
+      "value": "His phone had the OTP."
+    }
+  ],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:a124d3bc17d8c63b4ebd36c3872fa517febd8f5a5742fc075a7bcef86419193e",
+    "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+    "proof-qa.json": "sha256:1f59bb04993e6f50b4167dd301d46d06fe92eaad8f8495fd8fccf6c68bf6a0aa"
+  },
+  "status": "passed",
+  "created_at": "2026-09-26T12:49:33+00:00",
+  "evaluated_at": "2026-09-26T13:04:39+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "verification_assertions",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "slides.json": "sha256:284c76e1837907e59a2580ec8b897e6d3e4c800ae567711852af281a8e9f8310",
+        "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+        "proof-qa.json": "sha256:83d811362f030cc52baf2752f8a8b1725f2b638aab3f9af306f39c50d9277f94"
+      }
+    }
+  ],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 2,
+  "verification_contract_history": [
+    {
+      "revision": 1,
+      "verification_contract_sha256": "sha256:b4de7562669a47a21121f62026e0561b3836e32712ebfb3e5f147075f60207a9",
+      "feedback_id": "fb-f3b200513f9623ac",
+      "package_path": "output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him",
+      "user_instruction_sha256": "sha256:599ae2a5e3cd944fc0995846d62c6cbc5f170980b3eb5cee0919a2266ad9c2e6",
+      "diagnosis": "scene_action",
+      "must_change": [
+        "Aachu and Zuv must read as normal-height adults, not dwarf-like, chibi, squat, compressed, or childlike.",
+        "Avoid deep crouch and low crop that shorten the body; stage Aachu mostly standing or only slightly bending/pointing toward the floor parcel.",
+        "Use doorframe, hallway, and visible body proportions to establish adult scale and natural head-to-body ratio."
+      ],
+      "must_preserve": [
+        "Parcel remains on the floor mat at a flat home entrance with no half-knee step-down.",
+        "Aachu has no bag; casual Saturday noon wardrobe remains; Zuv's evil-eye locket remains visible.",
+        "Slide 4 exact copy remains: His phone had the OTP."
+      ],
+      "source_affected_artifacts": [
+        "slides.json",
+        "prompt-pack.json",
+        "proof-qa.json"
+      ],
+      "affected_artifacts": [
+        "slides.json",
+        "prompt-pack.json",
+        "proof-qa.json"
+      ],
+      "repair_operations": [],
+      "verification_assertions": [],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:a124d3bc17d8c63b4ebd36c3872fa517febd8f5a5742fc075a7bcef86419193e",
+        "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+        "proof-qa.json": "sha256:1f59bb04993e6f50b4167dd301d46d06fe92eaad8f8495fd8fccf6c68bf6a0aa"
+      },
+      "preserved_projection_hashes": {},
+      "eval_waiver_reason": null,
+      "superseded_at": "2026-09-26T13:04:38+00:00",
+      "superseded_by": "codex",
+      "reason": "Regenerated slide 4 with upright normal adult proportions and bound decoded-pixel proof QA for the creator rejection."
+    }
+  ],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:86bdc795eb948569732c11f50a790420fc3488eb729ae215e3b4daadb4f35e20",
+  "issues": [],
+  "waiver_reason": null,
+  "regression_promotable": false
+}

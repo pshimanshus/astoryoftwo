@@ -1,40 +1,101 @@
 {
-  "schema_version": "character-identity-review/v1",
-  "status": "PRELIMINARY_PASS_AWAITING_CREATOR_LIKENESS_AND_ACCESSORY_APPROVAL",
-  "can_generate_joint_proof": true,
-  "can_generate_solo_sheets": false,
-  "review_scope": "Reference selection, current rendered pixels, and repeated-view consistency. Creator recognition remains the final likeness authority.",
-  "joint_reference_ids": [
-    "config/references/identity/together/together-16.jpg",
-    "config/references/identity/together/together-18.jpg",
-    "config/references/identity/aachu/face-04.png",
-    "config/references/identity/zuv/portrait-07.jpg"
+  "schema_version": "character-identity-review/v3",
+  "status": "AACHU_V4_REJECTED_IDENTITY_FAILURE",
+  "can_generate_next_sheet": false,
+  "creator_authority": "Creator recognition overrides assistant mechanical or internal-consistency checks.",
+  "identity_input_policy": "Actual photographs must be attached on every visible-face generation call. Generated charts are supplemental only after creator approval and can never be the sole face authority.",
+  "rejected_joint_proofs": [
+    "proof/aachu-zuv-joint-proof-v1.png",
+    "proof/aachu-zuv-joint-proof-v2-accessory-lock.png"
   ],
-  "style_reference_ids": [
-    "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+  "rejected_aachu_face_proofs": [
+    {
+      "path": "proof/aachu-face-turnaround-v1.png",
+      "creator_verdict": "REJECTED",
+      "reason": "Anchal's face is very different; the larger available Anchal photo library was not used.",
+      "reusable_as_identity_reference": false
+    },
+    {
+      "path": "proof/aachu-face-turnaround-v2-photo-library-reset.png",
+      "creator_verdict": "PARTIAL_APPROVAL_ONLY",
+      "approved_components": [
+        "approved-components/aachu-front-neutral-v2-approved.png — FRONT (NEUTRAL)"
+      ],
+      "rejected_components": [
+        "LEFT 3/4",
+        "RIGHT 3/4",
+        "LEFT PROFILE",
+        "RIGHT PROFILE",
+        "expression row"
+      ],
+      "reason": "Only the front face is correct; the remaining angles and every profile do not look like Aachu.",
+      "reusable_as_complete_identity_reference": false
+    },
+    {
+      "path": "proof/aachu-face-turnaround-v3-a-story-angle-repair.png",
+      "creator_verdict": "SUPERSEDED_BY_NEW_MULTI_PHOTO_CORRECTION",
+      "reason": "Creator stated the prior work still failed to produce a perfect all-angle A Story of Two character sheet and supplied a stronger photo set.",
+      "reusable_as_identity_reference": false
+    }
   ],
-  "reference_roles_verified": true,
-  "actual_images_attached_required": true,
-  "rendered_joint_identity": "PRELIMINARY_PASS_REVISED_PROOF",
-  "creator_joint_approval": "PENDING_LIKENESS_ACCESSORIES_AND_SCALE",
-  "rendered_pixel_evidence": {
-    "proof_path": "proof/aachu-zuv-joint-proof-v2-accessory-lock.png",
-    "aachu": [
-      "All four vignettes preserve the same soft oval face, dark expressive eyes and brows, long dark hair silhouette, skin tone, and smile geometry.",
-      "The close-face view supplies the clearest likeness evidence; the standing view uses the photo-supported white wrap blouse, jeans, red shoes, and red bag.",
-      "Her small blue evil-eye bracelet remains on the right wrist in the standing, seated, and affectionate views; the close-face crop hides both wrists.",
-      "She reads as an adult of natural build and never tiny, childlike, beautified, or doll-like."
+  "evaluated_proof": {
+    "subject": "Aachu / Anchal",
+    "path": "proof/aachu-face-turnaround-v2-photo-library-reset.png",
+    "reference_ids": [
+      "config/references/identity/aachu/curated-v2/aachu-front-neutral.jpg",
+      "config/references/identity/aachu/curated-v2/aachu-front-open-smile.jpeg",
+      "config/references/identity/aachu/curated-v2/aachu-profile-smile.png",
+      "config/references/identity/aachu/curated-v2/aachu-three-quarter-neutral.jpg"
     ],
-    "zuv": [
-      "All four vignettes preserve the same thick dark hair silhouette, brows, warm skin tone, broad face, trimmed beard and mustache, and smile geometry.",
-      "The beard remains supported by together-18.jpg; the output does not lose it or turn him into a generic model face.",
-      "His small blue evil-eye locket and slim silver chain are centered and visibly consistent in the standing, close-face, seated, and affectionate views.",
-      "His grounded broader build and powder-blue shirt, grey trousers, and red-black shoes remain consistent."
+    "style_reference_id": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "superseded_assistant_pixel_findings": [
+      "The sheet is a technical turnaround rather than a couple montage.",
+      "The face is rebuilt from the newly discovered dedicated Aachu photo library, not from the rejected v1 drawing.",
+      "The construction now preserves Anchal's broader soft oval, full cheeks, softly squared jaw, large round-almond eyes, mostly straight dense hair, natural medium-width nose, and compact lip proportions more faithfully than v1.",
+      "The prior assistant incorrectly treated repeated generated geometry as proof of likeness across angles.",
+      "The right-wrist evil-eye bracelet has a dedicated placement inset.",
+      "The file previously treated as true profile evidence is actually an oblique downward smiling candid and cannot establish neutral side projection."
     ],
-    "couple_scale": "The standing figures share a baseline and read only slightly different in height; Aachu is not miniaturized and Zuv is not oversized.",
-    "identity_limit": "This is an assistant visual comparison, not creator recognition. Solo generation remains blocked until the creator approves both likenesses."
+    "creator_component_verdict": {
+      "front_neutral": "APPROVED",
+      "left_three_quarter": "REJECTED",
+      "right_three_quarter": "REJECTED",
+      "left_profile": "REJECTED",
+      "right_profile": "REJECTED",
+      "expression_row": "REJECTED"
+    },
+    "complete_sheet_approval": "REJECTED_INCOMPLETE_IDENTITY_MATCH"
   },
-  "creator_correction": "Zuv's evil-eye locket and Anchal's evil-eye bracelet must remain consistent and never be silently missing from carousels.",
-  "invalidated_proof": "proof/aachu-zuv-joint-proof-v1.png",
-  "next_gate": "Ask the creator to approve Aachu's likeness, Zuv's likeness, both signature accessories, and the two-inch scale in the revised proof. Stop before solo generation."
+  "current_proof": {
+    "subject": "Aachu / Anchal",
+    "path": "proof/aachu-face-turnaround-v4-photo-angle-reconstruction.png",
+    "approved_likeness_lock": null,
+    "reference_ids": [
+      "config/references/identity/aachu/curated-v3/aachu-master-front.jpg",
+      "config/references/identity/aachu/curated-v3/aachu-shallow-three-quarter.jpg",
+      "config/references/identity/aachu/curated-v3/aachu-deeper-three-quarter.jpg",
+      "config/references/identity/aachu/curated-v3/aachu-smile-close.jpg"
+    ],
+    "style_reference_id": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "assistant_pixel_findings": [
+      "V4 is a fresh generation from four actual curated-v3 Aachu photographs plus the style-only reference; no rejected generated sheet controlled likeness.",
+      "The prompt requires a silent landmark map, one unified 3D head, angle rotation, expression deformation, style application last, and a panel consistency audit.",
+      "It contains front, left/right three-quarter, left/right profile, four expressions, rear hair study, readable face-construction notes, and right-wrist bracelet placement.",
+      "A second targeted edit pass changed only the two profile panels.",
+      "The generated source was 1024x1536; the review final was proportionally scaled and side-padded without crop or facial redraw to exact 1080x1440.",
+      "Mechanical structure, text, style, and accessory placement passed, but creator recognition failed. Those mechanical passes do not make any V4 face reusable."
+    ],
+    "creator_exact_rejection": "the character sheet is not correct.",
+    "screenshot_evidence": "/var/folders/02/gt7632z95lv6y_w6gpf1whsh0000gn/T/TemporaryItems/NSIRD_screencaptureui_GxyhIx/Screenshot 2026-08-24 at 4.26.57 PM.png",
+    "creator_component_verdict": {
+      "front_neutral": "REJECTED_OR_UNAPPROVED_BY_WHOLE_SHEET_VERDICT",
+      "left_three_quarter": "REJECTED_OR_UNAPPROVED_BY_WHOLE_SHEET_VERDICT",
+      "right_three_quarter": "REJECTED_OR_UNAPPROVED_BY_WHOLE_SHEET_VERDICT",
+      "left_profile": "REJECTED_OR_UNAPPROVED_BY_WHOLE_SHEET_VERDICT",
+      "right_profile": "REJECTED_OR_UNAPPROVED_BY_WHOLE_SHEET_VERDICT",
+      "expression_row": "REJECTED_SCREENSHOT_CONFIRMS_GENERIC_FACE_AND_EXPRESSION_DRIFT"
+    },
+    "complete_sheet_approval": "REJECTED_DO_NOT_USE_AS_IDENTITY_INPUT"
+  },
+  "next_gate": "Do not repair or reuse V4. Generate one large neutral-front portrait from actual photos only, stop for creator approval, then proceed one angle at a time. Assemble the final sheet only from approved portrait pixels."
 }

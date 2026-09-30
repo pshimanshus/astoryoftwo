@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { copy } from '../content/copy';
+import { press } from '../styles/motion';
+import { TornPhoto } from '../components/TornPhoto';
 import { useFlow } from '../flow/FlowProvider';
 import { useSession } from '../session/SessionProvider';
 import { deriveStoryBeats, PHASE_TIMINGS } from '../services/fakeGeneration';
@@ -33,40 +35,41 @@ export function PrintingScreen() {
   const name = session.creatorName || 'friend';
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 24, gap: 16, justifyContent: 'center' }}>
-      <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 2 }}
-        style={{ fontFamily: 'var(--font-hand)', fontSize: 16, color: 'var(--ink-soft)', textAlign: 'center' }}>
-        …drawing your story…
-      </motion.div>
+    <div className="sheet" style={{ padding: '64px 26px 32px', justifyContent: 'center', gap: 'var(--space-5)' }}>
+      <span className="sheet__spine">06 — printing</span>
 
-      {phase === 'greet' && (
-        <p style={{ fontSize: 20, lineHeight: 1.4, textAlign: 'center' }}>{copy.printing.greet(name)}</p>
-      )}
+      {/* No infinite pulse here — reducedMotion="user" preserves opacity animations, so an
+          infinite loop would keep running for a user who asked for less motion. Static text; the
+          WebGL page-turn (printing->reveal) is where this screen's motion budget actually goes. */}
+      <p className="kicker" style={{ marginBottom: 0 }}>…drawing your story…</p>
+
+      {phase === 'greet' && <p className="headline" style={{ fontSize: 'clamp(22px, 7vw, 30px)' }}>{copy.printing.greet(name)}</p>}
 
       {phase === 'read' && (
-        <p style={{ fontSize: 16, lineHeight: 1.6 }}>
+        <p className="lede" style={{ maxWidth: '30ch' }}>
           We started A Story of Two for one couple, on cheap paper, late at night. Every story since has been
           someone trusting us with the smallest true thing about their love. Yours is printing now.
         </p>
       )}
 
       {phase === 'feed' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div style={{ display: 'flex', gap: 10, overflowX: 'auto' }}>
-            {[1, 2, 3].map((n) => (
-              <img key={n} src={`https://picsum.photos/seed/astory-feed${n}/300/380`} alt=""
-                style={{ width: 150, height: 190, flex: '0 0 auto', borderRadius: 14, objectFit: 'cover' }} />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
+          <div style={{ display: 'flex', overflowX: 'auto', padding: '12px 20px 12px 0' }}>
+            {[1, 2, 3].map((n, i) => (
+              <div key={n} style={{ flex: '0 0 auto', marginLeft: i === 0 ? 0 : -30, zIndex: i }}>
+                <TornPhoto src={`https://picsum.photos/seed/astory-feed${n}/300/400`} alt="" seed={`feed${n}`} width={140} height={188} />
+              </div>
             ))}
           </div>
           {!askDismissed && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
-              <p style={{ fontSize: 13, color: 'var(--ink-soft)', textAlign: 'center' }}>{copy.printing.askOnce}</p>
-              <div style={{ display: 'flex', gap: 8 }}>
-                <button onClick={() => setFollowed(true)}
-                  style={{ padding: '8px 16px', borderRadius: 12, background: followed ? 'var(--ink)' : 'var(--accent)', color: '#fff', fontSize: 14 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              <p className="kicker" style={{ marginBottom: 0 }}>{copy.printing.askOnce}</p>
+              <div style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'center' }}>
+                <motion.button onClick={() => setFollowed(true)} whileTap={{ y: 1 }} transition={press}
+                  className={`stamp ${followed ? 'stamp--solid' : 'stamp--accent'}`} style={{ padding: '10px 16px', fontSize: 11 }}>
                   {followed ? 'following ♥' : copy.printing.follow}
-                </button>
-                <button onClick={() => setAskDismissed(true)} style={{ color: 'var(--ink-soft)', fontSize: 13 }}>not now</button>
+                </motion.button>
+                <button onClick={() => setAskDismissed(true)} className="kicker" style={{ marginBottom: 0 }}>not now</button>
               </div>
             </div>
           )}

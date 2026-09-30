@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-5242FEBF66CF286A",
+  "feedback_id": "fb-5242febf66cf286a",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-9",
+  "user_instruction_sha256": "sha256:0d0eddf4dc483b6d7ea8cdd484621a677c4dcebc0fff411e0e7af47e13cd55d3",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Replace only Slide 3 with the approved arrival-home, shoulder-to-shoulder scene."
+  ],
+  "must_preserve": [
+    "Preserve the exact copy, Aachu/Zuv identity, neutral-ivory watercolor-and-ink finish, tiny top-right brandmark, and native 1080x1440 format."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-05T10:57:41+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:9b1bd4f79cac6235c1486ed861e43aa2538ffb7b8d4ef1a26f7d794167af746e"
+}

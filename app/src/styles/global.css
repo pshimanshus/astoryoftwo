@@ -9,6 +9,6 @@ body {
   justify-content: center;
 }
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-}
+/* prefers-reduced-motion is handled by <MotionConfig reducedMotion="user"> in App.tsx, and by
+   gating the WebGL import itself in PaperBackground.tsx. framer-motion drives inline styles via
+   rAF, which a CSS animation-duration override can't reach — don't reintroduce one here. */

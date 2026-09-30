@@ -13,7 +13,7 @@ export ASOT_IDEA_LOOP_RUN_DIR := $(value RUN_DIR)
 export ASOT_IDEA_LOOP_MAX_ITERATIONS := $(value IDEA_MAX_ITERATIONS)
 export ASOT_IDEA_LOOP_CANDIDATES := $(value IDEA_CANDIDATES)
 
-.PHONY: help brief analyze health wiki-health idea-loop jam prepost carousel sequence-check patterns publication insights results visual-check identity-health article feedback-integrations feedback-integrations-setup publish publish-dry-run test
+.PHONY: help brief analyze health wiki-health idea-loop jam prepost carousel sequence-check patterns publication insights results visual-check article feedback-integrations feedback-integrations-setup publish publish-dry-run test
 
 help:
 	@printf "%s\n" "AI command center commands:"
@@ -30,7 +30,6 @@ help:
 	@printf "%s\n" "  make insights SHORTCODE=... RECORD=path Save one dated native Insights snapshot"
 	@printf "%s\n" "  make results SHORTCODE=...        Review linked outcomes and next hypothesis"
 	@printf "%s\n" "  make visual-check CAROUSEL=path  Check directed story before/after imagegen"
-	@printf "%s\n" "  make identity-health CAROUSEL=path Check identity lock closed-loop propagation"
 	@printf "%s\n" "  make article CAROUSEL=path       Create Substack article package"
 	@printf "%s\n" "  make feedback-integrations       Report optional SDK and calibration readiness"
 	@printf "%s\n" "  make feedback-integrations-setup Install pinned SDKs in an isolated opt-in venv"
@@ -85,10 +84,6 @@ visual-check:
 
 article:
 	@test -n "$(CAROUSEL)" || (printf "%s\n" "Usage: make article CAROUSEL=output/carousels/YYYY-MM-DD/slug TITLE='Optional title'"; exit 2)
-identity-health:
-	@test -n "$(CAROUSEL)" || (printf "%s\n" "Usage: make identity-health CAROUSEL=output/carousels/YYYY-MM-DD/slug"; exit 2)
-	$(PY) pipeline/stages/health_checks.py --carousel "$(CAROUSEL)"
-
 feedback-integrations:
 	$(FEEDBACK_INTEGRATIONS_PY) evals/runner.py calibration-status
 

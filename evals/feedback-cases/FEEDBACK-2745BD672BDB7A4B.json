@@ -1,0 +1,172 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-2745BD672BDB7A4B",
+  "feedback_id": "fb-2745bd672bdb7a4b",
+  "package_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his",
+  "user_instruction_sha256": "sha256:956b5f8380e580d1778f98d5a05f06d23383523a4e974d2bb56aab342c4879e7",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Delivery person should be Amazon-coded.",
+    "Aachu and Zuv should both face the delivery guy.",
+    "Aachu and Zuv should wear basic home clothes and feel natural."
+  ],
+  "must_preserve": [
+    "Exact slide text: His phone got the OTP.",
+    "Zuv owns the OTP phone and the parcel is still with the delivery person."
+  ],
+  "source_affected_artifacts": [
+    "slides.json"
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "verification_assertions": [
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/3/physical_action",
+      "operator": "contains",
+      "value": "Amazon-coded delivery guy"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/3/physical_action",
+      "operator": "contains",
+      "value": "both facing the delivery guy"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/3/wardrobe",
+      "operator": "contains",
+      "value": "basic home clothes"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/3/copy",
+      "operator": "equals",
+      "value": "His phone got the OTP."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/3/hand_map/scene_action_binding",
+      "operator": "contains",
+      "value": "Zuv shows OTP phone"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/3/hand_map/scene_action_binding",
+      "operator": "contains",
+      "value": "courier holds sealed unlabelled parcel"
+    }
+  ],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:694671a48439666e91c6f5c5dcea7fea73e10505ded728131ef535c9f72218d1"
+  },
+  "status": "passed",
+  "created_at": "2026-09-26T13:49:51+00:00",
+  "evaluated_at": "2026-09-26T13:59:36+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "verification_assertions",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "slides.json": "sha256:96bfd0ccf85059481fb3f3d1ad9369bfb067bc2819b883cb28fb9c8e15acddee"
+      }
+    }
+  ],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 2,
+  "verification_contract_history": [
+    {
+      "revision": 1,
+      "verification_contract_sha256": "sha256:df4c80dba034b62c5d62319181498c923cc7524a5e6c25611cf3bc67c61c6e16",
+      "feedback_id": "fb-2745bd672bdb7a4b",
+      "package_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his",
+      "user_instruction_sha256": "sha256:956b5f8380e580d1778f98d5a05f06d23383523a4e974d2bb56aab342c4879e7",
+      "diagnosis": "scene_action",
+      "must_change": [
+        "Delivery person should be Amazon-coded.",
+        "Aachu and Zuv should both face the delivery guy.",
+        "Aachu and Zuv should wear basic home clothes and feel natural."
+      ],
+      "must_preserve": [
+        "Exact slide text: His phone got the OTP.",
+        "Zuv owns the OTP phone and the parcel is still with the delivery person."
+      ],
+      "source_affected_artifacts": [
+        "slides.json"
+      ],
+      "affected_artifacts": [
+        "slides.json"
+      ],
+      "repair_operations": [],
+      "verification_assertions": [],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:694671a48439666e91c6f5c5dcea7fea73e10505ded728131ef535c9f72218d1"
+      },
+      "preserved_projection_hashes": {},
+      "eval_waiver_reason": null,
+      "superseded_at": "2026-09-26T13:59:35+00:00",
+      "superseded_by": "codex",
+      "reason": "Add machine-checkable assertions for the creator feedback after the visual proof passed."
+    }
+  ],
+  "evaluation_history": [
+    {
+      "status": "unverified",
+      "evaluated_at": "2026-09-26T13:59:02+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 1,
+      "verification_contract_sha256": "sha256:df4c80dba034b62c5d62319181498c923cc7524a5e6c25611cf3bc67c61c6e16",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "machine_verifiable_repair_contract",
+          "status": "UNVERIFIED",
+          "reason": "No repair_operations JSON-pointer assertions are available; no verification_assertions were declared; artifact hashes alone cannot prove must_change or must_preserve."
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:96bfd0ccf85059481fb3f3d1ad9369bfb067bc2819b883cb28fb9c8e15acddee"
+          }
+        }
+      ],
+      "issues": [
+        "machine_verifiable_repair_contract"
+      ],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    }
+  ],
+  "verification_contract_sha256": "sha256:1c2f03c7c59d7ee08b5ac0ec0dbf08867724b7393c37d1f4560e88dfe1083cb4",
+  "issues": [],
+  "waiver_reason": null,
+  "regression_promotable": false
+}

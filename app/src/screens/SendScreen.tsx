@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { copy } from '../content/copy';
+import { press, screenSettle } from '../styles/motion';
 import { useSession } from '../session/SessionProvider';
 import { displayPartnerName } from '../session/session';
 import { SHARE_TARGETS, buildShareMessage, shareTo } from '../services/share';
@@ -19,22 +20,27 @@ export function SendScreen() {
   };
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 18, padding: 28 }}>
+    <div className="sheet" style={{ padding: '64px 28px 32px', justifyContent: open ? 'flex-start' : 'center', gap: 'var(--space-5)' }}>
+      <span className="sheet__spine">09 — send it</span>
+
       {!open ? (
-        <motion.button whileTap={{ scale: 0.95 }} onClick={reveal}
-          style={{ padding: '16px 28px', borderRadius: 16, background: 'var(--accent)', color: '#fff', fontSize: 20 }}>
-          {copy.send.primary(partner)}
-        </motion.button>
+        <>
+          <p className="headline" style={{ fontSize: 'clamp(24px, 7vw, 32px)' }}>ready.</p>
+          <motion.button whileTap={{ y: 2, boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }} transition={press} onClick={reveal}
+            className="stamp stamp--accent">
+            {copy.send.primary(partner)}
+          </motion.button>
+        </>
       ) : (
-        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-          style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%' }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={screenSettle}
+          style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
           {SHARE_TARGETS.map((t) => (
             <button key={t.id} onClick={() => shareTo(t, msg)}
-              style={{ padding: 14, borderRadius: 14, border: '1.5px solid var(--hairline)', fontSize: 16, textAlign: 'left' }}>
+              style={{ padding: '14px 0', borderBottom: '1.5px solid var(--hairline)', fontSize: 'var(--text-body)', textAlign: 'left' }}>
               {t.label}
             </button>
           ))}
-          <p style={{ fontSize: 13, color: 'var(--ink-soft)', textAlign: 'center', marginTop: 6 }}>{copy.send.note}</p>
+          <p className="kicker" style={{ marginTop: 'var(--space-3)' }}>{copy.send.note}</p>
         </motion.div>
       )}
     </div>

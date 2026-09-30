@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Brand Guidance"
+  short_description: "Keep ASOT voice, promise, and boundaries"
+  default_prompt: "Use $a-story-brand-guidance to check this draft against ASOT voice and brand boundaries."
+policy:
+  allow_implicit_invocation: true

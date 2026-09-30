@@ -162,6 +162,37 @@
         "creator-brief.md"
       ]
     },
+    "winning_carousel_research": {
+      "description": "Research and reusable skill stack for stronger ASOT carousel concepts, hooks, swipe flow, captions, visual proof, audience fit, and repurposing.",
+      "components": [
+        "config/skills/winning-carousel-research-runtime-context.md",
+        "memory/semantic/a-story-audience-profile.md",
+        "config/skills/carousel-jam-runtime-context.md",
+        "config/skills/carousel-story-director-persona.md"
+      ],
+      "source_references": [
+        "wiki/insights/successful-carousel-standard.md",
+        "output/reports/2026-05-24-carousel-performance-autopsy.md",
+        "output/reports/2026-06-06-instagram-page-and-competitor-analysis.md",
+        "output/reports/2026-06-27-instagram-growth-playbook-application.md",
+        "memory/semantic/carousel-idea-preferences.md"
+      ],
+      "agents": [],
+      "gates": [
+        "audience_mirror_defined",
+        "hook_slide2_save_slide_defined",
+        "brand_voice_pass",
+        "send_save_reason_defined"
+      ],
+      "artifacts": [
+        "audience-brief.md",
+        "carousel-research-synthesis.md",
+        "hook-options.md",
+        "swipe-architecture.md",
+        "caption-cta-options.md",
+        "repurpose-map.md"
+      ]
+    },
     "story_article": {
       "description": "Carousel or love story to Substack article workflow.",
       "components": [

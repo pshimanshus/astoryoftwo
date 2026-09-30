@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-3BFD2698FF62232E",
+  "feedback_id": "fb-3bfd2698ff62232e",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+  "user_instruction_sha256": "sha256:e38a4f65f402322774697c6f3c759ee8a39e54cc4c87926dfea2336ddb8c59c7",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Audit the full deck for theme consistency; recreate only off-theme slides. Replace Slide 3 with the creator-specified overhead messy-room seated embrace and keep both complete legs visible."
+  ],
+  "must_preserve": [
+    "Do not recreate slides already matching the attached current theme. Preserve all exact slide copy, Aachu/Zuv identity, tiny top-right brandmark, and 1080x1440 output."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-05T10:58:06+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:f11faae6e0a06e7b6132f1a9699361a32acb60ccb39381ace3eadfc9bf17a0cd"
+}

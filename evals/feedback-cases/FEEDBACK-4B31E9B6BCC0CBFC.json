@@ -1,0 +1,227 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-4B31E9B6BCC0CBFC",
+  "feedback_id": "fb-4b31e9b6bcc0cbfc",
+  "package_path": "output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him",
+  "user_instruction_sha256": "sha256:7967a77fdaadca05f766a6bf5765684e749fd3f974e3091de4b971f1d421cc50",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Parcel must sit on the floor at a flat home entrance; no half-knee step-down or sunken threshold.",
+    "Remove Aachu's bag unless the story beat explicitly requires it; slide 4 does not require a bag.",
+    "Avoid same clothes as default; use casual Saturday noon home/delivery clothes for this proof.",
+    "Zuv's evil-eye locket must be visible on his neck whenever the open collar/upper chest is visible.",
+    "QA must explicitly check these creator details before approval."
+  ],
+  "must_preserve": [
+    "Hook and story premise: Marriage is when her parcel calls him.",
+    "Slide 4 proof beat: His phone had the OTP."
+  ],
+  "source_affected_artifacts": [
+    "slides.json",
+    "prompt-pack.json",
+    "proof-qa.json"
+  ],
+  "affected_artifacts": [
+    "slides.json",
+    "prompt-pack.json",
+    "proof-qa.json"
+  ],
+  "verification_assertions": [
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/parcel_on_floor/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/flat_home_entrance/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/aachu_no_bag/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/casual_saturday_noon_clothes/status",
+      "operator": "equals",
+      "value": "PASS"
+    },
+    {
+      "artifact": "proof-qa.json",
+      "json_pointer": "/slides/0/reviews/instagram_post/checks/creator_correction_gates/zuv_evil_eye_locket/status",
+      "operator": "equals",
+      "value": "PASS"
+    }
+  ],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:6dff05db978ecd6c23f025ffba910526dfa262f54790d09e99b5af4be3945391",
+    "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+    "proof-qa.json": "sha256:85b99f9bb57513255caf1866607b04afb5972c6afe3d3211e0b25ce34adc2646"
+  },
+  "status": "passed",
+  "created_at": "2026-09-26T12:25:10+00:00",
+  "evaluated_at": "2026-09-26T13:05:12+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "verification_assertions",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "slides.json": "sha256:284c76e1837907e59a2580ec8b897e6d3e4c800ae567711852af281a8e9f8310",
+        "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+        "proof-qa.json": "sha256:83d811362f030cc52baf2752f8a8b1725f2b638aab3f9af306f39c50d9277f94"
+      }
+    }
+  ],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 2,
+  "verification_contract_history": [
+    {
+      "revision": 1,
+      "verification_contract_sha256": "sha256:62c81812fb838a4e45d739652dbf19c574ced5293ec78598cc90f796b1429f65",
+      "feedback_id": "fb-4b31e9b6bcc0cbfc",
+      "package_path": "output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him",
+      "user_instruction_sha256": "sha256:7967a77fdaadca05f766a6bf5765684e749fd3f974e3091de4b971f1d421cc50",
+      "diagnosis": "scene_action",
+      "must_change": [
+        "Parcel must sit on the floor at a flat home entrance; no half-knee step-down or sunken threshold.",
+        "Remove Aachu's bag unless the story beat explicitly requires it; slide 4 does not require a bag.",
+        "Avoid same clothes as default; use casual Saturday noon home/delivery clothes for this proof.",
+        "Zuv's evil-eye locket must be visible on his neck whenever the open collar/upper chest is visible.",
+        "QA must explicitly check these creator details before approval."
+      ],
+      "must_preserve": [
+        "Hook and story premise: Marriage is when her parcel calls him.",
+        "Slide 4 proof beat: His phone had the OTP."
+      ],
+      "source_affected_artifacts": [
+        "slides.json",
+        "prompt-pack.json",
+        "proof-qa.json"
+      ],
+      "affected_artifacts": [
+        "slides.json",
+        "prompt-pack.json",
+        "proof-qa.json"
+      ],
+      "repair_operations": [],
+      "verification_assertions": [],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:6dff05db978ecd6c23f025ffba910526dfa262f54790d09e99b5af4be3945391",
+        "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+        "proof-qa.json": "sha256:85b99f9bb57513255caf1866607b04afb5972c6afe3d3211e0b25ce34adc2646"
+      },
+      "preserved_projection_hashes": {},
+      "eval_waiver_reason": null,
+      "superseded_at": "2026-09-26T12:40:33+00:00",
+      "superseded_by": "codex",
+      "reason": "Add machine-readable proof QA assertions for the creator correction gates."
+    }
+  ],
+  "evaluation_history": [
+    {
+      "status": "unverified",
+      "evaluated_at": "2026-09-26T12:39:10+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 1,
+      "verification_contract_sha256": "sha256:62c81812fb838a4e45d739652dbf19c574ced5293ec78598cc90f796b1429f65",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "machine_verifiable_repair_contract",
+          "status": "UNVERIFIED",
+          "reason": "No repair_operations JSON-pointer assertions are available; no verification_assertions were declared; artifact hashes alone cannot prove must_change or must_preserve."
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:a124d3bc17d8c63b4ebd36c3872fa517febd8f5a5742fc075a7bcef86419193e",
+            "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+            "proof-qa.json": "sha256:1f59bb04993e6f50b4167dd301d46d06fe92eaad8f8495fd8fccf6c68bf6a0aa"
+          }
+        }
+      ],
+      "issues": [
+        "machine_verifiable_repair_contract"
+      ],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-26T12:40:34+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 2,
+      "verification_contract_sha256": "sha256:076592b37f101b35f626210ec82b808a273c63752f102a2cdf73568de8114679",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:a124d3bc17d8c63b4ebd36c3872fa517febd8f5a5742fc075a7bcef86419193e",
+            "prompt-pack.json": "sha256:571fb1b8901754074df374798d5105fbfad2057c35fd70c603e679f7eb539f80",
+            "proof-qa.json": "sha256:1f59bb04993e6f50b4167dd301d46d06fe92eaad8f8495fd8fccf6c68bf6a0aa"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    }
+  ],
+  "verification_contract_sha256": "sha256:076592b37f101b35f626210ec82b808a273c63752f102a2cdf73568de8114679",
+  "issues": [],
+  "waiver_reason": null,
+  "regression_promotable": false
+}

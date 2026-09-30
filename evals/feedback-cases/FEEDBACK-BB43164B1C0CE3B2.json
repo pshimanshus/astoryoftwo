@@ -1,0 +1,147 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-BB43164B1C0CE3B2",
+  "feedback_id": "fb-bb43164b1c0ce3b2",
+  "package_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his",
+  "user_instruction_sha256": "sha256:38b56d2822984d118ee34b6671a49d7203dff497f4a9a54a7e8eb75f6098c5fe",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Slides 1, 3, 5, 6, and 7 must preserve delivery-day basic home clothes matching slide 4: Aachu in a simple white/off-white home top with lounge bottoms; Zuv in a dark basic tee/top with gray lounge pants.",
+    "Slides 4 through 7 must clearly continue the same parcel state: sealed with courier, sealed in Aachu's hands, partly opened, then opened on table between both phones."
+  ],
+  "must_preserve": [
+    "Exact on-image copy and tiny @a.storyof.two signature.",
+    "Approved slide 4 Amazon-coded courier/OTP logic and Zuv as the OTP phone owner."
+  ],
+  "source_affected_artifacts": [
+    "slides.json"
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "verification_assertions": [
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/0/wardrobe",
+      "operator": "contains",
+      "value": "LOCKED DELIVERY-DAY WARDROBE"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/4/wardrobe",
+      "operator": "contains",
+      "value": "Absolutely no gray blazer"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/6/continuity_lock",
+      "operator": "contains",
+      "value": "Direct continuation of slide 6"
+    }
+  ],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:6bfea6d1ef4840ed975ca99e7572b75bf001564e01516fafbd8fff4eb8eaca13"
+  },
+  "status": "failed",
+  "created_at": "2026-09-26T17:48:43+00:00",
+  "evaluated_at": "2026-09-26T17:49:46+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_repair_values",
+      "status": "PASS"
+    },
+    {
+      "code": "unaffected_json_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "failure_reproduced",
+      "status": "FAIL"
+    },
+    {
+      "code": "verification_assertions",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "slides.json": "sha256:8c4beb65ee2615e1311fb2ca5a7859233b3509bfcd05ffa6227fb9812e946a22"
+      }
+    }
+  ],
+  "repair_operations": [
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/0/wardrobe",
+      "value": "LOCKED DELIVERY-DAY WARDROBE matching slide 4: Aachu wears a simple white or off-white loose home tee/top with plain gray lounge bottoms; Zuv wears a dark charcoal/navy basic tee/top with gray lounge pants. These clothes must stay identical on slides 1 and 3 through 7."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/2/wardrobe",
+      "value": "LOCKED DELIVERY-DAY WARDROBE matching slide 4: Zuv wears the same dark charcoal/navy basic tee/top and gray lounge pants he wears at the door. Aachu is absent. This must not look like a different day or a different outfit."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/4/wardrobe",
+      "value": "SAME LOCKED DELIVERY-DAY WARDROBE AS SLIDE 4: Aachu in the simple white/off-white home tee/top with gray lounge bottoms; Zuv in the dark charcoal/navy basic tee/top with gray lounge pants. Absolutely no gray blazer, no green top, no formal shirt, no outfit change."
+    }
+  ],
+  "preserved_projection_hashes": {
+    "slides.json": "sha256:c6338510f13dc627e38ce61e747c6f5fa2e939d9664072737d86fa4f5bd55855"
+  },
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 2,
+  "verification_contract_history": [
+    {
+      "revision": 1,
+      "verification_contract_sha256": "sha256:fcd2685678264ffc848b005497d3c57d43ced62150e4d09be5f31e0b326f6414",
+      "feedback_id": "fb-bb43164b1c0ce3b2",
+      "package_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his",
+      "user_instruction_sha256": "sha256:38b56d2822984d118ee34b6671a49d7203dff497f4a9a54a7e8eb75f6098c5fe",
+      "diagnosis": "scene_action",
+      "must_change": [
+        "Slides 1, 3, 5, 6, and 7 must preserve delivery-day basic home clothes matching slide 4: Aachu in a simple white/off-white home top with lounge bottoms; Zuv in a dark basic tee/top with gray lounge pants.",
+        "Slides 4 through 7 must clearly continue the same parcel state: sealed with courier, sealed in Aachu's hands, partly opened, then opened on table between both phones."
+      ],
+      "must_preserve": [
+        "Exact on-image copy and tiny @a.storyof.two signature.",
+        "Approved slide 4 Amazon-coded courier/OTP logic and Zuv as the OTP phone owner."
+      ],
+      "source_affected_artifacts": [
+        "slides.json"
+      ],
+      "affected_artifacts": [
+        "slides.json"
+      ],
+      "repair_operations": [],
+      "verification_assertions": [],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:6bfea6d1ef4840ed975ca99e7572b75bf001564e01516fafbd8fff4eb8eaca13"
+      },
+      "preserved_projection_hashes": {},
+      "eval_waiver_reason": null,
+      "superseded_at": "2026-09-26T17:49:46+00:00",
+      "superseded_by": "codex",
+      "reason": "Locked delivery-day wardrobe and parcel-state sequence after creator flagged clothes consistency and sequence issue."
+    }
+  ],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:02d17b416c89490621352c37fcf8547b1726b01b54d7948fac255c315b43d6a1",
+  "issues": [
+    "failure_reproduced"
+  ],
+  "waiver_reason": null,
+  "regression_promotable": false
+}

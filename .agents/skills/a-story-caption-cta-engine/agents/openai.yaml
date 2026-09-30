@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Caption CTA Engine"
+  short_description: "Write earned captions and soft CTAs"
+  default_prompt: "Use $a-story-caption-cta-engine to write a caption that earns a natural send/save/comment reason."
+policy:
+  allow_implicit_invocation: true

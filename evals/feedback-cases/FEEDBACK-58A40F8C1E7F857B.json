@@ -1,0 +1,741 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-58A40F8C1E7F857B",
+  "feedback_id": "fb-58a40f8c1e7f857b",
+  "package_path": "output/carousels/2026-09-04/i-have-lived-so-many-years-without-you",
+  "user_instruction_sha256": "sha256:1f487b35c623043bf80b5712ff1b9fe6c1c54a6bfc66bf8a4de9de4fec0f6596",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Replace the shared train journey on slides 1 and 6 with an established-couple commercial flight scene."
+  ],
+  "must_preserve": [
+    "Zuv POV, all ten exact copy lines, 1080x1440 format, shared-action bookend, identity accessories, remaining scenes and reciprocal quilt ending."
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:ce97ad936a929373ba284530950aac9b81940f894f68e203a89b36fd39d76354"
+  },
+  "status": "passed",
+  "created_at": "2026-09-05T06:53:16+00:00",
+  "evaluated_at": "2026-09-12T13:16:59+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "verification_assertions",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "slides.json": "sha256:b991daf2f42a93626c081706f7e8d339a95b94fc3b4038c433100e40f3727071"
+      }
+    }
+  ],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "issues": [],
+  "waiver_reason": null,
+  "regression_promotable": false,
+  "source_affected_artifacts": [
+    "slides.json"
+  ],
+  "verification_assertions": [
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/0/copy",
+      "operator": "equals",
+      "value": "I have lived so many years without you."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/1/copy",
+      "operator": "equals",
+      "value": "I went to school without you."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/2/copy",
+      "operator": "equals",
+      "value": "I went to college without you."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/3/copy",
+      "operator": "equals",
+      "value": "I had so many heartbreaks because you weren't there yet."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/4/copy",
+      "operator": "equals",
+      "value": "I sat alone in so many corners, not knowing you would one day sit beside me."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/5/copy",
+      "operator": "equals",
+      "value": "Now that I have you, I don't want to lose another second."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/6/copy",
+      "operator": "equals",
+      "value": "I want to travel with you, eat dinner with you, and fulfill my goals beside you."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/7/copy",
+      "operator": "equals",
+      "value": "I want to pray with you, walk with you, and spend the rest of my life with you."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/8/copy",
+      "operator": "equals",
+      "value": "I want to grow old with you."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/9/copy",
+      "operator": "equals",
+      "value": "And I want to die with you."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/0/setting/place",
+      "operator": "contains",
+      "value": "commercial flight"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/5/setting/place",
+      "operator": "contains",
+      "value": "Aircraft: Zuv window-seat, Aachu aisle-seat"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/0/physical_action",
+      "operator": "contains",
+      "value": "oval aircraft window"
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/5/physical_action",
+      "operator": "contains",
+      "value": "oval aircraft window"
+    }
+  ],
+  "verification_contract_revision": 3,
+  "verification_contract_history": [
+    {
+      "revision": 1,
+      "verification_contract_sha256": null,
+      "affected_artifacts": [
+        "slides.json"
+      ],
+      "repair_operations": [],
+      "verification_assertions": [],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:ce97ad936a929373ba284530950aac9b81940f894f68e203a89b36fd39d76354"
+      },
+      "preserved_projection_hashes": {},
+      "superseded_at": "2026-09-05T10:34:34+00:00",
+      "superseded_by": "codex",
+      "reason": "Replace obsolete hash-only evidence with explicit commercial-flight bookend and exact-copy storyboard assertions. This does not certify generated pixels."
+    },
+    {
+      "revision": 2,
+      "verification_contract_sha256": "sha256:908742b85442aa90dcbe4d3715dfed887f79900764a2f91a258cb23c1ddea207",
+      "feedback_id": "fb-58a40f8c1e7f857b",
+      "package_path": "output/carousels/2026-09-04/i-have-lived-so-many-years-without-you",
+      "user_instruction_sha256": "sha256:1f487b35c623043bf80b5712ff1b9fe6c1c54a6bfc66bf8a4de9de4fec0f6596",
+      "diagnosis": "scene_action",
+      "must_change": [
+        "Replace the shared train journey on slides 1 and 6 with an established-couple commercial flight scene."
+      ],
+      "must_preserve": [
+        "Zuv POV, all ten exact copy lines, 1080x1440 format, shared-action bookend, identity accessories, remaining scenes and reciprocal quilt ending."
+      ],
+      "source_affected_artifacts": [
+        "slides.json"
+      ],
+      "affected_artifacts": [
+        "slides.json"
+      ],
+      "repair_operations": [],
+      "verification_assertions": [
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/0/copy",
+          "operator": "equals",
+          "value": "I have lived so many years without you."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/1/copy",
+          "operator": "equals",
+          "value": "I went to school without you."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/2/copy",
+          "operator": "equals",
+          "value": "I went to college without you."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/3/copy",
+          "operator": "equals",
+          "value": "I had so many heartbreaks because you weren't there yet."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/4/copy",
+          "operator": "equals",
+          "value": "I sat alone in so many corners, not knowing you would one day sit beside me."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/5/copy",
+          "operator": "equals",
+          "value": "Now that I have you, I don't want to lose another second."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/6/copy",
+          "operator": "equals",
+          "value": "I want to travel with you, eat dinner with you, and fulfill my goals beside you."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/7/copy",
+          "operator": "equals",
+          "value": "I want to pray with you, walk with you, and spend the rest of my life with you."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/8/copy",
+          "operator": "equals",
+          "value": "I want to grow old with you."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/9/copy",
+          "operator": "equals",
+          "value": "And I want to die with you."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/0/setting/place",
+          "operator": "contains",
+          "value": "commercial flight"
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/5/setting/place",
+          "operator": "contains",
+          "value": "aircraft seats"
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/0/physical_action",
+          "operator": "contains",
+          "value": "oval aircraft window"
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/5/physical_action",
+          "operator": "contains",
+          "value": "oval aircraft window"
+        }
+      ],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:ce97ad936a929373ba284530950aac9b81940f894f68e203a89b36fd39d76354"
+      },
+      "preserved_projection_hashes": {},
+      "eval_waiver_reason": null,
+      "superseded_at": "2026-09-05T11:05:07+00:00",
+      "superseded_by": "codex",
+      "reason": "Slide 6 now spells out aircraft seating to make the standalone proof physically unambiguous. Replace the old descriptive substring with the full stronger seating value; preserve all exact-copy/window assertions. Storyboard-only verification cannot approve failed pixels."
+    }
+  ],
+  "evaluation_history": [
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-05T06:59:41+00:00",
+      "evaluator_contract_version": null,
+      "evaluator_contract_sha256": null,
+      "verification_contract_revision": null,
+      "verification_contract_sha256": null,
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:8f554d1ed04a6033a50a6cc1b063988009fc06389bce18b72c148f6202a34262"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-05T10:34:34+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:baf8f0182ec4c8284fc2cbe63e8ac284b361ffbfab0cd58547564589b539f49a",
+      "verification_contract_revision": 2,
+      "verification_contract_sha256": "sha256:b65bb48ffd9bc4890b43e610021fb4b70a86f5c3874fb885e5984f22da398f50",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:8f554d1ed04a6033a50a6cc1b063988009fc06389bce18b72c148f6202a34262"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-05T10:38:42+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 2,
+      "verification_contract_sha256": "sha256:b65bb48ffd9bc4890b43e610021fb4b70a86f5c3874fb885e5984f22da398f50",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:8f554d1ed04a6033a50a6cc1b063988009fc06389bce18b72c148f6202a34262"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-05T10:42:53+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 2,
+      "verification_contract_sha256": "sha256:908742b85442aa90dcbe4d3715dfed887f79900764a2f91a258cb23c1ddea207",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:8f554d1ed04a6033a50a6cc1b063988009fc06389bce18b72c148f6202a34262"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "failed",
+      "evaluated_at": "2026-09-05T11:03:51+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 2,
+      "verification_contract_sha256": "sha256:908742b85442aa90dcbe4d3715dfed887f79900764a2f91a258cb23c1ddea207",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "FAIL"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:b216d172fa7d14ba5f611f486515939c65861384bcf7ce6a19703282e3716373"
+          }
+        }
+      ],
+      "issues": [
+        "verification_assertions"
+      ],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-05T11:05:07+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:b216d172fa7d14ba5f611f486515939c65861384bcf7ce6a19703282e3716373"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-05T11:17:29+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:db518fbe2e4bbf7f1318484747b302fbc5f7288268ca68f325658b7c8f96e69f"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "failed",
+      "evaluated_at": "2026-09-12T12:21:32+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "FAIL"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:864a0a712070e4604e8663f078e65bd0a9047ab720c588853244cb466edf71ee"
+          }
+        }
+      ],
+      "issues": [
+        "verification_assertions"
+      ],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-12T12:23:27+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:2dcc41a71d5cfa5c53ce8e7c343134dd57386190cc1546f81011fa9ab3490585"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-12T12:59:07+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:f4c8659dad391d0dc74141fc4db07c54c2ac37bde4868844a06d508d78a8f700"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-12T13:00:30+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:09d8129645de0820d39e2a3ccec1fe2df5943b65fc5ddaa1151e2150cccdfda7"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-12T13:01:08+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:0c82a26ca443bf5aedc6b4d87b4f27d6f2dbdd997f7459b0ce95a50c1fd086d9"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-12T13:14:58+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:497184f772b0689a42086d7d06ce2af70a994d3477e3ec1c302fb2cd390fa66f"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    },
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-12T13:15:55+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 3,
+      "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:303442b53e539aa924e2458bd7cc9275914087843bc36fa3aa699817252afafa"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": false,
+      "regression_promotable": false,
+      "waiver_reason": null
+    }
+  ],
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_sha256": "sha256:48df4ebeb4e39955cadd2bd314f73c41917619658df6f11b5330020d93aa5b18",
+  "eval_waiver_reason": null
+}

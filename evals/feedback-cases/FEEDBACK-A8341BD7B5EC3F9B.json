@@ -1,0 +1,38 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-A8341BD7B5EC3F9B",
+  "feedback_id": "fb-a8341bd7b5ec3f9b",
+  "package_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his",
+  "user_instruction_sha256": "sha256:9c771c144102c258be21f838949204134e4980a62683094012b91108a9806bff",
+  "diagnosis": "voice_copy",
+  "must_change": [
+    "Remove the 'posting' idea and replace it with context-native copy and setup."
+  ],
+  "must_preserve": [
+    "The payoff must answer the opening mismatch: her parcel, his OTP, and the turn from 'her order' to 'what did we order?'"
+  ],
+  "source_affected_artifacts": [
+    "slides.json"
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:cf78dff88ea888dd7068e2ddb657bfbc737f2c6cfc1687a9193e56cdeda4c5a1"
+  },
+  "status": "pending",
+  "created_at": "2026-09-26T18:27:47+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:8202cf2a1d6371b17a88d1d7f45e1b497096fd790943c8872f51f7bbacdd9b65"
+}

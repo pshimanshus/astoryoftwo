@@ -1,0 +1,1471 @@
+{
+  "architecture": "Cover -> Cold Open -> Deepening -> Turn -> Payoff",
+  "story_plan": {
+    "theme": "Saath rehte hain. Phir bhi tumhari yaad aati hai.",
+    "recognition": "The nightly I love you can slip into a routine without eye contact.",
+    "sequence_mode": "relationship_change",
+    "opening_promise": "How can you miss someone who shares your bed?",
+    "mismatch": "Their affectionate words are present but their attention is elsewhere.",
+    "turn_or_accumulation": "Aachu catches herself and repeats the words while looking at him.",
+    "payoff": "Zuv returns her gaze and the same words; only then does the light go off.",
+    "send_reason": "Tonight, let me actually look at you when I say it."
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "role": "cover",
+      "copy": "Saath rehte hain.\nPhir bhi tumhari yaad aati hai.",
+      "copy_mode": "text",
+      "beat_delta": "They share a bed but have not met each other’s gaze.",
+      "copy_image_relation": {
+        "kind": "completion",
+        "proof": "hands finish familiar routines without eye contact"
+      },
+      "physical_action": "Aachu settles onto the right half of their bed as Zuv straightens his pillow on the left; both look at their separate bedtime tasks, bodies close but eyes apart.",
+      "relationship_state": "They share a bed but have not met each other’s gaze.",
+      "emotion": "quiet recognition and reciprocal affection",
+      "camera": {
+        "shot_size": "Wide from foot of bed, slightly elevated",
+        "position": "From foot of bed; preserve left/right axis.",
+        "negative_space": "Neutral ivory upper quarter for exact copy."
+      },
+      "focal_hierarchy": "Faces and gaze; right-hand action; lamp state; copy.",
+      "setting": {
+        "place": "One bedroom: oak headboard, white pillows, blue duvet, right bedside lamp.",
+        "time": "Bedtime.",
+        "motivated_light": "Local bedside lamp; cool window fill, neutral paper.",
+        "depth_layers": {
+          "foreground": "Blue duvet folds.",
+          "midground": "Two faces and focal hand.",
+          "background": "Pillows, headboard, right lamp."
+        }
+      },
+      "wardrobe": "Aachu in loose white cotton button-front sleep shirt derived from together-16 white shirt, sleeves rolled to expose right evil-eye bracelet; Zuv in charcoal soft short-sleeve shirt derived from together-18, slim silver chain and small round evil-eye locket at open collar. Relaxed bedtime adaptation, no jackets, no watches, no sunglasses. Same wardrobe throughout.",
+      "continuity_lock": "Exactly two recognizable adults, Aachu image right and Zuv image left on one bed. Lamp stays on through slide 6. No phones, chores, tears, argument or exaggerated seductive pose.",
+      "props": [
+        "one bed",
+        "two pillows",
+        "muted blue duvet",
+        "one lamp and switch"
+      ],
+      "hand_map": {
+        "scene_action_binding": "Aachu settles onto the right half of their bed as Zuv straightens his pillow on the left; both look at their separate bedtime tasks, bodies close but eyes apart.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "right hand resting on the duvet over her own thigh",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "right hand resting on the duvet over her own thigh"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "left hand straightening his own pillow",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "left hand straightening his own pillow"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          }
+        ],
+        "forbidden": [
+          "unowned hand",
+          "hand with no narrative purpose in the locked scene",
+          "hand without a visible or naturally occluded wrist/forearm connection",
+          "extra or duplicated hand, arm, wrist, or fingers",
+          "one hand performing two spatially incompatible actions",
+          "anonymous hand entering from the door, wall, frame edge, or another body",
+          "hand, wrist, or forearm penetrating a box, door, table, clothing, or other solid object",
+          "load-bearing grip whose fingers, palm, wrist, or object edge do not meet believably"
+        ]
+      },
+      "spatial_topology": {
+        "scene_action_binding": "Aachu settles onto the right half of their bed as Zuv straightens his pillow on the left; both look at their separate bedtime tasks, bodies close but eyes apart.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          }
+        ],
+        "solid_objects": [
+          "bed mattress",
+          "pillows",
+          "headboard",
+          "bedside table",
+          "lamp"
+        ],
+        "review_order": [
+          "whole-frame person silhouette",
+          "environment planes and boundaries",
+          "person-object front/behind/contact relationship",
+          "occlusion continuation",
+          "local limb and hand anatomy"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into a door, wall, furniture, box, floor, or other solid object",
+          "doorframe, wall, furniture, or container edge running through a head, shoulder, back, torso, or limb",
+          "untraceable body volume hidden behind painterly texture",
+          "architecture bending, changing thickness, or replacing part of a person's silhouette",
+          "unresolved depth relationship labeled as probably correct"
+        ]
+      },
+      "visual_richness": {
+        "scene_action_binding": "Use physical_action exactly.",
+        "point_of_view": "Aachu notices her own automatic reply.",
+        "before_frame": "A routine bedtime reply without eye contact.",
+        "after_frame": "Their gaze and bodies turn toward each other.",
+        "continuation_pull": "Will he notice the changed attention?",
+        "story_evidence": [
+          {
+            "carrier": "Two pillows occupied separately",
+            "observable_state": "hands finish familiar routines without eye contact",
+            "narrative_job": "They share a bed but have not met each other’s gaze."
+          }
+        ],
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      }
+    },
+    {
+      "slide": 2,
+      "role": "cold_open",
+      "copy": "Goodnight. Love you.\nLove you too.",
+      "copy_mode": "text",
+      "beat_delta": "Affection is real but automatic.",
+      "copy_image_relation": {
+        "kind": "completion",
+        "proof": "her face points toward the lamp as he speaks"
+      },
+      "physical_action": "Zuv lies on the left pillow with eyes down, beginning to settle to sleep; Aachu on the right answers while her right hand reaches toward the unpressed bedside lamp switch. Neither looks at the other.",
+      "relationship_state": "Affection is real but automatic.",
+      "emotion": "quiet recognition and reciprocal affection",
+      "camera": {
+        "shot_size": "Medium diagonal view from foot-right of bed",
+        "position": "From foot of bed; preserve left/right axis.",
+        "negative_space": "Neutral ivory upper quarter for exact copy."
+      },
+      "focal_hierarchy": "Faces and gaze; right-hand action; lamp state; copy.",
+      "setting": {
+        "place": "One bedroom: oak headboard, white pillows, blue duvet, right bedside lamp.",
+        "time": "Bedtime.",
+        "motivated_light": "Local bedside lamp; cool window fill, neutral paper.",
+        "depth_layers": {
+          "foreground": "Blue duvet folds.",
+          "midground": "Two faces and focal hand.",
+          "background": "Pillows, headboard, right lamp."
+        }
+      },
+      "wardrobe": "Aachu in loose white cotton button-front sleep shirt derived from together-16 white shirt, sleeves rolled to expose right evil-eye bracelet; Zuv in charcoal soft short-sleeve shirt derived from together-18, slim silver chain and small round evil-eye locket at open collar. Relaxed bedtime adaptation, no jackets, no watches, no sunglasses. Same wardrobe throughout.",
+      "continuity_lock": "Exactly two recognizable adults, Aachu image right and Zuv image left on one bed. Lamp stays on through slide 6. No phones, chores, tears, argument or exaggerated seductive pose.",
+      "props": [
+        "one bed",
+        "two pillows",
+        "muted blue duvet",
+        "one lamp and switch"
+      ],
+      "hand_map": {
+        "scene_action_binding": "Zuv lies on the left pillow with eyes down, beginning to settle to sleep; Aachu on the right answers while her right hand reaches toward the unpressed bedside lamp switch. Neither looks at the other.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "right fingertips reaching toward switch on her own bedside table, not yet pressing",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "right fingertips reaching toward switch on her own bedside table, not yet pressing"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "left hand out of frame",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          }
+        ],
+        "forbidden": [
+          "unowned hand",
+          "hand with no narrative purpose in the locked scene",
+          "hand without a visible or naturally occluded wrist/forearm connection",
+          "extra or duplicated hand, arm, wrist, or fingers",
+          "one hand performing two spatially incompatible actions",
+          "anonymous hand entering from the door, wall, frame edge, or another body",
+          "hand, wrist, or forearm penetrating a box, door, table, clothing, or other solid object",
+          "load-bearing grip whose fingers, palm, wrist, or object edge do not meet believably"
+        ]
+      },
+      "spatial_topology": {
+        "scene_action_binding": "Zuv lies on the left pillow with eyes down, beginning to settle to sleep; Aachu on the right answers while her right hand reaches toward the unpressed bedside lamp switch. Neither looks at the other.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          }
+        ],
+        "solid_objects": [
+          "bed mattress",
+          "pillows",
+          "headboard",
+          "bedside table",
+          "lamp"
+        ],
+        "review_order": [
+          "whole-frame person silhouette",
+          "environment planes and boundaries",
+          "person-object front/behind/contact relationship",
+          "occlusion continuation",
+          "local limb and hand anatomy"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into a door, wall, furniture, box, floor, or other solid object",
+          "doorframe, wall, furniture, or container edge running through a head, shoulder, back, torso, or limb",
+          "untraceable body volume hidden behind painterly texture",
+          "architecture bending, changing thickness, or replacing part of a person's silhouette",
+          "unresolved depth relationship labeled as probably correct"
+        ]
+      },
+      "visual_richness": {
+        "scene_action_binding": "Use physical_action exactly.",
+        "point_of_view": "Aachu notices her own automatic reply.",
+        "before_frame": "A routine bedtime reply without eye contact.",
+        "after_frame": "Their gaze and bodies turn toward each other.",
+        "continuation_pull": "Will he notice the changed attention?",
+        "story_evidence": [
+          {
+            "carrier": "Lamp still on",
+            "observable_state": "her face points toward the lamp as he speaks",
+            "narrative_job": "Affection is real but automatic."
+          }
+        ],
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      }
+    },
+    {
+      "slide": 3,
+      "role": "deepening",
+      "copy": "",
+      "copy_mode": "wordless",
+      "beat_delta": "She notices the missing attention herself.",
+      "copy_image_relation": {
+        "kind": "wordless",
+        "proof": "the interrupted reach prevents the room going dark"
+      },
+      "physical_action": "Aachu stops her right hand a few centimeters short of the switch and glances back toward Zuv on the left pillow, realizing she has answered without looking at him.",
+      "relationship_state": "She notices the missing attention herself.",
+      "emotion": "quiet recognition and reciprocal affection",
+      "camera": {
+        "shot_size": "Close view past lamp toward Aachu with Zuv softly behind",
+        "position": "From foot of bed; preserve left/right axis.",
+        "negative_space": "Neutral ivory upper quarter for exact copy."
+      },
+      "focal_hierarchy": "Faces and gaze; right-hand action; lamp state; copy.",
+      "setting": {
+        "place": "One bedroom: oak headboard, white pillows, blue duvet, right bedside lamp.",
+        "time": "Bedtime.",
+        "motivated_light": "Local bedside lamp; cool window fill, neutral paper.",
+        "depth_layers": {
+          "foreground": "Blue duvet folds.",
+          "midground": "Two faces and focal hand.",
+          "background": "Pillows, headboard, right lamp."
+        }
+      },
+      "wardrobe": "Aachu in loose white cotton button-front sleep shirt derived from together-16 white shirt, sleeves rolled to expose right evil-eye bracelet; Zuv in charcoal soft short-sleeve shirt derived from together-18, slim silver chain and small round evil-eye locket at open collar. Relaxed bedtime adaptation, no jackets, no watches, no sunglasses. Same wardrobe throughout.",
+      "continuity_lock": "Exactly two recognizable adults, Aachu image right and Zuv image left on one bed. Lamp stays on through slide 6. No phones, chores, tears, argument or exaggerated seductive pose.",
+      "props": [
+        "one bed",
+        "two pillows",
+        "muted blue duvet",
+        "one lamp and switch"
+      ],
+      "hand_map": {
+        "scene_action_binding": "Aachu stops her right hand a few centimeters short of the switch and glances back toward Zuv on the left pillow, realizing she has answered without looking at him.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "right fingertips suspended short of lamp switch",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "right fingertips suspended short of lamp switch"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "left hand out of frame",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          }
+        ],
+        "forbidden": [
+          "unowned hand",
+          "hand with no narrative purpose in the locked scene",
+          "hand without a visible or naturally occluded wrist/forearm connection",
+          "extra or duplicated hand, arm, wrist, or fingers",
+          "one hand performing two spatially incompatible actions",
+          "anonymous hand entering from the door, wall, frame edge, or another body",
+          "hand, wrist, or forearm penetrating a box, door, table, clothing, or other solid object",
+          "load-bearing grip whose fingers, palm, wrist, or object edge do not meet believably"
+        ]
+      },
+      "spatial_topology": {
+        "scene_action_binding": "Aachu stops her right hand a few centimeters short of the switch and glances back toward Zuv on the left pillow, realizing she has answered without looking at him.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          }
+        ],
+        "solid_objects": [
+          "bed mattress",
+          "pillows",
+          "headboard",
+          "bedside table",
+          "lamp"
+        ],
+        "review_order": [
+          "whole-frame person silhouette",
+          "environment planes and boundaries",
+          "person-object front/behind/contact relationship",
+          "occlusion continuation",
+          "local limb and hand anatomy"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into a door, wall, furniture, box, floor, or other solid object",
+          "doorframe, wall, furniture, or container edge running through a head, shoulder, back, torso, or limb",
+          "untraceable body volume hidden behind painterly texture",
+          "architecture bending, changing thickness, or replacing part of a person's silhouette",
+          "unresolved depth relationship labeled as probably correct"
+        ]
+      },
+      "visual_richness": {
+        "scene_action_binding": "Use physical_action exactly.",
+        "point_of_view": "Aachu notices her own automatic reply.",
+        "before_frame": "A routine bedtime reply without eye contact.",
+        "after_frame": "Their gaze and bodies turn toward each other.",
+        "continuation_pull": "Will he notice the changed attention?",
+        "story_evidence": [
+          {
+            "carrier": "Gap between fingertip and switch",
+            "observable_state": "the interrupted reach prevents the room going dark",
+            "narrative_job": "She notices the missing attention herself."
+          }
+        ],
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      }
+    },
+    {
+      "slide": 4,
+      "role": "turn",
+      "copy": "Suno.\nKya hua?",
+      "copy_mode": "text",
+      "beat_delta": "She asks for his attention; he responds.",
+      "copy_image_relation": {
+        "kind": "completion",
+        "proof": "his head turns before his shoulders"
+      },
+      "physical_action": "Aachu turns away from the lamp toward Zuv and gently rests her right hand on his left upper arm. Zuv turns his head back toward her, curious. Both remain reclined in one bed.",
+      "relationship_state": "She asks for his attention; he responds.",
+      "emotion": "quiet recognition and reciprocal affection",
+      "camera": {
+        "shot_size": "Medium view at mattress level from their feet",
+        "position": "From foot of bed; preserve left/right axis.",
+        "negative_space": "Neutral ivory upper quarter for exact copy."
+      },
+      "focal_hierarchy": "Faces and gaze; right-hand action; lamp state; copy.",
+      "setting": {
+        "place": "One bedroom: oak headboard, white pillows, blue duvet, right bedside lamp.",
+        "time": "Bedtime.",
+        "motivated_light": "Local bedside lamp; cool window fill, neutral paper.",
+        "depth_layers": {
+          "foreground": "Blue duvet folds.",
+          "midground": "Two faces and focal hand.",
+          "background": "Pillows, headboard, right lamp."
+        }
+      },
+      "wardrobe": "Aachu in loose white cotton button-front sleep shirt derived from together-16 white shirt, sleeves rolled to expose right evil-eye bracelet; Zuv in charcoal soft short-sleeve shirt derived from together-18, slim silver chain and small round evil-eye locket at open collar. Relaxed bedtime adaptation, no jackets, no watches, no sunglasses. Same wardrobe throughout.",
+      "continuity_lock": "Exactly two recognizable adults, Aachu image right and Zuv image left on one bed. Lamp stays on through slide 6. No phones, chores, tears, argument or exaggerated seductive pose.",
+      "props": [
+        "one bed",
+        "two pillows",
+        "muted blue duvet",
+        "one lamp and switch"
+      ],
+      "hand_map": {
+        "scene_action_binding": "Aachu turns away from the lamp toward Zuv and gently rests her right hand on his left upper arm. Zuv turns his head back toward her, curious. Both remain reclined in one bed.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "right palm lightly touching outside of Zuv left upper arm",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "right palm lightly touching outside of Zuv left upper arm"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "left hand resting on duvet near his own waist",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "left hand resting on duvet near his own waist"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          }
+        ],
+        "forbidden": [
+          "unowned hand",
+          "hand with no narrative purpose in the locked scene",
+          "hand without a visible or naturally occluded wrist/forearm connection",
+          "extra or duplicated hand, arm, wrist, or fingers",
+          "one hand performing two spatially incompatible actions",
+          "anonymous hand entering from the door, wall, frame edge, or another body",
+          "hand, wrist, or forearm penetrating a box, door, table, clothing, or other solid object",
+          "load-bearing grip whose fingers, palm, wrist, or object edge do not meet believably"
+        ]
+      },
+      "spatial_topology": {
+        "scene_action_binding": "Aachu turns away from the lamp toward Zuv and gently rests her right hand on his left upper arm. Zuv turns his head back toward her, curious. Both remain reclined in one bed.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          }
+        ],
+        "solid_objects": [
+          "bed mattress",
+          "pillows",
+          "headboard",
+          "bedside table",
+          "lamp"
+        ],
+        "review_order": [
+          "whole-frame person silhouette",
+          "environment planes and boundaries",
+          "person-object front/behind/contact relationship",
+          "occlusion continuation",
+          "local limb and hand anatomy"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into a door, wall, furniture, box, floor, or other solid object",
+          "doorframe, wall, furniture, or container edge running through a head, shoulder, back, torso, or limb",
+          "untraceable body volume hidden behind painterly texture",
+          "architecture bending, changing thickness, or replacing part of a person's silhouette",
+          "unresolved depth relationship labeled as probably correct"
+        ]
+      },
+      "visual_richness": {
+        "scene_action_binding": "Use physical_action exactly.",
+        "point_of_view": "Aachu notices her own automatic reply.",
+        "before_frame": "A routine bedtime reply without eye contact.",
+        "after_frame": "Their gaze and bodies turn toward each other.",
+        "continuation_pull": "Will he notice the changed attention?",
+        "story_evidence": [
+          {
+            "carrier": "Her bracelet wrist connects to his sleeve",
+            "observable_state": "his head turns before his shoulders",
+            "narrative_job": "She asks for his attention; he responds."
+          }
+        ],
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      }
+    },
+    {
+      "slide": 5,
+      "role": "turn",
+      "copy": "I love you.",
+      "copy_mode": "text",
+      "beat_delta": "The repeated words now ask him to really be here with her.",
+      "copy_image_relation": {
+        "kind": "completion",
+        "proof": "his surprised softened face registers a difference in the same words"
+      },
+      "physical_action": "Aachu, on image right, has paused after touching Zuv’s arm and looks directly into his eyes as she says I love you. Her right hand rests lightly on his left upper arm. Zuv, image left, catches her deliberate look; his lips part and his brows soften, his shoulders beginning to turn toward her. Both recline on separate pillows in one bed, not sitting on a sofa.",
+      "relationship_state": "The repeated words now ask him to really be here with her.",
+      "emotion": "quiet recognition and reciprocal affection",
+      "camera": {
+        "shot_size": "Intimate oblique medium-close two-person view from foot-right of bed; both faces in three-quarter view",
+        "position": "From foot of bed; preserve left/right axis.",
+        "negative_space": "Neutral ivory upper quarter for exact copy."
+      },
+      "focal_hierarchy": "Faces and gaze; right-hand action; lamp state; copy.",
+      "setting": {
+        "place": "One bedroom: oak headboard, white pillows, blue duvet, right bedside lamp.",
+        "time": "Bedtime.",
+        "motivated_light": "Local bedside lamp; cool window fill, neutral paper.",
+        "depth_layers": {
+          "foreground": "Blue duvet folds.",
+          "midground": "Two faces and focal hand.",
+          "background": "Pillows, headboard, right lamp."
+        }
+      },
+      "wardrobe": "Aachu in loose white cotton button-front sleep shirt derived from together-16 white shirt, sleeves rolled to expose right evil-eye bracelet; Zuv in charcoal soft short-sleeve shirt derived from together-18, slim silver chain and small round evil-eye locket at open collar. Relaxed bedtime adaptation, no jackets, no watches, no sunglasses. Same wardrobe throughout.",
+      "continuity_lock": "Exactly two recognizable adults, Aachu image right and Zuv image left on one bed. Lamp stays on through slide 6. No phones, chores, tears, argument or exaggerated seductive pose.",
+      "props": [
+        "one bed",
+        "two pillows",
+        "muted blue duvet",
+        "one lamp and switch"
+      ],
+      "hand_map": {
+        "scene_action_binding": "Aachu, on image right, has paused after touching Zuv’s arm and looks directly into his eyes as she says I love you. Her right hand rests lightly on his left upper arm. Zuv, image left, catches her deliberate look; his lips part and his brows soften, his shoulders beginning to turn toward her. Both recline on separate pillows in one bed, not sitting on a sofa.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "right palm and fingers rest lightly on Zuv left upper arm over his sleeve; evil-eye bracelet visible on this right wrist",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "right palm and fingers rest lightly on Zuv left upper arm over his sleeve; evil-eye bracelet visible on this right wrist"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "left hand fully hidden beneath duvet at waist",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          }
+        ],
+        "forbidden": [
+          "unowned hand",
+          "hand with no narrative purpose in the locked scene",
+          "hand without a visible or naturally occluded wrist/forearm connection",
+          "extra or duplicated hand, arm, wrist, or fingers",
+          "one hand performing two spatially incompatible actions",
+          "anonymous hand entering from the door, wall, frame edge, or another body",
+          "hand, wrist, or forearm penetrating a box, door, table, clothing, or other solid object",
+          "load-bearing grip whose fingers, palm, wrist, or object edge do not meet believably"
+        ]
+      },
+      "spatial_topology": {
+        "scene_action_binding": "Aachu, on image right, has paused after touching Zuv’s arm and looks directly into his eyes as she says I love you. Her right hand rests lightly on his left upper arm. Zuv, image left, catches her deliberate look; his lips part and his brows soften, his shoulders beginning to turn toward her. Both recline on separate pillows in one bed, not sitting on a sofa.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          }
+        ],
+        "solid_objects": [
+          "bed mattress",
+          "pillows",
+          "headboard",
+          "bedside table",
+          "lamp"
+        ],
+        "review_order": [
+          "whole-frame person silhouette",
+          "environment planes and boundaries",
+          "person-object front/behind/contact relationship",
+          "occlusion continuation",
+          "local limb and hand anatomy"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into a door, wall, furniture, box, floor, or other solid object",
+          "doorframe, wall, furniture, or container edge running through a head, shoulder, back, torso, or limb",
+          "untraceable body volume hidden behind painterly texture",
+          "architecture bending, changing thickness, or replacing part of a person's silhouette",
+          "unresolved depth relationship labeled as probably correct"
+        ]
+      },
+      "visual_richness": {
+        "scene_action_binding": "Use physical_action exactly.",
+        "point_of_view": "Aachu notices her own automatic reply.",
+        "before_frame": "She paused the switch and touched his arm.",
+        "after_frame": "Their gaze and bodies turn toward each other.",
+        "continuation_pull": "Will he notice the changed attention?",
+        "story_evidence": [
+          {
+            "carrier": "Unswitched bedside lamp remains lit behind Aachu",
+            "observable_state": "his surprised softened face registers a difference in the same words",
+            "narrative_job": "The repeated words now ask him to really be here with her."
+          }
+        ],
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      }
+    },
+    {
+      "slide": 6,
+      "role": "payoff",
+      "copy": "I love you too.",
+      "copy_mode": "text",
+      "beat_delta": "He meets her attention with his own.",
+      "copy_image_relation": {
+        "kind": "completion",
+        "proof": "his whole body follows the head turn established earlier"
+      },
+      "physical_action": "Zuv now turns his shoulders fully toward Aachu and deliberately returns her gaze. Aachu smiles slightly as his left hand gently covers her right hand, still resting on his upper arm.",
+      "relationship_state": "He meets her attention with his own.",
+      "emotion": "quiet recognition and reciprocal affection",
+      "camera": {
+        "shot_size": "Close reverse diagonal from foot-left, both faces retained",
+        "position": "From foot of bed; preserve left/right axis.",
+        "negative_space": "Neutral ivory upper quarter for exact copy."
+      },
+      "focal_hierarchy": "Faces and gaze; right-hand action; lamp state; copy.",
+      "setting": {
+        "place": "One bedroom: oak headboard, white pillows, blue duvet, right bedside lamp.",
+        "time": "Bedtime.",
+        "motivated_light": "Local bedside lamp; cool window fill, neutral paper.",
+        "depth_layers": {
+          "foreground": "Blue duvet folds.",
+          "midground": "Two faces and focal hand.",
+          "background": "Pillows, headboard, right lamp."
+        }
+      },
+      "wardrobe": "Aachu in loose white cotton button-front sleep shirt derived from together-16 white shirt, sleeves rolled to expose right evil-eye bracelet; Zuv in charcoal soft short-sleeve shirt derived from together-18, slim silver chain and small round evil-eye locket at open collar. Relaxed bedtime adaptation, no jackets, no watches, no sunglasses. Same wardrobe throughout.",
+      "continuity_lock": "Exactly two recognizable adults, Aachu image right and Zuv image left on one bed. Lamp stays on through slide 6. No phones, chores, tears, argument or exaggerated seductive pose.",
+      "props": [
+        "one bed",
+        "two pillows",
+        "muted blue duvet",
+        "one lamp and switch"
+      ],
+      "hand_map": {
+        "scene_action_binding": "Zuv now turns his shoulders fully toward Aachu and deliberately returns her gaze. Aachu smiles slightly as his left hand gently covers her right hand, still resting on his upper arm.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 2,
+        "default_max_visible_hands": 2,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "right hand on outside of his left upper arm",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "right hand on outside of his left upper arm"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "focal_action",
+            "action": "left hand lightly covering her right hand with separate clear fingers",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "left hand lightly covering her right hand with separate clear fingers"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          }
+        ],
+        "forbidden": [
+          "unowned hand",
+          "hand with no narrative purpose in the locked scene",
+          "hand without a visible or naturally occluded wrist/forearm connection",
+          "extra or duplicated hand, arm, wrist, or fingers",
+          "one hand performing two spatially incompatible actions",
+          "anonymous hand entering from the door, wall, frame edge, or another body",
+          "hand, wrist, or forearm penetrating a box, door, table, clothing, or other solid object",
+          "load-bearing grip whose fingers, palm, wrist, or object edge do not meet believably"
+        ]
+      },
+      "spatial_topology": {
+        "scene_action_binding": "Zuv now turns his shoulders fully toward Aachu and deliberately returns her gaze. Aachu smiles slightly as his left hand gently covers her right hand, still resting on his upper arm.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          }
+        ],
+        "solid_objects": [
+          "bed mattress",
+          "pillows",
+          "headboard",
+          "bedside table",
+          "lamp"
+        ],
+        "review_order": [
+          "whole-frame person silhouette",
+          "environment planes and boundaries",
+          "person-object front/behind/contact relationship",
+          "occlusion continuation",
+          "local limb and hand anatomy"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into a door, wall, furniture, box, floor, or other solid object",
+          "doorframe, wall, furniture, or container edge running through a head, shoulder, back, torso, or limb",
+          "untraceable body volume hidden behind painterly texture",
+          "architecture bending, changing thickness, or replacing part of a person's silhouette",
+          "unresolved depth relationship labeled as probably correct"
+        ]
+      },
+      "visual_richness": {
+        "scene_action_binding": "Use physical_action exactly.",
+        "point_of_view": "Aachu notices her own automatic reply.",
+        "before_frame": "She paused the switch and touched his arm.",
+        "after_frame": "Their gaze and bodies turn toward each other.",
+        "continuation_pull": "Their shared gaze resolves the missed attention.",
+        "story_evidence": [
+          {
+            "carrier": "Both eyes meet",
+            "observable_state": "his whole body follows the head turn established earlier",
+            "narrative_job": "He meets her attention with his own."
+          }
+        ],
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      }
+    },
+    {
+      "slide": 7,
+      "role": "payoff",
+      "copy": "",
+      "copy_mode": "wordless",
+      "beat_delta": "Now they can end the day together.",
+      "copy_image_relation": {
+        "kind": "wordless",
+        "proof": "pillow gap closed by her head near his shoulder"
+      },
+      "physical_action": "Aachu moves her head close to Zuv’s shoulder, smiling; her right index finger finally presses the bedside lamp switch. His head tilts gently toward hers. The lamp has just gone dark, cool window light preserves their silhouettes.",
+      "relationship_state": "Now they can end the day together.",
+      "emotion": "quiet recognition and reciprocal affection",
+      "camera": {
+        "shot_size": "Wide intimate side view of one bed and lamp",
+        "position": "From foot of bed; preserve left/right axis.",
+        "negative_space": "Neutral ivory upper quarter for exact copy."
+      },
+      "focal_hierarchy": "Faces and gaze; right-hand action; lamp state; copy.",
+      "setting": {
+        "place": "One bedroom: oak headboard, white pillows, blue duvet, right bedside lamp.",
+        "time": "Bedtime.",
+        "motivated_light": "Lamp off; cool window spill.",
+        "depth_layers": {
+          "foreground": "Blue duvet folds.",
+          "midground": "Two faces and focal hand.",
+          "background": "Pillows, headboard, right lamp."
+        }
+      },
+      "wardrobe": "Aachu in loose white cotton button-front sleep shirt derived from together-16 white shirt, sleeves rolled to expose right evil-eye bracelet; Zuv in charcoal soft short-sleeve shirt derived from together-18, slim silver chain and small round evil-eye locket at open collar. Relaxed bedtime adaptation, no jackets, no watches, no sunglasses. Same wardrobe throughout.",
+      "continuity_lock": "Exactly two recognizable adults, Aachu image right and Zuv image left on one bed. Lamp stays on through slide 6. No phones, chores, tears, argument or exaggerated seductive pose.",
+      "props": [
+        "one bed",
+        "two pillows",
+        "muted blue duvet",
+        "one lamp and switch"
+      ],
+      "hand_map": {
+        "scene_action_binding": "Aachu moves her head close to Zuv’s shoulder, smiling; her right index finger finally presses the bedside lamp switch. His head tilts gently toward hers. The lamp has just gone dark, cool window light preserves their silhouettes.",
+        "people": [
+          "Aachu",
+          "Zuv"
+        ],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 1,
+        "default_max_visible_hands": 1,
+        "hands": [
+          {
+            "owner": "Aachu",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Aachu",
+            "side": "right",
+            "visibility": "focal_action",
+            "action": "right index finger pressing her bedside lamp switch",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "right index finger pressing her bedside lamp switch"
+          },
+          {
+            "owner": "Zuv",
+            "side": "left",
+            "visibility": "fully_hidden",
+            "action": "left hand fully hidden beneath duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          },
+          {
+            "owner": "Zuv",
+            "side": "right",
+            "visibility": "fully_hidden",
+            "action": "fully hidden under duvet",
+            "attachment": "Continuous owned shoulder, upper arm, elbow, forearm, wrist and hand; natural duvet occlusion only",
+            "contact": "none"
+          }
+        ],
+        "forbidden": [
+          "unowned hand",
+          "hand with no narrative purpose in the locked scene",
+          "hand without a visible or naturally occluded wrist/forearm connection",
+          "extra or duplicated hand, arm, wrist, or fingers",
+          "one hand performing two spatially incompatible actions",
+          "anonymous hand entering from the door, wall, frame edge, or another body",
+          "hand, wrist, or forearm penetrating a box, door, table, clothing, or other solid object",
+          "load-bearing grip whose fingers, palm, wrist, or object edge do not meet believably"
+        ]
+      },
+      "spatial_topology": {
+        "scene_action_binding": "Aachu moves her head close to Zuv’s shoulder, smiling; her right index finger finally presses the bedside lamp switch. His head tilts gently toward hers. The lamp has just gone dark, cool window light preserves their silhouettes.",
+        "people": [
+          {
+            "person": "Aachu",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          },
+          {
+            "person": "Zuv",
+            "body_regions_visible": [
+              "head",
+              "neck",
+              "shoulders",
+              "torso"
+            ],
+            "environment_planes": [
+              {
+                "object": "headboard",
+                "expected_relation": "in_front_of"
+              },
+              {
+                "object": "pillow and mattress",
+                "expected_relation": "touching"
+              },
+              {
+                "object": "bedside table and lamp",
+                "expected_relation": "separate_from"
+              },
+              {
+                "object": "duvet below waist",
+                "expected_relation": "occluded_by"
+              }
+            ],
+            "allowed_contacts": [
+              "Back and head supported by pillow; hips and legs supported on mattress; duvet covers lower body",
+              "Aachu right hand may contact Zuv left upper arm in slides 4-6; her right fingers may touch lamp switch only in slide 7"
+            ],
+            "forbidden_intersections": [
+              "solid-object boundary crossing the head, neck, shoulder, back, torso, or visible limb",
+              "body, clothing, hair, or silhouette merging into architecture or furniture",
+              "ambiguous in-front-of versus behind versus inside relationship"
+            ],
+            "required_visible_separation": "A continuous readable contour or value boundary separates the whole person from nearby solid objects."
+          }
+        ],
+        "solid_objects": [
+          "bed mattress",
+          "pillows",
+          "headboard",
+          "bedside table",
+          "lamp"
+        ],
+        "review_order": [
+          "whole-frame person silhouette",
+          "environment planes and boundaries",
+          "person-object front/behind/contact relationship",
+          "occlusion continuation",
+          "local limb and hand anatomy"
+        ],
+        "forbidden": [
+          "person absorbed by or morphed into a door, wall, furniture, box, floor, or other solid object",
+          "doorframe, wall, furniture, or container edge running through a head, shoulder, back, torso, or limb",
+          "untraceable body volume hidden behind painterly texture",
+          "architecture bending, changing thickness, or replacing part of a person's silhouette",
+          "unresolved depth relationship labeled as probably correct"
+        ]
+      },
+      "visual_richness": {
+        "scene_action_binding": "Use physical_action exactly.",
+        "point_of_view": "Aachu notices her own automatic reply.",
+        "before_frame": "She paused the switch and touched his arm.",
+        "after_frame": "They fall asleep together.",
+        "continuation_pull": "Their shared gaze resolves the missed attention.",
+        "story_evidence": [
+          {
+            "carrier": "Lamp off for the first time",
+            "observable_state": "pillow gap closed by her head near his shoulder",
+            "narrative_job": "Now they can end the day together."
+          }
+        ],
+        "posed_portrait_allowed": false,
+        "decorative_clutter_allowed": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-9B5871FC4D756951",
+  "feedback_id": "fb-9b5871fc4d756951",
+  "package_path": "output/carousels/2026-09-04/i-have-lived-so-many-years-without-you",
+  "user_instruction_sha256": "sha256:eda2f675320f4cc6769f1ebd220d3902c8507b0956316a02ef83dbe3caf3be89",
+  "diagnosis": "scene_action",
+  "must_change": [],
+  "must_preserve": [
+    "Recognizable Aachu and Zuv, cinematic watercolor depth, exact copy, clean hands and spatial logic, tiny top-right brandmark, and native 1080x1440."
+  ],
+  "source_affected_artifacts": [
+    "generation-state.json"
+  ],
+  "affected_artifacts": [
+    "generation-state.json"
+  ],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "generation-state.json": "sha256:0239683d4d9630626e372600626f24efd717407a534ef11bf5f1184761eefb3b"
+  },
+  "status": "pending",
+  "created_at": "2026-09-12T12:15:11+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:ee256296e347ba557d98009e3ce231d4e61613f41713b3524a22813e78a03200"
+}

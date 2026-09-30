@@ -1,0 +1,262 @@
+/* ============================================================================
+   Real stylesheet, real cascade — replacing inline style={{}} objects on
+   flex-column stacks. That inline pattern is why every screen still read as
+   "the same app" no matter how many details got layered on: it caps you to
+   one-off values with no pseudo-elements, no hover states, no shared grammar.
+
+   THE GRAMMAR — "the ledger page", not "the centred card":
+   - A vertical margin rule sits at a fixed x-offset the full height of every
+     screen, like a school ledger or a printer's registration line. Content
+     starts FROM that line, left-aligned, not centred in a box.
+   - Headlines are oversized (clamp-scaled) and cross the margin rule rather
+     than sitting politely inside it — ink doesn't respect margins.
+   - Buttons are stamped rectangles: hard corners, a real border, tracked
+     uppercase type, a couple of degrees of rotation — not rounded pills.
+   - Every screen composes these primitives differently. Nothing is
+     `justify-content: center` by default.
+   ========================================================================= */
+
+.sheet {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-left: 44px;
+}
+
+.sheet::before {
+  /* the margin rule */
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 32px;
+  width: 1px;
+  background: var(--hairline);
+}
+
+/* A couple of screens are deliberate exceptions — centred around a mechanic (the ink bloom,
+   the carousel) rather than composed against the margin. Suppress the rule rather than let it
+   clash with content it wasn't drawn for. */
+.sheet--plain { padding-left: 0; }
+.sheet--plain::before { display: none; }
+
+.sheet__spine {
+  /* a running header naming the step, sat just under the progress ruler — a book's running
+     head, not app chrome. Horizontal (not rotated): vertical text's height scales with label
+     length, which made this collide with headlines that start higher on some screens. */
+  display: block;
+  margin: 14px 0 0;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* --- Type -------------------------------------------------------------- */
+
+.headline {
+  font-family: var(--font-body);
+  font-size: clamp(30px, 9vw, 44px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-left: -12px;   /* crosses the margin rule */
+  max-width: 11ch;
+}
+
+.headline--hand {
+  font-family: var(--font-hand);
+  font-weight: 400;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-2);
+}
+
+.lede {
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+/* --- Buttons ------------------------------------------------------------ */
+/* Stamped, not rounded: a hard rectangle, a real border, tracked caps. */
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 22px;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: rotate(-0.6deg);
+  transition: background var(--dur-press) var(--ease-press), color var(--dur-press) var(--ease-press);
+}
+
+.stamp--solid {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.stamp--accent {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.stamp--ghost {
+  border-color: var(--hairline);
+  color: var(--ink-soft);
+}
+
+.stamp--block {
+  display: flex;
+  width: 100%;
+}
+
+.stamp:disabled {
+  border-color: var(--hairline);
+  background: transparent;
+  color: var(--hairline);
+  cursor: default;
+}
+
+.seal {
+  /* the landing '+' — a wax-seal circle is the one deliberate exception to
+     "no rounded shapes": a seal IS round, that's what makes it a seal. */
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 36px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  outline: 1px solid var(--paper-shadow);
+  outline-offset: 6px;
+}
+
+/* --- Form fields ---------------------------------------------------------
+   A rotated micro-label sits beside the line, like a ledger annotation,
+   instead of a floating placeholder doing all the work. */
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid var(--hairline);
+}
+
+.field__tag {
+  font-family: var(--font-hand);
+  font-size: 15px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--ink);
+}
+
+.field input::placeholder { color: var(--hairline); }
+
+/* --- Toggle choices ------------------------------------------------------
+   An underline that only appears once picked, like a line struck under an
+   answer — not a filled pill. */
+
+.choice-row {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.choice {
+  padding-bottom: 8px;
+  font-size: var(--text-body);
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+}
+
+.choice[aria-pressed="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* --- Photo mosaic ---------------------------------------------------------
+   An asymmetric grid, not a uniform 3-column one: named areas so a couple of
+   photos read larger than the rest, like a contact sheet someone marked up. */
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 78px;
+  gap: var(--space-2);
+}
+
+.mosaic > * { grid-column: span 2; grid-row: span 2; }
+.mosaic > *:nth-child(3n+1) { grid-column: span 2; grid-row: span 3; }
+.mosaic > *:nth-child(5n+2) { grid-column: span 4; grid-row: span 2; }
+
+/* --- Progress rule --------------------------------------------------------
+   Horizontal, at the very top, crossing the vertical margin rule — the two
+   together read as a ruled ledger page, not app chrome. */
+
+.progress {
+  position: relative;
+  height: 1px;
+  background: var(--hairline);
+  margin: 20px 24px 0 32px;
+}
+
+.progress__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background: var(--ink);
+}
+
+.progress__ticks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress__tick {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  margin-top: -1px;
+  background: var(--hairline);
+}
+
+.progress__tick--done { background: var(--ink); }
+
+/* --- Utility --------------------------------------------------------- */
+
+.spacer { flex: 1; }

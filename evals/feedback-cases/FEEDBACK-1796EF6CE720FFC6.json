@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-1796EF6CE720FFC6",
+  "feedback_id": "fb-1796ef6ce720ffc6",
+  "package_path": "output/carousels/2026-09-12/we-needed-a-bigger-sofa-5",
+  "user_instruction_sha256": "sha256:9c7388892611433b3461fee65033db84b2426760310474983549318c34455e90",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Make old crowding, showroom space, and voluntary home closeness visually distinct. Stop treating ordinary side-by-side poses as comic action."
+  ],
+  "must_preserve": [
+    "Selected bigger-sofa concept; six-beat story structure; exact approved copy and laundry ending; couple identity; 1080x1440."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-12T11:56:45+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:6a779f5f2a0b7c482cde45c9a89a559edaf56f7fcefcaca5d3cfebd1db9bd9d3"
+}

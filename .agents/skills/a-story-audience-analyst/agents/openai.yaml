@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Audience Analyst"
+  short_description: "Mine audience language and send/save triggers"
+  default_prompt: "Use $a-story-audience-analyst to extract viewer mirrors and send/save triggers from these comments."
+policy:
+  allow_implicit_invocation: true

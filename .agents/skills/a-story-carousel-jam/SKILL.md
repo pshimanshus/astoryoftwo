@@ -5,11 +5,9 @@ description: Jam, choose, draft, direct, generate, or package an @a.storyof.two 
 
 # A Story Carousel Jam
 
-Compact router for the `carousel_jam` system in `config/skill-systems.json`.
-Use `config/skills/carousel-jam-runtime-context.md`,
-`config/skills/carousel-jam-autopilot.md`, and, after concept lock,
-`.agents/skills/a-story-direct-visual-story/SKILL.md` only when their exact
-detail is needed.
+Router for `carousel_jam` in `config/skill-systems.json`. Load `config/skills/carousel-jam-runtime-context.md`,
+`config/skills/carousel-jam-autopilot.md`, and after concept lock
+`$a-story-direct-visual-story` only as needed.
 
 ## Hot Path
 
@@ -35,6 +33,11 @@ it adds no artifact, numerical score, or creator approval step.
 Default post/carousel output is `1080x1440`. Generate `1080x1920` or `1080x1080`
 only by explicit request. Put exact approved text in-image and the tiny
 `@a.storyof.two` top-right signature.
+
+## Optional Research Stack
+
+Use the winning-carousel research stack for research or repurposing. Resolve
+`winning_carousel_research`; never preload it.
 
 ## Generation Boundary
 

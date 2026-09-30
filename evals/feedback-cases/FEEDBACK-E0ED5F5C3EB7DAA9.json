@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-E0ED5F5C3EB7DAA9",
+  "feedback_id": "fb-e0ed5f5c3eb7daa9",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-3",
+  "user_instruction_sha256": "sha256:8a798890fe93817163b10b5f7bd2ca4d25d84c52739a645a889c173eee7d9d3d",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Generate a new slide 6 from the approved shared-umbrella premise; do not reuse the bed, phone cable, or joined-hand composition."
+  ],
+  "must_preserve": [
+    "Exact copy, 1080x1440 format, actual Aachu and Zuv identity references, active watercolor style, tiny top-right brandmark, and corrected slide 5."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-05T10:46:51+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:8fc32ec5cebc982b3d93a0ce752c20c64d860844fe29a8344d8a2cd6e2fce8a5"
+}
