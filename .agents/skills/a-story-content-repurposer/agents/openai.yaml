@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Content Repurposer"
+  short_description: "Repurpose one ASOT idea across formats"
+  default_prompt: "Use $a-story-content-repurposer to turn this approved idea into carousel, Reel, Story, and article seeds."
+policy:
+  allow_implicit_invocation: true

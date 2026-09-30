@@ -36,6 +36,17 @@ Default post/carousel output is `1080x1440`. Generate `1080x1920` or `1080x1080`
 only by explicit request. Put exact approved text in-image and the tiny
 `@a.storyof.two` top-right signature.
 
+## Optional Research Stack
+
+Use the winning-carousel research stack when the creator asks to research
+winning posts, build skills from Instagram references, mine audience/persona
+language, repair hooks or swipe flow, or repurpose a proven idea. Resolve it
+with `venv/bin/python scripts/agentic_os.py skill-system winning_carousel_research`.
+Do not load the full stack by default during an ordinary jam; use it only when
+the current task needs audience research, external carousel examples, hook
+repair, swipe architecture, brand guidance, caption/CTA repair, visual proof
+planning, or cross-format repurposing.
+
 ## Generation Boundary
 
 Use actual Aachu/Zuv identity images for face, hair, height, proportions,

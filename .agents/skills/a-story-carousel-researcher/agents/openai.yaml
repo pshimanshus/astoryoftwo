@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Carousel Researcher"
+  short_description: "Research winning carousel patterns for ASOT"
+  default_prompt: "Use $a-story-carousel-researcher to research winning carousel patterns for this idea."
+policy:
+  allow_implicit_invocation: true

@@ -71,6 +71,46 @@ EXPECTED_SKILLS = {
         "$a-story-direct-visual-story",
         "config/rules/",
     ],
+    "a-story-audience-analyst": [
+        "config/skills/winning-carousel-research-runtime-context.md",
+        "memory/semantic/a-story-audience-profile.md",
+        "send/save",
+    ],
+    "a-story-carousel-researcher": [
+        "config/skill-systems.json",
+        "winning_carousel_research",
+        "current official sources",
+    ],
+    "a-story-hook-generator": [
+        "memory/semantic/a-story-audience-profile.md",
+        "public relationship contradiction",
+        "generic viral",
+    ],
+    "a-story-swipe-architect": [
+        "slide 2",
+        "screenshot",
+        "save-worthy",
+    ],
+    "a-story-brand-guidance": [
+        "config/rules/voice.md",
+        "not a couples-coach account",
+        "ASOT",
+    ],
+    "a-story-visual-storyteller": [
+        "config/rules/visual-variety.md",
+        "hands",
+        "eye-line",
+    ],
+    "a-story-caption-cta-engine": [
+        "caption is the second post",
+        "natural send/save/comment reason",
+        "hard CTA",
+    ],
+    "a-story-content-repurposer": [
+        "carousel",
+        "Reel",
+        "Story poll",
+    ],
 }
 
 
@@ -131,6 +171,8 @@ def test_repo_codex_skills_are_registered_with_invocation_policy():
     assert repo_records["a-story-imagegen-maintenance"].implicit_invocation is True
     assert repo_records["a-story-storytelling-hook"].implicit_invocation is True
     assert repo_records["non-ai-image-skill"].implicit_invocation is True
+    assert repo_records["a-story-audience-analyst"].implicit_invocation is True
+    assert repo_records["a-story-carousel-researcher"].implicit_invocation is True
     assert "carousel-jam-runtime-context" in repo_records["a-story-carousel-jam"].dependencies
     assert "creator-skill-stack" in repo_records["a-story-storytelling-hook"].dependencies
 

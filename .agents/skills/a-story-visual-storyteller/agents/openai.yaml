@@ -1,0 +1,6 @@
+interface:
+  display_name: "A Story Visual Storyteller"
+  short_description: "Stage carousel slides as visual proof"
+  default_prompt: "Use $a-story-visual-storyteller to turn this carousel copy into staged visual proof."
+policy:
+  allow_implicit_invocation: true

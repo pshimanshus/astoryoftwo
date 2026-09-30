@@ -150,6 +150,21 @@ def test_imagegen_forward_scenarios_keep_grader_expectations_separate():
         assert "expectations.json" not in scenario["prompt"]
 
 
+def test_winning_carousel_research_system_resolves_core_context():
+    systems = load_skill_systems(Path(__file__).resolve().parents[1])
+    resolved = resolve_skill_system(systems, "winning_carousel_research")
+
+    assert resolved["name"] == "winning_carousel_research"
+    assert resolved["components"] == [
+        "config/skills/winning-carousel-research-runtime-context.md",
+        "memory/semantic/a-story-audience-profile.md",
+        "config/skills/carousel-jam-runtime-context.md",
+        "config/skills/carousel-story-director-persona.md",
+    ]
+    assert "wiki/insights/successful-carousel-standard.md" in resolved["source_references"]
+    assert "output/reports/2026-05-24-carousel-performance-autopsy.md" in resolved["source_references"]
+
+
 def test_repo_skill_usage_tracks_frequency_and_failures(tmp_path: Path):
     root = tmp_path
     repo_skill_dir = root / ".agents" / "skills" / "gamma-skill"
