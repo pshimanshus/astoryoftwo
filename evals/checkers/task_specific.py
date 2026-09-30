@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 import re
 import tempfile
@@ -19,6 +20,7 @@ from pipeline.stages.carousel_format_contract import (
     expected_output_relative_path,
 )
 from pipeline.stages.carousel_visual_storytelling import (
+    validate_cinematic_slide_direction,
     validate_director_storyboard,
     validate_frame_readability,
 )
@@ -83,22 +85,46 @@ def _build_eval_visual_direction(
             {
                 "slide": index,
                 "physical_action": action,
+                "relationship_state": "The shared action makes their changing relationship position visible.",
                 "narrative_job": narrative_jobs[(index - 1) % len(narrative_jobs)],
                 "silent_read": action,
-                "shot": {
-                    "size": shot_sizes[(index - 1) % len(shot_sizes)],
-                    "camera_position": "Eye-level beside the active hands and changed shared object.",
+                "camera": {
+                    "shot_size": shot_sizes[(index - 1) % len(shot_sizes)],
+                    "position": "Eye-level beside the active hands and changed shared object.",
+                    "negative_space": "Quiet upper-left architecture protects the exact copy space.",
                 },
+                "focal_hierarchy": "First read the physical action, then the reaction, then the protected copy space.",
                 "setting": {
-                    "motivated_light": "Window light crosses the acting hands and changed object state."
+                    "place": "A specific lived sub-location beside the shared object and doorway.",
+                    "time": "late afternoon after rain",
+                    "motivated_light": "Window light enters from frame left across the acting hands.",
+                    "depth_layers": {
+                        "foreground": "A near object edge locates the viewer inside the event.",
+                        "midground": "Both partners and the changing object carry the action.",
+                        "background": "The doorway preserves context and the likely next movement.",
+                    },
                 },
-                "story_evidence": [
-                    {
-                        "carrier": "the shared object between both partners",
-                        "observable_state": "its owner and position visibly change during the action",
-                        "narrative_job": "prove the relationship turn without relying on copy",
-                    }
-                ],
+                "visual_richness": {
+                    "scene_action_binding": action,
+                    "point_of_view": "The frame follows the partner registering the changed shared object.",
+                    "before_frame": "The shared object was still before one partner moved it.",
+                    "after_frame": "The other partner begins responding to its changed position.",
+                    "continuation_pull": "The visible reaction leaves their next shared choice unresolved.",
+                    "story_evidence": [
+                        {
+                            "carrier": "the shared object between both partners",
+                            "observable_state": "its owner and position visibly change during the action",
+                            "narrative_job": "prove the relationship turn without relying on copy",
+                        },
+                        {
+                            "carrier": "the reacting partner's interrupted task",
+                            "observable_state": "their hands pause while their gaze follows the object",
+                            "narrative_job": "prove this is a caught consequence rather than a pose",
+                        },
+                    ],
+                    "posed_portrait_allowed": False,
+                    "decorative_clutter_allowed": False,
+                },
             }
         )
     return {"requested_formats": list(formats), "slides": records}
@@ -122,6 +148,21 @@ def _build_eval_frame_review(
                     "observed_image_first_read": "The frame visibly preserves the intended action, reaction, and changed object state.",
                     "core_action_legible": True,
                     "relationship_turn_legible": True,
+                    "frame_reads_as_caught_event": True,
+                    "before_after_implied": True,
+                    "focal_action_clear": True,
+                    "motivated_light_observed": "Window light enters from frame left across the shared object.",
+                    "depth_layers_observed": {
+                        "foreground": "A near object edge frames the active hands.",
+                        "midground": "Both partners react to the changing shared object.",
+                        "background": "The doorway reveals the direction of their next movement.",
+                    },
+                    "story_evidence_observed": ["The shared object changes ownership between the partners.", "The receiving partner pauses their previous task to react."],
+                    "posed_portrait": False,
+                    "decorative_clutter": False,
+                    "generic_ai_tells": [],
+                    "final_payoff_observed": "Both partners now hold the shared object together.",
+                    "continuation_pull_observed": "The receiving partner's unfinished reaction points into the next beat.",
                     "copy_visual_contradictions": [],
                     "unexpected_story": [],
                     "evidence": "Visible hands, eye-lines, object position, and reaction prove the current story beat.",
@@ -519,14 +560,14 @@ def check_home_cinematic_fixture(task: EvalTask, root: Path) -> list[CheckResult
                     evidence=[str(defect)],
                 )
             ]
-        target["silent_read"] = str(defect.get("silent_read") or "cozy home")
-        target["shot"]["camera_position"] = str(
+        target["physical_action"] = str(defect.get("silent_read") or "cozy home")
+        target["camera"]["position"] = str(
             defect.get("camera_position") or "appropriate composition"
         )
         target["setting"]["motivated_light"] = str(
             defect.get("motivated_light") or "nice lighting"
         )
-        target["story_evidence"] = defect.get("story_evidence") or [
+        target["visual_richness"]["story_evidence"] = defect.get("story_evidence") or [
             {
                 "carrier": "some props",
                 "observable_state": "warm scene",
@@ -542,20 +583,110 @@ def check_home_cinematic_fixture(task: EvalTask, root: Path) -> list[CheckResult
     )
 
     required_target_markers = (
-        ".silent_read",
-        ".shot.camera_position",
+        "needs a concrete physical action",
+        ".camera.position",
         ".setting.motivated_light",
-        ".story_evidence",
+        ".visual_richness.story_evidence",
     )
     target_issues = [
         issue for issue in issues if any(marker in issue for marker in required_target_markers)
     ]
+    variant_path = (
+        Path(__file__).resolve().parents[1]
+        / "tasks/ASTO-016-home-cinematic-visual-evidence/cinematic-scene-variants.json"
+    )
+    if not variant_path.is_file():
+        return [
+            _fail(
+                "home_cinematic_fixture",
+                "Cinematic scene variants are missing.",
+                evidence=[str(variant_path)],
+            )
+        ]
+    variants_payload = _read_json(variant_path)
+    variants = variants_payload.get("valid_variants")
+    if not isinstance(variants, list) or len(variants) != 4:
+        return [
+            _fail(
+                "home_cinematic_fixture",
+                "Cinematic fixture must cover four approved scene families.",
+                evidence=[str(variant_path)],
+            )
+        ]
+    variant_issues = [
+        issue
+        for variant in variants
+        for issue in validate_cinematic_slide_direction(variant, slide_number=1, is_final=True)
+    ]
+    if variant_issues:
+        return [
+            _fail(
+                "home_cinematic_fixture",
+                "A supposedly valid cinematic scene variant does not pass production preflight.",
+                evidence=variant_issues,
+            )
+        ]
+
+    first = copy.deepcopy(variants[0])
+    negative_results: list[str] = []
+    controls: list[tuple[str, dict[str, Any], str]] = []
+    staged = copy.deepcopy(first)
+    staged["visual_richness"]["posed_portrait_allowed"] = True
+    controls.append(("staged_portrait", staged, "posed_portrait_allowed"))
+    generic_light = copy.deepcopy(first)
+    generic_light["setting"]["motivated_light"] = "warm light"
+    controls.append(("generic_warm_light", generic_light, "motivated_light"))
+    empty_depth = copy.deepcopy(first)
+    empty_depth["setting"]["depth_layers"]["background"] = ""
+    controls.append(("empty_background", empty_depth, "depth_layers.background"))
+    prop_filler = copy.deepcopy(first)
+    prop_filler["visual_richness"]["story_evidence"] = [
+        {"carrier": "some props", "observable_state": "warm scene", "narrative_job": "couple moment"}
+    ]
+    controls.append(("generic_prop_filler", prop_filler, "story_evidence"))
+    for name, control, expected_marker in controls:
+        control_issues = validate_cinematic_slide_direction(
+            control,
+            slide_number=1,
+            is_final=True,
+        )
+        if not any(expected_marker in issue for issue in control_issues):
+            negative_results.append(f"{name} was not rejected by production preflight")
+
+    repeated_slides = []
+    for index, variant in enumerate(variants[:3], start=1):
+        record = copy.deepcopy(variant)
+        record["slide"] = index
+        record["narrative_job"] = ("establish", "pressure", "turn")[index - 1]
+        record["camera"]["shot_size"] = "medium two-shot"
+        repeated_slides.append(record)
+    repeated_issues = validate_director_storyboard(
+        {"slides": repeated_slides},
+        slide_count=3,
+    )
+    if not any("repeats one shot size" in issue for issue in repeated_issues):
+        negative_results.append("repeated_medium_two_shot was not rejected by production preflight")
+
+    if negative_results:
+        return [
+            _fail(
+                "home_cinematic_fixture",
+                "Cinematic negative controls did not fail closed.",
+                evidence=negative_results,
+            )
+        ]
+
     if all(any(marker in issue for issue in target_issues) for marker in required_target_markers):
         return [
             _pass(
                 "home_cinematic_fixture",
-                "The physical-scene preflight blocks generic home-story evidence.",
-                evidence=target_issues,
+                "The shared production preflight accepts four cinematic scene families and blocks generic home-story evidence.",
+                evidence=[
+                    *target_issues,
+                    "fixture camera_position is enforced through canonical camera.position",
+                    "validated wedding action, mountain wide, kitchen support, and sofa close-up variants",
+                    "rejected staged portrait, generic light, empty depth, prop filler, and repeated medium two-shot controls",
+                ],
             )
         ]
     return [
@@ -1156,7 +1287,7 @@ def check_visual_variety_shot_ladder_fixture(task: EvalTask, root: Path) -> list
         repeated_size = str(defect.get("shot_size") or "medium two-shot")
         for slide in plan["slides"]:
             slide["narrative_job"] = repeated_job
-            slide["shot"]["size"] = repeated_size
+            slide["camera"]["shot_size"] = repeated_size
         plan.pop("deliberate_shot_repetition_reason", None)
 
     issues = validate_director_storyboard(

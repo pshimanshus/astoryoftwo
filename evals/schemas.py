@@ -44,6 +44,7 @@ KNOWN_DETERMINISTIC_CHECKERS = {
 KNOWN_RUBRIC_CHECKERS = {
     "creative_contract",
     "visual_variety",
+    "story_completion",
 }
 FIXTURE_MODES = {"solution", "regression"}
 FIXTURE_OUTCOMES = {"unresolved", "guarded"}

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Sequence
@@ -29,6 +30,7 @@ if CLI_WORKSPACE_ROOT is not None and CLI_WORKSPACE_ROOT != TRUSTED_ROOT:
     sys.path.insert(0, str(CLI_WORKSPACE_ROOT))
 
 ROOT = TRUSTED_ROOT
+os.environ["DEEPEVAL_DISABLE_DOTENV"] = "1"
 
 from evals.attempts import (  # noqa: E402
     AttemptContractError,
@@ -43,10 +45,20 @@ from evals.checkers.deterministic import check_prompt_exists, run_required_comma
 from evals.checkers.diff_guard import changed_paths, check_changed_paths  # noqa: E402
 from evals.checkers.report import EvalReport, score_checks  # noqa: E402
 from evals.checkers.rubric import load_rubric_reviews, run_rubric_checkers  # noqa: E402
-from evals.checkers.task_specific import run_named_checkers  # noqa: E402
 from evals.fixtures import UnsafeFixturePathError, materialize_task_fixture  # noqa: E402
-from evals.review import review_suite_once  # noqa: E402
 from evals.schemas import EvalTask, discover_tasks, validate_task_suite  # noqa: E402
+
+
+def run_named_checkers(*args, **kwargs):
+    # Optional integration status must run in its isolated SDK-only runtime;
+    # creative task checkers pull in the base production imaging dependencies.
+    from evals.checkers.task_specific import run_named_checkers as run
+    return run(*args, **kwargs)
+
+
+def review_suite_once(*args, **kwargs):
+    from evals.review import review_suite_once as review
+    return review(*args, **kwargs)
 
 
 def select_tasks(
@@ -196,12 +208,100 @@ def build_parser() -> argparse.ArgumentParser:
     prepare = sub.add_parser("prepare")
     prepare.add_argument("task_id")
     prepare.add_argument("--output", type=Path, required=True)
+    feedback_case = sub.add_parser(
+        "feedback-case",
+        help="Run one deterministic creator-feedback regression and optional shadow judges.",
+    )
+    feedback_case.add_argument("task_id")
+    feedback_case.add_argument("--package", type=Path)
+    feedback_case.add_argument("--shadow", action="store_true")
+    shadow = sub.add_parser("shadow", help="Run optional DeepEval metrics on actual text, images, references, and tool trajectory.")
+    shadow.add_argument("--input", type=Path, required=True)
+    sub.add_parser(
+        "calibration-status",
+        help="Report optional evaluator readiness and validated human calibration evidence.",
+    )
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     root = args.workspace_root.resolve()
+
+    if args.command == "calibration-status":
+        from evals.deepeval_adapter import (
+            calibration_status,
+            deepeval_environment_status,
+            run_deepeval_sdk_smoke,
+        )
+        from pipeline.agentic.langfuse_mirror import (
+            langfuse_environment_status,
+            run_langfuse_sdk_smoke,
+        )
+
+        print(
+            json.dumps(
+                {
+                    "deepeval": {
+                        "environment": deepeval_environment_status(),
+                        "sdk_smoke": run_deepeval_sdk_smoke(),
+                        "calibration": calibration_status(root),
+                    },
+                    "langfuse": {
+                        "environment": langfuse_environment_status(),
+                        "sdk_smoke": run_langfuse_sdk_smoke(),
+                    },
+                    "external_calls": "not_run",
+                },
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+        return 0
+
+    if args.command == "shadow":
+        from evals.deepeval_adapter import run_deepeval_shadow
+
+        payload = json.loads(args.input.read_text(encoding="utf-8"))
+        report = run_deepeval_shadow(
+            root,
+            prompt=str(payload["prompt"]),
+            actual_output=str(payload.get("actual_output") or ""),
+            expected_output=str(payload.get("expected_output") or ""),
+            context=payload.get("context"),
+            image_paths=payload.get("image_paths"),
+            reference_paths=payload.get("reference_paths"),
+            trajectory=payload.get("trajectory"),
+        )
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+        return 0
+
+    if args.command == "feedback-case":
+        from evals.deepeval_adapter import run_feedback_case_shadow
+        from evals.feedback_cases import evaluate_feedback_case, load_feedback_case
+        from pipeline.stages.carousel_visual_storytelling import creator_feedback_records
+
+        case = load_feedback_case(root, args.task_id)
+        package = args.package or Path(str(case.get("package_path") or ""))
+        if not package.is_absolute():
+            package = root / package
+        records = creator_feedback_records(package)
+        event = next(
+            (item for item in records if item.get("feedback_id") == case.get("feedback_id")),
+            None,
+        )
+        if event is None:
+            print(json.dumps({"status": "failed", "reason": "feedback event missing"}, indent=2))
+            return 1
+        deterministic = evaluate_feedback_case(root, package, event)
+        shadow = run_feedback_case_shadow(root, deterministic) if args.shadow else {
+            "status": "not_run",
+            "reason": "shadow evaluation not requested",
+            "can_gate": False,
+        }
+        report = {"deterministic": deterministic, "shadow": shadow}
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+        return 0 if deterministic.get("status") in {"passed", "waived"} else 1
 
     if args.command == "validate":
         report = validate_task_suite(root)
