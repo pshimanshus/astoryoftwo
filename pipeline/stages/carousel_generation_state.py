@@ -66,6 +66,29 @@ def read_generation_state(package_dir: Path) -> dict[str, Any]:
     )
 
 
+def archived_package_read_only_reason(package_dir: Path) -> str | None:
+    """Check both lifecycle and prompt schemas before any package mutation."""
+
+    package_dir = Path(package_dir).expanduser()
+    state = read_generation_state(package_dir)
+    prompt_pack = _read_json(package_dir / "prompt-pack.json")
+    if (state and state.get("schema_version") != STATE_SCHEMA_VERSION) or (
+        prompt_pack.get("schema_version")
+        and prompt_pack["schema_version"] != "carousel-prompt-pack/v3"
+    ):
+        return (
+            "Archived v2 carousel packages are read-only; create a new v3 package "
+            "with the active style profile."
+        )
+    return None
+
+
+def require_writable_package(package_dir: Path) -> None:
+    reason = archived_package_read_only_reason(package_dir)
+    if reason:
+        raise ValueError(reason)
+
+
 def canonical_state_and_next_action(state: dict[str, Any]) -> tuple[str, str]:
     """Map current or archived state to the one public vocabulary.
 
@@ -105,7 +128,10 @@ def _required_sha256(value: Any, *, field: str) -> str:
 
 
 def _compact_slide(value: dict[str, Any]) -> dict[str, Any]:
-    return {
+    history = value.get("attempt_history") or []
+    if not isinstance(history, list):
+        raise ValueError("attempt_history must be an array.")
+    compact = {
         "status": str(value.get("status") or "draft"),
         "attempts": int(value.get("attempts", 0) or 0),
         "source_sha256": _required_sha256(
@@ -120,6 +146,78 @@ def _compact_slide(value: dict[str, Any]) -> dict[str, Any]:
         "input_sha256": _required_sha256(
             value.get("input_sha256"), field="input_sha256"
         ),
+        "attempt_history": [_compact_attempt(item) for item in history],
+    }
+    # v3 packages created before premise-scoped retry accounting remain
+    # readable and writable. Reconciliation adds the current premise hash on
+    # the first real input change without inventing a legacy reset.
+    if value.get("premise_sha256") not in {None, ""}:
+        compact["premise_sha256"] = _required_sha256(
+            value.get("premise_sha256"), field="premise_sha256"
+        )
+    return compact
+
+
+def _optional_sha256(value: Any, *, field: str) -> str | None:
+    if value in {None, ""}:
+        return None
+    return _required_sha256(value, field=field)
+
+
+def _compact_attempt(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise ValueError("attempt_history entries must be objects.")
+    boundary = str(value.get("generator_boundary") or "")
+    if boundary != "codex_builtin_imagegen":
+        raise ValueError("attempt generator_boundary must be codex_builtin_imagegen.")
+    returned = value.get("returned_sources") or []
+    references = value.get("references") or []
+    if not isinstance(returned, list) or not isinstance(references, list):
+        raise ValueError("attempt references and returned_sources must be arrays.")
+    if "feedback_ids" in value:
+        ids = value["feedback_ids"]
+        if (not isinstance(ids, list)
+                or any(not isinstance(item, str) or not item for item in ids)
+                or len(set(ids)) != len(ids)
+                or (value.get("feedback_id") is not None and value["feedback_id"] not in ids)):
+            raise ValueError("attempt.feedback_ids must contain unique IDs and its scalar feedback_id.")
+    return {
+        "generator_boundary": boundary,
+        "tool_reported_model": value.get("tool_reported_model"),
+        "prompt_sha256": _required_sha256(value.get("prompt_sha256"), field="attempt.prompt_sha256"),
+        "reference_manifest_sha256": _required_sha256(
+            value.get("reference_manifest_sha256"), field="attempt.reference_manifest_sha256"
+        ),
+        "references": [
+            {
+                "path": str(item.get("path") or ""),
+                "sha256": _required_sha256(item.get("sha256"), field="attempt.reference.sha256"),
+                "role": str(item.get("role") or ""),
+            }
+            for item in references
+            if isinstance(item, dict)
+        ],
+        "slide": int(value.get("slide") or 0),
+        "attempt": int(value.get("attempt") or 0),
+        "returned_sources": [
+            {
+                "format": str(item.get("format") or ""),
+                "path": str(item.get("path") or ""),
+                "sha256": _required_sha256(item.get("sha256"), field="attempt.source.sha256"),
+                "width": int(item.get("width") or 0),
+                "height": int(item.get("height") or 0),
+                "returned_at": str(item.get("returned_at") or ""),
+            }
+            for item in returned
+            if isinstance(item, dict)
+        ],
+        "feedback_id": value.get("feedback_id"),
+        **({"feedback_ids": list(value["feedback_ids"])} if "feedback_ids" in value else {}),
+        "pixel_review_status": str(value.get("pixel_review_status") or "pending"),
+        "qa_sha256": _optional_sha256(value.get("qa_sha256"), field="attempt.qa_sha256"),
+        "reviewed_at": value.get("reviewed_at"),
+        "approval_status": str(value.get("approval_status") or "pending"),
+        "promotion_status": str(value.get("promotion_status") or "pending"),
     }
 
 
@@ -176,6 +274,7 @@ def compact_v3_state(state: dict[str, Any]) -> dict[str, Any]:
 
 
 def write_v3_state(package_dir: Path, state: dict[str, Any]) -> dict[str, Any]:
+    require_writable_package(package_dir)
     compact = compact_v3_state(state)
     package_dir = Path(package_dir).expanduser()
     package_dir.mkdir(parents=True, exist_ok=True)
@@ -190,6 +289,7 @@ def initialize_generation_state(package_dir: Path) -> dict[str, Any]:
     """Write the first v3 state after the minimal package inputs exist."""
 
     package_dir = Path(package_dir)
+    require_writable_package(package_dir)
     inputs = build_generation_inputs(package_dir)
     try:
         raw_slides = json.loads((package_dir / "slides.json").read_text(encoding="utf-8"))
@@ -213,6 +313,7 @@ def initialize_generation_state(package_dir: Path) -> dict[str, Any]:
                 number: {
                     "status": "draft",
                     "attempts": 0,
+                    "attempt_history": [],
                     **fingerprints,
                 }
                 for number, fingerprints in inputs["slides"].items()
@@ -220,6 +321,7 @@ def initialize_generation_state(package_dir: Path) -> dict[str, Any]:
         },
     )
 __all__ = [
+    "archived_package_read_only_reason",
     "canonical_state_and_next_action",
     "GenerationStatus",
     "LEGACY_STATE_TRANSITIONS",
@@ -229,5 +331,6 @@ __all__ = [
     "compact_v3_state",
     "initialize_generation_state",
     "read_generation_state",
+    "require_writable_package",
     "write_v3_state",
 ]

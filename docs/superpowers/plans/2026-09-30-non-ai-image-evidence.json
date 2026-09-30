@@ -1,0 +1,138 @@
+{
+  "schema_version": "planning-visual-evidence/v1",
+  "inspected_on": "2026-09-30",
+  "scope": "Representative image inspection supporting a proposed skill, not production QA or release approval.",
+  "asset_count": 10,
+  "assets": [
+    {
+      "id": "phone-original",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his/continuity-repair-final/slide-02.png",
+      "sha256": "sha256:ec5bdb2209d925c7ce52f602e3d792e27416b6084acf223d3450c6d216e97f70",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Visible rear camera lenses and shopping display occupy the same phone face.",
+      "limits": "Confirmed object-construction defect; no broader style diagnosis inferred from the September 30 complaint.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "phone-local-repair",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his/continuity-repair-final/slide-02-phone-fixed.png",
+      "sha256": "sha256:f97255d6be1ae04d88f464811826dac6ac4d8d506b4a8aaec49daf9930e3f44e",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Rear camera cluster is absent from the displayed front face; scene, copy and pose remain broadly similar.",
+      "limits": "This verifies removal of the named face contradiction only. Full gaze, use geometry, identity, style and release approval are not certified.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "parcel-scale-attempt-01",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him/.internal/visual-quarantine/slide-04/attempt-01/instagram_post.png",
+      "sha256": "sha256:008bb320a8537a49c18878096fecce7590a74d4444679692faa29fa4dd603650",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Aachu bends deeply toward the floor parcel; Zuv bends behind her within a tight doorway composition.",
+      "limits": "Supports the staging mechanism behind the creator scale complaint; no measured anatomical ratio or whole-package verdict is claimed.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "parcel-scale-attempt-02",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him/.internal/visual-quarantine/slide-04/attempt-02/instagram_post.png",
+      "sha256": "sha256:9014d6b25b75fc92ebcc15c6dddb9bac4bec1a29d570f6da1bad3a10ff1495b1",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Both figures are upright with legs and shoes visible; doorframe and floor provide adult-scale anchors; parcel remains on the mat.",
+      "limits": "Current bytes are recorded here. Historical passed QA or remembered hashes do not approve these bytes without fresh matching.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "socks-pants-contradiction",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/illustrations/2026-05-30/observational-intimacy-premium/rejected/rejected-old-slide-03-pants-mismatch.png",
+      "sha256": "sha256:b4067cd5132ebc5db297e685e63bfab06a0cba95ffed1c771fabf229e0f86edf",
+      "dimensions": [
+        977,
+        1610
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Visible copy describes socks before pants, while Zuv is pulling a sock on with trousers already worn.",
+      "limits": "Current pixel evidence of copy/action contradiction. Historical canvas is recorded without applying a later format rule retroactively.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "older-crouched-pose",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/illustrations/2026-05-30/observational-intimacy-premium/rejected/rejected-old-slide-08-crouched-pose.png",
+      "sha256": "sha256:20486f6a1710920b5b602a892806bfa34b624bcfe01eb50c7b684ce00aed9336",
+      "dimensions": [
+        977,
+        1610
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Low seated composition compresses overlapping lower bodies; shoes are detached foreground props.",
+      "limits": "Reject label comes from historical creator records. The current inspection describes staging, not an unsupported diagnosis of malformed anatomy.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "approved-style-board",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png",
+      "sha256": "sha256:850634480a635e296cbbb352bcbf461ade1bc4e1c3b419881a614e4ded13ee18",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Four frames show wedding kneeling action, mountain wide, seated kitchen support and sofa intimacy, with watercolor edges and textured line treatment.",
+      "limits": "Style authority per current manifest. Motivated kneeling and seated crops inform reconciliation of pose-rule scope; they do not silently override canonical pose prohibitions or certify every physical detail in the board.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "sofa-story-miss",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-09-12/we-needed-a-bigger-sofa-5/.internal/visual-quarantine/slide-04/attempt-01/instagram_post.png",
+      "sha256": "sha256:77f4540a9ca9967f0ace83b90b3efe6b9b1e61da7658d7793982a20ed1878c98",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "The couple sit comfortably together at the left side of a long sofa under Move a little copy; visible body compression and seat pressure are mild.",
+      "limits": "Consistent with recorded QA finding that the intended squeezed-cushion joke lacks clear visual pressure. Story judgment is qualitative.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "aircraft-contact-miss",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-09-04/i-have-lived-so-many-years-without-you/.internal/visual-quarantine/superseded/4b94d7c576a73bbe4f1a/.internal/visual-quarantine/slide-06/attempt-01/instagram_post.png",
+      "sha256": "sha256:e4c6d9a31de25351fb66d2849ea5ac43713945b32363b15beae5347b574071b1",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Zuv points toward the window and his other visible hand contacts Aachu near the upper sleeve; Aachu holds boarding papers in the foreground.",
+      "limits": "Upper-sleeve contact can be compared to archived planned forearm contact. Anatomical side/identity findings beyond visible contact rely on recorded QA and were not newly certified.",
+      "production_approval_granted": false
+    },
+    {
+      "id": "parcel-incidental-lettering",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his/.internal/visual-quarantine/superseded/89e50abaec82fab89ee3/.internal/visual-quarantine/slide-04/attempt-01/instagram_post.png",
+      "sha256": "sha256:61ad8ba460e508126c5f36ddcb60521ca0028dfbd372c7cbf87cd57498dc2010",
+      "dimensions": [
+        1080,
+        1440
+      ],
+      "inspection_method": "view_image",
+      "current_pixel_observation": "Extra lettering appears on wall art, Zuv shirt, courier clothing/cap and parcel label in addition to main copy and signature; Aachu extends an open palm toward the scene.",
+      "limits": "Confirms extra inscriptions in a hash-matched archived failure. Exact tiny glyph transcription is not claimed; calling-versus-reaching interpretation also uses recorded QA.",
+      "production_approval_granted": false
+    }
+  ]
+}

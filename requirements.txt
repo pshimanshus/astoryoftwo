@@ -29,5 +29,9 @@ rapidfuzz>=3.0  # fuzzy text match for OCR comparison
 # The on-image text gate degrades gracefully when easyocr is missing.
 # easyocr>=1.7
 
+# External feedback evaluation and observability are optional and intentionally
+# excluded from the base environment. `make feedback-integrations-setup` installs
+# the tested DeepEval and Langfuse pins into .venv-evals only.
+
 # Dev
 pytest>=8.0.0

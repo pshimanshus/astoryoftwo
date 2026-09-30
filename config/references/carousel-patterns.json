@@ -1,0 +1,2091 @@
+{
+  "schema_version": "carousel-patterns/v1",
+  "saved_on": "2026-09-20",
+  "evidence_basis": "Saved September 20 local contact-sheet inspection and September 12 published reviews; no fresh vision or Instagram revisit in this integration.",
+  "archive": {
+    "path": "output/reports/2026-09-20-carousel-pattern-analysis",
+    "original_root": "/Users/himanshusharma/astoryoftwo-analysis",
+    "manifest_sha256": "b0de6896e130707716299c82c8aceeda8074871e926f4b69b8a7bb02dfdb1f8b"
+  },
+  "source_bindings": [
+    {
+      "path": "output/reports/2026-09-12-full-carousel-audit/live-a.json",
+      "sha256": "49a1ab4c1ffb85aaaa6c935417e9ab2147c5804236022f028fa7d6798697d605"
+    },
+    {
+      "path": "output/reports/2026-09-12-full-carousel-audit/live-b.json",
+      "sha256": "73066e68b489396938589ea36faba9f4757853aab4f4c17d53d0fe535c2c8352"
+    },
+    {
+      "path": "wiki/insights/retrieved-carousel-pattern-analysis.md",
+      "sha256": "419a00420359df4a9622c9e02bc8ef5ca2e48c804fb2eb62c4d85730a6973f69"
+    }
+  ],
+  "coverage": {
+    "mapped_sequences": 27,
+    "mapped_slide_positions": 158,
+    "unique_image_hashes": 153,
+    "supplemental_published_reviews": 2,
+    "duplicate_image_groups": [
+      {
+        "sha256": "cefc9e98ca83f50922931cadbc14bdb021ed18088e4d94a3cf1a1fae61d6da82",
+        "positions": [
+          {
+            "shortcode": "DcT42EoCb1d",
+            "slide": 1
+          },
+          {
+            "shortcode": "DbGSctjiWAB",
+            "slide": 1
+          }
+        ]
+      },
+      {
+        "sha256": "1de797edcbe0f3d9bfb6083966346cf679e8bcdbdcb2832a37e0113f9b3421f3",
+        "positions": [
+          {
+            "shortcode": "DcT42EoCb1d",
+            "slide": 2
+          },
+          {
+            "shortcode": "DbGSctjiWAB",
+            "slide": 2
+          }
+        ]
+      },
+      {
+        "sha256": "6add9a79f6ccef7b3ab2397128de862892c8c058423cdfc7cec50f5c5e47478a",
+        "positions": [
+          {
+            "shortcode": "DcT42EoCb1d",
+            "slide": 3
+          },
+          {
+            "shortcode": "DbGSctjiWAB",
+            "slide": 3
+          }
+        ]
+      },
+      {
+        "sha256": "979210d0626bcdfe46fdbdbb0dbdc8791ef74ce4a680815efe9902296b54cbee",
+        "positions": [
+          {
+            "shortcode": "DcT42EoCb1d",
+            "slide": 4
+          },
+          {
+            "shortcode": "DbGSctjiWAB",
+            "slide": 4
+          }
+        ]
+      },
+      {
+        "sha256": "a22b9a0f6dcbce06dae405066a3f22185493e6f3ecf20ba93d36ca233f9eb974",
+        "positions": [
+          {
+            "shortcode": "DcT42EoCb1d",
+            "slide": 5
+          },
+          {
+            "shortcode": "DbGSctjiWAB",
+            "slide": 5
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "Mapped local production counterparts are not guaranteed identical to published images.",
+      "Contact-sheet inspection does not establish exact typography, full-resolution identity or a production pixel PASS.",
+      "The five-card weather cut shares five images with the seven-card cut; positions are not independent visual observations."
+    ]
+  },
+  "source_index": [
+    {
+      "shortcode": "Dc5eniKic95",
+      "title": "Public pressure and a husband alliance",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/Dc5eniKic95/slide-01.jpg",
+          "sha256": "4c02673571f5c298b339f62901e1841ba69eb6388d3e1ce75c3cae536ba0f745"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/Dc5eniKic95/slide-02.jpg",
+          "sha256": "8d50a52b869203249cd86df71775ba9a03d43819c062e401275c32295a8139b8"
+        }
+      ]
+    },
+    {
+      "shortcode": "DY4tGrQCXRA",
+      "title": "Someone stays for the full story",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/generated-sources/2026-05-22/someone-stays-for-the-full-story/instagram-post/slide-01.png",
+          "sha256": "93472e2476721e17f8a4489a5dc7474bea4268b9c37e10e8c1b58626ce4a45f7"
+        },
+        {
+          "slide": 2,
+          "path": "output/generated-sources/2026-05-22/someone-stays-for-the-full-story/instagram-post/slide-02.png",
+          "sha256": "0c5e67f100277bad8f4856caad6550fd73ccbb555693f12333e4f903f79146f2"
+        },
+        {
+          "slide": 3,
+          "path": "output/generated-sources/2026-05-22/someone-stays-for-the-full-story/instagram-post/slide-04.png",
+          "sha256": "d103257802a7a9f5ac2de77617359153f5ca205931a63ec4a7e545e415d4a266"
+        },
+        {
+          "slide": 4,
+          "path": "output/generated-sources/2026-05-22/someone-stays-for-the-full-story/instagram-post/slide-03.png",
+          "sha256": "4682c9ebaab179002a38e10514d2c8df35d0236944d6da6bd489b561649da999"
+        },
+        {
+          "slide": 5,
+          "path": "output/generated-sources/2026-05-22/someone-stays-for-the-full-story/instagram-post/slide-05.png",
+          "sha256": "e653df2d4a9aedeb693bdd93c6efe71b84f7a2153b889bf2d253d0d3b3049312"
+        },
+        {
+          "slide": 6,
+          "path": "output/generated-sources/2026-05-22/someone-stays-for-the-full-story/instagram-post/slide-06.png",
+          "sha256": "9018b80f23a344c76ecec04682531fc17d3a8410a8e98aefbd9a37b04a2f1287"
+        },
+        {
+          "slide": 7,
+          "path": "output/generated-sources/2026-05-22/someone-stays-for-the-full-story/instagram-post/slide-07.png",
+          "sha256": "c3db4dcd0b32dad5d233f4f0045b41a0d2d0ff955a2b42b3113e27f2f75748f4"
+        }
+      ]
+    },
+    {
+      "shortcode": "DcT42EoCb1d",
+      "title": "Inner weather — five-card mapped version",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-01.png",
+          "sha256": "cefc9e98ca83f50922931cadbc14bdb021ed18088e4d94a3cf1a1fae61d6da82"
+        },
+        {
+          "slide": 2,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-02.png",
+          "sha256": "1de797edcbe0f3d9bfb6083966346cf679e8bcdbdcb2832a37e0113f9b3421f3"
+        },
+        {
+          "slide": 3,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-03.png",
+          "sha256": "6add9a79f6ccef7b3ab2397128de862892c8c058423cdfc7cec50f5c5e47478a"
+        },
+        {
+          "slide": 4,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-04.png",
+          "sha256": "979210d0626bcdfe46fdbdbb0dbdc8791ef74ce4a680815efe9902296b54cbee"
+        },
+        {
+          "slide": 5,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-05.png",
+          "sha256": "a22b9a0f6dcbce06dae405066a3f22185493e6f3ecf20ba93d36ca233f9eb974"
+        }
+      ]
+    },
+    {
+      "shortcode": "DcRQEEjCSNo",
+      "title": "I will do it my way — sweeping and dishes",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DcRQEEjCSNo/slide-01.jpg",
+          "sha256": "eb4071c17e2fb06e42cbecfeef8c0cfacea259e096b9dd7a3082e760d15d2b79"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DcRQEEjCSNo/slide-02.jpg",
+          "sha256": "60ea89f97824e5d529dcee1a3f02b3d6ae8a618890cda356b5f6710d249a16b6"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DcRQEEjCSNo/slide-03.jpg",
+          "sha256": "29997cc521857a8f858866ddad24edf52f81f7ec887138806fe48e0a6168a7f6"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DcRQEEjCSNo/slide-04.jpg",
+          "sha256": "9f6c0159d93bee7987f2f52a63535d557b355b0f4d508ce22acf0878f88ddeab"
+        }
+      ]
+    },
+    {
+      "shortcode": "DcG9gVzCfO7",
+      "title": "Why I could never give up on us",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DcG9gVzCfO7/slide-01.jpg",
+          "sha256": "e52a8abb5b118a6fbc477dc89d4e60833faa970bdb6f20e61b1dfed53c93c1f1"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DcG9gVzCfO7/slide-02.jpg",
+          "sha256": "0115b778a53750d838eee2dcbaf5e1936dcb1c950bddc05b77d7c03b99be7ff2"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DcG9gVzCfO7/slide-03.jpg",
+          "sha256": "0ab534866abe267da8ce7ffc039078efd1db56fa3eac2f2f3c493aeee8e00b2b"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DcG9gVzCfO7/slide-04.jpg",
+          "sha256": "e2d8c5bb95ebb5a506d343fed3c85262bc0dc568e4f5d0f26928a23cf5d062eb"
+        }
+      ]
+    },
+    {
+      "shortcode": "Db3ZnTSCZ_k",
+      "title": "Marriage rules learned after the wedding",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-01.png",
+          "sha256": "41d982685a06a9c1dcc24ee048630fe6381eb2b420f238f9b38eaf27cd7bb412"
+        },
+        {
+          "slide": 2,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-02.png",
+          "sha256": "bd355bf2eb29069c70ee5b0db4408386b45dbae220e10e8c47dde3d5199328aa"
+        },
+        {
+          "slide": 3,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-03.png",
+          "sha256": "36bd533fdc7655649759ffc166d6c803b3435b8d7c1a37ae38947a178f6a3c30"
+        },
+        {
+          "slide": 4,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-04.png",
+          "sha256": "cd6d65de9e2e5de50ea23cdd1788434c8b4a08d099cd973ac1a4f68e1fbed021"
+        },
+        {
+          "slide": 5,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-05.png",
+          "sha256": "27fd2ba7461728a3006f596acdcd3ef1426a59708e25115e6a5a07ca7e4e551a"
+        },
+        {
+          "slide": 6,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-06.png",
+          "sha256": "065e64df727530b45175dac3b1b8797f385dc34a07c2da18413c6277f0c73c88"
+        },
+        {
+          "slide": 7,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-07.png",
+          "sha256": "9cbf94ed9c0ac5d920e9d77b9ad8bdf390f4813b76677aa0e06d8d9595b99880"
+        },
+        {
+          "slide": 8,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-08.png",
+          "sha256": "db53e7de04e979147910e89ee34862b1b3f92c0375207a9fa6779a1e00ca3c93"
+        },
+        {
+          "slide": 9,
+          "path": "output/carousels/2026-07-30/more-unofficial-rules-of-marriage/final/slide-09.png",
+          "sha256": "e37caa334a635bcc198cad9e4eda9adad84ac80212bd85cc357455b10a8b2348"
+        }
+      ]
+    },
+    {
+      "shortcode": "DbvlHgXCdIS",
+      "title": "You filled my life little by little",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DbvlHgXCdIS/slide-01.jpg",
+          "sha256": "9279e98961280d3ba493a5a06cc0643db7a1608181bf35917cb84a7743735b57"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DbvlHgXCdIS/slide-02.jpg",
+          "sha256": "adfd935337d5fd62f350646e7a0d7e556b5cea0da3e4862f8e3e42801f3edf36"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DbvlHgXCdIS/slide-03.jpg",
+          "sha256": "5a8ad3062ad8bf8e26a924cc78cc6be7d4fb5f489c1fd423b565c6b7fff2e281"
+        }
+      ]
+    },
+    {
+      "shortcode": "Dbn2AJBCVnY",
+      "title": "Food requests and affectionate surrender",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/Dbn2AJBCVnY/slide-01.jpg",
+          "sha256": "788b35b4ceee2f48d11838d697beed7c622dbdfd814d5adbfc2ac1481e2511e5"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/Dbn2AJBCVnY/slide-02.jpg",
+          "sha256": "c4462821e55a148afc1a2a6b6246dcb49fe5864cf128d80ca49df0e2bdeac25d"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/Dbn2AJBCVnY/slide-03.jpg",
+          "sha256": "0e2a8430113849176e2604a743fe583a5d647a5431c1ae0c6259984b310df7c1"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/Dbn2AJBCVnY/slide-04.jpg",
+          "sha256": "b751001a4ee85da8caeffc546410d26983c62707fefcd8654edd6b32fda827e4"
+        }
+      ]
+    },
+    {
+      "shortcode": "Dbcze_5iRLJ",
+      "title": "Not married yet, already us",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-01.png",
+          "sha256": "025c3aedda2df01535e64bc42b453903f7de24ee31693c26d1cd3e69a523d0f1"
+        },
+        {
+          "slide": 2,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-02.png",
+          "sha256": "e3062b4d65cb92f419ba7f46fb9c4015c2220b4d9af9c830da794503aee5bb7e"
+        },
+        {
+          "slide": 3,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-03.png",
+          "sha256": "85ea82e1005bdef2d9f10887c8f7330e048dd1eee3bfe26149d89d6a00a63851"
+        },
+        {
+          "slide": 4,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-04.png",
+          "sha256": "5a9166f736a93d08d4ca28f84d95015b64d2867af340128ff9820491ed2dc070"
+        },
+        {
+          "slide": 5,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-05.png",
+          "sha256": "110efd3e310331e3458407557d7b01b1ac3b734ecee6647fc5aeba6c193651f1"
+        },
+        {
+          "slide": 6,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-06.png",
+          "sha256": "24e5fe448868443056f5eb0bbf0065ed4429eb46c1c84c346b7ab5d7ecc9309c"
+        },
+        {
+          "slide": 7,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-07.png",
+          "sha256": "537b2ad7de5b63c2d02151f3d28b8378717f0407d4a3df3637824f0dc6e132a0"
+        },
+        {
+          "slide": 8,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-08.png",
+          "sha256": "8f325fc47733dbf923bbaaca00c31093781e43d760bbf09d336defbd5326bd7c"
+        },
+        {
+          "slide": 9,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-09.png",
+          "sha256": "e63bdd4682cd712ef314e5baca826f39f1696bd3e6072e003a7fe1744c551c82"
+        },
+        {
+          "slide": 10,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-10.png",
+          "sha256": "695b3af814212b657b368d7620abc4528c5a4fc0460da91e35bc42f52cd35249"
+        },
+        {
+          "slide": 11,
+          "path": "output/carousels/2026-07-30/not-married-yet-already-us/creator-selected/full-carousel/final/slide-11.png",
+          "sha256": "12089992e32e4494299740f80cf61f2f8dcc9483f609103db954b8cb61d06376"
+        }
+      ]
+    },
+    {
+      "shortcode": "DbLyptcidVh",
+      "title": "Love is not loving one version",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/carousels/2026-07-12/versions-of-us/final/slide-01.png",
+          "sha256": "f7333346fb60fd7c8da2550b872db521c205234ba13dc68ec5a0c7089956195b"
+        },
+        {
+          "slide": 2,
+          "path": "output/carousels/2026-07-12/versions-of-us/final/slide-02.png",
+          "sha256": "f42128d56d94dfb5978d4aea9ddf2e7001f9c2c276e9422c3a8d86a0c5d4fcd9"
+        },
+        {
+          "slide": 3,
+          "path": "output/carousels/2026-07-12/versions-of-us/final/slide-03.png",
+          "sha256": "22863e63c19c3a4a132f12be3228024498b98be25d4cd112acb54ad2ed946506"
+        },
+        {
+          "slide": 4,
+          "path": "output/carousels/2026-07-12/versions-of-us/final/slide-04.png",
+          "sha256": "abd1e2bdcc83e465f96a758b2bbb77f35ced44b5d63ad8622a828836307773c1"
+        },
+        {
+          "slide": 5,
+          "path": "output/carousels/2026-07-12/versions-of-us/final/slide-05.png",
+          "sha256": "90d63e1e3826331392444d2bd54c233866de10b9cc47dd9643cd8ce8b9ed39fe"
+        },
+        {
+          "slide": 6,
+          "path": "output/carousels/2026-07-12/versions-of-us/final/slide-06.png",
+          "sha256": "d765ddfc04055e0ad3e3179076f60606ceb6a7d501c36646f616d8c8c6c4125e"
+        }
+      ]
+    },
+    {
+      "shortcode": "DazZdIZiQ0q",
+      "title": "The house learned us",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-01.png",
+          "sha256": "766f91ea74786869b1cb9e41fac0a4c71feccd078872b673963b19e1976abc00"
+        },
+        {
+          "slide": 2,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-02.png",
+          "sha256": "80047f965d6910a833de25ce55804ff27ef2dd9e40a6c01f735c114ae59a1161"
+        },
+        {
+          "slide": 3,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-03.png",
+          "sha256": "248fb24f66762c0a7b6e7f87f6e283d482ec779dbcb5f74786e3a5ff07f66f94"
+        },
+        {
+          "slide": 4,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-04.png",
+          "sha256": "479c270df3d046bcfd1a3f5dad06cecee35bfd3935dc73b06320de5ec2b614a8"
+        },
+        {
+          "slide": 5,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-05.png",
+          "sha256": "38ab134715346fb96052c2b92af045b4596ca78391b7178f76faf41cbc89f2ba"
+        },
+        {
+          "slide": 6,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-06.png",
+          "sha256": "46c211011272967df18e370166ddcd47393081fc35f9521915692105e5dd6f4d"
+        },
+        {
+          "slide": 7,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-07.png",
+          "sha256": "9fb475cdbf0e9eeebb8b202103b7ae390b057045ed74ff0274aba1728abfd7be"
+        },
+        {
+          "slide": 8,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-08.png",
+          "sha256": "b1c3ce7e209c99998b28419ef4c186420949ebe7c7c52cad06a4616b7a6e8773"
+        },
+        {
+          "slide": 9,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-09.png",
+          "sha256": "350cff36fd26e4d8b9cd2e740767f6d339a984344df457de209b69a3c7f8dd89"
+        },
+        {
+          "slide": 10,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-10.png",
+          "sha256": "2a14073d4208f40caa8d5461322cbcb1d5059dd15006e4ec75f5c3f36e57eec0"
+        },
+        {
+          "slide": 11,
+          "path": "output/carousels/2026-07-03/the-house-learned-us/final/slide-11.png",
+          "sha256": "8e93b9fb5a15ba72f015df5feb653ae46efc128054bed552c05baba6aa2f876c"
+        }
+      ]
+    },
+    {
+      "shortcode": "DbDt6k3CYz5",
+      "title": "Separate paths becoming a shared arrival",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DbDt6k3CYz5/slide-01.jpg",
+          "sha256": "d1cc623ff6979cdfc66560e14772a1c58762b6a60f328455d467fe94e005f061"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DbDt6k3CYz5/slide-02.jpg",
+          "sha256": "4ffa3f1dbc35f1ce7b703c1b8ab916bbac6f66220af1575b577b1c4413bf31d1"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DbDt6k3CYz5/slide-03.jpg",
+          "sha256": "517f518587356bd2eb21ea5da7d40bc80580b5df979a213b6fefc45f08c96a37"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DbDt6k3CYz5/slide-04.jpg",
+          "sha256": "4fdac9111725b4710891fcd31038483db09d5439b6d2eddfd71743be31e6da4e"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DbDt6k3CYz5/slide-05.jpg",
+          "sha256": "f3baeaf462dd9ef03470567b0acd504a19d7ad5fda08ca8b2680f812fec420dd"
+        },
+        {
+          "slide": 6,
+          "path": "corpus/media/DbDt6k3CYz5/slide-06.jpg",
+          "sha256": "a34caaeae9dddd3287e80c9dcc0e900b922ec9dfd92b1f692576652458f0510e"
+        },
+        {
+          "slide": 7,
+          "path": "corpus/media/DbDt6k3CYz5/slide-07.jpg",
+          "sha256": "ea94cfb2dd5e216a57ca0e50b5ab965b34956b230905c1a871350aefbe19c486"
+        },
+        {
+          "slide": 8,
+          "path": "corpus/media/DbDt6k3CYz5/slide-08.jpg",
+          "sha256": "4a01fc723b2ad96e2c4e169a94fdc566f038c38fad5f66ff5e632b29f6c96df0"
+        }
+      ]
+    },
+    {
+      "shortcode": "DbGSctjiWAB",
+      "title": "Inner weather — seven-card mapped version",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-01.png",
+          "sha256": "cefc9e98ca83f50922931cadbc14bdb021ed18088e4d94a3cf1a1fae61d6da82"
+        },
+        {
+          "slide": 2,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-02.png",
+          "sha256": "1de797edcbe0f3d9bfb6083966346cf679e8bcdbdcb2832a37e0113f9b3421f3"
+        },
+        {
+          "slide": 3,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-03.png",
+          "sha256": "6add9a79f6ccef7b3ab2397128de862892c8c058423cdfc7cec50f5c5e47478a"
+        },
+        {
+          "slide": 4,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-04.png",
+          "sha256": "979210d0626bcdfe46fdbdbb0dbdc8791ef74ce4a680815efe9902296b54cbee"
+        },
+        {
+          "slide": 5,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-05.png",
+          "sha256": "a22b9a0f6dcbce06dae405066a3f22185493e6f3ecf20ba93d36ca233f9eb974"
+        },
+        {
+          "slide": 6,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-06.png",
+          "sha256": "ab30ba6205b1f482bbc4de973225b6fa554505fb7e45eba740f35ec0ae3fb5c5"
+        },
+        {
+          "slide": 7,
+          "path": "output/carousels/2026-07-12/after-one-hour-with-you-zuv-pov/non-final-proofs/instagram-post/slide-07.png",
+          "sha256": "5ec1b7f49e73cdcbc4b97cfe1128088962c19d481e1a3334b26bb5d5f6502097"
+        }
+      ]
+    },
+    {
+      "shortcode": "Da0apeiiQ0i",
+      "title": "Devotion from illustration into a real memory",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/Da0apeiiQ0i/slide-01.jpg",
+          "sha256": "c02661bdca26d3cc859a2873b9344c942a1b9710e3449fccace068c85bd07f83"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/Da0apeiiQ0i/slide-02.jpg",
+          "sha256": "ab4733e5a36628e8a697409919898ce8d2002c8b4bf733b7891909653e7c3721"
+        }
+      ]
+    },
+    {
+      "shortcode": "Dash9WKidVu",
+      "title": "Mera ghar. Uski team.",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/Dash9WKidVu/slide-01.jpg",
+          "sha256": "45a9b76210edfe72059264dd032e7d655cab0498f565ce485965f5700b8e10ad"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/Dash9WKidVu/slide-02.jpg",
+          "sha256": "0afd809594518ee349b9afbe1e2d3ec338a3c3f95433e38f6d947b24f2117c7d"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/Dash9WKidVu/slide-03.jpg",
+          "sha256": "ef1b567fab0a8238d6883df13ad7a85ff4efd5d26fa5fa65ab10e09d20d39fc0"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/Dash9WKidVu/slide-04.jpg",
+          "sha256": "4b639da478ac15a2e509cf3ebd4ab04ef9df81f30287998b75b944168f8dd693"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/Dash9WKidVu/slide-05.jpg",
+          "sha256": "ff4e0fc009f9d230174cace02791358db62eb1e33d0d734b3ec10077be6da982"
+        },
+        {
+          "slide": 6,
+          "path": "corpus/media/Dash9WKidVu/slide-06.jpg",
+          "sha256": "3a3321f31e7103987febd07d479faf58782cbcd87b8d582149ecbef3374c377e"
+        },
+        {
+          "slide": 7,
+          "path": "corpus/media/Dash9WKidVu/slide-07.jpg",
+          "sha256": "87c747363db0a2a5573ad2b09e3ee4874ea811586413c25a908a0c52f5269fe1"
+        },
+        {
+          "slide": 8,
+          "path": "corpus/media/Dash9WKidVu/slide-08.jpg",
+          "sha256": "f789ebd782ece855bda2ae39b0fa7a2c21b3aa830e9ad3ec355239bc5470eca1"
+        }
+      ]
+    },
+    {
+      "shortcode": "DanYBiyCSsr",
+      "title": "Same café, same care, older",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DanYBiyCSsr/slide-01.jpg",
+          "sha256": "2c8cea76ae79c0d1077ffedb0d39ccb863903697be09e3334ad9a53232e6fdb3"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DanYBiyCSsr/slide-02.jpg",
+          "sha256": "db262ddf5648cd124bda920cc6a61eeb94d54731fc1e98c75d4629ea1313aa45"
+        }
+      ]
+    },
+    {
+      "shortcode": "DaiMWVMiQ7v",
+      "title": "Intimacy as safety to be unperformed",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DaiMWVMiQ7v/slide-01.jpg",
+          "sha256": "3d615309dd305f01fbcd8a0e0e9f2fa7aac8d32e7a6b597949bee3851546304b"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DaiMWVMiQ7v/slide-02.jpg",
+          "sha256": "9724e0a8a55d6b70ac7cd19d6e01f4480de83b0120755a2560a432af44150db9"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DaiMWVMiQ7v/slide-03.jpg",
+          "sha256": "e4289a01a5f9f618bd41180ee2f2ca5cbe644c4405447f864cf4aad31e5c4052"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DaiMWVMiQ7v/slide-04.jpg",
+          "sha256": "7ffbea72800596df9954a4ff86a5fd3c51a9aed8d7ebd8271d2d848abe340d6d"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DaiMWVMiQ7v/slide-05.jpg",
+          "sha256": "98229866e4720d5276fa9ec0783727f1ee114e3c3ed3e274276c6067d14a5267"
+        },
+        {
+          "slide": 6,
+          "path": "corpus/media/DaiMWVMiQ7v/slide-06.jpg",
+          "sha256": "d7c68a322a331a5d28d4f6d7e4e974425cf361ab04f9cf31376dfdd6d9a3618a"
+        }
+      ]
+    },
+    {
+      "shortcode": "DadKYVHCRGY",
+      "title": "Are you listening? The dinner trap",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "output/carousels/2026-06-30/tum-meri-baat-sun-rahe-ho/generated-candidates/non-native/slide-01-full-carousel-v1-979x1606.png",
+          "sha256": "a428b5880bc060b1acdeab2240dc83d00af96c3b3625bcd1b62acb06709ad4cf"
+        },
+        {
+          "slide": 2,
+          "path": "output/carousels/2026-06-30/tum-meri-baat-sun-rahe-ho/generated-candidates/non-native/slide-02-full-carousel-v1-1092x1440.png",
+          "sha256": "759967a4500fd197f5d31488f6b076c341de14c879e5fbaaa099e0ee6023c684"
+        },
+        {
+          "slide": 3,
+          "path": "output/carousels/2026-06-30/tum-meri-baat-sun-rahe-ho/generated-candidates/non-native/slide-03-full-carousel-v1-978x1608.png",
+          "sha256": "ca428b3a8b3221d38549db7cd4099670c5fdf05f8b9b8b8a8025baa6a7906307"
+        },
+        {
+          "slide": 4,
+          "path": "output/carousels/2026-06-30/tum-meri-baat-sun-rahe-ho/generated-candidates/non-native/slide-04-full-carousel-v1-983x1600.png",
+          "sha256": "202075a3f9dac7087ccdca42fb4699033db53c13d269645de3ef51d5ede620b3"
+        },
+        {
+          "slide": 5,
+          "path": "output/carousels/2026-06-30/tum-meri-baat-sun-rahe-ho/generated-candidates/non-native/slide-05-full-carousel-v1-999x1575.png",
+          "sha256": "a2c0ac55710405bed0f144d30f75f3968cb491a63553f9dba7e1820872ec83d8"
+        },
+        {
+          "slide": 6,
+          "path": "output/carousels/2026-06-30/tum-meri-baat-sun-rahe-ho/generated-candidates/non-native/slide-06-full-carousel-v1-1000x1573.png",
+          "sha256": "b3779999129811029885109a21f0a0e5f1fbb1755a6b4a05f86cc5ffdce0e49f"
+        },
+        {
+          "slide": 7,
+          "path": "output/carousels/2026-06-30/tum-meri-baat-sun-rahe-ho/generated-candidates/non-native/slide-07-full-carousel-v1-999x1574.png",
+          "sha256": "afade4c3e13a918f4e3e6d909a0a3aca7a4fb30085a7c4f8b234f63885513cf2"
+        }
+      ]
+    },
+    {
+      "shortcode": "DaA3U3bCToJ",
+      "title": "You are my Zuv",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DaA3U3bCToJ/slide-01.jpg",
+          "sha256": "fd4a3f9bdbde51cd1613e20dbe2db229969a4ce7b4974b4197d0e32535d1369b"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DaA3U3bCToJ/slide-02.jpg",
+          "sha256": "3db699d6d4050671daff871dfe98484f972f719a91d4b289801f0682d4318b0e"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DaA3U3bCToJ/slide-03.jpg",
+          "sha256": "30e9c37cf1cf907690cd8b279de4b07a9f97e1d6386a929ed9cbad0b3d52ca9c"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DaA3U3bCToJ/slide-04.jpg",
+          "sha256": "af3ece040a2f4a20fc0de5a28f50758f52afea720054b4101b8b492739c20e7d"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DaA3U3bCToJ/slide-05.jpg",
+          "sha256": "66dc44a1d32344d18459925728ecb1f0b470fe01eea7058a7d769b62f0116f3f"
+        },
+        {
+          "slide": 6,
+          "path": "corpus/media/DaA3U3bCToJ/slide-06.jpg",
+          "sha256": "9af1f278af82ca7b676f54097e3f8eed0d86536ad442ea9f728d94c56df2bcc2"
+        },
+        {
+          "slide": 7,
+          "path": "corpus/media/DaA3U3bCToJ/slide-07.jpg",
+          "sha256": "011a283a63ef655752c5d9306de6d679f21391d2c726911d10edcc939f990039"
+        }
+      ]
+    },
+    {
+      "shortcode": "DYoEl5jicte",
+      "title": "Main kar lungi",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DYoEl5jicte/slide-01.jpg",
+          "sha256": "fd8f3eb460055be06915e9dc7a0f72c51a5f3e6d88c00b91f8f0f16dfeea4ae8"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DYoEl5jicte/slide-02.jpg",
+          "sha256": "018efafb89a8710d0d08631ae6cdb982e0e26bc1ba785d3e7ae7a2b71e10d3b4"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DYoEl5jicte/slide-03.jpg",
+          "sha256": "f78c1e49d0c6c759539618c53843d5a5cd70225fdbfde23a32468914a113c123"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DYoEl5jicte/slide-04.jpg",
+          "sha256": "5ff2507f32c2b8b15fae5bf901f756cd12a8c667dc6c4fe5f76a5670e1f764d4"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DYoEl5jicte/slide-05.jpg",
+          "sha256": "e63828f076a286da8f3eae70f5ccd74525a1565d7535209bbfa719202e460039"
+        }
+      ]
+    },
+    {
+      "shortcode": "DYJpjt9CQYY",
+      "title": "He did not marry peace",
+      "evidence_kind": "local_source_counterpart",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "unverified",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "/Users/himanshusharma/Downloads/AI-Images/Generated image 1.png",
+          "sha256": "03ace1bbcd2da9769b48f41b3dbe575c4105662054aa48bc32ddd9a8afcba166",
+          "canonical_asset": {
+            "path": "output/reports/2026-09-20-carousel-pattern-analysis/evidence-assets/03ace1bbcd2da9769b48f41b3dbe575c4105662054aa48bc32ddd9a8afcba166.png",
+            "sha256": "03ace1bbcd2da9769b48f41b3dbe575c4105662054aa48bc32ddd9a8afcba166",
+            "bound_on": "2026-09-20",
+            "provenance": "Identical-byte copy of the exact historical local source path recorded in path. This declared archive asset is the runtime evidence source; the original path is historical provenance only. No fallback selection, fresh visual inspection, or published-byte identity is claimed."
+          }
+        },
+        {
+          "slide": 2,
+          "path": "/Users/himanshusharma/Downloads/AI-Images/Generated image 2.png",
+          "sha256": "b04e755b4366325c78f519c61282da5b67724b1a7ac6e2aaf0ef4e1aeeab04f9",
+          "canonical_asset": {
+            "path": "output/reports/2026-09-20-carousel-pattern-analysis/evidence-assets/b04e755b4366325c78f519c61282da5b67724b1a7ac6e2aaf0ef4e1aeeab04f9.png",
+            "sha256": "b04e755b4366325c78f519c61282da5b67724b1a7ac6e2aaf0ef4e1aeeab04f9",
+            "bound_on": "2026-09-20",
+            "provenance": "Identical-byte copy of the exact historical local source path recorded in path. This declared archive asset is the runtime evidence source; the original path is historical provenance only. No fallback selection, fresh visual inspection, or published-byte identity is claimed."
+          }
+        },
+        {
+          "slide": 3,
+          "path": "/Users/himanshusharma/Downloads/AI-Images/Generated image 3.png",
+          "sha256": "8b1e782e03f9a923c1d64e51c8c05b202fd0caaae36ddbe10ba2d9c3f48c2f6a",
+          "canonical_asset": {
+            "path": "output/reports/2026-09-20-carousel-pattern-analysis/evidence-assets/8b1e782e03f9a923c1d64e51c8c05b202fd0caaae36ddbe10ba2d9c3f48c2f6a.png",
+            "sha256": "8b1e782e03f9a923c1d64e51c8c05b202fd0caaae36ddbe10ba2d9c3f48c2f6a",
+            "bound_on": "2026-09-20",
+            "provenance": "Identical-byte copy of the exact historical local source path recorded in path. This declared archive asset is the runtime evidence source; the original path is historical provenance only. No fallback selection, fresh visual inspection, or published-byte identity is claimed."
+          }
+        },
+        {
+          "slide": 4,
+          "path": "/Users/himanshusharma/Downloads/AI-Images/Generated image 4.png",
+          "sha256": "33011b6d6436fcdb736549a44f6929e4465695b6546d5a6349c37aebf99a967e",
+          "canonical_asset": {
+            "path": "output/reports/2026-09-20-carousel-pattern-analysis/evidence-assets/33011b6d6436fcdb736549a44f6929e4465695b6546d5a6349c37aebf99a967e.png",
+            "sha256": "33011b6d6436fcdb736549a44f6929e4465695b6546d5a6349c37aebf99a967e",
+            "bound_on": "2026-09-20",
+            "provenance": "Identical-byte copy of the exact historical local source path recorded in path. This declared archive asset is the runtime evidence source; the original path is historical provenance only. No fallback selection, fresh visual inspection, or published-byte identity is claimed."
+          }
+        },
+        {
+          "slide": 5,
+          "path": "/Users/himanshusharma/Downloads/AI-Images/Generated image 5.png",
+          "sha256": "dee921f296b5e069111c2a85cd14390c2b75a61dfd9a77dc7c089fd348d3a21d",
+          "canonical_asset": {
+            "path": "output/reports/2026-09-20-carousel-pattern-analysis/evidence-assets/dee921f296b5e069111c2a85cd14390c2b75a61dfd9a77dc7c089fd348d3a21d.png",
+            "sha256": "dee921f296b5e069111c2a85cd14390c2b75a61dfd9a77dc7c089fd348d3a21d",
+            "bound_on": "2026-09-20",
+            "provenance": "Identical-byte copy of the exact historical local source path recorded in path. This declared archive asset is the runtime evidence source; the original path is historical provenance only. No fallback selection, fresh visual inspection, or published-byte identity is claimed."
+          }
+        },
+        {
+          "slide": 6,
+          "path": "/Users/himanshusharma/Downloads/AI-Images/Generated image 6.png",
+          "sha256": "e9411bc9dc8769787afabcb41ebb921159c769230baf07f67c00e3cdcdfe2941",
+          "canonical_asset": {
+            "path": "output/reports/2026-09-20-carousel-pattern-analysis/evidence-assets/e9411bc9dc8769787afabcb41ebb921159c769230baf07f67c00e3cdcdfe2941.png",
+            "sha256": "e9411bc9dc8769787afabcb41ebb921159c769230baf07f67c00e3cdcdfe2941",
+            "bound_on": "2026-09-20",
+            "provenance": "Identical-byte copy of the exact historical local source path recorded in path. This declared archive asset is the runtime evidence source; the original path is historical provenance only. No fallback selection, fresh visual inspection, or published-byte identity is claimed."
+          }
+        },
+        {
+          "slide": 7,
+          "path": "/Users/himanshusharma/Downloads/AI-Images/Generated image 7.png",
+          "sha256": "50e0e361ade2e7a870308e6baf9223c1ed05beb86b8578a5b38551d65475f1be",
+          "canonical_asset": {
+            "path": "output/reports/2026-09-20-carousel-pattern-analysis/evidence-assets/50e0e361ade2e7a870308e6baf9223c1ed05beb86b8578a5b38551d65475f1be.png",
+            "sha256": "50e0e361ade2e7a870308e6baf9223c1ed05beb86b8578a5b38551d65475f1be",
+            "bound_on": "2026-09-20",
+            "provenance": "Identical-byte copy of the exact historical local source path recorded in path. This declared archive asset is the runtime evidence source; the original path is historical provenance only. No fallback selection, fresh visual inspection, or published-byte identity is claimed."
+          }
+        }
+      ]
+    },
+    {
+      "shortcode": "DY_t4Dek0pq",
+      "title": "Observational intimacy",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DY_t4Dek0pq/slide-01.jpg",
+          "sha256": "862b4d5ba581a96c7e49438f05f9e7febcaec357ed1c18b0e2cffa3c3ff0caa7"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DY_t4Dek0pq/slide-02.jpg",
+          "sha256": "7276d9e8c88773e6a9ffb062527241d05114f76906d80efab67ce65759adb669"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DY_t4Dek0pq/slide-03.jpg",
+          "sha256": "8e7f69d1ad439dc524f1367b6af4c24813c96664b63a66cd82d43decd7266875"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DY_t4Dek0pq/slide-04.jpg",
+          "sha256": "cc591f1a2d3c9568ca5fa4b94082b5fa1fd29673622aa958726d0a49370d5941"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DY_t4Dek0pq/slide-05.jpg",
+          "sha256": "fee9674deef8fb616093de3de6bcdaf9f76b7fbfcf38310d25f37ac5b400afa4"
+        },
+        {
+          "slide": 6,
+          "path": "corpus/media/DY_t4Dek0pq/slide-06.jpg",
+          "sha256": "260537b4c9617de3c2c4a2f9a6af793e9ecfa0a1ab3371c96c5281649a0cfecd"
+        },
+        {
+          "slide": 7,
+          "path": "corpus/media/DY_t4Dek0pq/slide-07.jpg",
+          "sha256": "b0342a08cf07db629106eaeb5f03b07b97dc96d740a0f0adc17a55dff150da92"
+        },
+        {
+          "slide": 8,
+          "path": "corpus/media/DY_t4Dek0pq/slide-08.jpg",
+          "sha256": "4e3ae69358c59ae25c942ea5955f7070a3a51bb276cdf7a0189da27273d5dd60"
+        }
+      ]
+    },
+    {
+      "shortcode": "DY9SfANiXWc",
+      "title": "Missing ordinary time in long distance",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DY9SfANiXWc/slide-01.jpg",
+          "sha256": "a9bad0473e396d1cc03bc938117c693cfcecbdbea1582b3ed3384a756ccbaad5"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DY9SfANiXWc/slide-02.jpg",
+          "sha256": "e02c3174b3617207554410a1117f95d767cfdc3df2ba8be4b4d3d727e7d45967"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DY9SfANiXWc/slide-03.jpg",
+          "sha256": "cd88af2c01b5be157abdb27d4ef3692ccb65770ef41afec8072724953916939f"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DY9SfANiXWc/slide-04.jpg",
+          "sha256": "b1e992552727f2fa6fcaa40e924aff4d7fdd6805458f0d6e48c8fd73d02026ef"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DY9SfANiXWc/slide-05.jpg",
+          "sha256": "1dfc5e17ca831160a1bfde563516caf99280306294f07bdf03ec008fd7f26dfa"
+        }
+      ]
+    },
+    {
+      "shortcode": "DYxCm58CaOM",
+      "title": "Love carries the heavier half",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DYxCm58CaOM/slide-01.jpg",
+          "sha256": "1e71517e3a3113f69871a5e69a6a4fa0d17555cfef7ecc0e84196398a120680f"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DYxCm58CaOM/slide-02.jpg",
+          "sha256": "40ddcb7549aac49fde446a31a159889ebe9e07c50dd8b2dc020137f9987d9cfc"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DYxCm58CaOM/slide-03.jpg",
+          "sha256": "47f9c9ffed7327439c50e88d76ddc154e8027b646bd3e56e489aa732a87233c4"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DYxCm58CaOM/slide-04.jpg",
+          "sha256": "cb66119a0c49b17080100291d14a391c81c486b3d1bed947023eae4e81761e88"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DYxCm58CaOM/slide-05.jpg",
+          "sha256": "996fa47d537329593704b039740ed16fd18ce566dd3d0d3d160bf566724ab805"
+        }
+      ]
+    },
+    {
+      "shortcode": "DYkEsrfiRRw",
+      "title": "Home starts on the commute",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DYkEsrfiRRw/slide-01.jpg",
+          "sha256": "14aa311c9171d73e653178b91b9b6365efad9756171b3cbf0480d6fbd8ba47cc"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DYkEsrfiRRw/slide-02.jpg",
+          "sha256": "2aa8bb058ace4c4460497b87fe1adac2916611391db98c1f64bad287f4a51542"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DYkEsrfiRRw/slide-03.jpg",
+          "sha256": "91420833a0374876e2b2151d03daabb60dbbf7b40f3c7bedd51de7fca94cb1a8"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DYkEsrfiRRw/slide-04.jpg",
+          "sha256": "eb9a587caa927ae72500e3a0e5a66aec97dfb8f93ba80cffd2ee0393cad128ad"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DYkEsrfiRRw/slide-05.jpg",
+          "sha256": "373017515c0eecbc7f7c4b66cbb3572affee5722796e27bf1c41872c89646c47"
+        }
+      ]
+    },
+    {
+      "shortcode": "DYaCIwAiYX9",
+      "title": "He did not marry low maintenance",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DYaCIwAiYX9/slide-01.jpg",
+          "sha256": "69f71bfdef63d6f7e00e72d2c6cf332e7ef37d87cbc4d500dc34ea7d61699373"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DYaCIwAiYX9/slide-02.jpg",
+          "sha256": "929e8a28a913c0a48664b3de352da4a0dced51455847180364e3e8fef0a9d835"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DYaCIwAiYX9/slide-03.jpg",
+          "sha256": "04b9bf8c4239a98ae47e05fd581e8301fed304d0f9da26354e8c75a4b486e292"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DYaCIwAiYX9/slide-04.jpg",
+          "sha256": "2e95e96148c12e1635f2eea9ccf723b84d35a0eb27f583a2cd7e1740ef76532e"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DYaCIwAiYX9/slide-05.jpg",
+          "sha256": "e87533686a2492cc4971e045dc02c8793203ad73466e51d249b10e03f963126a"
+        }
+      ]
+    },
+    {
+      "shortcode": "DZINgGKCU94",
+      "title": "He married the weather app",
+      "evidence_kind": "downloaded_published_frames",
+      "reviewed_on": "2026-09-20",
+      "inspection_method": "local_contact_sheet_inspected_2026-09-20",
+      "published_image_correspondence": "downloaded_from_published_post_2026-09-20",
+      "slides": [
+        {
+          "slide": 1,
+          "path": "corpus/media/DZINgGKCU94/slide-01.jpg",
+          "sha256": "5815b84be483f0e858de64ab873d66e72ebdf08a200ea610f9536711fbdde187"
+        },
+        {
+          "slide": 2,
+          "path": "corpus/media/DZINgGKCU94/slide-02.jpg",
+          "sha256": "14fae845e1bb5f6c97032c485dda4bebf0a216e4d760d3c0a5741d34c16fe336"
+        },
+        {
+          "slide": 3,
+          "path": "corpus/media/DZINgGKCU94/slide-03.jpg",
+          "sha256": "3c6089c5b9e29896af247985ef2edc69e0d5a7731803426d40f767baf70ec719"
+        },
+        {
+          "slide": 4,
+          "path": "corpus/media/DZINgGKCU94/slide-04.jpg",
+          "sha256": "4ce5fef8c8a3965fd4dde851350053a85ab262c07fd975d5219bcbc1f4133b73"
+        },
+        {
+          "slide": 5,
+          "path": "corpus/media/DZINgGKCU94/slide-05.jpg",
+          "sha256": "95b618b8ed7e8603b0c450c030646b0d41fbebd819945e8319804833536ad43b"
+        }
+      ]
+    },
+    {
+      "shortcode": "DblKKLZib7v",
+      "title": "husbannnnnnnnnnn",
+      "evidence_kind": "saved_published_review",
+      "reviewed_on": "2026-09-12",
+      "inspection_method": "saved_browser_screenshot_review_2026-09-12",
+      "published_image_correspondence": "saved_review_only_no_byte_identity",
+      "review_path": "output/reports/2026-09-12-full-carousel-audit/live-a.json",
+      "review_pointer": "/reviews/1",
+      "slides": [
+        {
+          "slide": 1,
+          "review_pointer": "/reviews/1/slides/0"
+        },
+        {
+          "slide": 2,
+          "review_pointer": "/reviews/1/slides/1"
+        },
+        {
+          "slide": 3,
+          "review_pointer": "/reviews/1/slides/2"
+        },
+        {
+          "slide": 4,
+          "review_pointer": "/reviews/1/slides/3"
+        }
+      ]
+    },
+    {
+      "shortcode": "DaNhxceCVoB",
+      "title": "Rules of Marriage: Unofficial Edition",
+      "evidence_kind": "saved_published_review",
+      "reviewed_on": "2026-09-12",
+      "inspection_method": "saved_browser_screenshot_review_2026-09-12",
+      "published_image_correspondence": "saved_review_only_no_byte_identity",
+      "review_path": "output/reports/2026-09-12-full-carousel-audit/live-a.json",
+      "review_pointer": "/reviews/0",
+      "slides": [
+        {
+          "slide": 1,
+          "review_pointer": "/reviews/0/slides/0"
+        },
+        {
+          "slide": 2,
+          "review_pointer": "/reviews/0/slides/1"
+        },
+        {
+          "slide": 3,
+          "review_pointer": "/reviews/0/slides/2"
+        },
+        {
+          "slide": 4,
+          "review_pointer": "/reviews/0/slides/3"
+        },
+        {
+          "slide": 5,
+          "review_pointer": "/reviews/0/slides/4"
+        },
+        {
+          "slide": 6,
+          "review_pointer": "/reviews/0/slides/5"
+        },
+        {
+          "slide": 7,
+          "review_pointer": "/reviews/0/slides/6"
+        },
+        {
+          "slide": 8,
+          "review_pointer": "/reviews/0/slides/7"
+        },
+        {
+          "slide": 9,
+          "review_pointer": "/reviews/0/slides/8"
+        }
+      ]
+    }
+  ],
+  "supersessions": [
+    {
+      "shortcode": "Dc5eniKic95",
+      "current_mapping": "public-pressure/husband-alliance",
+      "current_title": "Public pressure and a husband alliance",
+      "superseded_sources": [
+        "output/reports/2026-09-19-full-carousel-audit/current-carousel-sequences.json",
+        "output/reports/2026-09-19-full-carousel-audit/current-carousel-audit.md"
+      ],
+      "reason": "Recovered published frames and saved September 20 inspection supersede earlier prose/seed scene mapping; raw historical records remain unchanged."
+    },
+    {
+      "shortcode": "DcRQEEjCSNo",
+      "current_mapping": "chores",
+      "current_title": "I will do it my way — sweeping and dishes",
+      "superseded_sources": [
+        "output/reports/2026-09-19-full-carousel-audit/current-carousel-sequences.json",
+        "output/reports/2026-09-19-full-carousel-audit/current-carousel-audit.md"
+      ],
+      "reason": "Recovered published frames and saved September 20 inspection supersede earlier prose/seed scene mapping; raw historical records remain unchanged."
+    },
+    {
+      "shortcode": "DcG9gVzCfO7",
+      "current_mapping": "continuing commitment",
+      "current_title": "Why I could never give up on us",
+      "superseded_sources": [
+        "output/reports/2026-09-19-full-carousel-audit/current-carousel-sequences.json",
+        "output/reports/2026-09-19-full-carousel-audit/current-carousel-audit.md"
+      ],
+      "reason": "Recovered published frames and saved September 20 inspection supersede earlier prose/seed scene mapping; raw historical records remain unchanged."
+    }
+  ],
+  "patterns": [
+    {
+      "id": "summons-duration-reciprocity",
+      "title": "A summons uses the swipe as duration, then receives a response",
+      "theme": "wanting a partner nearby",
+      "sequence_modes": [
+        "one_unfolding_question",
+        "changing_relationship_state"
+      ],
+      "hook_mechanism": "An elongated call raises an expected practical request.",
+      "mismatch": "expected task versus affectionate motive",
+      "visual_carrier": "across-room distance, continued call, arrival, mutual embrace",
+      "ending_mechanism": "wordless reciprocal action",
+      "failure_mode": "repetition that adds neither duration nor changed expectation",
+      "when_useful": "For one incident where anticipation and the other person's reply matter.",
+      "interpretation": "The reveal answers why she called; the following embrace completes his response. Repeated staging has a timing job.",
+      "creative_hypothesis": "Keep the distance readable, let the next card complete the call, then show reciprocal contact.",
+      "supporting_examples": [
+        {
+          "shortcode": "DblKKLZib7v",
+          "slides": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed": "Wife at near left cups hands to call toward husband beyond sofa in kitchen doorway; he turns with mug. Same composition with wider separation; she continues calling, he looks back. He now beside her; she throws arms wide smiling, he smiles with one hand in pocket. Mutual embrace in same living room, eyes closed; his head bends toward hers.",
+          "interpretation": "Distance becomes arrival; a request becomes affection; the reply makes closure mutual."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DYkEsrfiRRw",
+          "slides": [
+            2,
+            4
+          ],
+          "observed": "He smiles at a phone while a thought image shows her waiting. He appears in the car smiling again.",
+          "interpretation": "The commute smile is already achieved on slide 2 and repeated on slide 4; elapsed swipes do not automatically add meaning."
+        }
+      ],
+      "limits": [
+        "One setting and a wordless last card can complete this incident; four slides are not a performance rule.",
+        "The saved published review is not fresh inspection or proof of local image identity.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [
+        {
+          "shortcode": "DblKKLZib7v",
+          "source": "output/reports/2026-09-12-full-carousel-audit/live-a.json",
+          "pointer": "/reviews/1/metrics",
+          "observed_at": "2026-09-12",
+          "native_metrics": {
+            "Views": 1114310,
+            "Viewers": 619263,
+            "Shares": 62278,
+            "Saves": 5344,
+            "Follows": 312
+          },
+          "limit": "Different post ages and audience mixtures; selected descriptive snapshot. Shares are not private DM counts; no per-slide completion or causal attribution."
+        }
+      ],
+      "tags": [
+        "summons",
+        "husband",
+        "duration",
+        "time",
+        "wordless",
+        "reciprocity",
+        "call"
+      ]
+    },
+    {
+      "id": "independent-recognition-callback",
+      "title": "Independent recognitions can accumulate into an object callback",
+      "theme": "private routines becoming shared habit",
+      "sequence_modes": [
+        "independent_recognition_rewards",
+        "accumulating_evidence"
+      ],
+      "hook_mechanism": "A rulebook promises several complete domestic recognitions.",
+      "mismatch": "small private claims versus living together",
+      "visual_carrier": "blanket tension, snack wrapper, visible phone, shared throw",
+      "ending_mechanism": "earlier contested objects gathered into comfort",
+      "failure_mode": "same count or new nouns mistaken for fresh rewards",
+      "when_useful": "For a catalogue whose separate moments each pay off before the next.",
+      "interpretation": "The original rulebook varies action and culpability, then returns familiar objects in a changed arrangement.",
+      "creative_hypothesis": "Draft complete distinct miniature jokes; try an ending that gathers meaningful earlier objects.",
+      "supporting_examples": [
+        {
+          "shortcode": "DaNhxceCVoB",
+          "slides": [
+            2,
+            3,
+            4,
+            7,
+            8,
+            9
+          ],
+          "observed": "Overhead bed, both laughing and gripping opposite edges of same blanket. He waits at door holding helmet, she adjusts herself in mirror amid shoes. He eats chocolate at open fridge; she stands behind folded arms. Grocery aisle, both point at each other over overfilled basket with snacks and novelty toy. He searches sofa cushions with phone in other hand; she points from behind. Both sit on rug under shared throw, she leans on him; chai, snacks, phone and household mess return.",
+          "interpretation": "Independent jokes culminate in a shared blanket, snacks and phone."
+        },
+        {
+          "shortcode": "Dbn2AJBCVnY",
+          "slides": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed": "At an ice-cream cart she sits holding his hand and looks up while he looks down smiling. At a momo table she grips his arm beside a steamer. She kneels at the pani-puri stall while holding his hand. She grips his wrist outside a café while he holds the cold drink.",
+          "interpretation": "Food requests vary bodily performance and setting within a consistent refrain."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "Db3ZnTSCZ_k",
+          "slides": [
+            8,
+            9
+          ],
+          "observed": "Both carry an enormous beanbag out of a shop. Both sit amid furniture parts and point at each other, smiling.",
+          "interpretation": "The later rulebook ends with new furniture rather than gathering earlier props; its different outcome does not establish that this caused the response difference."
+        }
+      ],
+      "limits": [
+        "A catalogue does not need cliffhangers or a changing relationship state on every card.",
+        "Original and later rulebooks share a slide count but differ in many other conditions; format is not a guarantee.",
+        "The food finale is another variation, a legitimate motif ending rather than a transformed bond.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [
+        {
+          "shortcode": "DaNhxceCVoB",
+          "source": "output/reports/2026-09-12-full-carousel-audit/live-a.json",
+          "pointer": "/reviews/0/metrics",
+          "observed_at": "2026-09-12",
+          "native_metrics": {
+            "Views": 984432,
+            "Viewers": 599654,
+            "Shares": 37577,
+            "Saves": 13893,
+            "Follows": 1703
+          },
+          "limit": "Different post ages and audience mixtures; selected descriptive snapshot. Shares are not private DM counts; no per-slide completion or causal attribution."
+        },
+        {
+          "shortcode": "Db3ZnTSCZ_k",
+          "source": "output/reports/2026-09-12-full-carousel-audit/live-b.json",
+          "pointer": "/posts/0/metrics",
+          "observed_at": "2026-09-12",
+          "native_metrics": {
+            "views": 204399,
+            "viewers": 139552,
+            "shares": 1176,
+            "saves": 945,
+            "follows": 41
+          },
+          "limit": "Different post ages and audience mixtures; selected descriptive snapshot. Shares are not private DM counts; no per-slide completion or causal attribution."
+        }
+      ],
+      "tags": [
+        "rulebook",
+        "catalogue",
+        "rules",
+        "callback",
+        "independent",
+        "recognition",
+        "food"
+      ]
+    },
+    {
+      "id": "objects-become-ours",
+      "title": "Ordinary objects establish separate belongings becoming ours",
+      "theme": "shared ownership and inhabited home",
+      "sequence_modes": [
+        "accumulating_evidence",
+        "changing_relationship_state"
+      ],
+      "hook_mechanism": "Another person takes up recognisable space.",
+      "mismatch": "mine and yours versus shared territory",
+      "visual_carrier": "toothbrush cup, shoes, pillows, table borders and reciprocal tasks",
+      "ending_mechanism": "accumulated ownership",
+      "failure_mode": "pretty object pairs that repeat an already settled meaning",
+      "when_useful": "For reflective shared-life stories where objects can carry the abstract claim.",
+      "interpretation": "Distinct territories and routines make shared identity visible without manufacturing an argument.",
+      "creative_hypothesis": "Give each object a new dimension of routine, territory or reciprocal care; stop when ownership is established.",
+      "supporting_examples": [
+        {
+          "shortcode": "DbvlHgXCdIS",
+          "slides": [
+            1,
+            2,
+            3
+          ],
+          "observed": "Two different toothbrushes occupy one cup. Different pairs of shoes share the entrance. Two pillows and a rumpled bed suggest inhabited shared space.",
+          "interpretation": "Brushes, entryway shoes and a shared bed expand the evidence across a home."
+        },
+        {
+          "shortcode": "DazZdIZiQ0q",
+          "slides": [
+            2,
+            3,
+            4,
+            8,
+            9,
+            10,
+            11
+          ],
+          "observed": "They sit across a table with separated belongings. An overhead arrangement divides laptop, cable, watch, clips and notebooks into territories. They sit closer while her hand crosses toward shared table objects. He handles her office bag while she watches from the doorway. She prepares his protein drink as he readies himself. An overhead breakfast table combines food, devices, accessories and hands. A wider home view reunites the objects and the relaxed couple.",
+          "interpretation": "Separate territories give way to crossing borders and care in both directions."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DazZdIZiQ0q",
+          "slides": [
+            6,
+            7
+          ],
+          "observed": "Her hair band appears beside his laptop as they share the table. A mirror frame pairs clip and watch while catching her reflection.",
+          "interpretation": "The hair band and mirror objects risk confirming the same already legible occupation of space."
+        }
+      ],
+      "limits": [
+        "Objects without people can establish this theme; a recurring prop is not required in every sequence.",
+        "Published printed positions read 1/4, 3/4 and 4/4; the archive contains three actual positions and invents no missing art.",
+        "Smaller distribution does not establish weak audience response.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [
+        {
+          "shortcode": "DbvlHgXCdIS",
+          "source": "output/reports/2026-09-12-full-carousel-audit/live-b.json",
+          "pointer": "/posts/1/metrics",
+          "observed_at": "2026-09-12",
+          "native_metrics": {
+            "views": 21661,
+            "viewers": 12874,
+            "shares": 171,
+            "saves": 148,
+            "follows": 12
+          },
+          "limit": "Different post ages and audience mixtures; selected descriptive snapshot. Shares are not private DM counts; no per-slide completion or causal attribution."
+        }
+      ],
+      "tags": [
+        "objects",
+        "ours",
+        "ownership",
+        "shared",
+        "house",
+        "territory",
+        "accumulation"
+      ]
+    },
+    {
+      "id": "comic-counter-reply",
+      "title": "The other partner gets the final comic reply",
+      "theme": "mutual agency in domestic negotiation",
+      "sequence_modes": [
+        "one_unfolding_question"
+      ],
+      "hook_mechanism": "An apparent boast opens a question about cooperation.",
+      "mismatch": "declared rebellion versus the chore actually performed",
+      "visual_carrier": "raised hand, broom, bucket, mop and departing reply",
+      "ending_mechanism": "comic counter-reply",
+      "failure_mode": "a lesson or boast monopolises the ending",
+      "when_useful": "For dialogue in which a response can change who owns the joke.",
+      "interpretation": "The broom pays off the reversal; her dishes comeback gives the other person an active final turn.",
+      "creative_hypothesis": "Test whether the second person can answer the apparent punchline with an action-linked reply.",
+      "supporting_examples": [
+        {
+          "shortcode": "DcRQEEjCSNo",
+          "slides": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed": "Her folded arms and knowing smile face his foreground shoulder; an apparent agreement opens mid-conversation. He dominates the foreground with a raised hand and a defiant speech; she watches from behind. He poses with a broom beside a bucket, announcing sweeping and mopping. She walks away smiling and adds the dishes; he turns after her with a mop.",
+          "interpretation": "The boast becomes sweeping and mopping, then her dishes reply extends his logic."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DcG9gVzCfO7",
+          "slides": [
+            3,
+            4
+          ],
+          "observed": "They hold hands at arm-length while turning toward each other in an open landscape. They settle together by a sofa beneath a long letter about continuing to choose the relationship.",
+          "interpretation": "A long continuing-commitment letter supplies the ending primarily through prose; it does not demonstrate a comic exchange or crisis."
+        }
+      ],
+      "limits": [
+        "The chores mapping supersedes the old weather description; repeated room staging is meaningful incident continuity.",
+        "Reciprocity is a story option, not a requirement to add one more card after every finished ending.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "chores",
+        "dishes",
+        "broom",
+        "counterreply",
+        "dialogue",
+        "agency",
+        "comeback"
+      ]
+    },
+    {
+      "id": "words-deny-visible-truth",
+      "title": "Spoken denial and visible evidence create the joke together",
+      "theme": "being known beneath familiar claims",
+      "sequence_modes": [
+        "independent_recognition_rewards",
+        "one_unfolding_question"
+      ],
+      "hook_mechanism": "A familiar line conflicts with a readable gesture or object.",
+      "mismatch": "spoken claim versus visible truth",
+      "visual_carrier": "tears, absent shoes, held phone or glasses on a head",
+      "ending_mechanism": "exposure followed by affectionate response",
+      "failure_mode": "copy asserts a result the image cannot demonstrate",
+      "when_useful": "When the scene has a concrete contradiction a cold reader can detect.",
+      "interpretation": "The audience can see what a character denies or overlooks; the caring response preserves affection.",
+      "creative_hypothesis": "Stage the contradictory evidence clearly, then assess the words and pixels together.",
+      "supporting_examples": [
+        {
+          "shortcode": "DYJpjt9CQYY",
+          "slides": [
+            2,
+            3
+          ],
+          "observed": "Her denial bubble sits above visible tears while he offers tissue and water. She points away while barefoot and he holds footwear.",
+          "interpretation": "Denial sits beside tears; departure is undermined by bare feet."
+        },
+        {
+          "shortcode": "DadKYVHCRGY",
+          "slides": [
+            3,
+            4,
+            5,
+            7
+          ],
+          "observed": "Reverse viewpoint reveals his confident nod while holding a phone. She leans forward with the follow-up asking what she said. He looks alarmed with the phone still present while she watches knowingly. She reaches across to wipe his face while he smiles and raises a palm.",
+          "interpretation": "The phone contradicts confident listening, a follow-up exposes him, and a face wipe closes with care."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "Db3ZnTSCZ_k",
+          "slides": [
+            6
+          ],
+          "observed": "She is beside the router and cable; he appears in the doorway.",
+          "interpretation": "Router and entrance establish context, but restored connectivity is supplied by text."
+        }
+      ],
+      "limits": [
+        "Copy may legitimately complete a still; require only the visual consequence actually claimed.",
+        "The final listening image is a face wipe, not the toast described in an earlier proxy.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "contradiction",
+        "denial",
+        "tears",
+        "listening",
+        "phone",
+        "dramatic",
+        "irony"
+      ]
+    },
+    {
+      "id": "relief-with-burden-present",
+      "title": "Companionship changes the burden without making it disappear",
+      "theme": "relief and shared capacity",
+      "sequence_modes": [
+        "changing_relationship_state"
+      ],
+      "hook_mechanism": "A stressed pre-state makes an internal change legible.",
+      "mismatch": "work pressure versus welcome attention",
+      "visual_carrier": "bowed head, laptop, cushion, attention shift, papers remaining",
+      "ending_mechanism": "changed proximity with unresolved work still present",
+      "failure_mode": "repeating strain or inventing a magic solution",
+      "when_useful": "For care where changed attention is the event.",
+      "interpretation": "Play and companionship soften the response; retained papers support relief rather than solved work.",
+      "creative_hypothesis": "Show the pre-state, an attention-changing action and a response while retaining the relevant burden.",
+      "supporting_examples": [
+        {
+          "shortcode": "DbGSctjiWAB",
+          "slides": [
+            1,
+            2,
+            4,
+            5,
+            6,
+            7
+          ],
+          "observed": "He leans on his hand at the laptop; she approaches with a mug. The crowded café and phone add environmental and task pressure. She brings a cushion beside the sofa and he turns toward her. The cushion becomes playful and his face softens. They sit close while papers and an open laptop remain. She leans against him as they exchange smiles.",
+          "interpretation": "The cushion changes attention and body language; work papers remain."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DcT42EoCb1d",
+          "slides": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "observed": "He is absorbed in the laptop while she approaches with a mug and a smile. Crowd, phone and forehead pressure intensify overload; she is framed at the doorway. An opposing viewpoint puts the laptop and his bowed head between them. She kneels beside him with a cushion; his gaze turns from work toward her. She raises the cushion playfully; he smiles beside a closed laptop.",
+          "interpretation": "The shorter weather mapping reuses the first five longer-version images, so it is not independent support."
+        },
+        {
+          "shortcode": "DbGSctjiWAB",
+          "slides": [
+            3,
+            5,
+            6
+          ],
+          "observed": "The reverse viewpoint foregrounds the laptop and his bowed head while she watches. The cushion becomes playful and his face softens. They sit close while papers and an open laptop remain.",
+          "interpretation": "The bowed-head view risks repeated information; closed then reopened laptop weakens strict continuity."
+        }
+      ],
+      "limits": [
+        "Five weather image hashes are shared across two mapped cuts; no independent performance comparison exists.",
+        "Saved contact sheets support main composition and action, not a fresh full-resolution identity or prop-continuity pass.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "weather",
+        "burden",
+        "relief",
+        "cushion",
+        "attention",
+        "capacity",
+        "overload"
+      ]
+    },
+    {
+      "id": "belonging-shown-as-inclusion",
+      "title": "Belonging becomes visible through inclusion and a returned joke",
+      "theme": "alliance and family membership",
+      "sequence_modes": [
+        "changing_relationship_state",
+        "accumulating_evidence"
+      ],
+      "hook_mechanism": "A team grievance or outside-pressure line gives belonging a concrete social frame.",
+      "mismatch": "social position versus emotional alliance",
+      "visual_carrier": "stopping palm, consultation, remembered tea, moved chair",
+      "ending_mechanism": "changed membership and comic callback",
+      "failure_mode": "affection repeated after inclusion is already established",
+      "when_useful": "For belonging stories that can show who makes room or backs whom.",
+      "interpretation": "Consultation and making a chair available turn acceptance into an act; the last joke reveals confidence.",
+      "creative_hypothesis": "Build a cautious pre-state, specific inclusion acts and a final action that uses the new status.",
+      "supporting_examples": [
+        {
+          "shortcode": "Dc5eniKic95",
+          "slides": [
+            1,
+            2
+          ],
+          "observed": "They walk closely through a blurred crowd; the line introduces outside pressure to adjust. At a doorway she holds his arm and extends a stopping palm; her reply invokes his support.",
+          "interpretation": "Outside pressure meets a smiling stopping-palm reply backed by the couple's alliance."
+        },
+        {
+          "shortcode": "Dash9WKidVu",
+          "slides": [
+            2,
+            3,
+            5,
+            6,
+            8
+          ],
+          "observed": "She enters cautiously beside him to meet his parents. The mother directs a planning conversation toward her at the table. Father offers a mug while the family surrounds her. Father moves a chair at the dining table. She wears sunglasses confidently between his parents while he looks on amused.",
+          "interpretation": "Consultation, remembered tea and making room prepare the confident team-joke return."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "Dash9WKidVu",
+          "slides": [
+            7
+          ],
+          "observed": "The family surrounds the couple in a celebratory setting.",
+          "interpretation": "The celebratory family grouping states an emotional result already substantially established by earlier inclusion."
+        }
+      ],
+      "limits": [
+        "The public-pressure diptych does not show a controlling husband; recovered frames supersede the café mapping.",
+        "A household can show membership through practical actions rather than a generic embrace.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "belonging",
+        "family",
+        "alliance",
+        "public",
+        "pressure",
+        "chair",
+        "inclusion"
+      ]
+    },
+    {
+      "id": "capacity-made-tangible",
+      "title": "An abstract fairness claim becomes a changed practical action",
+      "theme": "care responds to capacity",
+      "sequence_modes": [
+        "changing_relationship_state"
+      ],
+      "hook_mechanism": "An explicit chore chart establishes the model being revised.",
+      "mismatch": "fixed fairness versus visible tiredness",
+      "visual_carrier": "chart, tired posture, unfilled then filled bottle, shared rest",
+      "ending_mechanism": "cover object returns with a changed meaning",
+      "failure_mode": "a transformation named by copy exceeds the event shown",
+      "when_useful": "For a principle whose meaning can be tested through one small task.",
+      "interpretation": "The chart–bottle–rest chain links the claim to a cause and consequence.",
+      "creative_hypothesis": "Pick the smallest visible task that demonstrates the intended change and avoid claiming an unseen larger transformation.",
+      "supporting_examples": [
+        {
+          "shortcode": "DYxCm58CaOM",
+          "slides": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "observed": "A 50/50 chore chart sits behind the couple. She props her head on her hand beside a bottle and dismisses the task. He fills the bottle at the sink while she watches. They face each other at the table with the filled bottle between them. She rests on his shoulder as they hold mugs, with the chart visible again.",
+          "interpretation": "Tired posture changes the meaning of refusal; filling the bottle makes noticing useful."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DbLyptcidVh",
+          "slides": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "observed": "Both carry boxes amid unpacked belongings. They sort belongings and fabric beside a box. She adjusts his collar while he reaches with tea. They move away together carrying a box.",
+          "interpretation": "Boxes prove moving and adapted care, but do not identify the specific abandoned dream the words name."
+        }
+      ],
+      "limits": [
+        "One observed care incident does not establish that one partner always carries every burden.",
+        "Copy-dependent meaning is legitimate; claimed physical or personal change still needs appropriate evidence.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "fairness",
+        "capacity",
+        "bottle",
+        "heavier",
+        "half",
+        "tangible",
+        "versions",
+        "dream"
+      ]
+    },
+    {
+      "id": "same-place-changed-care",
+      "title": "A matched setting makes changed care across time readable",
+      "theme": "enduring commitment",
+      "sequence_modes": [
+        "changing_relationship_state"
+      ],
+      "hook_mechanism": "Day one at a café invites comparison with later life.",
+      "mismatch": "time changes capacity while commitment continues",
+      "visual_carrier": "same café, visibly older couple, chair assistance",
+      "ending_mechanism": "visible time jump and changed act",
+      "failure_mode": "tenderness alone claimed as proof of adversity or elapsed years",
+      "when_useful": "For a time jump where one practical action can carry the difference.",
+      "interpretation": "The place repeats while the way care is performed changes, so repetition supports comparison.",
+      "creative_hypothesis": "Keep the spatial anchor and change the action in a way the later state explains.",
+      "supporting_examples": [
+        {
+          "shortcode": "DanYBiyCSsr",
+          "slides": [
+            1,
+            2
+          ],
+          "observed": "An overhead café view shows the young couple seated across a small table. The same café contains the older couple; he holds the chair as she stands beside it.",
+          "interpretation": "Seated early attention becomes practical chair assistance in old age."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DcG9gVzCfO7",
+          "slides": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed": "She touches his chin beside the water; the opening asks why he would never give up. He bends forward offering a tiny flower as she reacts shyly. They hold hands at arm-length while turning toward each other in an open landscape. They settle together by a sofa beneath a long letter about continuing to choose the relationship.",
+          "interpretation": "Tender gestures accompany a promise, but do not dramatise the hard day or threatened separation named by the prose."
+        },
+        {
+          "shortcode": "Da0apeiiQ0i",
+          "slides": [
+            1,
+            2
+          ],
+          "observed": "In the illustration he rests his head in her lap while she touches his hair. The real couple sits together facing mountains beneath a pergola.",
+          "interpretation": "Illustration to real memory can feel personal without demonstrating chronological elapsed years."
+        }
+      ],
+      "limits": [
+        "The continuing-commitment mapping supersedes an older description; tenderness is observed, adversity remains a verbal claim.",
+        "An editorial reading of enduring care is not a measured causal account of distribution.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "time",
+        "cafe",
+        "age",
+        "commitment",
+        "chair",
+        "matched",
+        "continuity"
+      ]
+    },
+    {
+      "id": "ordinary-inconvenience-becomes-time",
+      "title": "An inconvenience reveals the ordinary time being missed",
+      "theme": "long-distance longing",
+      "sequence_modes": [
+        "independent_recognition_rewards",
+        "accumulating_evidence"
+      ],
+      "hook_mechanism": "Imagined imperfect shared activities promise recognisable everyday life.",
+      "mismatch": "external delay versus extra time together",
+      "visual_carrier": "cooking mess, game, umbrella, late cab and repeated mugs",
+      "ending_mechanism": "inconvenience reinterpreted as welcome shared time",
+      "failure_mode": "the imagined premise is unclear or readiness only explained",
+      "when_useful": "For longing that becomes specific through ordinary activities.",
+      "interpretation": "The late cab changes the value of delay and gathers the earlier play into a precise absence.",
+      "creative_hypothesis": "Let ordinary examples earn their own rewards, then use one reversal to identify what is actually missed.",
+      "supporting_examples": [
+        {
+          "shortcode": "DY9SfANiXWc",
+          "slides": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "observed": "They cook amid flour and food while the dialogue welcomes a terrible idea. Across a board game, teasing threatens invented rules after losing. Under one umbrella they call a late cab good news. They lean together with mugs and the game nearby.",
+          "interpretation": "The late cab becomes good news before the ending names wasted ordinary time."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DY9SfANiXWc",
+          "slides": [
+            1
+          ],
+          "observed": "Both hold phones beneath imagined cooking, games and a rainy cab.",
+          "interpretation": "Both people share one depicted space; copy and thought bubbles must establish the counterfactual."
+        },
+        {
+          "shortcode": "DbDt6k3CYz5",
+          "slides": [
+            4,
+            5,
+            6
+          ],
+          "observed": "They walk separately with books and a phone. They remain apart across the street as the words reject the missed-chance reading. Two figures continue along different paths under a broader view.",
+          "interpretation": "Separate routes repeat while the words explain readiness more than the images show development."
+        }
+      ],
+      "limits": [
+        "Imagination and copy-dependent chronology should be explicit; the cover alone does not establish distance.",
+        "A reversal is a useful option, not a required cliffhanger on every independent card.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "long",
+        "distance",
+        "ordinary",
+        "time",
+        "cab",
+        "delay",
+        "reversal",
+        "longing"
+      ]
+    },
+    {
+      "id": "attention-welcomes-the-whole-person",
+      "title": "A response reframes a trait as welcome without correcting the person",
+      "theme": "being accepted as oneself",
+      "sequence_modes": [
+        "independent_recognition_rewards",
+        "changing_relationship_state"
+      ],
+      "hook_mechanism": "A recognisable apparent excess asks how the partner receives it.",
+      "mismatch": "evaluative label versus affectionate attention",
+      "visual_carrier": "expansive gestures, unused phone, leaning closer and paired lights",
+      "ending_mechanism": "changed interpretation or symbolic compression",
+      "failure_mode": "reframing repeated after acceptance is already legible",
+      "when_useful": "When the emotional truth is that a trait belongs, rather than must be repaired.",
+      "interpretation": "The focus shifts from the apparent nuisance to the other partner's deliberate attention; the lively person remains lively.",
+      "creative_hypothesis": "Give the response a visible act, then test whether the last words add meaning beyond the already clear welcome.",
+      "supporting_examples": [
+        {
+          "shortcode": "DY4tGrQCXRA",
+          "slides": [
+            2,
+            3,
+            4,
+            5,
+            7
+          ],
+          "observed": "She stands, points and reenacts; he remains seated and watches. A looping dotted timeline appears above her pointing hand. Rickshaw, call and snack images branch above the telling. He leans toward her with steady eye contact; an unused phone rests on the table. She is still gesturing; they sit closer with his arm behind her.",
+          "interpretation": "Performance examples lead to deliberate listening and closer bodies."
+        },
+        {
+          "shortcode": "DYJpjt9CQYY",
+          "slides": [
+            5,
+            6,
+            7
+          ],
+          "observed": "A closer view isolates his smile with echoes of earlier objects. She rests against him on the steps. A sparkler and a steady diya sit before faint couple silhouettes.",
+          "interpretation": "The sparkler beside the diya compresses complementarity without a personality cure."
+        }
+      ],
+      "counterexamples": [
+        {
+          "shortcode": "DY4tGrQCXRA",
+          "slides": [
+            6,
+            7
+          ],
+          "observed": "She rests her chin while faint narrative vignettes remain; the copy rejects asking for a shorter version. She is still gesturing; they sit closer with his arm behind her.",
+          "interpretation": "The two final reframes are a compression test, not automatic filler."
+        },
+        {
+          "shortcode": "DYaCIwAiYX9",
+          "slides": [
+            2
+          ],
+          "observed": "She looks upset as he holds tissue and water.",
+          "interpretation": "The tissue-denial scene overlaps another carousel; within-deck completeness does not establish cross-post freshness."
+        }
+      ],
+      "limits": [
+        "Changing viewer interpretation is sufficient; do not demand a corrected personality.",
+        "Symbolic condensation and explanatory language can work, but neither proves individual slide retention.",
+        "Saved inspection only; no measured per-slide abandonment, dwell or completion. Mechanism and sendability are editorial hypotheses."
+      ],
+      "performance_snapshots": [],
+      "tags": [
+        "attention",
+        "full",
+        "story",
+        "acceptance",
+        "personality",
+        "chaos",
+        "peace",
+        "sparkler"
+      ]
+    }
+  ],
+  "binding_scope": "Archive and saved review hashes bind the prior inspection record. Source-image SHA256 values were captured during this integration on 2026-09-20 to detect subsequent drift; they do not retroactively prove published-byte identity or a fresh visual pass. External historical source paths are preserved verbatim with their hashes, but explicitly declared canonical_asset files under evidence-assets are the runtime source. Original paths are not consulted for fallback or drift; missing or changed canonical assets fail validation."
+}

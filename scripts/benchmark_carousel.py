@@ -16,8 +16,19 @@ from typing import Any
 
 from PIL import Image
 
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from pipeline.stages.carousel_visual_integrity import (  # noqa: E402
+    build_hand_ownership_map,
+    hand_is_visible,
+)
+from tests.helpers.carousel_qa import (  # noqa: E402
+    synthetic_route_sequence_review,
+    synthetic_route_story_plan,
+)
+
+
 CAROUSEL = ROOT / "scripts/carousel.py"
 BUDGETS = {
     "create_and_proof_p95_seconds": 3.0,
@@ -34,19 +45,72 @@ def _write_png(path: Path, size: tuple[int, int], color: str) -> Path:
 
 
 def _brief(path: Path) -> Path:
+    rows = (
+        (1, "cover", "Aachu places one brass key in Zuv's open palm.", "quietly certain together"),
+        (2, "deepening", "They point from one moving box toward different doors.", "connected through uncertain direction"),
+        (3, "turn", "They pull one folded map gently toward opposite sides.", "tender inside active disagreement"),
+        (4, "payoff", "They rotate the map and trace one route together.", "committed through shared learning"),
+    )
     payload = {
+        "story_plan": synthetic_route_story_plan(),
         "slides": [
             {
-                "copy": f"Locked line {number}.",
+                "copy": (
+                    "I knew your hand.",
+                    "Life gave us two directions.",
+                    "Love did not choose the road.",
+                    "",
+                )[number - 1],
+                "copy_mode": "wordless" if number == 4 else "text",
+                "beat_delta": (
+                    "The offered key establishes their shared-home commitment.",
+                    "Their pointing arms reveal two different immediate destinations.",
+                    "Opposing grips make the map a physical disagreement.",
+                    "Adjacent fingers trace the same route without further dialogue.",
+                )[number - 1],
+                "copy_image_relation": {
+                    "kind": "wordless" if number == 4 else "completion",
+                    "proof": action,
+                },
+                "role": role,
                 "physical_action": action,
                 "relationship_state": state,
+                "camera": {
+                    "shot_size": ("wide geography shot", "medium action shot", "close evidence shot", "medium-wide payoff shot")[number - 1],
+                    "position": "Doorway-height three-quarter view from the room's left side.",
+                    "negative_space": "Quiet upper-left wall protects the exact copy space.",
+                },
+                "focal_hierarchy": "First read the physical action, then their gaze, then the protected copy space.",
+                "setting": {
+                    "place": "The worn dining-table corner beside the kitchen doorway.",
+                    "time": "Late monsoon afternoon after rain.",
+                    "motivated_light": "Cool window light enters from frame left across their hands.",
+                    "depth_layers": {
+                        "foreground": "A soft chair edge locates the viewer inside the room.",
+                        "midground": "Aachu and Zuv perform the changing shared action.",
+                        "background": "The open doorway preserves the likely next movement.",
+                    },
+                },
+                "visual_richness": {
+                    "scene_action_binding": action,
+                    "point_of_view": "The frame follows the partner noticing the shared action change.",
+                    "before_frame": "The shared object was still before both partners reached for it.",
+                    "after_frame": "Their hands begin settling into one shared direction.",
+                    "continuation_pull": "The visible change leaves their next choice open.",
+                    "story_evidence": [
+                        {"carrier": "creased shared paper", "observable_state": "its fold changes between their hands", "narrative_job": "proves the action changed a shared object"},
+                        {"carrier": "two cooling cups", "observable_state": "both sit untouched beside the action", "narrative_job": "proves a lived moment rather than a pose"},
+                    ],
+                    "posed_portrait_allowed": False,
+                    "decorative_clutter_allowed": False,
+                },
+                "send_reason": (
+                    "Send this to the partner who is still learning the shared route with you."
+                    if number == len(rows)
+                    else ""
+                ),
             }
-            for number, action, state in (
-                (1, "Aachu places one brass key in Zuv's open palm.", "certain together"),
-                (2, "They point from one moving box toward different doors.", "uncertain direction"),
-                (3, "They pull one folded map gently toward opposite sides.", "connected disagreement"),
-                (4, "They rotate the map and trace one route together.", "committed learning"),
-            )
+            for number, role, action, state in rows
         ]
     }
     path.write_text(json.dumps(payload), encoding="utf-8")
@@ -76,7 +140,7 @@ def _observations(package: Path, selected: list[int]) -> dict[str, Any]:
     copies = {int(record["slide"]): str(record["copy"]) for record in slides}
     prompt_pack = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
     refs = [str(value) for value in prompt_pack["identity_reference_images"]]
-    style_refs = [str(value) for value in prompt_pack["style_reference_images"]]
+    style_refs = [str(prompt_pack["style_profile"]["reference"]["path"])]
     if len(refs) != 4:
         raise RuntimeError("synthetic fixture expected four identity-role references")
     if len(style_refs) != 1:
@@ -84,6 +148,27 @@ def _observations(package: Path, selected: list[int]) -> dict[str, Any]:
     records: list[dict[str, Any]] = []
     for slide in selected:
         copy = copies[slide]
+        slide_record = next(record for record in slides if int(record["slide"]) == slide)
+        scene = str(slide_record.get("physical_action") or slide_record.get("visual") or "")
+        hand_map = slide_record.get("hand_map")
+        if not isinstance(hand_map, dict):
+            hand_map = build_hand_ownership_map(scene)
+        people = [str(value) for value in hand_map.get("people", [])]
+        visible_hands = [
+            {
+                "owner": str(hand.get("owner") or "person"),
+                "side": str(hand.get("side") or "hand"),
+                "story_required": True,
+                "attachment_traceable": True,
+                "contact_geometry_pass": True,
+                "solid_object_intersection": False,
+                "malformed_or_extra_fingers": False,
+                "contact": str(hand.get("contact") or "no unintended object contact"),
+                "evidence": "The forearm and wrist continue cleanly into this visible hand.",
+            }
+            for hand in hand_map.get("hands", [])
+            if isinstance(hand, dict) and hand_is_visible(hand)
+        ]
         records.append(
             {
                 "slide": slide,
@@ -98,13 +183,45 @@ def _observations(package: Path, selected: list[int]) -> dict[str, Any]:
                                 "status": "PASS",
                                 "evidence": "Their gaze and distance show the intended state.",
                             },
+                            "cinematic_story_frame": {
+                                "status": "PASS",
+                                "evidence": "The decoded frame shows a layered caught event with a visible temporal consequence.",
+                                "frame_reads_as_caught_event": True,
+                                "before_after_implied": True,
+                                "motivated_light_observed": "Cool window light enters from frame left across their hands.",
+                                "depth_layers_observed": dict(slide_record["setting"]["depth_layers"]),
+                                "focal_action_clear": True,
+                                "story_evidence": [dict(item) for item in slide_record["visual_richness"]["story_evidence"]],
+                                "posed_portrait": False,
+                                "decorative_clutter": False,
+                                "generic_ai_tells": [],
+                                **(
+                                    {"final_payoff_observed": "Their hands visibly settle into one shared decision."}
+                                    if slide == len(slides)
+                                    else {"continuation_pull_observed": str(slide_record["visual_richness"]["continuation_pull"])}
+                                ),
+                            },
                             "entity_spatial_integrity": {
                                 "status": "PASS",
-                                "evidence": "Two continuous people and four owned hands are visible.",
+                                "evidence": "Every planned person and visible hand has explicit ownership, anatomy, and contact evidence.",
+                                "expected_people": len(people),
+                                "observed_people": len(people),
+                                "observed_people_names": people,
+                                "unexpected_entities": [],
+                                "unexpected_limbs": [],
+                                "duplicated_limbs": [],
+                                "ambiguous_contacts": [],
+                                "silhouette_evidence": "Every person has a continuous silhouette separated from solid objects.",
+                                "visible_hands": visible_hands,
                             },
                             "identity_wardrobe_accessories": {
                                 "status": "PASS",
-                                "evidence": "Both people match the named face, body, and clothing references.",
+                                "evidence": (
+                                    "Aachu retains long dense very dark mostly-straight hair with soft bends, "
+                                    "large expressive dark round-almond eyes and full mostly-straight brows with a low soft arch, "
+                                    "and warm medium-brown skin tone. Zuv retains thick dark curly hair with visible top and side volume, "
+                                    "thick dark brows, and warm brown skin tone; their referenced proportions, clothing, and accessories match."
+                                ),
                                 "references": {
                                     "aachu": [refs[0]],
                                     "zuv": [refs[1]],
@@ -113,9 +230,14 @@ def _observations(package: Path, selected: list[int]) -> dict[str, Any]:
                             },
                             "text_brandmark_style_dimensions": {
                                 "status": "PASS",
-                                "evidence": "Exact copy and top-right brandmark are visible at native size.",
+                                "evidence": (
+                                    "No story text is present; only the top-right brandmark remains at native size."
+                                    if not copy else
+                                    "Exact copy and top-right brandmark are visible at native size."
+                                ),
                                 "expected_text": copy,
                                 "observed_text": copy,
+                                "unexpected_visible_text": [],
                                 "observed_brandmark": "@a.storyof.two",
                                 "style_references": style_refs,
                             },
@@ -124,7 +246,7 @@ def _observations(package: Path, selected: list[int]) -> dict[str, Any]:
                 },
             }
         )
-    return {
+    result = {
         "status": "PASS",
         "inspection": {
             "method": "codex_view_image",
@@ -133,6 +255,9 @@ def _observations(package: Path, selected: list[int]) -> dict[str, Any]:
         "selected_slides": selected,
         "slides": records,
     }
+    if selected == [1, 2, 3, 4]:
+        result["sequence_review"] = synthetic_route_sequence_review(package)
+    return result
 
 
 def _write_json(path: Path, payload: object) -> Path:
@@ -158,7 +283,6 @@ def _run_once(root: Path) -> dict[str, float]:
     zuv = _write_png(root / "identity/zuv/z.png", (16, 16), "skyblue")
     together_face = _write_png(root / "identity/together/face.png", (16, 16), "tan")
     together_body = _write_png(root / "identity/together/body.png", (16, 16), "plum")
-    style = _write_png(root / "style/watercolor.png", (16, 16), "ivory")
     brief = _brief(root / "brief.json")
 
     lifecycle_start = time.perf_counter()
@@ -177,8 +301,6 @@ def _run_once(root: Path) -> dict[str, float]:
         str(together_face),
         "--identity-image",
         str(together_body),
-        "--style-reference",
-        str(style),
         "--prepare-proof",
         "--proof-slide",
         "3",
@@ -204,12 +326,11 @@ def _run_once(root: Path) -> dict[str, float]:
         "--proof-sha256",
         str(reviewed["proof_sha256"]),
     )
-    if approved["state"] != "batch_ready":
+    if approved["state"] != "handoff_ready":
         raise RuntimeError(f"approval returned {approved}")
 
-    prepared = _call("prepare", str(package))
     ingest_args = ["ingest", str(package)]
-    for slide in prepared["selected_slides"]:
+    for slide in approved["selected_slides"]:
         image = _write_png(
             root / f"generated/slide-{slide:02d}.png", (1080, 1440), "cornsilk"
         )
@@ -219,11 +340,8 @@ def _run_once(root: Path) -> dict[str, float]:
         root / "final-qa-authored.json", _observations(package, [1, 2, 3, 4])
     )
     final_review = _call("review", str(package), "--qa", str(final_qa))
-    if final_review["state"] != "final_qa_required" or final_review["next_action"] != "finalize_deck":
+    if final_review["state"] != "publish_ready":
         raise RuntimeError(f"final review returned {final_review}")
-    finalized = _call("finalize", str(package))
-    if finalized["state"] != "publish_ready":
-        raise RuntimeError(f"finalize returned {finalized}")
     lifecycle_seconds = time.perf_counter() - lifecycle_start
     return {
         "create_and_proof_seconds": create_seconds,

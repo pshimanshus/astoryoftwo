@@ -12,6 +12,7 @@ __pycache__/
 
 # Virtual environments
 venv/
+/venv
 .venv/
 .venv-evals/
 env/
@@ -25,6 +26,7 @@ app/dist/
 .DS_Store
 *.swp
 *.swo
+.playwright-mcp/
 
 # Local scratch
 tmp/
@@ -52,6 +54,7 @@ output/carousels/**/codex-image-prompts/**/*.png
 output/carousels/**/codex-image-prompts/**/*.jpg
 output/carousels/**/codex-image-prompts/**/*.jpeg
 output/generated-sources/
+output/live-smoke/
 output/reference-contact-sheets/
 output/wallpapers/
 

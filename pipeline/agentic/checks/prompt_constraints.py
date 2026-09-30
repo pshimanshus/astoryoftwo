@@ -28,7 +28,7 @@ from pipeline.agentic.contracts import WorkflowGate
 REQUIRED_FRAGMENT_TABLE: tuple[tuple[str, str], ...] = (
     ("warm ivory", "paper-tone rule (palette)"),
     ("HARD FAIL: yellow", "yellow-drift hard-fail (palette)"),
-    ("Observational Intimacy Premium", "creator-approved house style lock"),
+    ("Cinematic Observational Watercolor", "active creator-approved style profile"),
     ("ON-IMAGE TEXT", "on-image-text contract"),
     ("@a.storyof.two", "brandmark requirement"),
     ("identity reference", "identity-image attachment rule"),
@@ -38,10 +38,18 @@ REQUIRED_FRAGMENT_TABLE: tuple[tuple[str, str], ...] = (
     ("PAPER TONE LOCK", "paper tone isolation lock"),
     ("STAGE-SCENE / VISUAL RECEIPT", "story-readable visual proof"),
     ("SHOT LADDER / VISUAL VARIETY", "carousel visual variety"),
+    ("motivated light", "cinematic light-source requirement"),
+    ("foreground/midground/background", "cinematic depth-layer requirement"),
+    ("before/after", "cinematic temporal implication requirement"),
     ("RELATIONSHIP MOTION", "relationship-motion gate"),
     ("Aachu is 5'6\"", "Aachu height lock"),
     ("Zuv is 5'8\"", "Zuv height lock"),
     ("No split-screen divider", "reference screenshot layout-device ban"),
+    (
+        "owner -> arm -> wrist -> hand -> contacted object",
+        "slide-specific hand ownership and contact plan",
+    ),
+    ("front/behind/contact", "whole-person and solid-object topology plan"),
 )
 
 REQUIRED_FRAGMENTS: tuple[str, ...] = tuple(

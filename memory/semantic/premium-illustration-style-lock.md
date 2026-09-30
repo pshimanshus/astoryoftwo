@@ -1,128 +1,48 @@
-# Premium Illustration Style Lock
+# Illustration Style Preference
 
-last_updated: 2026-06-30
+last_updated: 2026-09-04
 status: creator_approved
 confidence: 1.0
 
-## Approved Reference
+## Current Preference
 
-The creator-approved style target is the corrected Observational Intimacy
-premium carousel:
+The creator approved **Cinematic Observational Watercolor v1** on 2026-09-04
+because it is more eye-grabbing, feels less AI-generated, reads more like a
+cinematic lived moment, and makes the viewer want to keep reading and go deeper
+into the story.
 
-- repo reference bundle: `config/references/style-lock/observational-intimacy-premium/`
-- package: `output/illustrations/2026-05-30/observational-intimacy-premium/`
-- contact sheet: `output/illustrations/2026-05-30/observational-intimacy-premium/contact-sheet.png`
-- final slides: `output/illustrations/2026-05-30/observational-intimacy-premium/carousel-ready-977x1610/`
+This memory records the preference and its history; it is not a production
+rulebook. Current authorities are:
 
-Use these slides as the default style reference for future @a.storyof.two
-illustration-story generation in this folder.
+- `config/rules/palette.md` for finish and palette;
+- `config/rules/visual-variety.md` for cinematic narrative depth;
+- `config/carousel_style_contract.json` for the one active machine profile;
+- `config/references/style-lock/cinematic-observational-watercolor-v1/` for
+  approved visual evidence and provenance;
+- `config/rules/brandmark.md` for the exact tiny top-right brandmark placement;
+  and
+- `config/rules/identity.md` for the separate real-photo identity gate.
 
-## Non-Negotiable Style Traits
+## Approval Provenance
 
-- warm ivory paper with visible paper grain;
-- premium hand-drawn romantic watercolor-and-ink, not flat vector, cartoon, or
-  generic AI watercolor;
-- richly layered transparent watercolor blooms with deeper navy, muted denim,
-  camel, terracotta, sage, and dusty coral accents;
-- fine graphite/ink linework, controlled crosshatching, subtle construction
-  lines, and tactile detail in fabric, hair, props, wood, ceramic, shoes, bags,
-  chargers, scarves, and denim;
-- identity-first Aachu/Zuv faces with expressive eyes, real-person warmth,
-  preserved hair silhouettes, and no over-beautified generic model drift;
-- native 3:4 `1080x1440` finals for proofs, concepts, single-slide outputs, and
-  Instagram posts/carousel slides by default; separate native 9:16 `1080x1920`
-  only when Reel/Story is explicitly requested; square only on explicit
-  request;
-- clean upper-middle negative space for exact readable hand-drawn text;
-- tiny low-contrast handwritten `@a.storyof.two` brandmark at top-right;
-- premium hand-drawn storybook typography like the approved set: neat,
-  readable, dark charcoal, slightly imperfect, integrated into the paper.
-- shared brief images are mood/composition/story references only unless the
-  creator explicitly says otherwise; Aachu/Zuv identity references remain the
-  face, expression, posture, and wardrobe anchors.
-- PAPER TONE LOCK: the paper itself must stay neutral premium warm
-  ivory/off-white; warmth belongs in scene accents, not in yellow/parchment
-  paper.
-- STAGE-SCENE / VISUAL RECEIPT: every slide needs visible behavior, object
-  movement, body position, expression, contradiction, ritual, or aftermath that
-  proves the exact line.
-- SHOT LADDER / VISUAL VARIETY: across a carousel, vary shot type, camera,
-  setting, action, and who is visible; valid slides may show Aachu, Zuv, both,
-  partial presence, object-only evidence, or no faces.
-- RELATIONSHIP MOTION: love proof may come from either partner, both partners,
-  a shared rhythm, an object, or a public couple mirror; do not force Zuv into
-  a default handler/caretaker role.
+- 2026-09-04: the creator selected the illustrated wedding, mountain, kitchen,
+  and sofa family as the desired default because it combines cinematic depth,
+  tactile specificity, emotional pull, and a less synthetic finish.
+- 2026-05-30: the corrected Observational Intimacy Premium set established the
+  successful warm-ivory watercolor-and-ink foundation. It is now historical
+  provenance, not the active production selector.
+- 2026-05-30: yellow/parchment paper, generic non-matching faces,
+  copy/scene contradiction, and cramped anatomy were explicit creator
+  rejections. Their durable enforcement lives in the matching canonical rules
+  and QA layers.
+- 2026-05-31: the creator locked the close 5'6"/5'8" height relationship and
+  required actual Aachu/Zuv photos before batching. Identity rules own this;
+  the illustration style board never supplies identity.
 
-## New QA Learning
+## Production Meaning
 
-Beautiful art is not enough. Every slide must pass a copy-visual logic check:
-the body, clothing, props, and blocking must visibly prove the exact line.
-
-## 2026-05-30 Failed Proof Correction
-
-The first phone-prank proof generated on 2026-05-30 failed. The creator
-explicitly rejected it for two hard reasons:
-
-- the paper/background read yellowish/parchment instead of premium neutral
-  warm ivory/off-white;
-- Aachu/Zuv faces did not match the identity references and looked like generic
-  illustrated South Asian characters.
-
-This is a hard style and identity failure, not a subjective minor note.
-
-Future generation must treat these as STOP conditions:
-
-- any yellow, mustard, sepia, beige/tan, parchment, coffee-stained, or heavy
-  cream cast across the page;
-- any face drift, generic model face, over-beautified face, wrong nose/eyes,
-  wrong jaw/cheek structure, wrong beard/hair silhouette, or identity that
-  does not clearly read as the selected Aachu/Zuv reference;
-- any "final" generation attempted from text-only identity descriptions
-  without actual identity reference images attached/available to the image
-  model.
-
-If the current image-generation path cannot use the Aachu/Zuv identity
-references and the Observational Intimacy Premium style references as actual
-image inputs, do not generate final illustrations. Mark the package blocked
-for identity/style-reference generation instead.
-
-Hard fails:
-
-- the copy says socks before pants, but Zuv is already wearing pants;
-- a character pose makes Aachu or Zuv look crouched, cramped, unflattering, or
-  anatomically awkward;
-- the paper reads yellowish/parchment/sepia instead of neutral premium
-  off-white ivory;
-- the faces do not match the selected Aachu/Zuv identity bundle;
-- text can only be understood because of the written line, while the scene
-  visually proves something else;
-- the slide is premium-looking but the action/reaction/props contradict the
-  story beat.
-
-For future visual QA, require explicit `scene_logic` and `pose_anatomy` checks
-before accepting final art. Also require explicit `paper_tone` and
-`identity_match` checks before accepting or even batch-generating final art.
-
-## 2026-05-31 Height And Face Lock Correction
-
-The Private Captions fresh carousel attempt was stopped after the creator
-rejected early proofs for face mismatch and height mismatch. This is a hard
-identity failure, not a style nit.
-
-Hard lock:
-
-- Himanshu/Zuv is 5'8".
-- Aanchal/Aachu is 5'6".
-- The difference is only two inches; they should read close in height when
-  standing on the same plane.
-- Aanchal should never be scaled down to shoulder/chin level beside Himanshu.
-- Himanshu should not become tall, lanky, chiseled, or model-like.
-- Use a standing/together identity reference as the scale anchor whenever both
-  bodies are visible.
-
-Future generation must not batch a carousel after this kind of correction.
-First create one corrected proof that uses actual identity images as inputs and
-passes face match, body proportion, and the 5'8" vs 5'6" height relationship.
-If the available image-generation path ignores the identity/style references or
-produces an unrelated artifact, mark the package blocked and switch to a
-reference-capable generation path instead of continuing.
+Every new repo-managed illustration, carousel, and explicitly requested
+Reel/Story frame resolves the active profile rather than choosing a free-form
+style. The image model may need repair attempts, but a candidate that does not
+prove the intended event, cinematic depth, identity, exact text, brandmark,
+palette, and requested native dimensions cannot be promoted.

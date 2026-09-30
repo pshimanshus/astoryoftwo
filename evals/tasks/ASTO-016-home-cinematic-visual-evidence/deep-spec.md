@@ -37,17 +37,21 @@ pooja corners, mugs, or apartment objects.
 
 ## Checker Design
 
-The named deterministic checker is `home_cinematic_fixture`. It requires
-home/interior plans to expose concrete evidence for room or sub-location, time
-of day, motivated light source, camera position/shot size, blocking/body
-distance, object constellation, active movement, texture/material notes,
-text/negative-space placement, and continuity callback. The rubric should
-judge whether those fields create home-as-story evidence rather than
-decoration. A hidden variant should use "apartment", "kitchen", "vanity", or
-"doorway" without the word "home." Fail-to-pass flips when generic cozy plans
-block. Pass-to-pass confirms non-domestic routes are not over-constrained.
+The named deterministic checker is `home_cinematic_fixture`, retained for eval
+registry compatibility. It now calls the same canonical cinematic validator as
+production preflight and proves it across wedding action, landscape wide,
+kitchen support, and intimate close-up fixtures. It requires a specific
+sub-location and time, motivated light source/direction, camera position and
+shot size, foreground/midground/background jobs, active movement, two to four
+story-evidence records, text-negative space, before/after implication, and
+continuation or payoff. Fail-to-pass flips when generic plans block;
+pass-to-pass confirms non-domestic routes are not forced into home props.
 
 ## Anti-Gaming
+
+Each hidden variant changes the setting, object, camera distance, or relationship
+action while preserving the same missing-evidence defect. The solver must repair
+the production behavior rather than edit evaluator-owned fixtures or checkers.
 
 Do not accept keyword stuffing. The checker should inspect per-slide structure
 and reject empty values such as "nice lighting" or "some props." It should

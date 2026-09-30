@@ -31,7 +31,9 @@ def test_live_smoke_is_explicit_untracked_and_tool_truthful() -> None:
         "identity_attachments": 4,
         "identity_source": "config/references/identity/_dossier/identity-dossier.json.selected_generation_bundle",
         "style_board_attachments": 1,
-        "style_board_source": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+        "style_profile": "cinematic-observational-watercolor@1.0.0",
+        "style_board_source": "config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png",
+        "style_board_sha256": "sha256:850634480a635e296cbbb352bcbf461ade1bc4e1c3b419881a614e4ded13ee18",
         "forbid_individual_style_slides_in_addition": True,
         "forbid_silent_identity_omission": True,
     }
@@ -79,6 +81,23 @@ def test_live_smoke_has_three_distinct_non_duvet_risks_and_corrupt_controls() ->
         "exact_text_mismatch",
         "native_dimension_mismatch",
     ]
+    assert contract["profile_rollout_controls"] == [
+        "style_board_sha256_mismatch",
+        "cinematic_story_frame_missing",
+        "staged_portrait",
+        "empty_depth",
+        "palette_drift",
+    ]
+    assert contract["cinematic_acceptance"] == {
+        "frame_reads_as_caught_event": True,
+        "before_after_implied": True,
+        "motivated_light_observed": "required source and direction",
+        "depth_layers_observed": ["foreground", "midground", "background"],
+        "story_evidence_count": [2, 4],
+        "posed_portrait": False,
+        "decorative_clutter": False,
+        "generic_ai_tells": [],
+    }
     assert all(scenario["format"] == "instagram_post" for scenario in scenarios)
     assert all(scenario["exact_text"] for scenario in scenarios)
     assert all(scenario["physical_action"] for scenario in scenarios)
@@ -125,3 +144,18 @@ def test_live_smoke_report_is_complete_truthful_and_asset_free() -> None:
     assert "/users/" not in serialized
     assert "identity-dossier" not in serialized
     assert ".png" not in serialized
+
+
+def test_active_profile_smoke_is_distinct_from_historical_certification() -> None:
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
+    rollout = report["active_profile_rollout"]
+    assert report["historical_scope"]
+    assert rollout["profile_id"] == "cinematic-observational-watercolor"
+    assert rollout["attachments_per_call"] == {"identity": 4, "style_board": 1}
+    assert rollout["false_promotions"] == 0
+    assert rollout["result"] in {"PASS", "BLOCKED"}
+    assert all(1 <= scenario["actual_attempts"] <= 2 for scenario in rollout["scenarios"])
+    if any(scenario["result"] != "PASS" for scenario in rollout["scenarios"]):
+        assert rollout["result"] == "BLOCKED"
+        assert rollout["acceptance_certified"] is False
+        assert rollout["creator_approvals"] == 0

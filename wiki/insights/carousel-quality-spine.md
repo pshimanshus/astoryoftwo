@@ -1,52 +1,43 @@
 # Carousel Quality Spine
 
-last_updated: 2026-05-31
-confidence: 0.82
+last_updated: 2026-09-04
+confidence: 0.95
+status: derived pointer
 sources:
-- docs/superpowers/specs/2026-05-10-carousel-quality-spine-design.md
-- docs/superpowers/plans/creative-os-master-plan.md
-- pipeline/stages/carousel_quality.py
+- config/skill-systems.json
+- config/skills/carousel-jam-autopilot.md
+- config/rules/visual-variety.md
 
----
+## Current Operating Shape
 
-## Insight
+The active carousel spine has exactly four gates: concept; exact copy + native
+format; actual-pixel proof + creator approval; and final package QA. Internal
+checks support those gates but do not create agent rooms, ledgers, scorecards,
+or additional approval states.
 
-The C-layer carousel workflow needs a review spine around the creative agents:
-Jarvis observes requirements, stage reviewers compare expected vs actual output,
-and a final auditor checks whether the package is ready or needs fixes.
+The canonical workflow is registered under `carousel_jam` in
+`config/skill-systems.json`. Its compact operating instructions live in
+`config/skills/carousel-jam-runtime-context.md` and
+`config/skills/carousel-jam-autopilot.md`.
 
-## Operating Rule
+## Illustration Quality Pointers
 
-Every Codex-native carousel package should write:
+The active visual profile is Cinematic Observational Watercolor v1. This page
+does not define it:
 
-- `run-ledger.json`
-- `stage-reviews.json`
-- `final-audit.json`
-- `wiki-update.md`
+- `config/rules/palette.md` owns finish and palette;
+- `config/rules/visual-variety.md` owns cinematic frame and sequence semantics;
+- `config/carousel_style_contract.json` owns the single machine profile;
+- `config/references/style-lock/cinematic-observational-watercolor-v1/` owns
+  approved visual evidence and provenance;
+- `config/rules/identity.md` owns real-photo identity and scale; and
+- exact text, brandmark, and dimensions remain in their matching rule files.
 
-The package should also add a carousel page to `wiki/carousels/`, link it from
-`wiki/index.md`, append `memory/working.md`, and update `memory/graph.json`.
+## Historical Note
 
-## Creative Memory
-
-The approved default visual style is now the Observational Intimacy Premium
-watercolor-and-ink lock: warm ivory paper with visible grain, fine ink/pencil
-linework, transparent watercolor blooms, muted vintage palette, tactile
-clothing/props, upper-middle handwritten text, tiny bottom-right
-`@a.storyof.two` brandmark, and Aachu/Zuv identity references anchoring faces,
-expressions, posture, and wardrobe.
-
-## Failure Memory
-
-Runs should prefer `PASS_WITH_NOTES` over vague success when rendering is
-skipped, local generation is partial, or any limitation needs to carry forward.
-Critical misses become `NEEDS_FIXES`.
-
-## Identity-Scale Learning
-
-The 2026-05-31 Private Captions fresh run added a stricter identity gate:
-height and body scale are part of likeness. Himanshu/Zuv is 5'8" and
-Aanchal/Aachu is 5'6"; generated scenes must show only a slight two-inch
-difference when both stand on the same plane. If faces or height drift, stop
-batch generation, reject the proofs, and require one corrected reference-based
-proof before continuing.
+The 2026-05 quality-spine design used a Jarvis observer, run ledger, stage
+reviews, wiki-update artifacts, and `PASS_WITH_NOTES`. Those are historical
+provenance only and are not the current default production contract. Current
+generation is fail-closed: an image that misses story meaning, cinematic depth,
+entity/anatomy/spatial integrity, identity, exact text, brandmark, palette, or
+requested native dimensions remains quarantined and cannot be promoted.

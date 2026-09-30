@@ -1,6 +1,6 @@
 # Successful Carousel Standard
 
-last_updated: 2026-06-27
+last_updated: 2026-09-04
 confidence: 0.9
 status: living creative standard
 sources:
@@ -17,8 +17,8 @@ sources:
 - config/skills/carousel-story-director-persona.md
 - config/carousel_style_contract.json
 - memory/semantic/carousel-idea-preferences.md
-- direct creator approval on 2026-05-30 of the Observational Intimacy Premium
-  illustrations as the default visual style reference bundle
+- direct creator approval on 2026-09-04 of Cinematic Observational Watercolor
+  v1 as the default visual style profile
 
 ---
 
@@ -66,30 +66,29 @@ universal relationship truth
 
 This standard must not become a small keyword checklist.
 
-The pipeline should carry it as an open agent-alignment contract: concept,
-story, copy, visual, prompt, and final QA agents must explain how their choices
-serve the real goals. Agents may choose any hook, scene system, motif, or slide
-count that gets a cold viewer to the right recognition. A hook can be quiet,
-funny, cinematic, Hinglish, visual-first, or structurally unusual if it still
-creates a public doorway into the relationship truth.
+The pipeline carries it through the existing four gates: concept, exact copy +
+format, proof pixels + creator approval, and final package QA. Creative choices
+may use any hook, scene system, motif, or slide count that gets a cold viewer to
+the right recognition. A hook can be quiet, funny, cinematic, Hinglish,
+visual-first, or structurally unusual if it still creates a public doorway into
+the relationship truth.
 
 Do not make "public hook" a limited vocabulary. The phrase is a job, not a
 template. The job is to let someone outside the marriage recognize the emotional
 stakes quickly. That can happen through contradiction, behavior, scene design,
 comic timing, silence, an exchange of looks, an object used as proof, or a line
-that feels like something a partner would actually send. Agents should be free
-to find the strongest doorway as long as they can explain why it creates public
-recognition and private specificity.
+that feels like something a partner would actually send. The creative pass
+should find the strongest doorway as long as it creates public recognition and
+private specificity.
 
 Use deterministic checks only for hard structural misses:
 
 - the object, place, outfit, or aesthetic is the whole premise instead of
   evidence;
-- no agent records how the concept aligns to the success goals;
-- Story-Selling, golden-theme, story-director, visual-room, or visual-plan
-  gates are missing or below threshold;
-- final image prompts do not carry the success goals into scene-first visual
-  generation.
+- the concept has no visible change or relationship receipt;
+- a slide lacks one observable physical event or complete cinematic direction;
+- final image prompts do not carry the locked copy and scene into scene-first
+  visual generation.
 
 Identity matching remains a separate hard gate. Do not let face/likeness
 review replace creative success, and do not let creative success excuse
@@ -106,30 +105,17 @@ height-scale QA.
 
 ## Creator-Approved Visual Style
 
-The approved illustration house style is now the Observational Intimacy Premium
-look stored in `config/references/style-lock/observational-intimacy-premium/`:
-tall, airy romantic watercolor-and-ink portrait scenes on warm ivory paper with
-visible paper grain, fine ink/pencil linework, transparent watercolor blooms,
-delicate sketch texture, muted vintage palette, tactile clothing/props, and
-soft faded edges. The couple and story objects sit lower or middle-lower in the
-frame, while the upper-middle portion stays clean for exact integrated
-handwritten text. Faces are identity-first: Aachu and Zuv must remain
-recognizably the same recurring South Asian couple, with identity references
-anchoring faces, expressions, posture, and wardrobe. Wardrobe,
-suitcase/home/travel objects, chargers, pouches, mugs, scarves, phones, plants,
-lamps, and room details should feel richly tactile and lived-in, but secondary
-to the couple's emotional behavior.
+The creator-approved default is Cinematic Observational Watercolor v1. This wiki
+page does not restate that contract: `config/rules/palette.md` owns finish,
+`config/rules/visual-variety.md` owns cinematic frame/sequence direction,
+`config/carousel_style_contract.json` owns the active machine profile, and
+`config/references/style-lock/cinematic-observational-watercolor-v1/` holds its
+approved visual evidence.
 
-Default final illustrations should use the creator-supplied master prompt with
-exact readable ON-IMAGE TEXT baked naturally into the image. Outside references
-can supply text, message, emotion, story, hand gesture, body-language essence,
-and composition, but the final result must still look like A Story of Two, not
-like the reference style. For brand integrations, the product may stay a
-secondary story prop, but the brand/product name and product type must be
-legible at phone-screen size; otherwise the image fails QA. Tiny product
-microtext should not be trusted to the image model alone: render the product
-body as part of the illustration, then use a controlled exact label pass when
-needed so the final still feels hand-integrated but reads correctly.
+Identity remains independently gated by actual Aachu/Zuv photographs. Exact
+text, brandmark, and requested native dimensions remain independently gated by
+their canonical rule files. Outside references may contribute story evidence,
+but they cannot replace the house profile or identity inputs.
 
 ## What Success Means
 

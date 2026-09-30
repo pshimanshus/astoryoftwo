@@ -2863,18 +2863,29 @@
   },
   "selected_generation_bundle_count": 4,
   "selected_generation_bundle": [
-    "config/references/identity/aachu/reel-jaldi.jpg",
+    "config/references/identity/aachu/curated-v3/aachu-master-front.jpg",
     "config/references/identity/zuv/portrait-07.jpg",
     "config/references/identity/together/together-18.jpg",
     "config/references/identity/together/together-16.jpg"
   ],
+  "identity_source_policy": {
+    "visible_face_call_requires_selected_actual_photos": true,
+    "generated_character_chart_can_be_face_authority_alone": false,
+    "photo_master_or_contact_sheet_replaces_original_photos": false,
+    "generated_chart_role": "supplemental_after_explicit_creator_approval_only",
+    "aachu_v2_component_verdict": "FRONT_NEUTRAL_APPROVED_ONLY_ALL_OTHER_FACE_VIEWS_REJECTED",
+    "aachu_v3_status": "SUPERSEDED_BY_CREATOR_NEW_MULTI_PHOTO_CORRECTION",
+    "aachu_v4_status": "REJECTED_WHOLE_SHEET_IDENTITY_FAILURE_DO_NOT_USE_OR_REPAIR",
+    "aachu_profile_status": "NO_APPROVED_PROFILE_V4_REJECTED_NO_CLEAN_90_DEGREE_PHOTO",
+    "aachu_next_gate": "INDIVIDUAL_NEUTRAL_FRONT_PHOTO_GROUNDED_PROOF_THEN_CREATOR_APPROVAL"
+  },
   "selected_generation_options": [
     {
       "option_id": "AACHU-BEST",
-      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/aachu/reel-jaldi.jpg",
-      "filename": "reel-jaldi.jpg",
+      "path": "/Users/himanshusharma/astoryoftwo-analysis/config/references/identity/aachu/curated-v3/aachu-master-front.jpg",
+      "filename": "aachu-master-front.jpg",
       "subject": "aachu",
-      "why": "Current clean Aachu close-face anchor in natural daylight"
+      "why": "Current highest-priority near-front Aachu facial-geometry anchor from the creator-supplied multi-photo correction"
     },
     {
       "option_id": "ZUV-BEST",
@@ -2900,7 +2911,7 @@
   ],
   "reference_images_for_generation": [
     "config/references/identity/_dossier/identity-face-contact-sheet.jpg",
-    "config/references/identity/aachu/reel-jaldi.jpg",
+    "config/references/identity/aachu/curated-v3/aachu-master-front.jpg",
     "config/references/identity/zuv/portrait-07.jpg",
     "config/references/identity/together/together-18.jpg",
     "config/references/identity/together/together-16.jpg"
@@ -2908,7 +2919,7 @@
   "face_identity_contract": {
     "Himanshu/Zuv": {
       "non_negotiable": [
-        "dark wavy hair with visible volume",
+        "thick dark curly hair with visible top and side volume",
         "thick dark brows",
         "warm brown skin tone",
         "rounded/oval smiling face structure",
@@ -2932,13 +2943,13 @@
     },
     "Aachu/Anchal": {
       "non_negotiable": [
-        "long dark hair",
-        "expressive eyes and brows",
-        "warm fair-medium skin tone",
-        "soft oval/round face structure",
-        "fuller lips and expressive smile",
+        "long dense very dark mostly-straight hair with soft bends",
+        "large expressive dark round-almond eyes and full mostly-straight brows with a low soft arch",
+        "warm medium-brown skin tone",
+        "soft rounded-to-oval face with full cheeks, softly squared jaw corners, and rounded chin",
+        "compact lips with a thinner upper lip, fuller lower lip, and real asymmetry",
         "playful dramatic energy under the softness",
-        "slightly smaller/petite presence relative to Himanshu"
+        "natural adult build; only two inches shorter than Himanshu and never tiny or childlike"
       ],
       "expression_range": [
         "bright smile",

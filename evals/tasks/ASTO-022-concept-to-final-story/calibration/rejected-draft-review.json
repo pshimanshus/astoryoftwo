@@ -1,0 +1,23 @@
+{
+  "task_id": "ASTO-022-concept-to-final-story",
+  "rubric": "story_completion",
+  "author_id": "agent:/root:original-chat-draft",
+  "reviewer_id": "agent:/root/draft_forward_test",
+  "artifact": "output/evals/ASTO-022/creator-brief.md",
+  "artifact_sha256": "d36f4c3fa4a80dd06a2b2f8e7ef8e5b4733f0e693b2e7b49394ca324cb0812f4",
+  "source_note": "Independent review on 2026-09-26 of fixtures/rejected-draft.md. The calibration harness copies those exact bytes to the requested draft path. This review cannot grade a repaired draft.",
+  "scores": {
+    "lock_continuity": 2,
+    "story_architecture": 2,
+    "causal_development": 2,
+    "earned_payoff": 1,
+    "human_voice": 1
+  },
+  "evidence": {
+    "lock_continuity": ["Slides 1-4 preserve household coordination versus personal connection. The premise was selected, not explicitly locked word for word; absent exact cover wording alone is not a failure."],
+    "story_architecture": ["Slide 1 opens a contradiction; slide 2 adds his interpretation; slide 3 supplies evidence; slide 4 reframes it; slide 5 changes his behavior. The ending does not fully carry the opening promise."],
+    "causal_development": ["His surprise motivates the montage; her clarification and hand reach cause his phone-down response. The pattern's cost and her later response remain underdeveloped."],
+    "earned_payoff": ["Slide 5 shows phone down, body turned and hands joined, but 'She starts answering' and 'End here, with their conversation beginning' leave the personal exchange and its emotional consequence unwritten."],
+    "human_voice": ["'Aaj tumse baat hi nahi hui', 'Poore din toh baat kar rahe the', 'Haan. Humari baat nahi hui' and 'Achha batao. Kaisa tha aaj?' are plausible economical dialogue without a moral or framework language."]
+  }
+}

@@ -8,6 +8,7 @@ import pytest
 
 from evals.attempts import (
     AttemptContractError,
+    capture_workspace,
     create_baseline_record,
     load_baseline_record,
     write_baseline_record,
@@ -28,6 +29,30 @@ from evals.schemas import CheckResult, EvalTask, PassCriteria, discover_tasks
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_workspace_baseline_excludes_isolated_evaluator_runtime(tmp_path):
+    (tmp_path / "source.py").write_text("pass\n")
+    for directory in (".venv-evals", ".venv", "venv"):
+        (tmp_path / directory).mkdir()
+        (tmp_path / directory / "installed-package.py").write_text("runtime only\n")
+    assert set(capture_workspace(tmp_path)) == {"source.py"}
+
+
+def test_calibration_status_does_not_import_production_image_stack():
+    code = '''
+import importlib.abc, runpy, sys
+class NoProductionImages(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        if fullname in {"PIL", "evals.checkers.task_specific", "evals.review"}:
+            raise ImportError("Isolated evaluator has no production image stack")
+sys.meta_path.insert(0, NoProductionImages())
+sys.argv = ["evals/runner.py", "calibration-status"]
+runpy.run_path("evals/runner.py", run_name="__main__")
+'''
+    result = subprocess.run([sys.executable, "-c", code], cwd=ROOT,
+                            text=True, capture_output=True, check=True)
+    assert json.loads(result.stdout)["external_calls"] == "not_run"
 
 
 def _task() -> EvalTask:

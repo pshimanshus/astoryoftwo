@@ -24,18 +24,58 @@ def _png(path: Path, size: tuple[int, int] = (40, 40), color: str = "tan") -> Pa
     return path
 
 
+def _cinematic_slide(number: int) -> dict[str, object]:
+    is_final = number == 4
+    return {
+        "role": "payoff" if is_final else f"story_beat_{number}",
+        "copy": f"Locked copy {number}",
+        "physical_action": f"Aachu and Zuv complete concrete action {number} beside the window together.",
+        "relationship_state": f"Their shared effort visibly changes into trust during beat {number}.",
+        "camera": {
+            "shot_size": "close payoff detail" if is_final else f"medium-wide action frame {number}",
+            "position": f"table-height three-quarter position beside action {number}",
+            "negative_space": f"quiet upper-left wall above action beat {number}",
+        },
+        "focal_hierarchy": f"Their active hands read first, action {number} second, and upper copy stays clear.",
+        "setting": {
+            "place": f"their narrow apartment room beside window {number}",
+            "time": "late rainy afternoon",
+            "motivated_light": f"cool window light crosses frame-left over action {number}",
+            "depth_layers": {
+                "foreground": f"chair edge leads toward action beat {number}",
+                "midground": f"both partners complete concrete action {number}",
+                "background": f"rain-streaked window holds the destination for beat {number}",
+            },
+        },
+        "visual_richness": {
+            "point_of_view": f"Their shared hesitation organizes action beat {number}.",
+            "before_frame": f"They had chosen separate directions before beat {number}.",
+            "after_frame": f"They will settle the shared object after beat {number}.",
+            "continuation_pull": "" if is_final else f"Will their movement align after beat {number}?",
+            "story_evidence": [
+                {
+                    "carrier": f"the marked shared object {number}",
+                    "observable_state": "its position changes beneath both active grips",
+                    "narrative_job": "proves their coordination through a visible consequence",
+                },
+                {
+                    "carrier": f"their synchronized feet at beat {number}",
+                    "observable_state": "both bodies step toward the same destination",
+                    "narrative_job": "proves the relationship turn without relying on copy",
+                },
+            ],
+            "posed_portrait_allowed": False,
+            "decorative_clutter_allowed": False,
+        },
+    }
+
+
 def _package(tmp_path: Path) -> Path:
     brief = tmp_path / "brief.json"
     brief.write_text(
         json.dumps(
             {
-                "slides": [
-                    {
-                        "copy": f"Locked copy {number}",
-                        "physical_action": f"They complete concrete action {number} together.",
-                    }
-                    for number in range(1, 5)
-                ]
+                "slides": [_cinematic_slide(number) for number in range(1, 5)]
             }
         ),
         encoding="utf-8",
@@ -50,7 +90,6 @@ def _package(tmp_path: Path) -> Path:
         story="One shared direction.",
         image_paths=[],
         identity_image_paths=identity_paths,
-        style_reference_paths=[_png(tmp_path / "style.png", color="ivory")],
         creative_baseline_path=brief,
         output_root=tmp_path / "output/carousels",
         today=date(2026, 8, 24),
@@ -99,7 +138,7 @@ def test_story_only_prepare_reports_blocked_with_concrete_next_action(tmp_path: 
     state = derive_carousel_state(package)
     assert state.name == "blocked"
     assert state.blocked is True
-    assert state.next_action == "lock_visible_actions"
+    assert state.next_action == "lock_visible_actions_and_cinematic_direction"
 
 
 def test_archived_v2_state_is_mapped_read_only_to_v3_vocabulary(tmp_path: Path) -> None:

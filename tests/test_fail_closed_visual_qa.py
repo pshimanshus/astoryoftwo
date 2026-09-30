@@ -18,13 +18,24 @@ from pipeline.stages.carousel_pixel_qa import (
     bind_proof_qa,
     validate_proof_qa,
 )
+from tests.helpers.carousel_qa import cinematic_slide_fields, passing_cinematic_story_frame
 
 
 def _candidate(tmp_path: Path) -> dict[str, object]:
     write_format_contract(tmp_path, ["instagram_post"], source="test")
     copy_text = "Some days, love did not tell us what to do."
     (tmp_path / "slides.json").write_text(
-        json.dumps([{"slide": 1, "copy": copy_text}]), encoding="utf-8"
+        json.dumps(
+            [
+                {
+                    "slide": 1,
+                    "copy": copy_text,
+                    "physical_action": "They pull one shared map in opposite directions.",
+                    **cinematic_slide_fields(1, 1),
+                }
+            ]
+        ),
+        encoding="utf-8",
     )
     refs = [
         "refs/aachu/face.png",
@@ -37,12 +48,20 @@ def _candidate(tmp_path: Path) -> dict[str, object]:
         reference = tmp_path / ref
         reference.parent.mkdir(parents=True, exist_ok=True)
         Image.new("RGB", (32, 32), "ivory").save(reference)
+    style_hash = sha256_binding((tmp_path / style_ref).read_bytes())
     (tmp_path / "prompt-pack.json").write_text(
         json.dumps(
             {
                 "identity_reference_images": refs,
-                "style_reference_images": [style_ref],
-                "slides": [{"slide": 1}],
+                "style_profile": {
+                    "id": "cinematic-observational-watercolor",
+                    "version": "1.0.0",
+                    "reference": {
+                        "path": style_ref,
+                        "sha256": style_hash,
+                        "attachment_count": 1,
+                    },
+                },
             }
         ),
         encoding="utf-8",
@@ -73,6 +92,7 @@ def _candidate(tmp_path: Path) -> dict[str, object]:
     path.parent.mkdir(parents=True, exist_ok=True)
     Image.new("RGB", (1080, 1440), "ivory").save(path)
     return {
+        "package": str(tmp_path),
         "slide": 1,
         "copy": copy_text,
         "attempt": 1,
@@ -104,10 +124,51 @@ def _passing_qa(candidate: dict[str, object]) -> dict[str, object]:
                         "checks": {
                             "physical_action": {"status": "PASS", "evidence": "Both partners pull one shared map in opposite directions."},
                             "relationship_state": {"status": "PASS", "evidence": "Their conflict is visible while their shared table keeps them connected."},
-                            "entity_spatial_integrity": {"status": "PASS", "evidence": "Two complete people have natural hands attached to the same map."},
+                            "cinematic_story_frame": passing_cinematic_story_frame(Path(candidate["package"]), 1),
+                            "entity_spatial_integrity": {
+                                "status": "PASS",
+                                "evidence": "Two complete people and both focal hands have clear ownership.",
+                                "expected_people": 2,
+                                "observed_people": 2,
+                                "observed_people_names": ["Aachu", "Zuv"],
+                                "unexpected_entities": [],
+                                "unexpected_limbs": [],
+                                "duplicated_limbs": [],
+                                "ambiguous_contacts": [],
+                                "silhouette_evidence": "Both silhouettes remain separate from the table and wall.",
+                                "visible_hands": [
+                                    {
+                                        "owner": "Aachu",
+                                        "side": "right",
+                                        "story_required": True,
+                                        "attachment_traceable": True,
+                                        "contact_geometry_pass": True,
+                                        "solid_object_intersection": False,
+                                        "malformed_or_extra_fingers": False,
+                                        "contact": "right hand grips the map edge",
+                                        "evidence": "Her forearm and wrist connect cleanly to the gripping hand.",
+                                    },
+                                    {
+                                        "owner": "Zuv",
+                                        "side": "left",
+                                        "story_required": True,
+                                        "attachment_traceable": True,
+                                        "contact_geometry_pass": True,
+                                        "solid_object_intersection": False,
+                                        "malformed_or_extra_fingers": False,
+                                        "contact": "left hand grips the opposite map edge",
+                                        "evidence": "His forearm and wrist connect cleanly to the gripping hand.",
+                                    },
+                                ],
+                            },
                             "identity_wardrobe_accessories": {
                                 "status": "PASS",
-                                "evidence": "Both faces and whole-body proportions match Aachu and Zuv.",
+                                "evidence": (
+                                    "Aachu retains long dense very dark mostly-straight hair with soft bends, "
+                                    "large expressive dark round-almond eyes and full mostly-straight brows with a low soft arch, "
+                                    "and warm medium-brown skin tone. Zuv retains thick dark curly hair with visible top and side volume, "
+                                    "thick dark brows, and warm brown skin tone; both whole-body proportions match."
+                                ),
                                 "references": {
                                     "aachu": ["refs/aachu/face.png"],
                                     "zuv": ["refs/zuv/face.png"],
@@ -154,7 +215,7 @@ def test_semantic_failure_stops_before_identity_or_style_can_mask_it(tmp_path: P
         tmp_path, qa, expected_asset_bindings=[candidate]
     )
     assert issues == [
-        "slide 1 instagram_post: physical_action is FAIL; downstream PASS is invalid for relationship_state, entity_spatial_integrity, identity_wardrobe_accessories, text_brandmark_style_dimensions"
+        "slide 1 instagram_post: physical_action is FAIL; downstream PASS is invalid for relationship_state, cinematic_story_frame, entity_spatial_integrity, identity_wardrobe_accessories, text_brandmark_style_dimensions"
     ]
 
 
@@ -194,8 +255,47 @@ def test_compact_inventory_validators_keep_integrity_without_review_ceremony() -
                     "slide": 1,
                     "expected_arms": 4,
                     "observed_arms": 4,
-                    "expected_hands": 4,
-                    "observed_hands": 4,
+                    "expected_hands": 2,
+                    "observed_hands": 2,
+                    "unexpected_limbs": [],
+                    "duplicated_limbs": [],
+                    "malformed_fingers": False,
+                    "visible_hands": [
+                        {
+                            "owner": "Aachu",
+                            "story_required": True,
+                            "attachment_visible": True,
+                            "edge_entry_unexplained": False,
+                            "contact_geometry_pass": True,
+                            "solid_object_intersection": False,
+                        },
+                        {
+                            "owner": "Zuv",
+                            "story_required": True,
+                            "attachment_visible": True,
+                            "edge_entry_unexplained": False,
+                            "contact_geometry_pass": True,
+                            "solid_object_intersection": False,
+                        },
+                    ],
+                }
+            ]
+        },
+        slide_count=1,
+    ) == []
+
+
+def test_pass_labels_cannot_bypass_missing_structured_integrity_evidence() -> None:
+    anatomy = validate_anatomy_inventory_check(
+        {
+            "slides": [
+                {
+                    "slide": 1,
+                    "status": "PASS",
+                    "expected_arms": 4,
+                    "observed_arms": 4,
+                    "expected_hands": 2,
+                    "observed_hands": 2,
                     "unexpected_limbs": [],
                     "duplicated_limbs": [],
                     "malformed_fingers": False,
@@ -203,12 +303,66 @@ def test_compact_inventory_validators_keep_integrity_without_review_ceremony() -
             ]
         },
         slide_count=1,
-    ) == []
+    )
+    spatial = validate_spatial_topology_check(
+        {"slides": [{"slide": 1, "status": "PASS", "evidence": "looks fine"}]},
+        slide_count=1,
+    )
+    entities = validate_scene_entity_integrity_check(
+        {
+            "slides": [
+                {
+                    "slide": 1,
+                    "status": "PASS",
+                    "expected_people": 2,
+                    "observed_people": 3,
+                    "unexpected_entities": [],
+                    "unexpected_limbs": [],
+                    "duplicated_limbs": [],
+                }
+            ]
+        },
+        slide_count=1,
+    )
+
+    assert "slide 1 anatomy inventory must list every visible hand" in anatomy
+    assert "slide 1 spatial topology is missing hand_object_contact" in spatial
+    assert "slide 1 expected 2 people but observed 3" in entities
     assert validate_scene_entity_integrity_check(
-        {"slides": [{"slide": 1, "expected_people": 2, "observed_people": 3}]},
+        {
+            "slides": [
+                {
+                    "slide": 1,
+                    "expected_people": 2,
+                    "observed_people": 3,
+                    "unexpected_entities": [],
+                    "unexpected_limbs": [],
+                    "duplicated_limbs": [],
+                }
+            ]
+        },
         slide_count=1,
         ) == ["slide 1 expected 2 people but observed 3"]
     assert validate_spatial_topology_check(
-        {"slides": [{"slide": 1, "status": "PASS", "evidence": "contact reads"}]},
+        {
+            "slides": [
+                {
+                    "slide": 1,
+                    "status": "PASS",
+                    "body_environment": {"status": "PASS"},
+                    "hand_object_contact": {"status": "PASS"},
+                    "person_separation": {"status": "PASS"},
+                    "issues": [],
+                    "people": [
+                        {
+                            "person": "Aachu",
+                            "silhouette_traceable": True,
+                            "body_regions": [],
+                        }
+                    ],
+                    "unresolved_intersections": [],
+                }
+            ]
+        },
         slide_count=1,
     ) == []

@@ -1,0 +1,47 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-LEGACY-D644AEA2C026F765",
+  "feedback_id": "fb-legacy-d644aea2c026f765",
+  "package_path": "output/carousels/2026-08-14/more-than-the-hurt",
+  "user_instruction_sha256": "sha256:d44fcf731c17b28d746d1558dedab8e8540162ee63b87e10e8b9918037c277ee",
+  "diagnosis": "provenance_qa",
+  "must_change": [],
+  "must_preserve": [
+    "Preserve the six exact slide lines.",
+    "Use the storytelling and cinematography direction to make the images add meaning.",
+    "Treat the incident as an approved illustrative premise, not claimed documentary autobiography.",
+    "Keep the safety boundary for repeated harm, coercion, cruelty, abuse, or betrayal."
+  ],
+  "affected_artifacts": [
+    "creator-correction.json"
+  ],
+  "baseline_artifact_hashes": {
+    "creator-correction.json": "sha256:78efa8731f1742ed9fb9e154b859c79966951d8daebcb10edd2921ad707dd96b"
+  },
+  "status": "waived",
+  "created_at": "2026-09-04T11:23:22+00:00",
+  "evaluated_at": "2026-09-04T11:23:22+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "creator-correction.json": "sha256:78efa8731f1742ed9fb9e154b859c79966951d8daebcb10edd2921ad707dd96b"
+      }
+    }
+  ],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "issues": [],
+  "waiver_reason": "Historical correction predates deterministic feedback-case capture; metadata was normalized without changing carousel media.",
+  "regression_promotable": false
+}

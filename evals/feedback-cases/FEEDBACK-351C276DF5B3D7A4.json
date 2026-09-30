@@ -1,0 +1,36 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-351C276DF5B3D7A4",
+  "feedback_id": "fb-351c276df5b3d7a4",
+  "package_path": "output/carousels/2026-09-04/i-have-lived-so-many-years-without-you",
+  "user_instruction_sha256": "sha256:5987c6b8a96a4d0fbc3c1eb64cf37770ee516a98191ebf1ae2529e2ad8bcde13",
+  "diagnosis": "identity_reference",
+  "must_change": [],
+  "must_preserve": [
+    "The approved slide-6 illustration language: visible paper, broken pigment edges, simplified facial planes, clean ink contours, recognizable identity, exact copy, native 1080x1440 and tiny top-right brandmark."
+  ],
+  "source_affected_artifacts": [
+    "generation-state.json"
+  ],
+  "affected_artifacts": [
+    "generation-state.json"
+  ],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "generation-state.json": "sha256:3d8c5628d98305f654ae0ebd92cd1eb07f16ae382be05efa128685546ca57589"
+  },
+  "status": "pending",
+  "created_at": "2026-09-12T13:10:20+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:0e36993b181c34439c143aa1debccc23c1df6405adffe5cff35d3d6dd4b7b2a1"
+}

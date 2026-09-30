@@ -1,127 +1,125 @@
 # A Story of Two Creative OS
 
 Status: active architecture
-Updated: 2026-08-24
+Updated: 2026-09-04
 
-## Purpose
+## Product Outcome
 
-Help the creator find a recognizable couple truth, turn it into an image-led
-story, and publish a technically valid @a.storyof.two carousel. The system
-should increase creative clarity without making the creator supervise internal
-agents or read framework reports.
+Help the creator turn a recognizable couple truth into a technically valid,
+image-led @a.storyof.two carousel without supervising internal machinery. A
+correction should improve the current deck now and remain useful to later work.
 
-## One Default Route
+## Default Route
 
 ```text
-seed or fresh jam
-  -> human concept and format
-  -> exact copy plus one physical action per slide
-  -> compact generation prompts
-  -> riskiest-slide proof
-  -> actual-pixel story and integrity QA
-  -> creator proof approval
-  -> remaining slides
-  -> final package QA
+seed or fresh jam -> concept and format -> exact copy + physical actions
+-> risky-slide proof -> pixel QA + creator approval -> remaining slides
+-> final package QA
 ```
 
 There are four locks:
 
 1. Concept lock.
-2. Copy and format lock.
+2. Copy and requested-format lock.
 3. Actual-pixel proof QA plus creator approval.
 4. Final package QA.
 
-## Dynamic Depth
-
-The normal route uses no default agent room. Add depth only for a named need:
-
-- Use the Instagram idea loop only when the creator explicitly asks for a deep,
-  autonomous, independently challenged idea search.
-- Use a bounded critic for one risky visual, identity, anatomy, or final audit.
-- Use parallel workers for independent engineering changes with distinct file
-  ownership.
-- Do not introduce a council, debate, tournament, or scoring ledger merely
-  because the task is a carousel.
+No internal check, feedback capture, learning event, evaluation, or health run
+creates a fifth creator-facing lock.
 
 ## Creative Contract
 
-- The model owns the first alive concept, copy, and visual route.
-- Context and memory are seasoning, not a visible framework.
-- Every slide needs one observable physical event or state change.
-- The scene must communicate with copy hidden; copy deepens it.
-- Creator-supplied structure and exact copy are preserved.
-- A failed visual premise is repaired before polishing likeness or typography.
+- Codex owns the first alive concept, copy, and visual route.
+- Context and memory are quiet seasoning, not a visible framework.
+- Every slide has one observable physical event or changed state.
+- The scene communicates with copy hidden; exact copy deepens it.
+- A failed premise is repaired before likeness or typography polish.
+- Use a specialist or parallel worker only for a bounded, non-overlapping job.
+
+## Feedback Becomes Better Work
+
+When the creator corrects a concept, slide, image, or package:
+
+1. preserve the exact correction in the existing creator-correction record;
+2. emit one idempotent `LearningEvent` through the existing learning surface;
+3. diagnose the affected authoritative slide or prompt fields;
+4. repair those fields and let v3 fingerprint reconciliation invalidate only
+   affected candidates, QA, or approval;
+5. resume the same four-lock production route; and
+6. index the evidence during maintenance so future recall can retrieve it.
+
+Every explicit correction is captured; the creator does not operate a feedback
+form. The existing correction file carries an internal lifecycle:
+captured → diagnosed → applied → evaluated → learning_proposed → approved →
+promoted, or rejected. It is not another carousel approval gate. `feedback`,
+`revise`, and `feedback-status` connect real repair evidence and regression cases.
+Durable rule, skill, or semantic-memory changes remain creator-reviewed proposals.
+Optional DeepEval and Langfuse adapters have no authority over deterministic
+production gates; local work remains usable without either dependency.
 
 ## Production Contract
 
-Keep these hard gates:
+- Bind exactly four selected identity files plus one canonical style board.
+- Anchor face, hair, height, proportions, posture, expression, and wardrobe.
+- Integrate exact text and tiny top-right `@a.storyof.two`.
+- Default only to 1080x1440; 1080x1920 and 1080x1080 are explicit-request-only.
+- Inspect actual pixels for story, entities, anatomy/spatial integrity, identity,
+  text, style, brandmark, and dimensions.
+- Prove one risky slide; allow at most two semantic attempts per premise.
+- Promote finals atomically only after every requested native asset passes.
 
-- four selected identity images plus one canonical style board, copied locally
-  and shared by prompt handoff and doctor;
-- wardrobe and whole-person identity anchored to those images;
-- exact integrated on-image text;
-- tiny top-right `@a.storyof.two`;
-- exact `1080x1440` final post/carousel output by default;
-- `1080x1920` Story/Reel and `1080x1080` square only when requested;
-- correct people/entities/physics plus actual-pixel story, integrity, identity,
-  text, style, and dimension inspection;
-- one risky proof and at most two semantic attempts per premise;
-- final hashes and manifests only after the complete deck passes.
+The prompt requests the exact locked size. Only post ingest may bind an untouched
+exact-3:4 source from 1080x1440 through 1440x1920 and proportionally downsample
+once. Crop, pad, stretch, upscale, wrong ratio, and a second resample are blocked.
 
-The prompt still asks for exact 1080x1440. As an observed built-in-runtime
-accommodation, only post ingest may bind an untouched exact-3:4 source from
-1080x1440 through 1440x1920 and proportionally downsample once. Final remains
-exact 1080x1440; crop/pad/stretch/upscale/wrong ratio are blocked. Story/Reel
-and square remain exact-only, and approved normalized proof bytes are reused.
+## Codex-Owned ImageGen Boundary
 
-Codex owns image-generation calls and actual decoded-pixel inspection. The repo
-owns prompt preparation, exact-output ingestion, QA/approval binding, state,
-and atomic promotion. There is no repo API renderer, API-key flow, OCR fallback,
-or environment capability artifact.
+The repo prepares prompts, binds references, ingests outputs, reconciles state,
+and promotes files. Codex reads each selected compiled prompt, attaches the four
+identity files and one style board, calls ImageGen, then inspects the decoded
+candidate with `view_image`. If either capability is unavailable, remain
+`handoff_ready` and report `BLOCKED/NOT_RUN`; never infer a visual PASS.
 
-New calls attach those four identity files plus one style board. Five is the
-observed built-in-runtime boundary, not an official limit; never drop identity.
+The internal illustration loop is exactly six commands: create with
+`--prepare-proof`; ingest proof; review proof; approve (which prepares the
+batch); ingest batch; review final (which finalizes a passing deck). `status` is
+diagnostic. Automatic correction capture and targeted repair are exception
+handling around these six commands, not additional steps on an ordinary run.
 
-## Small Package
+## Package and State
 
 Before proof: `creative-context.json`, `format-contract.json`, `slides.json`,
-`prompt-pack.json`, and `.internal/compiled-prompts/`. After proof: one
-quarantined proof image and `proof-qa.json`. After the full deck passes: final
-native PNGs, `final-images.json`, `visual-qa.json`, and `final-audit.json`.
+`prompt-pack.json`, `generation-state.json`, and compiled prompts. After proof:
+one quarantined image and `proof-qa.json`. After final QA: native PNGs,
+`final-images.json`, `visual-qa.json`, and `final-audit.json`.
 
-Deliberation transcripts, agent-room records, approval ledgers, provenance
-graphs, raw model responses, and prose-only storyboard certifications are not
-package artifacts.
+The public states are `draft`, `blocked`, `handoff_ready`, `proof_qa_required`,
+`proof_failed`, `awaiting_creator_proof_approval`, `batch_ready`,
+`final_qa_required`, `final_qa_failed`, and `publish_ready`.
 
-## Prompt Contract
+Learning proposals, shadow evals, tests, and health stay outside the ordinary
+illustration hot path. The lightweight feedback regression runs when repairing
+a correction; retrieval rebuilds its derived index when needed. Archived v2
+packages remain read-only during normal work. The explicit metadata migration
+preserves full historical sources and media hashes without inventing pixel QA.
 
-One compiled prompt is at most 8,000 characters and 900 words. Its scene is at
-most 180 words and its combined essential negatives are at most 80 words. It
-contains only the physical scene, camera/focal hierarchy, actual reference
-roles, wardrobe, compact house style, exact text, brandmark, dimensions, and
-essential entity/anatomy/spatial constraints. Workflow lifecycle and hashes
-belong in validators.
+## Acceptance and Non-Goals
 
-## Honest State
+The technical contract is `docs/superpowers/specs/agentic-os-control-plane.md`.
+Acceptance requires exact feedback retention, idempotent capture, a reproduced
+failure that passes after same-package repair, preservation of untouched JSON,
+scoped invalidation, receipt-bound QA, supersession-aware recall, guarded durable
+promotion, and a hash-proven historical migration. Synthetic lifecycle tests do
+not certify illustration taste or likeness. Optional judges remain uncalibrated
+until 20 distinct creator-reviewed outputs across five packages have at most
+10% hard-fail disagreement; calibration alone does not authorize production use.
 
-A quarantined proof that fails the cold pixel read is `proof_failed` and its
-next action is `repair_visual_premise`. It is never `handoff_ready`. Public final
-folders and `final-images.json` are written only after all requested slides and
-formats pass actual-pixel QA.
-
-New packages use compact v3 state with slide-semantic fingerprints. A local
-slide edit invalidates only that slide; a proof edit also revokes approval;
-shared identity/style/compiler/brand/format/order changes invalidate the deck.
-An approved proof is reused, not regenerated. Archived v2 packages remain
-read-only and are never migrated during an ordinary run.
-
-The public state vocabulary is: `draft`, `blocked`, `handoff_ready`,
-`proof_qa_required`, `proof_failed`,
-`awaiting_creator_proof_approval`, `batch_ready`, `final_qa_required`,
-`final_qa_failed`, and `publish_ready`.
+This system improves repository context, examples, retrieval, and tested behavior.
+It does not continuously train OpenAI model weights, silently publish content,
+invent creator approvals, or regenerate historical art during a migration.
 
 ## Source of Truth
 
 Canonical rules stay in `config/rules/`; routing stays in
-`config/skill-systems.json`; compact execution lives in the carousel runtime
-and autopilot skill docs. Generated output and old plans are not rule authority.
+`config/skill-systems.json`; the compact runtime and autopilot define execution.
+Generated outputs, old packages, and historical plans are not rule authority.

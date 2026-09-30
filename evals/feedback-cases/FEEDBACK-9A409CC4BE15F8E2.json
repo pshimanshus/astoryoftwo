@@ -1,0 +1,232 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-9A409CC4BE15F8E2",
+  "feedback_id": "fb-9a409cc4be15f8e2",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+  "user_instruction_sha256": "sha256:6a85d9a26a09e9d76048e606baafd977f56a7e1e3b94a3bfb244d10f58fc82c5",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Use an overhead shared-throw hug with every hand hidden."
+  ],
+  "must_preserve": [
+    "Preserve copy, identity, four socked feet, watercolor, format and brandmark."
+  ],
+  "source_affected_artifacts": [
+    "slides.json"
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "verification_assertions": [
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/2/physical_action",
+      "operator": "equals",
+      "value": "Overhead, Aachu and Zuv sit hugging under one shared throw after a fight; four socked feet remain visible."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/2/props",
+      "operator": "equals",
+      "value": "Rug, sofa, displaced cushions, remote, two mugs and one shared grey throw; no damage."
+    }
+  ],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:c7718b60327697e2c4b3ae0c2dc9e8494eafc8dc250701bee4fcd04c69a9cc43"
+  },
+  "status": "passed",
+  "created_at": "2026-09-05T10:59:07+00:00",
+  "evaluated_at": "2026-09-05T11:07:42+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_repair_values",
+      "status": "PASS"
+    },
+    {
+      "code": "unaffected_json_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "failure_reproduced",
+      "status": "PASS"
+    },
+    {
+      "code": "verification_assertions",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "slides.json": "sha256:140b4924fdb0ffaf750bab9071647f3f21bffb78d3363be97e3d967f1fb4bbf6"
+      }
+    }
+  ],
+  "repair_operations": [
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/2/physical_action",
+      "value": "Overhead, Aachu and Zuv sit hugging under one shared throw after a fight; four socked feet remain visible."
+    },
+    {
+      "artifact": "slides.json",
+      "json_pointer": "/2/props",
+      "value": "Rug, sofa, displaced cushions, remote, two mugs and one shared grey throw; no damage."
+    }
+  ],
+  "preserved_projection_hashes": {
+    "slides.json": "sha256:c0703fe7514744fdfa72d44cb23e6d84b317a12d4a2f6e4e68f9de960a2f4f6d"
+  },
+  "failure_reproduced": true,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 3,
+  "verification_contract_history": [
+    {
+      "revision": 1,
+      "verification_contract_sha256": "sha256:e09498bb1f8214d2f03f57d47b700a69674e4ca04c626b46a9075b8caedfc4ad",
+      "feedback_id": "fb-9a409cc4be15f8e2",
+      "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+      "user_instruction_sha256": "sha256:6a85d9a26a09e9d76048e606baafd977f56a7e1e3b94a3bfb244d10f58fc82c5",
+      "diagnosis": "scene_action",
+      "must_change": [
+        "Replace the superseded arrival-home scene with the creator-specified overhead messy-room seated embrace after a fight."
+      ],
+      "must_preserve": [
+        "Exact Slide 3 copy, Aachu/Zuv identity, four complete legs and feet, cinematic watercolor theme, 1080x1440 format, and tiny top-right @a.storyof.two brandmark."
+      ],
+      "source_affected_artifacts": [
+        "slides.json"
+      ],
+      "affected_artifacts": [
+        "slides.json"
+      ],
+      "repair_operations": [],
+      "verification_assertions": [],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:c7718b60327697e2c4b3ae0c2dc9e8494eafc8dc250701bee4fcd04c69a9cc43"
+      },
+      "preserved_projection_hashes": {},
+      "eval_waiver_reason": null,
+      "superseded_at": "2026-09-05T11:02:11+00:00",
+      "superseded_by": "codex",
+      "reason": "Keep the latest creator direction while reducing repeated wording in the generation prompt."
+    },
+    {
+      "revision": 2,
+      "verification_contract_sha256": "sha256:fd3a877255d8e2053ed13c6d00e88e141fd07d194c373c2999bf39516a3c2dbc",
+      "feedback_id": "fb-9a409cc4be15f8e2",
+      "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+      "user_instruction_sha256": "sha256:6a85d9a26a09e9d76048e606baafd977f56a7e1e3b94a3bfb244d10f58fc82c5",
+      "diagnosis": "scene_action",
+      "must_change": [
+        "Replace the superseded arrival-home scene with the creator-specified overhead messy-room seated embrace after a fight."
+      ],
+      "must_preserve": [
+        "Exact Slide 3 copy, Aachu/Zuv identity, four complete legs and feet, cinematic watercolor theme, 1080x1440 format, and tiny top-right @a.storyof.two brandmark."
+      ],
+      "source_affected_artifacts": [
+        "slides.json"
+      ],
+      "affected_artifacts": [
+        "slides.json"
+      ],
+      "repair_operations": [
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/2/physical_action",
+          "value": "Overhead after a fight, Aachu and Zuv hug on a rug; four legs and feet remain visible."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/2/wardrobe",
+          "value": "Aachu: charcoal blazer, off-white top, denim. Zuv: navy shirt, grey trousers, evil-eye locket."
+        }
+      ],
+      "verification_assertions": [
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/2/physical_action",
+          "operator": "equals",
+          "value": "Overhead after a fight, Aachu and Zuv hug on a rug; four legs and feet remain visible."
+        },
+        {
+          "artifact": "slides.json",
+          "json_pointer": "/2/wardrobe",
+          "operator": "equals",
+          "value": "Aachu: charcoal blazer, off-white top, denim. Zuv: navy shirt, grey trousers, evil-eye locket."
+        }
+      ],
+      "baseline_artifact_hashes": {
+        "slides.json": "sha256:c7718b60327697e2c4b3ae0c2dc9e8494eafc8dc250701bee4fcd04c69a9cc43"
+      },
+      "preserved_projection_hashes": {
+        "slides.json": "sha256:0b181effb3bebf347aff385f8ab7f829f4679829f62f05137458b8441c219790"
+      },
+      "eval_waiver_reason": null,
+      "superseded_at": "2026-09-05T11:07:42+00:00",
+      "superseded_by": "codex",
+      "reason": "Apply the failed-proof anatomy repair while preserving the creator’s overhead post-fight premise."
+    }
+  ],
+  "evaluation_history": [
+    {
+      "status": "passed",
+      "evaluated_at": "2026-09-05T11:02:11+00:00",
+      "evaluator_contract_version": "creator-feedback-evaluator/v2",
+      "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+      "verification_contract_revision": 2,
+      "verification_contract_sha256": "sha256:fd3a877255d8e2053ed13c6d00e88e141fd07d194c373c2999bf39516a3c2dbc",
+      "checks": [
+        {
+          "code": "exact_feedback_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_repair_values",
+          "status": "PASS"
+        },
+        {
+          "code": "unaffected_json_preserved",
+          "status": "PASS"
+        },
+        {
+          "code": "failure_reproduced",
+          "status": "PASS"
+        },
+        {
+          "code": "verification_assertions",
+          "status": "PASS"
+        },
+        {
+          "code": "repair_evidence_linked",
+          "status": "PASS"
+        },
+        {
+          "code": "declared_artifacts_repaired",
+          "status": "PASS",
+          "current_hashes": {
+            "slides.json": "sha256:9dbb4ae6c9f2c6020428577af09343c2fd84a19c91e2848441d95da62b141b5c"
+          }
+        }
+      ],
+      "issues": [],
+      "failure_reproduced": true,
+      "regression_promotable": true,
+      "waiver_reason": null
+    }
+  ],
+  "verification_contract_sha256": "sha256:f5560f2774d91bec4b3615c0594cfff5b359904c923be6fa19184dcdeb089f3d",
+  "issues": [],
+  "waiver_reason": null,
+  "regression_promotable": true
+}

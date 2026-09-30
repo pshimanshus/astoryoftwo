@@ -9,6 +9,8 @@ from pipeline.stages.carousel_master_prompt import (
     load_canonical_master_prompt,
     master_prompt_contract,
 )
+from pipeline.stages.carousel_contract import load_active_illustration_style_profile
+from pipeline.stages.carousel_generation_inputs import effective_slide_prompt_fields
 from pipeline.stages.carousel_prompt_compiler import (
     MAX_NEGATIVE_WORDS,
     MAX_PROMPT_CHARS,
@@ -41,8 +43,52 @@ def _compile(**overrides: object) -> str:
             "map to each other. Medium overhead angle; the hands and map are the focal point."
         ),
         "format_key": "instagram_post",
-        "style": "premium romantic watercolor-and-ink illustration",
+        "style": (
+            "Cinematic observational watercolor-and-ink on neutral warm ivory/off-white paper; "
+            "tactile grain, transparent blooms, natural asymmetry, and no yellow, mustard, sepia finish."
+        ),
         "negative": "No photorealism, no 3D, no stock couple.",
+        "relationship_state": "Both recognize the disagreement softening into shared attention.",
+        "camera": {
+            "shot_size": "medium overhead action frame",
+            "position": "table-height three-quarter view beside their active hands",
+            "negative_space": "quiet upper-left paper field above the lamp",
+        },
+        "focal_hierarchy": (
+            "Their opposing hands read first, the folded map second, and upper-left copy stays clear."
+        ),
+        "setting": {
+            "place": "their scratched apartment dining table beside the window",
+            "time": "late rainy afternoon",
+            "motivated_light": (
+                "cool window light travels from frame-left across their hands and the folded map"
+            ),
+            "depth_layers": {
+                "foreground": "blurred chair edge implies the viewer arrived mid-conversation",
+                "midground": "their hands pull the map around the fixed lamp",
+                "background": "rain-streaked glass holds the unresolved travel horizon",
+            },
+        },
+        "visual_richness": {
+            "point_of_view": "Their shared hesitation organizes the frame around the contested map.",
+            "before_frame": "Each partner had quietly chosen a different route across the page.",
+            "after_frame": "Their eyes meet before either hand finally releases the paper.",
+            "continuation_pull": "Which route will become theirs once the pulling stops?",
+            "story_evidence": [
+                {
+                    "carrier": "the creased paper map",
+                    "observable_state": "two penciled routes diverge beneath their opposing grips",
+                    "narrative_job": "proves that both futures are physically present",
+                },
+                {
+                    "carrier": "the fixed table lamp",
+                    "observable_state": "it stays centered while their bodies pull apart",
+                    "narrative_job": "proves one shared home underneath the disagreement",
+                },
+            ],
+            "posed_portrait_allowed": False,
+            "decorative_clutter_allowed": False,
+        },
     }
     values.update(overrides)
     return compile_image_prompt(**values)  # type: ignore[arg-type]
@@ -133,6 +179,32 @@ def test_prompt_keeps_reference_identity_wardrobe_and_style_requirements():
     assert "yellow, mustard, sepia" in prompt
 
 
+def test_prompt_uses_attached_identity_contract_without_inlining_full_dossier():
+    prompt = _compile()
+
+    assert "Non-negotiable Identity:" not in prompt
+    assert "attached actual Aachu and Zuv identity images" in prompt
+    assert "Preserve their whole-person likeness" in prompt
+    assert len(prompt) <= MAX_PROMPT_CHARS
+    assert len(prompt.split()) <= MAX_PROMPT_WORDS
+
+
+def test_relationship_state_is_not_duplicated_as_microexpression():
+    relationship = "They remain connected while disagreeing."
+    prompt = _compile(relationship_state=relationship, emotion=None)
+
+    assert prompt.count(relationship) == 1
+    assert "Microexpression and body language:" not in prompt
+
+    distinct_emotion = "Aachu's jaw softens while Zuv keeps a patient gaze."
+    with_emotion = _compile(
+        relationship_state=relationship,
+        emotion=distinct_emotion,
+    )
+    assert relationship in with_emotion
+    assert f"Microexpression and body language: {distinct_emotion}" in with_emotion
+
+
 def test_prompt_keeps_action_camera_focal_and_compact_entity_integrity():
     prompt = _compile()
 
@@ -142,11 +214,17 @@ def test_prompt_keeps_action_camera_focal_and_compact_entity_integrity():
     assert "No extra person, duplicate couple, unexplained reflection" in prompt
     assert "Every visible hand belongs to a visible body" in prompt
     assert "spatially separate and physically coherent" in prompt
+    assert "LIMB AND HAND PLAN:" in prompt
+    assert "owner -> arm -> wrist -> hand -> contacted object" in prompt
+    assert "WHOLE-PERSON AND OBJECT TOPOLOGY:" in prompt
+    assert "table=separate_from" in prompt
 
 
-def test_validator_essays_are_not_serialized_into_generation_prompt():
+def test_slide_specific_limb_plan_is_serialized_without_validator_essay_noise():
     prompt = _compile()
 
+    assert "LIMB AND HAND PLAN:" in prompt
+    assert "WHOLE-PERSON AND OBJECT TOPOLOGY:" in prompt
     for removed in (
         "HAND OWNERSHIP MAP (HARD GATE)",
         "ACTION CHRONOLOGY AND DOOR-SIDE CONTRACT (HARD GATE)",
@@ -180,11 +258,15 @@ def test_verbose_inputs_are_deduplicated_and_compacted_to_field_budgets():
             "Aachu turns back and joins Zuv at the closed exterior door so both test the "
             "same handle together. " + repeated
         ),
-        pose="Keep the shared action readable from an overhead camera. " * 80,
+        camera={
+            "shot_size": "medium overhead action frame",
+            "position": "Keep the shared action readable from an overhead camera. " * 80,
+            "negative_space": "quiet upper-left paper field above the lamp",
+        },
         negative="No extra person or broken hand. " * 80,
     )
 
-    scene = _section(prompt, "SCENE:", "IDENTITY AND WARDROBE:")
+    scene = _section(prompt, "SCENE:", "CINEMATIC STORY FRAME:")
     negative = re.search(
         r"ESSENTIAL NEGATIVES:\n(.*?)(?=\n\nSLIDE DIRECTION)",
         prompt,
@@ -205,12 +287,41 @@ def test_locked_field_over_budget_blocks_instead_of_dropping_tail() -> None:
         _compile(wardrobe=wardrobe)
 
 
+@pytest.mark.parametrize("format_key", ["instagram_post", "reels_stories", "square"])
+def test_active_profile_leaves_budget_for_specific_slide_negatives(format_key: str) -> None:
+    profile = load_active_illustration_style_profile()
+    slide_negative = (
+        "No spare keys, printed route labels, additional cups, open doors, anonymous hands, "
+        "floating objects, mirrored furniture, invented jewelry, replaced clothing, duplicated "
+        "maps, reversed gaze, or a second simultaneous action."
+    )
+    effective = effective_slide_prompt_fields(
+        {"negative_prompt": slide_negative},
+        shared_negative=profile["negative_prompt"],
+    )
+
+    prompt = _compile(
+        format_key=format_key,
+        style=profile["generation_prompt"],
+        negative=effective["negative_prompt"],
+    )
+
+    assert profile["generation_prompt"] in prompt
+    assert profile["negative_prompt"] in prompt
+    assert slide_negative in prompt
+    assert len(effective["negative_prompt"].split()) <= MAX_NEGATIVE_WORDS
+    assert len(prompt) <= MAX_PROMPT_CHARS
+    assert len(prompt.split()) <= MAX_PROMPT_WORDS
+
+
 def test_canonical_generation_body_has_no_workflow_state_or_duplicate_prompt_sections():
     canonical = load_canonical_master_prompt()
 
-    assert MASTER_PROMPT_VERSION.endswith("v5-compact")
+    assert MASTER_PROMPT_VERSION.endswith("v7-cinematic-style-profile")
     assert canonical.count("ON-IMAGE TEXT:") == 1
     assert canonical.count("SCENE:") == 1
+    assert canonical.count("CINEMATIC STORY FRAME:") == 1
+    assert canonical.count("[INSERT CANONICAL HOUSE STYLE HERE]") == 1
     for noise in (
         "hash",
         "provenance",
@@ -223,7 +334,7 @@ def test_canonical_generation_body_has_no_workflow_state_or_duplicate_prompt_sec
         assert noise not in canonical.casefold()
 
 
-def test_extract_scene_summary_and_legacy_generator_drop_old_checklist_noise():
+def test_extract_scene_summary_but_legacy_prompt_cannot_generate_without_cinematic_data():
     legacy_prompt = (
         "Style reference images: [config/carousel_style_contract.json]. "
         "Scene: Aachu opens Zuv's wallet while he holds out the backup card. "
@@ -234,13 +345,11 @@ def test_extract_scene_summary_and_legacy_generator_drop_old_checklist_noise():
     assert extract_scene_summary(legacy_prompt) == (
         "Aachu opens Zuv's wallet while he holds out the backup card."
     )
-    prompt = generator_prompt_text(
-        {"slide": 2, "text": "He prepared for it.", "prompt": legacy_prompt},
-        "instagram_post",
-    )
-    assert "Aachu opens Zuv's wallet" in prompt
-    assert "legacy package checklist" not in prompt
-    assert len(prompt) <= MAX_PROMPT_CHARS
+    with pytest.raises(ValueError, match="active style and negative prompts"):
+        generator_prompt_text(
+            {"slide": 2, "text": "He prepared for it.", "prompt": legacy_prompt},
+            "instagram_post",
+        )
 
 
 def test_master_prompt_contract_keeps_only_requested_native_outputs():
@@ -259,3 +368,89 @@ def test_compile_image_prompt_rejects_when_exact_copy_alone_breaks_budget():
 
     with pytest.raises(ValueError, match="too long"):
         _compile(slide_copy=exact_copy)
+
+
+def test_explicit_hand_contact_plan_reaches_generation_prompt() -> None:
+    hand_map = {
+        "people": ["Aachu", "Zuv"],
+        "expected_anatomical_hands": 4,
+        "expected_visible_hands": 4,
+        "hands": [
+            {
+                "owner": "Aachu",
+                "side": "right",
+                "visibility": "visible",
+                "action": "points beside the left bookcase panel",
+                "attachment": "continuous arm-to-wrist-to-hand",
+                "contact": "index finger stops outside the wood",
+            },
+            {
+                "owner": "Aachu",
+                "side": "left",
+                "visibility": "visible",
+                "action": "rests on her own hip",
+                "attachment": "continuous arm-to-wrist-to-hand",
+                "contact": "palm touches only her denim waistband",
+            },
+            {
+                "owner": "Zuv",
+                "side": "right",
+                "visibility": "visible",
+                "action": "points at the shelf alignment hole",
+                "attachment": "continuous arm-to-wrist-to-hand",
+                "contact": "index finger stops above the shelf",
+            },
+            {
+                "owner": "Zuv",
+                "side": "left",
+                "visibility": "visible",
+                "action": "supports the shelf's right end",
+                "attachment": "continuous arm-to-wrist-to-hand",
+                "contact": "palm supports the underside; fingers curl around the exterior edge",
+            },
+        ],
+    }
+
+    prompt = _compile(hand_map=hand_map)
+
+    assert "Aachu left: visible; rests on her own hip" in prompt
+    assert "palm touches only her denim waistband" in prompt
+    assert "Zuv left: visible; supports the shelf's right end" in prompt
+
+
+def test_incomplete_hand_contact_plan_blocks_generation() -> None:
+    with pytest.raises(ValueError, match="Hand ownership/contact plan is unresolved"):
+        _compile(
+            hand_map={
+                "people": ["Aachu"],
+                "expected_visible_hands": 1,
+                "hands": [
+                    {
+                        "owner": "Aachu",
+                        "side": "right",
+                        "visibility": "visible",
+                        "action": "touches the shelf",
+                        "attachment": "hand",
+                    }
+                ],
+            }
+        )
+
+
+def test_cinematic_direction_and_style_are_compiled_exactly_once() -> None:
+    prompt = _compile()
+    style = (
+        "Cinematic observational watercolor-and-ink on neutral warm ivory/off-white paper; "
+        "tactile grain, transparent blooms, natural asymmetry, and no yellow, mustard, sepia finish."
+    )
+
+    assert prompt.count(style) == 1
+    assert prompt.count("CINEMATIC STORY FRAME:") == 1
+    assert prompt.count("Point of view:") == 1
+    assert prompt.count("the creased paper map") == 1
+    assert "Additional style note" not in prompt
+
+
+def test_missing_cinematic_direction_blocks_before_prompt_compilation() -> None:
+    with pytest.raises(ValueError, match="Cinematic story direction is unresolved"):
+        _compile(camera=None, setting=None, visual_richness=None)

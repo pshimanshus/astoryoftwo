@@ -1,8 +1,16 @@
 # Carousel Idea Preferences
 
-last_updated: 2026-09-01
+last_updated: 2026-09-04
 confidence: 0.8
 sources:
+- direct creator correction in chat on 2026-09-04 for `Marriage Gave Us One
+  Home`: the creator strongly approved the visual thinking but rejected images
+  whose physical scene did not match the exact line, especially the cheerful
+  final dinner. A bittersweet marriage payoff must preserve connection without
+  converting emotional cost into celebration; when the line says one shared
+  home creates absence in two others, show the simultaneous consequence across
+  all three homes and keep the couple subdued rather than unhappy with each
+  other
 - direct creator correction in chat on 2026-07-11: this file must be a crisp
   evolving preference ledger with a learning method, not a stuffed archive or
   another policy block. Update, merge, downgrade, or remove obsolete
@@ -108,15 +116,11 @@ sources:
   identity matched, but the illustration had too much dense cinematic landscape
   and not enough @a.storyof.two warm whitespace; the creator supplied a locked
   illustration master prompt to use for all future generation
-- direct creator correction in chat on 2026-05-30 that the
-  Observational Intimacy Premium illustrations are the best achieved so far and
-  must be used as the default style reference set before every future
-  @a.storyof.two image, illustration, and carousel generation
-- direct creator approval in chat on 2026-05-30 that the corrected
-  Observational Intimacy premium carousel is the desired vibe, aesthetic,
-  illustration quality, and typography standard; direct creator correction that
-  slide-level QA must block copy-visual contradictions and awkward/crouched
-  body poses
+- direct creator approval in chat on 2026-09-04 that Cinematic Observational
+  Watercolor v1 becomes the default illustration profile because it feels less
+  AI-generated, more cinematic and eye-grabbing, and creates a desire to read
+  deeper; the 2026-05-30 Observational Intimacy approval remains provenance for
+  its warm-ivory watercolor foundation and copy/anatomy corrections
 - direct creator correction in chat on 2026-05-30 that the One Brain Cell
   phone/remote concept was the wrong story; the real bit is Zuv hiding Aachu's
   phone, fake-helping search room/dining/bag/bathroom, putting it on the
@@ -255,6 +259,14 @@ reframed as each partner volunteering to be missed by their own people, and the
 final answer names the quiet cost of building one shared home. Preserve that
 thematic method--uncover the private consequence beneath an ordinary shared-life
 decision--without repeating its family, festival, calendar, or phone surface.
+Follow-up creator correction on 2026-09-04 sharpened the visual rule: literal
+calendar/phone copy needs a calendar-and-phone action, mutual sacrifice needs
+both partners' own-family cost visible, and the payoff must show three dinners
+apart at the same hour. Keep Aachu and Zuv physically connected but subdued;
+do not resolve this specific cost into a smiling, laughing, serving, or happy
+shared-home scene. Both origin homes must show the full parent pair—a mother
+and father at each table—not one solitary parent, and the three-home payoff
+must remain visually elegant rather than reading as a stacked cutaway collage.
 A creator-supplied object example is evidence of the depth or recognition being
 requested, not a mandate to keep its props. If the creator rejects that surface,
 mark it superseded and move inward to the thought people rarely say; do not
@@ -356,7 +368,11 @@ confidence: 1.0
 fact: Carousel slide copy may be medium-length when a poetic line needs more
 room to explain impact. Do not force every slide into tiny copy if a fuller
 line reads better as one continuous note, stays readable as on-image text, and
-deepens the emotional turn. Brevity is a tool, not the rule.
+deepens the emotional turn. Brevity is a tool, not the rule. When the creator
+asks for poetic or quotable copy, require poet-level compression: every word
+must add image, tension, implication, or emotional turn. Cut lines that merely
+define the thesis, report the scene, or explain why the relationship matters;
+the sequence should make the reader feel the meaning before any label names it.
 confidence: 1.0
 
 fact: For montage carousels, do not write or prompt every slide as the same
@@ -484,28 +500,15 @@ as part of the artwork. The master prompt must ban external watermarks/logos
 but never ban the project brandmark.
 confidence: 1.0
 
-fact: The creator-approved Observational Intimacy Premium set is the current
-default style lock for all future @a.storyof.two illustration generation. Load
-`config/references/style-lock/observational-intimacy-premium/` before generating
-or prompt-packaging. Use shared brief images only as mood/composition/story
-references; use Aachu/Zuv identity references as the face, expression, posture,
-and wardrobe anchors; use the style-lock images for warm ivory paper, visible
-paper grain, fine ink/pencil linework, transparent watercolor blooms, delicate
-sketch texture, muted vintage palette, tactile clothing detail, soft faded
-edges, exact handwritten text in upper-middle negative space, and the tiny
-top-right `@a.storyof.two` brandmark. Missing this lock is a generation
-failure, not a minor style preference.
-confidence: 1.0
-
-fact: The corrected Observational Intimacy Premium carousel is now the
-preferred illustration style reference for this folder. Future generated
-illustrations should match its warm ivory paper with visible paper grain, rich
-premium watercolor-and-ink depth, transparent watercolor blooms, detailed
-identity-first faces, tactile domestic props, soft faded edges, clean
-upper-middle negative space, tiny top-right `@a.storyof.two` brandmark, and
-readable hand-drawn charcoal typography. Avoid flat vector, poster-card,
-photorealism, UI/screenshot residue, quote-card design, or generic AI-watercolor
-looks.
+fact: Cinematic Observational Watercolor v1 is the creator-approved default for
+every new repo-managed illustration, carousel, and explicitly requested
+Reel/Story frame. The preference is cinematic, eye-grabbing, less synthetic,
+and narratively deep. Do not duplicate its style prose here: resolve the one
+machine profile through `config/carousel_style_contract.json`, use
+`config/rules/palette.md` and `config/rules/visual-variety.md` as the canonical
+human rules, and use
+`config/references/style-lock/cinematic-observational-watercolor-v1/` as visual
+evidence. Missing or mismatched profile bytes are a generation blocker.
 confidence: 1.0
 
 fact: The creator explicitly rejects yellowish paper/background tones. For
@@ -517,8 +520,8 @@ confidence: 1.0
 
 fact: Aachu/Zuv identity match is a hard gate. Text-only identity descriptions
 are not enough for final character illustrations. If the generation path cannot
-use actual Aachu/Zuv identity reference images and the Observational Intimacy
-Premium style references as image inputs, block final generation for
+use actual Aachu/Zuv identity reference images and the active profile's exact
+hash-bound style board as image inputs, block final generation for
 identity/style-reference support instead of producing a "final" image.
 confidence: 1.0
 
@@ -989,7 +992,7 @@ confidence: 0.98
 | 2026-06-06 | Post-Analysis Repair Shortlist / Aachu Dictionary | public contradiction / Hinglish private-language translations / things she says vs what she means | selectable_shortlist_requires_taste_review | After rejecting Own Plate Theory, rebuilt from `output/reports/2026-06-06-instagram-page-and-competitor-analysis.md`. Earlier artifacts called `Aachu Dictionary` a 29/30 recommended route, but this is not locked: it must first pass the World-Class Taste Gate for novelty, creator-world specificity, and a non-obvious staged turn. Treat `Ready Means The Search Has Started` the same way. `House Weather System` and `Jaldi Has No Definition` are internal repair ideas, not creator-facing suggestions, unless separately repaired. Do not proceed to copy until the selected route passes taste gate and the creator selects it, rejects both, or supplies a raw moment. | 1.0 |
 | 2026-06-04 | Main Nahi Bol Rahi | angry care / silence with instructions / gussa plus care / domestic proof receipts | creator_selected_copy_options_ready | Creator selected `Main Nahi Bol Rahi` as the best replacement route from the shareability repair shortlist. Repaired away from `Softness Under Fire` and generic apology framing by making the share hook `Some silence comes with instructions.` Recommended Option A copy: `Some silence comes with instructions.` -> `"Main nahi bol rahi."` -> `"Khana kha lena."` -> `"Paani bhi."` -> `He kept her glass too.` -> `Gussa tha. Care bhi.` Story-Selling 29/30, Golden Theme 29/30, GO for creator copy lock. Guardrails: do not make Aachu cruel/manipulative/childish, do not make Zuv a saint/therapist, stage care through physical receipts while both remain safely in the tiny fight. Jam record: `output/concepts/2026-06-04/main-nahi-bol-rahi-jam/`. | 1.0 |
 | 2026-06-03 | Shareability Repair Shortlist / Mummy Ko Mat Batana | two-person alibi / harmless desi mischief / couple conspiracy / high-tag carousel repair | replacement_shortlist_presented | After creator rejected `The Exit Code` as low-shareability, the room reran against a harsher no-explanation partner-tag test. Four replacement options were preserved: `Mummy Ko Mat Batana`, `Main Nahi Bol Rahi`, `Nothing To Wear`, and `Jo Karna Hai Karo`. Selector recommends `Mummy Ko Mat Batana`: `He didn't marry innocent.` -> `He married "mummy ko mat batana."` -> `The bag was "old only."` -> `The bill was "sale tha."` -> `He nodded like legal team.` -> `Some love comes with an alibi.` Guardrails: keep the mischief harmless, desi, and visibly mutual; no serious lying, money secrecy, parent-mocking, or perfect-husband/enabler framing. Jam record: `output/concepts/2026-06-03/shareability-repair-jam/`. | 0.9 |
-| 2026-06-03 | The Exit Code | family function / small talk / social battery / private exit signal / public scene private meaning | rejected_creator_low_shareability | Creator rejected this direction as "not something people will share" and called out that the room was going in the wrong direction again. Diagnosis: the concept is recognizable but not urgent or identity-defining enough to create partner tags; it lacks the gold-post force of public contradiction plus hard physical receipts. Do not reuse social-battery/exit-code/small-talk rescue as the next fresh idea unless rebuilt around a much sharper viral receipt engine. Jam record: `output/concepts/2026-06-03/the-exit-code-jam/`. | 1.0 |
+| 2026-06-03 | The Exit Code / Our Social Battery Has a Secret Code | family function / small talk / social battery / private exit signal / public scene private meaning | explicitly_reopened_creator_repair_required | Creator originally rejected this direction as "not something people will share" and called out that the room was going in the wrong direction again. On 2026-08-23, creator explicitly reopened the premise as a strongest bet but rejected the first copy rebuild because the phone would already be in a pocket, finding shoes did not make sense, car/cab continuity was ungrounded, and the story itself was never explained; creator said the new storytelling engine would never approve it. Creator then rejected the first car-based repair because it still did not feel like two humans interacting and did not contain a legible question, conflict, and answer. Supersede both drafts completely. A valid revisit must stage a real social exchange: one partner needs to leave while the other is mid-conversation; the agreed signal creates the question of whether it was understood; a warm host's natural `Already? Stay for dessert` creates external pressure; the drained partner begins explaining; the responder looks to them for permission, makes the exit plural without inventing a logistical excuse, and asks `Too much?` only after they are alone in their car. The answer must be proven through human dialogue rather than an explanatory thesis: privacy changes where the question is asked, not whether the couple communicates. Do not proceed from prop density or narrator summary; require a cold viewer to explain who wants what, the pressure, choice, consequence, changed state, and earned meaning. Original jam record: `output/concepts/2026-06-03/the-exit-code-jam/`. | 1.0 |
 | 2026-05-31 | Alone, Not Behind, Beside Me | external climb/beside reference adaptation / source-cadence preservation / non-preachy softness / desi deadpan button / locked sequence wardrobe | six_slide_copy_repaired | Creator rejected the first repair `Love stopped feeling like a race.` as preachy and worse than the supplied reference, then rejected the humor line `The climb was still rude, though.` as `nahhh chi`. Corrected rule: preserve the reference's emotional rhythm and keep humor smaller/desi/deadpan. Active 6-slide copy: `I thought I had to do this alone.` -> `I kept walking like I was fine.` -> `You never made me feel behind.` -> `You just stayed beside me.` -> `Turns out, the view feels better with you by my side.` -> `Next time, car se.` Keep visuals in A Story house style, but do not add preachy race/pace language to public copy. Slide 6 should be practical Aachu deadpan after the tender view moment, not a clever hill joke. Creator corrected proof direction: this is one sequence story, so clothes cannot change. Lock Aachu to white oversized shirt, blue jeans, blue-red scarf, cream tote and Zuv to navy top, tan pants, white sneakers, watch across all 6 slides; reject any proof that changes clothes or adds new accessories. Jam record: `output/concepts/2026-05-31/love-stopped-feeling-like-a-race-jam/`. | 1.0 |
 | 2026-05-31 | The Weather App | external Him/Her emotional-weather reference adaptation / sarcastic mood forecast / calm partner deadpan | final_generated_packaged_pass_with_notes | Creator asked to keep the funny premise where Him mostly stands there while Her does all the drama, then requested a stronger hook and sarcastic ending. Final locked copy: `He didn't marry peace. He married the weather app.` -> source middle beats with `Him`, `Her`, `blah..`, `Blah..`, `Blah..`, `*sniff*` -> `And bro still checks the forecast every day.` Package lives at `output/carousels/2026-05-31/the-weather-app/` with five native 4:5 Instagram slides and separate native 9:16 Reels/Stories slides. Critical visual learning: the ending composition works, but any yellow/parchment cast is rejected; use neutral ivory/off-white paper matching the existing slide set. | 1.0 |
 | 2026-05-31 | Household Inventory | Dot & Key brand integration / barrier repair moisturizer / household stock / parents-place reveal / teasing game | creator_repaired_direction_active | Creator clarified the idea is still good but the concept needs to land as a teasing household game, not theft/restock or a polite product handoff. Corrected story: Aachu looks for her Dot & Key Barrier Repair tube, checks drawer/pouch/wardrobe/bathroom, suspects Zuv, then he opens the backup drawer because he already ordered before it ran out; final comic correction is that the old tube was left at her parents' place. Emotional thesis: she lives dramatically in the house; he quietly runs inventory. Current slide spine: `Skincare time.` -> `Blue tube missing.` -> `Drawer. Pouch. Bathroom.` -> `Wardrobe bhi check hua.` -> `Tumne rakha hai na?` -> `He opened the backup drawer.` -> `New one was already there.` -> `Old one? Maayke.` -> `She lives here. He runs inventory.` | 0.99 |

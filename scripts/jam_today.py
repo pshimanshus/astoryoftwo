@@ -54,8 +54,6 @@ def build_carousel_command(args: argparse.Namespace) -> list[str]:
         command.extend(["--story-image", image])
     for identity_image in args.identity_image:
         command.extend(["--identity-image", identity_image])
-    for style_reference in args.style_reference:
-        command.extend(["--style-reference", style_reference])
     return command
 
 
@@ -75,7 +73,6 @@ def main() -> int:
     )
     parser.add_argument("--image", "--story-image", dest="image", action="append", default=[])
     parser.add_argument("--identity-image", action="append", default=[])
-    parser.add_argument("--style-reference", action="append", default=[])
     parser.add_argument("--creative-brief")
     parser.add_argument("--output-root")
     parser.add_argument("--proof-slide", type=int)

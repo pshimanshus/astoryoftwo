@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-2E1903D2646CC4E0",
+  "feedback_id": "fb-2e1903d2646cc4e0",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+  "user_instruction_sha256": "sha256:593baa492174e8da161c0bf6b188caa907f06e57994423a40c3d44775d77d466",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Complete remaining slides in active cinematic watercolor style; replace rejected Slide 3 staging."
+  ],
+  "must_preserve": [
+    "Eight locked copy lines; approved umbrella Slide 6; 1080x1440 only."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-12T12:05:32+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:85190b3f4d83c370f0157a97d2d57776a4260e1f90c77f8e7b9e6fdb563aaf2f"
+}

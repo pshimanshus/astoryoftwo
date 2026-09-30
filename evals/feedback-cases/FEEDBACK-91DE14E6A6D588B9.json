@@ -1,0 +1,41 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-91DE14E6A6D588B9",
+  "feedback_id": "fb-91de14e6a6d588b9",
+  "package_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his",
+  "user_instruction_sha256": "sha256:1ff40d4826547b338906c6cec0cb46e7bec44baf2dabc2fdf3003bea2e31aa7d",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Reject any phone that displays a screen or UI on its rear camera side, or fuses front-display and rear-camera properties."
+  ],
+  "must_preserve": [
+    "Do not impose any new restriction on the photo or illustration treatment from this correction; it concerns only phone physical integrity."
+  ],
+  "source_affected_artifacts": [
+    "config/carousel_style_contract.json",
+    "config/rules/on-image-text.md"
+  ],
+  "affected_artifacts": [
+    "config/carousel_style_contract.json",
+    "config/rules/on-image-text.md"
+  ],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "config/carousel_style_contract.json": null,
+    "config/rules/on-image-text.md": null
+  },
+  "status": "pending",
+  "created_at": "2026-09-30T15:19:13+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:0a7bfae36f3cb20876a7c6d4bb6f48c4efd96a7d5e77f4662749d684b78b4adc"
+}

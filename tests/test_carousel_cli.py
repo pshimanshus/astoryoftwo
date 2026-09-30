@@ -9,6 +9,7 @@ import pytest
 
 from pipeline.stages.carousel_lanes import discover_identity_images
 from pipeline.stages.codex_builtin_image_generation import build_compiled_prompt_handoff
+from tests.helpers.carousel_qa import cinematic_slide_fields, synthetic_route_story_plan
 
 
 WORKSPACE = Path(__file__).resolve().parents[1]
@@ -33,30 +34,33 @@ def _write_reference(path: Path, payload: bytes = b"reference") -> Path:
 
 
 def _write_brief(path: Path) -> Path:
+    rows = (
+        ("I was certain of you.", "Aachu places one house key in Zuv's open palm.", "certain of each other"),
+        ("We are learning how.", "They turn one paper map and trace the same route together.", "committed and learning"),
+        ("Some answers arrive slowly.", "Zuv holds the map flat while Aachu circles one shared stop.", "patient with uncertainty"),
+        ("But we keep choosing the route together.", "They fold the map together and place it beside one house key.", "committed to the same life"),
+    )
     path.write_text(
         json.dumps(
             {
+                "story_plan": synthetic_route_story_plan(),
                 "slides": [
                     {
-                        "copy": "I was certain of you.",
-                        "physical_action": "Aachu places one house key in Zuv's open palm.",
-                        "relationship_state": "certain of each other",
-                    },
-                    {
-                        "copy": "We are learning how.",
-                        "physical_action": "They turn one paper map and trace the same route together.",
-                        "relationship_state": "committed and learning",
-                    },
-                    {
-                        "copy": "Some answers arrive slowly.",
-                        "physical_action": "Zuv holds the map flat while Aachu circles one shared stop.",
-                        "relationship_state": "patient with uncertainty",
-                    },
-                    {
-                        "copy": "But we keep choosing the route together.",
-                        "physical_action": "They fold the map together and place it beside one house key.",
-                        "relationship_state": "committed to the same life",
-                    },
+                        **cinematic_slide_fields(index, len(rows)),
+                        "copy": copy,
+                        "physical_action": action,
+                        "relationship_state": state,
+                        "role": ("cover", "deepening", "turn", "payoff")[index - 1],
+                        "copy_mode": "text",
+                        "beat_delta": (
+                            "The offered house key establishes a shared home.",
+                            "They begin choosing a route through a shared map.",
+                            "Aachu marks a stop while Zuv holds the route steady.",
+                            "The folded map returns beside the key, joining commitment and practical choice.",
+                        )[index - 1],
+                        "copy_image_relation": {"kind": "completion", "proof": action},
+                    }
+                    for index, (copy, action, state) in enumerate(rows, start=1)
                 ]
             }
         ),
@@ -275,7 +279,6 @@ def test_create_locked_brief_can_prepare_exactly_one_proof(tmp_path: Path) -> No
         _write_reference(tmp_path / "identity/together/face.png", b"together-face"),
         _write_reference(tmp_path / "identity/together/body.png", b"together-body"),
     ]
-    style = _write_reference(tmp_path / "style.png", b"style")
     brief = _write_brief(tmp_path / "brief.json")
     command = [
         "create",
@@ -283,8 +286,6 @@ def test_create_locked_brief_can_prepare_exactly_one_proof(tmp_path: Path) -> No
         "Certain of you, still learning us.",
         "--creative-brief",
         str(brief),
-        "--style-reference",
-        str(style),
         "--prepare-proof",
         "--proof-slide",
         "2",
@@ -302,8 +303,10 @@ def test_create_locked_brief_can_prepare_exactly_one_proof(tmp_path: Path) -> No
     assert payload["selected_formats"] == ["instagram_post"]
     package = Path(payload["package_dir"])
     prompt_pack = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
-    assert len(prompt_pack["style_reference_images"]) == 1
-    assert (package / prompt_pack["style_reference_images"][0]).read_bytes() == b"style"
+    style_profile = prompt_pack["style_profile"]
+    assert style_profile["id"] == "cinematic-observational-watercolor"
+    assert style_profile["version"] == "1.0.0"
+    assert (package / style_profile["reference"]["path"]).is_file()
 
 
 def test_locked_visual_fields_survive_package_and_compiled_prompt(tmp_path: Path) -> None:
@@ -315,30 +318,40 @@ def test_locked_visual_fields_survive_package_and_compiled_prompt(tmp_path: Path
         _write_reference(tmp_path / "identity/together/face.png", b"together-face"),
         _write_reference(tmp_path / "identity/together/body.png", b"together-body"),
     ]
-    style = _write_reference(tmp_path / "style.png", b"style")
-    slides = json.loads(_write_brief(brief).read_text(encoding="utf-8"))["slides"]
+    brief_payload = json.loads(_write_brief(brief).read_text(encoding="utf-8"))
+    slides = brief_payload["slides"]
     slides[0].update(
         {
-            "composition": "low eye-level doorway frame, key centered between both hands",
+            "camera": {
+                "shot_size": "low medium-wide doorway frame",
+                "position": "eye-level at the doorway with the key centered between both hands",
+                "negative_space": "clean upper-left wall protects the exact copy space",
+            },
             "wardrobe": "Aachu black overshirt and blue jeans; Zuv white zip jacket",
-            "pose": "Aachu extends her right hand; Zuv receives with his left palm",
             "props": "one unlettered brass house key and nothing else",
-            "background": "uncluttered warm-ivory apartment doorway",
+            "setting": {
+                "place": "the uncluttered warm-ivory apartment doorway",
+                "time": "late afternoon before moving",
+                "motivated_light": "window light enters from frame left and catches the key",
+                "depth_layers": {
+                    "foreground": "a soft moving-box edge anchors the room",
+                    "midground": "their hands exchange the key in the doorway",
+                    "background": "the open hall reveals the next room",
+                },
+            },
             "emotion": "quiet certainty without posing",
             "continuity_lock": "same doorway and wardrobe across the sequence",
             "negative_prompt": "no spare keys or printed labels",
             "source_images": [local_story_reference.name],
         }
     )
-    brief.write_text(json.dumps({"slides": slides}), encoding="utf-8")
+    brief.write_text(json.dumps(brief_payload), encoding="utf-8")
     command = [
         "create",
         "--story",
         "The same home, learned together.",
         "--creative-brief",
         str(brief),
-        "--style-reference",
-        str(style),
         "--prepare-proof",
         "--proof-slide",
         "1",
@@ -352,21 +365,23 @@ def test_locked_visual_fields_survive_package_and_compiled_prompt(tmp_path: Path
     assert result.returncode == 0, result.stdout + result.stderr
     package = Path(json.loads(result.stdout)["package_dir"])
     packaged_slide = json.loads((package / "slides.json").read_text(encoding="utf-8"))[0]
-    packaged_prompt = json.loads(
-        (package / "prompt-pack.json").read_text(encoding="utf-8")
-    )["slides"][0]
+    packaged_prompt = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
     for key in (
-        "composition",
+        "camera",
         "wardrobe",
-        "pose",
         "props",
-        "background",
+        "setting",
         "emotion",
         "continuity_lock",
         "negative_prompt",
+        "hand_map",
+        "spatial_topology",
+        "visual_richness",
     ):
         assert key in packaged_slide
         assert key not in packaged_prompt
+    for retired in ("visual", "scene", "composition", "pose", "background"):
+        assert retired not in packaged_slide
     assert len(packaged_slide["source_images"]) == 1
     assert (package / packaged_slide["source_images"][0]).read_bytes() == b"story"
 
@@ -381,6 +396,9 @@ def test_locked_visual_fields_survive_package_and_compiled_prompt(tmp_path: Path
         "uncluttered warm-ivory apartment doorway",
         "quiet certainty without posing",
         "no spare keys or printed labels",
+        "LIMB AND HAND PLAN:",
+        "owner -> arm -> wrist -> hand -> contacted object",
+        "WHOLE-PERSON AND OBJECT TOPOLOGY:",
     ):
         assert fragment in compiled
 
@@ -420,13 +438,14 @@ def test_default_prepared_handoff_uses_four_identity_roles_and_one_style_board(
     package = Path(payload["package_dir"])
     prompt_pack = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
     identities = prompt_pack["identity_reference_images"]
-    styles = prompt_pack["style_reference_images"]
+    style_profile = prompt_pack["style_profile"]
+    styles = [style_profile["reference"]["path"]]
     assert len(identities) == 4
     assert len(styles) == 1
     assert len(identities) + len(styles) == 5
     style_board = (
         WORKSPACE
-        / "config/references/style-lock/observational-intimacy-premium/contact-sheet.png"
+        / "config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png"
     )
     assert (package / styles[0]).read_bytes() == style_board.read_bytes()
 
@@ -453,6 +472,517 @@ def test_default_prepared_handoff_uses_four_identity_roles_and_one_style_board(
     assert len(attached) == 5
     assert sum("identity" in binding["roles"] for binding in attached) == 4
     assert sum("style" in binding["roles"] for binding in attached) == 1
+    assert {binding["role"] for binding in attached if binding["roles"] == ["identity"]} == {
+        "Aachu identity anchor",
+        "Zuv identity anchor",
+        "together face/scale anchor",
+        "together body/posture anchor",
+    }
+    assert handoff["files"][0]["prompt"] == (
+        package / handoff["files"][0]["path"]
+    ).read_text(encoding="utf-8")
+    assert handoff["files"][0]["width"] == 1080
+    assert handoff["files"][0]["height"] == 1440
+
+
+def test_feedback_command_is_exact_idempotent_and_uses_existing_learning_loop(
+    tmp_path: Path,
+) -> None:
+    created = _run(
+        "create",
+        "--story",
+        "One truthful correction.",
+        "--output-root",
+        str(tmp_path / "output" / "carousels"),
+    )
+    assert created.returncode == 0, created.stdout + created.stderr
+    package = Path(json.loads(created.stdout)["package_dir"])
+    feedback_file = tmp_path / "feedback.txt"
+    exact = "Keep her expression — but change the hand action.\nDo not rewrite this."
+    feedback_file.write_text(exact, encoding="utf-8")
+    command = (
+        "feedback",
+        str(package),
+        "--text-file",
+        str(feedback_file),
+        "--kind",
+        "correction",
+        "--scope",
+        "slide",
+        "--slide",
+        "1",
+        "--must-change",
+        "the hand action",
+        "--must-preserve",
+        "her expression",
+    )
+
+    first = _run(*command)
+    second = _run(*command)
+
+    assert first.returncode == second.returncode == 0
+    first_payload = json.loads(first.stdout)
+    second_payload = json.loads(second.stdout)
+    assert first_payload["feedback_id"] == second_payload["feedback_id"]
+    correction = json.loads((package / "creator-correction.json").read_text(encoding="utf-8"))
+    assert correction["schema_version"] == "creator-correction/v3"
+    assert len(correction["events"]) == 1
+    assert correction["events"][0]["user_instruction_exact"] == exact
+    events = list((tmp_path / "memory/agentic/learning-events").glob("*.json"))
+    assert len(events) == 1
+    event = json.loads(events[0].read_text(encoding="utf-8"))
+    assert event["user_instruction_exact"] == exact
+    assert event["eval_disposition"] == "background"
+
+
+def test_feedback_on_archived_package_preserves_package_bytes(tmp_path: Path) -> None:
+    package = tmp_path / "output/carousels/2026-09-04/archived"
+    package.mkdir(parents=True)
+    (package / "generation-state.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "carousel-generation-state/v2",
+                "status": "proof_ready_for_review",
+            }
+        ),
+        encoding="utf-8",
+    )
+    (package / "creator-correction.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "creator-correction/v1",
+                "creator_feedback": "historical correction",
+            }
+        ),
+        encoding="utf-8",
+    )
+    before = _tree_bytes(package)
+
+    result = _run(
+        "feedback",
+        str(package),
+        "--text",
+        "Save this new observation without migrating the package.",
+        "--kind",
+        "observation",
+        "--scope",
+        "package",
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert json.loads(result.stdout)["feedback_id"].startswith("fb-")
+    assert _tree_bytes(package) == before
+    assert len(list((tmp_path / "memory/agentic/learning-events").glob("*.json"))) == 1
+
+
+def _write_archived_successor_source(tmp_path: Path) -> Path:
+    package = tmp_path / "output/carousels/2026-09-04/archived-source"
+    package.mkdir(parents=True)
+    (package / "creative-context.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "carousel-creative-context/v2",
+                "slug": "archived-source",
+                "title": "Archived source",
+                "source_story": "The original story stays archived.",
+            }
+        ),
+        encoding="utf-8",
+    )
+    (package / "generation-state.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "carousel-generation-state/v2",
+                "status": "packaged",
+                "slides": {"1": {"attempts": 2}},
+            }
+        ),
+        encoding="utf-8",
+    )
+    (package / "prompt-pack.json").write_text(
+        json.dumps({"schema_version": "carousel-prompt-pack/v2", "slides": []}),
+        encoding="utf-8",
+    )
+    exact = "The hand is visually wrong — rebuild this scene."
+    (package / "creator-correction.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "creator-correction/v3",
+                "package_id": "output/carousels/2026-09-04/archived-source",
+                "events": [
+                    {
+                        "feedback_id": "fb-old-live",
+                        "captured_at": "2026-09-04T10:00:00+00:00",
+                        "user_instruction_exact": exact,
+                        "kind": "rejection",
+                        "scope": "slide",
+                        "slides": [2],
+                        "primary_diagnosis": "scene_action",
+                        "must_change": ["incorrect hand"],
+                        "must_preserve": ["exact slide copy"],
+                        "affected_artifacts": ["slides.json"],
+                        "repair_operations": [
+                            {
+                                "artifact": "slides.json",
+                                "json_pointer": "/1/physical_action",
+                                "value": (
+                                    "Zuv holds the map flat while Aachu traces one shared "
+                                    "route with her right hand."
+                                ),
+                            }
+                        ],
+                        "action_taken": {"type": "legacy claim"},
+                        "resolution_evidence": ["visual-qa.json"],
+                        "learning_event_id": "event-feedback-fb-old-live",
+                        "eval_task_ids": ["FEEDBACK-OLD-LIVE"],
+                        "status": "evaluated",
+                        "generation_effect": "slide_local",
+                        "historical_only": False,
+                    },
+                    {
+                        "feedback_id": "fb-learning-declined",
+                        "captured_at": "2026-09-04T10:15:00+00:00",
+                        "user_instruction_exact": "Keep this package fix even though the global rule was declined.",
+                        "kind": "correction",
+                        "scope": "slide",
+                        "slides": [3],
+                        "primary_diagnosis": "scene_action",
+                        "must_change": ["repair slide three only"],
+                        "must_preserve": ["do not turn this into a global rule"],
+                        "affected_artifacts": ["slides.json"],
+                        "repair_operations": [],
+                        "action_taken": {"type": "legacy package repair"},
+                        "resolution_evidence": ["slides.json"],
+                        "learning_event_id": "event-feedback-fb-learning-declined",
+                        "eval_task_ids": ["FEEDBACK-LEARNING-DECLINED"],
+                        "status": "learning_declined",
+                        "generation_effect": "slide_local",
+                        "supersedes_feedback_id": "fb-old-live",
+                        "historical_only": False,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    (package / "visual-qa.json").write_bytes(b"old-qa")
+    (package / "generation-receipt.json").write_bytes(b"old-receipt")
+    (package / "final").mkdir()
+    (package / "final/slide-01.png").write_bytes(b"old-final")
+
+    learning_dir = tmp_path / "memory/agentic/learning-events"
+    learning_dir.mkdir(parents=True)
+    (learning_dir / "event-feedback-fb-standalone.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "learning-event/v1",
+                "event_id": "event-feedback-fb-standalone",
+                "source": "creator_feedback",
+                "summary": "Use the approved umbrella interaction.",
+                "evidence_paths": [],
+                "user_instruction_exact": "yes — use the umbrella scene",
+                "diagnosis": "scene_action",
+                "scope": "slide",
+                "package_path": "output/carousels/2026-09-04/archived-source",
+                "feedback_status": "captured",
+                "resolution_evidence": [],
+                "eval_disposition": "background",
+                "feedback_metadata": {
+                    "feedback_id": "fb-standalone",
+                    "kind": "approval",
+                    "slides": [2],
+                    "must_change": ["Use the approved umbrella action."],
+                    "must_preserve": ["umbrella interaction"],
+                    "generation_effect": "none",
+                },
+                "created_at": "2026-09-04T11:00:00+00:00",
+            }
+        ),
+        encoding="utf-8",
+    )
+    return package
+
+
+def test_create_successor_adopts_lineage_and_unresolved_feedback_only(
+    tmp_path: Path,
+) -> None:
+    source = _write_archived_successor_source(tmp_path)
+    before = _tree_bytes(source)
+    brief = _write_brief(tmp_path / "successor-brief.json")
+
+    result = _run(
+        "create",
+        "--story",
+        "The repaired story.",
+        "--title",
+        "Successor package",
+        "--creative-brief",
+        str(brief),
+        "--successor-of",
+        str(source),
+        "--output-root",
+        str(tmp_path / "output/carousels"),
+    )
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    successor = Path(json.loads(result.stdout)["package_dir"])
+    assert successor != source
+    assert _tree_bytes(source) == before
+
+    context = json.loads((successor / "creative-context.json").read_text())
+    assert context["lineage"]["relationship"] == "successor_of"
+    assert context["lineage"]["source_package_path"] == (
+        "output/carousels/2026-09-04/archived-source"
+    )
+    assert context["lineage"]["source_feedback_ids"] == [
+        "fb-old-live",
+        "fb-learning-declined",
+        "fb-standalone",
+    ]
+    fresh_feedback_ids = context["lineage"]["carried_feedback_ids"]
+    assert len(fresh_feedback_ids) == len(set(fresh_feedback_ids)) == 3
+    assert not set(fresh_feedback_ids) & {
+        "fb-old-live",
+        "fb-learning-declined",
+        "fb-standalone",
+    }
+
+    correction = json.loads((successor / "creator-correction.json").read_text())
+    assert correction["schema_version"] == "creator-correction/v3"
+    assert [item["feedback_id"] for item in correction["events"]] == fresh_feedback_ids
+    assert [item["user_instruction_exact"] for item in correction["events"]] == [
+        "The hand is visually wrong — rebuild this scene.",
+        "Keep this package fix even though the global rule was declined.",
+        "yes — use the umbrella scene",
+    ]
+    assert correction["events"][2]["must_change"] == [
+        "Use the approved umbrella action."
+    ]
+    assert all(event["root_cause"] for event in correction["events"])
+    assert all(event["desired_behavior"] for event in correction["events"])
+    assert correction["events"][1]["learning_disposition"] == "declined"
+    assert correction["events"][1]["supersedes_feedback_id"] == fresh_feedback_ids[0]
+    assert (
+        correction["events"][1]["adoption_provenance"][
+            "source_supersedes_feedback_id"
+        ]
+        == "fb-old-live"
+    )
+    source_ids = [
+        "fb-old-live",
+        "fb-learning-declined",
+        "fb-standalone",
+    ]
+    for event, source_feedback_id in zip(correction["events"], source_ids):
+        assert event["status"] == "diagnosed"
+        assert event["historical_only"] is False
+        assert event["action_taken"] is None
+        assert event["resolution_evidence"] == []
+        assert len(event["eval_task_ids"]) == 1
+        assert event["eval_task_ids"][0].startswith("FEEDBACK-")
+        assert event["learning_event_id"] == f"event-feedback-{event['feedback_id']}"
+        assert event["adoption_provenance"]["source_feedback_id"] == source_feedback_id
+        assert event["adoption_provenance"]["source_user_instruction_sha256"] == (
+            event["user_instruction_sha256"]
+        )
+        assert event["adoption_provenance"]["old_resolution_evidence_discarded"] is True
+
+        case_path = (
+            tmp_path / "evals/feedback-cases" / f"{event['eval_task_ids'][0]}.json"
+        )
+        learning_path = (
+            tmp_path
+            / "memory/agentic/learning-events"
+            / f"{event['learning_event_id']}.json"
+        )
+        assert case_path.is_file()
+        assert learning_path.is_file()
+        case = json.loads(case_path.read_text())
+        learning = json.loads(learning_path.read_text())
+        assert case["feedback_id"] == event["feedback_id"]
+        assert case["package_path"] == successor.relative_to(tmp_path).as_posix()
+        assert learning["package_path"] == successor.relative_to(tmp_path).as_posix()
+        assert learning["feedback_metadata"]["feedback_id"] == event["feedback_id"]
+        assert learning["feedback_metadata"]["adoption_provenance"] == (
+            event["adoption_provenance"]
+        )
+
+    revised = _run("revise", str(successor), "--feedback-id", fresh_feedback_ids[0])
+    assert revised.returncode == 0, revised.stdout + revised.stderr
+    revised_payload = json.loads(revised.stdout)
+    assert revised_payload["feedback_evaluation"]["status"] == "passed"
+    revised_document = json.loads((successor / "creator-correction.json").read_text())
+    revised_event = next(
+        event
+        for event in revised_document["events"]
+        if event["feedback_id"] == fresh_feedback_ids[0]
+    )
+    assert revised_event["adoption_provenance"] == correction["events"][0][
+        "adoption_provenance"
+    ]
+    repaired_slides = json.loads((successor / "slides.json").read_text())
+    assert repaired_slides[1]["physical_action"] == (
+        "Zuv holds the map flat while Aachu traces one shared route with her right hand."
+    )
+    assert _tree_bytes(source) == before
+
+    state = json.loads((successor / "generation-state.json").read_text())
+    assert state["schema_version"] == "carousel-generation-state/v3"
+    assert all(item["attempts"] == 0 for item in state["slides"].values())
+    assert all(item["attempt_history"] == [] for item in state["slides"].values())
+    for forbidden in (
+        "visual-qa.json",
+        "generation-receipt.json",
+        "final",
+        "proof-qa.json",
+        "final-audit.json",
+    ):
+        assert not (successor / forbidden).exists()
+    successor_bytes = _tree_bytes(successor).values()
+    assert b"old-qa" not in successor_bytes
+    assert b"old-receipt" not in successor_bytes
+    assert b"old-final" not in successor_bytes
+
+
+def test_each_successor_mints_noncolliding_feedback_event_and_eval_ids(
+    tmp_path: Path,
+) -> None:
+    source = _write_archived_successor_source(tmp_path)
+    before = _tree_bytes(source)
+    brief = _write_brief(tmp_path / "successor-brief.json")
+
+    created = [
+        _run(
+            "create",
+            "--story",
+            "The repaired story.",
+            "--title",
+            "Successor package",
+            "--creative-brief",
+            str(brief),
+            "--successor-of",
+            str(source),
+            "--output-root",
+            str(tmp_path / "output/carousels"),
+        )
+        for _ in range(2)
+    ]
+
+    assert all(result.returncode == 0 for result in created)
+    packages = [Path(json.loads(result.stdout)["package_dir"]) for result in created]
+    documents = [
+        json.loads((package / "creator-correction.json").read_text())
+        for package in packages
+    ]
+    feedback_ids = [
+        {event["feedback_id"] for event in document["events"]}
+        for document in documents
+    ]
+    event_ids = [
+        {event["learning_event_id"] for event in document["events"]}
+        for document in documents
+    ]
+    eval_ids = [
+        {event["eval_task_ids"][0] for event in document["events"]}
+        for document in documents
+    ]
+    assert feedback_ids[0].isdisjoint(feedback_ids[1])
+    assert event_ids[0].isdisjoint(event_ids[1])
+    assert eval_ids[0].isdisjoint(eval_ids[1])
+    assert _tree_bytes(source) == before
+
+
+def test_successor_rejects_corrupt_source_feedback_text_hash(
+    tmp_path: Path,
+) -> None:
+    source = _write_archived_successor_source(tmp_path)
+    correction_path = source / "creator-correction.json"
+    correction = json.loads(correction_path.read_text())
+    correction["events"][0]["user_instruction_sha256"] = "sha256:" + "0" * 64
+    correction_path.write_text(json.dumps(correction), encoding="utf-8")
+    before = _tree_bytes(source)
+
+    result = _run(
+        "create",
+        "--story",
+        "The repaired story.",
+        "--creative-brief",
+        str(_write_brief(tmp_path / "successor-brief.json")),
+        "--successor-of",
+        str(source),
+        "--output-root",
+        str(tmp_path / "output/carousels"),
+    )
+
+    assert result.returncode == 2
+    assert "exact wording hash" in json.loads(result.stdout)["reason"]
+    assert _tree_bytes(source) == before
+
+
+@pytest.mark.parametrize("invalid_source", ["missing", "writable_v3"])
+def test_create_successor_rejects_invalid_source(
+    tmp_path: Path,
+    invalid_source: str,
+) -> None:
+    source = tmp_path / "output/carousels/2026-09-04/source"
+    if invalid_source == "writable_v3":
+        source.mkdir(parents=True)
+        (source / "creative-context.json").write_text("{}", encoding="utf-8")
+        (source / "generation-state.json").write_text(
+            json.dumps({"schema_version": "carousel-generation-state/v3"}),
+            encoding="utf-8",
+        )
+        (source / "prompt-pack.json").write_text(
+            json.dumps({"schema_version": "carousel-prompt-pack/v3"}),
+            encoding="utf-8",
+        )
+    brief = _write_brief(tmp_path / "brief.json")
+
+    result = _run(
+        "create",
+        "--story",
+        "Do not create this successor.",
+        "--creative-brief",
+        str(brief),
+        "--successor-of",
+        str(source),
+        "--output-root",
+        str(tmp_path / "output/carousels"),
+    )
+
+    assert result.returncode == 2
+    assert json.loads(result.stdout)["state"] == "blocked"
+
+
+def test_create_successor_requires_nonempty_creative_brief(tmp_path: Path) -> None:
+    source = _write_archived_successor_source(tmp_path)
+    empty_brief = tmp_path / "empty-brief.json"
+    empty_brief.write_text(json.dumps({"slides": []}), encoding="utf-8")
+
+    missing = _run(
+        "create",
+        "--story",
+        "No brief.",
+        "--successor-of",
+        str(source),
+        "--output-root",
+        str(tmp_path / "output/carousels"),
+    )
+    empty = _run(
+        "create",
+        "--story",
+        "Empty brief.",
+        "--creative-brief",
+        str(empty_brief),
+        "--successor-of",
+        str(source),
+        "--output-root",
+        str(tmp_path / "output/carousels"),
+    )
+
+    assert missing.returncode == empty.returncode == 2
+    assert "real --creative-brief" in json.loads(missing.stdout)["reason"]
+    assert "real --creative-brief" in json.loads(empty.stdout)["reason"]
 
 
 def test_blocked_cli_input_still_returns_versioned_json() -> None:
@@ -528,29 +1058,42 @@ def test_archived_status_uses_one_read_only_public_mapping(
 
 @pytest.mark.parametrize(
     "command",
-    ("prepare", "ingest", "approve", "finalize"),
+    ("prepare", "ingest", "approve", "finalize", "revise", "review"),
 )
+@pytest.mark.parametrize("legacy_surface", ["state", "prompt-pack"])
 def test_every_writing_cli_command_keeps_archived_v2_tree_unchanged(
     tmp_path: Path,
     command: str,
+    legacy_surface: str,
 ) -> None:
     package = tmp_path / f"archived-{command}"
     package.mkdir()
     (package / "generation-state.json").write_text(
         json.dumps(
             {
-                "schema_version": "carousel-generation-state/v2",
+                "schema_version": "carousel-generation-state/v2" if legacy_surface == "state" else "carousel-generation-state/v3",
                 "status": "proof_ready_for_review",
             }
         ),
         encoding="utf-8",
     )
+    if legacy_surface == "prompt-pack":
+        (package / "prompt-pack.json").write_text(
+            json.dumps({"schema_version": "carousel-prompt-pack/v2", "slides": []}),
+            encoding="utf-8",
+        )
     external = _write_reference(tmp_path / "external.png", b"external")
     args = [command, str(package)]
     if command == "ingest":
         args.extend(("--instagram-post", str(external)))
     elif command == "approve":
         args.extend(("--proof-sha256", "sha256:" + "0" * 64))
+    elif command == "prepare":
+        args.extend(("--format", "reels_stories"))
+    elif command == "revise":
+        args.extend(("--feedback-id", "archived-feedback"))
+    elif command == "review":
+        args.extend(("--qa", str(external)))
     before = _tree_bytes(package)
 
     result = _run(*args)
@@ -560,7 +1103,79 @@ def test_every_writing_cli_command_keeps_archived_v2_tree_unchanged(
     assert _tree_bytes(package) == before
 
 
-def test_explicit_style_overflow_blocks_instead_of_silently_slicing(tmp_path: Path) -> None:
+def test_status_does_not_reconcile_historical_prompt_pack(tmp_path: Path) -> None:
+    package = tmp_path / "archived-style"
+    package.mkdir()
+    (package / "generation-state.json").write_text(json.dumps({
+        "schema_version": "carousel-generation-state/v3", "status": "publish_ready",
+    }))
+    (package / "prompt-pack.json").write_text(json.dumps({
+        "schema_version": "carousel-prompt-pack/v2", "slides": [],
+    }))
+    (package / "final").mkdir()
+    (package / "final/slide-01.png").write_bytes(b"historical-final")
+    before = _tree_bytes(package)
+    result = _run("status", str(package))
+    assert result.returncode == 2
+    assert "read-only" in json.loads(result.stdout)["reason"]
+    assert _tree_bytes(package) == before
+
+
+@pytest.mark.parametrize("command", ["status", "feedback-status"])
+def test_observational_status_commands_report_drift_without_mutating_package(
+    tmp_path: Path,
+    command: str,
+) -> None:
+    identities = [
+        _write_reference(tmp_path / "identity/aachu/a.png", b"aachu"),
+        _write_reference(tmp_path / "identity/zuv/z.png", b"zuv"),
+        _write_reference(tmp_path / "identity/together/face.png", b"together-face"),
+        _write_reference(tmp_path / "identity/together/body.png", b"together-body"),
+    ]
+    create_args = [
+        "create",
+        "--story",
+        "Certain of you, still learning us.",
+        "--creative-brief",
+        str(_write_brief(tmp_path / "brief.json")),
+        "--prepare-proof",
+        "--proof-slide",
+        "2",
+        "--output-root",
+        str(tmp_path / "output" / "carousels"),
+    ]
+    for identity in identities:
+        create_args.extend(("--identity-image", str(identity)))
+    created = _run(*create_args)
+    assert created.returncode == 0, created.stdout + created.stderr
+    package = Path(json.loads(created.stdout)["package_dir"])
+
+    if command == "feedback-status":
+        state_path = package / "generation-state.json"
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        state.update(
+            status="awaiting_creator_proof_approval",
+            next_action="approve_proof",
+        )
+        state_path.write_text(json.dumps(state), encoding="utf-8")
+
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    slides[1]["copy"] = "We are learning a completely different route now."
+    slides_path.write_text(json.dumps(slides), encoding="utf-8")
+    before = _tree_bytes(package)
+
+    result = _run(command, str(package))
+
+    assert result.returncode == 2, result.stdout + result.stderr
+    payload = json.loads(result.stdout)
+    assert payload["state"] == "blocked"
+    assert payload["next_action"] == "reconcile_package_state"
+    assert "stale" in payload["reason"]
+    assert _tree_bytes(package) == before
+
+
+def test_public_style_overrides_are_not_exposed(tmp_path: Path) -> None:
     style_one = _write_reference(tmp_path / "style-one.png", b"one")
     style_two = _write_reference(tmp_path / "style-two.png", b"two")
 
@@ -579,7 +1194,12 @@ def test_explicit_style_overflow_blocks_instead_of_silently_slicing(tmp_path: Pa
     assert result.returncode == 2
     payload = json.loads(result.stdout)
     assert payload["state"] == "blocked"
-    assert "Pass exactly 1 explicit style board" in payload["reason"]
+    assert "unrecognized arguments" in payload["reason"]
+
+    help_result = _run("create", "--help")
+    assert help_result.returncode == 0
+    assert "--style-reference" not in help_result.stdout
+    assert "--style-brief" not in help_result.stdout
 
 
 def test_make_carousel_forwards_public_inputs_without_hidden_work() -> None:
@@ -592,12 +1212,12 @@ def test_make_carousel_forwards_public_inputs_without_hidden_work() -> None:
         "CREATIVE_BRIEF",
         "STORY_IMAGES",
         "IDENTITY_IMAGES",
-        "STYLE_REFERENCES",
         "FORMATS",
         "OUTPUT_ROOT",
         "PROOF_SLIDE",
     ):
         assert f"$({variable})" in recipe
+    assert "STYLE_REFERENCE" not in recipe
     assert "pytest" not in recipe
     assert "agentic_os.py" not in recipe
     assert "wiki" not in recipe.lower()

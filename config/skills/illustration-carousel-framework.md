@@ -1,5 +1,9 @@
 # Illustration Carousel Framework
 
+Codex directly invokes ImageGen with each final compiled prompt and the locked
+five-reference bundle. Every selected slide then passes returned-source ingest,
+decoded-pixel review, hash-bound QA, approval, and atomic promotion.
+
 ## Purpose
 
 Turn an approved @a.storyof.two story plus selected reference images into a
@@ -30,8 +34,10 @@ Before proof:
 - `creative-context.json`: exact source facts, selected concept, creator
   corrections, reference roles, and protected story architecture;
 - `format-contract.json`: request-derived formats and exact native dimensions;
-- `slides.json`: ordered exact copy plus one physical-event sentence per slide;
-- `prompt-pack.json`: compact shared generation facts and slide prompts;
+- `slides.json`: the only per-slide authority, with ordered exact copy, one
+  physical event, camera, setting/light/depth, and cinematic `visual_richness`;
+- `prompt-pack.json`: compact immutable shared generation inputs only, with no
+  copied slide prose;
 - compiled package-relative `.prompt.txt` files.
 
 After proof:
@@ -85,6 +91,17 @@ camera reason, focal hierarchy, and text-safe space only to the degree they
 change the frame. Track an object only when it locates the moment, changes the
 action, reveals character, creates consequence, or pays off.
 
+Use the canonical `slides.json` fields defined by
+`config/rules/visual-variety.md`. Every slide also identifies point of view,
+before/after implication, a continuation pull or final payoff, specific
+motivated light, foreground/midground/background jobs, and two to four concrete
+story-evidence records. Do not write parallel scene/composition aliases.
+
+Every person slide also stores two generation inputs: a complete hand-
+ownership map for both left/right hands and a whole-person/object topology map.
+The image prompt must include them. Prompt compilation fails closed if a map is
+missing or incomplete; a generic malformed-hands negative does not count.
+
 Vary action, story job, setting, angle, or shot distance across adjacent slides.
 Repeated medium couple poses with new text or wardrobe are a hard repair. Text
 may complete the meaning; it may not be the sole story carrier.
@@ -99,8 +116,8 @@ Before generation, use exactly five attachments:
 
 1. the four actual Aachu/Zuv/together files in
    `identity-dossier.json.selected_generation_bundle`;
-2. one package-bound style board copied from
-   `config/references/style-lock/observational-intimacy-premium/contact-sheet.png`.
+2. one package-bound style board resolved from the active profile in
+   `config/carousel_style_contract.json` and verified by its declared SHA-256.
 
 Codex attaches all five actual files to every image-generation call. Filenames
 or text descriptions alone do not satisfy identity. The five-file boundary is
@@ -122,17 +139,12 @@ or `IDENTITY_UNVERIFIED`; do not batch or call it final.
 
 ## House Image Contract
 
-Use `config/carousel_style_contract.json`, the canonical palette rule, and the
-selected style-lock references. Keep the prompt version compact:
-
-- warm ivory paper with visible grain;
-- fine ink/pencil linework and transparent watercolor blooms;
-- muted vintage palette and tactile clothing details;
-- one clear behavior scene with selected lived-in evidence;
-- generous clean upper-middle space for exact integrated text;
-- tiny low-contrast `@a.storyof.two` at top-right;
-- no photorealism, glossy 3D/AI-stock finish, quote-card layout, random text,
-  extra people, duplicate couple, split-screen UI, or decorative clutter.
+Resolve the only active machine prompt, negative prompt, board path, and board
+hash from `config/carousel_style_contract.json`. Normative finish rules live in
+`config/rules/palette.md`; cinematic frame and sequence rules live in
+`config/rules/visual-variety.md`; exact text and brandmark rules live in their
+matching rule files. Do not copy those instructions into this workflow file or
+accept a free-form production substitute.
 
 Outside references may contribute message, emotion, pose, or composition, but
 must not import app chrome, engagement icons, carousel dots, or another
@@ -143,12 +155,14 @@ creator's distinctive style.
 Compile one prompt per slide only after Gate 2. It contains:
 
 1. physical event and relationship state;
-2. camera and focal hierarchy;
-3. attached identity/style reference roles and wardrobe choice;
-4. compact house style and palette;
-5. exact on-image text and tiny top-right brandmark;
-6. exact native dimensions;
-7. essential negative constraints.
+2. camera, setting, motivated light, depth, and focal hierarchy;
+3. point of view, before/after implication, continuation/payoff, and story
+   evidence;
+4. attached identity/style reference roles and wardrobe choice;
+5. the one active house-style profile;
+6. exact on-image text and tiny top-right brandmark;
+7. exact native dimensions;
+8. essential negative constraints.
 
 Do not put workflow topology, approval rules, QA rubrics, hash lifecycle,
 reviewer instructions, attempt history, or duplicated upstream JSON into the
@@ -174,15 +188,22 @@ Inspect decoded current pixels in this order:
 
 1. **Story meaning:** observed action and relationship state match the visual
    sentence and exact copy.
-2. **Entity/anatomy/spatial integrity:** expected people count matches; no
+2. **Cinematic story frame:** the image reads as a caught event, with motivated
+   light, distinct depth layers, mapped story evidence, before/after
+   implication, continuation or final payoff, and no posed/decorative/generic-
+   AI substitute.
+3. **Entity/anatomy/spatial integrity:** expected people count matches; no
    unintended person, reflection, silhouette, duplicate, or second story;
    every full silhouette has coherent front/behind/contact relations to walls,
    doors, furniture and floor; every visible hand traces from owner through arm
    and wrist to a plausible contacted object.
-3. **Identity:** compare both people to the attached reference IDs with concrete
+   Record each visible hand separately with owner, side, attachment, contact,
+   finger integrity, and solid-object intersection evidence. Summary prose
+   cannot pass this layer.
+4. **Identity:** compare both people to the attached reference IDs with concrete
    face, hair, height, proportion, posture, expression, and wardrobe notes.
-4. **Finish:** exact integrated text, brandmark, house style, focal readability,
-   and exact native dimensions.
+5. **Finish:** exact integrated text, brandmark, house style, deterministic
+   palette check, focal readability, and exact native dimensions.
 
 Bind `proof-qa.json` to current file bytes. Prompts, filenames, model claims, or
 reviewer names do not count as inspection. Creator approval comes only after all
@@ -250,6 +271,7 @@ The only public states are `draft`, `blocked`, `handoff_ready`,
 `awaiting_creator_proof_approval`, `batch_ready`, `final_qa_required`,
 `final_qa_failed`, and `publish_ready`.
 
-Even after final QA passes, state remains `final_qa_required` with next action
-`finalize_deck`. Only `finalize` audits and atomically promotes the hidden deck,
-then returns `publish_ready`; there is no extra ready-to-finalize state.
+A passing final `review` immediately uses the existing final audit and atomic
+promotion boundary and returns `publish_ready`; there is no extra ready-to-
+finalize state or creator gate. Standalone `finalize` remains a recovery/
+diagnostic command.

@@ -12,8 +12,24 @@ from evals.schemas import CheckResult, EvalTask
 RUBRIC_FILES = {
     "creative_contract": Path("evals/rubrics/creative-contract.md"),
     "visual_variety": Path("evals/rubrics/visual-storytelling.md"),
+    "story_completion": Path("evals/rubrics/story-completion.md"),
 }
 RUBRIC_SPECS = {
+    "story_completion": {
+        "dimensions": {
+            "lock_continuity": 2,
+            "story_architecture": 3,
+            "causal_development": 3,
+            "earned_payoff": 3,
+            "human_voice": 1,
+        },
+        "minimum_total": 10,
+        "no_zero": {"lock_continuity"},
+        "minimum_dimensions": {
+            "story_architecture": 2, "causal_development": 2, "earned_payoff": 2,
+        },
+        "artifact_suffix": "creator-brief.md",
+    },
     "creative_contract": {
         "dimensions": {
             "seed_preservation": 3,
@@ -221,9 +237,20 @@ def check_visual_variety_rubric(task: EvalTask, root: Path) -> list[CheckResult]
     ]
 
 
+def check_story_completion_rubric(task: EvalTask, root: Path) -> list[CheckResult]:
+    rubric_path = root / RUBRIC_FILES["story_completion"]
+    if not rubric_path.is_file():
+        return [_fail("rubric_story_completion", "Missing story-completion rubric file.")]
+    artifact = _creator_visible_artifact(task, root)
+    if artifact is None:
+        return [_fail("rubric_story_completion", "Task must identify the requested draft artifact.")]
+    return check_creator_visible_copy(artifact)
+
+
 RUBRIC_CHECKERS = {
     "creative_contract": check_creative_contract_rubric,
     "visual_variety": check_visual_variety_rubric,
+    "story_completion": check_story_completion_rubric,
 }
 
 
@@ -311,6 +338,11 @@ def _rubric_judgment(
         evidence = {}
 
     spec = RUBRIC_SPECS[rubric_name]
+    if suffix := spec.get("artifact_suffix"):
+        requested_artifact = _task_artifact(task, root, suffix)
+        if (requested_artifact is None or resolved_artifact is None
+                or requested_artifact.resolve() != resolved_artifact):
+            issues.append("review must bind to the requested draft, not a different artifact")
     dimensions: dict[str, int] = spec["dimensions"]
     normalized_scores: dict[str, int] = {}
     for dimension, maximum in dimensions.items():
@@ -339,6 +371,11 @@ def _rubric_judgment(
         for dimension in spec["no_zero"]
         if normalized_scores[dimension] == 0
     )
+    minimum_blocks = sorted(
+        dimension
+        for dimension, minimum in spec.get("minimum_dimensions", {}).items()
+        if normalized_scores[dimension] < minimum
+    )
     score_evidence = [
         f"author={author_id}",
         f"reviewer={reviewer_id}",
@@ -347,11 +384,12 @@ def _rubric_judgment(
         f"total={total}/12",
         *[f"{name}={value}" for name, value in normalized_scores.items()],
     ]
-    if total < spec["minimum_total"] or zero_blocks:
+    if total < spec["minimum_total"] or zero_blocks or minimum_blocks:
         return _fail(
             code,
             "Anchored rubric review does not meet the creative-quality threshold.",
-            evidence=[*score_evidence, *[f"zero_block={name}" for name in zero_blocks]],
+            evidence=[*score_evidence, *[f"zero_block={name}" for name in zero_blocks],
+                      *[f"minimum_block={name}" for name in minimum_blocks]],
         )
     return _pass(
         code,

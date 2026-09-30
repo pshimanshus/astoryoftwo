@@ -12,7 +12,7 @@
     "The resulting brief lacks Layer E room decision artifacts."
   ],
   "done_when": [
-    "Every prepost agent config includes the romance-story-selling engine.",
+    "Every B1-B5 prepost facet remains represented and the combined analyst consumes Layer E.",
     "The orchestrator brief includes Layer E Story-Selling and artifact names.",
     "Prepost tests pass."
   ],
@@ -32,5 +32,5 @@
     }
   ],
   "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
-  "anti_gaming_notes": ["Hidden checker should inspect ORCHESTRATOR_SKILLS and all PREPOST_AGENT_CONFIGS."]
+  "anti_gaming_notes": ["Hidden checker should inspect all PREPOST_AGENT_CONFIGS, the combined-analysis context, and the rendered five-facet report rather than requiring five model calls."]
 }

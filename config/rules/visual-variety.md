@@ -14,19 +14,22 @@ CREATOR HARD RULE
   setting, prop grammar, and who is visible must change.
 
 SHOT LADDER / VISUAL VARIETY
-Before image generation, every carousel must include a shot ladder in
-`visual-plan-quality.json`, `visual-debate.json`, or the prompt pack. Each
+Before image generation, `slides.json` is the single per-slide authority. Each
 slide needs:
-- shot type: wide, medium, close-up, over-shoulder, single-person, object-only,
-  detail, reaction, or transition;
-- camera angle: front, profile, overhead, low table-level, doorway view,
-  reflection, behind/over-shoulder, or distant establishing view;
-- setting lane: bedroom, kitchen, street, cafe, balcony, travel, doorway,
-  car/ride, bathroom/vanity, terrace, shop, hotel, family-function, or
-  object-only paper space;
-- primary visible action;
+- `physical_action`: one observable event with subject, acted-on person/object/
+  space, and a visible consequence;
+- `camera`: shot size, specific position/viewpoint, and protected copy negative
+  space;
+- `setting`: a specific sub-location, time or weather state, motivated light,
+  and distinct foreground/midground/background jobs;
 - who is visible: Aachu, Zuv, both, partial hand/back/shoulder, or no faces;
-- repeated prop/setting check.
+- `focal_hierarchy`, story-serving props, and continuity facts; and
+- `visual_richness`: the point of view, before/after implication, continuation
+  pull or final payoff, and two to four observable story-evidence records.
+
+Do not write parallel `visual`, `scene`, `composition`, `pose`, `shot`, or
+`background` aliases for new packages. The canonical fields above must feed the
+compiler, fingerprints, preflight, and pixel QA directly.
 
 MINIMUM VARIETY GATES
 - No same shot type twice in a row unless the sequence is a deliberate
@@ -56,14 +59,46 @@ HARD FAIL — regenerate or repair before generation
 - decorative clutter that creates detail without advancing the same scene.
 
 VISUAL RICHNESS GATE
-- Every generated proof/final must record a structured `visual_richness`
-  review with foreground, midground, and background layers; one instantly
-  readable focal relationship action; two to four story-relevant environmental
-  details; visible incident/reaction/aftermath; `posed_portrait: false`; and
-  `decorative_clutter: false`.
+- Every planned slide must state whose feeling organizes the frame, what
+  visibly happened just before, what likely happens just after, and the visual
+  question or payoff that earns its place in the sequence.
+- Motivated light must name a believable source, direction, and emotional or
+  focal job. “Warm light,” “cinematic lighting,” and “nice lighting” are not
+  direction.
+- Foreground, midground, and background must each have a distinct spatial or
+  narrative job. Empty depth and three restatements of the same subject fail.
+- `story_evidence` contains two to four distinct records. Each names a concrete carrier,
+  its observable state, and the narrative fact it proves. “Some props,” “lived
+  details,” and unrelated decoration fail. Repeated carriers, including case,
+  punctuation, or whitespace variations, do not count as additional evidence.
+- The focal action must read first with text hidden. Microexpression, gaze,
+  distance, contact, displaced objects, wear, condensation, an open door, or an
+  aftermath trace may carry the quieter second read.
+- Default flags are `posed_portrait_allowed: false` and
+  `decorative_clutter_allowed: false`.
+- Every generated proof/final must record structured actual-pixel evidence for
+  the same plan: foreground/midground/background, focal action, two to four
+  story details, before/after implication, motivated light, caught-event read,
+  continuation/payoff, `posed_portrait: false`, `decorative_clutter: false`,
+  and no unexplained generic-AI tells.
 - Richness means layered evidence, not more objects. A clean composition can
   pass when its few details all advance the beat; an ornate static portrait
   fails.
+
+GENERIC / AI-LOOKING PROXIES — repair before generation or reject in pixels
+- staged portrait blocking, centered stock symmetry, or both people presenting
+  the same camera-ready expression;
+- over-soft identityless faces, plastic skin, glossy digital surfaces, or
+  uniformly airbrushed textures;
+- lighting with no visible source/direction or an ambient golden glow that
+  flattens the paper and scene;
+- shallow subject cutouts with no coherent foreground, midground, background,
+  contact, or spatial consequence;
+- decorative prop spam, repeated furniture/plant/mug filler, or pristine rooms
+  whose objects prove nothing;
+- copied reference text, screenshot residue, layout chrome, or a literal
+  collage of reference examples; and
+- a frame whose only meaning comes from reading its on-image copy.
 
 EXCEPTIONS
 - A single continuous-scene story may intentionally keep the same wardrobe and

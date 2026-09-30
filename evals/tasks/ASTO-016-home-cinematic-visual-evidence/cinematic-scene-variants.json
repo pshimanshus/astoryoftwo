@@ -1,0 +1,42 @@
+{
+  "schema_version": "asto-cinematic-scene-fixtures/v1",
+  "valid_variants": [
+    {
+      "name": "wedding_action",
+      "physical_action": "Aachu pins a loose garland edge while Zuv steadies the chair and the flowers settle between them.",
+      "relationship_state": "Their practiced coordination turns ceremony pressure into private teamwork.",
+      "camera": {"shot_size": "medium-wide action frame", "position": "guest-height three-quarter view from the aisle edge", "negative_space": "soft canopy fabric protects the upper-left copy space"},
+      "focal_hierarchy": "First read the linked hand action, then their exchanged glance, then the quiet copy space.",
+      "setting": {"place": "the mandap edge beside the flowered aisle", "time": "late afternoon ceremony light", "motivated_light": "sunlight enters through the canopy from frame right and catches the garland", "depth_layers": {"foreground": "blurred marigolds establish the aisle", "midground": "the couple repairs the garland together", "background": "seated family shapes preserve ceremony scale"}},
+      "visual_richness": {"scene_action_binding": "The garland repair remains the focal event.", "point_of_view": "The frame follows Zuv noticing Aachu solve the small ceremony problem.", "before_frame": "The garland slipped while guests were settling.", "after_frame": "They return to the ceremony with the flowers secured.", "continuation_pull": "Their private teamwork leaves the public ritual about to resume.", "story_evidence": [{"carrier": "loose garland edge", "observable_state": "Aachu's pin closes the visible gap", "narrative_job": "proves a real interruption is being solved"}, {"carrier": "Zuv's braced chair", "observable_state": "his hand holds it steady beneath her", "narrative_job": "proves coordinated support rather than a pose"}], "posed_portrait_allowed": false, "decorative_clutter_allowed": false}
+    },
+    {
+      "name": "mountain_wide",
+      "physical_action": "They pull one shared blanket around both shoulders as wind bends the grass and its loose corner stops whipping.",
+      "relationship_state": "Their small shared shelter makes the vast landscape feel intimate.",
+      "camera": {"shot_size": "very wide environmental frame", "position": "low overlook view several metres behind the couple", "negative_space": "open cloud bank protects the upper-center copy space"},
+      "focal_hierarchy": "First read the blanket action, then the two silhouettes, then the mountain depth and copy space.",
+      "setting": {"place": "a stone overlook above the valley trail", "time": "blue hour after rain", "motivated_light": "cool western sky light rims the couple from frame left while valley lamps warm the depth", "depth_layers": {"foreground": "wet stone and bent grass reveal the wind", "midground": "the couple closes the blanket around both bodies", "background": "layered ridges and valley lamps establish scale"}},
+      "visual_richness": {"scene_action_binding": "The shared blanket closes against the wind.", "point_of_view": "The frame holds their private shelter against the scale of the valley.", "before_frame": "The blanket corner was whipping loose in the wind.", "after_frame": "They stand closer and continue watching the valley.", "continuation_pull": "The tightened blanket leaves their next quiet exchange open.", "story_evidence": [{"carrier": "wind-bent valley grass", "observable_state": "every blade leans away from frame left", "narrative_job": "proves the weather pressure causing the action"}, {"carrier": "shared blanket edge", "observable_state": "both hands secure one corner around their shoulders", "narrative_job": "proves mutual shelter rather than scenery posing"}], "posed_portrait_allowed": false, "decorative_clutter_allowed": false}
+    },
+    {
+      "name": "kitchen_support",
+      "physical_action": "Zuv turns the stove knob off while Aachu lowers the overfilled pot and the steam begins clearing between them.",
+      "relationship_state": "Support appears as fast shared attention rather than one partner managing the other.",
+      "camera": {"shot_size": "medium environmental action frame", "position": "counter-height view from the kitchen doorway", "negative_space": "pale tiled wall protects the upper-left copy space"},
+      "focal_hierarchy": "First read both hands resolving the stove problem, then their relieved faces, then the copy wall.",
+      "setting": {"place": "the narrow stove corner beside the kitchen doorway", "time": "early evening before dinner", "motivated_light": "window light from frame right crosses the steam while the stove flame warms their hands", "depth_layers": {"foreground": "a soft counter edge places the viewer in the kitchen", "midground": "both partners act on the pot and stove", "background": "open shelves and the doorway show the interrupted meal"}},
+      "visual_richness": {"scene_action_binding": "The pot and stove actions resolve one shared problem.", "point_of_view": "The frame follows Aachu feeling the pressure release as Zuv reaches the knob.", "before_frame": "The pot had begun boiling over while both were distracted.", "after_frame": "The steam clears and they resume cooking side by side.", "continuation_pull": "The cleared steam opens the question of how they recover the meal.", "story_evidence": [{"carrier": "wet stove ring", "observable_state": "fresh overflow surrounds the burner", "narrative_job": "proves the just-finished kitchen mishap"}, {"carrier": "two half-used prep boards", "observable_state": "each board holds a different interrupted task", "narrative_job": "proves both partners were already sharing the work"}], "posed_portrait_allowed": false, "decorative_clutter_allowed": false}
+    },
+    {
+      "name": "sofa_close_up",
+      "physical_action": "Aachu lets her clenched hand open on Zuv's forearm as he lowers the unread message and her shoulders release.",
+      "relationship_state": "Gentleness becomes visible through a small bodily release instead of a posed embrace.",
+      "camera": {"shot_size": "intimate close two-person frame", "position": "seated eye-level beside the sofa arm", "negative_space": "worn plaster above their shoulders protects the upper copy space"},
+      "focal_hierarchy": "First read her opening hand, then both microexpressions, then the phone and copy space.",
+      "setting": {"place": "the left sofa corner beside the reading lamp", "time": "late night after the room has quieted", "motivated_light": "the shaded lamp at frame right warms their hands while cool hall light separates their profiles", "depth_layers": {"foreground": "the textured throw softens the near edge", "midground": "their hands and faces hold the emotional turn", "background": "the dark hall and face-down mug imply the paused night"}},
+      "visual_richness": {"scene_action_binding": "Her hand visibly releases as he lowers the message.", "point_of_view": "The frame follows Aachu realizing she can stop bracing.", "before_frame": "She had been holding tension while he read the message.", "after_frame": "The phone lowers and their conversation can begin.", "continuation_pull": "The released hand leaves the unsaid conversation about to start.", "story_evidence": [{"carrier": "Aachu's opening fingers", "observable_state": "the curled hand relaxes against his forearm", "narrative_job": "proves the emotional change in the body"}, {"carrier": "lowered dark phone", "observable_state": "its dark screen turns away from both faces", "narrative_job": "proves attention has shifted back to the relationship"}], "posed_portrait_allowed": false, "decorative_clutter_allowed": false}
+    }
+  ],
+  "negative_controls": ["staged_portrait", "generic_warm_light", "empty_background", "generic_prop_filler", "repeated_medium_two_shot"]
+}

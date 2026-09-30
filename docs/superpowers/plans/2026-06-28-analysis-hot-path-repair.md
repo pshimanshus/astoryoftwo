@@ -1,7 +1,7 @@
 # Carousel Hot-Path Repair
 
 Status: v3 repair implemented on `codex/carousel-hot-path-v2`
-Updated: 2026-08-24
+Updated: 2026-09-04
 
 ## Failure That Triggered the Rewrite
 
@@ -26,7 +26,7 @@ false confidence without preventing the actual failure.
 - Replaced prose-first certification with actual-pixel story-first QA.
 - Made failed quarantined proofs derive `proof_failed` and
   `repair_visual_premise`.
-- Capped compiled prompts at 8,000 characters / 900 words, scenes at 180 words,
+- Capped compiled prompts at 8,000 characters / 1,050 words, scenes at 180 words,
   and essential negatives at 80 words.
 - Removed repository lifecycle, hashes, provenance, and QA schema prose from
   image prompts.
@@ -67,8 +67,21 @@ synthetic public lifecycle/benchmark without claiming vision quality.
 
 The default route writes no agent-room, debate, taste-score, Event A director,
 run/stage/approval ledger, raw-response, or wiki-update files.
-Historical generated packages are not source truth and are not migrated in
-place.
+Historical generated packages are not source truth. The September feedback-loop
+rollout permits an explicit metadata-only legacy correction backfill, preserving
+original text/payloads and media hashes; it never upgrades archived generation
+state, fabricates ImageGen receipts, waives live feedback, or regenerates images.
+
+## Feedback Loop Extension
+
+The old optional-capture-only implementation did not prove a correction was
+fixed. The current extension reuses creator-correction/v3, LearningEvent,
+generation-state/v3, existing proposal approval, and the memory index. Capture
+now creates a linked executable regression; revise applies or verifies a repair
+against the same package; status distinguishes unresolved, evaluated, proposed,
+and promoted feedback. Source fingerprints still invalidate only affected art.
+DeepEval and Langfuse are optional background adapters, not new creative gates.
+The implementation and failure contracts are in the existing control-plane spec.
 
 The durable architecture now lives in
 `docs/superpowers/plans/creative-os-master-plan.md`; the operational sequence is

@@ -21,6 +21,11 @@ VALID MOTION SOURCES
 APPLICATION
 - Keep the gold-carousel bar: public contradiction, concrete receipts,
   emotional turn, and send/save/tag behavior.
+- Relationship connection must not be flattened into cheerful expression. In a
+  bittersweet cost or sacrifice beat, keep the couple bonded through proximity,
+  touch, shared gaze, or coordinated action while their faces and posture still
+  carry the stated cost. A laughing or celebratory payoff that contradicts the
+  copy is a hard emotional-continuity failure.
 - Replace forced "active Zuv role" checks with "relationship motion" or
   "relevant partner role" checks.
 - Do not force Aachu and Zuv into every beat if the scene works better as one

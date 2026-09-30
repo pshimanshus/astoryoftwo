@@ -24,6 +24,7 @@ def test_makefile_exposes_primary_targets():
     text = (WORKSPACE / "Makefile").read_text(encoding="utf-8")
     for target in (
         "brief:",
+        "analyze:",
         "health wiki-health:",
         "idea-loop:",
         "jam:",
@@ -140,7 +141,7 @@ def test_jam_today_routes_concrete_couple_moment_without_gate_ceremony():
 
 def test_daily_creator_brief_surfaces_research_partner_lens():
     result = subprocess.run(
-        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py")],
+        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py"), "--maintenance"],
         cwd=WORKSPACE,
         capture_output=True,
         text=True,
@@ -203,7 +204,7 @@ def test_daily_creator_brief_collects_recent_learning_loop_records(tmp_path: Pat
 
 def test_daily_creator_brief_surfaces_recent_learning_loop():
     result = subprocess.run(
-        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py")],
+        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py"), "--maintenance"],
         cwd=WORKSPACE,
         capture_output=True,
         text=True,
@@ -269,7 +270,7 @@ def test_daily_creator_brief_collects_learning_debt(tmp_path: Path):
 
 def test_daily_creator_brief_surfaces_learning_debt_section():
     result = subprocess.run(
-        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py")],
+        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py"), "--maintenance"],
         cwd=WORKSPACE,
         capture_output=True,
         text=True,
@@ -285,6 +286,7 @@ def test_daily_creator_brief_surfaces_learning_debt_section():
         or "needs proposal" in debt_text
         or "review draft proposal" in debt_text
         or "apply approved proposal" in debt_text
+        or "repair unresolved creator feedback" in debt_text
     )
 
 
@@ -335,7 +337,7 @@ def test_daily_creator_brief_collects_hypothesis_tracker_records(tmp_path: Path)
 
 def test_daily_creator_brief_surfaces_hypothesis_tracker():
     result = subprocess.run(
-        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py")],
+        [sys.executable, str(WORKSPACE / "scripts" / "daily_creator_brief.py"), "--maintenance"],
         cwd=WORKSPACE,
         capture_output=True,
         text=True,

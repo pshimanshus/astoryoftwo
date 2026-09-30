@@ -1,0 +1,25 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-2AD6D2AAB2316707",
+  "feedback_id": "fb-2ad6d2aab2316707",
+  "package_path": "output/carousels/2026-09-04/forever-was-many-small-choices-15",
+  "user_instruction_sha256": "sha256:284ef7752add1b24b455e27acc7a3bf6352b299eda80d1b05b538705265d4feb",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Slide 5: remove the disconnected hand at the lower-left edge of the furniture panel.",
+    "Slide 6: replace the unclear phone-charging bed scene with an observable shared action that retains anger and commitment."
+  ],
+  "must_preserve": [
+    "Exact copy, Aachu and Zuv likeness, watercolor style, tiny top-right brandmark, and 1080x1440 format; preserve all other slides."
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:1212dc6eb5e7031218f820e4a8d10d2eb21eb22f92ef81e50763721c316ec3ab"
+  },
+  "status": "pending",
+  "created_at": "2026-09-04T11:13:40+00:00",
+  "evaluated_at": null,
+  "checks": []
+}

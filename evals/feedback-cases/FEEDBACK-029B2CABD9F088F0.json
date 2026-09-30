@@ -1,0 +1,39 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-029B2CABD9F088F0",
+  "feedback_id": "fb-029b2cabd9f088f0",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-5",
+  "user_instruction_sha256": "sha256:284ef7752add1b24b455e27acc7a3bf6352b299eda80d1b05b538705265d4feb",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Slide 5: remove the disconnected hand at the lower-left edge of the furniture panel.",
+    "Slide 6: replace the unclear phone-charging bed scene with an observable shared action that retains anger and commitment."
+  ],
+  "must_preserve": [
+    "Exact copy, Aachu and Zuv likeness, watercolor style, tiny top-right brandmark, and 1080x1440 format; preserve all other slides."
+  ],
+  "source_affected_artifacts": [
+    "slides.json"
+  ],
+  "affected_artifacts": [
+    "slides.json"
+  ],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "slides.json": "sha256:a58b145f802c03a5fa3764168b2576f90cde2088fc3caac4d3738a8f6d35b84d"
+  },
+  "status": "pending",
+  "created_at": "2026-09-05T10:50:08+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:58aab401bb18baef0ed92f186f06596e6d72ec36fb72dbb3f12f9336246246bc"
+}

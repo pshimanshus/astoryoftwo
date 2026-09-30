@@ -4,13 +4,16 @@ Use this contract for every final `@a.storyof.two` illustration.
 
 ## Output Surface
 
-- Final illustration: native `1080x1350 px` portrait.
-- Every imagegen prompt must explicitly include `1080x1350 px`.
+- Final post/carousel illustration: native `1080x1440 px` portrait.
+- Every post/carousel ImageGen prompt must explicitly include `1080x1440 px`.
 - Do not resize, crop, pad, or extend another surface into the final portrait.
 
 ## Identity
 
 Faces are highest priority. Final generation must use actual identity references made visible to Codex. Text-only descriptions are not sufficient.
+
+Codex directly calls ImageGen with exactly four named identity references and
+one canonical style board, then opens and reviews the returned pixels.
 
 Preserve:
 - eye shape

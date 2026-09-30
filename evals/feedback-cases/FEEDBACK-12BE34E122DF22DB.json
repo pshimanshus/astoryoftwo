@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-12BE34E122DF22DB",
+  "feedback_id": "fb-12be34e122df22db",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+  "user_instruction_sha256": "sha256:cdf5bf501fec579d6cf49eb3ab906bf147233640fcec37c8205655a4faa5cd91",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Retire the overhead bed handhold composition: the overlapping fingers are ambiguous and the symmetrical supine pose looks staged."
+  ],
+  "must_preserve": [
+    "Exact slide 6 copy, Aachu and Zuv identity, 1080x1440 format, house watercolor style, top-right brandmark, and the furniture revision."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-05T10:58:06+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:85a1ce3c4c24bf47f15fad23083d0df80efda92d1ba7f4508e93b1d21e39362e"
+}

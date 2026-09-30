@@ -1,0 +1,45 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-E772E96D6C4C18BA",
+  "feedback_id": "fb-e772e96d6c4c18ba",
+  "package_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his",
+  "user_instruction_sha256": "sha256:05d755165d51e49cca089ef0b99db7e9893629b6a5d8340eb26a3c95aaa71d6b",
+  "diagnosis": "instruction_drift",
+  "must_change": [
+    "Reject photo-plus-watercolor/filter hybrids; the people, scene, and paper treatment must resolve as one painted illustration.",
+    "Reject generic miniature storefront, cart, product-tile, or placeholder phone UI. If a screen is story-critical, lock and inspect its specific visible state; otherwise keep it non-legible or out of view."
+  ],
+  "must_preserve": [
+    "The active Cinematic Observational Watercolor direction, identity references, and scene-native visual proof."
+  ],
+  "source_affected_artifacts": [
+    "config/carousel_style_contract.json",
+    "config/rules/palette.md",
+    "config/rules/on-image-text.md"
+  ],
+  "affected_artifacts": [
+    "config/carousel_style_contract.json",
+    "config/rules/palette.md",
+    "config/rules/on-image-text.md"
+  ],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {
+    "config/carousel_style_contract.json": null,
+    "config/rules/palette.md": null,
+    "config/rules/on-image-text.md": null
+  },
+  "status": "pending",
+  "created_at": "2026-09-30T15:05:54+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:1c8acb887f824876ee4a5d8e82e9436bea7badb2ef7c78b7df52bb85b7af8fb4"
+}

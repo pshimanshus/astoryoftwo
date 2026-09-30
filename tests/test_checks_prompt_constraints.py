@@ -24,17 +24,21 @@ def _compose_prompt_with_all_fragments() -> str:
             "Generate an illustration.",
             "PALETTE: warm ivory paper.",
             "HARD FAIL: yellow, sepia, parchment.",
-            "Style lock: Observational Intimacy Premium.",
+            "Style lock: Cinematic Observational Watercolor.",
             "ON-IMAGE TEXT: dumber",
             "Each identity reference image must be attached to the call.",
             "Preserve Aachu and Zuv face identity.",
             "PAPER TONE LOCK: neutral off-white paper only.",
             "STAGE-SCENE / VISUAL RECEIPT: text completes the scene.",
             "SHOT LADDER / VISUAL VARIETY: vary camera, action, and who is visible.",
+            "Use motivated light and foreground/midground/background depth.",
+            "Every frame implies a specific before/after beat.",
             "RELATIONSHIP MOTION: do not make Zuv the default caretaker.",
             "Aachu is 5'6\" and Zuv is 5'8\".",
             "Brandmark: tiny handwritten @a.storyof.two in top-right.",
             "No split-screen divider may appear in final art.",
+            "Trace owner -> arm -> wrist -> hand -> contacted object.",
+            "Keep every front/behind/contact relationship explicit.",
         ]
     )
 
@@ -140,7 +144,7 @@ def test_required_fragments_match_expected_canonical_set() -> None:
     assert set(REQUIRED_FRAGMENTS) == {
         "warm ivory",
         "HARD FAIL: yellow",
-        "Observational Intimacy Premium",
+        "Cinematic Observational Watercolor",
         "ON-IMAGE TEXT",
         "@a.storyof.two",
         "identity reference",
@@ -150,10 +154,15 @@ def test_required_fragments_match_expected_canonical_set() -> None:
         "PAPER TONE LOCK",
         "STAGE-SCENE / VISUAL RECEIPT",
         "SHOT LADDER / VISUAL VARIETY",
+        "motivated light",
+        "foreground/midground/background",
+        "before/after",
         "RELATIONSHIP MOTION",
         "Aachu is 5'6\"",
         "Zuv is 5'8\"",
         "No split-screen divider",
+        "owner -> arm -> wrist -> hand -> contacted object",
+        "front/behind/contact",
     }
 
 
@@ -188,6 +197,7 @@ def test_passes_when_compiled_from_real_repo_rules(tmp_path: Path) -> None:
         "{{rule:brandmark}}\n"
         "{{rule:visual-variety}}\n"
         "{{rule:relationship-motion}}\n"
+        "{{rule:scene-entity-integrity}}\n"
         "PROMPT END\n"
     )
     expanded = expand_rule_includes(template, REPO_ROOT)

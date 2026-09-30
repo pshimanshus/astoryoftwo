@@ -1,0 +1,53 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-LEGACY-F86A539BBF9D518C",
+  "feedback_id": "fb-legacy-f86a539bbf9d518c",
+  "package_path": "output/carousels/2026-08-14/a-bad-day-was-never-the-whole-truth",
+  "user_instruction_sha256": "sha256:df262b821dc203ad2803ac893397643cd38390019b12b342e1fb1131104a540e",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Narrow Orbit",
+    "rainy one-room sequence",
+    "power strip",
+    "extension board",
+    "lamp repair",
+    "snapped hair tie",
+    "phone and glass reciprocal care",
+    "wardrobe-chair obstruction",
+    "key-bowl spill",
+    "final food handoff"
+  ],
+  "must_preserve": [],
+  "affected_artifacts": [
+    "creator-correction.json"
+  ],
+  "baseline_artifact_hashes": {
+    "creator-correction.json": "sha256:b510f055a4c32aef8651b9c8ec4fcb5a70eb6e2ea28a129007f95073dcbe30c8"
+  },
+  "status": "waived",
+  "created_at": "2026-09-04T11:23:22+00:00",
+  "evaluated_at": "2026-09-04T11:23:22+00:00",
+  "checks": [
+    {
+      "code": "exact_feedback_preserved",
+      "status": "PASS"
+    },
+    {
+      "code": "repair_evidence_linked",
+      "status": "PASS"
+    },
+    {
+      "code": "declared_artifacts_repaired",
+      "status": "PASS",
+      "current_hashes": {
+        "creator-correction.json": "sha256:b510f055a4c32aef8651b9c8ec4fcb5a70eb6e2ea28a129007f95073dcbe30c8"
+      }
+    }
+  ],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "issues": [],
+  "waiver_reason": "Historical correction predates deterministic feedback-case capture; metadata was normalized without changing carousel media.",
+  "regression_promotable": false
+}

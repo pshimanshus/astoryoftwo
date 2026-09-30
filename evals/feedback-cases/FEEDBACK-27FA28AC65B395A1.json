@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-27FA28AC65B395A1",
+  "feedback_id": "fb-27fa28ac65b395a1",
+  "package_path": "output/carousels/2026-09-05/forever-was-many-small-choices-theme-rebuild-10",
+  "user_instruction_sha256": "sha256:d91f67499f82c25134e4545374efa486b6940ff727767874edb356b289c3fdbc",
+  "diagnosis": "scene_action",
+  "must_change": [
+    "Replace the separated sofa-and-bags composition with one immediately readable shared-side action; avoid any departure or luggage reading."
+  ],
+  "must_preserve": [
+    "Preserve the exact approved copy, Aachu and Zuv identity, warm ivory watercolor-and-ink style, native 1080x1440 canvas, and tiny top-right @a.storyof.two brandmark."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-05T10:58:06+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:3cd552afa8c27f945e7ebe3da4934fd56d0c243322fd51497074540d88fdf995"
+}

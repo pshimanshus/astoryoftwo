@@ -3,24 +3,32 @@ from __future__ import annotations
 import re
 from typing import Any
 
+
 from pipeline.stages.carousel_master_prompt import build_generation_master_prompt
-from pipeline.stages.carousel_visual_integrity import build_action_topology_contract
+from pipeline.stages.carousel_sequence import slide_sequence_issues
+from pipeline.stages.carousel_visual_storytelling import validate_cinematic_slide_direction
+from pipeline.stages.carousel_visual_integrity import (
+    build_action_topology_contract,
+    build_hand_ownership_map,
+    build_spatial_topology_contract,
+    compact_hand_ownership_prompt,
+    compact_spatial_topology_prompt,
+    validate_hand_ownership_contract,
+    validate_spatial_topology_contract,
+    visual_richness_prompt,
+)
 
 
 # Image prompts are creative handoffs, not serialized workflow state. These caps
 # keep the physical scene and exact copy salient instead of burying them under
 # validator prose.
 MAX_PROMPT_CHARS = 8000
-MAX_PROMPT_WORDS = 900
+# A fully explicit four-hand plus person/object topology plan needs slightly
+# more room than the previous validator-only prompt. Keep the cap tight enough
+# to preserve scene salience while never truncating anatomy/contact locks.
+MAX_PROMPT_WORDS = 1050
 MAX_SCENE_WORDS = 180
 MAX_NEGATIVE_WORDS = 80
-
-BASE_ESSENTIAL_NEGATIVES = (
-    "No generic stock couple, face drift, extra fingers or limbs, detached hands, "
-    "merged bodies, impossible grip, object penetration, random text, external logo "
-    "or watermark, split screen, UI, photorealism, anime, 3D render, flat vector art, "
-    "glossy finish, harsh shadow, oversaturation, or yellow paper."
-)
 
 ABSOLUTE_PATH_PATTERN = re.compile(r"/(?:[^,\]\n'\"`]+/)+[^,\]\n'\"`]+")
 RELATIVE_REFERENCE_PATH_PATTERN = re.compile(r"\b(?:output|config|identity_images)/[^,\]\n'\"`]+")
@@ -58,6 +66,10 @@ def clean_slide_copy(value: str) -> str:
 
 def _word_count(value: str) -> int:
     return len(value.split())
+
+
+def _prompt_phrase(value: Any) -> str:
+    return str(value or "").strip().rstrip(". ;")
 
 
 def _compact_words(
@@ -120,30 +132,94 @@ def _build_prompt(
     slide_number: int,
     slide_count: int,
     slide_copy: str,
+    copy_mode: str,
     scene: str,
     format_key: str,
     style: str,
     negative: str,
-    pose: str,
+    cinematic_direction: str,
     wardrobe: str,
     props: str,
-    background: str,
-    emotion: str,
+    hand_plan: str,
+    spatial_plan: str,
+    must_change: list[str],
+    must_preserve: list[str],
 ) -> str:
     return build_generation_master_prompt(
         slide_number=slide_number,
         slide_count=slide_count,
         slide_copy=slide_copy,
+        copy_mode=copy_mode,
         scene_description=scene,
-        pose_description=pose,
+        cinematic_description=cinematic_direction,
+        hand_description=hand_plan,
+        spatial_description=spatial_plan,
         wardrobe_description=wardrobe,
         prop_description=props,
-        background_description=background,
-        emotion_description=emotion,
         format_key=format_key,
         style_prompt=style,
         negative_prompt=negative,
+        must_change=must_change,
+        must_preserve=must_preserve,
     )
+
+
+def _feedback_prompt_constraints(
+    feedback_constraints: list[dict[str, Any]] | None,
+) -> tuple[list[str], list[str]]:
+    """Project active feedback into concise creator-owned prompt constraints."""
+
+    def generation_phrase(text: str) -> str:
+        lowered = text.casefold()
+        if lowered.startswith("qa must "):
+            return ""
+        if "hook and story premise" in lowered:
+            return ""
+        if "slide 4 proof beat" in lowered or "slide 4 exact copy" in lowered:
+            return ""
+        if "parcel must sit on the floor" in lowered:
+            return "Parcel on flat floor mat; no step-down."
+        if "parcel remains on the floor mat" in lowered:
+            return "Parcel on flat floor mat; no step-down."
+        if "remove aachu's bag" in lowered:
+            return "No bag on Aachu."
+        if "avoid same clothes" in lowered:
+            return "Casual Saturday noon clothes."
+        if "evil-eye locket" in lowered:
+            return "Zuv evil-eye locket visible."
+        if "normal-height adults" in lowered:
+            return "Normal-height adults; no compressed/chibi bodies."
+        if "avoid deep crouch" in lowered:
+            return "No deep crouch; Aachu mostly upright, slight bend/point."
+        if "doorframe" in lowered and "adult scale" in lowered:
+            return "Use doorframe, hallway, and body proportions for adult scale."
+        if "aachu has no bag" in lowered and "locket" in lowered:
+            return "No bag; casual noon clothes; Zuv locket visible."
+        return text
+
+    projected: dict[str, list[str]] = {"must_change": [], "must_preserve": []}
+    seen: dict[str, set[str]] = {"must_change": set(), "must_preserve": set()}
+    for record in feedback_constraints or []:
+        if not isinstance(record, dict):
+            raise ValueError("feedback constraints must contain JSON objects")
+        for key in projected:
+            values = record.get(key) or []
+            if not isinstance(values, list):
+                raise ValueError(f"feedback constraint {key} must be a list")
+            for value in values:
+                phrase = generation_phrase(str(value))
+                if not phrase:
+                    continue
+                text = _compact_words(
+                    phrase,
+                    80,
+                    field_name=f"feedback {key}",
+                )
+                identity = text.casefold()
+                if text and identity not in seen[key]:
+                    projected[key].append(text)
+                    seen[key].add(identity)
+    return projected["must_change"], projected["must_preserve"]
 
 
 def compile_image_prompt(
@@ -155,6 +231,12 @@ def compile_image_prompt(
     style: str,
     negative: str,
     *,
+    camera: dict[str, Any] | None = None,
+    focal_hierarchy: str | None = None,
+    setting: dict[str, Any] | None = None,
+    relationship_state: str | None = None,
+    continuity_lock: str | None = None,
+    # Legacy read-only aliases. New package writers never emit them.
     pose: str | None = None,
     wardrobe: str | None = None,
     props: str | None = None,
@@ -164,20 +246,49 @@ def compile_image_prompt(
     action_topology: dict[str, Any] | None = None,
     spatial_topology: dict[str, Any] | None = None,
     visual_richness: dict[str, Any] | None = None,
+    feedback_constraints: list[dict[str, Any]] | None = None,
+    copy_mode: str = "text",
+    beat_delta: str | None = None,
+    copy_image_relation: dict[str, Any] | None = None,
 ) -> str:
     """Compile one compact, generation-facing prompt.
 
-    The rich hand, spatial, and visual-story contracts remain validator inputs;
-    they are intentionally not serialized into the model prompt. Action
-    chronology is checked here only because a contradictory scene should never
-    reach generation.
+    Limb ownership, contact geometry, and whole-person/object topology are
+    generation inputs as well as validator inputs. A generic anatomy negative
+    cannot substitute for a slide-specific map.
     """
 
-    # Retain the public call shape while moving these contracts to validators.
-    del hand_map, spatial_topology, visual_richness
-
+    sequence_fields = {"copy": slide_copy, "copy_mode": copy_mode}
+    if beat_delta is not None:
+        sequence_fields["beat_delta"] = beat_delta
+    if copy_image_relation is not None:
+        sequence_fields["copy_image_relation"] = copy_image_relation
+    sequence_issues = slide_sequence_issues(sequence_fields)
+    if sequence_issues:
+        raise ValueError("Slide copy/sequence is unresolved: " + "; ".join(sequence_issues))
     copy = clean_slide_copy(slide_copy)
     full_scene = clean_text(visual)
+    normalized_camera = dict(camera or {})
+    if pose and not normalized_camera.get("position"):
+        normalized_camera["position"] = pose
+    normalized_setting = dict(setting or {})
+    if background and not normalized_setting.get("place"):
+        normalized_setting["place"] = background
+    cinematic_record = {
+        "physical_action": full_scene,
+        "relationship_state": relationship_state or emotion or "",
+        "camera": normalized_camera,
+        "focal_hierarchy": focal_hierarchy or "",
+        "setting": normalized_setting,
+        "visual_richness": visual_richness,
+    }
+    cinematic_issues = validate_cinematic_slide_direction(
+        cinematic_record,
+        slide_number=slide_number,
+        is_final=slide_number == slide_count,
+    )
+    if cinematic_issues:
+        raise ValueError("Cinematic story direction is unresolved: " + "; ".join(cinematic_issues))
     action_contract = action_topology or build_action_topology_contract(full_scene, copy)
     action_issues = action_contract.get("issues") if isinstance(action_contract, dict) else []
     if action_issues:
@@ -186,18 +297,64 @@ def compile_image_prompt(
             + "; ".join(str(item) for item in action_issues)
         )
 
+    hand_contract = hand_map or build_hand_ownership_map(full_scene)
+    hand_issues = validate_hand_ownership_contract(hand_contract)
+    if hand_issues:
+        raise ValueError("Hand ownership/contact plan is unresolved: " + "; ".join(hand_issues))
+    spatial_contract = spatial_topology or build_spatial_topology_contract(full_scene)
+    spatial_issues = validate_spatial_topology_contract(spatial_contract)
+    if spatial_issues:
+        raise ValueError("Whole-person/object topology is unresolved: " + "; ".join(spatial_issues))
+    must_change, must_preserve = _feedback_prompt_constraints(feedback_constraints)
+
+    relationship_phrase = _prompt_phrase(relationship_state or emotion)
+    emotion_phrase = _prompt_phrase(emotion)
+    cinematic_lines = [
+        "Camera: {shot_size}; {position}; copy space: {negative_space}.".format(
+            shot_size=normalized_camera.get("shot_size", ""),
+            position=normalized_camera.get("position", ""),
+            negative_space=normalized_camera.get("negative_space", ""),
+        ),
+        "Setting: {place}; time/weather: {time}; motivated light: {light}.".format(
+            place=normalized_setting.get("place", ""),
+            time=normalized_setting.get("time", ""),
+            light=normalized_setting.get("motivated_light", ""),
+        ),
+        "Depth: foreground={foreground}; midground={midground}; background={background}.".format(
+            **dict(normalized_setting.get("depth_layers") or {})
+        ),
+        f"Focal hierarchy: {_prompt_phrase(focal_hierarchy)}.",
+        f"Relationship state: {relationship_phrase}.",
+    ]
+    # Do not repeat relationship_state verbatim as an expression direction.
+    # Keep a distinct creator-authored emotion when one is actually supplied.
+    if emotion_phrase and emotion_phrase.casefold() != relationship_phrase.casefold():
+        cinematic_lines.append(f"Microexpression and body language: {emotion_phrase}.")
+    cinematic_lines.extend(
+        (
+            "Continuity: "
+            + _prompt_phrase(
+                continuity_lock or "No invented continuity beyond this frame."
+            )
+            + ".",
+            visual_richness_prompt(visual_richness or {}),
+        )
+    )
+    # Only this beat's actionable consequence belongs in the image prompt.
+    # Story-plan explanations and research annotations stay in the package.
+    if beat_delta is not None:
+        cinematic_lines.append("This beat adds: " + _compact_words(
+            beat_delta, 40, field_name="beat delta"
+        ))
+    if copy_image_relation is not None:
+        cinematic_lines.append(
+            f"Image/copy {copy_image_relation['kind']}: " + _compact_words(
+                copy_image_relation["proof"], 50, field_name="copy-image physical proof"
+            )
+        )
+
     fields = {
         "scene": _compact_words(full_scene, MAX_SCENE_WORDS, field_name="scene"),
-        "pose": _compact_words(
-            pose
-            or (
-                "Choose the shot size and camera angle that make the physical action clearest. "
-                "Keep the action and its reaction as the focal hierarchy; use natural, "
-                "scene-specific body language rather than a posed couple portrait."
-            ),
-            60,
-            field_name="pose/composition/camera",
-        ),
         "wardrobe": _compact_words(
             wardrobe
             or (
@@ -212,32 +369,28 @@ def compile_image_prompt(
             35,
             field_name="props",
         ),
-        "background": _compact_words(
-            background
-            or (
-                "Use a lived-in setting that proves what just happened. Keep it secondary "
-                "to the action, with clear foreground, subject plane, and negative space."
-            ),
-            45,
-            field_name="background/setting",
-        ),
-        "emotion": _compact_words(
-            emotion or "Match the exact beat: intimate, specific, human, and emotionally legible.",
-            25,
-            field_name="emotion",
-        ),
-        "style": _compact_words(style, 55, field_name="style"),
+        "style": _compact_words(style, 110, field_name="style"),
         "negative": _compact_words(
-            f"{BASE_ESSENTIAL_NEGATIVES} {negative}",
+            negative,
             MAX_NEGATIVE_WORDS,
             field_name="essential negatives",
         ),
+        "hand_plan": compact_hand_ownership_prompt(hand_contract),
+        "spatial_plan": compact_spatial_topology_prompt(spatial_contract),
+        "cinematic_direction": _compact_words(
+            "\n".join(cinematic_lines),
+            260,
+            field_name="cinematic direction",
+        ),
+        "must_change": must_change,
+        "must_preserve": must_preserve,
     }
 
     prompt = _build_prompt(
         slide_number=slide_number,
         slide_count=slide_count,
         slide_copy=copy,
+        copy_mode=copy_mode,
         format_key=format_key,
         **fields,
     )

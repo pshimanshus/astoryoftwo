@@ -28,8 +28,12 @@ from pipeline.stages.carousel_pixel_qa import (  # noqa: E402
     validate_final_qa,
     validate_proof_qa,
 )
+from pipeline.stages.carousel_generation_inputs import (  # noqa: E402
+    build_shared_reference_bindings,
+)
 from pipeline.stages.carousel_visual_storytelling import (  # noqa: E402
     first_failed_pixel_gate,
+    validate_director_storyboard,
 )
 
 
@@ -104,7 +108,6 @@ def _is_v3_package(package: Path) -> bool:
 def _preflight(package: Path) -> list[str]:
     slides = _records(_read_json(package / "slides.json"))
     prompt_pack = _read_json(package / "prompt-pack.json")
-    prompts = _records(prompt_pack)
     if not slides:
         return ["slides.json has no slide records."]
     issues: list[str] = []
@@ -118,6 +121,39 @@ def _preflight(package: Path) -> list[str]:
             issues.append(f"format-contract.json is invalid: {exc}")
 
     strict_v3 = _is_v3_package(package)
+    if strict_v3:
+        if not isinstance(prompt_pack, dict) or prompt_pack.get("schema_version") != "carousel-prompt-pack/v3":
+            issues.append("new generation packages require carousel-prompt-pack/v3")
+        if not isinstance(prompt_pack, dict) or not isinstance(prompt_pack.get("style_profile"), dict):
+            issues.append("prompt-pack.json has no active style_profile snapshot")
+        elif "slides" in prompt_pack:
+            issues.append("prompt-pack.json must not duplicate slide copy or scene prose")
+        try:
+            bindings = build_shared_reference_bindings(package)
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            issues.append(str(exc))
+        else:
+            identity = [
+                item
+                for item in bindings
+                if str(item.get("role") or "").startswith("identity:")
+            ]
+            style = [
+                item
+                for item in bindings
+                if str(item.get("role") or "").startswith("style:")
+            ]
+            if len(identity) != 4 or len(style) != 1 or len(bindings) != 5:
+                issues.append("generation requires exactly four identity photos and one canonical style board")
+        issues.extend(
+            validate_director_storyboard(
+                {"slides": slides},
+                slide_count=len(slides),
+                expected_slides=slides,
+                expected_formats=locked_formats(package) if not issues else None,
+            )
+        )
+
     refs = prompt_pack.get("identity_reference_images") if isinstance(prompt_pack, dict) else None
     if not isinstance(refs, list) or not refs:
         issues.append("prompt-pack.json has no attached Aachu/Zuv identity references.")
@@ -172,24 +208,9 @@ def _preflight(package: Path) -> list[str]:
                         f"identity reference must be a package-local non-symlinked file: {raw_path}"
                     )
 
-    if strict_v3:
-        style_refs = (
-            prompt_pack.get("style_reference_images")
-            if isinstance(prompt_pack, dict)
-            else None
-        )
-        if not isinstance(style_refs, list) or not style_refs:
-            issues.append("prompt-pack.json has no attached style references.")
-        else:
-            for raw_path in style_refs:
-                if _resolve_package_file(package, raw_path) is None:
-                    issues.append(
-                        f"style reference must be a package-local non-symlinked file: {raw_path}"
-                    )
-
+    prompts = _records(prompt_pack) if not strict_v3 else []
     prompt_by_slide = {
-        _slide_number(record, index): record
-        for index, record in enumerate(prompts, start=1)
+        _slide_number(record, index): record for index, record in enumerate(prompts, start=1)
     }
     for index, slide in enumerate(slides, start=1):
         number = _slide_number(slide, index)
@@ -206,10 +227,15 @@ def _preflight(package: Path) -> list[str]:
                 f"slide {number}: needs one concrete physical action sentence with subject, action, target, and visible result"
             )
         prompt = prompt_by_slide.get(number)
-        if prompt is None:
+        if not strict_v3 and prompt is None:
             issues.append(f"slide {number}: prompt-pack record is missing")
-        elif exact_text and exact_text not in json.dumps(prompt, ensure_ascii=False):
-            issues.append(f"slide {number}: prompt-pack does not preserve the exact slide text")
+        elif not strict_v3 and exact_text:
+            prompt_text = _text(prompt)
+            compiled_prompt = str(prompt.get("prompt") or "")
+            if exact_text != prompt_text and exact_text not in compiled_prompt:
+                issues.append(
+                    f"slide {number}: prompt-pack does not preserve the exact slide text"
+                )
     return issues
 
 

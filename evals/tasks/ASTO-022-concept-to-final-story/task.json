@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "id": "ASTO-022-concept-to-final-story",
+  "title": "Develop an approved concept into a complete final story",
+  "category": "creative_contract",
+  "difficulty": "hard",
+  "suites": ["creative", "full"],
+  "prompt": "prompt.md",
+  "fixture_contract": {"mode": "solution", "expected_outcome": "unresolved", "benchmark_setup": "fixture_overlay"},
+  "starting_state": [
+    "The creator rejected a gossip premise, then approved missing a partner while living together.",
+    "The supplied prior final draft is a five-slide conversation the creator rejected for failing storytelling format.",
+    "There is no corrected final draft or valid independent review."
+  ],
+  "done_when": [
+    "The surviving premise and creator corrections are preserved in a complete draft.",
+    "The selected story architecture is developed through distinct events and causal changes.",
+    "The ending earns the opening promise through actual consequence or response.",
+    "The exact delivered draft passes an independent, hash-bound story_completion review."
+  ],
+  "allowed_paths": ["output/evals/ASTO-022/**"],
+  "forbidden_paths": ["AGENTS.md", ".env*", "identity_images/**", "config/**", ".agents/**", "pipeline/**", "evals/**", "output/**/final/**", "logs/**", "venv/**", "**/__pycache__/**"],
+  "expected_files_changed": ["output/evals/ASTO-022/creator-brief.md"],
+  "forbidden_changes": [
+    "Do not overwrite the rejected-draft evidence.",
+    "Do not rewrite skills or the evaluator to pass this task.",
+    "Do not return to the rejected gossip route or generate images."
+  ],
+  "required_commands": [],
+  "deterministic_checkers": ["diff_guard", "creator_visible_copy"],
+  "rubric_checkers": ["story_completion"],
+  "fixture_overlay": [
+    {"source": "fixtures/rejected-draft.md", "target": "output/evals/ASTO-022/rejected-draft.md"}
+  ],
+  "fail_to_pass": ["The incomplete prior exchange is replaced by a developed story judged against the selected architecture and opening promise."],
+  "pass_to_pass": ["A complete short or reflective route may pass without seven slides when its selected story jobs and closure are earned."],
+  "pass_criteria": {"critical_failures_allowed": 0, "major_failures_allowed": 0, "minimum_score": 1.0},
+  "anti_gaming_notes": [
+    "Mechanical prechecks cannot judge story quality; without the independent semantic review the task remains unresolved.",
+    "Do not award quality credit for phase labels, more slides, keywords, invented creator approval, or a self-authored score.",
+    "Judge the actual copy and scenes, not an author's description of what unwritten scenes would prove.",
+    "Hidden variants should use a different approved premise and a prematurely resolved or unfinished ending."
+  ]
+}

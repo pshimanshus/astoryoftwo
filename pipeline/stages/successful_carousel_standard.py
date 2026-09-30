@@ -103,7 +103,11 @@ def stage_scene_storytelling_issues(slides: list[dict[str, Any]]) -> list[str]:
     issues: list[str] = []
     for slide in slides:
         number = slide.get("slide", "?")
-        visual = str(slide.get("visual", "")).lower()
+        # New packages have one scene authority. Legacy aliases remain readable
+        # for historical evaluation only and are never emitted by the writer.
+        visual = str(
+            slide.get("physical_action") or slide.get("visual") or slide.get("scene") or ""
+        ).lower()
         if not visual.strip():
             issues.append(f"Slide {number} has no staged visual scene.")
             continue

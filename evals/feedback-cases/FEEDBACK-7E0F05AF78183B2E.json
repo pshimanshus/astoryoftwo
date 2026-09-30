@@ -1,0 +1,32 @@
+{
+  "schema_version": "creator-feedback-eval/v1",
+  "task_id": "FEEDBACK-7E0F05AF78183B2E",
+  "feedback_id": "fb-7e0f05af78183b2e",
+  "package_path": "output/carousels/2026-09-20/she-never-says-she-was-wrong",
+  "user_instruction_sha256": "sha256:841d45099e28b19bf0dc9a6a0674fa4e8c8614ccf9eb1fd9739f2606599551bd",
+  "diagnosis": "concept_recognition",
+  "must_change": [
+    "Retire the current copy, argument progression, visual premise, and cover proof."
+  ],
+  "must_preserve": [
+    "Preserve the creator’s exact relationship insight as context only if they reopen it; do not re-present this route under new wording."
+  ],
+  "source_affected_artifacts": [],
+  "affected_artifacts": [],
+  "verification_assertions": [],
+  "eval_waiver_reason": null,
+  "baseline_artifact_hashes": {},
+  "status": "pending",
+  "created_at": "2026-09-19T23:07:18+00:00",
+  "evaluated_at": null,
+  "checks": [],
+  "repair_operations": [],
+  "preserved_projection_hashes": {},
+  "failure_reproduced": false,
+  "evaluator_contract_version": "creator-feedback-evaluator/v2",
+  "evaluator_contract_sha256": "sha256:558c4aa6c0e91fcaf881399da79c86511118644162c2e90fd95d9b5be4d3009b",
+  "verification_contract_revision": 1,
+  "verification_contract_history": [],
+  "evaluation_history": [],
+  "verification_contract_sha256": "sha256:b2f61f8b80daebf75fc506ab22844486a09a1c2fa830fa48ddcfe2a5ba53023f"
+}

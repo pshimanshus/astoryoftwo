@@ -1196,6 +1196,116 @@
       "slide_count": 6,
       "package": "output/carousels/2026-08-23/certain-of-you-lost-in-us-moonwater-final",
       "content_lane": "Soft Love Notes"
+    },
+    "carousel:certain-of-you-lost-in-us-the-duvet-cover-that-swallowed-us": {
+      "id": "carousel:certain-of-you-lost-in-us-the-duvet-cover-that-swallowed-us",
+      "type": "illustrated_carousel",
+      "title": "Certain of You, Lost in Us — The Duvet Cover That Swallowed Us",
+      "date": "2026-08-23",
+      "status": "NEEDS_FIXES",
+      "slide_count": 6,
+      "package": "output/carousels/2026-08-23/certain-of-you-lost-in-us-the-duvet-cover-that-swallowed-us",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:even-our-anger-finds-sukoon-between-us": {
+      "id": "carousel:even-our-anger-finds-sukoon-between-us",
+      "type": "illustrated_carousel",
+      "title": "Even Our Anger Finds Sukoon Between Us",
+      "date": "2026-08-24",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-08-24/even-our-anger-finds-sukoon-between-us",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:even-our-anger-finds-sukoon-between-us-2": {
+      "id": "carousel:even-our-anger-finds-sukoon-between-us-2",
+      "type": "illustrated_carousel",
+      "title": "Even Our Anger Finds Sukoon Between Us",
+      "date": "2026-08-24",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-08-24/even-our-anger-finds-sukoon-between-us-2",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:even-our-anger-finds-sukoon-between-us-3": {
+      "id": "carousel:even-our-anger-finds-sukoon-between-us-3",
+      "type": "illustrated_carousel",
+      "title": "Even Our Anger Finds Sukoon Between Us",
+      "date": "2026-08-24",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-08-24/even-our-anger-finds-sukoon-between-us-3",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:my-love-did-not-stay-young": {
+      "id": "carousel:my-love-did-not-stay-young",
+      "type": "illustrated_carousel",
+      "title": "My Love Did Not Stay Young",
+      "date": "2026-08-26",
+      "status": "NEEDS_FIXES",
+      "slide_count": 10,
+      "package": "output/carousels/2026-08-26/my-love-did-not-stay-young",
+      "content_lane": "Wedding Origin Story"
+    },
+    "carousel:i-call-it-remembering": {
+      "id": "carousel:i-call-it-remembering",
+      "type": "illustrated_carousel",
+      "title": "I Call It Remembering",
+      "date": "2026-08-26",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-08-26/i-call-it-remembering",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:my-love-did-not-stay-young-2": {
+      "id": "carousel:my-love-did-not-stay-young-2",
+      "type": "illustrated_carousel",
+      "title": "My Love Did Not Stay Young",
+      "date": "2026-08-26",
+      "status": "NEEDS_FIXES",
+      "slide_count": 10,
+      "package": "output/carousels/2026-08-26/my-love-did-not-stay-young-2",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:one-evening-two-truths": {
+      "id": "carousel:one-evening-two-truths",
+      "type": "illustrated_carousel",
+      "title": "One Evening, Two Truths",
+      "date": "2026-08-26",
+      "status": "NEEDS_FIXES",
+      "slide_count": 7,
+      "package": "output/carousels/2026-08-26/one-evening-two-truths",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:two-true-love-stories": {
+      "id": "carousel:two-true-love-stories",
+      "type": "illustrated_carousel",
+      "title": "Two True Love Stories",
+      "date": "2026-08-26",
+      "status": "NEEDS_FIXES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-08-26/two-true-love-stories",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:two-true-love-stories-2": {
+      "id": "carousel:two-true-love-stories-2",
+      "type": "illustrated_carousel",
+      "title": "Two True Love Stories",
+      "date": "2026-08-26",
+      "status": "NEEDS_FIXES",
+      "slide_count": 8,
+      "package": "output/carousels/2026-08-26/two-true-love-stories-2",
+      "content_lane": "Soft Love Notes"
+    },
+    "carousel:i-have-lived-so-many-years-without-you": {
+      "id": "carousel:i-have-lived-so-many-years-without-you",
+      "type": "illustrated_carousel",
+      "title": "I Have Lived So Many Years Without You",
+      "date": "2026-08-27",
+      "status": "NEEDS_FIXES",
+      "slide_count": 10,
+      "package": "output/carousels/2026-08-27/i-have-lived-so-many-years-without-you",
+      "content_lane": "Soft Love Notes"
     }
   },
   "relationships": [
@@ -1930,6 +2040,72 @@
       "to": "watercolor_ink_identity_rooted",
       "type": "uses_creative_style",
       "confidence": 0.7
+    },
+    {
+      "from": "carousel:certain-of-you-lost-in-us-the-duvet-cover-that-swallowed-us",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:even-our-anger-finds-sukoon-between-us",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:even-our-anger-finds-sukoon-between-us-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:even-our-anger-finds-sukoon-between-us-3",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:my-love-did-not-stay-young",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:i-call-it-remembering",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:my-love-did-not-stay-young-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:one-evening-two-truths",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:two-true-love-stories",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:two-true-love-stories-2",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
+    },
+    {
+      "from": "carousel:i-have-lived-so-many-years-without-you",
+      "to": "watercolor_ink_identity_rooted",
+      "type": "uses_creative_style",
+      "confidence": 0.7
     }
   ],
   "themes": {
@@ -1958,5 +2134,5 @@
       "description": "Premium romantic watercolor-and-ink illustration rooted in identity references and story photos."
     }
   },
-  "last_updated": "2026-08-23"
+  "last_updated": "2026-08-27"
 }

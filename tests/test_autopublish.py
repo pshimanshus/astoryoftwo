@@ -73,7 +73,7 @@ def test_validation_commands_include_tests_and_wiki_health():
     commands = autopublish.build_validation_commands("autopublish gate test")
 
     assert commands[0][0] == autopublish.sys.executable
-    assert commands[0][1:] == ["-m", "pytest", "-q"]
+    assert commands[0][1:] == ["-m", "pytest", "--import-mode=importlib", "tests", "-q"]
     assert commands[1] == [
         autopublish.sys.executable,
         "scripts/wiki_health.py",

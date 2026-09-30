@@ -21,6 +21,12 @@ from pipeline.stages.carousel_format_contract import (
     build_format_contract,
     write_format_contract,
 )
+from pipeline.stages.carousel_sequence import (
+    SEQUENCE_CONTRACT,
+    sequence_plan_issues,
+    slide_sequence_issues,
+    story_plan_issues,
+)
 
 
 HOT_PATH_ARTIFACTS = (
@@ -29,6 +35,8 @@ HOT_PATH_ARTIFACTS = (
     "slides.json",
     "prompt-pack.json",
 )
+
+SUCCESSOR_FEEDBACK_SCHEMA_VERSION = "creator-correction/v3"
 
 
 def write_json(path: Path, data: Any) -> None:
@@ -119,6 +127,7 @@ def build_manifest(
     slide_count: int,
     today: date,
     requested_formats: list[str] | tuple[str, ...] | None = None,
+    creative_baseline: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Build the creative-context payload (legacy function name retained)."""
 
@@ -126,7 +135,7 @@ def build_manifest(
         requested_formats,
         source=("creator_request" if requested_formats is not None else "instagram_post_default"),
     )
-    return {
+    context = {
         "schema_version": "carousel-creative-context/v2",
         "date": str(today),
         "slug": slug,
@@ -151,79 +160,101 @@ def build_manifest(
         },
         "artifacts": list(HOT_PATH_ARTIFACTS),
     }
+    if creative_baseline is not None:
+        if "architecture" in creative_baseline:
+            context["architecture"] = deepcopy(creative_baseline["architecture"])
+        if "story_plan" in creative_baseline:
+            issues = story_plan_issues(creative_baseline["story_plan"])
+            if issues:
+                raise ValueError("; ".join(issues))
+            context["story_plan"] = deepcopy(creative_baseline["story_plan"])
+            context["sequence_contract"] = SEQUENCE_CONTRACT
+        if "research_refs" in creative_baseline:
+            if not isinstance(creative_baseline["research_refs"], list):
+                raise ValueError("research_refs must be a list")
+            context["research_refs"] = deepcopy(creative_baseline["research_refs"])
+    return context
 
 
 def _minimal_slide(slide: dict[str, Any]) -> dict[str, Any]:
-    """Keep scene evidence and exact copy; discard internal scoring debris."""
+    """Write only canonical slide semantics; read legacy aliases without emitting them."""
 
+    issues = slide_sequence_issues(slide)
+    if issues:
+        raise ValueError(f"Slide {slide.get('slide')}: " + "; ".join(issues))
     keep = (
         "slide",
         "role",
         "copy",
-        "visual",
+        "copy_mode",
+        "beat_delta",
+        "copy_image_relation",
         "emotion",
         "physical_action",
         "relationship_state",
+        "send_reason",
         "camera",
         "focal_hierarchy",
         "setting",
-        "composition",
         "wardrobe",
-        "pose",
         "props",
-        "background",
         "source_images",
         "continuity_lock",
         "negative_prompt",
         "needs_physical_action",
+        "hand_map",
+        "spatial_topology",
+        "visual_richness",
     )
     result = {key: slide[key] for key in keep if key in slide and slide[key] not in (None, "", [])}
     if not isinstance(result.get("slide"), int):
         result["slide"] = int(slide.get("slide", 0) or 0)
     result["copy"] = str(slide.get("copy") or "")
-    result["visual"] = str(slide.get("visual") or slide.get("physical_action") or "")
+    result["physical_action"] = str(
+        slide.get("physical_action") or slide.get("visual") or slide.get("scene") or ""
+    )
     return result
 
 
-def _minimal_prompt_pack(prompt_pack: dict[str, Any], slides: list[dict[str, Any]]) -> dict[str, Any]:
-    """Strip embedded upstream artifacts while preserving generator inputs."""
+def _minimal_prompt_pack(prompt_pack: dict[str, Any]) -> dict[str, Any]:
+    """Keep shared immutable generation inputs; slide prose belongs in slides.json."""
 
-    prompts = prompt_pack.get("slides")
-    if not isinstance(prompts, list):
-        prompts = []
-    minimal_prompts: list[dict[str, Any]] = []
-    slide_copy = {int(slide["slide"]): slide["copy"] for slide in slides}
-    for prompt in prompts:
-        if not isinstance(prompt, dict):
-            continue
-        number = int(prompt.get("slide", 0) or 0)
-        if number not in slide_copy:
-            continue
-        record = {
-            "slide": number,
-            "text": slide_copy[number],
-            "scene": str(prompt.get("scene") or prompt.get("visual") or ""),
-            "prompt": str(prompt.get("prompt") or ""),
-        }
-        minimal_prompts.append(record)
+    profile = prompt_pack.get("style_profile")
+    if not isinstance(profile, dict):
+        raise ValueError("prompt pack requires one style_profile object")
+    reference = profile.get("reference")
+    if not isinstance(reference, dict):
+        raise ValueError("prompt pack style_profile requires one reference object")
     return {
-        "schema_version": "carousel-prompt-pack/v2",
+        "schema_version": "carousel-prompt-pack/v3",
         "brandmark": "@a.storyof.two",
-        "style_prompt": str(
-            prompt_pack.get("style_prompt")
-            or prompt_pack.get("shared_style_prompt")
-            or ""
-        ),
-        "negative_prompt": str(prompt_pack.get("shared_negative_prompt") or ""),
-        "style_reference_images": list(prompt_pack.get("style_reference_images") or []),
+        "style_profile": {
+            "id": str(profile.get("id") or ""),
+            "version": str(profile.get("version") or ""),
+            "contract_sha256": str(profile.get("contract_sha256") or ""),
+            "generation_prompt": str(profile.get("generation_prompt") or ""),
+            "negative_prompt": str(profile.get("negative_prompt") or ""),
+            "reference": {
+                "path": str(reference.get("path") or ""),
+                "sha256": str(reference.get("sha256") or ""),
+                "attachment_count": int(reference.get("attachment_count") or 0),
+            },
+        },
         "identity_reference_images": list(prompt_pack.get("identity_reference_images") or []),
-        "slides": minimal_prompts,
     }
 
 
 def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, Any]) -> None:
     """Write only the pre-proof hot-path contract."""
 
+    slides = [_minimal_slide(slide) for slide in package.get("slides", [])]
+    if not slides or any(not slide.get("physical_action") for slide in slides):
+        raise ValueError("Every carousel slide needs one visible physical scene.")
+    issues = sequence_plan_issues(manifest, slides)
+    if issues:
+        raise ValueError("Carousel sequence: " + "; ".join(issues))
+    if "research_refs" in manifest and not isinstance(manifest["research_refs"], list):
+        raise ValueError("research_refs must be a list")
     out_dir.mkdir(parents=True, exist_ok=True)
     contract = manifest.get("format_contract") if isinstance(manifest, dict) else None
     requested = contract.get("requested_formats") if isinstance(contract, dict) else None
@@ -232,6 +263,8 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
 
     cache: dict[tuple[str, str], str] = {}
     creative_context = deepcopy(manifest)
+    if "story_plan" in creative_context:
+        creative_context["sequence_contract"] = SEQUENCE_CONTRACT
     creative_context["reference_images"] = _localize_path_records(
         out_dir,
         creative_context.get("reference_images"),
@@ -255,7 +288,6 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
     creative_context.pop("format_contract", None)
     write_json(out_dir / "creative-context.json", creative_context)
 
-    slides = [_minimal_slide(slide) for slide in package.get("slides", [])]
     for slide in slides:
         slide["source_images"] = _localize_path_list(
             out_dir,
@@ -265,16 +297,22 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
         )
         if not slide["source_images"]:
             slide.pop("source_images", None)
-    if not slides or any(not slide.get("copy") or not slide.get("visual") for slide in slides):
-        raise ValueError("Every carousel slide needs exact copy and one visible physical scene.")
     write_json(out_dir / "slides.json", slides)
     prompt_pack = deepcopy(package.get("prompt_pack", {}))
-    prompt_pack["style_reference_images"] = _localize_path_list(
+    profile = prompt_pack.get("style_profile")
+    if not isinstance(profile, dict) or not isinstance(profile.get("reference"), dict):
+        raise ValueError("prompt pack requires one style_profile reference")
+    reference = profile["reference"]
+    reference["path"] = _materialize_reference(
         out_dir,
-        prompt_pack.get("style_reference_images"),
+        reference.get("path"),
         category="style",
         cache=cache,
     )
+    localized_style = out_dir / reference["path"]
+    actual_style_sha256 = "sha256:" + hashlib.sha256(localized_style.read_bytes()).hexdigest()
+    if actual_style_sha256 != str(reference.get("sha256") or ""):
+        raise ValueError("Localized style reference bytes do not match the active style profile.")
     prompt_pack["identity_reference_images"] = _localize_path_list(
         out_dir,
         prompt_pack.get("identity_reference_images"),
@@ -283,7 +321,7 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
     )
     write_json(
         out_dir / "prompt-pack.json",
-        _minimal_prompt_pack(prompt_pack, slides),
+        _minimal_prompt_pack(prompt_pack),
     )
 
     # Import at the write boundary so the package writer remains independent of
@@ -292,3 +330,59 @@ def write_package(out_dir: Path, manifest: dict[str, Any], package: dict[str, An
     from pipeline.stages.codex_builtin_image_generation import initialize_generation_state
 
     initialize_generation_state(out_dir)
+
+
+def write_successor_feedback(
+    out_dir: Path,
+    document: dict[str, Any],
+) -> None:
+    """Attach unresolved inherited feedback to a newly created v3 package.
+
+    This runs only after ``write_package`` has initialized fresh generation
+    state. It deliberately accepts no media, receipts, QA, or state from the
+    archived source package.
+    """
+
+    if document.get("schema_version") != SUCCESSOR_FEEDBACK_SCHEMA_VERSION:
+        raise ValueError("successor feedback must use creator-correction/v3")
+    events = document.get("events")
+    if not isinstance(events, list) or any(not isinstance(item, dict) for item in events):
+        raise ValueError("successor feedback requires an events array")
+    feedback_ids = [str(item.get("feedback_id") or "") for item in events]
+    if any(not value for value in feedback_ids) or len(feedback_ids) != len(set(feedback_ids)):
+        raise ValueError("successor feedback identities must be present and unique")
+    adoption = document.get("successor_adoption")
+    if not isinstance(adoption, dict):
+        raise ValueError("successor feedback requires adoption metadata")
+    if list(adoption.get("carried_feedback_ids") or []) != feedback_ids:
+        raise ValueError("successor adoption carried IDs must match its event identities")
+    source_feedback_ids: list[str] = []
+    for event in events:
+        exact = str(event.get("user_instruction_exact") or "")
+        exact_sha256 = "sha256:" + hashlib.sha256(exact.encode("utf-8")).hexdigest()
+        provenance = event.get("adoption_provenance")
+        if not exact or str(event.get("user_instruction_sha256") or "") != exact_sha256:
+            raise ValueError("successor feedback must preserve exact creator wording and hash")
+        if not isinstance(provenance, dict):
+            raise ValueError("successor feedback requires source adoption provenance")
+        source_feedback_id = str(provenance.get("source_feedback_id") or "")
+        source_feedback_ids.append(source_feedback_id)
+        if not source_feedback_id or source_feedback_id == event["feedback_id"]:
+            raise ValueError("successor feedback must use a fresh destination identity")
+        if str(provenance.get("source_user_instruction_sha256") or "") != exact_sha256:
+            raise ValueError("successor feedback provenance must bind the source wording hash")
+        if not str(provenance.get("source_package_path") or ""):
+            raise ValueError("successor feedback provenance requires source_package_path")
+        if event.get("learning_event_id") != f"event-feedback-{event['feedback_id']}":
+            raise ValueError("successor feedback requires a fresh linked LearningEvent identity")
+        eval_task_ids = event.get("eval_task_ids")
+        if not isinstance(eval_task_ids, list) or len(eval_task_ids) != 1:
+            raise ValueError("successor feedback requires one fresh eval identity")
+    if list(adoption.get("source_feedback_ids") or []) != source_feedback_ids:
+        raise ValueError("successor adoption source IDs must match event provenance")
+    target = Path(out_dir) / "creator-correction.json"
+    if target.exists() or target.is_symlink():
+        raise ValueError("successor feedback target already exists")
+    temporary = target.with_name(target.name + ".tmp")
+    write_json(temporary, document)
+    temporary.replace(target)

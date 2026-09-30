@@ -1,4 +1,4 @@
-# Add Home-Cinematic Visual Evidence To Carousel Planning
+# Require Cinematic Visual Evidence In Carousel Planning
 
 ## Context
 
@@ -11,18 +11,20 @@ fabrics, mugs, laptop, watch, hair clip, charger, bag, and a final room payoff.
 
 ## Task
 
-Add a home-cinematic visual evidence gate for interior/home carousels. The gate
-should push agents to think like a cinematographer and production designer:
-camera position, motivated light, blocking, object constellation, active hand
-or body movement, texture, negative space, and continuity callback.
+Use the shared production cinematic validator for every illustrated scene,
+including wedding action, landscape wide, domestic support, and intimate
+close-up frames. Require camera position, motivated light, physical depth,
+before/after implication, active hand or body movement, story-bearing details,
+negative space, and continuation or payoff.
 
 ## Acceptance Criteria
 
 - Generic cozy-home filler fails visual approval.
-- Home/interior slide plans include concrete cinematography and production
-  design fields.
-- The gate references a durable visual storytelling reference or rule surface.
-- Existing visual-variety behavior still works for non-home carousels.
+- Valid scene plans across the four reference families include concrete
+  cinematography and production-design fields.
+- The deterministic eval calls the same validator as production preflight.
+- Posed portraits, empty depth, generic light, prop filler, and repeated medium
+  two-shots fail.
 
 ## Constraints
 

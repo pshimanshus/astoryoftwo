@@ -1,11 +1,18 @@
 # Fail-Closed Visual QA
 
-last_updated: 2026-07-20
+last_updated: 2026-09-04
 confidence: 1.0
 source: direct creator correction after slide-08 doorway proof
 
 An anatomy instruction inside an image prompt is not an anatomy check. A
 pre-generation visual-plan PASS cannot approve generated pixels.
+
+The inverse failure is also blocked: a hand plan that exists only in planning
+or QA metadata but is discarded before ImageGen never guided the pixels. After
+the 2026-09-04 bookshelf-hand correction, every person slide must carry a
+complete left/right hand-ownership and contact plan in `slides.json`, and the
+compiler must embed it—along with whole-person/object topology—inside the
+actual generation prompt. Generation fails closed if those sections are absent.
 
 Generated carousel proofs remain internal and quarantined until structured
 post-generation QA inspects the exact file. The review inventories hands and
@@ -32,6 +39,10 @@ continuous arm/wrist attachment, contacted object, overlap/occlusion order,
 load direction, absence of solid-object intersection, and absence of
 unexplained entry from a frame, door, wall, clothing, or object edge. Any one
 of these failures blocks the image.
+Approval cannot use generic evidence such as "the hands look coherent." The QA
+record must inventory each planned visible hand separately; a PASS status may
+never bypass missing counts, attachment, contact, finger, silhouette, or
+intersection evidence.
 
 Before local anatomy review, trace each person's whole silhouette and the
 nearby solid-object boundaries at full-frame and cropped views. Record every

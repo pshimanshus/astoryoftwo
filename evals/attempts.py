@@ -18,6 +18,8 @@ EXCLUDED_DIRECTORY_NAMES = {
     ".pytest_cache",
     ".ruff_cache",
     ".worktrees",
+    ".venv",
+    ".venv-evals",
     "__pycache__",
     "node_modules",
     "venv",

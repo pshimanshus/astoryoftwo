@@ -92,6 +92,8 @@ def test_new_package_starts_with_compact_v3_state_only(tmp_path: Path) -> None:
         assert set(record) == {
             "status",
             "attempts",
+            "attempt_history",
+            "premise_sha256",
             "source_sha256",
             "prompt_sha256",
             "references_sha256",
@@ -130,10 +132,47 @@ def test_initializer_is_deterministic_for_existing_inputs(tmp_path: Path) -> Non
     assert second == first
 
 
+@pytest.mark.parametrize("has_state", [True, False])
+def test_legacy_prompt_pack_is_read_only_even_with_current_state(
+    tmp_path: Path, has_state: bool,
+) -> None:
+    from pipeline.stages.codex_builtin_image_generation import prepare_codex_builtin_image_generation
+    from pipeline.stages.carousel_visual_storytelling import apply_creator_feedback_revision
+
+    package = _package(tmp_path)
+    if not has_state:
+        (package / "generation-state.json").unlink()
+    (package / "prompt-pack.json").write_text(
+        json.dumps({"schema_version": "carousel-prompt-pack/v2", "slides": []}),
+        encoding="utf-8",
+    )
+    (package / "final").mkdir()
+    (package / "final/slide-01.png").write_bytes(b"historical-final")
+    (package / "proof-qa.json").write_bytes(b"historical-proof")
+
+    def snapshot():
+        return {str(path.relative_to(package)): path.read_bytes() if path.is_file() else None
+                for path in package.rglob("*")}
+
+    before = snapshot()
+    view = reconcile_package_state(package)
+    assert view["status"] == "blocked"
+    assert "read-only" in view["reason"]
+    for mutate in (
+        lambda: prepare_codex_builtin_image_generation(package, formats=["reels_stories"]),
+        lambda: initialize_generation_state(package),
+        lambda: apply_creator_feedback_revision(package, workspace_root=tmp_path, feedback_id="archived"),
+    ):
+        with pytest.raises(ValueError, match="read-only"):
+            mutate()
+        assert snapshot() == before
+
+
 @pytest.mark.parametrize(
     "field",
     (
         "format_sha256",
+        "premise_sha256",
         "source_sha256",
         "prompt_sha256",
         "references_sha256",

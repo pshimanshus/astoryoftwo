@@ -1,0 +1,41 @@
+{
+  "schema_version": "carousel-intelligence-gate/v2",
+  "enabled": true,
+  "mode": "fail_closed",
+  "approved_on": "2026-09-20",
+  "approved_by": "creator",
+  "thresholds": {
+    "heuristic_floor": 70,
+    "required_dimension_minimums": {
+      "scene_proof": 3,
+      "relationship_motion": 3,
+      "send_save_reason": 3
+    }
+  },
+  "calibration_basis": {
+    "carousel_count": 27,
+    "slide_count": 158,
+    "effective_passed_count": 27,
+    "effective_blocked_count": 0,
+    "reproducible_slide_count": 158,
+    "missing_slide_count": 0
+  },
+  "bindings": {
+    "visual_decisions": {
+      "path": "output/reports/2026-09-19-full-carousel-audit/visual-verification-decisions.json",
+      "sha256": "ab6e0311c981066d588cb836f43cf7a8486ca29cfe0afa0840aaf293406d9eaa"
+    },
+    "local_path_map": {
+      "path": "output/reports/2026-09-19-full-carousel-audit/local-slide-path-map.json",
+      "sha256": "866b482f5412a35cff268c299269e56f2ceb92405cca49fe36bf3dfaaef16440"
+    },
+    "pattern_registry": {
+      "path": "config/references/carousel-patterns.json",
+      "sha256": "ffb994894a04f2cc936c5635cf0dccb8d38aafb391d26b65b216e2576800d573"
+    }
+  },
+  "evaluation": "structural_with_advisory_heuristics",
+  "required_story_contract": "carousel-sequence/v1",
+  "threshold_scope": "historical_calibration_only",
+  "approved_change": "Creator requested implementation of the September 20 end-to-end integration plan."
+}

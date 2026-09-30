@@ -3,9 +3,33 @@ IDENTITY — Aachu (Anchal, the woman) and Zuv (Himanshu, the man) are the same 
 HIERARCHY
 - Selected actual Aachu/Zuv identity images control faces, expressions,
   posture, body proportions, and wardrobe anchors — always.
-- Style references (Observational Intimacy Premium) control illustration style, paper, palette, line quality, composition — never the faces.
+- The active style profile and its Cinematic Observational Watercolor v1 board
+  control illustration finish, paper, palette, line quality, and cinematic
+  composition — never the faces. Resolve them through
+  `config/carousel_style_contract.json`; do not select a board ad hoc.
 - Shared brief images control mood, composition, story essence, text, hand gesture, and objects — unless the creator explicitly says otherwise.
 - If these three sources conflict, identity wins.
+
+GENERATED CHARTS NEVER REPLACE PHOTOGRAPHS
+- Never use a generated character chart alone as the face or identity input for
+  Aachu or Zuv. A generated sheet may be a supplemental style, proportion, or
+  accessory-continuity aid only after the creator explicitly approves the
+  relevant views.
+- Every image-generation call with a visible Aachu or Zuv face must attach
+  selected actual photographs of that person. A photo contact sheet, photo
+  master board, written character bible, prior carousel, or approved generated
+  chart does not remove this requirement.
+- A creator-approved component does not approve the rest of its sheet. Record
+  approval per view. Rejected or unreviewed views remain non-reusable.
+- Creator correction, 2026-08-24: in Aachu face turnaround v2, only the large
+  neutral front view was recognized as correct. Both three-quarter views, both
+  profiles, and the expression row were rejected. The correct front may remain
+  a supplemental approved-view aid, but the complete v2 sheet is not an
+  approved character model and must never be used as a sole identity source.
+- Creator correction, 2026-08-24: the complete Aachu V4 sheet was rejected.
+  Its expression row repeated one internally consistent but incorrect synthetic
+  face. Internal consistency is not likeness. V4, its profile repair, and its
+  prompt are retired and must not be reused or repaired from themselves.
 
 IDENTITY REFERENCES — `config/references/identity/`
 - Select a small story-relevant identity bundle from
@@ -37,9 +61,9 @@ IDENTITY EVAL STOP GATE
 AACHU (woman)
 - Aachu is 5'6".
 - Warm medium-brown South Asian skin.
-- Large expressive dark eyes; softly arched brows; delicate nose; natural lips.
-- Youthful oval face; soft cheek structure.
-- Long dark wavy hair: may be loose, half-tied, or in a casual ponytail. Thickness, dark color, natural waves, and face-framing strands stay consistent across slides.
+- Large expressive dark round-almond eyes; full mostly straight brows with a low soft arch; natural medium-width nose with a rounded tip; compact lips with a fuller lower lip.
+- Soft rounded-to-oval face; full cheek structure; softly squared jaw corners; rounded chin.
+- Long, dense, very dark hair: mostly straight and smooth with soft natural bends and layered face-framing strands. It may be loose, half-tied, or in a casual ponytail; thickness, dark color, hairline, and soft-bend silhouette stay consistent across slides.
 - Playful warmth, softness, real-person charm. Expressive face; dramatic body language; the spark in the carousel.
 - Height: 5'6".
 - Signature accessory: her slim evil-eye bracelet belongs on her right wrist,
@@ -90,6 +114,46 @@ FACE PRESERVATION
 - Do not merge their features with each other.
 - Do not create new faces. Do not over-beautify them into different people.
 
+CHARACTER MODEL-SHEET GATE
+- A "character sheet", "character chart", or "character bible sheet" means a
+  technical identity reference, not a decorative couple montage or a set of
+  narrative poses.
+- The face turnaround must show a large neutral front, left three-quarter,
+  right three-quarter, left profile, and right profile. Add a rear or
+  over-shoulder hair-silhouette view when hair construction matters.
+- Before claiming an angle is unavailable, search every verified private
+  identity library already supplied by the creator, not only the small copied
+  repository bundle. Copy a role-specific 2–4-photo selection into the repo so
+  later generation cannot silently fall back to weak or distant references.
+- Front, three-quarter, and true side-profile projection must each be supported
+  by an attached actual photograph. Never extrapolate a profile from frontal
+  photographs and label the invented geometry accurate. If no true side
+  profile exists after searching the verified libraries, stop with
+  `BLOCKED_FOR_PROFILE_REFERENCE_PHOTOS`.
+- One clear side profile can support forehead/nose/lips/chin projection for the
+  opposing turnaround side, but unobserved bilateral asymmetry remains
+  provisional. Never claim mirrored ear, piercing, mole, or hairline detail as
+  verified.
+- A production sheet must include readable written construction notes for face
+  envelope, hairline, brows, eyes, nose, lips, jaw/chin, ears, skin tone,
+  distinguishing asymmetries, hair, facial hair, body proportions, wardrobe,
+  and signature accessories. Technical callouts are explicitly allowed on a
+  private character reference sheet when the creator asks for them.
+- Build and approve Aachu's and Zuv's solo face turnarounds before the couple
+  scale/interaction sheet. A repeated face that is internally consistent but
+  does not resemble the real person is still a hard fail.
+- Generate and approve one large face view at a time, beginning with neutral
+  front. Stop for creator approval after every angle and expression. Do not ask
+  one image-generation call to solve a multi-angle or multi-expression sheet.
+- Preserve every approved portrait as fixed pixels and assemble the final
+  sheet deterministically. Do not use image generation to redraw, harmonize,
+  or reinterpret the approved portraits during assembly.
+- A creator-rejected generated face must never be used as an identity input or
+  as the starting point for a repair. Return to the real photographs and reset.
+- A generated sheet with one approved view and other rejected views must be
+  treated as partially approved, never promoted as a complete model sheet, and
+  never supplied whole as an identity reference.
+
 WARDROBE CONTINUITY — casual modern Indo-western
 - Wardrobe must be selected from the attached identity images or
   current-request identity photos first. Do not use a fixed wardrobe menu as
@@ -127,6 +191,12 @@ HARD FAIL — regenerate, do not accept
 - distorted hands, extra fingers, broken wrists, warped facial features
 - Zuv's visible neck/open collar is missing or changes the evil-eye locket and silver chain
 - Aachu's visible right wrist/forearm is missing, relocates, or changes her evil-eye bracelet
+- a decorative montage is presented as a character model sheet
+- profile projection is invented from frontal photos without a true side-profile photograph
+- a creator-rejected generated face is reused as an identity reference
+- a generated character chart is used alone without attached actual identity photographs
+- a partially approved sheet is treated as fully approved or supplied whole as identity authority
+- the creator says either face is wrong, even when mechanical QA passed
 
 ANTI-DRIFT NOTES (lessons from real rejections)
 - 2026-05-31 Private Captions early proofs rejected for face drift and wrong heights. The creator's note: Aachu looks tiny, Zuv looks oversized/generic — reject and regenerate one corrected proof from actual identity references before batching the rest.

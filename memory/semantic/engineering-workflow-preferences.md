@@ -4,9 +4,10 @@ research_partner_summary: thinking research partner; form explicit hypotheses;
 challenge weak ideas; proposal-first durable updates; improve existing project
 files before creating new files.
 
-last_updated: 2026-08-23
+last_updated: 2026-09-04
 confidence: 0.98
 sources:
+- direct creator implementation and completion correction in Codex chat on 2026-09-04
 - direct creator instruction in Codex chat on 2026-05-25
 - direct creator approval in Codex chat on 2026-05-28 to proceed with safe
   autopublish setup
@@ -39,6 +40,21 @@ sources:
   cap prompts, inspect semantics first, and remove duplicated agent ceremony
 
 ## Research Partner Operating Model
+
+### Completion means working evidence
+
+Exact creator instruction:
+
+> Complete the implementation end-to-end and never give me this implemented answer when things are not completed at all. Please implement things end-to-end and make a plan before proceeding and ensuring that you end up completing everything end-to-end. And you're not creating templates. You are creating the real documents that actually serve the purpose. I don't want you to create templates, like you've created the document and just added one or two lines. It does not serve the purpose, right? This is not exactly what I want. I want the full implementation that works.
+
+Required response to that correction: map every accepted ask to code, a current
+operating document, and executable acceptance evidence. Repair existing sources
+before adding knowledge documents. Do not substitute scaffolds, empty schemas,
+mocked service results, unrun commands, or a passed unit test for production
+completion. Report pending live feedback, missing approval, unavailable tools,
+and validation failures explicitly. Do not add creator gates to conceal missing
+automation. Model-weight training is not implied by repository memory updates.
+confidence: 1.0
 
 This project should make Codex act like a thinking research partner for
 @a.storyof.two, not a passive command executor.
@@ -118,7 +134,7 @@ for stale copy, and retry only that slide. Do not regenerate deliberation files.
 confidence: 1.0
 
 fact: A generator prompt should describe what the model must draw, not explain
-the repository. Keep each compiled prompt at or below 8,000 characters and 900
+the repository. Keep each compiled prompt at or below 8,000 characters and 1,050
 words, its scene description at or below 180 words, and additional negatives at
 or below 80 words. Keep identity/style image attachments, exact text, wardrobe,
 physical action, camera/focal hierarchy, dimensions, brandmark, and essential
@@ -138,9 +154,10 @@ state "final images." For a normal post/carousel request, a carousel is final
 after exact `1080x1440` post finals exist for every slide under `final/`, with
 visual QA and final audit written. Native `1080x1920` Story/Reel images under
 `final-reels-stories/` are required only when the creator explicitly requested
-Story or Reel. Current post/carousel finals must be exact `1080x1440` exports
-from `1440x1920` 3:4 source art unless the creator explicitly changes the
-canvas again. Never create an automatic companion format.
+Story or Reel. Current post/carousel prompts request exact native `1080x1440`.
+The bounded post-only ingest accommodation for larger exact-3:4 source art is
+defined in `config/rules/image-dimensions.md`; it is not a required second canvas.
+Never create an automatic companion format.
 confidence: 1.0
 
 fact: Prefer crisp engineering with the smallest durable surface area: fewer
@@ -168,3 +185,16 @@ likeness notes. If real likeness comparison is unavailable, mark
 `BLOCKED_FOR_IDENTITY_EVAL` or `IDENTITY_UNVERIFIED`, tell the creator, and do
 not call the proof final or continue generating more slides.
 confidence: 1.0
+
+## Carousel analysis uses the actual local artwork
+
+source: direct creator correction, 2026-09-05
+confidence: 1.0
+fact: Analysis and daily briefs default to carousels. Inspect locally available
+slide images with view_image and read on-image text in sequence before making
+creative conclusions or claiming visual evidence is missing. Join observed
+cover, story progression, text-image relationship, variety and payoff to the
+published post metrics. Captions alone and a majority of Reel records must not
+set the creative direction. Use the local archive without downloading copies;
+keep missing slides explicit and distinguish generated drafts from published
+artwork. Saved observations remain bound to the reviewed image bytes.
