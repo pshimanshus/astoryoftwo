@@ -20,6 +20,13 @@ native dimensions, exact copy, and tiny top-right brandmark aligned.
 Use actual identity refs for the whole person. Stage relationship, then style.
 Check entity/anatomy/spatial integrity before beauty language.
 
+Before judging prompt compliance, hide the copy and describe the event visible
+in the pixels. For an exchange, name who acts, who receives or responds, and
+what changes. A prop displayed toward the camera does not prove an interaction.
+Let the camera observe the participants' task; do not turn them toward the
+viewer merely to expose a screen or label. A hidden screen can tell the story
+through its recipient, grip, gaze and the resulting action.
+
 ## Proof And QA
 
 Generate the riskiest proof first. For a requested edit, bind its target with
@@ -31,6 +38,13 @@ scene/copy fields and feedback remain authoritative. Every new call requires
 Inspect actual-pixel evidence with `view_image`; prompt text, filenames,
 operator-recorded invocations, generator reports, or reviewer labels are not
 pixel evidence.
+
+Trace shoe–rug–floor, foot–threshold and other foreground overlaps as carefully
+as hands. A level floor does not prove coherent contact: identify what is above,
+behind and supported by what. Unresolved overlap is a failure or data gap, never
+an assumed PASS. Read `references/checker-contract.md` for the six-check order
+and record observation before interpretation; a flawed prompt can be obeyed
+accurately and still produce the wrong event.
 
 Record proof results in `proof-qa.json` with path, SHA-256, dimensions, story
 read, identity, exact text, brandmark, style, and native canvas. Creator approval

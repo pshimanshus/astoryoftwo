@@ -182,4 +182,10 @@ def test_maintenance_smoke_keeps_transport_pixels_and_approval_separate() -> Non
     if generation["pixel_qa"] != "PASS" or edit["pixel_qa"] != "PASS":
         assert evidence["result"] == "INCOMPLETE"
         assert evidence["acceptance_certified"] is False
-    assert generation["creator_approval"] == edit["creator_approval"] == "NOT_GRANTED"
+    assert generation["creator_approval"] in {"NOT_GRANTED", "REJECTED"}
+    assert edit["creator_approval"] == "NOT_GRANTED"
+    if generation["creator_approval"] == "REJECTED":
+        correction = generation["creator_correction"]
+        assert correction["asset_sha256"] == generation["normalized_sha256"]
+        assert correction["replacement_pixels_generated"] is False
+        assert correction["original_receipt_and_qa_preserved"] is True

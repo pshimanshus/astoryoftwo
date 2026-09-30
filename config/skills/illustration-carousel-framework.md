@@ -191,8 +191,12 @@ probe.
 
 Inspect decoded current pixels in this order:
 
-1. **Story meaning:** observed action and relationship state match the visual
-   sentence and exact copy.
+1. **Story meaning:** hide the copy and name the event actually visible before
+   comparing it with the visual sentence. For an exchange, identify the actor,
+   recipient, directed action and consequence. A phone and parcel in the frame
+   do not establish a delivery; presenting a prop to the viewer does not supply
+   a missing in-scene recipient. Prompt compliance alone cannot pass story
+   meaning when the planned event is itself weak or wrong.
 2. **Cinematic story frame:** the image reads as a caught event, with motivated
    light, distinct depth layers, mapped story evidence, before/after
    implication, continuation or final payoff, and no posed/decorative/generic-
@@ -205,6 +209,11 @@ Inspect decoded current pixels in this order:
    Record each visible hand separately with owner, side, attachment, contact,
    finger integrity, and solid-object intersection evidence. Summary prose
    cannot pass this layer.
+   Trace feet, shoes, rugs/mats and thresholds too: which surface supports each
+   object, which edge occludes which, and whether contact/shadow/depth agree.
+   Do not infer correct shoe contact merely because the floor is level. Put a
+   visible contradiction or unresolved contact in the existing failed check;
+   do not invent a physical explanation to preserve PASS.
 4. **Identity:** compare both people to the attached reference IDs with concrete
    face, hair, height, proportion, posture, expression, and wardrobe notes.
 5. **Finish:** exact integrated text, brandmark, house style, deterministic

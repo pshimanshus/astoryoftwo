@@ -48,3 +48,5 @@ Workers share the worktree. Do not revert another worker's edits; sequence share
 - Live generation: five reference inputs accepted, one fresh return ingested with operator-recorded invocation. Independent actual-pixel QA failed the required wrist-accessory check; bound failed QA retained, candidate quarantined, no promotion.
 - Live edit: required six-path call rejected before generation: `referenced_image_paths` must contain at most 5 paths. Full inputs retained, no fallback or duplicate retry, no ingested edit attempt.
 - Creator approvals: none granted; original production package unchanged.
+
+- Creator correction: prior story/spatial PASS claims withdrawn. Copy-hidden event and shoe/rug contact checks now reject this known negative; the requested three-person delivery handover is captured as the replacement direction, with no new image generated.

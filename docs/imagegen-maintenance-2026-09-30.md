@@ -45,7 +45,7 @@ package itself is not discoverable as a skill.
   implementation verdicts or expected answers. Three actual fake-tool calls
   preserved exact prompts and ordered inputs. Remaining cases stopped correctly
   or returned bounded maintenance routing. This is a small behavioral sample,
-  not a reliability estimate. The reusable fixture set now has 13 scenarios.
+  not a reliability estimate. The reusable fixture set now has 14 scenarios.
 - The synthetic benchmark completed one full proof-to-final lifecycle in
   **4.25 seconds**, with no budget violation. Its authored pixels/QA establish
   orchestration only.
@@ -61,15 +61,34 @@ Live results: the new `maintenance_upgrade` section in
 
 | Check | Request acceptance | Pixels | Creator approval |
 | --- | --- | --- | --- |
-| New proof, four identities plus style board | Accepted; returned image ingested | FAIL: missing required Aachu right-wrist bracelet | Not granted |
+| New proof, four identities plus style board | Accepted; returned image ingested | FAIL: no delivery interaction or OTP recipient; shoe–rug contact does not pass | Rejected by creator |
 | Copied parcel proof, target plus same five references | Rejected before generation: `referenced_image_paths` must contain at most 5 paths | NOT_RUN | Not granted |
 
 Generation returned 1086×1448; the existing allowed single proportional
-downsample produced 1080×1440. Hashes, normalization, phone front/four dots,
-grip, three-hand inventory, parcel position and level floor checked out.
-The reviewer additionally recorded changed copy wrapping, unreadable parcel
-label marks and photographic central rendering. Failed bound QA is retained;
-the candidate remains quarantined in `proof_failed`.
+downsample produced 1080×1440. Hash and normalization measurements remain valid.
+The creator subsequently rejected the shoe–rug overlap and the phone shown to
+the audience without an in-scene recipient. Earlier story and spatial PASS
+claims are withdrawn. Missing bracelet, copy wrapping, label marks and
+photographic rendering remain secondary issues. The candidate remains failed
+and quarantined; original attempt evidence is retained alongside a corrective
+QA artifact whose first failed check is `physical_action`.
+
+The requested replacement is a delivery person handing the parcel to Aachu
+while Zuv supplies the OTP to that person. An oblique view from inside the
+doorway observes the handover: she reaches to receive the box, the courier still
+supports it, and Zuv angles his phone toward the courier. The viewer sees its
+back or edge; readable screen content is unnecessary. This replaces the event
+and viewpoint. No new image has been generated or approved for this direction.
+
+The review error came from equating prompt compliance and prop presence with
+observed storytelling, then inferring shoe contact from a level floor. Review
+guidance now requires copy-hidden event/recipient/consequence observation and
+explicit shoe–rug–floor ordering. The checker reference also matches the six
+runtime checks and v3 schema. No machine-vision detection capability was added.
+A fresh reviewer, given the exact image and updated skill without prior QA or
+grader answers, rejected physical action, relationship and cinematic meaning
+and marked sneaker–mat contact as a data gap. This is a known-image regression,
+separate from the original nine held-out behavior cases.
 
 The edit retains all six required inputs and `handoff_ready`, with zero ingested
 attempts. The rejected six-path call was not repeated, no reference was dropped,
@@ -82,8 +101,8 @@ are preserved outside the repository at
 Generated images and identity photographs are not committed.
 
 Six-input editing requires a runtime that accepts the full attachment list.
-The failed generation requires an identity/copy repair and new authorized pixel
-verification before it can become an approved proof. No current evidence
+The failed generation requires the new delivery event and viewpoint before
+another proof, followed by fresh pixel verification. No current evidence
 establishes either capability as production-ready.
 
 ## Separation from existing work

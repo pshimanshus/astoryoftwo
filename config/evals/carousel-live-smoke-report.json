@@ -194,14 +194,35 @@
       "qa_sha256": "sha256:8029a030c2633074c1008e3a09417b448dd2108b441cc41d040b8fe6d1a3c14a",
       "package_state": "proof_failed",
       "ingested_attempts": 1,
-      "hard_failure": "Required evil-eye bracelet absent on Aachu exposed right wrist.",
+      "hard_failure": "No in-scene OTP recipient or delivery handover; camera-facing prop display substitutes for the event. Shoe-rug occlusion also cannot pass.",
       "other_observations": [
-        "Copy wording and punctuation correct; wrapping differs from locked single-line text.",
-        "Unrequested unreadable parcel-label microprint and barcode marks.",
-        "Photographic central rendering is a style concern.",
-        "Phone front and four dots, grip, three visible hands, adult scale and level-floor relation are coherent."
+        "Earlier physical-action, relationship, cinematic-story and spatial PASS claims are withdrawn after creator rejection.",
+        "Three hands and a recognizable phone do not establish an interaction or clear the shoe-rug contact.",
+        "Missing bracelet, changed copy wrapping and extra label marks remain secondary failures.",
+        "Source hash and permitted normalization measurements remain valid."
       ],
-      "creator_approval": "NOT_GRANTED"
+      "creator_approval": "REJECTED",
+      "initial_review_superseded": {
+        "qa_sha256": "sha256:8029a030c2633074c1008e3a09417b448dd2108b441cc41d040b8fe6d1a3c14a",
+        "hard_failure": "Required evil-eye bracelet absent on Aachu exposed right wrist.",
+        "other_observations": [
+          "Copy wording and punctuation correct; wrapping differs from locked single-line text.",
+          "Unrequested unreadable parcel-label microprint and barcode marks.",
+          "Photographic central rendering is a style concern.",
+          "Phone front and four dots, grip, three visible hands, adult scale and level-floor relation are coherent."
+        ]
+      },
+      "creator_correction": {
+        "feedback_id": "fb-8f79c7472f0f0076",
+        "primary_diagnosis": "scene_action",
+        "secondary_diagnosis": "provenance_qa",
+        "asset_sha256": "sha256:b3c7fc13b27054d6f8bf5d04280710ba81df25139b9ed3c283a7c99b047560cb",
+        "corrective_qa_artifact_sha256": "sha256:f0388db52bfbb233e50cdf24207b2a6808a61be06473d1a355049abfbc04e30c",
+        "current_first_failed_gate": "physical_action",
+        "original_receipt_and_qa_preserved": true,
+        "replacement_direction": "Inside oblique doorway view: delivery person transfers the parcel to Aachu while Zuv supplies the OTP to the delivery person. Phone use serves that participant; screen faces away from camera and need not be visible. Mat and footwear must have clear support and occlusion.",
+        "replacement_pixels_generated": false
+      }
     },
     "edit": {
       "request_acceptance": "REJECTED",

@@ -71,5 +71,19 @@
   "expected_answers_in_evaluator_prompt": false,
   "real_image_calls": 0,
   "ordinary_production_helpers": 0,
-  "scenario_fixture": "tests/fixtures/imagegen_maintenance_forward_prompts.json"
+  "scenario_fixture": "tests/fixtures/imagegen_maintenance_forward_prompts.json",
+  "creator_rejection_regression": {
+    "scope": "Known negative actual-pixel regression after creator correction, not an additional held-out case.",
+    "reviewer_context": "Fresh agent; current skill and exact image plus canonical scene; no prior QA, feedback or expected answers.",
+    "artifact_sha256": "sha256:b3c7fc13b27054d6f8bf5d04280710ba81df25139b9ed3c283a7c99b047560cb",
+    "observed_result": {
+      "physical_action": "FAIL",
+      "relationship_state": "FAIL",
+      "cinematic_story_frame": "FAIL",
+      "entity_spatial_integrity": "DATA_GAP"
+    },
+    "unexpected_passes": 0,
+    "new_generated_images": 0,
+    "observation_artifact_sha256": "sha256:221280c3e706891e762f38722772a628d3185fb5555f4d3a06acdd6d0c8946a8"
+  }
 }
