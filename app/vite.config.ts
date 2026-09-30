@@ -7,5 +7,10 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
+    // jsdom has no WebGL context; alias the real R3F canvas to a no-op stub so a future
+    // component-render test doesn't fail obscurely trying to construct one. See sheetStub.tsx.
+    alias: {
+      './webgl/SheetCanvas': new URL('./src/test/sheetStub.tsx', import.meta.url).pathname,
+    },
   },
 });

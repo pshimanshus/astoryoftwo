@@ -1,5 +1,7 @@
 :root {
-  /* Paper + ink palette */
+  /* Paper + ink palette — unchanged from the original prototype. Every colour anything in this
+     app uses, DOM or WebGL, derives from these seven values. No shader, no material, no new
+     brand colour invents a hue. */
   --paper: #f6f1e7;
   --paper-shadow: #e7dfcf;
   --ink: #2b2622;
@@ -11,8 +13,40 @@
   --font-hand: 'Caveat', 'Bradley Hand', cursive;   /* hand-drawn captions */
   --font-body: 'Georgia', 'Times New Roman', serif;  /* warm serif body */
 
-  /* Spacing + motion */
-  --space: 16px;
+  /* Type scale — a real hierarchy instead of one 20px size everywhere. Every screen's headline
+     uses --text-display, body copy uses --text-body, small print uses --text-caption. The hand
+     font gets its own scale since Caveat reads ~25% smaller than its font-size at a given px. */
+  --text-display: 32px;  /* the one big line per screen — landing's cta, reveal's title */
+  --text-title:   22px;  /* a screen's question/prompt */
+  --text-body:    16px;  /* paragraphs, form fields */
+  --text-caption: 13px;  /* fine print, hints */
+  --text-hand-lg: 30px;  /* Caveat, hero scale */
+  --text-hand:    22px;  /* Caveat, standard */
+
+  /* Spacing scale — 4/8/12/16/24/32/48/64, referenced instead of ad hoc numbers. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space: 16px;  /* kept: PhoneFrame/PaperBackground padding still reference this */
   --radius: 20px;
-  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Motion scale. One easing identity for the whole app. Spring-driven transitions that CSS
+     can't express (page turns, card travel) live in src/styles/motion.ts on top of these. */
+  --dur-press:  200ms;  /* a finger on paper */
+  --dur-screen: 400ms;  /* a step change */
+  --dur-dry:   1800ms;  /* ink settling */
+
+  --ease-soft:  cubic-bezier(0.22, 1, 0.36, 1);   /* fast then very slow — a settle */
+  --ease-press: cubic-bezier(0.3, 0, 0.2, 1);     /* fast in, no overshoot — paper doesn't rebound */
+
+  /* Ink + paper physics, consumed by src/webgl/*. Kept here so the WebGL layer never invents a
+     number CSS doesn't also know about. */
+  --grain-angle: 12deg;      /* the paper's machine direction; ink wicks along this axis */
+  --ink-sigma: 2.6;          /* Beer-Lambert absorption coefficient for --ink over --paper */
+  --light-elevation: 14deg;  /* the one raking key light. No environment map, no second light. */
 }

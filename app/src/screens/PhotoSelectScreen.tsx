@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { copy } from '../content/copy';
 import { sampleGallery } from '../content/sampleGallery';
+import { TornPhoto } from '../components/TornPhoto';
 import { useFlow } from '../flow/FlowProvider';
 import { useSession } from '../session/SessionProvider';
 
@@ -15,23 +16,32 @@ export function PhotoSelectScreen() {
   const done = () => { update({ photos: picked }); advance(); };
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 20, gap: 14 }}>
-      <p style={{ fontSize: 20 }}>{copy.photos.title}</p>
-      <p style={{ fontSize: 14, color: 'var(--ink-soft)' }}>{copy.photos.hint}</p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, overflowY: 'auto', flex: 1 }}>
+    <div className="sheet" style={{ padding: '32px 22px 20px' }}>
+      <span className="sheet__spine">03 — the proof</span>
+
+      <p className="headline" style={{ fontSize: 'clamp(24px, 7vw, 32px)' }}>{copy.photos.title}</p>
+      <p className="kicker">{copy.photos.hint}</p>
+
+      <div className="mosaic" style={{ flex: 1, overflowY: 'auto', marginTop: 'var(--space-4)', paddingBottom: 4 }}>
         {sampleGallery.map((ph) => {
           const on = picked.includes(ph.id);
           return (
-            <button key={ph.id} onClick={() => toggle(ph.id)}
-              style={{ position: 'relative', aspectRatio: '1', borderRadius: 12, overflow: 'hidden', outline: on ? '3px solid var(--accent)' : 'none' }}>
-              <img src={ph.url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: on ? 1 : 0.85 }} />
-              {on && <span style={{ position: 'absolute', top: 6, right: 6, background: 'var(--accent)', color: '#fff', borderRadius: '50%', width: 22, height: 22, display: 'grid', placeItems: 'center', fontSize: 13 }}>✓</span>}
+            <button key={ph.id} onClick={() => toggle(ph.id)} style={{ position: 'relative' }} aria-pressed={on}>
+              <TornPhoto src={ph.url} alt="" seed={ph.id} width="100%" height="100%"
+                style={{ opacity: on ? 1 : 0.8, transition: 'opacity 0.2s' }} />
+              {on && (
+                <svg viewBox="0 0 100 100" style={{ position: 'absolute', inset: -6, pointerEvents: 'none' }}>
+                  <path d="M 50 8 C 78 9, 92 28, 90 50 C 92 74, 72 92, 48 91 C 22 90, 8 72, 9 49 C 7 24, 25 7, 50 8 Z"
+                    fill="none" stroke="var(--accent)" strokeWidth="3" strokeLinecap="round" opacity={0.85} />
+                </svg>
+              )}
             </button>
           );
         })}
       </div>
+
       <button disabled={picked.length === 0} onClick={done}
-        style={{ padding: 14, borderRadius: 14, background: picked.length ? 'var(--ink)' : 'var(--hairline)', color: 'var(--paper)', fontSize: 16 }}>
+        className={`stamp stamp--block ${picked.length ? 'stamp--solid' : ''}`} style={{ marginTop: 'var(--space-4)' }}>
         {copy.photos.done} {picked.length ? `(${picked.length})` : ''}
       </button>
     </div>
