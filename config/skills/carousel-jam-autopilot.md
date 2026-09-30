@@ -41,6 +41,11 @@ creator corrections, and reference availability in `creative-context.json`.
 
 ## Gate 2 — Copy + Format
 
+For multi-slide copy, including working drafts and revisions in chat, apply
+`Copy Delivery Review` in the storytelling hook's `references/story-engine.md`.
+Instruction compliance and editorial quality are separate checks. A chat draft
+needs no production package or image generation merely to undergo this review.
+
 Lock exact on-image text and the requested native canvas set together:
 
 - 1080x1440 `instagram_post` is the no-canvas default;
