@@ -1,0 +1,284 @@
+{
+  "schema_version": "non-ai-image-regression/v1",
+  "purpose": "Finite calibration fixtures for reviewer behavior. This manifest does not certify image quality, production readiness, creator approval, or automated vision.",
+  "path_contract": "Every asset path is relative to the repository root. A runner may use a fixture only when its current SHA-256 matches asset_sha256. A missing or changed asset is unavailable, never silently replaced.",
+  "phone_correction_scope": {
+    "source_feedback_id": "fb-91de14e6a6d588b9",
+    "supersedes_feedback_id": "fb-e772e96d6c4c18ba",
+    "exact_creator_correction": "wrong understanding; I was only taking about the phone screen being on back side making the image ai generated",
+    "required_decision": "Reject only a phone that fuses front-display/UI and rear-camera properties on one visible face.",
+    "must_not_infer": "No new restriction on photographic treatment or phone UI follows from this correction."
+  },
+  "partitions": {
+    "frozen_calibration": "All listed image fixtures informed this skill. They may guide repair and must not be represented as fresh holdout evidence.",
+    "fresh_holdout": "Use newly collected creator-labeled assets after each material generator, prompt, reference, rule, reviewer, or procedure change. Keep both image and repair lineage absent from frozen calibration. Once a holdout informs a repair, move it to a later calibration version and collect a different holdout."
+  },
+  "measurement": {
+    "known_defect_miss_rate": "known-defect fixtures passed by the reviewer / known-defect fixtures reviewed",
+    "counterexample_false_rejection_rate": "narrow counterexample fixtures blocked by the reviewer / narrow counterexample fixtures reviewed",
+    "review_coverage": "available required fixtures reviewed / required fixtures",
+    "critical_initial_target": "zero observed critical false passes and zero observed false rejections on available designated counterexamples; report sample size, unavailable fixtures, and uncertainty"
+  },
+  "families": [
+    {
+      "id": "phone_face_orientation",
+      "risk": "A display/UI and rear camera lenses occupy one physical phone face.",
+      "required_checks": ["object face", "camera/display separation", "finger and eye-line use geometry"],
+      "fixtures": [
+        {
+          "id": "phone-rear-display-defect",
+          "partition": "frozen_calibration",
+          "label": "known_defect",
+          "fixture_status": "archive_required",
+          "asset_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his/continuity-repair-final/slide-02.png",
+          "asset_sha256": "sha256:ec5bdb2209d925c7ce52f602e3d792e27416b6084acf223d3450c6d216e97f70",
+          "dimensions": [1080, 1440],
+          "expected_decision": "REJECT",
+          "assertions": ["rear camera lenses and shopping display share one visible phone face"],
+          "scope_limit": "Object-construction label only; do not infer a general style failure from this fixture.",
+          "evidence": "2026-09-30 creator correction fb-91de14e6a6d588b9"
+        },
+        {
+          "id": "phone-front-display-counterexample",
+          "partition": "frozen_calibration",
+          "label": "narrow_counterexample",
+          "fixture_status": "archive_required",
+          "asset_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his/continuity-repair-final/slide-02-phone-fixed.png",
+          "asset_sha256": "sha256:f97255d6be1ae04d88f464811826dac6ac4d8d506b4a8aaec49daf9930e3f44e",
+          "dimensions": [1080, 1440],
+          "expected_decision": "DO_NOT_REJECT_FOR_PHONE_FACE_ORIENTATION",
+          "assertions": ["the displayed front face no longer contains the rear camera cluster"],
+          "scope_limit": "Only counterexample for the named phone-face defect; it is not final-package or creator approval.",
+          "evidence": "2026-09-30 image evidence manifest"
+        }
+      ]
+    },
+    {
+      "id": "contact_ownership_target",
+      "risk": "A plausible hand count hides wrong owner, side, target region, or contact geometry.",
+      "required_checks": ["owner", "anatomical side", "arm-wrist continuity", "target and target region", "solid-object intersection"],
+      "fixtures": [
+        {
+          "id": "aircraft-upper-sleeve-contact",
+          "partition": "frozen_calibration",
+          "label": "known_defect",
+          "fixture_status": "archive_required",
+          "asset_path": "output/carousels/2026-09-04/i-have-lived-so-many-years-without-you/.internal/visual-quarantine/superseded/4b94d7c576a73bbe4f1a/.internal/visual-quarantine/slide-06/attempt-01/instagram_post.png",
+          "asset_sha256": "sha256:e4c6d9a31de25351fb66d2849ea5ac43713945b32363b15beae5347b574071b1",
+          "dimensions": [1080, 1440],
+          "expected_decision": "REJECT",
+          "assertions": ["visible contact lands near Aachu's upper sleeve rather than the locked forearm target"],
+          "scope_limit": "Recorded QA supplies the planned target; this fixture does not certify laterality or identity beyond the named contact defect.",
+          "evidence": "recorded aircraft proof QA and 2026-09-30 image evidence manifest"
+        },
+        {
+          "id": "box-support-repair-counterexample",
+          "partition": "frozen_calibration",
+          "label": "narrow_counterexample",
+          "fixture_status": "available",
+          "asset_path": "output/repairs/2026-07-20/still-choosing-still-learning/final/still-choosing-hand-box-fixed-1080x1440.png",
+          "asset_sha256": "sha256:359bc5a6c2c312b44934ab8705fa7781a3f52215af8b03bf5aa902942a65a883",
+          "dimensions": [1080, 1440],
+          "expected_decision": "DO_NOT_REJECT_FOR_BOX_HAND_INTERSECTION",
+          "assertions": ["the foreground man's right hand supports the moving box from below with an intact forearm-to-wrist chain"],
+          "scope_limit": "The local repair QA leaves identity unverified and publishable false; this is not a complete PASS fixture.",
+          "evidence": "output/repairs/2026-07-20/still-choosing-still-learning/visual-qa.json"
+        }
+      ]
+    },
+    {
+      "id": "body_object_topology",
+      "risk": "A body crosses, merges with, or lacks a traceable continuation around a solid object.",
+      "required_checks": ["whole silhouette", "architecture boundary", "depth order", "allowed contact", "unresolved region"],
+      "fixtures": [
+        {
+          "id": "doorway-body-merge-source",
+          "partition": "frozen_calibration",
+          "label": "known_defect",
+          "fixture_status": "available",
+          "asset_path": "output/repairs/2026-07-20/doorway-disembodied-hand/source/screenshot-original.png",
+          "asset_sha256": "sha256:eb62b7051de3da8564a96af3f12f34eb19f87e3d53c67b8208a8d141512b862f",
+          "dimensions": [1184, 1492],
+          "expected_decision": "REJECT",
+          "assertions": ["historical creator report identifies Zuv shoulder, back, shirt, and torso as merged into the door and doorframe"],
+          "scope_limit": "Historical correction establishes the named failure; inspect present pixels without inventing a more specific cause.",
+          "evidence": "memory/semantic/fail-closed-visual-qa.md"
+        },
+        {
+          "id": "doorway-extra-hand-repair-counterexample",
+          "partition": "frozen_calibration",
+          "label": "narrow_counterexample",
+          "fixture_status": "available",
+          "asset_path": "output/repairs/2026-07-20/doorway-disembodied-hand/final/slide-08-hand-removed-1080x1440.png",
+          "asset_sha256": "sha256:0a79e0dae8cf33a34be34785e119c2d75f323f446393c91cf11353246fa17721",
+          "dimensions": [1080, 1440],
+          "expected_decision": "DO_NOT_REJECT_FOR_UNEXPECTED_DOOR_HAND",
+          "assertions": ["the documented unexpected hand entering from the door edge is absent"],
+          "scope_limit": "The local repair QA leaves identity unverified and publishable false; it does not disprove other topology defects.",
+          "evidence": "output/repairs/2026-07-20/doorway-disembodied-hand/visual-qa.json"
+        }
+      ]
+    },
+    {
+      "id": "adult_scale_pose",
+      "risk": "Camera and blocking compress adult proportions or create an awkward unsupported pose.",
+      "required_checks": ["adult scale anchors", "support", "posture", "standing two-shot height relation when visible"],
+      "fixtures": [
+        {
+          "id": "parcel-compressed-doorway",
+          "partition": "frozen_calibration",
+          "label": "known_defect",
+          "fixture_status": "archive_required",
+          "asset_path": "output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him/.internal/visual-quarantine/slide-04/attempt-01/instagram_post.png",
+          "asset_sha256": "sha256:008bb320a8537a49c18878096fecce7590a74d4444679692faa29fa4dd603650",
+          "dimensions": [1080, 1440],
+          "expected_decision": "REJECT",
+          "assertions": ["both people bend in a tight doorway composition, creating the recorded compressed-scale concern"],
+          "scope_limit": "This is staging evidence, not a measured anatomy ratio.",
+          "evidence": "2026-09-30 image evidence manifest"
+        },
+        {
+          "id": "parcel-upright-scale-counterexample",
+          "partition": "frozen_calibration",
+          "label": "narrow_counterexample",
+          "fixture_status": "archive_required",
+          "asset_path": "output/carousels/2026-09-26/marriage-is-when-her-parcel-calls-him/.internal/visual-quarantine/slide-04/attempt-02/instagram_post.png",
+          "asset_sha256": "sha256:9014d6b25b75fc92ebcc15c6dddb9bac4bec1a29d570f6da1bad3a10ff1495b1",
+          "dimensions": [1080, 1440],
+          "expected_decision": "DO_NOT_REJECT_FOR_COMPRESSED_ADULT_SCALE",
+          "assertions": ["upright figures, legs, shoes, floor, doorframe, and parcel supply adult-scale anchors"],
+          "scope_limit": "Only a scale/staging counterexample; historical QA cannot approve current bytes without a fresh matching inspection.",
+          "evidence": "2026-09-30 image evidence manifest"
+        }
+      ]
+    },
+    {
+      "id": "room_geometry_prop_support",
+      "risk": "Threshold, floor support, room geography, or required prop state contradicts the scene.",
+      "required_checks": ["threshold side", "floor/furniture support", "door state", "authorized props"],
+      "fixtures": [],
+      "coverage_status": "missing_fixture",
+      "collection_rule": "Add a hash-bound creator-labeled rejected asset and a narrow counterexample after the current local correction scope is confirmed."
+    },
+    {
+      "id": "identity_visible_view",
+      "risk": "Visible face, hair, body proportion, posture, or wardrobe drifts from named actual references.",
+      "required_checks": ["named actual references", "visible face/hair/proportion evidence", "no generated-reference substitution"],
+      "fixtures": [],
+      "coverage_status": "missing_fixture",
+      "collection_rule": "Collect a creator-labeled visible-view identity defect; do not use private identity source photos as regression fixtures."
+    },
+    {
+      "id": "accessory_side_visibility",
+      "risk": "A visible locket or right-wrist bracelet is missing, moved, or replaced.",
+      "required_checks": ["wearer", "anatomical side/location", "credible hidden state"],
+      "fixtures": [],
+      "coverage_status": "missing_fixture",
+      "collection_rule": "Add one rejected visible-side failure and one occluded-accessory counterexample; neither may expose identity source media."
+    },
+    {
+      "id": "sequence_continuity",
+      "risk": "Wardrobe, accessory, location, object owner, or parcel state changes without a visible transition.",
+      "required_checks": ["adjacent-slide comparison", "state table", "established time change"],
+      "fixtures": [],
+      "coverage_status": "missing_fixture",
+      "collection_rule": "Collect a deck-relative fixture pair with distinct asset hashes and a creator-labeled continuity defect."
+    },
+    {
+      "id": "gaze_gesture_event",
+      "risk": "Gaze or posture changes the intended actor, target, or relationship event.",
+      "required_checks": ["blind silent read", "eye-line", "gesture target", "event consequence"],
+      "fixtures": [],
+      "coverage_status": "missing_fixture",
+      "collection_rule": "Collect a current rendered fixture rather than deriving a label solely from a prompt or scene plan."
+    },
+    {
+      "id": "copy_chronology_contradiction",
+      "risk": "Visible state conflicts with exact copy or temporal sequence.",
+      "required_checks": ["exact copy", "before/after state", "direction", "shared versus solo action"],
+      "fixtures": [
+        {
+          "id": "socks-after-pants",
+          "partition": "frozen_calibration",
+          "label": "known_defect",
+          "fixture_status": "available",
+          "asset_path": "output/illustrations/2026-05-30/observational-intimacy-premium/rejected/rejected-old-slide-03-pants-mismatch.png",
+          "asset_sha256": "sha256:b4067cd5132ebc5db297e685e63bfab06a0cba95ffed1c771fabf229e0f86edf",
+          "dimensions": [977, 1610],
+          "expected_decision": "REJECT",
+          "assertions": ["copy says socks before pants while trousers are visibly already worn"],
+          "scope_limit": "Historical canvas is evidence of semantic contradiction, not a current native-format precedent.",
+          "evidence": "config/rules/on-image-text.md and 2026-09-30 image evidence manifest"
+        }
+      ]
+    },
+    {
+      "id": "visual_event_legibility",
+      "risk": "A polished scene does not show the pressure, joke, conflict, turn, or payoff promised by the copy.",
+      "required_checks": ["blind silent read", "physical pressure/change", "relationship state"],
+      "fixtures": [
+        {
+          "id": "sofa-insufficient-pressure",
+          "partition": "frozen_calibration",
+          "label": "known_defect",
+          "fixture_status": "archive_required",
+          "asset_path": "output/carousels/2026-09-12/we-needed-a-bigger-sofa-5/.internal/visual-quarantine/slide-04/attempt-01/instagram_post.png",
+          "asset_sha256": "sha256:77f4540a9ca9967f0ace83b90b3efe6b9b1e61da7658d7793982a20ed1878c98",
+          "dimensions": [1080, 1440],
+          "expected_decision": "REJECT",
+          "assertions": ["the intended squeezed-cushion pressure is too weak to carry the joke"],
+          "scope_limit": "This is a qualitative story-label fixture; it does not infer a craft failure outside the stated visual event.",
+          "evidence": "recorded sofa proof QA and 2026-09-30 image evidence manifest"
+        }
+      ]
+    },
+    {
+      "id": "sequence_variety",
+      "risk": "Repeated framing, action, or setting adds no new story information.",
+      "required_checks": ["visual sentence per slide", "changed evidence", "purpose of any repeated frame"],
+      "fixtures": [],
+      "coverage_status": "missing_fixture",
+      "collection_rule": "Collect both a rejected repetitive sequence and a counterexample whose repeated framing has an explicit changed state."
+    },
+    {
+      "id": "house_finish",
+      "risk": "Yellow/parchment paper, photo-plus-filter hybrid treatment, or generic glossy rendering makes the image read as synthetic.",
+      "required_checks": ["active style board", "paper tone", "line/pigment treatment", "integrated illustration"],
+      "fixtures": [
+        {
+          "id": "active-style-board-counterexample",
+          "partition": "frozen_calibration",
+          "label": "narrow_counterexample",
+          "fixture_status": "available",
+          "asset_path": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+          "asset_sha256": "sha256:3fdc6819a2ae3707473e7006a77ad9fd95b846c8ce61aeb2e5724d4ec2ee7b05",
+          "dimensions": [976, 888],
+          "expected_decision": "DO_NOT_REJECT_FOR_YELLOW_PAPER_OR_GENERIC_FINISH",
+          "assertions": ["the current canonical board supplies the approved watercolor-and-ink reference treatment"],
+          "scope_limit": "Style-reference scope only; it does not certify anatomy, copy, or production approval for every frame shown.",
+          "evidence": "config/rules/palette.md"
+        }
+      ]
+    },
+    {
+      "id": "text_signature_canvas",
+      "risk": "Exact copy, signature, requested native canvas, or no-extra-text rule fails.",
+      "required_checks": ["exact text", "line breaks", "top-right signature", "incidental lettering", "per-format dimensions"],
+      "fixtures": [
+        {
+          "id": "parcel-incidental-lettering",
+          "partition": "frozen_calibration",
+          "label": "known_defect",
+          "fixture_status": "archive_required",
+          "asset_path": "output/carousels/2026-09-26/the-parcel-was-hers-the-otp-was-his/.internal/visual-quarantine/superseded/89e50abaec82fab89ee3/.internal/visual-quarantine/slide-04/attempt-01/instagram_post.png",
+          "asset_sha256": "sha256:61ad8ba460e508126c5f36ddcb60521ca0028dfbd372c7cbf87cd57498dc2010",
+          "dimensions": [1080, 1440],
+          "expected_decision": "REJECT",
+          "assertions": ["extra lettering appears on wall art, shirt, courier clothing/cap, and parcel label"],
+          "scope_limit": "Exact glyph transcription is not claimed; the labeled fault is incidental text beyond copy and signature.",
+          "evidence": "2026-09-30 image evidence manifest"
+        }
+      ]
+    }
+  ]
+}

@@ -111,7 +111,16 @@ RECURRING PROPS
 ANATOMY AND POSE RULES
 - Natural hands and fingers; correct count; clean facial anatomy.
 - No distorted eyes, warped smiles, broken wrists, extra limbs, duplicated body parts, melted accessories.
-- Aachu and Zuv must look natural, flattering, and physically believable. No crouched, cramped, squatting, awkwardly folded, broken, or unflattering poses. Legs and feet must be proportional and comfortably placed.
+- Aachu and Zuv must look natural, flattering, and physically believable. No
+  deep crouched, cramped, squatting, awkwardly folded, broken, or
+  unflattering poses. Legs and feet must be proportional and comfortably
+  placed.
+- A motivated kneeling pose is permitted only when the locked physical action
+  requires floor-level work and the scene contract records the knee, foot, and
+  floor support, readable adult-scale body proportions, and the actor's exact
+  task. It does not permit a deep crouch, compacted limbs, hidden support, or a
+  dwarf-like reading. A kneeling exception does not relax any anatomy, entity,
+  contact, spatial-topology, or identity failure.
 
 HARD FAIL — regenerate, do not accept
 - faces drift between slides
@@ -123,7 +132,8 @@ HARD FAIL — regenerate, do not accept
 - wardrobe chosen from a static menu instead of attached identity/current
   identity photos
 - height proportions wrong (Aachu reads tiny or Zuv reads oversized)
-- crouched / cramped / unflattering poses
+- deep crouched, cramped, squatting, awkwardly folded, broken, or unflattering poses
+- a kneeling pose without a locked floor action, readable support, and adult-scale body proportions
 - distorted hands, extra fingers, broken wrists, warped facial features
 - Zuv's visible neck/open collar is missing or changes the evil-eye locket and silver chain
 - Aachu's visible right wrist/forearm is missing, relocates, or changes her evil-eye bracelet

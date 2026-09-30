@@ -20,9 +20,9 @@ from pipeline.stages.carousel_format_contract import (
 from pipeline.stages.carousel_prompt_compiler import compile_image_prompt, extract_scene_summary
 
 
-INPUT_SCHEMA_VERSION = "carousel-generation-inputs/v2"
+INPUT_SCHEMA_VERSION = "carousel-generation-inputs/v3"
 REFERENCE_BINDING_SCHEMA_VERSION = "carousel-reference-bindings/v1"
-PROMPT_COMPILER_VERSION = "carousel-prompt-compiler/v3"
+PROMPT_COMPILER_VERSION = "carousel-prompt-compiler/v4"
 BRAND_CONTRACT_VERSION = "a-story-brand/v1"
 
 SLIDE_SOURCE_FIELDS = (
@@ -44,6 +44,7 @@ SLIDE_SOURCE_FIELDS = (
     "emotion",
     "continuity_lock",
     "negative_prompt",
+    "scene_contract",
 )
 
 
@@ -298,6 +299,7 @@ def _compiled_prompt_fingerprint(
             props=effective["props"],
             background=effective["background"],
             emotion=effective["emotion"],
+            scene_contract=slide.get("scene_contract"),
         ).encode("utf-8")
         prompt_bytes.append(
             {

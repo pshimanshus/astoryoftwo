@@ -176,6 +176,7 @@ def _minimal_slide(slide: dict[str, Any]) -> dict[str, Any]:
         "continuity_lock",
         "negative_prompt",
         "needs_physical_action",
+        "scene_contract",
     )
     result = {key: slide[key] for key in keep if key in slide and slide[key] not in (None, "", [])}
     if not isinstance(result.get("slide"), int):
@@ -205,6 +206,8 @@ def _minimal_prompt_pack(prompt_pack: dict[str, Any], slides: list[dict[str, Any
             "scene": str(prompt.get("scene") or prompt.get("visual") or ""),
             "prompt": str(prompt.get("prompt") or ""),
         }
+        if prompt.get("scene_contract") is not None:
+            record["scene_contract"] = deepcopy(prompt["scene_contract"])
         minimal_prompts.append(record)
     return {
         "schema_version": "carousel-prompt-pack/v2",
