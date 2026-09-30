@@ -64,6 +64,13 @@ EXPECTED_SKILLS = {
         "before -> pressure or choice -> after",
         "$a-story-carousel-jam",
     ],
+    "non-ai-image-skill": [
+        "references/issue-controls.md",
+        "references/reviewer-procedure.md",
+        "references/regression-manifest.json",
+        "$a-story-direct-visual-story",
+        "config/rules/",
+    ],
 }
 
 
@@ -123,6 +130,7 @@ def test_repo_codex_skills_are_registered_with_invocation_policy():
     assert repo_records["a-story-carousel-jam"].implicit_invocation is True
     assert repo_records["a-story-imagegen-maintenance"].implicit_invocation is True
     assert repo_records["a-story-storytelling-hook"].implicit_invocation is True
+    assert repo_records["non-ai-image-skill"].implicit_invocation is True
     assert "carousel-jam-runtime-context" in repo_records["a-story-carousel-jam"].dependencies
     assert "creator-skill-stack" in repo_records["a-story-storytelling-hook"].dependencies
 

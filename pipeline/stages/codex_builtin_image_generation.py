@@ -338,6 +338,7 @@ def generator_prompt_text(slide_prompt: dict[str, Any], output_format: str) -> s
         visual_richness=slide_prompt.get("visual_richness"),
         feedback_constraints=slide_prompt.get("feedback_constraints"),
         image_operation=slide_prompt.get("image_operation"),
+        scene_contract=slide_prompt.get("scene_contract"),
     )
 
 
@@ -380,6 +381,7 @@ def _current_compiled_prompt(carousel_dir: Path, number: int, output_format: str
         "spatial_topology": effective["spatial_topology"],
         "visual_richness": effective["visual_richness"],
         "feedback_constraints": active_feedback_constraints(carousel_dir, number),
+        "scene_contract": effective["scene_contract"],
     }
     prompt = generator_prompt_text(source, output_format)
     style_issue = house_style_consistency_gate_reason(
@@ -829,11 +831,13 @@ def _proof_qa_validation_issues(
 ) -> list[str]:
     try:
         from pipeline.stages.carousel_pixel_qa import validate_proof_qa
+        from pipeline.stages.carousel_scene_contracts import expected_pixel_qa_contracts
 
         return validate_proof_qa(
             carousel_dir,
             qa,
             expected_asset_bindings=[candidate],
+            expected_scene_contracts=expected_pixel_qa_contracts(_slides(carousel_dir)),
         )
     except ImportError:
         return ["carousel pixel QA validator is unavailable"]
@@ -2262,20 +2266,37 @@ def _bind_and_validate_qa(
 ) -> tuple[dict[str, Any], list[str]]:
     authored = load_json(qa_path)
     try:
+        from pipeline.stages.carousel_scene_contracts import expected_pixel_qa_contracts
+
+        expected_scene_contracts = expected_pixel_qa_contracts(_slides(carousel_dir))
         if proof:
             from pipeline.stages.carousel_pixel_qa import bind_proof_qa, validate_proof_qa
 
-            bound = bind_proof_qa(carousel_dir, authored, candidates)
-            issues = validate_proof_qa(carousel_dir, bound)
+            bound = bind_proof_qa(
+                carousel_dir,
+                authored,
+                candidates,
+                expected_scene_contracts=expected_scene_contracts,
+            )
+            issues = validate_proof_qa(
+                carousel_dir,
+                bound,
+                expected_scene_contracts=expected_scene_contracts,
+            )
         else:
             from pipeline.stages.carousel_pixel_qa import bind_final_qa, validate_final_qa
 
             manifest = load_json(carousel_dir / FINAL_MANIFEST_CANDIDATE)
-            bound = bind_final_qa(authored, manifest)
+            bound = bind_final_qa(
+                authored,
+                manifest,
+                expected_scene_contracts=expected_scene_contracts,
+            )
             issues = validate_final_qa(
                 carousel_dir / FINAL_AUDIT_CANDIDATE_FOLDER,
                 bound,
                 manifest,
+                expected_scene_contracts=expected_scene_contracts,
             )
     except ValueError as exc:
         bound = authored
@@ -2531,11 +2552,13 @@ def finalize_codex_builtin_outputs(carousel_dir: Path) -> dict[str, Any]:
     qa = load_json(qa_path)
     try:
         from pipeline.stages.carousel_pixel_qa import validate_final_qa
+        from pipeline.stages.carousel_scene_contracts import expected_pixel_qa_contracts
 
         qa_issues = validate_final_qa(
             carousel_dir / FINAL_AUDIT_CANDIDATE_FOLDER,
             qa,
             manifest,
+            expected_scene_contracts=expected_pixel_qa_contracts(_slides(carousel_dir)),
         )
     except ImportError:
         qa_issues = ["carousel pixel QA validator is unavailable"]

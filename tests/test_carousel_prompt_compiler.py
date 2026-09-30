@@ -16,10 +16,12 @@ from pipeline.stages.carousel_prompt_compiler import (
     MAX_NEGATIVE_WORDS,
     MAX_PROMPT_CHARS,
     MAX_PROMPT_WORDS,
+    MAX_SCENE_CONTRACT_WORDS,
     MAX_SCENE_WORDS,
     compile_image_prompt,
     extract_scene_summary,
 )
+from pipeline.stages.carousel_visual_integrity import build_pre_generation_scene_contract
 from pipeline.stages.codex_builtin_image_generation import generator_prompt_text
 
 
@@ -93,6 +95,90 @@ def _compile(**overrides: object) -> str:
     }
     values.update(overrides)
     return compile_image_prompt(**values)  # type: ignore[arg-type]
+
+
+def _compile_scene(**overrides: object) -> str:
+    values = dict(overrides)
+    values.setdefault("visual", "Aachu and Zuv pull one folded paper map in opposite directions.")
+    values.setdefault("slide_copy", "Even then, we found our way.")
+    visual = str(values["visual"])
+    copy = str(values["slide_copy"])
+    transition = None
+    if any(
+        token in f"{visual} {copy}".casefold()
+        for token in ("before ", "after ", "turns back", "went back", "returned")
+    ):
+        transition = {
+            "from_phase": "before departure",
+            "to_phase": "shared action at the threshold",
+            "from_location": "entryway",
+            "to_location": "closed exterior door",
+            "transition": "Aachu turns back to rejoin Zuv",
+            "visible_evidence": ["her reversed body direction", "both hands at the same handle"],
+            "focal_moment": "the shared checking action",
+        }
+    values.setdefault(
+        "scene_contract",
+        build_pre_generation_scene_contract(
+            visual,
+            copy,
+            hand_map={
+                "people": ["Aachu", "Zuv"],
+                "expected_visible_hands": 2,
+                "hands": [
+                    {
+                        "owner": "Aachu",
+                        "side": "right",
+                        "visibility": "focal_action",
+                        "action": "pull",
+                        "target": "the folded paper map's left edge",
+                        "contact": "fingers curl around the left map edge",
+                        "contact_target": {"object": "folded paper map", "region": "left edge"},
+                        "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand",
+                    },
+                    {
+                        "owner": "Zuv",
+                        "side": "left",
+                        "visibility": "focal_action",
+                        "action": "pull",
+                        "target": "the folded paper map's right edge",
+                        "contact": "fingers curl around the right map edge",
+                        "contact_target": {"object": "folded paper map", "region": "right edge"},
+                        "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand",
+                    },
+                    *[
+                        {
+                            "owner": owner,
+                            "side": side,
+                            "visibility": "out_of_frame",
+                            "action": "stays outside the crop",
+                            "attachment": "continuous shoulder-to-arm-to-wrist-to-hand",
+                            "contact": "none",
+                        }
+                        for owner, side in (("Aachu", "left"), ("Zuv", "right"))
+                    ],
+                ],
+            },
+            transition=transition,
+            accessories=[
+                {
+                    "owner": "Aachu",
+                    "item": "evil-eye bracelet",
+                    "worn": True,
+                    "visibility": "visible",
+                    "placement": "right wrist",
+                },
+                {
+                    "owner": "Zuv",
+                    "item": "small round evil-eye locket on a slim silver chain",
+                    "worn": True,
+                    "visibility": "occluded",
+                    "occlusion_reason": "his closed collar covers it",
+                },
+            ],
+        ),
+    )
+    return _compile(**values)
 
 
 def _edit_operation(format_key: str = "instagram_post") -> dict[str, object]:
@@ -311,6 +397,24 @@ def test_slide_specific_limb_plan_is_serialized_without_validator_essay_noise():
 
     assert "LIMB AND HAND PLAN:" in prompt
     assert "WHOLE-PERSON AND OBJECT TOPOLOGY:" in prompt
+    assert "owner -> arm -> wrist -> hand -> contacted object" in prompt
+
+
+def test_generation_prompt_serializes_compact_locked_scene_contract_only():
+    prompt = _compile_scene()
+
+    assert "LOCKED SCENE CONTRACT:" in prompt
+    assert "Aachu right: focal_action; pull" in prompt
+    assert "Target=the folded paper map's left edge" in prompt
+    assert "Contact region=folded paper map:left edge" in prompt
+    assert "Accessory — Aachu: evil-eye bracelet; worn; visible; right wrist." in prompt
+    assert "WHOLE-PERSON AND OBJECT TOPOLOGY:" in prompt
+    assert "Visible story evidence:" in prompt
+    assert "Never place UI, map, text, or controls on a phone's rear-camera/back face" in prompt
+    contract = _section(prompt, "SCENE:", "CINEMATIC STORY FRAME:").split(
+        "LOCKED SCENE CONTRACT:", 1
+    )[1]
+    assert len(contract.split()) <= MAX_SCENE_CONTRACT_WORDS
     for removed in (
         "HAND OWNERSHIP MAP (HARD GATE)",
         "ACTION CHRONOLOGY AND DOOR-SIDE CONTRACT (HARD GATE)",
@@ -335,6 +439,63 @@ def test_compile_image_prompt_still_blocks_contradictory_action_topology():
                 "Aachu tugs the interior handle herself while Zuv watches and smiles."
             ),
         )
+
+
+def test_compile_image_prompt_fails_closed_for_an_unplanned_story_critical_phone() -> None:
+    with pytest.raises(ValueError, match="story-critical device plan has no device record"):
+        _compile_scene(
+            visual="Aachu and Zuv study a phone map together before leaving their apartment."
+        )
+
+
+def test_compile_image_prompt_rejects_a_stale_explicit_scene_contract() -> None:
+    contract = build_pre_generation_scene_contract(
+        "Aachu and Zuv pull one folded paper map in opposite directions.",
+        "I was never unsure of you.\nI was lost inside our life.",
+        hand_map={
+            "people": ["Aachu", "Zuv"],
+            "hands": [
+                {
+                    "owner": "Aachu",
+                    "side": "right",
+                    "visibility": "focal_action",
+                    "action": "pull",
+                    "target": "the map's left edge",
+                    "contact_target": {"object": "map", "region": "left edge"},
+                    "attachment": "continuous right arm",
+                },
+                {
+                    "owner": "Zuv",
+                    "side": "left",
+                    "visibility": "focal_action",
+                    "action": "pull",
+                    "target": "the map's right edge",
+                    "contact_target": {"object": "map", "region": "right edge"},
+                    "attachment": "continuous left arm",
+                },
+            ],
+        },
+        accessories=[
+            {
+                "owner": "Aachu",
+                "item": "evil-eye bracelet",
+                "worn": True,
+                "visibility": "visible",
+                "placement": "right wrist",
+            },
+            {
+                "owner": "Zuv",
+                "item": "small round evil-eye locket on a slim silver chain",
+                "worn": True,
+                "visibility": "occluded",
+                "occlusion_reason": "closed collar",
+            },
+        ],
+    )
+    contract["scene_action_binding"] = "Aachu and Zuv sit silently on the sofa."
+
+    with pytest.raises(ValueError, match="scene_action_binding does not match the compiled scene"):
+        _compile_scene(scene_contract=contract)
 
 
 def test_verbose_inputs_are_deduplicated_and_compacted_to_field_budgets():
@@ -540,3 +701,24 @@ def test_cinematic_direction_and_style_are_compiled_exactly_once() -> None:
 def test_missing_cinematic_direction_blocks_before_prompt_compilation() -> None:
     with pytest.raises(ValueError, match="Cinematic story direction is unresolved"):
         _compile(camera=None, setting=None, visual_richness=None)
+
+
+@pytest.mark.parametrize("field", ["hand_map", "spatial_topology"])
+def test_semantic_contract_rejects_a_conflicting_parallel_slide_plan(field: str) -> None:
+    with pytest.raises(ValueError, match=field + " does not match the compiled slide plan"):
+        _compile_scene(**{field: {"people": []}})
+
+
+def test_semantic_contract_and_image_edit_preserve_one_physical_plan() -> None:
+    prompt = _compile_scene(image_operation=_edit_operation())
+
+    assert prompt.startswith("EDIT INPUTS:")
+    assert "Edit image 1 into one image-led" in prompt
+    assert prompt.count("Target=the folded paper map's left edge") == 1
+    assert prompt.count("Contact region=folded paper map:left edge") == 1
+    assert prompt.count("LOCKED SCENE CONTRACT:") == 1
+    assert prompt.count("CINEMATIC STORY FRAME:") == 1
+    assert "Accessory — Aachu: evil-eye bracelet; worn; visible; right wrist." in prompt
+    assert "Never place UI, map, text, or controls on a phone's rear-camera/back face" in prompt
+    assert len(prompt) <= MAX_PROMPT_CHARS
+    assert len(prompt.split()) <= MAX_PROMPT_WORDS

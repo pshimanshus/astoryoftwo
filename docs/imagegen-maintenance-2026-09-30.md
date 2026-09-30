@@ -98,7 +98,9 @@ tool result did not identify a model or image-call ID, so neither was invented.
 Exact call arguments, hashes, input snapshots, blind fake calls and authored QA
 are preserved outside the repository at
 `/Users/himanshusharma/.codex/tmp/imagegen-maintenance-2026-09-30/`.
-Generated images and identity photographs are not committed.
+New live-smoke output images and isolated input copies are not committed.
+The pre-existing project identity/style reference assets are retained in the
+separate dependency snapshot commits.
 
 Six-input editing requires a runtime that accepts the full attachment list.
 The failed generation requires the new delivery event and viewpoint before
@@ -113,7 +115,37 @@ pre-existing source/evaluation dependencies and hash-bound calibration evidence;
 they are not new ImageGen implementation. The baseline source snapshot is
 `e49720b60b2518732cf6f42ad1f72b436ec12b73`.
 
-All 156 inventoried original source files still match their captured hashes.
+At implementation closeout, all 156 inventoried original source files matched
+their captured hashes. Other tasks have since continued work in that checkout;
+publication preserves those subsequent changes as well.
 The original checkout's uncommitted work and real carousel approval are
 untouched. The worktree's local `venv` symlink is interpreter setup only and is
 excluded from the implementation commit.
+
+## Publication integration
+
+Before publication, the task branch was merged with `origin/main` at
+`ab14d9b0`. Its copy/taste review and non-AI scene contracts were retained
+alongside ImageGen invocation and edit evidence. New QA stays on the current
+schema even for older packages without an explicit scene contract; archived
+legacy evidence remains readable. Scene plans and edit instructions share the
+same compiler without changing legacy prompt bytes or raising prompt limits.
+
+Known-negative evaluation metadata now lives only in the coordinator's grader
+file, separate from evaluator prompts. The creator's rejected proof remains
+failed; publishing this implementation grants no carousel approval.
+
+Full-repository pytest was attempted and stopped during collection: the active
+environment lacks FastAPI, backend test collection shadows the project
+`tests.helpers` package, and the captured baseline includes a token-budget test
+whose `build_stage_system_prompts` dependency is absent. These are separate
+from the focused ImageGen/carousel integration checks.
+
+Publication verification covered 417 focused regression cases. The combined run
+passed 416 while one newly authored final-QA fixture was still being corrected
+to use the actual hidden final-audit directory. After that fixture correction,
+all 47 pixel-QA and visual-checker cases passed on the final files, including
+the previously failing case. No production check was relaxed. Independent
+review caught the new-QA schema downgrade before publication. Wiki health,
+outgoing whitespace, scoped secret/risky-path checks, and installed patch
+hashes also passed. The original dirty checkout was not staged or committed.

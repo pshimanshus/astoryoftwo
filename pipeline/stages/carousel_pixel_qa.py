@@ -34,7 +34,14 @@ from pipeline.stages.carousel_visual_integrity import (
 )
 
 
+# Version three adds authored, scene-specific comparison records.  The checker
+# still does not inspect pixels; it makes an observation fail closed when it
+# does not account for the plan that was handed to the image generator.  Keep
+# v2 outside this strict path: ``check_visual_story`` routes archived v2
+# records through its read-only legacy checker rather than silently certifying
+# them as v3 evidence.
 PIXEL_QA_SCHEMA_VERSION = "carousel-pixel-qa/v3"
+LEGACY_PIXEL_QA_SCHEMA_VERSIONS = ("carousel-pixel-qa/v2",)
 FINAL_MANIFEST_SCHEMA_VERSION = "carousel-final-images/v3"
 PIXEL_QA_ORDER = (
     "physical_action",
@@ -94,6 +101,66 @@ def manifest_fingerprint(manifest: Mapping[str, Any]) -> str:
     """Return a key-order-independent binding for an inventory-only manifest."""
 
     return _canonical_fingerprint(manifest, namespace="carousel-final-manifest/v3")
+
+
+def scene_contract_fingerprint(scene_contract: Mapping[str, Any]) -> str:
+    """Bind the canonical pre-generation contract separately from QA prose."""
+
+    return _canonical_fingerprint(
+        scene_contract,
+        namespace="carousel-scene-contract/v1",
+    )
+
+
+def _normalize_expected_scene_contracts(
+    expected: Any,
+) -> tuple[dict[int, Mapping[str, Any]], list[str]]:
+    """Normalize runtime-provided contracts keyed by their slide number.
+
+    The lifecycle passes ``{slide_number: scene_contract}``.  A list of slide
+    records is also accepted for callers already holding the compiled deck.
+    This function deliberately refuses to manufacture a contract from QA
+    observations; that would let a later reviewer select a looser plan.
+    """
+
+    if expected is None:
+        return {}, []
+    if isinstance(expected, Mapping) and isinstance(expected.get("slides"), list):
+        expected = expected["slides"]
+    result: dict[int, Mapping[str, Any]] = {}
+    issues: list[str] = []
+    if isinstance(expected, Mapping):
+        items = expected.items()
+        for raw_slide, contract in items:
+            try:
+                slide = int(raw_slide)
+            except (TypeError, ValueError):
+                issues.append("expected scene contracts must use integer slide keys")
+                continue
+            if slide < 1:
+                issues.append("expected scene contracts must use positive slide keys")
+            elif not isinstance(contract, Mapping):
+                issues.append(f"expected scene contract for slide {slide} must be an object")
+            elif slide in result:
+                issues.append(f"expected scene contracts repeat slide {slide}")
+            else:
+                result[slide] = contract
+        return result, issues
+    if not isinstance(expected, list):
+        return {}, ["expected scene contracts must be a mapping or slide-record list"]
+    for index, record in enumerate(expected, start=1):
+        if not isinstance(record, Mapping):
+            issues.append(f"expected scene contract record {index} must be an object")
+            continue
+        slide = _slide_number(record, index)
+        contract = record.get("scene_contract")
+        if not isinstance(contract, Mapping):
+            issues.append(f"expected scene contract for slide {slide} must be an object")
+        elif slide in result:
+            issues.append(f"expected scene contracts repeat slide {slide}")
+        else:
+            result[slide] = contract
+    return result, issues
 
 
 def _records(payload: Any) -> list[dict[str, Any]]:
@@ -481,6 +548,557 @@ def _cinematic_story_frame_issues(
     return issues
 
 
+_SCENE_CONTRACT_KEYS = (
+    "continuity",
+    "object_integrity",
+    "action_critical_hands",
+    "scale",
+    "accessory_visibility",
+)
+_OBSERVATION_KEYS = (
+    "continuity",
+    "object_integrity",
+    "action_critical_hands",
+    "scale",
+    "accessory_visibility",
+    "incidental_lettering",
+)
+
+
+def _text(value: Any) -> str:
+    return value.strip() if isinstance(value, str) else ""
+
+
+def _evidence_issue(value: Any, *, label: str, prefix: str) -> str | None:
+    if len(_text(value)) < 8:
+        return f"{prefix}: {label} needs concrete observed pixel evidence"
+    return None
+
+
+def _record_map(
+    value: Any,
+    *,
+    label: str,
+    prefix: str,
+) -> tuple[dict[str, Mapping[str, Any]], list[str]]:
+    """Return records keyed by their stable contract id, without guessing ids."""
+
+    if not isinstance(value, list):
+        return {}, [f"{prefix}: {label} must be a list"]
+    result: dict[str, Mapping[str, Any]] = {}
+    issues: list[str] = []
+    for index, record in enumerate(value, start=1):
+        if not isinstance(record, Mapping):
+            issues.append(f"{prefix}: {label}[{index}] must be an object")
+            continue
+        record_id = _text(record.get("id"))
+        if not record_id:
+            issues.append(f"{prefix}: {label}[{index}] needs a stable id")
+        elif record_id in result:
+            issues.append(f"{prefix}: {label} repeats id {record_id}")
+        else:
+            result[record_id] = record
+    return result, issues
+
+
+def _required_text_fields(
+    record: Mapping[str, Any],
+    *,
+    fields: Sequence[str],
+    label: str,
+    prefix: str,
+) -> list[str]:
+    return [
+        f"{prefix}: {label} needs {field}"
+        for field in fields
+        if not _text(record.get(field))
+    ]
+
+
+def _string_mapping(
+    value: Any,
+    *,
+    label: str,
+    prefix: str,
+    required_keys: Sequence[str] = (),
+) -> tuple[dict[str, str] | None, list[str]]:
+    if not isinstance(value, Mapping) or not value:
+        return None, [f"{prefix}: {label} must be a non-empty object"]
+    result: dict[str, str] = {}
+    issues: list[str] = []
+    for key, nested in value.items():
+        key_text = _text(key)
+        nested_text = _text(nested)
+        if not key_text or not nested_text:
+            issues.append(f"{prefix}: {label} must contain only non-empty text fields")
+            continue
+        result[key_text] = nested_text
+    for key in required_keys:
+        if key not in result:
+            issues.append(f"{prefix}: {label} needs {key}")
+    return (result if not issues else None), issues
+
+
+def _scene_contract_issues(
+    contract: Any,
+    *,
+    prefix: str,
+) -> list[str]:
+    """Validate the planned facts that a v3 observation must account for.
+
+    These are authored scene facts, not inferred image facts.  Empty lists are
+    intentional applicability declarations; omitting a list is not.  That
+    keeps a no-phone or no-visible-accessory slide cheap while preventing a
+    reviewer from silently skipping a relevant risk category.
+    """
+
+    if not isinstance(contract, Mapping):
+        return [f"{prefix}: scene_contract is missing"]
+    issues: list[str] = []
+    missing = [key for key in _SCENE_CONTRACT_KEYS if key not in contract]
+    if missing:
+        issues.append(f"{prefix}: scene_contract is missing " + ", ".join(missing))
+
+    carriers, carrier_issues = _record_map(
+        contract.get("continuity"), label="scene_contract.continuity", prefix=prefix
+    )
+    issues.extend(carrier_issues)
+    for record_id, record in carriers.items():
+        issues.extend(
+            _required_text_fields(
+                record,
+                fields=("planned_state", "planned_job", "planned_owner"),
+                label=f"scene_contract.continuity[{record_id}]",
+                prefix=prefix,
+            )
+        )
+
+    objects, object_issues = _record_map(
+        contract.get("object_integrity"), label="scene_contract.object_integrity", prefix=prefix
+    )
+    issues.extend(object_issues)
+    for record_id, record in objects.items():
+        issues.extend(
+            _required_text_fields(
+                record,
+                fields=("object",),
+                label=f"scene_contract.object_integrity[{record_id}]",
+                prefix=prefix,
+            )
+        )
+        _, field_issues = _string_mapping(
+            record.get("planned_orientation"),
+            label=f"scene_contract.object_integrity[{record_id}].planned_orientation",
+            prefix=prefix,
+        )
+        issues.extend(field_issues)
+        _, field_issues = _string_mapping(
+            record.get("planned_use"),
+            label=f"scene_contract.object_integrity[{record_id}].planned_use",
+            prefix=prefix,
+        )
+        issues.extend(field_issues)
+
+    hands, hand_issues = _record_map(
+        contract.get("action_critical_hands"),
+        label="scene_contract.action_critical_hands",
+        prefix=prefix,
+    )
+    issues.extend(hand_issues)
+    for record_id, record in hands.items():
+        issues.extend(
+            _required_text_fields(
+                record,
+                fields=("owner", "side", "planned_action"),
+                label=f"scene_contract.action_critical_hands[{record_id}]",
+                prefix=prefix,
+            )
+        )
+        _, field_issues = _string_mapping(
+            record.get("planned_contact_target"),
+            label=(
+                f"scene_contract.action_critical_hands[{record_id}].planned_contact_target"
+            ),
+            prefix=prefix,
+            required_keys=("object", "region"),
+        )
+        issues.extend(field_issues)
+
+    scale, scale_issues = _record_map(
+        contract.get("scale"),
+        label="scene_contract.scale",
+        prefix=prefix,
+    )
+    issues.extend(scale_issues)
+    for record_id, record in scale.items():
+        issues.extend(
+            _required_text_fields(
+                record,
+                fields=("subject", "planned_scale", "planned_support"),
+                label=f"scene_contract.scale[{record_id}]",
+                prefix=prefix,
+            )
+        )
+
+    accessories, accessory_issues = _record_map(
+        contract.get("accessory_visibility"),
+        label="scene_contract.accessory_visibility",
+        prefix=prefix,
+    )
+    issues.extend(accessory_issues)
+    for record_id, record in accessories.items():
+        label = f"scene_contract.accessory_visibility[{record_id}]"
+        issues.extend(
+            _required_text_fields(
+                record,
+                fields=("subject", "item", "side", "planned_visibility", "planned_location"),
+                label=label,
+                prefix=prefix,
+            )
+        )
+        if _text(record.get("planned_visibility")) == "hidden" and not _text(
+            record.get("planned_occlusion_reason")
+        ):
+            issues.append(f"{prefix}: {label} needs planned_occlusion_reason when hidden")
+    return issues
+
+
+def _scene_contract_binding_issues(
+    record: Mapping[str, Any],
+    *,
+    slide: int,
+    expected_scene_contracts: Mapping[int, Mapping[str, Any]],
+    contracts_were_supplied: bool,
+) -> list[str]:
+    """Check that a review uses the exact runtime-provided planning contract."""
+
+    prefix = f"slide {slide}"
+    contract = record.get("scene_contract")
+    if not isinstance(contract, Mapping):
+        return [f"{prefix}: scene_contract is missing"]
+    issues: list[str] = []
+    fingerprint = scene_contract_fingerprint(contract)
+    if record.get("scene_contract_sha256") != fingerprint:
+        issues.append(f"{prefix}: scene_contract_sha256 is missing or stale")
+    if contracts_were_supplied:
+        expected = expected_scene_contracts.get(slide)
+        if expected is None:
+            issues.append(f"{prefix}: canonical scene_contract is missing")
+        elif contract != expected:
+            issues.append(f"{prefix}: scene_contract does not match the canonical pre-generation contract")
+        elif record.get("scene_contract_sha256") != scene_contract_fingerprint(expected):
+            issues.append(f"{prefix}: scene_contract_sha256 does not bind the canonical pre-generation contract")
+    return issues
+
+
+def _compare_observed_text(
+    plan: Mapping[str, Any],
+    observed: Mapping[str, Any],
+    *,
+    planned_field: str,
+    observed_field: str,
+    label: str,
+    prefix: str,
+) -> list[str]:
+    expected = _text(plan.get(planned_field))
+    actual = _text(observed.get(observed_field))
+    if not actual:
+        return [f"{prefix}: {label} needs {observed_field}"]
+    if actual != expected:
+        return [f"{prefix}: {label} {observed_field} does not match {planned_field}"]
+    return []
+
+
+def _compare_observed_mapping(
+    plan: Mapping[str, Any],
+    observed: Mapping[str, Any],
+    *,
+    planned_field: str,
+    observed_field: str,
+    label: str,
+    prefix: str,
+    required_keys: Sequence[str] = (),
+) -> list[str]:
+    expected, issues = _string_mapping(
+        plan.get(planned_field), label=f"{label}.{planned_field}", prefix=prefix,
+        required_keys=required_keys,
+    )
+    actual, observation_issues = _string_mapping(
+        observed.get(observed_field), label=f"{label}.{observed_field}", prefix=prefix,
+        required_keys=required_keys,
+    )
+    issues.extend(observation_issues)
+    if expected is not None and actual is not None and actual != expected:
+        issues.append(f"{prefix}: {label} {observed_field} does not match {planned_field}")
+    return issues
+
+
+def _matching_observations(
+    plan_records: Mapping[str, Mapping[str, Any]],
+    observation_value: Any,
+    *,
+    plan_label: str,
+    observation_label: str,
+    prefix: str,
+) -> tuple[dict[str, Mapping[str, Any]], list[str]]:
+    observed, issues = _record_map(observation_value, label=observation_label, prefix=prefix)
+    missing = sorted(set(plan_records) - set(observed))
+    unexpected = sorted(set(observed) - set(plan_records))
+    if missing:
+        issues.append(f"{prefix}: {observation_label} is missing planned ids: {', '.join(missing)}")
+    if unexpected:
+        issues.append(
+            f"{prefix}: {observation_label} has no matching planned ids: {', '.join(unexpected)}"
+        )
+    return observed, issues
+
+
+def _observation_contract_issues(
+    review: Any,
+    contract: Any,
+    *,
+    prefix: str,
+) -> list[str]:
+    """Require v3 observed facts to match the slide's planned facts exactly.
+
+    Equality here validates the reviewer record, not the image.  The separate
+    ``inspection`` declaration and evidence requirements preserve that
+    boundary: a prompt or an earlier QA record cannot fill these fields.
+    """
+
+    if not isinstance(review, Mapping):
+        return [f"{prefix}: review is missing"]
+    if not isinstance(contract, Mapping):
+        return [f"{prefix}: scene_contract is missing"]
+    observations = review.get("observations")
+    if not isinstance(observations, Mapping):
+        return [f"{prefix}: observations are missing"]
+    issues: list[str] = []
+    missing = [key for key in _OBSERVATION_KEYS if key not in observations]
+    if missing:
+        issues.append(f"{prefix}: observations are missing " + ", ".join(missing))
+
+    plan_carriers, _ = _record_map(
+        contract.get("continuity"), label="scene_contract.continuity", prefix=prefix
+    )
+    carriers, carrier_issues = _matching_observations(
+        plan_carriers,
+        observations.get("continuity"),
+        plan_label="scene_contract.continuity",
+        observation_label="observations.continuity",
+        prefix=prefix,
+    )
+    issues.extend(carrier_issues)
+    for record_id, plan in plan_carriers.items():
+        observed = carriers.get(record_id)
+        if observed is None:
+            continue
+        label = f"observations.continuity[{record_id}]"
+        for planned_field, observed_field in (
+            ("planned_state", "observed_state"),
+            ("planned_job", "observed_job"),
+            ("planned_owner", "observed_owner"),
+        ):
+            issues.extend(
+                _compare_observed_text(
+                    plan,
+                    observed,
+                    planned_field=planned_field,
+                    observed_field=observed_field,
+                    label=label,
+                    prefix=prefix,
+                )
+            )
+        evidence_issue = _evidence_issue(observed.get("evidence"), label=label, prefix=prefix)
+        if evidence_issue:
+            issues.append(evidence_issue)
+
+    plan_objects, _ = _record_map(
+        contract.get("object_integrity"), label="scene_contract.object_integrity", prefix=prefix
+    )
+    objects, object_issues = _matching_observations(
+        plan_objects,
+        observations.get("object_integrity"),
+        plan_label="scene_contract.object_integrity",
+        observation_label="observations.object_integrity",
+        prefix=prefix,
+    )
+    issues.extend(object_issues)
+    for record_id, plan in plan_objects.items():
+        observed = objects.get(record_id)
+        if observed is None:
+            continue
+        label = f"observations.object_integrity[{record_id}]"
+        issues.extend(
+            _compare_observed_mapping(
+                plan,
+                observed,
+                planned_field="planned_orientation",
+                observed_field="observed_orientation",
+                label=label,
+                prefix=prefix,
+            )
+        )
+        issues.extend(
+            _compare_observed_mapping(
+                plan,
+                observed,
+                planned_field="planned_use",
+                observed_field="observed_use",
+                label=label,
+                prefix=prefix,
+            )
+        )
+        evidence_issue = _evidence_issue(observed.get("evidence"), label=label, prefix=prefix)
+        if evidence_issue:
+            issues.append(evidence_issue)
+
+    plan_hands, _ = _record_map(
+        contract.get("action_critical_hands"),
+        label="scene_contract.action_critical_hands",
+        prefix=prefix,
+    )
+    hands, hand_issues = _matching_observations(
+        plan_hands,
+        observations.get("action_critical_hands"),
+        plan_label="scene_contract.action_critical_hands",
+        observation_label="observations.action_critical_hands",
+        prefix=prefix,
+    )
+    issues.extend(hand_issues)
+    for record_id, plan in plan_hands.items():
+        observed = hands.get(record_id)
+        if observed is None:
+            continue
+        label = f"observations.action_critical_hands[{record_id}]"
+        issues.extend(
+            _compare_observed_text(
+                plan,
+                observed,
+                planned_field="planned_action",
+                observed_field="observed_action",
+                label=label,
+                prefix=prefix,
+            )
+        )
+        issues.extend(
+            _compare_observed_mapping(
+                plan,
+                observed,
+                planned_field="planned_contact_target",
+                observed_field="observed_contact_target",
+                label=label,
+                prefix=prefix,
+                required_keys=("object", "region"),
+            )
+        )
+        evidence_issue = _evidence_issue(observed.get("evidence"), label=label, prefix=prefix)
+        if evidence_issue:
+            issues.append(evidence_issue)
+
+    plan_scale, _ = _record_map(
+        contract.get("scale"),
+        label="scene_contract.scale",
+        prefix=prefix,
+    )
+    scale, scale_issues = _matching_observations(
+        plan_scale,
+        observations.get("scale"),
+        plan_label="scene_contract.scale",
+        observation_label="observations.scale",
+        prefix=prefix,
+    )
+    issues.extend(scale_issues)
+    for record_id, plan in plan_scale.items():
+        observed = scale.get(record_id)
+        if observed is None:
+            continue
+        label = f"observations.scale[{record_id}]"
+        for planned_field, observed_field in (
+            ("planned_scale", "observed_scale"),
+            ("planned_support", "observed_support"),
+        ):
+            issues.extend(
+                _compare_observed_text(
+                    plan,
+                    observed,
+                    planned_field=planned_field,
+                    observed_field=observed_field,
+                    label=label,
+                    prefix=prefix,
+                )
+            )
+        evidence_issue = _evidence_issue(observed.get("evidence"), label=label, prefix=prefix)
+        if evidence_issue:
+            issues.append(evidence_issue)
+
+    plan_accessories, _ = _record_map(
+        contract.get("accessory_visibility"),
+        label="scene_contract.accessory_visibility",
+        prefix=prefix,
+    )
+    accessories, accessory_issues = _matching_observations(
+        plan_accessories,
+        observations.get("accessory_visibility"),
+        plan_label="scene_contract.accessory_visibility",
+        observation_label="observations.accessory_visibility",
+        prefix=prefix,
+    )
+    issues.extend(accessory_issues)
+    for record_id, plan in plan_accessories.items():
+        observed = accessories.get(record_id)
+        if observed is None:
+            continue
+        label = f"observations.accessory_visibility[{record_id}]"
+        for planned_field, observed_field in (
+            ("planned_visibility", "observed_visibility"),
+            ("planned_location", "observed_location"),
+        ):
+            issues.extend(
+                _compare_observed_text(
+                    plan,
+                    observed,
+                    planned_field=planned_field,
+                    observed_field=observed_field,
+                    label=label,
+                    prefix=prefix,
+                )
+            )
+        if _text(observed.get("observed_visibility")) == "hidden" and not _text(
+            observed.get("observed_occlusion_reason")
+        ):
+            issues.append(f"{prefix}: {label} needs observed_occlusion_reason when hidden")
+        evidence_issue = _evidence_issue(observed.get("evidence"), label=label, prefix=prefix)
+        if evidence_issue:
+            issues.append(evidence_issue)
+
+    lettering = observations.get("incidental_lettering")
+    if not isinstance(lettering, list):
+        issues.append(f"{prefix}: observations.incidental_lettering must be a list")
+    else:
+        for index, record in enumerate(lettering, start=1):
+            label = f"observations.incidental_lettering[{index}]"
+            if not isinstance(record, Mapping):
+                issues.append(f"{prefix}: {label} must be an object")
+                continue
+            issues.extend(
+                _required_text_fields(
+                    record,
+                    fields=("location", "text"),
+                    label=label,
+                    prefix=prefix,
+                )
+            )
+            if not isinstance(record.get("allowed"), bool):
+                issues.append(f"{prefix}: {label} needs boolean allowed")
+            elif record.get("allowed") is False:
+                issues.append(f"{prefix}: {label} reports unexpected incidental lettering")
+            evidence_issue = _evidence_issue(record.get("evidence"), label=label, prefix=prefix)
+            if evidence_issue:
+                issues.append(evidence_issue)
+    return issues
+
+
 def _review_contract_issues(
     package_dir: Path,
     review: Any,
@@ -490,6 +1108,8 @@ def _review_contract_issues(
     expected_slide: Mapping[str, Any],
     asset_binding: Mapping[str, Any] | None,
     is_final_slide: bool,
+    scene_contract: Any = None,
+    enforce_scene_contract: bool = True,
 ) -> list[str]:
     failed = _review_failure(review, slide=slide, output_format=output_format)
     if failed is not None:
@@ -689,6 +1309,14 @@ def _review_contract_issues(
             palette = check_palette(asset_path)
             if palette.status != "PASS":
                 issues.append(f"{prefix}: palette check failed: {palette.reason}")
+    if enforce_scene_contract:
+        issues.extend(
+            _observation_contract_issues(
+                review,
+                scene_contract,
+                prefix=prefix,
+            )
+        )
     return issues
 
 
@@ -776,6 +1404,8 @@ def bind_proof_qa(
     package_dir: Path,
     authored_qa: Any,
     current_candidates: Any,
+    *,
+    expected_scene_contracts: Any = None,
 ) -> dict[str, Any]:
     """Attach repo-derived proof byte bindings to Codex-authored observations.
 
@@ -794,6 +1424,19 @@ def bind_proof_qa(
     slides = sorted({slide for slide, _ in source_bindings})
     if len(slides) != 1:
         raise ValueError("proof review must bind exactly one selected slide")
+    canonical_contracts, contract_issues = _normalize_expected_scene_contracts(
+        expected_scene_contracts
+    )
+    contracts_were_supplied = expected_scene_contracts is not None
+    if contracts_were_supplied:
+        for slide, contract in canonical_contracts.items():
+            contract_issues.extend(
+                _scene_contract_issues(contract, prefix=f"canonical scene contract slide {slide}")
+            )
+    if contract_issues:
+        raise ValueError("; ".join(contract_issues))
+    if contracts_were_supplied and set(canonical_contracts) != set(slides):
+        raise ValueError("expected scene contracts do not match the current candidate slide")
     selected = authored_qa.get("selected_slides")
     if selected is not None and selected != slides:
         raise ValueError("authored proof selected_slides does not match the current candidate")
@@ -806,12 +1449,26 @@ def bind_proof_qa(
         raise ValueError("authored proof reviews do not match the current candidate slide")
 
     payload = copy.deepcopy(dict(authored_qa))
+    # New writes use the current binding shape even when no optional semantic
+    # contract was supplied. Legacy v2 is a read-only compatibility path.
     payload["schema_version"] = PIXEL_QA_SCHEMA_VERSION
     payload["scope"] = "proof"
     payload["selected_slides"] = slides
     bound_records: list[dict[str, Any]] = []
     for slide in slides:
         authored_record = copy.deepcopy(record_map[slide])
+        supplied_contract = authored_record.get("scene_contract")
+        if contracts_were_supplied:
+            canonical_contract = canonical_contracts[slide]
+            if supplied_contract is not None and supplied_contract != canonical_contract:
+                raise ValueError(
+                    f"slide {slide}: authored scene_contract conflicts with the canonical pre-generation contract"
+                )
+            authored_record["scene_contract"] = copy.deepcopy(dict(canonical_contract))
+        if isinstance(authored_record.get("scene_contract"), Mapping):
+            authored_record["scene_contract_sha256"] = scene_contract_fingerprint(
+                authored_record["scene_contract"]
+            )
         bound: dict[str, Any] = {}
         for (candidate_slide, output_format), source in sorted(source_bindings.items()):
             if candidate_slide != slide:
@@ -835,7 +1492,12 @@ def bind_proof_qa(
     return payload
 
 
-def bind_final_qa(authored_qa: Any, manifest: Any) -> dict[str, Any]:
+def bind_final_qa(
+    authored_qa: Any,
+    manifest: Any,
+    *,
+    expected_scene_contracts: Any = None,
+) -> dict[str, Any]:
     """Bind Codex-authored final observations to the hidden manifest exactly."""
 
     if not isinstance(authored_qa, Mapping):
@@ -844,6 +1506,19 @@ def bind_final_qa(authored_qa: Any, manifest: Any) -> dict[str, Any]:
     if manifest_issues:
         raise ValueError("; ".join(manifest_issues))
     slides = sorted({slide for slide, _ in bindings})
+    canonical_contracts, contract_issues = _normalize_expected_scene_contracts(
+        expected_scene_contracts
+    )
+    contracts_were_supplied = expected_scene_contracts is not None
+    if contracts_were_supplied:
+        for slide, contract in canonical_contracts.items():
+            contract_issues.extend(
+                _scene_contract_issues(contract, prefix=f"canonical scene contract slide {slide}")
+            )
+    if contract_issues:
+        raise ValueError("; ".join(contract_issues))
+    if contracts_were_supplied and set(canonical_contracts) != set(slides):
+        raise ValueError("expected scene contracts do not match the hidden manifest")
     selected = authored_qa.get("selected_slides")
     if selected is not None and selected != slides:
         raise ValueError("authored final selected_slides does not match the hidden manifest")
@@ -860,11 +1535,31 @@ def bind_final_qa(authored_qa: Any, manifest: Any) -> dict[str, Any]:
         raise ValueError("authored final asset_binding_hashes conflict with the hidden manifest")
 
     payload = copy.deepcopy(dict(authored_qa))
+    # New writes use the current binding shape even when no optional semantic
+    # contract was supplied. Legacy v2 is a read-only compatibility path.
     payload["schema_version"] = PIXEL_QA_SCHEMA_VERSION
     payload["scope"] = "final"
     payload["selected_slides"] = slides
     payload["manifest_sha256"] = expected_manifest_hash
     payload["asset_binding_hashes"] = expected_binding_hashes
+    records = _records(payload)
+    record_map = {
+        _slide_number(record, index): record for index, record in enumerate(records, start=1)
+    }
+    if set(record_map) != set(slides):
+        raise ValueError("authored final reviews do not match the hidden manifest slides")
+    for slide in slides:
+        record = record_map[slide]
+        supplied_contract = record.get("scene_contract")
+        if contracts_were_supplied:
+            canonical_contract = canonical_contracts[slide]
+            if supplied_contract is not None and supplied_contract != canonical_contract:
+                raise ValueError(
+                    f"slide {slide}: authored scene_contract conflicts with the canonical pre-generation contract"
+                )
+            record["scene_contract"] = copy.deepcopy(dict(canonical_contract))
+        if isinstance(record.get("scene_contract"), Mapping):
+            record["scene_contract_sha256"] = scene_contract_fingerprint(record["scene_contract"])
     return payload
 
 
@@ -872,11 +1567,15 @@ def _common_schema_issues(
     qa: Any,
     *,
     scope: str,
+    enforce_scene_contract: bool,
 ) -> list[str]:
     if not isinstance(qa, Mapping):
         return ["pixel QA must contain an object"]
     issues: list[str] = []
-    if qa.get("schema_version") != PIXEL_QA_SCHEMA_VERSION:
+    schema_version = qa.get("schema_version")
+    if schema_version != PIXEL_QA_SCHEMA_VERSION and (
+        enforce_scene_contract or schema_version not in LEGACY_PIXEL_QA_SCHEMA_VERSIONS
+    ):
         issues.append(f"schema_version must be {PIXEL_QA_SCHEMA_VERSION}")
     if qa.get("scope") != scope:
         issues.append(f"scope must be {scope}")
@@ -889,11 +1588,17 @@ def validate_proof_qa(
     qa: Any,
     *,
     expected_asset_bindings: Any = None,
+    expected_scene_contracts: Any = None,
 ) -> list[str]:
     """Validate proof observations and their exact quarantine asset bindings."""
 
     package_dir = Path(package_dir)
-    issues = _common_schema_issues(qa, scope="proof")
+    enforce_scene_contract = expected_scene_contracts is not None
+    issues = _common_schema_issues(
+        qa,
+        scope="proof",
+        enforce_scene_contract=enforce_scene_contract,
+    )
     if not isinstance(qa, Mapping):
         return issues
     try:
@@ -919,6 +1624,19 @@ def validate_proof_qa(
     if selected_numbers and selected_numbers[0] not in copies:
         issues.append("proof selected_slides contains an unknown slide")
 
+    canonical_contracts, contract_issues = _normalize_expected_scene_contracts(
+        expected_scene_contracts
+    )
+    contracts_were_supplied = expected_scene_contracts is not None
+    if contracts_were_supplied:
+        for slide, contract in canonical_contracts.items():
+            contract_issues.extend(
+                _scene_contract_issues(contract, prefix=f"canonical scene contract slide {slide}")
+            )
+    issues.extend(contract_issues)
+    if contracts_were_supplied and set(canonical_contracts) != set(selected_numbers):
+        issues.append("expected scene contracts do not match proof selected_slides")
+
     records = _records(qa)
     record_numbers = [_slide_number(record, index) for index, record in enumerate(records, 1)]
     if record_numbers != selected_numbers:
@@ -927,6 +1645,17 @@ def validate_proof_qa(
     actual_bindings: dict[tuple[int, str], Mapping[str, Any]] = {}
     for index, record in enumerate(records, start=1):
         slide = _slide_number(record, index)
+        scene_contract = record.get("scene_contract")
+        if enforce_scene_contract:
+            issues.extend(_scene_contract_issues(scene_contract, prefix=f"slide {slide}"))
+            issues.extend(
+                _scene_contract_binding_issues(
+                    record,
+                    slide=slide,
+                    expected_scene_contracts=canonical_contracts,
+                    contracts_were_supplied=contracts_were_supplied,
+                )
+            )
         bindings = record.get("asset_bindings")
         if not isinstance(bindings, Mapping) or set(bindings) != set(formats):
             issues.append(f"slide {slide}: asset_bindings must match locked formats exactly")
@@ -970,6 +1699,8 @@ def validate_proof_qa(
                         expected_slide=slide_by_number.get(slide, {}),
                         asset_binding=binding if isinstance(binding, Mapping) else None,
                         is_final_slide=slide == max(slide_by_number),
+                        scene_contract=scene_contract,
+                        enforce_scene_contract=enforce_scene_contract,
                     )
                 )
     if expected_bindings and set(actual_bindings) != set(expected_bindings):
@@ -1033,11 +1764,18 @@ def validate_final_qa(
     package_dir: Path,
     qa: Any,
     manifest: Any,
+    *,
+    expected_scene_contracts: Any = None,
 ) -> list[str]:
     """Validate complete-deck observations against a hidden/final inventory."""
 
     package_dir = Path(package_dir)
-    issues = _common_schema_issues(qa, scope="final")
+    enforce_scene_contract = expected_scene_contracts is not None
+    issues = _common_schema_issues(
+        qa,
+        scope="final",
+        enforce_scene_contract=enforce_scene_contract,
+    )
     if not isinstance(qa, Mapping):
         return issues
     try:
@@ -1061,6 +1799,18 @@ def validate_final_qa(
         for slide in copies
         for output_format in formats
     }
+    canonical_contracts, contract_issues = _normalize_expected_scene_contracts(
+        expected_scene_contracts
+    )
+    contracts_were_supplied = expected_scene_contracts is not None
+    if contracts_were_supplied:
+        for slide, contract in canonical_contracts.items():
+            contract_issues.extend(
+                _scene_contract_issues(contract, prefix=f"canonical scene contract slide {slide}")
+            )
+    issues.extend(contract_issues)
+    if contracts_were_supplied and set(canonical_contracts) != set(copies):
+        issues.append("expected scene contracts do not match the complete final deck")
     bindings, manifest_issues = _manifest_bindings(manifest)
     issues.extend(manifest_issues)
     if isinstance(manifest, Mapping):
@@ -1102,6 +1852,17 @@ def validate_final_qa(
         issues.append("final QA slide records must cover the complete deck exactly once in order")
     for index, record in enumerate(records, start=1):
         slide = _slide_number(record, index)
+        scene_contract = record.get("scene_contract")
+        if enforce_scene_contract:
+            issues.extend(_scene_contract_issues(scene_contract, prefix=f"slide {slide}"))
+            issues.extend(
+                _scene_contract_binding_issues(
+                    record,
+                    slide=slide,
+                    expected_scene_contracts=canonical_contracts,
+                    contracts_were_supplied=contracts_were_supplied,
+                )
+            )
         forbidden = {"asset_bindings", "native_outputs", "path", "sha256", "width", "height"}
         duplicated = sorted(forbidden & set(record))
         if duplicated:
@@ -1134,6 +1895,8 @@ def validate_final_qa(
                         expected_slide=slide_by_number.get(slide, {}),
                         asset_binding=bindings.get((slide, output_format)),
                         is_final_slide=slide == max(slide_by_number),
+                        scene_contract=scene_contract,
+                        enforce_scene_contract=enforce_scene_contract,
                     )
                 )
     if not issues and str(qa.get("status") or "").upper() != "PASS":
@@ -1145,6 +1908,7 @@ __all__ = [
     "BRANDMARK",
     "FINAL_MANIFEST_SCHEMA_VERSION",
     "INSPECTION_METHOD",
+    "LEGACY_PIXEL_QA_SCHEMA_VERSIONS",
     "PIXEL_QA_ORDER",
     "PIXEL_QA_SCHEMA_VERSION",
     "asset_binding_fingerprint",
@@ -1152,6 +1916,7 @@ __all__ = [
     "bind_proof_qa",
     "first_failed_gate",
     "manifest_fingerprint",
+    "scene_contract_fingerprint",
     "validate_final_qa",
     "validate_proof_qa",
 ]

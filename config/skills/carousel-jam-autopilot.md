@@ -1,6 +1,6 @@
 # Carousel Jam Autopilot
 
-last_updated: 2026-09-04
+last_updated: 2026-09-30
 status: four-gate production path
 
 Codex directly invokes ImageGen for the risky proof and every selected final
@@ -60,11 +60,11 @@ optional shadow judges and telemetry never delay illustration generation.
 
 ## Gate 2 — Copy + Format
 
-For copy-only requests, apply the final-draft review in
-`.agents/skills/a-story-storytelling-hook/SKILL.md` before delivering the exact
-copy. Concept approval selects the direction; it does not certify an unwritten
-or shortened sequence. No production package or image generation is needed
-merely to deliver a draft in chat.
+For multi-slide copy, including working drafts and revisions in chat, apply
+`Copy Delivery Review` in the storytelling hook's `references/story-engine.md`.
+Check instruction compliance and editorial quality separately. Concept approval
+selects the direction; it does not certify an unwritten or shortened sequence.
+A chat draft needs no production package or image generation for this review.
 
 Lock exact on-image text and the requested native canvas set together:
 
@@ -87,6 +87,10 @@ For every person slide, `slides.json` also carries a complete left/right hand-
 ownership map plus whole-person/object topology. The compiler embeds both in
 the generation prompt and blocks before ImageGen if either is incomplete. Do
 not replace the map with a generic "natural hands" negative.
+
+Use `$non-ai-image-skill` for the scene's activated risks and store the locked
+`scene_contract` with each slide. Its scene/copy bindings must match the slide
+and reach the compiled prompt. Canonical rules own the detailed requirements.
 
 Compile `prompt-pack.json` and `.prompt.txt` files only after this gate passes.
 Prompts contain physical event, camera/focal hierarchy, attached reference
@@ -137,8 +141,11 @@ If image generation or `view_image` is unavailable, stop successfully at
 `handoff_ready` and report `BLOCKED/NOT_RUN`. No prompt review, filename, model
 claim, or authored expectation may substitute for pixel inspection.
 
-Quarantine the candidate. Inspect decoded current pixels and write
-`proof-qa.json` bound to file path, SHA-256, and dimensions. Check, in order:
+Quarantine the candidate. Start with the non-AI-image skill's blind scene read
+with copy hidden: actor, recipient or response, and visible consequence. Then
+route only applicable specialist reviews and synthesize against the locked
+scene. Inspect decoded current pixels and write `proof-qa.json` bound to file
+path, SHA-256, dimensions, and derived scene-contract hash. Check, in order:
 
 1. intended physical event and relationship state are visibly readable;
 2. the frame reads as a caught event with motivated light, distinct depth,
@@ -164,7 +171,9 @@ approved before this gate.
 
 The entity/spatial audit cannot pass on summary prose alone. It must inventory
 every planned visible hand by owner and side and record attachment, contact
-geometry, finger integrity, and solid-object intersection results.
+geometry, finger integrity, and solid-object intersection results. Inspect foreground
+support/overlap as carefully as hands; unresolved critical evidence remains
+failed or `data_gap`, never an assumed PASS.
 
 ## Gate 4 — Final Package QA
 

@@ -1,6 +1,6 @@
 # Carousel Jam Runtime Context
 
-last_updated: 2026-09-04
+last_updated: 2026-09-30
 status: minimal default runtime
 
 ## Purpose
@@ -50,14 +50,18 @@ changes remain inactive proposals until the creator approves the diff.
 
 - Preserve the creator's literal sequence, objects, corrections, approved
   language, and rejected scope.
-- Write the alive draft before using rules. The rules block hard failures; they
-  do not invent the first idea.
+- Keep creator constraints and the selected architecture active while writing
+  the alive draft. Apply voice and editorial checks to that draft; rules alone
+  do not invent the idea or establish its quality.
 - Make the relationship legible to a cold viewer through action and consequence,
   not explanation alone.
 - Use `config/skills/creator-skill-stack.md` as the six-question taste pass.
 - For retrieved-carousel analysis or a specific sequence repair, consult
   `memory/semantic/carousel-sequence-learnings.md`; its linked archive preserves
   the visual evidence and limits. Do not load the full archive for every jam.
+- Before any multi-slide copy delivery, apply the storytelling hook's
+  `Copy Delivery Review`; instruction compliance and editorial quality are
+  separate checks. Use its taste calibration only when the copy problem needs it.
 - Keep public copy free of internal framework and score language.
 - The last beat must reframe or answer the opening, not soften into a generic
   moral.
@@ -110,6 +114,10 @@ object topology in `slides.json`. Prompt compilation must fail closed unless it
 can embed those slide-specific plans in the actual ImageGen prompt. Generic
 anatomy negatives do not satisfy this lock.
 
+For locked production, apply `$non-ai-image-skill` and persist the applicable
+risk-specific `scene_contract` per slide. Keep it bound to the exact scene and
+copy through compilation; canonical rules own its detailed requirements.
+
 ## Generation Lock
 
 - The repo prepares prompts and reference bindings; Codex performs the image
@@ -152,7 +160,10 @@ anatomy negatives do not satisfy this lock.
 
 ## Pixel QA
 
-Inspect the decoded file, in order:
+Begin with the non-AI-image skill's blind scene read, with copy hidden and
+before revealing the intended answer: actor, recipient or response, and visible
+consequence. Add only applicable specialist reviews, then compare against the
+locked scene contract. Inspect the decoded file, in order:
 
 1. visible physical action and relationship state;
 2. cinematic caught-event read, before/after implication, motivated light,
@@ -162,12 +173,14 @@ Inspect the decoded file, in order:
 4. Aachu/Zuv likeness and wardrobe against attached reference IDs;
 5. exact text, brandmark, house style, palette, and native dimensions.
 
-Bind QA to the current package-relative path, SHA-256, and dimensions. A prompt,
+Bind QA to the current package-relative path, SHA-256, dimensions, and derived
+scene-contract hash. A prompt,
 filename, agent label, or generation report cannot pass pixel QA. Failed
 candidates stay quarantined and set the next action to a concrete repair.
 One generic sentence about "coherent hands" cannot pass: the review must name
 every visible hand's owner and side, contact, attachment, finger integrity, and
-solid-object intersection result.
+solid-object intersection result. Foreground support and overlap require the
+same scrutiny; unresolved critical evidence stays failed or `data_gap`.
 
 ## Minimal Artifacts
 

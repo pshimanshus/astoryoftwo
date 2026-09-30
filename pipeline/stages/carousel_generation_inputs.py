@@ -57,6 +57,7 @@ SLIDE_SOURCE_FIELDS = (
     "hand_map",
     "spatial_topology",
     "visual_richness",
+    "scene_contract",
 )
 
 
@@ -456,6 +457,7 @@ def effective_slide_prompt_fields(
         "hand_map": slide.get("hand_map"),
         "spatial_topology": slide.get("spatial_topology"),
         "visual_richness": slide.get("visual_richness"),
+        "scene_contract": slide.get("scene_contract"),
         **{key: slide[key] for key in ("copy_mode", "beat_delta", "copy_image_relation") if key in slide},
     }
 
@@ -500,6 +502,7 @@ def _compiled_prompt_fingerprint(
                 visual_richness=effective["visual_richness"],
                 feedback_constraints=feedback_constraints,
                 image_operation=slide.get("image_operation"),
+                scene_contract=effective["scene_contract"],
             ).encode("utf-8")
         except ValueError as exc:
             # Draft packages must remain serializable before visual direction is

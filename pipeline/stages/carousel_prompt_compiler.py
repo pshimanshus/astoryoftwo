@@ -16,6 +16,8 @@ from pipeline.stages.carousel_visual_integrity import (
     validate_hand_ownership_contract,
     validate_spatial_topology_contract,
     visual_richness_prompt,
+    scene_contract_prompt,
+    validate_pre_generation_scene_contract,
 )
 
 
@@ -29,6 +31,7 @@ MAX_PROMPT_CHARS = 8000
 MAX_PROMPT_WORDS = 1050
 MAX_SCENE_WORDS = 180
 MAX_NEGATIVE_WORDS = 80
+MAX_SCENE_CONTRACT_WORDS = 300
 
 ABSOLUTE_PATH_PATTERN = re.compile(r"/(?:[^,\]\n'\"`]+/)+[^,\]\n'\"`]+")
 RELATIVE_REFERENCE_PATH_PATTERN = re.compile(r"\b(?:output|config|identity_images)/[^,\]\n'\"`]+")
@@ -291,6 +294,7 @@ def compile_image_prompt(
     beat_delta: str | None = None,
     copy_image_relation: dict[str, Any] | None = None,
     image_operation: dict[str, Any] | None = None,
+    scene_contract: dict[str, Any] | None = None,
 ) -> str:
     """Compile one compact, generation-facing prompt.
 
@@ -309,6 +313,42 @@ def compile_image_prompt(
         raise ValueError("Slide copy/sequence is unresolved: " + "; ".join(sequence_issues))
     copy = clean_slide_copy(slide_copy)
     full_scene = clean_text(visual)
+    contract_text = ""
+    if scene_contract is not None:
+        contract_issues = validate_pre_generation_scene_contract(scene_contract)
+        if isinstance(scene_contract, dict) and clean_text(
+            str(scene_contract.get("scene_action_binding") or "")
+        ) != full_scene:
+            contract_issues.append(
+                "pre-generation scene contract scene_action_binding does not match the compiled scene"
+            )
+        if isinstance(scene_contract, dict) and " ".join(
+            str(scene_contract.get("copy_action_binding") or "").split()
+        ) != " ".join(copy.split()):
+            contract_issues.append(
+                "pre-generation scene contract copy_action_binding does not match the compiled copy"
+            )
+        for name, supplied in (("hand_map", hand_map), ("spatial_topology", spatial_topology)):
+            if isinstance(scene_contract, dict) and supplied is not None and supplied != scene_contract.get(name):
+                contract_issues.append(
+                    f"pre-generation scene contract {name} does not match the compiled slide plan"
+                )
+        if contract_issues:
+            raise ValueError(
+                "Pre-generation scene contract is unresolved: "
+                + "; ".join(str(item) for item in contract_issues)
+            )
+        contract_text = _compact_words(
+            scene_contract_prompt(
+                scene_contract,
+                include_hand_map=False,
+                include_spatial_topology=False,
+                include_visual_richness=False,
+            ),
+            MAX_SCENE_CONTRACT_WORDS,
+            field_name="scene contract",
+        )
+
     normalized_camera = dict(camera or {})
     if pose and not normalized_camera.get("position"):
         normalized_camera["position"] = pose
@@ -338,11 +378,17 @@ def compile_image_prompt(
             + "; ".join(str(item) for item in action_issues)
         )
 
-    hand_contract = hand_map or build_hand_ownership_map(full_scene)
+    hand_contract = (
+        scene_contract.get("hand_map") if scene_contract is not None
+        else hand_map or build_hand_ownership_map(full_scene)
+    )
     hand_issues = validate_hand_ownership_contract(hand_contract)
     if hand_issues:
         raise ValueError("Hand ownership/contact plan is unresolved: " + "; ".join(hand_issues))
-    spatial_contract = spatial_topology or build_spatial_topology_contract(full_scene)
+    spatial_contract = (
+        scene_contract.get("spatial_topology") if scene_contract is not None
+        else spatial_topology or build_spatial_topology_contract(full_scene)
+    )
     spatial_issues = validate_spatial_topology_contract(spatial_contract)
     if spatial_issues:
         raise ValueError("Whole-person/object topology is unresolved: " + "; ".join(spatial_issues))
@@ -427,6 +473,8 @@ def compile_image_prompt(
         "must_preserve": must_preserve,
     }
 
+    if contract_text:
+        fields["scene"] = f"{fields['scene']}\n\n{contract_text}"
     prompt = _build_prompt(
         slide_number=slide_number,
         slide_count=slide_count,

@@ -205,6 +205,7 @@ def _minimal_slide(slide: dict[str, Any]) -> dict[str, Any]:
         "hand_map",
         "spatial_topology",
         "visual_richness",
+        "scene_contract",
     )
     result = {key: slide[key] for key in keep if key in slide and slide[key] not in (None, "", [])}
     if not isinstance(result.get("slide"), int):

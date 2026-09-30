@@ -79,6 +79,36 @@
         ]
       }
     },
+    "non_ai_image_skill": {
+      "description": "Risk-routed visual integrity support for locked A Story of Two scenes, rendered-image review, and targeted visual repair.",
+      "components": [
+        ".agents/skills/non-ai-image-skill/SKILL.md"
+      ],
+      "source_references": [
+        "config/rules/scene-entity-integrity.md",
+        "config/rules/identity.md",
+        "config/rules/relationship-motion.md",
+        "config/rules/palette.md",
+        "config/rules/on-image-text.md",
+        "config/rules/brandmark.md",
+        "config/rules/image-dimensions.md",
+        "config/carousel_style_contract.json"
+      ],
+      "agents": [],
+      "gates": [
+        "locked_scene_and_applicable_risk_contracts",
+        "current_pixel_evidence_bound",
+        "focused_visual_reviews_complete",
+        "existing_carousel_proof_creator_final_gates"
+      ],
+      "artifacts": [
+        "slides.json",
+        "prompt-pack.json",
+        "proof-qa.json",
+        "visual-qa.json",
+        "final-audit.json"
+      ]
+    },
     "instagram_idea_loop": {
       "description": "Bounded evidence -> maker -> independent verifier loop that selects one Instagram concept for creator lock.",
       "components": [

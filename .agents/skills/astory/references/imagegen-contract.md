@@ -91,6 +91,26 @@ Legacy receipts remain readable and byte-stable without invented evidence.
 8. Finalize only when each selected slide has a returned-source receipt,
    hash-bound passing QA, approval state, and promotion state.
 
+## Visual Repair Guardrail
+
+Before a repair, inspect current pixels with copy hidden. State the visible
+actor, recipient or response, and consequence before comparing the intended
+scene. A prop shown toward the viewer alone does not prove an exchange.
+
+Record the visible failure, desired cold-viewer read, exact edit boundary,
+object face/state, gaze/contact geometry, `must_preserve`, `hard_avoid`, and
+pixel acceptance check in the existing scene/correction fields. Use the
+non-AI-image skill's applicable risk contracts; do not create a second payload.
+Choose one physically possible object state: a rear-facing phone cannot carry
+front-display UI on its camera face. Convey the hidden screen through its
+recipient, grip, gaze, and consequence, or restage the camera.
+
+After editing, inspect the exact returned bytes. Trace foreground support and
+overlap as carefully as hands; an unresolved shoe/rug/floor or body/object
+boundary is a failure or `data_gap`, never an assumed PASS. A repeated physical
+contradiction requires changed staging, camera, or object state within the
+existing semantic attempt budget.
+
 ## Failure and repair
 
 - A semantic premise gets at most two generated attempts. After that, rewrite

@@ -4,6 +4,7 @@ from pathlib import Path
 
 from pipeline.stages.wiki_health import (
     collect_wiki_health,
+    heal_proposal_markdown,
     repair_wiki_index_metadata,
     write_health_artifacts,
 )
@@ -61,6 +62,59 @@ def minimal_workspace(root: Path) -> None:
 
 def checks_by_id(health: dict) -> dict[str, dict]:
     return {check["id"]: check for check in health["checks"]}
+
+
+def test_healthy_run_does_not_invent_a_missing_closeout_gate():
+    proposal = heal_proposal_markdown(
+        {
+            "date": "2026-09-30",
+            "checks": [
+                {
+                    "id": "instruction_surface_sync",
+                    "status": "PASS",
+                    "message": "Closeout commands present.",
+                },
+            ],
+        }
+    )
+
+    assert "No repair is proposed" in proposal
+    assert "no repo-wide session-close gate" not in proposal
+    assert "`instruction_surface_sync`" not in proposal
+
+
+def test_heal_proposal_limits_repairs_to_observed_failures_and_warnings():
+    proposal = heal_proposal_markdown(
+        {
+            "date": "2026-09-30",
+            "checks": [
+                {
+                    "id": "instruction_surface_sync",
+                    "status": "PASS",
+                    "message": "Closeout commands present.",
+                },
+                {
+                    "id": "wiki_index_total_pages",
+                    "status": "FAIL",
+                    "message": "Page count is stale.",
+                },
+                {
+                    "id": "episodic_records",
+                    "status": "WARN",
+                    "message": "No episodic records found.",
+                },
+            ],
+        }
+    )
+
+    assert "wiki_index_total_pages: FAIL - Page count is stale." in proposal
+    assert "episodic_records: WARN - No episodic records found." in proposal
+    assert "Investigate `wiki_index_total_pages`" in proposal
+    assert "Investigate `episodic_records`" in proposal
+    assert "instruction_surface_sync" not in proposal
+    assert "No repair is proposed" not in proposal
+    assert "no repo-wide session-close gate" not in proposal
+    assert "does not establish their root causes" in proposal
 
 
 def test_health_flags_missing_advertised_stage_files_and_stale_index(tmp_path):

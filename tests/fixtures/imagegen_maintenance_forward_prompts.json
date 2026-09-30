@@ -97,8 +97,7 @@
       "prompt": "Review this returned proof using the current visual-story skill. Describe the event with copy hidden, inspect full-scene contact, and record only what the pixels establish. Use the supplied local artifact; no image generation. Do not read earlier QA or verdicts.",
       "artifacts": [
         "The retained September 30 generation source bound by normalized SHA-256 b3c7fc13b27054d6f8bf5d04280710ba81df25139b9ed3c283a7c99b047560cb; canonical scene/copy; current checker contract."
-      ],
-      "evaluation_scope": "Known negative visual regression; not a held-out reliability claim."
+      ]
     }
   ]
 }

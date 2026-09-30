@@ -13,8 +13,9 @@ detail is needed.
 
 ## Hot Path
 
-When the creator asks to jam from scratch, invent a fresh route. Start with the
-strongest human draft; use memory and rules as quiet seasoning. Each slide needs
+Preserve exact seeds, facts, liked wording, corrections, and approved locks. A
+rejected route stays rejected unless the creator reopens it. When the creator asks to jam
+from scratch, invent a fresh route. Start with the strongest human draft; use memory and rules as quiet seasoning. Each slide needs
 one sentence describing a visible physical event. If a premise misses
 semantically, allow at most two total semantic attempts, then replace it.
 
@@ -23,12 +24,13 @@ final package QA. Do not generate the remaining deck before proof QA and creator
 approval. Prefer the one-command workflow; if automation is missing, name the
 missing link.
 
-A request for a final draft after concept approval enters the copy part of
-Gate 2, including in chat-only work. Apply the storytelling hook's final-draft
-review before delivery: preserve the selected architecture and approved
-premise, and check the actual middle, turn, and payoff. A shorter restatement
-of the pitch is not automatically a completed story. Keep this review private;
-it adds no artifact, numerical score, or creator approval step.
+Before delivering any multi-slide copy, including chat drafts, pitches with
+slide copy, final drafts, and revisions, apply `Copy Delivery Review` in the
+storytelling hook's `references/story-engine.md`. Preserve the selected
+architecture and approved premise; check instruction compliance separately
+from the actual middle, turn, payoff, and voice. Concept approval does not
+certify an unwritten or shortened sequence. The review stays private and adds
+no production artifact, numerical score, or creator approval step.
 
 Default post/carousel output is `1080x1440`. Generate `1080x1920` or `1080x1080`
 only by explicit request. Put exact approved text in-image and the tiny

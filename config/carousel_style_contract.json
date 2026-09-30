@@ -1,6 +1,6 @@
 {
   "schema_version": "3.0",
-  "last_updated": "2026-09-04",
+  "last_updated": "2026-09-30",
   "north_star": "A cinematic illustrated archive of Aachu and Zuv's love, chaos, culture, and tiny rituals, where every frame feels caught inside a lived story.",
   "brandmark": "@a.storyof.two",
   "canonical_illustration_master_prompt": "config/references/a-story-illustration-master-prompt.md",
@@ -9,7 +9,7 @@
     "version": "1.0.0",
     "status": "active",
     "generation_prompt": "Cinematic Observational Watercolor-and-ink story frame on neutral warm-ivory paper grain: a candid, physically specific lived moment rather than a posed portrait; believable motivated light; clear foreground, midground, and background; natural asymmetry; precise microexpressions and body language; two to four narrative details that imply the beat before and after; fine graphite and ink contours, transparent layered pigment blooms, tactile fabric, hair, wood, and ceramic detail, a restrained muted denim, navy, terracotta, sage, and skin-tone palette, and soft organic edges fading into paper.",
-    "negative_prompt": "No photorealism, rear-screen phone UI, 3D, glossy AI-stock, anime, doll faces, generic couples, staged symmetry, clutter, yellow, mustard, sepia, parchment, beige, heavy-cream paper, posters, quote-cards, UI, split-screens, extra people or limbs, duplicate couples, malformed hands, broken contact, invented or misspelled copy, missing text or brandmark, unrequested logos.",
+    "negative_prompt": "No photorealism, phone display content on a rear camera face, 3D, glossy AI-stock, anime, doll faces, generic/duplicate couples, staged symmetry, clutter, yellow, mustard, sepia, parchment, beige, heavy-cream paper, posters, quote-cards, UI, split-screens, extra people/limbs, malformed hands, broken contact, invented/misspelled copy, missing text/brandmark, unrequested logos.",
     "reference": {
       "path": "config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png",
       "sha256": "sha256:850634480a635e296cbbb352bcbf461ade1bc4e1c3b419881a614e4ded13ee18",
@@ -27,7 +27,10 @@
   },
   "characters": {
     "aachu": {
-      "names": ["Aachu", "Anchal"],
+      "names": [
+        "Aachu",
+        "Anchal"
+      ],
       "visual_cues": [
         "expressive dark eyes and dense very dark mostly-straight hair with soft bends",
         "warm medium-brown South Asian skin tone",
@@ -37,7 +40,10 @@
       "relationship_role": "spark"
     },
     "zuv": {
-      "names": ["Zuv", "Himanshu"],
+      "names": [
+        "Zuv",
+        "Himanshu"
+      ],
       "visual_cues": [
         "curly dark hair, strong brows, defined nose, and short natural stubble",
         "warm medium-brown South Asian skin tone",
@@ -67,6 +73,8 @@
   },
   "visual_story_policy": {
     "rule": "After copy and format lock, each slide states one observable physical event and complete cinematic direction; prove the riskiest event in actual pixels before generating the rest.",
+    "risk_contract_rule": "Select only the scene-specific integrity checks the locked action activates. The canonical rules define their detailed requirements; this contract does not replace them.",
+    "pixel_evidence_rule": "A visual PASS records observations from current decoded pixels, an evidence region, and the exact asset binding. A plan, prompt, filename, generator claim, or prior review is not pixel evidence.",
     "pixel_review_order": [
       "physical event and relationship state",
       "cinematic caught-event, motivated light, depth, story evidence, and before-after implication",

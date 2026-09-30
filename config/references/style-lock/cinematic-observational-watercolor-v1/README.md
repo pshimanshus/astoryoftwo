@@ -1,6 +1,6 @@
 # Cinematic Observational Watercolor v1
 
-Status: creator-approved active illustration evidence bundle  
+Status: creator-approved active illustration evidence bundle
 Approved: 2026-09-04
 
 This folder contains the visual evidence for the active
