@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import re
 
 import pytest
@@ -92,6 +93,91 @@ def _compile(**overrides: object) -> str:
     }
     values.update(overrides)
     return compile_image_prompt(**values)  # type: ignore[arg-type]
+
+
+def _edit_operation(format_key: str = "instagram_post") -> dict[str, object]:
+    return {
+        "intent": "edit",
+        "targets": {
+            format_key: {
+                "path": ".internal/references/edit-targets/target.png",
+                "sha256": "sha256:" + "a" * 64,
+                "width": 1080,
+                "height": 1440,
+            }
+        },
+    }
+
+
+def test_legacy_generation_prompt_bytes_are_unchanged() -> None:
+    # Captured before adding image_operation, from the frozen implementation
+    # baseline. Equality to the new default alone would miss shared drift.
+    assert hashlib.sha256(_compile().encode()).hexdigest() == (
+        "fdbd7508b040d2b8b8f7cbcca242e2c7d856ae17dbf56099a8c25a0f33af6992"
+    )
+
+
+@pytest.mark.parametrize("format_key", ["instagram_post", "reels_stories", "square"])
+def test_targetless_generation_is_byte_identical(format_key: str) -> None:
+    prompt = _compile(format_key=format_key)
+    assert _compile(format_key=format_key, image_operation=None) == prompt
+    assert _compile(format_key=format_key, image_operation={"intent": "generate"}) == prompt
+    assert _compile(
+        format_key=format_key, image_operation={"intent": "generate", "targets": {}}
+    ) == prompt
+
+
+@pytest.mark.parametrize("format_key", ["instagram_post", "reels_stories", "square"])
+def test_edit_uses_target_first_and_canonical_scene_copy_and_feedback(format_key: str) -> None:
+    exact = "We saved /home/us/photo.jpg.  Exactly twice.\nReferences: [us]."
+    profile = load_active_illustration_style_profile()
+    prompt = _compile(
+        format_key=format_key,
+        slide_copy=exact,
+        style=profile["generation_prompt"],
+        negative=profile["negative_prompt"],
+        image_operation=_edit_operation(format_key),
+        feedback_constraints=[{
+            "must_change": ["Move only the lamp to the far table edge."],
+            "must_preserve": ["Keep the folded map between their hands."],
+        }],
+    )
+
+    assert prompt.startswith("EDIT INPUTS:\nEdit image 1, the existing canvas.")
+    assert "Images 2-5 are the four canonical Aachu/Zuv identity references" in prompt
+    assert "image 6 is the canonical style board" in prompt
+    assert "not identity or style authority" in prompt
+    assert "PRIMARY REQUEST:\nEdit image 1 into one image-led" in prompt
+    assert "Create one image-led" not in prompt
+    assert _section(prompt, "ON-IMAGE TEXT:", "SCENE:") == exact
+    assert prompt.count("ON-IMAGE TEXT:\n") == 1
+    assert prompt.count("SCENE:\n") == 1
+    assert prompt.count("Move only the lamp to the far table edge.") == 1
+    assert prompt.count("Keep the folded map between their hands.") == 1
+    assert "target.png" not in prompt
+    assert "sha256:" not in prompt
+    assert len(prompt) <= MAX_PROMPT_CHARS
+    assert len(prompt.split()) <= MAX_PROMPT_WORDS
+
+
+@pytest.mark.parametrize("operation", [
+    [], {}, {"intent": "replace"}, {"intent": "generate", "targets": {"square": {"path": "x"}}},
+    {"intent": "edit", "targets": []}, {"intent": "edit", "targets": {}},
+    {"intent": "edit", "targets": {"instagram_post": {}}}, _edit_operation("square"),
+])
+def test_edit_operation_requires_a_target_for_the_selected_format(operation: object) -> None:
+    with pytest.raises(ValueError, match="image_operation"):
+        _compile(image_operation=operation)
+
+
+def test_edit_stays_fail_closed_when_its_instructions_exceed_prompt_budget() -> None:
+    # A generation prompt can fit while edit role instructions would overflow.
+    words = MAX_PROMPT_WORDS - len(_compile(slide_copy="One.").split())
+    exact = "One. " + "copy " * words
+    baseline = _compile(slide_copy=exact)
+    assert len(baseline.split()) == MAX_PROMPT_WORDS
+    with pytest.raises(ValueError, match="too long"):
+        _compile(slide_copy=exact, image_operation=_edit_operation())
 
 
 def test_compile_image_prompt_is_compact_and_removes_pipeline_noise():

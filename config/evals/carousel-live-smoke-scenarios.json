@@ -94,5 +94,35 @@
       "physical_action": "One continuous rolled jute rug is halfway through a narrow doorway: Aachu is visible in the near room crouching and pulling the front end downward while Zuv is visible beyond the threshold pushing the far end at waist height; the door jamb occludes only a short middle band of the rug and neither body intersects the wall.",
       "relationship_state": "repairing a shared approach instead of pushing harder"
     }
-  ]
+  ],
+  "maintenance_upgrade": {
+    "run_date": "2026-09-30",
+    "authorization": "explicit user-approved implementation plan",
+    "maximum_builtin_calls": 3,
+    "maximum_edit_attempts": 2,
+    "generation_inputs": [
+      "four canonical identity references",
+      "one canonical style board"
+    ],
+    "edit_inputs": [
+      "separate snapshotted target",
+      "same four canonical identity references",
+      "same canonical style board"
+    ],
+    "required_preservation": [
+      "exact copy",
+      "identity",
+      "signature",
+      "creator locks",
+      "semantic retry accounting",
+      "creator approval gates"
+    ],
+    "attachment_rejection": "Retain every required input; record BLOCKED/NOT_RUN; do not drop references or switch to CLI.",
+    "acceptance_dimensions": [
+      "tool request acceptance",
+      "decoded-pixel validity",
+      "creator approval"
+    ],
+    "isolated_packages_only": true
+  }
 }

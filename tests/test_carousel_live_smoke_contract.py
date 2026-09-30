@@ -159,3 +159,27 @@ def test_active_profile_smoke_is_distinct_from_historical_certification() -> Non
         assert rollout["result"] == "BLOCKED"
         assert rollout["acceptance_certified"] is False
         assert rollout["creator_approvals"] == 0
+
+
+def test_maintenance_smoke_keeps_transport_pixels_and_approval_separate() -> None:
+    contract = json.loads(SCENARIOS.read_text(encoding="utf-8"))["maintenance_upgrade"]
+    evidence = json.loads(REPORT.read_text(encoding="utf-8"))["maintenance_upgrade"]
+    assert contract["isolated_packages_only"] is True
+    assert evidence["builtin_call_requests"] <= contract["maximum_builtin_calls"]
+    assert evidence["creator_approvals"] == evidence["false_promotions"] == 0
+    assert evidence["paid_cli_calls"] == 0
+    assert evidence["tool_metadata"]["evidence"] == "operator_recorded"
+    generation, edit = evidence["generation"], evidence["edit"]
+    assert generation["input_count"] == 5
+    assert edit["input_count"] == 6
+    assert edit["references_dropped"] == 0
+    assert edit["fallback_used"] is False
+    if edit["request_acceptance"] == "REJECTED":
+        assert edit["pixel_qa"] == "NOT_RUN"
+        assert edit["returned_image"] is False
+        assert edit["ingested_attempts"] == 0
+        assert edit["package_state"] == "handoff_ready"
+    if generation["pixel_qa"] != "PASS" or edit["pixel_qa"] != "PASS":
+        assert evidence["result"] == "INCOMPLETE"
+        assert evidence["acceptance_certified"] is False
+    assert generation["creator_approval"] == edit["creator_approval"] == "NOT_GRANTED"

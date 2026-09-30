@@ -10,11 +10,16 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
+from io import BytesIO
+
+from PIL import Image
 from pathlib import Path
 from typing import Any
 
 from pipeline.stages.carousel_format_contract import (
     locked_format_contract_fingerprint,
+    SUPPORTED_NATIVE_FORMATS,
     locked_formats,
 )
 from pipeline.stages.carousel_contract import (
@@ -308,12 +313,71 @@ def build_shared_reference_bindings(package_dir: Path) -> list[dict[str, str]]:
     )
 
 
+def canonical_image_operation(value: Any) -> dict[str, Any] | None:
+    """Canonical edit semantics; targetless generation preserves legacy hashes."""
+    if value is None:
+        return None
+    if not isinstance(value, dict) or set(value) - {"intent", "targets"}:
+        raise ValueError("image_operation must contain only intent and targets.")
+    intent = value.get("intent")
+    targets = value.get("targets", {})
+    if intent == "generate" and targets == {}:
+        return None
+    if intent != "edit" or not isinstance(targets, dict) or not targets:
+        raise ValueError("image_operation requires edit targets or targetless generate.")
+    if any(not isinstance(key, str) or key not in SUPPORTED_NATIVE_FORMATS for key in targets):
+        raise ValueError("Edit target formats must be supported native format names.")
+    result = {}
+    for output_format, target in sorted(targets.items()):
+        if not isinstance(target, dict) or set(target) != {"path", "sha256", "width", "height"}:
+            raise ValueError("Each edit target requires path, sha256, width and height.")
+        path = target["path"]
+        if (not isinstance(path, str) or not path or Path(path).is_absolute()
+                or ".." in Path(path).parts or Path(path).as_posix() != path):
+            raise ValueError("Edit target path must be canonical and package-relative.")
+        if not isinstance(target["sha256"], str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", target["sha256"]):
+            raise ValueError("Edit target sha256 must be a canonical SHA-256 binding.")
+        if any(type(target[key]) is not int or target[key] <= 0 for key in ("width", "height")):
+            raise ValueError("Edit target dimensions must be positive integers.")
+        result[output_format] = dict(target)
+    return {"intent": "edit", "targets": result}
+
+
+def validated_image_operation(
+    package_dir: Path, slide: dict[str, Any], formats: list[str] | tuple[str, ...]
+) -> dict[str, Any] | None:
+    operation = canonical_image_operation(slide.get("image_operation"))
+    if operation is None:
+        return None
+    if set(operation["targets"]) != set(formats):
+        raise ValueError("Edit targets must exactly cover the selected formats.")
+    for target in operation["targets"].values():
+        path = _package_file(package_dir, target["path"], role="edit target")
+        payload = path.read_bytes()
+        if sha256_binding(payload) != target["sha256"]:
+            raise ValueError("Edit target bytes do not match their recorded SHA-256.")
+        try:
+            with Image.open(BytesIO(payload)) as image:
+                image.load()
+                dimensions = image.size
+                is_png = image.format == "PNG"
+        except (OSError, ValueError) as exc:
+            raise ValueError("Edit target must be a readable PNG.") from exc
+        if not is_png or dimensions != (target["width"], target["height"]):
+            raise ValueError("Edit target PNG dimensions do not match the binding.")
+    return operation
+
+
 def _slide_source(slide: dict[str, Any]) -> dict[str, Any]:
-    return {
+    source = {
         key: slide[key]
         for key in SLIDE_SOURCE_FIELDS
         if key in slide and slide[key] not in (None, "", [])
     }
+    operation = canonical_image_operation(slide.get("image_operation"))
+    if operation is not None:
+        source["image_operation"] = operation
+    return source
 
 
 def visual_premise_fingerprint(slide: dict[str, Any]) -> str:
@@ -435,6 +499,7 @@ def _compiled_prompt_fingerprint(
                 spatial_topology=effective["spatial_topology"],
                 visual_richness=effective["visual_richness"],
                 feedback_constraints=feedback_constraints,
+                image_operation=slide.get("image_operation"),
             ).encode("utf-8")
         except ValueError as exc:
             # Draft packages must remain serializable before visual direction is
@@ -511,6 +576,7 @@ def build_generation_inputs(package_dir: Path) -> dict[str, Any]:
     negative = str(style_profile["negative_prompt"])
     for slide in slides:
         number = int(slide["slide"])
+        validated_image_operation(package_dir, slide, formats)
         source = _slide_source(slide)
         feedback_constraints = active_feedback_constraints(package_dir, number)
         # Keep legacy/no-feedback source bytes and fingerprints exactly stable.

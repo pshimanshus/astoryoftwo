@@ -22,9 +22,15 @@ Check entity/anatomy/spatial integrity before beauty language.
 
 ## Proof And QA
 
-Generate the riskiest proof first. Inspect actual-pixel evidence with
-`view_image`; prompt text, filenames, generator reports, or reviewer labels are
-not evidence.
+Generate the riskiest proof first. For a requested edit, bind its target with
+`prepare --operation-json PATH`, inspect it, then attach it first followed by
+the five canonical identity/style references. Send the exact compiled prompt;
+scene/copy fields and feedback remain authoritative. Every new call requires
+`ingest --invocation-json PATH`; see
+`.agents/skills/astory/references/imagegen-contract.md` for the record format.
+Inspect actual-pixel evidence with `view_image`; prompt text, filenames,
+operator-recorded invocations, generator reports, or reviewer labels are not
+pixel evidence.
 
 Record proof results in `proof-qa.json` with path, SHA-256, dimensions, story
 read, identity, exact text, brandmark, style, and native canvas. Creator approval

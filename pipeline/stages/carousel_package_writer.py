@@ -213,6 +213,11 @@ def _minimal_slide(slide: dict[str, Any]) -> dict[str, Any]:
     result["physical_action"] = str(
         slide.get("physical_action") or slide.get("visual") or slide.get("scene") or ""
     )
+    from pipeline.stages.carousel_generation_inputs import canonical_image_operation
+
+    operation = canonical_image_operation(slide.get("image_operation"))
+    if operation is not None:
+        result["image_operation"] = operation
     return result
 
 

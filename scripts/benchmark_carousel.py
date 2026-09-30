@@ -23,6 +23,7 @@ from pipeline.stages.carousel_visual_integrity import (  # noqa: E402
     build_hand_ownership_map,
     hand_is_visible,
 )
+from tests.helpers.imagegen_invocations import with_synthetic_cli_invocation
 from tests.helpers.carousel_qa import (  # noqa: E402
     synthetic_route_sequence_review,
     synthetic_route_story_plan,
@@ -118,6 +119,7 @@ def _brief(path: Path) -> Path:
 
 
 def _call(*args: str) -> dict[str, Any]:
+    args = with_synthetic_cli_invocation(args)
     result = subprocess.run(
         [sys.executable, str(CAROUSEL), *args],
         cwd=ROOT,

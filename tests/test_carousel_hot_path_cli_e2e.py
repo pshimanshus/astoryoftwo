@@ -13,6 +13,7 @@ import pytest
 
 from pipeline.stages.carousel_generation_inputs import build_generation_inputs
 from pipeline.stages.codex_builtin_image_generation import reconcile_package_state
+from tests.helpers.imagegen_invocations import with_synthetic_cli_invocation
 from tests.helpers.carousel_qa import (
     cinematic_slide_fields,
     passing_cinematic_story_frame,
@@ -28,6 +29,7 @@ DOCTOR = ROOT / "scripts/carousel_doctor.py"
 
 
 def _run(*args: str, expected: int = 0) -> dict[str, Any]:
+    args = with_synthetic_cli_invocation(args)
     result = subprocess.run(
         [sys.executable, str(CAROUSEL), *args],
         cwd=ROOT,

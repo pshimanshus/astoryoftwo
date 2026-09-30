@@ -1,0 +1,75 @@
+{
+  "schema_version": "imagegen-maintenance-behavior/v1",
+  "result": "PASS",
+  "scenarios": [
+    {
+      "id": "reference_only_generation",
+      "result": "PASS",
+      "input_count": 5,
+      "sent_prompt_sha256": "sha256:204cbcf8f7492e852a91bacbfb4ed58518c3787e56e644ae8fc8a4999a7aa345",
+      "actual_fake_arguments_verified": true
+    },
+    {
+      "id": "local_repair",
+      "result": "PASS",
+      "input_count": 6,
+      "sent_prompt_sha256": "sha256:f581ea7b2c16084070de3c87e03719a1c03022161761a8ff2a3bf9668163714b",
+      "actual_fake_arguments_verified": true
+    },
+    {
+      "id": "wordless",
+      "result": "PASS",
+      "input_count": 5,
+      "sent_prompt_sha256": "sha256:cc9afc49acd2941cd8be0b5d5231aa6456dddde9755b86e63104e4b6d0386f8b",
+      "actual_fake_arguments_verified": true
+    },
+    {
+      "id": "locked_composition",
+      "result": "PASS",
+      "image_calls": 0,
+      "assessment": "Coordinator reviewed saved decision, stop reason and routing artifact."
+    },
+    {
+      "id": "premature_batch",
+      "result": "PASS",
+      "image_calls": 0,
+      "assessment": "Coordinator reviewed saved decision, stop reason and routing artifact."
+    },
+    {
+      "id": "unavailable_tool",
+      "result": "PASS",
+      "image_calls": 0,
+      "assessment": "Coordinator reviewed saved decision, stop reason and routing artifact."
+    },
+    {
+      "id": "semantic_rejection",
+      "result": "PASS",
+      "image_calls": 0,
+      "assessment": "Coordinator reviewed saved decision, stop reason and routing artifact."
+    },
+    {
+      "id": "unauthorized_fallback",
+      "result": "PASS",
+      "image_calls": 0,
+      "assessment": "Coordinator reviewed saved decision, stop reason and routing artifact."
+    },
+    {
+      "id": "maintenance_routing",
+      "result": "PASS",
+      "image_calls": 0,
+      "assessment": "Coordinator reviewed saved decision, stop reason and routing artifact."
+    }
+  ],
+  "limits": [
+    "Single fresh agent across nine isolated cases; no claim of statistical reliability.",
+    "Three fake-tool dispatches tested exact arguments; fake six-input acceptance does not establish live acceptance.",
+    "Fixture prompt refresh before edit dispatch; generation hash unchanged."
+  ],
+  "run_date": "2026-09-30",
+  "evaluator": "fresh_agent_no_inherited_history",
+  "implementation_verdicts_in_evaluator_prompt": false,
+  "expected_answers_in_evaluator_prompt": false,
+  "real_image_calls": 0,
+  "ordinary_production_helpers": 0,
+  "scenario_fixture": "tests/fixtures/imagegen_maintenance_forward_prompts.json"
+}

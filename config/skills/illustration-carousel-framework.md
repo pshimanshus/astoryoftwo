@@ -112,18 +112,23 @@ structure and must not be padded or relabelled.
 
 ## Identity And Reference Contract
 
-Before generation, use exactly five attachments:
+For both generation and editing, keep exactly five canonical references:
 
 1. the four actual Aachu/Zuv/together files in
    `identity-dossier.json.selected_generation_bundle`;
 2. one package-bound style board resolved from the active profile in
    `config/carousel_style_contract.json` and verified by its declared SHA-256.
 
-Codex attaches all five actual files to every image-generation call. Filenames
-or text descriptions alone do not satisfy identity. The five-file boundary is
-an observed constraint of the current built-in Codex runtime smoke, not a claim
-about an official platform limit. Do not attach the three individual style
-slides in addition to the board, and do not remove an identity role to fit.
+Codex attaches all five actual files to every image-generation call. For an
+edit, the separately bound target is image 1, followed by these five references
+in canonical order. Filenames or text descriptions alone do not satisfy
+identity. This is not a claim about an official platform limit. Do not attach
+individual style slides in addition to the board or remove an identity role.
+Use `prepare --operation-json PATH` for edits, send the exact compiled prompt,
+and record every new call through `ingest --invocation-json PATH`. Invocation
+evidence is `operator_recorded`; it is not independent server attestation.
+Legacy receipts remain readable without invented evidence. The input and
+record schemas live in `.agents/skills/astory/references/imagegen-contract.md`.
 
 Use the identity/current-request images for the whole person:
 

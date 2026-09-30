@@ -222,6 +222,46 @@ def _feedback_prompt_constraints(
     return projected["must_change"], projected["must_preserve"]
 
 
+def _apply_image_operation(
+    prompt: str, image_operation: dict[str, Any] | None, *, format_key: str
+) -> str:
+    """Describe edit roles without making target pixels a second story authority.
+
+    Target paths, hashes, and dimensions are validated by the generation-input
+    boundary. They stay out of the creative prompt, as do any alternate scene
+    or copy instructions: canonical slide fields and feedback own those.
+    """
+    if image_operation is None:
+        return prompt
+    if not isinstance(image_operation, dict):
+        raise ValueError("image_operation must be a JSON object")
+    intent = image_operation.get("intent")
+    targets = image_operation.get("targets", {})
+    if not isinstance(targets, dict):
+        raise ValueError("image_operation targets must be a JSON object")
+    if intent == "generate" and not targets:
+        return prompt
+    if intent != "edit":
+        raise ValueError("image_operation must be edit or targetless generate")
+    if not isinstance(targets.get(format_key), dict) or not targets[format_key]:
+        raise ValueError(f"image_operation edit requires a target for {format_key}")
+    edit_inputs = (
+        "EDIT INPUTS:\n"
+        "Edit image 1, the existing canvas. Images 2-5 are the four canonical "
+        "Aachu/Zuv identity references; image 6 is the canonical style board. Image 1 supplies "
+        "the editable pixels, not identity or style authority. Apply the locked "
+        "scene, exact copy, and any ACTIVE CREATOR FEEDBACK below. Preserve all "
+        "unaffected content; change only what those canonical directions require.\n\n"
+    )
+    # Keep the historical generation body byte-stable. Only edit requests use
+    # this variation of the primary verb; no second scene/copy payload is added.
+    return edit_inputs + prompt.replace(
+        "PRIMARY REQUEST:\nCreate one image-led ",
+        "PRIMARY REQUEST:\nEdit image 1 into one image-led ",
+        1,
+    )
+
+
 def compile_image_prompt(
     slide_number: int,
     slide_count: int,
@@ -250,6 +290,7 @@ def compile_image_prompt(
     copy_mode: str = "text",
     beat_delta: str | None = None,
     copy_image_relation: dict[str, Any] | None = None,
+    image_operation: dict[str, Any] | None = None,
 ) -> str:
     """Compile one compact, generation-facing prompt.
 
@@ -394,6 +435,7 @@ def compile_image_prompt(
         format_key=format_key,
         **fields,
     )
+    prompt = _apply_image_operation(prompt, image_operation, format_key=format_key)
 
     if len(prompt) > MAX_PROMPT_CHARS or _word_count(prompt) > MAX_PROMPT_WORDS:
         raise ValueError(

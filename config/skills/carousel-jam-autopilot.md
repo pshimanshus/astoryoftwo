@@ -4,9 +4,9 @@ last_updated: 2026-09-04
 status: four-gate production path
 
 Codex directly invokes ImageGen for the risky proof and every selected final
-slide. It attaches exactly four identity references and one style board, opens
-the decoded returns, and submits hash-bound QA. Prompt preparation alone is not
-completion.
+slide. It attaches exactly four identity references and one style board, plus
+a separate target first for an edit, opens the decoded returns, and submits
+hash-bound QA. Prompt preparation alone is not completion.
 
 ## Outcome
 
@@ -103,16 +103,28 @@ accept a wrong ratio, or apply this accommodation to Story/Reel or square.
 ## Gate 3 — Proof Pixels + Creator
 
 Choose the frame most likely to fail semantically or visually. The repo command
-prepares the selected compiled prompt. Codex reads it and attaches exactly five
-files: all four files in `identity-dossier.json.selected_generation_bundle`,
-then the one canonical style contact sheet bound by the package. It calls image
-generation only for that proof in each requested native format, immediately
-ingests the returned file into quarantine, and inspects the decoded normalized
-candidate pixels with `view_image` (or unchanged bytes when already exact).
+prepares the selected compiled prompt. Codex sends that exact prompt without
+rewriting it and follows the ordered `input_images`. The reference list stays
+exactly five: all four files in
+`identity-dossier.json.selected_generation_bundle`, then the canonical style
+contact sheet. For an edit, use `prepare --operation-json PATH` to bind a
+separate target as image 1 before those five references; inspect it with
+`view_image` before editing. Slide fields and feedback own the change and
+preserve instructions. The target is the editable canvas, not identity/style
+authority. Target changes do not reset the semantic attempt budget, and proof
+edits revoke approval.
 
-This five-attachment boundary comes from the current built-in Codex runtime
-smoke; do not describe it as an official platform limit. Do not append the
-three individual style slides or silently remove an identity file.
+Call `image_gen.imagegen` only for that proof in each requested native format.
+Every new return requires `ingest --invocation-json PATH`, including ordinary
+generation: record the per-file sent prompt hash, ordered input bindings, and
+raw return hash. These records are `operator_recorded`, never independent
+server attestation; legacy receipts retain their original evidence. See
+`.agents/skills/astory/references/imagegen-contract.md` for the schema. Ingest
+immediately into quarantine and inspect decoded normalized candidate pixels
+with `view_image` (or unchanged bytes when already exact).
+
+The five references plus a separate edit target are not an official platform
+limit claim. Do not append individual style slides or remove an identity role.
 
 Story images are pre-lock creative context, not extra imagegen attachments.
 Inspect them before authoring the brief, encode their observable clothing,

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from tests.helpers.imagegen_invocations import ingest_synthetic_outputs
+
 import json
 from datetime import date
 from pathlib import Path
@@ -12,7 +14,6 @@ from pipeline.stages.codex_builtin_image_generation import (
     approve_proof,
     current_proof_binding_sha256,
     finalize_codex_builtin_outputs,
-    ingest_generated_outputs,
     prepare_codex_builtin_image_generation,
     read_generation_state,
     reconcile_package_state,
@@ -154,7 +155,7 @@ def _generated(tmp_path: Path, selected: list[int]) -> dict[str, list[Path]]:
 
 def _approve_proof(package: Path, tmp_path: Path, proof_slide: int = 3) -> None:
     prepare_codex_builtin_image_generation(package, proof_slide=proof_slide)
-    ingest_generated_outputs(package, _generated(tmp_path / "proof", [proof_slide]), proof_slide=proof_slide)
+    ingest_synthetic_outputs(package, _generated(tmp_path / "proof", [proof_slide]), proof_slide=proof_slide)
     (package / "proof-qa.json").write_text(
         json.dumps(_authored_qa(package, [proof_slide], scope="proof")), encoding="utf-8"
     )
@@ -171,7 +172,7 @@ def _publish(package: Path, tmp_path: Path) -> dict[str, object]:
     _approve_proof(package, tmp_path)
     handoff = prepare_codex_builtin_image_generation(package)
     assert 3 not in handoff["selected_slides"]
-    ingest_generated_outputs(package, _generated(tmp_path / "batch", handoff["selected_slides"]))
+    ingest_synthetic_outputs(package, _generated(tmp_path / "batch", handoff["selected_slides"]))
     (package / "visual-qa.json").write_text(
         json.dumps(_authored_qa(package, [1, 2, 3, 4], scope="final")), encoding="utf-8"
     )
@@ -343,7 +344,7 @@ def test_post_approval_proof_asset_tampering_revokes_batch(tmp_path: Path) -> No
 def test_approve_proof_requires_nonempty_exact_binding(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=3)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package, _generated(tmp_path / "proof", [3]), proof_slide=3
     )
     (package / "proof-qa.json").write_text(
@@ -360,7 +361,7 @@ def test_approve_proof_requires_nonempty_exact_binding(tmp_path: Path) -> None:
 def test_candidate_record_swap_after_qa_is_rejected_by_approval(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=3)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package, _generated(tmp_path / "proof", [3]), proof_slide=3
     )
     (package / "proof-qa.json").write_text(
@@ -405,7 +406,7 @@ def test_proof_qa_schema_error_repairs_qa_without_spending_image_attempt(
 ) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=3)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package, _generated(tmp_path / "proof", [3]), proof_slide=3
     )
     qa = _authored_qa(package, [3], scope="proof")
@@ -425,7 +426,7 @@ def test_mixed_batch_semantic_failure_retries_only_first_failed_slide(
     package = _package(tmp_path)
     _approve_proof(package, tmp_path)
     handoff = prepare_codex_builtin_image_generation(package)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package, _generated(tmp_path / "batch", handoff["selected_slides"])
     )
     state_before = read_generation_state(package)
@@ -471,7 +472,7 @@ def test_final_qa_binding_error_repairs_qa_without_spending_attempts(
     package = _package(tmp_path)
     _approve_proof(package, tmp_path)
     handoff = prepare_codex_builtin_image_generation(package)
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package, _generated(tmp_path / "batch", handoff["selected_slides"])
     )
     before = read_generation_state(package)
@@ -548,13 +549,13 @@ def test_stale_handoff_is_rejected_nonzero_by_core(tmp_path: Path) -> None:
     slides[2]["copy"] = "Changed after compilation."
     (package / "slides.json").write_text(json.dumps(slides), encoding="utf-8")
     with pytest.raises(ValueError, match="Prepare the compiled prompt"):
-        ingest_generated_outputs(package, _generated(tmp_path / "stale", [3]), proof_slide=3)
+        ingest_synthetic_outputs(package, _generated(tmp_path / "stale", [3]), proof_slide=3)
 
 
 def test_wrong_size_candidate_is_quarantined_and_counted_not_resized(tmp_path: Path) -> None:
     package = _package(tmp_path)
     prepare_codex_builtin_image_generation(package, proof_slide=1)
-    state = ingest_generated_outputs(
+    state = ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / "wrong.png", (1440, 1800))]},
         proof_slide=1,
@@ -601,7 +602,7 @@ def test_slide_local_batch_correction_reuses_unaffected_current_candidates(
     _approve_proof(package, tmp_path)
     prepared = prepare_codex_builtin_image_generation(package)
     assert prepared["selected_slides"] == [1, 2, 4]
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         _generated(tmp_path / "batch-before-correction", [1, 2, 4]),
     )

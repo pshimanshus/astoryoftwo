@@ -122,11 +122,20 @@ anatomy negatives do not satisfy this lock.
   `config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png`;
   runtime code must also verify the declared SHA-256 rather than trusting this
   prose pointer.
-  This exact five-file set is the practical boundary observed in the current
-  built-in Codex image-generation runtime smoke; it is not a published-platform
-  limit claim. Do not add individual style source frames on top of the board,
-  and never drop an identity role to make room. Text-only identity descriptions
-  are blocked.
+  These are exactly five canonical references. Generate attaches five files;
+  edit attaches its separate target first, then these same five references.
+  This is not a published-platform limit claim. Follow the prepared ordered
+  `input_images`; never drop an identity role or append individual style frames.
+  Text-only identity descriptions are blocked.
+- An edit uses `prepare --operation-json PATH`; the canonical `image_operation`
+  selects a bound canvas, while existing slide fields and feedback remain the
+  sole scene/copy/change authority. Inspect its local target before calling
+  `image_gen.imagegen`. Send the exact compiled prompt without rewriting it.
+- Every new return, including generation, requires `ingest --invocation-json
+  PATH`. Record the per-file sent prompt hash, ordered input bindings, and raw
+  returned-source hash. This is `operator_recorded` evidence, never server
+  attestation. Preserve legacy receipts without inventing invocation evidence.
+  See `.agents/skills/astory/references/imagegen-contract.md` for the schema.
 - Wardrobe comes from the attached identity/current-request images first.
 - Preserve both whole people: face, hair, height, proportions, expression,
   posture, and clothing.

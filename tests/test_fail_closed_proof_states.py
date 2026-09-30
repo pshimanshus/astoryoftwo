@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from tests.helpers.imagegen_invocations import ingest_synthetic_outputs
+
 import json
 from datetime import date
 from pathlib import Path
@@ -9,7 +11,6 @@ import pytest
 
 from pipeline.stages.codex_builtin_image_generation import (
     approve_proof,
-    ingest_generated_outputs,
     prepare_codex_builtin_image_generation,
     review_quarantined_outputs,
 )
@@ -80,7 +81,7 @@ def _failed_authored_qa(slide: int) -> dict[str, object]:
 
 
 def _failed_attempt(package: Path, tmp_path: Path, slide: int, attempt: int) -> dict[str, object]:
-    ingest_generated_outputs(
+    ingest_synthetic_outputs(
         package,
         {"instagram_post": [_png(tmp_path / f"attempt-{attempt}.png")]},
         proof_slide=slide if attempt == 1 else None,

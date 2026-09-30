@@ -111,6 +111,7 @@ def _core_prepare(
     *,
     proof_slide: int | None,
     formats: list[str] | None,
+    image_operations: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     # New v3 packages must pass concept lock before any proof prompts are
     # prepared. Archived/legacy packages remain readable and are not silently
@@ -132,6 +133,7 @@ def _core_prepare(
         package_dir,
         proof_slide=proof_slide,
         formats=formats,
+        **({"image_operations": image_operations} if image_operations is not None else {}),
     )
 
 
@@ -142,6 +144,7 @@ def _core_ingest(
     proof_slide: int | None,
     tool_reported_model: str | None,
     feedback_id: str | None,
+    invocation_records: list[dict[str, Any]],
 ) -> dict[str, Any]:
     from pipeline.stages.codex_builtin_image_generation import ingest_generated_outputs
 
@@ -151,6 +154,7 @@ def _core_ingest(
         proof_slide=proof_slide,
         tool_reported_model=tool_reported_model,
         feedback_id=feedback_id,
+        invocation_records=invocation_records,
     )
 
 
@@ -580,6 +584,16 @@ def _run_create(args: argparse.Namespace) -> tuple[Path, dict[str, Any]]:
     return package_dir, reconciled
 
 
+def _record_array(path_value: str, label: str) -> list[dict[str, Any]]:
+    path = Path(path_value).expanduser()
+    if path.is_symlink() or not path.is_file():
+        raise CliInputError(f"{label} file is missing or unsafe: {path}")
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, list) or not payload or any(not isinstance(item, dict) for item in payload):
+        raise CliInputError(f"{label} must contain a non-empty JSON array of records")
+    return payload
+
+
 def _run(args: argparse.Namespace) -> tuple[Path | None, dict[str, Any]]:
     if args.command == "create":
         return _run_create(args)
@@ -630,6 +644,7 @@ def _run(args: argparse.Namespace) -> tuple[Path | None, dict[str, Any]]:
             package_dir,
             proof_slide=args.proof_slide,
             formats=args.formats,
+            image_operations=_record_array(args.operation_json, "Image operations") if args.operation_json else None,
         )
     if args.command == "concept-check":
         return package_dir, _core_concept_check(package_dir)
@@ -643,6 +658,7 @@ def _run(args: argparse.Namespace) -> tuple[Path | None, dict[str, Any]]:
             proof_slide=args.proof_slide,
             tool_reported_model=args.model,
             feedback_id=args.feedback_id,
+            invocation_records=_record_array(args.invocation_json, "ImageGen invocations"),
         )
     if args.command == "review":
         qa_path = Path(args.qa).expanduser()
@@ -768,6 +784,7 @@ def build_parser() -> argparse.ArgumentParser:
     prepare = subparsers.add_parser("prepare", help="Compile proof or remaining-slide prompts.")
     prepare.add_argument("package_dir")
     prepare.add_argument("--proof-slide", type=int)
+    prepare.add_argument("--operation-json", help="Array of slide operations with format-to-target source paths.")
     prepare.add_argument(
         "--format",
         dest="formats",
@@ -778,6 +795,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     ingest = subparsers.add_parser("ingest", help="Quarantine exact Codex imagegen outputs.")
     ingest.add_argument("package_dir")
+    ingest.add_argument("--invocation-json", required=True, help="Operator-recorded call bindings for every new return.")
     ingest.add_argument("--instagram-post", action="append", default=[])
     ingest.add_argument("--reels-stories", action="append", default=[])
     ingest.add_argument("--square", action="append", default=[])

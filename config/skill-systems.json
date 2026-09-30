@@ -3,7 +3,7 @@
   "systems": {
     "carousel_jam": {
       "description": "Minimal four-gate creator jam to final illustrated carousel workflow.",
-      "completion_contract": "Codex directly invokes ImageGen, attaches four identity references and one style board, opens returned pixels, and completes hash-bound repository QA and promotion; prompt-only handoff is incomplete.",
+      "completion_contract": "Codex sends the exact compiled prompt, attaches four identity references and one style board (plus a separate target first for edits), records every new invocation, opens returned pixels, and completes hash-bound repository QA and promotion; prompt-only handoff is incomplete.",
       "components": [
         "config/skills/creator-skill-stack.md",
         ".agents/skills/a-story-storytelling-hook/SKILL.md",
@@ -64,7 +64,9 @@
         "codex": [
           "read_compiled_prompt",
           "attach_four_curated_identity_references_and_one_style_board",
+          "prepend_bound_edit_target_when_editing",
           "call_image_generation",
+          "record_operator_invocation_for_every_new_return",
           "inspect_decoded_pixels_with_view_image",
           "submit_hash_and_dimension_bound_qa"
         ],
@@ -232,6 +234,27 @@
         "semantic_memory_confidence",
         "autopublish_closeout"
       ]
+    },
+    "imagegen_maintenance": {
+      "description": "Scoped repair and independent acceptance for the shared ImageGen skill and carousel generate/edit integration; dispatched by affected system and observed failure.",
+      "components": [
+        ".agents/skills/a-story-imagegen-maintenance/SKILL.md"
+      ],
+      "source_references": [
+        ".agents/skills/a-story-imagegen-maintenance/references/dispatch.md",
+        ".agents/skills/a-story-imagegen-maintenance/references/acceptance.md"
+      ],
+      "agents": [],
+      "default_agent_count": 0,
+      "coordinator_count": 1,
+      "max_concurrent_helpers": 4,
+      "dispatch_policy": "Select only independently useful owners for affected surfaces; explicit disjoint ownership and interface sequencing; reuse owners for failures and use a fresh blind independent acceptance reviewer.",
+      "root_only_actions": [
+        "global_skill_installation",
+        "live_image_or_api_calls"
+      ],
+      "gates": [],
+      "artifacts": []
     }
   }
 }

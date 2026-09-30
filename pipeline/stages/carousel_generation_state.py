@@ -164,6 +164,37 @@ def _optional_sha256(value: Any, *, field: str) -> str | None:
     return _required_sha256(value, field=field)
 
 
+def _compact_invocation(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict) or value.get("evidence") != "operator_recorded":
+        raise ValueError("invocation evidence must be operator_recorded.")
+    if value.get("tool") != "image_gen.imagegen" or value.get("intent") not in {"generate", "edit"}:
+        raise ValueError("invocation requires the built-in tool and generate/edit intent.")
+    inputs = value.get("input_images")
+    if not isinstance(inputs, list) or len(inputs) != (6 if value["intent"] == "edit" else 5):
+        raise ValueError("invocation has an invalid ordered input image list.")
+    compact = {
+        "evidence": "operator_recorded",
+        "slide": int(value["slide"]), "format": str(value["format"]),
+        "intent": value["intent"], "tool": value["tool"],
+        "sent_prompt_sha256": _required_sha256(value.get("sent_prompt_sha256"), field="invocation.sent_prompt_sha256"),
+        "input_images": [
+            {
+                "role": str(item["role"]), "path": str(item["path"]),
+                "sha256": _required_sha256(item.get("sha256"), field="invocation.input.sha256"),
+                **{key: int(item[key]) for key in ("width", "height") if key in item},
+            }
+            for item in inputs
+        ],
+        "returned_source_sha256": _required_sha256(value.get("returned_source_sha256"), field="invocation.returned_source_sha256"),
+    }
+    for key in ("tool_call_id", "model"):
+        if key in value:
+            if not isinstance(value[key], str) or not value[key].strip():
+                raise ValueError(f"invocation.{key} must be non-empty when exposed.")
+            compact[key] = value[key]
+    return compact
+
+
 def _compact_attempt(value: Any) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError("attempt_history entries must be objects.")
@@ -182,6 +213,8 @@ def _compact_attempt(value: Any) -> dict[str, Any]:
                 or (value.get("feedback_id") is not None and value["feedback_id"] not in ids)):
             raise ValueError("attempt.feedback_ids must contain unique IDs and its scalar feedback_id.")
     return {
+        **({"invocations": [_compact_invocation(item) for item in value["invocations"]]}
+           if "invocations" in value else {}),
         "generator_boundary": boundary,
         "tool_reported_model": value.get("tool_reported_model"),
         "prompt_sha256": _required_sha256(value.get("prompt_sha256"), field="attempt.prompt_sha256"),

@@ -99,6 +99,57 @@ def test_story_article_uses_canonical_voice_rule():
     assert "config/voice.md" not in resolved["components"]
 
 
+def test_imagegen_maintenance_is_independently_discoverable_without_carousel_context():
+    root = Path(__file__).resolve().parents[1]
+    records = discover_skill_records(root)
+    record = next(
+        record for record in records
+        if record.skill_id == "repo_skill.a-story-imagegen-maintenance"
+    )
+    assert record.implicit_invocation is True
+    assert record.path == ".agents/skills/a-story-imagegen-maintenance/SKILL.md"
+
+    systems = load_skill_systems(root)
+    maintenance = resolve_skill_system(systems, "imagegen_maintenance")
+    assert maintenance["components"] == [record.path]
+    for relative in maintenance["components"] + maintenance["source_references"]:
+        assert (root / relative).is_file()
+    assert maintenance["gates"] == []
+    assert maintenance["agents"] == []
+    raw = systems["systems"]["imagegen_maintenance"]
+    assert raw["coordinator_count"] == 1
+    assert raw["max_concurrent_helpers"] == 4
+    assert raw["root_only_actions"] == ["global_skill_installation", "live_image_or_api_calls"]
+
+    carousel = resolve_skill_system(systems, "carousel_jam")
+    assert not set(maintenance["components"] + maintenance["source_references"]) & set(
+        carousel["components"] + carousel["source_references"]
+    )
+    manifest = json.loads((root / "config/agentic_context_manifest.json").read_text())
+    for profile in manifest["profiles"].values():
+        for section in profile["sections"]:
+            assert "imagegen-maintenance" not in section["path"]
+            assert "imagegen-maintenance" not in (root / section["path"]).read_text()
+
+
+def test_imagegen_forward_scenarios_keep_grader_expectations_separate():
+    root = Path(__file__).resolve().parents[1]
+    scenarios = json.loads(
+        (root / "tests/fixtures/imagegen_maintenance_forward_prompts.json").read_text()
+    )["scenarios"]
+    grader = json.loads(
+        (root / "tests/fixtures/imagegen_maintenance_forward_expectations.json").read_text()
+    )
+    assert grader["coordinator_only"] is True
+    ids = [scenario["id"] for scenario in scenarios]
+    assert len(ids) == len(set(ids))
+    assert set(ids) == set(grader["expectations"])
+    for scenario in scenarios:
+        assert set(scenario) == {"id", "prompt", "artifacts"}
+        assert scenario["prompt"] and scenario["artifacts"]
+        assert "expectations.json" not in scenario["prompt"]
+
+
 def test_repo_skill_usage_tracks_frequency_and_failures(tmp_path: Path):
     root = tmp_path
     repo_skill_dir = root / ".agents" / "skills" / "gamma-skill"

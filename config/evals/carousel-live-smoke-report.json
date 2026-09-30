@@ -157,5 +157,71 @@
         "elapsed_seconds": 1.01
       }
     ]
+  },
+  "maintenance_upgrade": {
+    "run_date": "2026-09-30",
+    "scope": "Isolated maintenance generation and edit contract smoke; original carousel untouched.",
+    "result": "INCOMPLETE",
+    "acceptance_certified": false,
+    "builtin_call_requests": 2,
+    "images_returned": 1,
+    "creator_approvals": 0,
+    "false_promotions": 0,
+    "paid_cli_calls": 0,
+    "tool_metadata": {
+      "model_exposed": false,
+      "tool_call_id_exposed": false,
+      "evidence": "operator_recorded"
+    },
+    "generation": {
+      "request_acceptance": "PASS",
+      "input_count": 5,
+      "intent": "generate",
+      "raw_sha256": "sha256:5ced51f3b5e114efb04ac5b4b64b56b1117d47654a35cbaa76cf9f00b3efc7e1",
+      "raw_dimensions": [
+        1086,
+        1448
+      ],
+      "normalized_sha256": "sha256:b3c7fc13b27054d6f8bf5d04280710ba81df25139b9ed3c283a7c99b047560cb",
+      "normalized_dimensions": [
+        1080,
+        1440
+      ],
+      "normalization": "single_lanczos_downsample",
+      "sent_prompt_sha256": "sha256:204cbcf8f7492e852a91bacbfb4ed58518c3787e56e644ae8fc8a4999a7aa345",
+      "references_sha256": "sha256:2478c7bc56ac05b7b0bc00c1728b949f1a303407090c933443b874f5ec973d7e",
+      "pixel_qa": "FAIL",
+      "qa_sha256": "sha256:8029a030c2633074c1008e3a09417b448dd2108b441cc41d040b8fe6d1a3c14a",
+      "package_state": "proof_failed",
+      "ingested_attempts": 1,
+      "hard_failure": "Required evil-eye bracelet absent on Aachu exposed right wrist.",
+      "other_observations": [
+        "Copy wording and punctuation correct; wrapping differs from locked single-line text.",
+        "Unrequested unreadable parcel-label microprint and barcode marks.",
+        "Photographic central rendering is a style concern.",
+        "Phone front and four dots, grip, three visible hands, adult scale and level-floor relation are coherent."
+      ],
+      "creator_approval": "NOT_GRANTED"
+    },
+    "edit": {
+      "request_acceptance": "REJECTED",
+      "intent": "edit",
+      "input_count": 6,
+      "input_order": "edit target, four canonical identity references, canonical style board",
+      "error": "`referenced_image_paths` must contain at most 5 paths",
+      "pixel_qa": "NOT_RUN",
+      "returned_image": false,
+      "ingested_attempts": 0,
+      "package_state": "handoff_ready",
+      "references_dropped": 0,
+      "fallback_used": false,
+      "creator_approval": "NOT_GRANTED",
+      "retry": "Not repeated: identical six-input request would hit the same runtime validation boundary."
+    },
+    "limits": [
+      "One five-reference generation confirms current request acceptance, not reliable pixel correctness.",
+      "Required six-input editing is incomplete in this runtime. No reference was removed to manufacture a passing call.",
+      "No real carousel creator-approval state was advanced. Historical smoke sections are retained unchanged."
+    ]
   }
 }
