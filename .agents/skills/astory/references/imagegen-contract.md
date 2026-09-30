@@ -40,6 +40,37 @@ must include the locked on-image text. If imagegen misses, paraphrases,
 misspells, omits, or makes the text unreadable, reject immediately with
 `TEXT_MISSING_IN_IMAGEGEN` or `TEXT_NOT_EXACT`; do not continue the batch.
 
+## Visual Repair Guardrail
+
+Before asking ImageGen to fix a visible image problem, inspect the actual pixels
+and write a repair contract. Prompt intent, filenames, or prior reviewer labels
+are not evidence.
+
+The repair contract must state:
+- the current visible failure in concrete terms;
+- the desired visible read for a cold viewer;
+- the exact edit boundary;
+- the physical/object-side contract: which side or state faces the viewer and
+  which details are impossible on that side;
+- the gaze/contact contract: where eyes, hands, tools, shadows, and contact
+  points must land;
+- the `must_preserve` list for identity, composition, text, style, and locked
+  story details;
+- the `hard_avoid` list naming the failure mode and close variants;
+- the pixel acceptance check required before calling the edit fixed.
+
+For props with mutually exclusive sides or states, choose one physical state and
+forbid the incompatible one before generation. A phone visible from the rear may
+show cameras or case details, but it must not show app UI on that same rear
+surface; ordering or texting should be implied through gaze, grip, copy, or a
+different camera angle. The same rule applies to book cover vs page spread,
+inside vs outside of a door, open vs closed container, and label side vs blank
+side.
+
+If two attempts repeat the same physical contradiction, stop polishing the same
+premise. Replace the staging, camera angle, or visible object state before the
+next ImageGen call.
+
 Before final imagegen, the Review Room must confirm:
 - selected references are local, hashed, and role-separated;
 - manual user attachment is not required for existing repo references;
