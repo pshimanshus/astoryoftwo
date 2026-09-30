@@ -7,12 +7,13 @@ description: Keep transformation and creator corrections active across @a.storyo
 
 Keep the lived event and the emotional change intact from first draft through
 final pixels. Use `config/skills/creator-skill-stack.md` for the compact channel
-pass. Use `references/story-engine.md` only when a specific story problem needs
-deeper repair. Do not copy the story engine into this file or load its full
-framework by default. Before delivering a multi-slide draft, including working
-copy, pitches containing slide copy, and revisions, read `Copy Delivery Review`
-in `references/story-engine.md`. Apply its separate instruction and editorial
-checks to the actual draft; phase labels and fluent prose prove neither.
+pass. For multi-slide copy, read `Copy Delivery Review` in
+`references/story-engine.md` before drafting and apply it before delivery,
+including working copy, pitches containing slide copy, and revisions. Apply
+its separate instruction and editorial checks to the actual draft; phase
+labels and fluent prose prove neither. Load other story-engine sections only
+for the selected architecture or a specific story problem. Do not copy the
+story engine into this file or load its full framework by default.
 
 ## Conversational Lifecycle
 
@@ -41,9 +42,10 @@ Before a creative response:
 5. Give the cold viewer a natural send reason: “this is me,” “this is you,” or
    “this is us.”
 
-Use the creator's chosen structure. The default may be
-`Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff`; the
-reflective alternate is
+Use the creator's chosen structure. For fresh jams without a supplied
+structure, start with
+`Cover -> Cold Open -> Mirror -> Spine -> Rhythm -> Turn -> Payoff`; use the
+reflective alternate when supplied, approved, or stronger for the story:
 `Cover -> Cold Open -> Deepening -> Conflict -> Turn -> Payoff`. Roles are
 phases, not fixed slide counts. Add a slide only when it changes knowledge,
 pressure, choice, relationship position, or meaning.

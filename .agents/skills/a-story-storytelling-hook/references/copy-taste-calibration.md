@@ -2,8 +2,8 @@
 
 Use during repeated carousel-copy repair. These are labeled examples for
 editorial calibration, not a phrase blacklist, numerical rubric, or held-out
-test. Both rejected drafts below came from the current carousel planning
-conversation. The creator liked the game-night direction; copy rejection does
+test. Both rejected drafts below came from the September 30, 2026 carousel
+planning conversation. The creator liked the game-night direction; copy rejection does
 not retire that premise or prohibit comic endings.
 
 ## Positive Reference

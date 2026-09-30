@@ -9,11 +9,11 @@ sources:
 
 ## Hypothesis
 
-Repeated project setup failures are happening because the repo has C-layer carousel quality checks but no repo-wide session-close gate for wiki health, episodic memory, stale index metadata, advertised pipeline drift, or repair proposals.
+No repair is proposed: the latest run has no failing or warning checks.
 
 ## Evidence
 
-- No failing checks in the latest run.
+- No failing or warning checks in the latest run.
 
 ## Action
 

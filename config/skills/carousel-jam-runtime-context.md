@@ -1,6 +1,6 @@
 # Carousel Jam Runtime Context
 
-last_updated: 2026-08-23
+last_updated: 2026-09-30
 status: minimal default runtime
 
 ## Purpose
@@ -36,8 +36,9 @@ create another approval state or duplicate artifact.
 
 - Preserve the creator's literal sequence, objects, corrections, approved
   language, and rejected scope.
-- Write the alive draft before using rules. The rules block hard failures; they
-  do not invent the first idea.
+- Keep creator constraints and the selected architecture active while writing
+  the alive draft. Apply voice and editorial checks to that draft; rules alone
+  do not invent the idea or establish its quality.
 - Make the relationship legible to a cold viewer through action and consequence,
   not explanation alone.
 - Use `config/skills/creator-skill-stack.md` as the six-question taste pass.
