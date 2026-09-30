@@ -19,24 +19,37 @@ from typing import Any
 
 from PIL import Image, UnidentifiedImageError
 
+from pipeline.agentic.checks.palette import check_palette
 from pipeline.stages.carousel_format_contract import (
     format_spec,
     locked_format_contract_fingerprint,
     locked_formats,
 )
+from pipeline.stages.carousel_visual_integrity import (
+    build_hand_ownership_map,
+    hand_is_visible,
+    normalized_story_evidence_carrier,
+    validate_hand_ownership_contract,
+    validate_story_evidence_carriers,
+)
 
 
-PIXEL_QA_SCHEMA_VERSION = "carousel-pixel-qa/v2"
+PIXEL_QA_SCHEMA_VERSION = "carousel-pixel-qa/v3"
 FINAL_MANIFEST_SCHEMA_VERSION = "carousel-final-images/v3"
 PIXEL_QA_ORDER = (
     "physical_action",
     "relationship_state",
+    "cinematic_story_frame",
     "entity_spatial_integrity",
     "identity_wardrobe_accessories",
     "text_brandmark_style_dimensions",
 )
 INSPECTION_METHOD = "codex_view_image"
 BRANDMARK = "@a.storyof.two"
+IDENTITY_DOSSIER_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "config/references/identity/_dossier/identity-dossier.json"
+)
 _HASH_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
 _PROOF_PATH_RE = re.compile(
     r"^\.internal/visual-quarantine/slide-(\d{2})/attempt-(\d{2})/[^/]+\.png$"
@@ -328,11 +341,144 @@ def _identity_references_by_subject(package_dir: Path) -> dict[str, set[str]]:
 
 def _attached_style_references(package_dir: Path) -> set[str]:
     payload = _prompt_pack(package_dir)
-    return {
-        str(value)
-        for value in payload.get("style_reference_images") or []
-        if str(value).strip()
-    }
+    profile = payload.get("style_profile")
+    reference = profile.get("reference") if isinstance(profile, Mapping) else None
+    path = str(reference.get("path") or "").strip() if isinstance(reference, Mapping) else ""
+    return {path} if path else set()
+
+
+def _style_reference_integrity_issues(package_dir: Path) -> list[str]:
+    payload = _prompt_pack(package_dir)
+    profile = payload.get("style_profile")
+    if not isinstance(profile, Mapping):
+        return ["prompt-pack.json must contain one style_profile snapshot"]
+    reference = profile.get("reference")
+    if not isinstance(reference, Mapping):
+        return ["style_profile.reference must contain the package-bound style board"]
+    if reference.get("attachment_count") != 1:
+        return ["style profile reference must declare exactly one attachment"]
+    raw_path = str(reference.get("path") or "").strip()
+    path, path_issue = _safe_package_file(package_dir, raw_path)
+    if path_issue or path is None:
+        return [f"style profile reference {path_issue or 'is missing'}"]
+    expected_hash = str(reference.get("sha256") or "")
+    if not _HASH_RE.fullmatch(expected_hash):
+        return ["style profile reference SHA-256 is missing or malformed"]
+    if _sha256_file(path) != expected_hash:
+        return ["style profile reference SHA-256 is stale"]
+    return []
+
+
+_GENERIC_CINEMATIC_VALUES = {
+    "nice lighting",
+    "warm light",
+    "cinematic lighting",
+    "cozy light",
+    "appropriate composition",
+    "some props",
+    "cozy home",
+}
+
+
+def _specific_observation(value: Any, *, minimum: int = 8) -> bool:
+    text = str(value or "").strip()
+    return len(text) >= minimum and text.casefold() not in _GENERIC_CINEMATIC_VALUES
+
+
+def _planned_story_evidence(expected_slide: Mapping[str, Any]) -> list[Mapping[str, Any]]:
+    richness = expected_slide.get("visual_richness")
+    if not isinstance(richness, Mapping):
+        return []
+    evidence = richness.get("story_evidence")
+    if not isinstance(evidence, list):
+        return []
+    return [item for item in evidence if isinstance(item, Mapping)]
+
+
+def _cinematic_story_frame_issues(
+    check: Mapping[str, Any],
+    *,
+    expected_slide: Mapping[str, Any],
+    prefix: str,
+    is_final_slide: bool,
+) -> list[str]:
+    issues: list[str] = []
+    if check.get("frame_reads_as_caught_event") is not True:
+        issues.append(f"{prefix}: cinematic frame must read as a caught event")
+    if check.get("before_after_implied") is not True:
+        issues.append(f"{prefix}: cinematic frame must visibly imply before/after time")
+    if not _specific_observation(check.get("motivated_light_observed"), minimum=12):
+        issues.append(
+            f"{prefix}: motivated_light_observed must name a concrete source and direction"
+        )
+
+    layers = check.get("depth_layers_observed")
+    if not isinstance(layers, Mapping):
+        issues.append(f"{prefix}: depth_layers_observed must inventory foreground, midground, and background")
+    else:
+        for layer in ("foreground", "midground", "background"):
+            if not _specific_observation(layers.get(layer)):
+                issues.append(f"{prefix}: {layer} needs concrete observed depth evidence")
+
+    if check.get("focal_action_clear") is not True:
+        issues.append(f"{prefix}: focal physical action is not confirmed clear")
+    if check.get("posed_portrait") is not False:
+        issues.append(f"{prefix}: staged or posed portrait framing is not allowed")
+    if check.get("decorative_clutter") is not False:
+        issues.append(f"{prefix}: decorative clutter is not allowed")
+    ai_tells = check.get("generic_ai_tells")
+    if not isinstance(ai_tells, list):
+        issues.append(f"{prefix}: generic_ai_tells must be an observed list")
+    elif ai_tells:
+        issues.append(f"{prefix}: generic AI-looking artifacts were observed")
+
+    observed_evidence = check.get("story_evidence")
+    planned_evidence = _planned_story_evidence(expected_slide)
+    issues.extend(
+        f"{prefix}: slide plan {issue}"
+        for issue in validate_story_evidence_carriers(planned_evidence)
+    )
+    issues.extend(
+        f"{prefix}: cinematic review {issue}"
+        for issue in validate_story_evidence_carriers(observed_evidence)
+    )
+    if not 2 <= len(planned_evidence) <= 4:
+        issues.append(f"{prefix}: slide plan must contain two to four story-evidence records")
+    if not isinstance(observed_evidence, list) or not 2 <= len(observed_evidence) <= 4:
+        issues.append(f"{prefix}: cinematic review must contain two to four observed story-evidence records")
+    else:
+        planned_carriers = {
+            normalized_story_evidence_carrier(item.get("carrier"))
+            for item in planned_evidence
+            if normalized_story_evidence_carrier(item.get("carrier"))
+        }
+        observed_carriers: set[str] = set()
+        for index, item in enumerate(observed_evidence, start=1):
+            if not isinstance(item, Mapping):
+                issues.append(f"{prefix}: observed story evidence {index} must be an object")
+                continue
+            carrier = normalized_story_evidence_carrier(item.get("carrier"))
+            if carrier:
+                observed_carriers.add(carrier)
+            for field in ("carrier", "observable_state", "narrative_job"):
+                if not _specific_observation(item.get(field), minimum=4):
+                    issues.append(
+                        f"{prefix}: observed story evidence {index} needs a specific {field}"
+                    )
+        if planned_carriers and observed_carriers != planned_carriers:
+            issues.append(f"{prefix}: observed story-evidence carriers do not match the slide plan")
+
+    richness = expected_slide.get("visual_richness")
+    richness = richness if isinstance(richness, Mapping) else {}
+    if is_final_slide:
+        if not _specific_observation(check.get("final_payoff_observed"), minimum=8):
+            issues.append(f"{prefix}: final slide needs a concrete observed payoff")
+    elif not _specific_observation(check.get("continuation_pull_observed"), minimum=8):
+        issues.append(f"{prefix}: cinematic frame needs an observed continuation pull")
+    planned_temporal = richness.get("after_frame")
+    if not _specific_observation(planned_temporal):
+        issues.append(f"{prefix}: slide plan is missing a specific after-frame state")
+    return issues
 
 
 def _review_contract_issues(
@@ -341,7 +487,9 @@ def _review_contract_issues(
     *,
     slide: int,
     output_format: str,
-    expected_copy: str,
+    expected_slide: Mapping[str, Any],
+    asset_binding: Mapping[str, Any] | None,
+    is_final_slide: bool,
 ) -> list[str]:
     failed = _review_failure(review, slide=slide, output_format=output_format)
     if failed is not None:
@@ -349,6 +497,88 @@ def _review_contract_issues(
     checks = _review_checks(review)
     prefix = f"slide {slide} {output_format}"
     issues: list[str] = []
+
+    cinematic = checks["cinematic_story_frame"]
+    issues.extend(
+        _cinematic_story_frame_issues(
+            cinematic,
+            expected_slide=expected_slide,
+            prefix=prefix,
+            is_final_slide=is_final_slide,
+        )
+    )
+
+    entity = checks["entity_spatial_integrity"]
+    hand_contract = expected_slide.get("hand_map")
+    if validate_hand_ownership_contract(hand_contract):
+        scene = str(
+            expected_slide.get("physical_action")
+            or expected_slide.get("visual")
+            or expected_slide.get("scene")
+            or ""
+        )
+        hand_contract = build_hand_ownership_map(scene)
+    expected_people = [
+        str(value) for value in hand_contract.get("people", []) if str(value).strip()
+    ]
+    expected_hands = {
+        (str(hand.get("owner") or ""), str(hand.get("side") or "").casefold())
+        for hand in hand_contract.get("hands", [])
+        if isinstance(hand, Mapping) and hand_is_visible(dict(hand))
+    }
+    if entity.get("expected_people") != len(expected_people):
+        issues.append(f"{prefix}: entity check expected_people does not match the slide plan")
+    if entity.get("observed_people") != len(expected_people):
+        issues.append(f"{prefix}: observed people count does not match the slide plan")
+    if entity.get("observed_people_names") != expected_people:
+        issues.append(f"{prefix}: observed_people_names does not match the slide plan")
+    for key in (
+        "unexpected_entities",
+        "unexpected_limbs",
+        "duplicated_limbs",
+        "ambiguous_contacts",
+    ):
+        value = entity.get(key)
+        if not isinstance(value, list):
+            issues.append(f"{prefix}: entity check {key} must be a list")
+        elif value:
+            issues.append(f"{prefix}: entity check reports {key}")
+
+    visible_hands = entity.get("visible_hands")
+    observed_hands: set[tuple[str, str]] = set()
+    if not isinstance(visible_hands, list):
+        issues.append(f"{prefix}: entity check must inventory every visible hand")
+    else:
+        for index, hand in enumerate(visible_hands, start=1):
+            if not isinstance(hand, Mapping):
+                issues.append(f"{prefix}: visible hand {index} must be an object")
+                continue
+            owner = str(hand.get("owner") or "").strip()
+            side = str(hand.get("side") or "").strip().casefold()
+            if not owner or side not in {"left", "right"}:
+                issues.append(f"{prefix}: visible hand {index} needs owner and left/right side")
+            else:
+                observed_hands.add((owner, side))
+            if hand.get("story_required") is not True:
+                issues.append(f"{prefix}: visible hand {index} is not bound to the locked action")
+            if hand.get("attachment_traceable") is not True:
+                issues.append(f"{prefix}: visible hand {index} lacks a traceable arm/wrist connection")
+            if hand.get("contact_geometry_pass") is not True:
+                issues.append(f"{prefix}: visible hand {index} has unverified contact geometry")
+            if hand.get("solid_object_intersection") is not False:
+                issues.append(f"{prefix}: visible hand {index} may intersect a solid object")
+            if hand.get("malformed_or_extra_fingers") is not False:
+                issues.append(f"{prefix}: visible hand {index} may have malformed or extra fingers")
+            if len(str(hand.get("contact") or "").strip()) < 3:
+                issues.append(f"{prefix}: visible hand {index} needs a named contact or no-contact state")
+            if len(str(hand.get("evidence") or "").strip()) < 8:
+                issues.append(f"{prefix}: visible hand {index} needs concrete pixel evidence")
+    if observed_hands != expected_hands or (
+        isinstance(visible_hands, list) and len(visible_hands) != len(expected_hands)
+    ):
+        issues.append(f"{prefix}: visible hand inventory does not match the slide hand plan")
+    if len(str(entity.get("silhouette_evidence") or "").strip()) < 8:
+        issues.append(f"{prefix}: entity check needs whole-person silhouette evidence")
 
     identity = checks["identity_wardrobe_accessories"]
     references = identity.get("references") if isinstance(identity, Mapping) else None
@@ -386,21 +616,79 @@ def _review_contract_issues(
                     f"{prefix}: identity references.{subject} does not match its selected role"
                 )
 
+    # Identity pixel evidence check
+    identity_evidence = str(identity.get("evidence") or identity.get("observed") or "").strip()
+    if not identity_evidence:
+        issues.append(f"{prefix}: identity check needs observed pixel evidence")
+    else:
+        try:
+            dossier = json.loads(IDENTITY_DOSSIER_PATH.read_text(encoding="utf-8"))
+            contract = dossier.get("face_identity_contract", {})
+        except (FileNotFoundError, OSError, json.JSONDecodeError):
+            issues.append(f"{prefix}: could not load identity contract for pixel verification")
+            contract = {}
+
+        subject_map = {"aachu": "Aachu/Anchal", "zuv": "Himanshu/Zuv", "together": ["Aachu/Anchal", "Himanshu/Zuv"]}
+        for subject, named_refs in references.items():
+            if not isinstance(named_refs, list):
+                continue
+
+            contract_keys = subject_map.get(subject, [])
+            if isinstance(contract_keys, str):
+                contract_keys = [contract_keys]
+
+            for key in contract_keys:
+                non_negotiables = contract.get(key, {}).get("non_negotiable", [])
+                if not non_negotiables:
+                    continue
+
+                matches = 0
+                for desc in non_negotiables:
+                    desc_fold = desc.casefold()
+                    if desc_fold in identity_evidence.casefold():
+                        matches += 1
+                    else:
+                        words = [w for w in desc_fold.split() if len(w) > 3]
+                        if words and sum(1 for w in words if w in identity_evidence.casefold()) >= len(words) // 2:
+                            matches += 1
+
+                if matches < 3 and len(non_negotiables) >= 3:
+                    issues.append(f"{prefix}: identity evidence for {key} is too generic; needs more non-negotiable descriptors (found {matches})")
+                elif matches == 0 and non_negotiables:
+                    issues.append(f"{prefix}: identity evidence for {key} fails to mention any non-negotiable descriptors")
+
     finish = checks["text_brandmark_style_dimensions"]
+    expected_copy = _slide_copy(expected_slide)
     if finish.get("expected_text") != expected_copy:
         issues.append(f"{prefix}: expected_text is stale")
     if finish.get("observed_text") != expected_copy:
         issues.append(f"{prefix}: rendered text is not exact")
+    # New reviews inventory non-copy lettering separately. Older hash-bound
+    # reviews remain valid; do not retroactively rewrite creator-approved QA.
+    if "unexpected_visible_text" in finish and finish["unexpected_visible_text"] != []:
+        issues.append(f"{prefix}: unexpected visible text must be absent")
     if finish.get("observed_brandmark") != BRANDMARK:
         issues.append(f"{prefix}: exact top-right brandmark is not observed")
     named_style = finish.get("style_references")
     attached_style = _attached_style_references(package_dir)
-    if not isinstance(named_style, list) or not named_style or any(
+    if not isinstance(named_style, list) or len(named_style) != 1 or any(
         not isinstance(value, str) or not value.strip() for value in named_style
     ):
-        issues.append(f"{prefix}: finish check must name its attached style references")
-    elif any(value not in attached_style for value in named_style):
-        issues.append(f"{prefix}: finish check contains an unattached style reference")
+        issues.append(f"{prefix}: finish check must name the one attached style board")
+    elif set(named_style) != attached_style:
+        issues.append(f"{prefix}: finish check does not name the exact attached style board")
+    issues.extend(f"{prefix}: {issue}" for issue in _style_reference_integrity_issues(package_dir))
+    if isinstance(asset_binding, Mapping):
+        asset_path, asset_issue = _safe_package_file(
+            package_dir,
+            asset_binding.get("path") or asset_binding.get("relative_path"),
+        )
+        if asset_issue or asset_path is None:
+            issues.append(f"{prefix}: palette check cannot resolve the inspected asset")
+        else:
+            palette = check_palette(asset_path)
+            if palette.status != "PASS":
+                issues.append(f"{prefix}: palette check failed: {palette.reason}")
     return issues
 
 
@@ -613,10 +901,11 @@ def validate_proof_qa(
         slide_records = _package_slides(package_dir)
     except (FileNotFoundError, OSError, ValueError, json.JSONDecodeError) as exc:
         return issues + [str(exc)]
-    copies = {
-        _slide_number(record, index): _slide_copy(record)
+    slide_by_number = {
+        _slide_number(record, index): record
         for index, record in enumerate(slide_records, start=1)
     }
+    copies = {number: _slide_copy(record) for number, record in slide_by_number.items()}
     selected = qa.get("selected_slides")
     if not isinstance(selected, list) or len(selected) != 1:
         issues.append("proof selected_slides must contain exactly one risky slide")
@@ -678,7 +967,9 @@ def validate_proof_qa(
                         reviews[output_format],
                         slide=slide,
                         output_format=output_format,
-                        expected_copy=copies.get(slide, ""),
+                        expected_slide=slide_by_number.get(slide, {}),
+                        asset_binding=binding if isinstance(binding, Mapping) else None,
+                        is_final_slide=slide == max(slide_by_number),
                     )
                 )
     if expected_bindings and set(actual_bindings) != set(expected_bindings):
@@ -754,10 +1045,17 @@ def validate_final_qa(
         slide_records = _package_slides(package_dir)
     except (FileNotFoundError, OSError, ValueError, json.JSONDecodeError) as exc:
         return issues + [str(exc)]
-    copies = {
-        _slide_number(record, index): _slide_copy(record)
+    from pipeline.stages.carousel_sequence import package_sequence_inputs, sequence_review_issues
+    try:
+        context, sequence_slides = package_sequence_inputs(package_dir)
+        issues.extend(sequence_review_issues(context, sequence_slides, qa.get("sequence_review"), formats))
+    except (OSError, ValueError) as exc:
+        issues.append(f"sequence review inputs invalid: {exc}")
+    slide_by_number = {
+        _slide_number(record, index): record
         for index, record in enumerate(slide_records, start=1)
     }
+    copies = {number: _slide_copy(record) for number, record in slide_by_number.items()}
     expected_keys = {
         (slide, output_format)
         for slide in copies
@@ -833,7 +1131,9 @@ def validate_final_qa(
                         reviews[output_format],
                         slide=slide,
                         output_format=output_format,
-                        expected_copy=copies.get(slide, ""),
+                        expected_slide=slide_by_number.get(slide, {}),
+                        asset_binding=bindings.get((slide, output_format)),
+                        is_final_slide=slide == max(slide_by_number),
                     )
                 )
     if not issues and str(qa.get("status") or "").upper() != "PASS":

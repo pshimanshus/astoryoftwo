@@ -14,6 +14,7 @@ from pipeline.stages.codex_builtin_image_generation import (
     review_quarantined_outputs,
 )
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel
+from tests.helpers.carousel_qa import cinematic_slide_fields
 
 
 def _png(path: Path, size: tuple[int, int] = (1080, 1440)) -> Path:
@@ -29,6 +30,7 @@ def _package(tmp_path: Path) -> Path:
             {
                 "slides": [
                     {
+                        **cinematic_slide_fields(number, 4),
                         "copy": f"Locked copy {number}",
                         "physical_action": f"Aachu and Zuv perform visible action {number} together.",
                     }
@@ -48,7 +50,6 @@ def _package(tmp_path: Path) -> Path:
         story="A difficult shared decision",
         image_paths=[],
         identity_image_paths=identity_paths,
-        style_reference_paths=[_png(tmp_path / "style.png", (44, 40))],
         creative_baseline_path=brief,
         output_root=tmp_path / "output/carousels",
         today=date(2026, 8, 24),

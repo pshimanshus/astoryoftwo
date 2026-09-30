@@ -27,54 +27,75 @@ FACE_CONTACT_SHEET = "identity-face-contact-sheet.jpg"
 FACE_IDENTITY_CONTRACT = {
     "Himanshu/Zuv": {
         "non_negotiable": [
-            "dark wavy hair with visible volume",
-            "thick dark brows",
-            "warm brown skin tone",
-            "rounded/oval smiling face structure",
-            "trimmed full beard and mustache",
-            "calm grounded expression, not a generic model face",
-            "medium-tall broader build relative to Aachu",
+            "warm medium-brown South Asian skin tone",
+            "thick dark curly hair with consistent silhouette across slides",
+            "strong eyebrows; dark almond-shaped eyes; defined nose",
+            "short natural stubble beard with consistent density and shape",
+            "relaxed masculine facial structure; kind smile; gentle gaze",
+            "height: 5'8\"",
         ],
         "expression_range": [
-            "tired but soft",
-            "small private smile",
+            "kind smile",
+            "steady, patient, grounded gaze",
             "warm amused smile",
             "steady attentive look",
         ],
         "clothing_and_detail_anchors": [
-            "light blue or white shirt when story-relevant",
-            "dark shirt from close couch selfie when story-relevant",
-            "grey trousers",
-            "red-black shoes",
-            "simple chain/neck detail when visible",
+            "wardrobe comes from selected actual photos",
+            "small round evil-eye locket on slim silver chain (centered); always worn; visible at open neck/chest",
         ],
     },
     "Aachu/Anchal": {
         "non_negotiable": [
-            "long dark hair",
-            "expressive eyes and brows",
-            "warm fair-medium skin tone",
-            "soft oval/round face structure",
-            "fuller lips and expressive smile",
-            "playful dramatic energy under the softness",
-            "slightly smaller/petite presence relative to Himanshu",
+            "warm medium-brown South Asian skin tone",
+            "long, dense, very dark hair: mostly straight and smooth with soft natural bends and layered face-framing strands",
+            "large expressive dark round-almond eyes; full mostly straight brows with a low soft arch; natural medium-width nose with a rounded tip; compact lips with a fuller lower lip",
+            "soft rounded-to-oval face; full cheek structure; softly squared jaw corners; rounded chin",
+            "height: 5'6\"",
+            "playful warmth, softness, and real-person charm; expressive face; dramatic body language",
         ],
         "expression_range": [
-            "bright smile",
+            "bright playful smile",
             "dramatic waiting face",
             "soft affectionate look",
             "playful chaos, never mocked",
         ],
         "clothing_and_detail_anchors": [
-            "white/light shirt",
-            "grey pinstripe jacket when story-relevant",
-            "blue jeans",
-            "red bag and red shoes as strong continuity props",
-            "soft gold jewelry/necklace when visible",
-            "pink-tinted glasses only when supported by reference context",
+            "wardrobe comes from selected actual photos",
+            "slim evil-eye bracelet on right wrist; always worn; visible with right wrist/forearm",
         ],
     },
 }
+
+def _load_contract_from_rules(rules_path: Path) -> dict[str, Any]:
+    if not rules_path.exists():
+        return FACE_IDENTITY_CONTRACT
+
+    content = rules_path.read_text(encoding="utf-8")
+    contract = {
+        "Himanshu/Zuv": {"non_negotiable": [], "expression_range": [], "clothing_and_detail_anchors": []},
+        "Aachu/Anchal": {"non_negotiable": [], "expression_range": [], "clothing_and_detail_anchors": []},
+    }
+
+    current_subject = None
+    for line in content.splitlines():
+        line = line.strip()
+        if not line: continue
+
+        if "AACHU (woman)" in line.upper():
+            current_subject = "Aachu/Anchal"
+        elif "ZUV (man)" in line.upper():
+            current_subject = "Himanshu/Zuv"
+        elif current_subject and line.startswith("- "):
+            text = line[2:].strip()
+            if "non-negotiable" in text.casefold() or "must" in text.casefold():
+                contract[current_subject]["non_negotiable"].append(text)
+            elif "expression" in text.casefold():
+                contract[current_subject]["expression_range"].append(text)
+            elif "accessory" in text.casefold() or "wardrobe" in text.casefold():
+                contract[current_subject]["clothing_and_detail_anchors"].append(text)
+
+    return contract if any(contract[s]["non_negotiable"] for s in contract) else FACE_IDENTITY_CONTRACT
 
 
 def write_json(path: Path, data: Any) -> None:
@@ -261,6 +282,7 @@ def build_preflight_markdown(dossier: dict[str, Any]) -> str:
         "## Hard Rule",
         "",
         "Do not generate or accept a slide if Aachu or Zuv look like generic illustrated people. Face structure is the first requirement, before style, text, props, or background.",
+        "Visible-face calls require selected actual photos; generated charts are supplemental only, never the sole face source.",
         "",
         "## Required Visual Inputs",
         "",
@@ -302,6 +324,10 @@ def build_identity_dossier_artifacts(
     today: date | None = None,
 ) -> dict[str, Any]:
     today = today or date.today()
+    # Evolution: Load evolved contract from rules before building
+    rules_path = workspace_root / "config/rules/identity.md"
+    active_contract = _load_contract_from_rules(rules_path)
+
     library_paths = discover_identity_images(workspace_root)
     if not library_paths:
         library_paths = selected_paths
@@ -350,7 +376,13 @@ def build_identity_dossier_artifacts(
         "selected_generation_bundle": [str(path) for path in selected_paths],
         "selected_generation_options": selected_generation_options,
         "reference_images_for_generation": reference_images,
-        "face_identity_contract": FACE_IDENTITY_CONTRACT,
+        "identity_source_policy": {
+            "visible_face_call_requires_selected_actual_photos": True,
+            "generated_character_chart_can_be_face_authority_alone": False,
+            "photo_contact_sheet_or_master_board_replaces_original_photos": False,
+            "generated_chart_role": "supplemental_after_explicit_creator_approval_only",
+        },
+        "face_identity_contract": active_contract,
         "identity_contact_sheet_guidance": {
             "option_id_rule": "Use the ID labels printed on identity-face-contact-sheet.jpg when discussing or replacing references.",
             "aachu_repair_rule": "If Anchal/Aachu face is wrong, stop generation, choose 2-4 stronger Aachu face IDs from the contact sheet, rebuild the package with those identity images, and regenerate from slide 1.",
@@ -361,8 +393,9 @@ def build_identity_dossier_artifacts(
             "Generation starts without loading the identity contact sheet.",
             "Generation starts without loading the selected identity references.",
             "Prompt only describes the faces in text but does not use actual identity images.",
-            "Generated Himanshu/Zuv loses dark wavy hair, thick brows, beard/mustache, face structure, or build.",
-            "Generated Aachu/Anchal loses long dark hair, expressive eyes/brows, face structure, or soft dramatic energy.",
+            "A generated character chart is used alone without selected actual photographs attached.",
+            "Generated Himanshu/Zuv loses thick dark curly hair, thick brows, beard/mustache, face structure, locket, or build.",
+            "Generated Aachu/Anchal loses dense mostly-straight dark hair, expressive eyes/brows, face structure, right-wrist bracelet, or soft dramatic energy.",
             "A slide is accepted because the scene is pretty even though the faces are wrong.",
         ],
         "human_review_required": True,

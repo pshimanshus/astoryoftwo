@@ -1,0 +1,70 @@
+{
+  "schema_version": "a-story-style-reference-bundle/v1",
+  "profile_id": "cinematic-observational-watercolor",
+  "profile_version": "1.0.0",
+  "approved_on": "2026-09-04",
+  "contact_sheet": {
+    "path": "config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png",
+    "sha256": "sha256:850634480a635e296cbbb352bcbf461ade1bc4e1c3b419881a614e4ded13ee18",
+    "width": 1080,
+    "height": 1440,
+    "mode": "RGB",
+    "layout": {
+      "columns": 2,
+      "rows": 2,
+      "tile_width": 540,
+      "tile_height": 720,
+      "ordering": "row-major",
+      "resampling": "Pillow Image.Resampling.LANCZOS",
+      "png_compress_level": 9,
+      "png_optimize": false
+    }
+  },
+  "sources": [
+    {
+      "story_job": "wedding action",
+      "source_path": "output/carousels/2026-09-04/i-call-it-remembering-brand-reset/final/slide-01.png",
+      "tracked_path": "config/references/style-lock/cinematic-observational-watercolor-v1/source-01-wedding-action.png",
+      "source_sha256": "sha256:cdd8d2028def22c8dd4cf72d5d8e9539e875ead806e264e49928217bda9fe051",
+      "tracked_sha256": "sha256:cdd8d2028def22c8dd4cf72d5d8e9539e875ead806e264e49928217bda9fe051",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "story_job": "mountain wide",
+      "source_path": "output/carousels/2026-09-04/i-call-it-remembering-brand-reset/final/slide-03.png",
+      "tracked_path": "config/references/style-lock/cinematic-observational-watercolor-v1/source-02-mountain-wide.png",
+      "source_sha256": "sha256:be4aa4972322f9598d8908e9da4bc2fd37b4aaa079c89edfe8dadb2ee610d4a1",
+      "tracked_sha256": "sha256:be4aa4972322f9598d8908e9da4bc2fd37b4aaa079c89edfe8dadb2ee610d4a1",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "story_job": "kitchen support",
+      "source_path": "output/carousels/2026-09-04/i-call-it-remembering-brand-reset/final/slide-05.png",
+      "tracked_path": "config/references/style-lock/cinematic-observational-watercolor-v1/source-03-kitchen-support.png",
+      "source_sha256": "sha256:54d408c727f09040d95eeac9da2867f00323c610aa7ba237969c53036ad36b0f",
+      "tracked_sha256": "sha256:54d408c727f09040d95eeac9da2867f00323c610aa7ba237969c53036ad36b0f",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "story_job": "sofa close-up",
+      "source_path": "output/carousels/2026-09-04/i-call-it-remembering-brand-reset/final/slide-06.png",
+      "tracked_path": "config/references/style-lock/cinematic-observational-watercolor-v1/source-04-sofa-close-up.png",
+      "source_sha256": "sha256:e16a85d9429a8acf7a6cd654e16d6ba6b9d8b12b4ea2e1f0c228f0f6d704024f",
+      "tracked_sha256": "sha256:e16a85d9429a8acf7a6cd654e16d6ba6b9d8b12b4ea2e1f0c228f0f6d704024f",
+      "width": 1080,
+      "height": 1440,
+      "mode": "RGB"
+    }
+  ],
+  "generation_attachment_policy": {
+    "attachment_count": 1,
+    "attached_path": "config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png",
+    "source_files_are_provenance_only": true
+  }
+}

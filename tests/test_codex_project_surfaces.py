@@ -1,5 +1,6 @@
 import json
 import importlib.util
+import subprocess
 import tomllib
 from pathlib import Path
 
@@ -166,10 +167,9 @@ def test_project_codex_config_hooks_and_rules_are_present_and_safe():
 
     assert "git push" not in hook_script
     assert "subprocess.run" in hook_script
-    assert "scripts/autopublish.py" in hook_script
-    assert "scripts/agentic_os.py" in hook_script
-    assert '"health"' in hook_script
-    assert "Agentic OS health" in hook_script
+    assert "scripts/agentic_os.py" not in hook_script
+    assert "Agentic OS health" not in hook_script
+    assert "if not risky_paths:" in hook_script
 
     assert 'pattern = ["venv/bin/python", "-m", "pytest"]' in rules
     assert 'pattern = ["venv/bin/python", "scripts/wiki_health.py"]' in rules
@@ -201,6 +201,22 @@ def test_stop_closeout_check_preserves_git_status_paths():
         "wiki/carousels/new-path.md",
         "tests/test_codex_project_surfaces.py",
     ]
+
+
+def test_stop_closeout_check_is_silent_for_ordinary_dirty_scope(monkeypatch, capsys):
+    hook_path = ROOT / ".codex" / "hooks" / "stop_closeout_check.py"
+    spec = importlib.util.spec_from_file_location("stop_closeout_check_silent", hook_path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    monkeypatch.setattr(
+        module.subprocess,
+        "run",
+        lambda *args, **kwargs: subprocess.CompletedProcess(args[0], 0, " M AGENTS.md\n", ""),
+    )
+
+    assert module.main() == 0
+    assert capsys.readouterr().out == ""
 
 
 def test_project_local_worktree_directory_is_ignored_for_git_fallback():

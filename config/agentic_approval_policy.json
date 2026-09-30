@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "authorities": {
+    "creator": {
+      "identities": ["creator", "himanshu"],
+      "targets": [
+        "config/skills/**",
+        "config/rules/**",
+        "memory/semantic/**",
+        "memory/working.md"
+      ]
+    },
+    "maintainer": {
+      "identities": ["maintainer"],
+      "targets": [
+        "config/**",
+        "pipeline/**",
+        "scripts/**",
+        "agents/**",
+        ".codex/agents/**"
+      ]
+    }
+  }
+}

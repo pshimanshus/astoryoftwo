@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "estimator": "characters/4",
+  "surfaces": {
+    "AGENTS.md": 750,
+    ".agents/skills/a-story-article/SKILL.md": 650,
+    ".agents/skills/a-story-carousel-jam/SKILL.md": 1000,
+    ".agents/skills/a-story-closeout/SKILL.md": 600,
+    ".agents/skills/a-story-direct-visual-story/SKILL.md": 650,
+    ".agents/skills/a-story-instagram-idea-loop/SKILL.md": 1100,
+    ".agents/skills/a-story-prepost/SKILL.md": 650,
+    ".agents/skills/a-story-storytelling-hook/SKILL.md": 600,
+    ".agents/skills/a-story-wiki-health/SKILL.md": 1150
+  },
+  "context_profiles": {
+    "ideation": 350,
+    "a-story-of-two": 600,
+    "article": 300,
+    "prepost": 1500
+  },
+  "prompt_builders": {
+    "prepost_fixed_total": 8000
+  }
+}

@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import pytest
 from pathlib import Path
 
 from PIL import Image
@@ -20,6 +21,7 @@ from pipeline.stages.carousel_pixel_qa import (
     validate_final_qa,
     validate_proof_qa,
 )
+from tests.helpers.carousel_qa import cinematic_slide_fields, passing_cinematic_story_frame
 
 
 COPY = "We knew who. We were learning how."
@@ -30,9 +32,13 @@ def _write_json(path: Path, payload: object) -> None:
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
-def _write_png(path: Path, size: tuple[int, int] = (1080, 1440)) -> None:
+def _write_png(
+    path: Path,
+    size: tuple[int, int] = (1080, 1440),
+    color: str | tuple[int, int, int] = "ivory",
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    Image.new("RGB", size, "ivory").save(path)
+    Image.new("RGB", size, color).save(path)
 
 
 def _package(tmp_path: Path) -> Path:
@@ -51,14 +57,29 @@ def _package(tmp_path: Path) -> Path:
     _write_png(package / style_ref, (32, 32))
     _write_json(
         package / "slides.json",
-        [{"slide": 1, "copy": COPY, "physical_action": "They pull one map in opposite directions while its fold tears."}],
+        [
+            {
+                "slide": 1,
+                "copy": COPY,
+                "physical_action": "They pull one map in opposite directions while its fold tears.",
+                **cinematic_slide_fields(1, 1),
+            }
+        ],
     )
+    style_hash = "sha256:" + hashlib.sha256((package / style_ref).read_bytes()).hexdigest()
     _write_json(
         package / "prompt-pack.json",
         {
             "identity_reference_images": list(refs.values()),
-            "style_reference_images": [style_ref],
-            "slides": [{"slide": 1}],
+            "style_profile": {
+                "id": "cinematic-observational-watercolor",
+                "version": "1.0.0",
+                "reference": {
+                    "path": style_ref,
+                    "sha256": style_hash,
+                    "attachment_count": 1,
+                },
+            },
         },
     )
     _write_json(
@@ -77,9 +98,14 @@ def _package(tmp_path: Path) -> Path:
     return package
 
 
-def _binding(package: Path, *, path: str = ".internal/visual-quarantine/slide-01/attempt-01/instagram_post.png") -> dict:
+def _binding(
+    package: Path,
+    *,
+    path: str = ".internal/visual-quarantine/slide-01/attempt-01/instagram_post.png",
+    color: str | tuple[int, int, int] = "ivory",
+) -> dict:
     image = package / path
-    _write_png(image)
+    _write_png(image, color=color)
     binding = {
         "path": path,
         "sha256": "sha256:" + hashlib.sha256(image.read_bytes()).hexdigest(),
@@ -103,13 +129,51 @@ def _checks(package: Path) -> dict:
             "status": "PASS",
             "evidence": "Their opposing pull shows disagreement while the shared map keeps them connected.",
         },
+        "cinematic_story_frame": passing_cinematic_story_frame(package, 1),
         "entity_spatial_integrity": {
             "status": "PASS",
-            "evidence": "Two whole silhouettes, four coherent hands, and one shared map have clear ownership and contact.",
+            "evidence": "Two whole silhouettes and the two focal hands have clear ownership and contact.",
+            "expected_people": 2,
+            "observed_people": 2,
+            "observed_people_names": ["Aachu", "Zuv"],
+            "unexpected_entities": [],
+            "unexpected_limbs": [],
+            "duplicated_limbs": [],
+            "ambiguous_contacts": [],
+            "silhouette_evidence": "Both bodies remain continuously separated from the table and room planes.",
+            "visible_hands": [
+                {
+                    "owner": "Aachu",
+                    "side": "right",
+                    "story_required": True,
+                    "attachment_traceable": True,
+                    "contact_geometry_pass": True,
+                    "solid_object_intersection": False,
+                    "malformed_or_extra_fingers": False,
+                    "contact": "right palm grips the left map edge",
+                    "evidence": "Her right forearm and wrist continue cleanly into the gripping hand.",
+                },
+                {
+                    "owner": "Zuv",
+                    "side": "left",
+                    "story_required": True,
+                    "attachment_traceable": True,
+                    "contact_geometry_pass": True,
+                    "solid_object_intersection": False,
+                    "malformed_or_extra_fingers": False,
+                    "contact": "left palm grips the right map edge",
+                    "evidence": "His left forearm and wrist continue cleanly into the gripping hand.",
+                },
+            ],
         },
         "identity_wardrobe_accessories": {
             "status": "PASS",
-            "evidence": "Aachu and Zuv retain their referenced faces, hair, proportions, clothing, and watches.",
+            "evidence": (
+                "Aachu retains long dense very dark mostly-straight hair with soft bends, "
+                "large expressive dark round-almond eyes and full mostly-straight brows with a low soft arch, "
+                "and warm medium-brown skin tone. Zuv retains thick dark curly hair with visible top and side volume, "
+                "thick dark brows, and warm brown skin tone; their referenced proportions and clothing also match."
+            ),
             "references": {
                 "aachu": [refs[0]],
                 "zuv": [refs[1]],
@@ -268,8 +332,93 @@ def test_semantic_failure_rejects_downstream_passes(tmp_path: Path) -> None:
     issues = validate_proof_qa(package, qa)
 
     assert issues == [
-        "slide 1 instagram_post: physical_action is FAIL; downstream PASS is invalid for relationship_state, entity_spatial_integrity, identity_wardrobe_accessories, text_brandmark_style_dimensions"
+        "slide 1 instagram_post: physical_action is FAIL; downstream PASS is invalid for relationship_state, cinematic_story_frame, entity_spatial_integrity, identity_wardrobe_accessories, text_brandmark_style_dimensions"
     ]
+
+
+def test_cinematic_gate_rejects_a_staged_non_temporal_frame(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package)
+    qa = _proof_qa(package, binding)
+    cinematic = qa["slides"][0]["reviews"]["instagram_post"]["checks"][
+        "cinematic_story_frame"
+    ]
+    cinematic["frame_reads_as_caught_event"] = False
+    cinematic["before_after_implied"] = False
+    cinematic["posed_portrait"] = True
+
+    issues = validate_proof_qa(package, qa)
+
+    assert any("must read as a caught event" in issue for issue in issues)
+    assert any("must visibly imply before/after time" in issue for issue in issues)
+    assert any("posed portrait framing is not allowed" in issue for issue in issues)
+
+
+def test_palette_drift_on_exact_reviewed_pixels_blocks_pass(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package, color=(242, 198, 45))
+    qa = _proof_qa(package, binding)
+
+    issues = validate_proof_qa(package, qa)
+
+    assert any("palette check failed" in issue for issue in issues)
+
+
+def test_cinematic_gate_rejects_duplicate_observed_evidence(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    qa = _proof_qa(package, _binding(package))
+    cinematic = qa["slides"][0]["reviews"]["instagram_post"]["checks"][
+        "cinematic_story_frame"
+    ]
+    # Coverage still includes every planned carrier; a repeated third record
+    # must not be disguised by the set comparison used for plan matching.
+    duplicate = dict(cinematic["story_evidence"][0])
+    duplicate["carrier"] = "  " + duplicate["carrier"].upper().replace(" ", "  ") + ". "
+    cinematic["story_evidence"].append(duplicate)
+
+    issues = validate_proof_qa(package, qa)
+
+    assert any("cinematic review story_evidence contains repeated normalized carriers" in issue for issue in issues)
+
+
+def test_cinematic_gate_rejects_duplicate_planned_evidence(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    evidence = slides[0]["visual_richness"]["story_evidence"]
+    evidence[1] = dict(evidence[0])
+    _write_json(slides_path, slides)
+    qa = _proof_qa(package, _binding(package))
+
+    issues = validate_proof_qa(package, qa)
+
+    assert any("slide plan story_evidence contains repeated normalized carriers" in issue for issue in issues)
+
+
+def test_cinematic_carrier_matching_normalizes_observations(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    qa = _proof_qa(package, _binding(package))
+    cinematic = qa["slides"][0]["reviews"]["instagram_post"]["checks"][
+        "cinematic_story_frame"
+    ]
+    for evidence in cinematic["story_evidence"]:
+        evidence["carrier"] = "  " + evidence["carrier"].upper().replace(" ", "  ") + ". "
+
+    assert validate_proof_qa(package, qa) == []
+
+
+def test_style_profile_must_bind_exactly_one_board_attachment(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package)
+    qa = _proof_qa(package, binding)
+    prompt_path = package / "prompt-pack.json"
+    prompt_pack = json.loads(prompt_path.read_text(encoding="utf-8"))
+    prompt_pack["style_profile"]["reference"]["attachment_count"] = 2
+    prompt_path.write_text(json.dumps(prompt_pack), encoding="utf-8")
+
+    issues = validate_proof_qa(package, qa)
+
+    assert any("exactly one attachment" in issue for issue in issues)
 
 
 def test_placeholder_qa_cannot_claim_pixel_inspection_or_gate_evidence(
@@ -292,6 +441,35 @@ def test_placeholder_qa_cannot_claim_pixel_inspection_or_gate_evidence(
     assert "inspection.method must be codex_view_image" in issues
     assert "inspection.decoded_pixels_observed must be true" in issues
     assert any("physical_action needs concrete observed pixel evidence" in issue for issue in issues)
+
+
+def test_vague_anatomy_sentence_cannot_pass_entity_integrity(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package)
+    qa = _proof_qa(package, binding)
+    qa["slides"][0]["reviews"]["instagram_post"]["checks"]["entity_spatial_integrity"] = {
+        "status": "PASS",
+        "evidence": "The hands look coherent.",
+    }
+
+    issues = validate_proof_qa(package, qa)
+
+    assert any("must inventory every visible hand" in issue for issue in issues)
+    assert any("observed people count does not match" in issue for issue in issues)
+
+
+def test_any_hand_object_intersection_blocks_approval(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package)
+    qa = _proof_qa(package, binding)
+    hand = qa["slides"][0]["reviews"]["instagram_post"]["checks"][
+        "entity_spatial_integrity"
+    ]["visible_hands"][0]
+    hand["solid_object_intersection"] = True
+
+    issues = validate_proof_qa(package, qa)
+
+    assert any("visible hand 1 may intersect a solid object" in issue for issue in issues)
 
 
 def test_proof_qa_rejects_tampered_hash_dimensions_and_binding(tmp_path: Path) -> None:
@@ -409,15 +587,32 @@ def test_final_qa_rejects_inventory_hidden_inside_review(tmp_path: Path) -> None
     )
 
 
-def test_final_qa_rejects_corrupted_observed_text(tmp_path: Path) -> None:
+@pytest.mark.parametrize("observed", ["Nearly the same.", "We knew who.",
+                                     COPY + " Forever.", "We knew how. We were learning who."])
+def test_final_qa_rejects_corrupted_observed_text(tmp_path: Path, observed: str) -> None:
     package = _package(tmp_path)
     binding = _binding(package, path=".internal/final-candidate/final/slide-01.png")
     manifest = _manifest(package, binding)
     qa = _final_qa(package, manifest)
     qa["slides"][0]["reviews"]["instagram_post"]["checks"][
         "text_brandmark_style_dimensions"
-    ]["observed_text"] = "Nearly the same."
+    ]["observed_text"] = observed
 
     assert "slide 1 instagram_post: rendered text is not exact" in validate_final_qa(
         package, qa, manifest
     )
+
+
+@pytest.mark.parametrize("unexpected", [["LOVE on the mug"], "", None, False])
+def test_final_qa_rejects_extra_lettering_inventory(tmp_path: Path, unexpected) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package, path=".internal/final-candidate/final/slide-01.png")
+    manifest = _manifest(package, binding)
+    qa = _final_qa(package, manifest)
+    finish = qa["slides"][0]["reviews"]["instagram_post"]["checks"]["text_brandmark_style_dimensions"]
+    finish["unexpected_visible_text"] = unexpected
+    assert "slide 1 instagram_post: unexpected visible text must be absent" in validate_final_qa(
+        package, qa, manifest
+    )
+    finish["unexpected_visible_text"] = []
+    assert not validate_final_qa(package, qa, manifest)

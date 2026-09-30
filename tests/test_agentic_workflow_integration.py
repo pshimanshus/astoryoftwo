@@ -5,6 +5,13 @@ import tempfile
 from datetime import date
 from pathlib import Path
 
+import scripts.create_substack_article_package as article_package
+from pipeline.agentic.contracts import (
+    ContextPack,
+    ContextSection,
+    RecallBundle,
+    WorkflowContextBundle,
+)
 from pipeline.stages import codex_native_carousel
 from pipeline.stages.b1_prepost import build_agentic_os_brief, load_context as load_prepost_context
 from scripts.create_substack_article_package import create_article_package
@@ -107,6 +114,48 @@ def test_article_package_writes_agentic_recall_brief():
     assert manifest["agentic_os"]["recall_brief"] == "source-memory-brief.md"
     assert "# Recall Bundle" in memory_brief
     assert "memory/semantic/prefs.md" in memory_brief
+
+
+def test_article_agentic_context_is_built_once(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    calls = 0
+    workflow = WorkflowContextBundle(
+        skill_system_name="story_article",
+        skill_system={"name": "story_article"},
+        recall=RecallBundle(
+            query="article",
+            context=ContextPack(
+                profile="article",
+                budget_tokens=300,
+                estimated_tokens=1,
+                sections=[
+                    ContextSection(
+                        id="article_context_compact",
+                        path="config/skills/a-story-article-context-compact.md",
+                        kind="workflow_context",
+                        estimated_tokens=1,
+                        content="Article context.",
+                    )
+                ],
+            ),
+            hits=[],
+        ),
+    )
+
+    def fake_build(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        return workflow
+
+    monkeypatch.setattr(article_package, "build_workflow_context", fake_build)
+
+    metadata, recall = article_package.build_article_agentic_os(tmp_path, "One article")
+
+    assert calls == 1
+    assert metadata["skill_system"]["name"] == "story_article"
+    assert "# Recall Bundle" in recall
 
 
 def test_agentic_os_cli_plan_aliases(tmp_path: Path):

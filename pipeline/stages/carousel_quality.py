@@ -58,8 +58,6 @@ def validate_anatomy_inventory_check(check: Any, *, slide_count: int) -> list[st
         return [f"anatomy_inventory has {len(records)} slide records, expected {slide_count}"]
     for record in records:
         number = int(record.get("slide", 0) or 0)
-        if _pass(record):
-            continue
         expected_arms, observed_arms = record.get("expected_arms"), record.get("observed_arms")
         expected_hands, observed_hands = record.get("expected_hands"), record.get("observed_hands")
         if not all(isinstance(value, int) for value in (expected_arms, observed_arms, expected_hands, observed_hands)):
@@ -72,7 +70,11 @@ def validate_anatomy_inventory_check(check: Any, *, slide_count: int) -> list[st
         if record.get("malformed_fingers") not in (False, [], None):
             issues.append(f"slide {number} anatomy inventory reports malformed fingers")
         hands = record.get("visible_hands")
-        if isinstance(hands, list):
+        if not isinstance(hands, list):
+            issues.append(f"slide {number} anatomy inventory must list every visible hand")
+        else:
+            if isinstance(observed_hands, int) and len(hands) != observed_hands:
+                issues.append(f"slide {number} visible hand inventory count mismatch")
             for hand_index, hand in enumerate(hands, start=1):
                 if not isinstance(hand, dict):
                     issues.append(f"slide {number} visible hand {hand_index} is malformed")
@@ -85,13 +87,13 @@ def validate_anatomy_inventory_check(check: Any, *, slide_count: int) -> list[st
                     issues.append(
                         f"slide {number} visible hand {hand_index} is not required by the locked scene"
                     )
-                if hand.get("attachment_visible") is False:
+                if hand.get("attachment_visible") is not True:
                     issues.append(f"slide {number} visible hand {hand_index} is not attached to a traceable arm")
                 if hand.get("edge_entry_unexplained") is True:
                     issues.append(f"slide {number} visible hand {hand_index} has unexplained edge entry")
-                if hand.get("contact_geometry_pass") is False:
+                if hand.get("contact_geometry_pass") is not True:
                     issues.append(f"slide {number} visible hand {hand_index} fails hand-object contact geometry")
-                if hand.get("solid_object_intersection") is True:
+                if hand.get("solid_object_intersection") is not False:
                     issues.append(f"slide {number} visible hand {hand_index} intersects or may intersect a solid object")
     return issues
 
@@ -103,16 +105,18 @@ def validate_spatial_topology_check(check: Any, *, slide_count: int) -> list[str
         return [f"spatial_topology has {len(records)} slide records, expected {slide_count}"]
     for record in records:
         number = int(record.get("slide", 0) or 0)
-        if _pass(record):
-            continue
         for key in ("body_environment", "hand_object_contact", "person_separation"):
             value = record.get(key)
-            if isinstance(value, dict) and not _pass(value):
+            if not isinstance(value, dict):
+                issues.append(f"slide {number} spatial topology is missing {key}")
+            elif not _pass(value):
                 issues.append(f"slide {number} spatial topology failed {key}")
         if record.get("issues"):
             issues.append(f"slide {number} spatial topology reports visible defects")
         people = record.get("people")
-        if isinstance(people, list):
+        if not isinstance(people, list) or not people:
+            issues.append(f"slide {number} spatial topology must inventory each visible person")
+        else:
             for person in people:
                 if not isinstance(person, dict):
                     continue
@@ -159,14 +163,18 @@ def validate_scene_entity_integrity_check(
         return [f"scene_entity_integrity has {len(records)} slide records, expected {slide_count}"]
     for record in records:
         number = int(record.get("slide", 0) or 0)
-        if _pass(record):
-            continue
-        if record.get("expected_people") != record.get("observed_people"):
+        expected_people = record.get("expected_people")
+        observed_people = record.get("observed_people")
+        if not isinstance(expected_people, int) or not isinstance(observed_people, int):
+            issues.append(f"slide {number} scene entity integrity needs integer people counts")
+        elif expected_people != observed_people:
             issues.append(
-                f"slide {number} expected {record.get('expected_people')} people but observed {record.get('observed_people')}"
+                f"slide {number} expected {expected_people} people but observed {observed_people}"
             )
         for key in ("unexpected_entities", "unexpected_limbs", "duplicated_limbs"):
-            if record.get(key):
+            if not isinstance(record.get(key), list):
+                issues.append(f"slide {number} scene entity integrity {key} must be a list")
+            elif record.get(key):
                 issues.append(
                     f"slide {number} reports {key}: "
                     + "; ".join(str(value) for value in record.get(key) or [])

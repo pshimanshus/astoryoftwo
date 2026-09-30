@@ -1,8 +1,8 @@
 # Character Identity Reference Bundle — Aachu & Zuv
 # @a.storyof.two
 
-last_updated: 2026-05-31
-status: POPULATED — 47 photos, ready for generation
+last_updated: 2026-08-24
+status: POPULATED — CURATED-V3 AACHU PACKET ACTIVE; ACTUAL PHOTOS MANDATORY
 confidence: 1.0
 
 ---
@@ -19,6 +19,13 @@ didn't match, the art failed even though the style was correct.
 **No final illustrated art without actual photos from this folder attached to the
 image generation call. If photos cannot be attached: HANDOFF_READY, not NEEDS_FIXES.**
 
+**Never use a generated character chart alone as face authority.** Generated
+charts are supplemental only after creator approval, and approval is per view,
+not automatically per sheet. Every generation call with a visible Aachu or Zuv
+face must still attach selected actual photographs. Contact sheets, photo
+master boards, written descriptions, and generated charts do not replace the
+original photo inputs.
+
 **For the generation procedure: read `_dossier/identity-generation-preflight.md` before every generation run.**
 
 ---
@@ -27,16 +34,25 @@ image generation call. If photos cannot be attached: HANDOFF_READY, not NEEDS_FI
 
 ```
 config/references/identity/
-  aachu/       face-01..06.png, portrait-01..06.jpg   (12 photos of Aachu solo)
-  zuv/         face-01..07.png, portrait-01..07.jpg   (14 photos of Zuv solo)
-  together/    together-01..21 (.jpg/.png)            (21 photos of both together)
+  aachu/       operational solo anchors plus curated-v3/ primary role-specific packet
+  zuv/         portrait-07.jpg operational Zuv anchor
+  together/    15 retained couple photographs
   _dossier/    identity-dossier.json                  machine catalog: 45 images, face detection, option IDs
                identity-face-contact-sheet.jpg        all faces labeled — use to pick stronger refs
                identity-generation-preflight.md       the operational document for generation
   README.md    ← this file: what + who
 ```
 
-**Total: 47 photos. All filenames clean, no spaces.**
+The larger verified private Aachu source
+library remains at `/Users/himanshusharma/Desktop/Identity Images /Aachu Images/`
+(the `Identity Images ` directory name contains a trailing space). The curated
+bundle in this folder is the operational generation input; the full private
+library is searched when stronger angle evidence is needed.
+
+For current Aachu visible-face generation, start with the four real photographs
+in `aachu/curated-v3/manifest.json`: master front, shallow three-quarter, deeper
+three-quarter, and close smile. Select the 2–4 images relevant to the requested
+view and attach them directly; never substitute a generated sheet for them.
 
 ---
 
@@ -50,19 +66,21 @@ The machine version lives in `_dossier/identity-dossier.json` → `face_identity
 
 Warm medium-brown South Asian skin. Large expressive dark eyes — they are her
 most recognizable feature; they widen with exasperation, soften with love, and
-spark with humor. Softly arched brows. Delicate nose. Natural lips. Youthful
-oval face with soft cheek structure. Long dark wavy hair — thick, dark brown,
-natural waves, falls past shoulders, face-framing strands. Hair can be loose,
-half-tied, or casual ponytail depending on the scene but the thickness, color,
-wave texture, and silhouette must stay consistent.
+spark with humor. Full, mostly straight brows with a low soft arch. Natural
+medium-width nose with a rounded tip. Compact lips with a fuller lower lip.
+Soft rounded-to-oval face with full cheeks, softly squared jaw corners, and a
+rounded chin. Long, dense, very dark hair — predominantly straight and smooth,
+with soft natural bends and layered face-framing strands. Hair can be loose,
+half-tied, or casual ponytail depending on the scene, but its thickness, color,
+hairline, and soft-bend silhouette must stay consistent.
 
 Her presence is warm, playful, and alive. Real-person charm — not model-perfect.
 Do not turn her into a generic model, anime character, or doll-like figure.
 
 **Signature features (fastest identity checks):**
 - Large expressive dark eyes — the primary anchor
-- Long dark wavy hair silhouette — thickness and wave pattern
-- Soft cheek structure and oval face shape
+- Dense very dark mostly-straight hair silhouette — thickness and soft bends
+- Full cheek structure and rounded-to-oval face shape with softly squared jaw
 - Natural medium-brown skin tone — never lightened or darkened
 
 ### Zuv (Himanshu) — The Man
@@ -101,10 +119,25 @@ the new photos are stronger identity anchors than the current 4.
 
 ## What This Folder Is NOT
 
-- Not a style reference — style lives in `style-lock/observational-intimacy-premium/`
+- Not a style reference — the active style profile resolves the single board in
+  `style-lock/cinematic-observational-watercolor-v1/`
 - Not a mood board — mood comes from the concept and scene direction
 - Not optional — it is the foundation of every final illustration
 
 Style-lock controls how the illustration looks.
 This folder controls WHO is in the illustration.
 Both are required. Neither replaces the other.
+
+Creator correction, 2026-08-24: Aachu turnaround v2 is only partially approved;
+its complete sheet is not reusable. V3 was superseded after the creator supplied
+a stronger multi-photo set and requested a fresh all-angle A Story of Two
+character sheet. The complete V4 sheet was then rejected as an identity failure
+and must not be used, repaired, or attached as an identity input. Its expression
+row converged on a consistent but incorrect synthetic face.
+
+The active repair route is one large portrait at a time, beginning with neutral
+front, using selected original photographs on every call. Stop for creator
+approval after each portrait. Assemble the final sheet only from approved
+portrait pixels without generative redrawing. The library still has no clean
+neutral 90-degree profile; without explicit approval of a standalone
+constructed profile, the profile gate remains `BLOCKED_FOR_PROFILE_REFERENCE_PHOTOS`.

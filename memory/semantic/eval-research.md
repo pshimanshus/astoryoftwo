@@ -1,6 +1,6 @@
 # Eval Research Memory
 
-last_updated: 2026-07-25
+last_updated: 2026-09-05
 confidence: 0.95
 sources:
 - docs/evals/a-story-swebench-style-evals.md
@@ -8,6 +8,9 @@ sources:
 - evals/research/failure-taxonomy.md
 - evals/research/sources.json
 - AGENTS.md
+- https://github.com/mem0ai/mem0
+- https://github.com/confident-ai/deepeval
+- https://github.com/langfuse/langfuse
 
 ## Durable Learning
 
@@ -25,6 +28,63 @@ The eval suite should evolve from real failures: creator corrections, failed
 carousel packages, wiki-health diagnostics, review comments, closeout blocks,
 and instruction drift. Each recurring failure should become a minimized fixture
 and then a deterministic checker before it becomes a subjective rubric.
+
+## Feedback-Loop Reuse Decision
+
+Creator feedback must improve the current carousel first and future work
+second. Reuse the existing `creator-correction.json`, `LearningEvent`, learning
+proposal, FTS recall, carousel state, and QA surfaces. The existing correction
+event now has an internal captured → diagnosed → applied → evaluated →
+learning_proposed → approved/promoted or rejected lifecycle. This is evidence
+management, not another creator-facing production gate or documentation tree.
+Package repair stays on the existing four-lock carousel route; indexing,
+learning debt, and eval maintenance run outside illustration generation.
+
+The researched stack is integrated through optional adapters:
+
+- Mem0's append-only, temporal, and supersession patterns are useful, but this
+  repo already has learning events, proposals, snapshots, and local recall.
+- DeepEval is a shadow-judge adapter inside the existing Python eval runner.
+  `DEEPEVAL_DISABLE_DOTENV=1` prevents implicit dotenv loading. Missing package
+  support or evaluator credentials returns `not_run`, never pass. It must never
+  become an ImageGen preflight.
+- Langfuse is a disabled-by-default redacted observability mirror. Only stable
+  IDs, hashes, diagnoses, lifecycle states, and scalar scores can leave the
+  repo. Local audit, prompt, candidate, and QA bindings remain source truth;
+  network failure cannot block them.
+- Promptfoo or Phoenix would duplicate the current evaluator/runtime surface
+  for this problem and are not adopted.
+
+One creator correction does not automatically deserve a new canonical rule.
+Capture it exactly, repair its package, and make it searchable. Explicit
+“always” or “never” instructions may produce an inactive proposal; other
+patterns require matching transferable behavior in two independent packages,
+with passing current evaluations for every supporting correction. Approval and
+application re-check that evidence; declining promotion retains a separate
+learning disposition and leaves the package correction revisable.
+Generalized rules, skills, and semantic memory require recorded creator
+approval before promotion.
+
+Model judges remain advisory until at least 20 creator-reviewed outputs from
+five packages show strictly below ten percent hard-fail disagreement. Threshold
+promotion also needs creator approval. A deterministic feedback regression may
+become a hard gate only after reproducing the failure and passing on the repair.
+
+Sprint 1 now fingerprints evaluator code and verification contracts, preserves
+past assertions/results during explicit revisions, and rejects legacy hash-only
+passes. Successors receive fresh feedback/event/eval identities and immutable
+source provenance. `package:` recall isolates one package and hides superseded
+guidance before result limiting. Langfuse annotation exports become deduplicated
+local-review candidates; they cannot automatically become creator instructions.
+
+SDK smoke evidence covers DeepEval 4.2.1 and Langfuse 4.15.1 in an isolated test
+environment without provider calls. The project interpreter has neither SDK
+installed or configured and the real calibration corpus contains zero reviewed
+outputs. These integration paths remain optional; live acceptance is pending.
+Current API references: [DeepEval standalone metrics](https://deepeval.com/docs/metrics-introduction),
+[multimodal cases](https://deepeval.com/docs/evaluation-test-cases),
+[Langfuse Python API](https://python.reference.langfuse.com/), and
+[annotation score model](https://langfuse.com/docs/evaluation/scores/data-model).
 
 Every stable task should include a deep evaluator spec with fail-to-pass,
 pass-to-pass, hidden variant, anti-gaming, and severity notes. A task prompt

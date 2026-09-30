@@ -1,4 +1,20 @@
-PALETTE — the @a.storyof.two house illustration look. Default style is Observational Intimacy Premium watercolor-and-ink, locked by the creator on 2026-05-30. Reference bundle: `config/references/style-lock/observational-intimacy-premium/`. Original generation package: `output/illustrations/2026-05-30/observational-intimacy-premium/`.
+PALETTE — the @a.storyof.two house illustration look. The active default is
+Cinematic Observational Watercolor v1, approved by the creator on 2026-09-04.
+Its evidence bundle is
+`config/references/style-lock/cinematic-observational-watercolor-v1/`; the one
+machine-readable generation prompt and exact reference hash live in
+`config/carousel_style_contract.json`.
+
+CINEMATIC, NOT PHOTOREALISTIC
+- Cinematic means an observed story frame: specific blocking, motivated light,
+  spatial depth, microexpression, and tactile evidence that imply time beyond
+  the instant shown.
+- Keep that narrative realism inside the watercolor-and-ink medium. Cinematic
+  does not mean photographic skin, lens simulation, glossy grading,
+  hyperrealism, or a film-still photo filter.
+- Natural asymmetry, irregular pigment, drawn contours, and visible paper are
+  essential. A perfectly smooth, symmetric, over-soft, or stock-rendered scene
+  fails even when its colors are technically in range.
 
 PAPER
 - Neutral warm ivory / off-white paper with visible paper grain.
@@ -40,14 +56,17 @@ HARD FAIL: yellow — regenerate, do not accept
 - generic AI watercolor (the over-soft, identityless look that any modern model defaults to without style references)
 - UI / screenshot residue / platform watermarks
 - random text, quote-card design, flat vector art, poster design
-- hard rectangular scene box; backgrounds should fade into the cream paper, not sit in a frame
+- hard rectangular scene box; backgrounds should fade into the ivory paper, not sit in a frame
 - heavy black outlines, harsh shadows
 - anime, 3D render, children's cartoon style, hyperrealism
 
 DETERMINISTIC ACCEPTANCE (used by pipeline/agentic/checks/palette.py)
 - Paper region (brightest 15% of pixels by brightness): median R ≥ 230, median saturation < 0.18, median blue/green ratio ≥ 0.85.
 - Yellow-band pixel fraction (hue 35–65°, saturation ≥ 0.35) across the full image stays below 0.05.
-- These thresholds were calibrated against the 8 approved style-lock slides on 2026-05-31; do not edit casually.
+- These thresholds remain calibrated against the original eight approved
+  references and were rechecked against all four Cinematic Observational
+  Watercolor v1 source frames plus its contact sheet on 2026-09-04; do not edit
+  casually.
 
 ANTI-DRIFT NOTES (lessons from real rejections)
 - 2026-05-30 phone-prank proof — paper read yellow/parchment, faces were generic. Hard fail. Do not use as reference for anything.

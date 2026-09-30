@@ -15,19 +15,12 @@ MANIFEST_PATH = Path("config/agentic_context_manifest.json")
 
 
 class RequiredSectionTruncatedError(RuntimeError):
-    """Raised when a required section would be truncated mid-content by the
-    context-pack budget. A silent mid-string cut on a rule-include section
-    can mutilate a constraint (e.g. drop "HARD FAIL: yellow"), so the
-    context-pack assembly fails loudly instead.
-    """
+    """Raised when the complete required context cannot fit its budget."""
 
 
 def estimate_tokens(text: str) -> int:
-    if not text:
-        return 0
-    if any(char.isspace() for char in text):
-        return max(1, math.ceil(len(text.split()) / 4))
-    return max(1, math.ceil(len(text) / 4))
+    """Deterministic character-based estimate, not a model tokenizer count."""
+    return math.ceil(len(text) / 4)
 
 
 def load_manifest(root: Path) -> dict[str, Any]:
@@ -38,13 +31,22 @@ def load_manifest(root: Path) -> dict[str, Any]:
 
 
 def trim_to_budget(text: str, budget_tokens: int) -> tuple[str, bool]:
-    estimated = estimate_tokens(text)
-    if estimated <= budget_tokens:
+    if estimate_tokens(text) <= budget_tokens:
         return text, False
+    marker = "\n\n[TRUNCATED_FOR_CONTEXT_BUDGET]"
     max_chars = max(0, budget_tokens * 4)
-    if max_chars == 0:
+    if max_chars < len(marker):
         return "", True
-    return text[:max_chars].rstrip() + "\n\n[TRUNCATED_FOR_CONTEXT_BUDGET]", True
+    return text[:max_chars - len(marker)].rstrip() + marker, True
+
+
+def optional_budget(item: dict[str, Any], remaining_tokens: int) -> int:
+    if "max_tokens" not in item:
+        return remaining_tokens
+    max_tokens = int(item["max_tokens"])
+    if max_tokens < 0:
+        raise ValueError("Optional section max_tokens must be nonnegative")
+    return min(remaining_tokens, max_tokens)
 
 
 def assemble_context_pack(root: Path, profile: str | None = None) -> ContextPack:
@@ -53,9 +55,12 @@ def assemble_context_pack(root: Path, profile: str | None = None) -> ContextPack
     selected_profile = profile or manifest["default_profile"]
     profile_config = manifest["profiles"][selected_profile]
     budget_tokens = int(profile_config["budget_tokens"])
-    remaining = budget_tokens
-    sections: list[ContextSection] = []
+    if budget_tokens < 0:
+        raise ValueError("Context budget must be nonnegative")
 
+    # Validate every required file before allocation. Optional material must
+    # never consume space reserved for required sections later in the manifest.
+    loaded = []
     for item in profile_config.get("sections", []):
         relative = item["path"]
         path = root / relative
@@ -64,24 +69,39 @@ def assemble_context_pack(root: Path, profile: str | None = None) -> ContextPack
             if required:
                 raise FileNotFoundError(f"Missing required context file: {relative}")
             continue
-        raw = path.read_text(encoding="utf-8", errors="ignore")
+        raw = path.read_text(encoding="utf-8")
         expanded = expand_rule_includes(raw, root)
-        content, truncated = trim_to_budget(expanded, remaining)
-        if truncated and required and rule_names_referenced(raw):
-            raise RequiredSectionTruncatedError(
-                f"Required section '{item['id']}' (source: {relative}) expands to "
-                f"{estimate_tokens(expanded)} tokens but only {remaining} remain "
-                f"in the budget. The section references rule includes "
-                f"({rule_names_referenced(raw)}); silently truncating it would "
-                "risk dropping a HARD FAIL constraint. Raise the budget for this "
-                "profile or move this section earlier in the manifest."
-            )
+        loaded.append((item, required, expanded, rule_names_referenced(raw)))
+
+    required_tokens = sum(estimate_tokens(text) for _, required, text, _ in loaded if required)
+    if required_tokens > budget_tokens:
+        details = "; ".join(
+            f"{item['id']} ({item['path']}): {estimate_tokens(text)}"
+            + (f"; rule includes {rules}" if rules else "")
+            for item, required, text, rules in loaded if required
+        )
+        raise RequiredSectionTruncatedError(
+            f"Profile '{selected_profile}' requires {required_tokens} estimated tokens "
+            f"but its budget is {budget_tokens}. Required sections cannot be truncated "
+            f"or omitted: {details}. Select a smaller task profile or explicitly "
+            "increase its budget."
+        )
+
+    optional_remaining = budget_tokens - required_tokens
+    sections: list[ContextSection] = []
+    for item, required, expanded, _ in loaded:
+        if required:
+            content, truncated = expanded, False
+        else:
+            section_budget = optional_budget(item, optional_remaining)
+            content, truncated = trim_to_budget(expanded, section_budget)
         tokens = estimate_tokens(content)
-        remaining = max(0, remaining - tokens)
+        if not required:
+            optional_remaining -= tokens
         sections.append(
             ContextSection(
                 id=item["id"],
-                path=relative,
+                path=item["path"],
                 kind=item["kind"],
                 estimated_tokens=tokens,
                 content=content,
@@ -89,8 +109,6 @@ def assemble_context_pack(root: Path, profile: str | None = None) -> ContextPack
                 truncated=truncated,
             )
         )
-        if remaining <= 0:
-            break
 
     return ContextPack(
         profile=selected_profile,
@@ -105,10 +123,12 @@ def render_context_pack(pack: ContextPack) -> str:
         "# Agentic Context Pack",
         "",
         f"Profile: {pack.profile}",
-        f"Budget: {pack.estimated_tokens}/{pack.budget_tokens} estimated tokens",
+        f"Budget: {pack.estimated_tokens}/{pack.budget_tokens} estimated content tokens (characters / 4; excludes rendering metadata)",
         "",
     ]
     for section in pack.sections:
+        if not section.required and not section.content.strip():
+            continue
         status = "required" if section.required else "optional"
         truncated = "yes" if section.truncated else "no"
         lines.extend(

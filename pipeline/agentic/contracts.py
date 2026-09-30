@@ -70,12 +70,28 @@ class RecallHit(BaseModel):
     snippet: str
     score: float = 0.0
     confidence: float = Field(ge=0.0, le=1.0, default=0.5)
+    # `path` is retained for callers written before the retrieval manifest.
+    # The fields below let a later workflow reproduce the exact evidence used.
+    backend: str = "fts5"
+    record_id: str = ""
+    source_path: str = ""
+    source_pointer: str = ""
+    content_sha256: str = ""
+    authority: str = "reviewed_observation"
+    lifecycle: str = "active"
+    fallback_reason: str = ""
 
 
 class RecallBundle(BaseModel):
     query: str
     context: ContextPack
     hits: list[RecallHit]
+
+
+class WorkflowContextBundle(BaseModel):
+    skill_system_name: str
+    skill_system: dict[str, object]
+    recall: RecallBundle
 
 
 class AuditEvent(BaseModel):
@@ -89,10 +105,20 @@ class AuditEvent(BaseModel):
 
 
 class LearningEvent(BaseModel):
+    schema_version: str = "learning-event/v1"
     event_id: str
     source: str
     summary: str
     evidence_paths: list[str] = Field(default_factory=list)
+    user_instruction_exact: str | None = None
+    diagnosis: str | None = None
+    scope: str | None = None
+    package_path: str | None = None
+    feedback_status: str | None = None
+    resolution_evidence: list[str] = Field(default_factory=list)
+    eval_disposition: str | None = None
+    supersedes_event_id: str | None = None
+    feedback_metadata: dict[str, object] | None = None
     created_at: str = Field(default_factory=utc_now_iso)
 
 

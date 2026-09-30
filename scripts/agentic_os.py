@@ -16,9 +16,11 @@ from pipeline.agentic.context_loader import assemble_context_pack, render_contex
 from pipeline.agentic.carousel_state import derive_carousel_state  # noqa: E402
 from pipeline.agentic.learning_loop import (  # noqa: E402
     apply_learning_proposal,
+    approve_learning_proposal,
     capture_hypothesis,
     capture_learning_event,
     create_learning_proposal,
+    decline_learning_proposal,
     evaluate_learning_proposal_review,
     learning_debt_records,
     list_hypotheses,
@@ -29,6 +31,7 @@ from pipeline.agentic.recall import build_recall_bundle, render_recall_bundle  #
 from pipeline.agentic.skill_eval import evaluate_learning_proposal  # noqa: E402
 from pipeline.agentic.skill_registry import discover_skill_records, load_skill_systems, resolve_skill_system  # noqa: E402
 from pipeline.agentic.skill_usage import record_skill_run, summarize_skill_usage  # noqa: E402
+from pipeline.agentic.validator_registry import run_required_validators  # noqa: E402
 from pipeline.agentic.workflow_doctor import inspect_carousel_package  # noqa: E402
 
 
@@ -56,11 +59,13 @@ def build_parser() -> argparse.ArgumentParser:
     search = sub.add_parser("search")
     search.add_argument("query")
     search.add_argument("--limit", type=int, default=8)
+    search.add_argument("--backend", choices=["fts5", "qmd", "sentence_transformers", "auto"], default="fts5")
 
     recall = sub.add_parser("recall")
     recall.add_argument("query")
     recall.add_argument("--profile")
     recall.add_argument("--json", action="store_true")
+    recall.add_argument("--backend", choices=["fts5", "qmd", "sentence_transformers", "auto"], default="fts5")
 
     system = sub.add_parser("system")
     system.add_argument("name")
@@ -108,11 +113,32 @@ def build_parser() -> argparse.ArgumentParser:
 
     evaluate = sub.add_parser("evaluate-learning")
     evaluate.add_argument("proposal_path", type=Path)
+    validate = sub.add_parser("validate-learning")
+    validate.add_argument("proposal_path", type=Path)
     apply_learning = sub.add_parser("apply-learning")
     apply_learning.add_argument("proposal_path", type=Path)
     apply_learning.add_argument("--approved-by", required=True)
+    approve_learning = sub.add_parser("approve-learning")
+    approve_learning.add_argument("proposal_path", type=Path)
+    approve_learning.add_argument("--approved-by", required=True)
+    decline_learning = sub.add_parser("decline-learning")
+    decline_learning.add_argument("proposal_path", type=Path)
+    decline_learning.add_argument("--declined-by", required=True)
+    decline_learning.add_argument("--reason", required=True)
     learning_debt = sub.add_parser("learning-debt")
     learning_debt.add_argument("--limit", type=int, default=8)
+    sub.add_parser("feedback-integrations", help="Report optional SDK and calibration availability.")
+    annotations = sub.add_parser("import-feedback-annotations", help="Import exported Langfuse annotations as local review candidates.")
+    annotations.add_argument("input", type=Path)
+    annotations.add_argument("--dry-run", action="store_true")
+    retire_successor = sub.add_parser(
+        "retire-successor-feedback",
+        help="Explicitly retire duplicate successor feedback into a named successor.",
+    )
+    retire_successor.add_argument("package_dir", type=Path)
+    retire_successor.add_argument("--superseded-by", type=Path, required=True)
+    retire_successor.add_argument("--retired-by", required=True)
+    retire_successor.add_argument("--reason", required=True)
 
     doctor = sub.add_parser("carousel-doctor")
     doctor.add_argument("package_dir", type=Path)
@@ -125,7 +151,66 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     root = args.workspace_root.resolve()
 
-    if args.command == "context":
+    if args.command == "feedback-integrations":
+        from evals.deepeval_adapter import calibration_status, deepeval_environment_status
+        from pipeline.agentic.langfuse_mirror import langfuse_environment_status
+
+        print_json({"deepeval": deepeval_environment_status(),
+                    "calibration": calibration_status(root),
+                    "langfuse": langfuse_environment_status(), "can_gate_generation": False})
+    elif args.command == "import-feedback-annotations":
+        from pipeline.agentic.langfuse_mirror import import_annotation_candidates
+
+        if args.input.is_symlink() or not args.input.is_file():
+            raise ValueError("Annotation input must be a regular JSON file")
+        payload = json.loads(args.input.read_text(encoding="utf-8"))
+        annotations = payload if isinstance(payload, list) else payload.get("data")
+        if not isinstance(annotations, list):
+            raise ValueError("Annotation export must be an array or an object with data array")
+        existing = []
+        for path in root.glob("memory/agentic/learning-events/event-langfuse-*.json"):
+            saved = json.loads(path.read_text(encoding="utf-8"))
+            identity = (saved.get("feedback_metadata") or {}).get("external_annotation_id_sha256")
+            if identity:
+                existing.append(identity)
+        report = import_annotation_candidates(annotations, existing_annotation_ids=existing)
+        event_ids = []
+        if not args.dry_run:
+            for candidate in report["candidates"]:
+                identity = candidate["external_annotation_id_sha256"]
+                event = capture_learning_event(root, source="langfuse_annotation_candidate",
+                    summary="Imported annotation awaiting local review",
+                    event_id="event-langfuse-" + identity.removeprefix("sha256:"),
+                    user_instruction_exact=candidate["user_instruction_exact"],
+                    scope=candidate["scope"], feedback_status="captured",
+                    eval_disposition="candidate_only",
+                    feedback_metadata={"external_annotation_id_sha256": identity,
+                                       "candidate_status": "pending_local_review"})
+                event_ids.append(event.event_id)
+        report["event_ids"] = event_ids
+        report["persistence"] = "dry_run" if args.dry_run else (
+            "learning_events_candidate_only" if event_ids else "none"
+        )
+        print_json(report)
+    elif args.command == "retire-successor-feedback":
+        from pipeline.stages.carousel_visual_storytelling import (
+            retire_successor_feedback,
+        )
+
+        try:
+            print_json(
+                retire_successor_feedback(
+                    args.package_dir,
+                    workspace_root=root,
+                    superseded_by=args.superseded_by,
+                    retired_by=args.retired_by,
+                    reason_exact=args.reason,
+                )
+            )
+        except (OSError, ValueError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 2
+    elif args.command == "context":
         pack = assemble_context_pack(root, profile=args.profile)
         print(render_context_pack(pack) if args.render else json.dumps(pack.model_dump(), indent=2, ensure_ascii=False))
     elif args.command == "registry":
@@ -134,10 +219,10 @@ def main(argv: list[str] | None = None) -> int:
         path = build_memory_index(root, index_path=args.index_path)
         print_json({"index_path": str(path)})
     elif args.command == "search":
-        index_path = build_memory_index(root)
-        print_json([hit.model_dump() for hit in search_memory(index_path, args.query, limit=args.limit)])
+        from pipeline.agentic.retrieval import search as search_retrieval
+        print_json([hit.model_dump() for hit in search_retrieval(root, args.query, limit=args.limit, backend=args.backend)])
     elif args.command == "recall":
-        bundle = build_recall_bundle(root, args.query, profile=args.profile)
+        bundle = build_recall_bundle(root, args.query, profile=args.profile, backend=args.backend)
         print_json(bundle) if args.json else print(render_recall_bundle(bundle))
     elif args.command in {"system", "skill-system"}:
         print_json(resolve_skill_system(load_skill_systems(root), args.name))
@@ -209,6 +294,9 @@ def main(argv: list[str] | None = None) -> int:
         )
     elif args.command == "evaluate-learning":
         print_json(evaluate_learning_proposal_review(root, args.proposal_path))
+    elif args.command == "validate-learning":
+        receipts = run_required_validators(root, args.proposal_path)
+        print_json({"receipts": receipts, "status": "PASS" if all(item["status"] == "PASS" for item in receipts) else "FAIL"})
     elif args.command == "apply-learning":
         try:
             print_json(
@@ -221,11 +309,38 @@ def main(argv: list[str] | None = None) -> int:
         except ValueError as exc:
             print(str(exc), file=sys.stderr)
             return 2
+    elif args.command == "approve-learning":
+        try:
+            print_json(
+                approve_learning_proposal(
+                    root,
+                    args.proposal_path,
+                    approved_by=args.approved_by,
+                )
+            )
+        except ValueError as exc:
+            print(str(exc), file=sys.stderr)
+            return 2
+    elif args.command == "decline-learning":
+        try:
+            print_json(
+                decline_learning_proposal(
+                    root,
+                    args.proposal_path,
+                    declined_by=args.declined_by,
+                    reason=args.reason,
+                )
+            )
+        except (StopIteration, ValueError) as exc:
+            print(str(exc), file=sys.stderr)
+            return 2
     elif args.command == "learning-debt":
-        records = learning_debt_records(root, limit=args.limit)
+        all_records = learning_debt_records(root, limit=None)
+        records = all_records[:max(0, args.limit)]
         print_json(
             {
-                "debt_count": len(records),
+                "debt_count": len(all_records),
+                "returned_count": len(records),
                 "records": records,
             }
         )
@@ -248,6 +363,15 @@ def main(argv: list[str] | None = None) -> int:
         for record in learning_debt:
             kind = str(record.get("kind", "unknown"))
             learning_debt_by_kind[kind] = learning_debt_by_kind.get(kind, 0) + 1
+        from datetime import date
+        from pipeline.stages.wiki_health import (
+            feedback_health_evidence, generation_receipt_health_evidence,
+            learning_approval_health_evidence,
+        )
+        feedback_health = feedback_health_evidence(root, date.today())
+        receipt_failures = generation_receipt_health_evidence(root, date.today())
+        approval_failures = learning_approval_health_evidence(root)
+        failed = bool(feedback_health["unsupported"] or feedback_health["invalid_events"] or receipt_failures or approval_failures)
         print_json(
             {
                 "context_sections": len(pack.sections),
@@ -256,8 +380,13 @@ def main(argv: list[str] | None = None) -> int:
                 "open_hypotheses": len(open_hypotheses),
                 "learning_debt_count": len(learning_debt),
                 "learning_debt_by_kind": learning_debt_by_kind,
+                "status": "FAIL" if failed else "PASS",
+                "creator_feedback": feedback_health,
+                "generation_receipt_failures": receipt_failures,
+                "learning_approval_failures": approval_failures,
             }
         )
+        return 2 if failed else 0
     return 0
 
 

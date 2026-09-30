@@ -12,5 +12,7 @@ __all__ = [
     "audit_log",
     "learning_loop",
     "skill_eval",
+    "validator_registry",
+    "approval_policy",
     "workflow_state",
 ]

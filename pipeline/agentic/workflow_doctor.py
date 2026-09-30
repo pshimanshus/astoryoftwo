@@ -708,6 +708,9 @@ def _inspect_v3_package(
 
     if status == "publish_ready":
         from pipeline.stages.carousel_quality import build_final_audit
+        from pipeline.stages.codex_builtin_image_generation import (
+            published_generation_receipt_issues,
+        )
 
         audit = build_final_audit(package_dir, write=False)
         if audit.get("status") != "PASS":
@@ -721,6 +724,20 @@ def _inspect_v3_package(
                         package_dir / "visual-qa.json",
                         package_dir / "final-audit.json",
                     ],
+                    next_action="repair_publish_evidence",
+                )
+            )
+        receipt_issues = published_generation_receipt_issues(
+            package_dir,
+            state=state,
+        )
+        if receipt_issues:
+            issues.append(
+                _issue(
+                    "publish_receipt_stale",
+                    "blocker",
+                    "; ".join(receipt_issues),
+                    evidence=[package_dir / "generation-state.json"],
                     next_action="repair_publish_evidence",
                 )
             )

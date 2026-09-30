@@ -14,7 +14,9 @@
     "identity_attachments": 4,
     "identity_source": "config/references/identity/_dossier/identity-dossier.json.selected_generation_bundle",
     "style_board_attachments": 1,
-    "style_board_source": "config/references/style-lock/observational-intimacy-premium/contact-sheet.png",
+    "style_profile": "cinematic-observational-watercolor@1.0.0",
+    "style_board_source": "config/references/style-lock/cinematic-observational-watercolor-v1/contact-sheet.png",
+    "style_board_sha256": "sha256:850634480a635e296cbbb352bcbf461ade1bc4e1c3b419881a614e4ded13ee18",
     "forbid_individual_style_slides_in_addition": true,
     "forbid_silent_identity_omission": true
   },
@@ -50,6 +52,23 @@
     "exact_text_mismatch",
     "native_dimension_mismatch"
   ],
+  "profile_rollout_controls": [
+    "style_board_sha256_mismatch",
+    "cinematic_story_frame_missing",
+    "staged_portrait",
+    "empty_depth",
+    "palette_drift"
+  ],
+  "cinematic_acceptance": {
+    "frame_reads_as_caught_event": true,
+    "before_after_implied": true,
+    "motivated_light_observed": "required source and direction",
+    "depth_layers_observed": ["foreground", "midground", "background"],
+    "story_evidence_count": [2, 4],
+    "posed_portrait": false,
+    "decorative_clutter": false,
+    "generic_ai_tells": []
+  },
   "scenarios": [
     {
       "id": "shared-plain-frame-hold",

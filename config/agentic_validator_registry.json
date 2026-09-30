@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "validators": {
+    "skill_eval": {
+      "executor": "skill_eval",
+      "description": "Checks proposal-only invariants and target existence before a human-approved application."
+    },
+    "creator_workflow_contract": {
+      "executor": "creator_workflow_contract",
+      "description": "Requires the local source learning event for creator-feedback proposals."
+    },
+    "agentic_docs_contract": {
+      "executor": "agentic_docs_contract",
+      "description": "Rechecks the guarded proposal-only learning contract."
+    }
+  }
+}

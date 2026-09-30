@@ -17,33 +17,41 @@ from pipeline.stages.carousel_format_contract import (
     locked_format_contract_fingerprint,
     locked_formats,
 )
-from pipeline.stages.carousel_prompt_compiler import compile_image_prompt, extract_scene_summary
+from pipeline.stages.carousel_contract import (
+    load_active_illustration_style_profile,
+    resolve_style_profile_reference_path,
+    style_profile_contract_sha256,
+)
+from pipeline.stages.carousel_prompt_compiler import compile_image_prompt
+from pipeline.stages.carousel_visual_storytelling import active_feedback_constraints
 
 
-INPUT_SCHEMA_VERSION = "carousel-generation-inputs/v2"
-REFERENCE_BINDING_SCHEMA_VERSION = "carousel-reference-bindings/v1"
-PROMPT_COMPILER_VERSION = "carousel-prompt-compiler/v3"
+INPUT_SCHEMA_VERSION = "carousel-generation-inputs/v3"
+REFERENCE_BINDING_SCHEMA_VERSION = "carousel-reference-bindings/v2-style-profile"
+PROMPT_COMPILER_VERSION = "carousel-prompt-compiler/v5-cinematic-profile"
 BRAND_CONTRACT_VERSION = "a-story-brand/v1"
+VISUAL_PREMISE_SCHEMA_VERSION = "carousel-visual-premise/v1"
 
 SLIDE_SOURCE_FIELDS = (
     "slide",
     "role",
     "copy",
-    "visual",
+    "copy_mode",
+    "beat_delta",
+    "copy_image_relation",
     "physical_action",
     "relationship_state",
-    "scene",
-    "composition",
     "camera",
     "focal_hierarchy",
     "setting",
     "wardrobe",
-    "pose",
     "props",
-    "background",
     "emotion",
     "continuity_lock",
     "negative_prompt",
+    "hand_map",
+    "spatial_topology",
+    "visual_richness",
 )
 
 
@@ -134,6 +142,8 @@ def _shared_reference_bindings(
     package_dir: Path,
     prompt_pack: dict[str, Any],
     creative_context: dict[str, Any],
+    *,
+    require_complete_identity_bundle: bool = False,
 ) -> list[dict[str, str]]:
     """Return canonical identity/style bindings from the real prompt-pack keys.
 
@@ -156,11 +166,17 @@ def _shared_reference_bindings(
             record.get("role") or "unassigned identity role"
         )
 
+    identity_paths = prompt_pack.get("identity_reference_images")
+    if not isinstance(identity_paths, list):
+        raise ValueError("prompt-pack.json identity_reference_images must be a list.")
+    if require_complete_identity_bundle:
+        if len(identity_paths) != 4:
+            raise ValueError("prompt-pack.json must bind exactly four identity photographs.")
+        if len({str(value) for value in identity_paths}) != 4:
+            raise ValueError("prompt-pack.json identity photographs must be four distinct files.")
+
     identity_bindings: list[dict[str, str]] = []
-    for raw_path in [
-        *(prompt_pack.get("identity_reference_images") or []),
-        *(prompt_pack.get("identity_dossier_reference_images") or []),
-    ]:
+    for raw_path in identity_paths:
         path = _package_file(package_dir, raw_path, role="identity")
         relative = path.relative_to(root).as_posix()
         identity_bindings.append(
@@ -171,12 +187,20 @@ def _shared_reference_bindings(
             }
         )
 
+    profile = prompt_pack.get("style_profile")
+    reference = profile.get("reference") if isinstance(profile, dict) else None
+    style_path = reference.get("path") if isinstance(reference, dict) else None
+    style_role = (
+        f"style:{profile.get('id')}@{profile.get('version')}"
+        if isinstance(profile, dict)
+        else "style"
+    )
     bindings = [
         *identity_bindings,
         *_reference_bindings(
             package_dir,
-            list(prompt_pack.get("style_reference_images") or []),
-            role="style",
+            [style_path] if str(style_path or "").strip() else [],
+            role=style_role,
         ),
     ]
     return sorted(
@@ -189,122 +213,252 @@ def _shared_reference_bindings(
     )
 
 
-def _slide_source(slide: dict[str, Any], prompt: dict[str, Any]) -> dict[str, Any]:
-    source = {
+def _validated_style_profile_snapshot(
+    package_dir: Path,
+    prompt_pack: dict[str, Any],
+) -> dict[str, Any]:
+    schema = str(prompt_pack.get("schema_version") or "")
+    if schema == "carousel-prompt-pack/v2":
+        raise ValueError(
+            "carousel-prompt-pack/v2 is historical and read-only; rebuild this package before generation."
+        )
+    if schema != "carousel-prompt-pack/v3":
+        raise ValueError("prompt-pack.json must use carousel-prompt-pack/v3.")
+    retired_keys = {
+        "identity_dossier_reference_images",
+        "slides",
+        "style_prompt",
+        "shared_style_prompt",
+        "shared_negative_prompt",
+        "negative_prompt",
+        "style_reference_images",
+    }
+    present = sorted(retired_keys & set(prompt_pack))
+    if present:
+        raise ValueError(
+            "carousel-prompt-pack/v3 contains retired duplicate fields: " + ", ".join(present)
+        )
+    snapshot = prompt_pack.get("style_profile")
+    if not isinstance(snapshot, dict):
+        raise ValueError("prompt-pack.json must contain one style_profile object.")
+    reference = snapshot.get("reference")
+    if not isinstance(reference, dict):
+        raise ValueError("prompt-pack.json style_profile must contain one reference object.")
+    localized = _package_file(package_dir, reference.get("path"), role="style")
+
+    active = load_active_illustration_style_profile()
+    active_reference_path = resolve_style_profile_reference_path(active)
+    active_reference_digest = str(active["reference"]["sha256"]).removeprefix("sha256:")
+    expected_local_reference_path = (
+        Path(".internal")
+        / "references"
+        / "style"
+        / f"{active_reference_digest[:20]}{active_reference_path.suffix.lower()}"
+    ).as_posix()
+    expected = {
+        "id": active["id"],
+        "version": active["version"],
+        "contract_sha256": style_profile_contract_sha256(active),
+        "generation_prompt": active["generation_prompt"],
+        "negative_prompt": active["negative_prompt"],
+        "reference_path": expected_local_reference_path,
+        "reference_sha256": active["reference"]["sha256"],
+        "attachment_count": active["reference"]["attachment_count"],
+    }
+    observed = {
+        "id": snapshot.get("id"),
+        "version": snapshot.get("version"),
+        "contract_sha256": snapshot.get("contract_sha256"),
+        "generation_prompt": snapshot.get("generation_prompt"),
+        "negative_prompt": snapshot.get("negative_prompt"),
+        "reference_path": reference.get("path"),
+        "reference_sha256": reference.get("sha256"),
+        "attachment_count": reference.get("attachment_count"),
+    }
+    if observed != expected:
+        changed = sorted(key for key in expected if observed.get(key) != expected[key])
+        raise ValueError("style_profile_stale: " + ", ".join(changed))
+
+    actual_sha256 = sha256_binding(localized.read_bytes())
+    if actual_sha256 != expected["reference_sha256"]:
+        raise ValueError("style_profile_stale: reference bytes do not match the active profile")
+    return snapshot
+
+
+def build_shared_reference_bindings(package_dir: Path) -> list[dict[str, str]]:
+    """Return the canonical named identity/style attachment bindings.
+
+    This is the single public adapter for generation handoffs that need the
+    exact same role, path, and byte bindings used by slide fingerprints.
+    """
+
+    package_dir = Path(package_dir).expanduser()
+    prompt_pack = _read_json(package_dir / "prompt-pack.json")
+    creative_context = _read_json(package_dir / "creative-context.json")
+    if not isinstance(prompt_pack, dict):
+        raise ValueError("prompt-pack.json must contain a JSON object.")
+    if not isinstance(creative_context, dict):
+        raise ValueError("creative-context.json must contain a JSON object.")
+    _validated_style_profile_snapshot(package_dir, prompt_pack)
+    return _shared_reference_bindings(
+        package_dir,
+        prompt_pack,
+        creative_context,
+        require_complete_identity_bundle=True,
+    )
+
+
+def _slide_source(slide: dict[str, Any]) -> dict[str, Any]:
+    return {
         key: slide[key]
         for key in SLIDE_SOURCE_FIELDS
         if key in slide and slide[key] not in (None, "", [])
     }
-    # Prompt records are generator inputs too. Keep only slide-local semantics;
-    # shared style, identity, and brand inputs are hashed separately below.
-    source["prompt"] = {
-        key: prompt[key]
-        for key in (
-            "slide",
-            "text",
-            "scene",
-            "pose",
-            "wardrobe",
-            "props",
-            "background",
-            "emotion",
-            "negative_prompt",
-        )
-        if key in prompt and prompt[key] not in (None, "", [])
-    }
-    return source
 
 
-def _join_slide_directions(slide: dict[str, Any], keys: tuple[str, ...]) -> str:
-    return "; ".join(
-        str(slide[key]).strip()
-        for key in keys
-        if key in slide and slide[key] not in (None, "", [])
+def visual_premise_fingerprint(slide: dict[str, Any]) -> str:
+    """Fingerprint the staged event, not prompt polish around that event.
+
+    The hand and topology contracts both carry the same scene-action binding
+    when a slide has completed visual direction.  That shared binding is a
+    more stable premise anchor than camera, wardrobe, copy, or hand-detail
+    wording.  Draft/legacy slides fall back to their physical action.  When
+    the structured bindings disagree, keep the first non-empty binding rather
+    than granting a fresh retry for an ambiguous prompt-only edit.
+    """
+
+    bindings: list[str] = []
+    for field in ("hand_map", "spatial_topology"):
+        value = slide.get(field)
+        if not isinstance(value, dict):
+            continue
+        binding = " ".join(str(value.get("scene_action_binding") or "").split())
+        if binding and binding not in bindings:
+            bindings.append(binding)
+    fallback = " ".join(
+        str(
+            slide.get("physical_action")
+            or slide.get("visual")
+            or slide.get("scene")
+            or ""
+        ).split()
+    )
+    staged_action = bindings[0] if bindings else fallback
+    return canonical_fingerprint(
+        {
+            "schema_version": VISUAL_PREMISE_SCHEMA_VERSION,
+            "staged_action": staged_action,
+        }
     )
 
 
 def effective_slide_prompt_fields(
     slide: dict[str, Any],
-    prompt: dict[str, Any],
     *,
     shared_negative: str,
-) -> dict[str, str]:
+) -> dict[str, Any]:
     """Return the slide-authoritative generator fields for new v3 packages.
 
-    ``prompt-pack.json`` retains the initial human-readable prompt record, but
-    it is not a second authority for mutable slide semantics. A correction in
-    ``slides.json`` must therefore change both the compiled bytes and their
-    fingerprint instead of regenerating from a stale prompt-pack duplicate.
+    ``slides.json`` is the only per-slide authority. ``prompt-pack.json`` owns
+    only the immutable shared profile and reference snapshot.
     """
 
     scene = str(
         slide.get("physical_action")
         or slide.get("visual")
         or slide.get("scene")
-        or prompt.get("scene")
-        or extract_scene_summary(str(prompt.get("prompt") or ""))
-    )
-    pose = _join_slide_directions(
-        slide,
-        ("pose", "composition", "camera", "focal_hierarchy"),
-    )
-    background = _join_slide_directions(
-        slide,
-        ("background", "setting", "continuity_lock"),
+        or ""
     )
     return {
         "scene": scene,
-        "pose": pose,
+        "camera": slide.get("camera"),
+        "focal_hierarchy": str(slide.get("focal_hierarchy") or ""),
+        "setting": slide.get("setting"),
         "wardrobe": str(slide.get("wardrobe") or ""),
         "props": str(slide.get("props") or ""),
-        "background": background,
-        "emotion": _join_slide_directions(
-            slide,
-            ("relationship_state", "emotion"),
+        "relationship_state": str(
+            slide.get("relationship_state") or slide.get("emotion") or ""
         ),
-        "negative_prompt": str(slide.get("negative_prompt") or shared_negative),
+        "emotion": str(slide.get("emotion") or ""),
+        "continuity_lock": str(slide.get("continuity_lock") or ""),
+        "negative_prompt": " ".join(
+            value
+            for value in (
+                str(shared_negative).strip(),
+                str(slide.get("negative_prompt") or "").strip(),
+            )
+            if value
+        ),
+        "hand_map": slide.get("hand_map"),
+        "spatial_topology": slide.get("spatial_topology"),
+        "visual_richness": slide.get("visual_richness"),
+        **{key: slide[key] for key in ("copy_mode", "beat_delta", "copy_image_relation") if key in slide},
     }
 
 
 def _compiled_prompt_fingerprint(
     *,
     slide: dict[str, Any],
-    prompt: dict[str, Any],
     slide_count: int,
     formats: tuple[str, ...],
     style: str,
     negative: str,
+    feedback_constraints: list[dict[str, Any]] | None = None,
 ) -> str:
     effective = effective_slide_prompt_fields(
         slide,
-        prompt,
         shared_negative=negative,
     )
     prompt_bytes: list[dict[str, str]] = []
     for output_format in formats:
-        compiled = compile_image_prompt(
-            slide_number=int(slide["slide"]),
-            slide_count=slide_count,
-            # slides.json is the exact-copy authority. A stale prompt-pack text
-            # field therefore invalidates only this slide but can never leak
-            # old copy into a freshly compiled prompt.
-            slide_copy=str(slide.get("copy") or ""),
-            visual=effective["scene"],
-            format_key=output_format,
-            style=style,
-            negative=effective["negative_prompt"],
-            pose=effective["pose"],
-            wardrobe=effective["wardrobe"],
-            props=effective["props"],
-            background=effective["background"],
-            emotion=effective["emotion"],
-        ).encode("utf-8")
-        prompt_bytes.append(
-            {
-                "format": output_format,
-                "sha256": sha256_binding(compiled),
-            }
-        )
+        try:
+            compiled = compile_image_prompt(
+                slide_number=int(slide["slide"]),
+                slide_count=slide_count,
+                slide_copy=str(slide.get("copy") or ""),
+                copy_mode=effective.get("copy_mode", "text"),
+                beat_delta=effective.get("beat_delta"),
+                copy_image_relation=effective.get("copy_image_relation"),
+                visual=effective["scene"],
+                format_key=output_format,
+                style=style,
+                negative=effective["negative_prompt"],
+                camera=effective["camera"],
+                focal_hierarchy=effective["focal_hierarchy"],
+                setting=effective["setting"],
+                wardrobe=effective["wardrobe"],
+                props=effective["props"],
+                relationship_state=effective["relationship_state"],
+                emotion=effective["emotion"],
+                continuity_lock=effective["continuity_lock"],
+                hand_map=effective["hand_map"],
+                spatial_topology=effective["spatial_topology"],
+                visual_richness=effective["visual_richness"],
+                feedback_constraints=feedback_constraints,
+            ).encode("utf-8")
+        except ValueError as exc:
+            # Draft packages must remain serializable before visual direction is
+            # complete. The typed blocked reason is fingerprinted; the single
+            # pre-generation gate still refuses to create a handoff.
+            prompt_bytes.append(
+                {
+                    "format": output_format,
+                    "blocked_sha256": canonical_fingerprint(
+                        {
+                            "reason": str(exc),
+                            "effective_fields": effective,
+                            "feedback_constraints": feedback_constraints or [],
+                        }
+                    ),
+                }
+            )
+        else:
+            prompt_bytes.append(
+                {
+                    "format": output_format,
+                    "sha256": sha256_binding(compiled),
+                }
+            )
     return canonical_fingerprint(
         {
             "compiler_version": PROMPT_COMPILER_VERSION,
@@ -326,22 +480,12 @@ def build_generation_inputs(package_dir: Path) -> dict[str, Any]:
         raise ValueError("prompt-pack.json must contain a JSON object.")
     if not isinstance(creative_context, dict):
         raise ValueError("creative-context.json must contain a JSON object.")
-    prompt_records = prompt_pack.get("slides")
-    if not isinstance(prompt_records, list):
-        raise ValueError("prompt-pack.json must contain slide prompts.")
+    style_profile = _validated_style_profile_snapshot(package_dir, prompt_pack)
 
     slides = [item for item in slides_payload if isinstance(item, dict)]
     numbers = [int(item.get("slide", 0) or 0) for item in slides]
     if numbers != list(range(1, len(slides) + 1)):
         raise ValueError("slides.json slide numbers must be unique and sequential from 1.")
-    prompt_by_number = {
-        int(item.get("slide", 0) or 0): item
-        for item in prompt_records
-        if isinstance(item, dict)
-    }
-    if set(prompt_by_number) != set(numbers):
-        raise ValueError("prompt-pack.json must contain exactly one prompt per slide.")
-
     formats = tuple(locked_formats(package_dir))
     format_sha256 = locked_format_contract_fingerprint(package_dir)
     shared_reference_bindings = _shared_reference_bindings(
@@ -354,8 +498,7 @@ def build_generation_inputs(package_dir: Path) -> dict[str, Any]:
         "brand_contract_version": BRAND_CONTRACT_VERSION,
         "brandmark": str(prompt_pack.get("brandmark") or "@a.storyof.two"),
         "brandmark_placement": "top-right",
-        "style_prompt": str(prompt_pack.get("style_prompt") or ""),
-        "shared_negative_prompt": str(prompt_pack.get("negative_prompt") or ""),
+        "style_profile": style_profile,
         "reference_binding_schema_version": REFERENCE_BINDING_SCHEMA_VERSION,
         "shared_references": shared_reference_bindings,
         "formats": list(formats),
@@ -364,22 +507,24 @@ def build_generation_inputs(package_dir: Path) -> dict[str, Any]:
     }
     shared_sha256 = canonical_fingerprint(shared)
     result_slides: dict[str, dict[str, str]] = {}
-    style = str(
-        prompt_pack.get("style_prompt")
-        or "warm ivory paper, watercolor and loose ink"
-    )
-    negative = str(prompt_pack.get("negative_prompt") or "")
+    style = str(style_profile["generation_prompt"])
+    negative = str(style_profile["negative_prompt"])
     for slide in slides:
         number = int(slide["slide"])
-        prompt = prompt_by_number[number]
-        source_sha256 = canonical_fingerprint(_slide_source(slide, prompt))
+        source = _slide_source(slide)
+        feedback_constraints = active_feedback_constraints(package_dir, number)
+        # Keep legacy/no-feedback source bytes and fingerprints exactly stable.
+        # Active v2 feedback is slide-local generation input only when present.
+        if feedback_constraints:
+            source["feedback_constraints"] = feedback_constraints
+        source_sha256 = canonical_fingerprint(source)
         prompt_sha256 = _compiled_prompt_fingerprint(
             slide=slide,
-            prompt=prompt,
             slide_count=len(slides),
             formats=formats,
             style=style,
             negative=negative,
+            feedback_constraints=feedback_constraints,
         )
         story_bindings = _reference_bindings(
             package_dir,
@@ -402,6 +547,7 @@ def build_generation_inputs(package_dir: Path) -> dict[str, Any]:
             }
         )
         result_slides[str(number)] = {
+            "premise_sha256": visual_premise_fingerprint(slide),
             "source_sha256": source_sha256,
             "prompt_sha256": prompt_sha256,
             "references_sha256": references_sha256,
@@ -421,8 +567,11 @@ __all__ = [
     "BRAND_CONTRACT_VERSION",
     "INPUT_SCHEMA_VERSION",
     "PROMPT_COMPILER_VERSION",
+    "VISUAL_PREMISE_SCHEMA_VERSION",
     "build_generation_inputs",
+    "build_shared_reference_bindings",
     "canonical_fingerprint",
     "canonical_json_bytes",
     "sha256_binding",
+    "visual_premise_fingerprint",
 ]

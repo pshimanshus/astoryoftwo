@@ -9,6 +9,7 @@ reuse an approved proof, and promote only a complete audited deck.
 from __future__ import annotations
 
 from io import BytesIO
+from datetime import datetime, timezone
 import json
 import os
 import re
@@ -31,19 +32,35 @@ from pipeline.stages.carousel_format_contract import (
 )
 from pipeline.stages.carousel_generation_inputs import (
     build_generation_inputs,
+    build_shared_reference_bindings,
     canonical_fingerprint,
     effective_slide_prompt_fields,
     sha256_binding,
+    visual_premise_fingerprint,
 )
 from pipeline.stages.carousel_generation_state import (
     STATE_SCHEMA_VERSION,
     GenerationStatus,
+    archived_package_read_only_reason,
     initialize_generation_state,
     read_generation_state,
+    require_writable_package,
     write_v3_state,
 )
-from pipeline.stages.carousel_prompt_compiler import compile_image_prompt, extract_scene_summary
-from pipeline.stages.carousel_visual_storytelling import physical_action_issue
+from pipeline.stages.carousel_prompt_compiler import compile_image_prompt
+from pipeline.stages.carousel_sequence import (
+    package_sequence_inputs,
+    sequence_enabled,
+    sequence_input_fingerprint,
+    sequence_plan_issues,
+    slide_sequence_issues,
+)
+from pipeline.stages.carousel_style_consistency import house_style_consistency_gate_reason
+from pipeline.stages.carousel_visual_storytelling import (
+    active_feedback_constraints,
+    physical_action_issue,
+    validate_director_storyboard,
+)
 
 
 MAX_SEMANTIC_ATTEMPTS = 2
@@ -75,6 +92,76 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def sha256_bytes(payload: bytes) -> str:
     return sha256_binding(payload).removeprefix("sha256:")
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def _latest_attempt_receipt(state: dict[str, Any], number: int) -> dict[str, Any]:
+    slide = state.get("slides", {}).get(str(number), {})
+    attempt = int(slide.get("attempts", 0) or 0)
+    history = slide.get("attempt_history") or []
+    for receipt in reversed(history):
+        if isinstance(receipt, dict) and int(receipt.get("attempt") or 0) == attempt:
+            return receipt
+    raise ValueError(f"Slide {number} has no receipt for its current ImageGen attempt.")
+
+
+def _bind_attempt_review(
+    state: dict[str, Any],
+    number: int,
+    *,
+    qa: dict[str, Any],
+    passed: bool,
+) -> None:
+    receipt = _latest_attempt_receipt(state, number)
+    receipt["pixel_review_status"] = "passed" if passed else "failed"
+    receipt["qa_sha256"] = canonical_fingerprint(qa)
+    receipt["reviewed_at"] = _utc_now_iso()
+
+
+def _assert_current_receipt(
+    carousel_dir: Path,
+    state: dict[str, Any],
+    candidate: dict[str, Any],
+    *,
+    require_review: bool = False,
+) -> None:
+    number = int(candidate["slide"])
+    receipt = _latest_attempt_receipt(state, number)
+    original = candidate.get("generation_receipt")
+    immutable = (
+        "generator_boundary", "tool_reported_model", "prompt_sha256",
+        "reference_manifest_sha256", "references", "slide", "attempt",
+        "returned_sources", "feedback_id", "feedback_ids",
+    )
+    if not isinstance(original, dict) or any(receipt.get(key) != original.get(key) for key in immutable):
+        raise ValueError(f"Slide {number} generation receipt does not match its returned candidate.")
+    references = receipt.get("references") or []
+    if (
+        receipt.get("generator_boundary") != "codex_builtin_imagegen"
+        or receipt.get("prompt_sha256") != state["slides"][str(number)]["prompt_sha256"]
+        or len(references) != 5
+        or receipt.get("reference_manifest_sha256") != canonical_fingerprint(references)
+        or not receipt.get("returned_sources")
+    ):
+        raise ValueError(f"Slide {number} generation provenance is incomplete or stale.")
+    for binding in [*references, *receipt["returned_sources"]]:
+        path = resolve_package_artifact_path(carousel_dir, binding.get("path"), "", require_file=True)
+        if sha256_binding(path.read_bytes()) != binding.get("sha256"):
+            raise ValueError(f"Slide {number} generation receipt asset hash is stale.")
+    for source in receipt["returned_sources"]:
+        if not source.get("returned_at") or int(source.get("width") or 0) <= 0 or int(source.get("height") or 0) <= 0:
+            raise ValueError(f"Slide {number} returned source lacks dimensions or timestamp.")
+    if require_review:
+        qa_hashes = set()
+        for filename in ("proof-qa.json", "visual-qa.json"):
+            qa = _load_record(carousel_dir / filename)
+            if qa is not None:
+                qa_hashes.add(canonical_fingerprint(_qa_without_approval(qa)))
+        if receipt.get("pixel_review_status") != "passed" or receipt.get("qa_sha256") not in qa_hashes:
+            raise ValueError(f"Slide {number} generation receipt lacks current pixel-bound QA.")
 
 
 def _canonical_hash(value: Any) -> str:
@@ -181,13 +268,6 @@ def _prompt_pack(carousel_dir: Path) -> dict[str, Any]:
     return load_json(carousel_dir / "prompt-pack.json")
 
 
-def _prompt_slides(carousel_dir: Path) -> list[dict[str, Any]]:
-    prompts = _prompt_pack(carousel_dir).get("slides")
-    if not isinstance(prompts, list) or not prompts:
-        raise ValueError("prompt-pack.json must contain slide prompts.")
-    return [item for item in prompts if isinstance(item, dict)]
-
-
 REQUIRED_IDENTITY_REFERENCE_ROLES = (
     "Aachu identity anchor",
     "Zuv identity anchor",
@@ -198,67 +278,36 @@ REQUIRED_IDENTITY_REFERENCE_COUNT = len(REQUIRED_IDENTITY_REFERENCE_ROLES)
 REQUIRED_STYLE_REFERENCE_COUNT = 1
 
 
-def _canonical_package_reference_paths(
-    package_dir: Path,
-    values: Any,
-    *,
-    label: str,
-) -> list[str]:
-    if not isinstance(values, list):
-        raise ValueError(f"{label} must be a list of package-local paths.")
-    result: list[str] = []
-    for value in values:
-        path = resolve_package_artifact_path(
-            package_dir,
-            str(value),
-            "",
-            require_file=True,
-        )
-        result.append(package_relative_path(package_dir, path))
-    return result
-
-
-def _package_reference_bindings(carousel_dir: Path) -> list[dict[str, Any]]:
-    prompt_pack = _prompt_pack(carousel_dir)
-    raw: list[tuple[str, str]] = []
-    for key, role in (
-        ("identity_reference_images", "identity"),
-        ("identity_dossier_reference_images", "identity"),
-        ("style_reference_images", "style"),
-    ):
-        raw.extend((str(value), role) for value in prompt_pack.get(key, []))
-    for slide in _slides(carousel_dir):
-        raw.extend((str(value), "story") for value in slide.get("source_images", []))
-    by_path: dict[str, dict[str, Any]] = {}
-    for value, role in raw:
-        path = resolve_package_artifact_path(carousel_dir, value, "", require_file=True)
-        relative = package_relative_path(carousel_dir, path)
-        record = by_path.setdefault(
-            relative,
-            {"path": relative, "sha256": sha256_binding(path.read_bytes()), "roles": []},
-        )
-        if role not in record["roles"]:
-            record["roles"].append(role)
-    return [by_path[key] for key in sorted(by_path)]
-
-
 def generator_prompt_text(slide_prompt: dict[str, Any], output_format: str) -> str:
+    style = str(slide_prompt.get("style") or "").strip()
+    negative = str(slide_prompt.get("negative_prompt") or "").strip()
+    if not style or not negative:
+        raise ValueError("Compiled generation requires the active style and negative prompts.")
     return compile_image_prompt(
         slide_number=int(slide_prompt["slide"]),
         slide_count=int(slide_prompt.get("slide_count") or 1),
         slide_copy=str(slide_prompt["text"]),
-        visual=str(
-            slide_prompt.get("scene")
-            or extract_scene_summary(str(slide_prompt.get("prompt") or ""))
-        ),
+        copy_mode=slide_prompt.get("copy_mode", "text"),
+        beat_delta=slide_prompt.get("beat_delta"),
+        copy_image_relation=slide_prompt.get("copy_image_relation"),
+        visual=str(slide_prompt.get("physical_action") or slide_prompt.get("scene") or ""),
         format_key=output_format,
-        style=str(slide_prompt.get("style") or "warm ivory paper, watercolor and loose ink"),
-        negative=str(slide_prompt.get("negative_prompt") or ""),
+        style=style,
+        negative=negative,
+        camera=slide_prompt.get("camera"),
+        focal_hierarchy=slide_prompt.get("focal_hierarchy"),
+        setting=slide_prompt.get("setting"),
         pose=slide_prompt.get("pose"),
         wardrobe=slide_prompt.get("wardrobe"),
         props=slide_prompt.get("props"),
         background=slide_prompt.get("background"),
+        relationship_state=slide_prompt.get("relationship_state"),
         emotion=slide_prompt.get("emotion"),
+        continuity_lock=slide_prompt.get("continuity_lock"),
+        hand_map=slide_prompt.get("hand_map"),
+        spatial_topology=slide_prompt.get("spatial_topology"),
+        visual_richness=slide_prompt.get("visual_richness"),
+        feedback_constraints=slide_prompt.get("feedback_constraints"),
     )
 
 
@@ -271,28 +320,45 @@ def prompt_handoff_relative_path(output_format: str, slide_number: int, kind: st
 
 def _current_compiled_prompt(carousel_dir: Path, number: int, output_format: str) -> str:
     slides = _slides(carousel_dir)
-    prompts = {int(item["slide"]): item for item in _prompt_slides(carousel_dir)}
     prompt_pack = _prompt_pack(carousel_dir)
     slide = {int(item["slide"]): item for item in slides}[number]
+    profile = prompt_pack.get("style_profile")
+    if not isinstance(profile, dict):
+        raise ValueError("prompt-pack.json must contain one active style_profile snapshot.")
     effective = effective_slide_prompt_fields(
         slide,
-        prompts[number],
-        shared_negative=str(prompt_pack.get("negative_prompt") or ""),
+        shared_negative=str(profile.get("negative_prompt") or ""),
     )
     source = {
-        **prompts[number],
+        **slide,
+        "slide": number,
         "text": str(slide.get("copy") or ""),
         "slide_count": len(slides),
-        "style": str(prompt_pack.get("style_prompt") or "warm ivory paper, watercolor and loose ink"),
+        "style": str(profile.get("generation_prompt") or ""),
+        "physical_action": effective["scene"],
         "scene": effective["scene"],
         "negative_prompt": effective["negative_prompt"],
-        "pose": effective["pose"],
+        "camera": effective["camera"],
+        "focal_hierarchy": effective["focal_hierarchy"],
+        "setting": effective["setting"],
         "wardrobe": effective["wardrobe"],
         "props": effective["props"],
-        "background": effective["background"],
+        "relationship_state": effective["relationship_state"],
         "emotion": effective["emotion"],
+        "continuity_lock": effective["continuity_lock"],
+        "hand_map": effective["hand_map"],
+        "spatial_topology": effective["spatial_topology"],
+        "visual_richness": effective["visual_richness"],
+        "feedback_constraints": active_feedback_constraints(carousel_dir, number),
     }
-    return generator_prompt_text(source, output_format)
+    prompt = generator_prompt_text(source, output_format)
+    style_issue = house_style_consistency_gate_reason(
+        prompt_pack,
+        compiled_prompts={number: prompt},
+    )
+    if style_issue:
+        raise ValueError(style_issue)
+    return prompt
 
 
 def build_compiled_prompt_handoff(
@@ -309,25 +375,72 @@ def build_compiled_prompt_handoff(
             path = carousel_dir / relative
             if not path.is_file() or path.is_symlink():
                 raise ValueError(f"Missing compiled generator prompt: {path}")
+            prompt = path.read_text(encoding="utf-8")
+            width, height = format_spec(output_format)["target_size"]
             files.append(
                 {
                     "slide": number,
                     "format": output_format,
                     "path": relative,
-                    "sha256": sha256_binding(path.read_bytes()),
+                    "sha256": sha256_binding(prompt.encode("utf-8")),
+                    "prompt": prompt,
+                    "width": int(width),
+                    "height": int(height),
+                    "aspect_ratio": str(format_spec(output_format)["aspect_ratio"]),
                 }
             )
-    references = _package_reference_bindings(carousel_dir)
-    generation_references = [
-        binding
-        for binding in references
-        if set(binding.get("roles") or []).intersection({"identity", "style"})
-    ]
-    context_references = [
-        binding
-        for binding in references
-        if "story" in set(binding.get("roles") or [])
-    ]
+    generation_references: list[dict[str, Any]] = []
+    for binding in build_shared_reference_bindings(carousel_dir):
+        raw_role = str(binding.get("role") or "")
+        kind, _, named_role = raw_role.partition(":")
+        generation_references.append(
+            {
+                "path": binding["path"],
+                "sha256": binding["sha256"],
+                "roles": [kind],
+                "role": named_role or kind,
+            }
+        )
+    identity_roles = {
+        str(binding["role"])
+        for binding in generation_references
+        if binding["roles"] == ["identity"]
+    }
+    style_count = sum(
+        binding["roles"] == ["style"] for binding in generation_references
+    )
+    if (
+        len(identity_roles) != REQUIRED_IDENTITY_REFERENCE_COUNT
+        or identity_roles != set(REQUIRED_IDENTITY_REFERENCE_ROLES)
+        or style_count != REQUIRED_STYLE_REFERENCE_COUNT
+        or len(generation_references)
+        != REQUIRED_IDENTITY_REFERENCE_COUNT + REQUIRED_STYLE_REFERENCE_COUNT
+    ):
+        raise ValueError(
+            "ImageGen handoff requires four named identity references and one style board."
+        )
+    slide_by_number = {int(item["slide"]): item for item in _slides(carousel_dir)}
+    context_by_path: dict[str, dict[str, Any]] = {}
+    for number in slide_numbers:
+        for raw_path in slide_by_number[number].get("source_images") or []:
+            path = resolve_package_artifact_path(
+                carousel_dir,
+                str(raw_path),
+                "",
+                require_file=True,
+            )
+            relative = package_relative_path(carousel_dir, path)
+            record = context_by_path.setdefault(
+                relative,
+                {
+                    "path": relative,
+                    "sha256": sha256_binding(path.read_bytes()),
+                    "roles": ["story"],
+                    "slides": [],
+                },
+            )
+            record["slides"].append(number)
+    context_references = [context_by_path[key] for key in sorted(context_by_path)]
     payload = {
         "schema_version": "compiled-prompts/v3",
         "slides": list(slide_numbers),
@@ -365,53 +478,39 @@ def compiled_prompt_handoff_integrity_issues(
 
 
 def visual_plan_quality_gate_reason(carousel_dir: Path) -> str | None:
-    for slide in _slides(carousel_dir):
-        if not str(slide.get("copy") or "").strip():
-            return f"Slide {slide.get('slide')} is missing exact copy."
+    slides = _slides(carousel_dir)
+    context = load_json(carousel_dir / "creative-context.json")
+    sequence_issues = sequence_plan_issues(context, slides)
+    if sequence_issues:
+        return "Carousel sequence: " + "; ".join(sequence_issues)
+    for slide in slides:
+        issues = slide_sequence_issues(slide)
+        if issues:
+            return f"Slide {slide.get('slide')}: " + "; ".join(issues)
         action = str(slide.get("physical_action") or slide.get("visual") or "").strip()
         issue = physical_action_issue(action, copy=slide.get("copy"))
         if slide.get("needs_physical_action") is True or issue:
             return f"Slide {slide.get('slide')} {issue or 'needs a concrete physical action'}."
+    cinematic_issues = validate_director_storyboard(
+        {"slides": slides},
+        slide_count=len(slides),
+        expected_slides=slides,
+        expected_formats=locked_formats(carousel_dir),
+    )
+    if cinematic_issues:
+        return cinematic_issues[0]
     return None
 
 
 def identity_consistency_gate_reason(carousel_dir: Path) -> str | None:
     try:
-        prompt_pack = _prompt_pack(carousel_dir)
-        identity_values = [
-            *(prompt_pack.get("identity_reference_images") or []),
-            *(prompt_pack.get("identity_dossier_reference_images") or []),
-        ]
-        identity_paths = _canonical_package_reference_paths(
-            carousel_dir,
-            identity_values,
-            label="identity references",
-        )
-        style_paths = _canonical_package_reference_paths(
-            carousel_dir,
-            prompt_pack.get("style_reference_images") or [],
-            label="style references",
-        )
-        context = load_json(carousel_dir / "creative-context.json")
-        selection = context.get("identity_reference_selection")
-        selected = selection.get("selected_references") if isinstance(selection, dict) else None
-        if not isinstance(selected, list):
-            return "Four curated identity roles must be bound in creative-context.json."
-        selected_paths: list[str] = []
-        selected_roles: list[str] = []
-        for record in selected:
-            if not isinstance(record, dict):
-                return "Each curated identity reference must bind one role and package-local path."
-            selected_roles.append(str(record.get("role") or "").strip())
-            selected_paths.extend(
-                _canonical_package_reference_paths(
-                    carousel_dir,
-                    [record.get("path")],
-                    label="curated identity references",
-                )
-            )
+        bindings = build_shared_reference_bindings(carousel_dir)
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         return str(exc)
+    identity = [record for record in bindings if str(record.get("role") or "").startswith("identity:")]
+    style = [record for record in bindings if str(record.get("role") or "").startswith("style:")]
+    identity_paths = [str(record.get("path") or "") for record in identity]
+    style_paths = [str(record.get("path") or "") for record in style]
     if len(identity_paths) != REQUIRED_IDENTITY_REFERENCE_COUNT:
         return (
             "Exactly four curated identity references are required "
@@ -425,13 +524,11 @@ def identity_consistency_gate_reason(carousel_dir: Path) -> str | None:
         return "The style board attachment must be distinct."
     if set(identity_paths).intersection(style_paths):
         return "Identity references and the style board must be distinct attachments."
-    if len(selected_paths) != REQUIRED_IDENTITY_REFERENCE_COUNT or set(selected_paths) != set(
-        identity_paths
-    ):
-        return "The four prompt-pack identity attachments must match the curated identity selection."
-    if len(selected_roles) != REQUIRED_IDENTITY_REFERENCE_COUNT or set(selected_roles) != set(
-        REQUIRED_IDENTITY_REFERENCE_ROLES
-    ):
+    selected_roles = {
+        str(record.get("role") or "").removeprefix("identity:")
+        for record in identity
+    }
+    if selected_roles != set(REQUIRED_IDENTITY_REFERENCE_ROLES):
         return (
             "Exactly the Aachu, Zuv, together face/scale, and together body/posture "
             "identity roles are required."
@@ -440,7 +537,16 @@ def identity_consistency_gate_reason(carousel_dir: Path) -> str | None:
 
 
 def pre_generation_review_gate_reason(carousel_dir: Path) -> str | None:
-    return visual_plan_quality_gate_reason(carousel_dir) or identity_consistency_gate_reason(carousel_dir)
+    visual_reason = visual_plan_quality_gate_reason(carousel_dir)
+    if visual_reason:
+        return visual_reason
+    identity_reason = identity_consistency_gate_reason(carousel_dir)
+    if identity_reason:
+        return identity_reason
+    try:
+        return house_style_consistency_gate_reason(_prompt_pack(carousel_dir))
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        return str(exc)
 
 
 def infer_slide_count(carousel_dir: Path) -> int:
@@ -452,11 +558,16 @@ def proof_slide_from_gate(proof_gate: str | None, slides: list[dict[str, Any]]) 
         match = re.search(r"\bslide\s*(\d+)\b", str(proof_gate), flags=re.IGNORECASE)
         if match and any(int(slide["slide"]) == int(match.group(1)) for slide in slides):
             return int(match.group(1))
-    return int(
-        max(slides, key=lambda item: len(str(item.get("scene") or item.get("prompt") or "").split()))[
-            "slide"
-        ]
-    )
+    return int(max(
+        slides,
+        key=lambda item: len(
+            (
+                str(item.get("physical_action") or "")
+                + " "
+                + json.dumps(item.get("visual_richness") or {}, ensure_ascii=False)
+            ).split()
+        ),
+    )["slide"])
 
 
 def _candidate_record_path(carousel_dir: Path, slide: int, attempt: int) -> Path:
@@ -484,6 +595,58 @@ def _current_candidate(carousel_dir: Path, state: dict[str, Any], slide: int) ->
 
 def _approved_candidate(carousel_dir: Path, slide: int) -> dict[str, Any] | None:
     return _load_record(_approved_record_path(carousel_dir, slide))
+
+
+def build_generation_review_targets(
+    carousel_dir: Path,
+    *,
+    state: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    """Expose the exact normalized pixels Codex must open before QA."""
+
+    carousel_dir = Path(carousel_dir).expanduser()
+    state = state or read_generation_state(carousel_dir)
+    if state.get("schema_version") != STATE_SCHEMA_VERSION:
+        return []
+    if state.get("status") not in {"proof_qa_required", "final_qa_required"}:
+        return []
+    context, slides = package_sequence_inputs(carousel_dir)
+    sequence_context = (
+        {
+            "sequence_input_sha256": sequence_input_fingerprint(context, slides),
+            "story_plan": context.get("story_plan"),
+        }
+        if sequence_enabled(context, slides)
+        else {}
+    )
+    targets: list[dict[str, Any]] = []
+    for number in [int(value) for value in state.get("selected_slides") or []]:
+        candidate = _current_candidate(carousel_dir, state, number)
+        if candidate is None:
+            continue
+        targets.append(
+            {
+                "slide": number,
+                "input_sha256": candidate.get("input_sha256", ""),
+                "native_outputs": candidate.get("native_outputs") or {},
+                **sequence_context,
+            }
+        )
+    return targets
+
+
+def build_final_inventory(
+    carousel_dir: Path,
+    *,
+    state: dict[str, Any] | None = None,
+) -> dict[str, Any] | None:
+    """Return the existing final manifest only for a publish-ready package."""
+
+    carousel_dir = Path(carousel_dir).expanduser()
+    state = state or read_generation_state(carousel_dir)
+    if state.get("status") != GenerationStatus.PUBLISH_READY.value:
+        return None
+    return _load_record(carousel_dir / "final-images.json")
 
 
 def _binding_issues(carousel_dir: Path, candidate: dict[str, Any]) -> list[str]:
@@ -649,6 +812,10 @@ def current_proof_qa_issues(
     binding_issues = _binding_issues(carousel_dir, candidate)
     if binding_issues:
         return binding_issues
+    try:
+        _assert_current_receipt(carousel_dir, current_state, candidate)
+    except (OSError, ValueError, KeyError) as exc:
+        return [str(exc)]
     return _proof_qa_validation_issues(carousel_dir, qa, candidate)
 
 
@@ -789,6 +956,128 @@ def _delete_slide_work(carousel_dir: Path, number: int) -> None:
         )
 
 
+def _legacy_handoff_premise_sha256(
+    carousel_dir: Path,
+    state: dict[str, Any],
+    number: int,
+) -> str | None:
+    """Recover a pre-premise-hash action only from its persisted handoff.
+
+    Old v3 states did not store ``premise_sha256``. A generated attempt did,
+    however, require a compiled prompt whose SCENE block records the staged
+    action used for those pixels. Use it only when every surviving format
+    agrees; missing or ambiguous evidence returns ``None`` so the retry budget
+    is preserved rather than accidentally reset.
+    """
+
+    actions: set[str] = set()
+    formats = state.get("selected_formats") or []
+    if not isinstance(formats, list):
+        return None
+    for output_format in formats:
+        path = carousel_dir / prompt_handoff_relative_path(str(output_format), number)
+        if path.is_symlink() or not path.is_file():
+            return None
+        try:
+            prompt = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            return None
+        match = re.search(r"(?:^|\n)SCENE:\n([^\n]+)", prompt)
+        if match is None:
+            return None
+        action = " ".join(match.group(1).split())
+        if not action:
+            return None
+        actions.add(action)
+    if len(actions) != 1:
+        return None
+    return visual_premise_fingerprint({"physical_action": actions.pop()})
+
+
+def _archive_invalidated_work(
+    carousel_dir: Path,
+    slide_numbers: set[int],
+    *,
+    include_finals: bool,
+    include_proof_qa: bool,
+) -> str | None:
+    """Copy stale evidence into the existing visual-quarantine tree first."""
+
+    candidates: list[Path] = []
+    for number in sorted(slide_numbers):
+        candidates.extend(
+            [
+                carousel_dir / QUARANTINE_FOLDER / f"slide-{number:02d}",
+                carousel_dir / APPROVED_CANDIDATE_FOLDER / f"slide-{number:02d}",
+            ]
+        )
+        candidates.extend(
+            carousel_dir / prompt_handoff_relative_path(output_format, number)
+            for output_format in SUPPORTED_NATIVE_FORMATS
+        )
+    if include_proof_qa:
+        candidates.append(carousel_dir / "proof-qa.json")
+    if include_finals:
+        candidates.extend(
+            carousel_dir / str(format_spec(output_format)["folder"])
+            for output_format in SUPPORTED_NATIVE_FORMATS
+        )
+        candidates.extend(
+            carousel_dir / filename
+            for filename in (
+                "final-images.json",
+                "visual-qa.json",
+                "final-audit.json",
+                FINAL_MANIFEST_CANDIDATE,
+            )
+        )
+        candidates.append(carousel_dir / FINAL_AUDIT_CANDIDATE_FOLDER)
+
+    files: list[Path] = []
+    for candidate in candidates:
+        if candidate.is_symlink():
+            continue
+        if candidate.is_file():
+            files.append(candidate)
+        elif candidate.is_dir():
+            files.extend(
+                path
+                for path in candidate.rglob("*")
+                if path.is_file() and not path.is_symlink()
+            )
+    by_relative = {
+        path.relative_to(carousel_dir).as_posix(): path
+        for path in files
+        if f"{QUARANTINE_FOLDER}/superseded/" not in path.as_posix()
+    }
+    if not by_relative:
+        return None
+    entries = [
+        {
+            "original_path": relative,
+            "sha256": sha256_binding(path.read_bytes()),
+        }
+        for relative, path in sorted(by_relative.items())
+    ]
+    archive_id = canonical_fingerprint(entries).removeprefix("sha256:")[:20]
+    archive_root = carousel_dir / QUARANTINE_FOLDER / "superseded" / archive_id
+    for entry in entries:
+        source = by_relative[entry["original_path"]]
+        target = archive_root / entry["original_path"]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if not target.exists():
+            shutil.copy2(source, target)
+    write_json(
+        archive_root / "archive.json",
+        {
+            "schema_version": "carousel-superseded-evidence/v1",
+            "archive_id": archive_id,
+            "files": entries,
+        },
+    )
+    return archive_root.relative_to(carousel_dir).as_posix()
+
+
 def _retract_public_finals(carousel_dir: Path) -> None:
     for output_format in SUPPORTED_NATIVE_FORMATS:
         remove_path_without_following(
@@ -808,14 +1097,25 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
 
     package_dir = Path(package_dir).expanduser()
     state = read_generation_state(package_dir)
-    if not state:
-        return initialize_generation_state(package_dir)
-    if state.get("schema_version") != STATE_SCHEMA_VERSION:
+    if state and state.get("schema_version") != STATE_SCHEMA_VERSION:
         # Archived state stays inspectable but is never migrated implicitly.
         return state
+    reason = archived_package_read_only_reason(package_dir)
+    if reason:
+        # A v3 state does not make a historical prompt-pack writable. Return
+        # a read-only status view without invalidating proof or final evidence.
+        return {**state, "status": "blocked", "next_action": "rebuild_with_active_style_profile", "reason": reason}
+    if not state:
+        return initialize_generation_state(package_dir)
     try:
         inputs = build_generation_inputs(package_dir)
     except (OSError, ValueError, json.JSONDecodeError) as exc:
+        _archive_invalidated_work(
+            package_dir,
+            set(),
+            include_finals=True,
+            include_proof_qa=True,
+        )
         _retract_public_finals(package_dir)
         return write_v3_state(
             package_dir,
@@ -916,6 +1216,16 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
             for candidate in approved_candidates.values()
             if candidate is not None
         )
+        receipt_stale = False
+        for candidate in approved_candidates.values():
+            if candidate is not None:
+                try:
+                    # If the audit already identifies changed QA, preserve the
+                    # immutable pixels and route to QA repair below. A changed
+                    # receipt with otherwise current QA is provenance failure.
+                    _assert_current_receipt(package_dir, state, candidate, require_review=current_audit.get("status") == PASS)
+                except (OSError, ValueError, KeyError):
+                    receipt_stale = True
         manifest_binding_stale = bool(
             manifest is not None
             and any(
@@ -939,7 +1249,13 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
         )
         manifest_is_exact = manifest is not None and manifest == expected_manifest
         audit_stale = stored_audit is None or current_audit.get("status") != PASS
-        if not manifest_is_exact or not complete_approved or approved_binding_stale or manifest_binding_stale:
+        if not manifest_is_exact or not complete_approved or approved_binding_stale or manifest_binding_stale or receipt_stale:
+            _archive_invalidated_work(
+                package_dir,
+                set(),
+                include_finals=True,
+                include_proof_qa=False,
+            )
             _retract_public_finals(package_dir)
             return write_v3_state(
                 package_dir,
@@ -959,6 +1275,12 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
             # still trustworthy.  Retract only the public claim, preserve every
             # candidate/attempt, and rebuild the hidden review inventory so a
             # corrected QA can be bound without another generation call.
+            _archive_invalidated_work(
+                package_dir,
+                set(),
+                include_finals=True,
+                include_proof_qa=False,
+            )
             _retract_public_finals(package_dir)
             for record in state["slides"].values():
                 record["status"] = "approved_candidate"
@@ -982,12 +1304,23 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
     if not invalid:
         return state
 
-    _retract_public_finals(package_dir)
     prior_status = str(state.get("status") or "draft")
     selected = {int(value) for value in state.get("selected_slides") or []}
     invalid_numbers = {int(value) for value in invalid}
     proof_slide = state.get("proof_slide")
     proof_invalid = proof_slide is not None and int(proof_slide) in invalid_numbers
+    legacy_premises = {
+        str(number): _legacy_handoff_premise_sha256(package_dir, state, number)
+        for number in invalid_numbers
+        if not old_slides.get(str(number), {}).get("premise_sha256")
+    }
+    _archive_invalidated_work(
+        package_dir,
+        invalid_numbers,
+        include_finals=True,
+        include_proof_qa=bool(global_change or proof_invalid),
+    )
+    _retract_public_finals(package_dir)
     for number in invalid_numbers:
         _delete_slide_work(package_dir, number)
     if global_change or proof_invalid:
@@ -999,18 +1332,30 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
             package_dir / APPROVED_CANDIDATE_FOLDER, package_root=package_dir
         )
         remove_path_without_following(
-            package_dir / QUARANTINE_FOLDER, package_root=package_dir
-        )
-        remove_path_without_following(
             package_dir / PROMPT_HANDOFF_ACTIVE_FOLDER, package_root=package_dir
         )
 
     next_slide_state: dict[str, Any] = {}
     for number, fingerprints in current_slides.items():
         previous = old_slides.get(number, {})
+        old_premise = previous.get("premise_sha256") or legacy_premises.get(number)
+        new_premise = fingerprints.get("premise_sha256")
+        premise_definitely_changed = bool(
+            number in invalid
+            and isinstance(old_premise, str)
+            and old_premise.startswith("sha256:")
+            and isinstance(new_premise, str)
+            and new_premise.startswith("sha256:")
+            and old_premise != new_premise
+        )
         next_slide_state[number] = {
             "status": "draft" if number in invalid else previous.get("status", "draft"),
-            "attempts": 0 if number in invalid else int(previous.get("attempts", 0) or 0),
+            "attempts": (
+                0
+                if premise_definitely_changed
+                else int(previous.get("attempts", 0) or 0)
+            ),
+            "attempt_history": list(previous.get("attempt_history") or []),
             **fingerprints,
         }
     selected_survives = bool(selected) and not selected.intersection(invalid_numbers)
@@ -1056,6 +1401,7 @@ def reconcile_package_state(package_dir: Path) -> dict[str, Any]:
 
 
 def _require_v3(package_dir: Path) -> dict[str, Any]:
+    require_writable_package(package_dir)
     state = reconcile_package_state(package_dir)
     if state.get("schema_version") != STATE_SCHEMA_VERSION:
         raise ValueError("Archived v2 carousel packages are read-only; create a new v3 package.")
@@ -1082,19 +1428,19 @@ def prepare_codex_builtin_image_generation(
         state = _require_v3(carousel_dir)
     reason = pre_generation_review_gate_reason(carousel_dir)
     if reason:
-        next_action = (
-            "lock_visible_actions"
-            if visual_plan_quality_gate_reason(carousel_dir)
-            else "attach_four_curated_identity_references_and_one_style_board"
-        )
+        if visual_plan_quality_gate_reason(carousel_dir):
+            next_action = "lock_visible_actions_and_cinematic_direction"
+        elif identity_consistency_gate_reason(carousel_dir):
+            next_action = "attach_four_curated_identity_references_and_one_style_board"
+        else:
+            next_action = "rebuild_with_active_style_profile"
         return write_v3_state(
             carousel_dir,
             {**state, "status": "blocked", "next_action": next_action, "reason": reason},
         )
 
     slides = _slides(carousel_dir)
-    prompts = _prompt_slides(carousel_dir)
-    valid = {int(item["slide"]) for item in prompts}
+    valid = {int(item["slide"]) for item in slides}
     if proof_slide is not None:
         selected = [int(proof_slide)]
         if state.get("proof_slide") not in (None, int(proof_slide)) and _proof_approved(carousel_dir, state):
@@ -1127,7 +1473,7 @@ def prepare_codex_builtin_image_generation(
     else:
         proof_number = int(
             state.get("proof_slide")
-            or proof_slide_from_gate(_prompt_pack(carousel_dir).get("proof_gate"), prompts)
+            or proof_slide_from_gate(None, slides)
         )
         selected = [proof_number]
     if not selected:
@@ -1141,7 +1487,7 @@ def prepare_codex_builtin_image_generation(
             },
         )
     if any(number not in valid for number in selected):
-        raise ValueError("Selected slides are not present in prompt-pack.json.")
+        raise ValueError("Selected slides are not present in slides.json.")
     exhausted = [
         number
         for number in selected
@@ -1297,18 +1643,24 @@ def quarantine_generated_sources(
     generated_paths_by_format: dict[str, list[str | Path]],
     attempts_by_slide: dict[str, int],
     input_fingerprints: dict[str, dict[str, str]] | None = None,
+    reference_bindings: list[dict[str, Any]] | None = None,
+    tool_reported_model: str | None = None,
+    feedback_id: str | None = None,
+    feedback_ids_by_slide: dict[int, list[str]] | None = None,
     **_: Any,
 ) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     input_fingerprints = input_fingerprints or {}
     for index, slide in enumerate(slides):
         number = int(slide["slide"])
+        feedback_ids = (feedback_ids_by_slide or {}).get(number, [])
         attempt = int(attempts_by_slide.get(str(number), 0)) + 1
         root = _candidate_record_path(carousel_dir, number, attempt).parent
         remove_path_without_following(root, package_root=carousel_dir)
         root.mkdir(parents=True)
         outputs: dict[str, Any] = {}
         source_evidence: dict[str, Any] = {}
+        returned_sources: list[dict[str, Any]] = []
         ingest_issues: list[str] = []
         for output_format in output_formats:
             source = Path(generated_paths_by_format[output_format][index]).expanduser()
@@ -1350,6 +1702,47 @@ def quarantine_generated_sources(
             }
             binding["binding_sha256"] = _asset_binding_fingerprint(number, output_format, binding)
             outputs[output_format] = binding
+        returned_sources = [
+            {
+                "format": output_format,
+                "path": binding["path"],
+                "sha256": binding["sha256"],
+                "width": int(binding.get("width") or 0),
+                "height": int(binding.get("height") or 0),
+                "returned_at": _utc_now_iso(),
+            }
+            for output_format, binding in sorted(source_evidence.items())
+        ]
+        references = [
+            {
+                "path": str(binding.get("path") or ""),
+                "sha256": str(binding.get("sha256") or ""),
+                "role": str(binding.get("role") or ""),
+            }
+            for binding in (reference_bindings or [])
+        ]
+        receipt = {
+            "generator_boundary": "codex_builtin_imagegen",
+            "tool_reported_model": str(tool_reported_model).strip() or None
+            if tool_reported_model is not None
+            else None,
+            "prompt_sha256": input_fingerprints.get(str(number), {}).get("prompt_sha256", ""),
+            "reference_manifest_sha256": canonical_fingerprint(references),
+            "references": references,
+            "slide": number,
+            "attempt": attempt,
+            "returned_sources": returned_sources,
+            "feedback_id": (
+                feedback_id if feedback_id in feedback_ids
+                else feedback_ids[0] if len(feedback_ids) == 1 else None
+            ),
+            "feedback_ids": list(feedback_ids),
+            "pixel_review_status": "pending",
+            "qa_sha256": None,
+            "reviewed_at": None,
+            "approval_status": "pending",
+            "promotion_status": "pending",
+        }
         record = {
             "schema_version": "carousel-candidate/v1",
             "slide": number,
@@ -1359,6 +1752,7 @@ def quarantine_generated_sources(
             "native_outputs": outputs,
             "source_evidence": source_evidence,
             "ingest_issues": ingest_issues,
+            "generation_receipt": receipt,
         }
         write_json(root / "candidate.json", record)
         records.append(record)
@@ -1381,8 +1775,12 @@ def image_set_sha256(slides: list[dict[str, Any]]) -> str:
     )
 
 
-def current_proof_binding_sha256(package_dir: Path) -> str:
-    state = _require_v3(Path(package_dir))
+def current_proof_binding_sha256(
+    package_dir: Path,
+    *,
+    state: dict[str, Any] | None = None,
+) -> str:
+    state = state or _require_v3(Path(package_dir))
     number = state.get("proof_slide")
     if number is None:
         raise ValueError("No proof slide is selected.")
@@ -1392,6 +1790,36 @@ def current_proof_binding_sha256(package_dir: Path) -> str:
     if candidate is None or _binding_issues(Path(package_dir), candidate):
         raise ValueError("No current hash-bound proof candidate exists.")
     return image_set_sha256([candidate])
+
+
+def published_generation_receipt_issues(
+    package_dir: Path,
+    *,
+    state: dict[str, Any] | None = None,
+) -> list[str]:
+    """Validate published candidate provenance without mutating package state."""
+
+    package_dir = Path(package_dir).expanduser()
+    current_state = state or read_generation_state(package_dir)
+    if current_state.get("status") != GenerationStatus.PUBLISH_READY.value:
+        return []
+    issues: list[str] = []
+    for raw_number in current_state.get("slides", {}):
+        number = int(raw_number)
+        candidate = _approved_candidate(package_dir, number)
+        if candidate is None:
+            issues.append(f"Slide {number} approved candidate is missing.")
+            continue
+        try:
+            _assert_current_receipt(
+                package_dir,
+                current_state,
+                candidate,
+                require_review=True,
+            )
+        except (OSError, ValueError, KeyError) as exc:
+            issues.append(str(exc))
+    return issues
 
 
 def _prospective_manifest(
@@ -1464,8 +1892,11 @@ def _write_manifest_candidate_if_complete(carousel_dir: Path, state: dict[str, A
             "format-contract.json",
             "slides.json",
             "prompt-pack.json",
+            "creator-correction.json",
         ):
-            shutil.copyfile(carousel_dir / filename, audit_root / filename)
+            source = carousel_dir / filename
+            if source.exists():
+                shutil.copyfile(source, audit_root / filename)
         references = carousel_dir / ".internal/references"
         if references.is_dir():
             shutil.copytree(references, audit_root / ".internal/references")
@@ -1484,8 +1915,14 @@ def ingest_generated_outputs(
     generated_paths_by_format: dict[str, list[str | Path]],
     *,
     proof_slide: int | None = None,
+    tool_reported_model: str | None = None,
+    feedback_id: str | None = None,
 ) -> dict[str, Any]:
-    carousel_dir = Path(carousel_dir).expanduser()
+    carousel_dir = resolve_package_artifact_path(
+        Path(carousel_dir).expanduser(),
+        ".",
+        "",
+    )
     state = _require_v3(carousel_dir)
     if state.get("status") != "handoff_ready":
         raise ValueError("Prepare the compiled prompt before ingesting images.")
@@ -1514,6 +1951,23 @@ def ingest_generated_outputs(
         number: int(record.get("attempts", 0) or 0)
         for number, record in state["slides"].items()
     }
+    handoff = build_compiled_prompt_handoff(
+        carousel_dir,
+        slide_numbers=selected,
+        output_formats=formats,
+    )
+    feedback_ids_by_slide = {
+        number: sorted({
+            str(item.get("feedback_id"))
+            for item in active_feedback_constraints(carousel_dir, number)
+            if item.get("feedback_id")
+        })
+        for number in selected
+    }
+    if feedback_id is not None and not any(
+        feedback_id in ids for ids in feedback_ids_by_slide.values()
+    ):
+        raise ValueError("feedback_id must identify active feedback for a selected slide.")
     candidates = quarantine_generated_sources(
         carousel_dir,
         slides=[slide_by_number[number] for number in selected],
@@ -1521,11 +1975,18 @@ def ingest_generated_outputs(
         generated_paths_by_format=generated_paths_by_format,
         attempts_by_slide=attempts,
         input_fingerprints=state["slides"],
+        reference_bindings=handoff["reference_bindings"],
+        tool_reported_model=tool_reported_model,
+        feedback_id=feedback_id,
+        feedback_ids_by_slide=feedback_ids_by_slide,
     )
     failed_candidates = [candidate for candidate in candidates if candidate.get("ingest_issues")]
     for candidate in candidates:
         number = str(candidate["slide"])
         state["slides"][number]["attempts"] = candidate["attempt"]
+        state["slides"][number].setdefault("attempt_history", []).append(
+            candidate["generation_receipt"]
+        )
         state["slides"][number]["status"] = (
             "failed" if candidate.get("ingest_issues") else "qa_required"
         )
@@ -1693,11 +2154,20 @@ def review_quarantined_outputs(
     if any(candidate is None for candidate in candidates):
         raise ValueError("Current quarantine candidate inventory is incomplete.")
     exact_candidates = [candidate for candidate in candidates if candidate is not None]
+    for candidate in exact_candidates:
+        _assert_current_receipt(carousel_dir, state, candidate)
     default = "proof-qa.json" if proof else "visual-qa.json"
     path = resolve_package_artifact_path(carousel_dir, qa_path, default, require_file=True)
     bound_qa, issues = _bind_and_validate_qa(
         carousel_dir, state, path, exact_candidates, proof=proof
     )
+    for candidate in exact_candidates:
+        _bind_attempt_review(
+            state,
+            int(candidate["slide"]),
+            qa=bound_qa,
+            passed=not issues,
+        )
     if issues:
         failed_number = _first_explicit_semantic_failure(bound_qa)
         if failed_number is None:
@@ -1746,6 +2216,9 @@ def review_quarantined_outputs(
         for candidate in deck_candidates.values():
             _copy_approved_candidate(carousel_dir, candidate)
             state["slides"][str(candidate["slide"])]["status"] = "approved_candidate"
+            _latest_attempt_receipt(state, int(candidate["slide"]))[
+                "approval_status"
+            ] = "approved"
         state["status"] = "final_qa_required"
         state["next_action"] = "finalize_deck"
     state.pop("reason", None)
@@ -1780,6 +2253,7 @@ def approve_proof(
     ):
         raise ValueError("The current proof candidate is missing or stale.")
     current_sha = image_set_sha256([candidate])
+    _assert_current_receipt(carousel_dir, state, candidate, require_review=True)
     if proof_sha256 != current_sha:
         raise ValueError("proof_sha256 does not match the current proof pixels.")
     qa_path = carousel_dir / "proof-qa.json"
@@ -1803,6 +2277,7 @@ def approve_proof(
     write_json(qa_path, qa)
     _copy_approved_candidate(carousel_dir, candidate)
     state["slides"][str(number)]["status"] = "approved_candidate"
+    _latest_attempt_receipt(state, number)["approval_status"] = "approved"
     state["status"] = "batch_ready"
     state["next_action"] = "prepare_remaining_slides"
     state["selected_slides"] = []
@@ -1819,6 +2294,8 @@ def finalize_codex_builtin_outputs(carousel_dir: Path) -> dict[str, Any]:
     expected = {int(value) for value in state["slides"]}
     if set(candidates) != expected:
         raise ValueError("Every slide needs an approved final candidate before promotion.")
+    for candidate in candidates.values():
+        _assert_current_receipt(carousel_dir, state, candidate, require_review=True)
     manifest = _prospective_manifest(carousel_dir, candidates)
     candidate_manifest = load_json(carousel_dir / FINAL_MANIFEST_CANDIDATE)
     if candidate_manifest != manifest:
@@ -1860,8 +2337,16 @@ def finalize_codex_builtin_outputs(carousel_dir: Path) -> dict[str, Any]:
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, target)
         audit_root.mkdir(parents=True)
-        for filename in ("creative-context.json", "format-contract.json", "slides.json", "prompt-pack.json"):
-            shutil.copyfile(carousel_dir / filename, audit_root / filename)
+        for filename in (
+            "creative-context.json",
+            "format-contract.json",
+            "slides.json",
+            "prompt-pack.json",
+            "creator-correction.json",
+        ):
+            source = carousel_dir / filename
+            if source.exists():
+                shutil.copyfile(source, audit_root / filename)
         reference_root = carousel_dir / ".internal/references"
         if reference_root.is_dir():
             shutil.copytree(reference_root, audit_root / ".internal/references")
@@ -1901,6 +2386,9 @@ def finalize_codex_builtin_outputs(carousel_dir: Path) -> dict[str, Any]:
         state["selected_slides"] = []
         for record in state["slides"].values():
             record["status"] = "publish_ready"
+            history = record.get("attempt_history") or []
+            if history:
+                history[-1]["promotion_status"] = "promoted"
         state.pop("reason", None)
         return write_v3_state(carousel_dir, state)
     finally:
@@ -1914,9 +2402,12 @@ __all__ = [
     "MAX_SEMANTIC_ATTEMPTS",
     "approve_proof",
     "build_compiled_prompt_handoff",
+    "build_final_inventory",
+    "build_generation_review_targets",
     "compiled_prompt_handoff_integrity_issues",
     "current_proof_qa_issues",
     "current_proof_binding_sha256",
+    "published_generation_receipt_issues",
     "finalize_codex_builtin_outputs",
     "generator_prompt_text",
     "image_set_sha256",

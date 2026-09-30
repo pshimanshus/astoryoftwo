@@ -20,6 +20,11 @@ from pipeline.stages.codex_builtin_image_generation import (
 )
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel
 from pipeline.stages.carousel_pixel_qa import manifest_fingerprint
+from tests.helpers.carousel_qa import (
+    cinematic_slide_fields,
+    passing_cinematic_story_frame,
+    passing_entity_spatial_integrity,
+)
 
 
 def _png(path: Path, size: tuple[int, int] = (1080, 1440), color: str = "ivory") -> Path:
@@ -34,16 +39,22 @@ def _brief(path: Path) -> Path:
             {
                 "slides": [
                     {
+                        **cinematic_slide_fields(index, 4),
                         "copy": copy,
                         "physical_action": action,
                         "relationship_state": relationship,
+                        **(
+                            {"send_reason": "Send this to the partner still learning with you."}
+                            if index == 4
+                            else {}
+                        ),
                     }
-                    for copy, action, relationship in (
-                        ("I was never unsure of you.", "Aachu places one house key in Zuv's open palm.", "certain"),
-                        ("Then life asked harder questions.", "They point toward different doorways over one box.", "uncertain"),
-                        ("Love did not tell us what to do.", "They pull one paper map toward opposite sides of the table.", "conflict"),
-                        ("We are still learning how.", "They turn the map and trace one route together.", "committed"),
-                    )
+                    for index, (copy, action, relationship) in enumerate((
+                        ("I was never unsure of you.", "Aachu places one house key in Zuv's open palm.", "quietly certain of each other"),
+                        ("Then life asked harder questions.", "They point toward different doorways over one box.", "connected inside visible uncertainty"),
+                        ("Love did not tell us what to do.", "They pull one paper map toward opposite sides of the table.", "tender inside active conflict"),
+                        ("We are still learning how.", "They turn the map and trace one route together.", "committed through shared learning"),
+                    ), start=1)
                 ]
             }
         ),
@@ -63,7 +74,6 @@ def _package(tmp_path: Path) -> Path:
         story="Certain of you, lost in us",
         image_paths=[_png(tmp_path / "story.png", (50, 50), "skyblue")],
         identity_image_paths=identity_paths,
-        style_reference_paths=[_png(tmp_path / "style.png", (50, 50), "ivory")],
         title="Certain of You",
         creative_baseline_path=_brief(tmp_path / "brief.json"),
         output_root=tmp_path / "output/carousels",
@@ -73,7 +83,7 @@ def _package(tmp_path: Path) -> Path:
 
 def _authored_qa(package: Path, slides: list[int], *, scope: str) -> dict[str, object]:
     prompt_pack = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
-    style = prompt_pack["style_reference_images"][0]
+    style = prompt_pack["style_profile"]["reference"]["path"]
     context = json.loads((package / "creative-context.json").read_text(encoding="utf-8"))
     role_paths = {
         record["role"]: record["path"]
@@ -96,10 +106,16 @@ def _authored_qa(package: Path, slides: list[int], *, scope: str) -> dict[str, o
                         "checks": {
                             "physical_action": {"status": "PASS", "evidence": "The intended physical action is visibly clear."},
                             "relationship_state": {"status": "PASS", "evidence": "Their posture visibly proves the relationship beat."},
-                            "entity_spatial_integrity": {"status": "PASS", "evidence": "Two complete people and attached hands occupy coherent space."},
+                            "cinematic_story_frame": passing_cinematic_story_frame(package, number),
+                            "entity_spatial_integrity": passing_entity_spatial_integrity(package, number),
                             "identity_wardrobe_accessories": {
                                 "status": "PASS",
-                                "evidence": "Aachu and Zuv match the attached whole-person reference.",
+                                "evidence": (
+                                    "Aachu retains long dense very dark mostly-straight hair with soft bends, "
+                                    "large expressive dark round-almond eyes and full mostly-straight brows with a low soft arch, "
+                                    "and warm medium-brown skin tone. Zuv retains thick dark curly hair with visible top and side volume, "
+                                    "thick dark brows, and warm brown skin tone; their referenced proportions, clothing, and accessories match."
+                                ),
                                 "references": {
                                     "aachu": [role_paths["Aachu identity anchor"]],
                                     "zuv": [role_paths["Zuv identity anchor"]],
@@ -176,13 +192,14 @@ def test_creation_writes_only_small_v3_preproof_contract(tmp_path: Path) -> None
         "generation-state.json",
     }
     assert read_generation_state(package)["schema_version"] == "carousel-generation-state/v3"
+    slides = json.loads((package / "slides.json").read_text(encoding="utf-8"))
+    assert slides[-1]["send_reason"] == "Send this to the partner still learning with you."
 
 
 def test_story_only_fallback_stays_truthful_draft_then_blocks_prepare(tmp_path: Path) -> None:
     package = create_codex_native_carousel(
         story="Certain of you. Still learning how.",
         image_paths=[],
-        identity_image_paths=[_png(tmp_path / "identity.png", (40, 40))],
         title="Needs Scenes",
         slide_count=4,
         output_root=tmp_path / "output/carousels",
@@ -192,10 +209,10 @@ def test_story_only_fallback_stays_truthful_draft_then_blocks_prepare(tmp_path: 
     assert read_generation_state(package)["next_action"] == "lock_visible_actions"
     blocked = prepare_codex_builtin_image_generation(package)
     assert blocked["status"] == "blocked"
-    assert blocked["next_action"] == "lock_visible_actions"
+    assert blocked["next_action"] == "lock_visible_actions_and_cinematic_direction"
 
 
-def test_pre_generation_gate_rejects_three_identity_references_and_no_style(
+def test_pre_generation_gate_rejects_three_identity_references(
     tmp_path: Path,
 ) -> None:
     identities = [
@@ -204,21 +221,10 @@ def test_pre_generation_gate_rejects_three_identity_references_and_no_style(
         _png(tmp_path / "short/together/face.png", (40, 40), "tan"),
     ]
     brief = _brief(tmp_path / "short-brief.json")
-    with pytest.raises(ValueError, match="exactly 1 explicit style board"):
-        create_codex_native_carousel(
-            story="Certain of you, lost in us",
-            image_paths=[],
-            identity_image_paths=identities,
-            style_reference_paths=[],
-            creative_baseline_path=brief,
-            output_root=tmp_path / "short-output/carousels",
-            today=date(2026, 8, 24),
-        )
     package = create_codex_native_carousel(
         story="Certain of you, lost in us",
         image_paths=[],
         identity_image_paths=identities,
-        style_reference_paths=[_png(tmp_path / "short/style.png", (40, 40), "ivory")],
         creative_baseline_path=brief,
         output_root=tmp_path / "short-output/carousels",
         today=date(2026, 8, 24),
@@ -230,20 +236,20 @@ def test_pre_generation_gate_rejects_three_identity_references_and_no_style(
     assert blocked["next_action"] == (
         "attach_four_curated_identity_references_and_one_style_board"
     )
-    assert "Exactly four" in blocked["reason"]
+    assert "exactly four identity photographs" in blocked["reason"]
 
 
-def test_pre_generation_gate_rejects_missing_style_and_identity_role(
+def test_pre_generation_gate_rejects_stale_style_profile_and_identity_role(
     tmp_path: Path,
 ) -> None:
-    missing_style = _package(tmp_path / "missing-style")
-    prompt_path = missing_style / "prompt-pack.json"
+    stale_style = _package(tmp_path / "stale-style")
+    prompt_path = stale_style / "prompt-pack.json"
     prompt = json.loads(prompt_path.read_text(encoding="utf-8"))
-    prompt["style_reference_images"] = []
+    prompt["style_profile"]["reference"]["sha256"] = "sha256:" + "0" * 64
     prompt_path.write_text(json.dumps(prompt), encoding="utf-8")
-    blocked_style = prepare_codex_builtin_image_generation(missing_style, proof_slide=1)
+    blocked_style = prepare_codex_builtin_image_generation(stale_style, proof_slide=1)
     assert blocked_style["status"] == "blocked"
-    assert "Exactly one style board" in blocked_style["reason"]
+    assert "style_profile_stale" in blocked_style["reason"]
 
     missing_role = _package(tmp_path / "missing-role")
     context_path = missing_role / "creative-context.json"
@@ -267,7 +273,7 @@ def test_pre_generation_gate_rejects_attachment_overflow(tmp_path: Path) -> None
     blocked = prepare_codex_builtin_image_generation(package, proof_slide=1)
 
     assert blocked["status"] == "blocked"
-    assert "Exactly four" in blocked["reason"]
+    assert "exactly four identity photographs" in blocked["reason"]
 
 
 def test_approved_proof_is_reused_and_excluded_from_batch(tmp_path: Path) -> None:
@@ -523,10 +529,15 @@ def test_complete_deck_promotes_only_after_bound_final_qa_and_hidden_audit(tmp_p
 def test_format_change_after_approval_invalidates_every_candidate(tmp_path: Path) -> None:
     package = _package(tmp_path)
     _approve_proof(package, tmp_path)
+    before = read_generation_state(package)
     changed = prepare_codex_builtin_image_generation(package, formats=["square"])
     assert changed["status"] == "handoff_ready"
     assert changed["selected_formats"] == ["square"]
-    assert all(record["attempts"] == 0 for record in changed["slides"].values())
+    assert {
+        number: record["attempts"] for number, record in changed["slides"].items()
+    } == {
+        number: record["attempts"] for number, record in before["slides"].items()
+    }
     assert not (package / "proof-qa.json").exists()
 
 
@@ -604,10 +615,13 @@ def test_slide_local_batch_correction_reuses_unaffected_current_candidates(
     }
     slides_path = package / "slides.json"
     slides = json.loads(slides_path.read_text(encoding="utf-8"))
-    slides[1]["physical_action"] = (
+    changed_action = (
         "Aachu rotates one moving box while Zuv braces its opposite corner."
     )
-    slides[1]["visual"] = slides[1]["physical_action"]
+    slides[1]["physical_action"] = changed_action
+    slides[1]["visual"] = changed_action
+    slides[1]["hand_map"]["scene_action_binding"] = changed_action
+    slides[1]["spatial_topology"]["scene_action_binding"] = changed_action
     slides_path.write_text(json.dumps(slides), encoding="utf-8")
 
     reconciled = reconcile_package_state(package)

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -9,9 +10,24 @@ from pathlib import Path
 from PIL import Image
 
 from pipeline.stages.carousel_format_contract import write_format_contract
+from pipeline.stages.carousel_contract import (
+    load_active_illustration_style_profile,
+    resolve_style_profile_reference_path,
+    style_profile_contract_sha256,
+)
 from pipeline.stages.carousel_pixel_qa import (
     PIXEL_QA_SCHEMA_VERSION,
     asset_binding_fingerprint,
+)
+from pipeline.stages.codex_builtin_image_generation import initialize_generation_state
+from pipeline.stages.carousel_visual_integrity import (
+    build_hand_ownership_map,
+    build_spatial_topology_contract,
+)
+from tests.helpers.carousel_qa import (
+    cinematic_slide_fields,
+    passing_cinematic_story_frame,
+    passing_entity_spatial_integrity,
 )
 
 
@@ -41,9 +57,17 @@ def base_package(package: Path, *, with_format: bool = True) -> Path:
         write_format_contract(package, ["instagram_post"], source="test")
     write_png(package / "refs" / "couple.png", (64, 64))
     action = "Aachu and Zuv pull the same dining table toward opposite walls while the plates slide apart."
+    slide = {
+        "slide": 1,
+        "copy": "We knew who. We were learning how.",
+        "physical_action": action,
+        "hand_map": build_hand_ownership_map(action),
+        "spatial_topology": build_spatial_topology_contract(action),
+        **cinematic_slide_fields(1, 1),
+    }
     write_json(
         package / "slides.json",
-        {"slides": [{"slide": 1, "copy": "We knew who. We were learning how.", "physical_action": action}]},
+        {"slides": [slide]},
     )
     write_json(
         package / "prompt-pack.json",
@@ -59,6 +83,67 @@ def base_package(package: Path, *, with_format: bool = True) -> Path:
         },
     )
     return package
+
+
+def install_v3_references(package: Path) -> tuple[list[str], str]:
+    refs = [
+        ".internal/references/identity/a1.png",
+        ".internal/references/identity/b2.png",
+        ".internal/references/identity/c3.png",
+        ".internal/references/identity/d4.png",
+    ]
+    for ref in refs:
+        write_png(package / ref, (64, 64))
+    profile = load_active_illustration_style_profile()
+    source_style = resolve_style_profile_reference_path(profile)
+    style_digest = str(profile["reference"]["sha256"]).removeprefix("sha256:")
+    style_ref = (
+        Path(".internal")
+        / "references"
+        / "style"
+        / f"{style_digest[:20]}{source_style.suffix.lower()}"
+    ).as_posix()
+    (package / style_ref).parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source_style, package / style_ref)
+    write_json(
+        package / "prompt-pack.json",
+        {
+            "schema_version": "carousel-prompt-pack/v3",
+            "brandmark": "@a.storyof.two",
+            "identity_reference_images": refs,
+            "style_profile": {
+                "id": profile["id"],
+                "version": profile["version"],
+                "contract_sha256": style_profile_contract_sha256(profile),
+                "generation_prompt": profile["generation_prompt"],
+                "negative_prompt": profile["negative_prompt"],
+                "reference": {
+                    "path": style_ref,
+                    "sha256": profile["reference"]["sha256"],
+                    "attachment_count": 1,
+                },
+            },
+        },
+    )
+    write_json(
+        package / "creative-context.json",
+        {
+            "identity_reference_selection": {
+                "selected_references": [
+                    {"path": refs[0], "role": "Aachu identity anchor"},
+                    {"path": refs[1], "role": "Zuv identity anchor"},
+                    {"path": refs[2], "role": "together face/scale anchor"},
+                    {"path": refs[3], "role": "together body/posture anchor"},
+                ]
+            }
+        },
+    )
+    # Generation state must be fingerprinted from the same current package
+    # inputs; a hand-authored partial v3 state would correctly look stale.
+    slides_payload = json.loads((package / "slides.json").read_text(encoding="utf-8"))
+    write_json(package / "slides.json", slides_payload["slides"])
+    initialize_generation_state(package)
+    return refs, style_ref
 
 
 def _run_checker(package: Path, phase: str) -> subprocess.CompletedProcess[str]:
@@ -114,8 +199,8 @@ def test_v3_pre_checker_requires_curated_identity_roles_and_style_attachment(
     payload = json.loads(result.stdout)
 
     assert result.returncode == 1
-    assert any("Aachu, Zuv, and together" in issue for issue in payload["issues"])
-    assert any("no attached style references" in issue for issue in payload["issues"])
+    assert any("carousel-prompt-pack/v3" in issue for issue in payload["issues"])
+    assert any("style_profile" in issue or "style" in issue for issue in payload["issues"])
 
 
 def test_v3_pre_checker_rejects_story_only_physical_action_placeholders(
@@ -144,34 +229,7 @@ def test_v3_pre_checker_reads_identity_roles_from_localized_selection(
     tmp_path: Path,
 ) -> None:
     package = base_package(tmp_path / "v3-localized")
-    refs = [
-        ".internal/references/identity/a1.png",
-        ".internal/references/identity/b2.png",
-        ".internal/references/identity/c3.png",
-    ]
-    style_ref = ".internal/references/style/s1.png"
-    for ref in [*refs, style_ref]:
-        write_png(package / ref, (64, 64))
-    prompt = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
-    prompt["identity_reference_images"] = refs
-    prompt["style_reference_images"] = [style_ref]
-    write_json(package / "prompt-pack.json", prompt)
-    write_json(
-        package / "creative-context.json",
-        {
-            "identity_reference_selection": {
-                "selected_references": [
-                    {"path": refs[0], "role": "Aachu identity anchor"},
-                    {"path": refs[1], "role": "Zuv identity anchor"},
-                    {"path": refs[2], "role": "together body/posture anchor"},
-                ]
-            }
-        },
-    )
-    write_json(
-        package / "generation-state.json",
-        {"schema_version": "carousel-generation-state/v3", "status": "draft"},
-    )
+    install_v3_references(package)
 
     result = _run_checker(package, "pre")
     payload = json.loads(result.stdout)
@@ -268,32 +326,7 @@ def test_strict_post_checker_validates_authored_view_image_evidence_without_clai
 ) -> None:
     package = base_package(tmp_path / "strict")
     # Strict identity evidence names the exact four selected role anchors.
-    refs = [
-        "refs/aachu.png",
-        "refs/zuv.png",
-        "refs/together-face.png",
-        "refs/together-body.png",
-    ]
-    style_ref = "refs/style.png"
-    for ref in [*refs, style_ref]:
-        write_png(package / ref, (64, 64))
-    prompt = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
-    prompt["identity_reference_images"] = refs
-    prompt["style_reference_images"] = [style_ref]
-    write_json(package / "prompt-pack.json", prompt)
-    write_json(
-        package / "creative-context.json",
-        {
-            "identity_reference_selection": {
-                "selected_references": [
-                    {"path": refs[0], "role": "Aachu identity anchor"},
-                    {"path": refs[1], "role": "Zuv identity anchor"},
-                    {"path": refs[2], "role": "together face/scale anchor"},
-                    {"path": refs[3], "role": "together body/posture anchor"},
-                ]
-            }
-        },
-    )
+    refs, style_ref = install_v3_references(package)
 
     proof = package / ".internal" / "visual-quarantine" / "slide-01" / "attempt-01" / "instagram_post.png"
     write_png(proof)
@@ -314,13 +347,16 @@ def test_strict_post_checker_validates_authored_view_image_evidence_without_clai
             "status": "PASS",
             "evidence": "Their conflict is visible while the shared table keeps them connected.",
         },
-        "entity_spatial_integrity": {
-            "status": "PASS",
-            "evidence": "Two silhouettes, four hands, and the shared table have coherent contact and ownership.",
-        },
+        "cinematic_story_frame": passing_cinematic_story_frame(package, 1),
+        "entity_spatial_integrity": passing_entity_spatial_integrity(package, 1),
         "identity_wardrobe_accessories": {
             "status": "PASS",
-            "evidence": "Aachu and Zuv match the named face, body, wardrobe, and shared-scale references.",
+                "evidence": (
+                    "Aachu has long dense very dark mostly-straight hair, large expressive "
+                    "dark round-almond eyes, warm medium-brown skin tone, and a natural adult build. Zuv has thick dark "
+                    "curly hair with visible top and side volume, thick dark brows, and a "
+                    "trimmed full beard and mustache; their shared scale matches the anchors."
+                ),
             "references": {
                 "aachu": [refs[0]],
                 "zuv": [refs[1]],

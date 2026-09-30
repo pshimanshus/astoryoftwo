@@ -25,12 +25,6 @@ IDENTITY_REFERENCE_RULE = (
     "every generation call; filenames, prose, generated character charts, and prior "
     "illustrations are not identity evidence."
 )
-FALLBACK_COMPACT_STYLE_PROMPT = (
-    "premium romantic watercolor-and-ink illustration on warm ivory paper, visible "
-    "paper grain, fine pencil/ink linework, transparent washes, muted vintage palette"
-)
-
-
 def is_generated_character_chart_path(path: Path) -> bool:
     """Return true for derived identity art that must not replace real photos."""
 
@@ -292,7 +286,6 @@ def build_slides(
 
 
 __all__ = [
-    "FALLBACK_COMPACT_STYLE_PROMPT",
     "IDENTITY_DOSSIER_PATH",
     "MAX_IDENTITY_REFERENCE_BUNDLE",
     "build_identity_reference_selection",

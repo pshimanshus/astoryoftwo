@@ -1,0 +1,31 @@
+{
+  "schema_version": "a-story-identity-photo-packet/v1",
+  "subject": "Aachu / Anchal",
+  "version": "curated-v3-2026-08-24",
+  "authority": "actual_photographs",
+  "selection_purpose": "Primary small identity packet for visible-face generation and Aachu multi-angle consistency.",
+  "images": [
+    {
+      "path": "aachu-master-front.jpg",
+      "role": "highest-priority near-front facial geometry and asymmetry authority",
+      "sha256": "0d42f196b01aeb95b11d863feb36c7b4cbacfa0723f027f75ca272d42a4ea67c"
+    },
+    {
+      "path": "aachu-shallow-three-quarter.jpg",
+      "role": "shallow three-quarter cheek depth, nose projection, jaw-to-neck and tied-hair hairline authority",
+      "sha256": "5fbce7ddb3c0fbc53a9e92c0dcc32a3988762c95ac7b54e50907262c8bb9c58c"
+    },
+    {
+      "path": "aachu-deeper-three-quarter.jpg",
+      "role": "deeper three-quarter foreshortening, near/far eye relationship, loose-hair and rounded-chin authority",
+      "sha256": "70edc1e0795fc36a7a380c3e0a77d9ed5b46c2efda8b11c6ded3e0066bc5cc2c"
+    },
+    {
+      "path": "aachu-smile-close.jpg",
+      "role": "closed-smile cheek compression, eye narrowing, lip shape and expression authority",
+      "sha256": "e1ae22474c74656d081830a67174d0064dc5355d93dab4be0c0e4d87a0c5ee10"
+    }
+  ],
+  "profile_limitation": "No clean neutral 90-degree profile exists in this packet. Any illustrated profile remains provisional until creator approval.",
+  "generated_chart_policy": "Even an approved character sheet remains supplemental; attach selected actual photographs on every visible-face generation call."
+}

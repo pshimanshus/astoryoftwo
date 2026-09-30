@@ -35,7 +35,6 @@ Use these exact codes in evals, trace logs, reports, and blocked states.
 - `PROMPT_PALETTE_CONFLICT`
 - `GENERATION_CONTINUED_AFTER_HARD_REJECT`
 - `HITL_NOT_APPROVED`
-- `AGENT_ASSIGNMENT_MISSING`
 - `IMAGEGEN_TOOL_FAILURE`
 - `ARTIFACT_MISSING`
 - `DEBATE_COLLAPSE`
@@ -67,9 +66,9 @@ below when rejecting:
 - text not in the A Story Of Two handwritten font when baked into the
   illustration → `TEXT_NOT_EXACT`
 - locket forced onto Zuv / worn in a way no one wears it → `SCENE_LOGIC_CONTRADICTION`
-- prompt omits native `1080x1350 px` → `PROMPT_CANVAS_SIZE_MISSING`
+- prompt omits native `1080x1440 px` → `PROMPT_CANVAS_SIZE_MISSING`
 - prompt omits tiny top-right `@a.storyof.two` → `PROMPT_BRANDMARK_MISSING`
-- generated candidate is not native 1080x1350 px → `WRONG_CANVAS_SIZE`
+- generated candidate is not native 1080x1440 px → `WRONG_CANVAS_SIZE`
 - exact-copy slide is rendered as a designed quote card, poster, typography
   layout, deterministic text card, or decorative background instead of a lived
   Aachu/Zuv watercolor-and-ink illustration → `QUOTE_CARD_NOT_ILLUSTRATION`

@@ -13,12 +13,12 @@ existing Agentic OS `prepost_reel` system and `scripts/analyze_prepost.py`.
 ## Load First
 
 1. `config/skill-systems.json` -> `prepost_reel`
-2. `scripts/analyze_prepost.py`
-3. `config/skills/hook-and-edit-framework.md`
-4. `config/skills/instagram-algorithm-2026.md`
-5. `config/skills/indian-creator-intelligence.md`
-6. `config/skills/romance-story-selling-engine.md` when the Reel is a love or
-   couple story.
+2. `config/skills/a-story-prepost-context-compact.md`
+3. `scripts/analyze_prepost.py`
+
+The script runs one combined B1-B5 analyst, one independent challenger, and one
+synthesizer. It builds recall and Layer E once. Open a canonical long skill only
+when resolving a disputed rule or score; do not preload the full skill set.
 
 Use `venv/bin/python scripts/agentic_os.py skill-system prepost_reel` for the
 machine-readable workflow record.

@@ -3,6 +3,51 @@
   "run_date": "2026-08-25",
   "scenario_contract": "config/evals/carousel-live-smoke-scenarios.json",
   "scope": "Opt-in Codex built-in image generation followed by decoded-pixel review; generated and identity assets stayed outside the repository.",
+  "historical_scope": "The top-level 2026-08-25 summary and scenarios are preserved runtime calibration evidence, not certification of the subsequently changed active style profile.",
+  "active_profile_rollout": {
+    "run_date": "2026-09-04",
+    "profile_id": "cinematic-observational-watercolor",
+    "profile_version": "1.0.0",
+    "profile_contract_sha256": "sha256:ffb9a10a3f9d8caadce248191f14390250170198bee30459cf87d7ccb1387ef5",
+    "result": "BLOCKED",
+    "acceptance_certified": false,
+    "rejection_controls_passed": true,
+    "false_promotions": 0,
+    "creator_approvals": 0,
+    "scope": "Production-compiled post close-up and explicitly requested Reel environmental proof; actual built-in generation and decoded-pixel inspection. No finished deck or publishable art is claimed.",
+    "attachments_per_call": {"identity": 4, "style_board": 1},
+    "scenarios": [
+      {
+        "id": "sofa-post-close-up",
+        "format": "instagram_post",
+        "result": "REJECTED",
+        "actual_attempts": 2,
+        "attempt_limit_exhausted": true,
+        "observed_failure": "Three visible hands instead of the locked two; on the final attempt the palm contacts the upper-arm sleeve rather than the planned forearm.",
+        "raw_dimensions": [1086, 1448],
+        "normalized_dimensions": [1080, 1440],
+        "attempts": [
+          {"raw_sha256": "743d95b1625845240c3b39aab9a533a2be9b9bde27bb8a9420c98b4d1a3f5420", "normalized_sha256": "147d943dd5f6d014df5dd5cd951bdb7bf48a2d4aebe86071fbca2b345a2a5e73", "result": "REJECTED"},
+          {"raw_sha256": "eb0fa9df517bdb28746032e408b2a18c2f9f58a220d23f1ae6f3fea8a25ae996", "normalized_sha256": "d2d914d7ac54c2e38c9bcf21b22cc39bd21fae9405b9a671554c0f0642c4b7db", "result": "REJECTED"}
+        ],
+        "notes": "Bound failed QA and superseded evidence preserved outside the repository. A semantic input repair resets the package counter; the actual two-call smoke limit was enforced separately and no third call was made."
+      },
+      {
+        "id": "mountain-reel-wide",
+        "format": "reels_stories",
+        "result": "REJECTED",
+        "actual_attempts": 2,
+        "attempt_limit_exhausted": true,
+        "required_dimensions": [1080, 1920],
+        "raw_dimensions": [941, 1672],
+        "observed_failure": "Both returned sources were undersized and rejected by native-source ingest. No upscale, crop, pad, or approval was performed.",
+        "attempts": [
+          {"raw_sha256": "14d4280c9dc3ab8a4c703f2647ef49c4d4e5cd1954c2caa5bae71219a9939e6b", "result": "REJECTED"},
+          {"raw_sha256": "5f1cd528b02292dba25e4a6e76929899100bd676f631f11ad5cf54030ee602c1", "result": "REJECTED"}
+        ]
+      }
+    ]
+  },
   "summary": {
     "result": "PASS",
     "scenario_passes": 3,

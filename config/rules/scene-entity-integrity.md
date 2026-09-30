@@ -36,6 +36,16 @@ each potentially visible hand. Secondary prose such as "brace the door" is not
 enough: the plan must say whose hand, which side, where the wrist/forearm comes
 from, and what the other hand is doing or whether it is fully out of frame.
 
+## Prompt Compilation Gate
+
+The hand-ownership map and whole-person/object topology are mandatory image-
+generation inputs, not validator-only metadata. The compiled prompt must name
+every person's left and right hand, which hands are visible, each visible
+hand's action and contact target, the continuous arm/wrist attachment path,
+nearby solid-object planes, and allowed contacts. A generic negative such as
+"no malformed hands" is not a substitute. If either slide-specific contract is
+missing, incomplete, or discarded during compilation, generation is blocked.
+
 Scenes involving doors, locks, thresholds, departure, arrival, or returning
 must also carry an action-chronology topology contract. It states:
 
@@ -68,6 +78,9 @@ record expected and observed arms/hands, every visible hand's owner and side,
 wrist/forearm attachment, action, held object, malformed fingers, duplicated
 limbs, and unexpected limbs. QA must be bound to the inspected file's SHA-256
 and native dimensions; a changed image invalidates the previous review.
+Summary prose such as "the hands look coherent" is not sufficient evidence.
+Every planned visible hand must have its own owner, side, attachment, contact,
+finger-integrity, and solid-object-intersection observation.
 When more than one native format is locked, anatomy, entity, and richness
 evidence is required independently for every slide-format pair. Passing the
 3:4 frame cannot approve separately generated 9:16 or 1:1 pixels.
@@ -122,6 +135,8 @@ collapse into one unresolved mass.
 - a hand, wrist, or forearm penetrating a box, door, table, clothing, or other
   solid object;
 - an impossible grip, support pose, overlap order, or load direction;
+- a phone that places screen content or UI on its camera-lens rear, or fuses
+  front-display and rear-camera properties into one visible surface;
 - a door, wall, furniture, container or floor boundary crossing a person's
   head, neck, shoulder, back, torso, clothing or visible limb;
 - a person morphed into, absorbed by or sharing an unresolved painted mass with

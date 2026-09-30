@@ -51,6 +51,11 @@ CORE_EVIDENCE_PATHS = (
     "wiki/insights/successful-carousel-standard.md",
 )
 
+PREFERENCE_LEDGER_PATH = Path("memory/semantic/carousel-idea-preferences.md")
+PREFERENCE_INDEX_PATH = Path(".internal/preference-index.json")
+CONTEXT_BUDGET_PATH = Path(".internal/context-budget.json")
+PREFERENCE_DETAIL_LIMIT = 20
+
 DYNAMIC_EVIDENCE_GLOBS = (
     "corpus/posts/**/*",
     "corpus/reels/**/*",
@@ -387,6 +392,160 @@ def _evidence_record(repo_root: Path, path: Path) -> dict[str, Any]:
     if source_date is not None:
         record["source_date"] = source_date.date().isoformat()
     return record
+
+
+def _split_markdown_table_row(line: str) -> list[str]:
+    cells: list[str] = []
+    current: list[str] = []
+    escaped = False
+    for char in line.strip().strip("|"):
+        if escaped:
+            current.append(char)
+            escaped = False
+        elif char == "\\":
+            escaped = True
+        elif char == "|":
+            cells.append("".join(current).strip())
+            current = []
+        else:
+            current.append(char)
+    cells.append("".join(current).strip())
+    return cells
+
+
+def parse_preference_ledger(text: str) -> list[dict[str, Any]]:
+    marker = "## Idea Ledger"
+    if marker not in text:
+        raise ValueError("preference ledger is missing the Idea Ledger heading")
+    ledger = text.split(marker, 1)[1]
+    ledger = ledger.split("\n## ", 1)[0]
+    rows: list[dict[str, Any]] = []
+    for line in ledger.splitlines():
+        if not line.lstrip().startswith("|"):
+            continue
+        cells = _split_markdown_table_row(line)
+        if len(cells) != 6 or cells[0] in {"Date", "---"} or set(cells[0]) <= {"-", ":"}:
+            continue
+        date, concept, lane, status, note, confidence = cells
+        try:
+            parsed_confidence = float(confidence)
+        except ValueError as exc:
+            raise ValueError(f"invalid preference confidence for {concept!r}") from exc
+        rows.append(
+            {
+                "date": date,
+                "concept": concept,
+                "lane": lane,
+                "status": status,
+                "guidance": note,
+                "confidence": parsed_confidence,
+            }
+        )
+    if not rows:
+        raise ValueError("preference ledger contains no parseable Idea Ledger rows")
+    return rows
+
+
+def _preference_terms(value: str) -> set[str]:
+    return {
+        term.lower()
+        for term in re.findall(r"[A-Za-z0-9]+", value)
+        if len(term) > 2
+    }
+
+
+def build_preference_index(repo_root: Path, *, seed: str | None) -> dict[str, Any]:
+    source = repo_root.resolve() / PREFERENCE_LEDGER_PATH
+    if not source.is_file():
+        raise FileNotFoundError(f"missing preference ledger: {PREFERENCE_LEDGER_PATH}")
+    rows = parse_preference_ledger(source.read_text(encoding="utf-8"))
+    query_terms = _preference_terms(seed or "fresh instagram relationship concept")
+
+    def score(row: dict[str, Any]) -> tuple[int, str, str]:
+        searchable = " ".join(str(row[key]) for key in ("concept", "lane", "status", "guidance"))
+        overlap = len(query_terms & _preference_terms(searchable))
+        return overlap, str(row["date"]), str(row["concept"])
+
+    selected = sorted(rows, key=score, reverse=True)[:PREFERENCE_DETAIL_LIMIT]
+    collisions = [
+        {
+            "date": row["date"],
+            "concept": row["concept"],
+            "lane": row["lane"],
+            "status": row["status"],
+            "confidence": row["confidence"],
+        }
+        for row in rows
+    ]
+    return {
+        "schema_version": "idea-preference-index/v1",
+        "source": {
+            "path": PREFERENCE_LEDGER_PATH.as_posix(),
+            "sha256": _sha256_file(source),
+            "row_count": len(rows),
+        },
+        "query": seed or "",
+        "collision_catalog": collisions,
+        "selected_details": selected,
+        "full_ledger_fallback": {
+            "allowed_role": "asot_idea_scout",
+            "max_uses": 1,
+            "used": False,
+            "reason": "",
+        },
+    }
+
+
+def build_context_budget(preference_index: dict[str, Any]) -> dict[str, Any]:
+    index_text = json.dumps(preference_index, ensure_ascii=False)
+    return {
+        "schema_version": "idea-loop-context-budget/v1",
+        "estimator": "characters/4",
+        "roles": {
+            "asot_idea_scout": {
+                "allowed": [
+                    PREFERENCE_INDEX_PATH.as_posix(),
+                    ".internal/evidence-manifest.json",
+                    "manifest-selected dynamic evidence",
+                ],
+                "estimated_static_tokens": (len(index_text) + 3) // 4,
+            },
+            "asot_idea_maker": {
+                "allowed": ["source-memory-brief.json", "assigned creative lane"],
+            },
+            "asot_idea_verifier": {
+                "allowed": ["blind candidate card", "relevant evidence excerpts"],
+            },
+            "selector": {
+                "allowed": ["passing candidate cards", "critic records"],
+            },
+        },
+        "full_ledger_fallback": preference_index["full_ledger_fallback"],
+    }
+
+
+def role_prompt_context_violations(
+    role: str,
+    prompt: str,
+    *,
+    dynamic_paths: list[str] | tuple[str, ...] = (),
+    selector: bool = False,
+) -> list[str]:
+    """Return forbidden source references exposed to one spawned role."""
+
+    if role == "asot_idea_scout":
+        return []
+    lowered = prompt.lower()
+    forbidden = {
+        PREFERENCE_LEDGER_PATH.as_posix(),
+        PREFERENCE_INDEX_PATH.as_posix(),
+        ".internal/evidence-manifest.json",
+    }
+    if selector:
+        forbidden.add("source-memory-brief.json")
+    if role == "asot_idea_maker" or selector:
+        forbidden.update(dynamic_paths)
+    return sorted(path for path in forbidden if path.lower() in lowered)
 
 
 def build_evidence_manifest(
@@ -1430,7 +1589,8 @@ Budgets:
 - maximum iterations: {config.max_iterations}
 - maximum candidates per iteration: {config.candidate_budget}
 
-Read `.internal/loop-state.json` and `.internal/evidence-manifest.json` inside
+Read `.internal/loop-state.json`, `.internal/evidence-manifest.json`,
+`.internal/preference-index.json`, and `.internal/context-budget.json` inside
 the run directory first. Load the exact artifact field contract with:
 {repo_root}/venv/bin/python {repo_root}/scripts/instagram_idea_loop.py schema
 
@@ -1445,6 +1605,14 @@ validation matches those IDs exactly against completed Codex spawn events.
 Give critics only the author-hidden card produced by the schema contract and
 bind their reviews to both the exact candidate and blind input fingerprints.
 The controller alone writes artifacts.
+
+Context boundaries are strict. The scout receives the preference index and
+manifest-selected evidence. Makers receive only the source-memory brief and
+their assigned lane. Critics receive only blind cards plus cited excerpts. The
+selector receives passing cards and critic records. Only the scout may read
+the full preference ledger, at most once, and only after recording the reason
+and `used: true` in `.internal/context-budget.json`. No other role may reopen
+the ledger or unrelated dynamic evidence.
 
 Iterate generate -> blind verify -> scoped repair -> fresh verify until one
 route satisfies every stop condition or an honest terminal state is reached.
@@ -1473,6 +1641,7 @@ def prepare_run(
     internal = destination / ".internal"
     internal.mkdir(parents=True, exist_ok=False)
     run_id = destination.name
+    preference_index = build_preference_index(repo_root, seed=seed)
     evidence = build_evidence_manifest(repo_root, run_id=run_id, now=now)
     state = LoopState(
         run_id=run_id,
@@ -1490,6 +1659,8 @@ def prepare_run(
             }
         ],
     )
+    _write_json(internal / "preference-index.json", preference_index)
+    _write_json(internal / "context-budget.json", build_context_budget(preference_index))
     _write_json(internal / "evidence-manifest.json", evidence)
     _write_json(internal / "loop-state.json", state.model_dump(mode="json"))
     (internal / "orchestration-prompt.md").write_text(
@@ -2102,6 +2273,7 @@ def _validate_live_agent_attestation(
         errors.append("live run is missing Codex execution provenance")
         return
     attested_roles: dict[str, str] = {}
+    attested_prompts: dict[str, str] = {}
     completed_tasks: set[str] = set()
     event_logs = 0
     for execution_dir in execution_dirs:
@@ -2186,6 +2358,7 @@ def _validate_live_agent_attestation(
                         )
                         continue
                     attested_roles[receiver_id] = role
+                    attested_prompts[receiver_id] = prompt
         except (OSError, json.JSONDecodeError) as exc:
             errors.append(
                 "Codex event provenance is unreadable at "
@@ -2198,6 +2371,7 @@ def _validate_live_agent_attestation(
     required: set[tuple[str, str]] = {
         (source.scout_task_id, "asot_idea_scout"),
     }
+    selector_task_ids: set[str] = set()
     for _, _, pool, verification, _ in artifacts:
         required.update(
             (candidate.maker_task_id, "asot_idea_maker")
@@ -2215,6 +2389,17 @@ def _validate_live_agent_attestation(
         required.add(
             (verification.selector.selector_task_id, "asot_idea_verifier")
         )
+        selector_task_ids.add(verification.selector.selector_task_id)
+    try:
+        evidence = _load_json(run_dir / ".internal" / "evidence-manifest.json")
+        dynamic_paths = tuple(
+            str(record["path"])
+            for record in evidence.get("dynamic", [])
+            if isinstance(record, dict) and isinstance(record.get("path"), str)
+        )
+    except (OSError, json.JSONDecodeError, AttributeError) as exc:
+        errors.append(f"live role-context validation could not read evidence manifest: {exc}")
+        dynamic_paths = ()
     for task_id, agent_name in sorted(required):
         if attested_roles.get(task_id) != agent_name:
             errors.append(
@@ -2226,6 +2411,19 @@ def _validate_live_agent_attestation(
                 "Codex event log does not attest a completed agent result: "
                 f"{task_id} ({agent_name})"
             )
+        prompt = attested_prompts.get(task_id)
+        if prompt is not None:
+            violations = role_prompt_context_violations(
+                agent_name,
+                prompt,
+                dynamic_paths=dynamic_paths,
+                selector=task_id in selector_task_ids,
+            )
+            if violations:
+                errors.append(
+                    "Codex spawn prompt violates role context boundary for "
+                    f"{task_id} ({agent_name}): {', '.join(violations)}"
+                )
 
 
 def validate_run(
@@ -2339,6 +2537,40 @@ def validate_run(
             )
         except (OSError, json.JSONDecodeError, AttributeError) as exc:
             errors.append(f"evidence-manifest.json: {exc}")
+
+    preference_path = run_dir / PREFERENCE_INDEX_PATH
+    budget_path = run_dir / CONTEXT_BUDGET_PATH
+    try:
+        preference_index = _load_json(preference_path)
+        if preference_index.get("schema_version") != "idea-preference-index/v1":
+            errors.append("preference-index.json: unsupported schema_version")
+        source_record = preference_index.get("source") or {}
+        if source_record.get("path") != PREFERENCE_LEDGER_PATH.as_posix():
+            errors.append("preference-index.json: source path must be the preference ledger")
+        if manifest_repo_root is not None:
+            source = manifest_repo_root / PREFERENCE_LEDGER_PATH
+            if not source.is_file() or source_record.get("sha256") != _sha256_file(source):
+                errors.append("preference-index.json: source hash does not match the ledger")
+        collisions = preference_index.get("collision_catalog")
+        if not isinstance(collisions, list) or len(collisions) != source_record.get("row_count"):
+            errors.append("preference-index.json: collision catalog must cover every ledger row")
+        details = preference_index.get("selected_details")
+        if not isinstance(details, list) or len(details) > PREFERENCE_DETAIL_LIMIT:
+            errors.append("preference-index.json: selected details exceed the bounded limit")
+    except (OSError, json.JSONDecodeError, AttributeError) as exc:
+        errors.append(f"preference-index.json: {exc}")
+
+    try:
+        context_budget = _load_json(budget_path)
+        if context_budget.get("schema_version") != "idea-loop-context-budget/v1":
+            errors.append("context-budget.json: unsupported schema_version")
+        fallback = context_budget.get("full_ledger_fallback") or {}
+        if fallback.get("allowed_role") != "asot_idea_scout" or fallback.get("max_uses") != 1:
+            errors.append("context-budget.json: full ledger fallback must be scout-only and single-use")
+        if fallback.get("used") and not str(fallback.get("reason") or "").strip():
+            errors.append("context-budget.json: a used full-ledger fallback requires a reason")
+    except (OSError, json.JSONDecodeError, AttributeError) as exc:
+        errors.append(f"context-budget.json: {exc}")
 
     if state.status in HONEST_STOP_STATUSES:
         if not state.stop_reason.strip():

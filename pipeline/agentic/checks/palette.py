@@ -1,9 +1,9 @@
 """Palette check — does this slide read as warm ivory or has it drifted yellow?
 
-Calibrated against the 8 approved Observational Intimacy Premium
-reference slides on 2026-05-31 (config/references/style-lock/
-observational-intimacy-premium/slide-{01..08}.png). All 8 must PASS.
-Synthetic yellow / parchment / mustard fixtures must FAIL.
+Originally calibrated against the eight approved legacy reference slides and
+rechecked on 2026-09-04 against all four Cinematic Observational Watercolor v1
+source frames. Approved references must PASS; synthetic yellow, parchment, and
+mustard fixtures must FAIL.
 
 Two-stage check:
 
@@ -27,6 +27,9 @@ inject them back into the next regeneration prompt.
 
 from __future__ import annotations
 
+from collections import OrderedDict
+import hashlib
+import io
 from pathlib import Path
 
 import numpy as np
@@ -42,6 +45,15 @@ PAPER_BLUE_GREEN_RATIO_MIN = 0.85
 YELLOW_BAND_HUE_RANGE = (35.0, 65.0)
 YELLOW_BAND_SAT_MIN = 0.35  # calibrated 2026-05-31 against approved slide-07 sunset variant
 YELLOW_BAND_PIXEL_LIMIT = 0.05
+
+# QA validates the same bytes at bind, approve, audit, and promote. Cache only
+# measurements (not PASS decisions) by content and measurement parameters;
+# changed pixels always miss, regardless of filename or preserved timestamps.
+_MEASUREMENT_CACHE_LIMIT = 32
+_MEASUREMENTS: OrderedDict[
+    tuple[str, float, tuple[float, float], float],
+    tuple[dict[str, float], float],
+] = OrderedDict()
 
 
 def _hsv_components(rgb_array: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -98,11 +110,24 @@ def check_palette(image_path: Path) -> WorkflowGate:
             name="palette", status="FAIL", reason=f"image missing: {image_path}"
         )
 
-    with Image.open(image_path) as img:
-        arr = np.array(img.convert("RGB"))
-
-    paper = _paper_region_stats(arr)
-    yellow_fraction = _full_image_yellow_fraction(arr)
+    raw = image_path.read_bytes()
+    key = (
+        hashlib.sha256(raw).hexdigest(),
+        PAPER_PERCENTILE,
+        YELLOW_BAND_HUE_RANGE,
+        YELLOW_BAND_SAT_MIN,
+    )
+    measured = _MEASUREMENTS.get(key)
+    if measured is None:
+        with Image.open(io.BytesIO(raw)) as img:
+            arr = np.array(img.convert("RGB"))
+        measured = (_paper_region_stats(arr), _full_image_yellow_fraction(arr))
+        _MEASUREMENTS[key] = measured
+        if len(_MEASUREMENTS) > _MEASUREMENT_CACHE_LIMIT:
+            _MEASUREMENTS.popitem(last=False)
+    else:
+        _MEASUREMENTS.move_to_end(key)
+    paper, yellow_fraction = measured
 
     paper_r_ok = paper["r"] >= PAPER_R_MIN
     paper_sat_ok = paper["saturation"] <= PAPER_SATURATION_MAX

@@ -10,6 +10,7 @@ import pytest
 
 from pipeline.stages.carousel_format_contract import source_dimensions_are_acceptable
 from pipeline.stages.codex_builtin_image_generation import (
+    _assert_current_receipt,
     approve_proof,
     current_proof_binding_sha256,
     finalize_codex_builtin_outputs,
@@ -20,6 +21,11 @@ from pipeline.stages.codex_builtin_image_generation import (
     review_quarantined_outputs,
 )
 from pipeline.stages.codex_native_carousel import create_codex_native_carousel
+from pipeline.stages.carousel_visual_storytelling import record_creator_feedback
+from tests.helpers.carousel_qa import (
+    passing_cinematic_story_frame,
+    passing_entity_spatial_integrity,
+)
 
 
 def _png(path: Path, size: tuple[int, int], color: str = "linen") -> Path:
@@ -28,18 +34,58 @@ def _png(path: Path, size: tuple[int, int], color: str = "linen") -> Path:
     return path
 
 
+def _cinematic_slide(number: int) -> dict[str, object]:
+    is_final = number == 4
+    return {
+        "role": "payoff" if is_final else f"story_beat_{number}",
+        "copy": f"Locked copy {number}",
+        "physical_action": f"Aachu and Zuv move shared object {number} toward the window together.",
+        "relationship_state": f"Their coordinated effort makes trust visible during beat {number}.",
+        "camera": {
+            "shot_size": "close payoff detail" if is_final else f"medium-wide action frame {number}",
+            "position": f"table-height three-quarter view beside active object {number}",
+            "negative_space": f"quiet upper-left wall above action beat {number}",
+        },
+        "focal_hierarchy": f"Their active hands read first, object {number} second, and upper copy stays clear.",
+        "setting": {
+            "place": f"their narrow apartment room beside window {number}",
+            "time": "late rainy afternoon",
+            "motivated_light": f"cool window light crosses frame-left over active object {number}",
+            "depth_layers": {
+                "foreground": f"chair edge leads toward action beat {number}",
+                "midground": f"both partners move shared object {number} together",
+                "background": f"rain-streaked window holds the destination for beat {number}",
+            },
+        },
+        "visual_richness": {
+            "point_of_view": f"Their shared hesitation organizes action beat {number}.",
+            "before_frame": f"They had chosen separate directions before beat {number}.",
+            "after_frame": f"They will settle the object together after beat {number}.",
+            "continuation_pull": "" if is_final else f"Will their movement align after beat {number}?",
+            "story_evidence": [
+                {
+                    "carrier": f"the marked shared object {number}",
+                    "observable_state": "its position changes beneath both active grips",
+                    "narrative_job": "proves their coordination through a visible consequence",
+                },
+                {
+                    "carrier": f"their synchronized feet at beat {number}",
+                    "observable_state": "both bodies step toward the same destination",
+                    "narrative_job": "proves the relationship turn without relying on copy",
+                },
+            ],
+            "posed_portrait_allowed": False,
+            "decorative_clutter_allowed": False,
+        },
+    }
+
+
 def _package(tmp_path: Path) -> Path:
     brief = tmp_path / "brief.json"
     brief.write_text(
         json.dumps(
             {
-                "slides": [
-                    {
-                        "copy": f"Locked copy {number}",
-                        "physical_action": f"Aachu and Zuv move shared object {number} together.",
-                    }
-                    for number in range(1, 5)
-                ]
+                "slides": [_cinematic_slide(number) for number in range(1, 5)]
             }
         ),
         encoding="utf-8",
@@ -54,7 +100,6 @@ def _package(tmp_path: Path) -> Path:
         story="One shared direction.",
         image_paths=[],
         identity_image_paths=identity_paths,
-        style_reference_paths=[_png(tmp_path / "style.png", (40, 40), "ivory")],
         creative_baseline_path=brief,
         output_root=tmp_path / "output/carousels",
         today=date(2026, 8, 24),
@@ -74,7 +119,7 @@ def _candidate(package: Path, slide: int, attempt: int) -> dict[str, object]:
 
 def _authored_qa(package: Path, slides: list[int]) -> dict[str, object]:
     prompt_pack = json.loads((package / "prompt-pack.json").read_text(encoding="utf-8"))
-    style = prompt_pack["style_reference_images"][0]
+    style = prompt_pack["style_profile"]["reference"]["path"]
     context = json.loads((package / "creative-context.json").read_text(encoding="utf-8"))
     role_paths = {
         record["role"]: record["path"]
@@ -96,10 +141,18 @@ def _authored_qa(package: Path, slides: list[int]) -> dict[str, object]:
                         "checks": {
                             "physical_action": {"status": "PASS", "evidence": "The locked physical action is visibly clear."},
                             "relationship_state": {"status": "PASS", "evidence": "Their visible posture proves the relationship beat."},
-                            "entity_spatial_integrity": {"status": "PASS", "evidence": "Both complete people and their hands occupy coherent space."},
+                            "cinematic_story_frame": passing_cinematic_story_frame(
+                                package, number
+                            ),
+                            "entity_spatial_integrity": passing_entity_spatial_integrity(package, number),
                             "identity_wardrobe_accessories": {
                                 "status": "PASS",
-                                "evidence": "Both people visibly match the attached reference.",
+                                "evidence": (
+                                    "Aachu retains long dense very dark mostly-straight hair with soft bends, "
+                                    "large expressive dark round-almond eyes and full mostly-straight brows with a low soft arch, "
+                                    "and warm medium-brown skin tone. Zuv retains thick dark curly hair with visible top and side volume, "
+                                    "thick dark brows, and warm brown skin tone; their referenced proportions, clothing, and accessories match."
+                                ),
                                 "references": {
                                     "aachu": [role_paths["Aachu identity anchor"]],
                                     "zuv": [role_paths["Zuv identity anchor"]],
@@ -151,6 +204,78 @@ def test_1086x1448_is_raw_preserved_then_lanczos_normalized(tmp_path: Path) -> N
         assert image.size == (1080, 1440)
 
 
+@pytest.mark.parametrize("select_trigger", [False, True])
+def test_receipt_binds_every_applicable_correction_without_other_slide_feedback(tmp_path, select_trigger):
+    package = _package(tmp_path)
+    events = []
+    for slide, wording in [(2, "Keep both hands visible."), (2, "Keep the window visible."),
+                           (3, "Keep slide three unchanged.")]:
+        events.append(record_creator_feedback(
+            package, workspace_root=tmp_path, user_instruction_exact=wording,
+            kind="correction", scope="slide", slide_numbers=[slide],
+            primary_diagnosis="scene_action", must_preserve=[wording],
+        ))
+    source = _png(tmp_path / "source.png", (1080, 1440), "skyblue")
+    prepare_codex_builtin_image_generation(package, proof_slide=2)
+    before = (package / "generation-state.json").read_bytes()
+    with pytest.raises(ValueError, match="active feedback"):
+        ingest_generated_outputs(package, {"instagram_post": [source]},
+                                 proof_slide=2, feedback_id=events[2]["feedback_id"])
+    assert (package / "generation-state.json").read_bytes() == before
+    trigger = events[0]["feedback_id"] if select_trigger else None
+    state = ingest_generated_outputs(package, {"instagram_post": [source]}, proof_slide=2,
+                                     feedback_id=trigger)
+    receipt = _candidate(package, 2, 1)["generation_receipt"]
+    assert receipt["feedback_ids"] == sorted(event["feedback_id"] for event in events[:2])
+    assert receipt["feedback_id"] == trigger
+    assert state["slides"]["2"]["attempt_history"][-1]["feedback_ids"] == receipt["feedback_ids"]
+    assert "Keep both hands visible." not in json.dumps(receipt)
+    candidate = _candidate(package, 2, 1)
+    candidate["generation_receipt"]["feedback_ids"] = [events[0]["feedback_id"]]
+    with pytest.raises(ValueError, match="receipt does not match"):
+        _assert_current_receipt(package, state, candidate)
+
+
+def test_receipt_preserves_scalar_compatibility_for_one_correction(tmp_path):
+    package = _package(tmp_path)
+    event = record_creator_feedback(
+        package, workspace_root=tmp_path, user_instruction_exact="Keep the shared action.",
+        kind="correction", scope="slide", slide_numbers=[2],
+        primary_diagnosis="scene_action", must_preserve=["Keep the shared action."],
+    )
+    prepare_codex_builtin_image_generation(package, proof_slide=2)
+    state = ingest_generated_outputs(
+        package, {"instagram_post": [_png(tmp_path / "source.png", (1080, 1440))]},
+        proof_slide=2, feedback_id=event["feedback_id"],
+    )
+    receipt = state["slides"]["2"]["attempt_history"][-1]
+    assert receipt["feedback_id"] == event["feedback_id"]
+    assert receipt["feedback_ids"] == [event["feedback_id"]]
+
+
+def test_ingest_accepts_relative_package_path_without_nesting_root(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    package = _package(tmp_path)
+    source = _png(tmp_path / "source.png", (1080, 1440), "skyblue")
+    prepare_codex_builtin_image_generation(package, proof_slide=2)
+    relative_package = package.relative_to(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    state = ingest_generated_outputs(
+        relative_package,
+        {"instagram_post": [source]},
+        proof_slide=2,
+    )
+
+    assert state["status"] == "proof_qa_required"
+    assert _candidate(package, 2, 1)["source_evidence"]["instagram_post"][
+        "path"
+    ].startswith(".internal/visual-quarantine/")
+    assert not (package / relative_package.parts[0]).exists()
+
+
 def test_exact_native_source_is_byte_preserved(tmp_path: Path) -> None:
     package = _package(tmp_path)
     source = _png(tmp_path / "exact.png", (1080, 1440), "skyblue")
@@ -194,6 +319,144 @@ def test_wrong_ratio_is_quarantined_counts_attempt_and_caps_at_two(tmp_path: Pat
     assert still_blocked["slides"]["2"]["attempts"] == 2
 
 
+def test_cosmetic_prompt_edit_keeps_premise_budget_and_archives_first_attempt(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    first_source = _png(tmp_path / "first.png", (1086, 1447), "red")
+    prepare_codex_builtin_image_generation(package, proof_slide=2)
+    ingest_generated_outputs(
+        package,
+        {"instagram_post": [first_source]},
+        proof_slide=2,
+    )
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    first_action = slides[1]["physical_action"]
+    slides[1]["camera"]["negative_space"] = "a slightly wider upper-left copy margin"
+    slides[1]["wardrobe"] = "Preserve the same clothes with cleaner sleeve edges."
+    slides_path.write_text(json.dumps(slides), encoding="utf-8")
+
+    revised = reconcile_package_state(package)
+
+    assert slides[1]["physical_action"] == first_action
+    assert revised["slides"]["2"]["attempts"] == 1
+    archived_sources = list(
+        (package / ".internal/visual-quarantine/superseded").glob(
+            "*/.internal/visual-quarantine/slide-02/attempt-01/source/instagram_post.png"
+        )
+    )
+    assert len(archived_sources) == 1
+    assert archived_sources[0].read_bytes() == first_source.read_bytes()
+
+    prepare_codex_builtin_image_generation(package)
+    second = ingest_generated_outputs(
+        package,
+        {"instagram_post": [_png(tmp_path / "second.png", (1090, 1440), "blue")]},
+    )
+
+    assert second["slides"]["2"]["attempts"] == 2
+    assert second["next_action"] == "repair_visual_premise"
+    assert _candidate(package, 2, 2)["attempt"] == 2
+    assert archived_sources[0].read_bytes() == first_source.read_bytes()
+
+
+def test_physical_premise_change_resets_budget_and_preserves_archive(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    first_source = _png(tmp_path / "first.png", (1086, 1447), "red")
+    prepare_codex_builtin_image_generation(package, proof_slide=2)
+    ingest_generated_outputs(
+        package,
+        {"instagram_post": [first_source]},
+        proof_slide=2,
+    )
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    changed_action = (
+        "Aachu closes the shared suitcase while Zuv steadies its opposite edge."
+    )
+    slides[1]["physical_action"] = changed_action
+    slides[1]["hand_map"]["scene_action_binding"] = changed_action
+    slides[1]["spatial_topology"]["scene_action_binding"] = changed_action
+    slides_path.write_text(json.dumps(slides), encoding="utf-8")
+
+    revised = reconcile_package_state(package)
+
+    assert revised["slides"]["2"]["attempts"] == 0
+    archived_sources = list(
+        (package / ".internal/visual-quarantine/superseded").glob(
+            "*/.internal/visual-quarantine/slide-02/attempt-01/source/instagram_post.png"
+        )
+    )
+    assert len(archived_sources) == 1
+    assert archived_sources[0].read_bytes() == first_source.read_bytes()
+
+    prepare_codex_builtin_image_generation(package)
+    second_source = _png(tmp_path / "second.png", (1090, 1440), "blue")
+    second = ingest_generated_outputs(
+        package,
+        {"instagram_post": [second_source]},
+    )
+
+    assert second["slides"]["2"]["attempts"] == 1
+    assert _candidate(package, 2, 1)["source_evidence"]["instagram_post"][
+        "sha256"
+    ] == "sha256:" + hashlib.sha256(second_source.read_bytes()).hexdigest()
+    assert archived_sources[0].read_bytes() == first_source.read_bytes()
+
+
+def test_legacy_v3_without_premise_hash_preserves_budget_once(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    state_path = package / "generation-state.json"
+    state = read_generation_state(package)
+    state["slides"]["2"]["attempts"] = 1
+    for record in state["slides"].values():
+        record.pop("premise_sha256", None)
+    state_path.write_text(json.dumps(state), encoding="utf-8")
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    slides[1]["physical_action"] = "A genuinely different shared action."
+    slides_path.write_text(json.dumps(slides), encoding="utf-8")
+
+    revised = reconcile_package_state(package)
+
+    assert revised["slides"]["2"]["attempts"] == 1
+    assert revised["slides"]["2"]["premise_sha256"].startswith("sha256:")
+
+
+def test_legacy_v3_uses_compiled_scene_to_recognize_real_premise_change(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    prepare_codex_builtin_image_generation(package, proof_slide=2)
+    ingest_generated_outputs(
+        package,
+        {"instagram_post": [_png(tmp_path / "first.png", (1086, 1447), "red")]},
+        proof_slide=2,
+    )
+    state_path = package / "generation-state.json"
+    state = read_generation_state(package)
+    for record in state["slides"].values():
+        record.pop("premise_sha256", None)
+    state_path.write_text(json.dumps(state), encoding="utf-8")
+    slides_path = package / "slides.json"
+    slides = json.loads(slides_path.read_text(encoding="utf-8"))
+    changed_action = (
+        "Aachu closes the shared suitcase while Zuv steadies its opposite edge."
+    )
+    slides[1]["physical_action"] = changed_action
+    slides[1]["hand_map"]["scene_action_binding"] = changed_action
+    slides[1]["spatial_topology"]["scene_action_binding"] = changed_action
+    slides_path.write_text(json.dumps(slides), encoding="utf-8")
+
+    revised = reconcile_package_state(package)
+
+    assert revised["slides"]["2"]["attempts"] == 0
+    assert revised["slides"]["2"]["premise_sha256"].startswith("sha256:")
+
+
 def test_story_and_square_sources_remain_exact_only() -> None:
     assert source_dimensions_are_acceptable("instagram_post", 1086, 1448) is True
     assert source_dimensions_are_acceptable("instagram_post", 1086, 1447) is False
@@ -208,7 +471,7 @@ def test_normalized_proof_is_reused_and_all_finals_are_exact_native(tmp_path: Pa
     prepare_codex_builtin_image_generation(package, proof_slide=3)
     ingest_generated_outputs(
         package,
-        {"instagram_post": [_png(tmp_path / "proof-large.png", (1086, 1448), "skyblue")]},
+        {"instagram_post": [_png(tmp_path / "proof-large.png", (1086, 1448), "linen")]},
         proof_slide=3,
     )
     candidate = _candidate(package, 3, 1)
@@ -254,7 +517,7 @@ def test_raw_source_tamper_revokes_approved_proof(tmp_path: Path) -> None:
     prepare_codex_builtin_image_generation(package, proof_slide=3)
     ingest_generated_outputs(
         package,
-        {"instagram_post": [_png(tmp_path / "proof-large.png", (1086, 1448), "blue")]},
+        {"instagram_post": [_png(tmp_path / "proof-large.png", (1086, 1448), "linen")]},
         proof_slide=3,
     )
     (package / "proof-qa.json").write_text(
@@ -281,7 +544,7 @@ def test_raw_source_tamper_retracts_promoted_final_claims(tmp_path: Path) -> Non
     prepare_codex_builtin_image_generation(package, proof_slide=3)
     ingest_generated_outputs(
         package,
-        {"instagram_post": [_png(tmp_path / "proof.png", (1080, 1440), "blue")]},
+        {"instagram_post": [_png(tmp_path / "proof.png", (1080, 1440), "linen")]},
         proof_slide=3,
     )
     (package / "proof-qa.json").write_text(
@@ -294,7 +557,7 @@ def test_raw_source_tamper_retracts_promoted_final_claims(tmp_path: Path) -> Non
         package,
         {
             "instagram_post": [
-                _png(tmp_path / "batch" / f"slide-{number}.png", (1080, 1440), "tan")
+                    _png(tmp_path / "batch" / f"slide-{number}.png", (1080, 1440), "linen")
                 for number in handoff["selected_slides"]
             ]
         },
@@ -419,7 +682,7 @@ def test_candidate_source_evidence_parent_symlink_revokes_approval(
     prepare_codex_builtin_image_generation(package, proof_slide=3)
     ingest_generated_outputs(
         package,
-        {"instagram_post": [_png(tmp_path / "proof.png", (1080, 1440), "blue")]},
+        {"instagram_post": [_png(tmp_path / "proof.png", (1080, 1440), "linen")]},
         proof_slide=3,
     )
     (package / "proof-qa.json").write_text(
