@@ -5,11 +5,9 @@ description: Jam, choose, draft, direct, generate, or package an @a.storyof.two 
 
 # A Story Carousel Jam
 
-Compact router for the `carousel_jam` system in `config/skill-systems.json`.
-Use `config/skills/carousel-jam-runtime-context.md`,
-`config/skills/carousel-jam-autopilot.md`, and, after concept lock,
-`.agents/skills/a-story-direct-visual-story/SKILL.md` only when their exact
-detail is needed.
+Router for `carousel_jam` in `config/skill-systems.json`. Load `config/skills/carousel-jam-runtime-context.md`,
+`config/skills/carousel-jam-autopilot.md`, and after concept lock
+`$a-story-direct-visual-story` only as needed.
 
 ## Hot Path
 
@@ -38,14 +36,8 @@ only by explicit request. Put exact approved text in-image and the tiny
 
 ## Optional Research Stack
 
-Use the winning-carousel research stack when the creator asks to research
-winning posts, build skills from Instagram references, mine audience/persona
-language, repair hooks or swipe flow, or repurpose a proven idea. Resolve it
-with `venv/bin/python scripts/agentic_os.py skill-system winning_carousel_research`.
-Do not load the full stack by default during an ordinary jam; use it only when
-the current task needs audience research, external carousel examples, hook
-repair, swipe architecture, brand guidance, caption/CTA repair, visual proof
-planning, or cross-format repurposing.
+Use the winning-carousel research stack for research or repurposing. Resolve
+`winning_carousel_research`; never preload it.
 
 ## Generation Boundary
 
