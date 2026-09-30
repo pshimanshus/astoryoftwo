@@ -1,0 +1,6 @@
+interface:
+  display_name: "Non-AI Image Guard"
+  short_description: "Prevent recurring visual AI defects"
+  default_prompt: "Use $non-ai-image-skill to plan and review this locked A Story image for known visual defects."
+policy:
+  allow_implicit_invocation: true

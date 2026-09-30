@@ -6,7 +6,7 @@
   "canonical_illustration_master_prompt": "config/references/a-story-illustration-master-prompt.md",
   "shared_style_prompt": "Premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper grain; fine ink and pencil linework, transparent watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact integrated upper text, and tiny top-right @a.storyof.two.",
   "compact_style_prompt": "Premium hand-drawn romantic watercolor-and-ink illustration on warm ivory paper grain; fine ink and pencil linework, transparent watercolor blooms, muted vintage palette, tactile clothing, soft faded edges, exact integrated upper text, and tiny top-right @a.storyof.two.",
-  "shared_negative_prompt": "No photorealism, 3D, glossy AI stock finish, flat vector art, anime, doll faces, generic couple faces, yellow or mustard cast, quote-card layout, UI, split screen, extra people, duplicate couple, extra limbs, malformed hands, broken contact, dense clutter, random text, missing or misspelled copy, missing brandmark, or unrequested logos.",
+  "shared_negative_prompt": "No photorealism, 3D, glossy AI stock finish, flat vector art, anime, doll faces, generic couple faces, yellow or mustard cast, quote-card layout, UI, split screen, phone display content on a rear camera face, merged phone front-display and rear-camera features, extra people, duplicate couple, extra limbs, malformed hands, broken contact, dense clutter, random text, missing or misspelled copy, missing brandmark, or unrequested logos.",
   "typography": {
     "strategy": "integrated_final_text",
     "text_color": "#2a2621",
@@ -62,6 +62,8 @@
   },
   "visual_story_policy": {
     "rule": "After copy and format lock, each slide states one observable physical event; prove the riskiest event in actual pixels before generating the rest.",
+    "risk_contract_rule": "Select only the scene-specific integrity checks the locked action activates. The canonical rules define their detailed requirements; this contract does not replace them.",
+    "pixel_evidence_rule": "A visual PASS records observations from current decoded pixels, an evidence region, and the exact asset binding. A plan, prompt, filename, generator claim, or prior review is not pixel evidence.",
     "pixel_review_order": [
       "physical event and relationship state",
       "people, entities, anatomy, contact, and spatial depth",

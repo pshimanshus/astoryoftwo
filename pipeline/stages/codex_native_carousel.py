@@ -123,6 +123,7 @@ def slides_from_creative_baseline(
             "background",
             "continuity_lock",
             "negative_prompt",
+            "scene_contract",
         ):
             value = item.get(key)
             if value not in (None, "", []):
@@ -199,6 +200,7 @@ def _slide_prompt(
         "camera": slide.get("camera"),
         "focal_hierarchy": slide.get("focal_hierarchy"),
         "continuity_lock": slide.get("continuity_lock"),
+        "scene_contract": slide.get("scene_contract"),
     }
     result.update({key: value for key, value in optional.items() if value not in (None, "", [])})
     return result

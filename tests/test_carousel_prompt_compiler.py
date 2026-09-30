@@ -13,10 +13,12 @@ from pipeline.stages.carousel_prompt_compiler import (
     MAX_NEGATIVE_WORDS,
     MAX_PROMPT_CHARS,
     MAX_PROMPT_WORDS,
+    MAX_SCENE_CONTRACT_WORDS,
     MAX_SCENE_WORDS,
     compile_image_prompt,
     extract_scene_summary,
 )
+from pipeline.stages.carousel_visual_integrity import build_pre_generation_scene_contract
 from pipeline.stages.codex_builtin_image_generation import generator_prompt_text
 
 
@@ -45,6 +47,69 @@ def _compile(**overrides: object) -> str:
         "negative": "No photorealism, no 3D, no stock couple.",
     }
     values.update(overrides)
+    visual = str(values["visual"])
+    copy = str(values["slide_copy"])
+    transition = None
+    if any(
+        token in f"{visual} {copy}".casefold()
+        for token in ("before ", "after ", "turns back", "went back", "returned")
+    ):
+        transition = {
+            "from_phase": "before departure",
+            "to_phase": "shared action at the threshold",
+            "from_location": "entryway",
+            "to_location": "closed exterior door",
+            "transition": "Aachu turns back to rejoin Zuv",
+            "visible_evidence": ["her reversed body direction", "both hands at the same handle"],
+            "focal_moment": "the shared checking action",
+        }
+    values.setdefault(
+        "scene_contract",
+        build_pre_generation_scene_contract(
+            visual,
+            copy,
+            hand_map={
+                "people": ["Aachu", "Zuv"],
+                "hands": [
+                    {
+                        "owner": "Aachu",
+                        "side": "right",
+                        "visibility": "focal_action",
+                        "action": "pull",
+                        "target": "the folded paper map's left edge",
+                        "contact_target": {"object": "folded paper map", "region": "left edge"},
+                        "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand",
+                    },
+                    {
+                        "owner": "Zuv",
+                        "side": "left",
+                        "visibility": "focal_action",
+                        "action": "pull",
+                        "target": "the folded paper map's right edge",
+                        "contact_target": {"object": "folded paper map", "region": "right edge"},
+                        "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand",
+                    },
+                ],
+            },
+            transition=transition,
+            accessories=[
+                {
+                    "owner": "Aachu",
+                    "item": "evil-eye bracelet",
+                    "worn": True,
+                    "visibility": "visible",
+                    "placement": "right wrist",
+                },
+                {
+                    "owner": "Zuv",
+                    "item": "small round evil-eye locket on a slim silver chain",
+                    "worn": True,
+                    "visibility": "occluded",
+                    "occlusion_reason": "his closed collar covers it",
+                },
+            ],
+        ),
+    )
     return compile_image_prompt(**values)  # type: ignore[arg-type]
 
 
@@ -144,9 +209,19 @@ def test_prompt_keeps_action_camera_focal_and_compact_entity_integrity():
     assert "spatially separate and physically coherent" in prompt
 
 
-def test_validator_essays_are_not_serialized_into_generation_prompt():
+def test_generation_prompt_serializes_compact_locked_scene_contract_only():
     prompt = _compile()
 
+    assert "LOCKED SCENE CONTRACT:" in prompt
+    assert "Hand — Aachu right: visibility=focal_action; pull -> the folded paper map's left edge" in prompt
+    assert "Accessory — Aachu: evil-eye bracelet; worn; visible; right wrist." in prompt
+    assert "Spatial — Aachu:" in prompt
+    assert "Story proof — focal action=" in prompt
+    assert "Never place UI, map, text, or controls on a phone's rear-camera/back face" in prompt
+    contract = _section(prompt, "SCENE:", "IDENTITY AND WARDROBE:").split(
+        "LOCKED SCENE CONTRACT:", 1
+    )[1]
+    assert len(contract.split()) <= MAX_SCENE_CONTRACT_WORDS
     for removed in (
         "HAND OWNERSHIP MAP (HARD GATE)",
         "ACTION CHRONOLOGY AND DOOR-SIDE CONTRACT (HARD GATE)",
@@ -160,7 +235,7 @@ def test_validator_essays_are_not_serialized_into_generation_prompt():
 
 
 def test_compile_image_prompt_still_blocks_contradictory_action_topology():
-    with pytest.raises(ValueError, match="Action chronology/topology is unresolved"):
+    with pytest.raises(ValueError, match="Pre-generation scene contract is unresolved"):
         _compile(
             slide_copy=(
                 "He still checked the lock twice.\nShe still rolled her eyes.\n\n"
@@ -171,6 +246,63 @@ def test_compile_image_prompt_still_blocks_contradictory_action_topology():
                 "Aachu tugs the interior handle herself while Zuv watches and smiles."
             ),
         )
+
+
+def test_compile_image_prompt_fails_closed_for_an_unplanned_story_critical_phone() -> None:
+    with pytest.raises(ValueError, match="story-critical device plan has no device record"):
+        _compile(
+            visual="Aachu and Zuv study a phone map together before leaving their apartment."
+        )
+
+
+def test_compile_image_prompt_rejects_a_stale_explicit_scene_contract() -> None:
+    contract = build_pre_generation_scene_contract(
+        "Aachu and Zuv pull one folded paper map in opposite directions.",
+        "I was never unsure of you.\nI was lost inside our life.",
+        hand_map={
+            "people": ["Aachu", "Zuv"],
+            "hands": [
+                {
+                    "owner": "Aachu",
+                    "side": "right",
+                    "visibility": "focal_action",
+                    "action": "pull",
+                    "target": "the map's left edge",
+                    "contact_target": {"object": "map", "region": "left edge"},
+                    "attachment": "continuous right arm",
+                },
+                {
+                    "owner": "Zuv",
+                    "side": "left",
+                    "visibility": "focal_action",
+                    "action": "pull",
+                    "target": "the map's right edge",
+                    "contact_target": {"object": "map", "region": "right edge"},
+                    "attachment": "continuous left arm",
+                },
+            ],
+        },
+        accessories=[
+            {
+                "owner": "Aachu",
+                "item": "evil-eye bracelet",
+                "worn": True,
+                "visibility": "visible",
+                "placement": "right wrist",
+            },
+            {
+                "owner": "Zuv",
+                "item": "small round evil-eye locket on a slim silver chain",
+                "worn": True,
+                "visibility": "occluded",
+                "occlusion_reason": "closed collar",
+            },
+        ],
+    )
+    contract["scene_action_binding"] = "Aachu and Zuv sit silently on the sofa."
+
+    with pytest.raises(ValueError, match="scene_action_binding does not match the compiled scene"):
+        _compile(scene_contract=contract)
 
 
 def test_verbose_inputs_are_deduplicated_and_compacted_to_field_budgets():
@@ -184,7 +316,9 @@ def test_verbose_inputs_are_deduplicated_and_compacted_to_field_budgets():
         negative="No extra person or broken hand. " * 80,
     )
 
-    scene = _section(prompt, "SCENE:", "IDENTITY AND WARDROBE:")
+    scene = _section(prompt, "SCENE:", "IDENTITY AND WARDROBE:").split(
+        "LOCKED SCENE CONTRACT:", 1
+    )[0].strip()
     negative = re.search(
         r"ESSENTIAL NEGATIVES:\n(.*?)(?=\n\nSLIDE DIRECTION)",
         prompt,
@@ -234,8 +368,56 @@ def test_extract_scene_summary_and_legacy_generator_drop_old_checklist_noise():
     assert extract_scene_summary(legacy_prompt) == (
         "Aachu opens Zuv's wallet while he holds out the backup card."
     )
+    legacy_contract = build_pre_generation_scene_contract(
+        "Aachu opens Zuv's wallet while he holds out the backup card.",
+        "He prepared for it.",
+        hand_map={
+            "people": ["Aachu", "Zuv"],
+            "hands": [
+                {
+                    "owner": "Aachu",
+                    "side": "right",
+                    "visibility": "focal_action",
+                    "action": "open",
+                    "target": "Zuv's wallet",
+                    "contact_target": {"object": "wallet", "region": "opening flap"},
+                    "attachment": "continuous right shoulder-to-arm-to-wrist-to-hand",
+                },
+                {
+                    "owner": "Zuv",
+                    "side": "left",
+                    "visibility": "focal_action",
+                    "action": "hold",
+                    "target": "the backup card",
+                    "contact_target": {"object": "backup card", "region": "long edge"},
+                    "attachment": "continuous left shoulder-to-arm-to-wrist-to-hand",
+                },
+            ],
+        },
+        accessories=[
+            {
+                "owner": "Aachu",
+                "item": "evil-eye bracelet",
+                "worn": True,
+                "visibility": "visible",
+                "placement": "right wrist",
+            },
+            {
+                "owner": "Zuv",
+                "item": "small round evil-eye locket on a slim silver chain",
+                "worn": True,
+                "visibility": "occluded",
+                "occlusion_reason": "his collar covers the chain",
+            },
+        ],
+    )
     prompt = generator_prompt_text(
-        {"slide": 2, "text": "He prepared for it.", "prompt": legacy_prompt},
+        {
+            "slide": 2,
+            "text": "He prepared for it.",
+            "prompt": legacy_prompt,
+            "scene_contract": legacy_contract,
+        },
         "instagram_post",
     )
     assert "Aachu opens Zuv's wallet" in prompt

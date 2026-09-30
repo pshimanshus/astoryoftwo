@@ -227,8 +227,22 @@ def build_final_audit(
             manifest_fingerprint,
             validate_final_qa,
         )
+        from pipeline.stages.carousel_scene_contracts import expected_pixel_qa_contracts
 
-        issues.extend(validate_final_qa(package_dir, visual_qa, final))
+        slides_payload = _read_json(package_dir / "slides.json")
+        scene_contracts = expected_pixel_qa_contracts(
+            [slide for slide in slides_payload if isinstance(slide, dict)]
+            if isinstance(slides_payload, list)
+            else []
+        )
+        issues.extend(
+            validate_final_qa(
+                package_dir,
+                visual_qa,
+                final,
+                expected_scene_contracts=scene_contracts,
+            )
+        )
         try:
             current_inputs = build_generation_inputs(package_dir)
         except (OSError, ValueError, json.JSONDecodeError) as exc:

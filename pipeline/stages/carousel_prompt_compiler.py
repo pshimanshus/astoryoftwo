@@ -4,7 +4,11 @@ import re
 from typing import Any
 
 from pipeline.stages.carousel_master_prompt import build_generation_master_prompt
-from pipeline.stages.carousel_visual_integrity import build_action_topology_contract
+from pipeline.stages.carousel_visual_integrity import (
+    build_action_topology_contract,
+    scene_contract_prompt,
+    validate_pre_generation_scene_contract,
+)
 
 
 # Image prompts are creative handoffs, not serialized workflow state. These caps
@@ -14,12 +18,14 @@ MAX_PROMPT_CHARS = 8000
 MAX_PROMPT_WORDS = 900
 MAX_SCENE_WORDS = 180
 MAX_NEGATIVE_WORDS = 80
+MAX_SCENE_CONTRACT_WORDS = 300
 
 BASE_ESSENTIAL_NEGATIVES = (
     "No generic stock couple, face drift, extra fingers or limbs, detached hands, "
     "merged bodies, impossible grip, object penetration, random text, external logo "
     "or watermark, split screen, UI, photorealism, anime, 3D render, flat vector art, "
-    "glossy finish, harsh shadow, oversaturation, or yellow paper."
+    "glossy finish, harsh shadow, oversaturation, yellow paper, crouched pose, squatting pose, "
+    "cramped pose, rear-screen UI, or UI on a phone's rear camera face."
 )
 
 ABSOLUTE_PATH_PATTERN = re.compile(r"/(?:[^,\]\n'\"`]+/)+[^,\]\n'\"`]+")
@@ -164,27 +170,54 @@ def compile_image_prompt(
     action_topology: dict[str, Any] | None = None,
     spatial_topology: dict[str, Any] | None = None,
     visual_richness: dict[str, Any] | None = None,
+    scene_contract: dict[str, Any] | None = None,
 ) -> str:
     """Compile one compact, generation-facing prompt.
 
-    The rich hand, spatial, and visual-story contracts remain validator inputs;
-    they are intentionally not serialized into the model prompt. Action
-    chronology is checked here only because a contradictory scene should never
-    reach generation.
+    The scene plan is compacted into generation-facing physical constraints:
+    hand ownership/action/target, device face/orientation/use, temporal change,
+    scale evidence, and accessory visibility. QA provenance stays outside the
+    prompt, but model-relevant plan details cannot be silently dropped.
     """
-
-    # Retain the public call shape while moving these contracts to validators.
-    del hand_map, spatial_topology, visual_richness
 
     copy = clean_slide_copy(slide_copy)
     full_scene = clean_text(visual)
-    action_contract = action_topology or build_action_topology_contract(full_scene, copy)
-    action_issues = action_contract.get("issues") if isinstance(action_contract, dict) else []
-    if action_issues:
-        raise ValueError(
-            "Action chronology/topology is unresolved: "
-            + "; ".join(str(item) for item in action_issues)
+    contract_text = ""
+    if scene_contract is not None:
+        contract_issues = validate_pre_generation_scene_contract(scene_contract)
+        if isinstance(scene_contract, dict) and clean_text(
+            str(scene_contract.get("scene_action_binding") or "")
+        ) != full_scene:
+            contract_issues.append(
+                "pre-generation scene contract scene_action_binding does not match the compiled scene"
+            )
+        if isinstance(scene_contract, dict) and " ".join(
+            str(scene_contract.get("copy_action_binding") or "").split()
+        ) != " ".join(copy.split()):
+            contract_issues.append(
+                "pre-generation scene contract copy_action_binding does not match the compiled copy"
+            )
+        if contract_issues:
+            raise ValueError(
+                "Pre-generation scene contract is unresolved: "
+                + "; ".join(str(item) for item in contract_issues)
+            )
+        contract_text = _compact_words(
+            scene_contract_prompt(scene_contract),
+            MAX_SCENE_CONTRACT_WORDS,
+            field_name="scene contract",
         )
+    else:
+        # Legacy callers have no durable plan to validate. Preserve their
+        # existing chronology guard while the non-AI-image workflow always
+        # supplies an explicit, fail-closed scene_contract.
+        action_contract = action_topology or build_action_topology_contract(full_scene, copy)
+        action_issues = action_contract.get("issues") if isinstance(action_contract, dict) else []
+        if action_issues:
+            raise ValueError(
+                "Action chronology/topology is unresolved: "
+                + "; ".join(str(item) for item in action_issues)
+            )
 
     fields = {
         "scene": _compact_words(full_scene, MAX_SCENE_WORDS, field_name="scene"),
@@ -234,6 +267,8 @@ def compile_image_prompt(
         ),
     }
 
+    if contract_text:
+        fields["scene"] = f"{fields['scene']}\n\n{contract_text}"
     prompt = _build_prompt(
         slide_number=slide_number,
         slide_count=slide_count,

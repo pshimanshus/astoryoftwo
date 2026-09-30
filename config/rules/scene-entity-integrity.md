@@ -36,6 +36,16 @@ each potentially visible hand. Secondary prose such as "brace the door" is not
 enough: the plan must say whose hand, which side, where the wrist/forearm comes
 from, and what the other hand is doing or whether it is fully out of frame.
 
+Scenes with a story-critical object must also state its relevant visible
+surface, orientation, parts, intended use, and the actor's eye-line and hand
+relationship to it. This is an applicable-risk contract, not a request to
+describe every background object. For a conventional phone, the display belongs
+on the front surface and the camera cluster belongs on the rear surface. A
+phone may show either surface, but it may not place a usable display and its
+rear camera lenses on one visible face. A materially different device design
+needs an explicit creator-approved reference before it can depart from this
+default.
+
 Scenes involving doors, locks, thresholds, departure, arrival, or returning
 must also carry an action-chronology topology contract. It states:
 
@@ -68,6 +78,12 @@ record expected and observed arms/hands, every visible hand's owner and side,
 wrist/forearm attachment, action, held object, malformed fingers, duplicated
 limbs, and unexpected limbs. QA must be bound to the inspected file's SHA-256
 and native dimensions; a changed image invalidates the previous review.
+Reviewer evidence must describe what is visible in the current decoded pixels,
+including the relevant detail region for each applicable risk. A prompt,
+filename, generator claim, intended scene, prior review, or a restatement of
+the plan is not reviewer evidence. If a required detail cannot be resolved from
+the inspected image, record it as uncertain and block promotion rather than
+converting the plan into a pass.
 When more than one native format is locked, anatomy, entity, and richness
 evidence is required independently for every slide-format pair. Passing the
 3:4 frame cannot approve separately generated 9:16 or 1:1 pixels.
@@ -122,6 +138,10 @@ collapse into one unresolved mass.
 - a hand, wrist, or forearm penetrating a box, door, table, clothing, or other
   solid object;
 - an impossible grip, support pose, overlap order, or load direction;
+- a story-critical object whose visible face, parts, orientation, or intended
+  use contradicts its locked risk contract;
+- a conventional phone that places display content and rear camera lenses on
+  the same visible face;
 - a door, wall, furniture, container or floor boundary crossing a person's
   head, neck, shoulder, back, torso, clothing or visible limb;
 - a person morphed into, absorbed by or sharing an unresolved painted mass with
@@ -130,6 +150,8 @@ collapse into one unresolved mass.
   `separate_from` relationship;
 - `spatial_topology.pass: true` without per-person, per-body-region evidence
   from full-frame, person-object-crop and focal-detail inspection;
+- a required visual-risk PASS based on the plan, prompt, filename, generator
+  claim, or stale review instead of current decoded-pixel evidence;
 - QA whose recorded file hash or dimensions do not match the inspected asset;
 - a quarantined or creator-unapproved proof used for batch continuation.
 - a door/lock scene on the wrong side of the threshold or at the wrong temporal

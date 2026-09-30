@@ -12,11 +12,13 @@ from pipeline.stages.carousel_format_contract import (
     write_format_contract,
 )
 from pipeline.stages.carousel_pixel_qa import (
+    LEGACY_PIXEL_QA_SCHEMA_VERSIONS,
     PIXEL_QA_SCHEMA_VERSION,
     asset_binding_fingerprint,
     bind_final_qa,
     bind_proof_qa,
     manifest_fingerprint,
+    scene_contract_fingerprint,
     validate_final_qa,
     validate_proof_qa,
 )
@@ -127,7 +129,115 @@ def _checks(package: Path) -> dict:
     }
 
 
+def _scene_contract() -> dict:
+    """A planned scene contract; fixtures test record validation, not vision."""
+
+    return {
+        "continuity": [
+            {
+                "id": "shared-map",
+                "planned_state": "being pulled in opposite directions",
+                "planned_job": "make disagreement visible",
+                "planned_owner": "Aachu and Zuv",
+            }
+        ],
+        "object_integrity": [
+            {
+                "id": "shared-map",
+                "object": "folded paper map",
+                "planned_orientation": {"held_edge": "horizontal"},
+                "planned_use": {
+                    "actor": "Aachu and Zuv",
+                    "action": "pull",
+                    "target": "shared-map",
+                },
+            }
+        ],
+        "action_critical_hands": [
+            {
+                "id": "aachu-right-map",
+                "owner": "Aachu",
+                "side": "right",
+                "planned_action": "pull shared-map",
+                "planned_contact_target": {"object": "shared-map", "region": "left edge"},
+            }
+        ],
+        "scale": [
+            {
+                "id": "aachu-scale",
+                "subject": "Aachu",
+                "planned_scale": "adult proportion",
+                "planned_support": "floor",
+            }
+        ],
+        "accessory_visibility": [
+            {
+                "id": "aachu-bracelet",
+                "subject": "Aachu",
+                "item": "evil-eye bracelet",
+                "side": "right",
+                "planned_visibility": "visible",
+                "planned_location": "right wrist",
+            }
+        ],
+    }
+
+
+def _observations() -> dict:
+    """Authored observations matching _scene_contract; no fixture claims pixels prove them."""
+
+    return {
+        "continuity": [
+            {
+                "id": "shared-map",
+                "observed_state": "being pulled in opposite directions",
+                "observed_job": "make disagreement visible",
+                "observed_owner": "Aachu and Zuv",
+                "evidence": "The same folded map is between both people as they pull it apart.",
+            }
+        ],
+        "object_integrity": [
+            {
+                "id": "shared-map",
+                "observed_orientation": {"held_edge": "horizontal"},
+                "observed_use": {
+                    "actor": "Aachu and Zuv",
+                    "action": "pull",
+                    "target": "shared-map",
+                },
+                "evidence": "The map has one horizontal held edge and both people use it to pull.",
+            }
+        ],
+        "action_critical_hands": [
+            {
+                "id": "aachu-right-map",
+                "observed_action": "pull shared-map",
+                "observed_contact_target": {"object": "shared-map", "region": "left edge"},
+                "evidence": "Aachu's right hand grips the map's left edge while pulling outward.",
+            }
+        ],
+        "scale": [
+            {
+                "id": "aachu-scale",
+                "observed_scale": "adult proportion",
+                "observed_support": "floor",
+                "evidence": "Aachu has adult proportions and both feet are supported by the floor.",
+            }
+        ],
+        "accessory_visibility": [
+            {
+                "id": "aachu-bracelet",
+                "observed_visibility": "visible",
+                "observed_location": "right wrist",
+                "evidence": "The evil-eye bracelet is visible on Aachu's right wrist.",
+            }
+        ],
+        "incidental_lettering": [],
+    }
+
+
 def _proof_qa(package: Path, binding: dict) -> dict:
+    scene_contract = _scene_contract()
     return {
         "schema_version": PIXEL_QA_SCHEMA_VERSION,
         "scope": "proof",
@@ -140,8 +250,15 @@ def _proof_qa(package: Path, binding: dict) -> dict:
         "slides": [
             {
                 "slide": 1,
+                "scene_contract": scene_contract,
+                "scene_contract_sha256": scene_contract_fingerprint(scene_contract),
                 "asset_bindings": {"instagram_post": copy.deepcopy(binding)},
-                "reviews": {"instagram_post": {"checks": _checks(package)}},
+                "reviews": {
+                    "instagram_post": {
+                        "checks": _checks(package),
+                        "observations": _observations(),
+                    }
+                },
             }
         ],
     }
@@ -164,6 +281,7 @@ def _manifest(package: Path, binding: dict) -> dict:
 
 def _final_qa(package: Path, manifest: dict) -> dict:
     binding = manifest["slides"][0]["native_outputs"]["instagram_post"]
+    scene_contract = _scene_contract()
     return {
         "schema_version": PIXEL_QA_SCHEMA_VERSION,
         "scope": "final",
@@ -180,7 +298,14 @@ def _final_qa(package: Path, manifest: dict) -> dict:
         "slides": [
             {
                 "slide": 1,
-                "reviews": {"instagram_post": {"checks": _checks(package)}},
+                "scene_contract": scene_contract,
+                "scene_contract_sha256": scene_contract_fingerprint(scene_contract),
+                "reviews": {
+                    "instagram_post": {
+                        "checks": _checks(package),
+                        "observations": _observations(),
+                    }
+                },
             }
         ],
     }
@@ -209,10 +334,122 @@ def test_identity_qa_must_name_references_for_each_selected_role(tmp_path: Path)
     ]["references"]
     references["zuv"] = list(references["aachu"])
 
-    issues = validate_proof_qa(package, qa)
+    issues = validate_proof_qa(
+        package,
+        qa,
+        expected_scene_contracts={1: _scene_contract()},
+    )
 
     assert issues == [
         "slide 1 instagram_post: identity references.zuv does not match its selected role"
+    ]
+
+
+def test_v3_requires_observed_contact_target_not_just_coherent_hand_count(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    qa = _proof_qa(package, _binding(package))
+    hand = qa["slides"][0]["reviews"]["instagram_post"]["observations"][
+        "action_critical_hands"
+    ][0]
+    hand["observed_contact_target"]["region"] = "upper sleeve"
+
+    issues = validate_proof_qa(
+        package,
+        qa,
+        expected_scene_contracts={1: _scene_contract()},
+    )
+
+    assert issues == [
+        "slide 1 instagram_post: observations.action_critical_hands[aachu-right-map] "
+        "observed_contact_target does not match planned_contact_target"
+    ]
+
+
+def test_v3_rejects_contradictory_carrier_state_and_object_use(tmp_path: Path) -> None:
+    package = _package(tmp_path)
+    qa = _proof_qa(package, _binding(package))
+    observations = qa["slides"][0]["reviews"]["instagram_post"]["observations"]
+    observations["continuity"][0]["observed_state"] = "already folded away"
+    observations["object_integrity"][0]["observed_use"]["action"] = "read"
+
+    issues = validate_proof_qa(
+        package,
+        qa,
+        expected_scene_contracts={1: _scene_contract()},
+    )
+
+    assert "slide 1 instagram_post: observations.continuity[shared-map] observed_state does not match planned_state" in issues
+    assert "slide 1 instagram_post: observations.object_integrity[shared-map] observed_use does not match planned_use" in issues
+
+
+def test_v3_requires_conditional_scale_accessory_and_lettering_inventory(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    qa = _proof_qa(package, _binding(package))
+    observations = qa["slides"][0]["reviews"]["instagram_post"]["observations"]
+    observations["scale"] = []
+    observations["accessory_visibility"] = []
+    del observations["incidental_lettering"]
+
+    issues = validate_proof_qa(
+        package,
+        qa,
+        expected_scene_contracts={1: _scene_contract()},
+    )
+
+    assert "slide 1 instagram_post: observations.scale is missing planned ids: aachu-scale" in issues
+    assert "slide 1 instagram_post: observations.accessory_visibility is missing planned ids: aachu-bracelet" in issues
+    assert "slide 1 instagram_post: observations are missing incidental_lettering" in issues
+    assert "slide 1 instagram_post: observations.incidental_lettering must be a list" in issues
+
+
+def test_v3_blocks_inventory_that_reports_unexpected_incidental_lettering(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    qa = _proof_qa(package, _binding(package))
+    qa["slides"][0]["reviews"]["instagram_post"]["observations"][
+        "incidental_lettering"
+    ] = [
+        {
+            "location": "parcel side",
+            "text": "RANDOM LABEL",
+            "allowed": False,
+            "evidence": "Random label lettering appears on the side of the parcel.",
+        }
+    ]
+
+    assert validate_proof_qa(
+        package,
+        qa,
+        expected_scene_contracts={1: _scene_contract()},
+    ) == [
+        "slide 1 instagram_post: observations.incidental_lettering[1] reports unexpected incidental lettering"
+    ]
+
+
+def test_legacy_v2_is_preserved_but_rejected_by_explicit_v3_scene_workflow(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package)
+    qa = bind_proof_qa(
+        package,
+        _proof_qa(package, binding),
+        [{"slide": 1, "native_outputs": {"instagram_post": binding}}],
+    )
+
+    assert qa["schema_version"] == LEGACY_PIXEL_QA_SCHEMA_VERSIONS[0]
+    assert validate_proof_qa(package, qa) == []
+    assert validate_proof_qa(
+        package,
+        qa,
+        expected_scene_contracts={1: _scene_contract()},
+    ) == [
+        f"schema_version must be {PIXEL_QA_SCHEMA_VERSION}"
     ]
 
 
@@ -228,11 +465,58 @@ def test_repo_derives_proof_bindings_from_current_bytes(tmp_path: Path) -> None:
         package,
         authored,
         [{"slide": 1, "native_outputs": {"instagram_post": binding}}],
+        expected_scene_contracts={1: _scene_contract()},
     )
 
     assert bound["schema_version"] == PIXEL_QA_SCHEMA_VERSION
     assert bound["slides"][0]["asset_bindings"]["instagram_post"] == binding
-    assert validate_proof_qa(package, bound) == []
+    assert validate_proof_qa(
+        package,
+        bound,
+        expected_scene_contracts={1: _scene_contract()},
+    ) == []
+
+
+def test_canonical_scene_contract_is_attached_and_hash_bound_at_review_time(
+    tmp_path: Path,
+) -> None:
+    package = _package(tmp_path)
+    binding = _binding(package)
+    authored = _proof_qa(package, binding)
+    record = authored["slides"][0]
+    del record["scene_contract"]
+    del record["scene_contract_sha256"]
+    canonical_contract = _scene_contract()
+
+    bound = bind_proof_qa(
+        package,
+        authored,
+        [{"slide": 1, "native_outputs": {"instagram_post": binding}}],
+        expected_scene_contracts={1: canonical_contract},
+    )
+
+    record = bound["slides"][0]
+    assert record["scene_contract"] == canonical_contract
+    assert record["scene_contract_sha256"] == scene_contract_fingerprint(canonical_contract)
+    assert validate_proof_qa(
+        package,
+        bound,
+        expected_scene_contracts={1: canonical_contract},
+    ) == []
+
+    forged = copy.deepcopy(bound)
+    forged["slides"][0]["scene_contract"]["continuity"][0][
+        "planned_state"
+    ] = "already folded away"
+    forged["slides"][0]["scene_contract_sha256"] = scene_contract_fingerprint(
+        forged["slides"][0]["scene_contract"]
+    )
+
+    assert "slide 1: scene_contract does not match the canonical pre-generation contract" in validate_proof_qa(
+        package,
+        forged,
+        expected_scene_contracts={1: canonical_contract},
+    )
 
 
 def test_repo_rejects_conflicting_authored_proof_inventory(tmp_path: Path) -> None:
@@ -359,13 +643,22 @@ def test_repo_derives_final_manifest_bindings(tmp_path: Path) -> None:
     del authored["manifest_sha256"]
     del authored["asset_binding_hashes"]
 
-    bound = bind_final_qa(authored, manifest)
+    bound = bind_final_qa(
+        authored,
+        manifest,
+        expected_scene_contracts={1: _scene_contract()},
+    )
 
     assert bound["manifest_sha256"] == manifest_fingerprint(manifest)
     assert bound["asset_binding_hashes"] == {
         "1:instagram_post": asset_binding_fingerprint(1, "instagram_post", binding)
     }
-    assert validate_final_qa(package, bound, manifest) == []
+    assert validate_final_qa(
+        package,
+        bound,
+        manifest,
+        expected_scene_contracts={1: _scene_contract()},
+    ) == []
 
 
 def test_final_qa_rejects_stale_manifest_and_asset_bindings(tmp_path: Path) -> None:

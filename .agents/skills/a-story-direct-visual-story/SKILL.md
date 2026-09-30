@@ -15,6 +15,12 @@ Read `config/skills/carousel-jam-runtime-context.md` and
 `config/rules/` still govern palette, identity, text, brandmark, dimensions,
 visual variety, relationship motion, and scene/entity integrity.
 
+For every locked image-production task, also apply
+[`$non-ai-image-skill`](../non-ai-image-skill/SKILL.md). It supplies the
+risk-specific scene contract, independent-review routing, and regression
+controls for recurring AI-looking defects. It does not replace these canonical
+rules or add a creator-approval gate.
+
 Load `references/craft-canon.md` or `references/a-story-calibration.md` only to
 repair a specific craft problem. The default path does not require checker
 provenance, independent-review fingerprints, blind-response artifacts, or
@@ -47,6 +53,12 @@ create variety.
    state changes or pays off; decorative motifs are removable.
 4. Stage the relationship before adding style language. Specify feet/posture,
    hands, gaze, distance, front/behind/contact order, and expected people.
+   For each activated risk, complete the matching non-AI-image scene contract:
+   contact target region; story-critical object face, orientation and use;
+   transition evidence; adult-scale support; accessory visibility; and
+   body-to-solid-object depth order. Do not infer missing geometry from the
+   prose. Store the resulting `scene_contract` with every slide before
+   generation.
 5. Treat the swipe as an edit: each frame reveals new evidence and earns the
    next one.
 6. Compare the scene with the exact copy. Subject, verb, chronology, direction,
@@ -54,7 +66,8 @@ create variety.
 7. Compile one compact prompt per slide. The prompt contains the physical event,
    camera/focal hierarchy, attached reference roles, wardrobe from those
    references, compact house style, exact text, brandmark, dimensions, and only
-   essential negatives.
+   essential negatives. The compiler must receive the locked `scene_contract`;
+   its scene and copy bindings must match the slide exactly.
 
 If the copy or canvas is still open, the scene direction is provisional and
 cannot unlock generation.
@@ -86,9 +99,17 @@ pixels in this order:
 4. **Finish:** exact text, tiny top-right `@a.storyof.two`, house style, and
    exact native dimensions.
 
+Start with the non-AI-image skill's blind scene read. Then route only the
+specialist reviews the scene needs: object geometry for a story-critical prop,
+anatomy/contact for touch, spatial topology for doors or furniture, continuity
+for state changes across slides, and finish/text/format for a final candidate.
+Synthesize against the locked scene contract. Unclear critical evidence is
+`data_gap` or failure, never PASS.
+
 Record the result in `proof-qa.json`, bound to the proof file path, SHA-256, and
-dimensions. A prompt, filename, reviewer label, or generator report is never
-pixel evidence. Do not show or batch from a failed proof.
+dimensions, and the derived scene-contract hash. A prompt, filename, reviewer
+label, or generator report is never pixel evidence. Do not show or batch from a
+failed proof.
 
 The creator approves the proof only after pixel QA passes. That single decision
 is Gate 3; do not create extra approval ledgers.
